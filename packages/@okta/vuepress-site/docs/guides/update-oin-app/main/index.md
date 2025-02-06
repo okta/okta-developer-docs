@@ -89,9 +89,9 @@ To update a previously published OIN integration:
    * [<StackSnippet snippet="protocol-name" inline/> properties](/docs/guides/submit-oin-app/-/main/#properties)
    * [Enter test information](/docs/guides/submit-oin-app/-/main/#enter-test-information)
 
-1. Click **Test your integration** to move to the testing section of the OIN Wizard.
+1. Click **Test your integration** to save your updates and move to the testing section of the OIN Wizard.
 
-## Test your integration updates
+## Test integration updates
 
 The OIN Wizard journey includes the **Test integration** experience page to help you configure and test your updated integration within the same org before submission. These are the tasks that you need to complete:
 
@@ -99,13 +99,15 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 
 ### Generate instances for testing
 
-Click **Generate Instance** to create an instance required for the **CURRENT VERSION** from the **Required app instances** status box.
+Generate instances for testing your updates directly from the OIN Wizard. See [Required app instances](#required-app-instances) in the OIN Wizard for the instances that you need to generate.
 
-See [Generate an instance for testing](#generate-an-instance-for) to create instances for your current submission.
+#### Required app instances
 
-> **Note:** There's a maximum of five active app instances allowed in a Developer Edition org. Deactivate any instances that you don't need for testing.
+<StackSnippet snippet="required-app-instances" />
 
-### Test your SSO integration
+<StackSnippet snippet="test-instance" />
+
+### Test your integration
 
 1. Test your integration protocol:
 
