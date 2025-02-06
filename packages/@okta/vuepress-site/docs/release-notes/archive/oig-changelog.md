@@ -1,11 +1,11 @@
 ---
-title: Archived Okta IGA API Release Notes | Okta Developer
+title: Archived Okta IGA API Changelog (2023-2024) | Okta Developer
 meta:
   - name: description
     content: Archived list of changes to the Okta IGA APIs.
 ---
 
-# Archived Okta IGA API Release Notes (Changelog)
+# Archived Okta IGA API Changelog (2023-2024)
 
 >**Note:** See the latest [Okta Identity Governance API](https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/) release notes on [Developer Documentation](https://developer.okta.com/).
 
