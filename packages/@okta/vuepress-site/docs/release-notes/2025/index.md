@@ -4,6 +4,65 @@ title: Okta Classic Engine API release notes 2025
 
 # Okta Classic Engine API release notes (2025)
 
+## February
+
+### Monthly release 2025.02.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [IP Exempt Zone is GA in Preview](#ip-exempt-zone-is-ga-in-preview) | October 23, 2024 |
+| [Risk Provider and Risk Events APIs have been deprecated](#risk-provider-and-risk-events-apis-have-been-deprecated)|  February 6, 2025               |
+| [OIDC IdPs now support group sync is GA in Preview](#oidc-idps-now-support-group-sync-is-ga-in-preview) |  October 23, 2024                |
+| [Granular account linking for certain identity providers is GA](#granular-account-linking-for-certain-identity-providers-is-ga) |  December 11, 2024               |
+| [Realms for Workforce is GA in Preview](#realms-for-workforce-is-ga-in-preview)|   February 6, 2025              |
+| [Improved group search functionality is GA in Preview](#improved-group-search-functionality-is-ga-in-preview) |    February 6, 2025             |
+| [Improved user search functionality is GA in Preview](#improved-user-search-functionality-is-ga-in-preview) |    February 6, 2025             |
+| [Support for importing Active Directory group descriptions is GA in Production](#support-for-importing-active-directory-group-descriptions-is-ga-in-production) |    February 6, 2025             |
+| [Developer documentation updates in 2025.02.0](#developer-documentation-updates-in-2025020) |    February 6, 2025             |
+| [Bugs fixed in 2025.02.0](#bugs-fixed-in-2025-02-0) |    February 6, 2025             |
+
+#### IP Exempt Zone is GA in Preview
+
+This feature introduces `useAsExemptList` as a read-only Boolean property that distinguishes the new default IP exempt zones from other zones. When you enable this feature and you make a GET `api/v1/zones` request, Okta returns `useAsExemptList` in the response. The value `true` indicates that the zone is an exempt zone. Only system generated exempt zones are available. <!-- DEFAULT_NETWORK_ZONE_IP_EXEMPT_LIST (OKTA-795812: Parent Jira for DEFAULT_NETWORK_ZONE_IP_EXEMPT_LIST GA Preview) -->
+
+#### Risk Provider and Risk Events APIs have been deprecated
+
+These APIs have been deprecated. Use the [SSF Security Event Tokens API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/) instead to receive security-related events and other data-subject signals. Use the [SSF Receiver API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/) for third-party security event providers. <!-- (OKTA-813976: Deprecate Risk Events and Risk Providers Resolved) -->
+
+#### OIDC IdPs now support group sync is GA in Preview
+
+OpenID Connect (OIDC) identity providers (IdPs) now support full group sync and adding a user to a group that they don't already belong to. A user who authenticates with an external IdP is added to all available groups when **Full sync of groups** is enabled. The user is added to any groups that they don't already belong to when **Add user to missing groups** is enabled. This allows you to specify certain groups that users should be added to. <!-- GROUP_SYNC_FEATURE_OIDC_IDP_ENABLED (OKTA-817450: FVM for EA Self-Service GROUP_SYNC_FEATURE_OIDC_IDP_ENABLED for Weekly Release 2024.10.1 Resolved) -->
+
+#### Granular account linking for certain identity providers is GA
+
+When admins link users from SAML and OIDC identity providers, they can now exclude specific users and admins. This improves security by allowing admins to configure granular access control scenarios. See **Add an external Identity Provider** for [OpenID Connect](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta) and [SAML 2.0](/docs/guides/add-an-external-idp/saml2/main/#create-an-identity-provider-in-okta). <!-- EXTENDED_ACCOUNT_LINKING_FILTERS OKTA-831244-->
+
+#### Realms for Workforce is GA in Preview
+
+The Realms and Realms Management APIs allow you to unlock greater flexibility in managing and delegating the management of your distinct user populations within a single Okta org. See [Realms](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Realm/) and [Realm Assignments](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RealmAssignment/). <!--- OKTA-853176: Parent Jira for UD_REALMS_FOUNDATIONS and UD_REALMS Open UD_REALMS_FOUNDATIONS and UD_REALMS -->
+
+#### Improved group search functionality is GA in Preview
+
+You can now search for groups whose names or descriptions contain specified text. This makes it easier to find a group when you don't recall its exact name. Use the `co` operator within the `search` parameter of the Groups API. See [Operators](https://developer.okta.com/docs/api/#operators) and `search` within the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups!in=query&path=search&t=request). <!--OKTA-862579 DIRECTORY_SERVICE_GROUP_CONTAINS_SEARCH-->
+
+#### Improved user search functionality is GA in Preview
+
+You can now search for users whose names, email addresses, or usernames contain specified text. This makes it easier to add users to groups or apps. Use the `co` operator within the `search` parameter of the Users API. See [Operators](https://developer.okta.com/docs/api/#operators) and `search` within the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=search&t=request). <!--OKTA-862577 DIRECTORY_SERVICE_USER_CONTAINS_SEARCH-->
+
+#### Support for importing Active Directory group descriptions is GA in Production
+
+The descriptions of groups sourced from Active Directory now use their description from AD. These replace any previous descriptions of AD-sourced groups in Okta, which used a pretty-printed version of the distinguished name (DN) instead.<!-- FF IMPORT_AD_GROUP_DESCRIPTION OKTA-863277 -->
+
+#### Developer documentation updates in 2025.02.0
+
+* The [OIN Manager: submit an integration](/docs/guides/submit-app/apiservice/main/) guide has been updated to include **API service** submission instructions. <!-- OKTA-809892 -->
+
+#### Bugs fixed in 2025.02.0
+
+* When calling deleted app users through the Apps API, the API returned a 500 internal server error instead of a 404 error. (OKTA-832609)
+* PUT requests (`/api/v1/apps/appId`) to update an OpenID Connect app took 30 seconds to complete. (OKTA-852488)
+* When the [List all devices API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/#tag/Device/operation/listDevices) was used with a `search` query parameter, it sometimes returned outdated records for `screenLockType` and `managementStatus`.  (OKTA-856387)
+
 ## January
 
 ### Weekly release 2025.01.2

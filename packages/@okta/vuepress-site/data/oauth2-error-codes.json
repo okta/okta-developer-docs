@@ -1,6 +1,6 @@
 {
-  "release" : "2025.01.1",
-  "build" : "2025.01.1-begin-227-g397cfa3ac8a8",
+  "release" : "2025.02.1",
+  "build" : "2025.02.1-begin-204-g75895f3cc035",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,

@@ -1,6 +1,6 @@
 {
-  "release" : "2025.01.1",
-  "build" : "2025.01.1-begin-227-g397cfa3ac8a8",
+  "release" : "2025.02.1",
+  "build" : "2025.02.1-begin-204-g75895f3cc035",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1848,6 +1848,38 @@
     "statusReasonPhrase" : "Conflict",
     "errorCode" : "E0000249",
     "errorSummary" : "Group rules are still being set up.  Please try again later.",
+    "errorDescription" : null
+  }, {
+    "title" : "Idp in use by asop gsp policy exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000250",
+    "errorSummary" : "You can't {0} {1} because its Trust claims setting isn't enabled on any other identity provider. To {0} this identity provider, update the applicable rules in your {2} and {3} policies to remove the dependency on Trust claims.",
+    "errorDescription" : null
+  }, {
+    "title" : "Idp in use by gsp policy exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000251",
+    "errorSummary" : "You can't {0} {1} because its Trust claims setting isn't enabled on any other identity provider. To {0} this identity provider, update the applicable rules in your {2} policies to remove the dependency on Trust claims.",
+    "errorDescription" : null
+  }, {
+    "title" : "Idp in use by asop policy exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000252",
+    "errorSummary" : "You can't {0} {1} because its Trust claims setting isn't enabled on any other identity provider. To {0} this identity provider, update the applicable rules in your {2} policies to remove the dependency on Trust claims.",
+    "errorDescription" : null
+  }, {
+    "title" : "User type initialization in progress exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000253",
+    "errorSummary" : "The User type is still being initialized. Please try again later.",
     "errorDescription" : null
   } ]
 }

@@ -1,6 +1,6 @@
 {
-  "release" : "2025.01.1",
-  "build" : "2025.01.1-begin-227-g397cfa3ac8a8",
+  "release" : "2025.02.1",
+  "build" : "2025.02.1-begin-204-g75895f3cc035",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -518,10 +518,6 @@
   }, {
     "id" : "admin-task",
     "description" : "Admin task.",
-    "tags" : [ "admin" ]
-  }, {
-    "id" : "billing",
-    "description" : "Billing.",
     "tags" : [ "admin" ]
   }, {
     "id" : "org",
@@ -1259,6 +1255,24 @@
         "actor" : null,
         "targets" : [ "AccessRequestResourceDetails" ],
         "changeDetails" : [ "AccessRequestSequenceChangeDetailsEntry" ]
+      }
+    }, {
+      "id" : "access.request.settings.update",
+      "category" : "id-fabric",
+      "description" : "Access request settings updated. Can be used to audit access request settings to an Okta resource or to trigger downstream automation that depends on access request settings update. Okta Identity Governance API can be used to get more details about the updated access request settings.",
+      "info" : {
+        "created" : "2025-01-07",
+        "release" : "2025.01.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "access", "event-hook-eligible" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "AccessRequestSettingsDebugData",
+        "actor" : null,
+        "targets" : [ "AccessRequestResourceDetails" ],
+        "changeDetails" : [ "AccessRequestSettingsChangeDetailsEntry" ]
       }
     }, {
       "id" : "account.org.add",
@@ -7239,7 +7253,7 @@
     }, {
       "id" : "device.local_account.create",
       "category" : "device-sso",
-      "description" : "Fired when a user creates a local account on a device backed by Okta credentials. Will allow an admin to identify and audit which Okta users are creating local accounts on registered Okta device using Just-In-Time (JIT) local account creation feature. Note that the event is fired even when the account creation is unsuccessful.",
+      "description" : "Created a local OS  account on the device by validating and using Okta credentials. This event can be used to identify a device and corresponding user for which Okta has created a local OS account with the Just-in-Time (JIT) local account creation feature. If this action succeeds, an event of type device.user_os_account.sync will be subsequently fired. This event contains more information about the specific OS characteristics of the account. Note that the event is fired even when the account creation is unsuccessful.",
       "info" : {
         "created" : "2024-06-17",
         "release" : "2024.06.2"
@@ -7577,6 +7591,24 @@
         "actor" : null,
         "targets" : null,
         "changeDetails" : null
+      }
+    }, {
+      "id" : "device.user_os_account.sync",
+      "category" : "device-sso",
+      "description" : "Fired when an OS User Account data is recorded in Okta's backend system. Will allow an admin to identify and audit which OS User Accounts from Okta registered devices are captured in Okta's backend system. The collected data can subsequently be used to identify which OS accounts are enrolled with Okta Device Agents, such as DesktopMFA, Desktop Password Sync etc. After the initial record is created, this event is triggered only when subsequent sync detects changes to the account information.",
+      "info" : {
+        "created" : "2025-01-07",
+        "release" : "2025.01.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-mfa", "device-sso", "oie-only" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "MacOSAccountResourceDetails" ],
+        "changeDetails" : [ ]
       }
     }, {
       "id" : "directory.app_user_profile.bootstrap",
@@ -12986,7 +13018,7 @@
         "created" : "2021-02-05",
         "release" : "2021.02.2"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "threat-insight" ],
       "mappings" : [ "security.attack.end" ],
@@ -13004,7 +13036,7 @@
         "created" : "2021-02-05",
         "release" : "2021.02.2"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "threat-insight" ],
       "mappings" : [ "security.attack.start" ],
@@ -14664,24 +14696,6 @@
       "internal" : false,
       "tags" : [ "admin", "self-service-feature-management", "system" ],
       "mappings" : [ "core.beta.feature.enable" ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
-      }
-    }, {
-      "id" : "system.billing.sms_usage_sent",
-      "category" : "ace",
-      "description" : "Indicates that a report for SMS usage was sent to the billing system.",
-      "info" : {
-        "created" : "2018-08-30",
-        "release" : "2018.36"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "admin", "billing" ],
-      "mappings" : [ "core.billing.sms_usage_sent" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -17067,7 +17081,7 @@
     }, {
       "id" : "system.ldapi.bind",
       "category" : "ud-core",
-      "description" : "Fired when a user performs a BIND to LDAP Interface. Can be used to identify when a user attempted to perform an LDAP authentication for audit or debugging purposes. Note that the firing of this event is subject to LDAPi event filtering rules.",
+      "description" : "Fired when a user performs a BIND to LDAP Interface. Can be used to identify when a user attempted to perform an LDAP authentication for audit or debugging purposes. The firing of this event is subject to LDAPi event filtering rules and is only logged when a failure is returned for the given LDAP operation.",
       "info" : {
         "created" : "2018-10-21",
         "release" : "2018.10"
@@ -17085,7 +17099,7 @@
     }, {
       "id" : "system.ldapi.search",
       "category" : "ud-core",
-      "description" : "Fired when a user performs a SEARCH to LDAP Interface. Can be used to identify when a user attempted to perform a search on LDAP Interface for audit or debugging purposes. Note that the firing of this event is subject to LDAPi event filtering rules.",
+      "description" : "Fired when a user performs a SEARCH to LDAP Interface. Can be used to identify when a user attempted to perform a search on LDAP Interface for audit or debugging purposes. The firing of this event is subject to LDAPi event filtering rules and is only logged when a failure is returned for the given LDAP operation.",
       "info" : {
         "created" : "2016-10-21",
         "release" : "2018.10"
@@ -17103,7 +17117,7 @@
     }, {
       "id" : "system.ldapi.unbind",
       "category" : "ud-core",
-      "description" : "Fired when a user performs an UNBIND to LDAP Interface. Can be used to identify when a user attempted to end an LDAP Interface session for audit or debugging purposes. Note that the firing of this event is subject to LDAPi event filtering rules.",
+      "description" : "Fired when a user performs an UNBIND to LDAP Interface. Can be used to identify when a user attempted to end an LDAP Interface session for audit or debugging purposes. The firing of this event is subject to LDAPi event filtering rules and is only logged when a failure is returned for the given LDAP operation.",
       "info" : {
         "created" : "2018-10-21",
         "release" : "2018.10"
@@ -20761,6 +20775,203 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "618ad20a5ccefb000985fd15", "6193f6595ccefb00098633f0", "61b1956465c98c00082ef4ff" ]
+          }
+        }
+      },
+      "AccessRequestSettingsDebugData" : {
+        "name" : "AccessRequestSettingsDebugData",
+        "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "tunnels" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{\"operator\":\"HOTSPOT_VPN\",\"type\":\"VPN\",\"anonymous\":true}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "access_request_settings_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "rrs27mwcafgrXwQBq0g4" ]
+          },
+          "access_request_settings_resource_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "0oaqo42EewoLgWI1q0g4", "0oaquqclnUiYVXrEy0g4", "0oaqo5pDNBb9ac3wL0g4" ]
           }
         }
       },
@@ -44018,6 +44229,14 @@
       "UserAuthenticationResourceDetails" : {
         "name" : "UserAuthenticationResourceDetails",
         "properties" : {
+          "policy_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Any 2 Factors", "Okta Admin Console" ]
+          },
           "policy_rule_factor_mode" : {
             "type" : "String",
             "sensitive" : false,
@@ -44133,6 +44352,14 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "SMS", "VOICE", "EMAIL" ]
+          },
+          "factor_verified_by_idp" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
           },
           "authenticator_key" : {
             "type" : "String",
@@ -45023,6 +45250,43 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "SECURITY_QUESTION", "SOFT_TOKEN", "YUBIKEY_OTP_FACTOR" ]
+          }
+        }
+      },
+      "MacOSAccountResourceDetails" : {
+        "name" : "MacOSAccountResourceDetails",
+        "properties" : {
+          "macos_privilege_level" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "enum",
+            "examples" : [ "ADMIN", "STANDARD", "GUEST", "SHARING_ONLY" ]
+          },
+          "macos_full_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Foo Bar" ]
+          },
+          "macos_username" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "foo.bar" ]
+          },
+          "macos_account_uuid" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "aef65ce9-b9c0-47b4-bf78-bdd5df4f4b24" ]
           }
         }
       },
@@ -46954,6 +47218,19 @@
           }
         }
       },
+      "AccessRequestSettingsChangeDetailsEntry" : {
+        "name" : "AccessRequestSettingsChangeDetailsEntry",
+        "properties" : {
+          "request_on_behalf_of_settings" : {
+            "type" : "RequestOnBehalfOfSettings",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"allowed\" : \"true\"}, \"onlyFor\": \"[DIRECT_REPORT]\"}" ]
+          }
+        }
+      },
       "AppInstanceEmbedLinksChangeDetails" : {
         "name" : "AppInstanceEmbedLinksChangeDetails",
         "properties" : {
@@ -47540,7 +47817,7 @@
       "DesktopMFASettingsChangeDetailsEntry" : {
         "name" : "DesktopMFASettingsChangeDetailsEntry",
         "properties" : {
-          "desktop_mfa_extended_device_sso_setting" : {
+          "desktop_mfa_device_bound_sso_setting" : {
             "type" : "String",
             "sensitive" : false,
             "personal" : false,
@@ -47700,16 +47977,24 @@
       "IAMPolicyConfigurationChangeDetailsEntry" : {
         "name" : "IAMPolicyConfigurationChangeDetailsEntry",
         "properties" : {
-          "thirdPartyAdminSetting" : {
-            "type" : "String",
+          "public_client_app_admin_setting" : {
+            "type" : "Boolean",
             "sensitive" : false,
             "personal" : false,
             "customer" : true,
             "format" : "boolean",
             "examples" : [ "true", "false" ]
           },
-          "autoAssignAdminAppSetting" : {
-            "type" : "String",
+          "third_party_admin_setting" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "auto_assign_admin_app_setting" : {
+            "type" : "Boolean",
             "sensitive" : false,
             "personal" : false,
             "customer" : true,
