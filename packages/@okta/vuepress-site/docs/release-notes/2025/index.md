@@ -11,7 +11,6 @@ title: Okta Classic Engine API release notes 2025
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [IP Exempt Zone is GA in Preview](#ip-exempt-zone-is-ga-in-preview) | October 23, 2024 |
-| [Risk Provider and Risk Events APIs have been deprecated](#risk-provider-and-risk-events-apis-have-been-deprecated)|  February 6, 2025               |
 | [OIDC IdPs now support group sync is GA in Preview](#oidc-idps-now-support-group-sync-is-ga-in-preview) |  October 23, 2024                |
 | [Granular account linking for certain identity providers is GA](#granular-account-linking-for-certain-identity-providers-is-ga) |  December 11, 2024               |
 | [Realms for Workforce is GA in Preview](#realms-for-workforce-is-ga-in-preview)|   February 13, 2025              |
@@ -24,10 +23,6 @@ title: Okta Classic Engine API release notes 2025
 #### IP Exempt Zone is GA in Preview
 
 This feature introduces `useAsExemptList` as a read-only Boolean property that distinguishes the new default IP exempt zones from other zones. When you enable this feature and you make a GET `api/v1/zones` request, Okta returns `useAsExemptList` in the response. The value `true` indicates that the zone is an exempt zone. Only system generated exempt zones are available. <!-- DEFAULT_NETWORK_ZONE_IP_EXEMPT_LIST (OKTA-795812: Parent Jira for DEFAULT_NETWORK_ZONE_IP_EXEMPT_LIST GA Preview) -->
-
-#### Risk Provider and Risk Events APIs have been deprecated
-
-These APIs have been deprecated. Use the [SSF Security Event Tokens API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/) instead to receive security-related events and other data-subject signals. Use the [SSF Receiver API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/) for third-party security event providers. <!-- (OKTA-813976: Deprecate Risk Events and Risk Providers Resolved) -->
 
 #### OIDC IdPs now support group sync is GA in Preview
 
