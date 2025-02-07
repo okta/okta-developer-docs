@@ -1,16 +1,5 @@
-2. Specify the **Application label** and any integration properties required in the **General settings** tab.
-3. Click **Done**. The **Assignments** tab appears.
-   You can assign users to your integration later, see [Assign test users to your integration](#assign-test-users-to-your-integration-instance).
-4. Click the **Sign On** tab.
-5. Click **View SAML setup instructions** to open a new tab to your integration setup instructions. This is the customer configuration guide that you previously specified in the OIN Wizard.
-6. Follow the instructions in your guide to set up the SAML SSO integration on your app.
-    * Click **Copy** next to **Metadata URL** to copy the full SAML metadata URL required for the integration.
-    * To view specific SAML metadata details, click the **More details** arrow.
-7. Follow these steps if you have an Identity Engine Developer Edition org:
-   1. Click the **Sign On** tab, scroll to the **User authentication** section, and click **Edit**.
-   1. Select **Password only** from the **Authentication policy** dropdown menu.
-   [[style="list-style-type:lower-alpha"]]
-   1. Click **Save**.
-   > **Note:** Most recent Okta Developer Edition orgs are Identity Engine orgs. See [OIN Wizard authentication policy for testing](/docs/guides/submit-app-prereq/main/#oin-wizard-authentication-policy-for-testing).
+For an SSO integration, use the OIN Submission Tester to test the required flows on your generated test instance.
 
-8. [Assign test users to your instance](#assign-test-users-to-your-integration-instance) before you start testing your SSO flows.
+1. Go to the [Application instance for testing](/docs/guides/submit-oin-app/saml2/main/#application-instances-for-testing) section on the **Test integration** page.
+1. Add your test instance to the OIN Submission Tester. See [Add to Tester](/docs/guides/submit-oin-app/saml2/main/#add-to-tester).
+1. Run the required tests in the OIN Submission Tester. Fix any test failures, then regenerate the test instance (if necessary) and retest. See [OIN Submission Tester](/docs/guides/submit-oin-app/saml2/main/#oin-submission-tester). 
