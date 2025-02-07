@@ -1,3 +1,5 @@
+> **Note:** Okta recommends that you execute the Runscope tests on a published-version instance of your SCIM integration, but it's not a requirement for submission.
+
 2. In the **General settings** tab, enter an **Application label** and any other required integration properties.
 3. Click **Done**. Your generated test instance appears with more tabs for configuration.
 4. Click **Provisioning** > **Configure API Integration**.
