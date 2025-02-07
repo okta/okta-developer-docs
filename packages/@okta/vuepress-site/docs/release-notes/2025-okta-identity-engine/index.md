@@ -14,7 +14,6 @@ title: Okta Identity Engine API release notes 2025
 |--------|--------------------------|
 | [IP Exempt Zone is GA in Preview](#ip-exempt-zone-is-ga-in-preview) | October 23, 2024 |
 | [Global token revocation for wizard SAML and OIDC apps is GA in Preview](#global-token-revocation-for-wizard-saml-and-oidc-apps-is-ga-in-preview) |  September 11, 2024               |
-| [Risk Provider and Risk Events APIs have been deprecated](#risk-provider-and-risk-events-apis-have-been-deprecated)|  February 6, 2025               |
 | [OIDC IdPs now support group sync is GA in Preview](#oidc-idps-now-support-group-sync-is-ga-in-preview) |  October 23, 2024              |
 | [Granular account linking for certain identity providers is GA](#granular-account-linking-for-certain-identity-providers-is-ga) |  December 11, 2024               |
 | [Realms for Workforce is GA in Preview](#realms-for-workforce-is-ga-in-preview)|   February 13, 2025              |
@@ -31,10 +30,6 @@ This feature introduces `useAsExemptList` as a read-only Boolean property that d
 #### Global token revocation for wizard SAML and OIDC apps is GA in Preview
 
 Universal Logout clears sessions and tokens for wizard SAML and OIDC apps. This enhancement extends Universal Logout functionality to more types of apps and provides greater flexibility to admins. <!-- FF GLOBAL_TOKEN_REVOCATION_SUPPORT (OKTA-797187)-->
-
-#### Risk Provider and Risk Events APIs have been deprecated
-
-These APIs have been deprecated. Use the [SSF Security Event Tokens API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/) instead to receive security-related events and other data-subject signals. Use the [SSF Receiver API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/) for third-party security event providers. <!-- (OKTA-813976: Deprecate Risk Events and Risk Providers Resolved) -->
 
 #### OIDC IdPs now support group sync is GA in Preview
 
