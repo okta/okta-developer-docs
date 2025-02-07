@@ -96,6 +96,7 @@ To update a previously published OIN integration:
 The OIN Wizard journey includes the **Test integration** experience page to help you configure and test your updated integration within the same org before submission. These are the tasks that you need to complete:
 
 <StackSnippet snippet="test-steps" />
+<br>
 
 See [Submit your updated integration](#submit-your-updates) after all required tests are successful.
 
@@ -110,41 +111,13 @@ Generate instances for testing your updates directly from the OIN Wizard. See [R
 
 <StackSnippet snippet="required-app-instances" />
 
-<StackSnippet snippet="test-instance" />
+#### Generate an instance
+
+<StackSnippet snippet="generate-instances" />
 
 ### Test your integration
 
-1. Test your integration protocol:
-
-    * For SSO testing, click **Add to Tester** for each required test instance. See [Add to Tester](#add-to-tester).<br> The required tests appear for each test instance. Run your tests from the OIN Submission Tester. See [OIN Submission Tester](#oin-submission-tester). If you encounter errors, see [Failed tests](#failed-tests) for help with resolving the issues.
-
-### Test your SCIM integration
-
-Test your integration protocol:
-
-    * For SCIM testing, see [Test your SCIM integration](#test-your-scim-integration) for all the test requirements.
-
-   The **Required app instances** box contains the following items:
-    * The instances that you need to test the **PUBLISHED VERSION** of your OIN integration.
-    * The instances that you need to test the **CURRENT VERSION** of your integration submission.
-
-    See [Required app instances](#required-app-instances).
-    > **Note:** If the OIN Submission Tester session expired, click **Refresh tester session** for a new test session.
-
-   Backwards-compatible test instances that were generated from your published integration appear in the **Application instances for testing** list.
-
-1. Click **Generate Instance** to create an instance required for the **CURRENT VERSION** from the **Required app instances** status box.
-
-    See [Generate an instance for testing](#generate-an-instance-for) to create instances for your current submission.
-    > **Note:** There's a maximum of five active app instances allowed in a Developer Edition org. Deactivate any instances that you don't need for testing.
-
-1. Test your integration protocol:
-
-    * For SSO testing, click **Add to Tester** for each required test instance. See [Add to Tester](#add-to-tester).<br> The required tests appear for each test instance. Run your tests from the OIN Submission Tester. See [OIN Submission Tester](#oin-submission-tester). If you encounter errors, see [Failed tests](#failed-tests) for help with resolving the issues.
-
-    * For SCIM testing, see [Test your SCIM integration](#test-your-scim-integration) for all the test requirements.
-
-1. [Submit your updates](#submit-your-updates) if all your tests passed.
+<StackSnippet snippet="test-instance" />
 
 ## Submit your updates
 
