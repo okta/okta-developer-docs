@@ -97,6 +97,11 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 
 <StackSnippet snippet="test-steps" />
 
+See [Submit your updated integration](#submit-your-updates) after all required tests are successful.
+
+> **Note:** Test steps on this page are specifically for the **<StackSnippet snippet="protocol-name" inline/>** protocol. <br>
+> If you want to change the protocol details on this page, select the protocol from the **Instructions for** dropdown list on the right.
+
 ### Generate instances for testing
 
 Generate instances for testing your updates directly from the OIN Wizard. See [Required app instances](#required-app-instances) in the OIN Wizard for the instances that you need to generate.
