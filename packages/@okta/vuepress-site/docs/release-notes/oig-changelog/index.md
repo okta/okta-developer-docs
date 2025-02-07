@@ -13,13 +13,6 @@ Contains a log of all API changes.
 
 Breaking changes may only occur during the BETA lifecycle of an API, and will be minimized as much as possible.
 
-## 2025.02.1
-
-### BETA - Breaking changes
-
-* [List all entitlements](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlements/#tag/Entitlements/operation/listEntitlements) response will no longer contain values
-* To fetch values for a given entitlement, use [List all values for an entitlement](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlements/#tag/Entitlements/operation/listEntitlementValues) or [List all entitlement values](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlements/#tag/Entitlements/operation/listAllEntitlementValues)
-
 ## 2025.01.2
 
 ### *FIX* - Added the scope `okta.accessRequests.catalog.read` to the OAuth 2.0 scopes
