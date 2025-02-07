@@ -1065,7 +1065,7 @@ export const releaseNotes = [
         subLinks: [
           {
             title: "2023-2024 Okta Identity Governance changelog",
-            path: "/docs/release-notes/archive/oig-changelog"
+            path: "/docs/release-notes/oig-changelog/"
           },
           {
             title: "2024 - Classic Engine",
