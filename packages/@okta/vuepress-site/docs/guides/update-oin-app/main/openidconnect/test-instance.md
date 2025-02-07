@@ -1,21 +1,5 @@
-#### Generate instance
+For an SSO integration, use the OIN Submission Tester to test the required flows on your generated test instance.
 
-Create an instance for your updated OIDC integration. See []
-1. 
-2. Specify the **Application label** and any app properties required in the **General settings** tab.
-3. Click **Done**. The **Assignments** tab appears.
-   You can assign users to your integration later, see the next [Assign test users to your integration](#assign-test-users-to-your-integration-instance) task.
-4. Click the **Sign On** tab to view and copy the OIDC client ID and secret.
-5. Click **View Setup Instructions** to open a new tab to your integration setup instructions. This is the customer configuration guide that you previously specified in the OIN Wizard.
-6. Follow the instructions in your guide to set up the SSO integration on your app with the OIDC client ID and secret provided.
-7. Follow these steps if you have an Identity Engine Developer Edition org:
-   1. Click the **Sign On** tab, scroll to the **User authentication** section, and click **Edit**.
-   1. Select **Password only** from the **Authentication policy** dropdown menu.
-   [[style="list-style-type:lower-alpha"]]
-   1. Click **Save**.
-   > **Note:** Most recent Okta Developer Edition orgs are Identity Engine orgs. See [OIN Wizard authentication policy for testing](/docs/guides/submit-app-prereq/main/#oin-wizard-authentication-policy-for-testing).
-
-8. [Assign test users to your instance](#assign-test-users-to-your-integration-instance) before you start testing your SSO flows.
-
-
-Assign test users to your instances. See  [Assign test users to your app instance](/docs/guides/submit-oin-app/openidconnect/main/#assign-test-users-to-your-integration-instance).
+1. Go to the [Application instance for testing](/docs/guides/submit-oin-app/openidconnect/main/#application-instances-for-testing) section on the **Test integration** page.
+1. Add your test instance to the OIN Submission Tester. See [Add to Tester](/docs/guides/submit-oin-app/openidconnect/main/#add-to-tester).
+1. Run the required tests in the OIN Submission Tester. See [OIN Submission Tester](/docs/guides/submit-oin-app/openidconnect/main/#oin-submission-tester).
