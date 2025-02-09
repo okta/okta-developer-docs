@@ -79,15 +79,11 @@ To update a previously published OIN integration:
 1. From the **This integration is read-only** information box, click **Edit integration**.
     > **Note:** You can skip this step if your submission is in draft status. The **Edit integration** option isn't available for submissions in draft status because it's not in read-only mode.
 
-     <StackSnippet snippet="detect-old-instance" />
+    <StackSnippet snippet="detect-old-instance" />
 
 1. Update your integration as required in the following sections of the OIN Wizard flow:
-   * **Select your protocol**
-   * [OIN catalog properties](/docs/guides/submit-oin-app/-/main/#oin-catalog-properties)
-   * [Integration variables](/docs/guides/submit-oin-app/-/main/#integration-variables)
-      > **Note:** See [Update integration considerations](#update-integration-considerations) for backwards compatibility with integration variables.
-   * [<StackSnippet snippet="protocol-name" inline/> properties](/docs/guides/submit-oin-app/-/main/#properties)
-   * [Enter test information](/docs/guides/submit-oin-app/-/main/#enter-test-information)
+
+   <StackSnippet snippet="edit-links" />
 
 1. Click **Test your integration** to save your updates and move to the testing section of the OIN Wizard.
 
