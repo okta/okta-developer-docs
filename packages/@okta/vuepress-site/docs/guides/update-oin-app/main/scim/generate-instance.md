@@ -1,6 +1,8 @@
+Generate a SCIM instance based on your submission configuration:
+
 1. From the **Test integration** page, click **Generate instance**. A page appears to add your instance details.
 
-    > **Note:** There's a limit of five app instances in a Okta Developer Edition org. The **Generate instance** option is deactivated when you reach this limit. Deactivate unused instances to make room for new instances in your org. See [Deactivate app instances in your org](/docs/guides/submit-oin-app/scim/main/#deactivate-an-app-instance-in-your-org).
+    > **Note:** There's a limit of five app instances in an Okta Developer Edition org. The **Generate instance** option is deactivated when you reach this limit. Deactivate unused instances to make room for new instances in your org. See [Deactivate app instances in your org](/docs/guides/submit-oin-app/scim/main/#deactivate-an-app-instance-in-your-org).
 
 1. In the **General settings** tab, enter an **Application label** and any other required integration properties.
 1. Click **Done**. Your generated test instance appears with more tabs for configuration.
@@ -21,9 +23,9 @@
 
 #### Configure attribute mappings
 
-SCIM integrations that are submitted through the OIN Wizard have a default set of user attribute mappings. Update the attribute mappings to reflect the attributes supported by your app. The OIN team uses the updated attribute mappings in your test instance for your integration provisioning settings in the OIN catalog.
+SCIM attribute mappings are configured at the instance-level. Ensure that these mappings reflect the current attributes supported by your app. The OIN team uses the updated attribute mappings in your test instance for integration provisioning settings in the OIN catalog.
 
-After you've enabled the provisioning API connection in your test instance, configure user attribute mappings to and from Okta in the **Provisioning** tab of your instance:
+After you've enabled the provisioning API connection in your test instance, configure attribute mappings to and from Okta in the **Provisioning** tab:
 
 * **To App**: User attribute mappings from Okta to your app
 * **To Okta**: User attribute mappings from your app to Okta
@@ -49,11 +51,11 @@ After you've enabled the provisioning API connection in your test instance, conf
      1. Click **Save**.
 
          Repeat these steps for all SCIM attributes that you want to map (from Okta to your app).
-     <div class="three-quarter border">
+         <div class="three-quarter border">
 
-     ![Displays the map attribute dialog.](/img/oin/scim_check-attributes-14.png)
+         ![Displays the map attribute dialog.](/img/oin/scim_check-attributes-14.png)
 
-     </div>
+         </div>
 
      7. After you update the mappings from Okta to your app, click **To Okta** in the **Settings** section.
      8. Scroll to the **{yourApp} Attribute Mappings** section. Find the attribute that you want to update and click **Edit**. A dialog appears with two dropdown fields next to **Attribute value**.
@@ -61,14 +63,22 @@ After you've enabled the provisioning API connection in your test instance, conf
      10. In the second dropdown list, select the SCIM attribute that you want to map to the Okta attribute.
      11. Click **Save**.
 
-         Repeat these steps for all SCIM attributes that you want to map from your app to Okta.
+         Repeat these steps for all SCIM attributes that you want to map from your app to Okta (in the **Settings** > **To Okta** panel).
 
    * Delete attributes:
 
      1. In the Profile Editor, click **Mappings**.
      1. Click **{yourApp} to Okta User** at the top of the page.
      1. Scroll to the attribute that you want to delete, click the mapping icon (yellow arrow) and select **Do not map**.
+
+        <div class="three-quarter border">
+
+         ![Displays the map attribute dialog.](/img/oin/scim_unmap-attribute.png)
+
+         </div>
+
      1. Click **Save Mappings**.
+
         Perform **Do not map** and **Save Mappings** actions for all attributes that you want to remove from your app to Okta mappings.
      1. Click **Apply updates now** to save all the attributes you unmapped.
 
@@ -76,10 +86,11 @@ After you've enabled the provisioning API connection in your test instance, conf
      1. Click **Okta User to {yourApp}** at the top of the page.
      1. Scroll to the attribute that you want to delete, click the mapping icon (yellow arrow) and select **Do not map**.
      1. Click **Save Mappings**.
-        Perform **Do not map** and **Save Mappings** actions for all attributes that you want to remove from Okta to your app mappings (similar to the **{yourApp} to Okta User** steps).
+
+        Perform **Do not map** and **Save Mappings** actions for all attributes that you want to remove from Okta to your app mappings.
      1. Click **Apply updates now** to save all the attributes you unmapped.
 
-     1. In the Profile Editor, delete all the corresponding attributes from the mapping by clicking **X** next to the attribute and then **Delete Attribute** to confirm.
+     1. In the Profile Editor, delete all the corresponding attributes from the mapping by clicking **X** next to the attribute and then clicking **Delete Attribute** to confirm.
 
         Repeat this step for all the attributes that you want to delete.
 
