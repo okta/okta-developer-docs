@@ -1,1 +1,0 @@
-System for Cross-domain Identity Management (SCIM) 2.0
