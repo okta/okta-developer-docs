@@ -1,77 +1,79 @@
 > **Note:** Okta recommends that you execute the Runscope tests on a published-version instance of your SCIM integration, but it's not a requirement for submission.
 
-2. In the **General settings** tab, enter an **Application label** and any other required integration properties.
-3. Click **Done**. Your generated test instance appears with more tabs for configuration.
-4. Click **Provisioning** > **Configure API Integration**.
-5. Select **Enable API integration**.
-   * For custom or bearer authentication, specify the **API token** for your instance.
-   * For OAuth 2.0 authentication, click **Authenticate with {yourApp}** and provide credentials for your test instance.
-1. Click **Test API Credentials** to test authentication to your SCIM service. If there's an error, verify that the credentials are correct.
-1. Click **Save**.
-1. Select **Settings** > **To Okta** from the updated **Provisioning** tab.
-1. In the **General** section, click **Edit** to schedule imports and configure the username format for imported users.
+---
+You need to run three sets of tests for SCIM integrations:
 
-   You can also define a percentage of acceptable assignments before the [import safeguards](https://help.okta.com/okta_help.htm?id=csh-eu-import-safeguard) feature is automatically triggered.
+1. [SCIM API specification tests](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api)
 
-1. Click **Save**. Next, [configure attribute mappings](#configure-attribute-mappings).
+    You need to first test your SCIM API service before you conduct Okta-SCIM integration tests. Okta provides you with a SCIM API specification test suite to execute in Runscope. See [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api) for instructions on how to run this test suite. Provide the test results URL in the **Link to Runscope spec test results** field when you submit your integration to the OIN.
 
-> **Note:** Your SCIM app must support redirect URIs that include the app name (`{appName}`) that's generated after you create your app instance. See SCIM service [authentication](/docs/guides/scim-provisioning-integration-prepare/main/#authentication) for a list of redirect URIs required. Your app name appears in the **General settings** tab or in the Admin Console URL when you're viewing the instance page.
+1. [Runscope create, read, update, and delete (CRUD) user profile tests](#runscope-crud-tests)
 
-#### Configure attribute mappings
+    Enter the results URL from these tests in the **Link to Runscope CRUD test results** field when you submit your integration to the OIN.
 
-> **Note:** Configure attribute-mapping instructions are only for SCIM integrations.
+1. [Manual Okta SCIM integration tests](#manual-okta-scim-integration-tests)
 
-SCIM integrations that are submitted through the OIN Wizard have a default set of user attribute mappings. The user schema in your SCIM app might not support all of these attributes. Ensure the integration that you're submitting to Okta reflects the attributes that are supported by your app. The OIN team uses the attribute mappings in your test instance for your integration provisioning settings in the OIN catalog.
+    You must certify that you've completed these tests when you submit your integration to the OIN.
 
-After you've enabled the provisioning API connection in your test instance, configure user attribute mappings to and from Okta in the **Provisioning** tab of your instance:
+#### Runscope CRUD tests
 
-* **To App**: User attribute mappings from Okta to your app
-* **To Okta**: User attribute mappings from your app to Okta
+1. Download the [Okta SCIM 2.0 CRUD Test](/standards/SCIM/SCIMFiles/Okta-SCIM-20-CRUD-Test.json) file.
 
-1. Select **To App** on the left **Settings** panel of the **Provisioning** tab.
-  The **Provisioning to App** settings appear. The provisioning operations are already set by default from the [SCIM properties](#properties) section when you configured your integration.
+   This CRUD test file is built for the [BlazeMeter Runscope](https://www.runscope.com/) API monitoring tool. If you don't have a Runscope account, you can sign up with a [free trial to Runscope](https://www.runscope.com/okta) for Okta developers.
+1. From Runscope, click **Import Test**.
+1. Select **API Monitoring Tests** as the import format.
+1. Click **Choose File** and select the **Okta SCIM 2.0 CRUD Test** file.
+1. Click **Import API Test**. In this new test bucket, click **Editor** from the left-navigation menu.
+1. Click **Test Settings** and then click **Initial Variables**.
+1. Add the following variables with values that match your SCIM integration:
+    * `oktaOrgUrl`: The base URL for your Okta org. Include the `https://` prefix.
+    * `oktaAppId`: The unique identifier that's assigned to your test app instance. You can see this value in the **App Embed Link** panel under the **General** tab for your instance.
 
-1. Scroll to the **{yourApp} Attribute Mappings** section.
+    <div class="three-quarter border">
 
-   * Delete attributes:
-     1. Click **X** next to the attribute that you want to delete, and then click **OK** to confirm.
+    ![The browser bar showing the oktaOrgUrl location.](/img/oin/scim_crud-test-identifiers.png)
 
-        Repeat this step until you remove all the mappings for the attributes that you want to delete.
+    </div>
 
-     1. After removing all the mappings for the attributes that you want to delete, click **Go to Profile Editor**.
+    * `oktaToken`: The Okta API token used by Runscope to connect to Okta APIs. You can generate an API token inside your org. See [Create an API token](/docs/guides/create-an-api-token/main/).
+    * `SCIMUrl`: The base URL of the SCIM service. For example: `https://example.com/scim/v2`
+    * `SCIMAuth`: The authorization token used to access your SCIM API. You can use the same authorization token you used to **Enable API integration** from [Generate an instance for <StackSnippet snippet="protocol-name" inline/>](#generate-an-instance-for).
 
-     1. In the Profile Editor, delete all the corresponding attributes from the mapping by clicking **X** next to the attribute and then **Delete Attribute** to confirm.
+      The following is an example of the Runscope variable values:
 
-        Repeat this step for all the attributes that you want to delete.
+    <div class="three-quarter border">
 
-   * Add attributes:
+    ![Sample values for CRUD test variables. Runscope initial variables](/img/oin/scim_crud-variables-d.png)
 
-     1. In the Profile Editor, click **Add Attribute**.
+    </div>
 
-     1. Enter the information for the new attribute that you’re adding and then click **Save**.
+1. Click **Test Settings** and then click **Initial Script**.
+1. Copy the contents of the [Okta CRUD Initial Script](/standards/SCIM/SCIMFiles/Initial_Script_CRUD.txt) text file and paste into this Runscope console.
+1. Click **Save & Run**.
 
-        > **Note:** The **Scope** property determines whether the attribute that you're adding can be assigned at a group level or per user. If you want your admins to assign a value for this attribute at a group level, don't select the **User personal** checkbox.
+##### Review Runscope test results
 
-     1. After adding attributes, go back to the **{yourApp} Attribute Mappings** section and click **Edit** to map your new attributes. A dialog appears with two dropdown fields.
+On the left of your Runscope page, the test appears in the **Recent Test Runs** section.
 
-     1. Select **Map from Okta Profile** in the first dropdown list.
-     1. In the second dropdown list, select the Okta profile attribute that you want to map over to the SCIM attribute.
-     1. Click **Save**.
+1. Click **View Progress** from the **Recent Test Runs** section.
+As the test suite runs, Runscope displays live updates of the test in progress. After the test suite completes, the main panel displays the results of your test.
+1. Click a test case to see its **Request**, **Response**, and **Connection** information.
 
-         Repeat these steps for all SCIM attributes that you want to map (from Okta to your app).
+When you're satisfied with your Runscope CRUD test results, enter them in the **Link to Runscope CRUD test results** field:
 
-     <div class="three-quarter border">
+1. From your Runscope dashboard, open the test results that you want to share.
+2. At the top of the test result, set the **Private | Shareable** toggle to **Shareable**.
+3. Copy the URL for the test result. The test results can be viewed in detail, but the test can't be edited or rerun by people outside of your team.
 
-     ![Displays the map attribute dialog.](/img/oin/scim_check-attributes-14.png)
+    Example of a test result URL:
+    `https://www.runscope.com/radar/abcdefghijkl/m01nopq2-3456-7r8s-9012-t34567uvw890/history/123ef4gh-i567-89j0-1k2l-3m4n5o678901`.
 
-     </div>
+1. Paste the test results URL into the **Link to Runscope CRUD test results** field in the OIN Wizard **Test integration** > **SCIM integration testing step** section.
 
-     5. After you update the mappings from Okta to your app, click **To Okta** in the **Settings** section.
-     6. Scroll to the **{yourApp} Attribute Mappings** section. Find the attribute that you want to update and click **Edit**. A dialog appears with two dropdown fields next to **Attribute value**.
-     7. Select **Map from {yourApp} App Profile** from the first dropdown list.
-     8. In the second dropdown list, select the SCIM attribute that you want to map to the Okta attribute.
-     9. Click **Save**.
+#### Manual Okta SCIM integration tests
 
-         Repeat these steps for all SCIM attributes that you want to map from your app to Okta.
+Execute the test cases in the [Okta SCIM Test Plan](/standards/SCIM/SCIMFiles/okta-scim-test-plan-v2.xlsx). Skip the test cases for the features that your integration doesn't support. All the other supported-feature test cases must pass before you can submit your integration to the OIN.
 
-After you complete your attribute mappings, you're ready to [test your SCIM integration](#test-your-scim-integration).
+Depending on your test scenario, you can import users from the **Import** tab (see [Import users](https://help.okta.com/okta_help.htm?id=ext_Importing_People)) or create users in Okta before assigning them to your test instance. See [About adding provisioned users](https://help.okta.com/okta_help.htm?type=oie&id=lcm-about-user-management) and [Assign test users to your integration instance](#assign-test-users-to-your-integration-instance).
+
+After you've successfully completed the manual SCIM integration tests, see [Submit your integration](#submit-your-integration).
