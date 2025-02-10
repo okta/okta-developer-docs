@@ -81,7 +81,7 @@ To update a previously published OIN integration:
 
     <StackSnippet snippet="detect-old-instance" />
 
-1. Update your integration as required in the following sections of the OIN Wizard flow:
+1. Click **Configure your integration** to proceed to update your integration as required in the following sections of the OIN Wizard:
 
    <StackSnippet snippet="edit-links" />
 
@@ -109,7 +109,7 @@ Generate instances for testing your updates directly from the OIN Wizard. See [R
 
 #### Generate an instance
 
-<StackSnippet snippet="generate-instances" />
+<StackSnippet snippet="generate-instance" />
 
 ### Test your integration
 
