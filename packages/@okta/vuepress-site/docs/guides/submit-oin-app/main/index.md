@@ -546,13 +546,7 @@ Execute the test cases in the [Okta SCIM Test Plan](/standards/SCIM/SCIMFiles/ok
 
 Depending on your test scenario, you can import users from the **Import** tab (see [Import users](https://help.okta.com/okta_help.htm?id=ext_Importing_People)) or create users in Okta before assigning them to your test instance. See [About adding provisioned users](https://help.okta.com/okta_help.htm?type=oie&id=lcm-about-user-management) and [Assign test users to your integration instance](#assign-test-users-to-your-integration-instance).
 
-After you've successfully completed the manual SCIM integration tests, see [Submit your integration](#submit-your-integration).
-
-## Update your integration
-
-
-### Update integration considerations
-
+After you've successfully completed the manual SCIM integration tests, you can submit your integration.
 
 ## Submit your integration
 

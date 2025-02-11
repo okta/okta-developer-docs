@@ -4282,7 +4282,7 @@ redirects:
   - from: /docs/guides/submit-app/openidconnect/submission3-process
     to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/openidconnect/update-submission
-    to: /docs/guides/submit-oin-app/openidconnect/main/#update-your-integration
+    to: /docs/guides/update-oin-app/openidconnect/main/
   - from: /docs/guides/submit-app/faqs
     to: /docs/guides/submit-app-overview/
   - from: /docs/guides/submit-app/openidconnect/overview/index.html
@@ -4296,7 +4296,7 @@ redirects:
   - from: /docs/guides/submit-app/openidconnect/submission3-process/index.html
     to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/openidconnect/update-submission/index.html
-    to: /docs/guides/submit-oin-app/openidconnect/main/#update-your-integration
+    to: /docs/guides/update-oin-app/openidconnect/main/
   - from: /docs/guides/submit-app/faqs/index.html
     to: /docs/guides/submit-app-overview/
   - from: /docs/guides/submit-app/saml2/overview
@@ -4310,7 +4310,7 @@ redirects:
   - from: /docs/guides/submit-app/saml2/submission3-process
     to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/saml2/update-submission
-    to: /docs/guides/submit-oin-app/saml2/main/#update-your-integration
+    to: /docs/guides/update-oin-app/saml2/main/
   - from: /docs/guides/submit-app/saml2/overview/index.html
     to: /docs/guides/submit-oin-app/saml2/main/
   - from: /docs/guides/submit-app/saml2/create-guide/index.html
@@ -4322,7 +4322,7 @@ redirects:
   - from: /docs/guides/submit-app/saml2/submission3-process/index.html
     to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/saml2/update-submission/index.html
-    to: /docs/guides/submit-oin-app/saml2/main/#update-your-integration
+    to: /docs/guides/update-oin-app/saml2/main/
   - from: /docs/guides/submit-app/scim/overview
     to: /docs/guides/submit-oin-app/scim/main/
   - from: /docs/guides/submit-app/scim/create-guide
@@ -4334,7 +4334,7 @@ redirects:
   - from: /docs/guides/submit-app/scim/submission3-process
     to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/scim/update-submission
-    to: /docs/guides/submit-oin-app/scim/main/#update-your-integration
+    to: /docs/guides/update-oin-app/scim/main/
   - from: /docs/guides/submit-app/scim/overview/index.html
     to: /docs/guides/submit-oin-app/scim/main/
   - from: /docs/guides/submit-app/scim/create-guide/index.html
@@ -4346,7 +4346,20 @@ redirects:
   - from: /docs/guides/submit-app/scim/submission3-process/index.html
     to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/scim/update-submission/index.html
-    to: /docs/guides/submit-oin-app/scim/main/#update-your-integration
+    to: /docs/guides/update-oin-app/scim/main/
+  - from: /docs/guides/submit-oin-app/openidconnect/main/#update-your-integration
+    to: /docs/guides/update-oin-app/openidconnect/main/
+  - from: /docs/guides/submit-oin-app/saml2/main/#update-your-integration
+    to: /docs/guides/update-oin-app/saml2/main/
+  - from: /docs/guides/submit-oin-app/scim/main/#update-your-integration
+    to: /docs/guides/update-oin-app/scim/main/
+  - from: /docs/guides/submit-oin-app/openidconnect/main/#update-integration-considerations
+    to: /docs/guides/update-oin-app/openidconnect/main/#update-integration-considerations
+  - from: /docs/guides/submit-oin-app/saml2/main/#update-integration-considerations
+    to: /docs/guides/update-oin-app/saml2/main/#update-integration-considerations
+  - from: /docs/guides/submit-oin-app/scim/main/#update-integration-considerations
+    to: /docs/guides/update-oin-app/scim/main/#update-integration-considerations
+
   - from: /docs/guides/submit-app/openidconnect/main
     to: /docs/guides/submit-oin-app/openidconnect/main/
   - from: /docs/guides/submit-app/openidconnect/main/index.html
