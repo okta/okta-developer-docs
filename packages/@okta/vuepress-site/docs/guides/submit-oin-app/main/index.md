@@ -269,7 +269,7 @@ To assign test users to your integration:
 The **Required app instances** box shows you the instances detected in your org that are available to test your integration. It also shows you the test instances required for the OIN Submission Tester based on your selected protocols:
 
 * The **CURRENT VERSION** status indicates the instances that you need to test your current integration submission.
-* The **PUBLISHED VERSION** status indicates the instances that you need to test backwards compatibility if you edit a previously published integration. See [Update your integration](#update-your-integration).
+* The **PUBLISHED VERSION** status indicates the instances that you need to test backwards compatibility if you edit a previously published integration. See [Update a published integration with the OIN Wizard](/docs/guides/update-oin-app/).
 
 ### Application instances for testing
 
@@ -550,77 +550,9 @@ After you've successfully completed the manual SCIM integration tests, see [Subm
 
 ## Update your integration
 
-You can modify your published SSO and/or SCIM integrations in the OIN Wizard.
-
-When you edit a published OIN integration, test the flows for the updated version and the published version for backwards compatibility. Testing the published version for backwards compatibility ensures that your integration still works for users who have already installed it. See [Update integration considerations](#update-integration-considerations) before you edit your published integration. After you successfully test the updated and published versions of your integration, resubmit it to the OIN team.
-
-> **Note:** When you edit your published OIN integration, your previous PUBLISHED status and date are overwritten with the DRAFT status and current date.
-
-To update a previously published OIN integration:
-
-1. Sign in to your Okta Developer Edition org as a user with either app admin or super admin roles.
-   > **Note:** Edit your integration from an Okta account that has your company domain in the email address. You can't use an account with a personal email address. The OIN team doesn't review submission edits from a personal email account.
-1. In the Admin Console, go to **Applications** > **Your OIN Integrations**.
-
-   > **Note:** If you don't need to edit your submission and want to jump to testing, see [Navigate directly to test your integration](#navigate-directly-to-test-your-integration).
-
-1. Click your published integration to update from the dashboard. Your published OIN submission appears in read-only mode.
-1. From the **This integration is read-only** information box, click **Edit integration**.
-    > **Note:** If you open a submission in **DRAFT** status, it's not in read-only mode and the **Edit integration** option isn't available.
-
-    Continue to edit your draft submission as a new submission. See [Start a submission](#start-a-submission).
-1. If the OIN Wizard doesn't detect an instance to test your published integration in the org, then an **Application instance not detected** dialog appears. Click **Generate instance** to create an app instance based on your published OIN integration. See [Add existing app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) to create an instance for backwards-compatibility testing.
-    > **Note:** The **Generate instance** option is disabled if you have five active instances in your org. [Deactivate instances](#deactivate-an-app-instance-in-your-org) that you're not using.
-
-    If the OIN Wizard detects an instance based on your published integration, the dialog doesn't appear. This is usually the case if you tested and submitted your published integration from the same org.
-
-1. Continue to update your integration in the **Select protocol**, **Configure your integration**, and **Test integration** pages. See [Update integration considerations](#update-integration-considerations) for backwards compatibility with integration variables.
-
-    The **Required app instances** box contains the following items:
-    * The instances that you need to test the **PUBLISHED VERSION** of your OIN integration.
-    * The instances that you need to test the **CURRENT VERSION** of your integration submission.
-
-    See [Required app instances](#required-app-instances).
-    > **Note:** If the OIN Submission Tester session expired, click **Refresh tester session** for a new test session.
-
-   Backwards-compatible test instances that were generated from your published integration appear in the **Application instances for testing** list.
-
-1. Click **Generate Instance** to create an instance required for the **CURRENT VERSION** from the **Required app instances** status box.
-
-    See [Generate an instance for testing](#generate-an-instance-for) to create instances for your current submission.
-    > **Note:** There's a maximum of five active app instances allowed in a Developer Edition org. Deactivate any instances that you don't need for testing.
-
-1. Test your integration protocol:
-
-    * For SSO testing, click **Add to Tester** for each required test instance. See [Add to Tester](#add-to-tester).<br> The required tests appear for each test instance. Run your tests from the OIN Submission Tester. See [OIN Submission Tester](#oin-submission-tester). If you encounter errors, see [Failed tests](#failed-tests) for help with resolving the issues.
-
-    * For SCIM testing, see [Test your SCIM integration](#test-your-scim-integration) for all the test requirements.
-
-1. [Submit your integration](#submit-your-integration) if all your tests passed.
 
 ### Update integration considerations
 
-* For published integrations that were migrated from the OIN Manager, if you need to update configured properties that aren't available the OIN Wizard, contact <oin@okta.com>.
-
-* You can't update a published SCIM integration with Basic authentication. This breaks the integration for existing customers. For any updates, you must submit a new SCIM integration that implements header authentication or OAuth 2.0 authentication. You can use either token or bearer token format for header authentication.
-
-* If you edit a published SCIM integration that was migrated from the OIN Manager, the **Import users** (and **Import groups** if groups are managed) capability is automatically enabled in the OIN Wizard. You must support and test this capability if your previous SCIM integration didn't support it. If you need help with implementing this feature, contact <developers@okta.com>.
-
-* When you update an integration that's already published, be mindful to preserve backwards compatibility for your integration. Older instances of your integration could be in use by Okta customers.
-
-    * If you modify the **Name** (`name`) property of your [integration variables](#integration-variables), Okta removes the original variable and creates a variable with your updated name. This action negatively impacts your existing customers if you use the original variable in your integration dynamic properties.
-
-    * Migrated published integrations from the OIN Manager don't have some OIN Wizard restrictions. For instance:
-
-        * Published integrations can have more than three integration variables
-        * Published integrations can have variable names with uppercase letters
-        * Published integrations can use `http` (instead of enforced `https`) in URLs and Expression Language-supported properties
-
-    * If your update introduces new variables and you're using dynamic URLs, ensure that your tests cover various scenarios with different possible values for those variables. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language). The newly introduced variables aren't populated for older instances of your integration.
-
-        For example:
-
-       <StackSnippet snippet="backward-compatible-eg" />
 
 ## Submit your integration
 
