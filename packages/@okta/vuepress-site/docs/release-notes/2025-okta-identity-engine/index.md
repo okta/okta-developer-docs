@@ -17,13 +17,13 @@ title: Okta Identity Engine API release notes 2025
 
 #### New System Log event for third-party identity verification
 
-A new System Log event, `user.identity_verification`, is triggered when a request is sent to a third-party service for user identity verification and an Okta Account Management Policy (OAMP) rule that uses `ID_PROOFING` as the [`verificationMethod`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod&t=request) is evaluated. See [Event types](/docs/reference/api/event-types/).
+A new System Log event (`user.identity_verification`) is triggered when a request is sent to a third-party service for user identity verification, and an Okta Account Management Policy (OAMP) rule that uses `ID_PROOFING` as the [`verificationMethod`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod&t=request) is evaluated. See [Event types](/docs/reference/api/event-types/).
 
 #### Bugs fixed in 2025.02.1
 
 * In the Admin Console, updates in the code editor that Okta couldn't parse returned a 500 Internal Server Error. (OKTA-837068)
 
-* The Users API returned inconsistent responses in Classic Engine orgs that allowed self-service registration, and in Identity Engine orgs that were migrated from these orgs. (OKTA-833094)
+* The Users API returned inconsistent responses in Classic Engine orgs that allowed self-service registration and in Identity Engine orgs that were migrated from these orgs.
 
 * The `/user/verify_idx_credentials` endpoint didn't accept arbitrary `fromUri` values. (OKTA-853353)
 
