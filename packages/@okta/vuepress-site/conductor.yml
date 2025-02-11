@@ -4359,7 +4359,6 @@ redirects:
     to: /docs/guides/update-oin-app/saml2/main/#update-integration-considerations
   - from: /docs/guides/submit-oin-app/scim/main/#update-integration-considerations
     to: /docs/guides/update-oin-app/scim/main/#update-integration-considerations
-
   - from: /docs/guides/submit-app/openidconnect/main
     to: /docs/guides/submit-oin-app/openidconnect/main/
   - from: /docs/guides/submit-app/openidconnect/main/index.html
