@@ -19,6 +19,11 @@ Not sure what an Identity Provider is? See [External Identity Providers](/docs/c
   <Card href="https://help.okta.com/okta_help.htm?id=ext-idp-smart-card-expression" headerImage="/img/idp-logos/smart-card.png">Smart Card</Card>
 </Cards>
 
+## Enterprise identity verification vendors
+
+<Cards>
+  <Card href="/docs/guides/add-id-verification-idp/persona/main" headerImage="/img/idp-logos/idv_persona.svg">Persona</Card>
+
 ## Social Logins
 
 <Cards>

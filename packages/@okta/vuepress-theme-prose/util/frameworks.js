@@ -25,6 +25,7 @@ const COMMON_NAME_TO_FANCY_NAME = {
   yahoo: 'Yahoo!',
   yahoojp: 'Yahoo! Japan',
   smartcard: 'Smart Card',
+  persona: 'Persona',
   react: 'React',
   preact: 'Preact',
   vue: 'Vue.js',

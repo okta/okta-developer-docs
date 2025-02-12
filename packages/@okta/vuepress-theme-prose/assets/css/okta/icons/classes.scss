@@ -2062,6 +2062,11 @@ h1 {
 
   background-image: url("/img/icons/yahoojp.png");
 }
+.icon.persona::before {
+  content: "";
+
+  background-image: url("/img/icons/idv_persona.svg");
+}
 
 .oktatookta-16::before {
   content: $oktatookta;

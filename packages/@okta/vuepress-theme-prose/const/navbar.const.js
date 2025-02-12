@@ -414,6 +414,10 @@ export const guides = [
                 title: "Login.gov",
                 guideName: "add-logingov-idp"
               },
+              {
+                title: "Enterprise identity verification vendor",
+                guideName: "add-id-verification-idp"
+              },
             ],
           },
           { title: "Configure AMR claims mapping", guideName: "configure-amr-claims-mapping", hidden: true },
