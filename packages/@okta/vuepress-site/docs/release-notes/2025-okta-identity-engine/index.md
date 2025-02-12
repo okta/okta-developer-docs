@@ -12,12 +12,7 @@ title: Okta Identity Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [New System Log event for third-party identity verification](#new-system-log-event-for-third-party-identity-verification) | February 13, 2025 |
 | [Bugs fixed in 2025.02.1](#bugs-fixed-in-2025-02-1)| February 13, 2025 |
-
-#### New System Log event for third-party identity verification
-
-A new System Log event (`user.identity_verification`) is triggered when a request is sent to a third-party service for user identity verification, and an Okta Account Management Policy (OAMP) rule that uses `ID_PROOFING` as the [`verificationMethod`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod&t=request) is evaluated. See [Event types](/docs/reference/api/event-types/).
 
 #### Bugs fixed in 2025.02.1
 
