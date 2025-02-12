@@ -8,6 +8,30 @@ title: Okta Identity Engine API release notes 2025
 
 ## February
 
+### Weekly release 2025.02.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.02.1](#bugs-fixed-in-2025-02-1)| February 13, 2025 |
+
+#### Bugs fixed in 2025.02.1
+
+* When a GET request was made using the User Grants API (`/api/v1/users/{userId}/grants`), the response didn't include pagination links in the response header. (OKTA-826775)
+
+* The Users API returned inconsistent responses in Classic Engine orgs that allowed self-service registration and in Identity Engine orgs that were migrated from these orgs. (OKTA-833094)
+
+* In the Admin Console, updates in the code editor that Okta couldn't parse returned a 500 Internal Server Error. (OKTA-837068)
+
+* The On-Behalf of Token Exchange flow was returning the wrong error message when an invalid `subject_token_type` was requested. (OKTA-841223)
+
+* When a POST request was made (`/api/v1/authorizationServers/{authServerId}/policies`) to create an authorization policy, the `created` and `lastUpdated` properties had a null value. (OKTA-848623)
+
+* The `/user/verify_idx_credentials` endpoint didn't accept arbitrary `fromUri` values. (OKTA-853353)
+
+* AMR values weren't forwarded to the app when a user signed in and Okta-to-Okta claims sharing was configured. (OKTA-860242)
+
+* Some identity provider API POST (`/api/v1/idps`) and PUT (`/api/v1/idps/{idpId}`) requests returned an HTTP 500 error code if the request didn't have the `policy.accountLink` object in the request body. (OKTA-865143)
+
 ### Monthly release 2025.02.0
 
 | Change | Expected in Preview Orgs |

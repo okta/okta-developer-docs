@@ -10,6 +10,18 @@ For changes prior to 2025, see [Archived Okta Identity Governance API Changelog 
 
 ## February
 
+### Weekly release 2025.02.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [List all entitlements API response update](#list-all-entitlements-api-response-update) | February 13, 2025 |
+
+#### List all entitlements API response update
+
+<ApiLifecycle access="beta" />
+
+Breaking change: The [List all entitlement](/iga/openapi/governance.api/tag/Entitlements/#tag/Entitlements/operation/listEntitlements) response no longer returns a `values` object. Previously, this response returned an empty array for this property after the following update in `2024.04.0`: [List all entitlements will no longer return values](/docs/release-notes/oig-changelog/#deprecate-list-all-entitlements-will-no-longer-return-values). To fetch values for a given entitlement, use [List all values for an entitlement](/iga/openapi/governance.api/tag/Entitlements/#tag/Entitlements/operation/listEntitlementValues) or [List all entitlement values](/iga/openapi/governance.api/tag/Entitlements/#tag/Entitlements/operation/listAllEntitlementValues). <!-- OKTA-828247 -->
+
 ### Monthly release 2025.02.0
 
 | Change | Expected in Preview Orgs |
