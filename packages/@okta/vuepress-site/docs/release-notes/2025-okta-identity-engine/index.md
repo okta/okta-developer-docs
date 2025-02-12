@@ -8,6 +8,35 @@ title: Okta Identity Engine API release notes 2025
 
 ## February
 
+### Weekly release 2025.02.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [New System Log event for third-party identity verification](#new-system-log-event-for-third-party-identity-verification) | February 13, 2025 |
+| [Bugs fixed in 2025.02.1](#bugs-fixed-in-2025-02-1)| February 13, 2025 |
+
+#### New System Log event for third-party identity verification
+
+A new System Log event (`user.identity_verification`) is triggered when a request is sent to a third-party service for user identity verification, and an Okta Account Management Policy (OAMP) rule that uses `ID_PROOFING` as the [`verificationMethod`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod&t=request) is evaluated. See [Event types](/docs/reference/api/event-types/).
+
+#### Bugs fixed in 2025.02.1
+
+* In the Admin Console, updates in the code editor that Okta couldn't parse returned a 500 Internal Server Error. (OKTA-837068)
+
+* The Users API returned inconsistent responses in Classic Engine orgs that allowed self-service registration and in Identity Engine orgs that were migrated from these orgs.
+
+* The `/user/verify_idx_credentials` endpoint didn't accept arbitrary `fromUri` values. (OKTA-853353)
+
+* AMR values weren't forwarded to the app when a user signed in and Okta-to-Okta claims sharing was configured. (OKTA-860242)
+
+* The On-Behalf of Token Exchange flow was returning the wrong error message when an invalid `subject_token_type` was requested. (OKTA-841223)
+
+* When a POST request was made (`/api/v1/authorizationServers/{authServerId}/policies`) to create an authorization policy, the `created` and `lastUpdated` properties had a null value. (OKTA-848623)
+
+* Some identity provider API POST (`/api/v1/idps`) and PUT (`/api/v1/idps/{idpId}`) requests returned an HTTP 500 error code if the request didn't have the `policy.accountLink` object in the request body. (OKTA-865143)
+
+* When a GET request was made using the User Grants API (`/api/v1/users/{userId}/grants`), the response didn't include pagination links in the response header. (OKTA-826775)
+
 ### Monthly release 2025.02.0
 
 | Change | Expected in Preview Orgs |
