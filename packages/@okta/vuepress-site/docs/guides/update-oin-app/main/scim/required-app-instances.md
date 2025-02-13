@@ -9,7 +9,7 @@ Depending on the nature of your updates, you may need to generate instances for 
 
    * If you're updating all other properties from the **Configure your integration** and **Test integration** pages, then Okta recommends SCIM backwards-compatibility testing:
 
-      * If you tested and submitted your published integration from the same Okta Developer Edition org, you might already have an existing backward-comptible instance. Use this older app instance version to test backward compatibility. See [Testing backward-compatibiity](#test-your-integration).
+      * If you tested and submitted your published integration from the same Okta Developer Edition org, you might already have an existing backwards-compatible instance. Use this older app instance version to test backwards compatibility. See [Test your integration](#test-your-integration).
 
       * If you don't have an instance based on the published integration, exit the OIN Wizard and create an instance of the SCIM OIN-published instance. See [Add existing app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) to create an OIN-published instance for SCIM backwards-compatibility testing.
 
