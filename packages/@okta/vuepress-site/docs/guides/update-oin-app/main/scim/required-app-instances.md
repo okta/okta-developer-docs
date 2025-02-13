@@ -5,7 +5,7 @@ The **Required app instances** section shows you the instances detected in your 
 
 Depending on the nature of your updates, you may need to generate instances for backwards-compatibility testing. Okta recommends that you execute the Runscope tests on your SCIM published-version instance for backwards compatibility, but it's not a requirement for submission.
 
-   * If you're only updating app profiles or mapping, then you don't need to create an extra app instance for SCIM backward-compatibility testing. You can test the app profile updates in the updated instance version of your submission. See [Configure attribute mappings](#configure-attribute-mappings) when you generate a SCIM instance for testing. However, if you're updating the properties such as description, logo or guide link, then Okta recommends that you need to create an extra app instance for SCIM backward-compatibility testing.
+   * If you're only updating app profiles or mapping, then you don't need to create an extra app instance for SCIM backwards-compatibility testing. You can test the app profile updates in the updated instance version of your submission. See [Configure attribute mappings](#configure-attribute-mappings) when you generate a SCIM instance for testing. However, if you're updating the properties such as description, logo, or guide link, then Okta recommends that you create an extra app instance for SCIM backwards-compatibility testing.
 
    * If you're updating all other properties from the **Configure your integration** and **Test integration** pages, then Okta recommends SCIM backwards-compatibility testing:
 
