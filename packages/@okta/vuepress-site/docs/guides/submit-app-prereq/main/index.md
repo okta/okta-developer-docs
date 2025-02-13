@@ -127,7 +127,7 @@ The OIN Submission Tester only supports a password authentication flow. Use a pa
 If you have issues loading or accessing the OIN Submission Tester, review the following tips:
 
 * Ensure that you're using a Google Chrome browser with the [Okta Browser Plugin installed](#oin-wizard-okta-browser-plugin-setup).
-* Ensure that **Allow in Incognito** is enabled for the Okta Brower Plugin extension.
+* Ensure that **Allow in Incognito** is enabled for the Okta Browser Plugin extension.
 * Pin the Okta Browser Plugin extension on your Chrome browser to get error notifications.
 * If you're using multiple Okta orgs, the Okta Browser Plugin requires you to trust the current Okta Developer Edition org. Click **Trust** when the **Do you trust this account?** dialog appears for the Okta Browser Plugin extension.
 * Ensure that you're using a password-only authentication policy for the OIN Submission Tester. See [OIN Wizard authentication policy for testing](#oin-wizard-authentication-policy-for-testing).
@@ -516,9 +516,7 @@ You can't publish integrations with the following Okta features in the OIN catal
 
 * **SWA apps:** Okta no longer publishes new Secure Web Authentication (SWA) integrations to the OIN catalog. The OIN team maintains existing SWA integrations.
 
-* **SPA apps:** Traditional SPA and mobile apps integrate with Okta using an OIDC flow that authenticates by exchanging and storing tokens on the client. They rely on client-side authentication and can't be added to the OIN Wizard directly. However, SaaS app stacks with SPA or mobile components can be included in the OIN Wizard if a backend server handles the authentication. See the [Enterprise-Ready](https://developer.okta.com/blog/2023/07/28/oidc_workshop) workshop, for more information on authenticating SaaS apps with OpenID Connect.
-
-However, a SaaS app using the SPA architecture (like those built with React, Angular, or Vue) can be included in the OIN Wizard if a backend server handles the authentication.
+* **SPA apps:** Traditional SPA and mobile apps integrate with Okta using an OIDC flow that authenticates by exchanging and storing tokens on the client. They rely on client-side authentication and can't be added to the OIN Wizard directly. However, SaaS app stacks with SPA or mobile components can be included in the OIN Wizard if a backend server handles the authentication. See the [Enterprise-Ready workshop](https://developer.okta.com/blog/2023/07/28/oidc_workshop) for more information on authenticating SaaS apps with OpenID Connect.
 
 * **Unsupported multi-tenancy**: Your app integration must support multi-tenancy to be available in the public OIN catalog. See [OIN multi-tenancy](#oin-multi-tenancy).
 
