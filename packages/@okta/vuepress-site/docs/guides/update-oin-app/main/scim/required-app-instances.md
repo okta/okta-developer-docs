@@ -5,11 +5,11 @@ The **Required app instances** section shows you the instances detected in your 
 
 Depending on the nature of your updates, you may need to generate instances for backwards-compatibility testing. Okta recommends that you execute the Runscope tests on your SCIM published-version instance for backwards compatibility, but it's not a requirement for submission.
 
-   * If you're only updating app profiles, then you don't need to create an extra app instance for SCIM backward-compatibility testing. You can test the app profile updates in the updated instance version of your submission. See [Configure attribute mappings](#configure-attribute-mappings) when you generate a SCIM instance for testing.
+   * If you're only updating app profiles or mapping, then you don't need to create an extra app instance for SCIM backward-compatibility testing. You can test the app profile updates in the updated instance version of your submission. See [Configure attribute mappings](#configure-attribute-mappings) when you generate a SCIM instance for testing. However, if you're updating the properties such as description, logo or guide link, then Okta recommends that you need to create an extra app instance for SCIM backward-compatibility testing.
 
    * If you're updating all other properties from the **Configure your integration** and **Test integration** pages, then Okta recommends SCIM backwards-compatibility testing:
 
-      * If you tested and submitted your published integration from the same Okta Developer Edition org, you might already have an existing backward-comptible instance. Use this older app instance version to test backward compatibility. See [Testing backward-compatibiity].
+      * If you tested and submitted your published integration from the same Okta Developer Edition org, you might already have an existing backward-comptible instance. Use this older app instance version to test backward compatibility. See [Testing backward-compatibiity](#test-your-integration).
 
       * If you don't have an instance based on the published integration, exit the OIN Wizard and create an instance of the SCIM OIN-published instance. See [Add existing app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) to create an OIN-published instance for SCIM backwards-compatibility testing.
 
