@@ -516,7 +516,7 @@ You can't publish integrations with the following Okta features in the OIN catal
 
 * **SWA apps:** Okta no longer publishes new Secure Web Authentication (SWA) integrations to the OIN catalog. The OIN team maintains existing SWA integrations.
 
-* **SPA apps:** Traditional SPA apps integrate with Okta using an OIDC flow that authenticates by exchanging and storing tokens in browsers. They rely on client-side authentication and can't be added to the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/). 
+* **SPA apps:** Traditional SPA and mobile apps integrate with Okta using an OIDC flow that authenticates by exchanging and storing tokens on the client. They rely on client-side authentication and can't be added to the OIN Wizard directly. However, SaaS app stacks with SPA or mobile components can be included in the OIN Wizard if a backend server handles the authentication. See the [Enterprise-Ready](https://developer.okta.com/blog/2023/07/28/oidc_workshop) workshop, for more information on authenticating SaaS apps with OpenID Connect.
 
 However, a SaaS app using the SPA architecture (like those built with React, Angular, or Vue) can be included in the OIN Wizard if a backend server handles the authentication.
 

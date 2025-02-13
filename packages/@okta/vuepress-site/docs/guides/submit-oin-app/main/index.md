@@ -38,7 +38,7 @@ The OIN Wizard is a full-service tool in the Admin Console for you to do the fol
 
 The OIN team verifies your submitted integration before they publish it in the [OIN catalog](https://www.okta.com/integrations/).
 
-> **Note:** SPA apps aren't accepted in the OIN Wizard. You can only submit cloud-based SaaS apps (web apps with a back end) in the OIN Wizard.
+> **Note:** Traditional SPA and mobile apps integrate with Okta using an OIDC flow that authenticates by exchanging and storing tokens on the client. They rely on client-side authentication and can't be added to the OIN Wizard directly. However, SaaS app stacks with SPA or mobile components can be included in the OIN Wizard if a backend server handles the authentication. See the [Enterprise-Ready](https://developer.okta.com/blog/2023/07/28/oidc_workshop) workshop, for more information on authenticating SaaS apps with OpenID Connect.
 
 ### Protocols supported
 
