@@ -8,7 +8,7 @@ layout: Guides
 
 Use this guide to understand the process of submitting Workflows connector and API service integrations to the Okta Integration Network (OIN) using the OIN Manager. This guide also shows you how to update a previously published integration or delete a draft submission.
 
-> **Note:** For SSO or Lifecycle Management (LCM) SCIM integrations, use the [OIN Wizard](/docs/guides/submit-oin-app/scim/main/) for a seamless ISV submission experience. Previously submitted SSO and LCM SCIM integrations from the OIN Manager have been migrated to the OIN Wizard. You can edit these published integrations directly in the OIN Wizard and resubmit them to the OIN team. See [Update a published integrating with the OIN Wizard](/docs/guides/update-oin-app/).
+> **Note:** For SSO or Lifecycle Management (LCM) SCIM integrations, use the [OIN Wizard](/docs/guides/submit-oin-app/scim/main/) for a seamless ISV submission experience. Previously submitted SSO and LCM SCIM integrations from the OIN Manager have been migrated to the OIN Wizard. You can edit these published integrations directly in the OIN Wizard and resubmit them to the OIN team. See [Update a published integration with the OIN Wizard](/docs/guides/update-oin-app/).
 
 ---
 
