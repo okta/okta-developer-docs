@@ -377,6 +377,7 @@ The [Email Domains API](https://developer.okta.com/docs/api/openapi/okta-managem
 ### Known Issues
 
 - You can't configure Okta to send emails through a domain that uses [SendGrid](https://sendgrid.com/). Instead, configure a subdomain with your DNS provider for custom Okta emails.
+- - You can't have more than 10 DNS lookups in your SPF record.
 
 ## Next steps
 
