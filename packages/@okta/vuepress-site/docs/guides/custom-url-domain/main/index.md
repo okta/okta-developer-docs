@@ -372,7 +372,7 @@ The [Email Domains API](https://developer.okta.com/docs/api/openapi/okta-managem
 
 7. After you've updated your DNS records through your domain provider, click **Verify**. Okta begins polling your DNS records until it detects your updates (this may take up to 24 hours). Your configuration is pending until the DNS updates are detected.
 
-> **Note:** If you use the default Okta email provider, [SPF and DKIM records](https://support.okta.com/help/s/article/spf-and-dkim-for-custom-email-senders?language=en_US) are automatically generated. If you use a custom email provider, you need to configure the SPF and DKIM. See [Use your own email provider](https://help.okta.com/oie/en-us/content/topics/settings/custom-email-provider.htm).
+> **Note:** If you use the default Okta email provider, [SPF and DKIM records](https://support.okta.com/help/s/article/spf-and-dkim-for-custom-email-senders?language=en_US) are automatically generated. If you use a custom email provider, you need to configure the SPF and DKIM. See [Use your own email provider](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-provider-main).
 
 ### Known Issues
 
