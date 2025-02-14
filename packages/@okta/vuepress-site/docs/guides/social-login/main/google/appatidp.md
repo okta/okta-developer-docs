@@ -2,7 +2,7 @@ At Google, create the client application that you want to use for authenticating
 
 1. Make sure that you can access the [Google Developers Console](https://console.developers.google.com/).
 
-1. Create a Google project using these [instructions](https://developers.google.com/identity/sign-in/web/sign-in#before_you_begin).
+1. Create a Google project using these [instructions](https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid).
 
 1. In the **Authorized redirect URIs** section of the creation wizard, click **ADD URI** to add the Okta redirect URI for your app integration.
 
