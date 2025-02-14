@@ -24,12 +24,13 @@ For customizing an Okta-managed domain or using your own TLS certificate:
 
 For customizing a domain using your own TLS certificate:
 
-* A valid TLS certificate for your subdomain (2048, 3072, or 4096 bits) (PEM-encoded)
-* A private key (2048, 3072, or 4096 bits) (PEM-encoded)
+* A valid TLS certificate for your subdomain (2048 bits, 3072 bits, or 4096 bits) (PEM-encoded)
+* A private key (2048 bits, 3072 bits, or 4096 bits) (PEM-encoded)
 
 For configuring a custom email address:
 
 * Access to the DNS records of your public custom domain
+* If you use a custom email provider, you need to configure the Sender Policy Framework (SPF) and DomainKeys Identified Mail (DKIM). See [Use your own email provider](https://help.okta.com/oie/en-us/content/topics/settings/custom-email-provider.htm).
 
 ---
 
@@ -85,7 +86,7 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 
 * If you use your own TLS certificate, consider the following:
 
-  * It can be 2048, 3072, or 4096-bits.
+  * It can be 2048 bits, 3072 bits, or 4096 bits.
 
   * It should be signed with the SHA-256 hash algorithm.
 
@@ -370,6 +371,8 @@ The [Email Domains API](https://developer.okta.com/docs/api/openapi/okta-managem
 6. Update your DNS records using the provided values.
 
 7. After you've updated your DNS records through your domain provider, click **Verify**. Okta begins polling your DNS records until it detects your updates (this may take up to 24 hours). Your configuration is pending until the DNS updates are detected.
+
+> **Note:** If you use the default Okta email provider, [SPF and DKIM records](https://support.okta.com/help/s/article/spf-and-dkim-for-custom-email-senders?language=en_US) are automatically generated. If you use a custom email provider, you need to configure the SPF and DKIM. See [Use your own email provider](https://help.okta.com/oie/en-us/content/topics/settings/custom-email-provider.htm).
 
 ### Known Issues
 
