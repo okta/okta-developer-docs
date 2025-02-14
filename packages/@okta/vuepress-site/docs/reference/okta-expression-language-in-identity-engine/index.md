@@ -92,7 +92,7 @@ You can specify the [dynamic IdP](https://developer.okta.com/docs/api/openapi/ok
 
 ### Okta account management
 
-You can specify certain [Expression Language conditions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/conditions/elCondition&t=request) in [Okta account management policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-oamp).
+You can specify certain [Expression Language conditions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/conditions/elCondition&t=request) in [Okta account management policies](/docs/guides/okta-account-management-policy/main/).
 
 | Syntax | Definitions | Type |
 | ------ | ----------- | ---- |
