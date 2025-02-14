@@ -24,13 +24,13 @@ For customizing an Okta-managed domain or using your own TLS certificate:
 
 For customizing a domain using your own TLS certificate:
 
-* A valid TLS certificate for your subdomain (2048, 3072, or 4096 bits) (PEM-encoded)
-* A private key (2048, 3072, or 4096 bits) (PEM-encoded)
+* A valid TLS certificate for your subdomain (2048 bits, 3072 bits, or 4096 bits) (PEM-encoded)
+* A private key (2048 bits, 3072 bits, or 4096 bits) (PEM-encoded)
 
 For configuring a custom email address:
 
 * Access to the DNS records of your public custom domain
-* An implementation of the [Sender Policy Framework (SPF)](https://tools.ietf.org/html/rfc7208) to prevent sender address forgery. If you already implemented SPF in your custom domain, ensure that you update the SPF record.
+* If you use a custom email provider, you need to configure the Sender Policy Framework (SPF) and DomainKeys Identified Mail (DKIM). See [Use your own email provider](https://help.okta.com/oie/en-us/content/topics/settings/custom-email-provider.htm).
 
 ---
 
@@ -86,7 +86,7 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 
 * If you use your own TLS certificate, consider the following:
 
-  * It can be 2048, 3072, or 4096-bits.
+  * It can be 2048 bits, 3072 bits, or 4096 bits.
 
   * It should be signed with the SHA-256 hash algorithm.
 
@@ -370,37 +370,14 @@ The [Email Domains API](https://developer.okta.com/docs/api/openapi/okta-managem
 
 6. Update your DNS records using the provided values.
 
-7. After you've updated your DNS records through your domain provider, click **I've updated the DNS records**. Okta begins polling your DNS records until it detects your updates (this may take up to 24 hours). Your configuration is pending until the DNS updates are detected.
+7. After you've updated your DNS records through your domain provider, click **Verify**. Okta begins polling your DNS records until it detects your updates (this may take up to 24 hours). Your configuration is pending until the DNS updates are detected.
 
-    Alternatively, you can click **I will update the DNS records later**. Your records aren't polled and your configuration is incomplete until you update the relevant DNS records and click **I've updated the DNS records**. You can view the list of records that require an update at any time.
-
-8. Add the SPF record to your DNS zone (the root domain). An SPF record specifies the mail servers that your organization has authorized to send mail from your domain. If your root domain already has an SPF record, the following update can prevent spoofers from sending mail that mimics your domain.
-
-    For example, if you only send mail from Microsoft Office 365, your SPF record has an include-statement similar to:
-
-    ```plain
-    example.com TXT    v=spf1 include:spf.protection.outlook.com -all
-    ```
-
-    To finish configuring your custom email domain, you must add another include-statement. The include-statement must specify the mail domain that you entered in the **Mail domain to send from** field. Use the mail domain from the Configure Email Sender dialog box in step 6. This is also the host that appears in the first CNAME row in the DNS Records table.
-
-    <div class="three-quarter border">
-
-    ![CNAME table with an arrow pointing at the first CNAME row in the table](/img/admin/CNAMEExample.png)
-
-    </div>
-
-    Add the host to the existing record to configure a combined SPF record similar to this:
-
-    ```plain
-    example.com TXT    v=spf1 include:oktaemail.example.com include:spf.protection.outlook.com -all
-    ```
+> **Note:** If you use the default Okta email provider, [SPF and DKIM records](https://support.okta.com/help/s/article/spf-and-dkim-for-custom-email-senders?language=en_US) are automatically generated. If you use a custom email provider, you need to configure the SPF and DKIM. See [Use your own email provider](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-provider-main).
 
 ### Known Issues
 
 - You can't configure Okta to send emails through a domain that uses [SendGrid](https://sendgrid.com/). Instead, configure a subdomain with your DNS provider for custom Okta emails.
-
-- You can't have more than 10 DNS lookups in your SPF record.
+- - You can't have more than 10 DNS lookups in your SPF record.
 
 ## Next steps
 
