@@ -185,9 +185,9 @@ Group functions return either an array of groups or **True** or **False**.
 | Function                        | Return type | Example                                                         |
 | ---------                       | ----------- | -------                                                         |
 | `getFilteredGroups`             | Array       | `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40)` |
-| `Groups.contains`               | Array       | `contains(app_type/app_instance_id, pattern, limit)`            |
-| `Groups.startsWith`             | Array       | `startsWith(app_type/app_instance_id, pattern, limit)`          |
-| `Groups.endsWith`               | Array       | `endsWith(app_type/app_instance_id, pattern, limit)`            |
+| `Groups.contains`               | Array       | `Groups.contains(app_type/app_instance_id, pattern, limit)`            |
+| `Groups.startsWith`             | Array       | `Groups.startsWith(app_type/app_instance_id, pattern, limit)`          |
+| `Groups.endsWith`               | Array       | `Groups.endsWith(app_type/app_instance_id, pattern, limit)`            |
 | `isMemberOfGroupName`           | Boolean     | `isMemberOfGroupName("group1")`                                 |
 | `isMemberOfGroup`               | Boolean     | `isMemberOfGroup("groupId")`                                    |
 | `isMemberOfAnyGroup`            | Boolean     | `isMemberOfAnyGroup("groupId1", "groupId2", "groupId3")`        |
