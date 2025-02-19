@@ -8,6 +8,27 @@ title: Okta Identity Engine API release notes 2025
 
 ## February
 
+### Weekly release 2025.02.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Incode as a third-party identity verification provider is EA in Preview](#incode-as-a-third-party-identity-verification-provider-is-ea-in-preview) | February 20, 2025 |
+| [Bugs fixed in 2025.02.2](#bugs-fixed-in-2025-02-2)| February 20, 2025 |
+
+#### Incode as a third-party identity verification provider is EA in Preview
+
+Okta now supports using Incode as an identity provider. This increases the number of identity verification vendors (IDVs) you can use to verify the identity of your users when they onboard or reset their account. Set `IDV_INCODE` as the IdP `type` when you [create an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider). <!-- OKTA-848097  IDV_STANDARD_INTEGRATION -->
+
+#### Bugs fixed in 2025.02.2
+
+* An API request to create a resource set with a duplicate name sometimes returned a 5xx error instead of a 4xx error response. (OKTA-867792)
+
+* Admins couldn't retrieve more than five entitlement SAML assertions and OIDC claims when configuring apps. (OKTA-865900)
+
+* The contains (`co`) operator sometimes gave unclear error messages when using less than three characters or with other operators. (OKTA-846206)
+
+* When an admin attempted to revoke an API token (`DELETE /api/v1/api-tokens/{apiTokenId}`), and the credential used to authenticate the request was an `access_token` for a Service client, an HTTP 403 error was returned. (OKTA-844384)
+
 ### Weekly release 2025.02.1
 
 | Change | Expected in Preview Orgs |
