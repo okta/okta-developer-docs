@@ -4,8 +4,6 @@ excerpt: Learn how to implement federated claims with entitlements for an app
 layout: Guides
 ---
 
-<ApiLifecycle access="ea" />
-
 This guide describes how to configure your app to pass entitlements in your tokens using federated claims.
 
 ---
