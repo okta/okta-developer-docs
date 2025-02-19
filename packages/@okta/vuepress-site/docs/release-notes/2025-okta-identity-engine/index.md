@@ -25,10 +25,9 @@ Okta now supports using Incode as an identity provider. This increases the numbe
 
 * Admins couldn't retrieve more than five entitlement SAML assertions and OIDC claims when configuring apps. (OKTA-865900)
 
-* The contains (`co`) operator sometimes gave unclear error messages when using less than 3 characters or with other operators. (OKTA-846206)
+* The contains (`co`) operator sometimes gave unclear error messages when using less than three characters or with other operators. (OKTA-846206)
 
 * When an admin attempted to revoke an API token (`DELETE /api/v1/api-tokens/{apiTokenId}`), and the credential used to authenticate the request was an `access_token` for a Service client, an HTTP 403 error was returned. (OKTA-844384)
-
 
 ### Weekly release 2025.02.1
 
