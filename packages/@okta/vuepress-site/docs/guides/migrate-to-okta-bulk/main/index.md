@@ -35,16 +35,16 @@ The [Okta Users API](https://developer.okta.com/docs/api/openapi/okta-management
 
 This guide uses the following sample data for one user:
 
-* First Name: John
-* Last Name: Smith
-* Email Address: john.smith@example.com
+* First name: John
+* Last name: Smith
+* Email address: john.smith@example.com
 * Groups: All Employees, Sales, Northeast
 
-It's a good idea to use sample data that's as close as possible to your real user data to identify any potential issues before implementation.
+It's a good idea to use sample data that's similar to your real user data to identify any potential issues before implementation.
 
 ## Create groups
 
-Suppose you have groups in your user data that you want to include when you create your users in Okta. To do this, you must first create Okta groups that are equivalent to the groups in your user data. You can create an Okta group for the sample data (in this case, "All Employees") using an [Add a group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/addGroup) request:
+Suppose that you have groups in your user data that you want to include when you create your users in Okta. To do this, you must first create Okta groups that are equivalent to the groups in your user data. You can create an Okta group for the sample data (in this case, "All Employees") using an [Add a group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/addGroup) request:
 
 ### Request example
 
@@ -104,11 +104,11 @@ The description property can be empty.
 
 You can obtain the new group ID (`id`) from the response to use when you create users in that group later. You can also list all groups in your org and obtain their IDs using a [List all groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups) request.
 
-You can also create groups in your Admin Console. For more information, see [About groups](https://help.okta.com/okta_help.htm?id=Directory_Groups) in the product documentation.
+To create groups in your Admin Console, see [About groups](https://help.okta.com/okta_help.htm?id=Directory_Groups) in the product documentation.
 
 ## Create users
 
-After you create all the necessary Okta groups, you can create users and include their group memberships. As mentioned earlier, this example uses the [Create user without credentials](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#create-user-without-credentials) scenario to create our sample user. In our sample, the user's email address is our unique login and the group IDs are from the List groups request in the previous step.
+After you create all the necessary Okta groups, you can create users and include their group memberships. As mentioned earlier, this example uses the [Create user without credentials](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#create-user-without-credentials) scenario to create our sample user. In this sample, the user's email address is the unique login. The group IDs are from the List all groups request in the previous step.
 
 ### Request example with groups
 
@@ -132,7 +132,7 @@ curl -v -X POST \
 }' "https://{yourOktaDomain}/api/v1/users?activate=false"
 ```
 
-If you don't have any groups or want to add your users to groups later, simply use the same request but without the `groupIds` array.
+If you don't have any groups or want to add your users to groups later, use the same request but without the `groupIds` array.
 
 ### Request example without groups
 
@@ -207,7 +207,7 @@ curl -v -X POST \
 
 ## User status and activation
 
-The user status in the response when you create a user is set to `STAGED`, which means that the user has been created but not activated yet. You can activate users using the API or in your Admin Console. For more information on account states and activation, see the following links:
+The user status in the response when you create a user is set to `STAGED`, which means that the user has been created but not activated yet. You can activate users with the API or in your Admin Console. For more information on account states and activation, see the following links:
 
 * [User status values](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#user-status) (API reference)
 * [Activate a user request](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserLifecycle/#tag/UserLifecycle/operation/activateUser) (API reference)
@@ -216,13 +216,13 @@ The user status in the response when you create a user is set to `STAGED`, which
 
 ## Rate limits
 
-Remember that [rate limits](/docs/reference/rate-limits/) apply to API requests when doing bulk/batch user migration. Rate limits differ depending on the level of service that you’ve purchased from Okta. [You can check your rate limits](/docs/reference/rate-limits/#check-your-rate-limits-with-okta-s-rate-limit-headers) in your code using the Okta Rate Limit Headers.
+Remember that [rate limits](/docs/reference/rate-limits/) apply to API requests when performing bulk/batch user migration. Rate limits differ depending on the level of service that you’ve purchased from Okta. [You can check your rate limits](/docs/reference/rate-limits/#check-your-rate-limits-with-okta-s-rate-limit-headers) in your code using the Okta Rate Limit Headers.
 
 ## Next steps
 
 At this point, you should understand how to use the Okta API to migrate legacy users and groups to Okta.
 
-Your next step should be configuring the necessary integration and access to applications for your users. Be sure to read the product documentation for an [overview of application integration](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps) and see the information about [The Applications Page](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page) for more on how to configure your applications.
+Your next step is configuring the necessary integration and access to apps for your users. Be sure to read the product documentation for an [overview of application integration](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps) and see [The Applications Page](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page) for more on how to configure your apps.
 
 ## See also
 
