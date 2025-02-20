@@ -28,12 +28,15 @@
          -->
         <HomePageBanner
           v-show="showBanner"
-          primary-cta-text="Save your spot now"
+          primary-cta-text="Sign up for the Integrator Free Plan"
+          primary-cta-href="https://developer.okta.com/signup/"
           primary-link-target="_blank"
+          secondary-cta-text="Okta blog post"
+          secondary-cta-link="https://developer.okta.com/blog/"
         >
           <!-- <template #heading /> -->
           <template #description>
-            Join Aaron and Semona to learn more about the OAuth Global Token Revocation standard and how it can impact your applications via Okta’s new feature: Universal Logout.
+            Coming May 2, 2025! Okta is introducing a new free org for developers and integrators that is available on the Sign Up page. The Integration Free Plan org will replace the existing Okta Developer Edition Service. If you are an existing Okta Developer Edition user, you will need to update to the new org. <a href="https://developer.okta.com/blog/" target="_blank">Learn more</a>.
           </template>
         </HomePageBanner>
       </div>
@@ -46,9 +49,9 @@ export default {
   name: "Hero",
   computed: {
     showBanner() {
-      const bannerStartTime = new Date('2024-09-03T01:00:00-04:00');
+      const bannerStartTime = new Date('2025-02-14T01:00:00-04:00');
       const bannerStartTimeEpoch = Math.floor(bannerStartTime.getTime() / 1000);
-      const bannerEndTime = new Date('2024-09-24T23:59:00-04:00');
+      const bannerEndTime = new Date('2025-02-24T23:59:00-04:00');
       const bannerEndTimeEpoch = Math.floor(bannerEndTime.getTime() / 1000);
 
       const currentTimeEpoch = Math.floor(Date.now() / 1000);
