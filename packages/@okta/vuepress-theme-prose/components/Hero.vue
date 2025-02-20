@@ -30,13 +30,13 @@
           v-show="showBanner"
           primary-cta-text="Sign up for the Integrator Free Plan"
           primary-cta-href="https://developer.okta.com/signup/"
-          primary-link-target="_blank"
-          secondary-cta-text="Okta blog post"
+
+          secondary-cta-text="Learn more at the Okta blog"
           secondary-cta-link="https://developer.okta.com/blog/"
         >
           <!-- <template #heading /> -->
           <template #description>
-            Coming May 2, 2025! Okta is introducing a new free org for developers and integrators that is available on the Sign Up page. The Integration Free Plan org will replace the existing Okta Developer Edition Service. If you are an existing Okta Developer Edition user, you will need to update to the new org. <a href="https://developer.okta.com/blog/" target="_blank">Learn more</a>.
+            <strong>Coming May 2, 2025!</strong> Okta is introducing a new free org for developers and integrators available at <a href="http://localhost:8080/signup/">Sign Up</a>. The Integration Free Plan org will replace the existing Okta Developer Edition Service. If you are an existing Okta Developer Edition user, you will need to update to the new org. <a href="https://developer.okta.com/blog/" target="_blank">Learn more</a>.
           </template>
         </HomePageBanner>
       </div>
