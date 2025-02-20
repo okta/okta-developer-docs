@@ -209,7 +209,7 @@ curl -v -X POST \
 
 The user status in the response when you create a user is set to `STAGED`, which means that the user has been created but not activated yet. You can activate users using the API or in your Admin Console. For more information on account states and activation, see the following links:
 
-* [User status values](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!c=200&path=status&t=response) (API reference)
+* [User status values](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#user-status) (API reference)
 * [Activate a user request](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserLifecycle/#tag/UserLifecycle/operation/activateUser) (API reference)
 * [About user account status](https://help.okta.com/okta_help.htm?id=ext_end_user_states) (product documentation)
 * [Activate user accounts](https://help.okta.com/okta_help.htm?id=ext_activate_user) (product documentation)
