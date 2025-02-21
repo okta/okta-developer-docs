@@ -39,6 +39,7 @@ export default {
     }
   },
   mounted() {
+    if(!this.appContext.treeNavDocs) return;
     let navigation = this.$parent.getMenuItems();    
     navigation = navigation.concat(this.appContext.treeNavDocs);
     this.list = this.navigation = navigation.map(nav => {
