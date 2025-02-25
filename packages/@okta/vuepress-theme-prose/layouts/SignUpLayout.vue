@@ -19,9 +19,19 @@ export default {
     Header: () => import("../components/Header"),
     SmartLink: () => import("../components/SmartLink"),
   },
+  provide() {
+    return {
+      appContext: this.appContext,
+    }
+  },
+  data() {
+    return {
+      appContext: {}
+    }
+  },
   mounted: function() {
     import("../util/pendo");
-  },
+  }
 };
 </script>
 

@@ -114,7 +114,7 @@ export default {
       let maxHeight =
         window.innerHeight -
         document.querySelector(".fixed-header").clientHeight - 
-        document.querySelector(".header-nav").clientHeight;
+        (document.querySelector(".header-nav")?.clientHeight || 0);
         
       document.querySelector(".sidebar-area").style.height =
         maxHeight + "px";
@@ -123,7 +123,7 @@ export default {
       let maxHeight =
         window.innerHeight -
         document.querySelector(".fixed-header").clientHeight - 
-        document.querySelector(".header-nav").clientHeight;
+        (document.querySelector(".header-nav")?.clientHeight || 0);
         
       if (document.querySelector(".sidebar-area")) {
       document.querySelector(".sidebar-area").style.height =

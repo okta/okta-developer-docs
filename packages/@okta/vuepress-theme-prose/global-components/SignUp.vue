@@ -164,6 +164,7 @@
                       id="firstName"
                       v-model="form.firstName.value"
                       class="signup__form__input"
+                      required
                       type="text"
                       maxlength="128"
                       placeholder="First Name"
@@ -193,6 +194,7 @@
                       id="lastName"
                       v-model="form.lastName.value"
                       class="signup__form__input"
+                      required
                       type="text"
                       maxlength="128"
                       placeholder="Last Name"
@@ -222,6 +224,7 @@
                       id="email"
                       v-model="form.email.value"
                       class="signup__form__input"
+                      required
                       type="text"
                       maxlength="128"
                       placeholder="Work Email"
@@ -300,11 +303,12 @@
                     class="signup__form__field"
                     for="state"
                   >
-                    <div class="signup__form__label">{{ states.label }}</div>
+                    <div class="signup__form__label">{{ states.label }}<div class="signup__form__label-required">*</div></div>
                     <select
                       id="state"
                       v-model="form.state.value"
                       class="signup__form__input"
+                      required
                       name=""
                       :class="{ error: !form.state.isValid }"
                       @change="validationService.checkFormInput('state'), setHeight()"
@@ -410,7 +414,6 @@
                     id="submitbutton"
                     class="signup__form__button signup__form__button-dark"
                     for="signup"
-                    :class="!validationService.isValidForm() ? 'disabled' : ''"
                   >
                     <a
                       v-if="isPending"
@@ -423,7 +426,6 @@
                       id="signup"
                       type="submit"
                       class="btn"
-                      :disabled="!validationService.isValidForm()"
                       value="Sign up"
                     >
                   </label>
