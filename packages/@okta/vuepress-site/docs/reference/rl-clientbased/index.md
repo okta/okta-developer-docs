@@ -126,7 +126,7 @@ The rate limit headers that are returned when the client-based rate limit is ena
 
 > **Note:** If a client-based rate limit is in **Log per client** or **Do nothing** mode, the headers that are returned still reflect the org-wide rate limits.
 
-For client-specific rate limits, the three headers show the limit that’s being enforced, when it resets, and how close you're to hitting the limit:
+For client-specific rate limits, the three headers show the limit that’s being enforced, when it resets, and how close you are to hitting the limit:
 
 * `X-Rate-Limit-Limit`: The rate limit ceiling that’s applicable for the current request to the specific client.
 * `X-Rate-Limit-Remaining`: The number of requests left until the limit is hit for the specific client during the current rate limit window
@@ -151,7 +151,7 @@ To configure the client-based rate limit for existing orgs:
 
 2. Select the type of **Rate limit per client** that you want to implement:
 
-    * Select **Enforce and log per client (recommended)** to enable a client-based rate limit.
+    * Select **Enforce and log per client (recommended)** to enable client-based rate limiting.
 
     * Select **Log per client** to enable the client-based rate limit in preview mode. In **Log per client** mode, the rate limit is based on the org-wide rate limit values, but client-specific rate limit error information is logged as System Log events. By analyzing these System Log events, you can determine if the client-based rate limit is effective for you.
 
