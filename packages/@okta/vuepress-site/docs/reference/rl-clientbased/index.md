@@ -12,11 +12,11 @@ excerpt: >-
 
 * A client accessing a non-OAuth 2.0 application, which uses the IP address and device identifier for rate-limiting. This is the case for an Okta Classic Engine org `/login/login.htm` endpoint.
 
-The client access process can include requests to multiple API endpoints that differ based on your type of org: Okta Identity Engine or Classic Engine. The Identity Engine endpoints can include `/idp/idx`, `/idp/idx/identify`, `/idp/idx/introspect`, and [Identity Engine App intent links](/docs/concepts/oie-intro/#app-intent-links).
+The client access process can include requests to multiple API endpoints that differ based on your type of org: Okta Identity Engine or Classic Engine. The Identity Engine endpoints include [Identity Engine App intent links](/docs/concepts/oie-intro/#app-intent-links).
 
 The Classic Engine and the Identity Engine both include client-based rate-limiting for the OAuth 2.0 API endpoint `/authorize`. This endpoint provides granular isolation for requests made to the OAuth 2.0 `/authorize` endpoint, and this framework isolates rogue OAuth 2.0 clients and bad actors, ensuring that valid users and applications don't run into rate limit violations.
 
-The Identity Engine includes client-based rate limiting for multiple API entry points that implement the [Interaction Code grant type](/docs/concepts/interaction-code/), which performs a series of interactions and API calls between the user and authorization server.
+The Identity Engine includes client-based rate limiting for multiple API entry points that implement the [Interaction Code grant type](/docs/concepts/interaction-code/), which performs a series of interactions and API calls between the user and the authorization server.
 
 The Classic Engine also includes client-based rate limiting for the `/login/login.htm` endpoint, and provides granular, targeted rate limits to a user, app, script, or server.
 
@@ -60,13 +60,13 @@ With the client-based rate limit framework enabled, after Bob exceeds his indivi
 
 ##### Example use of the /login/login.htm request
 
-When Bob and Alice try to go to their application and land on the sign-in page, a request is made to the `/login/login.htm` endpoint. Both Alice and Bob get their own per minute request quota of 60 for landing on that page, which is determined by (IP + device ID).
+When Bob and Alice try to go to their application and land on the sign-in page, a request is made to the `/login/login.htm` endpoint. Both Alice and Bob get their own per-minute request quota of 60 for landing on that page, which is determined by (IP + device ID).
 
 If the request quota isn't set, Bob or Alice would have to make the request enough times that the entire org bucket would hit rate limits. Those requests would affect the entire org.
 
 #### Client-based isolation for users accessing OAuth 2.0 /authorize from a NAT IP
 
-Alice, Bob, and Lisa all work from the same office. Since they access Okta through a Network Address Translation (NAT) IP from their office network, everyone shares an IP address. When they make the authorize request to `https://company.okta.com/oauth2/v1/default/authorize?clientId=portal123`, the client-based rate limit framework creates a unique per minute request quota from the combination of every user's IP address, the OAuth 2.0 client ID of the application, and the device identifier set by Okta in each user's browser.
+Alice, Bob, and Lisa all work from the same office. Since they access Okta through a Network Address Translation (NAT) IP from their office network, everyone shares an IP address. When they make the authorize request to `https://company.okta.com/oauth2/v1/default/authorize?clientId=portal123`, the client-based rate limit framework creates a unique per-minute request quota from the combination of every user's IP address, the OAuth 2.0 client ID of the application, and the device identifier set by Okta in each user's browser.
 
 <div class="three-quarter border">
 
@@ -126,10 +126,10 @@ The rate limit headers that are returned when the client-based rate limit is ena
 
 > **Note:** If a client-based rate limit is in **Log per client** or **Do nothing** mode, the headers that are returned still reflect the org-wide rate limits.
 
-For client-specific rate limits, the three headers show the limit that is being enforced, when it resets, and how close you're to hitting the limit:
+For client-specific rate limits, the three headers show the limit that’s being enforced, when it resets, and how close you are to hitting the limit:
 
-* `X-Rate-Limit-Limit`: The rate limit ceiling that is applicable for the current request to the specific client.
-* `X-Rate-Limit-Remaining`: The amount of requests left until the limit is hit for the specific client during the current rate limit window
+* `X-Rate-Limit-Limit`: The rate limit ceiling that’s applicable for the current request to the specific client.
+* `X-Rate-Limit-Remaining`: The number of requests left until the limit is hit for the specific client during the current rate limit window
 * `X-Rate-Limit-Reset`: The time when the rate limit resets, specified in [UTC epoch time](https://www.epochconverter.com/) for the specific client.
 
 For example:
@@ -141,7 +141,7 @@ X-Rate-Limit-Remaining: 35
 X-Rate-Limit-Reset: 1516307596
 ```
 
-When a specific client exceeds either the 60 requests per minute limit or the concurrent limit (five concurrent requests), then the respective requests return an HTTP 429 error.
+When a specific client exceeds either the 60 requests per-minute limit or the concurrent limit (five concurrent requests), then the respective requests return an HTTP 429 error.
 
 ### How to enable this feature
 
@@ -151,7 +151,7 @@ To configure the client-based rate limit for existing orgs:
 
 2. Select the type of **Rate limit per client** that you want to implement:
 
-    * Select **Enforce and log per client (recommended)** to enable client-based rate limit.
+    * Select **Enforce and log per client (recommended)** to enable client-based rate limiting.
 
     * Select **Log per client** to enable the client-based rate limit in preview mode. In **Log per client** mode, the rate limit is based on the org-wide rate limit values, but client-specific rate limit error information is logged as System Log events. By analyzing these System Log events, you can determine if the client-based rate limit is effective for you.
 
