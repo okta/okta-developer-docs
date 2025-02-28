@@ -38,9 +38,9 @@ To handle the sign-in experience for any javascript-based SPA, use the Okta Auth
 |   |         |         |         |   |
 |---|---------|---------|---------|---|
 | ![Javascript](/img/sdks/javascript.png) | Javascript | [Auth Javascript SDK (Auth.js)](https://github.com/okta/okta-auth-js) |  | [Guide](/docs/guides/auth-js-redirect/) |
-| ![React](/img/sdks/react.png) | React | [React SDK](https://github.com/okta/okta-react) | [Sample App](https://github.com/okta/samples-js-react/tree/master/okta-hosted-login) | [Guide](/docs/guides/sign-into-spa-redirect/react/main/) |
-| ![Angular](/img/sdks/angular.png) | Angular | [Angular SDK](https://github.com/okta/okta-angular) | [Sample App](https://github.com/okta/samples-js-angular/tree/master/okta-hosted-login) | [Guide](/docs/guides/sign-into-spa-redirect/angular/main/) |
-| ![Vue](/img/sdks/vue.png) | Vue | [Vue SDK](https://github.com/okta/okta-vue) | [Sample App](https://github.com/okta/samples-js-vue/tree/master/okta-hosted-login) | [Guide](/docs/guides/sign-into-spa-redirect/vue/main/) |
+| ![React](/img/sdks/react.png) | React | [React SDK](https://github.com/okta/okta-react) | [Sample App](https://github.com/okta-samples/okta-react-sample) | [Guide](/docs/guides/sign-into-spa-redirect/react/main/) |
+| ![Angular](/img/sdks/angular.png) | Angular | [Angular SDK](https://github.com/okta/okta-angular) | [Sample App](https://github.com/okta-samples/okta-angular-quickstart) | [Guide](/docs/guides/sign-into-spa-redirect/angular/main/) |
+| ![Vue](/img/sdks/vue.png) | Vue | [Vue SDK](https://github.com/okta/okta-vue) | [Sample App](https://github.com/okta-samples/okta-vue-sample) | [Guide](/docs/guides/sign-into-spa-redirect/vue/main/) |
 | ![Blazor](/img/sdks/dotnet.png) | Blazor<br />WebAssembly |  | [Sample App](https://github.com/okta/samples-blazor/tree/master/web-assembly/okta-hosted-login) |  |
 
 > **Note:** All Okta JS libraries are hosted on [npm](https://www.npmjs.com/search?q=%40okta).
