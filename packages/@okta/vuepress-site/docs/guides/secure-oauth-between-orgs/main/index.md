@@ -4,9 +4,8 @@ excerpt: Learn how to synchronize users and groups between orgs with OAuth 2.0 i
 layout: Guides
 ---
 
-This guide explains how to securely configure Okta hub-and-spoke orgs to synchronize users and groups using OAuth 2.0 in a [multi-tenant solution](/docs/concepts/multi-tenancy/). In the hub-and-spoke model, the spoke org is also referred to as the source org and the hub org is the target org. The provisioning connection between Okta orgs is configured as an OAuth 2.0 [Org2Org app integration](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg). This connection provides API access to scoped data using the OAuth 2.0 Client Credential flow.
+This guide explains how to securely configure Okta hub-and-spoke orgs to synchronize users and groups using OAuth 2.0 in a [multi-tenant solution](/docs/concepts/multi-tenancy/) with Okta APIs. In the hub-and-spoke model, the source org is referred to as the spoke org and the target org is the hub org. The provisioning connection between Okta orgs is configured as an OAuth 2.0 Org2Org app integration. This connection provides API access to scoped resources using the OAuth 2.0 Client Credential flow.
 
-> **Note**: Currently, only the Okta API can be used to enable OAuth 2.0-based provisioning.
 ---
 
 #### Learning outcomes
@@ -15,11 +14,11 @@ This guide explains how to securely configure Okta hub-and-spoke orgs to synchro
 * Configure the hub Okta org with service apps for each spoke Okta org.
 * Configure an Org2Org app on each spoke Okta org.
 * Configure and activate Org2Org provisioning on spoke Okta orgs.
-* Rotate keys for the OAuth 2.0 connection.
 
 #### What you need
 
-Multiple Okta orgs for your multi-tenant solution
+* Multiple Okta orgs for your multi-tenant solution
+* A tool to make secure REST API calls (for example, Postman)
 
 > **Note:** The Okta Org2Org app integration isn't available in Okta Developer Edition orgs. If you need to test this feature in your developer org, contact your Okta account team.
 
@@ -27,9 +26,12 @@ Multiple Okta orgs for your multi-tenant solution
 
 ## OAuth 2.0 for secure API connections in multi-tenant solutions
 
-To secure API connections between orgs in a hub-and-spoke [multi-tenant solution](/docs/concepts/multi-tenancy/) model, use the Okta Org2Org integration as an OAuth 2.0 client. In this model, the spoke org is referred to as the source org and the hub org is the target org.
+To secure API connections between orgs in a hub-and-spoke [multi-tenant solution](/docs/concepts/multi-tenancy/) model, use the Okta Org2Org integration as an OAuth 2.0 client.
+In this model, the source org is referred to as the spoke org and the target org is the hub org. The provisioning connection between the Okta orgs is configured with the OAuth 2.0 authentication scheme.
 
-Previously, the Org2Org integration only supported token-based access to the Okta APIs for provisioning requests. You can now configure the Org2Org integration to access Okta APIs as an OAuth 2.0 client using the OAuth 2.0 Client Credentials flow. The OAuth 2.0 API access enables you to increase security by limiting the scope of resource access and providing a better mechanism to rotate credentials.
+Previously, the Org2Org integration only supported token-based access to the Okta APIs for provisioning requests. You can now configure the Org2Org integration to access Okta APIs as an OAuth 2.0 client using the OAuth 2.0 Client Credentials flow. The OAuth 2.0 API access enables you to increase security by limiting the scope of resource access and providing automatic credential rotation.
+
+> **Note**: You can perform the same configuration task in the Admin Console, see **Use OAuth 2.0 for provisioning** in the [Org2Org app integration](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg) product documentation.
 
 <div class="half">
 
@@ -39,7 +41,7 @@ Previously, the Org2Org integration only supported token-based access to the Okt
 
 In this configuration:
 
-* The hub org acts as the resource server and the [authorization server](/docs/concepts/auth-servers/)
+* The hub org acts as the resource server and the [authorization server](/docs/concepts/auth-servers/).
 
 * Each spoke org represents a service app in the hub org for the OAuth 2.0 Client Credentials flow. See [Implement OAuth for Okta with a service app](/docs/guides/implement-oauth-for-okta-serviceapp/main/).
 
@@ -47,21 +49,32 @@ In this configuration:
 
 * To limit access to the OAuth 2.0 clients, the hub-org service app needs to be granted with allowed [OAuth 2.0 scopes](https://developer.okta.com/docs/api/oauth2/#okta-admin-management).
 
-After you configure the OAuth 2.0 connection, test your connection: push user data from the spoke orgs to the hub org. You can also create a [Rotate key](#key-rotation) schedule to update your credentials regularly.
+After you configure the OAuth 2.0 connection, test your connection: push user data from the spoke orgs to the hub org.
 
-> **Notes**:
-> * For provisioning connections that use API tokens instead of OAuth 2.0, see [Integrate Okta Org2Org with Okta](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg).
-> * In this Org2Org configuration, you create a service app in the hub org for each spoke org. For each service app you create, you need to assign admin roles to constrain the permissions and resources of that app for least-privileged access. See [Assign admin roles to the OAuth 2.0 service app](#assign-admin-roles-to-the-oauth-2-0-service-app). If you want to bypass assigning admin roles to service apps, you can enable the **Public client app admins** org setting in the hub org. This automatically assigns the [super admin role](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles) (`SUPER_ADMIN`) after scopes are granted to custom service apps. Go to **Settings** > **Account** > **Public client app admins** in the Admin Console to edit this setting. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps). Disable this setting after you incorporate admin role assignments in your workflow.
+> **Note**:
+> In this Org2Org configuration, you create a service app in the hub org for each spoke org. For each service app you create, you need to assign admin roles to constrain the permissions and resources of that app for least privilege access. See [Assign admin roles to the OAuth 2.0 service app](#assign-admin-roles-to-the-oauth-2-0-service-app).<br>
+> If you want to bypass assigning admin roles to service apps, you can enable the **Public client app admins** org setting in the hub org. This automatically assigns the [super admin role](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles) (`SUPER_ADMIN`) after scopes are granted to custom service apps.<br>
+> Go to **Settings** > **Account** > **Public client app admins** in the Admin Console to enable this setting. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps). Disable this setting after you incorporate admin role assignments in your workflow.
 
 ## Hub and spoke connection configuration with OAuth 2.0
 
-You can push user and group information from a spoke org to a centralized hub org with OAuth 2.0 by performing the following configuration:
+You can push user and group information from a spoke org to a centralized hub org with OAuth 2.0 by performing the following tasks:
 
 1. In each spoke org, [add an instance of the Org2Org app integration](#add-an-org2org-app-integration-in-a-spoke-org) and save the generated JSON Web Key Set (JWKS) public key.
 2. In the hub org, [create an OAuth 2.0 service app](#create-an-oauth-2-0-service-app-in-the-hub-org) for each spoke org with the corresponding Org2Org app JWKS public key. For each hub-org service app (the OAuth 2.0 client), [assign admin roles](#assign-admin-roles-to-the-oauth-2-0-service-app) and [grant allowed scopes](#grant-allowed-scopes-to-the-oauth-2-0-client).
 3. In each spoke org, [set and activate provisioning in the Org2Org app](#enable-provisioning-in-the-org2org-app) from the Okta API.
 4. In each spoke org, [assign users and groups in the spoke Org2Org app](#assign-users-and-groups-in-the-org2org-app) to synchronize with the hub org.
 
+### Make secure API requests with OAuth 2.0
+
+To configure the hub and spoke provisioning connection with secure Okta API requests, obtain an OAuth 2.0 access token. The Okta setup to obtain the access token depends on if you want the token to have a user-based or a service-based context:
+
+* **User-based access**: The access token is tied to a specific user. For this access, you need to provide a username and their credential for each access token. See [User-based API access setup](/reference/rest/#user-based-api-access-setup).
+
+* **Service-based access**: If you have a service app or script that makes API requests to Okta without user-context, see [Service-based API access setup](/docs/reference/rest/#service-based-api-access-setup). Grant `okta.apps.manage`, `okta.users.manage`, and `okta.groups.manage` to
+<!-- Ask Thanh Ha and Richard if we want to add service-based access as an option. If so, we need the scopes for the access token -->
+
+See [Test the Okta REST APIs with Postman](/docs/reference/rest/) instructions for a framework of how to obtain an access token.
 ---
 
 ### Add an Org2Org app integration in a spoke org
