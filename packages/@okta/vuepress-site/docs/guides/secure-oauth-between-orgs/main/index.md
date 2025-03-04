@@ -32,6 +32,7 @@ In this model, the source org is referred to as the spoke org and the target org
 Previously, the Org2Org integration only supported token-based access to the Okta APIs for provisioning requests. You can now configure the Org2Org integration to access Okta APIs as an OAuth 2.0 client using the OAuth 2.0 Client Credentials flow. The OAuth 2.0 API access enables you to increase security by limiting the scope of resource access and providing automatic credential rotation.
 
 > **Note**: You can perform the same configuration task in the Admin Console, see **Use OAuth 2.0 for provisioning** in the [Org2Org app integration](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg) product documentation.
+<!-- Need to get the new alias link to the OAuth 2.0 provisioning setup in the UI, from Barbara. -->
 
 <div class="half">
 
@@ -67,14 +68,16 @@ You can push user and group information from a spoke org to a centralized hub or
 
 ### Make secure API requests with OAuth 2.0
 
-To configure the hub and spoke provisioning connection with secure Okta API requests, obtain an OAuth 2.0 access token. The Okta setup to obtain the access token depends on if you want the token to have a user-based or a service-based context:
+To configure the hub and spoke provisioning connection with secure Okta API requests, obtain an OAuth 2.0 access token for the `Authorization` header in the request. The Okta setup to obtain the access token depends on whether you want the token to have user-based or a service-based context:
 
-* **User-based access**: The access token is tied to a specific user. For this access, you need to provide a username and their credential for each access token. See [User-based API access setup](/reference/rest/#user-based-api-access-setup).
+* **User-based access**: The access token is tied to a specific user. For this access, you need to provide a username and credentials for each access token. See [User-based API access setup](/reference/rest/#user-based-api-access-setup). Grant `okta.apps.manage`, `okta.users.manage`, and `okta.groups.manage` to the OIDC app.
+<!-- What are the scopes required for all these requests for the access token? Ask Richard Chan -->
 
-* **Service-based access**: If you have a service app or script that makes API requests to Okta without user-context, see [Service-based API access setup](/docs/reference/rest/#service-based-api-access-setup). Grant `okta.apps.manage`, `okta.users.manage`, and `okta.groups.manage` to
-<!-- Ask Thanh Ha and Richard if we want to add service-based access as an option. If so, we need the scopes for the access token -->
+* **Service-based access**: If you have a service app or script that makes API requests to Okta without user context, see [Service-based API access setup](/docs/reference/rest/#service-based-api-access-setup). Grant `okta.apps.manage`, `okta.users.manage`, and `okta.groups.manage` to the service app.
+<!-- Ask Thanh-Ha and Richard if we want to add service-based access as an option. If so, we need the scopes for the access token -->
 
-See [Test the Okta REST APIs with Postman](/docs/reference/rest/) instructions for a framework of how to obtain an access token.
+You need an access token for API requests to each org. After you have API access to your orgs, execute the steps in the following sections for the [Hub and spoke connection configuration with OAuth 2.0](#hub-and-spoke-connection-configuration-with-oauth-2-0).
+
 ---
 
 ### Add an Org2Org app integration in a spoke org
