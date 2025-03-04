@@ -180,7 +180,7 @@ module.exports = ctx => ({
       { text: 'Pricing', link: 'https://www.okta.com/pricing/#customer-identity-products' },
     ],
     primary_right_nav: [
-      { text: 'Product Docs', target: '_blank', link: 'https://help.okta.com/' },
+      { text: 'Okta Docs', target: '_blank', link: 'https://help.okta.com/' },
       { text: 'Okta.com', target: '_blank', link: 'https://www.okta.com/' },
       { text: 'Log in', target: '_blank', link: '/login/' },
     ],
