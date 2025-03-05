@@ -319,22 +319,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
-
-Version 2, December 2004
-
-Copyright (c) 2011..2012 David Chambers <dc@hashify.me>
-
-Everyone is permitted to copy and distribute verbatim or modified copies
-of this license document, and changing it is allowed as long as the name
-is changed.
-
-DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
-
-TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
-
-0. You just DO WHAT THE FUCK YOU WANT TO.
-
 _Chosen.jQuery_
 
 | VERSION (IF ANY):  | 0.11.1                                                                         |
