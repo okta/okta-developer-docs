@@ -22,7 +22,7 @@ Know the purpose of a global session policy and authentication policies and be a
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Groups created](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) in your org
-* An application that you want to assign to an authentication policy
+* An app that you want to assign to an authentication policy
 * [Authenticators](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators) configured in your org
 * A configured [dynamic network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network)
 
@@ -30,7 +30,7 @@ Know the purpose of a global session policy and authentication policies and be a
 
 ## Overview
 
-Policies help you manage access to your applications and APIs. You can restrict access based on several conditions such as user and group membership, device, location, or time. You can also require more authentication steps for access to sensitive applications. More authentication steps might include confirmation of a push notification to a mobile device or re-authentication through an SMS one-time passcode.
+Policies help you manage access to your apps and APIs. You can restrict access based on several conditions such as user and group membership, device, location, or time. You can also require more authentication steps for access to sensitive apps. More authentication steps might include confirmation of a push notification to a mobile device or re-authentication through an SMS one-time passcode.
 
 > **Note:** See the [Policies concept](/docs/concepts/policies/) for more information on all available policies and how to use them.
 
@@ -45,8 +45,6 @@ You can configure a global session policy to require any of the [factors that yo
 > **Note:** If you select **Any factor used to meet the Authentication Policy requirements**, you remove the global password requirement from the global session policy. This transfers responsibility for defining and enforcing authentication to each of your [authentication policies](#authentication-policies) instead. See [Configure passwordless authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless-auth).
 
 You can specify any number of global session policies and the order in which they’re executed. If a policy in the list doesn't apply to the user trying to sign in, the system moves to the next policy. There’s one required organization-wide policy named default. By definition, the default policy applies to all users.
-
-> **Note:** You can't change the **Maximum Okta global session lifetime** setting of the default global session policy rule.
 
 ### Authentication policies
 
@@ -90,7 +88,7 @@ Configure a global session policy to prompt a user for a factor [authenticator](
 
 1. Configure IF conditions, which define the authentication context for the rule. For this use case example, leave the defaults. For other use cases where you want to assign location parameters, specify location prompts in the **IF User’s IP is** dropdown box. For example, you can prompt a user for a factor when they aren't on the corporate network.
 
-1. Configure THEN conditions, which define the authentication experience for the rule. For this use case example, select that the session is established with the user entering **A password**. Also, ensure that Multifactor authentication (MFA) is **Required** so that users of the **Contractor** group are prompted for a secondary factor before they’re granted access.
+1. Configure THEN conditions, which define the authentication experience for the rule. For this use case example, select that the session is established with the user entering **A password**. Also, ensure that Multifactor authentication (MFA) is **Required**. Users in the **Contractor** group are then prompted for a secondary factor before they’re granted access.
 
     > **Note:** Click the **authenticators** link for quick access to the [Authenticators](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators) page to configure the authenticators that you want to use.
 
@@ -126,7 +124,7 @@ This example assumes that you've already [set up a Dynamic Zone](https://help.ok
 
 1. Configure IF conditions to define the authentication context for the rule. Select **Not in zone** from the **AND User’s IP is** dropdown list.
 
-    > **Note:** You can click the **Go to Network Zones** link to access the gateway settings that enable your choice of access. A [network zone](https://help.okta.com/okta_help.htm?id=ext_Location_Zones) is a security perimeter used to limit or restrict access to a network. It can restrict access based on a single IP address, one or more IP address ranges, or a list of geolocations. You can also create network zones using the [Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/).
+    > **Note:** You can click the **Go to Network Zones** link to access the gateway settings that enable your choice of access. A [network zone](https://help.okta.com/okta_help.htm?id=ext_Location_Zones) is a security perimeter used to limit or restrict access to a network. It can restrict access based on a single IP address, one or more IP address ranges, or a list of geolocations. You can also create network zones using the [Network Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/).
 
 1. In the text box, enter the dynamic zone name and then select it when it appears in the list.
 
@@ -142,13 +140,13 @@ This example assumes that you've already [set up a Dynamic Zone](https://help.ok
 
 1. Click **Create rule**.
 
->**Note**: You can use the [Applications](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/) and [Policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy) APIs to assign an app to an authentication policy. You need the application ID and the policy ID for this API request. Make a `PUT /api/v1/apps/{appId}/policies/{policyId}` request. No HTTP body is necessary for the PUT request. Then, to check that the assignment was successful, make a `GET /api/v1/apps/{appId}` request. The successful response contains information on the policy associated with the app.
+>**Note**: You can use the [Applications](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/) and [Policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy) APIs to assign an app to an authentication policy. You need the app ID and the policy ID for this API request. Make a `PUT /api/v1/apps/{appId}/policies/{policyId}` request. No HTTP body is necessary for the PUT request. Then, to check that the assignment was successful, make a `GET /api/v1/apps/{appId}` request. The successful response contains information on the policy associated with the app.
 
 ## Prompt for a passwordless sign-in flow
 
 In this example, create a policy that allows a specific group, **Full time employees**, for example, to sign in without using a password. This policy applies to users in that group only when they're connected to a corporate network. Before you create this global session policy, complete these steps:
 
-* Create a network zone, **Corporate Network**, that defines the IP addresses used in your corporate office. See the [Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) and [Network zones](https://help.okta.com/okta_help.htm?id=ext-network-zones).
+* Create a network zone, **Corporate Network**, that defines the IP addresses used in your corporate office. See the [Network Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) and [Network zones](https://help.okta.com/okta_help.htm?id=ext-network-zones).
 
 * Ensure that you have [set up your Okta org for a password-optional use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
 
