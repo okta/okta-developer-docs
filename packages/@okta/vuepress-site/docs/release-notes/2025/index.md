@@ -22,7 +22,6 @@ title: Okta Classic Engine API release notes 2025
 | [Developer documentation updates in 2025.03.0](#developer-documentation-updates-in-2025-03-0) | March 5, 2025 |
 | [Bug fixed in 2025.03.0](#bugs-fixed-in-2025-03-0) | March 5, 2025 |
 
-
 #### OIDC IdPs now support group sync is GA in Production
 
 OpenID Connect identity providers (IdPs) now support full group sync and adding a user to a group that they don't already belong to. A user who authenticates with an external IdP is added to all available groups when *Full sync of groups* is enabled. The user is added to any groups that they don't already belong to when *Add user to missing groups* is enabled. This allows you to specify certain groups that users should be added to. <!-- GROUP_SYNC_FEATURE_OIDC_IDP_ENABLED (https://oktainc.atlassian.net/browse/OKTA-817450#icft=OKTA-817450) -->
