@@ -204,7 +204,7 @@ See the [Core Okta API](/docs/reference/core-okta-api/) for details on each endp
 
 You can submit a request by opening a support case to increase the rate limit for specific Okta API endpoints. These requests must be submitted at least 15 business days before the increased rate limit is needed. After submission, Okta Support teams review each request thoroughly and either grant or deny the increase. Okta strongly recommends submitting requests as far in advance as possible. Some requests may take longer to review.
 
-Requests can be submitted for the following customers:
+The following customers can submit requests for rate limit exceptions:
 
 * Workforce Identity Cloud (WIC) customers
 * Customer Identity Solution (CIS) customers
