@@ -18,8 +18,6 @@ For changes prior to 2025, see [Archived Okta Identity Governance API Changelog 
 
 #### Entitlements and Entitlement Bundles APIs are GA
 
-<ApiLifecycle access="beta" />
-
 The following APIs have transitioned from Beta to GA:
 
 * [Entitlements](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlements/)

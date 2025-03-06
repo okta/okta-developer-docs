@@ -27,7 +27,6 @@ title: Okta Identity Engine API release notes 2025
 | [MyAccount Password API updates](#myaccount-password-api-updates) | March 5, 2025 |
 | [Identity Security Posture Management functionality in the OIN catalog](#identity-security-posture-management-functionality-in-the-oin-catalog) | March 5, 2025 |
 | [Default global session policy rule update](#default-global-session-policy-rule-update) | March 5, 2025 |
-| [Developer documentation updates in 2025.03.0](#developer-documentation-updates-in-2025-03-0) | March 5, 2025 |
 | [Bugs fixed in 2025.03.0](#bugs-fixed-in-2025-03-0) | March 5, 2025 |
 
 #### Global token revocation for wizard SAML and OIDC apps is GA in Production
@@ -64,11 +63,11 @@ We've extended the contains (`co`) operator to realms and devices. You can now s
 
 #### New End-user Enrollments API is GA in Preview
 
-The new [End-user Enrollments API]<!-- (https://developer.okta.com/docs/api/openapi/okta-signin-experience-management/signinexp/tag/endUserEnrollments/)--> enables end users to enroll and unenroll authenticators by entering a URL directly into their browser. This reduces the time spent administering complex authenticator enrollment flows, and provides a streamlined enrollment process for users. After a user enrolls or unenrolls an authenticator, you can use the `redirect_uri` property to redirect them to another page.<!-- https://oktainc.atlassian.net/browse/OKTA-868775#icft=OKTA-868775 ENG_AUTHENTICATOR_ENROLLMENTS_USER_MANAGEMENT_WITH_REDIRECT -->
+The new End-user Enrollments API<!-- (https://developer.okta.com/docs/api/openapi/okta-signin-experience-management/signinexp/tag/endUserEnrollments/)--> enables end users to enroll and unenroll authenticators by entering a URL directly into their browser. This reduces the time spent administering complex authenticator enrollment flows, and provides a streamlined enrollment process for users. After a user enrolls or unenrolls an authenticator, you can use the `redirect_uri` property to redirect them to another page.<!-- https://oktainc.atlassian.net/browse/OKTA-868775#icft=OKTA-868775 ENG_AUTHENTICATOR_ENROLLMENTS_USER_MANAGEMENT_WITH_REDIRECT -->
 
 #### CLEAR Verified as a third-party identity verification provider is EA in Preview
 
-Okta now supports using CLEAR Verified as an identity provider. This increases the number of identity verification vendors (IDVs) you can use to verify the identity of your users when they onboard or reset their account. Set `IDV_CLEAR` as the IdP `type` when you [create an IdP]<!--(https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider).--> <!-- https://oktainc.atlassian.net/browse/OKTA-848097#icft=OKTA-848097 IDV_STANDARD_INTEGRATION --> 
+Okta now supports using CLEAR Verified as an identity provider. This increases the number of identity verification vendors (IDVs) you can use to verify the identity of your users when they onboard or reset their account. Set `IDV_CLEAR` as the IdP `type` when you create an IdP<!--(https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider).--> <!-- https://oktainc.atlassian.net/browse/OKTA-848097#icft=OKTA-848097 IDV_STANDARD_INTEGRATION -->
 
 #### Verify an SSF Stream is EA in Preview
 
@@ -80,7 +79,7 @@ If you have an admin role with permission conditions to access certain user prof
 
 #### MyAccount Password API updates
 
-Admins can now send a PUT request to the `/idp/myaccount/password` endpoint to update the password for a user. Also, admins can send a GET request to the `/idp/myaccount/password/complexity-requirements` endpoint to retrieve password complexity requirements. See [Replace a Password](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Password/#tag/Password/operation/replacePassword) and [Retrieve the Password Complexity Requirements](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Password/#tag/Password/operation/getPasswordRequirements). <!-- FFs ENG_ENABLE_MY_ACCOUNT_CHANGE_PASSWORD and ENG_ENABLE_MY_ACCOUNT_GET_PASSWORD_REQUIREMENTS -->
+Admins can now send a PUT request to the `/idp/myaccount/password` endpoint to update the password for a user. Also, admins can send a GET request to the `/idp/myaccount/password/complexity-requirements` endpoint to retrieve password complexity requirements. See Replace a Password<!--(https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Password/#tag/Password/operation/replacePassword)--> and Retrieve the Password Complexity Requirements<!--(https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Password/#tag/Password/operation/getPasswordRequirements)-->. <!-- FFs ENG_ENABLE_MY_ACCOUNT_CHANGE_PASSWORD and ENG_ENABLE_MY_ACCOUNT_GET_PASSWORD_REQUIREMENTS -->
 
 #### Identity Security Posture Management functionality in the OIN catalog
 
@@ -91,11 +90,11 @@ The **Okta Integration Network** page now provides **Identity Security Posture M
 The default value for the `maxSessionLifetimeMinutes` property of the default global session policy rule is now `1440` (24 hours) and can be changed. Previously the `maxSessionLifetimeMinutes` property of the default global session policy rule was read-only.
 See [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=3/actions/signon/session/maxSessionLifetimeMinutes&t=request).
 
-#### Developer documentation updates in 2025.03.0
+<!--#### Developer documentation updates in 2025.03.0
 
-* A new section has been added to the API documentation: [Sign-in Experience API]<!-- (https://developer.okta.com/docs/api/openapi/okta-signin-experience-management/guides/overview/).--> It contains the new End-user Enrollments API that enables end users to enroll and unenroll authenticators by entering a URL directly into their browser. <!--OKTA-868775-->
+* A new section has been added to the API documentation: [Sign-in Experience API](https://developer.okta.com/docs/api/openapi/okta-signin-experience-management/guides/overview/). It contains the new End-user Enrollments API that enables end users to enroll and unenroll authenticators by entering a URL directly into their browser. <!--OKTA-868775-->
 
-* The list of public permissions has moved from the [Roles in Okta]<!--(https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions) topic to the [Permissions in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions)--> topic. The new topic contains more permission details for you to define your custom admin roles.<!--OKTA-857969-->
+<!--* The list of public permissions has moved from the [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions) topic to the [Permissions in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions) topic. The new topic contains more permission details for you to define your custom admin roles.<!--OKTA-857969-->
 
 #### Bugs fixed in 2025.03.0
 

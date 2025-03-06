@@ -19,7 +19,6 @@ title: Okta Classic Engine API release notes 2025
 | [Advanced search using conditioned profile attributes](#advanced-search-using-conditioned-profile-attributes) | March 5, 2025 |
 | [Identity Security Posture Management functionality in the OIN catalog](#identity-security-posture-management-functionality-in-the-oin-catalog) | March 5, 2025 |
 | [Default global session policy rule update](#default-global-session-policy-rule-update) | March 5, 2025 |
-| [Developer documentation updates in 2025.03.0](#developer-documentation-updates-in-2025-03-0) | March 5, 2025 |
 | [Bug fixed in 2025.03.0](#bugs-fixed-in-2025-03-0) | March 5, 2025 |
 
 #### OIDC IdPs now support group sync is GA in Production
@@ -60,9 +59,9 @@ The **Okta Integration Network** page now provides **Identity Security Posture M
 The default value for the `maxSessionLifetimeMinutes` property of the default global session policy rule is now `1440` (24 hours) and can be changed. Previously the `maxSessionLifetimeMinutes` property of the default global session policy rule was read-only.
 See [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=3/actions/signon/session/maxSessionLifetimeMinutes&t=request).
 
- #### Developer documentation updates in 2025.03.0
+<!-- #### Developer documentation updates in 2025.03.0
 
-* The list of public permissions has moved from the [Roles in Okta]<!--(https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions) topic to the [Permissions in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions)--> topic. The new topic contains more permission details for you to define your custom admin roles. <!--OKTA-857969--> 
+* The list of public permissions has moved from the [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions) topic to the [Permissions in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions) topic. The new topic contains more permission details for you to define your custom admin roles. <!--OKTA-857969--> 
 
 #### Bug fixed in 2025.03.0
 
