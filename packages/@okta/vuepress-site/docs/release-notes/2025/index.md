@@ -19,7 +19,7 @@ title: Okta Classic Engine API release notes 2025
 | [Advanced search using conditioned profile attributes](#advanced-search-using-conditioned-profile-attributes) | March 5, 2025 |
 | [Identity Security Posture Management functionality in the OIN catalog](#identity-security-posture-management-functionality-in-the-oin-catalog) | March 5, 2025 |
 | [Default global session policy rule update](#default-global-session-policy-rule-update) | March 5, 2025 |
-| [Bug fixed in 2025.03.0](#bugs-fixed-in-2025-03-0) | March 5, 2025 |
+| [Bug fixed in 2025.03.0](#bug-fixed-in-2025-03-0) | March 5, 2025 |
 
 #### OIDC IdPs now support group sync is GA in Production
 
@@ -65,7 +65,7 @@ See [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/m
 
 #### Bug fixed in 2025.03.0
 
-* Some certificates with trailing characters were uploaded successfully to the `/domains/{domainId}/certificate` endpoint, despite their invalid format. (OKTA-486406)
+Some certificates with trailing characters were uploaded successfully to the `/domains/{domainId}/certificate` endpoint, despite their invalid format. (OKTA-486406)
 
 ## February
 
