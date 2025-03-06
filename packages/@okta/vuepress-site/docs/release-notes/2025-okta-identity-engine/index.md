@@ -83,7 +83,7 @@ The **Okta Integration Network** page now provides **Identity Security Posture M
 #### Default global session policy rule update
 
 The default value for the `maxSessionLifetimeMinutes` property of the default global session policy rule is now `1440` (24 hours) and can be changed. Previously the `maxSessionLifetimeMinutes` property of the default global session policy rule was read-only.
-See [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=3/actions/signon/session/maxSessionLifetimeMinutes&t=request).
+See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=3/actions/signon/session/maxSessionLifetimeMinutes&t=request).
 
 <!--#### Developer documentation update in 2025.03.0
 
