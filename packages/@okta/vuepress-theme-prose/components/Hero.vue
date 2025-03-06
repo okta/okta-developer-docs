@@ -36,10 +36,10 @@
         >
           <!-- <template #heading /> -->
           <template #heading>
-    Coming May 2, 2025!
+          Coming April 29, 2025!
           </template>
           <template #description>
-            Okta is introducing a new free org for developers and integrators available at <a href="http://localhost:8080/signup/">Sign Up</a>. The Integration Free Plan org will replace the existing Okta Developer Edition Service. If you are an existing Okta Developer Edition user, you will need to update to the new org. <a href="https://developer.okta.com/blog/" target="_blank">Learn more</a>.
+            Okta is introducing a new Integrator Free plan org, designed for both developers and integrators. See the <a href="https://developer.okta.com/signup/">Sign Up</a> page. This new org replaces the existing Okta Developer Edition Service. If you are an existing Okta Developer Edition user, you'll need to sign up for a new org.
           </template>
         </HomePageBanner>
       </div>
