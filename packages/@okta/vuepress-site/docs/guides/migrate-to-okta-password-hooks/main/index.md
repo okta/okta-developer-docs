@@ -122,7 +122,7 @@ If your application determines the credentials are correct against the legacy sy
 
 Okta then sets the supplied password in its backend (properly hashed) and transition the `credentials.provider.type` value from `IMPORT` to `OKTA`. This user is now fully migrated to Okta. From this point forward, when that particular user authenticates, your password hook is no longer called.
 
-For more information on the request from Okta and types of responses your app can return, visit the [Password import inline hook reference](/https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook).
+For more information on the request from Okta and types of responses your app can return, visit the [Password import inline hook reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook).
 
 ## Register the inline password hook application
 
