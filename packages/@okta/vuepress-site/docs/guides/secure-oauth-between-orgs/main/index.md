@@ -52,10 +52,12 @@ In this configuration:
 
 After you configure the OAuth 2.0 connection, test your connection: push user data from the spoke orgs to the hub org.
 
+<!-- Based on the spec, Thank-Ha wants this note removed - need to confirm.
 > **Note**:
 > In this Org2Org configuration, you create a service app in the hub org for each spoke org. For each service app you create, you need to assign admin roles to constrain the permissions and resources of that app for least privilege access. See [Assign admin roles to the OAuth 2.0 service app](#assign-admin-roles-to-the-oauth-2-0-service-app).<br>
 > If you want to bypass assigning admin roles to service apps, you can enable the **Public client app admins** org setting in the hub org. This automatically assigns the [super admin role](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles) (`SUPER_ADMIN`) after scopes are granted to custom service apps.<br>
 > Go to **Settings** > **Account** > **Public client app admins** in the Admin Console to enable this setting. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps). Disable this setting after you incorporate admin role assignments in your workflow.
+-->
 
 ## Hub and spoke connection configuration with OAuth 2.0
 
@@ -71,10 +73,10 @@ You can push user and group information from a spoke org to a centralized hub or
 To make secure Okta API requests to configure your Okta orgs, obtain OAuth 2.0 access tokens for the `Authorization` header in requests. The Okta setup to obtain access tokens depend on whether you want the token to have a user-based or a service-based context:
 
 * **User-based access**: The access token is tied to a specific admin user. For this access, you need to provide an Okta admin username and credentials. See [User-based API access setup](/reference/rest/#user-based-api-access-setup). Grant `okta.apps.manage`, `okta.clients.manage`, `okta.clients.register`, `okta.roles.manage`, `okta.users.manage`, `okta.appGrants.manage`, and `okta.groups.manage` to the OIDC app during the setup.
-<!-- What are the scopes required for all these requests for the access token? Ask Richard Chan -->
+<!-- What are the scopes required for all requests for the access token? Ask Richard Chan -->
 
 * **Service-based access**: If you have a service app or script that makes API requests to Okta without user context, see [Service-based API access setup](/docs/reference/rest/#service-based-api-access-setup). Grant `okta.apps.manage`, `okta.clients.manage`, `okta.clients.register`, `okta.roles.manage`, `okta.appGrants.manage`, `okta.users.manage`,  and `okta.groups.manage` to the service app during the setup.
-<!-- Ask Thanh-Ha and Richard if we want to add service-based access as an option. If so, we need the scopes for the access token -->
+<!-- Ask Thanh-Ha and Richard if we want to add service-based access as an option? If so, we need the scopes for the access token. -->
 
 You need an access token for API requests to each Okta org. After you have API access to your orgs, execute the steps in the following sections for the [Hub and spoke connection configuration with OAuth 2.0](#hub-and-spoke-connection-configuration-with-oauth-2-0).
 
@@ -114,10 +116,13 @@ curl -v -X POST \
 }' "https://{yourSpokeOktaDomain}/api/v1/apps"
 ```
 
-<!-- We might not need these steps anymore?? Need to ask Richard Chan. If the response to the Org2Org app returns jwks_uri property, then we can use that as the JWKS URL for the hub service app. -->
+<!-- From the spec, we don't need this step anymore? Need to ask Richard Chan.
+
 From the response of your POST request, use the `id` property of the Org2Org app instance to [retrieve the key credentials](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/listApplicationKeys) generated for the app with the `GET /api/v1/apps/{id}/credentials/keys` request.
 
-<!-- stop here for unknown update, below should be fine -->
+-->
+
+*??? We need the response payload if it returns the `jwks_uri` property. Then we can use that as the JWKS URL for the hub service app.???*
 
 Save the JWKS URL to configure the corresponding hub-org service app.
 
@@ -139,7 +144,7 @@ Save the JWKS URL to configure the corresponding hub-org service app.
 ```bash
 curl -X POST \
   -H 'Accept: application/json' \
-  -H "Authorization: SSWS {hubApiToken}" \
+  -H "Authorization: Bearer {yourHubAccessToken}" \
   -H 'Content-Type: application/json' \
   -d '{
     "client_name": "'{hubServiceClientLabel}'",
@@ -155,7 +160,7 @@ curl -X POST \
  }' "https://{yourHubOktaDomain}/oauth2/v1/clients"
 ```
 
-> **Note:** Using a JWKS URL in the service app allows Okta to manage the key rotation.
+> **Note:** Using a JWKS URL in the service app allows Okta to manage key rotation.
 
 ### Assign admin roles to the OAuth 2.0 service app
 
@@ -168,16 +173,15 @@ For the OAuth 2.0 Org2Org provisioning connection, Okta recommends that you assi
 * `USER_ADMIN` (Group administrator)
 * `GROUP_MEMBERSHIP_ADMIN` (Group membership administrator)
 
-You can use the Admin Console to assign an admin role to your service app. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps) and go to the **Admin roles** tab from your app integration details. Alternatively, you can assign the admin role to your service app with the Okta API.
+You can use the Admin Console to assign an admin role to your service app. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps) and go to the **Admin roles** tab from your app integration details. Alternatively, you can assign the admin role to your service app with the [Assign a client role](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleAssignmentClient/#tag/RoleAssignmentClient/operation/assignRoleToClient) API:
 
-As an Okta super admin, make a `POST /oauth2/v1/clients/{yourServiceAppId}/roles` request to the hub org with the following required parameters to assign an admin role:
+Make a `POST /oauth2/v1/clients/{yourServiceAppId}/roles` request to the hub org with the following required parameters to assign an admin role:
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
 | `yourServiceAppId`  |  Specify the `client_id` value from the previous response when the service app was created. In the following role assignment example, the `{yourServiceAppId}` variable name is used instead of `client_id`.|
 | `type`  |  Specify the admin role to assign to the service app. Use the recommended standard admin roles (`USER_ADMIN`, `GROUP_MEMBERSHIP_ADMIN`). |
 
-See [Assign a client role](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleAssignmentClient/#tag/RoleAssignmentClient/operation/assignRoleToClient) in the Client Role Assignments API reference.
 
 > **Note:** Only Okta [super admins](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin) can assign roles.
 
@@ -187,7 +191,7 @@ See [Assign a client role](https://developer.okta.com/docs/api/openapi/okta-mana
  curl -X POST \
  -H "Accept: application/json" \
  -H "Content-Type: application/json" \
- -H "Authorization: SSWS {hubApiToken}" \
+ -H "Authorization: Bearer {yourHubAccessToken}" \
  -d '{
     "type": "USER_ADMIN"
   }' "https://{yourHubOrgDomain}/oauth2/v1/clients/{yourServiceAppId}/roles"
