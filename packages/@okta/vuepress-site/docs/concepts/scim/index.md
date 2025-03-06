@@ -37,15 +37,15 @@ Adopting SCIM for domain management improves overall security for your company. 
 
 * IT departments can manage the user provisioning lifecycle through a single system.
 * New employees are automatically provisioned with a user account for their apps.
-* You can create employee accounts either directly from Okta accounts or shared from external systems like HR apps or Active Directory.
-* Any profile updates - like department changes - populate automatically.
+* You can create employee accounts either directly from Okta accounts or shared from external systems such as HR apps or Active Directory.
+* Any profile updates (such as department changes) populate automatically.
 * Inactive employees are automatically deactivated from their apps.
 
 > **Note**: Okta event hooks provide a mechanism for outbound calls to notify your systems of events occurring in your Okta org. The event hooks can, for example, provision external app access after a user account is created in Okta. Event hooks are a flexible and lightweight alternative to SCIM. See [Event hook implementation](/docs/guides/event-hook-implementation/nodejs/main/).
 
 ## How does SCIM work?
 
-Provisioning consists of a set of actions between a Service Provider - like Okta - and the cloud-based integration (the SCIM client). Using REST-style architecture and JSON objects, the SCIM protocol communicates data about users or groups. As an app developer, you define the use cases needed and then build the corresponding SCIM actions into your integration.
+Provisioning consists of a set of actions between a SCIM client (like Okta) and the SCIM server (a cloud-based integration, such as a Service Provider). Using REST-style architecture and JSON objects, the SCIM protocol communicates data about users or groups. As an app developer, you define the use cases needed and then build the corresponding SCIM actions into your integration.
 
 By implementing support for the SCIM standard, an integration in the Okta Integration Network is notified when a user is created in Okta. An integration is also notified when the user is updated or removed from their app in Okta.
 
