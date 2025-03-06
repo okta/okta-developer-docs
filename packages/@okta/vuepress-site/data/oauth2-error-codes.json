@@ -1,6 +1,6 @@
 {
-  "release" : "2025.02.1",
-  "build" : "2025.02.1-begin-204-g75895f3cc035",
+  "release" : "2025.03.1",
+  "build" : "2025.03.1-begin-169-g4e00f53f724a",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -344,6 +344,13 @@
     "internalErrorCode" : "online_access_authentication_required",
     "errorCode" : "access_denied",
     "errorDescription" : "The authorization server requires the user to re-authenticate."
+  }, {
+    "title" : "Device bound sso invalid dpop public key",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "device_bound_sso_invalid_dpop_public_key",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The public key used to sign the DPoP proof JWT is invalid."
   }, {
     "title" : "Direct auth policy denied",
     "statusCode" : 403,
@@ -1815,6 +1822,34 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "The 'challenge' and the 'mfa_token' provided are not associated with each other. Review the values and try again."
   }, {
+    "title" : "Invalid tenant ID",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_tenant_id",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The tenant id is invalid."
+  }, {
+    "title" : "Invalid eam claims",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_eam_claims",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The requested claims parameter is invalid."
+  }, {
+    "title" : "Eam unsupported acr",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "eam_unsupported_acr",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The acr requested in the claims parameter is not supported."
+  }, {
+    "title" : "Eam invalid amr",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "eam_invalid_amr",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The amr requested in the claims parameter is invalid."
+  }, {
     "title" : "Invalid request object",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1877,6 +1912,13 @@
     "internalErrorCode" : "request_object_issued_in_future",
     "errorCode" : "invalid_request_object",
     "errorDescription" : "The request object is issued in the future."
+  }, {
+    "title" : "Request object JWT before nbf",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "request_object_before_nbf",
+    "errorCode" : "invalid_request_object",
+    "errorDescription" : "The request object is issued too early."
   }, {
     "title" : "Request object invalid jwks",
     "statusCode" : 400,
@@ -1996,6 +2038,13 @@
     "internalErrorCode" : "required_scope_combination",
     "errorCode" : "invalid_scope",
     "errorDescription" : "The following scopes: [en] must be requested together with [{1}]."
+  }, {
+    "title" : "At least one required scope combination",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "at_least_one_required_scope_combination",
+    "errorCode" : "invalid_scope",
+    "errorDescription" : "The following scopes: [en] must be requested together with at least one of [{1}]."
   }, {
     "title" : "MFA attestation invalid scope",
     "statusCode" : 400,

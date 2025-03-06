@@ -1,6 +1,6 @@
 {
-  "release" : "2025.02.1",
-  "build" : "2025.02.1-begin-204-g75895f3cc035",
+  "release" : "2025.03.1",
+  "build" : "2025.03.1-begin-169-g4e00f53f724a",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -130,6 +130,9 @@
   }, {
     "id" : "extensibility",
     "name" : "Flow Builder"
+  }, {
+    "id" : "extensible-security-platform",
+    "name" : "Extensible Security Platform"
   }, {
     "id" : "fastpass-and-device-assurance",
     "name" : "FastPass and Device Assurance"
@@ -857,10 +860,6 @@
     "tags" : [ ]
   }, {
     "id" : "mim",
-    "description" : "",
-    "tags" : [ ]
-  }, {
-    "id" : "omm",
     "description" : "",
     "tags" : [ ]
   }, {
@@ -7053,6 +7052,42 @@
         "changeDetails" : [ "DesktopMFASettingsChangeDetailsEntry" ]
       }
     }, {
+      "id" : "device.desktop_mfa.device_logout.completed",
+      "category" : "device-mfa",
+      "description" : "Fired when a device completes a user logout operation and sends the result to Okta. Admin can monitor whether if the user is logged out from a device successfully. You can correlate this event with the device.desktop_mfa.device_logout.started event using trace_id.",
+      "info" : {
+        "created" : "2025-02-20",
+        "release" : "2025.03.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-mfa", "oie-only" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "DeviceLogoutDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "device.desktop_mfa.device_logout.started",
+      "category" : "device-mfa",
+      "description" : "Fired when device logout process is started for a user. The user will be logged out from devices protected by Desktop MFA. Admin can monitor when device logout process is started and what triggers it. If the logout is triggered by Universal Logout flow, you can correlate this event with the user.authentication.universal_logout event using trace_id.",
+      "info" : {
+        "created" : "2025-02-20",
+        "release" : "2025.03.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-mfa", "oie-only" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "DeviceLogoutDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
       "id" : "device.desktop_mfa.enrollment.create",
       "category" : "device-mfa",
       "description" : "Fired when a Desktop MFA enrollment is registered to Okta Server. Admin can monitor which Okta user and device has enrolled with Desktop MFA. The registration happens after a user logs in a device with an online factor.",
@@ -8421,6 +8456,24 @@
         "changeDetails" : null
       }
     }, {
+      "id" : "iam.policy.assignee_configuration.update",
+      "category" : "dda",
+      "description" : "IAM policy assignee's configuration update. Use this event to track and audit updates to an IAM policy assignee's configurations. This event contains information about an IAM policy assignee's configuration updates such as toggling of third party admin settings.",
+      "info" : {
+        "created" : "2025-01-27",
+        "release" : "2025.02.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "admin-role", "event-hook-eligible" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ "IAMAssigneeConfigurationChangeDetailsEntry" ]
+      }
+    }, {
       "id" : "iam.policy.configuration.update",
       "category" : "dda",
       "description" : "IAM policy configuration update. Use this event to track and audit updates to IAM policy configuration for the org. This event contains information about the IAM policy configuration updates for an org.",
@@ -9213,24 +9266,6 @@
         "changeDetails" : null
       }
     }, {
-      "id" : "mim.streamDevicesAppListCSVDownload",
-      "category" : "fastpass-platform",
-      "description" : "",
-      "info" : {
-        "created" : "2016-09-20",
-        "release" : "2016.39"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "mim" ],
-      "mappings" : [ "mim.streamDevicesAppListCSVDownload" ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
-      }
-    }, {
       "id" : "mim.streamDevicesCSVDownload",
       "category" : "fastpass-platform",
       "description" : "",
@@ -9465,168 +9500,6 @@
         "changeDetails" : [ ]
       }
     }, {
-      "id" : "omm.app.VPN.settings.changed",
-      "category" : "fastpass-platform",
-      "description" : "",
-      "info" : {
-        "created" : "2017-12-28",
-        "release" : "2018.01"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "omm" ],
-      "mappings" : [ "omm.app.VPN.settings.changed" ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
-      }
-    }, {
-      "id" : "omm.app.WIFI.settings.changed",
-      "category" : "fastpass-platform",
-      "description" : "",
-      "info" : {
-        "created" : "2017-12-28",
-        "release" : "2018.01"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "omm" ],
-      "mappings" : [ "omm.app.WIFI.settings.changed" ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
-      }
-    }, {
-      "id" : "omm.app.eas.cert_based.settings.changed",
-      "category" : "fastpass-platform",
-      "description" : "",
-      "info" : {
-        "created" : "2017-12-28",
-        "release" : "2018.01"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "omm" ],
-      "mappings" : [ "omm.app.eas.cert_based.settings.changed" ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
-      }
-    }, {
-      "id" : "omm.app.eas.disabled",
-      "category" : "fastpass-platform",
-      "description" : "",
-      "info" : {
-        "created" : "2017-12-28",
-        "release" : "2018.01"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "omm" ],
-      "mappings" : [ "omm.app.eas.disabled" ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
-      }
-    }, {
-      "id" : "omm.app.eas.settings.changed",
-      "category" : "fastpass-platform",
-      "description" : "",
-      "info" : {
-        "created" : "2017-12-28",
-        "release" : "2018.01"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "omm" ],
-      "mappings" : [ "omm.app.eas.settings.changed" ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
-      }
-    }, {
-      "id" : "omm.cma.created",
-      "category" : "fastpass-platform",
-      "description" : "",
-      "info" : {
-        "created" : "2017-12-28",
-        "release" : "2018.01"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "omm" ],
-      "mappings" : [ "omm.cma.created" ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
-      }
-    }, {
-      "id" : "omm.cma.deleted",
-      "category" : "fastpass-platform",
-      "description" : "",
-      "info" : {
-        "created" : "2017-12-28",
-        "release" : "2018.01"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "omm" ],
-      "mappings" : [ "omm.cma.deleted" ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
-      }
-    }, {
-      "id" : "omm.cma.updated",
-      "category" : "fastpass-platform",
-      "description" : "",
-      "info" : {
-        "created" : "2017-12-28",
-        "release" : "2018.01"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "omm" ],
-      "mappings" : [ "omm.cma.updated" ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
-      }
-    }, {
-      "id" : "omm.enrollment.changed",
-      "category" : "fastpass-platform",
-      "description" : "",
-      "info" : {
-        "created" : "2017-12-28",
-        "release" : "2018.01"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "omm" ],
-      "mappings" : [ "omm.enrollment.changed" ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
-      }
-    }, {
       "id" : "org.not_configured_origin.redirection.usage",
       "category" : "cred-platform",
       "description" : "Using untrusted origin for redirection.",
@@ -9645,9 +9518,63 @@
         "changeDetails" : null
       }
     }, {
+      "id" : "pam.active_directory.account_discovery.complete",
+      "category" : "asa",
+      "description" : "The periodic Active Directory account discovery process has completed in Okta Privileged Access. Use this event to determine when the periodic account discovery job of for an Active Directory connection has completed. This event will be fired on success or failure.",
+      "info" : {
+        "created" : "2025-02-14",
+        "release" : "2025.02.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "pam.active_directory.account_rule.update",
+      "category" : "asa",
+      "description" : "Update the Active Directory account assignment rule in Okta Privileged Access. Use this event to determine when an Active Directory account assignment rule has been updated in Okta Privileged Access. This event will be sent when individual rules for an account are created, deleted, or their priority ororder is changed.",
+      "info" : {
+        "created" : "2025-02-14",
+        "release" : "2025.02.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "pam.active_directory.connection.update",
+      "category" : "asa",
+      "description" : "Update an Active Directory connection status in Okta Privileged Access. Use this event to determine when an Active Directory connection has been updated in Okta Privileged Access. Status values are CONNECTED, DISCONNECTED, or INACTIVE.",
+      "info" : {
+        "created" : "2025-02-14",
+        "release" : "2025.02.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
       "id" : "pam.ad_connection.create",
       "category" : "asa",
-      "description" : "This event is triggered after an Active Directory Connection is created for discovering servers.",
+      "description" : "This event is triggered after an Active Directory Connection is created for discovering servers in Advanced Server Access.",
       "info" : {
         "created" : "2022-02-01",
         "release" : "2022.02.0"
@@ -9665,7 +9592,7 @@
     }, {
       "id" : "pam.ad_connection.delete",
       "category" : "asa",
-      "description" : "This event is triggered after an Active Directory Connection is deleted.",
+      "description" : "This event is triggered after an Active Directory Connection is deleted in Advanced Server Access.",
       "info" : {
         "created" : "2022-02-01",
         "release" : "2022.02.0"
@@ -9683,7 +9610,7 @@
     }, {
       "id" : "pam.ad_connection.update",
       "category" : "asa",
-      "description" : "This event is triggered after an Active Directory Connection is updated.",
+      "description" : "This event is triggered after an Active Directory Connection is updated in Advanced Server Access.",
       "info" : {
         "created" : "2022-02-01",
         "release" : "2022.02.0"
@@ -9701,7 +9628,7 @@
     }, {
       "id" : "pam.ad_task_settings.create",
       "category" : "asa",
-      "description" : "This event is triggered after settings that are related to discovering servers in an Active Directory connection are created.",
+      "description" : "This event is triggered after settings that are related to discovering servers in an Active Directory connection are created in Advanced Server Access.",
       "info" : {
         "created" : "2022-02-01",
         "release" : "2022.02.0"
@@ -9719,7 +9646,7 @@
     }, {
       "id" : "pam.ad_task_settings.delete",
       "category" : "asa",
-      "description" : "This event is triggered after settings that are related to discovering servers in an Active Directory connection are deleted.",
+      "description" : "This event is triggered after settings that are related to discovering servers in an Active Directory connection are deleted in Advanced Server Access.",
       "info" : {
         "created" : "2022-02-01",
         "release" : "2022.02.0"
@@ -9737,7 +9664,7 @@
     }, {
       "id" : "pam.ad_task_settings.update",
       "category" : "asa",
-      "description" : "This event is triggered after settings that are related to discovering servers in an Active Directory connection are updated.",
+      "description" : "This event is triggered after settings that are related to discovering servers in an Active Directory connection are updated in Advanced Server Access.",
       "info" : {
         "created" : "2022-02-01",
         "release" : "2022.02.0"
@@ -9755,7 +9682,7 @@
     }, {
       "id" : "pam.ad_task_settings.update_schedule",
       "category" : "asa",
-      "description" : "This event is triggered after the schedule for discovering Active Directory servers is updated.",
+      "description" : "This event is triggered after the schedule for discovering Active Directory servers is updated in Advanced Server Access.",
       "info" : {
         "created" : "2022-02-01",
         "release" : "2022.02.0"
@@ -11321,7 +11248,7 @@
     }, {
       "id" : "pam.service_account.create",
       "category" : "asa",
-      "description" : "Create a service account in Okta Privileged Access. Use this event to verify when a service account has successfully created in Okta Privileged Access. The creation request can only be initiated via Universal Directory. For Universal Directory accounts, the outcome result can be SUCCESS or FAILURE. For third-party app service account, the outcome result can be SUCCESS, FAILURE, or DEFERRED.",
+      "description" : "Create a service account in Okta Privileged Access. Use this event to verify when a service account has successfully created in Okta Privileged Access. The creation request can only be initiated via Universal Directory. For Universal Directory accounts, the outcome result can be SUCCESS or FAILURE. For third-party app service accounts, the outcome result can be SUCCESS, FAILURE, or DEFERRED.",
       "info" : {
         "created" : "2024-09-10",
         "release" : "2024.10.1"
@@ -12919,6 +12846,60 @@
         "actor" : null,
         "targets" : null,
         "changeDetails" : null
+      }
+    }, {
+      "id" : "resource.risk_rule.create",
+      "category" : "id-fabric",
+      "description" : "Risk rule created. Can be used to audit the creation of a risk rule. The event is triggered when a risk rule is created.",
+      "info" : {
+        "created" : "2025-02-26",
+        "release" : "2025.02.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "resource" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "RiskRuleDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "resource.risk_rule.delete",
+      "category" : "id-fabric",
+      "description" : "Risk rule deleted. Can be used to audit the deletion of a risk rule. The event is triggered when a risk rule is deleted.",
+      "info" : {
+        "created" : "2025-02-26",
+        "release" : "2025.02.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "resource" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "RiskRuleDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "resource.risk_rule.update",
+      "category" : "id-fabric",
+      "description" : "Risk rule updated. Can be used to audit the update of a risk rule. The event is triggered when a risk rule is updated.",
+      "info" : {
+        "created" : "2025-02-26",
+        "release" : "2025.02.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "resource" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "RiskRuleDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
       }
     }, {
       "id" : "resource.user_entitlements.update",
@@ -15981,6 +15962,24 @@
         "changeDetails" : [ ]
       }
     }, {
+      "id" : "system.import.entitlement",
+      "category" : "sync",
+      "description" : "Emitted during the entitlement discovery process to identify entitlement schemas, excluding assignments. Tracks entitlement discovery status. In case of a NullPointerException (NPE), the outcome.result will be 'SKIPPED'. Use this event to track the status of entitlements during discovery.",
+      "info" : {
+        "created" : "2025-02-11",
+        "release" : "2025.03.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "import", "system" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
       "id" : "system.import.entitlement.mismatch",
       "category" : "sync",
       "description" : "Skipping of entitlement during import of an user. This event will be emitted during import whenever a user has some entitlement associated with it that are not present in Okta. This event can be use to track the entitlement of user which were skipped during import.",
@@ -18591,6 +18590,24 @@
         "changeDetails" : null
       }
     }, {
+      "id" : "user.identity_verification",
+      "category" : "workforce-authenticators",
+      "description" : "This event is fired when a user is directed to complete an Identity Verification as a result of an Okta Account Management (OAMP) Policy evaluation. This event indicates an identity verification request has occurred and will contain the results of the id verification. Completion of an id verification will determine whether the trigger OAMP operation can be completed.",
+      "info" : {
+        "created" : "2025-02-03",
+        "release" : "2025.02.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "policy", "session", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : "UserAuthenticationResourceDetails",
+        "targets" : [ "UserIdentityVerificationResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
       "id" : "user.import.password",
       "category" : "cred-platform",
       "description" : "Fired when a user has successfully logged in to Okta and an attempt to import their Password has been made. This can be used to understand if a user password import attempt was successful or if it failed. If the attempt failed, the password import will be tried again on a subsequent successful login. When fired, this event contains information about the import type, and whether or not the password import was successful. If the import is successful, it is safe to \"clean up\" that user from an external system. If the import failed, Okta will continue retrying the import during every successful authentication attempt until the password is successfully imported. Check the failure reason for details about whether any action is needed for the import to succeed.",
@@ -20631,6 +20648,22 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "rule_conflict_details" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "[{\"ruleName\":\"process rule\",\"description\":\"process rule description\",\"resourceName\":\"process rule resourceName\"},{\"ruleName\":\"payment rule\",\"description\":\"payment rule resourceName\",\"resourceName\":\"payment rule resourceName\"}]\n" ]
+          },
+          "risk_settings_request_submission_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "ALLOWED_WITH_NO_OVERRIDES", "ALLOWED_WITH_OVERRIDES", "RESTRICTED" ]
           },
           "requested_for_id" : {
             "type" : "String",
@@ -27288,6 +27321,203 @@
             "customer" : false,
             "format" : "integer",
             "examples" : [ "51", "101", "734" ]
+          }
+        }
+      },
+      "DeviceLogoutDebugData" : {
+        "name" : "DeviceLogoutDebugData",
+        "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "tunnels" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{\"operator\":\"HOTSPOT_VPN\",\"type\":\"VPN\",\"anonymous\":true}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "desktop_mfa_client_ids" : {
+            "type" : "Set",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[]", "[0oa4mr4uxvMUKYexq0g7, 0oa4cdqiw8oSjyi100g7]" ]
+          },
+          "device_logout_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "ITP_ENTITY_RISK", "MANUAL_UNIVERSAL_LOGOUT", "MANUAL_DEVICE_LOGOUT", "USER_DEACTIVATED", "USER_SUSPENDED" ]
           }
         }
       },
@@ -38098,6 +38328,195 @@
           }
         }
       },
+      "RiskRuleDebugData" : {
+        "name" : "RiskRuleDebugData",
+        "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "tunnels" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{\"operator\":\"HOTSPOT_VPN\",\"type\":\"VPN\",\"anonymous\":true}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "risk_rule_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "SEPARATION_OF_DUTIES" ]
+          }
+        }
+      },
       "RiskSignalDebugData" : {
         "name" : "RiskSignalDebugData",
         "properties" : {
@@ -46716,6 +47135,35 @@
           }
         }
       },
+      "UserIdentityVerificationResourceDetails" : {
+        "name" : "UserIdentityVerificationResourceDetails",
+        "properties" : {
+          "assurance_level" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "VERIFIED|FAILED|IAL2|LOW" ]
+          },
+          "trust_framework" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "IDV-DELEGATED|NIST-800-63-3|eIDAS" ]
+          },
+          "idv_request_id" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "inq_1q7JQBP61nqP1rVPoo6vFrSfD354", "inq_6fnEUeStMKiLEiyRodobngrDtmkR" ]
+          }
+        }
+      },
       "UserProvisioningResourceDetails" : {
         "name" : "UserProvisioningResourceDetails",
         "properties" : {
@@ -47221,6 +47669,14 @@
       "AccessRequestSettingsChangeDetailsEntry" : {
         "name" : "AccessRequestSettingsChangeDetailsEntry",
         "properties" : {
+          "risk_settings" : {
+            "type" : "RiskSettings",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"request_submission_type\" : \"ALLOWED_WITH_OVERRIDES\", \"approval_sequence_id\": \"12ab2db568c7c300079fefd0\", \"access_duration_settings\" : \"{\"type\" : \"ADMIN_FIXED_DURATION\", \"duration\": \"PT3H\", \"maximumDuration\": \"PT3H\"}\"}" ]
+          },
           "request_on_behalf_of_settings" : {
             "type" : "RequestOnBehalfOfSettings",
             "sensitive" : false,
@@ -47817,6 +48273,14 @@
       "DesktopMFASettingsChangeDetailsEntry" : {
         "name" : "DesktopMFASettingsChangeDetailsEntry",
         "properties" : {
+          "desktop_mfa_universal_logout_setting" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "ENABLED", "DISABLED" ]
+          },
           "desktop_mfa_device_bound_sso_setting" : {
             "type" : "String",
             "sensitive" : false,
@@ -47971,6 +48435,19 @@
             "customer" : false,
             "format" : "integer",
             "examples" : [ "1", "60" ]
+          }
+        }
+      },
+      "IAMAssigneeConfigurationChangeDetailsEntry" : {
+        "name" : "IAMAssigneeConfigurationChangeDetailsEntry",
+        "properties" : {
+          "third_party_admin_setting" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
           }
         }
       },
