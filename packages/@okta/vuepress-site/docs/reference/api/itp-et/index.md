@@ -93,7 +93,7 @@ This resource contains detailed reference material on event types triggered with
 | type       | The type of target object           | String     | Rule       |
 | **target.DetailEntry** (Rule)       |             |      |        |
 | RuleAction        | The configured action to respond to the risk. Values include `TERMINATE_SESSION` or `RUN_WORKFLOW`.            | Enum     | `TERMINATE_SESSION`       |
-| SingleLogOutEnabled        | For a `RuleAction` of `TERMINATE_SESSION`, and if `true`, a session protection evaluation violation enforces application logout             | Boolean     | `true`      |
+| SingleLogOutEnabled        | For a `RuleAction` of `TERMINATE_SESSION`, and if `true`, a session protection violation enforces application logout             | Boolean     | `true`      |
 | SingleLogOutSelectionMode        | For a `RuleAction` of `TERMINATE_SESSION`, the options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, or `SPECIFIED`.           | Enum     | `ALL`       |
 | WorkflowId         | The unique identifier of the workflow if the `RuleAction` is `RUN_WORKFLOW`.           | String     | 572749       |
 | DisplayName        | The name of the rule           | String     | Entity Risk Policy       |
@@ -104,7 +104,7 @@ This resource contains detailed reference material on event types triggered with
 | type        | The type of target object           | String     | PolicyAction       |
 | **target.DetailEntry** (PolicyAction)       |             |      |        |
 | PolicyAction        | The configured action to respond to the risk. Values include `TERMINATE_SESSION` or`RUN_WORKFLOW`.              | Enum     | `TERMINATE_SESSION`       |
-| PolicySingleLogOutEnabled        |  For a `PolicyAction` of `TERMINATE_SESSION`, and if `true`, a session protection evaluation violation enforces application logout             | Boolean     | `true`      |
+| PolicySingleLogOutEnabled        |  For a `PolicyAction` of `TERMINATE_SESSION`, and if `true`, a session protection violation enforces application logout             | Boolean     | `true`      |
 | PolicySingleLogOutSelectionMode        | For a `PolicyAction` of `TERMINATE_SESSION`, the options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, or `SPECIFIED`.           | Enum     | `ALL`       |
 | PolicySingleLogoutAppInstanceIds          | A list of apps that will that will be logged out if the `PolicySingleLogOutMode` mode is `SPECIFIED`.            | Array     | `[ "0oa1gkh63g214r0Hq0g4", "0oa1gjh63g214q0Iq3g3" ]`      |
 | WorkflowId         | The unique identifier of the workflow if the `PolicyAction` is `RUN_WORKFLOW`.           | String     | 572749       |
@@ -135,7 +135,7 @@ This resource contains detailed reference material on event types triggered with
 | type       | The type of target object           | String     | Rule       |
 | **target.DetailEntry** (Rule)       |             |      |        |
 | RuleAction        | The configured action to respond to the risk. Values include `TERMINATE_SESSION` or `RUN_WORKFLOW`.            | Enum     | `TERMINATE_SESSION`       |
-| SingleLogOutEnabled        | For a `RuleAction` of `TERMINATE_SESSION`, and if `true`, a session protection evaluation violation enforces application logout             | Boolean     | `true`      |
+| SingleLogOutEnabled        | For a `RuleAction` of `TERMINATE_SESSION`, and if `true`, a session protection violation enforces application logout             | Boolean     | `true`      |
 | SingleLogOutSelectionMode        | For a `RuleAction` of `TERMINATE_SESSION`, the options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, or `SPECIFIED`.           | Enum     | `ALL`       |
 | WorkflowId         | The unique identifier of the workflow if the `RuleAction` is `RUN_WORKFLOW`.           | String     | 572749       |
 | DisplayName        | Displays the name of the rule           | String     | Entity Risk Policy       |
