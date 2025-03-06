@@ -8,6 +8,23 @@ Okta Identity Governance is available for both Okta Classic and Identity Engine.
 
 For changes prior to 2025, see [Archived Okta Identity Governance API Changelog (2023-2024)](/docs/release-notes/oig-changelog/).
 
+## March
+
+### Monthly release 2025.03.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Entitlements and Entitlement Bundles APIs are GA](#entitlements-and-entitlement-bundles-apis-are-ga) | March 5, 2025 |
+
+#### Entitlements and Entitlement Bundles APIs are GA
+
+The following APIs have transitioned from Beta to GA:
+
+* [Entitlements](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlements/)
+
+* [Entitlement Bundles](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlement-Bundles/#tag/Entitlement-Bundles)
+<!-- OKTA-849932 -->
+
 ## February
 
 ### Weekly release 2025.02.1

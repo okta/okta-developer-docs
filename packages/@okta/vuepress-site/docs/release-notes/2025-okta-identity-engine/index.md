@@ -6,6 +6,102 @@ title: Okta Identity Engine API release notes 2025
 
 # Okta Identity Engine API release notes (2025)
 
+## March
+
+### Monthly release 2025.03.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Global token revocation for wizard SAML and OIDC apps is GA in Production](#global-token-revocation-for-wizard-saml-and-oidc-apps-is-ga-in-production) | September 11, 2024|
+| [OIDC IdPs now support group sync is GA in Production](#oidc-idps-now-support-group-sync-is-ga-in-production) | October 23, 2024 |
+| [Okta account management policy is GA in Production](#okta-account-management-policy-is-ga-in-production) | December 11, 2024 |
+| [Granular account linking for certain Identity Providers is GA in Production](#granular-account-linking-for-certain-identity-providers-is-ga-in-production) | December 11, 2024 |
+| [Realms for Workforce is GA in Production](#realms-for-workforce-is-ga-in-production) | February 13, 2025 |
+| [Improved group search functionality is GA in Production](#improved-group-search-functionality-is-ga-in-production) | February 12, 2025 |
+| [Improved user search functionality is GA in Production](#improved-user-search-functionality-is-ga-in-production) | February 12, 2025 |
+| [Improved realms and device search functionality is GA in Production](#improved-realms-and-device-search-functionality-is-ga-in-production) | February 12, 2025 |
+| [New End-user Enrollments API is GA in Preview](#new-end-user-enrollments-api-is-ga-in-preview) | March 5, 2025 |
+| [CLEAR Verified as a third-party identity verification provider is EA in Preview](#clear-verified-as-a-third-party-identity-verification-provider-is-ea-in-preview) | March 5, 2025 |
+| [Verify an SSF Stream is EA in Preview](#verify-an-ssf-stream-is-ea-in-preview) | March 5, 2025 |
+| [Advanced search using conditioned profile attributes](#advanced-search-using-conditioned-profile-attributes) | March 5, 2025 |
+| [MyAccount Password API updates](#myaccount-password-api-updates) | March 5, 2025 |
+| [Identity Security Posture Management functionality in the OIN catalog](#identity-security-posture-management-functionality-in-the-oin-catalog) | March 5, 2025 |
+| [Default global session policy rule update](#default-global-session-policy-rule-update) | March 5, 2025 |
+| [Bugs fixed in 2025.03.0](#bugs-fixed-in-2025-03-0) | March 5, 2025 |
+
+#### Global token revocation for wizard SAML and OIDC apps is GA in Production
+
+Universal Logout clears sessions and tokens for wizard SAML and OIDC apps. This enhancement extends Universal Logout functionality to more types of apps and provides greater flexibility to admins.
+
+#### OIDC IdPs now support group sync is GA in Production
+
+OpenID Connect identity providers (IdPs) now support full group sync and adding a user to a group that they don't already belong to. A user who authenticates with an external IdP is added to all available groups when *Full sync of groups* is enabled. The user is added to any groups that they don't already belong to when *Add user to missing groups* is enabled. This allows you to specify certain groups that users should be added to. <!-- GROUP_SYNC_FEATURE_OIDC_IDP_ENABLED (https://oktainc.atlassian.net/browse/OKTA-817450#icft=OKTA-817450) -->
+
+#### Okta account management policy is GA in Production
+
+The Okta account management policy helps admins easily build phishing resistance into actions such as account unlock, password recovery, authenticator enrollment, and profile setting changes. Using the familiar rule-based framework of an authentication policy, admins can now customize which phishing-resistant authenticators are required when users attempt these common self-service actions. All of the configurations in the authentication policies can now be applied for authenticator management. See [Configure an Okta account management policy](/docs/guides/okta-account-management-policy/main/).
+
+#### Granular account linking for certain Identity Providers is GA in Production
+
+When admins link users from SAML and OIDC identity providers, they can now exclude specific users and admins. This improves security by allowing admins to configure granular access control scenarios. See *Add an external Identity Provider* for [OpenId Connect](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta) and [SAML 2.0](/docs/guides/add-an-external-idp/saml2/main/#create-an-identity-provider-in-okta). <!-- EXTENDED_ACCOUNT_LINKING_FILTERS OKTA-831244-->
+
+#### Realms for Workforce is GA in Production
+
+The Realms and Realms Management APIs allow you to unlock greater flexibility in managing and delegating the management of your distinct user populations within a single Okta org. See [Realms](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Realm/) and [Realm Assignments](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RealmAssignment/).   <!--- https://oktainc.atlassian.net/browse/OKTA-853176#icft=OKTA-853176 UD_REALMS_FOUNDATIONS and UD_REALMS -->
+
+#### Improved group search functionality is GA in Production
+
+You can now search for groups whose names or descriptions contain specified text. This makes it easier to find a group when you don't recall its exact name. Use the `co` operator within the `search` parameter of the Groups API. See [Operators](https://developer.okta.com/docs/api/#operators) and [`search` within the Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups!in=query&path=search&t=request). <!--OKTA-862579 DIRECTORY_SERVICE_GROUP_CONTAINS_SEARCH-->
+
+#### Improved user search functionality is GA in Production
+
+You can now search for users whose names, email addresses, or usernames contain specified text. This makes it easier to do user lookups and add users to groups. Use the `co` operator within the `search` parameter of the Users API. See [Operators](https://developer.okta.com/docs/api/#operators) and [`search` within the Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=search&t=request). <!--OKTA-862577 DIRECTORY_SERVICE_USER_CONTAINS_SEARCH-->
+
+#### Improved realms and device search functionality is GA in Production
+
+We've extended the contains (`co`) operator to realms and devices. You can now search for realms and devices whose profile attributes contain specified text through API. This makes lookups easier without needing to recall the exact names of various profile attributes. Use the `co` operator within the `search` parameter. See [Contains operator](https://developer.okta.com/docs/api/#contains-operator) and the `search` parameter in the [Realms](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Realm/#tag/Realm/operation/listRealms!in=query&path=search&t=request) and [Devices](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/#tag/Device/operation/listDevices!in=query&path=search&t=request) APIs. <!-- OKTA-865940 -->
+
+#### New End-user Enrollments API is GA in Preview
+
+The new End-user Enrollments API<!-- (https://developer.okta.com/docs/api/openapi/okta-signin-experience-management/signinexp/tag/endUserEnrollments/)--> enables end users to enroll and unenroll authenticators by entering a URL directly into their browser. This reduces the time spent administering complex authenticator enrollment flows, and provides a streamlined enrollment process for users. After a user enrolls or unenrolls an authenticator, you can use the `redirect_uri` property to redirect them to another page.<!-- https://oktainc.atlassian.net/browse/OKTA-868775#icft=OKTA-868775 ENG_AUTHENTICATOR_ENROLLMENTS_USER_MANAGEMENT_WITH_REDIRECT -->
+
+#### CLEAR Verified as a third-party identity verification provider is EA in Preview
+
+Okta now supports using CLEAR Verified as an identity provider. This increases the number of identity verification vendors (IDVs) you can use to verify the identity of your users when they onboard or reset their account. Set `IDV_CLEAR` as the IdP `type` when you create an IdP<!--(https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider).--> <!-- https://oktainc.atlassian.net/browse/OKTA-848097#icft=OKTA-848097 IDV_STANDARD_INTEGRATION -->
+
+#### Verify an SSF Stream is EA in Preview
+
+Okta SSF Transmitter now supports the verification endpoint to enable receivers to request verification events and validate the end-to-end delivery between the transmitter and receiver. In addition, the SSF Transmitter verification events claim structure is now compliant with the OpenID Shared Signals Framework ID3 spec. <!-- OKTA_SSF_TRANSMITTER_PUSH_VERIFICATION_ENDPOINT into OKTA_SSF_TRANSMITTER_PUSH -->
+
+#### Advanced search using conditioned profile attributes
+
+If you have an admin role with permission conditions to access certain user profile attributes, you can now search for those users with those attributes. Note that this search enhancement doesn't support the `OR` operator. <!-- OKTA-856262 -->
+
+#### MyAccount Password API updates
+
+Admins can now send a PUT request to the `/idp/myaccount/password` endpoint to update the password for a user. Also, admins can send a GET request to the `/idp/myaccount/password/complexity-requirements` endpoint to retrieve password complexity requirements. See Replace a Password<!--(https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Password/#tag/Password/operation/replacePassword)--> and Retrieve the Password Complexity Requirements<!--(https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Password/#tag/Password/operation/getPasswordRequirements)-->. <!-- FFs ENG_ENABLE_MY_ACCOUNT_CHANGE_PASSWORD and ENG_ENABLE_MY_ACCOUNT_GET_PASSWORD_REQUIREMENTS -->
+
+#### Identity Security Posture Management functionality in the OIN catalog
+
+The **Okta Integration Network** page now provides **Identity Security Posture Management** functionality. When you select it, the OIN catalog displays only the apps with Identity Security Posture Management functionality.
+
+#### Default global session policy rule update
+
+The default value for the `maxSessionLifetimeMinutes` property of the default global session policy rule is now `1440` (24 hours) and can be changed. Previously the `maxSessionLifetimeMinutes` property of the default global session policy rule was read-only.
+See [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=3/actions/signon/session/maxSessionLifetimeMinutes&t=request).
+
+<!--#### Developer documentation updates in 2025.03.0
+
+* A new section has been added to the API documentation: [Sign-in Experience API](https://developer.okta.com/docs/api/openapi/okta-signin-experience-management/guides/overview/). It contains the new End-user Enrollments API that enables end users to enroll and unenroll authenticators by entering a URL directly into their browser. <!--OKTA-868775-->
+
+<!--* The list of public permissions has moved from the [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions) topic to the [Permissions in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions) topic. The new topic contains more permission details for you to define your custom admin roles.<!--OKTA-857969-->
+
+#### Bugs fixed in 2025.03.0
+
+* Some certificates with trailing characters were uploaded successfully to the `/domains/{domainId}/certificate` endpoint, despite their invalid format. (OKTA-486406)
+
+* An incorrect response was returned when a `/token` request was sent with an inactive user in a direct authentication flow. (OKTA-853984)
+
 ## February
 
 ### Weekly release 2025.02.2
@@ -94,7 +190,8 @@ You can now search for groups whose names or descriptions contain specified text
 
 #### Improved user search functionality is GA in Preview
 
-You can now search for users whose names, email addresses, or usernames contain specified text. This makes it easier to add users to groups or apps. Use the `co` operator within the `search` parameter of the Users API. See [Operators](https://developer.okta.com/docs/api/#operators) and `search` within the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=search&t=request). <!--OKTA-862577 DIRECTORY_SERVICE_USER_CONTAINS_SEARCH-->
+You can now search for users whose names, email addresses, or usernames contain specified text. This makes it easier to add users to groups or apps. Use the `co` operator within the `search` parameter of the Users API. See [Operators](https://developer.okta.com/docs/api/#operators) and `search` within the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=search&t=request). 
+<!--OKTA-862577 DIRECTORY_SERVICE_USER_CONTAINS_SEARCH-->
 
 #### Support for importing Active Directory group descriptions is GA in Production
 
