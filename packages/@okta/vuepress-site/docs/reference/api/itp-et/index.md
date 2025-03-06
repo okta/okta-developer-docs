@@ -175,7 +175,7 @@ This resource contains detailed reference material on event types triggered with
 | type        | The type of target object           | String     | Rule       |
 | **target.DetailEntry** (Rule)       |             |      |        |
 | RuleAction        | The configured action to respond to the risk. Values include `TERMINATE_SESSION` or `RUN_WORKFLOW`.             | Enum     | `TERMINATE_SESSION`       |
-| SingleLogOutEnabled        | For a `RuleAction` of `TERMINATE_SESSION`, and if `true`, a session protection evaluation violation enforces app logout.          | Boolean     | `true`      |
+| SingleLogOutEnabled        | For a `RuleAction` of `TERMINATE_SESSION`, and if `true`, a session protection violation enforces app logout.          | Boolean     | `true`      |
 | SingleLogOutSelectionMode        | For a `RuleAction` of `TERMINATE_SESSION`, the options of the app logout, either all apps, specific apps, or none. Values can be: `NONE`, `ALL`, or `SPECIFIED`.           | Enum     | `ALL`       |
 | WorkflowId         | The unique identifier of the workflow if the `RuleAction` is `RUN_WORKFLOW`.           | String     | 572749       |
 | DisplayName        | Display the name of the target rule           | String     | Test Rule      |
