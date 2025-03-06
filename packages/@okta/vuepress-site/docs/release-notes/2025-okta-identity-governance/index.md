@@ -28,7 +28,7 @@ The following APIs have transitioned from Beta to GA:
 
 #### New Access Certifications campaign
 
-A new property, `resourceSettings. includeAdminRoles', has been added to the access certification campaign schema in the Campaigns API <!--(https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/)-->. This property indicates that the user-centric access certification campaign includes users’ admin role assignments. <!-- OKTA-854037-->
+A new property, `resourceSettings.includeAdminRoles`, has been added to the access certification campaign schema in the Campaigns API <!--(https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/)-->. This property indicates that the user-centric access certification campaign includes users’ admin role assignments. <!-- OKTA-854037-->
 
 #### Bug fixed in 2025.03.0
 
