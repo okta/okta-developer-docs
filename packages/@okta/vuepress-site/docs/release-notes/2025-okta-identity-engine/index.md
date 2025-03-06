@@ -26,7 +26,7 @@ title: Okta Identity Engine API release notes 2025
 | [MyAccount Password API updates](#myaccount-password-api-updates) | March 5, 2025 |
 | [Identity Security Posture Management functionality in the OIN catalog](#identity-security-posture-management-functionality-in-the-oin-catalog) | March 5, 2025 |
 | [Default global session policy rule update](#default-global-session-policy-rule-update) | March 5, 2025 |
-| [Developer documentation update in 2025.03.0](#developer-documentation-updates-in-2025-03-0) | March 5, 2025 |
+| [Developer documentation update in 2025.03.0](#developer-documentation-update-in-2025-03-0) | March 5, 2025 |
 | [Bugs fixed in 2025.03.0](#bugs-fixed-in-2025-03-0) | March 5, 2025 |
 
 #### Global token revocation for wizard SAML and OIDC apps is GA in Production
