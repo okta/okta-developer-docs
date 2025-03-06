@@ -33,7 +33,7 @@ A new property, `resourceSettings.includeAdminRoles`, has been added to the acce
 
 #### Bug fixed in 2025.03.0
 
-* The `remediationSettings.autoRemediationSettings` and `principalScopeSettings.predefinedInactiveUsersScope` properties were missing from the Access Certification campaign schema in the Campaigns API reference.
+* The `remediationSettings.autoRemediationSettings` and `principalScopeSettings.predefinedInactiveUsersScope` properties were missing from the Access Certification campaign schema in the Campaigns API reference. (OKTA-880900)
 
 ## February
 

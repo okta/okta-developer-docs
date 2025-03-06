@@ -62,7 +62,7 @@ We've extended the contains (`co`) operator to realms and devices. You can now s
 
 #### CLEAR Verified as a third-party identity verification provider is EA in Preview
 
-Okta now supports using CLEAR Verified as an identity provider. This increases the number of identity verification vendors (IDVs) you can use to verify the identity of your users when they onboard or reset their account. Set `IDV_CLEAR` as the IdP `type` when you create an IdP<!--(https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider)--> .<!-- https://oktainc.atlassian.net/browse/OKTA-848097#icft=OKTA-848097 IDV_STANDARD_INTEGRATION -->
+Okta now supports using CLEAR Verified as an identity provider. This increases the number of identity verification vendors (IDVs) you can use to verify the identity of your users when they onboard or reset their account. Set `IDV_CLEAR` as the IdP `type` when you create an IdP<!--(https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider)-->.<!-- https://oktainc.atlassian.net/browse/OKTA-848097#icft=OKTA-848097 IDV_STANDARD_INTEGRATION -->
 
 #### Verify an SSF Stream is EA in Preview
 

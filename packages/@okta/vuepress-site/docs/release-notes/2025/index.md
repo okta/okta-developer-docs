@@ -61,7 +61,7 @@ See [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/m
 
 <!-- #### Developer documentation update in 2025.03.0
 
-* The list of public permissions has moved from the [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions) topic to the [Permissions in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions) topic. The new topic contains more permission details for you to define your custom admin roles. <!--OKTA-857969--> 
+The list of public permissions has moved from the [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions) topic to the [Permissions in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions) topic. The new topic contains more permission details for you to define your custom admin roles. <!--OKTA-857969--> 
 
 #### Bug fixed in 2025.03.0
 
