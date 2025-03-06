@@ -114,7 +114,7 @@
                   Access the Okta <br> Developer Edition Service
                 </div>
                 <div class="signup__content__text">
-                  Test your code and apps, as well as <br> manage and automate Okta for <br> employees and partners.
+                  Test your code and apps, as well as <br> manage and automate Okta for <br> employees and partners. <br><br><strong>Coming April 29, 2025</strong><br>The new Integrator Free Plan<br><a href="https://developer.okta.com/blog/">Learn more</a><br>
                 </div>
               </div>
               <div class="signup__link signup__trigger">
