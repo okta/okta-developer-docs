@@ -45,7 +45,7 @@ Adopting SCIM for domain management improves overall security for your company. 
 
 ## How does SCIM work?
 
-Provisioning consists of a set of actions between a SCIM client (like Okta) and the SCIM server (a cloud-based integration, such as a Service Provider). Using REST-style architecture and JSON objects, the SCIM protocol communicates data about users or groups. As an app developer, you define the use cases needed and then build the corresponding SCIM actions into your integration.
+Provisioning consists of a set of actions between a SCIM client (like Okta) and the SCIM server (such as your cloud-based integration or service provider). Using REST-style architecture and JSON objects, the SCIM protocol communicates data about users or groups. As an app developer, you define the use cases needed and then build the corresponding SCIM actions into your integration.
 
 By implementing support for the SCIM standard, an integration in the Okta Integration Network is notified when a user is created in Okta. An integration is also notified when the user is updated or removed from their app in Okta.
 
