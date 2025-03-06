@@ -39,7 +39,7 @@
           Coming April 29, 2025!
           </template>
           <template #description>
-            Okta is introducing a new Integrator Free plan org, designed for both developers and integrators. See the <a href="https://developer.okta.com/signup/">Sign Up</a> page. This new org replaces the existing Okta Developer Edition Service. If you are an existing Okta Developer Edition user, you'll need to sign up for a new org.
+            Okta is introducing a new Integrator Free plan, designed for both developers and integrators. This new org replaces the existing Okta Developer Edition Service. If you are an existing Okta Developer Edition user, you'll need to sign up for a new org.
           </template>
         </HomePageBanner>
       </div>
@@ -52,9 +52,9 @@ export default {
   name: "Hero",
   computed: {
     showBanner() {
-      const bannerStartTime = new Date('2025-02-14T01:00:00-04:00');
+      const bannerStartTime = new Date('2025-03-06T01:00:00-04:00');
       const bannerStartTimeEpoch = Math.floor(bannerStartTime.getTime() / 1000);
-      const bannerEndTime = new Date('2025-02-24T23:59:00-04:00');
+      const bannerEndTime = new Date('2025-03-16T23:59:00-04:00');
       const bannerEndTimeEpoch = Math.floor(bannerEndTime.getTime() / 1000);
 
       const currentTimeEpoch = Math.floor(Date.now() / 1000);
