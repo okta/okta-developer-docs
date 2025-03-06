@@ -29,8 +29,8 @@ A migration program uses the Okta [password import inline hook](https://develope
 
 1. Create all the users from the legacy system in Okta with a provider set to: `IMPORT`. **NOTE:** This can be done in bulk and does NOT require individual user credentials.
 2. Optional: Create groups and apps in Okta. Assign users to groups and assign groups and users to apps.
-3. Create an application to service requests from Okta that can validate credentials against the legacy user system.
-4. Register an Inline Password Hook with Okta that connects to the application created in step 3.
+3. Create an app to service requests from Okta that can validate credentials against the legacy user system.
+4. Register an inline password hook with Okta that connects to the app created in step 3.
 
 Typically, you run a migration program like this for a set period, such as 60 days. At the end of that time, you delete the inline password hook. For any users that haven’t completed the migration on their own, you can issue a password reset using the Okta API. Those users receive an email to change their password and can then sign in using Okta.
 
@@ -103,7 +103,7 @@ For more on creating users for password import, see this [reference section](htt
 
 ## Create an Inline Password Hook Application
 
-After configured, when a user with `credentials.provider.type=IMPORT` attempts authenticate, Okta will call _your_ application. Among other things, your application receives the username and plaintext password as submitted by the user. It's up to your application to validate the credentials against your legacy system.
+After configured, when a user with `credentials.provider.type=IMPORT` attempts to authenticate, Okta calls your app. Among other things, your app receives the username and plaintext password as submitted by the user. It's up to your app to validate the credentials against your legacy system.
 
 If your application determines the credentials are correct against the legacy system, it would return a response that includes a `"credential": "VERIFIED"` value. The full response looks like this:
 
@@ -120,9 +120,9 @@ If your application determines the credentials are correct against the legacy sy
 }
 ```
 
-Okta then sets the supplied password in its backend (properly hashed) and transition the `credentials.provider.type` value from `IMPORT` to `OKTA`. This user is now fully migrated to Okta. From this point forward, when that particular user authenticates, your password hook is no longer called.
+Okta then sets the supplied password in its backend (properly hashed) and transitions the `credentials.provider.type` value from `IMPORT` to `OKTA`. This user is now fully migrated to Okta. From this point forward, when that particular user authenticates, your password hook is no longer called.
 
-For more information on the request from Okta and types of responses your app can return, visit the [Password import inline hook reference](/https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook).
+For more information on the request from Okta and the types of responses your app can return, visit the [Password import inline hook reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook).
 
 ## Register the inline password hook application
 
