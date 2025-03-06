@@ -11,7 +11,7 @@ In this section, you learn how to check your rate limits, investigate usage, and
 
 ## Check your rate limits with Okta's rate limit dashboard
 
-The Okta [rate limit dashboard](/docs/reference/rl-dashboard/) is an Admin Console tool that provides detailed data on your API usage. Use this tool to monitor your endpoints or investigate issues or violations. Any rate limit violation notification provides a link to the dashboard.
+The Okta [rate limit dashboard](/docs/reference/rl-dashboard/) is an Admin Console tool that provides detailed data on your API usage. Use this tool to monitor your endpoints or investigate issues or violations. Any notification of rate limit violations provides a link to the dashboard.
 
 If the API usage data suggests updates to any rate limits are required, based on your use cases, configurations are available to increase limits temporarily or provide more permanent solutions. See [Request rate limit exceptions](#request-rate-limit-exceptions) or contact [Support](https://support.okta.com/help/open_case).
 
@@ -19,11 +19,11 @@ If the API usage data suggests updates to any rate limits are required, based on
 
 Okta provides three headers in each response to report on both concurrent and org-wide rate limits.
 
-For org-wide rate limits, the three headers show the limit that is being enforced, when it resets, and how close you are to hitting the limit:
+For org-wide rate limits, the three headers show the limit that’s being enforced, when it resets, and how close you are to hitting the limit:
 
-* `X-Rate-Limit-Limit` - the rate limit ceiling that is applicable for the current request.
-* `X-Rate-Limit-Remaining` - the number of requests left for the current rate-limit window.
-* `X-Rate-Limit-Reset` - the time at which the rate limit resets, specified in UTC epoch time (in seconds).
+* `X-Rate-Limit-Limit`: the rate limit ceiling that’s applicable for the current request.
+* `X-Rate-Limit-Remaining`: the amount of requests left for the current rate-limit window.
+* `X-Rate-Limit-Reset`: the time at which the rate limit resets, specified in UTC epoch time (in seconds).
 
 For example:
 
@@ -46,7 +46,7 @@ The three headers behave a little differently for concurrent rate limits:
 
 * When you drop back down below the concurrent rate limit, the headers switch back to reporting the time-based rate limits.
 
-Additionally, the `X-Rate-Limit-Reset` time for concurrent rate limits is only an estimate. There's no guarantee that enough requests will complete to stop exceeding the concurrent rate limit at the time indicated.
+Also, the `X-Rate-Limit-Reset` time for concurrent rate limits is only an estimate. There's no guarantee that enough requests will complete in time to stop exceeding the concurrent rate limit at the time indicated.
 
 ### Example rate limit header with org-wide rate limit
 
@@ -70,7 +70,7 @@ X-Rate-Limit-Reset: 1609459200
 
 #### Example rate limit header with concurrent rate limit
 
-This example shows the relevant portion of a rate limit header being returned with an error for a request that exceeded the concurrent rate limit. If the rate limit wasn't being exceeded, the headers would contain information about the org-wide rate limit. You won't ever see non-error concurrent rate limits in the headers.
+This example shows the relevant portion of a rate limit header being returned with an error for a request that exceeded the concurrent rate limit. If the rate limit wasn't being exceeded, the headers would contain information about the org-wide rate limit. You won't see non-error concurrent rate limits in the headers.
 
 ```http
 HTTP/1.1 429
@@ -81,7 +81,7 @@ X-Rate-Limit-Reset: 1609459200
 
 The first two header values are always `0` for concurrent rate limit errors. The third header reports an estimated time interval when the concurrent rate limit may be resolved. It isn't a guarantee.
 
-The error condition resolves itself as soon as there is another concurrent thread available. Normally, no intervention is required. However, if you notice frequent bursts of HTTP 429 errors, or if the concurrent rate limit isn't quickly resolved, you may be exceeding the concurrent rate limit. If you can't identify what is causing you to exceed the limit by examining activity in the log before the burst of HTTP 429 errors are logged, contact [Support](https://support.okta.com/help/open_case).
+The error condition resolves itself when there’s another concurrent thread available. Normally, no intervention is required. However, if you notice frequent bursts of HTTP 429 errors, or if the concurrent rate limit isn't quickly resolved, you may be exceeding the concurrent rate limit. If you can't identify what is causing you to exceed the limit by examining activity in the log before the burst of HTTP 429 errors are logged, contact [Support](https://support.okta.com/help/open_case).
 
 #### Example error response events for concurrent rate limit
 
@@ -194,7 +194,7 @@ The error condition resolves itself as soon as there is another concurrent threa
 
 ## Review your API limit parameter
 
-In some cases, you can avoid hitting rate limits by implementing the maximum value of the `limit` query parameter for an individual API endpoint. Increasing this value to the maximum reduces the number of calls for a given operation, which can keep you under the endpoint's rate limit. By default, Okta uses a default `limit` if one isn't set.
+Sometimes, you can avoid hitting rate limits by implementing the maximum value of the `limit` query parameter for an individual API endpoint. Increasing this value to the maximum reduces the number of calls for a given operation, which can keep you under the endpoint's rate limit. By default, Okta uses a default `limit` if one isn't set.
 
 For example, the endpoint `/api/v1/apps/{applicationId}/users` returns, by default, 50 results. You can increase this limit to 500, reducing the number of calls.
 
@@ -202,14 +202,17 @@ See the [Core Okta API](/docs/reference/core-okta-api/) for details on each endp
 
 ## Request rate limit exceptions
 
-You can adjust the size and structure of rate limits by requesting a temporary rate limit increase. For example, if you are importing a large number of users and groups, you may need a temporary rate limit increase. See [How to Request a Temporary Rate Limit Increase](https://support.okta.com/help/s/article/How-can-we-request-to-have-the-rate-limit-for-our-org-temporarily-increased?language=en_US).
+You can submit a request by opening a support case to increase the rate limit for specific Okta API endpoints. These requests must be submitted at least 15 business days before the increased rate limit is needed. After submission, Okta Support teams review each request thoroughly and either grant or deny the increase. Okta strongly recommends submitting requests as far in advance as possible. Some requests may take longer to review.
 
-To request an exception, contact [Support](https://support.okta.com/help/open_case) a minimum of 10 days before you need the increase and provide the following details:
+The following customers can submit requests for rate limit exceptions:
 
-* Your Org Name: The entire URL, for example `https://example.okta.com` or `https://example.oktapreview.com`
-* Endpoints and rates: The URI that needs to have its limits increased and how much of an increase is required
-* Start date and time
-* End date and time
-* Business justification: Why you need the temporary increase
+* Workforce Identity Cloud (WIC) customers
+* Customer Identity Solution (CIS) customers
 
-If you have an application that requires sustained rate limits higher than the posted limits, evaluate and consider [dynamic scale](/docs/reference/rl-dynamic-scale/). To purchase this add-on, contact [Support](https://support.okta.com/help/).
+If a request is made for endpoints covered by [Dynamic Scale](/docs/reference/rl-dynamic-scale/) or [Workforce Multipliers](/docs/reference/rl-additional-limits/#workforce-license-rate-limit-multiplier), Okta may deny the request and require that you consult with your account team to explore other options. Typically, this scenario occurs if:
+
+* You’ve requested a temporary rate limit increase multiple times in a calendar year
+* You’re requesting a rate limit increase that is >= 5x the default rate limit (for example, 1,000 requests per minute to 5,000 requests/min)
+* You’re requesting a permanent rate limit increase
+
+See [How to Request a Temporary Rate Limit Increase](https://support.okta.com/help/s/article/how-to-request-a-rate-limit-increase?language=en_US&utm_source=google&utm_campaign=amer_namer_usa_all_ciam-all_dg-ao_a-ciam_search_google_pmax_kw_Pmax-sso_utm2&utm_medium=cpc&utm_id=aNK4z000000UGFbGAO&gad_source=1&gclid=Cj0KCQjw3vO3BhCqARIsAEWblcBcvqWV4aGF6X-UTc_imiXfyDRca4hs9HeJKgipWIS-dx8W9NUgAZgaAh-8EALw_wcB) for more information.
