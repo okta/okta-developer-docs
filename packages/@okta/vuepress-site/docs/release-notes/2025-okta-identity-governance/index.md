@@ -15,6 +15,7 @@ For changes prior to 2025, see [Archived Okta Identity Governance API Changelog 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Entitlements and Entitlement Bundles APIs are GA](#entitlements-and-entitlement-bundles-apis-are-ga) | March 5, 2025 |
+| [New Access Certifications campaign](#new-access-certifications-campaign) | March 5, 2025 |
 | [Bug fixed in 2025.03.0](#bugs-fixed-in-2025-03-0) | March 5, 2025 |
 
 #### Entitlements and Entitlement Bundles APIs are GA
