@@ -184,8 +184,9 @@ Make a `POST /oauth2/v1/clients/{yourServiceAppId}/roles` request to the hub org
 | `yourServiceAppId`  |  Specify the `client_id` value from the previous response when the service app was created. In the following role assignment example, the `{yourServiceAppId}` variable name is used for the `client_id`.|
 | `type`  |  Specify the admin role to assign to the service app. Use the recommended standard admin roles (`USER_ADMIN`, `GROUP_MEMBERSHIP_ADMIN`). |
 
-
 > **Note:** Only Okta [super admins](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin) can assign roles.
+
+> **Q???>**  Kevin, is ^ this still true??
 
 ##### Request example
 
@@ -233,28 +234,32 @@ curl -X POST \
 
 ### Enable provisioning in the Org2Org app
 
-In each spoke org, set and activate provisioning for the Org2Org app integration by using the [Update the default provisioning connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication) API request.
+In each spoke org, set and activate provisioning for the Org2Org app integration by using the [Update the default provisioning connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication) API request with the **OAuth 2.0-based connection** request parameters.
 
-> **Note**: Currently, you can only enable OAuth 2.0-based provisioning with the Okta API.
-
-As an Okta admin, make a [`POST /api/v1/apps/{Org2OrgAppId}/connections/default?activate=TRUE`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication!in=query&path=activate&t=request) request to set provisioning for the spoke org using the following profile parameters:
+Make a [`POST /api/v1/apps/{Org2OrgAppId}/connections/default?activate=TRUE`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication!in=query&path=activate&t=request) request to set provisioning for the spoke org using the following profile parameters:
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
 | `authScheme`  |  `OAUTH2` |
 | `clientId`  |  Specify the corresponding service app client ID in your hub org |
+| `signing.rotationMode` | Specify `AUTO` for automatic key rotation. If `signing.rotationMode` isn't specified, then `rotationMode` is set to `MANUAL` and key rotation isn't automatic for the Org2Org provisioning connection. |
+
+> **Q???>**  Kevin, please verify this ^ this signing behaviour.
 
 ##### Request example
 
 ```bash
 curl -X POST \
   -H 'Accept: application/json' \
-  -H "Authorization: SSWS {spokeApiToken}" \
+  -H "Authorization: Bearer {yourSpokeAccessToken}" \
   -H 'Content-Type: application/json' \
   -d ' {
     "profile": {
-        "authScheme": "OAUTH2",
-        "clientId": "'{yourHubOrgServiceAppId}'"
+      "authScheme": "OAUTH2",
+      "clientId": "'{yourHubOrgServiceAppId}'"
+      "signing": {
+        "rotationMode": "AUTO"
+      }
     }
 }' "https://{yourSpokeOrgDomain}/api/v1/apps/{yourOrg2OrgAppId}/connections/default?activate=TRUE"
 ```
@@ -265,16 +270,26 @@ curl -X POST \
 
 In each spoke (source) org, assign the users and groups to the Org2Org app integration by using the [Okta Application Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/#tag/ApplicationUsers/operation/assignUserToApplication):
 
-* [`POST /api/v1/apps/{yourOrg2OrgAppId}/users` (Assign user to an app for SSO and provisioning)](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/#tag/ApplicationUsers/operation/assignUserToApplication)
-* [`POST /api/v1/apps/{yourOrg2OrgAppId}/groups/{groupId}` (Assign group to an app)](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationGroups/#tag/ApplicationGroups/operation/assignGroupToApplication)
+* [`POST /api/v1/apps/{yourOrg2OrgAppId}/users` (Assign an application user)](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/#tag/ApplicationUsers/operation/assignUserToApplication)
+* [`POST /api/v1/apps/{yourOrg2OrgAppId}/groups/{groupId}` (Assign an application group)](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationGroups/#tag/ApplicationGroups/operation/assignGroupToApplication)
 
-Alternatively, you can assign users and groups for provisioning using the Okta Admin Console. See [Assign an app integration to a user](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-user) and [Assign an app integration to a group](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-groups).
+Alternatively, you can assign users and groups for provisioning using the Okta Admin Console. See [Assign an app to a user](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-user) and [Assign an app integration to a group](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-groups).
 
 After you've assigned your users or groups in the spoke org, validate that the same users or groups appear in your hub org.
 
 ## Key rotation
 
-An advantage to using the OAuth 2.0 connection is that you can [rotate keys](/docs/concepts/key-rotation) to adhere to cryptographic best practices. You can rotate keys for a specific OAuth 2.0 connection by following these API steps:
+An advantage to using the OAuth 2.0 connection is that you can have automatic [key rotation](/docs/concepts/key-rotation) to adhere to cryptographic best practices.
+
+> **Q???>** Kevin: Do you have more info about the automatic key rotation behavior? What's the rotation cadence? Is it configurable?
+
+
+> **Q???>** Thanh-ha: do you want to keep manual key rotation steps for legacy users with MANUAL signing?
+
+<!--
+### Manual key rotation
+
+You can rotate keys manually for a specific OAuth 2.0 connection by following these API steps:
 
 1. [Generate a new key for the Org2Org app](#generate-a-new-key-for-the-org2org-app).
 2. [Register the new key with the corresponding service app](#register-the-new-org2org-app-key-with-the-corresponding-service-app).
@@ -282,7 +297,7 @@ An advantage to using the OAuth 2.0 connection is that you can [rotate keys](/do
 
 > **Note**: If you want to minimize downtime during key rotation, you can update the service app (step two) with both the old and new keys, since `jwks.keys` is an array that can handle different `kid` identifiers. You can remove the old key after you verify that provisioning works with the new key.
 
-### Generate a new key for the Org2Org app
+#### Generate a new key for the Org2Org app
 
 From your spoke org, make a request to [generate a new app key credential](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/generateApplicationKey) as an Okta admin.
 
@@ -291,7 +306,7 @@ From your spoke org, make a request to [generate a new app key credential](https
 ```bash
 curl -X POST \
   -H 'Accept: application/json' \
-  -H "Authorization: SSWS {spokeApiToken}" \
+  -H "Authorization: Bearer {yourSpokeAccessToken}" \
   -H 'Content-Type: application/json' \
   "https://{yourSpokeOrgDomain}/api/v1/apps/{yourOrg2OrgAppId}/credentials/keys/generate?validityYears={validYears}"
 ```
@@ -319,7 +334,7 @@ curl -X POST \
 
 Save the generated credentials to update the keys in your Org2Org and service apps.
 
-### Register the new Org2Org app key with the corresponding service app
+#### Register the new Org2Org app key with the corresponding service app
 
 On your hub org, register the key [generated from the previous POST request](#generate-a-new-key-for-the-org2org-app) to your corresponding service app by using the [Dynamic Client Registration API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/replaceClient).
 
@@ -328,7 +343,7 @@ On your hub org, register the key [generated from the previous POST request](#ge
 ```bash
 curl -X PUT \
   -H 'Accept: application/json' \
-  -H "Authorization: SSWS {hubApiToken}" \
+  -H "Authorization: Bearer {yourHubAccessToken}" \
   -H 'Content-Type: application/json' \
   -d ' {
     "client_id": "'{yourServiceAppId}'",
@@ -361,7 +376,7 @@ curl -X PUT \
 
 > **Note**: Specify all the required parameters when you update a client app. Partial updates aren't supported. If any mandatory parameters are missing when you update a client app, the update fails. When you update the keys in the service app `jwks` parameter, all the old keys are overwritten. To add a key and keep the old key, you need to specify both old and new keys in the `jwks.keys` array.
 
-### Update the current credentials for the Org2Org app
+#### Update the current credentials for the Org2Org app
 
 From the response of the [previous generate key POST request](#generate-a-new-key-for-the-org2org-app), copy the `kid` property and [activate the new key by updating the Org2Org app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/schema/Org2OrgApplication).
 
@@ -370,7 +385,7 @@ From the response of the [previous generate key POST request](#generate-a-new-ke
 ```bash
 curl -X PUT \
   -H 'Accept: application/json' \
-  -H "Authorization: SSWS {spokeApiToken}" \
+  -H "Authorization: Bearer {yourSpokeAccessToken}" \
   -H 'Content-Type: application/json' \
   -d ' {
     "name": "okta_org2org",
@@ -384,3 +399,4 @@ curl -X PUT \
 ```
 
 > **Note**: Specify `name` and `label` parameters when you update an Org2Org app.
+-->
