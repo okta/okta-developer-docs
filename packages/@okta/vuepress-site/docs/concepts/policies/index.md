@@ -157,11 +157,11 @@ With progressive enrollment flows, you can capture the minimum user information 
 
 <ApiLifecycle access="ie" />
 
-Identity Threat Protection with Okta AI is an identity threat solution that combines current security practices with continuous real-time risk assessment. See [Identity Threat Protection with Okta AI](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview). Identity Threat Protection uses the entity risk policy and Post auth session evaluation for these threat evaluations.
+Identity Threat Protection with Okta AI is an identity threat solution that combines current security practices with continuous real-time risk assessment. See [Identity Threat Protection with Okta AI](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview). Identity Threat Protection uses the entity risk policy and session protection policy for these threat evaluations.
 
 * [Entity risk policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy): The entity risk policy monitors your org for entity risk changes related to identity-based threats. For Admin Console tasks and further information, see [Entity risk policy](https://help.okta.com/okta_help.htm?type=oie&id=csh-entity-risk-policy).
 
-* [Post auth session evaluation](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy): Post auth session evaluation monitors user sessions on your org to identify changes in session context. For Admin Console tasks and further information, see [Post auth session evaluation](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
+* [session protection policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy): session protection policy monitors user sessions on your org to identify changes in session context. For Admin Console tasks and further information, see [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
 
 ### API access policies
 
