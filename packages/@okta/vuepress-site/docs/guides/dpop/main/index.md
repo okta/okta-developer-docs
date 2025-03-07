@@ -28,7 +28,7 @@ This guide discusses how to create sender-constrained access tokens that are an 
 
 ## Overview
 
-OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) helps prevent unauthorized parties from using leaked or stolen access tokens. When you use DPoP, you create an application-level mechanism to sender-constrain both access and refresh tokens. This helps prevent token replays at different endpoints.
+OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) helps prevent unauthorized parties from using leaked or stolen access tokens. When you use DPoP, you create an app-level mechanism to sender-constrain both access and refresh tokens. This helps prevent token replays at different endpoints. Resource servers must require and track the incoming [DPoP proof JWT's](#before-you-configure-dpop) `jti` claim (in the HTTP request) and not accept that claim more than once. Every DPoP proof JWT should have a unique value.
 
 > **Note:** The Okta DPoP feature is based on the current [RFC](https://datatracker.ietf.org/doc/html/rfc9449).
 
@@ -101,7 +101,7 @@ This section discusses the initial POST `/token` [request](/docs/guides/implemen
 2. Update the JWT payload.
 
    * Add the `dpop-nonce` header value from the response as the `nonce` claim value.
-   * Include a `jit` claim, which is a unique [JWT identifier](https://www.rfc-editor.org/rfc/rfc7519#section-4.1.7) for the request.
+   * Include a `jti` claim, which is a unique [JWT identifier](https://www.rfc-editor.org/rfc/rfc7519#section-4.1.7) for the request.
 
     Example payload:
 
