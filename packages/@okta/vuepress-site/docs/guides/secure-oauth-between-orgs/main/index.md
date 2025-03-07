@@ -4,16 +4,13 @@ excerpt: Learn how to synchronize users and groups between orgs with OAuth 2.0 i
 layout: Guides
 ---
 
-This guide explains how to securely configure Okta hub-and-spoke orgs to synchronize users and groups using OAuth 2.0 in a [multi-tenant solution](/docs/concepts/multi-tenancy/) with Okta APIs. In the hub-and-spoke model, the source org is referred to as the spoke org and the target org is the hub org. The provisioning connection between Okta orgs is configured as an OAuth 2.0 Org2Org app integration. This connection provides API access to scoped resources using the OAuth 2.0 Client Credential flow.
+This guide explains how to securely configure Okta hub-and-spoke orgs to synchronize users and groups using OAuth 2.0 in a [multi-tenant solution](/docs/concepts/multi-tenancy/) with Okta APIs.
 
 ---
 
 #### Learning outcomes
 
-* Set up a hub-and-spoke Okta org provisioning connection to use the OAuth 2.0 Client Credentials grant flow.
-* Configure the hub Okta org with service apps for each spoke Okta org.
-* Configure an Org2Org app on each spoke Okta org.
-* Configure and activate Org2Org provisioning on spoke Okta orgs.
+Use the Okta APIs to set up Okta hub-and-spoke org provisioning connections.
 
 #### What you need
 
@@ -26,13 +23,12 @@ This guide explains how to securely configure Okta hub-and-spoke orgs to synchro
 
 ## OAuth 2.0 for secure API connections in multi-tenant solutions
 
-To secure API connections between orgs in a hub-and-spoke [multi-tenant solution](/docs/concepts/multi-tenancy/) model, use the Okta Org2Org integration as an OAuth 2.0 client.
-In this model, the source org is referred to as the spoke org and the target org is the hub org. The provisioning connection between the Okta orgs is configured with the OAuth 2.0 authentication scheme.
+To secure API connections between orgs in a hub-and-spoke [multi-tenant solution](/docs/concepts/multi-tenancy/) model, use the Okta Org2Org integration as an OAuth 2.0 client. In this model, the source org is referred to as the spoke org and the target org is the hub org. The provisioning connection between the orgs is configured as an Org2Org app integration with the OAuth 2.0 authentication scheme.
 
-Previously, the Org2Org integration only supported token-based access to the Okta APIs for provisioning requests. You can now configure the Org2Org integration to access Okta APIs as an OAuth 2.0 client using the OAuth 2.0 Client Credentials flow. The OAuth 2.0 API access enables you to increase security by limiting the scope of resource access and providing automatic credential rotation.
+Previously, the Org2Org integration only supported token-based access to Okta APIs for provisioning requests in the hub org. You can now configure the Org2Org integration to access Okta APIs using the OAuth 2.0 Client Credentials flow. The OAuth 2.0 API access enables you to increase security by limiting the scope of resource access and providing automatic credential rotation.
 
-> **Note**: You can perform the same configuration task in the Admin Console, see **Use OAuth 2.0 for provisioning** in the [Org2Org app integration](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg) product documentation.
-<!-- Need to get the new alias link to the OAuth 2.0 provisioning setup in the UI, from Barbara. -->
+> **Note**: You can perform the same configuration task in the Admin Console. See [Use OAuth 2.0 for provisioning](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg#Use2) in the product documentation.
+<!-- This is a new alias link from Barbara, which will direct users to the OAuth 2.0 provisioning setup in the UI. -->
 
 <div class="half">
 
@@ -72,10 +68,9 @@ You can push user and group information from a spoke org to a centralized hub or
 
 To make secure Okta API requests to configure your Okta orgs, obtain OAuth 2.0 access tokens for the `Authorization` header in requests. The Okta setup to obtain access tokens depend on whether you want the token to have a user-based or a service-based context:
 
-* **User-based access**: The access token is tied to a specific admin user. For this access, you need to provide an Okta admin username and credentials. See [User-based API access setup](/reference/rest/#user-based-api-access-setup). Grant `okta.apps.manage`, `okta.clients.manage`, `okta.clients.register`, `okta.roles.manage`, `okta.users.manage`, `okta.appGrants.manage`, and `okta.groups.manage` to the OIDC app during the setup.
-<!-- What are the scopes required for all requests for the access token? Ask Richard Chan -->
+* **User-based access**: The access token is tied to a specific admin user. For this access, you need to provide an Okta admin username and credentials. See [User-based API access setup](/reference/rest/#user-based-api-access-setup). Grant `okta.apps.manage`, `okta.clients.manage`, `okta.clients.register`, `okta.roles.manage`, `okta.users.manage`, `okta.appGrants.manage`, and `okta.groups.manage` to the OIDC app during the setup. <!-- What are the scopes required for all requests for the access token? Ask Richard Chan -->
 
-* **Service-based access**: If you have a service app or script that makes API requests to Okta without user context, see [Service-based API access setup](/docs/reference/rest/#service-based-api-access-setup). Grant `okta.apps.manage`, `okta.clients.manage`, `okta.clients.register`, `okta.roles.manage`, `okta.appGrants.manage`, `okta.users.manage`,  and `okta.groups.manage` to the service app during the setup.
+* **Service-based access**: If you have a service app or script that makes API requests to Okta without user context, see [Service-based API access setup](/docs/reference/rest/#service-based-api-access-setup). Grant `okta.apps.manage`, `okta.clients.manage`, `okta.clients.register`, `okta.roles.manage`, `okta.appGrants.manage`, `okta.users.manage`, and `okta.groups.manage` to the service app during the setup.
 <!-- Ask Thanh-Ha and Richard if we want to add service-based access as an option? If so, we need the scopes for the access token. -->
 
 You need an access token for API requests to each Okta org. After you have API access to your orgs, execute the steps in the following sections for the [Hub and spoke connection configuration with OAuth 2.0](#hub-and-spoke-connection-configuration-with-oauth-2-0).
@@ -84,7 +79,7 @@ You need an access token for API requests to each Okta org. After you have API a
 
 ### Add an Org2Org app integration in a spoke org
 
-You use the spoke org to push users and groups to the central hub org. In the spoke org, add an instance of the Org2Org app integration by using the [Create an application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication) request with the [Org2Org request parameters](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/schema/Org2OrgApplication). This generates an integration instance with the key certificates required to connect to the hub org.
+You use the spoke org to push users and groups to the central hub org. In the spoke org, add an instance of the Org2Org app integration by using the [Create an app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication) request with the [Org2Org request parameters](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/schema/Org2OrgApplication). This generates an integration instance with the key certificates required to connect to the hub org.
 
 > **Note:** You can't use an Okta Developer Edition org as a spoke org since the Okta Org2Org app integration isn't available. If you need to test this feature in your developer org, contact your Okta account team.
 
@@ -97,7 +92,7 @@ As an Okta admin, make a `POST /api/v1/apps` request to the spoke org with [Okta
 | `baseUrl`  |  Specify the base URL of your hub org |
 | `signOnMode`  |  You can set this parameter to any valid value, but if you specify `SAML_2_0`, the Org2Org app signing certificate appears in the Admin Console. |
 
-> **Q???>**  Ask Kevin/Thanh-Ha: Org2org API documentation says that SAML_2_0 and AUTO_LOGIN are the only 2 signOnModes supported, does it support OIDC now? does this change how the signing certs appear in the Admin Console? okta-oas3 schema for Org2Org needs to be updated as well.
+> **Q???>**  Ask Kevin/Thanh-Ha: Org2org API documentation says that SAML_2_0 and AUTO_LOGIN are the only 2 signOnModes supported, does it support OIDC now? Does this change how the signing certs appear in the Admin Console? okta-oas3 schema for Org2Org needs to be updated as well.
 
 ##### Request example
 
@@ -124,13 +119,13 @@ From the response of your POST request, use the `id` property of the Org2Org app
 
 -->
 
-> **Q???>** We need the response payload if it returns the `jwks_uri` property. Then we can use that as the JWKS URL for the hub service app.
+> **Q???>** Need the response payload (if it returns the `jwks_uri` property). Then use that as the JWKS URL for the hub service app.
 
 Save the JWKS URL to configure the corresponding hub-org service app.
 
 ### Create an OAuth 2.0 service app in the hub org
 
- In the hub org, create an OAuth 2.0 service app for each spoke org by using the [Register a client application](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient) API. Make a `POST /oauth2/v1/clients` request to the hub org with the following required parameters from your spoke Org2Org app:
+ In the hub org, create an OAuth 2.0 service app for each spoke org by using the [Register a client app](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient) API. Make a `POST /oauth2/v1/clients` request to the hub org with the following required parameters from your spoke Org2Org app:
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
@@ -186,7 +181,7 @@ Make a `POST /oauth2/v1/clients/{yourServiceAppId}/roles` request to the hub org
 
 > **Note:** Only Okta [super admins](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin) can assign roles.
 
-> **Q???>**  Kevin, is ^ this still true??
+> **Q???>**  Kevin: is ^ this still true??
 
 ##### Request example
 
@@ -204,7 +199,7 @@ Make a `POST /oauth2/v1/clients/{yourServiceAppId}/roles` request to the hub org
 
 ### Grant allowed scopes to the OAuth 2.0 client
 
-From the response of the previous [POST request](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/schema/Org2OrgApplication), use the `client_id` property of the hub service app instance to grant the [allowed scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) with the [Grant consent to scope](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationGrants/#tag/ApplicationGrants/operation/grantConsentToScope) API request (`POST /api/v1/apps/{client_id}/grants`). In the following example, the `{yourServiceAppId}` variable name is used instead of `client_id`.
+From the response of the previous [POST request](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/schema/Org2OrgApplication), use the `client_id` property of the hub service-app instance to grant the [allowed scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) with the [Grant consent to scope](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationGrants/#tag/ApplicationGrants/operation/grantConsentToScope) API request (`POST /api/v1/apps/{client_id}/grants`). In the following example, the `{yourServiceAppId}` variable name is used instead of `client_id`.
 
 > **Note**: Currently, both `okta.users.manage` and `okta.groups.manage` scopes are required for the service app configuration.
 
@@ -244,7 +239,7 @@ Make a [`POST /api/v1/apps/{Org2OrgAppId}/connections/default?activate=TRUE`](ht
 | `clientId`  |  Specify the corresponding service app client ID in your hub org |
 | `signing.rotationMode` | Specify `AUTO` for automatic key rotation. If `signing.rotationMode` isn't specified, then `rotationMode` is set to `MANUAL` and key rotation isn't automatic for the Org2Org provisioning connection. |
 
-> **Q???>**  Kevin, please verify this ^ this signing behaviour.
+> **Q???>**  Kevin, please verify this ^ this signing behavior.
 
 ##### Request example
 
@@ -284,7 +279,7 @@ An advantage to using the OAuth 2.0 connection is that you can have automatic [k
 > **Q???>** Kevin: Do you have more info about the automatic key rotation behavior? What's the rotation cadence? Is it configurable?
 
 
-> **Q???>** Thanh-ha: do you want to keep manual key rotation steps for legacy users with MANUAL signing?
+> **Q???>** Thanh-ha: do you want to keep manual key rotation steps for legacy users with MANUAL signing? Perhaps we can remove this **Key rotation** section if the benefits of key rotation can be described in the configuration steps or in the overview?
 
 <!--
 ### Manual key rotation
