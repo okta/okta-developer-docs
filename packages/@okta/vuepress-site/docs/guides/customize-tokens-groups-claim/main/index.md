@@ -68,7 +68,7 @@ To test the full authentication flow that returns an ID or an access token, buil
 
     * Your OpenID Connect app's `client_id`
     * The response type, which for an ID token is `id_token` and an access token is `token`
-    > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow). For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
+    > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow). For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and an access token using the `/token` endpoint.
     * A scope, which is `openid` for the examples in this guide. When you’re adding a groups claim, both the `openid` and the `groups` scopes are included.
     * Your OpenID Connect app's `redirect_uri`
     * Values for `state` and `nonce`, which can be anything
@@ -124,10 +124,12 @@ To test the full authentication flow that returns an ID token, build your reques
 
 > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow) for quick testing. In the following example, request only `id_token` as the `response_type` value. This means that the requests are for a [fat ID token](/docs/concepts/api-access-management/#tokens-and-scopes), and the ID token is the only token included in the response. The ID token contains any groups assigned to the user that signs in when you include the `groups` scope in the request.
 >
->Requests to the org authorization server for both the ID token and the access token are considered [thin ID tokens](/docs/concepts/api-access-management/#tokens-and-scopes). A thin ID token contains only base claims. Profile attributes and groups aren't returned, even if those scopes are included in the request. You can use the access token to get the groups claim from the `/userinfo` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/userinfoCustomAS).
+>Requests to the org authorization server for both the ID token and the access token are considered [thin ID tokens](/docs/concepts/api-access-management/#tokens-and-scopes) when you use the following [authorization grant type flows](/docs/guides/implement-grant-type/implicit/main/): Implicit, Interaction Code, Resource Password Owner, and SAML 2.0 Assertion. A thin ID token contains only base claims. Profile attributes and groups aren't returned, even if those scopes are included in the request. You can use the access token to get the groups claim from the `/userinfo` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/userinfoCustomAS).
+>
+>When you make requests using the authorization code or authorization code with PKCE [authentication flows](/docs/guides/implement-grant-type/authcode/main/), both the ID token and access token are returned. In this scenario, the org authorization server returns a fat ID token. The groups claims are included in the ID token returned.
 >
 
-The resulting URL looks something like this:
+The resulting URL (in an Implicit flow) looks something like this:
 
 > **Note:** In this example, the user signing in to your app is assigned to a group called "IT" and being a part of the "Everyone" group.
 
