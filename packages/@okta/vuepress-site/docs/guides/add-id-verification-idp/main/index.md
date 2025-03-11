@@ -1,5 +1,5 @@
 ---
-title: Enterprise identity verification vendor
+title: Enterprise identity verification provider
 meta:
   - name: description
     content: Okta supports identity verification with external enterprise identity verification vendors. Get an overview of the process and prerequisites, as well as the set up instructions.
@@ -39,11 +39,11 @@ IdPs authenticate users by verifying their digital credentials. A user’s ident
 
 Because of its stricter verification, you might only use an IDV for sensitive operations. For example, use an IDV check when a user enrolls a new authenticator or resets their password.
 
-## Create an app at the identity verification vendor
+## Create an app at the identity verification provider
 
 <StackSnippet snippet="appatidp" />
 
-## Create the identity verification vendor in Okta
+## Create the identity verification provider in Okta
 
 To add <StackSnippet snippet="idp" inline /> as an IDV in Okta:
 
@@ -97,12 +97,7 @@ accessRequest.operation == 'enroll'
 ## Troubleshooting
 
 When you test the integration, if you’re not redirected to the IDV flow, review the following areas:
+
 * Review the user and group that you created. Ensure that you’ve set the correct group ID when you [create the Okta account management policy rule](#create-an-okta-account-management-policy-rule).
 
 * Review the Okta account management policy rule. Ensure that you’ve added the correct Okta Expression Language expression and that the `verificationMethod` type is set to `ID_PROOFING`.
-
-## Next steps
-
-You now understand how to add a social Identity Provider and have successfully added and tested the integration.
-
-To add another Identity Provider, start by choosing an [external Identity Provider](/docs/guides/identity-providers/).
