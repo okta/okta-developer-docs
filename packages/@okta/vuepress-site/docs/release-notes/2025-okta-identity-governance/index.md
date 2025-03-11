@@ -10,6 +10,16 @@ For changes prior to 2025, see [Archived Okta Identity Governance API Changelog 
 
 ## March
 
+### Weekly release 2025.03.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bug fixed in 2025.03.1](#bug-fixed-in-2025-03-1)| March 12, 2025 |
+
+#### Bug fixed in 2025.03.1
+
+The `requestOnBehalfOfSettings` property wasn’t validated for `DIRECT_REPORT` when a user calls the [Retrieve an entry’s request fields](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Catalogs/#tag/My-Catalogs/operation/getMyCatalogEntryRequestFieldsV2) (`GET /governance/api/v2/my/catalogs/default/entries/{entryId}/request-fields`). (OKTA-807528)
+
 ### Monthly release 2025.03.0
 
 | Change | Expected in Preview Orgs |
