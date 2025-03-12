@@ -6,6 +6,22 @@ title: Okta Classic Engine API release notes 2025
 
 ## March
 
+### Weekly release 2025.03.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.03.1](#bugs-fixed-in-2025-03-1)| March 12, 2025 |
+
+#### Bugs fixed in 2025.03.1
+
+* `createdBy` and `lastUpdatedBy` custom attributes couldn't be used in group rules. (OKTA-566492)
+
+* Custom admins who were limited to viewing only application group members received incomplete results when using the `List All Users API` without a `search` or `filter` parameter. (OKTA-801592)
+
+* The JSON Web Token that Okta generates and sends to the OpenID Connect identity provider contained a string `exp` instead of a number 'exp'. (OKTA-852446)
+
+* When making `POST` requests to `users/{userId}/factors/{factorId}/verify` or `authn/factors/{factorId}/verify` endpoints with `factorType` instead of `factorId` in the URL path, multiple failed verification attempts didn't lock users out and the failed attempts weren't logged in the System Log. (OKTA-871469)
+
 ### Monthly release 2025.03.0
 
 | Change | Expected in Preview Orgs |
