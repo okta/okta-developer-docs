@@ -10,6 +10,8 @@ At [Persona](https://withpersona.com/), create the client app to use for verifyi
 
 1. In the list of inquiry templates, select the Government ID and Selfie inquiry template. To test this template, you must have a camera that you can use to take a selfie.
 
+   > **Note:** If you want to use an inquiry template that doesn’t require a camera, use the Government ID (Front side only) inquiry template.
+
 1. Click **Configure**.
 
 1. Under **Image capture methods** > **Capture Methods**, turn on **File upload**. Ensure that it’s turned on for at least one of:
@@ -18,15 +20,13 @@ At [Persona](https://withpersona.com/), create the client app to use for verifyi
    * Mobile web
    * Mobile native
 
-   This allows you to upload the provided image when you test the integration.
+   This allows you to upload the [provided image](#test-image) when you test the integration.
 
 1. Select **Save**. After you’ve saved, select **Publish**.
 
 1. Go to **Inquiries** > **Templates**, find your Government ID and Selfie inquiry template.
 
 1. Copy the Inquiry ID and paste it into a text editor so that you can use it in the next section.
-
-> **Note:** If you want to use an inquiry template that doesn’t require a camera, use the Government ID (Front side only) inquiry template.
 
 ### Configure the API key and redirect URI of the Persona app
 

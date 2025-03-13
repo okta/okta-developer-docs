@@ -23,6 +23,7 @@ Not sure what an Identity Provider is? See [External Identity Providers](/docs/c
 
 <Cards>
   <Card href="/docs/guides/add-id-verification-idp/persona/main" headerImage="/img/idp-logos/idv_persona.svg">Persona</Card>
+</Cards>
 
 ## Social Logins
 

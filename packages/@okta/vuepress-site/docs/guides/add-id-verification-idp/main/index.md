@@ -1,5 +1,5 @@
 ---
-title: Enterprise identity verification provider
+title: Enterprise identity verification vendor
 meta:
   - name: description
     content: Okta supports identity verification with external enterprise identity verification vendors. Get an overview of the process and prerequisites, as well as the set up instructions.
@@ -25,9 +25,10 @@ Configure an IDV so that your user’s identities are verified when they enroll 
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * The [Okta account management policy](/docs/guides/okta-account-management-policy/main/) feature enabled for your org
-* An account <StackSnippet snippet="idpaccount" inline /> with access to a sandbox environment
+* An account with <StackSnippet snippet="idpaccount" inline /> with access to a sandbox environment
 * A test [user account](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) that you can use to enroll an authenticator
 * A test [group](https://help.okta.com/okta_help.htm?type=oie&id=usgp-groups-create) in your org that the test user is added to
+* A test [image](idv-test-image.png) to use as a proof of identity
 
 ---
 
@@ -39,17 +40,15 @@ IdPs authenticate users by verifying their digital credentials. A user’s ident
 
 Because of its stricter verification, you might only use an IDV for sensitive operations. For example, use an IDV check when a user enrolls a new authenticator or resets their password.
 
-## Create an app at the identity verification provider
+## Create an app at the identity verification vendor
 
 <StackSnippet snippet="appatidp" />
 
-## Create the identity verification provider in Okta
+## Create the identity verification vendor in Okta
 
 To add <StackSnippet snippet="idp" inline /> as an IDV in Okta:
 
 <StackSnippet snippet="appidpinokta" />
-
-> **Note:** If you want to use a specific **Redirect Domain** instead of the **Dynamic** default, you can use either **Org URL** or **Custom URL**. See `issuerMode` in the [Identity Provider attributes](/docs/reference/api/idps/#identity-provider-attributes) section.
 
 <StackSnippet snippet="afterappidpinokta" />
 
@@ -58,41 +57,29 @@ To add <StackSnippet snippet="idp" inline /> as an IDV in Okta:
 You can test your integration by using the rule that you configured in the [previous section](#create-an-okta-account-management-policy-rule).
 
 1. Sign in to your org as the user that you created.
-1. Click on your username.
+1. Click your username.
 1. Go to **My Settings**.
 1. Select **Security Methods**, and then set up a new authenticator.
 
 If the IDV is set up correctly, you’re prompted to verify your identity and redirected through the <StackSnippet snippet="idp" inline /> IDV flow. And the user you created can successfully enroll an authenticator.
 
+### Test image
+
+Use the following image if your verification template requires you to upload a photo. Save the image and then select it when you're prompted to upload a photo.
+
+<div class="half border">
+
+![Okta logo and brand name](/img/idv-test-image.png)
+
+</div>
+
 ## Alternate use cases
 
 You can use <StackSnippet snippet="idp" inline /> to verify your user identities in different scenarios. Use the following Okta Expression Language expressions for different scenarios.
 
-> **Note:** You can use the [Okta account management policy rule](#create-an-okta-account-management-policy-rule) without any expression. If you don’t use an Okta Expression Language expression, your user is prompted to verify their identity every time they sign in to your org.
+> **Note:** You can use the [Okta account management policy rule](#create-an-okta-account-management-policy-rule) without any expression. If you don’t use an Okta Expression Language expression, your user is prompted to verify their identity every time they sign in.
 
-#### Verify user identity only when they enroll an authenticator
-
-```
-accessRequest.operation == 'enroll'
-```
-
-#### Verify user identity only when they reset their password
-
-```
-accessRequest.authenticator.key == 'okta_password' && accessRequest.operation == 'recover'
-```
-
-#### Verify user identity only when they enroll phishing-resistant authenticators
-
-```
-{
-  'okta_verify',
-  'webauthn',
-  'smart_card_idp',
-  'yubikey_token'
-}.contains(accessRequest.authenticator.key) &&
-accessRequest.operation == 'enroll'
-```
+<StackSnippet snippet="alternateusecase" />
 
 ## Troubleshooting
 

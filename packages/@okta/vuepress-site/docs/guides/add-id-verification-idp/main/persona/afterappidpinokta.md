@@ -25,6 +25,8 @@ Ensure that you’ve created a user account and group for that user. For example
 
     This expression requires users to verify their identity with the IDV when they enroll a new authenticator.
 
+1. Send the `POST` request.
+
 ### Example request
 
 ```json

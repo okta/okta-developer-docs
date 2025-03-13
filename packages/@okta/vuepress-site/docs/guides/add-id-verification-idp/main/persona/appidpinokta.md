@@ -10,6 +10,8 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
 
 1. Use the Inquiry Template ID from the [previous section](#configure-identity-verification-template) as the `inquiryTemplateId` value, which begins with `itmpl_`.
 
+1. Send the `POST` request.
+
 1. After you create the IDV, copy the value of `id` from the response body and paste it into a text editor. Use it in the next section.
 
 ### Example request
