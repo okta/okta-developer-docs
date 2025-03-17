@@ -28,7 +28,7 @@ This guide provides an example of an Okta telephony inline hook. This guide uses
 
 ## Before you begin
 
-* Review the information and required steps in the [Common Hook set-up steps](https://developer.okta.com/docs/guides/common-hook-set-up-steps/nodejs/main/) page first. This includes remixing (copying) the Glitch.com project used in this guide and understanding how Glitch projects are configured and used with hooks.
+* Review the information and required steps in the [Common hook set-up steps](/docs/guides/common-hook-set-up-steps/nodejs/main/) page first. This includes remixing (copying) the Glitch.com project used in this guide and understanding how Glitch projects are configured and used with hooks.
 
 > **Note:** You can also use Amazon Web Services Lambda Serverless Framework as an external service. See [Setting Up Serverless Framework With AWS](https://www.serverless.com/framework/docs/getting-started).
 
@@ -69,7 +69,7 @@ Verify that your org has the Phone authenticator added and enabled for **Authent
 1. On the **Setup** tab, verify that the Phone authenticator is listed.
 1. Select **Edit** from the **Actions** menu and verify that both **Voice call** and **SMS** are selected as how the verification messages are sent.
 1. In the **Used for** section, verify that the **Authentication and recovery** option is selected.
-1. Click **Save** if made any changes.
+1. Click **Save** if you made any changes.
 
 > **Note:** If a phone authenticator isn't already added, click **Add Authenticator**, and then **Add** on the Phone tile. Make sure that you select the options mentioned earlier, and then click **Add**.
 
@@ -178,7 +178,7 @@ When Okta calls an external service, it enforces a default timeout of three seco
 
 > **Note:** The failover mechanism that uses the Okta telephony providers is heavily rate-limited.
 
-There are other common causes of failure for telephony inline hooks. See the [Troubleshoot](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook#troubleshoot) section in the telephony inline hook API. This section contains a list of possible failures for telephony hook callouts, information on the impact of the failure, and error visibility.
+There are other common causes of failure for telephony inline hooks. See the [Troubleshoot](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook) section. This section contains a list of possible failures for telephony hook callouts, information on the impact of the failure, and error visibility.
 
 ## Preview and test
 
@@ -200,7 +200,7 @@ To preview the telephony inline hook:
 
 1. From the **Preview example inline hook request** section, click **Generate Request**. The request sent to the external service appears in JSON format.
 
-  > **Note:** Go to [Create a telephony inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook) to see an example of a request body.
+    > **Note:** Go to [Create a telephony inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook) to see an example of a request body in the Request samples section.
 
 1. From the **View Service's Response** section, click **View Response**. A response from the external service appears in JSON format. Upon a successful response, an SMS code or voice call message with the code is sent to the associated user. Upon an error, the error message is returned in the response.
 
