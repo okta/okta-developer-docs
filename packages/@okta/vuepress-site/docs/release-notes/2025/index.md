@@ -32,7 +32,6 @@ title: Okta Classic Engine API release notes 2025
 | [Improved user search functionality is GA in Production](#improved-user-search-functionality-is-ga-in-production) | February 12, 2025 |
 | [Improved realms and device search functionality is GA in Production](#improved-realms-and-device-search-functionality-is-ga-in-production) | February 12, 2025 |
 | [Realms for Workforce is GA in Production](#realms-for-workforce-is-ga-in-production) | February 13, 2025 |
-| [Advanced search using conditioned profile attributes](#advanced-search-using-conditioned-profile-attributes) | March 5, 2025 |
 | [Identity Security Posture Management functionality in the OIN catalog](#identity-security-posture-management-functionality-in-the-oin-catalog) | March 5, 2025 |
 | [Default global session policy rule update](#default-global-session-policy-rule-update) | March 5, 2025 |
 | [Developer documentation update in 2025.03.0](#developer-documentation-update-in-2025-03-0) | March 5, 2025 |

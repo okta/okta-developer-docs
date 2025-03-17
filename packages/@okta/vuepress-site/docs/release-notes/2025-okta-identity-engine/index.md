@@ -41,7 +41,6 @@ title: Okta Identity Engine API release notes 2025
 | [New End-user Enrollments API is GA in Preview](#new-end-user-enrollments-api-is-ga-in-preview) | March 5, 2025 |
 | [CLEAR Verified as a third-party identity verification provider is EA in Preview](#clear-verified-as-a-third-party-identity-verification-provider-is-ea-in-preview) | March 5, 2025 |
 | [Verify an SSF Stream is EA in Preview](#verify-an-ssf-stream-is-ea-in-preview) | March 5, 2025 |
-| [Advanced search using conditioned profile attributes](#advanced-search-using-conditioned-profile-attributes) | March 5, 2025 |
 | [MyAccount Password API updates](#myaccount-password-api-updates) | March 5, 2025 |
 | [Identity Security Posture Management functionality in the OIN catalog](#identity-security-posture-management-functionality-in-the-oin-catalog) | March 5, 2025 |
 | [Default global session policy rule update](#default-global-session-policy-rule-update) | March 5, 2025 |
