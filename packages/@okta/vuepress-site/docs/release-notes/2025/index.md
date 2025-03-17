@@ -63,10 +63,6 @@ We've extended the contains (`co`) operator to realms and devices. You can now s
 
 The Realms and Realms Management APIs allow you to unlock greater flexibility in managing and delegating the management of your distinct user populations within a single Okta org. See [Realms](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Realm/) and [Realm Assignments](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RealmAssignment/).   <!--- https://oktainc.atlassian.net/browse/OKTA-853176#icft=OKTA-853176 UD_REALMS_FOUNDATIONS and UD_REALMS -->
 
-#### Advanced search using conditioned profile attributes
-
-If you have an admin role with permission conditions to access certain user profile attributes, you can now search for those users with those attributes. Note that this search enhancement doesn't support the `OR` operator. <!-- OKTA-856262 -->
-
 #### Identity Security Posture Management functionality in the OIN catalog
 
 The **Okta Integration Network** page now provides **Identity Security Posture Management** functionality. When you select it, the OIN catalog displays only the apps with Identity Security Posture Management functionality.

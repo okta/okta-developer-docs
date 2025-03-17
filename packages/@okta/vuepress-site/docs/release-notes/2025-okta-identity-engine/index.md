@@ -92,10 +92,6 @@ Okta now supports using CLEAR Verified as an identity provider. This increases t
 
 Okta SSF Transmitter now supports the verification endpoint to enable receivers to request verification events and validate the end-to-end delivery between the transmitter and receiver. In addition, the SSF Transmitter verification events claim structure is now compliant with the OpenID Shared Signals Framework ID3 spec. <!-- OKTA_SSF_TRANSMITTER_PUSH_VERIFICATION_ENDPOINT into OKTA_SSF_TRANSMITTER_PUSH -->
 
-#### Advanced search using conditioned profile attributes
-
-If you have an admin role with permission conditions to access certain user profile attributes, you can now search for those users with those attributes. Note that this search enhancement doesn't support the `OR` operator. <!-- OKTA-856262 -->
-
 #### MyAccount Password API updates
 
 Admins can now send a PUT request to the `/idp/myaccount/password` endpoint to update the password for a user. Also, admins can send a GET request to the `/idp/myaccount/password/complexity-requirements` endpoint to retrieve password complexity requirements. See [Replace a Password](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Password/#tag/Password/operation/replacePassword) and [Retrieve the Password Complexity Requirements](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Password/#tag/Password/operation/getPasswordRequirements). <!-- FFs ENG_ENABLE_MY_ACCOUNT_CHANGE_PASSWORD and ENG_ENABLE_MY_ACCOUNT_GET_PASSWORD_REQUIREMENTS -->
