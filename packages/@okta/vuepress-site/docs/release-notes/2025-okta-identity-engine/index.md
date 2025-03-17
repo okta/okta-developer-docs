@@ -41,7 +41,6 @@ title: Okta Identity Engine API release notes 2025
 | [New End-user Enrollments API is GA in Preview](#new-end-user-enrollments-api-is-ga-in-preview) | March 5, 2025 |
 | [CLEAR Verified as a third-party identity verification provider is EA in Preview](#clear-verified-as-a-third-party-identity-verification-provider-is-ea-in-preview) | March 5, 2025 |
 | [Verify an SSF Stream is EA in Preview](#verify-an-ssf-stream-is-ea-in-preview) | March 5, 2025 |
-| [Advanced search using conditioned profile attributes](#advanced-search-using-conditioned-profile-attributes) | March 5, 2025 |
 | [MyAccount Password API updates](#myaccount-password-api-updates) | March 5, 2025 |
 | [Identity Security Posture Management functionality in the OIN catalog](#identity-security-posture-management-functionality-in-the-oin-catalog) | March 5, 2025 |
 | [Default global session policy rule update](#default-global-session-policy-rule-update) | March 5, 2025 |
@@ -91,10 +90,6 @@ Okta now supports using CLEAR Verified as an identity provider. This increases t
 #### Verify an SSF Stream is EA in Preview
 
 Okta SSF Transmitter now supports the verification endpoint to enable receivers to request verification events and validate the end-to-end delivery between the transmitter and receiver. In addition, the SSF Transmitter verification events claim structure is now compliant with the OpenID Shared Signals Framework ID3 spec. <!-- OKTA_SSF_TRANSMITTER_PUSH_VERIFICATION_ENDPOINT into OKTA_SSF_TRANSMITTER_PUSH -->
-
-#### Advanced search using conditioned profile attributes
-
-If you have an admin role with permission conditions to access certain user profile attributes, you can now search for those users with those attributes. Note that this search enhancement doesn't support the `OR` operator. <!-- OKTA-856262 -->
 
 #### MyAccount Password API updates
 
