@@ -93,7 +93,13 @@ Update the **Okta Dashboard** [preset authentication policy](https://help.okta.c
 1. Click **Add Rule** and name the rule.
 1. In the **AND User's group membership includes** dropdown list, select **At least one of the following groups**.
 1. In the box that appears, start typing the group that you created and select it when it appears.
-1. In the **AND Possession factor constraints are** section, verify that the **Require device passcode or biometric user verification** and **Require biometric user verification** checkboxes are cleared.
+1. In the **AND Possession factor constraints are** section, verify that the following checkboxes are cleared:
+   * **Phishing resistant**
+   * **Hardware protected**
+   * **Require device passcode or biometric user verification**
+   * **Require biometric user verification**
+   * **Device Bound (excludes phone and email)**
+
 1. Verify that **Phone - SMS** and **Phone - Voice** are listed as additional factor types.
 1. Click **Save**. Users signing in to Okta are then required to use both their password and the Phone authenticator to authenticate.
 
@@ -114,7 +120,7 @@ Alternatively, you can use the Inline Hooks API to [create an inline hook](https
 
 Copy the account SID and auth token from your Twilio account and add them as variables in the `.env` file in the Glitch project.
 
-> **Note:** Ensure that you have the required default code and packages in your project. See [Common Hook set-up steps](https://developer.okta.com/docs/guides/common-hook-set-up-steps/nodejs/main/).
+> **Note:** Ensure that you have the required default code and packages in your project. See [Common hook set-up steps](https://developer.okta.com/docs/guides/common-hook-set-up-steps/nodejs/main/).
 
 1. From the left navigation in the Glitch project, click **.env**.
 1. In the first blank variable line that appears, add **ACCOUNT_SID** and then paste your account SID as the value on the right.
