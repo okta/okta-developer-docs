@@ -28,7 +28,7 @@ This guide provides an example of an Okta telephony inline hook. This guide uses
 
 ## Before you begin
 
-* Review the information and required steps in the [Common hook set-up steps](/docs/guides/common-hook-set-up-steps/nodejs/main/) page first. This includes remixing (copying) the Glitch.com project used in this guide and understanding how Glitch projects are configured and used with hooks.
+* Review the information and required steps in the [Common hook set-up steps](/docs/guides/common-hook-set-up-steps/nodejs/main/) page first. This includes remixing (copying) the Glitch.com project that's used in this guide and understanding how Glitch projects are configured and used with hooks.
 
 > **Note:** You can also use Amazon Web Services Lambda Serverless Framework as an external service. See [Setting Up Serverless Framework With AWS](https://www.serverless.com/framework/docs/getting-started).
 
@@ -66,7 +66,7 @@ Although each org can have only one active telephony inline hook, you aren't lim
 Verify that your org has the Phone authenticator added and enabled for **Authentication, Recovery**.
 
 1. In the Admin Console, go to **Security** > **Authenticators**.
-1. On the **Setup** tab, verify that the Phone authenticator is listed.
+1. On the **Setup** tab, verify that the phone authenticator is listed.
 1. Select **Edit** from the **Actions** menu and verify that both **Voice call** and **SMS** are selected as how the verification messages are sent.
 1. In the **Used for** section, verify that the **Authentication and recovery** option is selected.
 1. Click **Save** if you made any changes.
