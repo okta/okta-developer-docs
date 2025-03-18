@@ -206,7 +206,7 @@ To preview the telephony inline hook:
 
 1. From the **Preview example inline hook request** section, click **Generate Request**. The request sent to the external service appears in JSON format.
 
-    > **Note:** Go to [Create a telephony inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook) to see an example of a request body in the Request samples section.
+    > **Note:** Go to [Create a telephony inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook) to see an example of a request body in the **Request samples** section.
 
 1. From the **View Service's Response** section, click **View Response**. A response from the external service appears in JSON format. Upon a successful response, an SMS code or voice call message with the code is sent to the associated user. Upon an error, the error message is returned in the response.
 
