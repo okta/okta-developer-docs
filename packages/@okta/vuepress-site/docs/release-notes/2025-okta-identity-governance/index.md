@@ -10,6 +10,19 @@ For changes prior to 2025, see [Archived Okta Identity Governance API Changelog 
 
 ## March
 
+### Weekly release 2025.03.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Collections API is Beta](#collections-api-is-beta)| March 19, 2025 |
+
+#### Collections API is Beta
+
+<ApiLifecycle access="beta" />
+
+The [Collections API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Collections/) is available in Beta. This API allows you to manage sets of apps and entitlements. See [Resource collections](https://help.okta.com/okta_help.htm?type=oie&id=csh-rc). <!-- OKTA-856259 -->
+
+
 ### Weekly release 2025.03.1
 
 | Change | Expected in Preview Orgs |
