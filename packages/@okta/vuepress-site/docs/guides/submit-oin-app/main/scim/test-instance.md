@@ -28,7 +28,7 @@ After you've enabled the provisioning API connection in your test instance, conf
 
 To configure the user attribute mappings, you need to delete the unnecessary mappings and attributes and then proceed to configure the attributes:
 
-   * Delete mapping:
+   * **Delete mapping**:
 
    1. Select **To App** on the left **Settings** panel.
    The **Provisioning to App** settings appear. The provisioning operations are already set by default from the [SCIM properties](#properties) section when you configured your integration.
@@ -40,13 +40,13 @@ To configure the user attribute mappings, you need to delete the unnecessary map
    6. Click **X** next to the attribute that you want to delete, and then click **OK** to confirm.
       Repeat this step until you remove all the mappings for the attributes that you want to delete.
 
-   * Delete attributes:
+   * **Delete attributes**:
 
    1. After removing all the mappings for the attributes that you want to delete, click **Go to Profile Editor**.
    2. In the **Profile Editor**, delete all the corresponding attributes from the mapping by clicking **X** next to the attribute and then **Delete Attribute** to confirm.
       Repeat this step for all the attributes that you want to delete.
 
-   * Add attributes:
+   * **Add attributes**:
 
    1. In the **Profile Editor**, click **Add Attribute**.
 
