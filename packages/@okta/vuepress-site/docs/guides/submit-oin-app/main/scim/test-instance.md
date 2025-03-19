@@ -21,42 +21,44 @@
 
 SCIM integrations that are submitted through the OIN Wizard have a default set of user attribute mappings. The user schema in your SCIM app might not support all of these attributes. Ensure the integration that you're submitting to Okta reflects the attributes that are supported by your app. The OIN team uses the attribute mappings in your test instance for your integration provisioning settings in the OIN catalog.
 
-After you've enabled the provisioning API connection in your test instance, configure user attribute mappings to and from Okta in the **Provisioning** tab of your instance:
+After you've enabled the provisioning API connection in your test instance, configure user attribute mappings to and from Okta in the **Provisioning** tab of your instance.
 
 * **To App**: User attribute mappings from Okta to your app
 * **To Okta**: User attribute mappings from your app to Okta
 
-1. Select **To App** on the left **Settings** panel of the **Provisioning** tab.
-  The **Provisioning to App** settings appear. The provisioning operations are already set by default from the [SCIM properties](#properties) section when you configured your integration.
+To configure the user attribute mappings, you need to delete the unnecessary mappings and attributes and then proceed to configure the attributes:
 
-1. Scroll to the **{yourApp} Attribute Mappings** section.
+   * **Delete mapping**:
 
-   * Delete attributes:
-     1. Click **X** next to the attribute that you want to delete, and then click **OK** to confirm.
+   1. Select **To App** on the left **Settings** panel.
+   The **Provisioning to App** settings appear. The provisioning operations are already set by default from the [SCIM properties](#properties) section when you configured your integration.
+   2. Scroll to the **{yourApp} Attribute Mappings** section.
+   3. Click **X** next to the attribute that you want to delete, and then click **OK** to confirm.
+      Repeat this step until you remove all the mappings for the attributes that you want to delete.
+   4. Select **To App** on the left **Settings** panel.
+   5. Scroll to the **Okta Attribute Mappings** section.
+   6. Click **X** next to the attribute that you want to delete, and then click **OK** to confirm.
+      Repeat this step until you remove all the mappings for the attributes that you want to delete.
 
-        Repeat this step until you remove all the mappings for the attributes that you want to delete.
+   * **Delete attributes**:
 
-     1. After removing all the mappings for the attributes that you want to delete, click **Go to Profile Editor**.
+   1. After removing all the mappings for the attributes that you want to delete, click **Go to Profile Editor**.
+   2. In the **Profile Editor**, delete all the corresponding attributes from the mapping by clicking **X** next to the attribute and then **Delete Attribute** to confirm.
+      Repeat this step for all the attributes that you want to delete.
 
-     1. In the Profile Editor, delete all the corresponding attributes from the mapping by clicking **X** next to the attribute and then **Delete Attribute** to confirm.
+   * **Add attributes**:
 
-        Repeat this step for all the attributes that you want to delete.
+   1. In the **Profile Editor**, click **Add Attribute**.
 
-   * Add attributes:
+   2. Enter the information for the new attribute that you’re adding and then click **Save**.
+      > **Note:** The **Scope** property determines whether the attribute that you're adding can be assigned at a group level or per user. If you want your admins to assign a value for this attribute at a group level, don't select the **User personal** checkbox.
 
-     1. In the Profile Editor, click **Add Attribute**.
+   3. After adding attributes, go back to the **{yourApp} Attribute Mappings** section and click **Edit** to map your new attributes. A dialog appears with two dropdown fields.
 
-     1. Enter the information for the new attribute that you’re adding and then click **Save**.
-
-        > **Note:** The **Scope** property determines whether the attribute that you're adding can be assigned at a group level or per user. If you want your admins to assign a value for this attribute at a group level, don't select the **User personal** checkbox.
-
-     1. After adding attributes, go back to the **{yourApp} Attribute Mappings** section and click **Edit** to map your new attributes. A dialog appears with two dropdown fields.
-
-     1. Select **Map from Okta Profile** in the first dropdown list.
-     1. In the second dropdown list, select the Okta profile attribute that you want to map over to the SCIM attribute.
-     1. Click **Save**.
-
-         Repeat these steps for all SCIM attributes that you want to map (from Okta to your app).
+   4. Select **Map from Okta Profile** in the first dropdown list.
+   5. In the second dropdown list, select the Okta profile attribute that you want to map over to the SCIM attribute.
+   6. Click **Save**.
+   7. Repeat these steps for all SCIM attributes that you want to map (from Okta to your app).
 
      <div class="three-quarter border">
 
@@ -65,7 +67,7 @@ After you've enabled the provisioning API connection in your test instance, conf
      </div>
 
      5. After you update the mappings from Okta to your app, click **To Okta** in the **Settings** section.
-     6. Scroll to the **{yourApp} Attribute Mappings** section. Find the attribute that you want to update and click **Edit**. A dialog appears with two dropdown fields next to **Attribute value**.
+     6. Scroll to the **{yourApp} Attribute Mappings** section. Find the attribute that you want to update and click **Edit**. A dialog appears with two dropdown fields next to the **Attribute value**.
      7. Select **Map from {yourApp} App Profile** from the first dropdown list.
      8. In the second dropdown list, select the SCIM attribute that you want to map to the Okta attribute.
      9. Click **Save**.
