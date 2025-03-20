@@ -123,7 +123,7 @@ Add this rule to your Okta account management policy if your org doesn't already
 
 If your org already uses phishing-resistant authenticators, see [Add a rule for authenticator enrollment](#add-a-rule-for-authenticator-enrollment).
 
-> **Note:** This rule relies on [managed devices](https://support.okta.com/help/s/article/Howto-Get-a-List-of-All-Managed-and-NotManaged-Devices-in-Okta?language=en_US) and [IP Network Zones](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/).
+> **Note:** This rule relies on [IP Network Zones](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/).
 
 If you want to add this rule using the Admin Console, see [Add a rule for your first phishing-resistant authenticator](https://help.okta.com/okta_help.htm?type=oie&id=ext-oamp-enroll-first).
 
@@ -134,7 +134,6 @@ Send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. Conside
 * Use the value of `id` from the [GET call](#retrieve-the-okta-account-management-policy-id) as the value of `policyId` in your request.
 * Set the value of `priority` to `1`.
 * Set values for `network.connection` and `network.include`.
-* Set the value of `device.managed` to `true`.
 
 ```bash
 curl --location --globoff 'https://{yourOktaDomain}/api/v1/policies/{policyId/rules?activate=true' \
@@ -170,10 +169,6 @@ curl --location --globoff 'https://{yourOktaDomain}/api/v1/policies/{policyId/ru
                 "include": [],
                 "exclude": []
             }
-        },
-        "device": {
-            "registered": true,
-            "managed": true
         },
         "riskScore": {
             "level": "LOW"
@@ -228,7 +223,7 @@ curl --location --globoff 'https://{yourOktaDomain}/api/v1/policies/{policyId/ru
 
 ### User experience
 
-Users must be on a managed device, inside a trusted network zone, and demonstrate low risk behavior before they enroll the designated phishing-resistant authenticator. If they don't meet these requirements, all fields in their profile settings are read-only, including the Reset, Update, and Remove options for their existing security methods. The phishing-resistant authenticators that they haven't enrolled are hidden, which means that they can't access any apps with phishing-resistant authentication policies.
+Users must be inside a trusted network zone and demonstrate low risk behavior before they enroll the designated phishing-resistant authenticator. If they don't meet these requirements, all fields in their profile settings are read-only, including the Reset, Update, and Remove options for their existing security methods. The phishing-resistant authenticators that they haven't enrolled are hidden, which means that they can't access any apps with phishing-resistant authentication policies.
 
 This rule also applies to authenticator unenrollment, and users can lock themselves out if they unenroll too many authenticators. Encourage users to always maintain one phishing-resistant authenticator.
 
