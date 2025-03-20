@@ -19,12 +19,13 @@ Okta manages the connection to the IDV for your app, sitting between your app an
 
 Configure an IDV so that your user’s identities are verified when they enroll a new authenticator.
 
-> **Note:** This guide describes the process for setting up an identity verification flow in a sandbox environment of a <StackSnippet snippet="idp" inline /> app. In a sandbox environment, there is no actual identity verification that verifies your user’s identities. You can use the same configuration process in a production environment in your <StackSnippet snippet="idp" inline /> app.
+> **Note:** This guide describes the process for setting up an identity verification flow in a Sandbox environment of a <StackSnippet snippet="idp" inline /> app. In a Sandbox environment, there is no actual identity verification that verifies your user’s identities. You can use the same configuration process in a Production environment in your <StackSnippet snippet="idp" inline /> app.
 
 #### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * The [Okta account management policy](/docs/guides/okta-account-management-policy/main/) feature enabled for your org
+* The Identity verification with third party identity verification vendors feature enabled for your org
 * An account with <StackSnippet snippet="idpaccount" inline /> with access to a sandbox environment
 * A test [user account](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) that you can use to enroll an authenticator
 * A test [group](https://help.okta.com/okta_help.htm?type=oie&id=usgp-groups-create) in your org that the test user is added to
@@ -46,8 +47,6 @@ Because of its stricter verification, you might only use an IDV for sensitive op
 
 ## Create the identity verification vendor in Okta
 
-To add <StackSnippet snippet="idp" inline /> as an IDV in Okta:
-
 <StackSnippet snippet="appidpinokta" />
 
 <StackSnippet snippet="afterappidpinokta" />
@@ -61,7 +60,7 @@ You can test your integration by using the rule that you configured in the [prev
 1. Go to **My Settings**.
 1. Select **Security Methods**, and then set up a new authenticator.
 
-If the IDV is set up correctly, you’re prompted to verify your identity and redirected through the <StackSnippet snippet="idp" inline /> IDV flow. And the user you created can successfully enroll an authenticator.
+If the IDV is set up correctly, you’re prompted to verify your identity and redirected through the <StackSnippet snippet="idp" inline /> IDV flow. Then, the user you created can successfully enroll an authenticator.
 
 ### Test image
 
@@ -77,7 +76,7 @@ Use the following image if your verification template requires you to upload a p
 
 You can use <StackSnippet snippet="idp" inline /> to verify your user identities in different scenarios. Use the following Okta Expression Language expressions for different scenarios.
 
-> **Note:** You can use the [Okta account management policy rule](#create-an-okta-account-management-policy-rule) without any expression. If you don’t use an Okta Expression Language expression, your user is prompted to verify their identity every time they sign in.
+> **Note:** You can use the [Okta account management policy rule](#create-an-okta-account-management-policy-rule) without any expression. If you don’t use an Okta Expression Language expression, your user is prompted to verify their identity every time they attempt to enroll or unenroll authenticators or edit their persona information in their **My Settings**.
 
 <StackSnippet snippet="alternateusecase" />
 
@@ -88,3 +87,5 @@ When you test the integration, if you’re not redirected to the IDV flow, revie
 * Review the user and group that you created. Ensure that you’ve set the correct group ID when you [create the Okta account management policy rule](#create-an-okta-account-management-policy-rule).
 
 * Review the Okta account management policy rule. Ensure that you’ve added the correct Okta Expression Language expression and that the `verificationMethod` type is set to `ID_PROOFING`.
+
+* Ensure that your user has authenticators that they're allowed to enroll.

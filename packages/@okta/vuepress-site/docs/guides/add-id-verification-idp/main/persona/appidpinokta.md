@@ -1,16 +1,18 @@
-Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/) to add Persona as an IDV in Okta. To add Persona using the Admin Console, see [Add an Identity Verification vendor as Identity Provider](https://help.okta.com/okta_help.htm?type=oie&id=id-verification).
+Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) to add Persona as an IDV in Okta. Create your own `POST` request body or copy the [example request](#example-request) and input your values.
 
-1. Send a `POST` request to the `api/v1/idps` endpoint.
+> **Note:** To add Persona using the Admin Console, see [Add an Identity Verification vendor as Identity Provider](https://help.okta.com/okta_help.htm?type=oie&id=id-verification).
 
-1. Enter a value for `name`.
+1. Set the following request body parameters:
 
-1. Set `ID_PROOFING` as the protocol type.
+    * Enter a value for `name`.
 
-1. Use the API key from the [previous section](#configure-the-api-key-and-redirect-uri-of-the-persona-app) as the `apiKey` value.
+    * Set `ID_PROOFING` as the protocol type.
 
-1. Use the Inquiry Template ID from the [previous section](#configure-identity-verification-template) as the `inquiryTemplateId` value, which begins with `itmpl_`.
+    * Use the API key from the [previous section](#configure-the-api-key-and-redirect-uri-of-the-persona-app) as the `apiKey` value.
 
-1. Send the `POST` request.
+    * Use the Inquiry Template ID from the [previous section](#configure-identity-verification-template) as the `inquiryTemplateId` value, which begins with `itmpl_`.
+
+1. Send the `POST` request to the `api/v1/idps` endpoint.
 
 1. After you create the IDV, copy the value of `id` from the response body and paste it into a text editor. Use it in the next section.
 

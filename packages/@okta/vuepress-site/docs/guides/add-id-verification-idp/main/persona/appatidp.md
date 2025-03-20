@@ -14,7 +14,7 @@ At [Persona](https://withpersona.com/), create the client app to use for verifyi
 
 1. Click **Configure**.
 
-1. Under **Image capture methods** > **Capture Methods**, turn on **File upload**. Ensure that it’s turned on for at least one of:
+1. Scroll down to **Image capture methods** > **Capture Methods**. Turn on **File upload**. Ensure that it’s turned on for at least one of:
 
    * Desktop web
    * Mobile web
@@ -29,6 +29,8 @@ At [Persona](https://withpersona.com/), create the client app to use for verifyi
 1. Copy the Inquiry ID and paste it into a text editor so that you can use it in the next section.
 
 ### Configure the API key and redirect URI of the Persona app
+
+> **Note:** In your Persona app, ensure that you're in a Sandbox environment before you create an API key.
 
 1. In your Persona app, go to **API** > **API Keys**.
 
@@ -50,4 +52,4 @@ At [Persona](https://withpersona.com/), create the client app to use for verifyi
 
 There may be additional settings for the Persona app that you can configure. The steps in this guide address the quickest route to setting up Persona as an IDV with Okta.
 
-See the [Persona documentation](https://docs.withpersona.com/docs/getting-started) for more information on additional configuration settings. You can configure different kinds of verifications. For example, you can require users to take a selfie to pass a liveliness check or verify their identity by requiring them to submit pictures of their driver’s license.
+See the [Persona documentation](https://docs.withpersona.com/docs/getting-started) for more information on additional configuration settings.
