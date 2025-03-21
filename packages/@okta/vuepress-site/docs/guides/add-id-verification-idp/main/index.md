@@ -19,7 +19,7 @@ Okta manages the connection to the IDV for your app, sitting between your app an
 
 Configure an IDV so that your user’s identities are verified when they enroll a new authenticator.
 
-> **Note:** This guide describes the process for setting up an identity verification flow in a Sandbox environment of a <StackSnippet snippet="idp" inline /> app. In a Sandbox environment, there is no actual identity verification that verifies your user’s identities. You can use the same configuration process in a Production environment in your <StackSnippet snippet="idp" inline /> app.
+> **Note:** This guide describes the process for setting up an identity verification flow in a sandbox environment of a <StackSnippet snippet="idp" inline /> app. In a sandbox environment, there is no actual identity verification that verifies your user’s identities. You can use the same configuration process in a production environment in your <StackSnippet snippet="idp" inline /> app. See [Sandbox vs. Production Environments](https://help.withpersona.com/articles/6I2kGhfPvSuUjYq4z6tpmB/).
 
 #### What you need
 
@@ -29,15 +29,15 @@ Configure an IDV so that your user’s identities are verified when they enroll 
 * An account with <StackSnippet snippet="idpaccount" inline /> with access to a sandbox environment
 * A test [user account](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) that you can use to enroll an authenticator
 * A test [group](https://help.okta.com/okta_help.htm?type=oie&id=usgp-groups-create) in your org that the test user is added to
-* A test [image](idv-test-image.png) to use as a proof of identity
+* A test [image](#test-image) to use as a proof of identity
 
 ---
 
 ## What is an identity verification vendor
 
-IDVs work like IdPs, with a few key differences. IDVs verify your user’s identities by requiring them to submit a proof of identity. The proof of identity matches a user’s digital identity against a trusted data source. For example, a user’s first and last names can be matched against a picture of their driver’s license or passport. The IDV verifies the user submission against a data source and that evaluation is sent back to Okta.
+IDVs work like IdPs, with some key differences. IDVs verify your user’s identities by requiring them to submit a proof of identity. The proof of identity matches a user’s digital identity against a trusted data source. For example, a user’s first name and family name can be matched against a picture of their driver’s license or passport. The IDV verifies the user submission against a data source and that evaluation is sent back to Okta.
 
-IdPs authenticate users by verifying their digital credentials. A user’s identity can be authenticated by social IdPs, like Google or Facebook, or enterprise IdPs, like OIDC or SAML. The user’s digital credentials are maintained by the IdPs.
+IdPs authenticate users by verifying their digital credentials and the IdPs also maintain the digital credentials.
 
 Because of its stricter verification, you might only use an IDV for sensitive operations. For example, use an IDV check when a user enrolls a new authenticator or resets their password.
 
@@ -76,7 +76,11 @@ Use the following image if your verification template requires you to upload a p
 
 You can use <StackSnippet snippet="idp" inline /> to verify your user identities in different scenarios. Use the following Okta Expression Language expressions for different scenarios.
 
-> **Note:** You can use the [Okta account management policy rule](#create-an-okta-account-management-policy-rule) without any expression. If you don’t use an Okta Expression Language expression, your user is prompted to verify their identity every time they attempt to enroll or unenroll authenticators or edit their persona information in their **My Settings**.
+> **Note:** You can use the [Okta account management policy rule](#create-an-okta-account-management-policy-rule) without any expression. If you don't use any expression in the rule then your user is prompted to verify their identity when:
+>
+> * They enroll or unenroll authenticators
+>
+> * They edit their personal information in their **My Settings**
 
 <StackSnippet snippet="alternateusecase" />
 
@@ -89,3 +93,5 @@ When you test the integration, if you’re not redirected to the IDV flow, revie
 * Review the Okta account management policy rule. Ensure that you’ve added the correct Okta Expression Language expression and that the `verificationMethod` type is set to `ID_PROOFING`.
 
 * Ensure that your user has authenticators that they're allowed to enroll.
+
+* Ensure that your API key was created in the sandbox environment.

@@ -1,15 +1,15 @@
 ---
-title: Add an external Identity Provider
+title: Add an external identity provider
 meta:
   - name: description
-    content: Okta supports both enterprise and social Identity Providers (social login).
+    content: Okta supports both enterprise and social identity providers (social login).
 ---
 
-Okta integrates with many Identity Providers. Select an Identity Provider card to add [enterprise](#enterprise-identity-providers) or [social login](#social-logins) to your app.
+Okta integrates with many identity providers. Select an identity provider card to add [enterprise](#enterprise-identity-providers) or [social login](#social-logins) to your app.
 
-Not sure what an Identity Provider is? See [External Identity Providers](/docs/concepts/identity-providers/).
+Not sure what an identity provider is? See [External Identity Providers](/docs/concepts/identity-providers/).
 
-## Enterprise Identity Providers
+## Enterprise identity providers
 
 <Cards>
   <Card href="/docs/guides/add-an-external-idp/azure/main/" headerImage="/img/idp-logos/azure.svg">Azure AD</Card>
