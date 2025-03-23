@@ -841,6 +841,38 @@ export const guides = [
         ],
       },
       {
+        title: "Identity Governance",
+        subLinks: [
+          {
+            title: "Access Certification",
+            subLinks: [
+              {
+                title: "Separation of Duties (SOD) use cases",
+                path: "/docs/guides/anything-as-a-source/",
+              }
+            ],
+          },
+          {
+            title: "Access Request",
+            subLinks: [
+              {
+                title: "Access Request use cases",
+                path: "/docs/guides/anything-as-a-source/",
+              }
+            ],
+          },
+          {
+            title: "Entitlement Management",
+            subLinks: [
+              {
+                title: "Entitlement and Entitlement Bundle use cases",
+                path: "/docs/guides/anything-as-a-source/",
+              }
+            ],
+          },
+        ],
+      },
+      {
         title: "Deploy to Production",
         subLinks: [
           {
