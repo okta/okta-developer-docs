@@ -42,7 +42,7 @@ The OIN Submission Tester didn't support custom domains in the IdP flow. (OKTA-8
 |--------|--------------------------|
 | [Global token revocation for wizard SAML and OIDC apps is GA in Production](#global-token-revocation-for-wizard-saml-and-oidc-apps-is-ga-in-production) | September 11, 2024|
 | [OIDC IdPs now support group sync is GA in Production](#oidc-idps-now-support-group-sync-is-ga-in-production) | October 23, 2024 |
-| [Okta account management policy is GA in Production](#okta-account-management-policy-is-ga-in-production) | December 11, 2024 |
+<!-- | [Okta account management policy is GA in Production](#okta-account-management-policy-is-ga-in-production) | December 11, 2024 | -->
 | [Granular account linking for certain Identity Providers is GA in Production](#granular-account-linking-for-certain-identity-providers-is-ga-in-production) | December 11, 2024 |
 | [Realms for Workforce is GA in Production](#realms-for-workforce-is-ga-in-production) | February 13, 2025 |
 | [Improved group search functionality is GA in Production](#improved-group-search-functionality-is-ga-in-production) | February 12, 2025 |
@@ -65,10 +65,10 @@ Universal Logout clears sessions and tokens for wizard SAML and OIDC apps. This 
 
 OpenID Connect identity providers (IdPs) now support full group sync and adding a user to a group that they don't already belong to. A user who authenticates with an external IdP is added to all available groups when **Full sync of groups** is enabled. The user is added to any groups that they don't already belong to when **Add user to missing groups** is enabled. This allows you to specify certain groups that users should be added to. <!-- GROUP_SYNC_FEATURE_OIDC_IDP_ENABLED (https://oktainc.atlassian.net/browse/OKTA-817450#icft=OKTA-817450) -->
 
-#### Okta account management policy is GA in Production
+<!-- #### Okta account management policy is GA in Production
 
 The Okta account management policy helps admins easily build phishing resistance into actions such as account unlock, password recovery, authenticator enrollment, and profile setting changes. Using the familiar rule-based framework of an authentication policy, admins can now customize which phishing-resistant authenticators are required when users attempt these common self-service actions. All of the configurations in the authentication policies can now be applied for authenticator management. See [Configure an Okta account management policy](/docs/guides/okta-account-management-policy/main/).
-
+-->
 #### Granular account linking for certain Identity Providers is GA in Production
 
 When admins link users from SAML and OIDC identity providers, they can now exclude specific users and admins. This improves security by allowing admins to configure granular access control scenarios. See **Add an external Identity Provider** for [OpenId Connect](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta) and [SAML 2.0](/docs/guides/add-an-external-idp/saml2/main/#create-an-identity-provider-in-okta). <!-- EXTENDED_ACCOUNT_LINKING_FILTERS OKTA-831244-->
