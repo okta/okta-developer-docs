@@ -6,6 +6,23 @@ title: Okta Classic Engine API release notes 2025
 
 ## March
 
+### Weekly release 2025.03.3
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [New event types added to the System Log](#new-event-types-added-to-the-system-log) | March 26, 2025 |
+| [Bug fixed in 2025.03.3](#bug-fixed-in-2025-03-3)| March 26, 2025 |
+
+#### New event types added to the System Log
+
+Matrix - Brian <!-- OKTA797466 -->
+
+#### Bug fixed in 2025.03.3
+
+* Custom role admins with permission conditions couldn't search for users by `firstName` or `lastName`. (OKTA-894392)
+
+* FPA - Brent (OKTA-873694)
+
 ### Weekly release 2025.03.2
 
 | Change | Expected in Preview Orgs |
