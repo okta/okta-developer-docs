@@ -42,7 +42,6 @@ The OIN Submission Tester didn't support custom domains in the IdP flow. (OKTA-8
 |--------|--------------------------|
 | [Global token revocation for wizard SAML and OIDC apps is GA in Production](#global-token-revocation-for-wizard-saml-and-oidc-apps-is-ga-in-production) | September 11, 2024|
 | [OIDC IdPs now support group sync is GA in Production](#oidc-idps-now-support-group-sync-is-ga-in-production) | October 23, 2024 |
-<!-- | [Okta account management policy is GA in Production](#okta-account-management-policy-is-ga-in-production) | December 11, 2024 | -->
 | [Granular account linking for certain Identity Providers is GA in Production](#granular-account-linking-for-certain-identity-providers-is-ga-in-production) | December 11, 2024 |
 | [Realms for Workforce is GA in Production](#realms-for-workforce-is-ga-in-production) | February 13, 2025 |
 | [Improved group search functionality is GA in Production](#improved-group-search-functionality-is-ga-in-production) | February 12, 2025 |
