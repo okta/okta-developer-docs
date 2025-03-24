@@ -1,15 +1,15 @@
 ---
-title: Add an external Identity Provider
+title: Add an external identity provider
 meta:
   - name: description
-    content: Okta supports both enterprise and social Identity Providers (social login).
+    content: Okta supports both enterprise and social identity providers (social login).
 ---
 
-Okta integrates with many Identity Providers. Select an Identity Provider card to add [enterprise](#enterprise-identity-providers) or [social login](#social-logins) to your app.
+Okta integrates with many identity providers. Select an identity provider card to add [enterprise](#enterprise-identity-providers) or [social login](#social-logins) to your app.
 
-Not sure what an Identity Provider is? See [External Identity Providers](/docs/concepts/identity-providers/).
+Not sure what an identity provider is? See [External Identity Providers](/docs/concepts/identity-providers/).
 
-## Enterprise Identity Providers
+## Enterprise identity providers
 
 <Cards>
   <Card href="/docs/guides/add-an-external-idp/azure/main/" headerImage="/img/idp-logos/azure.svg">Azure AD</Card>
@@ -17,6 +17,12 @@ Not sure what an Identity Provider is? See [External Identity Providers](/docs/c
   <Card href="/docs/guides/add-an-external-idp/openidconnect/main/" headerImage="/img/idp-logos/oidc.png">OpenID Connect</Card>
    <Card href="/docs/guides/add-an-external-idp/saml2/main/" headerImage="/img/idp-logos/saml.png">SAML 2.0</Card>
   <Card href="https://help.okta.com/okta_help.htm?id=ext-idp-smart-card-expression" headerImage="/img/idp-logos/smart-card.png">Smart Card</Card>
+</Cards>
+
+## Enterprise identity verification vendors
+
+<Cards>
+  <Card href="/docs/guides/add-id-verification-idp/persona/main" headerImage="/img/idp-logos/idv_persona.svg">Persona</Card>
 </Cards>
 
 ## Social Logins
