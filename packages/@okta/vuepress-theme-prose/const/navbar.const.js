@@ -847,7 +847,19 @@ export const guides = [
             title: "Access Certification",
             subLinks: [
               {
-                title: "Separation of Duties (SOD) use cases",
+                title: "User campaign examples",
+                path: "/docs/guides/anything-as-a-source/",
+              }
+              {
+                title: "Group campaign examples",
+                path: "/docs/guides/anything-as-a-source/",
+              }
+              {
+                title: "App campaign examples",
+                path: "/docs/guides/anything-as-a-source/",
+              }
+              {
+                title: "Separation of Duties (SOD) examples",
                 path: "/docs/guides/anything-as-a-source/",
               }
             ],
@@ -856,7 +868,11 @@ export const guides = [
             title: "Access Request",
             subLinks: [
               {
-                title: "Access Request use cases",
+                title: "Access Request examples",
+                path: "/docs/guides/anything-as-a-source/",
+              },
+              {
+                title: "Catalog examples",
                 path: "/docs/guides/anything-as-a-source/",
               }
             ],
