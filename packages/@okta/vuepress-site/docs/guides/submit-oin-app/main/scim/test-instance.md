@@ -26,9 +26,11 @@ After you've enabled the provisioning API connection in your test instance, conf
 * **To App**: User attribute mappings from Okta to your app
 * **To Okta**: User attribute mappings from your app to Okta
 
-To configure the user attribute mappings, you need to delete the unnecessary mappings and attributes and then proceed to configure the attributes:
+Configure the user attribute mappings after deleting the unnecessary mappings and attributes, and then proceed to configure the attributes:
 
-   * **Delete mapping**:
+   * **Delete mappings**
+
+   To delete mappings:
 
    1. Select **To App** on the left **Settings** panel.
    The **Provisioning to App** settings appear. The provisioning operations are already set by default from the [SCIM properties](#properties) section when you configured your integration.
@@ -37,16 +39,20 @@ To configure the user attribute mappings, you need to delete the unnecessary map
       Repeat this step until you remove all the mappings for the attributes that you want to delete.
    4. Select **To App** on the left **Settings** panel.
    5. Scroll to the **Okta Attribute Mappings** section.
-   6. Click **X** next to the attribute that you want to delete, and then click **OK** to confirm.
-      Repeat this step until you remove all the mappings for the attributes that you want to delete.
+   6. Click **X** next to the attribute that you want to delete, and then click **OK** to confirm. Repeat this step until you remove all the mappings for the attributes that you want to delete.
 
-   * **Delete attributes**:
+   * **Delete attributes**
+
+   To delete attributes:
 
    1. After removing all the mappings for the attributes that you want to delete, click **Go to Profile Editor**.
+
    2. In the **Profile Editor**, delete all the corresponding attributes from the mapping by clicking **X** next to the attribute and then **Delete Attribute** to confirm.
       Repeat this step for all the attributes that you want to delete.
 
-   * **Add attributes**:
+   * **Add attributes and mappings**
+
+   To add attributes and mappings:
 
    1. In the **Profile Editor**, click **Add Attribute**.
 
@@ -58,20 +64,16 @@ To configure the user attribute mappings, you need to delete the unnecessary map
    4. Select **Map from Okta Profile** in the first dropdown list.
    5. In the second dropdown list, select the Okta profile attribute that you want to map over to the SCIM attribute.
    6. Click **Save**.
-   7. Repeat these steps for all SCIM attributes that you want to map (from Okta to your app).
-
-     <div class="three-quarter border">
+      <div class="three-quarter border">
 
      ![Displays the map attribute dialog.](/img/oin/scim_check-attributes-14.png)
 
      </div>
-
-     5. After you update the mappings from Okta to your app, click **To Okta** in the **Settings** section.
-     6. Scroll to the **{yourApp} Attribute Mappings** section. Find the attribute that you want to update and click **Edit**. A dialog appears with two dropdown fields next to the **Attribute value**.
-     7. Select **Map from {yourApp} App Profile** from the first dropdown list.
-     8. In the second dropdown list, select the SCIM attribute that you want to map to the Okta attribute.
-     9. Click **Save**.
-
-         Repeat these steps for all SCIM attributes that you want to map from your app to Okta.
+   7. Repeat these steps for all SCIM attributes that you want to map (from Okta to your app).
+   8. After you update the mappings from Okta to your app, click **To Okta** in the **Settings** section.
+   9. Scroll to the **{yourApp} Attribute Mappings** section. Find the attribute that you want to update and click **Edit**. A dialog appears with two dropdown fields next to the **Attribute value**.
+   10. Select **Map from {yourApp} App Profile** from the first dropdown list.
+   11. In the second dropdown list, select the SCIM attribute that you want to map to the Okta attribute.
+   12. Click **Save**.
 
 After you complete your attribute mappings, you're ready to [test your SCIM integration](#test-your-scim-integration).
