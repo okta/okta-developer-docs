@@ -8,6 +8,22 @@ title: Okta Identity Engine API release notes 2025
 
 ## March
 
+### Weekly release 2025.03.3
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.03.3](#bugs-fixed-in-2025-03-3)| March 26, 2025 |
+
+#### Bugs fixed in 2025.03.3
+
+* Custom role admins with permission conditions couldn't search for users by `firstName` or `lastName`. (OKTA-894392)
+
+* The `user.identity_verification` System Log event displayed an incorrect assurance level for completed identity verifications with DENY results. (OKTA-893343)
+
+* Some PUT requests to the `brands/{brandId}/templates/email/{templateName}/settings` endpoint received 500 Internal Server Error messages. (OKTA-886167)
+
+* GET requests to the `/api/v1/users/me/appLinks` endpoint sometimes returned an HTTP 500 Internal Server error. (OKTA-873694)
+
 ### Weekly release 2025.03.2
 
 | Change | Expected in Preview Orgs |
