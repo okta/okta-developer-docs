@@ -57,6 +57,7 @@ To update attributes:
    12. Repeat these steps for all SCIM attributes that you want to map from your app to Okta (in the **Settings** > **To Okta** panel).
 
 **Update mappings**
+
 To update mappings:
 
    1. In the Profile Editor, click **Mappings**.
@@ -69,7 +70,7 @@ To update mappings:
 
    </div>
 
-   1. Click **Save Mappings**.
+   4. Click **Save Mappings**.
    1. Perform **Do not map** and **Save Mappings** actions for all attributes that you want to remove from your app to Okta mappings.
    1. Click **Apply updates now** to save all the attributes you unmapped.
 
