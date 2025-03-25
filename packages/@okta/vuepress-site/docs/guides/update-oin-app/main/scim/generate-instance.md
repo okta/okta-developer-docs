@@ -65,7 +65,7 @@ To update mappings:
 
     <div class="three-quarter border">
 
-         ![Displays the map attribute dialog.](/img/oin/scim_unmap-attribute.png)
+      ![Displays the map attribute dialog.](/img/oin/scim_unmap-attribute.png)
 
       </div>
 
