@@ -64,9 +64,9 @@ To add attributes and mappings:
 
    <div class="three-quarter border">
 
-     ![Displays the map attribute dialog.](/img/oin/scim_check-attributes-14.png)
+   ![Displays the map attribute dialog.](/img/oin/scim_check-attributes-14.png)
 
-     </div>
+   </div>
 
    4. Select **Map from Okta Profile** in the first dropdown list.
    5. In the second dropdown list, select the Okta profile attribute that you want to map over to the SCIM attribute.

@@ -63,11 +63,11 @@ To update mappings:
    1. Click **{yourApp} to Okta User** at the top of the page.
    1. Scroll to the attribute that you want to delete, click the mapping icon (yellow arrow) and select **Do not map**.
 
-    <div class="three-quarter border">
+   <div class="three-quarter border">
 
-      ![Displays the map attribute dialog.](/img/oin/scim_unmap-attribute.png)
+   ![Displays the map attribute dialog.](/img/oin/scim_unmap-attribute.png)
 
-      </div>
+   </div>
 
    1. Click **Save Mappings**.
    1. Perform **Do not map** and **Save Mappings** actions for all attributes that you want to remove from your app to Okta mappings.
