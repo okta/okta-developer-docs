@@ -30,8 +30,6 @@ Configure the user attribute mappings after deleting the unnecessary mappings an
 
 **Delete mappings**
 
-To delete mappings:
-
    1. Select **To App** on the left **Settings** panel.
    The **Provisioning to App** settings appear. The provisioning operations are already set by default from the [SCIM properties](#properties) section when you configured your integration.
    2. Scroll to the **{yourApp} Attribute Mappings** section.
@@ -44,16 +42,12 @@ To delete mappings:
 
 **Delete attributes**
 
-To delete attributes:
-
    1. After removing all the mappings for the attributes that you want to delete, click **Go to Profile Editor**.
 
    2. In the **Profile Editor**, delete all the corresponding attributes from the mapping by clicking **X** next to the attribute and then **Delete Attribute** to confirm.
       Repeat this step for all the attributes that you want to delete.
 
 **Add attributes and mappings**
-
-To add attributes and mappings:
 
    1. In the **Profile Editor**, click **Add Attribute**.
 

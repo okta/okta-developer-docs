@@ -32,8 +32,6 @@ After you've enabled the provisioning API connection in your test instance, conf
 
 **Update attributes**
 
-To update attributes:
-
    1. Select **To App** on the left **Settings** panel of the **Provisioning** tab.
   The **Provisioning to App** settings appear. The provisioning operations are already set by default from the [SCIM properties](#properties) section when you configured your integration.
 
@@ -57,8 +55,6 @@ To update attributes:
    12. Repeat these steps for all SCIM attributes that you want to map from your app to Okta (in the **Settings** > **To Okta** panel).
 
 **Update mappings**
-
-To update mappings:
 
    1. In the Profile Editor, click **Mappings**.
    1. Click **{yourApp} to Okta User** at the top of the page.
