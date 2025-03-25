@@ -39,7 +39,8 @@ To delete mappings:
       Repeat this step until you remove all the mappings for the attributes that you want to delete.
    4. Select **To App** on the left **Settings** panel.
    5. Scroll to the **Okta Attribute Mappings** section.
-   6. Click **X** next to the attribute that you want to delete, and then click **OK** to confirm. Repeat this step until you remove all the mappings for the attributes that you want to delete.
+   6. Click **X** next to the attribute that you want to delete, and then click **OK** to confirm. 
+   7. Repeat this step until you remove all the mappings for the attributes that you want to delete.
 
 **Delete attributes**
 
@@ -60,6 +61,12 @@ To add attributes and mappings:
       > **Note:** The **Scope** property determines whether the attribute that you're adding can be assigned at a group level or per user. If you want your admins to assign a value for this attribute at a group level, don't select the **User personal** checkbox.
 
    3. After adding attributes, go back to the **{yourApp} Attribute Mappings** section and click **Edit** to map your new attributes. A dialog appears with two dropdown fields.
+
+   <div class="three-quarter border">
+
+     ![Displays the map attribute dialog.](/img/oin/scim_check-attributes-14.png)
+
+     </div>
 
    4. Select **Map from Okta Profile** in the first dropdown list.
    5. In the second dropdown list, select the Okta profile attribute that you want to map over to the SCIM attribute.
