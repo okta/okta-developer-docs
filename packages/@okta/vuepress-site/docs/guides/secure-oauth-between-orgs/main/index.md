@@ -60,13 +60,14 @@ After you configure the OAuth 2.0 connection, test your connection: push user da
 You can push user and group information from a spoke org to a centralized hub org with OAuth 2.0 by performing the following tasks:
 
 1. In each spoke org, [add an instance of the Org2Org app integration](#add-an-org2org-app-integration-in-a-spoke-org) and save the generated URL that hosts the JSON Web Key Set (JWKS) public key.
-2. In the hub org, [create an OAuth 2.0 service app](#create-an-oauth-2-0-service-app-in-the-hub-org) for each spoke org with the corresponding Org2Org app JWKS public key URL. For each hub-org service app (the OAuth 2.0 client), [assign admin roles](#assign-admin-roles-to-the-oauth-2-0-service-app) and [grant allowed scopes](#grant-allowed-scopes-to-the-oauth-2-0-client).
-3. In each spoke org, [set and activate provisioning in the Org2Org app](#enable-provisioning-in-the-org2org-app) from the Okta API.
-4. In each spoke org, [assign users and groups in the spoke Org2Org app](#assign-users-and-groups-in-the-org2org-app) to synchronize with the hub org.
+1. In the hub org, [create an OAuth 2.0 service app](#create-an-oauth-2-0-service-app-in-the-hub-org) for each spoke org with the corresponding Org2Org app JWKS public key URL. For each hub-org service app (the OAuth 2.0 client), [assign admin roles](#assign-admin-roles-to-the-oauth-2-0-service-app) and [grant allowed scopes](#grant-allowed-scopes-to-the-oauth-2-0-client).
+1. For each hub-org service app (the OAuth 2.0 client), [enable demonstrating proof-of-possession (DPoP) for the OAuth 2.0 client](#enable-demonstrating-proof-of-possession-dpop-for-the-oauth-20-client). See also [Configure OAuth 2.0 Demonstrating Proof-of-Possession](/docs/guides/dpop/nonoktaresourceserver/main/).
+1. In each spoke org, [set and activate provisioning in the Org2Org app](#enable-provisioning-in-the-org2org-app) from the Okta API.
+1. In each spoke org, [assign users and groups in the spoke Org2Org app](#assign-users-and-groups-in-the-org2org-app) to synchronize with the hub org.
 
 ### Make secure API requests with OAuth 2.0
 
-To make secure Okta API requests to configure your Okta orgs, obtain OAuth 2.0 access tokens for the `Authorization` header in requests. The Okta setup to obtain access tokens depend on whether you want the token to have a user-based or a service-based context:
+To make secure Okta API requests to configure your Okta orgs, obtain OAuth 2.0 access tokens for the `Authorization` header in requests. The Okta setup to obtain access tokens depends on whether you want the token to have a user-based or a service-based context:
 
 * **User-based access**: The access token is tied to a specific admin user. For this access, you need to provide an Okta admin username and credentials. See [User-based API access setup](/reference/rest/#user-based-api-access-setup). Grant `okta.apps.manage`, `okta.clients.manage`, `okta.clients.register`, `okta.roles.manage`, `okta.users.manage`, `okta.appGrants.manage`, and `okta.groups.manage` to the OIDC app during the setup. <!-- What are the scopes required for all requests for the access token? Ask Richard Chan -->
 
@@ -79,7 +80,7 @@ You need an access token for API requests to each Okta org. After you have API a
 
 ### Add an Org2Org app integration in a spoke org
 
-You use the spoke org to push users and groups to the central hub org. In the spoke org, add an instance of the Org2Org app integration by using the [Create an app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication) request with the [Org2Org request parameters](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/schema/Org2OrgApplication). This generates an integration instance with the key certificates required to connect to the hub org.
+You use the spoke org to push users and groups to the central hub org. In the spoke org, add an instance of the Org2Org app integration by using the [Create an app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication) request with the [Org2Org request parameters](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/schema/Org2OrgApplication). This call generates an integration instance with the key certificates required to connect to the hub org.
 
 > **Note:** You can't use an Okta Developer Edition org as a spoke org since the Okta Org2Org app integration isn't available. If you need to test this feature in your developer org, contact your Okta account team.
 
@@ -115,13 +116,15 @@ curl -v -X POST \
 
 <!-- From the spec, we don't need this step anymore? Need to ask Richard Chan.
 
-From the response of your POST request, use the `id` property of the Org2Org app instance to [retrieve the key credentials](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/listApplicationKeys) generated for the app with the `GET /api/v1/apps/{id}/credentials/keys` request.
+From the response of your POST request, use the `id` property of the Org2Org app instance to [retrieve the key credentials](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/listApplicationKeys) generated for the app with the `GET /api/v1/apps/{id}/credentials/keys` request.-->
 
--->
+From the response of the POST request, use the `id` property of the Org2Org app instance in the next step for your `{yourOrg2OrgAppId}`.
 
-> **Q???>** Need the response payload (if it returns the `jwks_uri` property). Then use that as the JWKS URL for the hub service app.
+<!--  **Q???>** Need the response payload (if it returns the `jwks_uri` property). Then use that as the JWKS URL for the hub service app. -->
 
-Save the JWKS URL to configure the corresponding hub-org service app.
+<!--Save the JWKS URL to configure the corresponding hub-org service app.-->
+
+<!-- From my testing, and Richard's video, we build the jwks url with known info, i.e., it's not returned in the payload-->
 
 ### Create an OAuth 2.0 service app in the hub org
 
@@ -227,6 +230,32 @@ curl -X POST \
 }' "https://{yourHubOrgDomain}/api/v1/apps/{yourServiceAppId}/grants"
 ```
 
+### Enable demonstrating proof-of-possession (DPoP) for the OAuth 2.0 client
+
+Enable demonstrating proof-of-possession for the hub org OAuth 2.0 client. Make a [PUT request](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication) to the hub org to set the `dpop_bound_access_token` parameter to `true`. For the body of the PUT call, make a GET request to retrieve the hub org app parameters. All system-assigned properties are ignored in the PUT call.
+
+##### Request example
+
+```bash
+curl -X POST \
+  -H 'Accept: application/json' \
+  -H "Authorization: Bearer {yourHubAccessToken}" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "id": "0oal6zm117PYBG4Ya1d7",
+    "name": "{hubServiceClientName}",
+    "label": "{hubServiceClientLabel}",
+    ...
+    "settings":
+        ...
+        "oauthClient": {
+             ...
+            "dpop_bound_access_tokens": true
+        }
+    }
+ }' "https://{yourHubOktaDomain}/v1/apps/{yourServiceAppId}"
+```
+
 ### Enable provisioning in the Org2Org app
 
 In each spoke org, set and activate provisioning for the Org2Org app integration by using the [Update the default provisioning connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication) API request with the **OAuth 2.0-based connection** request parameters.
@@ -239,7 +268,7 @@ Make a [`POST /api/v1/apps/{Org2OrgAppId}/connections/default?activate=TRUE`](ht
 | `clientId`  |  Specify the corresponding service app client ID in your hub org |
 | `signing.rotationMode` | Specify `AUTO` for automatic key rotation. If `signing.rotationMode` isn't specified, then `rotationMode` is set to `MANUAL` and key rotation isn't automatic for the Org2Org provisioning connection. |
 
-> **Q???>**  Kevin, please verify this ^ this signing behavior.
+> **Q???>**  Kevin, please verify this ^ this signing behavior. <!--I verified this in testing, fyi. Brian-->
 
 ##### Request example
 
