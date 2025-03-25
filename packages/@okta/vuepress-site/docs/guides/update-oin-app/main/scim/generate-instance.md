@@ -30,11 +30,9 @@ After you've enabled the provisioning API connection in your test instance, conf
 * **To App**: User attribute mappings from Okta to your app
 * **To Okta**: User attribute mappings from your app to Okta
 
-Configure the user attribute mappings after deleting the unnecessary mappings and attributes, and then proceed to configure the attributes:
+**Update attributes**
 
-   * **Update attributes**
-
-   To update attributes:
+To update attributes:
 
    1. Select **To App** on the left **Settings** panel of the **Provisioning** tab.
   The **Provisioning to App** settings appear. The provisioning operations are already set by default from the [SCIM properties](#properties) section when you configured your integration.
@@ -51,12 +49,6 @@ Configure the user attribute mappings after deleting the unnecessary mappings an
    1. In the second dropdown list, select the Okta profile attribute that you want to map over to the SCIM attribute.
    1. Click **Save**.
    1. Repeat these steps for all SCIM attributes that you want to map (from Okta to your app).
-      <div class="three-quarter border">
-
-         ![Displays the map attribute dialog.](/img/oin/scim_check-attributes-14.png)
-
-      </div>
-
    7. After you update the mappings from Okta to your app, click **To Okta** in the **Settings** section.
    8. Scroll to the **{yourApp} Attribute Mappings** section. Find the attribute that you want to update and click **Edit**. A dialog appears with two dropdown fields next to **Attribute value**.
    9. Select **Map from {yourApp} App Profile** from the first dropdown list.
@@ -64,8 +56,8 @@ Configure the user attribute mappings after deleting the unnecessary mappings an
    11. Click **Save**.
    12. Repeat these steps for all SCIM attributes that you want to map from your app to Okta (in the **Settings** > **To Okta** panel).
 
-   * **Update mappings**
-   To update mappings:
+**Update mappings**
+To update mappings:
 
    1. In the Profile Editor, click **Mappings**.
    1. Click **{yourApp} to Okta User** at the top of the page.
