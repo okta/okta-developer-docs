@@ -30,7 +30,6 @@ Configure the user attribute mappings after deleting the unnecessary mappings an
 
 **Delete mappings**
 
-<<<<<<< HEAD
    1. Select **To App** on the left **Settings** panel.
    The **Provisioning to App** settings appear. The provisioning operations are already set by default from the [SCIM properties](#properties) section when you configured your integration.
    2. Scroll to the **{yourApp} Attribute Mappings** section.
@@ -38,7 +37,7 @@ Configure the user attribute mappings after deleting the unnecessary mappings an
       Repeat this step until you remove all the mappings for the attributes that you want to delete.
    4. Select **To App** on the left **Settings** panel.
    5. Scroll to the **Okta Attribute Mappings** section.
-   6. Click **X** next to the attribute that you want to delete, and then click **OK** to confirm. 
+   6. Click **X** next to the attribute that you want to delete, and then click **OK** to confirm.
    7. Repeat this step until you remove all the mappings for the attributes that you want to delete.
 
 **Delete attributes**
@@ -63,46 +62,6 @@ Configure the user attribute mappings after deleting the unnecessary mappings an
 
    </div>
 
-=======
-To delete mappings:
-
-   1. Select **To App** on the left **Settings** panel.
-   The **Provisioning to App** settings appear. The provisioning operations are already set by default from the [SCIM properties](#properties) section when you configured your integration.
-   2. Scroll to the **{yourApp} Attribute Mappings** section.
-   3. Click **X** next to the attribute that you want to delete, and then click **OK** to confirm.
-      Repeat this step until you remove all the mappings for the attributes that you want to delete.
-   4. Select **To App** on the left **Settings** panel.
-   5. Scroll to the **Okta Attribute Mappings** section.
-   6. Click **X** next to the attribute that you want to delete, and then click **OK** to confirm. 
-   7. Repeat this step until you remove all the mappings for the attributes that you want to delete.
-
-**Delete attributes**
-
-To delete attributes:
-
-   1. After removing all the mappings for the attributes that you want to delete, click **Go to Profile Editor**.
-
-   2. In the **Profile Editor**, delete all the corresponding attributes from the mapping by clicking **X** next to the attribute and then **Delete Attribute** to confirm.
-      Repeat this step for all the attributes that you want to delete.
-
-**Add attributes and mappings**
-
-To add attributes and mappings:
-
-   1. In the **Profile Editor**, click **Add Attribute**.
-
-   2. Enter the information for the new attribute that you’re adding and then click **Save**.
-      > **Note:** The **Scope** property determines whether the attribute that you're adding can be assigned at a group level or per user. If you want your admins to assign a value for this attribute at a group level, don't select the **User personal** checkbox.
-
-   3. After adding attributes, go back to the **{yourApp} Attribute Mappings** section and click **Edit** to map your new attributes. A dialog appears with two dropdown fields.
-
-   <div class="three-quarter border">
-
-   ![Displays the map attribute dialog.](/img/oin/scim_check-attributes-14.png)
-
-   </div>
-
->>>>>>> 6d5ffe2e0b72de400b06dc5f404854e6e749db0d
    4. Select **Map from Okta Profile** in the first dropdown list.
    5. In the second dropdown list, select the Okta profile attribute that you want to map over to the SCIM attribute.
    6. Click **Save**.
