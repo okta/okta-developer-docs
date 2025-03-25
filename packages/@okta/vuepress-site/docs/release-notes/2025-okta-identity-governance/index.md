@@ -10,16 +10,6 @@ For changes prior to 2025, see [Archived Okta Identity Governance API Changelog 
 
 ## March
 
-### Weekly release 2025.03.3
-
-| Change | Expected in Preview Orgs |
-|--------|--------------------------|
-| [Bug fixed in 2025.03.3](#bug-fixed-in-2025-03-3)| March 26, 2025 |
-
-#### Bug fixed in 2025.03.3
-
-
-
 ### Weekly release 2025.03.2
 
 | Change | Expected in Preview Orgs |
