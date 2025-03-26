@@ -114,21 +114,11 @@ curl -v -X POST \
 }' "https://{yourSpokeOktaDomain}/api/v1/apps"
 ```
 
-<!-- From the spec, we don't need this step anymore? Need to ask Richard Chan.
-
-From the response of your POST request, use the `id` property of the Org2Org app instance to [retrieve the key credentials](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/listApplicationKeys) generated for the app with the `GET /api/v1/apps/{id}/credentials/keys` request.-->
-
 From the response of the POST request, use the `id` property of the Org2Org app instance in the next step for your `{yourOrg2OrgAppId}`.
-
-<!--  **Q???>** Need the response payload (if it returns the `jwks_uri` property). Then use that as the JWKS URL for the hub service app. -->
-
-<!--Save the JWKS URL to configure the corresponding hub-org service app.-->
-
-<!-- From my testing, and Richard's video, we build the jwks url with known info, i.e., it's not returned in the payload-->
 
 ### Create an OAuth 2.0 service app in the hub org
 
- In the hub org, create an OAuth 2.0 service app for each spoke org by using the [Register a client app](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient) API. Make a `POST /oauth2/v1/clients` request to the hub org with the following required parameters from your spoke Org2Org app:
+ In the hub org, create an OAuth 2.0 service app for each spoke org by using the [Register a client app](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient) API. Use the `id` property and your spoke org domain to build the `jwks_uri` parameter. Make a `POST /oauth2/v1/clients` request to the hub org with the following required parameters from your spoke Org2Org app:
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
@@ -267,8 +257,6 @@ Make a [`POST /api/v1/apps/{Org2OrgAppId}/connections/default?activate=TRUE`](ht
 | `authScheme`  |  `OAUTH2` |
 | `clientId`  |  Specify the corresponding service app client ID in your hub org |
 | `signing.rotationMode` | Specify `AUTO` for automatic key rotation. If `signing.rotationMode` isn't specified, then `rotationMode` is set to `MANUAL` and key rotation isn't automatic for the Org2Org provisioning connection. |
-
-> **Q???>**  Kevin, please verify this ^ this signing behavior. <!--I verified this in testing, fyi. Brian-->
 
 ##### Request example
 
