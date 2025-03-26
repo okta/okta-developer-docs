@@ -20,7 +20,7 @@ title: Okta Identity Engine API release notes 2025
 
 * The `user.identity_verification` System Log event displayed an incorrect assurance level for completed identity verifications with DENY results. (OKTA-893343)
 
-* Some PUT requests to the `brands/{brandId}/templates/email/{templateName}/settings` endpoint received 500 Internal Server Error messages. (OKTA-886167)
+* Some PUT requests to the `brands/{brandId}/templates/email/{templateName}/settings` endpoint received HTTP 500 Internal Server Error messages. (OKTA-886167)
 
 * GET requests to the `/api/v1/users/me/appLinks` endpoint sometimes returned an HTTP 500 Internal Server error. (OKTA-873694)
 
@@ -48,7 +48,7 @@ The OIN Submission Tester didn't support custom domains in the IdP flow. (OKTA-8
 
 * The JSON Web Token that Okta generates and sends to the OpenID Connect identity provider contained a string `exp` instead of a number 'exp'. (OKTA-852446)
 
-* When making `POST` requests to `users/{userId}/factors/{factorId}/verify` or `authn/factors/{factorId}/verify` endpoints with `factorType` instead of `factorId` in the URL path, multiple failed verification attempts didn't lock users out and the failed attempts weren't logged in the System Log. (OKTA-871469)
+* When making POST requests to `users/{userId}/factors/{factorId}/verify` or `authn/factors/{factorId}/verify` endpoints with `factorType` instead of `factorId` in the URL path, multiple failed verification attempts didn't lock users out and the failed attempts weren't logged in the System Log. (OKTA-871469)
 
 * When Okta sent a request with a refresh token to the token inline hook, the session user was sometimes sent rather than the refresh token user in `request.data.context`. (OKTA-869758)
 
