@@ -17,17 +17,13 @@ This guide explains how to configure <StackSnippet snippet="idptypetop" inline /
 
 #### What you need
 
-* An Okta SP org and an Okta IdP org configured for an [Okta-to-Okta](/docs/guides/add-an-external-idp/oktatookta/main/) use case. This guide covers how to configure authentication claims sharing for this scenario.
-* The **Okta-to-Okta Claims Sharing** feature enabled for both orgs. Go to **Settings | Features**, locate the feature, and then enable it.
-* If you don't have Okta orgs, you can create [Okta Developer Edition orgs](https://developer.okta.com/signup).
+<StackSnippet snippet="wun" />
 
 ---
 
 ## Overview
 
 Claims sharing is the exchange of identity-related information (claims) between different orgs to enable secure access to resources. A claim is a statement made about a user or entity, such as their username, email address, roles, or permissions. This statement is then shared to help determine access rights.
-
-> **Note:** Okta claims sharing currently supports only Okta IdPs and SPs.
 
 ### Authentication claims sharing
 
