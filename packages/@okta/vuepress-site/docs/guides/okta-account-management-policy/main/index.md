@@ -123,7 +123,7 @@ Add this rule to your Okta account management policy if your org doesn't already
 
 If your org already uses phishing-resistant authenticators, see [Add a rule for authenticator enrollment](#add-a-rule-for-authenticator-enrollment).
 
-> **Note:** This rule relies on [IP Network Zones](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/).
+> **Note:** This rule relies on [managed devices](https://support.okta.com/help/s/article/Howto-Get-a-List-of-All-Managed-and-NotManaged-Devices-in-Okta?language=en_US) and [IP Network Zones](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/).
 
 If you want to add this rule using the Admin Console, see [Add a rule for your first phishing-resistant authenticator](https://help.okta.com/okta_help.htm?type=oie&id=ext-oamp-enroll-first).
 
