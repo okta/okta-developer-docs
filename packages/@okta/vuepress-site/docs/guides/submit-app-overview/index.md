@@ -25,18 +25,13 @@ For Workflows connector or API service integrations, you need to use the [OIN Ma
 > * Submit your integration to the OIN from the same Okta Developer Edition org.
 > * Don't connect the generated app instance in your Okta Developer Edition org to your production environment.
 
-Before you submit your integration, in either the OIN Wizard or Manager, review the [OIN submission requirements](/docs/guides/submit-app-prereq/) and prepare the necessary artifacts (such as the app logo, description, and configuration document).
+Before you submit your integration, in either the OIN Wizard or OIN Manager, review the [OIN submission requirements](/docs/guides/submit-app-prereq/) and prepare the necessary artifacts (such as the app logo, description, and configuration document).
 
 Consider the following questions to help you choose which pathway to use for submission:
 
-* Are you submitting a new or published SSO integration?
+* Are you submitting a new or published SSO or SCIM integrations?
   * [Use the OIN Wizard](#submission-process-for-sso-and-scim-integrations).
-    > **Note:** Published SSO integrations that were submitted through the OIN Manager have been moved to the OIN Wizard and appear in the **Your OIN Integrations** dashboard.
-* Are you submitting a new or published SCIM integration?
-  * [Use the OIN Wizard](#submission-process-for-sso-and-scim-integrations).
-    > **Note:** Published SCIM integrations that were submitted through the OIN Manager have been moved to the OIN Wizard and appear in the **Your OIN Integrations** dashboard.
-* Are you submitting a new SSO and SCIM integration?
-  * [Use the OIN Wizard](#submission-process-for-sso-and-scim-integrations) to submit the SSO and SCIM integration.
+    > **Note:** Published SSO or SCIM integrations that were submitted through the OIN Manager have been moved to the OIN Wizard and appear in the **Your OIN Integrations** dashboard.
 * Are you submitting a new or published Workflows integration?
   * [Use the OIN Manager for Workflows integrations](#submission-process-for-workflows-integrations).
 * Are you submitting a new or published API service integration?

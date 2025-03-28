@@ -8,7 +8,7 @@ layout: Guides
 
 Use this guide to understand the process of submitting Workflows connector and API service integrations to the Okta Integration Network (OIN) using the OIN Manager. This guide also shows you how to update a previously published integration or delete a draft submission.
 
-> **Note:** For SSO or Lifecycle Management (LCM) SCIM integrations, use the [OIN Wizard](/docs/guides/submit-oin-app/scim/main/) for a seamless ISV submission experience. Previously submitted SSO and LCM SCIM integrations from the OIN Manager have been migrated to the OIN Wizard. You can edit these published integrations directly in the OIN Wizard and resubmit them to the OIN team. See [Update your integration](/docs/guides/submit-oin-app/scim/main/#update-your-integration).
+> **Note:** For SSO or Lifecycle Management (LCM) SCIM integrations, use the [OIN Wizard](/docs/guides/submit-oin-app/scim/main/) for a seamless ISV submission experience. Previously submitted SSO and LCM SCIM integrations from the OIN Manager have been migrated to the OIN Wizard. You can edit these published integrations directly in the OIN Wizard and resubmit them to the OIN team. See [Update a published integration with the OIN Wizard](/docs/guides/update-oin-app/).
 
 ---
 
@@ -127,7 +127,9 @@ Include all required information before you click **Submit for Review** to move 
 
 If you need to edit your published integration, use the [OIN Manager](https://oinmanager.okta.com/) to create an updated version of the integration.
 
-> **Note:** As of release 2024.11.0, use the OIN Wizard to [edit your published SCIM integration](/docs/guides/submit-oin-app/scim/main/#update-your-integration). Previous SCIM integrations submitted through the OIN Manager are now available through the **Your OIN Integrations** dashboard in the Admin Console.
+> **Note:** Use the OIN Wizard to [edit your published SCIM integration](/docs/guides/update-oin-app/scim/main/). Previous SCIM integrations submitted through the OIN Manager are now available through the **Your OIN Integrations** dashboard in the Admin Console.
+> If you submitted a SCIM integration through the OIN Manager and the OIN review process hasn't started, resubmitted it in the OIN Wizard.
+
 > If you submitted a SCIM integration through the OIN Manager and the OIN review process hasn't started, resubmitted it in the OIN Wizard.
 
 1. Sign in to the OIN Manager using the credentials for the original submission Okta Developer Edition org.
