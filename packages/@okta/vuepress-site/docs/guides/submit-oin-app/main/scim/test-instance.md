@@ -54,9 +54,11 @@ Configure the user attribute mappings after deleting the unnecessary mappings an
 
    3. After adding attributes, go back to the **{yourApp} Attribute Mappings** section and click **Edit** to map your new attributes. A dialog appears with two dropdown fields.
 
-   <div class="three-quarter border">
-      ![Displays the map attribute dialog.](/img/oin/scim_check-attributes-14.png)
-   </div>
+      <div class="three-quarter border">
+
+         ![Displays the map attribute dialog.](/img/oin/scim_check-attributes-14.png)
+
+      </div>
 
    4. Select **Map from Okta Profile** in the first dropdown list.
    5. In the second dropdown list, select the Okta profile attribute that you want to map over to the SCIM attribute.
