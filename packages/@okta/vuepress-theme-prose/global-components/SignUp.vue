@@ -594,9 +594,6 @@ export default {
       this.isRegionLoading = false;
     });
   },
-  mounted() {
-    this.analyticsValues = getAnalyticsValues();
-  },
   methods: {
     setHeight(isNotUSAAndCanada) {
       let height;
@@ -645,6 +642,7 @@ export default {
         // make api call
         //const { baseUri, registrationPolicyId } = this.$site.themeConfig.uris;
         // const registrationPath = `/api/v1/registration/${registrationPolicyId}/register`;
+        document.cookie = '_vwo_uuid_v2=DE23B759E1EA04F092B0E4B0CF9EE71AB|1f422779b50a5b37c4a484819d127df7; coveo_visitorId=31837e25-10ba-42e2-b471-9b8583e69ffc; OptanonAlertBoxClosed=2024-05-13T17:45:40.567Z; _ga_QKMSDV5369=GS1.1.1715707464.26.0.1715707486.38.0.0; _ga=GA1.2.1575623389.1710183030; _vwo_uuid_v2=DE23B759E1EA04F092B0E4B0CF9EE71AB|1f422779b50a5b37c4a484819d127df7; kndctr_ADD71D3E633F65A90A495CE5_AdobeOrg_consent=general=out; kndctr_ADD71D3E633F65A90A495CE5_AdobeOrg_identity=CiY0NDA1NDA3ODcxMzM0NjMzMDgwMTIzNzc3NzIxMjU4NzYyNTE2OFISCOWw87e9MhABGAEqA1ZBNjAA8AHlsPO3vTI=; _gcl_au=1.1.1418281676.1740184737; _uetvid=3bb07270dfd811eeae1d47e792d23df4; _fbp=fb.1.1740184738084.913569735508367243; _hp2_id.3356162945=%7B%22userId%22%3A%22345640005888899%22%2C%22pageviewId%22%3A%222540292348318952%22%2C%22sessionId%22%3A%222734150459738847%22%2C%22identity%22%3Anull%2C%22trackerVersion%22%3A%224.0%22%7D; _okta_original_attribution={"utm_page":"www.okta.com/resources/administrator-hands-on-exam-study-guide/","utm_date":"03/11/2025","utm_source":"Direct","utm_medium":"Direct"}; _okta_session_attribution={"utm_page":"developer.okta.com/docs/guides/oie-embedded-sdk-use-case-new-user-activation/nodeexpress/main/","utm_date":"03/26/2025","utm_source":"www.google.com","utm_medium":"Referral"}; LSKey-CoveoV2$coveo_visitorId=a384c758-7cf7-171c-0102-1cf02a8e951a; OptanonConsent=isGpcEnabled=0&datestamp=Fri+Mar+28+2025+14%3A51%3A23+GMT-0400+(Eastern+Daylight+Time)&version=202301.2.0&isIABGlobal=false&hosts=&consentId=10b4dc51-f00a-4c84-8704-7821bb82ca7c&interactionCount=1&landingPath=NotLandingPage&groups=1%3A1%2C2%3A0%2C3%3A0%2C4%3A0&geolocation=CA%3BON&AwaitingReconsent=false; _mkto_trk=id:855-QAH-699&token:_mch-okta.com-1710261027648-32950; _okta_attribution={"utm_page":"www.okta.com/free-trial/","utm_date":"03/28/2025","utm_source":"www.okta.com","utm_medium":"Internal"}; OptanonConsent=isGpcEnabled=0&datestamp=Fri+Mar+28+2025+14%3A56%3A56+GMT-0400+(Eastern+Daylight+Time)&version=202302.1.0&isIABGlobal=false&hosts=&consentId=10b4dc51-f00a-4c84-8704-7821bb82ca7c&interactionCount=1&landingPath=NotLandingPage&groups=1%3A1%2C2%3A0%2C3%3A0%2C4%3A0&geolocation=CA%3BON&AwaitingReconsent=false';
         const baseUri = 'https://okta-next-dev.oktaweb.dev';
         const registrationPath = `/free-trial/api/free-trial/`;
         const analyticsValues = getAnalyticsValues();
@@ -658,8 +656,7 @@ export default {
             emailOptInC: this.form.consentAgree.value,
             captchaResponse: this.form.captcha.value,
             okta_oie: true,
-            // Merge in analytics tracking data
-            ...analyticsValues,
+            utm: analyticsValues,
           },
         };
 

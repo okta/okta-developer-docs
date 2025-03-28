@@ -1,60 +1,20 @@
-import queryString from "query-string";
 import { DateTime } from "luxon";
 import { getCookie } from "./cookies";
 
-const acceptedParams = [
-  "utm_campaign",
-  "utm_content",
-  "utm_medium",
-  "utm_source",
-  "utm_term"
-];
-
-const allParams = [
-  "utm_campaign",
-  "utm_content",
-  "utm_date",
-  "utm_medium",
-  "utm_page",
-  "utm_source",
-  "utm_term"
-];
-
-const gaTrackingFieldsMap = {
-  trackingId: "gaTrackId",
-  clientId: "gaClientId",
-};
-
 function filterParams(params) {
-  if (typeof params === "string") {
-    params = queryString.parse(params);
+    params = Object.assign(
+        {
+            utm_source: "",
+            utm_medium: "",
+            utm_page: location.host + location.pathname,
+            utm_date: DateTime.utc()
+                .setZone('America/Los_Angeles')
+                .toFormat('MM/dd/yyyy')
+        },
+        params
+    );
 
-    params = Object.keys(params)
-      .filter(key => acceptedParams.indexOf(key) !== -1)
-      .reduce((object, key) => {
-        object[key] = params[key];
-        return object;
-      }, {});
-  }
-
-  params = Object.keys(params)
-    .filter(key => allParams.indexOf(key) !== -1)
-    .reduce((object, key) => {
-      object[key] = params[key];
-      return object;
-    }, {});
-
-  params = Object.assign(
-    {
-      utm_page: location.pathname,
-      utm_date: DateTime.utc()
-        .setZone('America/Los_Angeles')
-        .toFormat('MM/dd/yyyy')
-    },
-    params
-  );
-
-  return params;
+    return params;
 }
 
 /**
@@ -65,44 +25,11 @@ function filterParams(params) {
  */
 
 function getAttribution() {
-  return {
-    page: filterParams(getCookie("attribution", {})),
-    original: filterParams(getCookie("original_attribution", {})),
-    session: filterParams(getCookie("session_attribution", {}))
-  };
-}
-
-/**
- * Very simple form of a function that converts pascal_case strings to camelCase
- *
- * @access public
- * @return String
- */
-
-function pascalToCamelCase(input = "") {
-  const [first, ...rest] = input.split("_");
-  const cased = rest.map(rest => rest.charAt(0).toUpperCase() + rest.slice(1));
-  return [first, ...cased].join("");
-}
-
-function setFieldAttribution(analytics, key, value = {}) {
-  if ("page" in value) {
-    const casedKey = pascalToCamelCase(`${key}_C`);
-
-    analytics[casedKey] = value.page;
-  }
-
-  if ("original" in value) {
-    const casedKey = pascalToCamelCase(`original_${key}_C`);
-
-    analytics[casedKey] = value.original;
-  }
-
-  if ("session" in value) {
-    const casedKey = pascalToCamelCase(`session_${key}_C`);
-
-    analytics[casedKey] = value.session;
-  }
+    return {
+        current: filterParams(getCookie("attribution", {})),
+        original: filterParams(getCookie("original_attribution", {})),
+        session: filterParams(getCookie("session_attribution", {}))
+    };
 }
 
 /**
@@ -113,85 +40,9 @@ function setFieldAttribution(analytics, key, value = {}) {
  */
 
 function getAnalyticsValues() {
-  const attribution = getAttribution();
-  let paramValues = {};
-  let analytics = {};
+    const attribution = getAttribution();
 
-  if (attribution) {
-    acceptedParams.forEach((param) => {
-      paramValues = {
-        page: "",
-        original: "",
-        session: "",
-      };
-
-      if (param in attribution.page) {
-        paramValues.page = attribution.page[param];
-      }
-
-      if (param in attribution.original) {
-        paramValues.original = attribution.original[param];
-      }
-
-      if (param in attribution.session) {
-        paramValues.session = attribution.session[param];
-      }
-
-      setFieldAttribution(analytics, param, paramValues);
-    })
-
-    paramValues = {
-      original: "",
-    };
-
-    if ("utm_date" in attribution.original) {
-      paramValues.original = attribution.original["utm_date"];
-    }
-
-    setFieldAttribution(analytics, "utm_date", paramValues);
-
-    paramValues = {
-      page: "",
-      original: "",
-      session: "",
-    };
-
-    if ("utm_page" in attribution.page) {
-      paramValues.page = attribution.page["utm_page"];
-    }
-
-    if ("utm_page" in attribution.original) {
-      paramValues.original = attribution.original["utm_page"];
-    }
-
-    if ("utm_page" in attribution.session) {
-      paramValues.session = attribution.session["utm_page"];
-    }
-
-    setFieldAttribution(analytics, "utm_page", paramValues);
-  }
-  console.log('analytics:');
-  console.log(analytics);
-
-  // Add google analytics tracking data if GA is loaded
-  if (window.ga && typeof window.ga.getAll === "function") {
-    const tracker = window.ga.getAll()[0];
-
-    if (tracker && typeof tracker.get === "function") {
-      Object.entries(gaTrackingFieldsMap).forEach(([key, field]) => {
-        const values = {
-          page: tracker.get(key) || "",
-        };
-
-        setFieldAttribution(analytics, field, values);
-      });
-    }
-  }
-
-
-  console.log(analytics);
-
-  return analytics;
+    return attribution;
 }
 
 export default getAnalyticsValues;
