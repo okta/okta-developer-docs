@@ -237,6 +237,9 @@ function getAnalyticsValues() {
     }
   }
 
+  console.log('analytics:');
+  console.log(analytics);
+
   return analytics;
 }
 

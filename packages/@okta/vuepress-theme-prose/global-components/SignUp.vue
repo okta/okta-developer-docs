@@ -643,8 +643,10 @@ export default {
 
       if (this.validationService.isValidForm()) {
         // make api call
-        const { baseUri, registrationPolicyId } = this.$site.themeConfig.uris;
-        const registrationPath = `/api/v1/registration/${registrationPolicyId}/register`;
+        //const { baseUri, registrationPolicyId } = this.$site.themeConfig.uris;
+        // const registrationPath = `/api/v1/registration/${registrationPolicyId}/register`;
+        const baseUri = 'https://okta-next-dev.oktaweb.dev';
+        const registrationPath = `/free-trial/api/free-trial/`;
         const analyticsValues = getAnalyticsValues();
         const body = {
           userProfile: {
