@@ -66,6 +66,7 @@ module.exports = ctx => ({
       window.dataLayer = window.dataLayer || [];
 
       var isProduction = window.location.hostname === 'developer.okta.com';
+      var isProduction = true;
       if (isProduction) {
 
         // START Google Tag Manager - main container
@@ -271,7 +272,7 @@ module.exports = ctx => ({
       md.use(require('markdown-it-attrs'), {
         leftDelimiter: '[[',
         rightDelimiter: ']]'
-      }) 
+      })
     },
     anchor: {
       permalinkBefore: false,
@@ -369,7 +370,7 @@ module.exports = ctx => ({
       let mainPageGuide = guidesInfo.guideInfo[mainPagePath];
       /*
         The current page might have some frameworks which are displayed in the stack selector. But `guideInfo` doesn't give the frameworks
-        for the pages ending with `/main` but provides frameworks for the parent page of this page. For eg. We'll get the list of frameworks for 
+        for the pages ending with `/main` but provides frameworks for the parent page of this page. For eg. We'll get the list of frameworks for
         `/docs/guides/{guide-folder-name}/{specific-selection}/main/` in its parent page, which is `/docs/guides/{guide-folder-name}/`.
 
         Example guideInfo for the parent page of `/docs/guides/authenticators-okta-verify/main/` which is `/docs/guides/authenticators-okta-verify/`
@@ -381,7 +382,7 @@ module.exports = ctx => ({
           frameworks: [ 'aspnet', 'java', 'nodeexpress' ],
           mainFramework: 'aspnet'
         }
-        
+
         If the parent page of current page guide has frameworks(stack selector) then we don't need to add the current page to sitemap
         but only add the pages with frameworks in the sitemap. Hence, excluding the current page from sitemap here. Refer - OKTA-745577
       */
@@ -395,10 +396,10 @@ module.exports = ctx => ({
 
       mainPagePath = path.slice(0, -'-/main/'.length);
       mainPageGuide = guidesInfo.guideInfo[mainPagePath];
-      /* 
+      /*
         For paths such as /docs/guides/{guide-name}/-/main where there are no frameworks, we need to exclude the current page from sitemap
 
-        Eg. For path - `/docs/guides/build-api-integration/-/main/`, the mainPageGuide will be 
+        Eg. For path - `/docs/guides/build-api-integration/-/main/`, the mainPageGuide will be
 
         {
           title: 'Build an API service integration',
@@ -433,7 +434,7 @@ module.exports = ctx => ({
         exclude: true
       };
     }
-    
+
     if(!frontmatter.canonicalUrl) {
       frontmatter.canonicalUrl = `https://developer.okta.com${path}`;
     }
@@ -442,7 +443,7 @@ module.exports = ctx => ({
       $page.newsFeedDataJson = null;
       let response;
       try {
-        response = await axios.get('https://developer.okta.com/feed.xml');     
+        response = await axios.get('https://developer.okta.com/feed.xml');
       } catch {
         $page.newsFeedDataJson = null;
       }
@@ -452,7 +453,7 @@ module.exports = ctx => ({
           if (err) {
             return;
           }
-        
+
           $page.newsFeedDataJson = jsonObj;
         });
       }
