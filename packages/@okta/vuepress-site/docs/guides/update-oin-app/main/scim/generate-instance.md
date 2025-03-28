@@ -61,9 +61,7 @@ After you've enabled the provisioning API connection in your test instance, conf
    1. Scroll to the attribute that you want to delete, click the mapping icon (yellow arrow) and select **Do not map**.
 
    <div class="three-quarter border">
-
-   ![Displays the map attribute dialog.](/img/oin/scim_unmap-attribute.png)
-
+      ![Displays the map attribute dialog.](/img/oin/scim_unmap-attribute.png)
    </div>
 
    4. Click **Save Mappings**.
@@ -78,8 +76,6 @@ After you've enabled the provisioning API connection in your test instance, conf
    1. Perform **Do not map** and **Save Mappings** actions for all attributes that you want to remove from Okta to your app mappings.
    1. Click **Apply updates now** to save all the attributes you unmapped.
 
-   1. In the Profile Editor, delete all the corresponding attributes from the mapping by clicking **X** next to the attribute and then clicking **Delete Attribute** to confirm.
-
-   1. Repeat this step for all the attributes that you want to delete.
+   1. In the Profile Editor, delete all the corresponding attributes from the mapping by clicking **X** next to the attribute and then clicking **Delete Attribute** to confirm. Repeat this step for all the attributes that you want to delete.
 
 After you complete your attribute mappings, you're ready to [test your integration](#test-your-integration).

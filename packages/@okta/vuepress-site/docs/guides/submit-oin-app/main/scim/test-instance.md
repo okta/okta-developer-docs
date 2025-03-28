@@ -37,8 +37,7 @@ Configure the user attribute mappings after deleting the unnecessary mappings an
       Repeat this step until you remove all the mappings for the attributes that you want to delete.
    4. Select **To App** on the left **Settings** panel.
    5. Scroll to the **Okta Attribute Mappings** section.
-   6. Click **X** next to the attribute that you want to delete, and then click **OK** to confirm.
-   7. Repeat this step until you remove all the mappings for the attributes that you want to delete.
+   6. Click **X** next to the attribute that you want to delete, and then click **OK** to confirm. Repeat this step until you remove all the mappings for the attributes that you want to delete.
 
 **Delete attributes**
    1. After removing all the mappings for the attributes that you want to delete, click **Go to Profile Editor**.
@@ -56,9 +55,7 @@ Configure the user attribute mappings after deleting the unnecessary mappings an
    3. After adding attributes, go back to the **{yourApp} Attribute Mappings** section and click **Edit** to map your new attributes. A dialog appears with two dropdown fields.
 
    <div class="three-quarter border">
-
-    ![Displays the map attribute dialog.](/img/oin/scim_check-attributes-14.png)
-
+      ![Displays the map attribute dialog.](/img/oin/scim_check-attributes-14.png)
    </div>
 
    4. Select **Map from Okta Profile** in the first dropdown list.
