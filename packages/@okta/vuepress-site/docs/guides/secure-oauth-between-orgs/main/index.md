@@ -59,7 +59,7 @@ After you configure the OAuth 2.0 connection, test your connection: push user da
 
 You can push user and group information from a spoke org to a centralized hub org with OAuth 2.0 by performing the following tasks:
 
-1. In each spoke org, [add an instance of the Org2Org app integration](#add-an-org2org-app-integration-in-a-spoke-org) and save the generated URL that hosts the JSON Web Key Set (JWKS) public key.
+1. In each spoke org, [add an instance of the Org2Org app integration](#add-an-org2org-app-integration-in-a-spoke-org).
 1. In the hub org, [create an OAuth 2.0 service app](#create-an-oauth-2-0-service-app-in-the-hub-org) for each spoke org with the corresponding Org2Org app JWKS public key URL. For each hub-org service app (the OAuth 2.0 client), [assign admin roles](#assign-admin-roles-to-the-oauth-2-0-service-app) and [grant allowed scopes](#grant-allowed-scopes-to-the-oauth-2-0-client).
 1. For each hub-org service app (the OAuth 2.0 client), [enable demonstrating proof-of-possession (DPoP) for the OAuth 2.0 client](#enable-demonstrating-proof-of-possession-dpop-for-the-oauth-20-client). See also [Configure OAuth 2.0 Demonstrating Proof-of-Possession](/docs/guides/dpop/nonoktaresourceserver/main/).
 1. In each spoke org, [set and activate provisioning in the Org2Org app](#enable-provisioning-in-the-org2org-app) from the Okta API.
@@ -92,8 +92,6 @@ As an Okta admin, make a `POST /api/v1/apps` request to the spoke org with [Okta
 | `label`  |  Specify a label for this Org2Org app integration |
 | `baseUrl`  |  Specify the base URL of your hub org |
 | `signOnMode`  |  You can set this parameter to any valid value, but if you specify `SAML_2_0`, the Org2Org app signing certificate appears in the Admin Console. |
-
-> **Q???>**  Ask Kevin/Thanh-Ha: Org2org API documentation says that SAML_2_0 and AUTO_LOGIN are the only 2 signOnModes supported, does it support OIDC now? Does this change how the signing certs appear in the Admin Console? okta-oas3 schema for Org2Org needs to be updated as well.
 
 ##### Request example
 
@@ -227,7 +225,7 @@ Enable demonstrating proof-of-possession for the hub org OAuth 2.0 client. Make 
 ##### Request example
 
 ```bash
-curl -X POST \
+curl -X PUT \
   -H 'Accept: application/json' \
   -H "Authorization: Bearer {yourHubAccessToken}" \
   -H 'Content-Type: application/json' \
@@ -268,7 +266,7 @@ curl -X POST \
   -d ' {
     "profile": {
       "authScheme": "OAUTH2",
-      "clientId": "'{yourHubOrgServiceAppId}'"
+      "clientId": "'{yourHubOrgServiceAppId}'",
       "signing": {
         "rotationMode": "AUTO"
       }
@@ -412,3 +410,121 @@ curl -X PUT \
 
 > **Note**: Specify `name` and `label` parameters when you update an Org2Org app.
 -->
+
+## Migrate from API token to OAuth 2.0 provisioning
+
+Migrate your existing org2org integrations that use the API Token authentication scheme to use OAuth 2.0 provisioning by performing the following configurations:
+
+1. Review your existing Org2Org connection
+1. Create a new OAuth 2.0 service app in your hub org
+1. Update your Org2Org app connection
+
+### Review connection details
+
+Make a call to the [Retrieve the default provisioning connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/getDefaultProvisioningConnectionForApplication) endpoint to review the authentication scheme of your existing Org2Org app connection.
+
+##### Request example
+
+```bash
+curl -X GET \
+  -H 'Accept: application/json' \
+  -H "Authorization: Bearer {yourSpokeAccessToken}" \
+  -H 'Content-Type: application/json' \
+  "https://{yourSpokeOrgDomain}/api/v1/apps/{yourOrg2OrgAppId}/connections/default
+```
+
+##### Response example
+
+The following response indicates an API Token authentication scheme configuration.
+
+```json
+{
+    "authScheme": "TOKEN",
+    "status": "ENABLED",
+    "baseUrl": "https://{yourHubOrgDomain}",
+    "profile": {
+        "authScheme": "TOKEN"
+    },
+    "_links": {
+        "self": {
+            "href": "https://{yourSpokeOrgDomain}/api/v1/apps/0oalbhb6d3u6Y1hSq1d7/connections/default",
+            "hints": {
+                "allow": [
+                    "POST",
+                    "GET"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "https://{yourSpokeOrgDomain}/api/v1/apps/0oalbhb6d3u6Y1hSq1d7/connections/default/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
+### Create a new OAuth 2.0 service app in the hub org
+
+Create a new OAuth 2.0 service app in the hub org following the same steps in [Create an OAuth 2.0 service app](#create-an-oauth-20-service-app-in-the-hub-org). Ensure you [assign the appropriate roles](#assign-admin-roles-to-the-oauth-20-service-app), [grant scopes](#grant-allowed-scopes-to-the-oauth-20-client), and [enable DPoP](#enable-demonstrating-proof-of-possession-dpop-for-the-oauth-20-client).
+
+### Update the Org2Org app to use OAuth 2.0 provisioning
+
+Make a call to the [Update the default provisioning connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication) endpoint with a request body that includes the OAuth 2.0 scheme, as in  [enable provisioning in the Org2Org app](#enable-provisioning-in-the-org2org-app).
+
+##### Request example
+
+```bash
+curl -X POST \
+  -H 'Accept: application/json' \
+  -H "Authorization: Bearer {yourSpokeAccessToken}" \
+  -H 'Content-Type: application/json' \
+  -d ' {
+    "profile": {
+      "authScheme": "OAUTH2",
+      "clientId": "'{yourHubOrgServiceAppId}'",
+      "signing": {
+        "rotationMode": "AUTO"
+      }
+    }
+}' "https://{yourSpokeOrgDomain}/api/v1/apps/{yourOrg2OrgAppId}/connections/default?activate=TRUE"
+```
+
+#### Response example
+
+```json
+{
+    "authScheme": "OAUTH2",
+    "status": "ENABLED",
+    "profile": {
+        "clientId": "0oalbl08v41uIujGz1d7",
+        "signing": {
+            "rotationMode": "AUTO"
+        },
+        "authScheme": "OAUTH2"
+    },
+    "clientId": "0oalbl08v41uIujGz1d7",
+    "_links": {
+        "self": {
+            "href": "https://{yourSpokeOrgDomain}/api/v1/apps/0oalbhb6d3u6Y1hSq1d7/connections/default",
+            "hints": {
+                "allow": [
+                    "POST",
+                    "GET"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "https://{yourSpokeOrgDomain}/api/v1/apps/0oalbhb6d3u6Y1hSq1d7/connections/default/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
