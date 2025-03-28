@@ -1,6 +1,6 @@
 import queryString from "query-string";
 import { DateTime } from "luxon";
-import { deleteCookie, getCookie, setCookie } from "./cookies";
+import { getCookie } from "./cookies";
 
 const acceptedParams = [
   "utm_campaign",
@@ -24,8 +24,6 @@ const gaTrackingFieldsMap = {
   trackingId: "gaTrackId",
   clientId: "gaClientId",
 };
-
-let isAttached = false;
 
 function filterParams(params) {
   if (typeof params === "string") {
@@ -57,53 +55,6 @@ function filterParams(params) {
   );
 
   return params;
-}
-
-/**
- * onAttach function.
- *
- * @access public
- * @return void
- */
-function onAttach() {
-  if (isAttached === false) {
-    isAttached = true;
-    // setAttribution();
-  }
-}
-
-/**
- * setAttribution function.
- *
- * @access public
- * @return void
- */
-function setAttribution() {
-  const params = filterParams(location.search);
-
-  if (Object.keys(params).length) {
-    deleteCookie("attribution");
-    setCookie("attribution", params);
-
-    if (!getCookie("session_attribution")) {
-      setCookie("session_attribution", params);
-    }
-
-    if (!getCookie("original_attribution")) {
-      setCookie("original_attribution", params, { expires: 365 });
-    }
-  } else {
-    deleteCookie("attribution");
-    setCookie("attribution", {});
-
-    if (!getCookie("session_attribution")) {
-      setCookie("session_attribution", {});
-    }
-
-    if (!getCookie("original_attribution")) {
-      setCookie("original_attribution", {}, { expires: 365 });
-    }
-  }
 }
 
 /**
@@ -162,8 +113,6 @@ function setFieldAttribution(analytics, key, value = {}) {
  */
 
 function getAnalyticsValues() {
-  onAttach();
-
   const attribution = getAttribution();
   let paramValues = {};
   let analytics = {};
@@ -221,6 +170,8 @@ function getAnalyticsValues() {
 
     setFieldAttribution(analytics, "utm_page", paramValues);
   }
+  console.log('analytics:');
+  console.log(analytics);
 
   // Add google analytics tracking data if GA is loaded
   if (window.ga && typeof window.ga.getAll === "function") {
@@ -237,7 +188,7 @@ function getAnalyticsValues() {
     }
   }
 
-  console.log('analytics:');
+
   console.log(analytics);
 
   return analytics;
