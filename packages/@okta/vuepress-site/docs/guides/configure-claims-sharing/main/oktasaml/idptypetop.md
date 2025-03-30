@@ -1,1 +1,1 @@
-a SAML
+a SAML 2.0
