@@ -166,11 +166,13 @@ Example:
 
 #### <span v-pre>`{{useSiwGen3}}`</span>
 
-A conditional that allows you to set behaviors for Gen2 and Gen3 of the Sign-In Widget. See [Style the Sign-In Widget (3rd generation)](/docs/guides/custom-widget-gen3/main/).
+A conditional that allows you to set behaviors for a migration to Gen3 of the Sign-In Widget. Use `useSiwGen3` to add specific code that works when you enable Gen3, but doesn't affect other code in the template if you need to roll back to Gen2.
+
+Gen3 of the Sign-In Widget uses design tokens, unlike Gen2, so requires different styling. See [Style the Sign-In Widget (3rd generation)](/docs/guides/custom-widget-gen3/main/).
 
 > **Note:** If your org uses Okta Classic Engine, the `useSiwGen3` variable appears in the code editor, but you can't use it.
 
-Example:
+The following example shows how to style the `login-container` for Gen3:
 
 ```html
 {{#useSiwGen3}}
