@@ -22,11 +22,9 @@ title: Okta Classic Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Bugs fixed in 2025.03.2](#bugs-fixed-in-2025-03-2)| March 19, 2025 |
+| [Bug fixed in 2025.03.2](#bug-fixed-in-2025-03-2)| March 19, 2025 |
 
-#### Bugs fixed in 2025.03.2
-
-* The OIN Submission Tester didn't support custom domains in the IdP flow. (OKTA-835402)
+#### Bug fixed in 2025.03.2
 
 * Step-up authentication using the ACR value `urn:okta:loa:2fa:any` didn't always challenge the user for an additional authentication factor with each `/authorize` request, even when the user didn't have an upgraded Okta session from initial authentication. (OKTA-754476)
 

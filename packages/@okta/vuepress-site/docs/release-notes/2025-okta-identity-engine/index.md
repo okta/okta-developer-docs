@@ -24,16 +24,6 @@ title: Okta Identity Engine API release notes 2025
 
 * GET requests to the `/api/v1/users/me/appLinks` endpoint sometimes returned an HTTP 500 Internal Server error. (OKTA-873694)
 
-### Weekly release 2025.03.2
-
-| Change | Expected in Preview Orgs |
-|--------|--------------------------|
-| [Bug fixed in 2025.03.2](#bug-fixed-in-2025-03-2)| March 19, 2025 |
-
-#### Bug fixed in 2025.03.2
-
-The OIN Submission Tester didn't support custom domains in the IdP flow. (OKTA-835402)
-
 ### Weekly release 2025.03.1
 
 | Change | Expected in Preview Orgs |
