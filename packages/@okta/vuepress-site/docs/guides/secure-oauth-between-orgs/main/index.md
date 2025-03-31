@@ -28,7 +28,6 @@ To secure API connections between orgs in a hub-and-spoke [multi-tenant solution
 Previously, the Org2Org integration only supported token-based access to Okta APIs for provisioning requests in the hub org. You can now configure the Org2Org integration to access Okta APIs using the OAuth 2.0 Client Credentials flow. The OAuth 2.0 API access enables you to increase security by limiting the scope of resource access and providing automatic credential rotation.
 
 > **Note**: You can perform the same configuration task in the Admin Console. See [Use OAuth 2.0 for provisioning](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg#Use2) in the product documentation.
-<!-- This is a new alias link from Barbara, which will direct users to the OAuth 2.0 provisioning setup in the UI. -->
 
 <div class="half">
 
@@ -172,8 +171,6 @@ Make a `POST /oauth2/v1/clients/{yourServiceAppId}/roles` request to the hub org
 
 > **Note:** Only Okta [super admins](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin) can assign roles.
 
-> **Q???>**  Kevin: is ^ this still true??
-
 ##### Request example
 
  ```bash
@@ -286,130 +283,6 @@ In each spoke (source) org, assign the users and groups to the Org2Org app integ
 Alternatively, you can assign users and groups for provisioning using the Okta Admin Console. See [Assign an app to a user](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-user) and [Assign an app integration to a group](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-groups).
 
 After you've assigned your users or groups in the spoke org, validate that the same users or groups appear in your hub org.
-
-## Key rotation
-
-An advantage to using the OAuth 2.0 connection is that you can have automatic [key rotation](/docs/concepts/key-rotation) to adhere to cryptographic best practices.
-
-> **Q???>** Kevin: Do you have more info about the automatic key rotation behavior? What's the rotation cadence? Is it configurable?
-
-
-> **Q???>** Thanh-ha: do you want to keep manual key rotation steps for legacy users with MANUAL signing? Perhaps we can remove this **Key rotation** section if the benefits of key rotation can be described in the configuration steps or in the overview?
-
-<!--
-### Manual key rotation
-
-You can rotate keys manually for a specific OAuth 2.0 connection by following these API steps:
-
-1. [Generate a new key for the Org2Org app](#generate-a-new-key-for-the-org2org-app).
-2. [Register the new key with the corresponding service app](#register-the-new-org2org-app-key-with-the-corresponding-service-app).
-3. [Update the current credentials for the Org2Org app](#update-the-current-credentials-for-the-org2org-app).
-
-> **Note**: If you want to minimize downtime during key rotation, you can update the service app (step two) with both the old and new keys, since `jwks.keys` is an array that can handle different `kid` identifiers. You can remove the old key after you verify that provisioning works with the new key.
-
-#### Generate a new key for the Org2Org app
-
-From your spoke org, make a request to [generate a new app key credential](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/generateApplicationKey) as an Okta admin.
-
-##### Request example
-
-```bash
-curl -X POST \
-  -H 'Accept: application/json' \
-  -H "Authorization: Bearer {yourSpokeAccessToken}" \
-  -H 'Content-Type: application/json' \
-  "https://{yourSpokeOrgDomain}/api/v1/apps/{yourOrg2OrgAppId}/credentials/keys/generate?validityYears={validYears}"
-```
-
-##### Response example
-
-```json
-{
-    "kty": "RSA",
-    "created": "2022-01-20T19:50:14.000Z",
-    "lastUpdated": "2022-01-20T19:50:14.000Z",
-    "expiresAt": "2024-01-20T19:50:13.000Z",
-    "kid": "sf-jWwRKMUU5588aokhj-xu_mGucHLxIh_-fYLAofB8",
-    "use": "sig",
-    "x5c": [
-        "MIIDqDCCApCgAwIBAgIGAX55C ... Iuo9j3wpemDSgGapXQ=="
-    ],
-    "x5t#S256": "v-v2V8soFmXuhCAhta8wycA9lXKnrJ4ho-N3P8aASFc",
-    "e": "AQAB",
-    "n": "gIxwqCNkdAb1ioyNBY2boqUCrMj_NS ... FiAYF7p_k3XMXOh-hsL_D8FDQ"
-}
-```
-
-> **Note**: The keys are truncated for brevity.
-
-Save the generated credentials to update the keys in your Org2Org and service apps.
-
-#### Register the new Org2Org app key with the corresponding service app
-
-On your hub org, register the key [generated from the previous POST request](#generate-a-new-key-for-the-org2org-app) to your corresponding service app by using the [Dynamic Client Registration API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/replaceClient).
-
-##### Request example
-
-```bash
-curl -X PUT \
-  -H 'Accept: application/json' \
-  -H "Authorization: Bearer {yourHubAccessToken}" \
-  -H 'Content-Type: application/json' \
-  -d ' {
-    "client_id": "'{yourServiceAppId}'",
-    "client_name": "'{hubServiceClientLabel}'",
-    "response_types": [
-      "token"
-    ],
-    "grant_types": [
-      "client_credentials"
-    ],
-    "token_endpoint_auth_method": "private_key_jwt",
-    "application_type": "service",
-    "jwks": {
-                "keys": [
-                  {
-                    "kty": "RSA",
-                    "kid": "sf-jWwRKMUU5588aokhj-xu_mGucHLxIh_-fYLAofB8",
-                    "use": "sig",
-                    "x5c": [
-                        "MIIDqDCCApCgAwIBAgIGAX55C ... Iuo9j3wpemDSgGapXQ=="
-                    ],
-                    "x5t#S256": "v-v2V8soFmXuhCAhta8wycA9lXKnrJ4ho-N3P8aASFc",
-                    "e": "AQAB",
-                    "n": "gIxwqCNkdAb1ioyNBY2boqUCrMj_NS ... FiAYF7p_k3XMXOh-hsL_D8FDQ"
-                  }
-                ]
-            }
- }' "https://{yourHubOrgDomain}/oauth2/v1/clients/{yourServiceAppId}"
-```
-
-> **Note**: Specify all the required parameters when you update a client app. Partial updates aren't supported. If any mandatory parameters are missing when you update a client app, the update fails. When you update the keys in the service app `jwks` parameter, all the old keys are overwritten. To add a key and keep the old key, you need to specify both old and new keys in the `jwks.keys` array.
-
-#### Update the current credentials for the Org2Org app
-
-From the response of the [previous generate key POST request](#generate-a-new-key-for-the-org2org-app), copy the `kid` property and [activate the new key by updating the Org2Org app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/schema/Org2OrgApplication).
-
-##### Request example
-
-```bash
-curl -X PUT \
-  -H 'Accept: application/json' \
-  -H "Authorization: Bearer {yourSpokeAccessToken}" \
-  -H 'Content-Type: application/json' \
-  -d ' {
-    "name": "okta_org2org",
-    "label": "'{spokeOrg2OrgClientLabel}'",
-    "credentials": {
-        "signing": {
-            "kid": "sf-jWwRKMUU5588aokhj-xu_mGucHLxIh_-fYLAofB8"
-        }
-    }
-}' "https://{yourSpokeOrgDomain}/api/v1/apps/{yourOrg2OrgAppId}"
-```
-
-> **Note**: Specify `name` and `label` parameters when you update an Org2Org app.
--->
 
 ## Migrate from API token to OAuth 2.0 provisioning
 
@@ -528,3 +401,120 @@ curl -X POST \
     }
 }
 ```
+
+## Key rotation
+
+An advantage to using the OAuth 2.0 connection is that you can have automatic [key rotation](/docs/concepts/key-rotation) to adhere to cryptographic best practices. Use the steps in the following section if you're using manual key rotation.
+
+### Manual key rotation
+
+You can rotate keys manually for a specific OAuth 2.0 connection by following these API steps:
+
+1. [Generate a new key for the Org2Org app](#generate-a-new-key-for-the-org2org-app).
+2. [Register the new key with the corresponding service app](#register-the-new-org2org-app-key-with-the-corresponding-service-app).
+3. [Update the current credentials for the Org2Org app](#update-the-current-credentials-for-the-org2org-app).
+
+> **Note**: If you want to minimize downtime during key rotation, you can update the service app (step two) with both the old and new keys, since `jwks.keys` is an array that can handle different `kid` identifiers. You can remove the old key after you verify that provisioning works with the new key.
+
+#### Generate a new key for the Org2Org app
+
+From your spoke org, make a request to [generate a new app key credential](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/generateApplicationKey) as an Okta admin.
+
+##### Request example
+
+```bash
+curl -X POST \
+  -H 'Accept: application/json' \
+  -H "Authorization: Bearer {yourSpokeAccessToken}" \
+  -H 'Content-Type: application/json' \
+  "https://{yourSpokeOrgDomain}/api/v1/apps/{yourOrg2OrgAppId}/credentials/keys/generate?validityYears={validYears}"
+```
+
+##### Response example
+
+```json
+{
+    "kty": "RSA",
+    "created": "2022-01-20T19:50:14.000Z",
+    "lastUpdated": "2022-01-20T19:50:14.000Z",
+    "expiresAt": "2024-01-20T19:50:13.000Z",
+    "kid": "sf-jWwRKMUU5588aokhj-xu_mGucHLxIh_-fYLAofB8",
+    "use": "sig",
+    "x5c": [
+        "MIIDqDCCApCgAwIBAgIGAX55C ... Iuo9j3wpemDSgGapXQ=="
+    ],
+    "x5t#S256": "v-v2V8soFmXuhCAhta8wycA9lXKnrJ4ho-N3P8aASFc",
+    "e": "AQAB",
+    "n": "gIxwqCNkdAb1ioyNBY2boqUCrMj_NS ... FiAYF7p_k3XMXOh-hsL_D8FDQ"
+}
+```
+
+> **Note**: The keys are truncated for brevity.
+
+Save the generated credentials to update the keys in your Org2Org and service apps.
+
+#### Register the new Org2Org app key with the corresponding service app
+
+On your hub org, register the key [generated from the previous POST request](#generate-a-new-key-for-the-org2org-app) to your corresponding service app by using the [Dynamic Client Registration API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/replaceClient).
+
+##### Request example
+
+```bash
+curl -X PUT \
+  -H 'Accept: application/json' \
+  -H "Authorization: Bearer {yourHubAccessToken}" \
+  -H 'Content-Type: application/json' \
+  -d ' {
+    "client_id": "'{yourServiceAppId}'",
+    "client_name": "'{hubServiceClientLabel}'",
+    "response_types": [
+      "token"
+    ],
+    "grant_types": [
+      "client_credentials"
+    ],
+    "token_endpoint_auth_method": "private_key_jwt",
+    "application_type": "service",
+    "jwks": {
+                "keys": [
+                  {
+                    "kty": "RSA",
+                    "kid": "sf-jWwRKMUU5588aokhj-xu_mGucHLxIh_-fYLAofB8",
+                    "use": "sig",
+                    "x5c": [
+                        "MIIDqDCCApCgAwIBAgIGAX55C ... Iuo9j3wpemDSgGapXQ=="
+                    ],
+                    "x5t#S256": "v-v2V8soFmXuhCAhta8wycA9lXKnrJ4ho-N3P8aASFc",
+                    "e": "AQAB",
+                    "n": "gIxwqCNkdAb1ioyNBY2boqUCrMj_NS ... FiAYF7p_k3XMXOh-hsL_D8FDQ"
+                  }
+                ]
+            }
+ }' "https://{yourHubOrgDomain}/oauth2/v1/clients/{yourServiceAppId}"
+```
+
+> **Note**: Specify all the required parameters when you update a client app. Partial updates aren't supported. If any mandatory parameters are missing when you update a client app, the update fails. When you update the keys in the service app `jwks` parameter, all the old keys are overwritten. To add a key and keep the old key, you need to specify both old and new keys in the `jwks.keys` array.
+
+#### Update the current credentials for the Org2Org app
+
+From the response of the [previous generate key POST request](#generate-a-new-key-for-the-org2org-app), copy the `kid` property and [activate the new key by updating the Org2Org app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/schema/Org2OrgApplication).
+
+##### Request example
+
+```bash
+curl -X PUT \
+  -H 'Accept: application/json' \
+  -H "Authorization: Bearer {yourSpokeAccessToken}" \
+  -H 'Content-Type: application/json' \
+  -d ' {
+    "name": "okta_org2org",
+    "label": "'{spokeOrg2OrgClientLabel}'",
+    "credentials": {
+        "signing": {
+            "kid": "sf-jWwRKMUU5588aokhj-xu_mGucHLxIh_-fYLAofB8"
+        }
+    }
+}' "https://{yourSpokeOrgDomain}/api/v1/apps/{yourOrg2OrgAppId}"
+```
+
+> **Note**: Specify `name` and `label` parameters when you update an Org2Org app.
