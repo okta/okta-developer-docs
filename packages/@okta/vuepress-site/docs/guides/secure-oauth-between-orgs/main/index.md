@@ -253,6 +253,8 @@ Make a [`POST /api/v1/apps/{Org2OrgAppId}/connections/default?activate=TRUE`](ht
 | `clientId`  |  Specify the corresponding service app client ID in your hub org |
 | `signing.rotationMode` | Specify `AUTO` for automatic key rotation. If `signing.rotationMode` isn't specified, then `rotationMode` is set to `MANUAL` and key rotation isn't automatic for the Org2Org provisioning connection. |
 
+>**Note:** Automatic key rotation (`AUTO`) is in <ApiLifecycle access="ea" />.
+
 ##### Request example
 
 ```bash
