@@ -35,6 +35,8 @@ Claims sharing provides assurance context to Okta during policy evaluation. For 
 
 All authenticators that are natively performed on the Okta IdP are accepted. This includes authenticators such as WebAuthn, password, Okta Verify, Okta FastPass, SMS, email, and so on. Claim sharing doesn't currently support the use of any Custom Authenticators for MFA, such as using another IdP or smart card.
 
+### AMR claims mapping is enabled on your org
+
 <StackSnippet snippet="amrclaims" />
 
 ### <StackSnippet snippet="idptype" inline /> IdP authentication claims sharing
