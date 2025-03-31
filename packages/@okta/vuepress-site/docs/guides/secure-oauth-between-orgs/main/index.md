@@ -289,7 +289,7 @@ After you've assigned your users or groups in the spoke org, validate that the s
 
 ## Migrate from API token to OAuth 2.0 provisioning
 
-Migrate your existing org2org integrations that use the API Token authentication scheme to use OAuth 2.0 provisioning by performing the following configurations:
+Migrate your existing Org2Org integrations that use the API Token authentication scheme to use OAuth 2.0 provisioning by performing the following configurations:
 
 1. Review your existing Org2Org connection
 1. Create a new OAuth 2.0 service app in your hub org
