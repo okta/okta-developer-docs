@@ -2,13 +2,37 @@ The **Third-Party IdP + Claims Sharing** feature enables claims sharing between 
 
 ### Third-party IdP configuration
 
-Before you configure Okta to accept AMR claims, it's important to first ensure at the third-party IdP that the client app used for authenticating and authorizing users sends an `amr` array with the AMR claims in the OpenID Connect ID token (`id_token`).
+It's important to ensure that your third-party IdPs return AMR claims in their responses. The client app used for authentication and authorizing users must send the `saml2:Attribute Name="session.amr"` key and value pair in the `saml2:AttributeStatement` section of the SAML response.
+
+If you don't ensure that the third-party IdP is configured to return AMR claims, you could break a working flow with that IdP. This happens when you enable **Third-Party IdP + Claims Sharing** in your Okta SP org and your third-party IdP isn't configured to return AMR claims. The user can't authenticate with the third-party IdP and the flow is broken.
+
+#### Supported AMR values
+
+The following table describes the AMR values that Okta supports. Okta ignores unsupported AMR values.
+
+| AMR value    | AMR description                                | Factor satisfied   | Possession constraint satisfied   |
+| :------------| :--------------------------------------------- | :----------------  | :-------------------------------- |
+| `face`       | Biometric authentications: facial recognition  | INHERENCE          | userPresence<br> userVerification |
+| `fpt`        | Biometric authentications: fingerprint         | INHERENCE          | userPresence<br> userVerification |
+| `iris`       | Biometric authentications: iris scan           | INHERENCE          | userPresence<br> userVerification |
+| `retina`     | Biometric authentications: retina scan         | INHERENCE          | userPresence<br> userVerification |
+| `vbm`        | Biometric authentications: voiceprint          | INHERENCE          | userPresence<br> userVerification |
+| `hwk`        | Proof-of-Possession (PoP) of a hardware-secured key. See Appendix C of [RFC4211](https://datatracker.ietf.org/doc/html/rfc4211#appendix-C) for a discussion on PoP.| POSSESSION             |  userPresence<br>deviceBound<br>hardwareProtected      |
+| `kba`        | Knowedge-based authentication | KNOWLEDGE | N/A  |
+| `mfa`        | Multiple-factor authentication: When this is present, specific authentication methods used may also be included. | N/A | N/A |
+| `otp`        | One-time password | POSSESSION    | userPresence<br>deviceBound |
+| `pwd`        | Password-based authentication | KNOWLEDGE | N/A |
+| `sc`         | Smart card  | POSSESSION | userPresence<br>deviceBound |
+| `sms`        | Confirmation using SMS text message to the user at a registered number  | POSSESSION | userPresence |
+| `swk`        | Proof-of-Possession (PoP) of a software-secured key. See Appendix C of [RFC4211](https://datatracker.ietf.org/doc/html/rfc4211#appendix-C) for a discussion on PoP. | POSSESSION | userPresence<br>deviceBound |
+| `tel`        | Confirmation by telephone call to the user at a registered number. This authentication technique is sometimes also referred to as "call back" | POSSESSION  | userPresence  |
+| `pop`        | Proof-of-possession of a key. Unlike the existing `hwk` and `swk` methods, it's unspecified whether the proof-of-possession key is hardware-secured or software-secured.  | POSSESSION  | userPresence<br>deviceBound |
 
 ### Okta SP configuration
 
 To use claims sharing, update the third-party IdP settings in your Okta SP org by adding the `trustClaims: true` key and value pair to your IdP PUT request. Alternatively, you can enable the **Trust claims from this identity provider** checkbox in the Admin Console. See <StackSnippet snippet="addanidp" inline />.
 
-> **Note:** When **Third-Party IdP + Claims Sharing** and the legacy **AMR Claims Mapping** feature are both used in your SP org, claims sharing is the only feature considered. The `mapAMRClaims` property (**Trust AMR claims from this identity provider** checkbox in the Admin Console) is associated with the legacy claims mapping feature. If you include this property and the `trustClaims: true` property in your request, only the `trustClaims` property is considered.
+> **Note:** When **Third-Party IdP + Claims Sharing** and the legacy **AMR Claims Mapping** feature are both used in your SP org, claims sharing is the only feature considered. The `mapAMRClaims` property (**Trust AMR claims from this identity provider** checkbox in the Admin Console) is associated with the legacy claims mapping feature. If you include this property and the `trustClaims: true` property in your request, Okta only considers the `trustClaims` property.
 
 #### Example Okta <StackSnippet snippet="idptype" inline /> IdP update request
 

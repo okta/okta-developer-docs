@@ -1,1 +1,1 @@
-OpenID Connect
+Third-party OpenID Connect

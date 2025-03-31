@@ -1,1 +1,1 @@
-SAML 2.0
+Third-party SAML 2.0

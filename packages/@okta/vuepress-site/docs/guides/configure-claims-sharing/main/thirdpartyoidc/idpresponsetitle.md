@@ -1,1 +1,1 @@
-ID token
+Third-party ID token
