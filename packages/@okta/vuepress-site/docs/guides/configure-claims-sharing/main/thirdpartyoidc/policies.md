@@ -16,8 +16,8 @@ For example, the `pwd` and `sms` AMR claims can satisfy an authentication policy
 
 * **Authentication methods:**
   * **Allow any method that can be used to meet the requirement**: If you enable this setting in your SP org, you can satisfy the policy requirements by using any authenticator that meets those requirements. This includes authenticators that aren't configured locally in the SP org.
-  * **Disallow specific authentication methods**: If you specify authentication methods to disallow, then Okta can't use AMR claims to evaluate the policy. The SP org redirects the user to verify any locally configured authenticator.
-  * **Allow specific authentication methods**: If you specify authentication methods to allow, Okta can't use AMR claims to evaluate the policy. The SP org redirects the user to verify any locally configured authenticator.
+  * **Disallow specific authentication methods**: If you specify authentication methods to disallow, then Okta can't use AMR claims to evaluate the policy. The SP org redirects the user to verify with any locally configured authenticator.
+  * **Allow specific authentication methods**: If you specify authentication methods to allow, Okta can't use AMR claims to evaluate the policy. The SP org redirects the user to verify with any locally configured authenticator.
 
 ### Global session policy
 

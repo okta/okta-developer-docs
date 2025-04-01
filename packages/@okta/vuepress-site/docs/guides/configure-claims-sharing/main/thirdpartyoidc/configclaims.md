@@ -4,7 +4,7 @@ The **Third-Party IdP + Claims Sharing** feature enables claims sharing between 
 
 It's important to ensure that your third-party IdPs return Authentication Method Reference (AMR) claims. The client app used for authenticating and authorizing users must send an `amr` array with AMR claims in the OpenID Connect ID token (`id_token`).
 
-> **Note:** You can break a functioning flow with your third-party IdP. This happens after you enable **Third-Party IdP + Claims Sharing** in your Okta SP org. But, your third-party IdP isn't set up to return AMR claims. The user can't authenticate with the third-party IdP and the flow is broken.
+> **Note:** You can break a functioning flow with your third-party IdP. This happens after you enable **Third-Party IdP + Claims Sharing** in your Okta SP org, but your third-party IdP isn't set up to return AMR claims. The user can't authenticate with the third-party IdP and the flow is broken.
 
 #### Supported AMR values
 
@@ -25,7 +25,7 @@ The following table describes the AMR values that Okta supports. Okta ignores un
 | `sc`         | Smart card  | POSSESSION | userPresence<br>deviceBound |
 | `sms`        | Confirmation using SMS text message to the user at a registered number  | POSSESSION | userPresence |
 | `swk`        | Proof-of-Possession (PoP) of a software-secured key. See Appendix C of [RFC4211](https://datatracker.ietf.org/doc/html/rfc4211#appendix-C) for a discussion on PoP. | POSSESSION | userPresence<br>deviceBound |
-| `tel`        | Confirmation by telephone call to the user at a registered number. This authentication technique is sometimes also referred to as "call back" | POSSESSION  | userPresence  |
+| `tel`        | Confirmation by telephone call to the user at a registered number. This authentication technique is sometimes also referred to as "call back". | POSSESSION  | userPresence  |
 | `pop`        | Proof-of-possession of a key. Unlike the existing `hwk` and `swk` methods, it's unspecified whether the proof-of-possession key is hardware-secured or software-secured.  | POSSESSION  | userPresence<br>deviceBound |
 
 ### Okta SP configuration
