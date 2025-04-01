@@ -87,7 +87,7 @@ Configure a simple routing rule for the IdP in the Okta SP org.
 
 You can only deactivate or delete an IdP with trust claims enabled if there are other active IdPs that have trust claims enabled. Or, you can deactivate or delete the IdP if all policies are configured in a way that doesn't require trusted claims.
 
-> **Note:** This is also true if you try to disable the **Okta-to-Okta Claims Sharing** feature.
+> **Note:** This is also true if you try to disable the <StackSnippet snippet="deletedeactivate" inline /> feature.
 
 ## Reauthentication
 

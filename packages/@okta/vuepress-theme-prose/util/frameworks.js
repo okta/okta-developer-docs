@@ -91,6 +91,8 @@ const COMMON_NAME_TO_FANCY_NAME = {
   nonoktaresourceserver: 'Non-Okta resource server',
   oktaoidc: 'Okta OIDC IdP',
   oktasaml: 'Okta SAML 2.0 IdP',
+  thirdpartyoidc: 'Third-Party OIDC IDP',
+  thirdpartysaml: 'Third-Party SAML 2.0 IdP',
 };
 
 const COMMON_NAME_TO_ICON_NAME = {
