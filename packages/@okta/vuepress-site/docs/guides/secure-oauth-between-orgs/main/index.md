@@ -47,12 +47,8 @@ In this configuration:
 
 After you configure the OAuth 2.0 connection, test your connection: push user data from the spoke orgs to the hub org.
 
-<!-- Based on the spec, Thank-Ha wants this note removed - need to confirm.
 > **Note**:
-> In this Org2Org configuration, you create a service app in the hub org for each spoke org. For each service app you create, you need to assign admin roles to constrain the permissions and resources of that app for least privilege access. See [Assign admin roles to the OAuth 2.0 service app](#assign-admin-roles-to-the-oauth-2-0-service-app).<br>
-> If you want to bypass assigning admin roles to service apps, you can enable the **Public client app admins** org setting in the hub org. This automatically assigns the [super admin role](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles) (`SUPER_ADMIN`) after scopes are granted to custom service apps.<br>
-> Go to **Settings** > **Account** > **Public client app admins** in the Admin Console to enable this setting. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps). Disable this setting after you incorporate admin role assignments in your workflow.
--->
+> In this Org2Org configuration, you create a service app in the hub org for each spoke org. For each service app you create, you need to assign admin roles to constrain the permissions and resources of that app for least privilege access. See [Assign admin roles to the OAuth 2.0 service app](#assign-admin-roles-to-the-oauth-2-0-service-app).
 
 ## Hub and spoke connection configuration with OAuth 2.0
 
@@ -157,9 +153,8 @@ You can assign a [standard admin role](https://help.okta.com/okta_help.htm?type=
 
 For the OAuth 2.0 Org2Org provisioning connection, Okta recommends that you assign the following [standard admin roles](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles):
 
-<!-- * `USER_ADMIN` (Group administrator)
-* `GROUP_MEMBERSHIP_ADMIN` (Group membership administrator)-->
-* `ORG_ADMIN` (Organization Administrator)
+* `USER_ADMIN` (Group administrator)
+* `GROUP_MEMBERSHIP_ADMIN` (Group membership administrator)
 
 You can use the Admin Console to assign an admin role to your service app. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps) and go to the **Admin roles** tab from your app integration details. Alternatively, you can assign the admin role to your service app with the [Assign a client role](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleAssignmentClient/#tag/RoleAssignmentClient/operation/assignRoleToClient) API:
 
@@ -168,7 +163,7 @@ Make a `POST /oauth2/v1/clients/{yourServiceAppId}/roles` request to the hub org
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
 | `yourServiceAppId`  |  Specify the `client_id` value from the previous response when the service app was created. In the following role assignment example, the `{yourServiceAppId}` variable name is used for the `client_id`.|
-| `type`  |  Specify the admin role to assign to the service app. Use the recommended standard admin role `ORG_ADMIN`. |
+| `type`  |  Specify the admin role to assign to the service app. Use the recommended standard admin roles (`USER_ADMIN`, `GROUP_MEMBERSHIP_ADMIN`)|
 
 > **Note:** Only Okta [super admins](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin) can assign roles.
 
@@ -180,7 +175,7 @@ Make a `POST /oauth2/v1/clients/{yourServiceAppId}/roles` request to the hub org
  -H "Content-Type: application/json" \
  -H "Authorization: Bearer {yourHubAccessToken}" \
  -d '{
-    "type": "ORG_ADMIN"
+    "type": "USER_ADMIN"
   }' "https://{yourHubOrgDomain}/oauth2/v1/clients/{yourServiceAppId}/roles"
  ```
 
