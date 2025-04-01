@@ -12,7 +12,7 @@ title: Okta Identity Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [OAuth 2.0 provisioning for Org2Org with Autorotation is EA in Preview](#oauth-20-provisioning-for-org2org-with-autorotation-is-ea-in-preview) | April 2, 2025 |
+| [OAuth 2.0 provisioning for Org2Org with Autorotation is EA in Preview](#oauth-2-0-provisioning-for-org2org-with-autorotation-is-ea-in-preview) | April 2, 2025 |
 | [Retrieve the SSF Stream status is EA in Preview](#retrieve-the-ssf-stream-status-is-ea-in-preview) | April 2, 2025 |
 | [OIN test account information deleted after 30 days](#oin-test-account-information-deleted-after-30-days) | April 2, 2025 |
 | [Risk Provider and Risk Events APIs are deprecated](#risk-provider-and-risk-events-apis-are-deprecated) | April 2, 2025 |
@@ -79,7 +79,7 @@ The Okta account management policy helps admins easily build phishing resistance
 
 #### Okta Sign-In Widget custom template updates
 
-Admins can now use the `useSiwGen3` variable in the sign-in page code editor to help with migrations from Gen2 to Gen3 of the Okta Sign-In Widget. See [Use useSiwGen3](/docs/guides/custom-widget/main/#usesiwgen3).
+Admins can now use the `useSiwGen3` variable in the sign-in page code editor to help with migrations from Gen2 to Gen3 of the Okta Sign-In Widget. See [Use the code editor](/docs/guides/custom-widget/main/#usesiwgen3).
 
 #### Developer documentation update in 2025.04.0
 

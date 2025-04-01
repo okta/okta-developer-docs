@@ -10,7 +10,7 @@ title: Okta Classic Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [OAuth 2.0 provisioning for Org2Org with Autorotation is EA in Preview](#oauth-20-provisioning-for-org2org-with-autorotation-is-ea-in-preview) | April 2, 2025 |
+| [OAuth 2.0 provisioning for Org2Org with Autorotation is EA in Preview](#oauth-2-0-provisioning-for-org2org-with-autorotation-is-ea-in-preview) | April 2, 2025 |
 | [OIN test account information deleted after 30 days](#oin-test-account-information-deleted-after-30-days) | April 2, 2025 |
 | [POST requests to authorize endpoint is GA Preview](#post-requests-to-authorize-endpoint-is-ga-preview) | January 8, 2025 |
 | [Integration variable limit increase in OIN Submission](#integration-variable-limit-increase-in-oin-submission) | April 2, 2025 |
