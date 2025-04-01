@@ -10,15 +10,15 @@
         "type": "OIDC",
         "endpoints": {
             "authorization": {
-                "url": "https://cmdip-curd-ct18.clouditude.com/authorize",
+                "url": "https://{thirdPartyIdPDomain}/authorize",
                 "binding": "HTTP-REDIRECT"
             },
             "token": {
-                "url": "https://cmdip-curd-ct18.clouditude.com/token",
+                "url": "https://{thirdPartyIdPDomain}/token",
                 "binding": "HTTP-POST"
             },
             "jwks": {
-                "url": "https://cmdip-curd-ct18.clouditude.com/oauth2/v1/keys",
+                "url": "https://{thirdPartyIdPDomain}/oauth2/v1/keys",
                 "binding": "HTTP-REDIRECT"
             }
         },
@@ -28,7 +28,7 @@
             "profile"
         ],
         "issuer": {
-            "url": "https://cmdip-curd-ct18.clouditude.com"
+            "url": "https://{thirdPartyIdPDomain}"
         },
         "credentials": {
             "client": {
@@ -72,7 +72,7 @@
     "type": "OIDC",
     "_links": {
         "authorize": {
-            "href": "https://cmsp-curd-ct18.clouditude.com/oauth2/v1/authorize?idp=0oa3rmyd0GTuaQdPt806&client_id={clientId}&response_type={responseType}&response_mode={responseMode}&scope={scopes}&redirect_uri={redirectUri}&state={state}&nonce={nonce}",
+            "href": "https://{thirdPartyIdPDomain}/oauth2/v1/authorize?idp=0oa3rmyd0GTuaQdPt806&client_id={clientId}&response_type={responseType}&response_mode={responseMode}&scope={scopes}&redirect_uri={redirectUri}&state={state}&nonce={nonce}",
             "templated": true,
             "hints": {
                 "allow": [
@@ -81,7 +81,7 @@
              }
         },
         "clientRedirectUri": {
-            "href": "https://cmsp-curd-ct18.clouditude.com/oauth2/v1/authorize/callback",
+            "href": "https://{yourOktaDomain}/oauth2/v1/authorize/callback",
             "hints": {
                 "allow": [
                     "POST"

@@ -130,6 +130,8 @@ const COMMON_NAME_TO_ICON_NAME = {
   spring: 'code-spring-32',
   oktaoidc: 'openid-16',
   oktasaml: 'advanced-sso-16-blue',
+  thirdpartyoidc: 'openid-16',
+  thirdpartysaml: 'advanced-sso-16-blue',
 };
 
 const IDP_COMMON_NAME_TO_ICON_NAME = {

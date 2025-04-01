@@ -9,9 +9,9 @@
         "type": "SAML2",
         "endpoints": {
             "sso": {
-                "url": "https://cmdip-curd-ct18.clouditude.com/app/okta_org2org/exk3pz2wtedH1OogK806/sso/saml",
+                "url": "https://{thirdPartyIdP}/app/exk3pz2wtedH1OogK806/sso/saml",
                 "binding": "HTTP-POST",
-                "destination": "https://cmdip-curd-ct18.clouditude.com/app/okta_org2org/exk3pz2wtedH1OogK806/sso/saml"
+                "destination": "https://{thirdPartyIdP}/app/exk3pz2wtedH1OogK806/sso/saml"
             },
             "acs": {
                 "binding": "HTTP-POST",
