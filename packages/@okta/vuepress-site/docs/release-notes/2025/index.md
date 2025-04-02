@@ -10,6 +10,7 @@ title: Okta Classic Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
+| [Domain Restrictions on Realms](#domain-restrictions-on-realms) | April 2, 2025 |
 | [OAuth 2.0 provisioning for Org2Org with Autorotation is self-service EA in Preview](#oauth-20-provisioning-for-org2org-with-autorotation-is-self-service-ea-in-preview) | April 2, 2025 |
 | [OIN test account information deleted after 30 days](#oin-test-account-information-deleted-after-30-days) | April 2, 2025 |
 | [POST requests to authorize endpoint is GA Preview](#post-requests-to-authorize-endpoint-is-ga-preview) | January 8, 2025 |
@@ -19,6 +20,10 @@ title: Okta Classic Engine API release notes 2025
 | [Create dynamic resource sets with conditions is GA in Preview](#create-dynamic-resource-sets-with-conditions-is-ga-in-preview) | November 7, 2024 |
 | [Developer documentation update in 2025.04.0](#developer-documentation-update-in-2025-04-0) | April 2, 2025 |
 | [Bugs fixed in 2025.04.0](#bugs-fixed-in-2025-04-0)| April 2, 2025 |
+
+#### Domain Restrictions on Realms
+
+You can now define allowed domains for users within a realm, which adds an extra layer of oversight over realm and partner admins and enforces boundaries between user populations. See the [Realms](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Realm/) and [Realm Assignments](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RealmAssignment/) APIs. <!-- OKTA-907851 UD_REALMS_PROFILE_WITH_DOMAIN -->
 
 #### OAuth 2.0 provisioning for Org2Org with Autorotation is self-service EA in Preview
 
