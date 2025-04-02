@@ -24,7 +24,7 @@ The [Risk Rules API](https://developer.okta.com/docs/api/iga/openapi/governance.
 
 `okta.governance.riskRule.manage`
 
-okta.governance.riskRule.read
+`okta.governance.riskRule.read`
 
 Use this API to define risk rules to support separation of duties (SOD) in Access Certifications and Access Requests. 
 
