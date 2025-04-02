@@ -18,6 +18,8 @@ For changes prior to 2025, see [Archived Okta Identity Governance API Changelog 
 
 #### Risk Rules API is Beta
 
+<ApiLifecycle access="beta" />
+
 The [Risk Rules API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Risk-Rules/) is now available in Beta and includes the following new scopes:
 
 okta.governance.riskRule.manage
