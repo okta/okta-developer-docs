@@ -10,7 +10,7 @@ title: Okta Classic Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [OAuth 2.0 provisioning for Org2Org with Autorotation is EA in Preview](#oauth-2-0-provisioning-for-org2org-with-autorotation-is-ea-in-preview) | April 2, 2025 |
+| [OAuth 2.0 provisioning for Org2Org with Autorotation is self-service EA in Preview](#oauth-20-provisioning-for-org2org-with-autorotation-is-self-service-ea-in-preview) | April 2, 2025 |
 | [OIN test account information deleted after 30 days](#oin-test-account-information-deleted-after-30-days) | April 2, 2025 |
 | [POST requests to authorize endpoint is GA Preview](#post-requests-to-authorize-endpoint-is-ga-preview) | January 8, 2025 |
 | [Integration variable limit increase in OIN Submission](#integration-variable-limit-increase-in-oin-submission) | April 2, 2025 |
@@ -20,7 +20,7 @@ title: Okta Classic Engine API release notes 2025
 | [Developer documentation update in 2025.04.0](#developer-documentation-update-in-2025-04-0) | April 2, 2025 |
 | [Bugs fixed in 2025.04.0](#bugs-fixed-in-2025-04-0)| April 2, 2025 |
 
-#### OAuth 2.0 provisioning for Org2Org with Autorotation is EA in Preview
+#### OAuth 2.0 provisioning for Org2Org with Autorotation is self-service EA in Preview
 
 Admins deploying multi-org architectures (for example Okta hub-and-spoke orgs) need to secure user and group provisioning. Provisioning using OAuth2.0 scoped tokens has several advantages over API tokens, including more access granularity, shorter token lifespans, and automatic key rotation. You can now enable OAuth 2.0 Auto-Rotation for Org2Org app provisioning directly from the Admin Console, in addition to the API.
 
