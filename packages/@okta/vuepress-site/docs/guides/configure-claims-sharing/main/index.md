@@ -61,7 +61,7 @@ To test your integration, first [configure a routing rule](https://help.okta.com
 
 ### Configure a routing rule for the IdP
 
-Configure a simple routing rule for the IdP in the Okta SP org.
+Configure a simple routing rule for the IdP in the Okta SP org:
 
 * From the Admin Console, go to **Security** > **Identity Providers**.
 * Select the IdP you want to configure the routing rule for.

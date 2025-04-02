@@ -4,11 +4,11 @@ The **Third-Party IdP + Claims Sharing** feature enables claims sharing between 
 
 It's important to ensure that your third-party IdPs return Authentication Method Reference (AMR) claims. The client app used for authenticating and authorizing users must send an `amr` array with AMR claims in the OpenID Connect ID token (`id_token`).
 
-> **Note:** You can break a functioning flow with your third-party IdP. This happens after you enable **Third-Party IdP + Claims Sharing** in your Okta SP org, but your third-party IdP isn't set up to return AMR claims. The user can't authenticate with the third-party IdP and the flow is broken.
+> **Note:** You can break a functioning flow with your third-party IdP. This happens after you enable **Third-Party IdP + Claims Sharing** in your Okta SP org, but your third-party IdP isn't configured to return AMR claims. The user can't authenticate with the third-party IdP and the flow is broken.
 
-#### Supported AMR values
+#### Supported AMR claims
 
-The following table describes the AMR values that Okta supports. Okta ignores unsupported AMR values.
+The following table describes the AMR claims values that Okta supports. Okta ignores unsupported AMR values.
 
 | AMR value    | AMR description                                | Factor satisfied   | Possession constraint satisfied   |
 | :------------| :--------------------------------------------- | :----------------  | :-------------------------------- |
