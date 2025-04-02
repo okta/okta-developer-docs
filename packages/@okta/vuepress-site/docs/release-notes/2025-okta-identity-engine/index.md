@@ -6,6 +6,103 @@ title: Okta Identity Engine API release notes 2025
 
 # Okta Identity Engine API release notes (2025)
 
+## April
+
+### Monthly release 2025.04.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [OAuth 2.0 provisioning for Org2Org with Autorotation is self-service EA in Preview](#oauth-20-provisioning-for-org2org-with-autorotation-is-self-service-ea-in-preview) | April 2, 2025 |
+| [Retrieve the SSF Stream status is EA in Preview](#retrieve-the-ssf-stream-status-is-ea-in-preview) | April 2, 2025 |
+| [OIN test account information deleted after 30 days](#oin-test-account-information-deleted-after-30-days) | April 2, 2025 |
+| [Risk Provider and Risk Events APIs are deprecated](#risk-provider-and-risk-events-apis-are-deprecated) | April 2, 2025 |
+| [POST requests to authorize endpoint is GA Preview](#post-requests-to-authorize-endpoint-is-ga-preview) | January 8, 2025 |
+| [Integration variable limit increase in OIN Submission](#integration-variable-limit-increase-in-oin-submission) | April 2, 2025 |
+| [Conditional requests and entity tags are GA in Production](#conditional-requests-and-entity-tags-are-ga-in-production) | January 16, 2025 |
+| [New rate limit event type](#new-rate-limit-event-type) | April 2, 2025 |
+| [Create dynamic resource sets with conditions is GA in Preview](#create-dynamic-resource-sets-with-conditions-is-ga-in-preview) | November 7, 2024 |
+| [Okta account management policy is GA in Production](#okta-account-management-policy-is-ga-in-production) | December 11, 2024 |
+| [Okta Sign-In Widget custom template updates](#okta-sign-in-widget-custom-template-updates) | April 2, 2025 |
+| [Developer documentation update in 2025.04.0](#developer-documentation-update-in-2025-04-0) | April 2, 2025 |
+| [Bugs fixed in 2025.04.0](#bugs-fixed-in-2025-04-0)| April 2, 2025 |
+
+
+#### OAuth 2.0 provisioning for Org2Org with Autorotation is self-service EA in Preview
+
+Admins deploying multi-org architectures (for example Okta hub-and-spoke orgs) need to secure user and group provisioning. Provisioning using OAuth2.0 scoped tokens has several advantages over API tokens, including more access granularity, shorter token lifespans, and automatic key rotation. You can now enable OAuth 2.0 Auto-Rotation for Org2Org app provisioning directly from the Admin Console, in addition to the API.
+
+To support these updates, the Application Connections API includes a new endpoint, [Retrieve a JSON Web Key Set (JWKS) for the default provisioning connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/getUserProvisioningConnectionJWKS), and schema updates to support token autorotation, `rotationMode=AUTO`. See [Update the default provisioning connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication!path=1/profile&t=request) and [Integrate Okta Org2Org with Okta](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg#Use2). <!-- OKTA-903533 FF ORG2ORG_ENABLE_PROVISION_JWK -->
+
+#### Retrieve the SSF Stream status is EA in Preview
+
+Retrieve the SSF Stream status endpoint (`/api/v1/ssf/stream/status`) is now available. The status indicates whether the transmitter is able to transmit events over the stream. This endpoint is available if you have enabled the Enable Managed Apple ID federation and provisioning feature for your org. <!-- OKTA-898183 OKTA_SSF_TRANSMITTER_PUSH -->
+
+#### OIN test account information deleted after 30 days
+
+Okta deletes your test account credentials 30 days after you publish your app in **OIN Wizard**. You must create a new test account and re-enter the required information before submitting the app.
+
+#### Risk Provider and Risk Events APIs are deprecated
+
+These APIs have been deprecated. Use the [SSF Security Event Tokens API]([https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/|https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/]) instead to receive security-related events and other data-subject signals. Use the [SSF Receiver API]([https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/|https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/]) for third-party security event providers. <!-- OKTA-866092 -->
+
+#### POST requests to authorize endpoint is GA Preview
+
+You can now send user data securely in a POST request body to the `/authorize` endpoint. <!-- OKTA-827104 OAUTH2_AUTHORIZE_WITH_POST -->
+
+#### Integration variable limit increase in OIN Submission
+
+The maximum number of integration variables allowed in OIN submission has increased from three to eight. The apps migrated from OIN Manager with more than eight variables can retain all existing variables but can't add new variables.
+
+#### Conditional requests and entity tags are GA in Production
+
+You can now use conditional requests and entity tags to tag and check for specific versions of resources. Currently this is only available to use with user profiles. See [Conditional Requests and Entity Tags](https://developer.okta.com/docs/api/#conditional-requests-and-entity-tags).
+
+#### New rate limit event type
+
+This rate limit event type now appears in the System Log: `system.rate_limit.configuration.update`. It logs the following:
+
+* Changes to client-based rate limit settings
+* Changes in the rate limit warning notification threshold
+* If the rate limit notification is enabled or disabled
+* Updates to the rate-limit percentage of an API token
+
+<!-- OKTA-797466  -->
+
+#### Create dynamic resource sets with conditions is GA in Preview
+
+Resource set conditions help you limit the scope of a role by excluding an admin's access to certain apps. This gives you more granular control over your custom admin roles and helps meet your org's unique security needs. See [Resource set conditions](https://help.okta.com/okta_help.htm?type=oie&id=resource-set-conditions) and the corresponding [Resource Set Resources](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleCResourceSetResource/) API.
+<!-- OKTA-746719 DYNAMIC_RESOURCE_SETS -->
+
+#### Okta account management policy is GA in Production
+
+The Okta account management policy helps admins easily build phishing resistance into actions such as account unlock, password recovery, authenticator enrollment, and profile setting changes. Using the familiar rule-based framework of an authentication policy, admins can now customize which phishing-resistant authenticators are required when users attempt these common self-service actions. All of the configurations in the authentication policies can now be applied for authenticator management. See [Configure an Okta account management policy](/docs/guides/okta-account-management-policy/main/). <!-- AUTH_POLICY_FOR_ACCOUNT_MANAGEMENT -->
+
+#### Okta Sign-In Widget custom template updates
+
+Admins can now use the `useSiwGen3` variable in the sign-in page code editor to help with migrations from Gen2 to Gen3 of the Okta Sign-In Widget. See [Use the code editor](/docs/guides/custom-widget/main/#usesiwgen3).
+
+#### Developer documentation update in 2025.04.0
+
+The [Update a published integration with the OIN Wizard](/docs/guides/update-oin-app/openidconnect/main/) is a newly restructured guide which consists of our existing publish integration content and a brand new [updating the attribute mapping flow](/docs/guides/update-oin-app/scim/main/#configure-attribute-mappingshttps://developer.okta.com/docs/guides/update-oin-app/scim/main/#configure-attribute-mappings) section for SCIM integrations.
+
+#### Bugs fixed in 2025.04.0
+
+* The result of System Log events triggered by the `use_dpop_nonce` OAuth 2.0 error was FAILURE instead of CHALLENGE. (OKTA-902314)
+
+* When the Okta-to-Okta Claims Sharing feature was enabled, users who signed in using ADSSO on a spoke org were prompted for their password in the hub org. (OKTA-897340) (OKTA-897340)
+
+* Admins using multiple user types sometimes encountered an internal error when attempting to update an app instance. (OKTA-880825)
+
+* If an AAGUID key that wasn’t verified by the FIDO Alliance Metadata Service (MDS) was added to an authenticator group, then future PUT requests to `api/v1/authenticators/{authenticatorId}/methods/webauthn` failed. (OKTA-875920) (OKTA-875920)
+
+* The wrong HTTP error code was returned for the SSF stream creation operation when one stream already existed. (OKTA-868972) (OKTA-868972)
+
+* A Policies API GET request (`/api/v1/policies`) returned a `rel="next"` link when there were no more results. (OKTA-858605) (OKTA-858605)
+
+* The OIN Submission Tester didn't support custom domains in the IdP flow. (OKTA-835402) (OKTA-835402)
+
+* When `/api/v1/apps` was called, it returned all applications assigned, even though the user wasn't part of the assigned resource set. (OKTA-826548)
+
 ## March
 
 ### Weekly release 2025.03.3
@@ -70,10 +167,6 @@ Universal Logout clears sessions and tokens for wizard SAML and OIDC apps. This 
 
 OpenID Connect identity providers (IdPs) now support full group sync and adding a user to a group that they don't already belong to. A user who authenticates with an external IdP is added to all available groups when **Full sync of groups** is enabled. The user is added to any groups that they don't already belong to when **Add user to missing groups** is enabled. This allows you to specify certain groups that users should be added to. <!-- GROUP_SYNC_FEATURE_OIDC_IDP_ENABLED (https://oktainc.atlassian.net/browse/OKTA-817450#icft=OKTA-817450) -->
 
-<!-- #### Okta account management policy is GA in Production
-
-The Okta account management policy helps admins easily build phishing resistance into actions such as account unlock, password recovery, authenticator enrollment, and profile setting changes. Using the familiar rule-based framework of an authentication policy, admins can now customize which phishing-resistant authenticators are required when users attempt these common self-service actions. All of the configurations in the authentication policies can now be applied for authenticator management. See [Configure an Okta account management policy](/docs/guides/okta-account-management-policy/main/).
--->
 #### Granular account linking for certain Identity Providers is GA in Production
 
 When admins link users from SAML and OIDC identity providers, they can now exclude specific users and admins. This improves security by allowing admins to configure granular access control scenarios. See **Add an external Identity Provider** for [OpenId Connect](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta) and [SAML 2.0](/docs/guides/add-an-external-idp/saml2/main/#create-an-identity-provider-in-okta). <!-- EXTENDED_ACCOUNT_LINKING_FILTERS OKTA-831244-->
