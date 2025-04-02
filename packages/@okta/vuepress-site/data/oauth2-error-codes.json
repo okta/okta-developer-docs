@@ -1,6 +1,6 @@
 {
-  "release" : "2025.03.1",
-  "build" : "2025.03.1-begin-169-g4e00f53f724a",
+  "release" : "2025.04.1",
+  "build" : "2025.04.1-begin-120-gbad1f8e3c5e8",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -414,6 +414,13 @@
     "internalErrorCode" : "direct_auth_recovery_empty_auth_chain",
     "errorCode" : "access_denied",
     "errorDescription" : "Recovery policy does not specify any authenticators that can be used for recovery."
+  }, {
+    "title" : "Eam user canceled request",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "eam_user_canceled_request",
+    "errorCode" : "access_denied",
+    "errorDescription" : "User canceled the authentication."
   }, {
     "title" : "Authorization pending",
     "statusCode" : 400,
