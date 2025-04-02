@@ -55,7 +55,7 @@ The maximum number of integration variables allowed in OIN submission has increa
 
 #### Conditional requests and entity tags are GA in Production
 
-You can now use conditional requests and entity tags to tag and check for specific versions of resources. Currently this is only available to use with user profiles. See [Conditional Requests and Entity Tags](https://developer.okta.com/docs/api/#conditional-requests-and-entity-tags).
+You can now use conditional requests and entity tags to tag and check for specific versions of resources. Currently this is only available to use with user profiles. See [Conditional Requests and Entity Tags](https://developer.okta.com/docs/api/#conditional-requests-and-entity-tags).  <!-- ETAG_FOR_USERS_API OKTA-822688 -->
 
 #### New rate limit event type
 
