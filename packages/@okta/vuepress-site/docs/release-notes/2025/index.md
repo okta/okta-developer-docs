@@ -66,13 +66,13 @@ The [Update a published integration with the OIN Wizard](/docs/guides/update-oin
 
 * The result of System Log events triggered by the `use_dpop_nonce` OAuth 2.0 error was FAILURE instead of CHALLENGE. (OKTA-902314)
 
-* Admins couldn't disable the **Trust claims from this identity provider** setting. (OKTA-899883) (OKTA-899883)
+* Admins couldn't disable the **Trust claims from this identity provider** setting. (OKTA-899883)
 
 * Admins using multiple user types sometimes encountered an internal error when attempting to update an app instance. (OKTA-880825)
 
-* A Policies API GET request (`/api/v1/policies`) returned a `rel="next"` link when there were no more results. (OKTA-858605) (OKTA-858605)
+* A Policies API GET request (`/api/v1/policies`) returned a `rel="next"` link when there were no more results. (OKTA-858605)
 
-* The OIN Submission Tester didn't support custom domains in the IdP flow. (OKTA-835402) (OKTA-835402)
+* The OIN Submission Tester didn't support custom domains in the IdP flow. (OKTA-835402)
 
 * When `/api/v1/apps` was called, it returned all applications assigned, even though the user wasn't part of the assigned resource set. (OKTA-826548)
 

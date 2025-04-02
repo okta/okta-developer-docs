@@ -89,17 +89,17 @@ The [Update a published integration with the OIN Wizard](/docs/guides/update-oin
 
 * The result of System Log events triggered by the `use_dpop_nonce` OAuth 2.0 error was FAILURE instead of CHALLENGE. (OKTA-902314)
 
-* When the Okta-to-Okta Claims Sharing feature was enabled, users who signed in using ADSSO on a spoke org were prompted for their password in the hub org. (OKTA-897340) (OKTA-897340)
+* When the Okta-to-Okta Claims Sharing feature was enabled, users who signed in using ADSSO on a spoke org were prompted for their password in the hub org. (OKTA-897340)
 
 * Admins using multiple user types sometimes encountered an internal error when attempting to update an app instance. (OKTA-880825)
 
-* If an AAGUID key that wasn’t verified by the FIDO Alliance Metadata Service (MDS) was added to an authenticator group, then future PUT requests to `api/v1/authenticators/{authenticatorId}/methods/webauthn` failed. (OKTA-875920) (OKTA-875920)
+* If an AAGUID key that wasn’t verified by the FIDO Alliance Metadata Service (MDS) was added to an authenticator group, then future PUT requests to `api/v1/authenticators/{authenticatorId}/methods/webauthn` failed. (OKTA-875920)
 
-* The wrong HTTP error code was returned for the SSF stream creation operation when one stream already existed. (OKTA-868972) (OKTA-868972)
+* The wrong HTTP error code was returned for the SSF stream creation operation when one stream already existed. (OKTA-868972)
 
-* A Policies API GET request (`/api/v1/policies`) returned a `rel="next"` link when there were no more results. (OKTA-858605) (OKTA-858605)
+* A Policies API GET request (`/api/v1/policies`) returned a `rel="next"` link when there were no more results. (OKTA-858605)
 
-* The OIN Submission Tester didn't support custom domains in the IdP flow. (OKTA-835402) (OKTA-835402)
+* The OIN Submission Tester didn't support custom domains in the IdP flow. (OKTA-835402)
 
 * When `/api/v1/apps` was called, it returned all applications assigned, even though the user wasn't part of the assigned resource set. (OKTA-826548)
 
