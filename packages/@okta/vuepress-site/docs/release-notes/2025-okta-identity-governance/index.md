@@ -30,7 +30,7 @@ Use this API to define risk rules to support separation of duties (SOD) in Acces
 
 The following new properties were added to support the SOD feature in existing Identity Governance resources:
 
-Campaigns resource: [principalScopeSettings.onlyIncludeUsersWithSODConflicts](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/getCampaign!c=200&path=principalScopeSettings/onlyIncludeUsersWithSODConflicts&t=response )
+* Campaigns resource: [`principalScopeSettings.onlyIncludeUsersWithSODConflicts`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/getCampaign!c=200&path=principalScopeSettings/onlyIncludeUsersWithSODConflicts&t=response )
 
 * Reviews resource: [data[riskRuleConflicts]](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Reviews/#tag/Reviews/operation/getReview!c=200&path=riskRuleConflicts&t=response)
 
