@@ -28,11 +28,11 @@ The global session policy works the same as the authentication policy. AMR value
 
 ### Okta Classic Engine
 
-With AMR claims, you can use the `pwd` amr value if the Okta sign-on policy or an app sign-on policy doesn't have an MFA requirement.
+With AMR claims, you can use the `pwd` AMR value if the Okta sign-on policy or an app sign-on policy doesn't have an MFA requirement.
 
 If the Okta sign-on policy or an app sign-on policy requires MFA, you have two options:
 
 1. Use the `pwd` AMR value plus any possession-based AMR value, for example, `sms`, `hwk`.
 2. Use the `mfa` AMR value.
 
-The `mfa` or `pwd` AMR value is always required for a Classic Engine flow. If these values aren't supplied, the user is prompted with the locally configured Okta authenticator.
+The `mfa` or `pwd` AMR value is always required for a Classic Engine flow. If these values aren't supplied, the user is prompted with the locally configured MFA factor.
