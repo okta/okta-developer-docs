@@ -1,1 +1,1 @@
-**Third-Party IdP + Claims Sharing**
+**Third-party IdP claims sharing**
