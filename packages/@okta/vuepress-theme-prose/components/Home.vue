@@ -38,7 +38,7 @@ export default {
               src: "/img/workforce1-light.svg",
               src_dark: "/img/workforce1-dark.svg",
               title: "Understand the basics of identity",
-              text: "Learn the key concepts you need for creating identity and access management (IAM) solutions for WIC.",
+              text: "Learn the key concepts that you need for creating identity and access management (IAM) solutions for Okta.",
               list: [
                 {
                   url: "https://developer.okta.com/docs/concepts/iam-overview",
@@ -46,7 +46,7 @@ export default {
                 },
                 {
                   url: "https://developer.okta.com/docs/concepts/how-okta-works",
-                  text: "How WIC works",
+                  text: "How Okta works",
                 },
                 {
                   url: "https://developer.okta.com/docs/concepts/oauth-openid",
@@ -67,7 +67,7 @@ export default {
               src: "/img/workforce2-light.svg",
               src_dark: "/img/workforce2-dark.svg",
               title: "Connect with APIs and SDKs",
-              text: "Build apps and services that interact directly with WIC for a completely integrated experience.",
+              text: "Build apps and services that interact directly with Okta for a completely integrated experience.",
               list: [
                 {
                   url: "https://developer.okta.com/docs/api/",
@@ -88,7 +88,7 @@ export default {
               src: "/img/workforce3-light.svg",
               src_dark: "/img/workforce3-dark.svg",
               title: "Authenticate",
-              text: "Define how your applications and APIs verify the identity of a user or device.",
+              text: "Define how your apps and APIs verify the identity of a user or device.",
               list: [
                 {
                   url: "https://developer.okta.com/docs/guides/redirect-authentication",

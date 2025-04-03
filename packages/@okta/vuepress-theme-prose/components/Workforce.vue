@@ -2,10 +2,10 @@
   <section class="workforce">
     <div class="wrapper">
       <h2 class="workforce__title dont-break-out">
-        Start your Workforce Identity journey
+        Start your Okta journey
       </h2>
       <p class="workforce__text dont-break-out">
-        Welcome! Start with <strong>Learn</strong> if you’re new to Workforce Identity Cloud, or find the step in your journey and follow the links to browse docs.
+        Welcome! Start with <strong>Learn</strong> if you’re new to Okta, or find the step in your journey and follow the links to browse docs.
       </p>
       <article
         v-for="(item, index) in items"
