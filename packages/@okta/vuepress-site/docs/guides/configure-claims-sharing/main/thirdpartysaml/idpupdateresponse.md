@@ -82,6 +82,6 @@
         "trustClaims": true
     },
     "type": "SAML2",
-   ...
+   .....
 }
 ```

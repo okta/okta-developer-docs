@@ -70,6 +70,6 @@
         "trustClaims": true
     },
     "type": "OIDC",
-    ...
+    .....
 }
 ```
