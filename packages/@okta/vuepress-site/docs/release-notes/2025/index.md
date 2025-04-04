@@ -87,7 +87,12 @@ The [Update a published integration with the OIN Wizard](/docs/guides/update-oin
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
+| [Advanced search using conditioned profile attributes](#advanced-search-using-conditioned-profile-attributes) | March 26, 2025 |
 | [Bugs fixed in 2025.03.3](#bugs-fixed-in-2025-03-3)| March 26, 2025 |
+
+#### Advanced search using conditioned profile attributes
+
+If you have an admin role with permission conditions to access certain user profile attributes, you can now search for those users with those attributes. Note that this search enhancement doesn't support the `OR` operator. <!-- OKTA-856262 -->
 
 #### Bugs fixed in 2025.03.3
 
