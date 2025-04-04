@@ -22,7 +22,7 @@ This request is an example of an Okta SAML 2.0 IdP update to trust claims. In th
                 "binding":"HTTP-POST",
                 "type":"INSTANCE"},
             "sso":{
-                "url":"http://{yourOktaDomain}/app/okta_org2org/exk78hrRdLRNV4EZY0g4/sso/saml",
+                "url":"http://{yourOktaDomain}/app/thirdpartyIdP/exk78hrRdLRNV4EZY0g4/sso/saml",
                 "binding":"HTTP-POST",
                 "destination":"http://{yourOktaDomain}"
                 }
@@ -49,8 +49,8 @@ This request is an example of an Okta SAML 2.0 IdP update to trust claims. In th
         },
         "credentials":{
             "trust":{
-                "issuer":"http://{yourOktaDomain}/exk78hrRdLRNV4EZY0g4",
-                "audience":"https://{yourOktaDomain}/saml2/service-provider/spjhiydxfezknoimtoye",
+                "issuer":"http://{thirdPartyIdPDomain}/exk78hrRdLRNV4EZY0g4",
+                "audience":"https://{thirdPartyIdPDomain}/saml2/service-provider/spjhiydxfezknoimtoye",
                 "kid":"eb5c22a1-c2c2-484b-839f-2ca6d29fd519",
                 "revocation":null,
                 "revocationCacheLifetime":0
