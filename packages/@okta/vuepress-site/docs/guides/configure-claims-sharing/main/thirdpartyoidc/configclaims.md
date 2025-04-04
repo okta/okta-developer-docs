@@ -10,13 +10,15 @@ It's important to ensure that your third-party IdPs return Authentication Method
 
 The following table describes the AMR claims values that Okta supports. Okta ignores unsupported AMR values. See [Authentication Method Reference Values](https://datatracker.ietf.org/doc/html/rfc8176) for a description of each value type.
 
+> **Note:** You must use a possession AMR value such as `hwk` with the biometric AMR values (`face`, `fpt`, `iris`, `retina`, `vbm`) to satisfy their method characteristics.
+
 | AMR value     | Factor type       | Method characteristic   |
 | :------------ | :---------------- | :-------------------------------- |
-| `face`        | Biometric + Possession | User presence, User verifying |
-| `fpt`         | Biometric + Possession | User presence, User verifying |
-| `iris`        | Biometric + Possession | User presence, User verifying |
-| `retina`      | Biometric + Possession | User presence, User verifying |
-| `vbm`         | Biometric + Possession | User presence, User verifying |
+| `face`        | Biometric         | User presence, User verifying |
+| `fpt`         | Biometric         | User presence, User verifying |
+| `iris`        | Biometric         | User presence, User verifying |
+| `retina`      | Biometric         | User presence, User verifying |
+| `vbm`         | Biometric         | User presence, User verifying |
 | `hwk`         | Possession        | User presence, Device-bound, Hardware-protected |
 | `kba`         | Knowledge         | N/A  |
 | `mfa`         | N/A               | N/A  |

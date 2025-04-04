@@ -5,13 +5,13 @@
   "iss": "https://{yourOktaDomain}",
   "aud": "uAaunofWkaDJxukCFeBx",
   "iat": 1449624026,
-    "exp": 1449627626,
-    "amr": [
+  "exp": 1449627626,
+  "amr": [
         "sms",
         "mfa",
         "pwd"
     ],
-    "jti": "ID.4eAWJOCMB3SX8XewDfVR",
+  "jti": "ID.4eAWJOCMB3SX8XewDfVR",
   "auth_time": 1449624026,
   "at_hash": "cpqKfdQA5eH891Ff5oJr_Q",
   "name" :"John Doe",
