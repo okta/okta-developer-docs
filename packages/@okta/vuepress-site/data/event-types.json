@@ -1,6 +1,6 @@
 {
-  "release" : "2025.03.1",
-  "build" : "2025.03.1-begin-169-g4e00f53f724a",
+  "release" : "2025.04.1",
+  "build" : "2025.04.1-begin-120-gbad1f8e3c5e8",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -215,6 +215,9 @@
     "id" : "oin-partner-platform",
     "name" : "OIN Partner Platform"
   }, {
+    "id" : "isv-submissions",
+    "name" : "ISV Submissions"
+  }, {
     "id" : "okta-access-gateway-and-agents",
     "name" : "Okta Access Gateway and Agents"
   }, {
@@ -229,9 +232,6 @@
   }, {
     "id" : "performance",
     "name" : "Performance"
-  }, {
-    "id" : "plg",
-    "name" : "Product Lead Growth"
   }, {
     "id" : "plugins",
     "name" : "Plugins"
@@ -1887,7 +1887,7 @@
       }
     }, {
       "id" : "app.inbound_del_auth.login_success",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Successful inbound delegated authentication request for user.",
       "info" : {
         "created" : "2016-04-29",
@@ -5444,7 +5444,7 @@
       "tags" : [ "app" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : "OAuthAppRateLimitDebugData",
+        "debugData" : "RateLimitSettingsDebugData",
         "actor" : null,
         "targets" : [ "ResourceDetails" ],
         "changeDetails" : [ ]
@@ -5649,7 +5649,7 @@
       }
     }, {
       "id" : "application.policy.sign_on.rule.create",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Create rule for app sign on policy.",
       "info" : {
         "created" : "2016-03-24",
@@ -5667,7 +5667,7 @@
       }
     }, {
       "id" : "application.policy.sign_on.rule.delete",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Delete rule from app sign on policy.",
       "info" : {
         "created" : "2016-03-24",
@@ -5685,7 +5685,7 @@
       }
     }, {
       "id" : "application.policy.sign_on.update",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Update app sign on policy.",
       "info" : {
         "created" : "2016-03-24",
@@ -6909,7 +6909,7 @@
       }
     }, {
       "id" : "core.user_auth.idp.x509.crl_download_failure",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Failed to download CRL from the endpoint.",
       "info" : {
         "created" : "2017-12-20",
@@ -12273,7 +12273,7 @@
       }
     }, {
       "id" : "policy.lifecycle.activate",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Activate policy.",
       "info" : {
         "created" : "2016-03-30",
@@ -12291,7 +12291,7 @@
       }
     }, {
       "id" : "policy.lifecycle.create",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Create policy.",
       "info" : {
         "created" : "2016-03-30",
@@ -12309,7 +12309,7 @@
       }
     }, {
       "id" : "policy.lifecycle.deactivate",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Deactivate policy.",
       "info" : {
         "created" : "2016-03-30",
@@ -12327,7 +12327,7 @@
       }
     }, {
       "id" : "policy.lifecycle.delete",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Delete policy.",
       "info" : {
         "created" : "2016-03-30",
@@ -12345,7 +12345,7 @@
       }
     }, {
       "id" : "policy.lifecycle.overwrite",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Overwrite policy.",
       "info" : {
         "created" : "2017-10-28",
@@ -12363,7 +12363,7 @@
       }
     }, {
       "id" : "policy.lifecycle.update",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Update policy.",
       "info" : {
         "created" : "2016-03-30",
@@ -12417,7 +12417,7 @@
       }
     }, {
       "id" : "policy.rule.activate",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Activate policy rule.",
       "info" : {
         "created" : "2016-03-30",
@@ -12435,7 +12435,7 @@
       }
     }, {
       "id" : "policy.rule.add",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Add policy rule.",
       "info" : {
         "created" : "2016-03-30",
@@ -12453,7 +12453,7 @@
       }
     }, {
       "id" : "policy.rule.deactivate",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Deactivate policy rule.",
       "info" : {
         "created" : "2016-03-30",
@@ -12471,7 +12471,7 @@
       }
     }, {
       "id" : "policy.rule.delete",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Delete policy rule.",
       "info" : {
         "created" : "2016-03-30",
@@ -12489,7 +12489,7 @@
       }
     }, {
       "id" : "policy.rule.invalidate",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Invalidate policy rule.",
       "info" : {
         "created" : "2016-03-30",
@@ -12507,7 +12507,7 @@
       }
     }, {
       "id" : "policy.rule.update",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Update policy rule.",
       "info" : {
         "created" : "2016-03-30",
@@ -17492,6 +17492,24 @@
         "changeDetails" : [ ]
       }
     }, {
+      "id" : "system.rate_limit.configuration.update",
+      "category" : "performance",
+      "description" : "Rate limit configuration update. This can be used to trace the change that an org admin updates rate limit configuration. This event is triggered when an admin updates rate limit related settings in the admin portal, including but not limited to:1. update client rate limit enforcement mode2. enable or disable rate limit notification3. update the warning threshold of rate limit notification4. update rate limit percentage of API token.",
+      "info" : {
+        "created" : "2025-03-03",
+        "release" : "2025.04.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "system" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "RateLimitSettingsDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
       "id" : "system.self_service.configuration.update",
       "category" : "id-fabric",
       "description" : "Self-service for apps configuration updated. Identify changes to self-service application request settings which may allow a user to request to add an application to their end user dashboard. Self-service application requests are different than Okta Identity Governance (OIG) Access requests. See events beginning with access.request for events relevant to OIG Access requests.",
@@ -17835,7 +17853,7 @@
       }
     }, {
       "id" : "user.account.access_support_user_app",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Access support user in Okta.",
       "info" : {
         "created" : "2016-04-01",
@@ -18177,7 +18195,7 @@
       }
     }, {
       "id" : "user.account.use_token",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Invalid self service recovery token used by user.",
       "info" : {
         "created" : "2016-04-01",
@@ -18195,7 +18213,7 @@
       }
     }, {
       "id" : "user.authentication.auth",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Authenticate user.",
       "info" : {
         "created" : "2016-01-08",
@@ -18303,7 +18321,7 @@
       }
     }, {
       "id" : "user.authentication.auth_via_inbound_delauth",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Authenticate user via inbound delauth.",
       "info" : {
         "created" : "2016-01-08",
@@ -18465,7 +18483,7 @@
       }
     }, {
       "id" : "user.authentication.sso",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Fired when a user performs a single sign-on (SSO) to an app instance and contains the client details of the user. Can be used to identify when a user attempted to sign into an application for audit or debugging purposes. Note that the event is fired even when the sign-on is unsuccessful.",
       "info" : {
         "created" : "2016-03-08",
@@ -18519,7 +18537,7 @@
       }
     }, {
       "id" : "user.authentication.verify",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Verify user identity.",
       "info" : {
         "created" : "2017-06-30",
@@ -18753,7 +18771,7 @@
       }
     }, {
       "id" : "user.lifecycle.delete.completed",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Delete Okta user completed.",
       "info" : {
         "created" : "2016-07-14",
@@ -18789,7 +18807,7 @@
       }
     }, {
       "id" : "user.lifecycle.jit.error.read_only",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Failed to JIT create user.",
       "info" : {
         "created" : "2018-01-29",
@@ -18843,7 +18861,7 @@
       }
     }, {
       "id" : "user.lifecycle.suspend",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Suspend Okta user.",
       "info" : {
         "created" : "2016-03-24",
@@ -18861,7 +18879,7 @@
       }
     }, {
       "id" : "user.lifecycle.unsuspend",
-      "category" : "authn",
+      "category" : "authn-platform",
       "description" : "Unsuspend Okta user.",
       "info" : {
         "created" : "2016-03-24",
@@ -27503,13 +27521,13 @@
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
           },
-          "desktop_mfa_client_ids" : {
-            "type" : "Set",
+          "desktop_mfa_client_id" : {
+            "type" : "String",
             "sensitive" : false,
             "personal" : false,
             "customer" : false,
             "format" : "text",
-            "examples" : [ "[]", "[0oa4mr4uxvMUKYexq0g7, 0oa4cdqiw8oSjyi100g7]" ]
+            "examples" : [ "", "0oa4mr4uxvMUKYexq0g7" ]
           },
           "device_logout_type" : {
             "type" : "String",
@@ -33682,6 +33700,22 @@
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
           },
+          "microsoft_user_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "ad81f1aa-a88e-4546-b97c-66fbea316908", "824541c2-36c9-43ca-b143-e191ea77e825" ]
+          },
+          "microsoft_entra_external_authentication_method_client_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "ce20e5c7-50b7-42ae-873e-bea34dbc523b", "bc308c29-22c1-4c7b-bbc0-817dd1e24747" ]
+          },
           "auth_req_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -34379,219 +34413,6 @@
             "customer" : false,
             "format" : "",
             "examples" : [ "0PPYOXwksjglcdH79HzjcZUIPcFJa9l23Nk33dMqQKU=", "3qnb1Hrm2E6KSVLKLpcEqvx/3Zt64XK/Ohn45DJpr44=", "7q8aOMz91Efm9B5Et1y3jIx6BzDmMAQxAaEuSs66jUs", "ciuj3e52UV25jgsI2D+tX03bXvWJ32CJ21nZQKFa6a4=", "g4j7Lp/REuKkq1ldLz8PxkZSehortab/iMxRau2g8T8=" ]
-          }
-        }
-      },
-      "OAuthAppRateLimitDebugData" : {
-        "name" : "OAuthAppRateLimitDebugData",
-        "properties" : {
-          "trace_id" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
-          },
-          "oag_app" : {
-            "type" : "Boolean",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "boolean",
-            "examples" : [ "true", "false" ]
-          },
-          "webhooks" : {
-            "type" : "List",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : true,
-            "format" : "text",
-            "examples" : [ ]
-          },
-          "risk_change" : {
-            "type" : "RiskChangeSecurityData",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "json",
-            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
-          },
-          "log_only_security_data" : {
-            "type" : "LogOnlySecurityData",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "json",
-            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
-          },
-          "threat_detections" : {
-            "type" : "ObjectNode",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "json",
-            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
-          },
-          "threat_suspected" : {
-            "type" : "Boolean",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "boolean",
-            "examples" : [ "true", "false" ]
-          },
-          "security_conditions" : {
-            "type" : "List",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
-          },
-          "tunnels" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "[{\"operator\":\"HOTSPOT_VPN\",\"type\":\"VPN\",\"anonymous\":true}]" ]
-          },
-          "anonymizer_status" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "enum",
-            "examples" : [ "private" ]
-          },
-          "proxy_type" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "enum",
-            "examples" : [ "tor", "service" ]
-          },
-          "behaviors" : {
-            "type" : "Map",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
-          },
-          "partner_risk" : {
-            "type" : "List",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
-          },
-          "risk" : {
-            "type" : "Map",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
-          },
-          "url" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "url",
-            "examples" : [ "/login/do-login?" ]
-          },
-          "request_uri" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "uri",
-            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
-          },
-          "request_id" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "id",
-            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
-          },
-          "redirect_uri" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "uri",
-            "examples" : [ "http://httpbin.org" ]
-          },
-          "original_principal" : {
-            "type" : "Resource",
-            "sensitive" : false,
-            "personal" : true,
-            "customer" : false,
-            "format" : "",
-            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
-          },
-          "device_fingerprint" : {
-            "type" : "String",
-            "sensitive" : true,
-            "personal" : false,
-            "customer" : false,
-            "format" : "id",
-            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
-          },
-          "dt_hash" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "id",
-            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
-          },
-          "authn_request_id" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "id",
-            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
-          },
-          "new_concurrency_percentage" : {
-            "type" : "Integer",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "integer",
-            "examples" : [ "0", "33", "66", "100" ]
-          },
-          "new_rate_limit_percentage" : {
-            "type" : "Integer",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "integer",
-            "examples" : [ "0", "33", "66", "100" ]
-          },
-          "old_concurrency_percentage" : {
-            "type" : "Integer",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "integer",
-            "examples" : [ "0", "33", "66", "100" ]
-          },
-          "old_rate_limit_percentage" : {
-            "type" : "Integer",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "integer",
-            "examples" : [ "0", "33", "66", "100" ]
           }
         }
       },
@@ -38067,6 +37888,251 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "resauC41QlarJbNSe0g1", "resqZ4PhMygWoz7T00g1" ]
+          }
+        }
+      },
+      "RateLimitSettingsDebugData" : {
+        "name" : "RateLimitSettingsDebugData",
+        "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "tunnels" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{\"operator\":\"HOTSPOT_VPN\",\"type\":\"VPN\",\"anonymous\":true}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "notification_enabled" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "old_threshold" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "90", "60" ]
+          },
+          "new_threshold" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "90", "60" ]
+          },
+          "old_concurrency_percentage" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "90", "60" ]
+          },
+          "old_rate_limit_percentage" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "90", "60" ]
+          },
+          "new_concurrency_percentage" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "90", "60" ]
+          },
+          "new_rate_limit_percentage" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "90", "60" ]
+          },
+          "client_rate_limit_settings" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{LOGIN={currentMode=ENFORCE, previousMode=DISABLE}, OAUTH2_AUTHORIZE={currentMode=ENFORCE, previousMode=PREVIEW}}" ]
           }
         }
       },
@@ -45195,7 +45261,23 @@
             "format" : "text",
             "examples" : [ "5s", "10s" ]
           },
-          "failed_domains" : {
+          "action_completed_at" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "iso8601",
+            "examples" : [ "2024-08-15T01:05:38.000Z" ]
+          },
+          "action_initiated_at" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "iso8601",
+            "examples" : [ "2024-08-15T01:05:38.000Z" ]
+          },
+          "unsuccessful_domains" : {
             "type" : "List",
             "sensitive" : false,
             "personal" : false,
@@ -45210,22 +45292,6 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ "atko.okta.com", "atko-admin.okta.com" ]
-          },
-          "rescue_cell" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "ok12", "tc2" ]
-          },
-          "native_cell" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "ok1", "tc1" ]
           }
         }
       },

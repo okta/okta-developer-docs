@@ -1,6 +1,6 @@
 {
-  "release" : "2025.03.1",
-  "build" : "2025.03.1-begin-169-g4e00f53f724a",
+  "release" : "2025.04.1",
+  "build" : "2025.04.1-begin-120-gbad1f8e3c5e8",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1880,6 +1880,14 @@
     "statusReasonPhrase" : "Conflict",
     "errorCode" : "E0000253",
     "errorSummary" : "The User type is still being initialized. Please try again later.",
+    "errorDescription" : null
+  }, {
+    "title" : "Email template settings update conflict exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000254",
+    "errorSummary" : "Another request has already been received for the settings for this email template. Please try again later.",
     "errorDescription" : null
   } ]
 }
