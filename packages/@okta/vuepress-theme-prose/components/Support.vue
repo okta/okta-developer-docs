@@ -22,7 +22,7 @@
         <ul class="support__list">
           <li class="support__list-item">
             <h3 class="support__paragraph support__paragraph_size_small dont-break-out">
-              <span>Interested in Workforce Identity Cloud SDKs?</span>
+              <span>Interested in Okta SDKs?</span>
             </h3>
             <a
               class="support__list-link dont-break-out"
@@ -34,7 +34,7 @@
           </li>
           <li class="support__list-item">
             <h3 class="support__paragraph support__paragraph_size_small dont-break-out">
-              <span>Looking for Workforce Identity Cloud product documentation?</span>
+              <span>Looking for Okta product documentation?</span>
             </h3>
             <a
               class="support__list-link dont-break-out"
