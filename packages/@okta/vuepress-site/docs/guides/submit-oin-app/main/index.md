@@ -108,9 +108,9 @@ Configure integration variables if your URLs are dynamic for each tenant. The va
 
      `*` This section is optional, but if you specify a variable, both `Label` and `Name` properties are required.
 
-1. Click **+ Add another** to add another variable. You can add up to three variables.
+1. Click **+ Add another** to add another variable. You can add up to eight variables.
 
-   > **Note:**  If you need to edit more than three variables for a published integration, contact the OIN team at <oin@okta.com>.
+   > **Note:**  Apps that are migrated from the OIN Manager and that have more than eight variables can retain those variables, but you can't add new ones. However, you can update or delete the existing variables.
 
 1. If you need to delete a variable, click the delete icon (![trash can; delete icon](/img/icons/odyssey/delete.svg)) next to it.
 <!--Odyssey icons sourced from: https://github.com/okta/odyssey/blob/main/packages/odyssey-icons/src/figma.generated/ -->
@@ -188,7 +188,7 @@ The OIN Wizard journey includes the **Test integration** experience page to help
    * For a SCIM integration, execute the [Runscope CRUD tests](#runscope-crud-tests) and the [Okta manual integration tests](#manual-okta-scim-integration-tests) with your generated test instance.
 1. [Submit your integration](#submit-your-integration) after all required tests are successful.
 
-> **Note:** You must have the Okta Browser Plugin installed with **Allow in Incognito** enabled before you use the  **OIN Submission Tester**. See [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements).
+> **Note:** You must have the Okta Browser Plugin installed with **Allow in Incognito** enabled before you use the **OIN Submission Tester**. See [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements).
 
 #### Navigate directly to test your integration
 
@@ -205,7 +205,7 @@ Follow these steps to bypass the configuration pages in the OIN Wizard:
 
 ### Generate instances for testing
 
-Generate instances for testing in your Okta Developer Edition org directly from the OIN Wizard. The OIN Wizard takes the configuration and test information from your OIN submission and allows you to configure a specific integration instance to your test app. You can test the admin and end-user sign-in experiences with the generated instance flow.
+Generate instances for testing in your Okta Developer Edition org directly from the OIN Wizard. The OIN Wizard takes the configuration and test information from your OIN submission and allows you to configure a specific integration instance to your test app. You can test the admin and end user sign-in experiences with the generated instance flow.
 
 > **Note:** Okta recommends that you:
 > * Separate environments for development, testing, and production.
@@ -238,7 +238,7 @@ A Developer Edition org has a maximum of five active instances, so manage your t
 
     If you need to change any labels or properties, go back to edit your submission.
 
-    > **Note:** There's a limit of five app instances in a Okta Developer Edition org. The **Generate instance** option is deactivated when you reach this limit. Deactivate unused instances to make room for new instances in your org. See [Deactivate app instances in your org](#deactivate-an-app-instance-in-your-org).
+    > **Note:** There's a limit of five app instances in the Okta Developer Edition org. The **Generate instance** option is deactivated when you reach this limit. Deactivate unused instances to make room for new instances in your org. See [Deactivate app instances in your org](#deactivate-an-app-instance-in-your-org).
 
 <StackSnippet snippet="test-instance" />
 
