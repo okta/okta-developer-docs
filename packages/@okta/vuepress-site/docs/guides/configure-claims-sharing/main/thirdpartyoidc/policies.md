@@ -6,9 +6,9 @@ You can configure scenarios for authentication using claims sharing and policies
 
 Each individual AMR value represents a factor and possession property. During policy evaluation, Okta uses the AMR values to verify if the authentication policy can be satisfied.
 
-For example, the `pwd` and `sms` AMR claims can satisfy an authentication policy configured with **Any two factors**.
+For example, the `pwd` and `sms` AMR claims can satisfy an authentication policy configured with **Any 2 factor types**.
 
-> **Note:** The `mfa` AMR claim isn't mapped to any factor or property. It's defined to satisfy the authentication policy **Any two factors** configuration and to satisfy the global session policy MFA requirement. If there's any additional constraints from the authentication policy, the `mfa` AMR claim alone doesn't satisfy it. Configure your SP org to require more AMR claims.
+> **Note:** The `mfa` AMR claim isn't mapped to any factor type or method characteristics. It indicates that the user performed authentication using more than one factor type. It's defined to satisfy the authentication policy **Any two factors** configuration and to satisfy the global session policy MFA requirement. If there's any additional constraints from the authentication policy, the `mfa` AMR claim alone doesn't satisfy it. Configure your SP org to require more AMR claims.
 
 #### Other authentication policy scenarios
 

@@ -21,7 +21,7 @@ With trust claims enabled and your IdP org able to verify any two factors, you c
 
 This same concept applies to the global session policy. Without trust claims enabled, if you have only the password authenticator configured in the SP org, you can't save a global session policy rule that requires MFA.
 
-However, with trust claims enabled, you can specify MFA as required. As long as the claim is coming from the IdP, the session is established because that claim can satisfy the global session policy rule.
+However, with trust claims enabled, you can specify MFA as required. As long as the claim comes from the IdP, the session is established because that claim can satisfy the global session policy rule.
 
 ### Okta Identity Engine and Classic Engine orgs
 
