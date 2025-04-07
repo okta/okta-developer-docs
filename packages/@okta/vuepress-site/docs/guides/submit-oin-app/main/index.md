@@ -285,7 +285,7 @@ If you modify a published OIN integration, you must generate an instance based o
 
 #### Add to Tester
 
-> **Note:** The OIN submission Tester only supports SSO integrations. The **Add to Tester** option isn't available for SCIM integrations.
+> **Note:** The OIN Submission Tester only supports SSO integrations. The **Add to Tester** option isn't available for SCIM integrations.
 
 * Click **Add to Tester** next to the instance in the **Application instances for testing** list to include it for testing with the OIN Submission Tester. The **Add to Tester** option only appears for SSO instances that are active and eligible for testing.
 
