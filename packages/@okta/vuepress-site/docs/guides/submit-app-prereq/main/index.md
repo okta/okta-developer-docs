@@ -92,7 +92,7 @@ Part of your OIN Wizard journey includes using the OIN Submission Tester to veri
 
 See [Install the Okta Browser Plugin with Chrome](https://help.okta.com/okta_help.htm?type=eu&id=ext_plugin_installation).
 
-> **Note:** The OIN Submission Tester requires Okta Browser Plugin version 6.30.0 or later. If you already have the plugin installed, it's automatically updated after each Okta release.
+> **Note:** The OIN Submission Tester requires Okta Browser Plugin version 6.39.0 or later. If you already have the plugin installed, it's automatically updated after each Okta release.
 
 After you installed the Okta Browser Plugin in your Chrome browser, set **Allow in Incognito** mode:
 
@@ -134,7 +134,7 @@ If you have issues loading or accessing the OIN Submission Tester, review the fo
 
 ## Logo guidelines
 
-A clear and well-designed logo helps customers find your app integration in the OIN and ensures that your brand is well represented. When you create your app submission, make sure you upload a customer-recognizable graphic.
+A clear and well-designed logo helps customers find your app integration in the OIN and ensures that your brand is well represented. When you create your app submission, make sure that you upload a customer-recognizable graphic.
 
 The submitted app logo must conform to the following:
 
