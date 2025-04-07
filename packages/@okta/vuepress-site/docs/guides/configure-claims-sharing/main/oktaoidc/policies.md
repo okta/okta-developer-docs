@@ -2,7 +2,7 @@ You can configure many scenarios for authentication using claims sharing and pol
 
 ### Authentication policy example
 
-[Create an authentication policy and rule for your app](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) in your SP org. Select any two factors, don't select a possession constraint, and allow any authenticators.
+[Create an authentication policy and rule for your app](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) in your SP org. Select **Any 2 factor types**, don't select a possession constraint, and select **Allow any method that can be used to meet the requirement**.
 
 With trust claims enabled and your IdP org able to verify any two factors, you can satisfy the requirements in the SP org.
 

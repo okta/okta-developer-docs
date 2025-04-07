@@ -2,7 +2,7 @@ You can configure scenarios for authentication using claims sharing and policies
 
 ### Authentication policy example
 
-[Create an authentication policy and rule for your app](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) in your SP org. Select any two factors, don't select a possession constraint, and allow any authenticators.
+[Create an authentication policy and rule for your app](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) in your SP org. Select **Any 2 factor types**, don't select a possession constraint, and select **Allow any method that can be used to meet the requirement**.
 
 Each individual AMR value represents a factor and possession property. During policy evaluation, Okta uses the AMR values to verify if the authentication policy can be satisfied.
 
@@ -15,7 +15,7 @@ For example, the `pwd` and `sms` AMR claims can satisfy an authentication policy
 * **Possession factor constraints:** If you enable any possession factor constraints in the authentication policy of your SP org, Okta uses the AMR values to satisfy the requirement. See [Supported AMR values](#supported-amr-values).
 
 * **User must authenticate with:**
-  * **Authentication method chain:** If you select **Authentication method chain** instead of **Any two factors**, then Okta can't use AMR values to evaluate the policy. The SP org challenges the user to verify using any locally configured authenticator.
+  * **Authentication method chain:** If you select **Authentication method chain** instead of **Any 2 factor types**, then Okta can't use AMR values to evaluate the policy. The SP org challenges the user to verify using any locally configured authenticator.
 
 * **Authentication methods:**
   * **Allow any method that can be used to meet the requirement**: If you enable this setting in your SP org, you can satisfy the policy requirements by using AMR values and authenticators configured locally in the SP org.
