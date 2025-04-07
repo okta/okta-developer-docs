@@ -134,7 +134,7 @@ If you have issues loading or accessing the OIN Submission Tester, review the fo
 
 ## Logo guidelines
 
-A clear and well-designed logo helps customers find your app integration in the OIN and ensures that your brand is well represented. When you create your app submission, make sure you upload a customer-recognizable graphic.
+A clear and well-designed logo helps customers find your app integration in the OIN and ensures that your brand is well represented. When you create your app submission, make sure that you upload a customer-recognizable graphic.
 
 The submitted app logo must conform to the following:
 
@@ -372,7 +372,7 @@ For more information on the listed features, visit the [Okta Glossary](https://h
 
 #### Configuration steps
 
-This section helps you define how your customers get set up with your integration. Detail all settings and include any images that can assist the user. Include any best practices for your procedure, such as SCIM guidance on mappings for attributes, especially required attributes that don't have a default mapping.
+This section helps you define how your customers get setup with your integration. Detail all settings and include any images that can assist the user. Include any best practices for your procedure, such as SCIM guidance on mappings for attributes, especially required attributes that don't have a default mapping.
 
 For SCIM integrations, provide steps for your customer to obtain their SCIM server credentials. Your customer admin needs this information before they can configure your SCIM integration in Okta. See [SCIM examples](#scim-examples).
 
