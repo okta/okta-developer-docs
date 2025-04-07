@@ -108,9 +108,9 @@ Configure integration variables if your URLs are dynamic for each tenant. The va
 
      `*` This section is optional, but if you specify a variable, both `Label` and `Name` properties are required.
 
-1. Click **+ Add another** to add another variable. You can add up to three variables.
+1. Click **+ Add another** to add another variable. You can add up to eight variables.
 
-   > **Note:**  If you need to edit more than three variables for a published integration, contact the OIN team at <oin@okta.com>.
+   > **Note:**  The apps migrated from OIN Manager with more than eight variables can retain all existing variables but can't add new ones. However, you can update or delete the existing variables.
 
 1. If you need to delete a variable, click the delete icon (![trash can; delete icon](/img/icons/odyssey/delete.svg)) next to it.
 <!--Odyssey icons sourced from: https://github.com/okta/odyssey/blob/main/packages/odyssey-icons/src/figma.generated/ -->
