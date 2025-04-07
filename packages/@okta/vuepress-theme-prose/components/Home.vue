@@ -10,7 +10,6 @@
         <Resources />
         <News />
         <Support />
-        <Dialog />
       </div>
     </div>
   </div>
