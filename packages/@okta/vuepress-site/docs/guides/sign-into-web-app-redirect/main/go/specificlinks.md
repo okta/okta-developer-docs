@@ -1,6 +1,6 @@
 Go and Gin official docs:
 
-* [Gin Gonic documentation](https://gin-gonic.com/docs/)
+* [Gin Gonic documentation](https://gin-gonic.com/en/docs/)
 * [Getting started with Go and Gin](https://go.dev/doc/tutorial/web-service-gin)
 * [Okta Golang Gin & Okta-Hosted Login Page Example](https://github.com/okta-samples/okta-go-gin-sample)
 
