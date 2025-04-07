@@ -92,7 +92,7 @@ Part of your OIN Wizard journey includes using the OIN Submission Tester to veri
 
 See [Install the Okta Browser Plugin with Chrome](https://help.okta.com/okta_help.htm?type=eu&id=ext_plugin_installation).
 
-> **Note:** The OIN Submission Tester requires Okta Browser Plugin version 6.30.0 or later. If you already have the plugin installed, it's automatically updated after each Okta release.
+> **Note:** The OIN Submission Tester requires Okta Browser Plugin version 6.39.0 or later. If you already have the plugin installed, it's automatically updated after each Okta release.
 
 After you installed the Okta Browser Plugin in your Chrome browser, set **Allow in Incognito** mode:
 
