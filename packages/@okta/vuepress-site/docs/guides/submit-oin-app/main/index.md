@@ -188,7 +188,7 @@ The OIN Wizard journey includes the **Test integration** experience page to help
    * For a SCIM integration, execute the [Runscope CRUD tests](#runscope-crud-tests) and the [Okta manual integration tests](#manual-okta-scim-integration-tests) with your generated test instance.
 1. [Submit your integration](#submit-your-integration) after all required tests are successful.
 
-> **Note:** You must have the Okta Browser Plugin installed with **Allow in Incognito** enabled before you use the  **OIN Submission Tester**. See [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements).
+> **Note:** You must have the Okta Browser Plugin installed with **Allow in Incognito** enabled before you use the **OIN Submission Tester**. See [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements).
 
 #### Navigate directly to test your integration
 
@@ -205,7 +205,7 @@ Follow these steps to bypass the configuration pages in the OIN Wizard:
 
 ### Generate instances for testing
 
-Generate instances for testing in your Okta Developer Edition org directly from the OIN Wizard. The OIN Wizard takes the configuration and test information from your OIN submission and allows you to configure a specific integration instance to your test app. You can test the admin and end-user sign-in experiences with the generated instance flow.
+Generate instances for testing in your Okta Developer Edition org directly from the OIN Wizard. The OIN Wizard takes the configuration and test information from your OIN submission and allows you to configure a specific integration instance to your test app. You can test the admin and end user sign-in experiences with the generated instance flow.
 
 > **Note:** Okta recommends that you:
 > * Separate environments for development, testing, and production.
@@ -238,7 +238,7 @@ A Developer Edition org has a maximum of five active instances, so manage your t
 
     If you need to change any labels or properties, go back to edit your submission.
 
-    > **Note:** There's a limit of five app instances in a Okta Developer Edition org. The **Generate instance** option is deactivated when you reach this limit. Deactivate unused instances to make room for new instances in your org. See [Deactivate app instances in your org](#deactivate-an-app-instance-in-your-org).
+    > **Note:** There's a limit of five app instances in the Okta Developer Edition org. The **Generate instance** option is deactivated when you reach this limit. Deactivate unused instances to make room for new instances in your org. See [Deactivate app instances in your org](#deactivate-an-app-instance-in-your-org).
 
 <StackSnippet snippet="test-instance" />
 
@@ -285,7 +285,7 @@ If you modify a published OIN integration, you must generate an instance based o
 
 #### Add to Tester
 
-> **Note:** The OIN Submission Tester only supports SSO integrations. The **Add to Tester** option isn't available for SCIM integrations.
+> **Note:** The OIN submission Tester only supports SSO integrations. The **Add to Tester** option isn't available for SCIM integrations.
 
 * Click **Add to Tester** next to the instance in the **Application instances for testing** list to include it for testing with the OIN Submission Tester. The **Add to Tester** option only appears for SSO instances that are active and eligible for testing.
 
