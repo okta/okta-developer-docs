@@ -15,7 +15,7 @@ title: Okta Identity Engine API release notes 2025
 | [Advanced device posture checks](#advanced-device-posture-checks) | April 9, 2025 |
 | [Claims sharing between third-party IdPs and Okta is self-service EA in Preview](#claims-sharing-between-third-party-idps-and-okta-is-self-service-ea-in-preview) | April 9, 2025 |
 | [Number matching challenge with the Factors API is self-service EA in Preview](#number-matching-challenge-with-the-factors-api-is-self-service-ea-in-preview) | April 9, 2025 |
-| [OAuth 2.0 provisioning for Org2Org with Auto-Rotation is self-service EA in Preview](#oauth-2-0-provisioning-for-org2org-with-auto-rotation-is-self-service-ea-in-preview) | April 9, 2025 |
+| [OAuth 2.0 provisioning for Org2Org with Auto-Rotation is self-service EA in Preview](#oauth-2-0-provisioning-for-org2org-with-auto-rotation-is-self-service-ea-in-preview) | April 2, 2025 |
 | [Bugs fixed in 2025.04.1](#bugs-fixed-in-2025-04-1)| April 9, 2025 |
 
 #### Advanced device posture checks
@@ -28,9 +28,7 @@ Authentication claims sharing allows an admin to configure their Okta org to tru
 
 #### Number matching challenge with the Factors API is self-service EA in Preview
 
-This feature improves the security posture of orgs that can’t adopt Okta FastPass by adding support to use number matching challenges with Okta Verify with the Factors API.
-
-You can now send number matching challenges for Okta Verify `push` factor enrollments when you send POST requests to the `/users/{userId}/factors/{factorId}/verify` endpoint. See the [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/verifyFactor). <!--OKTA-903176 OKTA ENABLE_FACTORS_API_NUMBER_MATCHING_CHALLENGE-->
+You can now send number matching challenges for Okta Verify `push` factor enrollments when you send POST requests to the `/users/{userId}/factors/{factorId}/verify` endpoint. For orgs that can't adopt Okta FastPass, this feature improves their overall security. See the [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/verifyFactor).<!--OKTA-903176 OKTA ENABLE_FACTORS_API_NUMBER_MATCHING_CHALLENGE-->
 
 #### OAuth 2.0 provisioning for Org2Org with Auto-Rotation is self-service EA in Preview
 

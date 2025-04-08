@@ -25,9 +25,7 @@ Authentication claims sharing allows an admin to configure their Okta org to tru
 
 #### Number matching challenge with the Factors API is self-service EA in Preview
 
-This feature improves the security posture of orgs that can’t adopt Okta FastPass by adding support to use number matching challenges with Okta Verify with the Factors API.
-
-You can now send number matching challenges for Okta Verify `push` factor enrollments when you send POST requests to the `/users/{userId}/factors/{factorId}/verify` endpoint. See the [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/verifyFactor). <!--OKTA-903176 OKTA ENABLE_FACTORS_API_NUMBER_MATCHING_CHALLENGE-->
+You can now send number matching challenges for Okta Verify `push` factor enrollments when you send POST requests to the `/users/{userId}/factors/{factorId}/verify` endpoint. For orgs that can't adopt Okta FastPass, this feature improves their overall security. See the [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/verifyFactor).<!--OKTA-903176 OKTA ENABLE_FACTORS_API_NUMBER_MATCHING_CHALLENGE-->
 
 #### OAuth 2.0 provisioning for Org2Org with Auto-Rotation is self-service EA in Preview
 
