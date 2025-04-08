@@ -10,7 +10,6 @@
         <Resources />
         <News />
         <Support />
-        <Dialog />
       </div>
     </div>
   </div>
@@ -20,7 +19,6 @@
 export default {
   name: "Home",
   components: {
-    Dialog: () => import("../components/Dialog"),
     Hero: () => import("../components/Hero"),
     Sidebar: () => import("../components/Sidebar"),
     WorkForce: () => import("../components/Workforce"),
