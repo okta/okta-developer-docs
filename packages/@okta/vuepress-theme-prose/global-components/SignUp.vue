@@ -640,8 +640,8 @@ export default {
 
       if (this.validationService.isValidForm()) {
         // make api call
-        //const { baseUri, registrationPolicyId } = this.$site.themeConfig.uris;
-        // const registrationPath = `/api/v1/registration/${registrationPolicyId}/register`;
+        const { baseUri, registrationPolicyId } = this.$site.themeConfig.uris;
+        const registrationPath = `/free-trial/api/free-trial/`;
 
         // test cookies
         document.cookie = '_okta_original_attribution={"utm_page":"www.okta.com/resources/administrator-hands-on-exam-study-guide/","utm_date":"03/11/2025","utm_source":"Direct","utm_medium":"Direct"}';
@@ -649,8 +649,6 @@ export default {
         document.cookie = '_okta_attribution={"utm_page":"www.okta.com/free-trial/","utm_date":"03/28/2025","utm_source":"www.okta.com","utm_medium":"Internal"}';
         document.cookie = 'OptanonConsent=isGpcEnabled=0&datestamp=Fri+Mar+28+2025+14%3A56%3A56+GMT-0400+(Eastern+Daylight+Time)&version=202302.1.0&isIABGlobal=false&hosts=&consentId=10b4dc51-f00a-4c84-8704-7821bb82ca7c&interactionCount=1&landingPath=NotLandingPage&groups=1%3A1%2C2%3A0%2C3%3A0%2C4%3A0&geolocation=CA%3BON&AwaitingReconsent=false';
 
-        const baseUri = 'https://okta-next-dev.oktaweb.dev';
-        const registrationPath = `/free-trial/api/free-trial/`;
         const analyticsValues = getAnalyticsValues();
         const body = {
           userProfile: {

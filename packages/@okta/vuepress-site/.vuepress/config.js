@@ -27,7 +27,8 @@ function configUris() {
     case 'test':
     default:
       return {
-        baseUri: 'https://okta-dev-parent.trexcloud.com',
+        baseUri: 'https://okta-next-dev.oktaweb.dev',
+        //baseUri: 'https://okta-dev-parent.trexcloud.com',
         registrationPolicyId: 'reg3kwstakmbOrIly0g7',
         idps: {
           github: '0oa3jobx2bBlylNft0g7',
