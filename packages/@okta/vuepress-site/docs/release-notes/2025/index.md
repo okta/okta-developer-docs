@@ -37,7 +37,7 @@ To support these updates, the Application Connections API includes a new endpoin
 
 * In Preview orgs, org admins couldn't edit IdP group assignments when a super admin group was included in the group list. (OKTA-880124)
 
-* The `id_token_hint` parameter was exposed in the System Log.(OKTA-890738)
+* The `id_token_hint` parameter was exposed in the System Log. (OKTA-890738)
 
 * POST requests to the `/authorize` endpoint that contained query parameters received an error. OKTA-905143
 
