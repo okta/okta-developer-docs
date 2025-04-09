@@ -30,8 +30,6 @@ To adjust the default API token capacity value from 50%, you can edit the percen
 
 ## API rate limits by OAuth 2.0 application
 
-[xyz](#api-rate-limits-by-oauth-20-application) [xyzz](#api-rate-limits-by-token)
-
 Okta OAuth 2.0 apps are, by default, configured to have 50% of the API endpoint's rate limit when created through the Admin Console. This configuration avoids one app exceeding the endpoint's rate limit violation.
 
 To adjust the default app capacity value from 50%, you can edit the percentage value in the Admin Console. See [Set the app rate limits](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_App_Integration_Wizard-oidc). You can also use the [Principal Rate Limits API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PrincipalRateLimit/#tag/PrincipalRateLimit). Reducing the capacity percentage prevents one app from consuming the entire endpoint rate, assists with investigating rate-limit violations, and prevents future violations.
