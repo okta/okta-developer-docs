@@ -35,11 +35,11 @@ To support these updates, the Application Connections API includes a new endpoin
 
 #### Bugs fixed in 2025.04.1
 
-* When calling deleted app users through the Apps API, the API returned a 500 internal server error instead of a 404 error. (OKTA-852488)
+* In Preview orgs, org admins couldn't edit IdP group assignments when a super admin group was included in the group list. (OKTA-880124)
 
-* PUT requests (`/api/v1/apps/appId`) to update an OpenID Connect app took 30 seconds to complete. (OKTA-852488)
+* The `id_token_hint` parameter was exposed in the System Log.(OKTA-890738)
 
-* When the [List all devices API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/#tag/Device/operation/listDevices) was used with a `search` query parameter, it sometimes returned outdated records for `screenLockType` and `managementStatus`.  (OKTA-856387)
+* POST requests to the `/authorize` endpoint that contained query parameters received an error. OKTA-905143
 
 ### Monthly release 2025.04.0
 
