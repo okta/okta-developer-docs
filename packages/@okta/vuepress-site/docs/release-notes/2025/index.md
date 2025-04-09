@@ -39,7 +39,7 @@ To support these updates, the Application Connections API includes a new endpoin
 
 * The `id_token_hint` parameter was exposed in the System Log. (OKTA-890738)
 
-* POST requests to the `/authorize` endpoint that contained query parameters received an error. OKTA-905143
+* POST requests to the `/authorize` endpoint that contained query parameters received an error. (OKTA-905143)
 
 ### Monthly release 2025.04.0
 
