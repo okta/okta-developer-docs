@@ -1,0 +1,1 @@
+When you use SAML 2.0 with claims sharing, the data that's shared between a third-party IdP and an Okta SP is included in the SAML response in the `saml2:AttributeStatement` section. This content is communicated using the `saml2:Attribute Name="session.amr"` key and value pair, which contains information about authentication performed at the third-party IdP.
