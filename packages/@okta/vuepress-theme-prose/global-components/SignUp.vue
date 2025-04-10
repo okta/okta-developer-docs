@@ -657,9 +657,8 @@ export default {
             lastName: this.form.lastName.value,
             country: this.form.country.value,
             state: this.form.state.value,
-            emailOptInC: this.form.consentAgree.value,
-            captchaResponse: this.form.captcha.value,
-            okta_oie: true,
+            consent: this.form.consentAgree.value,
+            gRecaptchaResponse: this.form.captcha.value,
             utms: analyticsValues,
           },
         };
