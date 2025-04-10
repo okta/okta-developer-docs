@@ -662,11 +662,7 @@ export default {
 
             // testing
 
-            campaignId: "7012A0000016X6l",
-            //formId: "okta_it_freetrial_form",
-            //gaClientId: "",
-            //gaTrackingId: "",
-            //achievement: "",
+            //campaignId: "7012A0000016X6l",
             phone: "34526789",
         };
 
