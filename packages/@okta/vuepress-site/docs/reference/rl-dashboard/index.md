@@ -235,6 +235,6 @@ The bar graph compares a rogue IP or app with other IPs or apps. For example, th
 
 If you find that the rate limit use is high, you may want to adjust your rate limit maximums. If your company is planning an upcoming event, such as an upcoming marketing campaign, you may want to figure out the rate limit capacity that you'd need. In both cases, Okta recommends that you contact Okta Support to determine and adjust your rate limits. See [How to Request a Temporary Rate Limit Increase](https://support.okta.com/help/s/article/How-can-we-request-to-have-the-rate-limit-for-our-org-temporarily-increased?language=en_US).
 
-If the usage is high over a long period, you may need to lower the usage. This means that if high traffic usage points to a particular offender, you would need to inform or block the offender (such as a malfunctioning app, a bad script, or a rogue user) that’s causing the traffic. For example, you can either reach out to the team that writes the script or block the user or app that’s causing the traffic.
+If the use is high over a long period, you may need to lower the use. This means that if high traffic use points to a particular offender, you would need to inform or block the offender (such as a malfunctioning app, a bad script, or a rogue user) that’s causing the traffic. For example, you can either reach out to the team that writes the script or block the user or app that’s causing the traffic.
 
 See also [Rate limit best practices](/docs/reference/rl-best-practices/).
