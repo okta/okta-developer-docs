@@ -658,12 +658,8 @@ export default {
             state: this.form.state.value,
             consent: this.form.consentAgree.value,
             gRecaptchaResponse: this.form.captcha.value,
+            phone: "000000",
             utms: analyticsValues,
-
-            // testing
-
-            //campaignId: "7012A0000016X6l",
-            phone: "34526789",
         };
 
         this.isPending = true;
