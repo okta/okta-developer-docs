@@ -651,7 +651,6 @@ export default {
 
         const analyticsValues = getAnalyticsValues();
         const body = {
-          userProfile: {
             email: this.form.email.value,
             firstName: this.form.firstName.value,
             lastName: this.form.lastName.value,
@@ -662,12 +661,11 @@ export default {
             utms: analyticsValues,
 
             // testing
-            campaignId: "7012A0000016X6l",
-            formId: "okta_it_freetrial_form",
-            gaClientId: "412500382.1740418644",
-            gaTrackingId: "UA-15777010-7",
-            phone: "34526789"
-          },
+            // campaignId: "7012A0000016X6l",
+            // formId: "okta_it_freetrial_form",
+            // gaClientId: "412500382.1740418644",
+            // gaTrackingId: "UA-15777010-7",
+            // phone: "34526789"
         };
 
         this.isPending = true;
