@@ -660,6 +660,13 @@ export default {
             consent: this.form.consentAgree.value,
             gRecaptchaResponse: this.form.captcha.value,
             utms: analyticsValues,
+
+            // testing
+            campaignId: "7012A0000016X6l",
+            formId: "okta_it_freetrial_form",
+            gaClientId: "412500382.1740418644",
+            gaTrackingId: "UA-15777010-7",
+            phone: "34526789"
           },
         };
 
