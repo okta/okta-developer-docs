@@ -62,7 +62,7 @@ See [Change rate limit settings](#change-rate-limit-settings).
 
 #### Event count graphs
 
-The event count graph plots the number of violations, bursts, and warnings over the selected time period, which can be the last 24 hours, the last 7 days, last month, or the last 3 months. The events per API bar graph shows the top five number of events by API over the same time period.
+The event count graph plots the number of violations, bursts, and warnings over the selected time period, which can be the last 24 hours, the last seven days, last month, or the last three months. The events per API bar graph shows the top five number of events by API over the same time period.
 
 <div class="three-quarter">
 
