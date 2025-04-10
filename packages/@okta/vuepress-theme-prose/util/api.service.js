@@ -10,7 +10,7 @@ export class Api {
 
   httpRequest(method, url, options = { headers: {}, body: {}, params: {} }) {
     options.method = method;
-    return fetch(url, options)
+    return fetch(baseUrl + url, options)
         .then((response) => response.json());
   }
 
