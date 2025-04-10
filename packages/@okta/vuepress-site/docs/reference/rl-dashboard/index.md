@@ -177,7 +177,7 @@ A customer can also purchase the rate limit multiplier, which is an add-on featu
 
 </div>
 
-The key benefit of purchasing the rate limit multiplier, therefore getting an increased rate limit, isn't to stop end users from using an app. The rate limit multiplier is based on the customer's org and what the expected use would be. If a customer has dynamic scale, the info icon beside **Rate Limit** in the overview pane indicates which tier was purchased, and the graphs in the [Rate limit usage over time pane](#rate-limit-usage-over-time-pane) reflect the applied rate limit multiplier. To purchase the rate limit multiplier, either create a support ticket or contact your customer support representative.
+The key benefit of purchasing the rate limit multiplier, therefore getting an increased rate limit, isn't to stop end users from using an app. The rate limit multiplier is based on the customer's org and expected use. If a customer has dynamic scale, the info icon beside **Rate Limit** in the overview pane indicates which tier was purchased, and the graphs in the [Rate limit usage over time pane](#rate-limit-usage-over-time-pane) reflect the applied rate limit multiplier. To purchase the rate limit multiplier, either create a support ticket or contact your customer support representative.
 
 #### Rate limit usage over time pane
 
