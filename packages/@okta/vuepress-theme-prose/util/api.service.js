@@ -9,17 +9,9 @@ export class Api {
   }
 
   httpRequest(method, url, options = { headers: {}, body: {}, params: {} }) {
-    return axios({
-      method,
-      baseURL: this.baseUrl,
-      url,
-      headers: {
-        ...this.baseheaders,
-        ...options.headers
-      },
-      data: options.body,
-      params: options.params,
-    });
+    options.method = method;
+    return fetch(url, options)
+        .then((response) => response.json());
   }
 
   get(url, options = {}) {
