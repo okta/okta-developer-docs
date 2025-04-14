@@ -659,6 +659,7 @@ export default {
             consent: this.form.consentAgree.value,
             gRecaptchaResponse: this.form.captcha.value,
             phone: "000000",
+            orgPlan: "Integrator",
             utms: analyticsValues,
         };
 
