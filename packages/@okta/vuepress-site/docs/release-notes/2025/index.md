@@ -6,6 +6,18 @@ title: Okta Classic Engine API release notes 2025
 
 ## April
 
+### Weekly release 2025.04.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.04.2](#bugs-fixed-in-2025-04-2)| April 16, 2025 |
+
+#### Bugs fixed in 2025.04.2
+
+* Email notifications weren’t sent to end users when security methods were enrolled using POST requests to the `/users/{userId}/factors` endpoint and the `activate` parameter was set to `true`. (OKTA-891169)
+
+* Updates made to ACS URIs for an app using the Applications API (PUT `/apps/{appId}`) didn't take effect if the app was created without those URLs. (OKTA-909218)
+
 ### Weekly release 2025.04.1
 
 | Change | Expected in Preview Orgs |
