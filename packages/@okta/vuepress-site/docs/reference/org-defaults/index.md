@@ -36,8 +36,6 @@ The Integrator free plan has the following limitations:
 
 ## Free developer edition org updates
 
-Do we want to include details on deprecation and link to blog post? We could time it for removal when dev orgs are deactivated.
+**Do we want to include details on deprecation and link to blog post? We could time it for removal when dev orgs are deactivated.**
 
-## Other org types?
-
-Possibly discuss Free Trial, Preview, Production orgs here 
+The Integrator free plan orgs replace the previous Okta developer edition service orgs. If you are using an Okta developer edition service org you need to sign up for a new org or migrate your existing org to the Integrator free plan. For further details, see [Okta Blog Post](https://developer.okta.com/blog/).
