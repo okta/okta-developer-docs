@@ -10,7 +10,7 @@ title: Okta Classic Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-
+| [Subscriptions API no longer supports OKTA_ISSUE](#subscriptions-api-no-longer-supports-okta-issue)| April 9, 2025 |
 | [Bugs fixed in 2025.04.2](#bugs-fixed-in-2025-04-2)| April 16, 2025 |
 
 #### Subscriptions API no longer supports OKTA_ISSUE
