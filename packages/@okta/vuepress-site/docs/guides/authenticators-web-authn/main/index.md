@@ -84,6 +84,8 @@ First, add the WebAuthn authenticator to your org and enable it.
    2. Select **Optional** from the dropdown box for **FIDO2 (WebAuthn)**, and then click **Update Policy**.
     [[style="list-style-type:lower-alpha"]]
 
+> **Note:** See [Configure the FIDO2 (WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=ext-webauthn) for information about configuring WebAuthn in the Admin Console.
+
 ### Set your app integration to use the WebAuthn authenticator
 
 New apps are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, it becomes evident when you can share your authentication needs between apps. You should create a policy specifically for your app for testing purposes.
@@ -94,9 +96,9 @@ New apps are automatically assigned the shared default [authentication policy](h
 4. Give the policy a name, and then click **Save**.
 5. Locate the Catch-all Rule of the new policy and select **Actions > Edit**.
 6. Select **Allowed after successful authentication**.
-7. Set **User must authenticate with** to **Password + Another factor**.
-8. For **Possession factor constraints**
-   1. Verify that **Device Bound** is selected.
+7. Set **User must authenticate with** to **Password / IdP + Another factor**.
+8. For **Possession factor constraints are**:
+   1. Select **Phishing resistant**.
    2. Verify that **FIDO2 (WebAuthn)** is listed in the box under **Additional factor types**. If it isn't listed, check that the authenticator has been enabled using steps 4 and 5 of [Add WebAuthn to your org](#add-webauthn-to-your-org).
    3. Click **Save**.
     [[style="list-style-type:lower-alpha"]]
