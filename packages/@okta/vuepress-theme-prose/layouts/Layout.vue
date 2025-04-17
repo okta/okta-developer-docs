@@ -5,7 +5,7 @@
       class="fixed-header"
     >
       <HeaderBanner
-        v-show="showBanner"
+        v-if="showBanner"
         banner-id="v2"
         @updateHeight="updateHeaderHeight"
       >
