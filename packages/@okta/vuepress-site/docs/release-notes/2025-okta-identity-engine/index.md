@@ -65,7 +65,7 @@ To support these updates, the Application Connections API includes a new endpoin
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Domain restrictions on Realms](#domain-restrictions-on-realms) | April 2, 2025 |
+| [Domain restrictions on Realms](#domain-restrictions-on-realms) | April 23, 2025 |
 | [OAuth 2.0 provisioning for Org2Org with Auto-Rotation is EA in Preview](#oauth-2-0-provisioning-for-org2org-with-auto-rotation-is-ea-in-preview) | April 2, 2025 |
 | [Retrieve the SSF Stream status is EA in Preview](#retrieve-the-ssf-stream-status-is-ea-in-preview) | April 2, 2025 |
 | [OIN test account information deleted after 30 days](#oin-test-account-information-deleted-after-30-days) | April 2, 2025 |
