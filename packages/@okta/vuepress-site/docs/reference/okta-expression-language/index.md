@@ -249,13 +249,18 @@ Okta supports the use of the time zone IDs and aliases listed in [the Time zone 
 | `getAssistantUser(assistantSource).$attribute`                     | Gets the assistant's Okta user attribute values.                                    | `getAssistantUser("active_directory").firstName`              |
 | `getAssistantAppUser(assistantSource, attributeSource).$attribute` | Gets the assistant's app user attribute values for the app user of any app instance. | `getAssistantAppUser("active_directory", "google").firstName` |
 
+These functions take the following parameters:
+
+* `managerSource`: String representing the app where the manager relationship is defined. The only currently supported value is `"active_directory"`.
+* `assistantSource`: String representing the app where the assistant relationship is defined. The only currently supported value is `"active_directory"`.
+* `attributeSource`: String representing the specific app instance to query for user attributes, for example `"google"`. This is often the same as `managerSource` or `assistantSource` when dealing with a single Active Directory instance.
+
 The following should be noted about these functions:
 
 * Be sure to pass the correct App name for the `managerSource`, `assistantSource`, and `attributeSource` parameters.
-* Currently, `active_directory` is the only supported value for `managerSource` and `assistantSource`.
 * Calling either of the `getManagerUser()` or `getManagerAppUser()` functions doesn't trigger a user profile update after the manager is changed.
-* The manager and assistant functions aren't supported for user profiles sourced from multiple Active Directory instances.
-* The manager and assistant functions aren't supported for user profile attributes from multiple app instances. That is, the expression `getManagerUser("active_directory", "google").firstName` returns null if your org has two or more instances of a `google` app.
+* These functions aren't supported for user profiles sourced from multiple Active Directory instances.
+* These functions aren't supported for user profile attributes from multiple app instances. For example, the expression `getManagerAppUser("active_directory", "google").firstName` returns null if your org has two or more instances of a `google` app.
 
 ### Directory and Workday functions
 
