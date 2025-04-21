@@ -251,16 +251,15 @@ Okta supports the use of the time zone IDs and aliases listed in [the Time zone 
 
 These functions take the following parameters:
 
-* `managerSource`: String representing the app where the manager relationship is defined. The only currently supported value is `"active_directory"`.
-* `assistantSource`: String representing the app where the assistant relationship is defined. The only currently supported value is `"active_directory"`.
+* `managerSource`: String representing the app name where the manager relationship is defined. The only currently supported value is `"active_directory"`.
+* `assistantSource`: String representing the app name where the assistant relationship is defined. The only currently supported value is `"active_directory"`.
 * `attributeSource`: String representing the specific app instance to query for user attributes, for example `"google"`. This is often the same as `managerSource` or `assistantSource` when dealing with a single Active Directory instance.
 
 The following should be noted about these functions:
 
-* Be sure to pass the correct App name for the `managerSource`, `assistantSource`, and `attributeSource` parameters.
 * Calling either of the `getManagerUser()` or `getManagerAppUser()` functions doesn't trigger a user profile update after the manager is changed.
 * These functions aren't supported for user profiles sourced from multiple Active Directory instances.
-* These functions aren't supported for user profile attributes from multiple app instances. For example, the expression `getManagerAppUser("active_directory", "google").firstName` returns null if your org has two or more instances of a `google` app.
+* These functions aren't supported for user profile attributes from multiple app instances.
 
 ### Directory and Workday functions
 
