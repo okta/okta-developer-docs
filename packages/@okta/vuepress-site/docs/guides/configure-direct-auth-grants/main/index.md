@@ -10,9 +10,9 @@ layout: Guides
 
 ## About the direct authentication <StackSnippet snippet="granttype" inline /> grant
 
-Use direct authentication when you want your application to directly authenticate users. For example, you don't want to delegate authentication to an IdP or authorization server using an HTTP redirect in a web browser. While delegating authentication is preferred, use direct authentication in situations where there's a high degree of trust between the user and your app.
+Use direct authentication when you want your app to directly authenticate users. For example, you don't want to delegate authentication to an IdP or authorization server using an HTTP redirect in a web browser. While delegating authentication is preferred, use direct authentication in situations where there's a high degree of trust between the user and your app.
 
-Also, you can use direct authentication where usability constraints hinder the use of browser-based flows, such as mobile applications.
+Also, you can use direct authentication where usability constraints hinder the use of browser-based flows, such as mobile apps.
 
 <StackSnippet snippet="overview" />
 
@@ -73,14 +73,14 @@ Before you can implement authorization, you need to register your app in Okta by
 1. Select **Native Application** as the **Application type**, then click **Next**.
 1. Specify the **App integration name**.
 1. Click **Advanced** in the **Grant type** section and select the <StackSnippet snippet="setupappgt" inline /> in addition to the defaults.
-1. Select **Allow everyone in your organization to access**, then click **Save**.
-1. From the **General** tab of your app integration, copy and save the generated **Client ID** value to implement your authorization flow.
+1. Select **Allow everyone in your organization to access**, then click **Save**. The **General** tab appears.
+1. Copy and save the generated **Client ID** value to implement your authorization flow.
 
 ## Set up the authentication policy
 
 In direct authentication flows, the client specifies a grant type that indicates the type of authenticator being used. However, the server can't grant a token until the client’s authentication policy is satisfied.
 
-> **Note:** This example creates a new app authentication policy with a <StackSnippet snippet="noterule" inline /> for testing purposes.
+> **Note:** This example creates an app authentication policy with a <StackSnippet snippet="noterule" inline /> for testing purposes.
 
 1. Go to your app’s **Sign On** tab, scroll to the bottom, and click **View policy details**.
 1. Click **Actions** on the right of the Default Policy title and select **Clone policy**.
@@ -89,9 +89,9 @@ In direct authentication flows, the client specifies a grant type that indicates
 1. Click **Add a rule**, name it (for example, **<StackSnippet snippet="rulename" inline />**).
 1. Specify your test user for **AND User is**.
 1. Skip down to **AND User must authenticate with** and select **<StackSnippet snippet="authwith" inline />**, and then click **Save**.
-1. Open the application that you just created and select the **Sign On** tab.
+1. Open the app that you created and select the **Sign On** tab.
 1. Scroll to the **User authentication** section at the bottom and click **Edit**.
-1. Select the authentication policy that you just created and click **Save**.
+1. Select the authentication policy that you created and click **Save**.
 
 <StackSnippet snippet="setup-app" />
 
