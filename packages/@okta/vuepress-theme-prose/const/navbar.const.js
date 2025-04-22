@@ -519,7 +519,7 @@ export const guides = [
             guideName: "device-authorization-grant",
           },
           {
-            title: "Configure Direct Authentiation",
+            title: "Configure Direct Authentication",
             guideName: "configure-direct-auth-grants",
           },
           {
