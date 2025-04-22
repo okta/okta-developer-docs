@@ -1,5 +1,5 @@
 ---
-title: Configure Direct Authentication grant types
+title: Configure Direct Authentication
 excerpt: How to configure direct authentication authorization flows using primary factors and MFA
 layout: Guides
 sections:
