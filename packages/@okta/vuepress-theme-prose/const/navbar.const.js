@@ -36,10 +36,6 @@ export const concepts = [
         path: "/docs/concepts/how-okta-works/",
       },
       {
-        title: "Integration with identity verification vendors",
-        path: "/docs/concepts/idv-integration/",
-      },
-      {
         title: "Interaction Code grant type",
         path: "/docs/concepts/interaction-code/",
       },
@@ -401,6 +397,10 @@ export const guides = [
           {
             title: "Test your access policies",
             guideName: "policy-simulation"
+          },
+          {
+            title: "Integrate identity verification vendors",
+            guideName: "idv-integration",
           },
           {
             title: "Add an external Identity Provider",
