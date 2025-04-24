@@ -36,8 +36,8 @@ export const concepts = [
         path: "/docs/concepts/how-okta-works/",
       },
       {
-        title: "Interaction Code grant type",
-        path: "/docs/concepts/interaction-code/",
+        title: "Inline hooks",
+        path: "/docs/concepts/inline-hooks/",
       },
       {
         title: "Interaction Code grant type",
