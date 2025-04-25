@@ -1,6 +1,6 @@
 ---
 title: Okta Classic Engine overview
-excerpt: The Okta Classic Engine section contains Okta classic-compatible versions of documents that have been updated to support Okta Identity Engine.
+excerpt: Use this guide to learn about Express Configuration
 sections:
  - main
 ---
