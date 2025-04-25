@@ -2,7 +2,7 @@
 title: Express Configuration overview
 excerpt: An overview of Express Configuration.
 ---
-
+<ApiLifecycle access="ie" />
 # Express Configuration
 
 Express Configuration lets enterprise customers quickly add an instance of Auth0-enabled OIDC apps published in the Okta Integration Network (OIN) catalog to their Okta org. This process uses automated data sharing between Okta and Auth0, reducing manual steps and minimizing errors when sharing configuration information.

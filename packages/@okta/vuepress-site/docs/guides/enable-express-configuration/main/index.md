@@ -2,6 +2,7 @@
 title: Enable express Configuration 
 excerpt: Enable express Configuration
 ---
+<ApiLifecycle access="ie" />
 
 # Enable Express Configuration
 
