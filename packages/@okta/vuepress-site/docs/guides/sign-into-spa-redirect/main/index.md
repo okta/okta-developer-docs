@@ -137,7 +137,7 @@ You can find your config values in the Admin Console (select **Applications** > 
 
 ### Redirect to the sign-in page
 
-To sign a user in, your web app redirects the browser to the Okta-hosted sign-in page. This usually happens from a sign-in action, such as clicking a button or when a user visits a protected page.
+To sign a user in, your app redirects the browser to the Okta-hosted sign-in page. This usually happens from a sign-in action, such as clicking a button or when a user visits a protected page.
 
 > **Note**: The sign-out action requires your app to be listed as a trusted origin. The Okta CLI sets this up for you. If you used the Okta dashboard, follow the steps to [add your app as a trusted origin](#enable-trusted-origins).
 
@@ -189,7 +189,7 @@ Your website may enable users to find some initial information but require a use
 
 SPAs need to send requests to one or more APIs to perform actions and retrieve information.
 
-After a user signs in, your app stores an access token issued by Okta. By attaching this token to outgoing requests, your APIs can authenticate and authorize them. Authentication ensures that the user is signed in to perform an action. Authorization ensures that the user is allowed to do an action.
+After a user signs in, your app stores an access token issued by Okta. By attaching this token to outgoing requests, your APIs can authenticate and authorize them. Authentication ensures that the user is signed in to perform an action. Authorization ensures that the user is allowed to perform an action.
 
 On your front end (this SPA), make sure that you place the access token in the HTTP `Authorization` header of outgoing requests using this format:
 
