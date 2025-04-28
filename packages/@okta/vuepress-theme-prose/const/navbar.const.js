@@ -999,7 +999,7 @@ export const reference = [
         path: "/docs/reference/okta-expression-language-in-identity-engine/",
       }, {
         title: "Rate Limits",
-        path: "/docs/reference/rate-limits/",
+        path: "/docs/reference/rate-limits/", 
         subLinks: [
           {
             title: "Rate limit dashboard",
@@ -1036,6 +1036,7 @@ export const reference = [
           },
         ]
       },
+      {title: "SSF Transmitter SET payload structures", path: "/docs/reference/ssf-transmitter-sets/"},
       { title: "System Log query", path: "/docs/reference/system-log-query/" },
       { title: "User query options", path: "/docs/reference/user-query/" },
       {
