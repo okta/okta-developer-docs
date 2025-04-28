@@ -23,7 +23,7 @@ function configUris() {
     case 'test':
     default:
       return {
-        baseUri: 'https://okta-next-test.oktaweb.dev',
+        baseUri: 'https://www.okta.com',
         campaignId: '701F0000000mDmxIAE',
         orgPlan: 'Integrator',
         idps: {
