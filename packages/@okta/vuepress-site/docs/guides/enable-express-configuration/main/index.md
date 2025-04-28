@@ -261,6 +261,11 @@ Follow these steps to verify and test the Express Configuration feature:
 1. In **General Settings**, click **Done** to create an instance of your OIN app.
 1. Go to the **Authentication** tab.
 1. Click **Configure SSO with OIDC** and complete the authorization flow.
+<div>
+
+![Configure SSO with OIDC](/img/oin/ec_configure_SSO_with_OIDC.png "Configure SSO with OIDC")
+
+</div>
 1. Assign a test Okta user to this app instance.
 1. Log in to your Okta Developer Edition org using this test user and click your app tab.
 1. Verify that the user is successfully signed in to your app.
