@@ -197,8 +197,6 @@ Group functions return either an array of groups or **True** or **False**.
 
 > **Note:** The `Groups.contains`, `Groups.startsWith`, and `Groups.endsWith` group functions are designed to work only with group claims. You can't use these functions with property mappings.
 
-> **Note:** The `isMemberOfGroupName`, `isMemberOfGroup`, `isMemberOfAnyGroup`, `isMemberOfGroupNameStartsWith`, `isMemberOfGroupNameContains`, `isMemberOfGroupNameRegex` group functions are designed to retrieve only an Okta user's group memberships. Don't use them to retrieve an app user's group memberships.
-
 > **Note:** When EL group functions (such as `isMemberOfGroup` or `isMemberOfGroupName`) are used for app assignments, the profile attributes of the app user aren't updated or reapplied when the user's group membership changes. Okta only updates app user profile attributes when an app is assigned to a user or when mappings are applied.
 
 For more information on using group functions for dynamic and static allowlists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
