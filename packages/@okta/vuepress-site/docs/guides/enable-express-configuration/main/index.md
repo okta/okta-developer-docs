@@ -261,7 +261,7 @@ Follow these steps to verify and test the Express Configuration feature:
 1. In **General Settings**, click **Done** to create an instance of your OIN app.
 1. Go to the **Authentication** tab.
 1. Click **Configure SSO with OIDC** and complete the authorization flow.
-<div>
+<div class="half wireframe-border">
 
 ![Configure SSO with OIDC](/img/oin/ec_configure_SSO_with_OIDC.png "Configure SSO with OIDC")
 
