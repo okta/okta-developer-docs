@@ -5,47 +5,47 @@ excerpt: Example JWT payload structures when an Okta event is fired.
 
 # SSF Transmitter SET payload structures
 
-Okta uses the [Shared Signals Framework (SSF)](https://sharedsignals.guide/) to send security-related events and other data-subject signals to third-party security vendors. In this scenario, commonly used terms for third-party vendors that receive signals are "receivers", Okta is the "transmitter", and the connection between the two entities is referred to as a "stream." Okta sends signals in the form of Security Event Tokens (SETs) to third-party SSF receivers.
+Okta uses the [Shared Signals Framework (SSF)](https://sharedsignals.guide/) to send security-related events and other data-subject signals to third-party security vendors.
 
-To enable the transmission of signals from Okta, you must create an SSF Stream using the [SSF Transmitter API](https://preview.redoc.ly/oktadev/jk-OKTA-912817/openapi/okta-management/management/tag/SSFTransmitter/) and configure the third-party receiver to accept signals from Okta.
+To enable the transmission of signals from Okta, you must create an [SSF stream](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFTransmitter/#tag/SSFTransmitter/operation/createSsfStream) using the [SSF Transmitter API](https://preview.redoc.ly/oktadev/jk-OKTA-912817/openapi/okta-management/management/tag/SSFTransmitter/). Then, configure the third-party receiver to accept signals from Okta.
 
-## Supported event types
+## Supported events
 
-The Okta SSF Transmitter currently supports two types of [Continuous Access Evaluation Protocol (CAEP)](https://openid.net/wg/sharedsignals/) events types: [Session Revoked](https://openid.net/specs/openid-caep-1_0-ID2.html#name-session-revoked) and [Credential Change](https://openid.net/specs/openid-caep-1_0-ID2.html#name-credential-change) events.
+The Okta SSF Transmitter currently supports two types of [Continuous Access Evaluation Protocol (CAEP)](https://openid.net/wg/sharedsignals/) events: [Session Revoked](https://openid.net/specs/openid-caep-1_0-ID2.html#name-session-revoked) and [Credential Change](https://openid.net/specs/openid-caep-1_0-ID2.html#name-credential-change). Those events are mapped to an Okta event.
 
-The following Okta event is mapped to the CAEP Session Revoked event type:
+The following [Okta event](https://developer.okta.com/docs/reference/api/event-types/?q=user.session.end) is mapped to the CAEP Session Revoked event:
 
-[`user.session.end`](#)
+`user.session.end`
 
-The following Okta events are mapped to the CAEP Credential Change event type:
+The following [Okta events](https://developer.okta.com/docs/reference/api/event-types/) are mapped to the CAEP Credential Change event:
 
-* [`user.mfa.factor.activate`](#caep-credential-change---usermfafactoractivate)
+* `user.mfa.factor.activate`
 
-* [`user.mfa.factor.deactivate`](#caep-credential-change---usermfafactordeactivate)
+* `user.mfa.factor.deactivate`
 
-* [`user.mfa.factor.suspend`](#caep-credential-change---usermfafactorsuspend)
+* `user.mfa.factor.reset_all`
 
-* [`user.mfa.factor.unsuspend`](#caep-credential-change---usermfafactorunsuspend)
+* `user.mfa.factor.suspend`
 
-* [`user.mfa.factor.update`](#caep-credential-change---usermfafactorupdate)
+* `user.mfa.factor.unsuspend`
 
-* [`user.mfa.factor.reset_all`](#caep-credential-change---usermfafactorreset_all)
+* `user.mfa.factor.update`
 
-* [`user.account.reset_password`](#caep-credential-change---useraccountreset_password)
+* `user.account.reset_password`
 
-* [`user.account.update_password`](#caep-credential-change---useraccountupdate_password)
+* `user.account.update_password`
 
-## Security Event Token JWT schemas
+## SET JWT schemas
 
-Security Event Tokens are a type of JSON Web Token (JWT) that must comply with the [SET standard](https://datatracker.ietf.org/doc/html/rfc8417).
+SETs are a type of JSON Web Token (JWT) that must comply with the [SET standard](https://datatracker.ietf.org/doc/html/rfc8417).
 
-Use the following links to learn more about the SET structure that Okta delivers.
+Use the following links to learn more about the SET structure that Okta supports:
 
 * [Security Event Token JWT header schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFTransmitter/#tag/SSFTransmitter/schema/SecurityEventTokenJwtHeader)
 
 * [Security Event Token JWT payload schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFTransmitter/#tag/SSFTransmitter/schema/SecurityEventTokenJwtBody)
 
-## Security Event Token JWT payload examples
+## SET JWT payload examples
 
 The following are examples of the JWT payload when an Okta event is fired.
 
@@ -59,20 +59,20 @@ The following are examples of the JWT payload when an Okta event is fired.
    "aud":"https://sp.example.com/caep",
    "events":{
       "https://schemas.openid.net/secevent/caep/event-type/session-revoked":{
-         "subject":{
-            "user":{
-               "format":"iss_sub",
-               "iss":"https://org.okta.com",
-               "sub":"okta-user-id1"
+        "subject":{
+          "user":{
+            "format":"iss_sub",
+            "iss":"https://org.okta.com",
+            "sub":"okta-user-id1"
             }
          },
-         "reason_admin":{
-            "en":"Policy Violation: C076E822"
+        "reason_admin":{
+          "en":"Policy Violation: C076E822"
          },
-         "reason_user":{
-            "en":"This device is no longer compliant."
+        "reason_user":{
+          "en":"This device is no longer compliant."
          },
-         "event_timestamp":1615304991643
+        "event_timestamp":1615304991643
       }
    }
 }
@@ -129,6 +129,31 @@ The following are examples of the JWT payload when an Okta event is fired.
       "reason_admin": {
         "en": "Reset factor for user"
       },
+      "event_timestamp": 1615304991643
+    }
+  }
+}
+```
+
+### CAEP Credential Change - user.mfa.factor.reset_all
+
+```JSON
+{
+  "iss": "https://transmitter.okta.com",
+  "jti": "set-07efd930f0977e4fcc1149a733ce7f78",
+  "iat": 1615305159,
+  "aud": "https://receiverexample.com",
+  "events": {
+    "https://schemas.openid.net/secevent/caep/event-type/credential-change": {
+      "subject": {
+        "format": "iss_sub",
+        "iss": "https://transmitter.okta.com",
+        "sub": "okta-user-id1"
+      },
+      "credential_type": "ALL_FACTORS",
+      "change_type": "revoke",
+      "friendly_name": "ALL_FACTORS",
+      "initiating_entity": "user",
       "event_timestamp": 1615304991643
     }
   }
@@ -213,31 +238,6 @@ The following are examples of the JWT payload when an Okta event is fired.
       "reason_admin": {
         "en": "Update factor for user"
       },
-      "event_timestamp": 1615304991643
-    }
-  }
-}
-```
-
-### CAEP Credential Change - user.mfa.factor.reset_all
-
-```JSON
-{
-  "iss": "https://transmitter.okta.com",
-  "jti": "set-07efd930f0977e4fcc1149a733ce7f78",
-  "iat": 1615305159,
-  "aud": "https://receiverexample.com",
-  "events": {
-    "https://schemas.openid.net/secevent/caep/event-type/credential-change": {
-      "subject": {
-        "format": "iss_sub",
-        "iss": "https://transmitter.okta.com",
-        "sub": "okta-user-id1"
-      },
-      "credential_type": "ALL_FACTORS",
-      "change_type": "revoke",
-      "friendly_name": "ALL_FACTORS",
-      "initiating_entity": "user",
       "event_timestamp": 1615304991643
     }
   }
