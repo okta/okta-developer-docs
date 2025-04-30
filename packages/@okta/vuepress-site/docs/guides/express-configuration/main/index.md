@@ -3,6 +3,7 @@ title: Express Configuration overview
 excerpt: An overview of Express Configuration.
 ---
 <ApiLifecycle access="ie" />
+
 # Express Configuration
 
 Express Configuration lets enterprise customers quickly add an instance of Auth0-enabled OIDC apps published in the Okta Integration Network (OIN) catalog to their Okta org. This process uses automated data sharing between Okta and Auth0, reducing manual steps and minimizing errors when sharing configuration information.
@@ -19,7 +20,7 @@ To enable the Express Configuration feature, contact the Okta Express Configurat
 * Your app name in the OIN
 * Auth0 tenant domain (include the custom domain, if applicable)
 
-After confirming your app's eligibility, the Okta Express Configuration team provides a public key in PEM format. This key is required to enable Express Configuration. Follow the steps in [Enable Express Configuration](#enable-express-configuration) after receiving the public key.
+After confirming your app's eligibility, the Okta Express Configuration team provides a public key in PEM format. This key is required to enable Express Configuration. Follow the steps in [Enable Express Configuration](/docs/guides/enable-express-configuration/main/) after receiving the public key.
 
 ## Benefits
 

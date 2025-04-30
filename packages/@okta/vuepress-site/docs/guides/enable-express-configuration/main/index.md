@@ -2,7 +2,7 @@
 title: Enable Express Configuration
 meta:
   - name: description
-    content: Use this guide to enable Express Configuration
+    content: Use this guide to enable Express Configuration for your Auth0-enabled OIDC OIN integration.
 layout: Guides
 ---
 <ApiLifecycle access="ie" />
@@ -269,8 +269,9 @@ Follow these steps to verify and test the Express Configuration feature:
 ![Configure SSO with OIDC](/img/oin/ec_configure_SSO_with_OIDC.png "Configure SSO with OIDC")
 
 </div>
+
 1. Assign a test Okta user to this app instance.
-1. Log in to your Okta Developer Edition org using this test user and click your app tab.
+1. Log on to your Okta Developer Edition org using this test user and click your app tab.
 1. Verify that the user is successfully signed in to your app.
 
 **Note**
@@ -297,4 +298,4 @@ When your customer uses Express Configuration to setup SSO for an instance of yo
 **Organizations**
 
 * **Membership On Authentication Setting:** `Enable Auto-Membership`
-* **Display Connection as a button setting:** Enabled in Login Experience Customization
+* **Display Connection as a button setting:** Enabled in login experience customization
