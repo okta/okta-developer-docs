@@ -24,7 +24,7 @@ title: Okta Identity Engine API release notes 2025
 
 * When a resource set contained a `devices` resource, the Retrieve a resource endpoint returned a `null` response for the devices `self` object. (OKTA-914364)
 
-* When the List all Subscriptions API with a Workflows Administrator role (`WORKFLOWS_ADMIN`) was called, a HTTP 400 Bad Request error was returned. (OKTA-918276)
+* When the List all Subscriptions API with a Workflows Administrator role (`WORKFLOWS_ADMIN`) was called, an HTTP 400 Bad Request error was returned. (OKTA-918276)
 
 * Users received a 400 Bad Request error during self-service registration in preview orgs with a Registration Inline hook. (OKTA-918774)
 
