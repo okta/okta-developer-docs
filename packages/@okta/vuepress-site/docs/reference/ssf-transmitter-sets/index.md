@@ -7,15 +7,13 @@ excerpt: Example JWT payload structures when an Okta event is fired.
 
 Okta uses the [Shared Signals Framework (SSF)](https://sharedsignals.guide/) to send security-related events and other data-subject signals to third-party security vendors.
 
-To enable the transmission of signals from Okta, you must create an [SSF stream](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFTransmitter/#tag/SSFTransmitter/operation/createSsfStream) using the [SSF Transmitter API](https://preview.redoc.ly/oktadev/jk-OKTA-912817/openapi/okta-management/management/tag/SSFTransmitter/). Then, configure the third-party receiver to accept signals from Okta.
+To enable the transmission of signals from Okta, you must create an [SSF stream](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFTransmitter/#tag/SSFTransmitter/operation/createSsfStream) using the [SSF Transmitter API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFTransmitter/). Then, configure the third-party receiver to accept signals from Okta.
 
 ## Supported events
 
 The Okta SSF Transmitter currently supports two types of [Continuous Access Evaluation Protocol (CAEP)](https://openid.net/wg/sharedsignals/) events: [Session Revoked](https://openid.net/specs/openid-caep-1_0-ID2.html#name-session-revoked) and [Credential Change](https://openid.net/specs/openid-caep-1_0-ID2.html#name-credential-change). Those events are mapped to an Okta event.
 
-The following [Okta event](https://developer.okta.com/docs/reference/api/event-types/?q=user.session.end) is mapped to the CAEP Session Revoked event:
-
-`user.session.end`
+The following [Okta event](https://developer.okta.com/docs/reference/api/event-types/?q=user.session.end) is mapped to the CAEP Session Revoked event: `user.session.end`
 
 The following [Okta events](https://developer.okta.com/docs/reference/api/event-types/) are mapped to the CAEP Credential Change event:
 
