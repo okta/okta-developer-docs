@@ -1,6 +1,9 @@
 ---
-title: Enable express Configuration 
-excerpt: Enable express Configuration
+title: Enable Express Configuration
+meta:
+  - name: description
+    content: Use this guide to enable Express Configuration
+layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
@@ -250,7 +253,7 @@ Send the following information to [expressconfig@okta.com](mailto:expressconfig@
 
 The Okta Express Configuration team configures your app in the OIN and assigns it to your developer org. You can then test the feature by creating an instance of your app in the OIN catalog.
 
-**Verification and testing**
+# Verification and testing
 
 Follow these steps to verify and test the Express Configuration feature:
 
@@ -269,3 +272,29 @@ Follow these steps to verify and test the Express Configuration feature:
 1. Assign a test Okta user to this app instance.
 1. Log in to your Okta Developer Edition org using this test user and click your app tab.
 1. Verify that the user is successfully signed in to your app.
+
+**Note**
+
+When your customer uses Express Configuration to setup SSO for an instance of your application in Okta, the following default configurations are applied to the newly created Okta Workforce Connection in Auth0. These settings can't be modified by the customer through Express Configuration but can be manually updated, if required.
+
+**Connection Settings**
+
+* **Scopes:** `openid email profile`
+
+* **User Mapping:** `{"mapping_mode" : "basic_profile"}`
+
+* **Connection Profile:** `{"pkce":"auto"}`
+
+**Login Experience**
+
+* **Home Realm Discovery:** Empty (Not supported)
+
+* **Connection Button:**
+    * **Display connection as a button setting:** Disabled (Enabled through **Organizations**)
+    * **Button Display Name:** `Okta`
+    * **Button Logo URL:** `https://cdn.brandfolder.io/R30ALRIS/at/scvv8tj7w545j3r5gmxq4jrb/Okta_Aura_Logomark_Black_RGB.png` (Okta Brand Logo)
+
+**Organizations**
+
+* **Membership On Authentication Setting:** `Enable Auto-Membership`
+* **Display Connection as a button setting:** Enabled in Login Experience Customization
