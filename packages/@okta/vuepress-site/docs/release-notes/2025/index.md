@@ -22,7 +22,7 @@ title: Okta Classic Engine API release notes 2025
 
 * When the List all Subscriptions API with a Workflows Administrator role (`WORKFLOWS_ADMIN`) was called, an HTTP 400 Bad Request error was returned. (OKTA-918276)
 
-* Users received a 400 Bad Request error during self-service registration in preview orgs with a Registration Inline hook. (OKTA-918774)
+* Users received an HTTP 400 Bad Request error during self-service registration in preview orgs with a Registration Inline hook. (OKTA-918774)
 
 * When an Okta Classic Engine org was involved in a multi-org Okta-to-Okta authentication flow, and Okta-to-Okta claims sharing was enabled, the `OktaAuth` (SAML) and `okta_auth` (OIDC) claims weren't processed correctly. (OKTA-918969)
 
