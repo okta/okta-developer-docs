@@ -99,7 +99,7 @@ Run the following command to create a client. Ensure that you provide configurat
 * The `is_express_configure_app` value indicates whether the Express Configuration is enabled in the app. These metadata values are used in the post-login action to validate the app's configuration and add custom claims to the issued tokens.
 * The `organization_usage` value ensures that users log in using an organization. Set this value to `true`, as it’s a prerequisite for Express Configuration. This setting ensures that Express Configuration functions within the context of an organization, which provides secure and structured access control.
 * The `organization_require_behavior` value determines how the organization's login is handled.
-* Ensure that you note down the Okta OIN Integration Client ID after it is created. You need to share this ID with the Okta Express Configuration team to configure your app in the OIN.
+* Ensure that you note down the Okta OIN Integration Client ID after it’s created. You need to share this ID with the Okta Express Configuration team to configure your app in the OIN.
 
 ```bash
 auth0 api post clients \
@@ -250,7 +250,7 @@ Email following information to the Okta Express Configuration team at [expressco
 
 1. Confirmation that you completed all the steps in this guide and your app is ready to support Express Configuration.
 2. Your app name in the OIN.
-3. The Okta OIN Integration Client ID.
+3. The OIN Integration Client ID.
 
 The Okta Express Configuration team configures your app in the OIN and assigns it to your developer org. You can then test the feature by creating an instance of your app in the OIN catalog.
 
@@ -272,13 +272,12 @@ Follow these steps to verify and test the Express Configuration feature:
 
 </div>
 
-1. Assign a test Okta user to this app instance.
-1. Sign in to your Okta Developer Edition org using this test user and click your app tab.
-1. Verify that the user is successfully signed in to your app.
+8. Assign a test Okta user to this app instance.
+9. Sign in to your Okta Developer Edition org using this test user and click your app tab.
+10. Verify that the user is successfully signed in to your app.
 
 **Note**:
-
-When users use Express Configuration to set up SSO for an instance of your app in Okta, the following default configurations are applied to the newly created Okta Workforce Connection in Auth0. Users cannot modify these configurations:
+When users use Express Configuration to set up SSO for an instance of your app in Okta, the following default configurations are applied to the newly created Okta Workforce Connection in Auth0. Users can’t modify these configurations:
 
 **Connection Settings**
 
