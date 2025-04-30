@@ -8,7 +8,7 @@ title: Okta Identity Engine API release notes 2025
 
 ## April
 
-## Weekly release 2025.04.3
+### Weekly release 2025.04.3
 
 #### Bugs fixed in 2025.04.3
 
