@@ -10,7 +10,7 @@ title: Okta Classic Engine API release notes 2025
 
 #### Bugs fixed in 2025.04.3
 
-* Some versions of the Sign-in Widget v3 returned an error when trying to display the consent screen. (OKTA-755616)
+* Some versions of the Sign-In Widget v3 returned an error when trying to display the consent screen. (OKTA-755616)
 
 * Requests made using the `sortBy` parameter with custom attributes to the List all users or List all groups endpoints threw an HTTP 400 Bad Request error. (OKTA-886166)
 
