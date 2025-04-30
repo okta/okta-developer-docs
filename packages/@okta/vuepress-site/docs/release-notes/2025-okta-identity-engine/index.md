@@ -8,6 +8,28 @@ title: Okta Identity Engine API release notes 2025
 
 ## April
 
+## Weekly release 2025.04.3
+
+#### Bugs fixed in 2025.04.3
+
+* Some versions of the Sign-in Widget v3 returned an error when trying to display the consent screen. (OKTA-755616)
+
+* Requests made using the `sortBy` parameter with custom attributes to the List all users or List all groups endpoints threw an HTTP 400 Bad Request error. (OKTA-886166)
+
+* Some admins with a custom role (`okta.apps.read`, `okta.apps.clientCredentials.read` permissions) couldn’t view client secrets for apps that they had permission to view. (OKTA-893511)
+
+* After their accounts were suspended, users who correctly answered their security question were moved to an Active status in API calls. (OKTA-897292)
+
+* The number of groups that could be returned in tokens for a groups claim was still restricted in the authorization code sign-in flow when an inline hook was used. (OKTA-907362)
+
+* When a resource set contained a `devices` resource, the Retrieve a resource endpoint returned a `null` response for the devices `self` object. (OKTA-914364)
+
+* When the List all Subscriptions API with a Workflows Administrator role (`WORKFLOWS_ADMIN`) was called, a 400 Bad Request error was returned. (OKTA-918276)
+
+* When an Okta Classic Engine org was involved in a multi-org Okta-to-Okta authentication flow, and Okta-to-Okta claims sharing was enabled, the `OktaAuth` (SAML) and `okta_auth` (OIDC) claims weren't processed correctly. (OKTA-918969)
+
+* When Okta-to-Okta claims sharing was enabled, federated users who were sourced from a third-party identity provider were incorrectly prompted to provide a password on their hub org. (OKTA-919385)
+
 ### Weekly release 2025.04.2
 
 | Change | Expected in Preview Orgs |
