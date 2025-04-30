@@ -5,7 +5,7 @@ excerpt: Example JWT payload structures when an Okta event is fired.
 
 # SSF Transmitter SET payload structures
 
-Okta uses the [Shared Signals Framework (SSF)](https://sharedsignals.guide/) to send security-related events and other data-subject signals to third-party security vendors.
+Okta uses the [Shared Signals Framework (SSF)](https://openid.net/specs/openid-sharedsignals-framework-1_0-ID3.html) to send security-related events and other data-subject signals to third-party security vendors.
 
 To enable the transmission of signals from Okta, you must create an [SSF stream](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFTransmitter/#tag/SSFTransmitter/operation/createSsfStream) using the [SSF Transmitter API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFTransmitter/). Then, configure the third-party receiver to accept signals from Okta.
 
@@ -35,7 +35,7 @@ The following [Okta events](https://developer.okta.com/docs/reference/api/event-
 
 ## SET JWT schemas
 
-SETs are a type of JSON Web Token (JWT) that must comply with the [SET standard](https://datatracker.ietf.org/doc/html/rfc8417).
+SETs are a type of JSON Web Token (JWT) that must comply with the [SET RFC](https://datatracker.ietf.org/doc/html/rfc8417).
 
 Use the following links to learn more about the SET structure that Okta supports:
 
