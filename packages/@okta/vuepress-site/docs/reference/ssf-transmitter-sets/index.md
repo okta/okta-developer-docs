@@ -60,17 +60,12 @@ The following are examples of the JWT payload when an Okta event is fired.
    "events":{
       "https://schemas.openid.net/secevent/caep/event-type/session-revoked":{
         "subject":{
-          "user":{
-            "format":"iss_sub",
-            "iss":"https://org.okta.com",
-            "sub":"okta-user-id1"
-            }
+          "format":"iss_sub",
+          "iss":"https://org.okta.com",
+          "sub":"okta-user-id1"
          },
         "reason_admin":{
-          "en":"Policy Violation: C076E822"
-         },
-        "reason_user":{
-          "en":"This device is no longer compliant."
+          "en":"User logout from Okta"
          },
         "event_timestamp":1615304991643
       }
