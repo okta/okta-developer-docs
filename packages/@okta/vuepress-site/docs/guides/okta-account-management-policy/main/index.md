@@ -42,7 +42,7 @@ You can also update rules to restore legacy processes. See [Use the legacy optio
 
 ### Use the Okta account management policy with identity verification vendors
 
-You can configure rules for the Okta account management policy that use identity verification vendors (IDVs). Use an IDV for enhanced verification in these use cases. See [Add an enterprise identity verification vendor](/docs/guides/add-id-verification-idp).
+You can configure rules for the Okta account management policy that use identity verification (IDV) vendors. Use an IDV vendor for enhanced verification in these use cases. See [Add an enterprise identity verification vendor](/docs/guides/add-id-verification-idp).
 
 ## Retrieve the Okta account management policy ID
 
