@@ -1,6 +1,6 @@
 At [<StackSnippet snippet="idp" inline />](https://withpersona.com/), create the client app to use for verifying your users.
 
-### Configure an identity verification template
+### Configure an IDV template
 
 1. Create a <StackSnippet snippet="idp" inline /> app.
 
@@ -30,7 +30,7 @@ At [<StackSnippet snippet="idp" inline />](https://withpersona.com/), create the
 
 ### Configure the API key and redirect URI of the <StackSnippet snippet="idp" inline /> app
 
-> **Note:** In your <StackSnippet snippet="idp" inline /> app, ensure that you're in a Sandbox environment before you create an API key.
+> **Note:** In your <StackSnippet snippet="idp" inline /> app, ensure that you're in a sandbox environment before you create an API key.
 
 1. In your <StackSnippet snippet="idp" inline /> app, go to **API** > **API Keys**.
 
@@ -48,8 +48,8 @@ At [<StackSnippet snippet="idp" inline />](https://withpersona.com/), create the
 
 1. Click **Add** after you finish.
 
-### Other IDV configuration
+### Other IDV vendor configuration
 
-There are more settings for the <StackSnippet snippet="idp" inline /> app that you can configure. The steps in this guide address the quickest route to set up <StackSnippet snippet="idp" inline /> as an IDV with Okta.
+There are more settings for the <StackSnippet snippet="idp" inline /> app that you can configure. The steps in this guide address the quickest route to set up <StackSnippet snippet="idp" inline /> as an IDV vendor with Okta.
 
 See the [<StackSnippet snippet="idp" inline /> documentation](https://docs.withpersona.com/docs/getting-started) for more information about other configuration settings.
