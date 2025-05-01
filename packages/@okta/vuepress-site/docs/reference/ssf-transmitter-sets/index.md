@@ -9,6 +9,8 @@ Okta uses the [Shared Signals Framework (SSF)](https://openid.net/specs/openid-s
 
 To enable the transmission of signals from Okta, you must create an [SSF stream](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFTransmitter/#tag/SSFTransmitter/operation/createSsfStream) using the [SSF Transmitter API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFTransmitter/). Then, configure the third-party receiver to accept signals from Okta.
 
+> **Note:** See [Configure a shared signal transmitter](https://help.okta.com/oie/en-us/content/topics/apps/apps-add-applications.htm?cshid=csh-config-ssf-transmitter) to use the Admin Console to configure an SSF transmitter.
+
 ## Supported events
 
 The Okta SSF Transmitter currently supports two types of [Continuous Access Evaluation Protocol (CAEP)](https://openid.net/wg/sharedsignals/) events: [Session Revoked](https://openid.net/specs/openid-caep-1_0-ID2.html#name-session-revoked) and [Credential Change](https://openid.net/specs/openid-caep-1_0-ID2.html#name-credential-change). Those events are mapped to an Okta event.
