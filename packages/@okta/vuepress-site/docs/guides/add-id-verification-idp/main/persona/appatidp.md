@@ -14,7 +14,7 @@ At [<StackSnippet snippet="idp" inline />](https://withpersona.com/), create the
 
 1. Click **Configure**.
 
-1. Scroll down to **Image capture methods** > **Capture Methods**. Turn on **File upload**. Ensure that it’s turned on for at least one of:
+1. Scroll down to **Image capture methods** > **Capture Methods**. Turn on **File upload**. Ensure that it’s turned on for at least one of the following:
 
    * Desktop web
    * Mobile web
