@@ -10,11 +10,10 @@
         @updateHeight="updateHeaderHeight"
       >
         <p>
-          <strong>Coming May 22, 2025!</strong> Okta is introducing a new free org for developers and integrators. Learn more at the <a
-            href="https://developer.okta.com/blog/"
-            target="_blank">Okta Blog</a>
+          <strong>Coming May 22, 2025!</strong> Okta is introducing a new free org for developers and integrators. Learn more at the <a href="https://developer.okta.com/blog/" target="_blank">Okta Blog</a>
         </p>
-      </HeaderBanner>
+      </HeaderBanner
+      >
       <Header />
       <HeaderNav />
     </div>
