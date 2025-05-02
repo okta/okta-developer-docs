@@ -13,6 +13,47 @@ const outputDir = Path.resolve(__dirname, '../dist/');
 
 const WIDGET_VERSION = findLatestWidgetVersion(signInWidgetMajorVersion);
 
+function getOneTrustScripts() {
+  let domainScriptId = "ac20316c-ea73-4ca8-8b3b-be2d16672166-test";
+
+  if (process.env.DEPLOY_ENV == "prod") {
+    domainScriptId = "ac20316c-ea73-4ca8-8b3b-be2d16672166";
+  }
+
+  return [
+    [
+      "script",
+      {
+        src: "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js",
+        type: "text/javascript",
+        charset: "UTF-8",
+        "data-domain-script": domainScriptId,
+      },
+    ],
+    [
+      "script",
+      {
+        type: "text/javascript",
+      },
+      "function OptanonWrapper() { }",
+    ],
+  ];
+}
+
+function getAdobeScripts() {
+  switch (process.env.DEPLOY_ENV) {
+    case "prod":
+      return [
+        ["script", { src: "https://assets.adobedtm.com/6bb3f7663515/7ce314d1f3c9/launch-2f9b28f7d70e.min.js"}],
+      ];
+    case "test":
+    default:
+      return [
+        ["script", {src: "https://assets.adobedtm.com/6bb3f7663515/7ce314d1f3c9/launch-f81506449be8-staging.min.js"}],
+      ];
+  }
+}
+
 function configUris() {
   switch (process.env.DEPLOY_ENV) {
     case 'prod':
@@ -77,7 +118,9 @@ module.exports = ctx => ({
         // END Google Tag Manager
 
       }
-    `]
+    `],
+    ...getOneTrustScripts(),
+    ...getAdobeScripts()
   ],
   title: "Okta Developer",
   description: "Secure, scalable, and highly available authentication and user management for any app.",
