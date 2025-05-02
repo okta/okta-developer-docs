@@ -52,7 +52,7 @@ export default {
   name: "Hero",
   computed: {
     showBanner() {
-      const bannerStartTime = new Date('2025-05-1T01:00:00-04:00');
+      const bannerStartTime = new Date('2025-04-30T01:00:00-04:00');
       const bannerStartTimeEpoch = Math.floor(bannerStartTime.getTime() / 1000);
       const bannerEndTime = new Date('2025-05-22T23:59:00-04:00');
       const bannerEndTimeEpoch = Math.floor(bannerEndTime.getTime() / 1000);
