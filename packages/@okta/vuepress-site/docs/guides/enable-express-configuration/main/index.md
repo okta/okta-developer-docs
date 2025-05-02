@@ -268,7 +268,7 @@ Follow these steps to verify and test the Express Configuration feature:
 1. Go to the **Authentication** tab.
 1. Click **Configure SSO with OIDC** . You’re redirected to sign in to the app and prompted to consent to data sharing.
 
-<div class="half wireframe-border">
+<div class="wireframe-border">
 
 ![Configure SSO with OIDC](/img/oin/ec_configure_SSO_with_OIDC.png "Configure SSO with OIDC")
 
