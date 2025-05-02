@@ -20,9 +20,8 @@ Enable Express Configuration for your Auth0-enabled OIDC OIN integration.
 * An Okta Developer Edition org
 * An admin user in the Okta Developer Edition org with either the super admin or the app and org admin roles
 * Auth0-enabled SaaS app that supports OIDC capability
-* Auth0 Enterprise subscription and an admin account
+* Auth0 Enterprise subscription with the [Auth0 Organizations](https://auth0.com/docs/manage-users/organizations) feature enabled
 * Auth0 [Command Line Interface](https://auth0.github.io/auth0-cli/)(CLI) permission
-* The [Auth0 Organizations](https://auth0.com/docs/manage-users/organizations) feature is enabled
 
 To enable Express Configuration:
 
@@ -97,8 +96,8 @@ Run the following command to create a client. Ensure that you provide configurat
 * The `express_configure_sp_client_id` value refers to the client ID of the app for which you’re enabling Express Configuration.
 * The `organization_usage` value ensures that users log in using an organization. Set this value to `true`, as it’s a prerequisite for Express Configuration. This setting ensures that Express Configuration functions within the context of an organization, which provides secure and structured access control.
 * The `organization_require_behavior` value determines how the organization's login is handled. See [Define Organization Behavior](https://auth0.com/docs/manage-users/organizations/configure-organizations/define-organization-behavior).
-* To complete this step, you require the public key issued by Okta Express Configuration saved in the file named - okta-public-key.pem
-* Ensure that you note down the Okta OIN Integration Client ID after it’s created. You need to share this ID with the Okta Express Configuration team to configure your app in the OIN.
+* To complete this step, you require the public key provided by Okta Express Configuration saved in the file named `okta-public-key.pem`.
+* Ensure that you note down the Okta OIN Integration Client app client ID after it’s created. Share this app client ID with the Okta Express Configuration team to configure your app in the OIN.
 
 ```bash
 auth0 api post clients \
@@ -134,7 +133,7 @@ auth0 api post clients \
 
 ### Assign Client Credentials to the Okta OIN Integration Client
 
-The Client Credentials authorize `Okta OIN Integration Client` to access the Auth0 Management API with defined permissions. Using these tokens, OIN can create and manage connections on behalf of the organizations. These tokens securely invokes your Auth0 tenant's Management API to create and update [Okta Workforce connections](https://auth0.com/docs/authenticate/identity-providers/enterprise-identity-providers/okta).
+The Client Credentials authorize `Okta OIN Integration Client` to access the Auth0 Management API with defined permissions. Using these tokens, OIN can create and manage connections on behalf of the organizations. These tokens securely invoke your Auth0 tenant's Management API to create and update [Okta Workforce connections](https://auth0.com/docs/authenticate/identity-providers/enterprise-identity-providers/okta).
 
 Run the following commands to create the Client Credentials. Ensure that you update the `client_id` value with the OIDC app client ID and include the Auth0 domain in the `audience` parameter.
 
@@ -234,7 +233,7 @@ auth0 api patch \
 
 ## Step 6: Update tenant settings
 
-Note: This step is recommended but not required for enabling Express Configuration.
+**Note**: This step is recommended but not required for enabling Express Configuration.
 
 Update tenant settings to display the scope details on the consent page. This improves the user experience by providing information about the permissions being granted. Use the `use_scope_descriptions_for_consent` parameter to ensure that scope descriptions are shown instead of raw scope names.
 
@@ -267,7 +266,7 @@ Follow these steps to verify and test the Express Configuration feature:
 1. Open your app's detail page and click **Add Integration**.
 1. In **General Settings**, click **Done** to create an instance of your OIN app.
 1. Go to the **Authentication** tab.
-1. Click **Configure SSO with OIDC** and complete the authorization flow.
+1. Click **Configure SSO with OIDC** . You’re redirected to sign in to the app and prompted to consent to data sharing.
 
 <div class="half wireframe-border">
 
@@ -281,19 +280,17 @@ Follow these steps to verify and test the Express Configuration feature:
 
 ## Additional information
 
-When admins use Express Configuration to set up SSO for an instance of your app in Okta, the following default configurations are applied to the newly created Okta Workforce Connection in Auth0.
+When admins use Express Configuration to set up SSO for an instance of your app in Okta, the following default configurations are applied to the newly created Okta Workforce Connection in Auth0. See [Enable Organization Connections](https://auth0.com/docs/manage-users/organizations/configure-organizations/enable-connections).
 
-**Connection settings**
+**Connection Settings**
+
   * **Scopes**: `openid email profile`
   * **User Mapping**: `{"mapping_mode" : "basic_profile"}`
   * **Connection Profile**: `{"pkce":"auto"}`
-  * **Login Experience**
-    * **Home Realm Discovery**: Empty (not supported)
-  * **Organizations**
-    * **Membership On Authentication**: Enable **Auto-Membership**
-    * **Display Connection as a button**: Enabled in login experience customization
 
-* **Connection Button**
-    * **Display connection as a button**: Disabled (Enabled through **Organizations**)
-    * **Button Display Name**: Okta
-    * **Button Logo URL**: `https://cdn.brandfolder.io/R30ALRIS/at/scvv8tj7w545j3r5gmxq4jrb/Okta_Aura_Logomark_Black_RGB.png` (Okta brand logo)
+**Connection Login Experience**
+
+  * **Home Realm Discovery**: Empty (not supported)
+  * **Display Connection as a button**: Enable
+  * **Button display name**: Okta
+  * **Button logo URL**: `https://cdn.brandfolder.io/R30ALRIS/at/scvv8tj7w545j3r5gmxq4jrb/Okta_Aura_Logomark_Black_RGB.png` (Okta brand logo)

@@ -6,15 +6,15 @@ excerpt: An overview of Express Configuration.
 
 # Express Configuration
 
-Express Configuration lets enterprise customers quickly add an instance of Auth0-enabled OIDC apps published in the Okta Integration Network (OIN) catalog to their Okta org. This process uses automated data sharing between Okta and Auth0, reducing manual steps and minimizing errors when sharing configuration information.
+Express Configuration is a feature designed to automate the setup of SSO for instances of OIN SaaS integrations by enterprise customers with minimal manual effort. It allows enterprise customers to securely configure OIDC integrations without copying and pasting configuration values between Okta and Auth0-enabled apps.
 
 **Notes**:
 
-* Express Configuration is available only for OIDC integrations that use Auth0 as the Service Provider. This feature isn't available for apps that aren't powered by Auth0.
+* Express Configuration is available only for OIDC integrations that use Auth0 as the Service Provider. This feature isn't available for apps that aren't Auth0-enabled.
 * Express Configuration is available for OIN apps that only support SSO (SAML and OIDC, or OIDC only). Any apps that support SCIM aren't eligible currently.
 * Okta admins can use Express Configuration to add instances of OIDC integrations that are published in the OIN. To submit the app to the OIN catalog, see [Publish an OIN integration](https://developer.okta.com/docs/guides/submit-app-overview/)
-* Express Configuration doesn't support apps with the Login Flow set to **Prompt with Credentials**.
-* If the Login Flow is set to **No Prompt**, ensure that your app is configured to pass the correct org to your Auth0 tenant.
+* Express Configuration doesn't support apps with the login flow set to **Prompt with Credentials**.
+* If the login flow is set to **No Prompt**, ensure that your app is configured to pass the correct org to your Auth0 tenant.
 
 To enable the Express Configuration feature, contact the Okta Express Configuration team by emailing them at [expressconfig@okta.com](mailto:expressconfig@okta.com) and provide the following information:
 
