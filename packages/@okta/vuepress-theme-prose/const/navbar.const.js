@@ -399,7 +399,7 @@ export const guides = [
             guideName: "policy-simulation"
           },
           {
-            title: "Add an external Identity Provider",
+            title: "Add an external identity provider",
             path: "/docs/guides/identity-providers/",
             subLinks: [
               {
@@ -419,6 +419,10 @@ export const guides = [
                 guideName: "add-logingov-idp"
               },
             ],
+          },
+          {
+            title: "Integrate Okta with identity verification vendors",
+            guideName: "idv-integration"
           },
           { title: "Configure AMR claims mapping", guideName: "configure-amr-claims-mapping", hidden: true },
           { title: "Configure claims sharing", guideName: "configure-claims-sharing" },
