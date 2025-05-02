@@ -11,8 +11,8 @@ Express Configuration lets enterprise customers quickly add an instance of Auth0
 **Notes**:
 
 * Express Configuration is available only for OIDC integrations that use Auth0 as the Service Provider. This feature isn't available for apps that aren't powered by Auth0.
-* Express Configuration supports OIN apps use only SSO (SAML and OIDC, or OIDC only). Any apps that support SCIM aren't eligible currently.
-* Okta admins can use Express Configuration to add instances of integrations that are published in the OIN. To submit the app to the OIN catalog, see [Publish an OIN integration](https://developer.okta.com/docs/guides/submit-app-overview/)
+* Express Configuration is available for OIN apps that only support SSO (SAML and OIDC, or OIDC only). Any apps that support SCIM aren't eligible currently.
+* Okta admins can use Express Configuration to add instances of OIDC integrations that are published in the OIN. To submit the app to the OIN catalog, see [Publish an OIN integration](https://developer.okta.com/docs/guides/submit-app-overview/)
 * Express Configuration doesn't support apps with the Login Flow set to **Prompt with Credentials**.
 * If the Login Flow is set to **No Prompt**, ensure that your app is configured to pass the correct org to your Auth0 tenant.
 
@@ -26,7 +26,7 @@ After confirming your app's eligibility, the Okta Express Configuration team pro
 
 ## Benefits
 
-Express Configuration allows Okta admin to automate the setup of an instance of OIN OIDC integration, leading to faster, more secure, and scalable SaaS deployment:
+Express Configuration allows Okta admin to automate the setup of an instance of an OIN OIDC integration, leading to faster, more secure, and scalable SaaS deployment:
 
 * **Faster configuration**: Reduces time required to set up an instance of OIN OIDC integration by automating the exchange of configuration information between Okta and Auth0. It supports OIDC capabilities through a single control panel, significantly speeding up the overall configuration process for OIN OIDC integration instances.
 * **Secure data handling**: Uses OAuth 2.0 consent flows for secure and authorized sharing of sensitive configuration data. This approach ensures secure and authorized data sharing and reduces potential errors related to credentials and configuration settings.
