@@ -25,6 +25,8 @@ Expressions can reference, transform, and combine attributes before storing them
 
 When you create an Okta expression, you can reference any attribute that lives on an Okta user profile or app user profile.
 
+> **Note:** If you use a custom attribute that's the same name as a base attribute, the attribute name is case-insensitive. For example `firstName` and `FirstName` will be treated as the same. This is true for both Okta user profiles and app user profiles.
+
 ### Okta user profile
 
 Every user has an Okta user profile. The user profile is the central source of truth for the core attributes of a user. To reference a user profile attribute, specify `user.` and the attribute variable name. For a list of core user profile attributes, see the [`profile` parameter properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser!c=200&path=profile&t=response).
