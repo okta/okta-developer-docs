@@ -25,6 +25,8 @@ Okta manages connections to other IdPs for your app and sits between your app an
 
   > **Note:** Social and OpenID Connect IdPs store access tokens that allow subsequent calls to IdPs after the user is authorized. For example, the token may contain the permission to add events to a user's Google calendar. After authentication, your app can use the token on more calls to add events to the user's Google calendar on the user's behalf.
 
+* You can add connections to identity verification (IDV) vendors which work like IdPs with a few key differences. IDV vendors verify your user’s identities by requiring them to submit a proof of identity. The proof of identity can be matching a user’s digital identity against a trusted data source or requiring a user to take a selfie as a liveliness check. You can only use IDV vendors with the [Okta account management policy](/docs/guides/okta-account-management-policy/main/).
+
 * You can also configure federation [between Okta orgs](/docs/guides/add-an-external-idp/oktatookta/main/) using OIDC or SAML.
 
 Adding any of these IdPs allows users to sign in to your app using their credentials from a specific IdP.
