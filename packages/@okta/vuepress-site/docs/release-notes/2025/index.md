@@ -6,6 +6,43 @@ title: Okta Classic Engine API release notes 2025
 
 ## April
 
+### Weekly release 2025.04.3
+
+#### Bugs fixed in 2025.04.3
+
+* Some versions of the Sign-In Widget v3 returned an error when trying to display the consent screen. (OKTA-755616)
+
+* Requests made using the `sortBy` parameter with custom attributes to the List all users or List all groups endpoints threw an HTTP 400 Bad Request error. (OKTA-886166)
+
+* Some admins with a custom role (`okta.apps.read`, `okta.apps.clientCredentials.read` permissions) couldn’t view client secrets for apps that they had permission to view. (OKTA-893511)
+
+* The number of groups that could be returned in tokens for a groups claim was still restricted in the authorization code sign-in flow when an inline hook was used. (OKTA-907362)
+
+* When a resource set contained a `devices` resource, the Retrieve a resource endpoint returned a `null` response for the devices `self` object. (OKTA-914364)
+
+* When the List all Subscriptions API with a Workflows Administrator role (`WORKFLOWS_ADMIN`) was called, an HTTP 400 Bad Request error was returned. (OKTA-918276)
+
+* Users received an HTTP 400 Bad Request error during self-service registration in preview orgs with a Registration Inline hook. (OKTA-918774)
+
+* When an Okta Classic Engine org was involved in a multi-org Okta-to-Okta authentication flow, and Okta-to-Okta claims sharing was enabled, the `OktaAuth` (SAML) and `okta_auth` (OIDC) claims weren't processed correctly. (OKTA-918969)
+
+### Weekly release 2025.04.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Subscriptions API no longer supports OKTA_ISSUE](#subscriptions-api-no-longer-supports-okta-issue)| April 9, 2025 |
+| [Bugs fixed in 2025.04.2](#bugs-fixed-in-2025-04-2)| April 16, 2025 |
+
+#### Subscriptions API no longer supports OKTA_ISSUE
+
+The Subscriptions API no longer supports the `notificationType` value `OKTA_ISSUE`. <!-- OKTA-OKTA-896136 and OKTA-917819 -->
+
+#### Bugs fixed in 2025.04.2
+
+* Email notifications weren’t sent to end users when security methods were enrolled using POST requests to the `/users/{userId}/factors` endpoint and the `activate` parameter was set to `true`. (OKTA-891169)
+
+* Updates made to ACS URIs for an app using the Applications API (PUT `/apps/{appId}`) didn't take effect if the app was created without those URLs. (OKTA-909218)
+
 ### Weekly release 2025.04.1
 
 | Change | Expected in Preview Orgs |

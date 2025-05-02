@@ -29,7 +29,7 @@
 3. Update the template to support sign-in and sign-out actions by updating the `<script>` element as follows:
 
    ```js
-   <script>
+   <script setup>
    import { useAuth } from '@okta/okta-vue';
 
    defineProps({

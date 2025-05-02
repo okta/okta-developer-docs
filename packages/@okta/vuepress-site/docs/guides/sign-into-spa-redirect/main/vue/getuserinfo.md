@@ -18,10 +18,10 @@
 
 3. Create another file: `src/components/Profile.vue`
 
-2. Give it the following content:
+4. Give it the following content:
 
    ```ts
-   <script>
+   <script setup>
    import { ref, onMounted } from 'vue'
    import { useAuth } from '@okta/okta-vue';
 
@@ -53,15 +53,38 @@
        </tbody>
      </table>
    </template>
+
+    <style scoped>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th {
+      font-weight: bold;
+      text-align: left;
+      border-bottom: 2px solid #ddd;
+      padding: 8px;
+    }
+
+    td {
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    td:first-child {
+      font-weight: bold;
+    }
+    </style>
    ```
 
-3. Go back to `src/router/index.js` and import this new component:
+5. Go back to `src/router/index.js` and import this new component:
 
    ```ts
    import ProfileView from '../views/ProfileView.vue'
    ```
 
-4. Add a new route to the `index.js` `routes` array:
+6. Add a new route to the `index.js` `routes` array:
 
    ```ts
    {

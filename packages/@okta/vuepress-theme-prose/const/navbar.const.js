@@ -399,16 +399,16 @@ export const guides = [
             guideName: "policy-simulation"
           },
           {
-            title: "Integrate identity verification vendors",
-            guideName: "idv-integration",
-          },
-          {
-            title: "Add an external Identity Provider",
+            title: "Add an external identity provider",
             path: "/docs/guides/identity-providers/",
             subLinks: [
               {
-                title: "Enterprise Identity Provider",
+                title: "Enterprise identity provider",
                 guideName: "add-an-external-idp"
+              },
+              {
+                title: "Enterprise identity verification vendor",
+                guideName: "add-id-verification-idp"
               },
               {
                 title: "Social login",
@@ -523,7 +523,7 @@ export const guides = [
             guideName: "device-authorization-grant",
           },
           {
-            title: "Configure Direct Auth grant types",
+            title: "Configure Direct Authentication",
             guideName: "configure-direct-auth-grants",
           },
           {

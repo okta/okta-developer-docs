@@ -22,11 +22,11 @@ If any org-wide rate limit is exceeded, an HTTP 429 status code is returned. You
 > * Review the [Rate limit best practices](/docs/reference/rl-best-practices/) for further information on monitoring and managing your rate limits.
 >
 
-## API rate limits by token
+## API rate limits by API token or OAuth 2.0 app
 
-Okta API tokens are, by default, configured to have 50% of an API endpoint's rate limit when created through the Admin Console. This configuration avoids one API token exceeding the endpoint's rate limit violation in an org with multiple API tokens.
+By default, Okta API tokens and OAuth 2.0 apps are configured to use 50% of an API endpoint's rate limit when they're created through the Admin Console. This configuration prevents a single API token or OAuth 2.0 app from exceeding the endpoint's rate limit in an org with multiple API tokens or apps.
 
-To adjust the default API token capacity value from 50%, you can edit the percentage value in the Admin Console. See [Set token rate limits](https://help.okta.com/okta_help.htm?id=ext_API#set-token-rate-limits). Reducing the capacity percentage prevents one API token from consuming the entire endpoint rate, assists with investigating rate-limit violations, and prevents future violations.
+To adjust the default rate limit capacity for API tokens or OAuth 2.0 apps from 50%, you can edit the percentage value in the Admin Console. See [Set token rate limits](https://help.okta.com/okta_help.htm?type=oie&id=ext_API) for API tokens and [Set the app rate limits](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_App_Integration_Wizard-oidc) for OAuth 2.0 apps. You can also use the [Principal Rate Limits API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PrincipalRateLimit/#tag/PrincipalRateLimit) to configure your API token or OAuth 2.0 app. Reducing the capacity percentage helps prevent a single API token or OAuth 2.0 app from consuming the entire endpoint rate, assists with investigating rate-limit violations, and reduces the likelihood of future violations.
 
 ## Rate limit monitoring widget
 

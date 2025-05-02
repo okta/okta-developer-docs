@@ -11,7 +11,7 @@ The rate limit dashboard is a tool that helps you understand the use of each API
 * The ability to track the rate limit's consumption.
 * The ability to change rate limit settings and customize the warning threshold.
 * Notification alerts when you're about to hit or have hit the rate limit or exceeded the rate limit (burst rate limits).
-* The ability to track rate limits by API token, OAuth 2.0 application, or IP address.
+* The ability to track rate limits by API token, OAuth 2.0 app, or IP address.
 * The ability for you to investigate the issue when an API has reached the rate limit.
 
 The following describes some typical reasons for viewing the dashboard:
@@ -62,7 +62,7 @@ See [Change rate limit settings](#change-rate-limit-settings).
 
 #### Event count graphs
 
-The Event Count graph plots the number of violations, bursts, and warnings over the selected time period, which can be the last 24 hours, last 7 days, last month, or the last 3 months. The Events per API bar graph shows the top five number of events by API over the same time period.
+The event count graph plots the number of violations, bursts, and warnings over the selected time period, which can be the last 24 hours, the last seven days, last month, or the last three months. The events per API bar graph shows the top five number of events by API over the same time period.
 
 <div class="three-quarter">
 
@@ -88,7 +88,7 @@ The APIs table shows each API and its corresponding rate limit for your org. The
 
 </div>
 
-You can sort on all the columns. The Trendline is sorted by the current usage. Use the **Filters** dropdown menu to filter between all APIs, those that have rate-limit multipliers applied or are multiplier eligible, or those that are ineligible.
+You can sort on all the columns. The trendline is sorted by the current use. Use the **Filters** dropdown menu to filter between all APIs, those that have rate-limit multipliers applied or are multiplier eligible, or those that are ineligible.
 
 Each API is a link that navigates you to the [dashboard view of API rate limits and violations](#api-rate-limits-and-violations) where you can obtain more details on the API.
 
@@ -177,7 +177,7 @@ A customer can also purchase the rate limit multiplier, which is an add-on featu
 
 </div>
 
-The key benefit of purchasing the rate limit multiplier, therefore getting an increased rate limit, isn't to stop end users from using an application. The rate limit multiplier is based on the customer's org and what the expected use would be. If a customer has dynamic scale, the info icon beside **Rate Limit** in the overview pane indicates which tier was purchased, and the graphs in the [Rate limit usage over time pane](#rate-limit-usage-over-time-pane) reflect the applied rate limit multiplier. To purchase the rate limit multiplier, either create a support ticket or contact your customer support representative.
+The key benefit of purchasing the rate limit multiplier, therefore getting an increased rate limit, isn't to stop end users from using an app. The rate limit multiplier is based on the customer's org and expected use. If a customer has dynamic scale, the info icon beside **Rate Limit** in the overview pane indicates which tier was purchased, and the graphs in the [Rate limit usage over time pane](#rate-limit-usage-over-time-pane) reflect the applied rate limit multiplier. To purchase the rate limit multiplier, either create a support ticket or contact your customer support representative.
 
 #### Rate limit usage over time pane
 
@@ -201,9 +201,9 @@ The timeline graph shows use over the last week. When a rate violation occurs, y
 
 ##### Bar graph
 
-The bar graph shows either the top 10 IP addresses, top 10 API tokens, or the top 10 OAuth 2.0 applications that consume the most traffic for the API. This view helps you identify the cause of any spikes in traffic.
+The bar graph shows either the top 10 IP addresses, the top 10 API tokens, or the top 10 OAuth 2.0 apps that consume the most traffic for the API. This view helps you identify the cause of any spikes in traffic.
 
-Display the desired bar graph by selecting **Top Requests by IP**, **Top Requests by API Token**, or **Top Requests by Application** in the dropdown menu.
+Display the desired bar graph by selecting **Top Requests by IP**, **Top Requests by API Token**, or **Top Requests by Application** (OAuth 2.0 app) in the dropdown menu. See [API rate limits by API token or OAuth 2.0 app](/docs/reference/rate-limits/#api-rate-limits-by-api-token-or-oauth-2-0-app).
 
 Click an IP address, API token, or Application bar to view the associated traffic on the line graph.
 
@@ -229,12 +229,12 @@ The timeline graph gives you an overview of use from the days in the past week s
 
 #### Bar graph view
 
-The bar graph compares a rogue IP or app with other IPs or apps. For example, the bar graph can show a single rogue IP that is responsible for a spike in traffic that appears in the line graph. It can also show that many users are signing in at the same time, perhaps to attend a company-wide meeting or to check out a special offer that was delivered in a mass email to a company's clients.
+The bar graph compares a rogue IP or app with other IPs or apps. For example, the bar graph can show a single rogue IP that’s responsible for a spike in traffic that appears in the line graph. It can also show that many users are signing in at the same time, perhaps to attend a company-wide meeting or to check out a special offer that was delivered in a mass email to a company's clients.
 
 ### Potential next steps
 
-If you find that the rate limit use is high, you may want to adjust your rate limit maximums. If your company is planning an upcoming event, such as an upcoming marketing campaign, you may want to figure out the rate limit capacity that you'd need. In both cases, Okta recommends that you contact Okta support to determine and adjust your rate limits. See [How to Request a Temporary Rate Limit Increase](https://support.okta.com/help/s/article/How-can-we-request-to-have-the-rate-limit-for-our-org-temporarily-increased?language=en_US).
+If you find that the rate limit use is high, you may want to adjust your rate limit maximums. If your company is planning an upcoming event, such as an upcoming marketing campaign, you may want to figure out the rate limit capacity that you'd need. In both cases, Okta recommends that you contact Okta Support to determine and adjust your rate limits. See [How to Request a Temporary Rate Limit Increase](https://support.okta.com/help/s/article/How-can-we-request-to-have-the-rate-limit-for-our-org-temporarily-increased?language=en_US).
 
-If the usage is high over a long period, you may need to lower the usage. This means that if high traffic usage points to a particular offender, you would need to inform or block the offender (such as a malfunctioning app, a bad script, or a rogue user) that is causing the traffic. For example, you can either reach out to the team that writes the script or block the user or application that is causing the traffic.
+If the use is high over a long period, you may need to lower the use. This means that if high traffic use points to a particular offender, you would need to inform or block the offender (such as a malfunctioning app, a bad script, or a rogue user) that’s causing the traffic. For example, you can either reach out to the team that writes the script or block the user or app that’s causing the traffic.
 
 See also [Rate limit best practices](/docs/reference/rl-best-practices/).
