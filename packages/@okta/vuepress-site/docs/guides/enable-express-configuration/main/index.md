@@ -96,7 +96,7 @@ Run the following command to create a client. Ensure that you provide configurat
 * The `express_configure_sp_client_id` value refers to the client ID of the app for which you’re enabling Express Configuration.
 * The `organization_usage` value ensures that users log in using an organization. Set this value to `true`, as it’s a prerequisite for Express Configuration. This setting ensures that Express Configuration functions within the context of an organization, which provides secure and structured access control.
 * The `organization_require_behavior` value determines how the organization's login is handled. See [Define Organization Behavior](https://auth0.com/docs/manage-users/organizations/configure-organizations/define-organization-behavior).
-* To complete this step, you require the public key provided by Okta Express Configuration saved in the file named `okta-public-key.pem`.
+* To complete this step, you require the public key provided by Okta Express Configuration saved in the `okta-public-key.pem` file.
 * Ensure that you note down the Okta OIN Integration Client app client ID after it’s created. Share this app client ID with the Okta Express Configuration team to configure your app in the OIN.
 
 ```bash
@@ -185,12 +185,12 @@ Create a file named `add_post_login_action.js` and add the following code:
   };
 ```
 
-Run the following command to create a post-login action named `express_configure_postlogin_action` that is triggered after a user logs in.
+Run the following command to create the `express_configure_postlogin_action` post-login action that is triggered after a user logs in.
 
 **Note**: 
 Replace the following values:
-  * `SERVICE_INIT_LOGIN_URL`: Use the URL where the end users use to log in to your app. For example, `https://example.com/login`.
-  * `$AUTH0_DOMAIN`: Use your tenant domain.
+  * `SERVICE_INIT_LOGIN_URL`: The URL that the end users use to log in to your app. For example, `https://example.com/login`.
+  * `$AUTH0_DOMAIN`: Your tenant domain.
 
 ```bash
 auth0 actions create \
@@ -205,7 +205,7 @@ auth0 actions create \
 
 ### Deploy the action
 
-Run the following command to deploy the action. From the prompt, select the action for the Express Configuration that was created in the previous step.
+Run the following command to deploy the action. Select the action from the prompt for the Express Configuration created in the previous step.
 
 ``` bash
 auth0 actions deploy
@@ -213,7 +213,7 @@ auth0 actions deploy
 
 ### Attach the action to a flow
 
-Attach the action to a flow so that it executes as part of your tenant's traffic. See [Auth0 Actions](https://auth0.com/docs/customize/actions) to add action using the Auth0 dashboard.
+Attach the action to a flow to execute as part of your tenant's traffic. See [Auth0 Actions](https://auth0.com/docs/customize/actions) to add action using the Auth0 dashboard.
 
 ```bash
 auth0 api patch \
@@ -233,9 +233,9 @@ auth0 api patch \
 
 ## Step 6: Update tenant settings
 
-**Note**: This step is recommended but not required for enabling Express Configuration.
+**Note**: Okta recommends completing this step even though it is not necessary to enable Express Configuration.
 
-Update tenant settings to display the scope details on the consent page. This improves the user experience by providing information about the permissions being granted. Use the `use_scope_descriptions_for_consent` parameter to ensure that scope descriptions are shown instead of raw scope names.
+Update tenant settings to display the scope details on the consent page. These settings improves the user experience by providing information about the permissions being granted. Use the `use_scope_descriptions_for_consent` parameter to ensure that scope descriptions are shown instead of raw scope names.
 
 ```bash
 auth0 api patch tenants/settings \
@@ -248,7 +248,7 @@ auth0 api patch tenants/settings \
 
 ## Step 7: Email the Okta Express Configuration team
 
-Email following information to the Okta Express Configuration team at [expressconfig@okta.com](mailto:expressconfig@okta.com):
+Email the following information to the Okta Express Configuration team at [expressconfig@okta.com](mailto:expressconfig@okta.com):
 
 * Confirmation that you completed all the steps in this guide and your app is ready to support Express Configuration.
 * Your app name in the OIN.
