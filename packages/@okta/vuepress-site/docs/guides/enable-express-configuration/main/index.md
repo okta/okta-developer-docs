@@ -246,7 +246,7 @@ auth0 api patch tenants/settings \
   }'
 ```
 
-## Step 7: Email the Okta Express Configuration team
+## Email the Okta Express Configuration team
 
 Email the following information to the Okta Express Configuration team at [expressconfig@okta.com](mailto:expressconfig@okta.com):
 
