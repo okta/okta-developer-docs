@@ -23,7 +23,6 @@ Enable Express Configuration for your Auth0-enabled OIDC OIN integration.
 * Auth0 Enterprise subscription with the [Auth0 Organizations](https://auth0.com/docs/manage-users/organizations) feature enabled
 * Auth0 [Command Line Interface](https://auth0.github.io/auth0-cli/)(CLI) permission
 
-To enable Express Configuration:
 
 ## Authenticate with Auth0 CLI
 
