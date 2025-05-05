@@ -156,7 +156,7 @@ auth0 api post client-grants \
 
 ## Configure and deploy an action
 
-### Add post-login action
+### Add a post-login action
 
 [Create a custom post-login action](https://auth0.github.io/auth0-cli/auth0_actions_create.html) to add custom claims (`sp_client_id`, `management_api_audience`, and `init_login_uri`) to the access token that Auth0 issues after a user successfully logs in. These claims provide Okta with the necessary information for the Express Configuration process.
 
