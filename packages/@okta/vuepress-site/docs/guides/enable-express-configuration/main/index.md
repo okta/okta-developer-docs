@@ -260,7 +260,7 @@ The Okta Express Configuration team configures your app in the OIN and assigns i
 
 Follow these steps to verify and test the Express Configuration feature:
 
-1. Sign in to your [Okta Developer Edition org](/login/) as a user with either the super admin (`SUPER_ADMIN`) role, or the app (`APP_ADMIN`) and org (`ORG_ADMIN`) admin [roles](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
+1. Sign in to your [org](/login/) as a user with either the super admin (`SUPER_ADMIN`) role, or the app (`APP_ADMIN`) and org (`ORG_ADMIN`) admin [roles](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
 1. Go to **Applications** > **Applications** in the Admin Console.
 1. Click **Browse App Catalog** and search for your app.
 1. Open your app's detail page and click **Add Integration**.
