@@ -11,7 +11,7 @@ Express Configuration is a feature designed to automate the setup of SSO for ins
 **Notes**:
 
 * Express Configuration is available only for OIDC integrations that use Auth0 as the Service Provider. This feature isn't available for apps that aren't Auth0-enabled.
-* Express Configuration is available for OIN apps that only support SSO (SAML and OIDC, or OIDC only). Any apps that support SCIM aren't eligible currently.
+* Express Configuration is available for OIN apps that support SSO (SAML and OIDC, or OIDC only). Any apps that support SCIM aren't eligible.
 * Okta admins can use Express Configuration to add instances of OIDC integrations that are published in the OIN. To submit the app to the OIN catalog, see [Publish an OIN integration](https://developer.okta.com/docs/guides/submit-app-overview/)
 * Express Configuration doesn't support apps with the login flow set to **Prompt with Credentials**.
 * If the login flow is set to **No Prompt**, ensure that your app is configured to pass the correct org to your Auth0 tenant.
