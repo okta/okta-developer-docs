@@ -26,7 +26,7 @@ After confirming your app's eligibility, the Okta Express Configuration team pro
 
 ## Benefits
 
-Express Configuration allows Okta admin to automate the setup of an instance of an OIN OIDC integration, leading to faster, more secure, and scalable SaaS deployment:
+Express Configuration allows an Okta admin to automate the setup of an OIN OIDC instance integration. This leads to faster, secure, and scalable SaaS deployments:
 
 * **Faster configuration**: Reduces time required to set up an instance of OIN OIDC integration by automating the exchange of configuration information between Okta and Auth0. It supports OIDC capabilities through a single control panel, significantly speeding up the overall configuration process for OIN OIDC integration instances.
 * **Secure data handling**: Uses OAuth 2.0 consent flows for secure and authorized sharing of sensitive configuration data. This approach also reduces potential errors related to credentials and configuration settings.
