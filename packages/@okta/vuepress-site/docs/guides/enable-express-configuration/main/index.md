@@ -36,7 +36,7 @@ auth0 login --domain $AUTH0_DOMAIN --scopes update:tenant_settings --scopes crea
 
 ## Create a resource server in Auth0
 
-The resource server refers to Okta's Express Configuration API. When you authorize Okta for this resource server using OAuth 2.0, Okta receives an access token and uses it to access user and organization information. 
+The resource server refers to Okta Express Configuration API. When you authorize Okta for this resource server using OAuth 2.0, Okta receives an access token and uses it to access user and org information.
 
 Run the following command to [create the resource server](https://auth0.github.io/auth0-cli/auth0_api.html) in Auth0:
 
@@ -130,7 +130,7 @@ auth0 api post clients \
   }'
 ```
 
-### Assign Client Credentials to the Okta OIN Integration Client
+### Assign client credentials to the Okta OIN Integration Client
 
 The Client Credentials authorize `Okta OIN Integration Client` to access the Auth0 Management API with defined permissions. Using these tokens, OIN can create and manage connections on behalf of the organizations. These tokens securely invoke your Auth0 tenant's Management API to create and update [Okta Workforce connections](https://auth0.com/docs/authenticate/identity-providers/enterprise-identity-providers/okta).
 
