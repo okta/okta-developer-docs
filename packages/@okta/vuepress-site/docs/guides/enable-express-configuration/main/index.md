@@ -77,7 +77,7 @@ auth0 roles create \
 
 ### Assign permission to the role
 
-Assign the `expressconfigure:sso` permission to the specified role. Replace `$ROLE_ID` with the ID of the role for which you want to grant permission.
+Assign the `expressconfigure:sso` permission to the specified role. Replace `$ROLE_ID` with the role ID that you want to grant permission to.
 
 ```bash
 auth0 roles permissions add "$ROLE_ID" \
