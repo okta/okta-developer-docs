@@ -231,7 +231,7 @@ auth0 api patch \
   }'
 ```
 
-## Step 6: Update tenant settings
+## Update tenant settings
 
 **Note**: Okta recommends completing this step even though it's not required to enable Express Configuration.
 
