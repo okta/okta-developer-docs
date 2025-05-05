@@ -35,7 +35,7 @@ To enable Express Configuration:
 auth0 login --domain $AUTH0_DOMAIN --scopes update:tenant_settings --scopes create:client_grants --scopes create:client_credentials --scopes update:client_credentials
 ```
 
-## Step 2: Create a resource server in Auth0
+## Create a resource server in Auth0
 
 The resource server refers to Okta's Express Configuration API. When you authorize Okta for this resource server using OAuth 2.0, Okta receives an access token and uses it to access user and organization information. 
 
