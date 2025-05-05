@@ -155,7 +155,7 @@ auth0 api post client-grants \
   }'
 ```
 
-## Step 5: Configure and deploy action
+## Configure and deploy an action
 
 ### Add post-login action
 
