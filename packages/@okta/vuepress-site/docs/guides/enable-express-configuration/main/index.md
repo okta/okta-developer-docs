@@ -85,7 +85,7 @@ auth0 roles permissions add "$ROLE_ID" \
   --permissions "expressconfigure:sso"
 ```
 
-## Step 4: Create a client
+## Create a client
 
 Register the OIN as an OAuth client in your Auth0 tenant. This client allows Okta to securely interact with Auth0 APIs.
 
