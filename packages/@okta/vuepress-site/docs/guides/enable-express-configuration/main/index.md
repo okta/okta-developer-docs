@@ -61,7 +61,7 @@ auth0 api post resource-servers \
   }'
 ```
 
-## Step 3: Configure permission and role
+## Configure permissions and roles
 
 ### Create a role
 
