@@ -275,7 +275,7 @@ Follow these steps to verify and test the Express Configuration feature:
 </div>
 
 8. Assign a test Okta user to this app instance.
-9. Sign in to your Okta Developer Edition org using this test user and click your app's tile in your end user dashboard.
+9. Sign in to your org using this test user and click your app's tile in the End-User Dashboard.
 10. Verify that the user is successfully signed in to your app.
 
 ## Additional information
