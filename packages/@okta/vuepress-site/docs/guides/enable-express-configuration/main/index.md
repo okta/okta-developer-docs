@@ -18,7 +18,7 @@ Enable Express Configuration for your Auth0-enabled OIDC OIN integration.
 **What you need**
 
 * An Okta Developer Edition org
-* An admin user in the Okta Developer Edition org with either the super admin or the app and org admin roles
+* An admin user in the org with either the super admin or the app and org admin roles
 * Auth0-enabled SaaS app that supports OIDC capability
 * Auth0 Enterprise subscription with the [Auth0 Organizations](https://auth0.com/docs/manage-users/organizations) feature enabled
 * Auth0 [Command Line Interface](https://auth0.github.io/auth0-cli/)(CLI) permission
