@@ -41,7 +41,7 @@ The resource server refers to Okta's Express Configuration API. When you authori
 
 Run the following command to [create the resource server](https://auth0.github.io/auth0-cli/auth0_api.html) in Auth0:
 
-**Note**: The `identifier` parameter is a unique URI that identifies the resource server. The `expressconfigure:sso` scope allows Okta to configure Single Sign-On (SSO) settings.
+> **Note**: The `identifier` parameter is a unique URI that identifies the resource server. The `expressconfigure:sso` scope allows Okta to configure Single Sign-On (SSO) settings.
 
 ```bash
 auth0 api post resource-servers \
