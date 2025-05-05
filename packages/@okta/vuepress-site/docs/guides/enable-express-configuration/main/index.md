@@ -25,7 +25,7 @@ Enable Express Configuration for your Auth0-enabled OIDC OIN integration.
 
 To enable Express Configuration:
 
-## Step 1: Authenticate with Auth0 CLI
+## Authenticate with Auth0 CLI
 
 [Authenticate with the Auth0 CLI](https://auth0.github.io/auth0-cli/auth0_login.html) to establish a connection between your app environment and your Auth0 tenant. The specified scopes ( `create:client_credentials`, `update:client_credentials`, `create:client_grants`, and `update:tenant_settings`) provide the CLI permissions to modify tenant-wide settings and create client grants, which are essential for the subsequent configuration steps.
 
