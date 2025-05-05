@@ -233,7 +233,7 @@ auth0 api patch \
 
 ## Step 6: Update tenant settings
 
-**Note**: Okta recommends completing this step even though it is not necessary to enable Express Configuration.
+**Note**: Okta recommends completing this step even though it's not required to enable Express Configuration.
 
 Update tenant settings to display the scope details on the consent page. These settings improves the user experience by providing information about the permissions being granted. Use the `use_scope_descriptions_for_consent` parameter to ensure that scope descriptions are shown instead of raw scope names.
 
