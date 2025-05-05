@@ -158,7 +158,7 @@ auth0 api post client-grants \
 
 ### Add a post-login action
 
-[Create a custom post-login action](https://auth0.github.io/auth0-cli/auth0_actions_create.html) to add custom claims (`sp_client_id`, `management_api_audience`, and `init_login_uri`) to the access token that Auth0 issues after a user successfully logs in. These claims provide Okta with the necessary information for the Express Configuration process.
+[Create a custom post-login action](https://auth0.github.io/auth0-cli/auth0_actions_create.html) to add custom claims (`sp_client_id`, `management_api_audience`, and `init_login_uri`) to the access token that Auth0 issues after a user successfully signs in. These claims provide Okta with the necessary information for the Express Configuration process.
 
 Create a file named `add_post_login_action.js` and add the following code:
 
@@ -184,7 +184,7 @@ Create a file named `add_post_login_action.js` and add the following code:
   };
 ```
 
-Run the following command to create the `express_configure_postlogin_action` post-login action that is triggered after a user logs in.
+Run the following command to create the `express_configure_postlogin_action` post-login action that's triggered after a user logs in.
 
 Replace the following values:
   * `SERVICE_INIT_LOGIN_URL`: The URL that the end users use to sign in to your app. For example, `https://example.com/login`.
@@ -203,7 +203,7 @@ auth0 actions create \
 
 ### Deploy the action
 
-Run the following command to deploy the action. Select the action from the prompt for the Express Configuration created in the previous step.
+Run the following command to deploy the action. Select the action from the prompt for the Express Configuration created in the [previous step].
 
 ``` bash
 auth0 actions deploy
@@ -213,7 +213,7 @@ auth0 actions deploy
 
 Attach the action to a flow so that it executes as part of your tenant's traffic. See [Auth0 Actions](https://auth0.com/docs/customize/actions) to add an action using the Auth0 dashboard.
 
-```bash
+```JSON
 auth0 api patch \
   actions/triggers/post-login/bindings \
   --data '{
@@ -248,7 +248,7 @@ auth0 api patch tenants/settings \
 
 Email the following information to the Okta Express Configuration team at [expressconfig@okta.com](mailto:expressconfig@okta.com):
 
-* Confirmation that you completed all the steps in this guide and your app is ready to support Express Configuration.
+* Confirmation that you completed all the steps in this guide and that your app is ready to support Express Configuration.
 * Your app name in the OIN.
 * Okta OIN Integration Client app client ID.
 
@@ -286,7 +286,7 @@ When admins use Express Configuration to set up SSO for an instance of your app 
   * **User Mapping**: `{"mapping_mode" : "basic_profile"}`
   * **Connection Profile**: `{"pkce":"auto"}`
 
-**Connection Login Experience**
+**Connection Login Experience (Org Level)**
 
   * **Home Realm Discovery**: Empty (not supported)
   * **Display Connection as a button**: Enable
