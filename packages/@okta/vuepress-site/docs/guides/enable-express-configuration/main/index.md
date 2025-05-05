@@ -74,7 +74,7 @@ auth0 roles create \
   --description "Administrator role for Express Configuration"
 ```
 
-### Assign permission to the role
+### Assign permissions to the role
 
 Assign the `expressconfigure:sso` permission to the specified role. Replace `$ROLE_ID` with the role ID that you want to grant permission to.
 
