@@ -186,7 +186,6 @@ Create a file named `add_post_login_action.js` and add the following code:
 
 Run the following command to create the `express_configure_postlogin_action` post-login action that is triggered after a user logs in.
 
-**Note**: 
 Replace the following values:
   * `SERVICE_INIT_LOGIN_URL`: The URL that the end users use to log in to your app. For example, `https://example.com/login`.
   * `$AUTH0_DOMAIN`: Your tenant domain.
