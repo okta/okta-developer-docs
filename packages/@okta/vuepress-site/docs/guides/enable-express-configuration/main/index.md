@@ -213,7 +213,7 @@ auth0 actions deploy
 
 Attach the action to a flow so that it executes as part of your tenant's traffic. See [Auth0 Actions](https://auth0.com/docs/customize/actions) to add an action using the Auth0 dashboard.
 
-```bash
+```JSON
 auth0 api patch \
   actions/triggers/post-login/bindings \
   --data '{
