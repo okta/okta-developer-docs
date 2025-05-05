@@ -13,7 +13,8 @@ This guide walks you through how to enable Express Configuration for your Auth0-
 
 **Learning outcome**
 
-Enable Express Configuration for your Auth0-enabled OIDC OIN integration.
+- Understand how to enable Express Configuration for an Auth0-enabled OIDC OIN integration.
+- Verify and test the Express Configuration setup to ensure successful integration.
 
 **What you need**
 
