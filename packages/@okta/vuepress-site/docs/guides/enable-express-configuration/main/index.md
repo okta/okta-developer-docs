@@ -9,7 +9,7 @@ layout: Guides
 
 # Enable Express Configuration
 
-This guide walks you through how to enable Express Configuration for your Auth0-enabled OIDC OIN integration.
+This guide walks you through how to enable Express Configuration for your Auth0-enabled OpenID Connect (OIDC) OIN integration.
 
 **Learning outcome**
 
