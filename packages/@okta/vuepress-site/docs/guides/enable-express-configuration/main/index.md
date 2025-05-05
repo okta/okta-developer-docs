@@ -24,11 +24,9 @@ This guide walks you through how to enable Express Configuration for your Auth0-
 * Auth0 Enterprise subscription with the [Auth0 Organizations](https://auth0.com/docs/manage-users/organizations) feature enabled
 * Auth0 [Command Line Interface](https://auth0.github.io/auth0-cli/)(CLI) permission
 
-To enable Express Configuration:
-
 ## Authenticate with Auth0 CLI
 
-[Authenticate with the Auth0 CLI](https://auth0.github.io/auth0-cli/auth0_login.html) to establish a connection between your app environment and your Auth0 tenant. The specified scopes ( `create:client_credentials`, `update:client_credentials`, `create:client_grants`, and `update:tenant_settings`) provide the CLI permissions to modify tenant-wide settings and create client grants, which are essential for the subsequent configuration steps.
+To enable Express Configuration, your first step is to [Authenticate with the Auth0 CLI](https://auth0.github.io/auth0-cli/auth0_login.html) to establish a connection between your app environment and your Auth0 tenant. The specified scopes ( `create:client_credentials`, `update:client_credentials`, `create:client_grants`, and `update:tenant_settings`) provide the CLI permissions to modify tenant-wide settings and create client grants, which are essential for the subsequent configuration steps.
 
 > **Note**: Before you run the command, replace `$AUTH0_DOMAIN` with your Auth0 tenant's domain. For example, `your-tenant.us.auth0.com`.
 
