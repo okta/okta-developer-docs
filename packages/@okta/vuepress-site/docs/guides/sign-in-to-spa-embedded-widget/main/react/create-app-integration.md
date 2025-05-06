@@ -15,7 +15,7 @@ Before you integrate Okta authentication to your app, register your app in your 
    * Set **Sign-in redirect URIs** to a URI that’s appropriate for your app. For example, `http://localhost:3000/login/callback` if you're using the sample app.
    * Set **Sign-out redirect URIs** to a URI that’s appropriate for your app. For example, `http://localhost:3000` if you're using the sample app.
 
-1. In the **Assignments** section, select **Allow everyone in your organization to access**, and click **Save**.
+1. In the **Assignments** section, select **Allow everyone in your organization to access**, and then click **Save**.
 1. In the **General Settings** section on the **General** tab, click **Edit**.
 1. Under **EMAIL VERIFICATION EXPERIENCE** set the **Callback URI** to a URI that’s appropriate for your app. For example, `http://localhost:3000/login/callback` if you're using the sample app.
 1. Click **Save**.
