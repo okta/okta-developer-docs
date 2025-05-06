@@ -4,7 +4,7 @@ Before you integrate Okta authentication to your app, register your app in your 
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
 1. Select **Single-Page Application** for the **Application Type**, and then click **Next**.
-1. On the **New Single-Page App Integration** page:
+1. On the **New Single-Page App Integration** page, enter the following information:
 
    * Enter an application name.
    * Select the **Refresh Token** checkbox.
