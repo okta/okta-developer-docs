@@ -6,7 +6,7 @@ Before you integrate Okta authentication to your app, register your app in your 
 1. Select **Single-Page Application** for the **Application Type**, and then click **Next**.
 1. On the **New Single-Page App Integration** page:
 
-   * Enter an application name.
+   * Enter an app name.
    * Select the **Refresh Token** checkbox.
    * Select **Advanced** in the **Grant type** section, and then select the **Interaction Code** checkbox.
 
