@@ -34,4 +34,4 @@ Before you integrate Okta authentication in your app, register the app in your O
 
    <VerifyICGrantType />
 
-1. In the **Security** > **API** > **Trusted Origins** page, ensure that there’s an entry for your sign-in redirect URI. See [Enable CORS](/docs/guides/enable-cors/).
+1. On the **Security** > **API** > **Trusted Origins** page, ensure that there’s an entry for your sign-in redirect URI. See [Enable CORS](/docs/guides/enable-cors/).
