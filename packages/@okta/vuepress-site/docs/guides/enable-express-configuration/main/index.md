@@ -92,13 +92,12 @@ Register the OIN as an OAuth client in your Auth0 tenant. This client allows Okt
 
 Run the following command to create a client. Ensure that you provide configuration values that are specific to your app.
 
-**Notes**:
-
-* The `express_configure_sp_client_id` value refers to the client ID of the app that you're enabling Express Configuration for.
-* The `organization_usage` value ensures that users sign in using an org. Set this value to `true`, as it’s a prerequisite for Express Configuration. Setting the value to `true` ensures that Express Configuration functions within the context of an org, which provides secure and structured access control.
-* The `organization_require_behavior` value determines how the org's sign-in behavior is handled. See [Define Organization Behavior](https://auth0.com/docs/manage-users/organizations/configure-organizations/define-organization-behavior).
-* Save the public key provided by Okta Express Configuration in the `okta-public-key.pem` file.
-* Ensure that you make note of the Okta OIN Integration Client app client ID after it’s created. Share this client ID with the Okta Express Configuration team to configure your app in the OIN.
+> **Notes**:
+> * The `express_configure_sp_client_id` value refers to the client ID of the app that you're enabling Express Configuration for.
+> * The `organization_usage` value ensures that users sign in using an org. Set this value to `true`, as it’s a prerequisite for Express Configuration. Setting the value to `true` ensures that Express Configuration functions within the context of an org, which provides secure and structured access control.
+> * The `organization_require_behavior` value determines how the org's sign-in behavior is handled. See [Define Organization Behavior](https://auth0.com/docs/manage-users/organizations/configure-organizations/define-organization-behavior).
+> * Save the public key provided by Okta Express Configuration in the `okta-public-key.pem` file.
+> * Ensure that you make note of the Okta OIN Integration Client app client ID after it’s created. Share this client ID with the Okta Express Configuration team to configure your app in the OIN.
 
 ```bash
 auth0 api post clients \
@@ -234,7 +233,7 @@ auth0 api patch \
 
 ## Update tenant settings
 
-**Note**: Okta recommends completing this step even though it's not required to enable Express Configuration.
+> **Note**: Okta recommends completing this step even though it's not required to enable Express Configuration.
 
 Update tenant settings to display the scope details on the consent page. These settings improve the user experience by providing information about the permissions being granted. Use the `use_scope_descriptions_for_consent` parameter to ensure that scope descriptions are shown instead of raw scope names.
 
