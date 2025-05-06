@@ -12,87 +12,105 @@ title: Okta Identity Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Breached Credentials Protection is EA in Preview]() | ADD_DATE |
-| [Custom admin roles for ITP]() | ADD_DATE |
-| [Define default values for custom user attributes]() | ADD_DATE |
-| [Number matching challenge with the Factors API is GA in Preview]() | ADD_DATE |
-| [Claims sharing between third-party IdPs and Okta is GA in Preview]() | ADD_DATE |
-| [New End-user Enrollments API is GA in Preview]() | ADD_DATE |
-| [Entitlement claims is GA]() | ADD_DATE |
-| [POST requests to authorize endpoint is GA]() | January 8, 2025 |
-| [Authentication claims sharing between Okta orgs is GA in Preview]() | ADD_DATE |
-| [Shared signal transmitters is GA in Preview]() | ADD_DATE |
-| [Bugs fixed in 2025.05.0]()| ADD_DATE |
+| [Breached Credentials Protection is EA in Preview](#breached-credentials-protection-is-ea-in-preview) | May 15, 2025 |
+| [Custom admin roles for ITP](#custom-admin-roles-for-itp) | May 7, 2025 |
+| [New User Role Targets API endpoint](#new-user-role-targets-api-endpoint) | May 7, 2025 |
+| [Define default values for custom user attributes](#define-default-values-for-custom-user-attributes) | May 7, 2025 |
+| [Directories integration API is GA in Preview and Production](#directories-integration-api-is-ga-in-preview-and-production) | May 7, 2025 |
+| [Number matching challenge with the Factors API is GA in Preview](#number-matching-challenge-with-the-factors-api-is-ga-in-preview) | May 7, 2025 |
+| [Claims sharing between third-party IdPs and Okta is GA in Preview](#claims-sharing-between-third-party-idps-and-okta-is-ga-in-preview) | May 7, 2025 |
+| [Express Configuration for OIN apps](#express-configuration-for-oin-apps) | May 7, 2025 |
+| [Changes to Okta app API responses](#changes-to-okta-app-api-responses) | May 7, 2025 |
+| [New End-user Enrollments API is GA in Preview](#new-end-user-enrollments-api-is-ga-in-preview) | May 7, 2025 |
+| [New System Log for super admin privilege grant](#new-system-log-for-super-admin-privilege-grant) | May 7, 2025 |
+| [Entitlement claims is GA in Production](#entitlement-claims-is-ga-in-production) | January 2, 2025 |
+| [POST requests to authorize endpoint is GA in Production](#post-requests-to-authorize-endpoint-is-ga-in-production) | January 8, 2025 |
+| [Authentication claims sharing between Okta orgs is GA in Preview](#authentication-claims-sharing-between-okta-orgs-is-ga-in-preview) | May 7, 2025 |
+| [Shared signal transmitters is GA in Preview](#shared-signal-transmitters-is-ga-in-preview) | May 7, 2025 |
+| [Developer documentation update in 2025.05.0](#developer-documentation-update-in-2025-05-0) | May 7, 2025 |
+| [Bugs fixed in 2025.05.0](#bugs-fixed-in-2025-05-0)| May 7, 2025 |
 
 #### Breached Credentials Protection is EA in Preview
 
 Protect your org from the impact of credentials that have been compromised. If Okta determines that a username and password combination has been compromised after being compared to a third-party curated dataset, the protection response is customizable through password policies, including resetting the user's password, forcing a logout, or calling a delegated Workflow. See the [Okta Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/).
 
-This feature is following a slow rollout process beginning on May 15.
-
- <!-- OKTA-925699 -->
+This feature is following a slow rollout process beginning on May 15. <!-- OKTA-925699 -->
 
 #### Custom admin roles for ITP
 
-Through this feature, customers can use granular ITP permissions and resources to create custom roles to right-size authorization for ITP configuration and monitoring. See [Configure custom admin roles for ITP](https://help.okta.com/okta_help.htm?type=oie&id=csh-itp-rbac).
+Through this feature, customers can use granular ITP permissions and resources to create custom roles to right-size authorization for ITP configuration and monitoring. See [Configure custom admin roles for ITP](https://help.okta.com/okta_help.htm?type=oie&id=csh-itp-rbac).  <!-- OKTA-914059 -->
 
-<!-- OKTA-914059 -->
+#### New User Role Targets API endpoint
+
+The User Role Targets API now includes a new endpoint, [Retrieve a role target by assignment type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetAdmin/#tag/RoleBTargetAdmin/operation/getRoleTargetsByUserIdAndRoleId), that retrieves role targets by user or group assignment type. <!--OKTA-909953 -->
 
 #### Define default values for custom user attributes
 
-You can now define default values for custom attributes in a user profile. See the [Update User Profile](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/updateUserProfile) endpoint in the Schemas API.
+You can now define default values for custom attributes in a user profile. See the [Update User Profile](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/updateUserProfile) endpoint in the Schemas API. <!-- OKTA-907852 ENG_ENABLE_ATTRIBUTE_DEFAULTS-->
 
-<!-- OKTA-907852 ENG_ENABLE_ATTRIBUTE_DEFAULTS-->
+#### Directories integration API is GA in Preview and Production
+
+The Directories Integration API provides operations to manage Active Directory (AD) group memberships using Okta. This API enables you to define adding or removing users for AD groups. This is now generally available. Previously, this was only available to subscribers of Okta Identity Governance. See [Directories Integration](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DirectoriesIntegration/). <!--AD_BIDIRECTIONAL_GROUP_MANAGEMENT OKTA-734564 OKTA-906684-->
 
 #### Number matching challenge with the Factors API is GA in Preview
 
-You can now send number matching challenges for Okta Verify `push` factor enrollments when you send POST requests to the `/users/{userId}/factors/{factorId}/verify` endpoint. For orgs that can't adopt Okta FastPass, this feature improves their overall security.  See the [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/verifyFactor).
-
-<!-- OKTA-903176 -->
+You can now send number matching challenges for Okta Verify `push` factor enrollments when you send POST requests to the `/users/{userId}/factors/{factorId}/verify` endpoint. For orgs that can't adopt Okta FastPass, this feature improves their overall security.  See the [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/verifyFactor). <!-- OKTA-903176 -->
 
 #### Claims sharing between third-party IdPs and Okta is GA in Preview
 
-Authentication claims sharing allows an admin to configure their Okta org to trust claims from third-party IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from a third-party IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See [Configure claims sharing](/docs/guides/configure-claims-sharing/oktasaml/main/).<!-- ORG2ORG_CLAIMS_SHARING -->
+Authentication claims sharing allows an admin to configure their Okta org to trust claims from third-party IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from a third-party IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See [Configure claims sharing](/docs/guides/configure-claims-sharing/oktasaml/main/).<!-- ORG2ORG_CLAIMS_SHARING OKTA-901817 -->
 
-<!-- OKTA-901817 -->
+#### Express Configuration for OIN apps
+
+Express Configuration is a feature designed to automate the setup of SSO for instances of OIN SaaS integrations by enterprise customers with minimal manual effort. It allows enterprise customers to securely configure OpenID Connect (OIDC) integrations without copying and pasting configuration values between Okta and Auth0-enabled apps. See [Express Configuration] (<https://developer.okta.com/docs/guides/express-configuration/main/>). <!-- OKTA-888983 -->
+
+#### Changes to Okta app API responses
+
+The following Okta apps won’t be returned in the API response for endpoints that list apps (such as the [List all applications](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications)  `GET /api/vi/apps` endpoint):
+
+* Okta Access Certifications (key name: `okta_iga`)
+* Okta Access Requests Admin (key name: `okta_access_requests_admin`)
+* Okta Entitlement Management (key name: `okta_entitlement_management`)
+In addition, a single app retrieval endpoint won’t return these apps either. For example: `GET /api/v1/apps/{appId}` won’t return the app object if `{appId}` is the ID for the `okta_iga`, `okta_access_requests_admin`, or `okta_entitlement_management` apps in your org.
+<!-- OKTA-871526 ENG_ENABLE_UI_ADMIN_OIDC_APP -->
 
 #### New End-user Enrollments API is GA in Preview
 
-The new [End-user Enrollments API](https://developer.okta.com/docs/api/openapi/okta-signin-experience-management/signinexp/tag/endUserEnrollments/) enables end users to enroll and unenroll authenticators by entering a URL directly into their browser. This reduces the time spent administering complex authenticator enrollment flows, and provides a streamlined enrollment process for users. After a user enrolls or unenrolls an authenticator, you can use the `redirect_uri` property to redirect them to another page.<!-- https://oktainc.atlassian.net/browse/OKTA-868775#icft=OKTA-868775 ENG_AUTHENTICATOR_ENROLLMENTS_USER_MANAGEMENT_WITH_REDIRECT -->
+The new [End-user Enrollments API](https://developer.okta.com/docs/api/openapi/okta-signin-experience-management/signinexp/tag/endUserEnrollments/) enables end users to enroll and unenroll authenticators by entering a URL directly into their browser. This reduces the time spent administering complex authenticator enrollment flows, and provides a streamlined enrollment process for users. After a user enrolls or unenrolls an authenticator, you can use the `redirect_uri` property to redirect them to another page. <!-- OKTA-868775 ENG_AUTHENTICATOR_ENROLLMENTS_USER_MANAGEMENT_WITH_REDIRECT -->
 
-<!-- OKTA-868775 -->
+#### New System Log for super admin privilege grant
 
-#### Entitlement claims is GA
+A new System Log event now indicates when the super admin role (`app. oauth2.client.privilege.grant`) is granted to an API service integration. <!-- OKTA-863264 -->
 
-You can now enrich tokens with app entitlements that produce deeper integrations. After you configure this feature for your app integration, use the Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/#reference-attributes) to add entitlements at runtime as OpenID Connect claims and SAML assertions. See [Federated claims with entitlements](/docs/guides/federated-claims/main/) <!-- FEDERATED_CLAIM_GENERATION_LAYER https://oktainc.atlassian.net/browse/OKTA-847041 -->.
+#### Entitlement claims is GA in Production
 
-<!-- OKTA-834142 -->
+You can now enrich tokens with app entitlements that produce deeper integrations. After you configure this feature for your app integration, use the Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/#reference-attributes) to add entitlements at runtime as OpenID Connect claims and SAML assertions. See [Federated claims with entitlements](/docs/guides/federated-claims/main/). <!-- FEDERATED_CLAIM_GENERATION_LAYER OKTA-847041 OKTA-834142 -->
 
-#### POST requests to authorize endpoint is GA
+#### POST requests to authorize endpoint is GA in Production
 
 You can now send user data securely in a POST request body to the /authorize endpoint. <!-- OKTA-827104 OAUTH2_AUTHORIZE_WITH_POST -->
 
-<!-- OKTA-827104 -->
-
 #### Authentication claims sharing between Okta orgs is GA in Preview
 
-Authentication claims sharing allows an admin to configure their Okta org to trust claims from IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See [Configure claims sharing](/docs/guides/configure-claims-sharing/oktasaml/main/).<!-- ORG2ORG_CLAIMS_SHARING OKTA-856733 -->
-
-<!-- OKTA-802451 -->
+Authentication claims sharing allows an admin to configure their Okta org to trust claims from IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See [Configure claims sharing](/docs/guides/configure-claims-sharing/oktasaml/main/). <!-- ORG2ORG_CLAIMS_SHARING OKTA-856733 OKTA-802451 -->
 
 #### Shared signal transmitters is GA in Preview
 
 Okta uses [CAEP](https://openid.net/specs/openid-caep-specification-1_0.html) to send security-related events and other data-subject signals to third-party security vendors. To enable the transmission of signals from Okta, create an [SSF stream](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFTransmitter/#tag/SSFTransmitter/operation/createSsfStream) using the SSF Transmitter API. Then, configure the third-party receiver to accept signals sent as [Security Event Tokens (SETs)](https://datatracker.ietf.org/doc/html/rfc8417) from Okta. See the [SSF Transmitter API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFTransmitter/) and [SSF Transmitter SET payload structures](https://developer.okta.com/docs/reference/ssf-transmitter-sets/). <!-- OKTA_SSF_TRANSMITTER_PUSH OKTA-673909 -->
 
-<!-- OKTA-673909 -->
+#### New Applications API object
+
+A new `universalLogout` object is returned in the Applications API for orgs that have Identity Threat Protection enabled. <!--OKTA-883033-->
+
+#### Developer documentation update in 2025.05.0
+
+The new [Integrate Okta with identity verification vendors guide](/docs/guides/idv-integration/main/), under Sign users in, describes how third-party identity verification (IDV) vendors can integrate with Okta. IDV vendors can use the guide to integrate their service with Okta orgs. <!--OKTA-898026-->
 
 #### Bugs fixed in 2025.05.0
 
-* If a third-party SAML IdP sent the `session.amr` SAML attribute without the attribute schema type, Okta rejected the response when the third-party claims sharing feature was enabled. (OKTA-925864) (OKTA-925864)
+* If a third-party SAML IdP sent the `session.amr` SAML attribute without the attribute schema type, Okta rejected the response when the third-party claims sharing feature was enabled. (OKTA-925864)
 
-* When third-party IdP claims sharing was enabled, the redirect to the IdP happened during reauthentication even if IdP didn't provide any AMR claims. (OKTA-922086) (OKTA-922086)
-
-* A new `universalLogout` object is returned in the Applications API for orgs that have Identity Threat Protection enabled. (OKTA-883033)
+* When third-party IdP claims sharing was enabled, the redirect to the IdP happened during reauthentication even if IdP didn't provide any AMR claims. (OKTA-922086)
 
 ## April
 

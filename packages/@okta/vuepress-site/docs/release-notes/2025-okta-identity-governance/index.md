@@ -14,7 +14,7 @@ For changes prior to 2025, see [Archived Okta Identity Governance API Changelog 
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Changes to Okta app API responses](#risk-rules-api-is-beta) | May 7, 2025 |
+| [Changes to Okta app API responses](#changes-to-okta-app-api-responses) | May 7, 2025 |
 
 #### Changes to Okta app API responses
 
@@ -26,6 +26,7 @@ The following Okta apps won’t be returned in the API response for endpoints th
 In addition, a single app retrieval endpoint won’t return these apps either. For example: `GET /api/v1/apps/{appId}` won’t return the app object if `{appId}` is the ID for the `okta_iga`, `okta_access_requests_admin`, or `okta_entitlement_management` apps in your org.
 
 <!-- OKTA-871526 ENG_ENABLE_UI_ADMIN_OIDC_APP -->
+
 ## April
 
 ### Monthly release 2025.04.0
@@ -68,7 +69,6 @@ See [Separation of duties](https://help.okta.com/okta_help.htm?type=oie&id=separ
 <ApiLifecycle access="beta" />
 
 The [Collections API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Collections/) is available in Beta. This API allows you to manage sets of apps and entitlements. See [Resource collections](https://help.okta.com/okta_help.htm?type=oie&id=csh-rc). <!-- OKTA-856259 -->
-
 
 ### Weekly release 2025.03.1
 
