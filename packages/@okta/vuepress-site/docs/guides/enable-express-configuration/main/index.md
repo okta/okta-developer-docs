@@ -96,8 +96,13 @@ Run the following command to create a client. Ensure that you provide configurat
 
 * The `express_configure_sp_client_id` value refers to the client ID of the app that you're enabling Express Configuration for.
 * The `organization_usage` value ensures that users sign in using an org. Set this value to `true`, as it’s a prerequisite for Express Configuration. Setting the value to `true` ensures that Express Configuration functions within the context of an org, which provides secure and structured access control.
+<<<<<<< HEAD
 * The `organization_require_behavior` value determines how the org's sign-in behavior is handled. See [Define Organization Behavior](https://auth0.com/docs/manage-users/organizations/configure-organizations/define-organization-behavior).
 * Save the public key provided by Okta Express Configuration in the `okta-public-key.pem` file.
+=======
+* The `organization_require_behavior` value determines how the organization's login is handled. See [Define Organization Behavior](https://auth0.com/docs/manage-users/organizations/configure-organizations/define-organization-behavior).
+* To complete this step, you require the public key provided by Okta Express Configuration saved in the `okta-public-key.pem` file.
+>>>>>>> bc60d7acb2b52cb8adff090dfe1fe4498224bc7a
 * Ensure that you make note of the Okta OIN Integration Client app client ID after it’s created. Share this client ID with the Okta Express Configuration team to configure your app in the OIN.
 
 ```bash
