@@ -36,7 +36,7 @@ auth0 login --domain $AUTH0_DOMAIN --scopes update:tenant_settings --scopes crea
 
 ## Create a resource server in Auth0
 
-The resource server refers to Okta Express Configuration API. When you authorize Okta for this resource server using OAuth 2.0, Okta receives an access token and uses it to access user and org information.
+The resource server refers to the Okta Express Configuration API. When you authorize Okta for this resource server using OAuth 2.0, Okta receives an access token and uses it to access user and org information.
 
 Run the following command to [create the resource server](https://auth0.github.io/auth0-cli/auth0_api.html) in Auth0:
 
@@ -60,7 +60,9 @@ auth0 api post resource-servers \
   }'
 ```
 
-## Configure permissions and roles
+## Configure roles and permissions
+
+Follow these steps to configure the roles and permissions required for managing Express Configuration.
 
 ### Create a role
 
@@ -93,9 +95,9 @@ Run the following command to create a client. Ensure that you provide configurat
 **Notes**:
 
 * The `express_configure_sp_client_id` value refers to the client ID of the app that you're enabling Express Configuration for.
-* The `organization_usage` value ensures that users log in using an organization. Set this value to `true`, as it’s a prerequisite for Express Configuration. This setting ensures that Express Configuration functions within the context of an organization, which provides secure and structured access control.
-* The `organization_require_behavior` value determines how the organization's login is handled. See [Define Organization Behavior](https://auth0.com/docs/manage-users/organizations/configure-organizations/define-organization-behavior).
-* To complete this step, you require the public key provided by Okta Express Configuration saved in the `okta-public-key.pem` file.
+* The `organization_usage` value ensures that users sign in using an org. Set this value to `true`, as it’s a prerequisite for Express Configuration. Setting the value to `true` ensures that Express Configuration functions within the context of an org, which provides secure and structured access control.
+* The `organization_require_behavior` value determines how the org's sign-in behavior is handled. See [Define Organization Behavior](https://auth0.com/docs/manage-users/organizations/configure-organizations/define-organization-behavior).
+* Save the public key provided by Okta Express Configuration in the `okta-public-key.pem` file.
 * Ensure that you make note of the Okta OIN Integration Client app client ID after it’s created. Share this client ID with the Okta Express Configuration team to configure your app in the OIN.
 
 ```bash
@@ -132,7 +134,8 @@ auth0 api post clients \
 
 ### Assign client credentials to the Okta OIN Integration Client
 
-The Client Credentials authorize `Okta OIN Integration Client` to access the Auth0 Management API with defined permissions. Using these tokens, OIN can create and manage connections on behalf of the organizations. These tokens securely invoke your Auth0 tenant's Management API to create and update [Okta Workforce connections](https://auth0.com/docs/authenticate/identity-providers/enterprise-identity-providers/okta).
+Use the client credentials that you create in this step to authorize the `Okta OIN Integration Client` to access the Auth0 Management API with defined scopes. The OIN can use the token that's returned to create and manage connections on behalf of the orgs. The scopes (`create:connection`, `update:connection` and so on) securely allows your Auth0 tenant's Management API to create and update [Okta Workforce connections]
+(https://auth0.com/docs/authenticate/identity-providers/enterprise-identity-providers/okta).
 
 Run the following commands to create the client credentials. Ensure that you update the `client_id` value with the OIDC app client ID and include the Auth0 domain in the `audience` parameter.
 
@@ -233,7 +236,7 @@ auth0 api patch \
 
 **Note**: Okta recommends completing this step even though it's not required to enable Express Configuration.
 
-Update tenant settings to display the scope details on the consent page. These settings improves the user experience by providing information about the permissions being granted. Use the `use_scope_descriptions_for_consent` parameter to ensure that scope descriptions are shown instead of raw scope names.
+Update tenant settings to display the scope details on the consent page. These settings improve the user experience by providing information about the permissions being granted. Use the `use_scope_descriptions_for_consent` parameter to ensure that scope descriptions are shown instead of raw scope names.
 
 ```bash
 auth0 api patch tenants/settings \
@@ -278,7 +281,7 @@ Follow these steps to verify and test the Express Configuration feature:
 
 ## Additional information
 
-When admins use Express Configuration to set up SSO for an instance of your app in Okta, the following default configurations are applied to the newly created Okta Workforce Connection in Auth0. See [Enable Organization Connections](https://auth0.com/docs/manage-users/organizations/configure-organizations/enable-connections).
+Admins use Express Configuration to set up SSO for an instance of your app in Okta. During this process, the following default configurations are applied to the newly created Okta Workforce Connection in Auth0. See [Enable Organization Connections](https://auth0.com/docs/manage-users/organizations/configure-organizations/enable-connections).
 
 **Connection Settings**
 

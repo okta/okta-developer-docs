@@ -1,6 +1,6 @@
 ---
 title: Express Configuration overview
-excerpt: An overview of Express Configuration.
+excerpt: Learn how Express Configuration automates the setup of SSO for Auth0-enabled OIDC integrations, its benefits and guidance on enabling this feature.
 ---
 <ApiLifecycle access="ie" />
 
