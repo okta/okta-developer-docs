@@ -26,7 +26,11 @@ Before you integrate Okta authentication to your app, register your app in your 
 
    > **Note:** Remember to [update the password authenticator policy rule](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#update-the-password-authenticator-to-password-only) to not require any additional verification.
 
-1. In the **Security** > **API** > **Authorization Servers** section, verify that the custom authorization server uses the Interaction Code grant type by selecting the **default** server, clicking **Access Policies**, and then editing the **Default Policy Rule**. Click **Advanced** in the **IF Grant type is** section to ensure that the **Interaction Code** checkbox is selected.
+1. Verify that the custom authorization server uses the **Interaction Code** grant type. 
+* Go to **Security** > **API** > **Authorization Servers**.
+* Select the **default** server. 
+* Edit the **Default Policy Rule**. 
+* Click **Advanced** in the **IF Grant type is** section and ensure that the **Interaction Code** checkbox is selected.
 
    <VerifyICGrantType />
 
