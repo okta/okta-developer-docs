@@ -20,7 +20,7 @@ Before you integrate Okta authentication in your app, register the app in your O
 1. Under **EMAIL VERIFICATION EXPERIENCE** set the **Callback URI** to a URI that’s appropriate for your app. For example, `http://localhost:4200/login/callback` if you're using the sample app.
 1. Click **Save**.
 
-1. Select the **Sign On** tab and scroll down to the **User authentication** section. New apps are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup.
+1. Select the **Sign On** tab and scroll to the **User authentication** section. New apps are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup.
 1. For this use case, you want to use only the password factor. Click **Edit** and select the **Password only** [preset policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to assign it to your app.
 1. Click **Save**.
 
