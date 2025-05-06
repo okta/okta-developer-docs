@@ -10,7 +10,7 @@ This guide shows developers of IDV vendors how their IDV solutions integrate wit
 
 ---
 
-#### Learning outcomes
+#### Learning outcome
 
 Understand the standardized process of how IDV vendors integrate with Okta
 
@@ -29,13 +29,15 @@ IDV flows are customizable and can be configured in different ways to verify use
 
 ### Okta supported IDV vendors
 
-Okta supports three IDV vendors that admins can configure in the [Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=id-verification) or by using [Okta APIs](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider).
+Okta supports three IDV vendors that admins can configure in the [Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=id-verification) or by using [Okta APIs](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider). Use this guide to integrate IDV vendors other than the ones listed here.
 
 * [Persona](/docs/guides/add-id-verification-idp/persona/main/)
 
-* [CLEAR Verified](https://docs.clearme.com/docs/getting-started) <ApiLifecycle access="ea" />
+<ApiLifecycle access="ea" />
 
-* [Incode](https://workforce.developer.incode.com/docs/incode-okta-idv-configuration) <ApiLifecycle access="ea" />
+* [CLEAR Verified](https://docs.clearme.com/docs/getting-started)
+
+* [Incode](https://workforce.developer.incode.com/docs/incode-okta-idv-configuration)
 
 ## How IDV vendors integrate with Okta
 
@@ -96,11 +98,11 @@ Content-Type: application/x-www-form-urlencoded
 
 {
   "response_type": "code",
-  "client_id": "{{client_id}}",
-  "client_secret": "{{client_secret}}",
-  "code_challenge": "{{code_challenge}}",
-  "code_challenge_method": "{{code_challenge_method}}",
-  "scope": "openid profile identity_assurance idv_flow_{{idv_flow_id}}",
+  "client_id": "{client_id}",
+  "client_secret": "{client_secret}",
+  "code_challenge": "{code_challenge}",
+  "code_challenge_method": "{code_challenge_method}",
+  "scope": "openid profile identity_assurance idv_flow_{idv_flow_id}",
   "claims": {
     "id_token": {
       "verified_claims": [
@@ -117,16 +119,16 @@ Content-Type: application/x-www-form-urlencoded
           },
           "claims": {
             "given_name": {
-              "fuzzy": "{{ud_first_name}}"
+              "fuzzy": "{ud_first_name}"
             },
-            "family_name": "{{ud_last_name}}"
+            "family_name": "{ud_last_name}"
           }
         }
       ]
     }
   },
-  "state": "{{external_state_token_id}}",
-  "login_hint": "{{user_id}}",
+  "state": "{external_state_token_id}",
+  "login_hint": "{user_id}",
   "redirect_uri": "https://{yourOktadomain}/idp/identity-verification/callback"
 }
 ```
@@ -149,27 +151,27 @@ The error response for an unsuccessful `POST /oauth2/par` request uses this [str
 
 #### Request parameters
 
-| Parameter             | Description                                                                                                     | Param Type | DataType | Source |
-|-----------------------|-----------------------------------------------------------------------------------------------------------------|------------|----------|----------|
-| response_type         | Determines the type of flow. Okta uses `code` to identify the request as an `authorization_code` flow.    | String           | String         | Okta sets this value       |
-| client_id             | Unique identifier of the IDV vendor app.                                                                              | String     | String   | IDV vendors set this value      |
-| client_secret         | A confidential key associated with the IDV vendor's `client_id`.                                                          | String     | String   | IDV vendors set this value      |
-| code_challenge        | A cryptographic string derived from a code verifier. It’s used with the PKCE (Proof Key for Code Exchange) mechanism. | String     | String   | Okta sets this value      |
-| code_challenge_method | The transformation method that’s used to create the `code_challenge` from the code verifier. Okta uses the `S256` method. | String     | String   | Okta sets this value      |
-| scope                 | Defines the permissions or access levels that are requested.                                                   | String     | String   | IDV vendors set this value      |
-| openid                | Identifies the request as an OpenID Connect request.                                                           | String           | String         | IDV vendors set this value         |
-| profile               | Requests access to the end user's default profile claims.                                                      | String            | String         | IDV vendors set this value         |
-| identity_assurance    | Requests access to the `verified_claims` object.                                                                 | String           | String         | IDV vendors set this value         |
-| idv_flow_{idv_flow_id} | Identifies a specific IDV flow from the IDV vendor. Replace `{idv_flow_id}` with the identifier of the flow. It can be omitted from the request if the `client_id` and `client_secret` are configured to represent a specific flow from the IDV vendor. | String           | String         | IDV vendors set this value       |
-| verified_claims       | Contains the `verification` and `claims` objects.                                                         | Object           | Object         | IDV vendors set this value         |
-| verification | Specifies the parameters and requirements for verifying the claims. Okta uses both the `trust_framework` and `assurance_level` properties. See the OpenID Connect definition of the [verification](https://openid.bitbucket.io/ekyc/openid-ida-verified-claims.html#name-verification-element) property. | Object           | Object         | IDV vendors set this value         |
-| trust_framework | Identifies the trust framework that provides assurance about the verified attributes. Okta sets `IDV_DELEGATED` as the default value. This value delegates identity verification and the assurance policy to the IDV vendor. The IDV vendor is then responsible for verifying user identities and sends the results back to Okta. `IDV_DELEGATED` is currently the only supported trust framework. See the OpenID Connect definition of the [trust_framework](https://openid.net/specs/openid-ida-verified-claims-1_0.html#name-element-structure) property.  | String           | String         | IDV vendors set this value         |
-| assurance_level | Identifies the assurance level that's required for the identity claims of the user. The IDV must map their verification results to the possible assurance levels, `VERIFIED` or `FAILED`. For a successful verification, the IDV vendor must pass  `VERIFIED` as the `assurance_level`. For a failed verification, the IDV vendor must pass `FAILED` or a `null` value. See the OpenID Connect definition of the [assurance_level](https://openid.net/specs/openid-ida-verified-claims-1_0.html#name-element-structure) property. | String           | String          | IDV vendors set this value         |
-| claims      | Contains user-specific attributes. `given_name` and `family_name` are currently the only supported claims. See the OpenID Connect definition of the [claims](https://openid.net/specs/openid-ida-verified-claims-1_0.html#name-claims-element) property. | Object            | Object         | IDV vendors set this value         |
-| fuzzy | An extension that adds fuzzy logic to a specified claim to assist with matching the claim value. For example, the `fuzzy` extension is added to the `given_name` claim. The IDV vendor doesn’t need to return an identical match for the user’s given name. The `assurance_level` can still be `VERIFIED`. | String           | String         | IDV vendors set this value         |
-| state                 | A unique string that maintains a connection between the request and the callback.                                    | String     | String   | Okta sets this value      |
-| redirect_uri          | The URI where the response is sent after the user completes the IDV flow.                     | String     | String   | IDV vendors set this value      |
-| login_hint            | Identifier that associates an Okta user within the IDV vendor's app.                                                        | String           | String         | Okta sets this value         |
+| Parameter             | Description                                                                                                     | Param Type | DataType |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------|------------|----------|
+| response_type         | Determines the type of flow. Okta uses `code` to identify the request as an `authorization_code` flow.          | String     | String   |
+| client_id             | Unique identifier of the IDV vendor app. IDV vendors provide this value.                                         | String     | String   |
+| client_secret         | A confidential key associated with the IDV vendor's `client_id`. IDV vendors provide this value.                | String     | String   |
+| code_challenge        | A cryptographic string derived from a code verifier. It’s used with the PKCE (Proof Key for Code Exchange) mechanism. | String     | String   |
+| code_challenge_method | The transformation method that’s used to create the `code_challenge` from the code verifier. Okta uses the `S256` method. | String     | String   |
+| scope                 | Defines the permissions or access levels that are requested.                                                   | String     | String   |
+| openid                | Identifies the request as an OpenID Connect request.                                                           | String     | String   |
+| profile               | Requests access to the end user's default profile claims.                                                      | String     | String   |
+| identity_assurance    | Requests access to the `verified_claims` object.                                                               | String     | String   |
+| idv_flow_{idv_flow_id} | Identifies a specific IDV flow from the IDV vendor. Replace `{idv_flow_id}` with the identifier of the flow. You can leave it out of the request if the `client_id` and `client_secret` are configured to represent a specific flow from the IDV vendor. | String     | String   |
+| verified_claims       | Contains the `verification` and `claims` objects.                                                              | Object     | Object   |
+| verification          | Specifies the parameters and requirements for verifying the claims. Okta uses both the `trust_framework` and `assurance_level` properties. See the OpenID Connect definition of the [verification](https://openid.bitbucket.io/ekyc/openid-ida-verified-claims.html#name-verification-element) property. | Object     | Object   |
+| trust_framework       | Identifies the trust framework that provides assurance about the verified attributes. Okta sets `IDV_DELEGATED` as the default value. This value delegates identity verification and the assurance policy to the IDV vendor. The IDV vendor is then responsible for verifying user identities and sends the results back to Okta. `IDV_DELEGATED` is currently the only supported trust framework. See the OpenID Connect definition of the [trust_framework](https://openid.net/specs/openid-ida-verified-claims-1_0.html#section-5.4.2-5) property. | String     | String   |
+| assurance_level       | Identifies the assurance level that's required for the identity claims of the user. The IDV must map their verification results to the possible assurance levels, `VERIFIED` or `FAILED`. For a successful verification, the IDV vendor must pass  `VERIFIED` as the `assurance_level`. For a failed verification, the IDV vendor must pass `FAILED` or a `null` value. See the OpenID Connect definition of the [assurance_level](https://openid.net/specs/openid-ida-verified-claims-1_0.html#section-5.4.2-6.1.1) property. | String     | String   |
+| claims                | Contains user-specific attributes. `given_name` and `family_name` are currently the only supported claims. See the OpenID Connect definition of the [claims](https://openid.net/specs/openid-ida-verified-claims-1_0.html#name-claims-element) property. | Object     | Object   |
+| fuzzy                 | An extension that adds fuzzy logic to a specified claim to assist with matching the claim value. For example, the `fuzzy` extension is added to the `given_name` claim. The IDV vendor doesn’t need to return an identical match for the user’s given name. The `assurance_level` can still be `VERIFIED`. | String     | String   |
+| state                 | A unique string that maintains a connection between the request and the callback.                              | String     | String   |
+| redirect_uri          | The URI where the response is sent after the user completes the IDV flow.                                      | String     | String   |
+| login_hint            | Identifier that associates an Okta user within the IDV vendor's app.                                           | String     | String   |
 
 ### IDV vendor responds with request_uri
 
@@ -194,7 +196,7 @@ Okta uses the `request_uri` in the IDV vendor response and constructs a `GET /oa
 
 ### User's browser sends GET /oauth2/authorize request to IDV vendor
 
-The user's browser sends the `GET` request to the IDV vendor's OAuth 2.0 authorization endpoint. The IDV vendor evaluates the `request_uri` so that the IDV flow can start.
+The user's browser sends the GET request to the IDV vendor's OAuth 2.0 authorization endpoint. The IDV vendor evaluates the `request_uri` so that the IDV flow can start.
 
 > **Note:** For IDV vendors, Okta recommends renaming the authorization endpoint so that it's clear the endpoint is used for identity verification. For example, rename the endpoint to `/oauth2/idv-authorize`.
 
@@ -248,8 +250,8 @@ Host: idv-vendor.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code
-&client_id={{client_id}}
-&client_secret={{client_secret}}
+&client_id={client_id}
+&client_secret={client_secret}
 &code=42bbe6319f0b04a43d
 &code_verifier=72e0dca42dd87b345f0652899cba4f92e7b9bb2422f7c5a301ffae41
 &redirect_uri=https://{yourOktadomain}/idp/identity-verification/callback
@@ -277,7 +279,7 @@ When the `POST /token` request succeeds, the IDV vendor sends an `id_token` in a
 
 Note the following the ways to format the `claims` object for the `id_token` response:
 
-* IDV vendors must not include any `claims` attributes other than the currently supported ones: `given_name` and `family_name`. Okta fails a policy evaluation that returns `claims` other than the supported ones.
+* IDV vendors must not include any `claims` attributes other than the currently supported ones: `given_name` and `family_name`. Okta fails a policy evaluation that returns `claims` attributes other than the supported ones.
 
 * IDV vendors can choose to return a `MATCHED` value for any `claims` attributes, instead of returning identifying information about a user. Returning a `MATCHED` value still indicates that the verification was successful but doesn't require IDV vendors to pass identifying information of a user.
 
