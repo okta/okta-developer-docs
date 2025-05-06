@@ -594,9 +594,6 @@ export default {
       this.isRegionLoading = false;
     });
   },
-  mounted() {
-    this.analyticsValues = getAnalyticsValues();
-  },
   methods: {
     setHeight(isNotUSAAndCanada) {
       let height;
@@ -643,22 +640,22 @@ export default {
 
       if (this.validationService.isValidForm()) {
         // make api call
-        const { baseUri, registrationPolicyId } = this.$site.themeConfig.uris;
-        const registrationPath = `/api/v1/registration/${registrationPolicyId}/register`;
+        const { baseUri, campaignId, orgPlan } = this.$site.themeConfig.uris;
+        const registrationPath = `/free-trial/api/free-trial/`;
+
         const analyticsValues = getAnalyticsValues();
         const body = {
-          userProfile: {
             email: this.form.email.value,
             firstName: this.form.firstName.value,
             lastName: this.form.lastName.value,
             country: this.form.country.value,
             state: this.form.state.value,
-            emailOptInC: this.form.consentAgree.value,
-            captchaResponse: this.form.captcha.value,
-            okta_oie: true,
-            // Merge in analytics tracking data
-            ...analyticsValues,
-          },
+            consent: this.form.consentAgree.value,
+            gRecaptchaResponse: this.form.captcha.value,
+            campaignId: campaignId,
+            phone: '000000',
+            orgPlan: orgPlan,
+            utms: analyticsValues,
         };
 
         this.isPending = true;
