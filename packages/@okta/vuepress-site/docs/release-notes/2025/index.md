@@ -4,6 +4,73 @@ title: Okta Classic Engine API release notes 2025
 
 # Okta Classic Engine API release notes (2025)
 
+## May
+
+### Monthly release 2025.05.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Breached Credentials Protection is EA in Preview]() | ADD_DATE |
+| [Define default values for custom user attributes]() | ADD_DATE |
+| [Number matching challenge with the Factors API is GA in Preview]() | ADD_DATE |
+| [Claims sharing between third-party IdPs and Okta is GA in Preview]() | ADD_DATE |
+| [Entitlement claims is GA]() | ADD_DATE |
+| [POST requests to authorize endpoint is GA]() | ADD_DATE |
+| [Authentication claims sharing between Okta orgs is GA in Preview]() | ADD_DATE |
+| [Bugs fixed in 2025.05.0]()| ADD_DATE |
+
+
+#### Breached Credentials Protection is EA in Preview
+
+Protect your org from the impact of credentials that have been compromised. If Okta determines that a username and password combination has been compromised after being compared to a third-party curated dataset, the protection response is customizable through password policies, including resetting the user's password, forcing a logout, or calling a delegated Workflow. See the [Okta Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/).
+
+This feature is following a slow rollout process beginning on May 15.
+ 
+ <!-- OKTA-925699 -->
+
+#### Define default values for custom user attributes
+
+You can now define default values for custom attributes in a user profile. See the [Update User Profile](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/updateUserProfile) endpoint in the Schemas API.
+ 
+ <!-- OKTA-907852 -->
+
+#### Number matching challenge with the Factors API is GA in Preview
+
+You can now send number matching challenges for Okta Verify `push` factor enrollments when you send POST requests to the `/users/{userId}/factors/{factorId}/verify` endpoint. For orgs that can't adopt Okta FastPass, this feature improves their overall security.  See the [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/verifyFactor).
+ 
+ <!-- OKTA-903176 -->
+
+#### Claims sharing between third-party IdPs and Okta is GA in Preview
+
+Authentication claims sharing allows an admin to configure their Okta org to trust claims from third-party IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from a third-party IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See [Configure claims sharing](/docs/guides/configure-claims-sharing/oktasaml/main/).<!-- ORG2ORG_CLAIMS_SHARING -->
+ 
+ <!-- OKTA-901817 -->
+
+#### Entitlement claims is GA
+
+You can now enrich tokens with app entitlements that produce deeper integrations. After you configure this feature for your app integration, use the Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/#reference-attributes) to add entitlements at runtime as OpenID Connect claims and SAML assertions. See [Federated claims with entitlements](/docs/guides/federated-claims/main/) <!-- FEDERATED_CLAIM_GENERATION_LAYER https://oktainc.atlassian.net/browse/OKTA-847041 -->.
+ 
+ <!-- OKTA-834142 -->
+
+#### POST requests to authorize endpoint is GA
+
+You can now send user data securely in a POST request body to the /authorize endpoint. <!-- OKTA-827104 OAUTH2_AUTHORIZE_WITH_POST -->
+ 
+ <!-- OKTA-827104 -->
+
+#### Authentication claims sharing between Okta orgs is GA in Preview
+
+Authentication claims sharing allows an admin to configure their Okta org to trust claims from IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See [Configure claims sharing](/docs/guides/configure-claims-sharing/oktasaml/main/).<!-- ORG2ORG_CLAIMS_SHARING OKTA-856733 -->
+ 
+ <!-- OKTA-802451 -->
+
+#### Bugs fixed in 2025.05.0
+
+* If a third-party SAML IdP sent the `session.amr` SAML attribute without the attribute schema type, Okta rejected the response when the third-party claims sharing feature was enabled. (OKTA-925864) (OKTA-925864)
+
+* When third-party IdP claims sharing was enabled, the redirect to the IdP happened during reauthentication even if IdP didn't provide any AMR claims. (OKTA-922086) (OKTA-922086)
+
+
 ## April
 
 ### Weekly release 2025.04.3
