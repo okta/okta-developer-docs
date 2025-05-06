@@ -25,7 +25,7 @@ Expressions can reference, transform, and combine attributes before storing them
 
 When you create an Okta expression, you can reference any attribute that lives on an Okta user profile or app user profile.
 
-> **Note:** Don't create custom profile attributes that differ only by case, or you will encounter naming collisions when referring to those attributes. This includes naming custom profile attributes the same as base profile attributes, for example, `firstName` and `FirstName`.
+> **Note:** When you refer to custom profile attributes that differ only by case, name collisions occur. This includes naming custom profile attributes the same as base profile attributes, for example, `firstName` and `FirstName`.
 
 ### Okta user profile
 
