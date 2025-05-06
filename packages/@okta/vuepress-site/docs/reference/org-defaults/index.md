@@ -5,6 +5,8 @@ meta:
     content: Details the default org configurations for the Integrator Free Plan Org available on https://developer.okta.com/signup/
 ---
 
+# Integrator free plan org configurations
+
 This document provides reference details on the default configurations for the Integrator free plan orgs. These orgs are available from [Sign up](/signup/), and are for development and testing by developers interested in implementing an Okta solution or integration.
 
 The Integrator free plan orgs are also required for those developers planning a submission to the Okta Integration Network (OIN). For further details on this process, see the [Okta Integration Network](/docs/guides/okta-integration-network/).
