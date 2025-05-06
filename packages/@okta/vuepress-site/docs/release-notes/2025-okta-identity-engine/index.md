@@ -24,18 +24,17 @@ title: Okta Identity Engine API release notes 2025
 | [Shared signal transmitters is GA in Preview]() | ADD_DATE |
 | [Bugs fixed in 2025.05.0]()| ADD_DATE |
 
-
 #### Breached Credentials Protection is EA in Preview
 
 Protect your org from the impact of credentials that have been compromised. If Okta determines that a username and password combination has been compromised after being compared to a third-party curated dataset, the protection response is customizable through password policies, including resetting the user's password, forcing a logout, or calling a delegated Workflow. See the [Okta Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/).
 
 This feature is following a slow rollout process beginning on May 15.
- 
+
  <!-- OKTA-925699 -->
 
 #### Custom admin roles for ITP
 
-Through this feature, customers can use granular ITP permissions and resources to create custom roles to right-size authorization for ITP configuration and monitoring. See [Configure custom admin roles for ITP](https://help.okta.com/okta_help.htm?type=oie&id=csh-itp-rbac). 
+Through this feature, customers can use granular ITP permissions and resources to create custom roles to right-size authorization for ITP configuration and monitoring. See [Configure custom admin roles for ITP](https://help.okta.com/okta_help.htm?type=oie&id=csh-itp-rbac).
 
 <!-- OKTA-914059 -->
 
@@ -98,6 +97,10 @@ Okta uses [CAEP](https://openid.net/specs/openid-caep-specification-1_0.html) to
 ## April
 
 ### Weekly release 2025.04.3
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.04.3](#bugs-fixed-in-2025-04-3)| April 30, 2025 |
 
 #### Bugs fixed in 2025.04.3
 
@@ -487,7 +490,7 @@ You can now search for groups whose names or descriptions contain specified text
 
 #### Improved user search functionality is GA in Preview
 
-You can now search for users whose names, email addresses, or usernames contain specified text. This makes it easier to add users to groups or apps. Use the `co` operator within the `search` parameter of the Users API. See [Operators](https://developer.okta.com/docs/api/#operators) and `search` within the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=search&t=request). 
+You can now search for users whose names, email addresses, or usernames contain specified text. This makes it easier to add users to groups or apps. Use the `co` operator within the `search` parameter of the Users API. See [Operators](https://developer.okta.com/docs/api/#operators) and `search` within the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=search&t=request).
 <!--OKTA-862577 DIRECTORY_SERVICE_USER_CONTAINS_SEARCH-->
 
 #### Support for importing Active Directory group descriptions is GA in Production
