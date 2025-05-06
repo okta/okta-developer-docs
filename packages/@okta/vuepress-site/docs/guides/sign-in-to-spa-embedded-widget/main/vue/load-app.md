@@ -68,7 +68,7 @@ To render the Sign-In Widget in Vue.js, you must create a wrapper that allows yo
 
 <script>
 import OktaSignIn from '@okta/okta-signin-widget'
-import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css'
+import '@okta/okta-signin-widget/css/okta-sign-in.min.css'
 
 import sampleConfig from '../config'
 
