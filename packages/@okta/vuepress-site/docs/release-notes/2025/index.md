@@ -4,9 +4,87 @@ title: Okta Classic Engine API release notes 2025
 
 # Okta Classic Engine API release notes (2025)
 
+## May
+
+### Monthly release 2025.05.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Breached Credentials Protection is EA in Preview](#breached-credentials-protection-is-ea-in-preview) | May 15, 2025 |
+| [New User Role Targets API endpoint](#new-user-role-targets-api-endpoint) | May 7, 2025 |
+| [Define default values for custom user attributes](#define-default-values-for-custom-user-attributes) | May 7, 2025 |
+| [Directories integration API is GA in Preview and Production](#directories-integration-api-is-ga-in-preview-and-production) | May 7, 2025 |
+| [Number matching challenge with the Factors API is GA in Preview](#number-matching-challenge-with-the-factors-api-is-ga-in-preview) | May 7, 2025 |
+| [Claims sharing between third-party IdPs and Okta is GA in Preview](#claims-sharing-between-third-party-idps-and-okta-is-ga-in-preview) | May 7, 2025 |
+| [Changes to Okta app API responses](#changes-to-okta-app-api-responses) | May 7, 2025 |
+| [Entitlement claims is GA in Production](#entitlement-claims-is-ga-in-production) | January 2, 2025 |
+| [POST requests to authorize endpoint is GA in Production](#post-requests-to-authorize-endpoint-is-ga-in-production) | January 8, 2025 |
+| [Authentication claims sharing between Okta orgs is GA in Preview](#authentication-claims-sharing-between-okta-orgs-is-ga-in-preview) | May 7, 2025 |
+| [Bugs fixed in 2025.05.0](#bugs-fixed-in-2025-05-0)| May 7, 2025 |
+
+#### Breached Credentials Protection is EA in Preview
+
+Protect your org from the impact of credentials that have been compromised. If Okta determines that a username and password combination has been compromised after being compared to a third-party curated dataset, the protection response is customizable through password policies, including resetting the user's password, forcing a logout, or calling a delegated Workflow. See the [Okta Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/).
+
+This feature is following a slow rollout process beginning on May 15. <!-- OKTA-925699 -->
+
+#### New User Role Targets API endpoint
+
+The User Role Targets API now includes a new endpoint, [Retrieve a role target by assignment type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetAdmin/#tag/RoleBTargetAdmin/operation/getRoleTargetsByUserIdAndRoleId), that retrieves role targets by user or group assignment type. <!--OKTA-909953 -->
+
+#### Define default values for custom user attributes
+
+You can now define default values for custom attributes in a user profile. See the [Update User Profile](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/updateUserProfile) endpoint in the Schemas API. <!-- OKTA-907852 -->
+
+#### Directories integration API is GA in Preview and Production
+
+The Directories Integration API provides operations to manage Active Directory (AD) group memberships using Okta. This API enables you to define adding or removing users for AD groups. This is now generally available. Previously, this was only available to subscribers of Okta Identity Governance. See [Directories Integration](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DirectoriesIntegration/). <!--AD_BIDIRECTIONAL_GROUP_MANAGEMENT OKTA-734564 OKTA-906684-->
+
+#### Number matching challenge with the Factors API is GA in Preview
+
+You can now send number matching challenges for Okta Verify `push` factor enrollments when you send POST requests to the `/users/{userId}/factors/{factorId}/verify` endpoint. For orgs that can't adopt Okta FastPass, this feature improves their overall security.  See the [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/verifyFactor). <!-- OKTA-903176 -->
+
+#### Claims sharing between third-party IdPs and Okta is GA in Preview
+
+Authentication claims sharing allows an admin to configure their Okta org to trust claims from third-party IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from a third-party IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See [Configure claims sharing](/docs/guides/configure-claims-sharing/oktasaml/main/). <!-- ORG2ORG_CLAIMS_SHARING  OKTA-901817 -->
+
+#### Changes to Okta app API responses
+
+The following Okta apps won’t be returned in the API response for endpoints that list apps (such as the [List all applications](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications)  `GET /api/vi/apps` endpoint):
+
+* Okta Access Certifications (key name: `okta_iga`)
+* Okta Access Requests Admin (key name: `okta_access_requests_admin`)
+* Okta Entitlement Management (key name: `okta_entitlement_management`)
+
+In addition, a single app retrieval endpoint won’t return these apps either. For example: `GET /api/v1/apps/{appId}` won’t return the app object if `{appId}` is the ID for the `okta_iga`, `okta_access_requests_admin`, or `okta_entitlement_management` apps in your org.
+
+<!-- OKTA-871526 ENG_ENABLE_UI_ADMIN_OIDC_APP -->
+
+#### Entitlement claims is GA in Production
+
+You can now enrich tokens with app entitlements that produce deeper integrations. After you configure this feature for your app integration, use the [Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/#reference-attributes) to add entitlements at runtime as OpenID Connect claims and SAML assertions. See [Federated claims with entitlements](/docs/guides/federated-claims/main/). <!-- FEDERATED_CLAIM_GENERATION_LAYER https://oktainc.atlassian.net/browse/OKTA-847041 OKTA-834142 -->
+
+#### POST requests to authorize endpoint is GA in Production
+
+You can now send user data securely in a POST request body to the /authorize endpoint. <!-- OKTA-827104 OAUTH2_AUTHORIZE_WITH_POST -->
+
+#### Authentication claims sharing between Okta orgs is GA in Preview
+
+Authentication claims sharing allows an admin to configure their Okta org to trust claims from IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See [Configure claims sharing](/docs/guides/configure-claims-sharing/oktasaml/main/). <!-- ORG2ORG_CLAIMS_SHARING OKTA-856733 OKTA-802451 -->
+
+#### Bugs fixed in 2025.05.0
+
+* If a third-party SAML IdP sent the `session.amr` SAML attribute without the attribute schema type, Okta rejected the response when the third-party claims sharing feature was enabled. (OKTA-925864)
+
+* When third-party IdP claims sharing was enabled, the redirect to the IdP happened during reauthentication even if the IdP didn't provide any AMR claims. (OKTA-922086)
+
 ## April
 
 ### Weekly release 2025.04.3
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.04.3](#bugs-fixed-in-2025-04-3)| April 30, 2025 |
 
 #### Bugs fixed in 2025.04.3
 
@@ -249,7 +327,7 @@ See [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/m
 
 #### Developer documentation update in 2025.03.0
 
-The list of public permissions has moved from the [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions) topic to the [Permissions in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions) topic. The new topic contains more permission details for you to define your custom admin roles. <!--OKTA-857969--> 
+The list of public permissions has moved from the [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions) topic to the [Permissions in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions) topic. The new topic contains more permission details for you to define your custom admin roles. <!--OKTA-857969-->
 
 #### Bug fixed in 2025.03.0
 
