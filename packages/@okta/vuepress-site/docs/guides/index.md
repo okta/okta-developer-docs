@@ -40,10 +40,12 @@ guides:
  - device-authorization-grant
  - embedded-siw
  - enable-cors
+ - enable-express-configuration
  - event-hook-filtering
  - event-hook-hookdeck
  - event-hook-implementation
  - event-hook-ngrok
+ - express-configuration
  - federated-claims
  - find-your-app-credentials
  - find-your-domain
