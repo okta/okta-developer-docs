@@ -62,7 +62,7 @@ Authentication claims sharing allows an admin to configure their Okta org to tru
 
 #### Express Configuration for OIN apps
 
-Express Configuration is a feature designed to automate the setup of SSO for instances of OIN SaaS integrations by enterprise customers with minimal manual effort. It allows enterprise customers to securely configure OpenID Connect (OIDC) integrations without copying and pasting configuration values between Okta and Auth0-enabled apps. See [Express Configuration](https://developer.okta.com/docs/guides/express-configuration/main/). <!-- OKTA-888983 -->
+Express Configuration is a feature designed to automate the setup of SSO for instances of OIN SaaS integrations by enterprise customers with minimal manual effort. It allows enterprise customers to securely configure OpenID Connect (OIDC) integrations without copying and pasting configuration values between Okta and Auth0-enabled apps. See [Express Configuration](/docs/guides/express-configuration/main/). <!-- OKTA-888983 -->
 
 #### Changes to Okta app API responses
 
@@ -72,6 +72,7 @@ The following Okta apps won’t be returned in the API response for endpoints th
 * Okta Access Requests Admin (key name: `okta_access_requests_admin`)
 * Okta Entitlement Management (key name: `okta_entitlement_management`)
 In addition, a single app retrieval endpoint won’t return these apps either. For example: `GET /api/v1/apps/{appId}` won’t return the app object if `{appId}` is the ID for the `okta_iga`, `okta_access_requests_admin`, or `okta_entitlement_management` apps in your org.
+
 <!-- OKTA-871526 ENG_ENABLE_UI_ADMIN_OIDC_APP -->
 
 #### New End-user Enrollments API is GA in Preview
@@ -110,7 +111,7 @@ The new [Integrate Okta with identity verification vendors guide](/docs/guides/i
 
 * If a third-party SAML IdP sent the `session.amr` SAML attribute without the attribute schema type, Okta rejected the response when the third-party claims sharing feature was enabled. (OKTA-925864)
 
-* When third-party IdP claims sharing was enabled, the redirect to the IdP happened during reauthentication even if IdP didn't provide any AMR claims. (OKTA-922086)
+* When third-party IdP claims sharing was enabled, the redirect to the IdP happened during reauthentication even if the IdP didn't provide any AMR claims. (OKTA-922086)
 
 ## April
 

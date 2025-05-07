@@ -56,11 +56,12 @@ The following Okta apps won’t be returned in the API response for endpoints th
 * Okta Access Requests Admin (key name: `okta_access_requests_admin`)
 * Okta Entitlement Management (key name: `okta_entitlement_management`)
 In addition, a single app retrieval endpoint won’t return these apps either. For example: `GET /api/v1/apps/{appId}` won’t return the app object if `{appId}` is the ID for the `okta_iga`, `okta_access_requests_admin`, or `okta_entitlement_management` apps in your org.
+
 <!-- OKTA-871526 ENG_ENABLE_UI_ADMIN_OIDC_APP -->
 
 #### Entitlement claims is GA in Production
 
-You can now enrich tokens with app entitlements that produce deeper integrations. After you configure this feature for your app integration, use the Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/#reference-attributes) to add entitlements at runtime as OpenID Connect claims and SAML assertions. See [Federated claims with entitlements](/docs/guides/federated-claims/main/). <!-- FEDERATED_CLAIM_GENERATION_LAYER https://oktainc.atlassian.net/browse/OKTA-847041 OKTA-834142 -->
+You can now enrich tokens with app entitlements that produce deeper integrations. After you configure this feature for your app integration, use the [Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/#reference-attributes) to add entitlements at runtime as OpenID Connect claims and SAML assertions. See [Federated claims with entitlements](/docs/guides/federated-claims/main/). <!-- FEDERATED_CLAIM_GENERATION_LAYER https://oktainc.atlassian.net/browse/OKTA-847041 OKTA-834142 -->
 
 #### POST requests to authorize endpoint is GA in Production
 
@@ -74,7 +75,7 @@ Authentication claims sharing allows an admin to configure their Okta org to tru
 
 * If a third-party SAML IdP sent the `session.amr` SAML attribute without the attribute schema type, Okta rejected the response when the third-party claims sharing feature was enabled. (OKTA-925864)
 
-* When third-party IdP claims sharing was enabled, the redirect to the IdP happened during reauthentication even if IdP didn't provide any AMR claims. (OKTA-922086)
+* When third-party IdP claims sharing was enabled, the redirect to the IdP happened during reauthentication even if the IdP didn't provide any AMR claims. (OKTA-922086)
 
 ## April
 
