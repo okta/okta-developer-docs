@@ -420,6 +420,10 @@ export const guides = [
               },
             ],
           },
+          {
+            title: "Integrate Okta with identity verification vendors",
+            guideName: "idv-integration"
+          },
           { title: "Configure AMR claims mapping", guideName: "configure-amr-claims-mapping", hidden: true },
           { title: "Configure claims sharing", guideName: "configure-claims-sharing" },
           { title: "Sign users out", guideName: "oie-embedded-sdk-use-case-basic-sign-out" },

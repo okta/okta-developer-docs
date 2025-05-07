@@ -169,6 +169,7 @@ guides:
  - build-api-integration
  - add-logingov-idp
  - policy-simulation
+ - idv-integration
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
