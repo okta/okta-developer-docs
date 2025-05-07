@@ -110,17 +110,17 @@ You can enable per-client rate limiting to prevent a single client from blocking
 
 #### Warning notification
 
-Warnings, which appear if the threshold for the rate limit is reached, generate a system log event, an entry in the rate limit monitoring widget, and issue email notifications. Before your API hits its rate limit, you can change the threshold for when you want to be notified that your API has consumed a high amount of traffic.
+Warnings, which appear if the threshold for the rate limit is reached, generate a system log event, an entry in the rate limit monitoring widget, and issue email notifications (one per day). Before your API hits its rate limit, you can change the threshold for when you want to be notified that your API has consumed a high amount of traffic.
 
 For example, you may want to customize the rate limit threshold when an API normally has high traffic. In such a case, the threshold if set too low at 60% would generate too many warning notifications. If you customize the threshold to a higher percentage, such as 90%, the warning notifications wouldn't start until the API's rate limit is at 90%.
 
 #### Burst rate notification
 
-Bursts, or unexpected API calls that hit and exceed the rate limit, generate a system log event, an entry in the rate limit monitoring widget, and issue email notifications. Your org receives a notification when the default rate limit is hit. See [Burst rate limits](/docs/reference/rate-limits/#burst-rate-limits).
+Bursts, or unexpected API calls that hit and exceed the rate limit, generate a system log event, an entry in the rate limit monitoring widget, and issue email notifications (one per day). Your org receives a notification when the default rate limit is hit. See [Burst rate limits](/docs/reference/rate-limits/#burst-rate-limits).
 
 #### Violation notification
 
-Rate limit violations generate system log events, entries in the rate limit monitoring widget, and email notifications. Your org receives a notification when the default rate limit is hit. See [API rate limits and violations](#api-rate-limits-and-violations).
+Rate limit violations generate system log events, entries in the rate limit monitoring widget, and email notifications (one per hour). Your org receives a notification when the default rate limit is hit. See [API rate limits and violations](#api-rate-limits-and-violations).
 
 > **Note:** Email notifications are sent only on initially reaching the defined warning, burst, or violation limit and not for every endpoint call that exceeds these limits.
 
