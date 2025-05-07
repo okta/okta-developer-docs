@@ -55,6 +55,7 @@ The following Okta apps won’t be returned in the API response for endpoints th
 * Okta Access Certifications (key name: `okta_iga`)
 * Okta Access Requests Admin (key name: `okta_access_requests_admin`)
 * Okta Entitlement Management (key name: `okta_entitlement_management`)
+
 In addition, a single app retrieval endpoint won’t return these apps either. For example: `GET /api/v1/apps/{appId}` won’t return the app object if `{appId}` is the ID for the `okta_iga`, `okta_access_requests_admin`, or `okta_entitlement_management` apps in your org.
 
 <!-- OKTA-871526 ENG_ENABLE_UI_ADMIN_OIDC_APP -->
