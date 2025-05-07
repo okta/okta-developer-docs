@@ -19,7 +19,7 @@ To add or customize application styles, you need to update the `angular.json` co
  Run the following command. This replaces all existing styles, so you need to add any existing style files to this command.
 
 ```shell
-ng config projects.okta-signin-test.architect.build.options.styles '["src/styles.css", "./node_modules/@okta/okta-signin-widget/dist/css/okta-sign-in.min.css"]'
+ng config projects.okta-signin-test.architect.build.options.styles '["src/styles.css", "./node_modules/@okta/okta-signin-widget/css/okta-sign-in.min.css"]'
 ```
 
 #### Angular.json

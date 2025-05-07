@@ -4,8 +4,6 @@ excerpt: Learn how to configure an identity provider to send claims during SSO
 layout: Guides
 ---
 
-<ApiLifecycle access="ea" />
-
 This guide explains how to configure <StackSnippet snippet="idptypetop" inline /> identity provider (IdP) to send authentication claims during Single Sign-On (SSO).
 
 ---
