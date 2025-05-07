@@ -21,7 +21,7 @@ title: Okta Identity Engine API release notes 2025
 | [Claims sharing between third-party IdPs and Okta is GA in Preview](#claims-sharing-between-third-party-idps-and-okta-is-ga-in-preview) | May 7, 2025 |
 | [Express Configuration for OIN apps](#express-configuration-for-oin-apps) | May 7, 2025 |
 | [Changes to Okta app API responses](#changes-to-okta-app-api-responses) | May 7, 2025 |
-| [New End-user Enrollments API is GA in Preview](#new-end-user-enrollments-api-is-ga-in-preview) | May 7, 2025 |
+| [New End-user Enrollments API is GA in Production](#new-end-user-enrollments-api-is-ga-in-preview) | March 5, 2025 |
 | [New System Log for super admin privilege grant](#new-system-log-for-super-admin-privilege-grant) | May 7, 2025 |
 | [Entitlement claims is GA in Production](#entitlement-claims-is-ga-in-production) | January 2, 2025 |
 | [POST requests to authorize endpoint is GA in Production](#post-requests-to-authorize-endpoint-is-ga-in-production) | January 8, 2025 |
@@ -62,7 +62,7 @@ Authentication claims sharing allows an admin to configure their Okta org to tru
 
 #### Express Configuration for OIN apps
 
-Express Configuration is a feature designed to automate the setup of SSO for instances of OIN SaaS integrations by enterprise customers with minimal manual effort. It allows enterprise customers to securely configure OpenID Connect (OIDC) integrations without copying and pasting configuration values between Okta and Auth0-enabled apps. See [Express Configuration] (<https://developer.okta.com/docs/guides/express-configuration/main/>). <!-- OKTA-888983 -->
+Express Configuration is a feature designed to automate the setup of SSO for instances of OIN SaaS integrations by enterprise customers with minimal manual effort. It allows enterprise customers to securely configure OpenID Connect (OIDC) integrations without copying and pasting configuration values between Okta and Auth0-enabled apps. See [Express Configuration](https://developer.okta.com/docs/guides/express-configuration/main/). <!-- OKTA-888983 -->
 
 #### Changes to Okta app API responses
 
@@ -84,7 +84,7 @@ A new System Log event now indicates when the super admin role (`app. oauth2.cli
 
 #### Entitlement claims is GA in Production
 
-You can now enrich tokens with app entitlements that produce deeper integrations. After you configure this feature for your app integration, use the Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/#reference-attributes) to add entitlements at runtime as OpenID Connect claims and SAML assertions. See [Federated claims with entitlements](/docs/guides/federated-claims/main/). <!-- FEDERATED_CLAIM_GENERATION_LAYER OKTA-847041 OKTA-834142 -->
+You can now enrich tokens with app entitlements that produce deeper integrations. After you configure this feature for your app integration, use the [Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/#reference-attributes) to add entitlements at runtime as OpenID Connect claims and SAML assertions. See [Federated claims with entitlements](/docs/guides/federated-claims/main/). <!-- FEDERATED_CLAIM_GENERATION_LAYER OKTA-847041 OKTA-834142 -->
 
 #### POST requests to authorize endpoint is GA in Production
 
@@ -104,7 +104,7 @@ A new `universalLogout` object is returned in the Applications API for orgs that
 
 #### Developer documentation update in 2025.05.0
 
-The new [Integrate Okta with identity verification vendors guide](/docs/guides/idv-integration/main/), under Sign users in, describes how third-party identity verification (IDV) vendors can integrate with Okta. IDV vendors can use the guide to integrate their service with Okta orgs. <!--OKTA-898026-->
+The new [Integrate Okta with identity verification vendors guide](/docs/guides/idv-integration/main/) describes how third-party identity verification (IDV) vendors can integrate with Okta. IDV vendors can use the guide to integrate their service with Okta orgs. <!--OKTA-898026-->
 
 #### Bugs fixed in 2025.05.0
 
@@ -383,7 +383,7 @@ You can now search for users whose names, email addresses, or usernames contain 
 
 We've extended the contains (`co`) operator to realms and devices. You can now search for realms and devices whose profile attributes contain specified text through API. This makes lookups easier without needing to recall the exact names of various profile attributes. Use the `co` operator within the `search` parameter. See [Contains operator](https://developer.okta.com/docs/api/#contains-operator) and the `search` parameter in the [Realms](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Realm/#tag/Realm/operation/listRealms!in=query&path=search&t=request) and [Devices](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/#tag/Device/operation/listDevices!in=query&path=search&t=request) APIs. <!-- OKTA-865940 -->
 
-#### New End-user Enrollments API is GA in Preview
+#### New End-user Enrollments API is GA in Production
 
 The new [End-user Enrollments API](https://developer.okta.com/docs/api/openapi/okta-signin-experience-management/signinexp/tag/endUserEnrollments/) enables end users to enroll and unenroll authenticators by entering a URL directly into their browser. This reduces the time spent administering complex authenticator enrollment flows, and provides a streamlined enrollment process for users. After a user enrolls or unenrolls an authenticator, you can use the `redirect_uri` property to redirect them to another page.<!-- OKTA-868775 ENG_AUTHENTICATOR_ENROLLMENTS_USER_MANAGEMENT_WITH_REDIRECT -->
 
