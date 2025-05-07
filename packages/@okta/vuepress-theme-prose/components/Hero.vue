@@ -30,9 +30,6 @@
           v-show="showBanner"
           primary-cta-text="Learn more at the Okta blog"
           primary-cta-link="https://developer.okta.com/blog/"
-
-          secondary-cta-text="Sign up for the Integrator Free Plan"
-          secondary-cta-link="https://developer.okta.com/signup/"
         >
           <!-- <template #heading /> -->
           <template #heading>
