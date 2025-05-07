@@ -10,32 +10,10 @@ This page discusses the concepts of role assignment through APIs. See [Custom ad
 
 ## Standard role assignment
 
-### Standard role types
+See the following references for a list of standard role types:
 
-The following role types are provided and supported:
-
-| Role type                               | Label                               | Optional targets                      |
-| :-------------------------------------- | :---------------------------------- | :------------------------------------ |
-| `API_ACCESS_MANAGEMENT_ADMIN`           | API Access Management administrator |                                       |
-| `APP_ADMIN`                             | Application administrator           | Apps                                  |
-| `GROUP_MEMBERSHIP_ADMIN`                | Group membership administrator      | [Groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) |
-| `HELP_DESK_ADMIN`                       | Help desk administrator             | [Groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) |
-| `MOBILE_ADMIN`                          | Mobile administrator                |                                       |
-| `ORG_ADMIN`                             | Organization administrator        |                                       |
-| `READ_ONLY_ADMIN`                       | Read-only administrator             |                                       |
-| `REPORT_ADMIN`                          | Report administrator                |                                       |
-| `SUPER_ADMIN`                           | Super administrator                 |                                       |
-| `USER_ADMIN`                            | Group administrator                 | [Groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) |
-
-### IAM-based standard role Types
-
-Okta also supports the following IAM-based standard roles:
-| Role type                                                  | Label                               | Permissions                                   |
-| :--------------------------------------------------------- | :---------------------------------- | :-------------------------------------------- |
-| `ACCESS_CERTIFICATIONS_ADMIN`| Access certifications administrator | `okta.governance.accessCertifications.manage` |
-| `ACCESS_REQUESTS_ADMIN`   | Access requests administrator       | `okta.governance.accessRequests.manage`       |
-
-You can assign IAM-based standard roles using assignment operations for [standard](#standard-role-assignment-steps) or [custom](#custom-role-assignment) roles. These roles are immutable, and you can't update or delete them.
+* [Standard role types](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
+* [IAM-based standard role types](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#iam-based-standard-roles)
 
 ### Standard Role Assignment steps
 
