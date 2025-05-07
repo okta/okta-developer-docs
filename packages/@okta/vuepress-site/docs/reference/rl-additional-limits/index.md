@@ -47,6 +47,12 @@ The first request to exceed the concurrent limit returns an HTTP 429 error, and 
 
 > **Note:** For information on the possible interaction between inline hooks and concurrent rate limits, see [inline hooks and concurrent rate limits](/docs/concepts/inline-hooks/#inline-hooks-and-concurrent-rate-limits).
 
+> **Note:**
+>
+> * Under normal circumstances, customers don't exceed the concurrency limits. Exceeding them may be an indication of a problem that requires investigation.
+> * For information on the possible interaction between inline hooks and concurrent rate limits, see [inline hooks and concurrent rate limits](/docs/concepts/inline-hooks/#inline-hooks-and-concurrent-rate-limits).
+> * [Burst rate limits](/docs/reference/rate-limits/#burst-rate-limits) don't apply if the concurrency rate limit threshold is reached.
+
 ## End user rate limits
 
 Okta limits the number of requests:
