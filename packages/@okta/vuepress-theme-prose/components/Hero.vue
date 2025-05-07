@@ -28,18 +28,18 @@
          -->
         <HomePageBanner
           v-show="showBanner"
-          primary-cta-text="Sign up for the Integrator Free Plan"
-          primary-cta-link="https://developer.okta.com/signup/"
+          primary-cta-text="Learn more at the Okta blog"
+          primary-cta-link="https://developer.okta.com/blog/"
 
-          secondary-cta-text="Learn more at the Okta blog"
-          secondary-cta-link="https://developer.okta.com/blog/"
+          secondary-cta-text="Sign up for the Integrator Free Plan"
+          secondary-cta-link="https://developer.okta.com/signup/"
         >
           <!-- <template #heading /> -->
           <template #heading>
             Coming May 22, 2025!
           </template>
           <template #description>
-            Okta is introducing a new Integrator Free Plan, designed for both developers and integrators. Existing Okta Developer Edition Service orgs will be deactivated on July 18, 2025. If you are an existing Okta Developer Edition user, you'll need to sign up for a new org.
+            Okta is introducing a new Integrator Free Plan, designed for both developers and integrators. Existing Okta Developer Edition Service orgs will be deactivated on or after July 18, 2025. If you are an existing Okta Developer Edition user, you'll need to sign up for a new org.
           </template>
         </HomePageBanner>
       </div>
