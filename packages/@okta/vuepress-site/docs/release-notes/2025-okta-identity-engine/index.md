@@ -14,6 +14,8 @@ title: Okta Identity Engine API release notes 2025
 
 * Some versions of the Sign-In Widget v3 returned an error when trying to display the consent screen. (OKTA-755616)
 
+* The `user.profile.firstName` tag in email templates didn't escape or render Unicode characters correctly. (OKTA-840719)
+
 * Requests made using the `sortBy` parameter with custom attributes to the List all users or List all groups endpoints threw an HTTP 400 Bad Request error. (OKTA-886166)
 
 * Some admins with a custom role (`okta.apps.read`, `okta.apps.clientCredentials.read` permissions) couldn’t view client secrets for apps that they had permission to view. (OKTA-893511)
