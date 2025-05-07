@@ -43,10 +43,6 @@ For concurrent rate limits, traffic is measured in three different areas. Counts
 
 The first request to exceed the concurrent limit returns an HTTP 429 error, and the first error every 60 seconds is written to the log. Reporting concurrent rate limits once a minute keeps log volume manageable.
 
-> **Note:** Under normal circumstances, customers don't exceed the concurrency limits. Exceeding them may be an indication of a problem that requires investigation.
-
-> **Note:** For information on the possible interaction between inline hooks and concurrent rate limits, see [inline hooks and concurrent rate limits](/docs/concepts/inline-hooks/#inline-hooks-and-concurrent-rate-limits).
-
 > **Note:**
 >
 > * Under normal circumstances, customers don't exceed the concurrency limits. Exceeding them may be an indication of a problem that requires investigation.

@@ -42,7 +42,7 @@ The Admin Console tracks any rate-limit warnings or violations directly in a rat
 
 Okta provides rate limits for orgs based on the traffic that they expect to have. If your org experiences higher traffic than what is expected, this unplanned use may potentially have an impact on end users. To help minimize impact, Okta doesn't suspend use that is above the rate limit (specifically for authentication and authorization flows). If there’s sustained use above the purchased rate limit, Okta requires that you purchase an applicable offering that is in line with your use. With burst rate limits, Okta provides peace of mind by ensuring that an unplanned spike doesn't detrimentally affect the end user's experience.
 
->**Note:** Burst rate limits are based on available resources at the time of the request. The also don't apply when the concurrency rate limit threshold has been reached or exceeded for an org.
+>**Note:** Burst rate limits are based on available resources at the time of the request. They also don't apply when the concurrency rate limit threshold has been reached or exceeded for an org.
 
 In a scenario where orgs exceed a default rate limit, they receive a System Log warning event, a burst event, and then a violation event. For example, an org has a rate limit of 600 requests per minute on the `/api/v1/authn` endpoint. That org would receive a warning at 360 requests per minute (60% of 600). That org would get a burst notification when the endpoint hits 600 requests per minute. And then the violation event when it hits 3000 requests all in the same minute.
 
