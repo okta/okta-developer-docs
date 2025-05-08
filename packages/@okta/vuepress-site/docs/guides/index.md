@@ -41,6 +41,7 @@ guides:
  - customize-tokens-groups-claim
  - delete-all-stay-signed-in-sessions
  - device-assurance-policies
+ - device-assurance-posture-checks-and-remediation
  - device-authorization-grant
  - embedded-siw
  - enable-cors
