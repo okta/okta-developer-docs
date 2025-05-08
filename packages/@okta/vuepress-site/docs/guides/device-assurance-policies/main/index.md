@@ -45,8 +45,6 @@ Use the [Device Assurance Policy API](https://developer.okta.com/docs/api/openap
 
 ### About Dynamic OS version compliance
 
-<ApiLifecycle access="ea" />
-
 You can configure OS version compliance by using device assurance. However, you have to manually update the policies every time a new OS version or patch is released. With Dynamic OS version compliance, Okta updates device assurance policies with the latest OS versions and patches, eliminating the need for manual updates. With this feature you can ensure OS version compliance in your org without tracking OS releases.
 
 To use Dynamic OS version compliance, you need to define the `dynamicVersionRequirement` object. See [Example POST request](#example-post-request).
