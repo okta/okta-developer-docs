@@ -1,6 +1,6 @@
 {
-  "release" : "2025.04.1",
-  "build" : "2025.04.1-begin-120-gbad1f8e3c5e8",
+  "release" : "2025.05.1",
+  "build" : "2025.05.1-begin-166-gf9d09b62d6cf",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -1154,6 +1154,24 @@
       "info" : {
         "created" : "2022-10-01",
         "release" : "2022.11.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "access", "event-hook-eligible" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "AccessRequestRequestDebugData",
+        "actor" : null,
+        "targets" : [ "AccessRequestResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "access.request.expire",
+      "category" : "id-fabric",
+      "description" : "Access request expired. Can be used to audit access to an Okta resource or to trigger downstream automation that depends on request expiration. Okta Identity Governance API can be used to get more details about the expired request.",
+      "info" : {
+        "created" : "2025-03-31",
+        "release" : "2025.05.0"
       },
       "beta" : false,
       "internal" : false,
@@ -7892,10 +7910,10 @@
       "tags" : [ "realms" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "SystemDebugData",
         "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
+        "targets" : [ "RealmCreateResourceDetails" ],
+        "changeDetails" : [ ]
       }
     }, {
       "id" : "directory.realm.lifecycle.delete",
@@ -7910,10 +7928,10 @@
       "tags" : [ "realms" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "SystemDebugData",
         "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
+        "targets" : [ "RealmDeleteResourceDetails" ],
+        "changeDetails" : [ ]
       }
     }, {
       "id" : "directory.realm.lifecycle.update",
@@ -14414,6 +14432,24 @@
         "changeDetails" : null
       }
     }, {
+      "id" : "system.agent.ldap.config_change_detected",
+      "category" : "directories",
+      "description" : "A monitored variable in an LDAP agent configuration file has changed. This can be used to audit when a customer's LDAP agent configuration file has changed. This event occurs when a monitored variable in an LDAP agent configuration file has changed.",
+      "info" : {
+        "created" : "2025-03-19",
+        "release" : "2025.04.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "ldap-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "LdapDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ "LdapAgentConfigChangeDetailsEntry" ]
+      }
+    }, {
       "id" : "system.agent.ldap.create_user_JIT",
       "category" : "directories",
       "description" : "Perform create user JIT by LDAP agent.",
@@ -17133,7 +17169,7 @@
       }
     }, {
       "id" : "system.log_stream.lifecycle.activate",
-      "category" : "oin-partner-platform",
+      "category" : "data-foundations",
       "description" : "Log stream activated. This event can be used to track and audit when a user activates a log stream. When fired, this event indicates that a user activated a log stream configuration.",
       "info" : {
         "created" : "2021-08-31",
@@ -17151,7 +17187,7 @@
       }
     }, {
       "id" : "system.log_stream.lifecycle.create",
-      "category" : "oin-partner-platform",
+      "category" : "data-foundations",
       "description" : "Log stream created. This event can be used to track and audit when a user creates a log stream. When fired, this event indicates that a user created a log stream configuration.",
       "info" : {
         "created" : "2021-08-31",
@@ -17169,7 +17205,7 @@
       }
     }, {
       "id" : "system.log_stream.lifecycle.deactivate",
-      "category" : "oin-partner-platform",
+      "category" : "data-foundations",
       "description" : "Log stream deactivated. This event can be used to track and audit when a user or Okta deactivates a log stream. When fired, this event indicates that a user or Okta deactivated a log stream configuration.",
       "info" : {
         "created" : "2021-08-31",
@@ -17187,7 +17223,7 @@
       }
     }, {
       "id" : "system.log_stream.lifecycle.delete",
-      "category" : "oin-partner-platform",
+      "category" : "data-foundations",
       "description" : "Log stream deleted. This event can be used to track and audit when a user deletes a log stream. When fired, this event indicates that a user deleted a log stream configuration.",
       "info" : {
         "created" : "2021-08-31",
@@ -17205,7 +17241,7 @@
       }
     }, {
       "id" : "system.log_stream.lifecycle.update",
-      "category" : "oin-partner-platform",
+      "category" : "data-foundations",
       "description" : "Log stream updated. This event can be used to track and audit when a user updates a log stream. When fired, this event indicates that a user updated a log stream configuration.",
       "info" : {
         "created" : "2021-08-31",
@@ -20738,6 +20774,14 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "ENTITLEMENT_BUNDLE", "GROUP" ]
+          },
+          "expired_at" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "1666156939565", "1698156939565" ]
           },
           "canceled_at" : {
             "type" : "String",
@@ -46548,6 +46592,80 @@
           }
         }
       },
+      "RealmCreateResourceDetails" : {
+        "name" : "RealmCreateResourceDetails",
+        "properties" : {
+          "default_realm" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "realm_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "enum",
+            "examples" : [ "DEFAULT", "PARTNER" ]
+          },
+          "realm_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Default Realm", "My Custom Realm" ]
+          },
+          "realm_domains" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "[]", "[domain1.com]", "[domain1.com , domain2.com]", "[domain1.com , domain2.com, domain3.com]" ]
+          }
+        }
+      },
+      "RealmDeleteResourceDetails" : {
+        "name" : "RealmDeleteResourceDetails",
+        "properties" : {
+          "default_realm" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "realm_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "enum",
+            "examples" : [ "DEFAULT", "PARTNER" ]
+          },
+          "realm_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Default Realm", "My Custom Realm" ]
+          },
+          "realm_domains" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "[]", "[domain1.com]", "[domain1.com , domain2.com]", "[domain1.com , domain2.com, domain3.com]" ]
+          }
+        }
+      },
       "RealmUpdateResourceDetails" : {
         "name" : "RealmUpdateResourceDetails",
         "properties" : {
@@ -46559,7 +46677,23 @@
             "format" : "boolean",
             "examples" : [ "true", "false" ]
           },
-          "previous_name_of_realm" : {
+          "previous_realm_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "enum",
+            "examples" : [ "DEFAULT", "PARTNER" ]
+          },
+          "new_realm_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "enum",
+            "examples" : [ "DEFAULT", "PARTNER" ]
+          },
+          "previous_realm_name" : {
             "type" : "String",
             "sensitive" : false,
             "personal" : false,
@@ -46574,6 +46708,22 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ "Default Realm", "My Custom Realm" ]
+          },
+          "previous_realm_domains" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "[]", "[domain1.com]", "[domain1.com , domain2.com]", "[domain1.com , domain2.com, domain3.com]" ]
+          },
+          "new_realm_domains" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "[]", "[domain1.com]", "[domain1.com , domain2.com]", "[domain1.com , domain2.com, domain3.com]" ]
           }
         }
       },
@@ -48878,6 +49028,235 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "source.login eq target.login", "source.email eq target.email" ]
+          }
+        }
+      },
+      "LdapAgentConfigChangeDetailsEntry" : {
+        "name" : "LdapAgentConfigChangeDetailsEntry",
+        "properties" : {
+          "max_total_connections" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "200" ]
+          },
+          "max_connections_per_host" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "10" ]
+          },
+          "polling_thread_count" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "2" ]
+          },
+          "fips_mode" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "ssl_pinning_enabled" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "ldap_search_page_size" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "500" ]
+          },
+          "thread_dump_frequency_in_minutes" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "0" ]
+          },
+          "memory_track_frequency_in_minutes" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "0" ]
+          },
+          "connection_health_check_frequency_in_minutes" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "0" ]
+          },
+          "proxy_enabled" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "ldap_ssl_port" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "636" ]
+          },
+          "ldap_use_ssl" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "ldap_port" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "389" ]
+          },
+          "proxy_port" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "Redacted" ]
+          },
+          "agent_key_2" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "agent_key" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "proxy_host" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "proxy_user" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "proxy_password" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "ldap_domain_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "ldap_admin_password" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "base_dn" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "ldap_admin_dn" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "instance_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "ldap_host" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "agent_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "org_url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "client_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
           }
         }
       },

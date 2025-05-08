@@ -420,6 +420,10 @@ export const guides = [
               },
             ],
           },
+          {
+            title: "Integrate Okta with identity verification vendors",
+            guideName: "idv-integration"
+          },
           { title: "Configure AMR claims mapping", guideName: "configure-amr-claims-mapping", hidden: true },
           { title: "Configure claims sharing", guideName: "configure-claims-sharing" },
           { title: "Sign users out", guideName: "oie-embedded-sdk-use-case-basic-sign-out" },
@@ -700,6 +704,16 @@ export const guides = [
               {
                 title: "OIN Manager: Submit an integration",
                 guideName: "submit-app",
+              },
+            ]
+          },
+          {
+            title: "Express Configuration",
+            path: "/docs/guides/express-configuration/main",
+            subLinks: [
+              {
+                title: "Enable Express Configuration",
+                guideName: "enable-express-configuration",
               },
             ]
           },
@@ -1003,7 +1017,7 @@ export const reference = [
         path: "/docs/reference/okta-expression-language-in-identity-engine/",
       }, {
         title: "Rate Limits",
-        path: "/docs/reference/rate-limits/",
+        path: "/docs/reference/rate-limits/", 
         subLinks: [
           {
             title: "Rate limit dashboard",
@@ -1040,6 +1054,7 @@ export const reference = [
           },
         ]
       },
+      {title: "SSF Transmitter SET payload structures", path: "/docs/reference/ssf-transmitter-sets/"},
       { title: "System Log query", path: "/docs/reference/system-log-query/" },
       { title: "User query options", path: "/docs/reference/user-query/" },
       {

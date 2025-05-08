@@ -1,6 +1,6 @@
 {
-  "release" : "2025.04.1",
-  "build" : "2025.04.1-begin-120-gbad1f8e3c5e8",
+  "release" : "2025.05.1",
+  "build" : "2025.05.1-begin-166-gf9d09b62d6cf",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1888,6 +1888,14 @@
     "statusReasonPhrase" : "Conflict",
     "errorCode" : "E0000254",
     "errorSummary" : "Another request has already been received for the settings for this email template. Please try again later.",
+    "errorDescription" : null
+  }, {
+    "title" : "App instance with published version status cannot be deleted exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000255",
+    "errorSummary" : "App instance with Published version status can't be deleted.",
     "errorDescription" : null
   } ]
 }
