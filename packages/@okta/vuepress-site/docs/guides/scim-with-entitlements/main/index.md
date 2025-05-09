@@ -17,7 +17,6 @@ This guide teaches you how to create a System for Cross-domain Identity Manageme
 
 #### What you need
 
-* [Okta Developer Edition org](https://developer.okta.com/signup)
 * Some basic development experience with the SCIM [core schema](https://datatracker.ietf.org/doc/html/rfc7643) and [protocol](https://datatracker.ietf.org/doc/html/rfc7644)
 * [Okta Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) to use [entitlements](https://help.okta.com/okta_help.htm?type=oie&id=ext-entitlement-mgt)
 
