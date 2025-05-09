@@ -4,7 +4,7 @@ excerpt: How IDV vendors can integrate with Okta
 layout: Guides
 ---
 
-Developers and organizations can use identity verification (IDV) vendors to integrate IDV flows into their authentication and authorization processes.
+Developers and organizations can use identity verification (IDV) vendors to integrate IDV flows into their authentication processes.
 
 This guide shows developers of IDV vendors how their IDV solutions integrate with Okta orgs.
 
