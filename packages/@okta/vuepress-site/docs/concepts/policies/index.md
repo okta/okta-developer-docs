@@ -30,7 +30,7 @@ There are many possibilities for policy use:
 
 The [global session policy](#global-session-policies) controls the manner in which a user is allowed to sign in to Okta by identifying the user and specifies the length of their session.
 
-You can [configure a global session policy](/docs/guides/configure-signon-policy/main/) to require any of the [factors you set up](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators). Then use the primary and secondary factor conditions in a rule to define which factors are evaluated. For example, add a rule that prompts for additional factors so only users who are inside your [corporate network](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/conditions/network&t=request) have access.
+You can [configure a global session policy](/docs/guides/configure-signon-policy/main/) to require any of the [factors you set up](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators). Then use the primary and secondary factor conditions in a rule to define which factors are evaluated. For example, add a rule that prompts for other factors so only users who are inside your [corporate network](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/conditions/network&t=request) have access.
 
 ### Control how users access your app
 
@@ -38,7 +38,7 @@ The [authentication policy](#authentication-policies) for each app determines wh
 
 A [password policy](#password-policies) also helps you control how users access your app. It determines the requirements for a user's password length and complexity, and it defines how often a user must change their password.
 
-You can create an [authenticator enrollment policy](#authenticator-enrollment-policies). For example, prompt users to enroll in a factor the first time they sign in. You can also define conditions that trigger additional authentication challenges, like when users attempt to access your app from a country they've never signed in from before.
+You can create an [authenticator enrollment policy](#authenticator-enrollment-policies). For example, prompt users to enroll in a factor the first time they sign in. You can also define conditions that trigger other authentication challenges, like when users attempt to access your app from a country they've never signed in from before.
 
 You can create custom forms for your sign-in flows with [user profile policies](#user-profile-policies). This allows you to progressively build user profiles by collecting profile data incrementally as end users engage with your app.
 
@@ -46,7 +46,7 @@ You can create custom forms for your sign-in flows with [user profile policies](
 
 When you want to restrict access to an API based on the calling app, you can create an [access policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerPolicies/).
 
-Access policies are also useful when you need scopes in addition to the [reserved scopes](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scopes) that are created with any Okta authorization server. For example, to improve compatibility for an app, you can return additional profile information for the user by [creating custom scopes with corresponding claims](/docs/guides/customize-authz-server/main/#create-scopes) that tie them to a piece of user information.
+Access policies are also useful when you need scopes in addition to the [reserved scopes](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scopes) that are created with any Okta authorization server. For example, to improve compatibility for an app, you can return other profile information for the user by [creating custom scopes with corresponding claims](/docs/guides/customize-authz-server/main/#create-scopes) that tie them to a piece of user information.
 
 When you want to restrict access to an API based on the calling app, you can create an [access policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerPolicies/).
 
@@ -151,7 +151,7 @@ The [User profile policy](https://developer.okta.com/docs/api/openapi/okta-manag
 
 With self-service registration flows, users register and activate their profiles by clicking a sign-up link in the Sign-In Widget or through a custom-embedded authentication solution.
 
-With progressive enrollment flows, you can capture the minimum user information required to create a profile and then continually build out those user profiles during subsequent sign-in operations. You control what information is collected, validate those input values, and [trigger inline hooks](/docs/guides/registration-inline-hook/nodejs/main/).
+With progressive enrollment flows, you can capture the minimum user information required to create a profile. Then, you can continually build out those user profiles during subsequent sign-in operations. You control what information is collected, validate those input values, and [trigger inline hooks](/docs/guides/registration-inline-hook/nodejs/main/).
 
 ### Identity Threat Protection policies
 
