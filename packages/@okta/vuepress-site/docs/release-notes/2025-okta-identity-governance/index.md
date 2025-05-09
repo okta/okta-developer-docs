@@ -34,7 +34,7 @@ In addition, a single app retrieval endpoint won’t return these apps either. F
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Risk Rules API is Beta](#risk-rules-api-is-beta) | March 5, 2025 |
+| [Risk Rules API is Beta](#risk-rules-api-is-beta) | April 2, 2025 |
 
 #### Risk Rules API is Beta
 
