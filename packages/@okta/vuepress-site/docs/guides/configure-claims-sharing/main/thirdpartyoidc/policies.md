@@ -22,6 +22,10 @@ For example, the `pwd` and `sms` AMR claims can satisfy an authentication policy
   * **Disallow specific authentication methods**: If you specify authentication methods to disallow, then Okta can't use AMR values to evaluate the policy. The SP org challenges the user to verify using any locally configured authenticator.
   * **Allow specific authentication methods**: If you specify authentication methods to allow, Okta can't use AMR claims to evaluate the policy. The SP org challenges the user to verify using any locally configured authenticator.
 
+* **Security question is enabled to satisfy additional factor types:** If you use security questions as an authenticator, Okta can't use third-party claims sharing to satisfy additional factor types. Okta recommends that you select **Recovery in password policy rules** clear the **Authentication and recovery** option on  for security questions in "Authenticators" page.
+
+Security question is enabled to satisfy additional factor types: Using Security Question for authentication is not recommended since it is considered a weak security method.  Third party claims sharing cannot be used to satisfy 2FA requirement if security question is allowed for authentication.  If possible, we recommend de-select "Authentication and recovery" option for Security Question in "Authenticators" page.
+
 ### Global session policy
 
 The global session policy works the same as the authentication policy. AMR values can satisfy the MFA requirement, depending on the AMR values sent.
