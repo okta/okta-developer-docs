@@ -10,13 +10,12 @@
         @updateHeight="updateHeaderHeight"
       >
         <p>
-          Check out our new and improved
-          <a
-            href="https://developer.okta.com/docs/api/"
+          <strong>Coming May 22, 2025!</strong> Okta is introducing a new free org for developers and integrators. Learn more at the <a
+            href="https://developer.okta.com/blog/2025/05/13/okta-developer-edition-changes"
             target="_blank"
           >
-            API documentation! ↗
-          </a>
+
+            Okta Blog</a>
         </p>
       </HeaderBanner>
       <Header />
@@ -156,9 +155,9 @@ export default {
   },
   computed: {
     showBanner() {
-      const bannerStartTime = new Date('2024-09-06T09:00:00-07:00'); // 9:00 AM PT
-      const bannerEndTime = new Date('2024-09-30T17:00:00-07:00'); // 5:00 PM PT
-      
+      const bannerStartTime = new Date('2025-04-28T09:00:00-07:00'); // 9:00 AM PT
+      const bannerEndTime = new Date('2025-06-28T17:00:00-07:00'); // 5:00 PM PT
+
       const bannerStartEpochSeconds = Math.floor(bannerStartTime.getTime() / 1000);
       const bannerEndEpochSeconds = Math.floor(bannerEndTime.getTime() / 1000);
 
