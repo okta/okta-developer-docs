@@ -29,7 +29,7 @@
         <HomePageBanner
           v-show="showBanner"
           primary-cta-text="Learn more at the Okta blog"
-          primary-cta-link="https://developer.okta.com/blog/"
+          primary-cta-link="https://developer.okta.com/blog/2025/05/13/okta-developer-edition-changes"
         >
           <!-- <template #heading /> -->
           <template #heading>
