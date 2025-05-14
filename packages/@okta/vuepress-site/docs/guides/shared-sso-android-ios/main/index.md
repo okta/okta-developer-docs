@@ -21,7 +21,7 @@ This guide uses sample apps to demonstrate how to share a Single Sign-On (SSO) s
 
 #### What you need
 
-* An Okta Developer Edition org. Don't have one? [Create one for free](https://developer.okta.com/signup).
+* An Okta Integrator Free Plan organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
 * Android Studio with an emulator for Android testing.
 * Xcode with a simulator for iOS testing.
 

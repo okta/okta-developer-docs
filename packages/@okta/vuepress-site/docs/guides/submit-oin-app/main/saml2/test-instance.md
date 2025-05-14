@@ -6,11 +6,11 @@
 6. Follow the instructions in your guide to set up the SAML SSO integration on your app.
     * Click **Copy** next to **Metadata URL** to copy the full SAML metadata URL required for the integration.
     * To view specific SAML metadata details, click the **More details** arrow.
-7. Follow these steps if you have an Identity Engine Developer Edition org:
+7. Follow these steps if you have an Identity Engine Okta Integrator Free Plan organization:
    1. Click the **Sign On** tab, scroll to the **User authentication** section, and click **Edit**.
    1. Select **Password only** from the **Authentication policy** dropdown menu.
    [[style="list-style-type:lower-alpha"]]
    1. Click **Save**.
-   > **Note:** Most recent Okta Developer Edition orgs are Identity Engine orgs. See [OIN Wizard authentication policy for testing](/docs/guides/submit-app-prereq/main/#oin-wizard-authentication-policy-for-testing).
+   > **Note:** Most recent Okta Integrator Free plan organizations are Identity Engine orgs. See [OIN Wizard authentication policy for testing](/docs/guides/submit-app-prereq/main/#oin-wizard-authentication-policy-for-testing).
 
 8. [Assign test users to your instance](#assign-test-users-to-your-integration-instance) before you start testing your SSO flows.

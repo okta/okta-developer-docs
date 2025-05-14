@@ -10,7 +10,7 @@ Understand the sequence of steps required to implement [embedded authentication]
 
 #### What you need
 
-* [Okta Developer Edition organization](/signup)
+* [Okta Integrator Free Plan organization](/signup)
 * [Okta Angular Identity Engine Sample App](https://github.com/okta-samples/okta-angular-oie-sample-quickstart)
 
     > **Note**: Use the latest version of the Okta libraries for your Angular app.

@@ -25,7 +25,7 @@ Add a user sign-in flow to a server-side web application with Okta's [redirect m
 
 **What you need**
 
-* An [Okta Developer Edition org](/signup/)
+* An [Okta Integrator Free Plan organization](/signup/)
 * A recent version of [PHP](https://www.php.net/) and [composer](https://getcomposer.org/) installed.
 
 **Sample code**

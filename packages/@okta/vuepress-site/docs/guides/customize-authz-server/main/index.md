@@ -16,7 +16,7 @@ Set up and test your authorization server.
 
 #### What you need
 
-[Okta Developer Edition organization](https://developer.okta.com/signup)
+[Okta Integrator Free Plan organization](https://developer.okta.com/signup)
 
 ---
 
@@ -24,7 +24,7 @@ Set up and test your authorization server.
 
 Okta allows you to create multiple custom authorization servers that you can use to protect your own resource servers. Within each authorization server you can define your own OAuth 2.0 scopes, claims, and access policies.
 
-If you have an [Okta Developer Edition](https://developer.okta.com/signup/) account, you already have a custom authorization server created for you called `default`. If you renamed this custom authorization server, there’s an additional `Default` label to help identify the default authorization server created out of the box.
+If you have an [Okta Integrator Free plan organization](https://developer.okta.com/signup/) account, you already have a custom authorization server created for you called `default`. If you renamed this custom authorization server, there’s an additional `Default` label to help identify the default authorization server created out of the box.
 
 For simple use cases, the default custom authorization server should suffice. If your app requires more scopes or customizing rules for when to grant scopes, then you need another authorization server.
 
@@ -32,7 +32,7 @@ See the [Authorization servers](/docs/concepts/auth-servers/#which-authorization
 
 ## Create an authorization server
 
-> **Note:** If you have an [Okta Developer Edition](https://developer.okta.com/signup/) account and you don't want to create any additional custom authorization servers, you can skip this step. You already have a custom authorization server created for you called "default." The `{authorizationServerId}` for the default server is `default`.
+> **Note:** If you have an [Okta Integrator Free plan organization](https://developer.okta.com/signup/) account and you don't want to create any additional custom authorization servers, you can skip this step. You already have a custom authorization server created for you called "default." The `{authorizationServerId}` for the default server is `default`.
 
 1. In the Admin Console, go to **Security** > **API**.
 

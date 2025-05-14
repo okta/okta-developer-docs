@@ -20,7 +20,7 @@ This guide provides a functional example of an Okta event hook filter. It's base
 
 #### What you need
 
-* [Okta Developer Edition org](https://developer.okta.com/signup/)
+* [Okta Integrator Free Plan organization](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account
 
 #### Sample code

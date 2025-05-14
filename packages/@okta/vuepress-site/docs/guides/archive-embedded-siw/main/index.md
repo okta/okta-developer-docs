@@ -106,7 +106,7 @@ The Widget can handle several different authentication scenarios. Here are a few
 
 #### Sign In and Display User's Email
 
-In this case, you would like to use the Widget to sign in to a simple web page and display the user's email. This requires an Okta developer account, and you have to create a Single-Page App (SPA) for it to work.
+In this case, you would like to use the Widget to sign in to a simple web page and display the user's email. This requires an Okta Integrator Free plan organization, and you have to create a Single-Page App (SPA) for it to work.
 
 1. Sign in to your Admin Console. Go to **Applications** > **Applications**.
 1. Click **Create App Integration**.

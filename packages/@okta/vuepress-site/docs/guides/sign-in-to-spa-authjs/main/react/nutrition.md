@@ -10,7 +10,7 @@ Understand the sequence of steps required to implement Okta [embedded authentica
 
 #### What you need
 
-* [Okta Developer Edition organization](/signup)
+* [Okta Integrator Free Plan organization](/signup)
 * [Okta Auth SDK](https://github.com/okta/okta-auth-js) (`@okta/okta-auth-js`)
 * [Okta React SDK](https://github.com/okta/okta-react) (`@okta/okta-react`)
 

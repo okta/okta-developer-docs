@@ -17,7 +17,7 @@ Create an Okta application and credentials that Terraform uses to manage the obj
 #### What you need
 
 * Familiarity with Terraform terms: configuration, resources, state, and commands. See [Terraform overview](/docs/guides/terraform-overview).
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan organization](https://developer.okta.com/signup)
 * [Super admin permissions](https://help.okta.com/okta_help.htm?id=ext_superadmin)
 * [OpenSSL command line program](https://github.com/openssl/openssl#download). Some operating systems already include `openssl` or `openssl-rsa`.
 * [A Terraform installation](https://www.terraform.io/)
@@ -169,7 +169,7 @@ Create a Terraform configuration that uses the credentials that you created earl
 
    In the previous code sample, add your values to the following fields:
 
-   * `org_name`: Your Okta org name, which is the first part of your organization's Okta domain before `.okta.com`, `.oktapreview.com`, or `.okta-emea.com`. For example, if your Okta domain is `example-org.oktapreview.com`, the org name is `example-org`. Don't include the `-admin` suffix, which corresponds to your Admin Console URL. To confirm your Okta domain in the Admin Console, click your username in the upper-right corner and look for the text below your email address. An Okta Developer org has an org name with the form `dev-<number>`, such as `dev-000001`.
+   * `org_name`: Your Okta org name, which is the first part of your organization's Okta domain before `.okta.com`, `.oktapreview.com`, or `.okta-emea.com`. For example, if your Okta domain is `example-org.oktapreview.com`, the org name is `example-org`. Don't include the `-admin` suffix, which corresponds to your Admin Console URL. To confirm your Okta domain in the Admin Console, click your username in the upper-right corner and look for the text below your email address. An Okta Integrator Free Plan org has an org name with the form `dev-<number>`, such as `dev-000001`.
    * `base_url`: Your Okta org domain. This is the end part of your domain URL: `okta.com`, `oktapreview.com`, or `okta-emea.com`.
    * `client_id`: The client ID of the API service app that you created. In the Admin Console, click **Applications**, then click the name of your API service app. In the app editor, click **General**. Under **Client Credentials**, copy the **Client ID** value.
    * `private_key`: Either the path to the private key file or the private key itself. Okta recommends storing the key in a separate location and using a secrets and encryption management system, such as HashiCorp Vault.

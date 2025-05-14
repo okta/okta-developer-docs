@@ -22,7 +22,7 @@ Customize the sign-in experience with a mobile sign-in UI.
 
 #### What you need
 
-* An Okta Developer organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
+* An Okta Integrator Free plan organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
 * A mobile app with Okta authentication that you want to add a custom sign-in UI to. See [Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/).
 
 #### Sample code

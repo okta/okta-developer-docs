@@ -15,7 +15,7 @@ This guide explains how to customize the text of the SMS messages that Okta send
 
 #### What you need
 
-[Okta Developer Edition organization](https://developer.okta.com/signup)
+[Okta Integrator Free Plan organization](https://developer.okta.com/signup)
 
 ---
 

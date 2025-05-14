@@ -15,7 +15,7 @@ This guide explains Cross-Origin Resource Sharing (CORS), why it’s useful, and
 
 #### What you need
 
-An [Okta Developer Edition org](https://developer.okta.com/signup/)
+An [Okta Integrator Free Plan organization](https://developer.okta.com/signup/)
 
 ---
 

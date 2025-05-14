@@ -16,7 +16,7 @@ To configure multiple identifiers using the Admin Console, see [Multiple identif
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan organization](https://developer.okta.com/signup)
 * [Groups created](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) in your org
 * An app or apps
 

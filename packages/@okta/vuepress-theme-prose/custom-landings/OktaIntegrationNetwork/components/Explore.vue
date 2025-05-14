@@ -47,7 +47,7 @@
                 {
                     id: 1,
                     caption: 'Learn',
-                    text: 'Understand how Okta works and how to implement solutions for your use cases. Get started by signing up for a free Okta developer org and trying the quickstart examples.',
+                    text: 'Understand how Okta works and how to implement solutions for your use cases. Get started by signing up for a free Okta Integrator Free Plan org and trying the quickstart examples.',
                     link: 'Try quickstart examples',
                     path: '/docs/guides/quickstart/'
                 },

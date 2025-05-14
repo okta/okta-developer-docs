@@ -16,7 +16,7 @@ This guide provides a functional example of an Okta event hook that uses the Hoo
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* [Okta Integrator Free Plan organization](https://developer.okta.com/signup/)
 * A local application. See [Create a local application](#create-a-local-application) in this guide to install a sample code application.
 * [Hookdeck](#install-hookdeck)
 

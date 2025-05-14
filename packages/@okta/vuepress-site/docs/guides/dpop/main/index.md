@@ -15,7 +15,7 @@ This guide discusses how to create sender-constrained access tokens that are an 
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan organization](https://developer.okta.com/signup)
 * [Glitch](https://glitch.com/) project or account
 * An [OAuth 2.0 client app](/docs/concepts/oauth-openid/#oauth-2-0) that has the **Require Demonstrating Proof of Possession (DPoP) header in token requests** checkbox enabled.<br>
   If you're using the API, add the [DPoP parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/oauthClient/dpop_bound_access_tokens&t=request) (`dpop_bound_access_tokens: true`) to `settings.oauthClient` to your app.

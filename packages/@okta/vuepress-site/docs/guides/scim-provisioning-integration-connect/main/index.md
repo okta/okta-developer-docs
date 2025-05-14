@@ -19,7 +19,7 @@ Use this guide to create and test a private SCIM integration from your Okta org 
 #### What you need
 
 * A [SCIM API service](/docs/guides/scim-provisioning-integration-prepare/)
-* An [Okta Developer Edition org](https://developer.okta.com/signup/)
+* An [Okta Integrator Free Plan organization](https://developer.okta.com/signup/)
 
 ---
 
@@ -31,7 +31,7 @@ This guide shows you how to create an instance of a private SCIM integration in 
 
 Make sure that your SCIM service passes all the SCIM specification tests in Runscope before integrating it with Okta. For more information on SCIM specification tests, see [Build your SCIM service > Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
 
-Begin by signing in to your Okta Developer Edition org. If you don't have one, sign up for an [Okta developer account](https://developer.okta.com/signup/).
+Begin by signing in to your Okta Integrator Free Plan organization. If you don't have one, sign up for an [Okta Integrator Free plan organization](https://developer.okta.com/signup/).
 
 ## Create your private integration in Okta
 
@@ -99,7 +99,7 @@ If you experience any difficulties when creating your SCIM integration in Okta, 
 1. Select your Okta integration to open the integration settings page.
 1. Click **View Logs** to open the System Log.
 
-The System Log captures all events in your developer org for the previous seven days. This information is invaluable to troubleshoot any connection or authentication issues between Okta and your app. See [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) in the Okta product documentation.
+The System Log captures all events in your Integrator Free Plan org for the previous seven days. This information is invaluable to troubleshoot any connection or authentication issues between Okta and your app. See [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) in the Okta product documentation.
 
 ## Configure your Okta integration
 
@@ -253,7 +253,7 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
 You only want to include the attributes that you support in your current user schema. To ensure that the attributes are being sent properly to and from Okta:
 
-1. When assigning a user to the SCIM integration that you added in your dev org, ensure that all expected attributes are populated for that user.
+1. When assigning a user to the SCIM integration that you added in your Integrator Free Plan org, ensure that all expected attributes are populated for that user.
 
 1. After the user is pushed to your SCIM app, check that all attributes are populated in your SCIM repository.
 

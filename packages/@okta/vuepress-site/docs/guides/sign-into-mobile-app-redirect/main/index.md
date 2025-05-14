@@ -29,7 +29,7 @@ Add authentication to your mobile app using the Okta [redirect model](https://de
 Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-line interface (CLI) is the quickest way to do this. If you don't want to install the CLI, you can [manually sign up for an org](https://developer.okta.com/signup/) instead.
 
 1. Install [Okta CLI](https://cli.okta.com/).
-1. If you don't already have a free Okta developer account:
+1. If you don't already have a free Okta Integrator Free plan organization:
    1. Open your terminal.
    [[style="list-style-type:lower-alpha"]]
    1. Run `okta register`, and enter your first name, last name, email address, and country.
@@ -76,7 +76,7 @@ To create your app integration in Okta using the CLI:
    okta apps create native
    ```
 
-   > **Tip**: If the Okta CLI returns the error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you're not using an Okta developer account. To resolve this, see [Set up Okta](#set-up-okta).
+   > **Tip**: If the Okta CLI returns the error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you're not using an Okta Integrator Free plan organization. To resolve this, see [Set up Okta](#set-up-okta).
 
 2. Enter **Quickstart** when prompted for the app name.
 3. Specify the required redirect URI values:

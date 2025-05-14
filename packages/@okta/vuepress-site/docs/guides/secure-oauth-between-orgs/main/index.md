@@ -17,7 +17,7 @@ Use the Okta APIs to set up Okta hub-and-spoke org provisioning connections.
 * Multiple Okta orgs for your multi-tenant solution
 * A tool to make secure REST API calls (for example, Postman)
 
-> **Note:** The Okta Org2Org app integration isn't available in Okta Developer Edition orgs. If you need to test this feature in your developer org, contact your Okta account team.
+> **Note:** The Okta Org2Org app integration isn't available in Okta Integrator Free Plan orgs. If you need to test this feature in your Integrator Free Plan org, contact your Okta account team.
 
 ---
 
@@ -77,7 +77,7 @@ You need an access token for API requests to each Okta org. After you have API a
 
 You use the spoke org to push users and groups to the central hub org. In the spoke org, add an instance of the Org2Org app integration by using the [Create an app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication) request with the [Org2Org request parameters](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/schema/Org2OrgApplication). This call generates an integration instance with the key certificates required to connect to the hub org.
 
-> **Note:** You can't use an Okta Developer Edition org as a spoke org since the Okta Org2Org app integration isn't available. If you need to test this feature in your developer org, contact your Okta account team.
+> **Note:** You can't use an Okta Integrator Free Plan org as a spoke org since the Okta Org2Org app integration isn't available. If you need to test this feature in your Integrator Free Plan org, contact your Okta account team.
 
 As an Okta admin, make a `POST /api/v1/apps` request to the spoke org with [Okta Org2Org request parameters](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/schema/Org2OrgApplication):
 
