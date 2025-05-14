@@ -8,7 +8,7 @@ Each individual AMR value represents a factor and possession property. During po
 
 For example, the `pwd` and `sms` AMR claims can satisfy an authentication policy configured with **Any 2 factor types**.
 
-> **Note:** The `mfa` AMR claim isn't mapped to any factor type or method characteristics. It indicates that the user performed authentication using more than one factor type. It's defined to satisfy the authentication policy **Any two factors** configuration and to satisfy the global session policy MFA requirement. If there's any additional constraints from the authentication policy, the `mfa` AMR claim alone doesn't satisfy it. Configure your SP org to require more AMR claims.
+> **Note:** The `mfa` AMR claim isn't mapped to any factor type or method characteristics. It indicates that the user performed authentication using more than one factor type. The claim is defined to satisfy the authentication policy **Any two factors** configuration and to satisfy the global session policy MFA requirement. If there's any additional constraints from the authentication policy, the `mfa` AMR claim alone doesn't satisfy it. Configure your SP org to require more AMR claims.
 
 #### Other authentication policy scenarios
 
@@ -21,6 +21,8 @@ For example, the `pwd` and `sms` AMR claims can satisfy an authentication policy
   * **Allow any method that can be used to meet the requirement**: If you enable this setting in your SP org, you can satisfy the policy requirements by using AMR values and authenticators configured locally in the SP org.
   * **Disallow specific authentication methods**: If you specify authentication methods to disallow, then Okta can't use AMR values to evaluate the policy. The SP org challenges the user to verify using any locally configured authenticator.
   * **Allow specific authentication methods**: If you specify authentication methods to allow, Okta can't use AMR claims to evaluate the policy. The SP org challenges the user to verify using any locally configured authenticator.
+
+* **Security question is enabled to satisfy additional factor types:** If you use Security Questions for MFA, Okta can't use third-party claims sharing to satisfy other factor types. To use third-party claims with Okta, change how you use the Security Question authenticator. From the **Authenticators** page, select **Edit** from the **Actions** menu for the Security Question authenticator. Then, select **Recovery in password policy rules** in the dialog and click **Save**.
 
 ### Global session policy
 
