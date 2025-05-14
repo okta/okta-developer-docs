@@ -376,6 +376,7 @@ You can reference any Okta User Profile attribute in your email templates.
 | `${campaign.justification}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
 | `${campaign.dueInDays}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
 | `${campaign.endDate}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
+| `${campaign.campaignDescription}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
 
 ## Use functions for email templates
 
