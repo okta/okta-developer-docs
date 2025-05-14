@@ -17,7 +17,7 @@ Configure an external IdP so that your users can quickly sign up or sign in to y
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan organization](https://developer.okta.com/signup): for developers and integrators
 * An app that you want to add authentication to. You can [create an app integration by using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard) or use an existing one.
 * An account <StackSnippet snippet="idpaccount" inline />.
 
