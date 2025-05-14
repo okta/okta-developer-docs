@@ -107,8 +107,9 @@ Grace periods let you designate an amount of time for a user to enroll in a requ
 
 For example, you can configure an authentication policy that lets an end user defer enrollment for 10 days. The end user can onboard immediately without the friction of an additional authenticator. However, the end user still needs to enroll before the end of the grace period.
 
-* For details about setting grace periods for authentication policies in the Admin Console, see [Authenticator enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies).
-* To see the grace periods object in the API reference documentation, see the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=1/settings/authenticators/enroll/gracePeriod&t=request).
+For details about setting grace periods for authentication policies in the Admin Console, see [Authenticator enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies).
+
+To see the grace periods object in the API reference documentation, see the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=1/settings/authenticators/enroll/gracePeriod&t=request).
 
 #### Device assurance policies
 
