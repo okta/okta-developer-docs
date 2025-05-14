@@ -8,6 +8,18 @@ title: Okta Identity Engine API release notes 2025
 
 ## May
 
+### Weekly release 2025.05.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.05.1](#bugs-fixed-in-2025-05-1)| May 14, 2025 |
+
+#### Bugs fixed in 2025.05.1
+
+* After enrolling a `call` factor (`POST /users/{userId}/factors`), the `resend.href` link in the response body returned an HTTP 404 Not Found error when it was used. (OKTA-926672)
+
+* In some situations, the `/api/v1/agentPools` API failed to return agents that were stuck in an error state. (OKTA-910056)
+
 ### Monthly release 2025.05.0
 
 | Change | Expected in Preview Orgs |
@@ -82,7 +94,7 @@ The new [End-user Enrollments API](https://developer.okta.com/docs/api/openapi/o
 
 #### New System Log for super admin privilege grant
 
-A new System Log event now indicates when the super admin role (`app. oauth2.client.privilege.grant`) is granted to an API service integration. <!-- OKTA-863264 -->
+A new System Log event now indicates when the super admin role (`app.oauth2.client.privilege.grant`) is granted to an API service integration. <!-- OKTA-863264 -->
 
 #### Entitlement claims is GA in Production
 
