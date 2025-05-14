@@ -10,6 +10,17 @@ For changes prior to 2025, see [Archived Okta Identity Governance API Changelog 
 
 ## May
 
+### Weekly release 2025.05.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [New variable for Access Certification campaign emails](#collections-api-is-beta)| May 14, 2025 |
+
+#### New variable for Access Certification campaign emails
+
+You can now include the campaign description in your customized Access Certification campaign email notifications. See the new `${campaign.campaignDescription}` variable in [Use VTL variables](https://developer.okta.com/docs/guides/custom-email/main/#use-vtl-variables).
+<!-- OKTA-912806 -->
+
 ### Monthly release 2025.05.0
 
 | Change | Expected in Preview Orgs |
