@@ -14,7 +14,7 @@ title: Okta Classic Engine API release notes 2025
 
 #### Bugs fixed in 2025.05.1
 
-* When Okta-to-Okta claims sharing was enabled for an Okta Classic org to an Okta Identity Engine org flow, and the State Token for All Flows feature flag was enabled on the Classic Engine org, users were prompted for MFA on the Identity Engine org when MFA had already been completed on the Classic Engine org. (OKTA-932454)
+* When Okta-to-Okta claims sharing was enabled for a Classic Engine org to an Identity Engine org flow, and the State Token for All Flows feature flag was enabled in the Classic Engine org, users were prompted for MFA on the Identity Engine org when MFA had already been completed on the Classic Engine org. (OKTA-932454)
 
 * An error appeared for some Org2Org users after they completed multifactor authentication when Claims Sharing was enabled. (OKTA-932402)
 
