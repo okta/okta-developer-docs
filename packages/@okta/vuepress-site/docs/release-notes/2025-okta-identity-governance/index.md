@@ -14,7 +14,7 @@ For changes prior to 2025, see [Archived Okta Identity Governance API Changelog 
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [New variable for Access Certification campaign emails](#collections-api-is-beta)| May 14, 2025 |
+| [New variable for Access Certification campaign emails](#new-variable-for-Access-Certification-campaign-emails)| May 14, 2025 |
 
 #### New variable for Access Certification campaign emails
 
