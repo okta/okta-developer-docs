@@ -41,7 +41,7 @@ This quickstart contains the following tasks:
 1. [Enable CORS for your API](#enable-cors-for-your-api)
 1. [Test your API is secure](#test-that-your-api-is-secure)
 
-> **Tip**: You need your Okta org domain to follow this tutorial. It looks like `dev-123456.okta.com`. See [Find your Okta domain](/docs/guides/find-your-domain/). Where you see `{yourOktaDomain}` in this guide, replace it with your Okta domain.
+> **Tip**: You need your Okta org domain to follow this tutorial. It looks like `dev-123456.okta.com` or `trial-123456.okta.com`. See [Find your Okta domain](/docs/guides/find-your-domain/). Where you see `{yourOktaDomain}` in this guide, replace it with your Okta domain.
 
 > **Note**: For a similar use case where Okta secures a machine-to-machine sign-in flow between a background service app and the Okta APIs, rather than a service app and your own API, see [Implement OAuth for Okta with a service app](/docs/guides/implement-oauth-for-okta-serviceapp/)
 

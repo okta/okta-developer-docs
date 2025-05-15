@@ -121,7 +121,7 @@ In the same `index.html` file, add the following JavaScript code after the Auth 
 <script type="text/javascript">
 
 // UPDATE THESE FOR YOUR OKTA TENANT
-var baseOktaURL = "https:${yourOKtaDomain}"; //For example, https://dev-08607539.okta.com
+var baseOktaURL = "https:${yourOKtaDomain}"; //For example, https://dev-08607539.okta.com or  or https://trial-123456.okta.com
 var appClientID = "${yourClientID}"; // For example, 0oa73hm5sh9jf6s5e1d6
 
 // Bootstrap the AuthJS Client
@@ -195,7 +195,7 @@ After adding the sign-out function, the sample app is ready to test. Your sample
 
 
    // UPDATE THESE FOR YOUR OKTA TENANT
-   var baseOktaURL = "https:${yourOKtaDomain}"; //For example, https://dev-12345678.okta.com
+   var baseOktaURL = "https:${yourOKtaDomain}"; //For example, https://dev-12345678.okta.com or "https://trial-12345678.okta.com"
    var appClientID = "${yourClientID}"; // For example, 0oa73hm5sh9jf6s5e1d6
 
 
