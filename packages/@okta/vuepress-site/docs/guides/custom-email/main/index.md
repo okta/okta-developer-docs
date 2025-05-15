@@ -417,6 +417,7 @@ Here are some examples:
 | `${escapeHtml(String html)}`                                         | Escapes the characters in the provided string using HTML entities                                                             |
 | `${escapeHtmlAttr(String html)}`                                     | Encodes data for use in HTML attributes                                                                           |
 | `${getTimeDiffHoursNow(int hours, String timeUnit)}`    | Produces a duration string for the given number of hours converted to the specified time units. Supported string values for the timeUnit argument are milliseconds, seconds, minutes, hours, days, and years. |
+| `${encode(String html)}`                                     | Encodes special characters in the provided string                       |
 
 ## Test your custom email templates
 
