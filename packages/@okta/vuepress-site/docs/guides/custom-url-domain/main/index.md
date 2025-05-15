@@ -332,7 +332,7 @@ The OpenID Connect specification requires a `./well-known/openid-configuration` 
 https://<id.domain.name>/oauth2/default/.well-known/openid-configuration
 ```
 
-You might notice that the URL has your Okta `dev-*` domain, rather than your custom domain name.
+You might notice that the URL has your Okta `dev-*` domain or `trial-*` domain, rather than your custom domain name.
 
 To fix this, update your authorization server to use your custom domain:
 

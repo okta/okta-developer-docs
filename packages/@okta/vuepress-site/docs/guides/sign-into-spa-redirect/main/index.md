@@ -43,7 +43,7 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-lin
 
       ```txt
       New Okta Account created!
-      Your Okta Domain: https://dev-xxxxxxx.okta.com
+      Your Okta Domain: https://trial-xxxxxxx.okta.com
       ```
 
    1. Make a note of your Okta domain. Use it wherever `{yourOktaDomain}` appears in this guide.

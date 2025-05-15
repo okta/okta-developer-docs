@@ -10,7 +10,7 @@ Now that you've built an app, you can customize your app and get it ready to lau
 
 Ensure that your app fits your brand:
 
-* [Use a custom domain](/docs/guides/custom-url-domain/): Customize your Okta organization by replacing your Okta domain name (for example, dev-12345.okta.com) with your own domain name (for example, id.example.com) so that all URLs look like your app.
+* [Use a custom domain](/docs/guides/custom-url-domain/): Customize your Okta organization by replacing your Okta domain name (for example, dev-12345.okta.com or trial-12345.okta.com) with your own domain name (for example, id.example.com) so that all URLs look like your app.
 * [Customize and add branding to your sign-in page](/docs/guides/custom-widget/): Tailor the sign-in page to fit your brand or your app's look and feel so that your user experience is consistent and seamless.
 * [Customize and add branding to your error pages](/docs/guides/custom-error-pages/): If an error occurs during sign-in, Okta may need to display an error page to the user. Customize the error page to match the rest of your app.
 * [Email domain setup](/docs/guides/custom-email/main/#configure-a-custom-email-domain): Update the "From" address and domain of the emails sent to your users.

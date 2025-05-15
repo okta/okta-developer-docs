@@ -341,7 +341,7 @@ For servers that you create using the instructions in this article, the URI ends
 
 * `https://mycompany.okta.com/oauth2/ause865vcvrGz6MxP1ee`
 * `https://mycompany.oktapreview.com/oauth2/ause865vcvrGz6MxP1ee`
-* `https://dev-12300000.okta.com/oauth2/ause865vcvrGz6MxP1ee`
+* `https://trial-12300000.okta.com/oauth2/ause865vcvrGz6MxP1ee`
 If you use custom domains, use your custom domain in the issuer as the domain, for example:
 
 * `https://sso.mycompany.com/oauth2/ause865vcvrGz6MxP1ee`
