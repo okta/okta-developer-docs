@@ -76,7 +76,7 @@ To create your app integration in Okta using the CLI:
    okta apps create native
    ```
 
-   > **Tip**: If the Okta CLI returns the error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you're not using an Okta Integrator Free Plan org. To resolve this, see [Set up Okta](#set-up-okta).
+   > **Tip**: If the Okta CLI returns the error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you're not using an Integrator Free Plan org. To resolve this, see [Set up Okta](#set-up-okta).
 
 2. Enter **Quickstart** when prompted for the app name.
 3. Specify the required redirect URI values:

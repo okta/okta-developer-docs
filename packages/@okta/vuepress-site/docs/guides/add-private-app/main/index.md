@@ -43,7 +43,7 @@ After you build your app SSO integration, use the Application Integration Wizard
 
 > **Note:** As a best practice, create two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future.
 
-1. Sign in to your Okta Integrator Free Plan org as a user with administrative privileges.
+1. Sign in to your Integrator Free Plan org as a user with administrative privileges.
 1. Go to **Applications** > **Applications** in the Admin Console.
 1. Click **Create App Integration**.
 

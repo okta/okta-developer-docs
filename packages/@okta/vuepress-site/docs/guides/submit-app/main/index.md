@@ -57,7 +57,7 @@ Start your integration submission:
 
 1. Open the [OIN Manager](https://oinmanager.okta.com) and click **Start Submission Form**.
 
-1. Sign in to the OIN Manager with your Okta Integrator Free Plan org credentials.
+1. Sign in to the OIN Manager with your Integrator Free Plan org credentials.
 
 1. Click **Add New Submission**.
 
@@ -132,9 +132,9 @@ If you need to edit your published integration, use the [OIN Manager](https://oi
 
 > If you submitted a SCIM integration through the OIN Manager and the OIN review process hasn't started, resubmitted it in the OIN Wizard.
 
-1. Sign in to the OIN Manager using the credentials for the original submission Okta Integrator Free Plan org.
+1. Sign in to the OIN Manager using the credentials for the original submission Integrator Free Plan org.
 
-    >**Note:** Submit the updated integration using the same Okta Integrator Free Plan org that was used to make the original submission, otherwise the Okta OIN team rejects the update.
+    >**Note:** Submit the updated integration using the same Integrator Free Plan org that was used to make the original submission, otherwise the Okta OIN team rejects the update.
 
    The published integration appears on your integrations page.
 
@@ -152,7 +152,7 @@ If you need to edit your published integration, use the [OIN Manager](https://oi
 
     Okta publishes the new version of your integration after it reaches the **Publish** stage. The new version replaces the old one in the OIN catalog.
 
->**Note:** You can have a maximum of 10 submissions for any Okta Integrator Free Plan org in the OIN Manager.
+>**Note:** You can have a maximum of 10 submissions for any Integrator Free Plan org in the OIN Manager.
 
 ## Delete draft submissions
 

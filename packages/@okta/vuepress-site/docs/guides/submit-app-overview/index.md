@@ -22,8 +22,8 @@ For Workflows connector or API service integrations, you need to use the [OIN Ma
 > **Note:** Okta recommends that you:
 > * Separate environments for development, testing, and production.
 > * Use the Okta Integrator Free Plan org as part of your development and testing environment.
-> * Submit your integration to the OIN from the same Okta Integrator Free Plan org.
-> * Don't connect the generated app instance in your Okta Integrator Free Plan org to your production environment.
+> * Submit your integration to the OIN from the same Integrator Free Plan org.
+> * Don't connect the generated app instance in your Integrator Free Plan org to your production environment.
 
 Before you submit your integration, in either the OIN Wizard or OIN Manager, review the [OIN submission requirements](/docs/guides/submit-app-prereq/) and prepare the necessary artifacts (such as the app logo, description, and configuration document).
 
@@ -46,7 +46,7 @@ The Okta OIN team reviews and prioritizes all submissions.
 The following steps outline the process for submitting SSO and SCIM integrations through the OIN Wizard.
 
 1. Build the integration in your app.
-1. Sign in to the Admin Console of your Okta Integrator Free Plan org.
+1. Sign in to the Admin Console of your Integrator Free Plan org.
    - Add integration details in the OIN Wizard.
    - Generate the app integration instance.
    - Test the integration.
@@ -71,7 +71,7 @@ Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 The following steps outline the submission process for API service integrations with the OIN Manager:
 
 1. Build the integration in your service app.
-1. Sign in to the OIN Manager with your Okta Integrator Free Plan org credentials.
+1. Sign in to the OIN Manager with your Integrator Free Plan org credentials.
    - Add integration details in the OIN Manager.
    - Generate the app integration instance.
    - Test the integration.
@@ -86,10 +86,10 @@ The following steps outline the submission process for API service integrations 
 The following steps and flowchart explain how to submit Workflows integrations through the OIN Manager:
 
 1. Build the Workflows capabilities in your app.
-   - Sign in to your Okta Integrator Free Plan org Admin Console.
+   - Sign in to your Integrator Free Plan org Admin Console.
    - Build your Workflows connector.
    - Test the Workflows capabilities.
-1. Sign in to the OIN Manager with your Okta Integrator Free Plan org credentials.
+1. Sign in to the OIN Manager with your Integrator Free Plan org credentials.
    - Add integration details in the OIN Manager.
    - Submit the integration.
 1. Review feedback.
