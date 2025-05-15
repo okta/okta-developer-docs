@@ -378,7 +378,7 @@ Test the new configurations by recovering a password for a user of your sample a
 
 1. Click the **Send me an email** link.
 
-1. Check your test user's email inbox and wait for the **Account password reset** email from your Okta Integrator Free Plan org.
+1. Check your test user's email inbox and wait for the **Account password reset** email from your Integrator Free Plan org.
 
    >**Note:** Stay in the same browser window as the app sign-in tab.
 
