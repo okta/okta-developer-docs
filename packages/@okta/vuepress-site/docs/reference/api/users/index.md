@@ -4069,7 +4069,7 @@ See [`credentials`](https://developer.okta.com/docs/api/openapi/okta-management/
 
 #### Password object
 
-See [`password`]https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!path=credentials&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+See [`password`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!path=credentials&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
 <!--Specifies a password for a user
 
