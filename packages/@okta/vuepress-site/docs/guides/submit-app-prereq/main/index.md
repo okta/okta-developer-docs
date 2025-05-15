@@ -69,7 +69,7 @@ The following multi-tenant example assumes that your Okta app integration suppor
 
 ## OIN Wizard requirements
 
-The OIN Wizard is only available in Okta Integrator Free plan organizations.
+The OIN Wizard is only available in Okta Integrator Free Plan orgs.
 
 ### OIN Wizard role requirements
 
@@ -108,7 +108,7 @@ After you installed the Okta Browser Plugin in your Chrome browser, set **Allow 
 
 <ApiLifecycle access="ie" />
 
-> **Note:** These instructions only apply to Okta Integrator Free plan organizations with Identity Engine. If you're not sure which solution you're using, check the footer on any page of the Admin Console. The version number is appended with **E** for Identity Engine orgs and **C** for Classic Engine orgs.
+> **Note:** These instructions only apply to Okta Integrator Free Plan orgs with Identity Engine. If you're not sure which solution you're using, check the footer on any page of the Admin Console. The version number is appended with **E** for Identity Engine orgs and **C** for Classic Engine orgs.
 
 The OIN Wizard testing phase uses a plugin app called the **Okta OIN Submission Tester**, which is preinstalled in your Okta Integrator Free Plan org. This app requires a password-only authentication policy to run properly.
 

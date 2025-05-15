@@ -12,7 +12,7 @@ Learn how to submit an OIDC, SAML 2.0, or SCIM 2.0 integration to the Okta Integ
 
 #### What you need
 
-* An [Okta Integrator Free Plan org](https://developer.okta.com/signup/). The OIN Wizard is only available in Okta Integrator Free plan organizations.
+* An [Okta Integrator Free Plan org](https://developer.okta.com/signup/). The OIN Wizard is only available in Okta Integrator Free Plan orgs.
 * An admin user in the Okta Integrator Free Plan org with either the super admin or the app and org admin roles
 * A functional integration based on the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) or [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/main/) guide
 * Google Chrome browser with the Okta Browser Plugin installed (see [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements))

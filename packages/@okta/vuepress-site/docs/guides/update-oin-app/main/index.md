@@ -13,7 +13,7 @@ Learn how to update an OIDC, SAML 2.0, or SCIM 2.0 published integration in the 
 #### What you need
 
 * A published OIDC, SAML 2.0, or SCIM integration in the OIN
-* The [Okta Integrator Free Plan org](https://developer.okta.com/signup/) from where you originally submitted your published integration. The OIN Wizard is only available in Okta Integrator Free plan organizations.
+* The [Okta Integrator Free Plan org](https://developer.okta.com/signup/) from where you originally submitted your published integration. The OIN Wizard is only available in Okta Integrator Free Plan orgs.
 * An admin user in the Okta Integrator Free Plan org with either the super admin or the app and org admin roles
 
 ---
