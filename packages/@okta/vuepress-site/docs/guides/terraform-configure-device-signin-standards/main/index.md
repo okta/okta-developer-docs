@@ -22,7 +22,7 @@ Require users to authenticate only with phones and computers that meet your org'
 
 * Familiarity with Terraform terms: configuration, resources, state, and commands. See the [Terraform overview](/docs/guides/terraform-overview).
 
-* An Okta organization.
+* An [Okta Integrator Free Plan org](/signup)
 
 * A [Terraform configuration](/docs/guides/terraform-enable-org-access) that can access your Okta org.
 
@@ -204,7 +204,7 @@ Create a macOS device assurance policy:
 
     * `screenlock_type`: A set of required screen lock actions and behaviors.  The supported options are `BIOMETRIC` (biometric locking) and `PASSCODE` (passcode locking).
 
-Your policy can also check signals on devices from a supported third-party signal provider, such as the Google Chrome Device Trust Connector in the Chrome browser. Specify its device signals in your Terraform code with the fields with the prefix `tpsp_`. For example, `tpsp_os_version` instead of `os_version`.  Okta for device assurance for ChromeOS requires using [Workforce Identity Adaptive Multi-factor Authentication (AMFA)](https://www.okta.com/learn/adaptive-mfa/). Okta Integrator Free Plan orgs don't support the Google Chrome Device Trust Connector by default. If you're a paying customer, contact Okta developer support to enable third-party signal support on an Okta Integrator Free Plan org.
+Your policy can also check signals on devices from a supported third-party signal provider, such as the Google Chrome Device Trust Connector in the Chrome browser. Specify its device signals in your Terraform code with the fields with the prefix `tpsp_`. For example, `tpsp_os_version` instead of `os_version`.  Okta for device assurance for ChromeOS requires using [Workforce Identity Adaptive Multi-factor Authentication (AMFA)](https://www.okta.com/learn/adaptive-mfa/). Integrator Free Plan orgs don't support the Google Chrome Device Trust Connector by default. If you're a paying customer, contact Okta developer support to enable third-party signal support on an Integrator Free Plan org.
 
 The following code shows a typical macOS device assurance policy:
 
@@ -234,7 +234,7 @@ Create a Windows device assurance policy:
 
     * `screenlock_type`: A set of required screen lock actions and behaviors. The supported options are `BIOMETRIC` (biometric locking) and `PASSCODE` (passcode locking).
 
-Your policy can also check signals on devices from a supported third-party signal provider, such as the Google Chrome Device Trust Connector in the Chrome browser. Specify its device signals in your Terraform code with the fields with the prefix `tpsp_`. For example, `tpsp_os_version` instead of `os_version`.  Okta for device assurance for ChromeOS requires using [Workforce Identity Adaptive Multi-factor Authentication (AMFA)](https://www.okta.com/learn/adaptive-mfa/). Okta Integrator Free Plan orgs don't support the Google Chrome Device Trust Connector by default. If you're a paying customer, contact Okta developer support to enable third-party signal on an Okta Integrator Free Plan org.
+Your policy can also check signals on devices from a supported third-party signal provider, such as the Google Chrome Device Trust Connector in the Chrome browser. Specify its device signals in your Terraform code with the fields with the prefix `tpsp_`. For example, `tpsp_os_version` instead of `os_version`.  Okta for device assurance for ChromeOS requires using [Workforce Identity Adaptive Multi-factor Authentication (AMFA)](https://www.okta.com/learn/adaptive-mfa/). Integrator Free Plan orgs don't support the Google Chrome Device Trust Connector by default. If you're a paying customer, contact Okta developer support to enable third-party signal on an Integrator Free Plan org.
 
 The following code shows a typical Windows device assurance policy:
 
@@ -250,7 +250,7 @@ resource okta_policy_device_assurance_windows windows_example {
 
 ### ChromeOS
 
-Some Okta device assurance policies support ChromeOS configurations. Okta for device assurance for ChromeOS requires using [Workforce Identity Adaptive Multi-factor Authentication (AMFA)](https://www.okta.com/learn/adaptive-mfa/). Okta Integrator Free Plan orgs don't support the Google Chrome Device Trust Connector by default. If you're a paying customer, contact Okta developer support to enable ChromeOS support on an Okta Integrator Free Plan org.
+Some Okta device assurance policies support ChromeOS configurations. Okta for device assurance for ChromeOS requires using [Workforce Identity Adaptive Multi-factor Authentication (AMFA)](https://www.okta.com/learn/adaptive-mfa/). Integrator Free Plan orgs don't support the Google Chrome Device Trust Connector by default. If you're a paying customer, contact Okta developer support to enable ChromeOS support on an Integrator Free Plan org.
 
 1. Add the `okta_policy_device_assurance_chromeos` resource to your configuration.
 

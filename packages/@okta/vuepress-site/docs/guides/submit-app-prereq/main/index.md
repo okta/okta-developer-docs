@@ -36,8 +36,8 @@ See [OIN Wizard requirements](#oin-wizard-requirements) for publishing Single Si
 > **Note:** Okta recommends that you:
 > * Separate environments for development, testing, and production.
 > * Use the Okta Integrator Free Plan org as part of your development and testing environment.
-> * Submit your integration to the OIN from the same Okta Integrator Free Plan org.
-> * Don't connect the generated app instance in your Okta Integrator Free Plan org to your production environment.
+> * Submit your integration to the OIN from the same Integrator Free Plan org.
+> * Don't connect the generated app instance in your Integrator Free Plan org to your production environment.
 
 ## OIN multi-tenancy
 
@@ -69,7 +69,7 @@ The following multi-tenant example assumes that your Okta app integration suppor
 
 ## OIN Wizard requirements
 
-The OIN Wizard is only available in Okta Integrator Free Plan orgs.
+The OIN Wizard is only available in Integrator Free Plan orgs.
 
 ### OIN Wizard role requirements
 
@@ -108,11 +108,11 @@ After you installed the Okta Browser Plugin in your Chrome browser, set **Allow 
 
 <ApiLifecycle access="ie" />
 
-> **Note:** These instructions only apply to Okta Integrator Free Plan orgs with Identity Engine. If you're not sure which solution you're using, check the footer on any page of the Admin Console. The version number is appended with **E** for Identity Engine orgs and **C** for Classic Engine orgs.
+> **Note:** These instructions only apply to Integrator Free Plan orgs with Identity Engine. If you're not sure which solution you're using, check the footer on any page of the Admin Console. The version number is appended with **E** for Identity Engine orgs and **C** for Classic Engine orgs.
 
-The OIN Wizard testing phase uses a plugin app called the **Okta OIN Submission Tester**, which is preinstalled in your Okta Integrator Free Plan org. This app requires a password-only authentication policy to run properly.
+The OIN Wizard testing phase uses a plugin app called the **Okta OIN Submission Tester**, which is preinstalled in your Integrator Free Plan org. This app requires a password-only authentication policy to run properly.
 
-For Identity Engine orgs, the default authentication policy requires MFA. Use the preconfigured **Password only** authentication policy that is included in your Okta Integrator Free Plan org for the Okta OIN Submission Tester app.
+For Identity Engine orgs, the default authentication policy requires MFA. Use the preconfigured **Password only** authentication policy that is included in your Integrator Free Plan org for the Okta OIN Submission Tester app.
 
 1. Go to **Application** > **Applications** in the Admin Console.
 1. Click **Okta OIN Submission Tester**.
@@ -129,7 +129,7 @@ If you have issues loading or accessing the OIN Submission Tester, review the fo
 * Ensure that you're using a Google Chrome browser with the [Okta Browser Plugin installed](#oin-wizard-okta-browser-plugin-setup).
 * Ensure that **Allow in Incognito** is enabled for the Okta Browser Plugin extension.
 * Pin the Okta Browser Plugin extension on your Chrome browser to get error notifications.
-* If you're using multiple Okta orgs, the Okta Browser Plugin requires you to trust the current Okta Integrator Free Plan org. Click **Trust** when the **Do you trust this account?** dialog appears for the Okta Browser Plugin extension.
+* If you're using multiple Okta orgs, the Okta Browser Plugin requires you to trust the current Integrator Free Plan org. Click **Trust** when the **Do you trust this account?** dialog appears for the Okta Browser Plugin extension.
 * Ensure that you're using a password-only authentication policy for the OIN Submission Tester. See [OIN Wizard authentication policy for testing](#oin-wizard-authentication-policy-for-testing).
 
 ## Logo guidelines
