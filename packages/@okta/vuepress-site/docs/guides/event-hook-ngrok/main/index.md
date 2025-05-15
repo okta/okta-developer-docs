@@ -18,7 +18,7 @@ This guide provides a functional example of an Okta event hook that uses the ngr
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup/)
 * A local application. See [Create a local application](#create-a-local-application) in this guide for a simple example.
 * [ngrok](#install-ngrok)
 

@@ -13,7 +13,7 @@ The [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js) (Auth JS) h
 
 #### What you need
 
-[Okta Developer Edition organization](https://developer.okta.com/signup/)
+[Okta Integrator Free Plan org](https://developer.okta.com/signup)
 
 ---
 
@@ -294,7 +294,7 @@ By default, self-service registration isn't enabled for all apps. Use the follow
 
 Based on other policy configurations, the self-service registration flow may be different or include other authenticators. See [Sign-in flows](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-sign-in-flows).
 
-> **Note:** All new users through the self-registration process receive a welcome email. This email activates user access to the apps on your dev org and demonstrates ownership of the email authenticator. If you complete this process, ensure you're in the same browser window as the app sign-in tab.
+> **Note:** All new users through the self-registration process receive a welcome email. This email activates user access to the apps on your Integrator Free Plan org and demonstrates ownership of the email authenticator. If you complete this process, ensure you're in the same browser window as the app sign-in tab.
 
 ## Enable progressive profile enrollment
 
@@ -321,7 +321,7 @@ Progressive profile enrollment builds out a user's profile incrementally during 
 
 ## Add MFA with a mandatory second factor
 
-By default, your dev org isn't configured for multifactor authentication. Use the following steps to understand the policy configurations and set up this use case. This setup requires an end user to authenticate with a password and a phone authenticator.
+By default, your Integrator Free Plan org isn't configured for multifactor authentication. Use the following steps to understand the policy configurations and set up this use case. This setup requires an end user to authenticate with a password and a phone authenticator.
 
 1. Go to **Security** > **Authenticators** and ensure that the phone authenticator is available in the **Authenticators** list on the **Setup** tab.
 
@@ -350,7 +350,7 @@ After your users have enrolled in the phone authenticator, future sign-in flows 
 
 ## Enable password recovery with email magic link
 
-By default, the dev org is configured for a self-service password reset. Review the following steps to understand the policy configurations and to enable your sample app users to self-recover their password through an email magic link.
+By default, the Integrator Free Plan org is configured for a self-service password reset. Review the following steps to understand the policy configurations and to enable your sample app users to self-recover their password through an email magic link.
 
 1. Go to **Security** > **Authenticators**. Ensure that the email authenticator is available in the **Authenticators** list on the **Setup** tab, and that it's used for **Recovery**.
 
@@ -378,7 +378,7 @@ Test the new configurations by recovering a password for a user of your sample a
 
 1. Click the **Send me an email** link.
 
-1. Check your test user's email inbox and wait for the **Account password reset** email from your Okta dev org.
+1. Check your test user's email inbox and wait for the **Account password reset** email from your Integrator Free Plan org.
 
    >**Note:** Stay in the same browser window as the app sign-in tab.
 

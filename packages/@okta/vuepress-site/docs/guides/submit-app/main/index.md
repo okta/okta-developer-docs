@@ -28,7 +28,7 @@ Use this guide to understand the process of submitting Workflows connector and A
 
 ## Overview
 
-The [Okta Integration Network (OIN) Manager](https://oinmanager.okta.com) is a submission tool that's connected to your Okta Developer Edition org where you build your Okta integration. Use this tool to submit your integration for verification and publication in the OIN catalog.
+The [Okta Integration Network (OIN) Manager](https://oinmanager.okta.com) is a submission tool that's connected to your Okta Integrator Free Plan org where you build your Okta integration. Use this tool to submit your integration for verification and publication in the OIN catalog.
 
 ### Integrations supported
 
@@ -57,7 +57,7 @@ Start your integration submission:
 
 1. Open the [OIN Manager](https://oinmanager.okta.com) and click **Start Submission Form**.
 
-1. Sign in to the OIN Manager with your Okta developer org credentials.
+1. Sign in to the OIN Manager with your Integrator Free Plan org credentials.
 
 1. Click **Add New Submission**.
 
@@ -132,9 +132,9 @@ If you need to edit your published integration, use the [OIN Manager](https://oi
 
 > If you submitted a SCIM integration through the OIN Manager and the OIN review process hasn't started, resubmitted it in the OIN Wizard.
 
-1. Sign in to the OIN Manager using the credentials for the original submission Okta Developer Edition org.
+1. Sign in to the OIN Manager using the credentials for the original submission Integrator Free Plan org.
 
-    >**Note:** Submit the updated integration using the same Developer Edition org that was used to make the original submission, otherwise the Okta OIN team rejects the update.
+    >**Note:** Submit the updated integration using the same Integrator Free Plan org that was used to make the original submission, otherwise the Okta OIN team rejects the update.
 
    The published integration appears on your integrations page.
 
@@ -152,7 +152,7 @@ If you need to edit your published integration, use the [OIN Manager](https://oi
 
     Okta publishes the new version of your integration after it reaches the **Publish** stage. The new version replaces the old one in the OIN catalog.
 
->**Note:** You can have a maximum of 10 submissions for any Okta Developer Edition org in the OIN Manager.
+>**Note:** You can have a maximum of 10 submissions for any Integrator Free Plan org in the OIN Manager.
 
 ## Delete draft submissions
 
@@ -176,7 +176,7 @@ If you need assistance with deleting a draft submission, contact the Okta OIN te
 
 ## Delete published submissions
 
-If you want to remove an app integration that's already published in the OIN catalog, contact the Okta OIN team. Only the Okta OIN team can remove published integrations in the catalog. Send an email to <oin@okta.com> with the URL of your developer org, the name of the app integration, and a link to its location in the OIN catalog.
+If you want to remove an app integration that's already published in the OIN catalog, contact the Okta OIN team. Only the Okta OIN team can remove published integrations in the catalog. Send an email to <oin@okta.com> with the URL of your Integrator Free Plan org, the name of the app integration, and a link to its location in the OIN catalog.
 
 Removing an app integration from the OIN doesn't prohibit existing users from accessing it. The app integration isn't removed from End-User Dashboards until an admin for the customer's org removes the app integration from their org.
 

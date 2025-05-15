@@ -18,7 +18,7 @@ This guide walks you through how to enable Express Configuration for your Auth0-
 
 **What you need**
 
-* An Okta Developer Edition org
+* An Okta Integrator Free Plan org
 * An admin user in the org with either the super admin or the app and org admin roles
 * Auth0-enabled SaaS app that supports OIDC capability
 * Auth0 Enterprise subscription with the [Auth0 Organizations](https://auth0.com/docs/manage-users/organizations) feature enabled
@@ -254,7 +254,7 @@ Email the following information to the Okta Express Configuration team at [expre
 * Your app name in the OIN.
 * Okta OIN Integration Client app client ID.
 
-The Okta Express Configuration team configures your app in the OIN and assigns it to your developer org. You can then test the feature by creating an instance of your app in the OIN catalog.
+The Okta Express Configuration team configures your app in the OIN and assigns it to your Integrator Free Plan org. You can then test the feature by creating an instance of your app in the OIN catalog.
 
 # Verification and testing
 

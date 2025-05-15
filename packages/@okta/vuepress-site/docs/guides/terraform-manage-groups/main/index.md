@@ -17,7 +17,7 @@ Use Terraform to configure access to Okta apps and manage sign-in flows for grou
 #### What you need
 
 * Familiarity with the Terraform terms: configuration, resources, state, and commands. See [Terraform overview](/docs/guides/terraform-overview).
-* An [Okta Developer Edition organization](https://developer.okta.com/signup) or an Okta Identity Engine organization
+* An [Okta Integrator Free Plan org](https://developer.okta.com/signup) or an Okta Identity Engine organization
 * A Terraform configuration that can access your Okta org. See [Enable Terraform access for your Okta org](/docs/guides/terraform-enable-org-access).
 
 ---

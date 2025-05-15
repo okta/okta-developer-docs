@@ -18,7 +18,7 @@ This guide describes the Device Authorization feature, which allows users to sig
 
 #### What you need
 
-[Okta Developer Edition organization](https://developer.okta.com/signup)
+[Okta Integrator Free Plan org](https://developer.okta.com/signup)
 
 ---
 

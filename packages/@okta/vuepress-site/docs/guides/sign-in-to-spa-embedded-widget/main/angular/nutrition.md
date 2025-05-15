@@ -12,7 +12,7 @@ This guide explains how to sign in to an Angular framework single-page applicati
 
 #### What you need
 
-* [Okta Developer Edition organization](/signup)
+* [Okta Integrator Free Plan org](/signup)
 * Basic knowledge of building Angular apps
 
 #### Sample code

@@ -15,7 +15,7 @@ This guide shows you how to download and configure the Identity Engine SDKs, Sig
 
 #### What you need
 
-* [Okta Developer Edition organization](/signup)
+* [Okta Integrator Free Plan org](/signup)
 * <StackSnippet snippet="samplecode" inline />
 * [Software requirements](#software-requirements)
 

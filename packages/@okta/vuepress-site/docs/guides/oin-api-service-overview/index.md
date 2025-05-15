@@ -35,6 +35,6 @@ API service integrations access [Okta management APIs](/docs/reference/core-okta
 
 ## Next steps
 
-Ready to get started? Sign up for a free [Okta Developer Edition org](/signup) and see [Build an API service integration](/docs/guides/build-api-integration/).
+Ready to get started? Sign up for a free [Okta Integrator Free Plan org](/signup) and see [Build an API service integration](/docs/guides/build-api-integration/).
 
 Post your questions on the [Okta Developer Forum](https://devforum.okta.com/c/questions/oin-submissions/19) if you need help or have an issue.

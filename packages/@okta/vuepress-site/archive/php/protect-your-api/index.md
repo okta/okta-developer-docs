@@ -25,7 +25,7 @@ Add a layer of authorization to your web services with [Okta API Access Manageme
 
 **What you need**
 
-* An [Okta Developer Edition org](https://developer.okta.com/signup/)
+* An [Okta Integrator Free Plan org](https://developer.okta.com/signup/)
 * [Postman](https://www.getpostman.com/apps) to test the API
 * A recent version of [PHP](https://www.php.net/) and [composer](https://getcomposer.org/) installed.
 
@@ -61,7 +61,7 @@ Use this quickstart to learn how to perform these tasks:
    1. Click **Admin** in the upper-right corner of the page.
 1. Go to **Security** > **API** to view the API AM area.
 
-If no **Authorization Servers** tab exists, API AM isn't enabled in your org. Contact your support team to enable this feature in your org or [create a new developer edition org](https://developer.okta.com/signup/).
+If no **Authorization Servers** tab exists, API AM isn't enabled in your org. Contact your support team to enable this feature in your org or create a new [Okta Integrator Free Plan org](https://developer.okta.com/signup/).
 
 ### Note your authorization server name and audience
 

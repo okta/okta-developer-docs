@@ -14,7 +14,7 @@ Understand the purpose of OAuth 2.0 On-Behalf-Of Token Exchange.
 
 #### What you need
 
-* [Okta Developer Edition org](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * Two custom authorization servers. See [Create an authorization server](/docs/guides/customize-authz-server/main/#create-an-authorization-server) if you need to add them for use with this guide.
 
 ---

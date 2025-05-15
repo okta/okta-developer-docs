@@ -26,7 +26,7 @@ The sample project provides external code for three registration inline hook use
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account
 * [A user profile policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment)
 

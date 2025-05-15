@@ -10,7 +10,7 @@ Build, test, and submit an API service integration to the Okta Integration Netwo
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 
 * A service app that needs to access Okta APIs for your customer
 
@@ -108,7 +108,7 @@ The OIN Manager provides a mechanism to register and install your integration in
 To register your API service registration:
 
 1. Go to the [OIN Manager](https://oinmanager.okta.com/) and click **Start Submission Form**.
-1. Sign in with the credentials of the Okta org you used to build your integration (this is typically your Okta Developer Edition org).
+1. Sign in with the credentials of the Okta org you used to build your integration (this is typically your Okta Integrator Free Plan org).
 1. Click **Add New Submission**.
 1. On the **General Settings** tab, specify values in the **App Information**, **Customer Support**, and **Test Account** sections. See [Configure general settings](/docs/guides/submit-app/apiservice/main/#configure-general-settings) for field descriptions.
 1. On the **API Service** tab, select **On** from the **API Service support** dropdown menu.

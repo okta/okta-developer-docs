@@ -15,7 +15,7 @@ Configure Login.gov as an external IdP so that your users can quickly sign up or
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * An app that you want to add authentication to. You can [create an app integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard) or use an existing one.
 * An account at [Login.gov](https://secure.login.gov/). You also need a testing account at Login.gov's identity sandbox. See [Login.gov - Partner Dashboard](https://dashboard.int.identitysandbox.gov/).
 

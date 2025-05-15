@@ -16,7 +16,7 @@ You can test your API service integration in the OIN Manager before you submit i
 
 #### Generate an instance
 
-Generate a service app instance in your associated Okta Developer Edition org for testing. The app instance that you generate provides credentials for your API calls:
+Generate a service app instance in your associated Okta Integrator Free Plan org for testing. The app instance that you generate provides credentials for your API calls:
 
 1. From the **API Service** tab, click **Test in Okta** at the bottom of your page.
 
