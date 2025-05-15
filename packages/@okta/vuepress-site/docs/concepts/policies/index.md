@@ -99,18 +99,6 @@ You can create an authentication policy specifically for the app or create a few
 
 Use the [Authentication Policies page](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) to modify an app's sign-on policy or switch to a different policy. See [Configure a global session policy and an authentication policy](/docs/guides/configure-signon-policy/main/). Also, you can [merge duplicate authentication policies with identical rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies) to simplify policy management.
 
-**Grace periods**
-
-<ApiLifecycle access="ea" />
-
-Grace periods let you designate an amount of time for a user to enroll in a required authenticator. They're configured on a per-authenticator basis so you can minimize sign-in friction and streamline the onboarding process.
-
-For example, you can configure an authentication policy that lets an end user defer enrollment for 10 days. The end user can onboard immediately without the friction of an additional authenticator. However, the end user still needs to enroll before the end of the grace period.
-
-For details about setting grace periods for authentication policies in the Admin Console, see [Authenticator enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies).
-
-To see the grace periods object in the API reference documentation, see the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=1/settings/authenticators/enroll/gracePeriod&t=request).
-
 #### Device assurance policies
 
 Use [device assurance policies](/docs/guides/device-assurance-policies/main/) to check sets of security-related device attributes. Device assurance works as part of your [authentication policies](#authentication-policies).
@@ -156,6 +144,18 @@ Enable factors in your Okta org by creating a policy with one or more authentica
 > **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to [authenticator enrollment policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy).
 
 See [Authenticator enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies) for additional information on MFA authentication, enrollment policies, and rules.
+
+**Grace periods**
+
+<ApiLifecycle access="ea" />
+
+Grace periods let you designate an amount of time for a user to enroll in a required authenticator. They're configured on a per-authenticator basis so you can minimize sign-in friction and streamline the onboarding process.
+
+For example, you can configure an authentication policy that lets an end user defer enrollment for 10 days. The end user can onboard immediately without the friction of an additional authenticator. However, the end user still needs to enroll before the end of the grace period.
+
+For details about setting grace periods for authentication policies in the Admin Console, see [Authenticator enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies).
+
+To see the grace periods object in the API reference documentation, see the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=1/settings/authenticators/enroll/gracePeriod&t=request).
 
 #### User profile policies
 
