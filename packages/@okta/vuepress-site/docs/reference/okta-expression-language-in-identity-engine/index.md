@@ -99,6 +99,7 @@ You can specify certain [Expression Language conditions](https://developer.okta.
 | `accessRequest.$operation`| `accessRequest` references the access context of the request. `operation` references the account management operation: `enroll`, `unenroll`, `recover`, or `unlockAccount`. | String |
 | `accessRequest.authenticator.$id` | `accessRequest` references the access context of the request. `authenticator.id` references an optional authenticator `id`, for example, the `id` of a custom authenticator. | String |
 | `accessRequest.authenticator.$key` | `accessRequest` references the access context of the request. `authenticator.key` references the [authenticator key](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod/0/constraints/knowledge/authenticationMethods/key&t=request). | String |
+| `accessRequest.metadata.type`| `accessRequest` references the access context of the request. `metadata.type` references specific information about the access request. Currently, `metadata` can only be used when referencing a `recover` operation and the only supported `metadata.type` is `expiry`. `expiry` references a recovery request where a password has expired or is expiring soon.  | String |
 
 ## Functions
 
