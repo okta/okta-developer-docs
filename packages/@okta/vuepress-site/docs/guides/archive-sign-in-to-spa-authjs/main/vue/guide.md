@@ -22,7 +22,7 @@ This guide walks you through integrating authentication into a Vue app with Okta
 
 ## Prerequisites
 
-If you don’t already have an Okta Integrator Free Plan organization, you can create one at <https://developer.okta.com/signup/>.
+If you don’t already have an Okta Integrator Free Plan org, you can create one at <https://developer.okta.com/signup/>.
 
 ## Add an OpenID Connect client in Okta
 

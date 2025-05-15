@@ -4,7 +4,7 @@
 4. Click the **Sign On** tab to view and copy the OIDC client ID and secret.
 5. Click **View Setup Instructions** to open a new tab to your integration setup instructions. This is the customer configuration guide that you previously specified in the OIN Wizard.
 6. Follow the instructions in your guide to set up the SSO integration on your app with the OIDC client ID and secret provided.
-7. Follow these steps if you have an Identity Engine Okta Integrator Free Plan organization:
+7. Follow these steps if you have an Identity Engine Okta Integrator Free Plan org:
    1. Click the **Sign On** tab, scroll to the **User authentication** section, and click **Edit**.
    1. Select **Password only** from the **Authentication policy** dropdown menu.
    [[style="list-style-type:lower-alpha"]]

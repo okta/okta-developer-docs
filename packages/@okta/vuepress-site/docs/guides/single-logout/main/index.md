@@ -17,7 +17,7 @@ Understand the purpose of Single Logout (SLO) and set it up for your app.
 
 #### What you need
 
-* [Okta Integrator Free Plan organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * Existing SAML app and OpenID Connect (OIDC) app integrations to update for SLO. See [Create SAML app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-saml) or [Create OIDC app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) if you don’t have configured app integrations.
 * The SLO feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the SLO feature, and enable.
 

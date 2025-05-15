@@ -16,7 +16,7 @@ This guide provides an example of an Okta telephony inline hook. This guide uses
 
 #### What you need
 
-* [Okta Integrator Free Plan organization](https://developer.okta.com/signup/)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup/)
 * [Glitch](https://glitch.com/) project or account
 * [Twilio account](https://www.twilio.com/try-twilio) paid or free trial account
 

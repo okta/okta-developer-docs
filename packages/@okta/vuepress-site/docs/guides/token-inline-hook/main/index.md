@@ -16,7 +16,7 @@ This guide provides an example of an Okta token inline hook. It uses the website
 
 #### What you need
 
-* [Okta Integrator Free Plan organization](https://developer.okta.com/signup/)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account
 * A Node.js Express framework sample app. This guide works with the app in the following Sample code section.
 

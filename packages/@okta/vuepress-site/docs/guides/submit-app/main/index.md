@@ -28,7 +28,7 @@ Use this guide to understand the process of submitting Workflows connector and A
 
 ## Overview
 
-The [Okta Integration Network (OIN) Manager](https://oinmanager.okta.com) is a submission tool that's connected to your Okta Integrator Free Plan organization where you build your Okta integration. Use this tool to submit your integration for verification and publication in the OIN catalog.
+The [Okta Integration Network (OIN) Manager](https://oinmanager.okta.com) is a submission tool that's connected to your Okta Integrator Free Plan org where you build your Okta integration. Use this tool to submit your integration for verification and publication in the OIN catalog.
 
 ### Integrations supported
 
@@ -132,9 +132,9 @@ If you need to edit your published integration, use the [OIN Manager](https://oi
 
 > If you submitted a SCIM integration through the OIN Manager and the OIN review process hasn't started, resubmitted it in the OIN Wizard.
 
-1. Sign in to the OIN Manager using the credentials for the original submission Okta Integrator Free Plan organization.
+1. Sign in to the OIN Manager using the credentials for the original submission Okta Integrator Free Plan org.
 
-    >**Note:** Submit the updated integration using the same Okta Integrator Free Plan organization that was used to make the original submission, otherwise the Okta OIN team rejects the update.
+    >**Note:** Submit the updated integration using the same Okta Integrator Free Plan org that was used to make the original submission, otherwise the Okta OIN team rejects the update.
 
    The published integration appears on your integrations page.
 
@@ -152,7 +152,7 @@ If you need to edit your published integration, use the [OIN Manager](https://oi
 
     Okta publishes the new version of your integration after it reaches the **Publish** stage. The new version replaces the old one in the OIN catalog.
 
->**Note:** You can have a maximum of 10 submissions for any Okta Integrator Free Plan organization in the OIN Manager.
+>**Note:** You can have a maximum of 10 submissions for any Okta Integrator Free Plan org in the OIN Manager.
 
 ## Delete draft submissions
 

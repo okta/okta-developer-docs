@@ -19,8 +19,8 @@ This guide explains how to implement multifactor authentication (MFA) and provid
 
 #### What you need
 
-* [Okta Integrator Free Plan organization](https://developer.okta.com/signup)
-* [Postman configured](/docs/reference/rest/) to make API requests to your Okta Integrator Free Plan organization
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
+* [Postman configured](/docs/reference/rest/) to make API requests to your Okta Integrator Free Plan org
 * The Users API and Factors API [Postman Collections](/docs/reference/postman-collections/)
 * [An API token](/docs/guides/create-an-api-token/) (created in your Okta org)
 

@@ -25,7 +25,7 @@ This guide explains how to set up end user-driven account management in your org
 
 #### What you need
 
-* [Okta Integrator Free Plan organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * Access to the latest version of the MyAccount API: `/idp/myaccount`
 * An existing OpenID Connect client app in Okta for testing in Okta
 * [Postman client](https://www.getpostman.com/downloads/) to test requests. See [Get Started with the Okta APIs](https://developer.okta.com/docs/reference/rest/) for information on setting up Postman.

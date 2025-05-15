@@ -14,7 +14,7 @@ Get a new org set up and ready for various use cases.
 
 #### What you need
 
-[Okta Integrator Free Plan organization](/signup)
+[Okta Integrator Free Plan org](/signup)
 
 <StackSnippet snippet="repoarchivenote" />
 

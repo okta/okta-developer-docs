@@ -20,7 +20,7 @@ This guide provides a high-level overview of using the Native SSO feature in Okt
 
 #### What you need
 
-* [Okta Integrator Free Plan organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * [Native SSO feature enabled for your org](#before-you-begin)
 
 ---
@@ -35,7 +35,7 @@ Okta offers a token-based approach to achieve SSO between native apps. See [Open
 
 ## Before you begin
 
-This guide assumes that you have an Okta Integrator Free Plan organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
+This guide assumes that you have an Okta Integrator Free Plan org. Don't have one? [Create one for free](https://developer.okta.com/signup).
 
 ## Native SSO flow
 

@@ -17,7 +17,7 @@ This guide explains what policies are, and how to add and configure Okta sign-on
 
 **What you need**
 
-* [Okta Integrator Free Plan organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * [Groups created](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups) in your org
 * An app that you want to add a sign-on policy to
 * A configured [dynamic network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network)

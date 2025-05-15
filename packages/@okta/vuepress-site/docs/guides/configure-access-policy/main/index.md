@@ -17,7 +17,7 @@ This guide explains access policies and how to configure them for common scenari
 
 #### What you need
 
-* [Okta Integrator Free Plan organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * An OIDC client app for testing access policies
 
 <ApiAmProdWarning />

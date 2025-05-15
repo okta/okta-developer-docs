@@ -2,7 +2,7 @@ Generate a SCIM instance based on your submission configuration:
 
 1. From the **Test integration** page, click **Generate instance**. A page appears to add your instance details.
 
-    > **Note:** There's a limit of five app instances in an Okta Integrator Free Plan organization. The **Generate instance** option is deactivated when you reach this limit. Deactivate unused instances to make room for new instances in your org. See [Deactivate app instances in your org](/docs/guides/submit-oin-app/scim/main/#deactivate-an-app-instance-in-your-org).
+    > **Note:** There's a limit of five app instances in an Okta Integrator Free Plan org. The **Generate instance** option is deactivated when you reach this limit. Deactivate unused instances to make room for new instances in your org. See [Deactivate app instances in your org](/docs/guides/submit-oin-app/scim/main/#deactivate-an-app-instance-in-your-org).
 
 1. In the **General settings** tab, enter an **Application label** and any other required integration properties.
 1. Click **Done**. Your generated test instance appears with more tabs for configuration.

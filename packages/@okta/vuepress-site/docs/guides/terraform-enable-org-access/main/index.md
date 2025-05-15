@@ -17,7 +17,7 @@ Create an Okta application and credentials that Terraform uses to manage the obj
 #### What you need
 
 * Familiarity with Terraform terms: configuration, resources, state, and commands. See [Terraform overview](/docs/guides/terraform-overview).
-* [Okta Integrator Free Plan organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * [Super admin permissions](https://help.okta.com/okta_help.htm?id=ext_superadmin)
 * [OpenSSL command line program](https://github.com/openssl/openssl#download). Some operating systems already include `openssl` or `openssl-rsa`.
 * [A Terraform installation](https://www.terraform.io/)

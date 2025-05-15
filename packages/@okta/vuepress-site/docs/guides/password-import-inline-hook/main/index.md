@@ -16,7 +16,7 @@ This guide provides a working example of an Okta Password Import hook. It uses t
 
 #### What you need
 
-* [Okta Integrator Free Plan organization](https://developer.okta.com/signup/)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account
 
 #### Sample code

@@ -18,7 +18,7 @@ This guide explains authentication fundamentals using Auth JS, known more formal
 
 #### What you need
 
-* [Okta Integrator Free Plan organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * [Okta Auth JS SDK Interaction Code reference documentation](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#introduction)
 * Basic knowledge of building front-end JavaScript applications
 

@@ -9,7 +9,7 @@ The Okta Integration Network (OIN) is a collection of over 7000 pre-built app in
 
 To get your app integration into the OIN:
 
-1. [Build an app integration](/docs/guides/build-sso-integration/) using a free [Okta Integrator Free Plan organization](https://developer.okta.com/signup/) and any of the wide array of [languages and libraries](/code/) supported by Okta.
+1. [Build an app integration](/docs/guides/build-sso-integration/) using a free [Okta Integrator Free Plan org](https://developer.okta.com/signup/) and any of the wide array of [languages and libraries](/code/) supported by Okta.
 1. [Submit your app](/docs/guides/submit-app-overview/) integration for verification and approval by the Okta OIN team.
 
 Your integration is available in the OIN for the Okta community to use after Okta validates and publishes your app integration.

@@ -18,7 +18,7 @@ Express Configuration is a feature designed to automate the setup of SSO for ins
 
 To enable the Express Configuration feature, contact the Okta Express Configuration team by emailing them at [expressconfig@okta.com](mailto:expressconfig@okta.com) and provide the following information:
 
-* Okta Integrator Free Plan organization
+* Okta Integrator Free Plan org
 * Your app name in the OIN
 * Auth0 tenant domain (include the custom domain, if applicable)
 

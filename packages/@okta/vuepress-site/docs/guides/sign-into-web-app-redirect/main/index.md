@@ -17,7 +17,7 @@ Add a user sign-in flow to a server-side web app with Okta's [redirect model](ht
 
 #### What you need
 
-* An [Okta Integrator Free Plan organization](https://developer.okta.com/signup/)
+* An [Okta Integrator Free Plan org](https://developer.okta.com/signup/)
 * <StackSnippet snippet="whatyouneed" />
 
 #### Sample code

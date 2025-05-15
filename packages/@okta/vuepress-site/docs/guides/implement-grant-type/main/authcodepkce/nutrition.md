@@ -9,7 +9,7 @@ This guide explains how to implement an Authorization Code with a Proof Key for 
 
 #### What you need
 
-* [Okta Integrator Free Plan organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * An app that you want to implement OAuth 2.0 authorization with Okta
 
 <ApiAmProdWarning />

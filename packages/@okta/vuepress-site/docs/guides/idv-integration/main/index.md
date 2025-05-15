@@ -17,7 +17,7 @@ Understand the standardized process of how IDV vendors integrate with Okta.
 #### What you need
 
 * An IDV service that has an app and IDV flow
-* [Okta Integrator Free Plan organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * The [Okta account management policy](/docs/guides/okta-account-management-policy/main/) feature enabled for an org
 * The Identity verification with third party identity verification vendors feature enabled for an org
 

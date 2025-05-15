@@ -252,7 +252,7 @@ See [Create an Org2Org app instance](https://developer.okta.com/docs/api/openapi
 <!--
 Adds a new Okta Org2Org application to your organization
 
-> **Note:** You can't send this request to Okta Integrator Free plan organizations because the Org2Org app integration isn't available. If you need to test this feature in your Okta Integrator Free Plan organization contact your Okta account team.
+> **Note:** You can't send this request to Okta Integrator Free plan organizations because the Org2Org app integration isn't available. If you need to test this feature in your Okta Integrator Free Plan org contact your Okta account team.
 
 
 ##### Settings

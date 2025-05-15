@@ -17,7 +17,7 @@ Configure Single Sign-On and control resource permissions for an OAuth app.
 #### What you need
 
 * Familiarity with the Terraform terms: configuration, resources, and commands. See the Terraform documentation [introductory concepts](https://www.terraform-best-practices.com/key-concepts) article. Also, see the [introduction page for Okta Terraform automation](/docs/guides/terraform-overview/main/).
-* An Okta org and pricing plan that includes support for authorization servers. The [Okta Integrator Free Plan organization](https://developer.okta.com/signup/) doesn't include [API Access Management](/docs/concepts/api-access-management/), which is required to use custom authorization servers.
+* An Okta org and pricing plan that includes support for authorization servers. The [Okta Integrator Free Plan org](https://developer.okta.com/signup/) doesn't include [API Access Management](/docs/concepts/api-access-management/), which is required to use custom authorization servers.
 * A [Terraform configuration](/docs/guides/terraform-enable-org-access/main) that can access your Okta org.
 * Admin permissions that enable you to add a scope to your org.
 * Understand your OAuth app's needs for proving identity and resource access.

@@ -19,7 +19,7 @@ You can then [send test requests](#send-a-request) to your Okta org and verify t
 
 ## Sign up for Okta
 
-You need a free Okta Integrator Free Plan organization to get started. Don't have one? [Create an org for free](https://developer.okta.com/signup). The Okta Integrator Free Plan organization is assigned a base URL such as `dev-1234567.okta.com`. This is your unique subdomain in Okta.
+You need a free Okta Integrator Free Plan org to get started. Don't have one? [Create an org for free](https://developer.okta.com/signup). The Okta Integrator Free Plan org is assigned a base URL such as `dev-1234567.okta.com`. This is your unique subdomain in Okta.
 
 > **Note:** Use this unique subdomain whenever you see the `{yourOktaDomain}` variable in this document.
 

@@ -18,7 +18,7 @@ This guide walks you through how to enable Express Configuration for your Auth0-
 
 **What you need**
 
-* An Okta Integrator Free Plan organization
+* An Okta Integrator Free Plan org
 * An admin user in the org with either the super admin or the app and org admin roles
 * Auth0-enabled SaaS app that supports OIDC capability
 * Auth0 Enterprise subscription with the [Auth0 Organizations](https://auth0.com/docs/manage-users/organizations) feature enabled
