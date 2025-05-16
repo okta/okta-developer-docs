@@ -50,9 +50,6 @@ To create your app integration in Okta using Admin Console:
 1. Enter an **App integration name**.
 1. Enter the callback routes.
 
-   * For the **Sign-in redirect URIs**, enter the [full redirect URI](#define-a-callback-route) for your mobile app (for example, `com.okta.example:/callback`).
-   * For the **Sign-out redirect URIs**, enter the [full redirect URI](#define-a-callback-route) for your mobile app (for example, `com.okta.example:/logout`).
-
     <StackSnippet snippet="redirectvalues" />
 
 1. Click **Save** to update the Okta app settings.

@@ -20,4 +20,4 @@ You need recent versions of [Node](https://nodejs.org/en/) and [npm](https://www
 
 > **Note**: This guide was tested with Vite 5.4, React 18.3, Okta React 6.9, and Okta Auth JavaScript SDK 7.8.
 
-> **Note**: You can also install the Okta CLI and run `okta start react` to download and configure a React app with Okta integrated. This quickstart uses `npm create vite`'s output instead, as it's easier to understand the Okta-specific additions if you work through them yourself.
+> **Note**: This quickstart uses `npm create vite`'s output instead, as it's easier to understand the Okta-specific additions if you work through them yourself.
