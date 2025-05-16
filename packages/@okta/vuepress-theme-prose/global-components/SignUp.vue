@@ -18,15 +18,7 @@
         >
           <div class="signup__item">
             <div class="signup__item__title">
-              Customer <br> Identity Cloud
-              <img
-                class="signup__item__title-logo"
-                src="/img/signup-item-logo.svg"
-              >
-              <img
-                class="signup__item__title-logo signup__item__title-logo-white"
-                src="/img/signup-item-logo-white.svg"
-              >
+              Auth0 <br> Platform
             </div>
             <div class="signup__description">
               <div class="signup__rate">
@@ -60,7 +52,7 @@
           </div>
           <div class="signup__container">
             <div class="signup__item__title">
-              Workforce <br> Identity Cloud
+              Okta <br> Workforce Identity
             </div>
             <div class="signup__description">
               <div class="signup__rate">
@@ -114,7 +106,7 @@
                   Access the Okta <br> Integrator Free Plan
                 </div>
                 <div class="signup__content__text">
-                  Test your code and apps, as well as <br> manage and automate Okta for <br> employees and partners. <br><br><a href="https://developer.okta.com/blog/2025/05/13/okta-developer-edition-changes">Learn more</a><br>
+                  Test your code and apps, as well as <br> manage and automate Okta for <br> employees and partners.<br>
                 </div>
               </div>
               <div class="signup__link signup__trigger">
@@ -122,7 +114,7 @@
                   type="button"
                   @click="hideForm()"
                 >
-                  <span class="signup__trigger__text">Sign up for Integrator Free Plan</span>
+                  <span class="signup__trigger__text">Sign up for Integrator Free Plan <i>→</i></span>
                   <span class="signup__trigger__text-hidden">Sign up free</span>
                 </button>
               </div>
@@ -135,7 +127,7 @@
             <div class="signup__popup__container">
               <div class="signup__popup__title">
                 <h2 class="signup__popup__title-pc">
-                  Let's get you started with Okta Integrator Free Plan.
+                  Let's get you started with Okta Integrator Free Plan
                 </h2>
                 <h2 class="signup__popup__title-tablet">
                   Access the Okta <br> Integrator Free Plan
