@@ -53,7 +53,7 @@
                   href="https://auth0.com/signup?utm_medium=referral&utm_source=okta&utm_campaign=okta-signup-referral-21-09-27&utm_content=signup&promo=sup&ocid=7014z000001cbvjAAA-aPA4z0000008OZeGAM"
                   target="_blank"
                 >
-                  <span>Try Customer Identity Cloud <i>→</i></span>
+                  <span>Try Auth0 Platform <i>→</i></span>
                 </a>
               </div>
             </div>
@@ -87,15 +87,15 @@
                   href="https://okta.com/free-trial/workforce-identity"
                   target="_blank"
                 >
-                  <span>Try Workforce Identity Cloud <i>→</i></span>
+                  <span>Try Okta Workforce Identity <i>→</i></span>
                 </a>
               </div>
             </div>
             <div class="signup__item__title signup__item__title-hidden">
-              Okta Developer Edition Service
+              Okta Integrator Free Plan
             </div>
             <div class="signup__item__title signup__item__title-tablet">
-              Access the Okta <br> Developer Edition Service
+              Access the Okta <br> Integrator Free Plan
             </div>
             <div class="signup__description signup__description-bordered">
               <div class="signup__rate">
@@ -111,10 +111,10 @@
                   BEST FOR DEVELOPERS
                 </div>
                 <div class="signup__content__title">
-                  Access the Okta <br> Developer Edition Service
+                  Access the Okta <br> Integrator Free Plan
                 </div>
                 <div class="signup__content__text">
-                  Test your code and apps, as well as <br> manage and automate Okta for <br> employees and partners. <br><br><strong>Coming May 22, 2025</strong><br>The new Integrator Free Plan<br><a href="https://developer.okta.com/blog/2025/05/13/okta-developer-edition-changes">Learn more</a><br>
+                  Test your code and apps, as well as <br> manage and automate Okta for <br> employees and partners. <br><br><a href="https://developer.okta.com/blog/2025/05/13/okta-developer-edition-changes">Learn more</a><br>
                 </div>
               </div>
               <div class="signup__link signup__trigger">
@@ -122,7 +122,7 @@
                   type="button"
                   @click="hideForm()"
                 >
-                  <span class="signup__trigger__text">Sign up free for Developer Edition</span>
+                  <span class="signup__trigger__text">Sign up for Integrator Free Plan</span>
                   <span class="signup__trigger__text-hidden">Sign up free</span>
                 </button>
               </div>
@@ -135,13 +135,13 @@
             <div class="signup__popup__container">
               <div class="signup__popup__title">
                 <h2 class="signup__popup__title-pc">
-                  Let’s get you started with Okta Developer Edition Service.
+                  Let's get you started with Okta Integrator Free Plan.
                 </h2>
                 <h2 class="signup__popup__title-tablet">
-                  Access the Okta <br> Developer Edition Service
+                  Access the Okta <br> Integrator Free Plan
                 </h2>
                 <h2 class="signup__popup__title-mobile">
-                  Okta Developer Edition Service
+                  Okta Integrator Free Plan
                 </h2>
                 <span>Already signed up? <a href="/login">Log in here.</a></span>
               </div>
@@ -463,11 +463,11 @@
             <a
               target="_blank"
               href="https://www.okta.com/workforce-identity/"
-            > Workforce Identity</a> <span class="hidden">and</span>
+            > Okta Workforce Identity</a> <span class="hidden">and</span>
             <a
               target="_blank"
               href="https://www.okta.com/customer-identity/"
-            > Customer Identity
+            > Auth0 Platform
             </a>
           </p>
         </div>
