@@ -6,6 +6,20 @@ title: Okta Classic Engine API release notes 2025
 
 ## May
 
+### Weekly release 2025.05.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.05.1](#bugs-fixed-in-2025-05-1)| May 14, 2025 |
+
+#### Bugs fixed in 2025.05.1
+
+* When Okta-to-Okta claims sharing was enabled for a Classic Engine org to an Identity Engine org flow, and the State Token for All Flows feature flag was enabled in the Classic Engine org, users were prompted for MFA on the Identity Engine org when MFA had already been completed on the Classic Engine org. (OKTA-932454)
+
+* An error appeared for some Org2Org users after they completed multifactor authentication when Claims Sharing was enabled. (OKTA-932402)
+
+* In some situations, the `/api/v1/agentPools` API failed to return agents that were stuck in an error state. (OKTA-910056)
+
 ### Monthly release 2025.05.0
 
 | Change | Expected in Preview Orgs |
