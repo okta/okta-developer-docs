@@ -10,7 +10,7 @@
         @updateHeight="updateHeaderHeight"
       >
         <p>
-          <strong>Coming May 22, 2025!</strong> Okta is introducing a new free org for developers and integrators. Learn more at the <a
+          <strong>Available now!</strong> The Integrator Free Plan org for developers and integrators is now available. Learn more at the <a
             href="https://developer.okta.com/blog/2025/05/13/okta-developer-edition-changes"
             target="_blank"
           >

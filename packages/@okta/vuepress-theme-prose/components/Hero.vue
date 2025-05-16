@@ -30,13 +30,15 @@
           v-show="showBanner"
           primary-cta-text="Learn more at the Okta blog"
           primary-cta-link="https://developer.okta.com/blog/2025/05/13/okta-developer-edition-changes"
+          secondary-cta-text="Sign up for the Integrator Free Plan"
+          secondary-cta-link="/signup/"
         >
           <!-- <template #heading /> -->
           <template #heading>
-            Dev Org update May 22!
+            Integrator Free Plan orgs now available!
           </template>
           <template #description>
-            On May 22, 2025, Okta is introducing a new Integrator Free Plan, designed for both developers and integrators. Existing Okta Developer Edition Service orgs will be deactivated starting on July 18, 2025. If you are an existing Okta Developer Edition user, you'll need to sign up for a new org to continue building and integrating.
+            The Integrator Free Plan org, designed for both developers and integrators, is now available! Existing Okta Developer Edition Service orgs will be deactivated starting on July 18, 2025. If you are an existing Okta Developer Edition user, you'll need to sign up for a new org to continue building and integrating.
           </template>
         </HomePageBanner>
       </div>
