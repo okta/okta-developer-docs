@@ -26,66 +26,21 @@ Add authentication to your mobile app using the Okta [redirect model](https://de
 
 ## Set up Okta
 
-Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-line interface (CLI) is the quickest way to do this. If you don't want to install the CLI, you can [manually sign up for an org](https://developer.okta.com/signup/) instead.
+Set up your [Okta org](/docs/concepts/okta-organizations/). You can sign up for an [Okta Integrator Free Plan org](https://developer.okta.com/signup/).
 
-1. Install [Okta CLI](https://cli.okta.com/).
-1. If you don't already have a free Okta developer account:
-   1. Open your terminal.
-   [[style="list-style-type:lower-alpha"]]
-   1. Run `okta register`, and enter your first name, last name, email address, and country.
-   1. Tap **Activate** in the account activation email that is sent to the email address that you gave.
-
-      > **Tip**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
-
-   1. Find your new domain and a link to set your password in the email:
-
-      ```txt
-      Your Okta Domain: https://dev-xxxxxxx.okta.com
-      To set your password open this link:
-      https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
-      ```
-
-   1. Set the password for your org by opening the link and following the instructions. Your Okta domain is returned, similar to the following:
-
-      ```txt
-      New Okta Account created!
-      Your Okta Domain: https://dev-xxxxxxx.okta.com
-      ```
-
-   1. Make a note of your Okta domain. Use it wherever `${yourOktaDomain}` appears in this guide.
-
-1. Run `okta login` to connect to your org if you didn't create one in the previous step (successfully creating an Okta org also signs you in). You need the URL of your org, which is `https://` followed by your [Okta domain](/docs/guides/find-your-domain/), and an [API/access token](/docs/guides/create-an-api-token/).
+Make a note of your Okta domain. Use it wherever `${yourOktaDomain}` appears in this guide.
 
 > **Note**: If you're using an existing org, verify that API Access Management is enabled: Open your Admin Console, go to **Security** > **API**, and verify that an **Authorization Servers** tab is present. If not, choose one of the following:
 >
-> * Create a developer account and org with Okta CLI.
 > * Contact your support team to enable the feature in your org.
 > * Use the Admin Console to create your app integrations instead of the CLI.
 >
-> All accounts created with the Okta CLI are developer accounts.
 
 ## Create an Okta integration for your app
 
 An app integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services. This includes which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
 
-To create your app integration in Okta using the CLI:
-
-1. Create the app integration by running:
-
-   ```bash
-   okta apps create native
-   ```
-
-   > **Tip**: If the Okta CLI returns the error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you're not using an Okta developer account. To resolve this, see [Set up Okta](#set-up-okta).
-
-2. Enter **Quickstart** when prompted for the app name.
-3. Specify the required redirect URI values:
-<StackSnippet snippet="redirectvalues" />
-4. Make note of the redirect URI, post logout redirect URI, and the app configuration printed to the terminal. You'll need these to configure your mobile app.
-
-At this point, you can move to the next step: [Creating your app](#create-app). If you want to set up the integration manually, complete the following steps:
-
-> **Note:** These steps are the steps that the CLI performs when you create your app integration in Okta using the CLI.
+To create your app integration in Okta using Admin Console:
 
 1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account. Click **Admin** on the top right of the page.
 1. Open the apps configuration pane by selecting **Applications** > **Applications**. Click **Create App Integration**.
@@ -97,6 +52,8 @@ At this point, you can move to the next step: [Creating your app](#create-app). 
 
    * For the **Sign-in redirect URIs**, enter the [full redirect URI](#define-a-callback-route) for your mobile app (for example, `com.okta.example:/callback`).
    * For the **Sign-out redirect URIs**, enter the [full redirect URI](#define-a-callback-route) for your mobile app (for example, `com.okta.example:/logout`).
+
+    <StackSnippet snippet="redirectvalues" />
 
 1. Click **Save** to update the Okta app settings.
 

@@ -1,4 +1,4 @@
-Before you integrate authentication into your React app, you need to register your app in your org. This provides you with the OpenID Connect client ID for authentication requests from your app. Register your app by creating an app integration through the [Okta CLI](https://cli.okta.com/), the [Okta Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application), or the [Admin Console](/docs/concepts/okta-organizations/#admin-console) with the following steps:
+Before you integrate authentication into your React app, you need to register your app in your org. This provides you with the OpenID Connect client ID for authentication requests from your app. Register your app by creating an app integration through the [Okta Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application) or the [Admin Console](/docs/concepts/okta-organizations/#admin-console) with the following steps:
 
 1. To create an app integration for your React app, sign in to [your Admin Console](https://login.okta.com).
 2. Select **Applications** > **Applications**, and then click **Create App Integration**.
@@ -20,7 +20,7 @@ Before you integrate authentication into your React app, you need to register yo
 
    > **Note:** Be sure to also [update the policy rule of the password authenticator](/docs/guides/oie-embedded-common-org-setup/react/main/#set-up-your-Okta-org-for-a-password-factor-only-use-case) to not require any additional verification.
 
-> **Note:** Cross-Origin Resource Sharing (CORS) is automatically enabled for the Trusted Origins base URI that you specified in the Admin Console. If you're using the [Okta CLI](https://cli.okta.com/manual/apps/create/) to create your SPA integration, CORS is also automatically enabled for your base URI. You can verify that both **CORS** and **redirect** are enabled for your app by reviewing the **Security** > **API** > **Trusted Origins** page in the Admin Console.
+> **Note:** Cross-Origin Resource Sharing (CORS) is automatically enabled for the Trusted Origins base URI that you specified in the Admin Console. You can verify that both **CORS** and **redirect** are enabled for your app by reviewing the **Security** > **API** > **Trusted Origins** page in the Admin Console.
 
 ### App integration settings
 

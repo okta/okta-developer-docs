@@ -10,10 +10,6 @@ Java applications typically build into a WAR or a JAR for production.
 
 If you deploy your application as a WAR, it's possible you have a context path. If you do, add this path to your sign-in redirect URI and your sign-out redirect URI for your Okta app.
 
-<!--
-// todo: show how to do this with the Okta CLI
--->
-
 JAR-based Java apps usually don't have a context, and if you start them locally, they're available at `http://localhost:8080`.
 
 ## Heroku
