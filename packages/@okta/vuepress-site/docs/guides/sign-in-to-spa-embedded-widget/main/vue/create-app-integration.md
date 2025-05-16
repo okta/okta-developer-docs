@@ -1,4 +1,4 @@
-Before you integrate Okta authentication to your app, register your app in your Okta org. This provides you with the OpenID Connect client ID for authentication requests from your app. Register your app by creating an Okta app integration through the [Okta CLI](https://cli.okta.com/), the [Okta Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/), or through the [Admin Console](/docs/concepts/okta-organizations/#admin-console) with the following steps.
+Before you integrate Okta authentication to your app, register your app in your Okta org. This provides you with the OpenID Connect client ID for authentication requests from your app. Register your app by creating an Okta app integration through the [Okta Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/) or through the [Admin Console](/docs/concepts/okta-organizations/#admin-console) with the following steps.
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
@@ -26,10 +26,10 @@ Before you integrate Okta authentication to your app, register your app in your 
 
    > **Note:** Remember to [update the password authenticator policy rule](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#update-the-password-authenticator-to-password-only) to not require any additional verification.
 
-1. Verify that the custom authorization server uses the **Interaction Code** grant type. 
+1. Verify that the custom authorization server uses the **Interaction Code** grant type.
 * Go to **Security** > **API** > **Authorization Servers**.
-* Select the **default** server. 
-* Edit the **Default Policy Rule**. 
+* Select the **default** server.
+* Edit the **Default Policy Rule**.
 * Click **Advanced** in the **IF Grant type is** section and ensure that the **Interaction Code** checkbox is selected.
 
    <VerifyICGrantType />
