@@ -5,6 +5,7 @@
 * **Authentication type**: Leave the default of **Client secret** or select **Public key/private key** to automatically generate a public and private key pair. The public key is available for download when you click **Finish**.
 * **Client Secret**: If you're using **Client secret** as the **Authentication type**, paste the secret that you obtained in the previous section.
 * **Authorize requests**: Select **Enable signed requests** to send request parameters to the OpenID provider as an encoded JWT instead of passing the parameters in the URL.
+* **Application context**: <ApiLifecycle access="ea" /> To send the app name and app ID to the IdP, select the **Send Okta application context** checkbox. Okta sends this information to the IdP. The IdP returns the same information in the response to Okta in the ID token using the `app_instance_id` and `app_name` parameters. Use application context to help external IdPs make more informed, context-aware authentication decisions.
 * **Algorithm**: Select the algorithm to use for the signed requests from the dropdown list. If you're using the **Public key/private key** option, you must specify a signing algorithm, for example: **RSA256**.
 
     > **Note:** The **Algorithm** is used to sign the authorize requests and to generate bearer assertions when you use a private/public key pair for `/token` endpoint authentication.
