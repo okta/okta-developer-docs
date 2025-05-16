@@ -109,7 +109,8 @@
                   Test your code and apps, as well as <br> manage and automate Okta for <br> employees and partners.<br>
                 </div>
               </div>
-              <div class="signup__link signup__trigger" v-if="!formHidden">
+              <div v-if="!formHidden"
+                class="signup__link signup__trigger">
                 <button
                   type="button"
                   @click="hideForm()"
