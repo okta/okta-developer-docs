@@ -28,58 +28,21 @@ Add authentication with the Okta [redirect model](https://developer.okta.com/doc
 
 ## Set up Okta
 
-Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-line interface (CLI) is the quickest way to do this. If you don't want to install the CLI, you can [manually sign up for an org](https://developer.okta.com/signup/) instead.
+Set up your [Okta org](/docs/concepts/okta-organizations/). You can sign up for an [Okta Integrator Free Plan org](https://developer.okta.com/signup/).
 
-1. Install [Okta CLI](https://cli.okta.com/).
-1. If you don't already have a free Okta developer account:
-   1. Open your terminal.
-   [[style="list-style-type:lower-alpha"]]
-   1. Run `okta register`, and enter your first name, last name, email address, and country. You can ignore the invalid cookie header warning.
-   1. Click or tap **Activate** in the account activation email that is sent to the email address that you gave.
-
-      > **Tip**: If you don't receive the confirmation email, check your spam filters for an email from `noreply@okta.com`.
-
-   1. Set the password and a second authenticator for your org by opening the link and following the instructions. Your Okta domain appears similar to the following example:
-
-      ```txt
-      New Okta Account created!
-      Your Okta Domain: https://dev-xxxxxxx.okta.com
-      ```
-
-   1. Make a note of your Okta domain. Use it wherever `{yourOktaDomain}` appears in this guide.
-
-1. Run `okta login` to connect to your org if you didn't create one in the last step (successfully creating an Okta org also signs you in). You need the URL of your org, which is `https://` followed by your [Okta domain](/docs/guides/find-your-domain/), and an [API/access token](/docs/guides/create-an-api-token/).
+Make a note of your Okta domain. Use it wherever `{yourOktaDomain}` appears in this guide.
 
 > **Note**: If you're using an existing org, verify that API Access Management is enabled: Open your Admin Console, go to **Security** > **API**, and verify that an **Authorization Servers** tab is present. If not, choose one of the following:
 >
-> * Create a developer account and org with Okta CLI.
 > * Contact your support team to enable the feature in your org.
 > * Use the Admin Console to create your app integrations instead of the CLI.
 >
-> All accounts created with the Okta CLI are developer accounts.
 
 ## Create an Okta integration for your app
 
 An app integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services. This includes which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
 
-To create your app integration in Okta using the CLI:
-
-1. Create the app integration by running:
-
-   ```bash
-   okta apps create spa
-   ```
-
-   > **Tip**: If the CLI returns the error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you're not using an Okta developer account. To resolve this, see [Set up Okta](#set-up-okta).
-
-2. Enter **Quickstart** when prompted for the app name.
-3. Specify the required redirect URI values:
-<StackSnippet snippet="redirectvalues" />
-4. Make note of the app configuration printed to the terminal as you use the Client ID and Issuer to configure your SPA.
-
->**Note:** Edit your **Quickstart** app integration in the Admin Console to add the refresh token grant type. See step 8 in the following procedure.
-
-At this point, you can move to the next step: [Creating your app](#create-an-app). If you want to set up the integration manually, or find out what the CLI just did for you, read on.
+To create your app integration in Okta using the Admin Console:
 
 1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
 1. Click **Admin** in the upper-right corner of the page.
@@ -90,8 +53,8 @@ At this point, you can move to the next step: [Creating your app](#create-an-app
    > **Note:** If you choose an inappropriate app type, it can break the sign-in or sign-out flows by requiring the verification of a client secret. Public clients don't have a client secret.
 1. Enter an **App integration name**.
 1. Select **Authorization Code** and **Refresh Token** as the **Grant type**. This enables the Authorization Code flow with PKCE for your app. It also can refresh the access token when it expires without prompting the user to reauthenticate.
-1. Enter the **Sign-in redirect URIs** for both local development, such as `http://localhost:xxxx/login/callback`, and for production, such as `https://app.example.com/login/callback`.
-1. Enter the **Sign-out redirect URIs** for local development, such as `http://localhost:xxxx`.
+1. Enter the **Sign-in redirect URIs** and **Sign-out redirect URIs** for both local development, such as `http://localhost:xxxx/login/callback`, and for production, such as `https://app.example.com/login/callback`:
+    <StackSnippet snippet="redirectvalues" />
 1. Select the type of **Controlled access** for your app in the **Assignments** section. You can allow all users to have access or limit access to individuals and groups. See the [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-user-app-assign) topic in the Okta product documentation.
 1. Click **Save** to create the app integration and open its configuration page. Keep this page open as you need to copy some values in later steps when configuring your app.
 1. On the **General** tab, scroll to **General Settings** and click **Edit**.
@@ -106,7 +69,7 @@ Reduce possible attack vectors by defining Trusted Origins, which are the websit
 
 >**Note:** To reduce risk, only grant access to the Okta API to specific websites (origins) that you both control and trust.
 
-To set trusted origins manually, add the **Base URIs** for local development, such as `http://localhost:xxxx`, and for production, such as `https://app.example.com`. These URIs are added as trusted origins in your Okta org. You can manage them by going to **Security** > **API** and selecting the **Trusted Origins** tab. See [Enable Trusted Origins](/docs/guides/enable-cors/). If you created your org with the Okta CLI, the trusted origin was created for you.
+To set trusted origins manually, add the **Base URIs** for local development, such as `http://localhost:xxxx`, and for production, such as `https://app.example.com`. These URIs are added as trusted origins in your Okta org. You can manage them by going to **Security** > **API** and selecting the **Trusted Origins** tab. See [Enable Trusted Origins](/docs/guides/enable-cors/).
 
 ## Create an app
 
@@ -139,7 +102,7 @@ You can find your config values in the Admin Console (select **Applications** > 
 
 To sign a user in, your app redirects the browser to the Okta-hosted sign-in page. This usually happens from a sign-in action, such as clicking a button or when a user visits a protected page.
 
-> **Note**: The sign-out action requires your app to be listed as a trusted origin. The Okta CLI sets this up for you. If you used the Okta dashboard, follow the steps to [add your app as a trusted origin](#enable-trusted-origins).
+> **Note**: The sign-out action requires your app to be listed as a trusted origin. If you used the Okta dashboard, follow the steps to [add your app as a trusted origin](#enable-trusted-origins).
 
 <StackSnippet snippet="loginredirect" />
 
