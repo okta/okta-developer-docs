@@ -223,7 +223,7 @@ There are certain conditions where you can test two protocols on one instance. Y
 * It doesn't support SSO JIT
 * The **Create User** SCIM operation is enabled
 
-A Developer Edition org has a maximum of five active instances, so manage your test instances accordingly. See [Deactivate an app instance in your org](#deactivate-an-app-instance-in-your-org) to deactivate any instances that you aren't using.
+The Integrator Free Plan has no limit on active instances. You can create as many test instances as needed for your integration. To deactivate any instances you no longer need, see [Deactivate an app instance in your org](#deactivate-an-app-instance-in-your-org).
 
 #### Generate an instance for <StackSnippet snippet="protocol-name" inline/>
 
@@ -281,7 +281,7 @@ An instance is eligible if it was generated from the latest version of the integ
 
 If you modify a published OIN integration, you must generate an instance based on the currently published integration for backwards-compatibility testing. A backwards-compatible instance is eligible if it was generated from the published version of the integration before any edits are made in the current submission. The OIN Wizard detects if you're modifying a published OIN integration and asks you to generate a backwards-compatible instance before you make any edits.
 
-> **Note:** There's a maximum of five active instances allowed in an Okta Developer Edition org, so [deactivate](#deactivate-an-app-instance-in-your-org) or delete any instances you aren't using. Click **Clear filter** to find instances in your org that may be active and ineligible for testing.
+> **Note:** The Integrator Free Plan has no limit on active instances. You can create as many test instances as needed for your integration. To deactivate any instances you no longer need, see [Deactivate an app instance in your org](#deactivate-an-app-instance-in-your-org).
 
 #### Add to Tester
 
