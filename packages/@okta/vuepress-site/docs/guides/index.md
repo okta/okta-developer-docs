@@ -30,6 +30,7 @@ guides:
  - custom-url-domain
  - custom-widget
  - custom-widget-gen3
+ - custom-widget-migration-gen3
  - customize-authz-server
  - customize-tokens-returned-from-okta
  - customize-tokens-dynamic
