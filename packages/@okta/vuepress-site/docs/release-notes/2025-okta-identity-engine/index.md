@@ -13,7 +13,7 @@ title: Okta Identity Engine API release notes 2025
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Enrollment grace periods is EA in Preview](#enrollment-grace-periods-is-ea-in-preview)| May 21, 2025 |
-| [Send app context to external IdPs](#send-app-context-to-external-idps)| May 21, 2025 |
+| [Send app context to external IdPs is EA in Preview](#send-app-context-to-external-idps-is-ea-in-preview)| May 21, 2025 |
 
 #### Enrollment grace periods is EA in Preview
 
