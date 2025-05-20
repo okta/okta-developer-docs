@@ -4,7 +4,7 @@ If you're developing a server-side app, you likely only need to do three things 
 
 1. Configure your app (or server settings) to force HTTPS.
 1. Configure your app to read your Okta settings (issuer, client ID, and client secret) from environment variables or a secrets provider (HashiCorp Vault).
-1. Modify your Okta app to have sign in and sign out redirect URIs that match your production app.
+1. Modify your Okta app to have sign-in and sign-out redirect URIs that match your production app.
 
 Java apps typically are built into a WAR or a JAR for production.
 
@@ -21,7 +21,7 @@ To begin, install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-
 You can deploy your Java app to Heroku in five steps:
 
 1. Run `heroku create`.
-2. Add the git remote that's created as a remote for your project.
+2. Add the Git remote that's created as a remote for your project.
 
    ```
    git remote add heroku <heroku-repo>

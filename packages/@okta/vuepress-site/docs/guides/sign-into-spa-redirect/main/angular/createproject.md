@@ -11,4 +11,4 @@ This creates an Angular app using version 19 regardless of the version of the An
 
 > **Note**: This guide uses Angular CLI v19, okta-angular v6.4.0, and Okta Auth JavaScript SDK v7.8.0.
 
-> **Note**: This quickstart uses the basic Angular CLI output instead, as it's easier to understand the Okta-specific additions if you work through them yourself.
+> **Note**: This quickstart uses the basic Angular CLI output, as it's easier to understand the Okta-specific additions if you work through them yourself.
