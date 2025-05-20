@@ -15,7 +15,7 @@
             target="_blank"
           >
 
-            Okta Blog</a>
+            Okta Developer Blog</a>
         </p>
       </HeaderBanner>
       <Header />

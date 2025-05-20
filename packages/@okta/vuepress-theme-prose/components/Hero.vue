@@ -38,7 +38,7 @@
             Integrator Free Plan available!
           </template>
           <template #description>
-            The Integrator Free Plan org, designed for both developers and integrators, is now available! Existing Okta Developer Edition Service orgs will be deactivated starting on July 18, 2025. If you are an existing Okta Developer Edition user, you'll need to sign up for a new org to continue building and integrating.
+            The Integrator Free Plan org, designed for both developers and integrators, is now available! Existing Okta Developer Edition Service orgs will be deactivated starting on July 18, 2025. If you're an existing Okta Developer Edition user, you'll need to sign up for a new org to continue building and integrating.
           </template>
         </HomePageBanner>
       </div>
