@@ -16,7 +16,7 @@ This page provides the API rate limits for authentication and end user activitie
 
 See the following list of per-minute limits. If an endpoint isn't in this list, you can review it using the Admin Console, in the rate limit dashboard's APIs table. See [APIs table](/docs/reference/rl-dashboard/#apis-table).
 
-| Action and Okta API endpoint                                                                                           | Developer (free) | Developer (paid) | One App | Enterprise | Workforce identity    |
+| Action and Okta API endpoint                                                                                           | Integrator Free Plan | Developer (paid) | One App | Enterprise | Workforce identity    |
 | ---------------------------------------------------------------------------------------------------------------------- | ----------------: | ----------------: | -------: | ----------: | ---------------------: |
 | **Authenticate different end users:**<br>`/api/v1/authn`<br>Eligible for dynamic scale and workforce multiplier                                                               | 100              | 600              | 600     | 600        | 500                   |
 | **Verify a factor:**<br>`/api/v1/authn/factors/{factorIdOrFactorType}/verify` only<br>Eligible for dynamic scale and workforce multiplier                                     | 100              | 600              | 600     | 600        | 500                   |

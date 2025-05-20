@@ -19,7 +19,7 @@ This page provides the API rate limits for management activities, which is part 
 
 See the following list of per-minute limits. If an endpoint isn't in this list, you can review it using the Admin Console, in the rate limit dashboard's APIs table. See [APIs table](/docs/reference/rl-dashboard/#apis-table).
 
-| Action and Okta API endpoint                                                                                                       | Developer (free) | Developer (paid) | One App | Enterprise | Workforce identity    |
+| Action and Okta API endpoint                                                                                                       | Integrator Free Plan | Developer (paid) | One App | Enterprise | Workforce identity    |
 | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------: | ----------------: | -------: | ----------: | ---------------------: |
 | **Create, list, or other app actions:**<br> Calls to the `/api/v1/apps` endpoint and all other endpoints of the form `/api/v1/apps/*` including `/api/v1/apps/{id}/*`                                                     | 20               | 100              | 100     | 100        | 100                   |
 | **Get, update, or delete an app by ID:**<br> Explicit calls to the app instance: `/api/v1/apps/{id}`                                                    | 100              | 600              | 600     | 600        | 500                   |

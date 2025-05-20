@@ -37,7 +37,7 @@ For concurrent rate limits, traffic is measured in three different areas. Counts
 * For Microsoft Office 365 traffic, the limit is 75 concurrent transactions per org.
 * For all other traffic, including API requests, the limit is described in the following table.
 
-| Developer (free)  | Developer (paid)  | One App  | Enterprise  | Workforce identity  |
+| Integrator Free Plan  | Developer (paid)  | One App  | Enterprise  | Workforce identity  |
 | ----------------: | ----------------: | -------: | ----------: | ------------------: |
 | 15                | 35                | 35       | 75          | 75                  |
 
@@ -61,7 +61,7 @@ An HTTP 429 error response is returned to users that exceed this limit. No other
 
 The following endpoints are used by the Okta home page for authentication and user sign-in and have org-wide rate limits:
 
-| Home page endpoints                                                | Developer (free)  | Developer (paid)  | One App  | Enterprise  | Workforce identity |
+| Home page endpoints                                                | Integrator Free Plan  | Developer (paid)  | One App  | Enterprise  | Workforce identity |
 | ----------------------------------------------------------------------- | ----------------: | ----------------: | -------: | ----------: | ------------------:|
 | `/app/{app}/{key}/sso/saml`                                             | 100               | 600               | *600     | *600        | 750                |
 | `/app/office365/{key}/sso/wsfed/active`                                 | N/A               | N/A               | N/A      | 2000        | 1000               |
