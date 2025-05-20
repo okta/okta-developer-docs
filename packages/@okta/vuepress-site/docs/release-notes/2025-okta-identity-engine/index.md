@@ -21,7 +21,7 @@ Today, when admins define an enrollment policy for a group, the entire group mus
 
 With Enrollment Grace Periods, end users can defer enrollment in new authenticators until an admin-defined deadline when enrollment becomes mandatory. This allows end users to enroll at a time convenient to them and allows for more graceful enrollment before enforcing new authenticator types in authentication policies. See [Authenticator enrollment policies](/docs/concepts/policies/#authenticator-enrollment-policies) and the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=1/settings/authenticators/enroll/gracePeriod&t=request). <!-- ENROLLMENT_POLICY_GRACE_PERIOD (OKTA-832949)-->
 
-#### Send app context to external IdPs
+#### Send app context to external IdPs is EA in Preview
 
 You can now forward context about an app to an external identity provider (IdP) when a user attempts to access the app. When you enable the **Application context** checkbox for an IdP, the app name and unique instance ID are included in the SAML or OpenID Connect request sent to the external IdP. This enhancement allows external IdPs to make more informed, context-aware authentication decisions, supporting advanced security scenarios, and Zero Trust environments. To enable this feature, go to **Settings** > **Features** in the Admin Console, locate **Send Application Context to an External IdP**, and enable. <!-- SEND_APPLICATION_CONTEXT_TO_EXTERNAL_IDP (OKTA-911626)-->
 
