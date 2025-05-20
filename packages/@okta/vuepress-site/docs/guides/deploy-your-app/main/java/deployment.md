@@ -28,7 +28,7 @@ You can deploy your Java app to Heroku in five steps:
    ```
 
 3. Run `heroku addons:create okta`.
-4. Create a `Procfile` that sets the `PORT` and your Okta configuration.
+4. Create a `Profile` that sets the `PORT` and your Okta configuration.
 
    ```
    web: java -Dserver.port=$PORT -Dokta.oauth2.client-id={OKTA_OAUTH2_CLIENT_ID_WEB} -Dokta.oauth2.client-secret={OKTA_OAUTH2_CLIENT_SECRET_WEB} -jar target/*.jar
