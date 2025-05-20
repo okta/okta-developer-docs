@@ -13,6 +13,7 @@ function configUris() {
     case 'prod':
       return {
         baseUri: 'https://www.okta.com',
+        baseUriSocial: 'https://okta-devok12.okta.com',
         campaignId: '701F0000000mDmxIAE',
         orgPlan: 'Integrator',
         idps: {
@@ -24,6 +25,7 @@ function configUris() {
     default:
       return {
         baseUri: 'https://okta-next-test.oktaweb.dev',
+        baseUriSocial: 'https://okta-dev-parent.trexcloud.com',
         campaignId: '701F0000000mDmxIAE',
         orgPlan: 'Integrator',
         idps: {
