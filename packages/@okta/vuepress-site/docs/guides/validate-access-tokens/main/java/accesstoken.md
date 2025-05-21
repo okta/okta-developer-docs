@@ -1,5 +1,7 @@
 See the instructions for the [Okta JSON Web Token (JWT) Verifier for Java](https://github.com/okta/okta-jwt-verifier-java).
 
+> **Note:** Use the JWT Verifier for Java on a resource server that runs an API Service. Don't use the verifier as part of a mobile app. Minor network delays could trigger the one second default timeout.
+
 ### Required libraries
 
 To validate a JWT, you need the Okta JWT Verifier for Java library.
