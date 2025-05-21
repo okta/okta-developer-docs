@@ -6,6 +6,8 @@ layout: Guides
 
 This guide explains how to customize the sign-in page for both redirect and embedded deployment models.
 
+> **Note:** This document is for the second generation (Gen2) of the Okta Sign-In Widget. See [Migrate to the third generation (Gen3) of the Sign-In Widget](/docs/guides/custom-widget-migration-gen3/main/) for details about Gen3.
+
 ---
 
 #### Learning outcomes
