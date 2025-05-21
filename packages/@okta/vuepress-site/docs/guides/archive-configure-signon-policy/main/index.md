@@ -12,8 +12,8 @@ This guide explains what policies are, and how to add and configure Okta sign-on
 
 **Learning outcomes**
 
-* Know the purpose of Okta Sign-On and app sign-on policies.
-* Add and configure Okta Sign-On and app sign-on policies.
+* Know the purpose of Okta sign-on and app sign-on policies.
+* Add and configure Okta sign-on and app sign-on policies.
 
 **What you need**
 
@@ -67,7 +67,7 @@ The following are step-by-step instructions to configure an Okta sign-on policy.
 
 3. For this use case example, leave the default of **Anywhere** in the **If User's IP is** dropdown box. For other use cases where you want to assign location parameters, you can specify what kind of location prompts authentication. For example, you can prompt a user for a factor when they aren't on the corporate network.
 
-    > **Note:** You can click the **Networks** link to access the gateway settings that enable your choice of access. A [network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network) is a security perimeter used to limit or restrict access to a network based on a single IP address, one or more IP address ranges, or a list of geolocations. You can also create network zones using the [Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/).
+    > **Note:** You can click the **Networks** link to access the gateway settings that enable your choice of access. A [network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network) is a security perimeter used to limit or restrict access to a network based on a single IP address, one or more IP address ranges, or a list of geolocations. You can also create network zones using the [Network Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/).
 
 4. Leave the default of **Any** in the **And Authenticates via** dropdown box.
 
@@ -83,7 +83,7 @@ The following are step-by-step instructions to configure an Okta sign-on policy.
 
     * **Per Device:** Provides the option **Do not challenge me on this device again** on the end user MFA challenge dialog box. This option allows prompts solely for new devices.
     * **Every Time:** End users are prompted every time they sign in to Okta and can't influence when they’re prompted to provide a factor.
-    * **Per Session:** Provides the option **Do not challenge me on this device for the next (minutes/hours/days)** on the end user MFA challenge dialog box. You can then specify the **Factor Lifetime**. When specifying per session sessions have a default lifetime as configured, but sessions always end whenever users sign out of their Okta session.
+    * **Per Session:** Provides the option **Do not challenge me on this device for the next (minutes/hours/days)** on the end user MFA challenge dialog box. You can then specify the **Factor Lifetime**. When specifying per-session sessions have a default lifetime as configured, but sessions always end whenever users sign out of their Okta session.
 
 8. For this use case example, leave the default **Factor Lifetime** of **15 minutes**. Use these fields to specify how much time must elapse before the user is challenged for MFA.
 
