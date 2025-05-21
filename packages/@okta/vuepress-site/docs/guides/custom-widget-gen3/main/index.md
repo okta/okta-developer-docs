@@ -69,7 +69,7 @@ Consider the following when adjusting the theme of your org:
 
 Gen3 is built on [Preact](https://preactjs.com/), a lightweight [React Native](https://reactnative.dev/) alternative. The architecture changes from jQuery-based (Gen2) to Preact-based (Gen3). As a result, each generation of the Sign-In Widget handles DOM manipulations in a different way.
 
-For example, the `afterRender` function doesn’t work in Gen3 as it does in Gen2. See the [Migrate to the third generation (Gen3)]() guide for more information.
+For example, the `afterRender` function doesn’t work in Gen3 as it does in Gen2. See the [Migrate to the third generation (Gen3)](/docs/guides/custom-widget-migration-gen3/main/#about-aftertransform-and-afterrender) guide for more information.
 
 ## Use the code editor
 
