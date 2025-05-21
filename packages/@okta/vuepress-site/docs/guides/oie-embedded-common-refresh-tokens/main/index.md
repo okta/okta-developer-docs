@@ -107,7 +107,7 @@ token_type_hint=access_token
     "iat": 1626124870,
     "sub": "foo@bar.com",
     "aud": "api://default",
-    "iss": "https://dev-12345678.okta.com/oauth2/default",
+    "iss": "https://trial-12345678.okta.com/oauth2/default",
     "jti": "AT.4PAhL3RW5Yxn5leKbT3_xpiflVWYvcrKtzgkt9HHwDo.oar2str41LSUbsgXb5d6",
     "token_type": "Bearer",
     "client_id": "0oa14dl1z4nUJxx0z5d7",

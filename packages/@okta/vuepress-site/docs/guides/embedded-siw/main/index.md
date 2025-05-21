@@ -18,7 +18,7 @@ This guide explains authentication fundamentals using JavaScript and the embedde
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup/)
 * Basic knowledge of building front-end JavaScript applications
 
 #### Sample code
@@ -129,7 +129,7 @@ The Sign-In Widget handles various authentication scenarios. See the following s
 
 ### Sign in and display the user's email
 
-In this case, you use the Sign-In Widget to sign in to a simple web page and display the user's email. Ensure that you have an Okta developer account. Then, use the following page of code to create a Single-Page App (SPA).
+In this case, you use the Sign-In Widget to sign in to a simple web page and display the user's email. Ensure that you have an Integrator Free Plan org account. Then, use the following page of code to create a Single-Page App (SPA).
 
 To create and run this sample use case:
 

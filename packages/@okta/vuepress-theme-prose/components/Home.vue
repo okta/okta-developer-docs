@@ -52,7 +52,7 @@ export default {
                 },
                 {
                   url: "https://developer.okta.com/signup",
-                  text: "Get a developer org",
+                  text: "Get an Integrator Free Plan org",
                 },
               ]
             }

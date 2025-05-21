@@ -18,7 +18,7 @@ This guide explains how to build transactional verification using a Client-Initi
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * A configured [mobile app that verifies user identities for an Okta Custom Authenticator](/docs/guides/authenticators-custom-authenticator/ios/main/) and [responds to CIBA authorization challenges](https://github.com/okta/okta-devices-swift#enable-using-your-app-for-client-initiated-backchannel-authentication-ciba) sent by Okta in a backchannel request.
 * A test user in your org that you can use for testing the CIBA flow with a Custom Authenticator.
 
@@ -34,7 +34,7 @@ This guide uses the [Okta Authenticator Sample App](https://github.com/okta/okta
 
 Organizations are constantly looking for ways to strike a balance between offering a frictionless user experience without compromising security. It becomes even more challenging when the users try to perform sensitive transactions. Okta uses CIBA to provide customers with a simple and secure transaction verification solution.
 
-CIBA extends OIDC to define a decoupled flow where the authentication or transaction flow is initiated on one device and verified on another. The device that the OIDC application initiates the transaction on is called the consumption device. The device where the user verifies the transaction is called the authentication device.
+CIBA extends OIDC to define a decoupled flow where the authentication or transaction flow is initiated on one device and verified on another. The device that the OIDC app initiates the transaction on is called the consumption device. The device where the user verifies the transaction is called the authentication device.
 
 ### CIBA grant-type flow
 
@@ -65,11 +65,11 @@ as -> client: Returns requested tokens
 
 -->
 
-1. The OIDC application on the consumption device triggers the CIBA authentication flow by sending a POST request to the authorization server’s backchannel authentication endpoint (`/oauth2/v1/bc/authorize`).
+1. The OIDC app on the consumption device triggers the CIBA authentication flow by sending a POST request to the authorization server’s backchannel authentication endpoint (`/oauth2/v1/bc/authorize`).
 
     To identify the user that more authentication is being requested for, the request must include either a previously issued ID token (obtained during the user’s initial authorization) as an `id_token_hint` or the user’s username (email address) as a `login_hint`.
 
-    > **Note:** The `id_token_hint` is used in cases where the user is signed in to the application running on the consumption device, and the same authorization server authenticates the user. The user is also in control of both the consumption and authentication devices.
+    > **Note:** The `id_token_hint` is used in cases where the user is signed in to the app running on the consumption device, and the same authorization server authenticates the user. The user is also in control of both the consumption and authentication devices.
 
 2. The authorization server validates the authentication request and the user identification, and then sends the backchannel authentication response with the authentication request ID (`auth_req_id`) to the client.
 
@@ -98,10 +98,10 @@ There are a few steps required to configure CIBA for your org:
 
 Create an Okta OIDC client app integration to represent the consumption device. Then, enable CIBA as a grant type and associate the client app with the [Custom Authenticator that you previously configured using the Devices SDK](https://github.com/okta/okta-mobile-swift).
 
-> **Note:** Web apps are currently the only application supported with the CIBA flow.
+> **Note:** Web apps are currently the only app supported with the CIBA flow.
 
 1. In the Admin Console, go to **Applications** > **Applications**, and then click **Create App Integration**.
-2. Select **OIDC - OpenID Connect** as the **Sign-in method** and choose the type of application that you want to integrate with Okta. In this example, select **Web Application**.
+2. Select **OIDC - OpenID Connect** as the **Sign-in method** and choose the type of app that you want to integrate with Okta. In this example, select **Web Application**.
 3. Click **Next**, and then enter a name for your app integration.
 4. In the **Grant type** section, click **Advanced** and select **Client-initiated backchannel authentication flow (CIBA)** in the **Other grants** section.
 5. Select the Custom Authenticator that you [previously configured using the Mobile SDK](https://github.com/okta/okta-mobile-swift) from the **Preferred authenticator for CIBA** dropdown list.
@@ -185,12 +185,12 @@ Use the Devices SDK and your app to enroll a Custom Authenticator for the test u
 1. In the **PushSampleApp** directory of the Okta Devices SDK, run the Okta Authenticator Sample App and then open the mobile app in the simulator.
 2. Click **Sign In**, enter the test user’s credentials, and click **Sign In**.
 3. Complete any additional two-factor authentication required and click **Verify**.
-4. On the **Sign in securely using push notifications** screen, click **Set up**.
-5. On the Security Settings screen, slide to enable **Sign in with push notifications**.
+4. On the **Sign in securely using push notifications** page, click **Set up**.
+5. On the Security Settings page, slide to enable **Sign in with push notifications**.
 6. Click **Ok** at the confirmation dialog. More security setting options then appear, including **Enable CIBA transactions**.
 7. Slide to select **Enable CIBA transactions**.<br>
    The sample app is set up to include the **Enable CIBA transactions** option by default for the user to enable CIBA themselves in the mobile app. However, you can implement CIBA in your app any way that you want, for example, create an enrollment flow that turns CIBA on by default, making it transparent to users.
-8. Click **Ok** at the success dialog and close the Security Settings screen.
+8. Click **Ok** at the success dialog and close the Security Settings page.
 9. Leave your test user signed in to the authentication device (the Magenta Bank app on the Xcode simulator).
   <!-- **Note:** See the [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/) for examples of [enrolling](?link to new api operation?) and [updating](?link to new api operation?) a custom app authenticator to use CIBA by adding `CIBA` to the `transactionTypes` array. -->
 
@@ -295,7 +295,7 @@ The next step in the CIBA authentication flow is to send a request for tokens to
    }
    ```
 
-2. On the mobile app in the simulator, click the house icon in the top bar to refresh the screen. The consent page appears.
+2. On the mobile app in the simulator, click the house icon in the top bar to refresh the page. The consent page appears.
 3. Click **Yes, it’s me**.
 4. Click **Ok** in the confirmation dialog.
 5. Send the request for tokens again and the authorization server responds with the requested tokens.

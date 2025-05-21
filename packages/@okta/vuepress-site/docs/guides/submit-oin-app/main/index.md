@@ -12,8 +12,8 @@ Learn how to submit an OIDC, SAML 2.0, or SCIM 2.0 integration to the Okta Integ
 
 #### What you need
 
-* An [Okta Developer Edition org](https://developer.okta.com/signup/). The OIN Wizard is only available in Okta Developer Edition orgs.
-* An admin user in the Okta Developer Edition org with either the super admin or the app and org admin roles
+* An [Okta Integrator Free Plan org](https://developer.okta.com/signup/). The OIN Wizard is only available in Integrator Free Plan orgs.
+* An admin user in the Integrator Free Plan org with either the super admin or the app and org admin roles
 * A functional integration based on the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) or [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/main/) guide
 * Google Chrome browser with the Okta Browser Plugin installed (see [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements))
 * The various items necessary for submission in accordance with the [OIN submission requirements](/docs/guides/submit-app-prereq/)
@@ -22,7 +22,7 @@ Learn how to submit an OIDC, SAML 2.0, or SCIM 2.0 integration to the Okta Integ
 
 ## Overview
 
-Okta provides you with a seamless experience to integrate and submit your app for publication in the [Okta Integration Network (OIN)](https://www.okta.com/okta-integration-network/). When you obtain an [Okta Developer Edition org](https://developer.okta.com/signup/), you can use it as a sandbox to integrate your app with Okta and explore more Okta features. When you decide to publish your integration to the OIN, you can use the same Developer Edition org to submit your integration using the OIN Wizard.
+Okta provides you with a seamless experience to integrate and submit your app for publication in the [Okta Integration Network (OIN)](https://www.okta.com/okta-integration-network/). When you obtain an [Integrator Free Plan org](https://developer.okta.com/signup/), you can use it as a sandbox to integrate your app with Okta and explore more Okta features. When you decide to publish your integration to the OIN, you can use the same Integrator Free Plan org to submit your integration using the OIN Wizard.
 
 The OIN Wizard is a full-service tool in the Admin Console for you to do the following:
 
@@ -62,7 +62,7 @@ Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before 
 
 Start your integration submission for OIN publication:
 
-1. Sign in to your [Developer Edition org](/login/) as a user with either the super admin (`SUPER_ADMIN`) role, or the app (`APP_ADMIN`) and org (`ORG_ADMIN`) admin [roles](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
+1. Sign in to your Integrator Free Plan org as a user with either the super admin (`SUPER_ADMIN`) role, or the app (`APP_ADMIN`) and org (`ORG_ADMIN`) admin [roles](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
 
     > **Note:** Submit your integration from an Okta account that has your company domain in the email address. You can't use an account with a personal email address. The OIN team doesn't review submissions from personal email accounts.
 
@@ -205,12 +205,12 @@ Follow these steps to bypass the configuration pages in the OIN Wizard:
 
 ### Generate instances for testing
 
-Generate instances for testing in your Okta Developer Edition org directly from the OIN Wizard. The OIN Wizard takes the configuration and test information from your OIN submission and allows you to configure a specific integration instance to your test app. You can test the admin and end user sign-in experiences with the generated instance flow.
+Generate instances for testing in your Integrator Free Plan org directly from the OIN Wizard. The OIN Wizard takes the configuration and test information from your OIN submission and allows you to configure a specific integration instance to your test app. You can test the admin and end user sign-in experiences with the generated instance flow.
 
 > **Note:** Okta recommends that you:
 > * Separate environments for development, testing, and production.
-> * Use the Okta Developer Edition org as part of your development and testing environment.
-> * Don't connect the generated app instance from the Okta Developer Edition org to your production environment. Connecting your development and testing environment with your production environment creates several potential risks, including unintentionally modifying data and misconfiguring your service. This could result in providing inadequate security or disrupting your service.
+> * Use the Integrator Free Plan org as part of your development and testing environment.
+> * Don't connect the generated app instance from the Integrator Free Plan org to your production environment. Connecting your development and testing environment with your production environment creates several potential risks, including unintentionally modifying data and misconfiguring your service. This could result in providing inadequate security or disrupting your service.
 
 Okta recommends that you generate an instance for testing each protocol supported by your integration:
 
@@ -223,7 +223,7 @@ There are certain conditions where you can test two protocols on one instance. Y
 * It doesn't support SSO JIT
 * The **Create User** SCIM operation is enabled
 
-A Developer Edition org has a maximum of five active instances, so manage your test instances accordingly. See [Deactivate an app instance in your org](#deactivate-an-app-instance-in-your-org) to deactivate any instances that you aren't using.
+The Integrator Free Plan org has no limit on active instances. You can create as many test instances as needed for your integration. To deactivate any instances you no longer need, see [Deactivate an app instance in your org](#deactivate-an-app-instance-in-your-org).
 
 #### Generate an instance for <StackSnippet snippet="protocol-name" inline/>
 
@@ -281,7 +281,7 @@ An instance is eligible if it was generated from the latest version of the integ
 
 If you modify a published OIN integration, you must generate an instance based on the currently published integration for backwards-compatibility testing. A backwards-compatible instance is eligible if it was generated from the published version of the integration before any edits are made in the current submission. The OIN Wizard detects if you're modifying a published OIN integration and asks you to generate a backwards-compatible instance before you make any edits.
 
-> **Note:** There's a maximum of five active instances allowed in an Okta Developer Edition org, so [deactivate](#deactivate-an-app-instance-in-your-org) or delete any instances you aren't using. Click **Clear filter** to find instances in your org that may be active and ineligible for testing.
+> **Note:** The Integrator Free Plan org has no limit on active instances. You can create as many test instances as needed for your integration. To deactivate any instances you no longer need, see [Deactivate an app instance in your org](#deactivate-an-app-instance-in-your-org).
 
 #### Add to Tester
 

@@ -23,7 +23,7 @@ Configure a social Identity Provider so that your users can quickly sign up or s
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * An OpenID Connect (OIDC) app integration in Okta for the app that you want to add authentication to. You can [create an OIDC app integration](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) or use an existing one.
 * An account with <StackSnippet snippet="idpaccount" inline />
 
@@ -58,7 +58,7 @@ To add <StackSnippet snippet="idp" inline /> as an Identity Provider in Okta:
 
 ### Account link
 
-You can automatically link external IdP accounts to Okta accounts when the user signs in using the external IdP. If **Account Link Policy** is set to Automatic (`AUTO`), Okta searches the Universal Directory for a user's profile to link. The user profile is found when the **IdP username** value (email) passed by the IdP matches the **Match against** value (username). See [Account Linking and JIT Provisioning](/docs/concepts/identity-providers/#account-linking-and-just-in-time-provisioning).
+You can automatically link external IdP accounts to Okta accounts when the user signs in using the external IdP. If **Account Link Policy** is set to automatic (`AUTO`), Okta searches the Universal Directory for a user's profile to link. The user profile is found when the **IdP username** value (email) passed by the IdP matches the **Match against** value (username). See [Account Linking and JIT Provisioning](/docs/concepts/identity-providers/#account-linking-and-just-in-time-provisioning).
 
 To remove an existing account link or validate account linking with every sign-in flow, Okta recommends that you make a `DELETE` call to the `/api/v1/idps/{idpId}/users/{userId}` [endpoint](/docs/reference/api/idps/#unlink-user-from-idp) to remove the link between the Okta user and the IdP user before authentication.
 
@@ -72,7 +72,7 @@ For security best practices, consider disabling account linking after all existi
 
 You can test your integration by configuring a [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules) to use <StackSnippet snippet="idp" inline /> as the Identity Provider.
 
-Alternatively, you can use the Authorize URL to simulate the authorization flow. The Okta Identity Provider that you created generated an authorize URL with several blank parameters that you can fill in to test the flow with the Identity Provider. The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
+Alternatively, you can use the authorize URL to simulate the authorization flow. The Okta Identity Provider that you created generated an authorize URL with several blank parameters that you can fill in to test the flow with the Identity Provider. The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
 
 In the URL, replace `{yourOktaDomain}` with your org's base URL, and then replace the following values:
 
@@ -113,9 +113,9 @@ If something is configured incorrectly, the authorization response contains erro
 ### Add the Identity Provider to the embedded Okta Sign-In Widget
 
 > **Note:** This section only applies to Classic Engine. <br>
-> If you're using Identity Engine, the **Sign in with IdP** option is available on the widget after you [create the Identity Provider in your Okta org](#create-the-identity-provider-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). No additional code is required. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version and [Upgrade your widget](/docs/guides/oie-upgrade-sign-in-widget/main/#idp-discovery) for Identity Engine upgrade considerations.
+> If you're using Identity Engine, the **Sign in with IdP** option is available on the Sign-In Widget after you [create the Identity Provider in your Okta org](#create-the-identity-provider-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). No additional code is required. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version and [Upgrade your widget](/docs/guides/oie-upgrade-sign-in-widget/main/#idp-discovery) for Identity Engine upgrade considerations.
 
-The [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) is an embeddable JavaScript widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with <StackSnippet snippet="idp" inline />** button to the widget by adding the following code to your Okta Sign-In Widget configuration.
+The [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) is an embeddable JavaScript widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with <StackSnippet snippet="idp" inline />** button to the Sign-In Widget by adding the following code to your Okta Sign-In Widget configuration.
 
 <StackSnippet snippet="siwconfig" />
 
@@ -128,7 +128,7 @@ Replace `Your_IDP_ID` with the Identity Provider ID from your Identity Provider 
 ### Add the Identity Provider to the custom Okta-hosted sign-in page
 
 > **Note:** This section only applies to Classic Engine. <br>
-> If you're using Identity Engine, the **Sign in with IdP** option is available on the widget after you [create an Identity Provider in your Okta org](#create-an-identity-provider-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+> If you're using Identity Engine, the **Sign in with IdP** option is available on the Sign-In widget after you [create an Identity Provider in your Okta org](#create-an-identity-provider-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 If you configured a [custom Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget), you can add a **Sign in with <StackSnippet snippet="idp" inline />** button by adding the following code beneath the `var config = OktaUtil.getSignInWidgetConfig();` line in the **Sign-in page code editor** of the Admin Console.
 

@@ -780,7 +780,7 @@ Okta now provides a seamless ISV experience to optimize the [Okta Integration Ne
 
 #### Your OIN Integrations instruction updates
 
-The instructions on how to submit your OIN integration have been updated on the **Your OIN Integrations** page of the Admin Console in Developer Edition orgs. <!--OKTA-734095-->
+The instructions on how to submit your OIN integration have been updated on the **Your OIN Integrations** page of the Admin Console in Okta Integrator Free Plan orgs. <!--OKTA-734095-->
 
 #### SCIM 2.0 endpoint call update for user ResourceType requirements
 
