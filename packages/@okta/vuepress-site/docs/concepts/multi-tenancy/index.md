@@ -30,7 +30,7 @@ organization's customers.
 
 ### A tenant within Identity Access Management
 
-A tenant can also be considered as an isolated island of data that is separate
+A tenant can also be considered as an isolated island of data that’s separate
 and private from other tenants. In the context of identity management, each
 tenant has its own security policies, user registration settings, user groups,
 roles, and rules that determine application access. An illustration of these
@@ -44,7 +44,7 @@ different types of data is shown below:
 
 ## Why would you want more than one tenant
 
-An organization can create a new tenant for a variety of reasons. For example
+An organization can create a tenant for various reasons. For example
 they may want to:
 
 * Separate user administration and application access for internal employees
@@ -91,7 +91,7 @@ Acme Bank defined their tenants as:
 This doc assumes a basic knowledge of the Okta data model and uses Okta
 terminology such as "org" and "Universal Directory" when describing key
 concepts and configurations. For more information on these entities and how
-they relate to each another, see the following resources:
+they relate to each other, see the following resources:
 
 * [What is an Okta org?](/docs/concepts/okta-organizations/)
 * [Overview of the Okta data model](/docs/concepts/okta-data-model/)
@@ -102,7 +102,7 @@ they relate to each another, see the following resources:
 Okta has a highly adaptable and configurable solution for customers looking to
 implement multi-tenancy. Depending on the solution, a tenant can take the form
 of an org container, user groups within an org, or a customer-defined entity
-that is separate from the Okta platform. What form the tenant takes within Okta’s
+that’s separate from the Okta platform. What form the tenant takes within Okta’s
 platform is ultimately decided by the customer. Okta offers four main
 configurations for multi-tenancy. They are:
 
@@ -119,7 +119,7 @@ Host tenants in a single org using Universal Directory (UD)
 
 This configuration hosts all tenants in a single org. Customers can do this
 by rolling their own custom solution. Since a tenant doesn't exist as a separate
-entity within the org, this method requires abstracting tenants through the use of
+entity within the org, this method requires abstracting tenants by using
 the org’s users and user groups.
 
 <!-- This configuration hosts all tenants in a single org. Customers have one
@@ -194,7 +194,7 @@ Admin users manage users of a tenant. Their responsibilities include:
 
 #### Super user
 
-These users can create new tenants and tenant admins. They are used by
+These users can create new tenants and tenant admins. They’re used by
 the Okta customer to manage tenants in their org.
 
 <!--
