@@ -1,6 +1,6 @@
 > **Note:** This document is only for Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
-This guide discusses how to build a password-only sign-in flow Vue.js app that uses the Okta Sign-In Widget for Okta embedded authentication.
+This guide discusses how to build a password-only sign-in flow Vue.js app that uses the Okta Sign-In Widget for Okta-embedded authentication.
 
 ---
 
@@ -12,7 +12,7 @@ This guide discusses how to build a password-only sign-in flow Vue.js app that u
 #### What you need
 
 * [Okta Integrator Free Plan org](/signup)
-* [Okta Auth JS SDK](https://github.com/okta/okta-auth-js) (`@okta/okta-auth-js`)
+* [Okta Auth JavaScript SDK](https://github.com/okta/okta-auth-js) (`@okta/okta-auth-js`)
 * [Okta Vue.js SDK](https://github.com/okta/okta-vue) (`@okta/okta-vue`)
 * [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) (`@okta/okta-signin-widget`)&mdash;see the [Okta Sign-In Widget guide](/docs/guides/embedded-siw/).
 * [Vue CLI](https://cli.vuejs.org/guide/installation.html)
