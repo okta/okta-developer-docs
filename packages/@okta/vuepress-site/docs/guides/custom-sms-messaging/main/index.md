@@ -49,11 +49,11 @@ When crafting a translation or creating a custom SMS message, keep the following
 
 > **Note:** In the **Custom Language** section of the page, you can view Okta's default SMS message by clicking the **Default** arrow to expand it.
 
-3. Click the pencil icon under **Actions** to start creating a custom message from the default. The changes that you make create a custom SMS message template, and you are no longer using the default Okta SMS message.
+3. Click the pencil icon under **Actions** to start creating a custom message from the default. The changes that you make create a custom SMS message template, and you’re no longer using the default Okta SMS message.
 
 For example: `{org.name}: your verification code is {code}`
 
-> **Tip:** To reset the message back to the original default, click **Reset to Default**. This removes the custom SMS message template and all of the associated translations, and reverts back to the original default SMS message template.
+> **Tip:** To reset the message back to the original default, click **Reset to Default**. This removes the custom SMS message template and all of the associated translations, and reverts to the original default SMS message template.
 
 4. Click **Save**.
 
@@ -70,7 +70,7 @@ If you support other languages in your org, you need to create a translation for
 
 3. Click **Add Translation**.
 
-4. In the **Add Translation** dialog box, select the language from the **Language** drop-down box.
+4. In the **Add Translation** dialog box, select the language from the **Language** dropdown box.
 
 5. Enter the message, in the translated language, into the box.
 
@@ -78,7 +78,7 @@ For example: `it": "{org.name}: il codice di verifica è {code}`
 
 6. Click **Add Translation**.
 
-> **Note:** If you are adding a translation for the Okta default SMS message, after you add that translation, you are no longer using the default message. The new language translation appears under what is now your custom SMS message.
+> **Note:** If you’re adding a translation for the Okta default SMS message, after you add that translation, you’re no longer using the default message. The new language translation appears under what is now your custom SMS message.
 
 7. Repeat steps 3 through 6 for each language that your org supports.
 
@@ -86,4 +86,4 @@ For example: `it": "{org.name}: il codice di verifica è {code}`
 
 ## Next steps
 
-Next, take a look at [customizing and styling the default email notifications](/docs/guides/custom-email/) that Okta sends to end users.
+Next, look at [customizing and styling the default email notifications](/docs/guides/custom-email/) that Okta sends to end users.
