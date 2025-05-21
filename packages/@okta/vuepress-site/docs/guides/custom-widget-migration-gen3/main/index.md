@@ -107,33 +107,145 @@ See [Replace the customized sign-in page](https://developer.okta.com/docs/api/op
 
 ## Add design tokens to your code
 
+Use the code editor to add design tokens to your code. See [Use the code editor (Gen3)](/docs/guides/custom-widget-gen3/main/#use-the-code-editor).
 
 ### Design token examples
 
+Pass the design token values into the `OktaSignIn` constructor. For example:
+
+```javascript
+new OktaSignIn({
+  theme: {
+    tokens: {
+      PalettePrimaryMain: '#D11DCA',
+      TypographyColorBody: '#00297A',
+      TypographyColorHeading: '#00297A',
+      TypographyFamilyHeading: 'Helvetica',
+      TypographyFamilyBody: 'Helvetica',
+      TypographyWeightHeading: 600,
+      BorderRadiusMain: '24px',
+      Spacing5: '2.85714286rem',
+    }
+  }
+});
+```
+
+See [Customization examples](/docs/guides/custom-widget-gen3/main/#customization-examples) for more information.
 
 ## Use the useSiwGen3 variable
 
+The `useSiwGen3` [variable](/docs/guides/custom-widget/main/#use-variables) is a conditional that allows you to set behaviors for a migration to Gen3.
+
+Use `useSiwGen3` to add specific code that works when you enable Gen3, but doesn't affect other code in the template if you need to roll back to Gen2.
+
+> **Note:** If your org uses Classic Engine, the `useSiwGen3` variable appears in the code editor, but you can't use it.
+
+The following example shows how to style the `okta-login-container` for a migration to Gen3:
+
+```html
+{{#useSiwGen3}}
+    <style nonce="{{nonceValue}}">
+        #okta-login-container {
+            background-color: red !important;
+        }
+    </style>
+{{/useSiwGen3}}
+```
 
 ## About afterTransform and afterRender
 
+The [afterRender](https://github.com/okta/okta-signin-widget?tab=readme-ov-file#afterrender) function doesn’t work with Gen3 as it does with Gen2. In Gen3, if you use `afterRender` for DOM manipulations, the Okta Sign-In Widget reverts any customizations to default settings. See [jQuery and Preact](#jquery-and-preact).
+
+The `afterTransform` function is the recommended way to apply DOM customizations in Gen3.
+
+To use the `afterTransform` function, see [Use the afterTransform function (recommended)](#use-the-aftertransform-function-recommended).
+To keep using the `afterRender` function, see [Use the afterRender function (not recommended)](#use-the-afterrender-function-not-recommended).
 
 ### Use the afterTransform function (recommended)
 
+The third-generation Sign-In Widget introduces a new function: `afterTransform()`. See [jQuery and Preact](#jquery-and-preact).
+
+The function takes two arguments:
+
+* The name of the form to customize
+* A function that receives a context argument with the changes
+
+`signIn.afterTransform('form_name', function (context) { }`
+
+`afterTransform` doesn’t update the DOM after components are already rendered. Instead, it allows you to modify the `formBag` object sent to the components. The `formBag` controls what the components render.
+
+Consider the following examples:
+
+* [Change button text](#change-button-text-examples)
+* [Remove an unused link](#remove-an-unused-link-example)
+* [Add an instructional paragraph](#add-an-instructional-paragraph-example)
+
+> **Note:** Supplying a wildcard (`*`) for the `form_name` matches all forms. You can't use a wildcard for partial name matches.
 
 #### Change button text examples
 
+The following example shows how to change the text of the **Submit** button to **Login** on the **Identify** page:
 
+```javascript
+oktaSignIn.afterTransform('identify', ({ formBag }) => {
+ const submitIndex = formBag.uischema.elements.findIndex(ele => ele.type === 'Button' && ele.options.type === 'submit');
+ if (submitIndex != -1) {
+   const submit = formBag.uischema.elements[submitIndex];
+   submit.label = 'Login';
+ }
+});
+```
 
+The following example shows how to change the text of the **Submit** button to **Register** on the **Enroll profile** page:
+
+```javascript
+oktaSignIn.afterTransform('enroll-profile', ({ formBag }) => {
+   const submitIndex = formBag.uischema.elements.findIndex(ele => ele.type === 'Button' && ele.options.type === 'submit');
+   if (submitIndex != -1) {
+       const submit = formBag.uischema.elements[submitIndex];
+       submit.label = 'Register';
+   }
+});
+```
 
 #### Remove an unused link example
 
+The following example shows how to remove the **Help**, **Unlock account?**, and **Forgot password?** links from the **Identify** page:
 
+```javascript
+oktaSignIn.afterTransform('identify', ({ formBag }) => {
+ const help = formBag.uischema.elements.find(ele => ele.type === 'Link' && ele.options.dataSe === 'help');
+ const unlock = formBag.uischema.elements.find(ele => ele.type === 'Link' && ele.options.dataSe === 'unlock');
+ const forgot = formBag.uischema.elements.find(ele => ele.type === 'Link' && ele.options.dataSe === 'forgot-password');
+ formBag.uischema.elements = formBag.uischema.elements.filter(ele => ![help, unlock, forgot].includes(ele));
+});
+```
 
 #### Add an instructional paragraph example
 
+The following example shows how to add a custom description to the **Password recovery** page:
 
+```javascript
+oktaSignIn.afterTransform?.('identify-recovery', ({ formBag }) => {
+   const titleIndex = formBag.uischema.elements.findIndex(ele => ele.type === 'Title');
+   // Add custom description after title
+   const descr = {
+       type: 'Description',
+       contentType: 'subtitle',
+       options: {
+           variant: 'body1',
+           content: '<div class=\'my-reset-description\'>Description<br />about<br />recovery</div>'
+       },
+   };
+   if (titleIndex != -1) {
+       formBag.uischema.elements.splice(titleIndex + 1, 0, descr);
+   }
+});
+```
 
 ### Use the afterRender function (not recommended)
+
+
 
 
 #### Use MutationObserver for DOM manipulations
