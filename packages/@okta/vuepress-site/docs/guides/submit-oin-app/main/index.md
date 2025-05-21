@@ -238,7 +238,7 @@ A Developer Edition org has a maximum of five active instances, so manage your t
 
     If you need to change any labels or properties, go back to edit your submission.
 
-    > **Note:** The Integrator Free Plan has no limit on active instances. You can create as many test instances as needed for your integration. To deactivate any instances you no longer need, see [Deactivate an app instance in your org](#deactivate-an-app-instance-in-your-org).
+    > **Note:** The Integrator Free Plan has no limit on active app instances. You can create as many test instances as needed for your integration. To deactivate any instances you no longer need, see [Deactivate an app instance in your org](#deactivate-an-app-instance-in-your-org).
 
 <StackSnippet snippet="test-instance" />
 
