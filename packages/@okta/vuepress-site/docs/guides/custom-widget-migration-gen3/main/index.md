@@ -37,8 +37,8 @@ Gen3 of the Sign-In Widget offers the same user experience as the second generat
 
 Still, there are a few key differences between Gen2 and Gen3. Consider the following:
 
-* [CSS and design tokens]()
-* [jQuery and Preact]()
+* [CSS and design tokens](#css-and-design-tokens)
+* [jQuery and Preact](#jquery-and-preact)
 
 See [Sign-In Widget, third generation](https://help.okta.com/okta_help.htm?type=oie&id=ext-compare-siw) to verify if the third generation is right for your org.
 
@@ -73,8 +73,8 @@ For example, the `afterRender` function doesn’t work in Gen3 as it does in Gen
 
 You can upgrade to Gen3 in a few different ways:
 
-* Use the Admin Console.
-* Use the API.
+* [Use the Admin Console](#use-the-admin-console).
+* [Use the API](#use-the-api).
 
 > **Note:** If you have a new Identity Engine org, Gen3 isn't enabled by default.
 
