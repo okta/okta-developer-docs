@@ -40,7 +40,7 @@ You can use identifiers in standard authentication flows, but they're especially
 
 ### User experience
 
-In a hub-and-spoke flow, users go to the hub org sign-in page. They're prompted to enter any of the identifiers that you configured. The spoke org serves as the identity provider in this flow, so its preferred identifier should be represented in the entry field. Okta evaluates their entry according to your priority setting, to ensure that users who may have the same attribute for different identifiers are correctly authenticated.
+In a hub-and-spoke flow, users go to the sign-in page of the hub org. They're prompted to enter any of the identifiers that you configured. The spoke org serves as the identity provider in this flow, so its preferred identifier should be represented in the entry field. Okta evaluates their entry according to your priority setting, to ensure that users who may have the same attribute for different identifiers are correctly authenticated.
 
 In a standard authentication flow, users go to an app's sign-in page. They're prompted to authenticate with any of the identifiers that you configured. As in the hub-and-spoke flow, Okta evaluates their entry according to your priority setting.
 
@@ -52,11 +52,11 @@ See [Sign-in flows](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-si
 
 Identifiers are configured at the app level, in the user profile policy. This means that you can't set them for the entire org. However, you can apply the same user profile policy to all or multiple apps in your org. Follow this workflow to set up identifiers and ensure that your users understand how they work.
 
-1. [Create a user profile policy](#create-a-user-profile-policy)
-2. [Add identifiers to a user profile policy](#add-identifiers-to-a-user-profile-policy)
-3. [Create a custom profile enrollment form](#create-a-custom-profile-enrollment-form)
-4. [Customize your sign-in page](#customize-your-sign-in-page)
-5. [Add apps to a user profile policy](#add-apps-to-a-user-profile-policy)
+1. [Create a user profile policy](#create-a-user-profile-policy).
+2. [Add identifiers to a user profile policy](#add-identifiers-to-a-user-profile-policy).
+3. [Create a custom profile enrollment form](#create-a-custom-profile-enrollment-form).
+4. [Customize your sign-in page](#customize-your-sign-in-page).
+5. [Add apps to a user profile policy](#add-apps-to-a-user-profile-policy).
 
 ## Create a user profile policy
 
