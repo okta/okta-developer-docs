@@ -1,13 +1,13 @@
 ---
-title: Authentication/End-user rate limits
+title: Authentication and end-user rate limits
 excerpt: >-
   Understand authentication/end-user rate limits at Okta and learn how to design for efficient use of
   resources
 ---
 
-# Authentication/End-user rate limits
+# Authentication and end-user rate limits
 
-This page provides the API rate limits for authentication and end user activities. To learn more about rate limits, see the [Overview](/docs/reference/rate-limits) and [Best practices](/docs/reference/rl-best-practices) pages.
+This page provides the API rate limits for authentication and end-user activities. To learn more about rate limits, see the [Overview](/docs/reference/rate-limits) and [Best practices](/docs/reference/rl-best-practices) pages.
 
 > * In addition to the rate limit per API, Okta implements limits on concurrent requests, Okta-generated emails, end user requests, and home page endpoints. These limits are described on the [Additional limits](/docs/reference/rl-additional-limits/) page.
 > * [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/) apply to various endpoints across different APIs for customers who purchased this add-on. (The DynamicScale add-on service is only available to Customer Identity Solutions (CIS) customers.)
