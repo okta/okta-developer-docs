@@ -11,37 +11,37 @@ This guide provides a functional example of an Okta event hook that uses the Hoo
 #### Learning outcomes
 
 * Understand the Okta event hook calls and responses.
-* Implement Okta event hooks using a local application and the Hookdeck utility.
+* Implement Okta event hooks using a local app and the Hookdeck utility.
 * Preview and test an Okta event hook and review the call details with Hookdeck.
 
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup/)
-* A local application. See [Create a local application](#create-a-local-application) in this guide to install a sample code application.
+* A local app. See [Create a local app](#create-a-local-application) in this guide to install a sample code app.
 * [Hookdeck](#install-hookdeck)
 
 #### Sample code
 
-* [Nodejs-webhook-server-example](https://github.com/hookdeck/nodejs-webhook-server-example). Installation instructions are available in [Create a local application](#create-a-local-application).
+* [Nodejs-webhook-server-example](https://github.com/hookdeck/nodejs-webhook-server-example). Installation instructions are available in [Create a local app](#create-a-local-application).
 
 ---
 
 ## About event hooks with Hookdeck
 
- Event hooks are outbound calls from Okta that can notify your own software systems of events that occur in your Okta org. The Hookdeck utility exposes a local application to the internet. It allows the local application to receive and respond to event hook calls. The Hookdeck utility enables the testing of event hooks locally, rather than implementing an internet-based production or test external service.
+ Event hooks are outbound calls from Okta that can notify your own software systems of events that occur in your Okta org. The Hookdeck utility exposes a local app to the internet. It allows the local app to receive and respond to event hook calls. The Hookdeck utility enables the testing of event hooks locally, rather than implementing an internet-based production or test external service.
 
-## Create a local application
+## Create a local app
 
 <StackSnippet snippet="sample-app" />
 
 ## Install Hookdeck
 
-If you already have Hookdeck installed, move on to [Run Hookdeck](#run-hookdeck). If not, follow the installation instructions at [Using the Hookdeck CLI](https://hookdeck.com/docs/using-the-cli) to install in your sample application folder (or the location of your choice).
+If you already have Hookdeck installed, move on to [Run Hookdeck](#run-hookdeck). If not, follow the installation instructions at [Using the Hookdeck CLI](https://hookdeck.com/docs/using-the-cli) to install in your sample app folder (or the location of your choice).
 
 Some installation notes:
 
-* You don't need to have an account to install and run Hookdeck. However, a free account provides more features in the Hookdeck Dashboard and API authentication.
-* If you choose not to create an account, you'll use the Hookdeck Console rather than the Dashboard.
+* You don't need to have an account to install and run Hookdeck. However, a free account provides more features in the Hookdeck dashboard and API authentication.
+* If you choose not to create an account, you'll use the Hookdeck Console rather than the dashboard.
 
 ### Run Hookdeck
 
@@ -79,15 +79,15 @@ Some installation notes:
 
    </div>
 
-> **Note:** Use the **Webhook URL** that is available from the Hookdeck terminal session when setting up your event hook. For example, `https://events.hookdeck.com/e/src_t3PYSHLdsgNr`.
+> **Note:** Use the **Webhook URL** that’s available from the Hookdeck terminal session when setting up your event hook. For example, `https://events.hookdeck.com/e/src_t3PYSHLdsgNr`.
 
 See [Hookdeck](https://hookdeck.com/) or their [Product docs](https://hookdeck.com/docs/introduction) for further information.
 
 ### Review Hookdeck dashboard
 
-The Hookdeck dashboard provides an opportunity to review all calls to your local application. See [Browsing events](https://hookdeck.com/docs/browsing-event) for details on using this interface. Use the Dashboard link  provided by the Hookdeck utility to access details on your hook calls. For example, `http://dashboard..hookdeck.com?team_id=tm_DzF5wrNULyBG`. If you've not logged in to Hookdeck previously, you'll get a guest URL to Hookdeck Console instead.
+The Hookdeck dashboard provides an opportunity to review all calls to your local app. See [Browsing events](https://hookdeck.com/docs/browsing-event) for details on using this interface. Use the dashboard link provided by the Hookdeck utility to access details on your hook calls. For example, `http://dashboard..hookdeck.com?team_id=tm_DzF5wrNULyBG`. If you've not logged in to Hookdeck previously, you'll get a guest URL to Hookdeck Console instead.
 
-Each call to your local application appears in the dashboard and includes the response body, header, and other details:
+Each call to your local app appears in the dashboard and includes the response body, header, and other details:
 
 <div class="full border">
 
@@ -101,7 +101,7 @@ Hookdeck URLs are reusable and permanent (when you create a free account) and se
 
 ## Create an Okta event hook
 
-Create the Okta event hook to work with your local application. Set up and verify your event hook using the following Admin Console procedure or through the [Event Hooks Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/).
+Create the Okta event hook to work with your local app. Set up and verify your event hook using the following Admin Console procedure or through the [Event Hooks Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/).
 
 <EventHookEANoteProcedure/>
 
@@ -117,11 +117,11 @@ Create the Okta event hook to work with your local application. Set up and verif
 
 5. In the **URL** field, add your external service URL from Hookdeck. For this example, use the **Webhook URL** highlighted after running Hookdeck. See [Run Hookdeck](#run-hookdeck). For example, your URL should appear similar to: `https://events.hookdeck.com/e/src_t3PYSHLdsgNr`.
 
-    >**Note:** Hookdeck generates the URL when creating the session and incorporates the local application's hook endpoint as part of the unique URL. That is, the endpoint isn’t explicitly defined as part of the URL.
+    >**Note:** Hookdeck generates the URL when creating the session and incorporates the local app's hook endpoint as part of the unique URL. That is, the endpoint isn’t explicitly defined as part of the URL.
 
 6. Leave the **Authentication field** and **Authentication secret** values blank in this example.
 
-    However, to add Basic Authentication, add the application code at [HTTP header: Basic Authentication](/docs/guides/common-hook-set-up-steps/nodejs/main/#http-header-basic-authentication) and then enter the following values for those fields:
+    However, to add Basic Authentication, add the app code at [HTTP header: Basic Authentication](/docs/guides/common-hook-set-up-steps/nodejs/main/#http-header-basic-authentication) and then enter the following values for those fields:
 
     * **Authentication field** = `authorization`
 
@@ -131,13 +131,13 @@ Create the Okta event hook to work with your local application. Set up and verif
 
 8. Click **Save & Continue**.
 
-9. Complete the one-time verification Okta call by clicking **Verify**. You can also verify the event hook at a later time. See [Event hook verification](/docs/guides/event-hook-hookdeck/#event-hook-verification).
+9. Complete the one-time verification Okta call by clicking **Verify**. You can also verify the event hook later. See [Event hook verification](/docs/guides/event-hook-hookdeck/#event-hook-verification).
 
 ### Event hook verification
 
 Verify the event hook to prove that your external service controls the endpoint. See [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request).
 
->**Note:** Hookdeck includes the capability to verify your endpoint, and no code is necessary for your local application.
+>**Note:** Hookdeck includes the capability to verify your endpoint, and no code is necessary for your local app.
 
 To complete the one-time verification of the event hook:
 
@@ -147,11 +147,11 @@ Or:
 
 * Go to the Event Hooks table, click the **Actions** dropdown menu of your **UNVERIFIED** event hook, and select **Verify**.
 
-The event hook is set up with a status of **VERIFIED**. It's ready to send event hook calls to your local application through Hookdeck.
+The event hook is set up with a status of **VERIFIED**. It's ready to send event hook calls to your local app through Hookdeck.
 
 ## Preview, test, and review the event hook
 
-With your local application now exposed externally through a Hookdeck session, you can preview and test Okta event hook calls. Review details of the calls by using the Hookdeck dashboard. The Okta org is set up to call your local application when a user-creation event triggers. In this example, the event triggers when you add a user to your Okta org.
+With your local app now exposed externally through a Hookdeck session, you can preview and test Okta event hook calls. Review details of the calls by using the Hookdeck dashboard. The Okta org is set up to call your local app when a user-creation event triggers. In this example, the event triggers when you add a user to your Okta org.
 
 ### Preview
 
@@ -162,12 +162,12 @@ To run a preview call of your event hook:
 1. Click the **Actions** menu for this hook, and select **Preview**.
 1. In the **Configure Event Hook request** section, select an event from the **Event Type** dropdown menu. In this example, there’s only `User Created (user.lifecycle.create)`.
 1. The most recent event populates the **Preview & Deliver Event Hook** section with the JSON body of the event hook if there’s one. If no event is available, the JSON body populates with sample data.
-1. Ensure that both your Hookdeck session and local sample application are running.
-1. Click **Deliver Request**. The Event Hook Preview displays the status request as either successful or a failure. Review your local application console to view the output of the event hook body. For example:
+1. Ensure that both your Hookdeck session and local sample app are running.
+1. Click **Deliver Request**. The Event Hook Preview displays the status request as either successful or a failure. Review your local app console to view the output of the event hook body. For example:
 
    <div class="three-quarter">
 
-   ![An image of the application terminal with response body output to the console.](/img/hooks/hookdeck-event-hook-body.png)
+   ![An image of the app terminal with response body output to the console.](/img/hooks/hookdeck-event-hook-body.png)
 
    </div>
 
@@ -185,7 +185,7 @@ To run a preview call of your event hook:
 
 To run a test of your event hook:
 
-1. Ensure that both your Hookdeck session and local sample application are running.
+1. Ensure that both your Hookdeck session and local sample app are running.
 1. In your Okta org, sign in as an administrator and create a test user in the Admin Console.
     * Go to **Directory** > **People**, and click **Add Person**. As an example, add the user Jane Doe with the following fields:
         * **First Name:** Jane
@@ -194,7 +194,7 @@ To run a test of your event hook:
 
 1. Click **Save** to create a user. The new user triggers an event hook call.
 
-1. Navigate back to your local application's console. The request body for this call appears in the console, as designed by the local application code.
+1. Navigate back to your local app's console. The request body for this call appears in the console, as designed by the local app code.
 
 1. Review your Hookdeck terminal output for a line item reference to the specific call and a unique dashboard URL to the details on the call.
 
