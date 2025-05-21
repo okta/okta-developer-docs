@@ -14,7 +14,7 @@ This guide describes how to use the [Policies API](https://developer.okta.com/do
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * [Groups created](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) in your org
 * [Custom URL domain](/docs/guides/custom-url-domain/main/) for customization work
 

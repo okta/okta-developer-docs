@@ -14,7 +14,7 @@ Retrieve a session cookie and initiate SSO
 
 #### What you need
 
-[Okta Developer Edition organization](https://developer.okta.com/signup)
+[Okta Integrator Free Plan org](https://developer.okta.com/signup)
 
 ---
 
