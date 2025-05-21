@@ -608,6 +608,10 @@ export const guides = [
             guideName: "custom-widget",
           },
           {
+            title: "Migrate to third generation (Gen3), Sign-In Widget",
+            guideName: "custom-widget-migration-gen3",
+          },
+          {
             title: "Sign-In Widget (third generation)",
             guideName: "custom-widget-gen3",
           },

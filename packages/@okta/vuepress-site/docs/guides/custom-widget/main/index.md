@@ -6,6 +6,8 @@ layout: Guides
 
 This guide explains how to customize the sign-in page for both redirect and embedded deployment models.
 
+> **Note:** This document is for the second generation (Gen2) of the Okta Sign-In Widget. See [Migrate to the third generation (Gen3) of the Sign-In Widget](/docs/guides/custom-widget-migration-gen3/main/) for details about Gen3.
+
 ---
 
 #### Learning outcomes
@@ -166,9 +168,9 @@ Example:
 
 #### <span v-pre>`{{useSiwGen3}}`</span>
 
-A conditional that allows you to set behaviors for a migration to Gen3 of the Sign-In Widget.
+A conditional that allows you to set behaviors for a migration to Gen3 of the Sign-In Widget. See [Migrate to the third generation (Gen3) of the Sign-In Widget](/docs/guides/custom-widget-migration-gen3/main/).
 
-Gen3 of the Sign-In Widget uses design tokens, unlike Gen2, so it requires different styling. Use `useSiwGen3` to add specific code that works when you enable Gen3, but doesn't affect other code in the template if you need to roll back to Gen2. See [Style the Sign-In Widget (3rd generation)](/docs/guides/custom-widget-gen3/main/).
+Gen3 of the Sign-In Widget uses design tokens, unlike Gen2, so it requires different styling. Use `useSiwGen3` to add specific code that works when you enable Gen3, but doesn't affect other code in the template if you need to roll back to Gen2.
 
 > **Note:** If your org uses Okta Classic Engine, the `useSiwGen3` variable appears in the code editor, but you can't use it.
 
