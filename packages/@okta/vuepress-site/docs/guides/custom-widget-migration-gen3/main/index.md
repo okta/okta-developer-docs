@@ -245,17 +245,101 @@ oktaSignIn.afterTransform?.('identify-recovery', ({ formBag }) => {
 
 ### Use the afterRender function (not recommended)
 
+For Gen3, the `afterRender` function doesn't work when used to make DOM manipulations and other render-related side effects. If you use `afterRender` for DOM manipulations, Gen3 reverts any customizations to default settings. See See [jQuery and Preact](#jquery-and-preact) and [Components and Hooks must be pure](https://react.dev/reference/rules/components-and-hooks-must-be-pure).
 
+If you still want to use `afterRender`, consider the following:
 
+* To use `afterRender` for DOM manipulations, consider using the `MutationObserver` function. See [Use MutationObserver for DOM manipulations](#use-mutationobserver-for-dom-manipulations).
+* To use `afterRender` for non-DOM manipulations, you don't need the `MutationObserver` function. See [Use afterRender for non-DOM manipulations](#use-afterrender-for-non-dom-manipulations).
 
 #### Use MutationObserver for DOM manipulations
 
+To prevent the third-generation Sign-In Widget from reverting your `afterRender` customizations, use the DOM `MutationObserver` function. See [MutationObserver](https://dom.spec.whatwg.org/#ref-for-dom-mutationobserver-mutationobserver).
 
+To update UI elements, consider the following example:
+
+```javascript
+<script type="text/javascript" nonce="{{nonceValue}}">
+    var config = OktaUtil.getSignInWidgetConfig();
+
+    var oktaSiwRoot = document.querySelector('#okta-login-container');
+    // The following allows you to reference the context from each render
+    var contextObj = {};
+    function cb(mutations, observer) {
+      // For the primary auth form, updates the button label
+      if (contextObj.formName === 'identify') {
+        var el = document.querySelector('[data-type="save"]');
+        if (el) { el.textContent = 'Some new label'; }
+      }
+      // For the reset-authenticator view, updates the button label
+      if (contextObj.formName === 'reset-authenticator') {
+        var el = document.querySelector('[data-type="save"]');
+        if (el) { el.textContent = 'A different label'; }
+      }
+    }
+    // Initializes the mutation observer object
+    var observer = new MutationObserver(cb);
+
+    // Renders the Okta Sign-In Widget
+    var oktaSignIn = new OktaSignIn(config);
+
+    // The following varies based on your configuration
+    oktaSignIn.renderEl({ el: '#okta-login-container' }, OktaUtil.completeLogin, function (error) {
+       console.log(error.message, error);
+    });
+
+    oktaSignIn.on('afterRender', function (ctx) { // ← Restores the context
+      // Resets the global context object for reference using the callback function
+      contextObj = ctx;
+      // The following condition only executes the observer for specific views/forms
+      if (ctx.formName === 'identify' || ctx.formName === 'reset-authenticator') {
+        // Pauses
+        observer.disconnect();
+
+        // Calls once after initial render
+        cb();
+
+        // Observes for re-renders
+        observer.observe(oktaSiwRoot, {
+          subtree: true,
+          childList: true,
+          attributes: true,
+          characterData: true,
+        });
+      }
+    });
+ </script>
+ ```
 
 #### Use afterRender for non-DOM manipulations
 
+The third generation can use the `afterRender` function for non-DOM manipulations without extra logic. The following example doesn't update the UI, so it doesn't need the `MutationObserver`. Instead, it sends a log to your external logging service:
 
+ ```javascript
+ <script type="text/javascript" nonce="{{nonceValue}}">
+    var config = OktaUtil.getSignInWidgetConfig();
 
+    // Renders the Okta Sign-In Widget
+    var oktaSignIn = new OktaSignIn(config);
+
+    // The following varies based on your own configuration
+    oktaSignIn.renderEl({ el: '#okta-login-container' }, OktaUtil.completeLogin, function (error) {
+       console.log(error.message, error);
+    });
+
+    oktaSignIn.on('afterRender', function (context) {
+       if (context.formName === 'identify') {
+          // Sends a log to your external logging service indicating a customer landed on this view
+          someExternalLoggingService.log('Rendered Primary auth form'); 
+       }
+    });
+ </script>
+ ```
 
 ## See also
 
+* [Style the sign-in page](/docs/guides/custom-widget/main/)
+* [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/main/)
+* [Customize domain and email address](/docs/guides/custom-url-domain/main/)
+* [Brands](/docs/concepts/brands/)
+* [Sign-In Widget, third generation](https://help.okta.com/okta_help.htm?type=oie&id=ext-compare-siw)
