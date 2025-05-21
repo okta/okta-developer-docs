@@ -583,7 +583,7 @@ export default {
     if (window.location.hostname === "developer.okta.com") {
       this.captchaSiteKey = captcha.production;
     } else {
-      this.captchaSiteKey = captcha.test;
+      this.captchaSiteKey = captcha.production;
     }
 
     this.theme = this.getTheme();
