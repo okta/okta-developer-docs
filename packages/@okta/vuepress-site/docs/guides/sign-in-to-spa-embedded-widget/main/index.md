@@ -35,7 +35,7 @@ You need two pieces of information from your org and app integration for your Re
 
 <StackSnippet snippet="basic-sign-in" />
 
-## Run the sample application
+## Run the sample app
 
 <StackSnippet snippet="run-sample" />
 
