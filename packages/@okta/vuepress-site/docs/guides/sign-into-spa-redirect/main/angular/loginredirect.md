@@ -1,4 +1,4 @@
-The `OktaAuthStateService` and `OktaAuth` services are used together to support sign-in and sign-out actions. The `OktaAuthStateService` contains `authState$`, an [RxJS Observable](https://rxjs.dev/guide/observable) that you can use to get the current authenticated state.
+The `OktaAuthStateService` and `OktaAuth` services are used together to support sign-in and sign-out actions. The `OktaAuthStateService` contains `authState$`, an [RxJS Observable](https://rxjs-dev.firebaseapp.com/guide/observable) that you can use to get the current authenticated state.
 
 The `OktaAuth` service has methods for sign-in and sign-out actions.
 
