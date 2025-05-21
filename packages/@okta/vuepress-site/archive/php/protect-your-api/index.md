@@ -49,7 +49,7 @@ Use this quickstart to learn how to perform these tasks:
 1. [Enable CORS for your API](#enable-cors-for-your-api)
 1. [Test that your API is secure](#test-that-your-api-is-secure)
 
-> **Tip**: You need your Okta org domain to follow this tutorial. It looks like `dev-123456.okta.com`. See [Find your Okta domain](/docs/guides/find-your-domain/). Where you see `${yourOktaDomain}` in this guide, replace it with your Okta domain.
+> **Tip**: You need your Okta org domain to follow this tutorial. It looks like `dev-123456.okta.com` or `trial-123456.okta.com`. See [Find your Okta domain](/docs/guides/find-your-domain/). Where you see `${yourOktaDomain}` in this guide, replace it with your Okta domain.
 
 ## Check that API Access Management is enabled
 

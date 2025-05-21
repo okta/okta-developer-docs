@@ -34,7 +34,7 @@ YAML configuration file example:
 ```yaml
 okta:
   idx:
-    issuer: "https://dev-1234.okta.com/oauth2/default"
+    issuer: "https://trial-1234.okta.com/oauth2/default"
     clientId: "123xyz"
     clientSecret: "123456abcxyz"
     scopes:
@@ -59,7 +59,7 @@ Set the following environment variables with your app's configuration values bef
 The following is a Unix example of setting the environment variables for the sample app:
 
 ```bash
-export OKTA_IDX_ISSUER=https://dev-1234.okta.com/oauth2/default
+export OKTA_IDX_ISSUER=https://trial-1234.okta.com/oauth2/default
 export OKTA_IDX_CLIENTID=123xyz
 export OKTA_IDX_CLIENTSECRET=123456abcxyz
 export OKTA_IDX_SCOPES="openid profile offline_access"
@@ -91,7 +91,7 @@ Use the following Java system properties when you run the embedded authenticatio
 For example:
 
 ```bash
-mvn -Dokta.idx.issuer=https://dev-1234.okta.com/oauth2/default \
+mvn -Dokta.idx.issuer=https://trial-1234.okta.com/oauth2/default \
     -Dokta.idx.clientId=123xyz \
     -Dokta.idx.clientSecret=123456abcxyz \
     -Dokta.idx.scopes="openid profile offline_access" \

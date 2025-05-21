@@ -47,7 +47,7 @@ Use this quickstart to learn how to perform these tasks:
 1. [Test that a user can sign in and sign out](#test-that-a-user-can-sign-in-and-sign-out).
 1. [Configure different levels of access for specific areas of the site](#configure-different-levels-of-access-for-specific-areas-of-the-site).
 
-> **Tip**: You need your Okta org domain to follow this tutorial. It looks like `dev-123456.okta.com`. See [Find your Okta domain](/docs/guides/find-your-domain/). Where you see `${yourOktaDomain}` in this guide, replace it with your Okta domain.
+> **Tip**: You need your Okta org domain to follow this tutorial. It looks like `dev-123456.okta.com` or `trial-123456.okta.com`. See [Find your Okta domain](/docs/guides/find-your-domain/). Where you see `${yourOktaDomain}` in this guide, replace it with your Okta domain.
 
 ## Create an app integration in the Admin Console
 
