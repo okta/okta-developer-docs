@@ -1028,7 +1028,7 @@ export const reference = [
             path: "/docs/reference/rl-dashboard/",
           },
           {
-            title: "Authn/End-user rate limits",
+            title: "Authentication and end-user rate limits",
             path: "/docs/reference/rl-global-enduser/",
           },
           {
