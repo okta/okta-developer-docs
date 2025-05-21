@@ -27,7 +27,7 @@ Understand the purpose of Single Logout (SLO) and set it up for your app.
 
 The Single Logout (SLO) feature allows a user to sign out of an SLO participating app on their device and end their Okta session. The user is then automatically signed out of all other SLO participating apps on other devices.
 
-Okta supports Service Provider-initiated (SP-initiated) SLO for third-party SAML 2.0 and OpenID Connect (OIDC) apps. When an end user clicks the sign-out button in your app, the app directs the browser to Okta while making an inbound logout request. This indicates to Okta that the user wants to sign out of the app. In response, Okta ends the user’s Okta session.
+Okta supports Service Provider initiated (SP-initiated) SLO for third-party SAML 2.0 and OpenID Connect (OIDC) apps. When an end user clicks sign-out in your app, the app directs the browser to Okta while making an inbound logout request. This indicates to Okta that the user wants to sign out of the app. In response, Okta ends the user’s Okta session.
 
 The multiple device SLO feature supports outbound logout requests (IdP-initiated SLO) after the SP app makes the SP-initiated inbound logout request to Okta. Okta sends outbound logout requests to any other apps participating in SLO that didn't initiate the logout. This applies only to the downstream apps where the user has previously established a session. Requests are communicated from Okta to apps using front-channel logout, which means that the browser does the communicating.
 
@@ -43,18 +43,18 @@ Ideally, when the user wants to sign out, they should sign out of every app to k
 
 </div>
 
-**Event 1**
+**Event 1:**
 
-* The user signs out of App 1 using Browser 1.
-* App 1 initiates the logout (SP-initiated) by sending a front-channel inbound logout request to Okta using Browser 1. For example:
+* The user signs out of App 1 using browser 1.
+* App 1 initiates the logout (SP-initiated) by sending a front-channel inbound logout request to Okta using browser 1. For example:
 
     `GET https://{yourOktaDomain}/oauth2/v1/logout?id_token_hint=<idToken>&post_logout_redirect_uri=<configuredPostLogoutRedirectUri>&state=<someState>`
 
-* Okta ends Okta Session 1. The user can still access Apps 2 and 3 within the scope of each app session.
+* Okta ends Okta session 1. The user can still access Apps 2 and 3 within the scope of each app session.
 
-**Event 2**
+**Event 2:**
 
-* Okta determines that Apps 2 and 3 were also part of Okta Session 1.
+* Okta determines that Apps 2 and 3 were also part of Okta session 1.
 * Okta initiates the outbound logout request (IdP-initiated) to the downstream apps (Apps 2 and 3) in an embedded IFrame that’s invisible to the user. For example:
 
     `POST https://myapp.exampleco.com/slo/logout`
@@ -64,11 +64,11 @@ Ideally, when the user wants to sign out, they should sign out of every app to k
 * Okta makes a GET or POST redirection request to App 1.
 * If a downstream app is a SAML app, the SAML app makes a POST or REDIRECT request to the Okta `/app/{app}/{key}/slo/saml/callback` endpoint in response to the Okta outbound logout request. The SAML logout response is included in the request body.
 
-> **Note:** Only Okta Session 1 is terminated. Okta Sessions 2 and 3 are still active despite Apps 2 and 3 no longer having a valid session in Browsers 2 and 3. It’s up to the apps to kill the sessions for that user.
+> **Note:** Only Okta session 1 is terminated. Okta Sessions 2 and 3 are still active despite Apps 2 and 3 no longer having a valid session in browsers 2 and 3. It’s up to the apps to kill the sessions for that user.
 
 **Event 3**
 
-Because Apps 2 and 3 have sessions for the user in other browsers, and on other devices, the apps may terminate these sessions from the server side. When the user tries to use these apps in the respective browsers, the user discovers that the apps have invalidated the user’s browser sessions.
+Because Apps 2 and 3 have user sessions in other browsers, and on other devices, the apps may terminate these sessions from the server side. When the user tries to use these apps in the respective browsers, the user discovers that the apps have invalidated the user’s browser sessions.
 
 Downstream SAML apps terminate a specific session associated with the user or terminate all sessions associated with the user. This depends on whether `sessionIndex` (SAML) is included in the IdP-initiated logout request. For OIDC apps, this depends on whether the session ID (`sid`) and issuer (`iss`) are included.
 
@@ -123,5 +123,5 @@ After Okta initiates the outbound logout request to downstream apps, Okta includ
 
 ## See also
 
-* Okta Developer blog that explains an [inbound single logout request using Spring Boot for an OIDC app](https://developer.okta.com/blog/2020/03/27/spring-oidc-logout-options)
+* Okta developer blog that explains an [inbound single logout request using Spring Boot for an OIDC app](https://developer.okta.com/blog/2020/03/27/spring-oidc-logout-options)
 * Spring Boot offers a [Spring Security SAML Extension](https://docs.spring.io/spring-security-saml/docs/current/reference/htmlsingle/#configuration-logout-global) that's configured for global logout.
