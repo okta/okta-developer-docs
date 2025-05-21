@@ -33,13 +33,13 @@ Okta provides two embedded identity solutions:
 
 </div>
 
-This guide shows you how to set up your Okta org to support the embedded SDK or the embedded widget with SDK solutions. Ensure that you [get set up](#get-set-up) with Okta and [set up your Okta org for your use case](#set-up-your-okta-org-for-your-use-case) before you <StackSnippet snippet="downloadguideuri" inline />.
+This guide shows you how to set up your Okta org to support the embedded SDK or the embedded widget with SDK solutions. Ensure that you [get setup](#get-set-up) with Okta and [set up your Okta org for your use case](#set-up-your-okta-org-for-your-use-case) before you <StackSnippet snippet="downloadguideuri" inline />.
 
 > **Note:** You can use direct authentication with your apps in Identity Engine rather than an embedded SDK. This enables you to directly authenticate users rather than delegating authentication to Okta Identity Providers and authorization servers through an HTTP redirect in a browser. Direct authentication is beneficial in scenarios where there's a high degree of trust between the user and the app. It's also beneficial where browser-based flows aren't feasible, like with mobile apps. See the `/challenge` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/challengeOrgAS), the `/oob-authenticate` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/oob-authenticateOrgAS), and the new `grant_types` for the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token) to help tailor authentication to your specific use cases. Also, for information on how to set up each new grant type, see [Implement by grant type](/docs/guides/configure-direct-auth-grants/aotp/main/).
 
 ## Get set up
 
-Sample apps are provided for each solution to show you exactly how to integrate the SDK and the widget into your own app. Before you can run the sample apps or integrate embedded authentication into your own app, you need to do the following:
+Sample apps are provided for each solution to show you exactly how to integrate the SDK and Sign-In Widget into your own app. Before you can run the sample apps or integrate embedded authentication into your own app, you need to do the following:
 
 1. [Create your Okta account](#create-your-okta-account).
 1. [Verify that the Interaction Code grant type is enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled).
@@ -209,7 +209,7 @@ An authenticator enrollment policy determines which authenticators must challeng
 1. Give the rule a name, for example, "Password-optional Sign-In Rule."
 1. Set **Exclude Users** to the names of your main admin accounts.
 1. Leave the other settings at their defaults, and then click **Create Rule**.
-1. Move the new policy immediately above the Default Policy in the list of policies.
+1. Move the new policy immediately above the default policy in the list of policies.
 
 ##### Add a global session policy for password-optional users
 
@@ -241,9 +241,9 @@ A global session policy determines user session length and basic authentication 
 
 This section shows you how to set up your Okta org and app to support the multifactor use cases available in this embedded authentication guide. In addition to the password factor, the multifactor use cases presented in this guide use the email and phone factors. Perform the following configuration after you [create an app](#create-an-application) to set up the email and phone factors in your Okta org:
 
-1. [Set up the email authenticator for authentication and recovery](#set-up-the-email-authenticator-for-authentication-and-recovery)
-1. [Add the phone authenticator for authentication and recovery](#add-the-phone-authenticator-for-authentication-and-recovery)
-1. [Update your authentication policy with multifactor authentication](#update-your-authentication-policy-with-multifactor-authentication)
+1. [Set up the email authenticator for authentication and recovery](#set-up-the-email-authenticator-for-authentication-and-recovery).
+1. [Add the phone authenticator for authentication and recovery](#add-the-phone-authenticator-for-authentication-and-recovery).
+1. [Update your authentication policy with multifactor authentication](#update-your-authentication-policy-with-multifactor-authentication).
 
 > **Note:** The multifactor use cases in this guide implement the password, email, and phone factors. However, there are more supported factors that you can use in your embedded authentication app. See [Multifactor Authentication](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-authenticators).
 
@@ -283,11 +283,11 @@ Use this section to set up your Okta org and app to support Facebook IdP use cas
 
 Perform the following configurations after you [create an app](#create-an-application) to set up the Facebook IdP and your Okta org:
 
-1. [Create a Facebook app in Facebook](#create-a-facebook-app-in-facebook)
-1. [Set up the Facebook test user](#set-up-the-facebook-test-user)
-1. [(Optional) Switch your Facebook app to Live mode](#switch-your-facebook-app-to-live-mode)&mdash;this step isn't required if you want to remain in Facebook Development mode
-1. [Create the Facebook Identity Provider in Okta](#create-the-facebook-identity-provider-in-okta)
-1. [Add an Identity Provider routing rule in Okta](#add-an-identity-provider-routing-rule-in-okta)
+1. [Create a Facebook app in Facebook](#create-a-facebook-app-in-facebook).
+1. [Set up the Facebook test user](#set-up-the-facebook-test-user).
+1. [(Optional) Switch your Facebook app to Live mode](#switch-your-facebook-app-to-live-mode)&mdash;this step isn't required if you want to remain in Facebook Development mode.
+1. [Create the Facebook Identity Provider in Okta](#create-the-facebook-identity-provider-in-okta).
+1. [Add an Identity Provider routing rule in Okta](#add-an-identity-provider-routing-rule-in-okta).
 
 #### Create a Facebook app in Facebook
 
