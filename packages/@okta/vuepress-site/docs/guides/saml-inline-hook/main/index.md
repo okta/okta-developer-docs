@@ -16,7 +16,7 @@ This guide provides a useable example of an Okta SAML assertion inline hook. It 
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account
 * A sample app that uses SAML to implement authentication. This guide works with the app in the Sample code section that follows.
 
