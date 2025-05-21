@@ -238,7 +238,7 @@ A Developer Edition org has a maximum of five active instances, so manage your t
 
     If you need to change any labels or properties, go back to edit your submission.
 
-    > **Note:** There's a limit of five app instances in the Okta Developer Edition org. The **Generate instance** option is deactivated when you reach this limit. Deactivate unused instances to make room for new instances in your org. See [Deactivate app instances in your org](#deactivate-an-app-instance-in-your-org).
+    > **Note:** The Integrator Free Plan has no limit on active instances. You can create as many test instances as needed for your integration. To deactivate any instances you no longer need, see [Deactivate an app instance in your org](#deactivate-an-app-instance-in-your-org).
 
 <StackSnippet snippet="test-instance" />
 
@@ -296,8 +296,6 @@ If you modify a published OIN integration, you must generate an instance based o
     The instance name and test results are removed for the corresponding test cases in the OIN Submission Tester. The **Run test** option is also disabled.
 
 #### Deactivate an app instance in your org
-
-Since the Okta Developer Edition org has a limit of five active app instances, deactivate any instances you're not using in the org.
 
 To deactivate an instance from the OIN Wizard:
 
