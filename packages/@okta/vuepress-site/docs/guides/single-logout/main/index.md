@@ -7,7 +7,7 @@ layout: Guides
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="ea" />
 
-This guide discusses how to configure Single Logout (SLO) for your apps.
+This guide discusses how to configure the Single Logout (SLO) feature for your apps.
 
 ---
 
