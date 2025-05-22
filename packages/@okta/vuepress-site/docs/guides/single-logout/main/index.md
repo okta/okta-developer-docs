@@ -1,25 +1,25 @@
 ---
 title: Configure Single Logout
-excerpt: Configure Single Logout for your apps.
+excerpt: Configure Single Logout for your apps or identity providers.
 layout: Guides
 ---
 
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="ea" />
 
-This guide discusses how to configure the Single Logout (SLO) feature for your apps.
+This guide discusses how to configure the Single Logout (SLO) feature for your <StackSnippet snippet="aori" inline />.
 
 ---
 
 #### Learning outcome
 
-Understand the purpose of Single Logout (SLO) and set it up for your app.
+Understand the purpose of Single Logout (SLO) and set it up for your <StackSnippet snippet="aori" inline />.
 
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
-* Existing SAML app and OpenID Connect (OIDC) app integrations to update for SLO. See [Create SAML app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-saml) or [Create OIDC app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) if you don’t have configured app integrations.
-* The SLO feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the SLO feature, and enable.
+* Existing <StackSnippet snippet="appidp" inline /> to update for SLO. See <StackSnippet snippet="appidp" inline /> if you don’t have one configured.
+* The <StackSnippet snippet="featureabbrv" inline /> feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate <StackSnippet snippet="feature" inline />, and enable.
 
 ---
 

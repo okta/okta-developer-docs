@@ -1,0 +1,5 @@
+When Single Logout for Identity Providers (SLO for IdPs) is enabled for your org, Okta sends a sign-out request to the IdP to end the IdP session when a user signs out of your app.
+
+The SLO for IdPs feature supports Okta as the service provider for an external IdP. Okta acts as an app for the IdP and sends the sign-out request to the external IdP to end the session. This applies only to the identity provider where the user has previously established a session. Requests are communicated from Okta to the IdP using front-channel logout, which means that the browser does the communicating.
+
+SLO for IdPs is especially useful in scenarios where users share computers or use public kiosks. A user may sign in to a computer portal, and then open multiple apps. The user sign-in process for each app happens behind the scenes. Ideally, when the user wants to sign out, they should sign out of every app and then the IdP session should end to keep the next user from accessing their information. But, most users don’t do that. SLO for IdPs signs the user out of all apps and ends the IdP session.
