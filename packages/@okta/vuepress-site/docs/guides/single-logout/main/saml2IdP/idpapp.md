@@ -1,0 +1,1 @@
+[Create a SAML 2.0 identity provider](/docs/guides/add-an-external-idp/saml2/main/) or [Create an OpenID Connect identity provider](/docs/guides/add-an-external-idp/openidconnect/main/)
