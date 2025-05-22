@@ -6,7 +6,7 @@ excerpt: Learn how Express Configuration automates the setup of SSO for Auth0-en
 
 # Express Configuration
 
-Express Configuration is a feature designed to automate the setup of SSO for instances of Auth0-enabled OIN SaaS integrations. You can use this feature to configure OpenID Connect (OIDC) integrations securely without copying and pasting configuration values between Okta and Auth0-enabled apps.
+Express Configuration is a feature designed to automate the setup of SSO for instances of Auth0-enabled OIN SaaS integrations. You can use this feature to configure OpenID Connect (OIDC) integrations. It eliminates the need to copy and paste configuration values between Okta and Auth0-enabled apps.
 
 **Notes**:
 
