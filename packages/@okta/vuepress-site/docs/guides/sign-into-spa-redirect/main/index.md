@@ -103,7 +103,7 @@ You can find your config values in the Admin Console (select **Applications** > 
 
 To sign a user in, your app redirects the browser to the Okta-hosted sign-in page. This usually happens from a sign-in action, such as clicking a button or when a user visits a protected page.
 
-> **Note**: The sign-out action requires your app to be listed as a trusted origin. If you used the Okta dashboard, follow the steps to [add your app as a trusted origin](#enable-trusted-origins).
+> **Note**: The sign-out action requires your app to be listed as a trusted origin. If you used the Okta Admin Console, follow the steps to [add your app as a trusted origin](#enable-trusted-origins).
 
 <StackSnippet snippet="loginredirect" />
 

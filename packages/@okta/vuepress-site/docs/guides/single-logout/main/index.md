@@ -27,7 +27,7 @@ Understand the purpose of Single Logout (SLO) and set it up for your app.
 
 The Single Logout (SLO) feature allows a user to sign out of an SLO participating app on their device and end their Okta session. The user is then automatically signed out of all other SLO participating apps on other devices.
 
-Okta supports Service Provider initiated (SP-initiated) SLO for third-party SAML 2.0 and OpenID Connect (OIDC) apps. When an end user clicks sign-out in your app, the app directs the browser to Okta while making an inbound logout request. This indicates to Okta that the user wants to sign out of the app. In response, Okta ends the user’s Okta session.
+Okta supports Service Provider initiated (SP-initiated) SLO for third-party SAML 2.0 and OpenID Connect (OIDC) apps. When an end user clicks sign-out in your app, the app directs the browser to Okta while making an inbound sign-out request. This indicates to Okta that the user wants to sign out of the app. In response, Okta ends the user’s Okta session.
 
 The multiple device SLO feature supports outbound logout requests (IdP-initiated SLO) after the SP app makes the SP-initiated inbound logout request to Okta. Okta sends outbound logout requests to any other apps participating in SLO that didn't initiate the logout. This applies only to the downstream apps where the user has previously established a session. Requests are communicated from Okta to apps using front-channel logout, which means that the browser does the communicating.
 
@@ -45,8 +45,8 @@ Ideally, when the user wants to sign out, they should sign out of every app to k
 
 **Event 1:**
 
-* The user signs out of App 1 using browser 1.
-* App 1 initiates the logout (SP-initiated) by sending a front-channel inbound logout request to Okta using browser 1. For example:
+* The user signs out of App 1 using Browser 1.
+* App 1 initiates the logout (SP-initiated) by sending a front-channel inbound logout request to Okta using Browser 1. For example:
 
     `GET https://{yourOktaDomain}/oauth2/v1/logout?id_token_hint=<idToken>&post_logout_redirect_uri=<configuredPostLogoutRedirectUri>&state=<someState>`
 
@@ -64,7 +64,7 @@ Ideally, when the user wants to sign out, they should sign out of every app to k
 * Okta makes a GET or POST redirection request to App 1.
 * If a downstream app is a SAML app, the SAML app makes a POST or REDIRECT request to the Okta `/app/{app}/{key}/slo/saml/callback` endpoint in response to the Okta outbound logout request. The SAML logout response is included in the request body.
 
-> **Note:** Only Okta session 1 is terminated. Okta Sessions 2 and 3 are still active despite Apps 2 and 3 no longer having a valid session in browsers 2 and 3. It’s up to the apps to kill the sessions for that user.
+> **Note:** Only Okta session 1 is terminated. Okta Sessions 2 and 3 are still active despite Apps 2 and 3 no longer having a valid session in Browsers 2 and 3. It’s up to the apps to kill the sessions for that user.
 
 **Event 3**
 

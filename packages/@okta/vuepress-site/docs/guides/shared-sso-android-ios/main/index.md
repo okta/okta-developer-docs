@@ -8,7 +8,7 @@ layout: Guides
 
 <ClassicDocOieVersionNotAvailable />
 
-This guide uses sample apps to demonstrate how to share a Single Sign-On (SSO) session on a mobile device. After you complete this guide, you should have a better understanding of how a sign-in session is shared between two mobile apps on a device. You can also be able to use the steps in the guide to help you configure your own apps.
+This guide uses sample apps to demonstrate how to share a Single Sign-On (SSO) session on a mobile device. After you complete this guide, you should have a better understanding of how a sign-in session is shared between two mobile apps on a device. You can also use the steps in the guide to help you configure your own apps.
 
 <EmbeddedBrowserWarning />
 

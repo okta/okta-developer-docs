@@ -13,7 +13,7 @@ This guide explains access policies and how to configure them for common scenari
 #### Learning outcomes
 
 * Configure an access policy to limit which scopes that some clients can access.
-* Configure a custom-access token lifetime per client.
+* Configure a custom access token lifetime per client.
 
 #### What you need
 
@@ -40,10 +40,10 @@ Policies are evaluated in priority order, as are the rules in a policy. The firs
 
 This guide provides step-by-step instructions to configure an access policy for two of the most common scenarios:
 
-* [To limit the scopes some clients can access](#limit-which-scopes-some-clients-can-access)
+* [Limit the scopes some clients can access](#limit-which-scopes-some-clients-can-access)
 * [Configure a custom token lifetime per client](#configure-a-custom-access-token-lifetime-per-client)
 
-## To limit the scopes some clients can access
+## Limit the scopes some clients can access
 
 Use the following steps to create a policy that limits the scopes that a designated client can access.
 

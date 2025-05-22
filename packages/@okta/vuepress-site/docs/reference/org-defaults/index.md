@@ -30,14 +30,14 @@ The Integrator Free Plan org has the following limitations:
 
 | Org feature                                   | Limitation                                                           |
 |-----------------------------------------------|----------------------------------------------------------------------|
-| Availability                                  | Integrator free plan orgs don't expire. However, orgs will deactivate after 180 days of inactivity unless you submit an app to the OIN  |
+| Availability                                  | Integrator free plan orgs don't expire. However, orgs deactivate after 180 days of inactivity unless you submit an app to the OIN  |
 | Number of active users                        | 10                                                                   |
 | Okta Org2Org app integration                  | Not available                                                        |
 | Number of workflows                           | 5                                                                    |
 | Email templates                               | Unavailable for editing                                              |
 | Email automation                              | Not available                                            |
 | Rate limits                                   | Limited per-minute rate limits. See [Management rate limits](/docs/reference/rl-global-mgmt/).                                             |
-| Admin email                                   | Only one business email can be associated with an Integrator free plan org.<br><br> **Note:** Some email addresses can't be used to sign up for the Integrator Free Plan orgs based on user location and other security considerations. Contact Okta Support for more information.     |
+| Admin email                                   | You can associate only one business email with an Integrator free plan org.<br><br> **Note:** Some email addresses can't be used to sign up for the Integrator Free Plan orgs based on user location and other security considerations. Contact Okta Support for more information.     |
 | Support                                       | No access to Okta Support                                            |
 
 ## Okta Developer Edition org updates

@@ -40,7 +40,7 @@ Make a note of your Okta domain. Use it wherever `${yourOktaDomain}` appears in 
 
 An app integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services. This includes which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
 
-To create your app integration in Okta using Admin Console:
+To create your app integration in Okta using the Admin Console:
 
 1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account. Click **Admin** on the top right of the page.
 1. Open the apps configuration pane by selecting **Applications** > **Applications**. Click **Create App Integration**.

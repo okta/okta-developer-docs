@@ -185,12 +185,12 @@ Use the Devices SDK and your app to enroll a Custom Authenticator for the test u
 1. In the **PushSampleApp** directory of the Okta Devices SDK, run the Okta Authenticator Sample App and then open the mobile app in the simulator.
 2. Click **Sign In**, enter the test user’s credentials, and click **Sign In**.
 3. Complete any additional two-factor authentication required and click **Verify**.
-4. On the **Sign in securely using push notifications** page, click **Set up**.
-5. On the Security Settings page, slide to enable **Sign in with push notifications**.
+4. On the **Sign in securely using push notifications** screen, click **Set up**.
+5. On the Security Settings screen, slide to enable **Sign in with push notifications**.
 6. Click **Ok** at the confirmation dialog. More security setting options then appear, including **Enable CIBA transactions**.
 7. Slide to select **Enable CIBA transactions**.<br>
    The sample app is set up to include the **Enable CIBA transactions** option by default for the user to enable CIBA themselves in the mobile app. However, you can implement CIBA in your app any way that you want, for example, create an enrollment flow that turns CIBA on by default, making it transparent to users.
-8. Click **Ok** at the success dialog and close the Security Settings page.
+8. Click **Ok** at the success dialog and close the Security Settings screen.
 9. Leave your test user signed in to the authentication device (the Magenta Bank app on the Xcode simulator).
   <!-- **Note:** See the [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/) for examples of [enrolling](?link to new api operation?) and [updating](?link to new api operation?) a custom app authenticator to use CIBA by adding `CIBA` to the `transactionTypes` array. -->
 
@@ -295,7 +295,7 @@ The next step in the CIBA authentication flow is to send a request for tokens to
    }
    ```
 
-2. On the mobile app in the simulator, click the house icon in the top bar to refresh the page. The consent page appears.
+2. On the mobile app in the simulator, click the house icon in the top bar to refresh the screen. The consent page appears.
 3. Click **Yes, it’s me**.
 4. Click **Ok** in the confirmation dialog.
 5. Send the request for tokens again and the authorization server responds with the requested tokens.

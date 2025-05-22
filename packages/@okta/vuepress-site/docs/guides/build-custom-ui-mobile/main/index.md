@@ -6,7 +6,7 @@ layout: Guides
 
 <ClassicDocOieVersionNotAvailable />
 
-You can connect your mobile app to Okta and sign users in by [opening a browser](/docs/guides/sign-into-mobile-app-redirect/). If you prefer that users not leave your app, you can build a custom sign-in UI with platform-specific controls and pages instead.
+You can connect your mobile app to Okta and sign users in by [opening a browser](/docs/guides/sign-into-mobile-app-redirect/). If you prefer that users not leave your app, you can build a custom sign-in UI with platform-specific controls and screens instead.
 
 Use this guide to build a customized sign-in experience inside your mobile app.
 
@@ -51,9 +51,9 @@ In addition, you need to install the platform-specific Okta Authentication SDK. 
 
 The Okta Authentication SDK is built around a [state machine](/docs/reference/api/authn/#transaction-state). Review the available states before you use this library.
 
-You can implement an authentication flow using one page or using multiple pages. When you use multiple pages, you can split responsibilities across pages and then inject related data as a dependency.
+You can implement an authentication flow using one screen or using multiple screens. When you use multiple screens, you can split responsibilities across screens and then inject related data as a dependency.
 
-For example, multiple pages could handle:
+For example, multiple screens could handle:
 
 * Sign-in/password input
 * Multifactor enrollment

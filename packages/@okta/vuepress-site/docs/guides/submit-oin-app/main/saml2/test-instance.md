@@ -11,6 +11,6 @@
    1. Select **Password only** from the **Authentication policy** dropdown menu.
    [[style="list-style-type:lower-alpha"]]
    1. Click **Save**.
-   > **Note:** Most recent Okta Integrator Free Plan orgs are Identity Engine orgs. See [OIN Wizard authentication policy for testing](/docs/guides/submit-app-prereq/main/#oin-wizard-authentication-policy-for-testing).
+   > **Note:** Okta Integrator Free Plan orgs are Identity Engine orgs. See [OIN Wizard authentication policy for testing](/docs/guides/submit-app-prereq/main/#oin-wizard-authentication-policy-for-testing).
 
 8. [Assign test users to your instance](#assign-test-users-to-your-integration-instance) before you start testing your SSO flows.
