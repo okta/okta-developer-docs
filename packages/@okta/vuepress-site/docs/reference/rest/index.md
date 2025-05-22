@@ -19,7 +19,7 @@ You can then [send test requests](#send-a-request) to your Okta org and verify t
 
 ## Sign up for Okta
 
-You need a free Okta Developer Edition org to get started. Don't have one? [Create an org for free](https://developer.okta.com/signup). The Okta Developer Edition org is assigned a base URL such as `dev-1234567.okta.com`. This is your unique subdomain in Okta.
+You need an Okta Integrator Free Plan org to get started. Don't have one? [Create an org for free](https://developer.okta.com/signup). The Integrator Free Plan org is assigned a base URL such as `trial-1234567.okta.com`. This is your unique subdomain in Okta.
 
 > **Note:** Use this unique subdomain whenever you see the `{yourOktaDomain}` variable in this document.
 
@@ -51,9 +51,9 @@ You need a free Okta Developer Edition org to get started. Don't have one? [Crea
     -->
 
 1. In the environment tab, do the following:
-    1. Click the environment name, delete the placeholder text, and name your environment. For example: `dev-1234567 Okta Org`
+    1. Click the environment name, delete the placeholder text, and name your environment. For example: `trial-1234567 Okta Org`
     [[style="list-style-type:lower-alpha"]]
-    1. For the `url` variable, in the **Initial Value** and **Current Value** columns, replace the placeholder text with your org's full URL. For example: `https://dev-1234567.okta.com`. Remember to remove the `-admin` part of your subdomain.
+    1. For the `url` variable, in the **Initial Value** and **Current Value** columns, replace the placeholder text with your org's full URL. For example: `https://trial-1234567.okta.com`. Remember to remove the `-admin` part of your subdomain.
 
 1. Click **Save** near the top of the tab.
 1. To close the environment tab, hover over the tab and click the **x**.

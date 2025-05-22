@@ -14,7 +14,7 @@ Get a new org set up and ready for various use cases.
 
 #### What you need
 
-[Okta Developer Edition organization](/signup)
+[Okta Integrator Free Plan org](/signup)
 
 <StackSnippet snippet="repoarchivenote" />
 
@@ -39,7 +39,7 @@ This guide shows you how to set up your Okta org to support the embedded SDK or 
 
 ## Get set up
 
-Sample apps are provided for each solution to show you exactly how to integrate the SDK and the widget into your own app. Before you can run the sample apps or integrate embedded authentication into your own app, you need to do the following:
+Sample apps are provided for each solution to show you exactly how to integrate the SDK and Sign-In Widget into your own app. Before you can run the sample apps or integrate embedded authentication into your own app, you need to do the following:
 
 1. [Create your Okta account](#create-your-okta-account).
 1. [Verify that the Interaction Code grant type is enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled).
@@ -209,7 +209,7 @@ An authenticator enrollment policy determines which authenticators must challeng
 1. Give the rule a name, for example, "Password-optional Sign-In Rule."
 1. Set **Exclude Users** to the names of your main admin accounts.
 1. Leave the other settings at their defaults, and then click **Create Rule**.
-1. Move the new policy immediately above the Default Policy in the list of policies.
+1. Move the new policy immediately above the default policy in the list of policies.
 
 ##### Add a global session policy for password-optional users
 
@@ -241,9 +241,9 @@ A global session policy determines user session length and basic authentication 
 
 This section shows you how to set up your Okta org and app to support the multifactor use cases available in this embedded authentication guide. In addition to the password factor, the multifactor use cases presented in this guide use the email and phone factors. Perform the following configuration after you [create an app](#create-an-application) to set up the email and phone factors in your Okta org:
 
-1. [Set up the email authenticator for authentication and recovery](#set-up-the-email-authenticator-for-authentication-and-recovery)
-1. [Add the phone authenticator for authentication and recovery](#add-the-phone-authenticator-for-authentication-and-recovery)
-1. [Update your authentication policy with multifactor authentication](#update-your-authentication-policy-with-multifactor-authentication)
+1. [Set up the email authenticator for authentication and recovery](#set-up-the-email-authenticator-for-authentication-and-recovery).
+1. [Add the phone authenticator for authentication and recovery](#add-the-phone-authenticator-for-authentication-and-recovery).
+1. [Update your authentication policy with multifactor authentication](#update-your-authentication-policy-with-multifactor-authentication).
 
 > **Note:** The multifactor use cases in this guide implement the password, email, and phone factors. However, there are more supported factors that you can use in your embedded authentication app. See [Multifactor Authentication](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-authenticators).
 
@@ -283,11 +283,11 @@ Use this section to set up your Okta org and app to support Facebook IdP use cas
 
 Perform the following configurations after you [create an app](#create-an-application) to set up the Facebook IdP and your Okta org:
 
-1. [Create a Facebook app in Facebook](#create-a-facebook-app-in-facebook)
-1. [Set up the Facebook test user](#set-up-the-facebook-test-user)
-1. [(Optional) Switch your Facebook app to Live mode](#switch-your-facebook-app-to-live-mode)&mdash;this step isn't required if you want to remain in Facebook Development mode
-1. [Create the Facebook Identity Provider in Okta](#create-the-facebook-identity-provider-in-okta)
-1. [Add an Identity Provider routing rule in Okta](#add-an-identity-provider-routing-rule-in-okta)
+1. [Create a Facebook app in Facebook](#create-a-facebook-app-in-facebook).
+1. [Set up the Facebook test user](#set-up-the-facebook-test-user).
+1. [(Optional) Switch your Facebook app to Live mode](#switch-your-facebook-app-to-live-mode)&mdash;this step isn't required if you want to remain in Facebook Development mode.
+1. [Create the Facebook Identity Provider in Okta](#create-the-facebook-identity-provider-in-okta).
+1. [Add an Identity Provider routing rule in Okta](#add-an-identity-provider-routing-rule-in-okta).
 
 #### Create a Facebook app in Facebook
 
@@ -296,14 +296,14 @@ Perform the following configurations after you [create an app](#create-an-applic
 1. Select the app that you created from the Facebook [Apps](https://developers.facebook.com/apps/) page.
 1. Scroll to the **Add a product** section on the App Dashboard page and click the **Set up** link in the **Facebook Login** tile.
 1. Select **Web** as the platform type on the first set up page.
-1. Set the value for **Site URL** to `https://{yourOktaDomain}/oauth2/v1/authorize/callback` (for example: `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
+1. Set the value for **Site URL** to `https://{yourOktaDomain}/oauth2/v1/authorize/callback` (for example: `https://trial-12345678.okta.com/oauth2/v1/authorize/callback`).
 1. Click **Save**, **Continue**, and then click **Next** until you finish.
 
 ##### Configure Facebook settings
 
 1. Click **Facebook Login** (under products) in the left navigation menu, and then click **Settings**.
 1. Locate **Client OAuth Settings** on the **Settings** page and add the following URLs for the **Valid OAuth Redirect URIs** field:
-      `https://{yourOktaDomain}/oauth2/v1/authorize/callback` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
+      `https://{yourOktaDomain}/oauth2/v1/authorize/callback` (for example, `https://trial-12345678.okta.com/oauth2/v1/authorize/callback`).
 1. Click **Save Changes** at the bottom of the page.
 1. Expand **Settings** on the left side of the page, and then click **Basic**.
 1. Save the **App ID** and the **App Secret** values so you can add them to your Okta org's Identity Provider settings.

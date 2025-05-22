@@ -23,7 +23,7 @@ Configure an IDV vendor so that your user’s identities are verified when they 
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * The [Okta account management policy](/docs/guides/okta-account-management-policy/main/) feature enabled for your org
 * The Identity verification with third party identity verification vendors feature enabled for your org
 * An account with <StackSnippet snippet="idpaccount" inline /> with access to a sandbox environment

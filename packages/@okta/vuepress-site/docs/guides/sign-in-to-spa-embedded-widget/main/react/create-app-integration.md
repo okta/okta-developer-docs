@@ -1,4 +1,4 @@
-Before you integrate Okta authentication to your app, register your app in your Okta org. This provides you with the OpenID Connect client ID for authentication requests from your app. Register your app by creating an Okta app integration through the [Okta CLI](https://cli.okta.com/), the [Okta Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/), or through the [Admin Console](/docs/concepts/okta-organizations/#admin-console) with the following steps.
+Before you integrate Okta authentication to your app, register your app in your Okta org. This provides you with the OpenID Connect client ID for authentication requests from your app. Register your app by creating an Okta app integration through the [Okta Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/) or through the [Admin Console](/docs/concepts/okta-organizations/#admin-console) with the following steps.
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.

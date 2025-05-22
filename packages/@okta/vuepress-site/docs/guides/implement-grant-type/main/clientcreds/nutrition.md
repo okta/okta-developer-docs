@@ -10,7 +10,7 @@ This guide explains how to implement a Client Credentials flow for your app with
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * An app that you want to implement OAuth 2.0 authorization with Okta
 
 <ApiAmProdWarning />

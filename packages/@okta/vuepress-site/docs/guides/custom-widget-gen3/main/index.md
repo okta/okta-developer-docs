@@ -22,7 +22,7 @@ This guide explains how to customize the third-generation (Gen3) of the Sign-In 
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * [Custom URL domain](/docs/guides/custom-url-domain/main/)
 
 #### Sample code
