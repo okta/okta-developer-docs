@@ -95,7 +95,7 @@
                   Free
                 </div>
                 <div class="signup__rate__text">
-                  Test, explore, <br> and manage integrations
+                  Build, test, <br> and manage integrations
                 </div>
               </div>
               <div class="signup__content">
