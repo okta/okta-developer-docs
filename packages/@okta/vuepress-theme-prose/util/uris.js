@@ -1,7 +1,7 @@
 export const getIdpUri = (uriConfig = {}, idpName) => {
-  const { baseUri, idps } = uriConfig;
+  const { baseUriSocial, idps } = uriConfig;
 
-  if (!idpName || !baseUri || !idps) {
+  if (!idpName || !baseUriSocial || !idps) {
     return "";
   };
 
@@ -11,5 +11,5 @@ export const getIdpUri = (uriConfig = {}, idpName) => {
     return "";
   }
 
-  return `${baseUri}/sso/idps/${idpId}`;
+  return `${baseUriSocial}/sso/idps/${idpId}`;
 };
