@@ -12,7 +12,7 @@ This guide explains how to build transactional verification using a Client-Initi
 
 #### Learning outcomes
 
-* Understand the OpenID Connect CIBA flow.
+* Understand the OpenID Connect (OIDC) CIBA flow.
 * Set up your OIDC client and an Okta authorization server to use the CIBA grant type.
 * Implement the CIBA grant flow in Okta using an Okta Custom Authenticator.
 
@@ -126,7 +126,7 @@ You can also use the [Apps API](https://developer.okta.com/docs/api/openapi/okta
 | `backchannel_custom_authenticator_id` | The ID of the Custom Authenticator that authenticates the user           |
 | `backchannel_token_delivery_mode`| (Optional) How CIBA is delivered. Supported value: `poll`. Since `poll` is the only value supported, this parameter is optional. |
 
-> **Note:** The parameters `backchannel_token_delivery_mode`, `backchannel_authentication_request_signing_alg`, and `backchannel_custom_authenticator_id` are only available if the client has `urn:openid:params:grant-type:ciba` defined as one of its allowed `grant_types`. See the [Settings](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/oauthClient/grant_types&t=request) table on the Apps API Reference page for more information on these new parameters.
+> **Note:** The parameters `backchannel_token_delivery_mode`, `backchannel_authentication_request_signing_alg`, and `backchannel_custom_authenticator_id` are only available if the client has `urn:openid:params:grant-type:ciba` defined as one of its allowed `grant_types`. See the [Settings](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/oauthClient/grant_types&t=request) table on the Apps API reference page for more information on these new parameters.
 
 **Example request**
 
@@ -172,7 +172,7 @@ You can also use the [Apps API](https://developer.okta.com/docs/api/openapi/okta
 You can use either the org authorization server or a custom authorization server with CIBA. In this example, use the `default` custom authorization server.
 
 1. In the Admin Console, go to **Security** > **API**.
-1. On the **Authorization Servers** tab, select the edit icon to the right of the authorization server that you want to use. In this example, use the `default` custom authorization server.
+1. On the **Authorization Servers** tab, select the authorization server that you want to use and click edit. In this example, use the `default` custom authorization server.
 1. Select **Access Policies**.
 1. Select the edit icon for the Default Policy Rule.
 1. Click **Advanced** in the **IF Grant type is** section, and then select **Client-initiated backchannel authentication (CIBA)** in the **Other grants** section.
