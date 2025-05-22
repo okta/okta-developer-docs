@@ -172,7 +172,7 @@ You can also use the [Apps API](https://developer.okta.com/docs/api/openapi/okta
 You can use either the org authorization server or a custom authorization server with CIBA. In this example, use the `default` custom authorization server.
 
 1. In the Admin Console, go to **Security** > **API**.
-1. On the **Authorization Servers** tab, select the authorization server that you want to use and click edit. In this example, use the `default` custom authorization server.
+1. On the **Authorization Servers** tab, select the authorization server that you want to use and click the edit icon. In this example, use the `default` custom authorization server.
 1. Select **Access Policies**.
 1. Select the edit icon for the Default Policy Rule.
 1. Click **Advanced** in the **IF Grant type is** section, and then select **Client-initiated backchannel authentication (CIBA)** in the **Other grants** section.
