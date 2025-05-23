@@ -19,21 +19,13 @@ Understand the purpose of Single Logout (SLO) and set it up for your <StackSnipp
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * Existing <StackSnippet snippet="appidp" inline /> to update for SLO. See <StackSnippet snippet="appidp" inline /> if you don’t have one configured.
-* The <StackSnippet snippet="featureabbrv" inline /> feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate <StackSnippet snippet="feature" inline />, and enable.
+* <StackSnippet snippet="feature" inline />.
 
 ---
 
 ## Overview
 
-The Single Logout (SLO) feature allows a user to sign out of an SLO participating app on their device and end their Okta session. The user is then automatically signed out of all other SLO participating apps on other devices.
-
-Okta supports Service Provider initiated (SP-initiated) SLO for third-party SAML 2.0 and OpenID Connect (OIDC) apps. When an end user clicks sign-out in your app, the app directs the browser to Okta while making an inbound sign-out request. This indicates to Okta that the user wants to sign out of the app. In response, Okta ends the user’s Okta session.
-
-The multiple device SLO feature supports outbound logout requests (IdP-initiated SLO) after the SP app makes the SP-initiated inbound logout request to Okta. Okta sends outbound logout requests to any other apps participating in SLO that didn't initiate the logout. This applies only to the downstream apps where the user has previously established a session. Requests are communicated from Okta to apps using front-channel logout, which means that the browser does the communicating.
-
-SLO is especially useful in scenarios where users share computers or use public kiosks. A user may sign in to a computer portal, and then open multiple apps. The user sign-in process for each app happens behind the scenes.
-
-Ideally, when the user wants to sign out, they should sign out of every app to keep the next user from accessing their information. But, most users don’t do that. SLO logs the user out of everything at once.
+<StackSnippet snippet="overview" />
 
 ### Single Logout diagram
 
@@ -43,7 +35,7 @@ Ideally, when the user wants to sign out, they should sign out of every app to k
 
 </div>
 
-**Event 1:**
+**Event 1**
 
 * The user signs out of App 1 using Browser 1.
 * App 1 initiates the logout (SP-initiated) by sending a front-channel inbound logout request to Okta using Browser 1. For example:
@@ -52,7 +44,7 @@ Ideally, when the user wants to sign out, they should sign out of every app to k
 
 * Okta ends Okta session 1. The user can still access Apps 2 and 3 within the scope of each app session.
 
-**Event 2:**
+**Event 2**
 
 * Okta determines that Apps 2 and 3 were also part of Okta session 1.
 * Okta initiates the outbound logout request (IdP-initiated) to the downstream apps (Apps 2 and 3) in an embedded IFrame that’s invisible to the user. For example:
@@ -72,47 +64,23 @@ Because Apps 2 and 3 have user sessions in other browsers, and on other devices,
 
 Downstream SAML apps terminate a specific session associated with the user or terminate all sessions associated with the user. This depends on whether `sessionIndex` (SAML) is included in the IdP-initiated logout request. For OIDC apps, this depends on whether the session ID (`sid`) and issuer (`iss`) are included.
 
-## Configure SLO
+## Configure <StackSnippet snippet="sloorsloidp" inline />
 
-SLO supports SAML apps, and web and single-page (SPA) OIDC apps. The following steps explain how to configure your apps for SLO.
+<StackSnippet snippet="intro" />
 
-### Update your <StackSnippet snippet="apptype" inline /> app integration to use SLO
+<!--delete this after you're done updating ### Update your <StackSnippet snippet="apptype" inline /> app integration to use SLO
 
 Use the following steps to update your <StackSnippet snippet="apptype" inline /> app to use SLO:
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 2. Select the <StackSnippet snippet="apptype" inline /> app that you want to update to use SLO.
-3. On the **General** tab, in the <StackSnippet snippet="sectionname" inline /> section, click **Edit**.
+3. On the **General** tab, in the <StackSnippet snippet="sectionname" inline /> section, click **Edit**.-->
 
-<StackSnippet snippet="configureslo" />
+<!-- <StackSnippet snippet="configureslo" /> delete this topic when you're done updating-->
 
-### Use the API to update your <StackSnippet snippet="apptype" inline /> app integration
+### Use the API to update your <StackSnippet snippet="apptype" inline />
 
-The following example shows you how to use the API to update your <StackSnippet snippet="apptypeapi" inline /> integration for SLO. <StackSnippet snippet="apispecific" inline />
-
-<StackSnippet snippet="participateslonote" />
-
-1. Send a GET app request and copy the response body for use in the PUT request.
-
-    <StackSnippet snippet="getrequest" />
-
-2. Update the response body by editing the <StackSnippet snippet="object" inline /> object:
-
-    <StackSnippet snippet="properties" />
-    <br>
-
-    **Example request**
-
-    <StackSnippet snippet="body" />
-
-3. Use the updated response body in a PUT request.
-
-    <StackSnippet snippet="putrequest" />
-    <br>
-
-    **Example response**
-
-    <StackSnippet snippet="response" />
+<StackSnippet snippet="updateapporidp" />
 
 ## Events
 
