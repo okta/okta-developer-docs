@@ -16,7 +16,7 @@ This guide explains how to customize and style the default Okta email notificati
 #### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* Access to email template customization. Contact [Okta support](https://support.okta.com/help) for help.
+* Access to email template customization. Contact [Okta Support](https://support.okta.com/help) for help.
 
 #### Sample code
 
@@ -79,7 +79,7 @@ See [Custom Email Templates](https://developer.okta.com/docs/api/openapi/okta-ma
 
 Use these steps to add or edit a template in one of the Okta-supported languages.
 
-> **Note:** To access email customization with a free Okta Developer Edition org, contact [Okta support](https://support.okta.com/help).
+> **Note:** To access email customization with a free Okta Developer Edition org, contact [Okta Support](https://support.okta.com/help).
 
 1. In the Admin Console, go to **Customizations** > **Brands**, and then select the brand you want.
 1. On the **Emails** tab, click an email template name:
@@ -164,7 +164,7 @@ The following table provides a list of all allowed HTML tags and elements in cus
 |-------------------|--------------------|
 | All tags | <ul><li>`id`: Can be alphanumeric and contain `:`, `-`, `_`, or `.`</li><li>`class`: Can be alphanumeric and contain `<space>`, `,`, `-`, or `_`</li><li>`lang`: Can be uppercase or lowercase, and two to 20 characters long</li><li>`title`: Can contain any letter from any language, any numeric character in any script, and `<space>`, `-`, `_`, `'`, `,`, `:`, `[`, `]`, `!`, `.`, `/`, `\`, `(`, `)`, or `&`</li></ul> |
 | `<style>` | `-moz-border-radius`, `-moz-border-radius-bottomleft`, `-moz-border-radius-bottomright`, `-moz-border-radius-topleft`, `-moz-border-radius-topright`, `-moz-box-shadow`, `-moz-outline`, `-moz-outline-color`, `-moz-outline-style`, `-moz-outline-width`, `-o-text-overflow`, `-webkit-border-bottom-left-radius`, `-webkit-border-bottom-right-radius`, `-webkit-border-radius`, `-webkit-border-radius-bottom-left`, `-webkit-border-radius-bottom-right`, `-webkit-border-radius-top-left`, `-webkit-border-radius-top-right`, `-webkit-border-top-left-radius`, `-webkit-border-top-right-radius`, `-webkit-box-shadow`, `azimuth`, `background`, `background-attachment`, `background-color`, `background-position`, `background-repeat`, `border`, `border-bottom`, `border-bottom-color`, `border-bottom-left-radius`, `border-bottom-right-radius`, `border-bottom-style`, `border-bottom-width`, `border-collapse`, `border-color`, `border-left`, `border-left-color`, `border-left-style`, `border-left-width`, `border-radius`, `border-right`, `border-right-color`, `border-right-style`, `border-right-width`, `border-spacing`, `border-style`, `border-top`, `border-top-color`, `border-top-left-radius`, `border-top-right-radius`, `border-top-style`, `border-top-width`, `border-width`, `box-shadow`, `caption-side`, `color`, `cue`, `cue-after`, `cue-before`, `direction`, `elevation`, `empty-cells`, `font`, `font-family`, `font-size`, `font-stretch`, `font-style`, `font-variant`, `font-weight`, `height`, `image()`, `letter-spacing`, `line-height`, `linear-gradient()`, `list-style`, `list-style-image`, `list-style-position`, `list-style-type`, `margin`, `margin-bottom`, `margin-left`, `margin-right`, `margin-top`, `max-height`, `max-width`, `min-height`, `min-width`, `outline`, `outline-color`, `outline-style`, `outline-width`, `padding`, `padding-bottom`, `padding-left`, `padding-right`, `padding-top`,`pause`, `pause-after`, `pause-before`, `pitch`, `pitch-range`, `quotes`, `radial-gradient()`, `rect()`, `repeating-linear-gradient()`, `repeating-radial-gradient()`, `rgb()`, `rgba()`, `richness`, `speak`, `speak-header`, `speak-numeral`, `speak-punctuation`, `speech-rate`, `stress`, `table-layout`, `text-align`, `text-decoration`, `text-indent`, `text-overflow`, `text-shadow`, `text-transform`, `text-wrap`, `unicode-bidi`, `vertical-align`, `voice-family`, `volume`, `white-space`, `width`, `word-spacing`, `word-wrap`,`display`, `float`, `position`, `right`, `left`,`top`, `bottom`, `clear`, `content`, `cursor`, `z-index`, `overflow`, `visibility`, `zoom`, `overflow-x`, `overflow-y`, `page-break-inside`, `page-break-before`, `page-break-after`, `opacity`, `-moz-opacity` |
-| `p` | `align`: Can be any of `middle`, `center`, `left`, `right`, `justify` or `char` |
+| `p` | `align`: Can be any of `middle`, `center`, `left`, `right`, `justify`, or `char` |
 | `label` | `for`: Can be alphanumeric and contain `:`, `-`, `_`, or `.` |
 | `font` | <ul><li>`color`: Can be from the color list or a color code.<ul><li>Color list: `aqua`, `black`, `blue`, `fuchsia`, `gray`, `grey`, `green`, `lime`, `maroon`, `navy`, `olive`, `purple`, `red`, `silver`, `teal`, `white`, or `yellow`</li><li>Color code: Can be HTML/CSS spec three- or six-digit hex</li></ul></li><li>`face`: Can be alphanumeric and contain `;`, `,`, or `-`</li><li>`size`: Can be a number</li></ul> |
 | URLs | `url`: Can contain `http`, `https`, or `mailto` |
