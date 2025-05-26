@@ -1,10 +1,10 @@
 ---
-title: Okta Okta Privileged Access API release notes 2025
+title: Okta Privileged Access API release notes 2025
 ---
 
-# Okta Okta Privileged Access API release notes (2025)
+# Okta Privileged Access API release notes (2025)
 
-Okta Okta Privileged Access (OPA) is available for both Okta Classic and Identity Engine.
+Okta Privileged Access (OPA) is available for both Okta Classic and Identity Engine.
 
 ## May
 
@@ -12,11 +12,12 @@ Okta Okta Privileged Access (OPA) is available for both Okta Classic and Identit
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [OPA Active Directory API resources are EA] | May 29, 2025 |
+| [OPA Active Directory API resources are EA](#opa-active-directory-api-resources-are-ea) | May 29, 2025 |
+| [Cloud Infrastructure Entitlements API is deprecated](#cloud-infrastructure-entitlements-api-is-deprecated) | May 29, 2025 |
 
 #### OPA Active Directory API resources are EA
 
-You can now manage Okta Privileged Access (OPA) Active Directory (AD) integration through the API. To enable this Early Release feature, contact Okta Support. See the [Manage Active Directory accounts](https://help.okta.com/oie/en-us/content/topics/privileged-access/pam-ad-accounts.htm) product documentation. The following OPA AD API resources are available:
+You can now manage Okta Privileged Access (OPA) Active Directory (AD) integrations through the API. To enable this Early Access feature, contact Okta Support. See the [Manage Active Directory accounts](https://help.okta.com/oie/en-us/content/topics/privileged-access/pam-ad-accounts.htm) product documentation. The following OPA AD API resources are available:
 
 * [Active Directory Accounts API](https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-accounts/)
 * [Active Directory Connections API](https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-connections/)
