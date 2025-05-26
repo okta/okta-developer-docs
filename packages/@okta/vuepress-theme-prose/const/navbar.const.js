@@ -1091,6 +1091,10 @@ export const releaseNotes = [
         path: "/docs/release-notes/2025-okta-identity-governance/",
       },
       {
+        title: "2025 - Privileged Access",
+        path: "/docs/release-notes/2025-okta-privileged-access/",
+      },
+      {
         title: "Archive",
         path: "/docs/release-notes/archive",
         subLinks: [
