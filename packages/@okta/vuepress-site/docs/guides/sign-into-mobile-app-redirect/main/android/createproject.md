@@ -21,4 +21,4 @@ dependencies {
 }
 ```
 
-> **Note**: The Okta CLI can create a Kotlin app for Android that's pre-configured for an Okta org by using the command `okta start android-kotlin`. This QuickStart uses a basic project to show you how to configure an app.
+> **Note**: This QuickStart uses a basic project to show you how to configure an app.

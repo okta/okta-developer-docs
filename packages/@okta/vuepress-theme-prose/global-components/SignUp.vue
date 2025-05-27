@@ -18,15 +18,7 @@
         >
           <div class="signup__item">
             <div class="signup__item__title">
-              Customer <br> Identity Cloud
-              <img
-                class="signup__item__title-logo"
-                src="/img/signup-item-logo.svg"
-              >
-              <img
-                class="signup__item__title-logo signup__item__title-logo-white"
-                src="/img/signup-item-logo-white.svg"
-              >
+              Auth0 <br> Platform
             </div>
             <div class="signup__description">
               <div class="signup__rate">
@@ -53,14 +45,14 @@
                   href="https://auth0.com/signup?utm_medium=referral&utm_source=okta&utm_campaign=okta-signup-referral-21-09-27&utm_content=signup&promo=sup&ocid=7014z000001cbvjAAA-aPA4z0000008OZeGAM"
                   target="_blank"
                 >
-                  <span>Try Customer Identity Cloud <i>→</i></span>
+                  <span>Try Auth0 Platform <i>→</i></span>
                 </a>
               </div>
             </div>
           </div>
           <div class="signup__container">
             <div class="signup__item__title">
-              Workforce <br> Identity Cloud
+              Okta <br> Workforce Identity
             </div>
             <div class="signup__description">
               <div class="signup__rate">
@@ -87,15 +79,15 @@
                   href="https://okta.com/free-trial/workforce-identity"
                   target="_blank"
                 >
-                  <span>Try Workforce Identity Cloud <i>→</i></span>
+                  <span>Try Okta Workforce Identity <i>→</i></span>
                 </a>
               </div>
             </div>
             <div class="signup__item__title signup__item__title-hidden">
-              Okta Developer Edition Service
+              Okta Integrator Free Plan
             </div>
             <div class="signup__item__title signup__item__title-tablet">
-              Access the Okta <br> Developer Edition Service
+              Access the Okta <br> Integrator Free Plan
             </div>
             <div class="signup__description signup__description-bordered">
               <div class="signup__rate">
@@ -103,7 +95,7 @@
                   Free
                 </div>
                 <div class="signup__rate__text">
-                  Test, explore, <br> and manage integrations
+                  Build, test, <br> and manage integrations
                 </div>
               </div>
               <div class="signup__content">
@@ -111,18 +103,21 @@
                   BEST FOR DEVELOPERS
                 </div>
                 <div class="signup__content__title">
-                  Access the Okta <br> Developer Edition Service
+                  Access the Okta <br> Integrator Free Plan
                 </div>
                 <div class="signup__content__text">
-                  Test your code and apps, as well as <br> manage and automate Okta for <br> employees and partners. <br><br><strong>Coming May 22, 2025</strong><br>The new Integrator Free Plan<br><a href="https://developer.okta.com/blog/2025/05/13/okta-developer-edition-changes">Learn more</a><br>
+                  Test your code and apps, as well as <br> manage and automate Okta for <br> employees and partners.<br>
                 </div>
               </div>
-              <div class="signup__link signup__trigger">
+              <div
+                v-if="!formHidden"
+                class="signup__link signup__trigger"
+              >
                 <button
                   type="button"
                   @click="hideForm()"
                 >
-                  <span class="signup__trigger__text">Sign up free for Developer Edition</span>
+                  <span class="signup__trigger__text">Sign up for Integrator Free Plan <i>→</i></span>
                   <span class="signup__trigger__text-hidden">Sign up free</span>
                 </button>
               </div>
@@ -135,13 +130,13 @@
             <div class="signup__popup__container">
               <div class="signup__popup__title">
                 <h2 class="signup__popup__title-pc">
-                  Let’s get you started with Okta Developer Edition Service.
+                  Let's get you started with Okta Integrator Free Plan
                 </h2>
                 <h2 class="signup__popup__title-tablet">
-                  Access the Okta <br> Developer Edition Service
+                  Access the Okta <br> Integrator Free Plan
                 </h2>
                 <h2 class="signup__popup__title-mobile">
-                  Okta Developer Edition Service
+                  Okta Integrator Free Plan
                 </h2>
                 <span>Already signed up? <a href="/login">Log in here.</a></span>
               </div>
@@ -386,7 +381,7 @@
                         <SmartLink :item="{ link: 'https://www.okta.com/privacy-policy' }">
                           Privacy Policy
                         </SmartLink>
-                        during my use of the Okta Developer Edition Service.
+                        during my use of the Okta Integrator Free Plan.
                       </p>
                       <p>
                         I agree that Okta may contact me with marketing communications.
@@ -463,11 +458,11 @@
             <a
               target="_blank"
               href="https://www.okta.com/workforce-identity/"
-            > Workforce Identity</a> <span class="hidden">and</span>
+            > Okta Workforce Identity</a> <span class="hidden">and</span>
             <a
               target="_blank"
               href="https://www.okta.com/customer-identity/"
-            > Customer Identity
+            > Auth0 Platform
             </a>
           </p>
         </div>
@@ -594,9 +589,6 @@ export default {
       this.isRegionLoading = false;
     });
   },
-  mounted() {
-    this.analyticsValues = getAnalyticsValues();
-  },
   methods: {
     setHeight(isNotUSAAndCanada) {
       let height;
@@ -643,22 +635,22 @@ export default {
 
       if (this.validationService.isValidForm()) {
         // make api call
-        const { baseUri, registrationPolicyId } = this.$site.themeConfig.uris;
-        const registrationPath = `/api/v1/registration/${registrationPolicyId}/register`;
+        const { baseUri, campaignId, orgPlan } = this.$site.themeConfig.uris;
+        const registrationPath = `/free-trial/api/free-trial/`;
+
         const analyticsValues = getAnalyticsValues();
         const body = {
-          userProfile: {
             email: this.form.email.value,
             firstName: this.form.firstName.value,
             lastName: this.form.lastName.value,
             country: this.form.country.value,
             state: this.form.state.value,
-            emailOptInC: this.form.consentAgree.value,
-            captchaResponse: this.form.captcha.value,
-            okta_oie: true,
-            // Merge in analytics tracking data
-            ...analyticsValues,
-          },
+            consent: this.form.consentAgree.value,
+            gRecaptchaResponse: this.form.captcha.value,
+            campaignId: campaignId,
+            phone: '000000',
+            orgPlan: orgPlan,
+            utms: analyticsValues,
         };
 
         this.isPending = true;

@@ -8,6 +8,35 @@ title: Okta Identity Engine API release notes 2025
 
 ## May
 
+### Weekly release 2025.05.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Enrollment grace periods is EA in Preview](#enrollment-grace-periods-is-ea-in-preview)| May 21, 2025 |
+| [Send app context to external IdPs is EA in Preview](#send-app-context-to-external-idps-is-ea-in-preview)| May 21, 2025 |
+
+#### Enrollment grace periods is EA in Preview
+
+Today, when admins define an enrollment policy for a group, the entire group must enroll immediately, which can be disruptive to their day-to-day tasks.
+
+With Enrollment Grace Periods, end users can defer enrollment in new authenticators until an admin-defined deadline when enrollment becomes mandatory. This allows end users to enroll at a time convenient to them and allows for more graceful enrollment before enforcing new authenticator types in authentication policies. See [Authenticator enrollment policies](/docs/concepts/policies/#authenticator-enrollment-policies) and the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=1/settings/authenticators/enroll/gracePeriod&t=request). <!-- ENROLLMENT_POLICY_GRACE_PERIOD (OKTA-832949)-->
+
+#### Send app context to external IdPs is EA in Preview
+
+You can now forward context about an app to an external identity provider (IdP) when a user attempts to access the app. When you enable the **Application context** checkbox for an IdP, the app name and unique instance ID are included in the SAML or OpenID Connect request sent to the external IdP. This enhancement allows external IdPs to make more informed, context-aware authentication decisions, supporting advanced security scenarios, and Zero Trust environments. To enable this feature, go to **Settings** > **Features** in the Admin Console, locate **Send Application Context to an External IdP**, and enable. <!-- SEND_APPLICATION_CONTEXT_TO_EXTERNAL_IDP (OKTA-911626)-->
+
+### Weekly release 2025.05.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.05.1](#bugs-fixed-in-2025-05-1)| May 14, 2025 |
+
+#### Bugs fixed in 2025.05.1
+
+* After enrolling a `call` factor (`POST /users/{userId}/factors`), the `resend.href` link in the response body returned an HTTP 404 Not Found error when it was used. (OKTA-926672)
+
+* In some situations, the `/api/v1/agentPools` API failed to return agents that were stuck in an error state. (OKTA-910056)
+
 ### Monthly release 2025.05.0
 
 | Change | Expected in Preview Orgs |
@@ -82,7 +111,7 @@ The new [End-user Enrollments API](https://developer.okta.com/docs/api/openapi/o
 
 #### New System Log for super admin privilege grant
 
-A new System Log event now indicates when the super admin role (`app. oauth2.client.privilege.grant`) is granted to an API service integration. <!-- OKTA-863264 -->
+A new System Log event now indicates when the super admin role (`app.oauth2.client.privilege.grant`) is granted to an API service integration. <!-- OKTA-863264 -->
 
 #### Entitlement claims is GA in Production
 

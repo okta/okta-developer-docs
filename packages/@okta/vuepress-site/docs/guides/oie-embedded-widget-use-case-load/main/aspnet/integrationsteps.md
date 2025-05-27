@@ -9,7 +9,7 @@ public async Task<ActionResult> Index()
 {
      var idxClient = new IdxClient(new IdxConfiguration()
      {
-           Issuer = "https://dev-12345678.okta.com/oauth2/default",
+           Issuer = "https://trial-12345678.okta.com/oauth2/default",
            ClientId = "{clientId}",
            ClientSecret = "{clientSecret}",
            RedirectUri = "https://localhost:44314/interactioncode/callback/",
@@ -32,11 +32,11 @@ The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response obje
 {
    "interactionHandle":"epXgGYZHsYErPLfw8aLpCvWZOgVtYx25_OYCmQc0z2s",
    "version":"-=OKTA_REPLACE_WITH_WIDGET_VERSION=-",
-   "baseUrl":"https://dev-12345678.okta.com",
+   "baseUrl":"https://trial-12345678.okta.com",
    "clientId":"{clientId}",
    "redirectUri":"https://localhost:44314/interactioncode/callback/",
    "authParams":{
-      "issuer":"https://dev-122345678.okta.com/oauth2/default",
+      "issuer":"https://trial-122345678.okta.com/oauth2/default",
       "scopes":[
          "openid",
          "profile",

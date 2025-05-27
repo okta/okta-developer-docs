@@ -15,7 +15,7 @@ This guide explains how to customize and style the default Okta email notificati
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * Access to email template customization. Contact [Okta Support](https://support.okta.com/help) for help.
 
 #### Sample code
@@ -42,7 +42,7 @@ If you want to use the Admin Console to send a branded email, consider the follo
 
 - If your org has two or more custom brands, domains, and email addresses:
 	- You can't send branded emails from the Admin Console. Okta uses the request host in the URL to determine which brand and email address to use. The Admin Console only works with the Okta subdomain.
-	- Use an Okta API to trigger the email. To send a User Activation email, send a request to the [Activate a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/activateUser) endpoint. Remember to change the domain of your request to the custom domain that's associated with the brand. For example, change `subdomain.okta.com` to `custom.domain.one`.
+	- Use an Okta API to trigger the email. To send a user activation email, send a request to the [Activate a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/activateUser) endpoint. Remember to change the domain of your request to the custom domain that's associated with the brand. For example, change `subdomain.okta.com` to `custom.domain.one`.
 - If your org has one custom brand, domain, and email address:
 	- Okta doesn't use your custom email address. The Okta subdomain appears in the *From* line.
 	- Your theming appears in the content of the email (logo, palette, images). With a single custom brand or domain, the Admin Console assumes that you want to send themed content.
@@ -79,7 +79,7 @@ See [Custom Email Templates](https://developer.okta.com/docs/api/openapi/okta-ma
 
 Use these steps to add or edit a template in one of the Okta-supported languages.
 
-> **Note:** To access email customization with a free Okta Developer Edition org, contact [Okta Support](https://support.okta.com/help).
+> **Note:** To access email customization with a free Integrator Free Plan org, contact [Okta Support](https://support.okta.com/help).
 
 1. In the Admin Console, go to **Customizations** > **Brands**, and then select the brand you want.
 1. On the **Emails** tab, click an email template name:
@@ -91,7 +91,7 @@ Use these steps to add or edit a template in one of the Okta-supported languages
    - In the preview window, to see a translation of a customized template, select a language from the dropdown menu. See [Add translations](#add-translations).
 1. Click **Edit** to put the editor in read/write mode.
 1. Make changes directly in the editor. If you type `$`, `#`, or `{`, the editor provides a list of available variables that you can use. See [Use Velocity Templating Language (VTL)](#use-velocity-templating-language).
-   - Click the code editor to full-screen mode.
+   - Click the code editor to full-page mode.
    - Click **Save changes**, then click **Preview** to see your changes before you publish.
    - Click **Reset template** to remove your customizations and restore the default HTML/CSS.
 1. Click **Save changes**. The default language version of your edited message appears in the **Email Templates** table.
@@ -376,6 +376,7 @@ You can reference any Okta User Profile attribute in your email templates.
 | `${campaign.justification}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
 | `${campaign.dueInDays}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
 | `${campaign.endDate}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
+| `${campaign.campaignDescription}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
 
 ## Use functions for email templates
 
@@ -411,9 +412,9 @@ Here are some examples:
 | `${toUpperCase(String input)}`                                       | Converts the given input string to all uppercase                                                                   |
 | `${substring(String input, int startIndex, int endIndex)}`           | Extracts a range of characters from the given input string                                                         |
 | `${formatTimeDiffHoursNow(int hours)}`                               | Produces a formatted duration string from the current time to the given number of hours                                                 |
-| `${formatTimeDiffHoursNowInUserLocale(int hours)}`                   | Produces a localized formatted duration string for the given number of hours                                       |
+| `${formatTimeDiffHoursNowInUserLocale(int hours)}`                   | Produces a locally formatted duration string for the given number of hours                                       |
 | `${formatTimeDiffDateNow(Date date)}`                                | Produces a formatted duration string for the given date                                                            |
-| `${formatTimeDiffDateNowInUserLocale(Date date)}`                    | Produces a localized formatted duration string for the given date                                                  |
+| `${formatTimeDiffDateNowInUserLocale(Date date)}`                    | Produces a locally formatted duration string for the given date                                                  |
 | `${escapeHtml(String html)}`                                         | Escapes the characters in the provided string using HTML entities                                                             |
 | `${escapeHtmlAttr(String html)}`                                     | Encodes data for use in HTML attributes                                                                           |
 | `${getTimeDiffHoursNow(int hours, String timeUnit)}`    | Produces a duration string for the given number of hours converted to the specified time units. Supported string values for the timeUnit argument are milliseconds, seconds, minutes, hours, days, and years. |

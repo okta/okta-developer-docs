@@ -10,10 +10,10 @@
 
    | Placeholder               | Value                                                                                                                                                        |
    |---------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | `<DISCOVERY_URL>`         | The domain of your registered Okta org followed by `/oauth2/default/.well-known/openid-configuration`, such as `https://dev-1234567.okta.com/oauth2/default/.well-known/openid-configuration` |
+   | `<DISCOVERY_URL>`         | The domain of your registered Okta org followed by `/oauth2/default/.well-known/openid-configuration`, such as `https://trial-1234567.okta.com/oauth2/default/.well-known/openid-configuration` |
    | `<CLIENT_ID>`             | The client ID from the app integration that you created, such as `0ux3rutxocxFX9xyz3t9`                                                                      |
-   | `<SIGN_IN_URI>`           | The sign-in redirect URI from the app integration that you created, such as `com.okta.dev-1234567:/callback`                                                 |
-   | `<SIGN_OUT_REDIRECT_URI>` | The sign-out redirect URI from the app integration that you created, such as `com.okta.dev-1234567:/logout`                                                        |
+   | `<SIGN_IN_URI>`           | The sign-in redirect URI from the app integration that you created, such as `com.okta.trial-1234567:/callback`                                                 |
+   | `<SIGN_OUT_REDIRECT_URI>` | The sign-out redirect URI from the app integration that you created, such as `com.okta.trial-1234567:/logout`                                                        |
    [[.table-word-break]]
 
 1. Add the following code to the bottom of the app's build file, `app/build.gradle`:

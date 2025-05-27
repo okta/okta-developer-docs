@@ -18,7 +18,7 @@ This guide provides a functional example of an Okta registration inline hook. It
 
 **What you need**
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * [Glitch.com](https://glitch.com) project or account
 
 **Sample code**

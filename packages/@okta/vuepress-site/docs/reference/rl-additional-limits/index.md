@@ -37,9 +37,9 @@ For concurrent rate limits, traffic is measured in three different areas. Counts
 * For Microsoft Office 365 traffic, the limit is 75 concurrent transactions per org.
 * For all other traffic, including API requests, the limit is described in the following table.
 
-| Developer (free)  | Developer (paid)  | One App  | Enterprise  | Workforce identity  |
-| ----------------: | ----------------: | -------: | ----------: | ------------------: |
-| 15                | 35                | 35       | 75          | 75                  |
+| Integrator Free Plan  | One App  | Enterprise  | Workforce identity  |
+| ------------------:   | -------: | ----------: | ------------------: |
+| 15                    | 35       | 75          | 75                  |
 
 The first request to exceed the concurrent limit returns an HTTP 429 error, and the first error every 60 seconds is written to the log. Reporting concurrent rate limits once a minute keeps log volume manageable.
 
@@ -61,17 +61,17 @@ An HTTP 429 error response is returned to users that exceed this limit. No other
 
 The following endpoints are used by the Okta home page for authentication and user sign-in and have org-wide rate limits:
 
-| Home page endpoints                                                | Developer (free)  | Developer (paid)  | One App  | Enterprise  | Workforce identity |
-| ----------------------------------------------------------------------- | ----------------: | ----------------: | -------: | ----------: | ------------------:|
-| `/app/{app}/{key}/sso/saml`                                             | 100               | 600               | *600     | *600        | 750                |
-| `/app/office365/{key}/sso/wsfed/active`                                 | N/A               | N/A               | N/A      | 2000        | 1000               |
-| `/app/office365/{key}/sso/wsfed/passive`                                | N/A               | N/A               | N/A      | 250         | 250                |
-| `/app/template_saml_2_0/{key}/sso/saml`                                 | 100               | 600               | *600     | *600        | 2500               |
-| `/login/do-login`                                                       | 100               | 600               | 600      | 600         | 200                |
-| `/login/login.htm`                                                      | 100               | 600               | 600      | 600         | 850                |
-| `/login/sso_iwa_auth`                                                   | 100               | 600               | 600      | 600         | 500                |
-| `/bc/image/fileStoreRecord`                                             | 100               | 600               | *600     | *600        | 500                |
-| `/bc/globalFileStoreRecord`                                             | 100               | 600               | *600     | *600        | 500                |
+| Home page endpoints                                                | Integrator Free Plan    | One App  | Enterprise  | Workforce identity |
+| -------------------------------------------------------------------| ----------------:       | -------: | ----------: | ------------------:|
+| `/app/{app}/{key}/sso/saml`                                             | 100                | *600     | *600        | 750                |
+| `/app/office365/{key}/sso/wsfed/active`                                 | N/A                | N/A      | 2000        | 1000               |
+| `/app/office365/{key}/sso/wsfed/passive`                                | N/A                | N/A      | 250         | 250                |
+| `/app/template_saml_2_0/{key}/sso/saml`                                 | 100                | *600     | *600        | 2500               |
+| `/login/do-login`                                                       | 100                | 600      | 600         | 200                |
+| `/login/login.htm`                                                      | 100                | 600      | 600         | 850                |
+| `/login/sso_iwa_auth`                                                   | 100                | 600      | 600         | 500                |
+| `/bc/image/fileStoreRecord`                                             | 100                | *600     | *600        | 500                |
+| `/bc/globalFileStoreRecord`                                             | 100                | *600     | *600        | 500                |
 
 ## Okta-generated email rate limits
 
