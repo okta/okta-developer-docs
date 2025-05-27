@@ -12,18 +12,8 @@ title: Okta Identity Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [OPA Active Directory API resources are EA](#opa-active-directory-api-resources-are-ea) | May 29, 2025 |
 | [Integrator Free Plan org now available](#integrator-free-plan-org-now-available) | May 22, 2025 |
 | [Bugs fixed in 2025.05.3](#bugs-fixed-in-2025-05-3)| May 29, 2025 |
-
-#### OPA Active Directory API resources are EA
-
-You can now manage Okta Privileged Access (OPA) Active Directory (AD) integrations through the API. To enable this Early Access feature, contact Okta Support. See the [Manage Active Directory accounts](https://help.okta.com/oie/en-us/content/topics/privileged-access/pam-ad-accounts.htm) product documentation. The following OPA AD API resources are available:
-
-* [Active Directory Accounts API](https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-accounts/)
-* [Active Directory Connections API](https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-connections/)
-* [Active Directory resources through the Projects API](https://developer.okta.com/docs/api/openapi/opa/opa/tag/projects/#tag/projects/operation/ListResourceGroupProjectActiveDirectoryAccounts)
-<!--OKTA-928117 PAMActiveDirectoryEnabled -->
 
 #### Integrator Free Plan org now available
 
