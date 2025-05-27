@@ -381,7 +381,7 @@
                         <SmartLink :item="{ link: 'https://www.okta.com/privacy-policy' }">
                           Privacy Policy
                         </SmartLink>
-                        during my use of the Okta Developer Edition Service.
+                        during my use of the Okta Integrator Free Plan.
                       </p>
                       <p>
                         I agree that Okta may contact me with marketing communications.
