@@ -8,6 +8,25 @@ title: Okta Identity Engine API release notes 2025
 
 ## May
 
+### Weekly release 2025.05.3
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Integrator Free Plan org now available](#integrator-free-plan-org-now-available) | May 22, 2025 |
+| [Bugs fixed in 2025.05.3](#bugs-fixed-in-2025-05-3)| May 29, 2025 |
+
+#### Integrator Free Plan org now available
+
+The Integrator Free Plan org is now available on the [Sign up](/signup) page of the developer documentation site. These orgs replace the previous Developer Editions Service orgs, which will start being deactivated on July 18th. See [Changes Are Coming to the Okta Developer Edition Organizations](https://developer.okta.com/blog/2025/05/13/okta-developer-edition-changes). For information on the configurations for the Integrator Free Plan orgs, see [Okta Integrator Free Plan org configurations](/docs/reference/org-defaults/). <!-- OKTA-892454 -->
+
+#### Bugs fixed in 2025.05.3
+
+* When third-party claims sharing was enabled, users couldn't sign in using their IdP because of an authentication loop. (OKTA-939862)
+
+* When enrolling an `sms` factor (`POST /users/{userId}/factors`), an Invalid Phone Number error was sometimes incorrectly returned. (OKTA-923373)
+
+* Users with '+' in their email address couldn't reset their passwords from email templates. Use the `${encode(String html)}` expression to encode special characters. (OKTA-914601)
+
 ### Weekly release 2025.05.2
 
 | Change | Expected in Preview Orgs |
