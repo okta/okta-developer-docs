@@ -14,7 +14,7 @@ title: Okta Identity Engine API release notes 2025
 |--------|--------------------------|
 | [OPA Active Directory API resources are EA](#opa-active-directory-api-resources-are-ea) | May 29, 2025 |
 | [Integrator Free Plan org now available](#integrator-free-plan-org-now-available) | May 22, 2025 |
-| [Bugs fixed in 2025.05.3](#bugs-fixed-in-2025053)| May 29, 2025 |
+| [Bugs fixed in 2025.05.3](#bugs-fixed-in-2025-05-3)| May 29, 2025 |
 
 #### OPA Active Directory API resources are EA
 
