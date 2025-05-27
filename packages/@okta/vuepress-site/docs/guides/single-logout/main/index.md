@@ -27,7 +27,7 @@ Understand the purpose of Single Logout (SLO) and set it up for your <StackSnipp
 
 <StackSnippet snippet="overview" />
 
-### Single Logout diagram
+### <StackSnippet snippet="sloorsloidp" inline /> diagram
 
 <div class="three-quarter">
 
@@ -67,18 +67,6 @@ Downstream SAML apps terminate a specific session associated with the user or te
 ## Configure <StackSnippet snippet="sloorsloidp" inline />
 
 <StackSnippet snippet="intro" />
-
-<!--delete this after you're done updating ### Update your <StackSnippet snippet="apptype" inline /> app integration to use SLO
-
-Use the following steps to update your <StackSnippet snippet="apptype" inline /> app to use SLO:
-
-1. In the Admin Console, go to **Applications** > **Applications**.
-2. Select the <StackSnippet snippet="apptype" inline /> app that you want to update to use SLO.
-3. On the **General** tab, in the <StackSnippet snippet="sectionname" inline /> section, click **Edit**.-->
-
-<!-- <StackSnippet snippet="configureslo" /> delete this topic when you're done updating-->
-
-### Use the API to update your <StackSnippet snippet="apptype" inline />
 
 <StackSnippet snippet="updateapporidp" />
 

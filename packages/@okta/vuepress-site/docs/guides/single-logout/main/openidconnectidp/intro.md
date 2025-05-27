@@ -1,1 +1,1 @@
-SLO for IdPs supports SAML 2.0 and OIDC IdPs. The following steps explain how to configure your IdP for SLO.
+SLO for IdPs supports OIDC IdPs. The following steps explain how to configure your IdP for SLO using the API.

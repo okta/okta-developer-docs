@@ -1,4 +1,4 @@
-> **Note**: See [Configure Single Logout in app integrations](https://help.okta.com/en-us/content/topics/apps/apps_single_logout.htm) to update your app using the Admin Console.
+> **Note**: See [Configure Single Logout in app integrations](https://help.okta.com/okta_help.htm?type=oie&id=apps-single-logout) to update your app using the Admin Console.
 
 The following example shows you how to use the API to update your SAML 2.0 app integration for SLO. This includes adding the `participateSlo` object for IdP-initiated SLO.
 

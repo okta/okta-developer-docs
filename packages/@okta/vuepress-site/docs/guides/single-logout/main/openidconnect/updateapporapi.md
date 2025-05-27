@@ -1,6 +1,4 @@
-> **Note**: See [Configure Single Logout in app integrations](https://help.okta.com/en-us/content/topics/apps/apps_single_logout.htm) to update your app using the Admin Console.
-
-The following example shows you how to use the API to update your OIDC app or OAuth 2.0 client app integration for SLO.
+> **Note**: See [Configure Single Logout in app integrations](https://help.okta.com/okta_help.htm?type=oie&id=apps-single-logout) to update your app using the Admin Console.
 
 1. Send a GET app request and copy the response body for use in the PUT request.
 

@@ -1,1 +1,1 @@
-SLO supports SAML apps, and web and single-page (SPA) OIDC apps. The following steps explain how to configure your apps for SLO.
+SLO supports SAML2.0 apps. The following steps explain how to configure your apps for SLO using the API.
