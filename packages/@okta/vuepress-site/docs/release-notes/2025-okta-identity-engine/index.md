@@ -12,7 +12,7 @@ title: Okta Identity Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Integrator Free Plan org now available](#integrator-free-plan-org-now-available) | May 22, 2025 |
+| [Integrator Free Plan org now available](#integrator-free-plan-org-now-available) |  |
 | [Bugs fixed in 2025.05.3](#bugs-fixed-in-2025-05-3)| May 29, 2025 |
 
 #### Integrator Free Plan org now available
@@ -25,7 +25,7 @@ The Integrator Free Plan org is now available on the [Sign up](/signup) page of 
 
 * When enrolling an `sms` factor (`POST /users/{userId}/factors`), an Invalid Phone Number error was sometimes incorrectly returned. (OKTA-923373)
 
-* Users with '+' in their email address couldn't reset their passwords from email templates. Use the `${encode(String html)}` expression to encode special characters. (OKTA-914601)
+* Users with `+` in their email address couldn't reset their passwords from email templates. Use the `${encode(String html)}` expression to encode special characters. (OKTA-914601)
 
 ### Weekly release 2025.05.2
 
