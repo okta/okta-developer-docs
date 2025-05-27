@@ -10,7 +10,7 @@ title: Okta Classic Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Integrator Free Plan org now available](#integrator-free-plan-org-now-available) |  |
+| [Integrator Free Plan org now available](#integrator-free-plan-org-now-available) | May 22, 2025 |
 | [Bugs fixed in 2025.05.3](#bugs-fixed-in-2025-05-3)| May 29, 2025 |
 
 #### Integrator Free Plan org now available
