@@ -52,8 +52,9 @@ After you configure the OAuth 2.0 connection, test your connection: push user da
 
 ## Hub and spoke connection configuration with OAuth 2.0
 
-You can push user and group information from a spoke org to a centralized hub org with OAuth 2.0 by performing the following tasks:
+You can set up federation and push user and group information from a spoke org to a centralized hub org with OAuth 2.0 by performing the following tasks:
 
+1. In the hub org, [create an IdP](#create-an-idp-in-the-hub-org) to configure federation between orgs. This configuration enables your spoke users to access resources on the hub. You can set up an OIDC IdP (Okta IdP) or a SAML 2.0 IdP.
 1. In each spoke org, [add an instance of the Org2Org app integration](#add-an-org2org-app-integration-in-a-spoke-org).
 1. In the hub org, [create an OAuth 2.0 service app](#create-an-oauth-2-0-service-app-in-the-hub-org) for each spoke org with the corresponding Org2Org app JWKS public key URL. For each hub-org service app (the OAuth 2.0 client), [assign admin roles](#assign-admin-roles-to-the-oauth-2-0-service-app) and [grant allowed scopes](#grant-allowed-scopes-to-the-oauth-2-0-client).
 1. For each hub-org service app (the OAuth 2.0 client), [enable demonstrating proof-of-possession (DPoP) for the OAuth 2.0 client](#enable-demonstrating-proof-of-possession-dpop-for-the-oauth-20-client). See also [Configure OAuth 2.0 Demonstrating Proof-of-Possession](/docs/guides/dpop/nonoktaresourceserver/main/).
@@ -73,6 +74,37 @@ You need an access token for API requests to each Okta org. After you have API a
 
 ---
 
+### Create an IdP in the hub org
+
+In the hub org, create an IdP to configure federation between your spoke and hub orgs. Add the IdP by using the [Create an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) request with the following body parameters. This call creates the IdP in the hub org. From the response of the POST request, use the `id` property of the IdP instance in the next step for your `idpId`.
+
+#### Create an OIDC Okta Integration IdP
+
+Use the following request body parameters to define your OIDC Okta Integration IdP in the hub org.
+
+| Parameter |  Description/Value   |
+| --------- |  ------------- |
+| `type`  |  `OKTA_INTEGRATION` |
+| `name`  |  Specify a name for this Okta Integration IdP |
+| `client_id`  |  Add a placeholder value for the Org2Org ID, which you create in the next step. Update this value using the procedure [Update the IdP in the hub org](#update-the-idp-in-the-hub-org). |
+| `protocol.oktaIdpOrgUrl`  |  Your spoke org domain name |
+| `protocol.credentials.client.token_endpoint_auth_method`  |  `private_key_jwt` |
+
+##### Request example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer {yourHubAccessToken}" \
+-d '{
+  "type": "OKTA_INTEGRATION",
+  "name": "Example API Okta Integration IdP",
+  "protocol": {
+  }
+}' "https://{yourHubOktaDomain}/api/v1/idps"
+```
+
 ### Add an Org2Org app integration in a spoke org
 
 You use the spoke org to push users and groups to the central hub org. In the spoke org, add an instance of the Org2Org app integration by using the [Create an app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication) request with the [Org2Org request parameters](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/schema/Org2OrgApplication). This call generates an integration instance with the key certificates required to connect to the hub org.
@@ -86,7 +118,8 @@ As an Okta admin, make a `POST /api/v1/apps` request to the spoke org with [Okta
 | `name`  |  `okta_org2org` |
 | `label`  |  Specify a label for this Org2Org app integration |
 | `baseUrl`  |  Specify the base URL of your hub org |
-| `signOnMode`  |  You can set this parameter to any valid value, but if you specify `SAML_2_0`, the Org2Org app signing certificate appears in the Admin Console. |
+| `idpId`  |  Specify the IdP ID of your hub org from the previous procedure |
+| `signOnMode`  |  You can set this parameter to any valid value, but if you specify `SAML_2_0`, the Org2Org app signing certificate appears in the Admin Console. Use `OPENID_CONNECT` for |
 
 ##### Request example
 
@@ -98,16 +131,25 @@ curl -v -X POST \
 -d '{
   "name": "okta_org2org",
   "label": "'{spokeOrg2OrgClientLabel}'",
-  "signOnMode": "SAML_2_0",
+  "signOnMode": "OPENID_CONNECT",
   "settings": {
     "app": {
-        "baseUrl": "https://'{yourHubOktaDomain}'"
+        "baseUrl": "https://{yourHubOktaDomain}",
+        "idPId": {yourOktaIdPID}
     }
   }
 }' "https://{yourSpokeOktaDomain}/api/v1/apps"
 ```
 
-From the response of the POST request, use the `id` property of the Org2Org app instance in the next step for your `{yourOrg2OrgAppId}`.
+From the response of the POST request, use the `id` property of the Org2Org app instance in the following steps for your `{yourOrg2OrgAppId}`.
+
+### Update the IdP in the hub org
+
+In the hub org, update your IdP with the response values from the create an Org2Org app request from the previous procedure. Use the [Replace an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/replaceIdentityProvider) request with the following updated parameter:
+
+| Parameter |  Description/Value   |
+| --------- |  ------------- |
+| `protocol.credentials.client.client_id`  |  The `client_id` of the Org2Org app |
 
 ### Create an OAuth 2.0 service app in the hub org
 
