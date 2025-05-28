@@ -30,7 +30,6 @@ title: Okta Classic Engine API release notes 2025
 | [Directories integration API is GA in Preview and Production](#directories-integration-api-is-ga-in-preview-and-production) | May 7, 2025 |
 | [Number matching challenge with the Factors API is GA in Preview](#number-matching-challenge-with-the-factors-api-is-ga-in-preview) | May 7, 2025 |
 | [Claims sharing between third-party IdPs and Okta is GA in Preview](#claims-sharing-between-third-party-idps-and-okta-is-ga-in-preview) | May 7, 2025 |
-| [Changes to Okta app API responses](#changes-to-okta-app-api-responses) | May 7, 2025 |
 | [Entitlement claims is GA in Production](#entitlement-claims-is-ga-in-production) | January 2, 2025 |
 | [POST requests to authorize endpoint is GA in Production](#post-requests-to-authorize-endpoint-is-ga-in-production) | January 8, 2025 |
 | [Authentication claims sharing between Okta orgs is GA in Preview](#authentication-claims-sharing-between-okta-orgs-is-ga-in-preview) | May 7, 2025 |
@@ -61,18 +60,6 @@ You can now send number matching challenges for Okta Verify `push` factor enroll
 #### Claims sharing between third-party IdPs and Okta is GA in Preview
 
 Authentication claims sharing allows an admin to configure their Okta org to trust claims from third-party IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from a third-party IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See [Configure claims sharing](/docs/guides/configure-claims-sharing/oktasaml/main/). <!-- ORG2ORG_CLAIMS_SHARING  OKTA-901817 -->
-
-#### Changes to Okta app API responses
-
-The following Okta apps won’t be returned in the API response for endpoints that list apps (such as the [List all applications](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications)  `GET /api/vi/apps` endpoint):
-
-* Okta Access Certifications (key name: `okta_iga`)
-* Okta Access Requests Admin (key name: `okta_access_requests_admin`)
-* Okta Entitlement Management (key name: `okta_entitlement_management`)
-
-In addition, a single app retrieval endpoint won’t return these apps either. For example: `GET /api/v1/apps/{appId}` won’t return the app object if `{appId}` is the ID for the `okta_iga`, `okta_access_requests_admin`, or `okta_entitlement_management` apps in your org.
-
-<!-- OKTA-871526 ENG_ENABLE_UI_ADMIN_OIDC_APP -->
 
 #### Entitlement claims is GA in Production
 

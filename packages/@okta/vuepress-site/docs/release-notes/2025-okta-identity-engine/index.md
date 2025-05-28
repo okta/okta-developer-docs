@@ -49,7 +49,6 @@ You can now forward context about an app to an external identity provider (IdP) 
 | [Number matching challenge with the Factors API is GA in Preview](#number-matching-challenge-with-the-factors-api-is-ga-in-preview) | May 7, 2025 |
 | [Claims sharing between third-party IdPs and Okta is GA in Preview](#claims-sharing-between-third-party-idps-and-okta-is-ga-in-preview) | May 7, 2025 |
 | [Express Configuration for OIN apps](#express-configuration-for-oin-apps) | May 7, 2025 |
-| [Changes to Okta app API responses](#changes-to-okta-app-api-responses) | May 7, 2025 |
 | [New End-user Enrollments API is GA in Production](#new-end-user-enrollments-api-is-ga-in-production) | March 5, 2025 |
 | [New System Log for super admin privilege grant](#new-system-log-for-super-admin-privilege-grant) | May 7, 2025 |
 | [Entitlement claims is GA in Production](#entitlement-claims-is-ga-in-production) | January 2, 2025 |
@@ -92,18 +91,6 @@ Authentication claims sharing allows an admin to configure their Okta org to tru
 #### Express Configuration for OIN apps
 
 Express Configuration is a feature designed to automate the setup of SSO for instances of OIN SaaS integrations by enterprise customers with minimal manual effort. It allows enterprise customers to securely configure OpenID Connect (OIDC) integrations without copying and pasting configuration values between Okta and Auth0-enabled apps. See [Express Configuration](/docs/guides/express-configuration/main/). <!-- OKTA-888983 -->
-
-#### Changes to Okta app API responses
-
-The following Okta apps won’t be returned in the API response for endpoints that list apps (such as the [List all applications](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications)  `GET /api/vi/apps` endpoint):
-
-* Okta Access Certifications (key name: `okta_iga`)
-* Okta Access Requests Admin (key name: `okta_access_requests_admin`)
-* Okta Entitlement Management (key name: `okta_entitlement_management`)
-
-In addition, a single app retrieval endpoint won’t return these apps either. For example: `GET /api/v1/apps/{appId}` won’t return the app object if `{appId}` is the ID for the `okta_iga`, `okta_access_requests_admin`, or `okta_entitlement_management` apps in your org.
-
-<!-- OKTA-871526 ENG_ENABLE_UI_ADMIN_OIDC_APP -->
 
 #### New End-user Enrollments API is GA in Production
 
