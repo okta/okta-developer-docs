@@ -32,7 +32,6 @@ title: Okta Identity Engine API release notes 2025
 | [Number matching challenge with the Factors API is GA in Preview](#number-matching-challenge-with-the-factors-api-is-ga-in-preview) | May 7, 2025 |
 | [Claims sharing between third-party IdPs and Okta is GA in Preview](#claims-sharing-between-third-party-idps-and-okta-is-ga-in-preview) | May 7, 2025 |
 | [Express Configuration for OIN apps](#express-configuration-for-oin-apps) | May 7, 2025 |
-| [Changes to Okta app API responses](#changes-to-okta-app-api-responses) | May 7, 2025 |
 | [New End-user Enrollments API is GA in Production](#new-end-user-enrollments-api-is-ga-in-production) | March 5, 2025 |
 | [New System Log for super admin privilege grant](#new-system-log-for-super-admin-privilege-grant) | May 7, 2025 |
 | [Entitlement claims is GA in Production](#entitlement-claims-is-ga-in-production) | January 2, 2025 |

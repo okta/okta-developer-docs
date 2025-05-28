@@ -30,7 +30,6 @@ title: Okta Classic Engine API release notes 2025
 | [Directories integration API is GA in Preview and Production](#directories-integration-api-is-ga-in-preview-and-production) | May 7, 2025 |
 | [Number matching challenge with the Factors API is GA in Preview](#number-matching-challenge-with-the-factors-api-is-ga-in-preview) | May 7, 2025 |
 | [Claims sharing between third-party IdPs and Okta is GA in Preview](#claims-sharing-between-third-party-idps-and-okta-is-ga-in-preview) | May 7, 2025 |
-| [Changes to Okta app API responses](#changes-to-okta-app-api-responses) | May 7, 2025 |
 | [Entitlement claims is GA in Production](#entitlement-claims-is-ga-in-production) | January 2, 2025 |
 | [POST requests to authorize endpoint is GA in Production](#post-requests-to-authorize-endpoint-is-ga-in-production) | January 8, 2025 |
 | [Authentication claims sharing between Okta orgs is GA in Preview](#authentication-claims-sharing-between-okta-orgs-is-ga-in-preview) | May 7, 2025 |
