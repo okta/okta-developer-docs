@@ -76,18 +76,6 @@ Authentication claims sharing allows an admin to configure their Okta org to tru
 
 Express Configuration is a feature designed to automate the setup of SSO for instances of OIN SaaS integrations by enterprise customers with minimal manual effort. It allows enterprise customers to securely configure OpenID Connect (OIDC) integrations without copying and pasting configuration values between Okta and Auth0-enabled apps. See [Express Configuration](/docs/guides/express-configuration/main/). <!-- OKTA-888983 -->
 
-#### Changes to Okta app API responses
-
-The following Okta apps won’t be returned in the API response for endpoints that list apps (such as the [List all applications](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications)  `GET /api/vi/apps` endpoint):
-
-* Okta Access Certifications (key name: `okta_iga`)
-* Okta Access Requests Admin (key name: `okta_access_requests_admin`)
-* Okta Entitlement Management (key name: `okta_entitlement_management`)
-
-In addition, a single app retrieval endpoint won’t return these apps either. For example: `GET /api/v1/apps/{appId}` won’t return the app object if `{appId}` is the ID for the `okta_iga`, `okta_access_requests_admin`, or `okta_entitlement_management` apps in your org.
-
-<!-- OKTA-871526 ENG_ENABLE_UI_ADMIN_OIDC_APP -->
-
 #### New End-user Enrollments API is GA in Production
 
 The new [End-user Enrollments API](https://developer.okta.com/docs/api/openapi/okta-signin-experience-management/signinexp/tag/endUserEnrollments/) enables end users to enroll and unenroll authenticators by entering a URL directly into their browser. This reduces the time spent administering complex authenticator enrollment flows, and provides a streamlined enrollment process for users. After a user enrolls or unenrolls an authenticator, you can use the `redirect_uri` property to redirect them to another page. <!-- OKTA-868775 ENG_AUTHENTICATOR_ENROLLMENTS_USER_MANAGEMENT_WITH_REDIRECT -->

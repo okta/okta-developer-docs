@@ -21,24 +21,6 @@ For changes prior to 2025, see [Archived Okta Identity Governance API Changelog 
 You can now include the campaign description in your customized Access Certification campaign email notifications. See the new `${campaign.campaignDescription}` variable in [Use VTL variables](https://developer.okta.com/docs/guides/custom-email/main/#use-vtl-variables).
 <!-- OKTA-912806 -->
 
-### Monthly release 2025.05.0
-
-| Change | Expected in Preview Orgs |
-|--------|--------------------------|
-| [Changes to Okta app API responses](#changes-to-okta-app-api-responses) | May 7, 2025 |
-
-#### Changes to Okta app API responses
-
-The following Okta apps won’t be returned in the API response for endpoints that list apps (such as the [List all applications](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications)  `GET /api/vi/apps` endpoint):
-
-* Okta Access Certifications (key name: `okta_iga`)
-* Okta Access Requests Admin (key name: `okta_access_requests_admin`)
-* Okta Entitlement Management (key name: `okta_entitlement_management`)
-
-In addition, a single app retrieval endpoint won’t return these apps either. For example: `GET /api/v1/apps/{appId}` won’t return the app object if `{appId}` is the ID for the `okta_iga`, `okta_access_requests_admin`, or `okta_entitlement_management` apps in your org.
-
-<!-- OKTA-871526 ENG_ENABLE_UI_ADMIN_OIDC_APP -->
-
 ## April
 
 ### Monthly release 2025.04.0

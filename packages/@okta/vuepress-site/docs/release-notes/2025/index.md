@@ -62,18 +62,6 @@ You can now send number matching challenges for Okta Verify `push` factor enroll
 
 Authentication claims sharing allows an admin to configure their Okta org to trust claims from third-party IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from a third-party IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See [Configure claims sharing](/docs/guides/configure-claims-sharing/oktasaml/main/). <!-- ORG2ORG_CLAIMS_SHARING  OKTA-901817 -->
 
-#### Changes to Okta app API responses
-
-The following Okta apps won’t be returned in the API response for endpoints that list apps (such as the [List all applications](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications)  `GET /api/vi/apps` endpoint):
-
-* Okta Access Certifications (key name: `okta_iga`)
-* Okta Access Requests Admin (key name: `okta_access_requests_admin`)
-* Okta Entitlement Management (key name: `okta_entitlement_management`)
-
-In addition, a single app retrieval endpoint won’t return these apps either. For example: `GET /api/v1/apps/{appId}` won’t return the app object if `{appId}` is the ID for the `okta_iga`, `okta_access_requests_admin`, or `okta_entitlement_management` apps in your org.
-
-<!-- OKTA-871526 ENG_ENABLE_UI_ADMIN_OIDC_APP -->
-
 #### Entitlement claims is GA in Production
 
 You can now enrich tokens with app entitlements that produce deeper integrations. After you configure this feature for your app integration, use the [Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/#reference-attributes) to add entitlements at runtime as OpenID Connect claims and SAML assertions. See [Federated claims with entitlements](/docs/guides/federated-claims/main/). <!-- FEDERATED_CLAIM_GENERATION_LAYER https://oktainc.atlassian.net/browse/OKTA-847041 OKTA-834142 -->
