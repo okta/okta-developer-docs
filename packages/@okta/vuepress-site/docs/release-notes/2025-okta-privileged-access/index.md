@@ -10,10 +10,10 @@ Okta Privileged Access (OPA) is available for both Okta Classic and Identity Eng
 
 ### Weekly release 2025.05.3
 
-| Change | Expected in Preview Orgs |
-|--------|--------------------------|
-| [OPA Active Directory API resources are EA](#opa-active-directory-api-resources-are-ea) | May 29, 2025 |
-| [Cloud Infrastructure Entitlements API is deprecated](#cloud-infrastructure-entitlements-api-is-deprecated) | May 29, 2025 |
+| Change |
+|--------|
+| [OPA Active Directory API resources are EA](#opa-active-directory-api-resources-are-ea) |
+| [Cloud Infrastructure Entitlements API is deprecated](#cloud-infrastructure-entitlements-api-is-deprecated) |
 
 #### OPA Active Directory API resources are EA
 
