@@ -8,7 +8,7 @@
   "pluginsFile": "tests/cypress/plugins/index.js",
   "chromeWebSecurity": false,
   "scrollBehavior": "center",
-  "video": false,
+  "video": true,
   "retries": {
     "runMode": 2,
     "openMode": 0
