@@ -5,7 +5,6 @@ describe('page layout and browser size spec', () => {
 
   beforeEach(() => {
     mainPage.visit('/test_page/');
-    //mainPage.pageReload();
   });
 
   it('shows the main navigation with desktop browser sizes', () => {
@@ -20,6 +19,9 @@ describe('page layout and browser size spec', () => {
     mainPage.getHeaderMobileMenuIcon().should('be.visible');
 
     mainPage.getHeaderMobileMenuIcon().click();
+    cy.wait(1000);
+    cy.get("#onetrust-close-btn-container").click();
+    cy.wait(1000);
 
     mainPage.getMobileMenu().should('have.class', 'opened');
     mainPage.getMobileMenu().should('be.visible')
