@@ -7,7 +7,7 @@ describe("tree nav panel(left section)", () => {
   beforeEach(() => {
     treeNav.visit("/");
     treeNav.resizeXLarge();
-    treeNav.pageReload();
+    //treeNav.pageReload();
   });
 
   it("scrolls to selected item on URL navigation", () => {

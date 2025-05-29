@@ -5,7 +5,7 @@ describe('page layout and browser size spec', () => {
 
   beforeEach(() => {
     mainPage.visit('/test_page/');
-    mainPage.pageReload();
+    //mainPage.pageReload();
   });
 
   it('shows the main navigation with desktop browser sizes', () => {
