@@ -29,7 +29,7 @@ Understand the purpose of Single Logout (SLO) and set it up for your <StackSnipp
 
 ### <StackSnippet snippet="sloorsloidp" inline /> diagram
 
-
+<StackSnippet snippet="diagramflow" />
 
 ## Configure <StackSnippet snippet="sloorsloidp" inline />
 
