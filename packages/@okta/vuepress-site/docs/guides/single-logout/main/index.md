@@ -44,5 +44,5 @@ After Okta initiates the outbound logout request to <StackSnippet snippet="downu
 
 ## See also
 
-* Okta developer blog that explains an [inbound single logout request using Spring Boot for an OIDC app](https://developer.okta.com/blog/2020/03/27/spring-oidc-logout-options)
+* Okta developer blog that explains an [inbound Single Logout request using Spring Boot for an OIDC app](https://developer.okta.com/blog/2020/03/27/spring-oidc-logout-options)
 * Spring Boot offers a [Spring Security SAML Extension](https://docs.spring.io/spring-security-saml/docs/current/reference/htmlsingle/#configuration-logout-global) that's configured for global logout.
