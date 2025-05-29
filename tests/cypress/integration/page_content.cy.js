@@ -20,20 +20,6 @@ describe("content section", () => {
 
   });
 
-
-  // WHY IS THIS TEST HERE? HARD-CODED ID BROKE THE TEST WHEN THE CONTENT
-  // WAS REFACTORED OFF THIS PAGE...
-  // it('preserves correct scroll-to-heading behavior on page change', () => {
-  //  const id = "factors-that-require-only-a-verification-operation";
-
-  //  basePage.visit('/docs/reference/api/factors');
-  //  basePage.resizeXLarge();
-  //  basePage.getH2HeadingById(id).should('be.not.inViewport');
-
-  //  basePage.getInPageLink(`/docs/reference/api/factors/#${id}`).click();
-  //  basePage.getH2HeadingById(id).should('be.inViewport');
-  //});
-
   it('navigates to previous anchor via back button', () => {
     const lastSectionId = 'last-section';
     const secondSectionId = 'second-section';

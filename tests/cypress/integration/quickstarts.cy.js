@@ -30,14 +30,4 @@ describe('quickstarts page default selections spec', () => {
     });
   });
 
-  // it('redirects to correct guide', () => {
-  //   basePage.visit('/quickstart/#/okta-sign-in-page/nodejs/express');
-
-  //   basePage.pageReload();
-
-  //   cy.location().should(location => {
-  //     expect(location.pathname).to.eq('/docs/guides/sign-into-web-app-redirect/nodeexpress/before-you-begin/');
-  //   });
-  // });
-
 });
