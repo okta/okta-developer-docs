@@ -10,6 +10,7 @@ function getNavbarConstPages() {
     let cleared = splitted[i]
       .replace('export const concepts = ', '')
       .replace('export const guides = ', '')
+      .replace('export const journeys = ', '')
       .replace('export const languagesSdk = ', '')
       .replace('export const reference = ', '')
       .replace('export const releaseNotes = ', '');
@@ -43,7 +44,7 @@ function generatedLinks(arr, parent = null) {
             const splittedPath = parent.path.split('/');
             if (parent.path.indexOf(parentTitle) >= 0) {
               path = parent.path.replace(parentTitle, sanitizeTitle(el));
-            } else if (parent.path == '/code/') { 
+            } else if (parent.path == '/code/') {
               path = `/${splittedPath[1]}/${sanitizeTitle(el)}/`;
             } else {
               path = `/${splittedPath[1]}/${splittedPath[2]}/${sanitizeTitle(el)}/`;
