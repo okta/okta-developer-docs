@@ -40,7 +40,7 @@ jobs:
 
   node_build_checks:
       docker:
-        - image: cimg/node:14.21.3-browsers
+        - image: cimg/node:16.18.1-browsers
       resource_class: large
       environment:
         NODE_OPTIONS: '--max_old_space_size=3584'
@@ -63,7 +63,7 @@ jobs:
 
   nightly_link_checker:
     docker:
-      - image: cimg/node:14.21.3-browsers
+      - image: cimg/node:16.18.1-browsers
     resource_class: large
     environment:
       NODE_OPTIONS: '--max_old_space_size=3584'
@@ -108,7 +108,7 @@ jobs:
 
   netlify_manual:
     docker:
-      - image: cimg/node:14.21.3-browsers
+      - image: cimg/node:16.18.1-browsers
     resource_class: xlarge
     steps:
       - run:

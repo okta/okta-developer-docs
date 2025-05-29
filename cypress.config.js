@@ -6,6 +6,7 @@ module.exports = defineConfig({
   fixturesFolder: 'tests/cypress/fixtures',
   chromeWebSecurity: false,
   scrollBehavior: 'center',
+  pageLoadTimeout: 3000,
   video: true,
   retries: {
     runMode: 2,
