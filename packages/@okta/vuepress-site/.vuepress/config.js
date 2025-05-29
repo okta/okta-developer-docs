@@ -118,7 +118,7 @@ module.exports = ctx => ({
 
       }
     `],
-    ...getOneTrustScripts(),
+    //...getOneTrustScripts(),
     ...getAdobeScripts()
   ],
   title: "Okta Developer",

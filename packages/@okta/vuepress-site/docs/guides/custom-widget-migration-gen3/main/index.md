@@ -23,7 +23,6 @@ This guide explains how to migrate from the second (Gen2) to the third generatio
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup/)
 * [Custom URL domain](/docs/guides/custom-url-domain/main/)
-* [Node v12.22 or later, earlier than v16](https://nodejs.org/en/download/)
 
 #### Sample code
 
