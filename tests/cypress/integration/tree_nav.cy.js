@@ -7,7 +7,7 @@ describe("tree nav panel(left section)", () => {
   beforeEach(() => {
     treeNav.visit("/");
     treeNav.resizeXLarge();
-    treeNav.pageReload();
+    //treeNav.pageReload();
   });
 
   it("scrolls to selected item on URL navigation", () => {
@@ -26,7 +26,7 @@ describe("tree nav panel(left section)", () => {
       treeNav.visit("/docs/concepts");
       treeNav.resizeXXsmall();
     });
-    
+
     it('tree nav is hidden', () => {
       treeNav.getTreeNav().should("be.not.visible");
     });

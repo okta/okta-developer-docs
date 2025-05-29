@@ -8,7 +8,7 @@ describe('table of contents navigation spec', () => {
   beforeEach(() => {
     tocPage.resizeXLarge();  // At smaller sizes, table of contents is hidden
     tocPage.visit('/test_page/');
-    tocPage.pageReload();
+    //tocPage.pageReload();
   });
 
   it('clicking hash link scrolls to location', () => {

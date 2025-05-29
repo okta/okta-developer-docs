@@ -118,8 +118,8 @@ module.exports = ctx => ({
 
       }
     `],
-    ...getOneTrustScripts(),
-    ...getAdobeScripts()
+    //...getOneTrustScripts(),
+    //...getAdobeScripts()
   ],
   title: "Okta Developer",
   description: "Secure, scalable, and highly available authentication and user management for any app.",
