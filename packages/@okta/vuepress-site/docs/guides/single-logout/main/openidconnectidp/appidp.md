@@ -1,1 +1,1 @@
-SAML 2.0 identity provider and OpenID Connect (OIDC) identity provider
+OpenID Connect (OIDC) identity provider

@@ -1,1 +1,1 @@
-[Create SAML app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-saml) or [Create OIDC app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc)
+[Create OIDC app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc)

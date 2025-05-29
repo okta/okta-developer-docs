@@ -18,7 +18,7 @@ Understand the purpose of Single Logout (SLO) and set it up for your <StackSnipp
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
-* Existing <StackSnippet snippet="appidp" inline /> to update for SLO. See <StackSnippet snippet="appidp" inline /> if you don’t have one configured.
+* Existing <StackSnippet snippet="appidp" inline /> to update for SLO. See <StackSnippet snippet="idpapp" inline /> if you don’t have one configured.
 * <StackSnippet snippet="feature" inline />.
 
 ---
