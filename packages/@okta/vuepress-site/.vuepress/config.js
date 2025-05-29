@@ -9,6 +9,9 @@ const signInWidgetMajorVersion = 7;
 const WIDGET_VERSION = findLatestWidgetVersion(signInWidgetMajorVersion);
 
 function getOneTrustScripts() {
+  if (window.location.hostname === 'localhost') {
+    return []; // Skip OneTrust scripts in local development
+  }
   let domainScriptId = "ac20316c-ea73-4ca8-8b3b-be2d16672166-test";
 
   if (process.env.DEPLOY_ENV == "prod") {
@@ -36,6 +39,9 @@ function getOneTrustScripts() {
 }
 
 function getAdobeScripts() {
+  if (window.location.hostname === 'localhost') {
+    return []; // Skip Adobe scripts in local development
+  }
   switch (process.env.DEPLOY_ENV) {
     case "prod":
       return [
@@ -118,8 +124,8 @@ module.exports = ctx => ({
 
       }
     `],
-    //...getOneTrustScripts(),
-    //...getAdobeScripts()
+    ...getOneTrustScripts(),
+    ...getAdobeScripts()
   ],
   title: "Okta Developer",
   description: "Secure, scalable, and highly available authentication and user management for any app.",
