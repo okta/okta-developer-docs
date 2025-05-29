@@ -1,4 +1,4 @@
-> **Note**: See [Configure Single Logout in app integrations](https://help.okta.com/okta_help.htm?type=oie&id=apps-single-logout?????) to update your app using the Admin Console.
+> **Note**: See [Configure Single Logout for identity providers](https://help.okta.com/okta_help.htm?type=oie&id=apps-single-logout?????) to update your identity provider using the Admin Console.
 
 1. Send a GET IdP request and copy the response body for use in the PUT request.
 
@@ -10,7 +10,7 @@
 
         ```json
         "slo": {
-            "url": "http://myapp.exampleco.com/slo/logout",
+            "url": "http://idp.example.com/slo/logout",
             "binding": "HTTP-REDIRECT"
         }
         ```
@@ -24,43 +24,35 @@
     ```json
     { ...
     "protocol": {
-        "type": "SAML2",
+        "type": "OIDC",
         "endpoints": {
-            "sso": {
-                "url": "https://idp.example.com",
-                "binding": "HTTP-POST",
-                "destination": "https://idp.example.com"
-            },
             "slo": {
                 "url": "http://idp.example.com/slo/logout",
                 "binding": "HTTP-REDIRECT"
             },
-            "acs": {
-                "binding": "HTTP-POST",
-                "type": "INSTANCE"
-            }
-        },
-        "algorithms": {
-            "request": {
-                "signature": {
-                    "algorithm": "SHA-256",
-                    "scope": "REQUEST"
-                }
+            "authorization": {
+                "url": "https://idp.example.com/authorize",
+                "binding": "HTTP-REDIRECT"
             },
-            "response": {
-                "signature": {
-                    "algorithm": "SHA-256",
-                    "scope": "ANY"
-                }
+            "token": {
+                "url": "https://idp.example.com/token",
+                "binding": "HTTP-POST"
+            },
+            "userInfo": {
+                "url": "https://idp.example.com/userinfo",
+                "binding": "HTTP-REDIRECT"
+            },
+            "jwks": {
+                "url": "https://idp.example.com/keys",
+                "binding": "HTTP-REDIRECT"
             }
         },
         "settings": {
-            "nameFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
-            "honorPersistentNameId": true,
+            "nameFormat": null,
             "participateSlo": true,
             "sendApplicationContext": false
         },
-    }...
+    }....
     }
     ```
 
@@ -75,42 +67,34 @@
     ```json
     { ...
     "protocol": {
-        "type": "SAML2",
+        "type": "OIDC",
         "endpoints": {
-            "sso": {
-                "url": "https://idp.example.com",
-                "binding": "HTTP-POST",
-                "destination": "https://idp.example.com"
-            },
             "slo": {
                 "url": "http://idp.example.com/slo/logout",
                 "binding": "HTTP-REDIRECT"
             },
-            "acs": {
-                "binding": "HTTP-POST",
-                "type": "INSTANCE"
-            }
-        },
-        "algorithms": {
-            "request": {
-                "signature": {
-                    "algorithm": "SHA-256",
-                    "scope": "REQUEST"
-                }
+            "authorization": {
+                "url": "https://idp.example.com/authorize",
+                "binding": "HTTP-REDIRECT"
             },
-            "response": {
-                "signature": {
-                    "algorithm": "SHA-256",
-                    "scope": "ANY"
-                }
+            "token": {
+                "url": "https://idp.example.com/token",
+                "binding": "HTTP-POST"
+            },
+            "userInfo": {
+                "url": "https://idp.example.com/userinfo",
+                "binding": "HTTP-REDIRECT"
+            },
+            "jwks": {
+                "url": "https://idp.example.com/keys",
+                "binding": "HTTP-REDIRECT"
             }
         },
         "settings": {
-            "nameFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
-            "honorPersistentNameId": true,
+            "nameFormat": null,
             "participateSlo": true,
             "sendApplicationContext": false
         },
-    }...
+    }....
     }
     ```

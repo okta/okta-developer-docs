@@ -1,1 +1,1 @@
-The SLO and SLO for IdPs features enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate **Front-channel Single Logout for IdPs** and **Single Logout for IdPs**, and enable.
+The SLO and SLO for IdPs features enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate **Front-channel Single Logout** and **Front-channel Single Logout for IdPs**, and enable.
