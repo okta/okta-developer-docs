@@ -33,7 +33,6 @@ class MainPage extends BasePage {
     this.getSearchBarInput()
       .should("be.visible")
       .type("{enter}");
-    cy.wait(1000);
   }
   getSearchResults() {
     return cy.get(

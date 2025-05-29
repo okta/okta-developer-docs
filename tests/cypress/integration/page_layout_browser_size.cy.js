@@ -19,9 +19,6 @@ describe('page layout and browser size spec', () => {
     mainPage.getHeaderMobileMenuIcon().should('be.visible');
 
     mainPage.getHeaderMobileMenuIcon().click();
-    cy.wait(1000);
-    cy.get("#onetrust-close-btn-container").click();
-    cy.wait(1000);
 
     mainPage.getMobileMenu().should('have.class', 'opened');
     mainPage.getMobileMenu().should('be.visible')

@@ -3,9 +3,9 @@ export class BasePage {
     cy.visit(pageUrl);
   }
 
-//   pageReload() {
-//     cy.reload();
-//   }
+  pageReload() {
+    cy.reload();
+  }
 
   // See css breakpoints section from packages/@okta/vuepress-theme-prose/assets/css/abstracts/_breakpoints.scss
   resizeMedium() {

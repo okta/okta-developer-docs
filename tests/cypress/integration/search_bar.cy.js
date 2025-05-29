@@ -15,6 +15,8 @@ describe("navigation bar search spec", () => {
     mainPage.getSearchBarInput().type("Authentication");
     mainPage.submitSearch();
 
+    mainPage.pageReload();
+
     cy.location().should(location => {
       expect(location.pathname).to.eq("/search/");
       expect(location.hash).to.eq("#q=Authentication");
