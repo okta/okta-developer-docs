@@ -1,1 +1,0 @@
-SLO supports SAML2.0 apps. The following steps explain how to configure your apps for SLO using the API.

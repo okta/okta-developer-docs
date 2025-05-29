@@ -1,3 +1,5 @@
+SLO supports web and single-page (SPA) OIDC apps and OAuth 2.0 client apps. The following steps explain how to configure your apps for SLO using the API.
+
 > **Note**: See [Configure Single Logout in app integrations](https://help.okta.com/okta_help.htm?type=oie&id=apps-single-logout) to update your app using the Admin Console.
 
 1. Send a GET app request and copy the response body for use in the PUT request.

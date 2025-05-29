@@ -1,3 +1,5 @@
+SLO for IdPs supports OIDC IdPs. The following steps explain how to configure your IdP for SLO using the API.
+
 > **Note**: See [Enable Single Logout for an Identity Provider](https://help.okta.com/okta_help.htm?type=oie&id=?????) to update your identity provider using the Admin Console.
 
 1. Send a GET IdP request and copy the response body for use in the PUT request.

@@ -33,8 +33,6 @@ Understand the purpose of Single Logout (SLO) and set it up for your <StackSnipp
 
 ## Configure <StackSnippet snippet="sloorsloidp" inline />
 
-<StackSnippet snippet="intro" />
-
 <StackSnippet snippet="updateapporidp" />
 
 ## Events

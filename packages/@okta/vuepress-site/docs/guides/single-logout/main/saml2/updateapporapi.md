@@ -1,3 +1,5 @@
+SLO supports SAML 2.0 apps. The following steps explain how to configure your apps for SLO using the API.
+
 > **Note**: See [Configure Single Logout in app integrations](https://help.okta.com/okta_help.htm?type=oie&id=apps-single-logout) to update your app using the Admin Console.
 
 The following example shows you how to use the API to update your SAML 2.0 app integration for SLO. This includes adding the `participateSlo` object for IdP-initiated SLO.

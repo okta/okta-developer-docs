@@ -1,1 +1,0 @@
-SLO for IdPs supports SAML 2.0 IdPs. The following steps explain how to configure your IdP for SLO using the API.
