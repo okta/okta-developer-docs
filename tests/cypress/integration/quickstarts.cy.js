@@ -7,13 +7,13 @@ describe('quickstarts page default selections spec', () => {
 
   beforeEach(() => {
     basePage.visit('/');
-    basePage.pageReload();
+    //basePage.pageReload();
   });
 
   it('redirects to /docs/guides if no hash is provided', () => {
     basePage.visit('/quickstart/');
 
-    basePage.pageReload();
+    //basePage.pageReload();
 
     cy.location().should(location => {
       expect(location.pathname).to.eq('/docs/guides/');
@@ -23,7 +23,7 @@ describe('quickstarts page default selections spec', () => {
   it('redirects to /docs/guides if has does not have a mapping', () => {
     basePage.visit('/quickstart/#/invalid/hash/provided');
 
-    basePage.pageReload();
+    //basePage.pageReload();
 
     cy.location().should(location => {
       expect(location.pathname).to.eq('/docs/guides/');
