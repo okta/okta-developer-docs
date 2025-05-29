@@ -1,14 +1,3 @@
-
-need to add:
-
-
-settings object
-"participateSlo": true,
-
-protocol.endpoints.slo object
-
-
-
 > **Note**: See [Configure Single Logout in app integrations](https://help.okta.com/okta_help.htm?type=oie&id=apps-single-logout?????) to update your app using the Admin Console.
 
 1. Send a GET IdP request and copy the response body for use in the PUT request.
@@ -35,31 +24,39 @@ protocol.endpoints.slo object
     ```json
     { ...
     "protocol": {
-        "type": "OIDC",
+        "type": "SAML2",
         "endpoints": {
+            "sso": {
+                "url": "https://idp.example.com",
+                "binding": "HTTP-POST",
+                "destination": "https://idp.example.com"
+            },
             "slo": {
-                "url": "http://myapp.exampleco.com/slo/logout",
+                "url": "http://idp.example.com/slo/logout",
                 "binding": "HTTP-REDIRECT"
             },
-            "authorization": {
-                "url": "https://idp.example.com/authorize",
-                "binding": "HTTP-REDIRECT"
+            "acs": {
+                "binding": "HTTP-POST",
+                "type": "INSTANCE"
+            }
+        },
+        "algorithms": {
+            "request": {
+                "signature": {
+                    "algorithm": "SHA-256",
+                    "scope": "REQUEST"
+                }
             },
-            "token": {
-                "url": "https://idp.example.com/token",
-                "binding": "HTTP-POST"
-            },
-            "userInfo": {
-                "url": "https://idp.example.com/userinfo",
-                "binding": "HTTP-REDIRECT"
-            },
-            "jwks": {
-                "url": "https://idp.example.com/keys",
-                "binding": "HTTP-REDIRECT"
+            "response": {
+                "signature": {
+                    "algorithm": "SHA-256",
+                    "scope": "ANY"
+                }
             }
         },
         "settings": {
-            "nameFormat": null,
+            "nameFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+            "honorPersistentNameId": true,
             "participateSlo": true,
             "sendApplicationContext": false
         },
@@ -78,31 +75,39 @@ protocol.endpoints.slo object
     ```json
     { ...
     "protocol": {
-        "type": "OIDC",
+        "type": "SAML2",
         "endpoints": {
+            "sso": {
+                "url": "https://idp.example.com",
+                "binding": "HTTP-POST",
+                "destination": "https://idp.example.com"
+            },
             "slo": {
-                "url": "http://myapp.exampleco.com/slo/logout",
+                "url": "http://idp.example.com/slo/logout",
                 "binding": "HTTP-REDIRECT"
             },
-            "authorization": {
-                "url": "https://idp.example.com/authorize",
-                "binding": "HTTP-REDIRECT"
+            "acs": {
+                "binding": "HTTP-POST",
+                "type": "INSTANCE"
+            }
+        },
+        "algorithms": {
+            "request": {
+                "signature": {
+                    "algorithm": "SHA-256",
+                    "scope": "REQUEST"
+                }
             },
-            "token": {
-                "url": "https://idp.example.com/token",
-                "binding": "HTTP-POST"
-            },
-            "userInfo": {
-                "url": "https://idp.example.com/userinfo",
-                "binding": "HTTP-REDIRECT"
-            },
-            "jwks": {
-                "url": "https://idp.example.com/keys",
-                "binding": "HTTP-REDIRECT"
+            "response": {
+                "signature": {
+                    "algorithm": "SHA-256",
+                    "scope": "ANY"
+                }
             }
         },
         "settings": {
-            "nameFormat": null,
+            "nameFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+            "honorPersistentNameId": true,
             "participateSlo": true,
             "sendApplicationContext": false
         },
