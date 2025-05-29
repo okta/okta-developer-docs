@@ -94,9 +94,10 @@ export class SignUpValidation {
   async _isWorkEmail(email) {
     const oktaApi = new Api('https://www.okta.com');
     try {
+      const email_domain = email.split('@')[1];
       const { data: { isBusinessEmail } } = await oktaApi
         .get('/free-trial/api/email-validation', {
-          params: { email },
+          params: { email_domain },
         });
 
       return isBusinessEmail;
