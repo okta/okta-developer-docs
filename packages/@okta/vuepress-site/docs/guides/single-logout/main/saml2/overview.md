@@ -1,4 +1,4 @@
-The Single Logout (SLO) feature allows a user to sign out of an SLO participating app on their device and end their Okta session. The user is then automatically signed out of all other SLO participating apps.
+The Single Logout (SLO) feature allows a user to sign out of an SLO-participating app on their device and end their Okta session. The user is then automatically signed out of all other SLO participating apps.
 
 Okta supports service provider initiated (SP-initiated) SLO for third-party SAML 2.0 and OpenID Connect (OIDC) apps. When an end user clicks sign out in your app, the app directs the browser to Okta while making an inbound sign-out request. This indicates to Okta that the user wants to sign out of the app. In response, Okta ends the user’s Okta session.
 
