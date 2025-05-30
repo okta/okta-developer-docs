@@ -8,45 +8,43 @@ const signInWidgetMajorVersion = 7;
 
 const WIDGET_VERSION = findLatestWidgetVersion(signInWidgetMajorVersion);
 
-function getOneTrustScripts() {
-  let domainScriptId = "ac20316c-ea73-4ca8-8b3b-be2d16672166-test";
+// Cypress tests fail with the OneTrust and Adobe scripts. Creating this wrapper
+// to conditionally skip them on localhost.
+function getOneTrustAndAdobeScripts() {
+    let domainScriptId = process.env.DEPLOY_ENV === 'prod' ?
+        'ac20316c-ea73-4ca8-8b3b-be2d16672166' :
+        'ac20316c-ea73-4ca8-8b3b-be2d16672166-test';
+    let src = process.env.DEPLOY_ENV === 'prod' ?
+        "https://assets.adobedtm.com/6bb3f7663515/7ce314d1f3c9/launch-2f9b28f7d70e.min.js" :
+        "https://assets.adobedtm.com/6bb3f7663515/7ce314d1f3c9/launch-f81506449be8-staging.min.js";
 
-  if (process.env.DEPLOY_ENV == "prod") {
-    domainScriptId = "ac20316c-ea73-4ca8-8b3b-be2d16672166";
-  }
+    let scriptSource = '(' + function loadScripts() {
+        function addScript(source, inlineCode, attributes) {
+            var head = document.getElementsByTagName('head')[0];
+            var js = document.createElement("script");
+            if (inlineCode) {
+                js.innerHTML = source;
+            } else if (source) {
+                js.src = source;
+            }
+            attributes && Object.keys(attributes).forEach((key) => {
+                js.setAttribute(key, attributes[key]);
+            });
+            head.appendChild(js);
+        }
 
-  return [
-    [
-      "script",
-      {
-        src: "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js",
-        type: "text/javascript",
-        charset: "UTF-8",
-        "data-domain-script": domainScriptId,
-      },
-    ],
-    [
-      "script",
-      {
-        type: "text/javascript",
-      },
-      "function OptanonWrapper() { }",
-    ],
-  ];
-}
+        if (window.location.hostname === 'localhost') {
+            return;
+        }
 
-function getAdobeScripts() {
-  switch (process.env.DEPLOY_ENV) {
-    case "prod":
-      return [
-        ["script", { src: "https://assets.adobedtm.com/6bb3f7663515/7ce314d1f3c9/launch-2f9b28f7d70e.min.js"}],
-      ];
-    case "test":
-    default:
-      return [
-        ["script", {src: "https://assets.adobedtm.com/6bb3f7663515/7ce314d1f3c9/launch-f81506449be8-staging.min.js"}],
-      ];
-  }
+        addScript("https://cdn.cookielaw.org/scripttemplates/otSDKStub.js", null, {"data-domain-script" : "${domainScriptId}"});
+        addScript(null, "function OptanonWrapper() { } console.log('OneTrust script loaded'); ");
+        addScript("${src}");
+    } + ')()';
+    scriptSource = scriptSource.replace('${domainScriptId}', domainScriptId);
+    scriptSource = scriptSource.replace('${src}', src);
+
+    return ['script', {}, scriptSource];
 }
 
 function configUris() {
@@ -118,8 +116,7 @@ module.exports = ctx => ({
 
       }
     `],
-    //...getOneTrustScripts(),
-    //...getAdobeScripts()
+    getOneTrustAndAdobeScripts(),
   ],
   title: "Okta Developer",
   description: "Secure, scalable, and highly available authentication and user management for any app.",
