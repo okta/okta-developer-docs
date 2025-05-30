@@ -1,1 +1,0 @@
-> **Note:** The `participateSlo` object is independent of the existing `slo` [object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings&t=request) that you use to configure the SP-initiated logout flow.
