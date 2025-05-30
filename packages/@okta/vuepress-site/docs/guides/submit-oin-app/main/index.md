@@ -150,7 +150,7 @@ A dedicated test admin account in your app is required for Okta integration test
 * Privileges to administer test users in your test app
 * Credentials to access the SCIM server for SCIM integrations
 
-After your integration is verified by Okta and published in the OIN, delete or deactivate your app test account within 30 days.
+After your integration is verified, Okta automatically deletes test account credentials 30 days after your app is published in the OIN Wizard. To resubmit your app after this period, create a new test account and provide the required information.
 
 See [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-guidelines).
 

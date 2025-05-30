@@ -99,7 +99,7 @@ See [Customer support contact guidelines](/docs/guides/submit-app-prereq/main/#c
 
 #### Test account
 
-The Okta OIN team requires a dedicated account in your app to run their tests. Ensure that this test account is active during the submission review period for Okta to test and troubleshoot your integration. After your integration is verified by Okta and published in the OIN, delete or deactivate your app test account within 30 days. See [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-guidelines).
+The Okta OIN team requires a dedicated account in your app to run their tests. Ensure that this test account is active during the submission review period for Okta to test and troubleshoot your integration. After your integration is verified, Okta automatically deletes test account credentials 30 days after your app is published in the OIN Wizard. To resubmit your app after this period, create a new test account and provide the required information. See [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-guidelines).
 
 * **Test account URL**: This is a static URL to sign in to your app. An Okta OIN team member goes to this URL and uses the account credentials you provide in the subsequent fields to sign in to your app.
 
