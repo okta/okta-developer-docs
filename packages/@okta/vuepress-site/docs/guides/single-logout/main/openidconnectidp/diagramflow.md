@@ -6,11 +6,11 @@
 
 #### Event 1
 
-* The user signs out of App 1 using the Browser.
+* The user signs out of App 1 using the browser.
 
 #### Event 2
 
-* App 1 initiates the logout (SP-initiated) by sending a front-channel inbound logout request to Okta using the Browser. For example:
+* App 1 initiates the logout (SP-initiated) by sending a front-channel inbound logout request to Okta using the browser. For example:
 
     `GET https://{yourOktaDomain}/oauth2/v1/logout?id_token_hint=<idToken>&post_logout_redirect_uri=<configuredPostLogoutRedirectUri>&state=<someState>`
 

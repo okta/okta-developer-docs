@@ -17,7 +17,7 @@ SLO for IdPs supports SAML 2.0 IdPs. The following steps explain how to configur
         }
         ```
 
-    * In the `protocol.settings` object, update the `participate_slo` property value to `true`.
+    * In the `protocol.settings` object, update the `participateSlo` property value to `true`.
 
     **Example request**
 

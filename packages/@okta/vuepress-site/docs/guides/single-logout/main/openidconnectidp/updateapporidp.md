@@ -12,12 +12,11 @@ SLO for IdPs supports OIDC IdPs. The following steps explain how to configure yo
 
         ```json
         "slo": {
-            "url": "http://idp.example.com/slo/logout",
-            "binding": "HTTP-REDIRECT"
+            "url": "http://idp.example.com/slo/logout"
         }
         ```
 
-    * In the `protocol.settings` object, update the `participate_slo` property value to `true`.
+    * In the `protocol.settings` object, update the `participateSlo` property value to `true`.
 
     **Example request**
 
@@ -29,24 +28,19 @@ SLO for IdPs supports OIDC IdPs. The following steps explain how to configure yo
         "type": "OIDC",
         "endpoints": {
             "slo": {
-                "url": "http://idp.example.com/slo/logout",
-                "binding": "HTTP-REDIRECT"
+                "url": "http://idp.example.com/slo/logout"
             },
             "authorization": {
-                "url": "https://idp.example.com/authorize",
-                "binding": "HTTP-REDIRECT"
+                "url": "https://idp.example.com/authorize"
             },
             "token": {
-                "url": "https://idp.example.com/token",
-                "binding": "HTTP-POST"
+                "url": "https://idp.example.com/token"
             },
             "userInfo": {
-                "url": "https://idp.example.com/userinfo",
-                "binding": "HTTP-REDIRECT"
+                "url": "https://idp.example.com/userinfo"
             },
             "jwks": {
-                "url": "https://idp.example.com/keys",
-                "binding": "HTTP-REDIRECT"
+                "url": "https://idp.example.com/keys"
             }
         },
         "settings": {

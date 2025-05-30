@@ -37,10 +37,10 @@ Understand the purpose of Single Logout (SLO) and set it up for your <StackSnipp
 
 ## Events
 
-After Okta initiates the outbound logout request to <StackSnippet snippet="downup" inline />, Okta includes the number of OIDC and SAML app logouts that occurred with SLO. Those numbers are found in the System Log event `user.session.end` under `DebugData`:
+After Okta initiates the outbound logout request to <StackSnippet snippet="downup" inline />, Okta includes the number of OIDC and SAML app and IdP logouts that occurred with SLO. Those numbers are found in the System Log event `user.session.end` under `DebugData`:
 
-* `TotalOidcLogoutRequests`: Lists the total number of logout requests for OIDC apps
-* `TotalSamlLogoutRequests`: Lists the total number of logout requests for SAML apps
+* `TotalOidcLogoutRequests`: Lists the total number of logout requests for OIDC apps and IdPs
+* `TotalSamlLogoutRequests`: Lists the total number of logout requests for SAML apps and IdPs
 
 ## See also
 
