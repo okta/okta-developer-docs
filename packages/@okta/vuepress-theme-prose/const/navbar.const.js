@@ -334,6 +334,10 @@ export const guides = [
                 guideName: "authenticators-google-authenticator",
               },
               {
+                title: "Temporary access code",
+                guideName: "authenticators-tac-authenticator",
+              },
+              {
                 title: "Web Authentication",
                 guideName: "authenticators-web-authn",
               },
