@@ -30,3 +30,4 @@ https://www.w3.org/Security/wiki/Same_Origin_Policy/
 https://azure.microsoft.com/free/?WT.mc_id=A261C142F/
 https://azure.microsoft.com/free/
 https://jwt.io/
+https://withpersona.com/
