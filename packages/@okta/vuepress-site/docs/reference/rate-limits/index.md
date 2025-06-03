@@ -40,11 +40,15 @@ The Admin Console tracks any rate-limit warnings or violations directly in a rat
 
 ## Burst rate limits
 
-Okta provides rate limits for orgs based on the traffic that they expect to have. If your org experiences higher traffic than what is expected, this unplanned use may potentially have an impact on end users. To help minimize impact, Okta doesn't suspend use that is above the rate limit (specifically for authentication and authorization flows). If there’s sustained use above the purchased rate limit, Okta requires that you purchase an applicable offering that is in line with your use. With burst rate limits, Okta provides peace of mind by ensuring that an unplanned spike doesn't detrimentally affect the end user's experience.
+Okta provides rate limits for orgs based on their expected traffic. If your org experiences higher traffic than what is expected, this unplanned usage may have an impact on end users.
+
+To help minimize this impact, Okta uses burst rate limits, which offer 5x the capacity of the base rate limit. With burst rate limits, Okta doesn't suspend use that's above the established rate, specifically for authentication and authorization flows (except in rare scenarios of reduced resources). However, if there’s a sustained use above the purchased rate limit, Okta requires you to purchase an applicable offering that matches your use. With burst rate limits, Okta provides peace of mind by ensuring that, in most cases, an unplanned spike doesn't detrimentally affect the end user's experience.
+
+>**Note:** Burst rate limits don't apply when the concurrency rate limit threshold has been reached or exceeded for an org. While rare, burst rate limits may also not apply due to resource constraints at the time of the request.
 
 In a scenario where orgs exceed a default rate limit, they receive a System Log warning event, a burst event, and then a violation event. For example, an org has a rate limit of 600 requests per minute on the `/api/v1/authn` endpoint. That org would receive a warning at 360 requests per minute (60% of 600). That org would get a burst notification when the endpoint hits 600 requests per minute. And then the violation event when it hits 3000 requests all in the same minute.
 
-Also, burst rate limits typically apply on top of any rate limit increase that an org may have, such as [DynamicScale](/docs/reference/rl-dynamic-scale/). For example, the default limit on `/api/v1/authn` is 600 requests per minute. If an org is expecting traffic to require 6000 requests per minute, the org would purchase DynamicScale 10x. The burst rate limit in this scenario provides 5x coverage on top of the 6000 and ensure peace of mind for any unplanned spike in use.
+Also, burst rate limits typically apply on top of any rate limit increase that an org may have, such as [DynamicScale](/docs/reference/rl-dynamic-scale/). For example, the default limit on `/api/v1/authn` is 600 requests per minute. If an org is expecting traffic to require 6000 requests per minute, the org would purchase DynamicScale 10x. The burst rate limit in this scenario provides 5x coverage on top of the 6000 and ensures peace of mind for any unplanned spike in use.
 
 On the rate limit dashboard, the trendline can now exceed 100% of the org's default rate limit (up to 5x the default with the buffer zone) as shown in the following example.
 
