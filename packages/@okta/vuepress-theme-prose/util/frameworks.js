@@ -52,6 +52,8 @@ const COMMON_NAME_TO_FANCY_NAME = {
   oktatookta: 'Okta-to-Okta',
   openidconnect: 'OpenID Connect',
   saml2: 'SAML 2.0',
+  openidconnectidp: 'OpenID Connect IdP',
+  saml2idp: `SAML 2.0 IdP`,
   scim: 'SCIM',
   facebook: 'Facebook',
   google: 'Google',
@@ -135,6 +137,8 @@ const COMMON_NAME_TO_ICON_NAME = {
   oktasaml: 'advanced-sso-16-blue',
   thirdpartyoidc: 'openid-16',
   thirdpartysaml: 'advanced-sso-16-blue',
+  openidconnectidp: 'openid-16',
+  saml2idp: 'advanced-sso-16-blue',
 };
 
 const IDP_COMMON_NAME_TO_ICON_NAME = {

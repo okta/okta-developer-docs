@@ -1,1 +1,0 @@
-OIDC app or OAuth 2.0 client app

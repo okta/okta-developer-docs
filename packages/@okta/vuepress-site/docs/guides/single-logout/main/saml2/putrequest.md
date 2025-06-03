@@ -1,1 +1,0 @@
-`PUT https://{yourOktaDomain}/api/v1/apps/{appID}`
