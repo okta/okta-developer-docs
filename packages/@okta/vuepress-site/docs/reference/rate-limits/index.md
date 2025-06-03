@@ -42,7 +42,7 @@ The Admin Console tracks any rate-limit warnings or violations directly in a rat
 
 Okta provides rate limits for orgs based on their expected traffic. If your org experiences higher traffic than what is expected, this unplanned usage may have an impact on end users.
 
-To help minimize this impact, Okta uses burst rate limits, which offer 5x the capacity of the base rate limit. With burst rate limits, Okta doesn't suspend use that is above the established rate, specifically for authentication and authorization flows (except in rare scenarios of reduced resources). However, if there’s a sustained use above the purchased rate limit, Okta requires you to purchase an applicable offering that matches your usage. With burst rate limits, Okta provides peace of mind by ensuring that, in most cases, an unplanned spike doesn't detrimentally affect the end user's experience.
+To help minimize this impact, Okta uses burst rate limits, which offer 5x the capacity of the base rate limit. With burst rate limits, Okta doesn't suspend use that's above the established rate, specifically for authentication and authorization flows (except in rare scenarios of reduced resources). However, if there’s a sustained use above the purchased rate limit, Okta requires you to purchase an applicable offering that matches your use. With burst rate limits, Okta provides peace of mind by ensuring that, in most cases, an unplanned spike doesn't detrimentally affect the end user's experience.
 
 >**Note:** Burst rate limits don't apply when the concurrency rate limit threshold has been reached or exceeded for an org. While rare, burst rate limits may also not apply due to resource constraints at the time of request.
 
