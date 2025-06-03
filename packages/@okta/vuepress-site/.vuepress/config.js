@@ -63,8 +63,8 @@ function configUris() {
     case 'test':
     default:
       return {
-        baseUri: 'https://okta-next-test.oktaweb.dev',
-        baseUriSocial: ' https://www.okstg.okta.com',
+        baseUri: 'https://www.okstg.okta.com',
+        baseUriSocial: 'https://okta-dev-parent.trexcloud.com',
         campaignId: '701F0000000mDmxIAE',
         orgPlan: 'Integrator',
         idps: {
