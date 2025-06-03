@@ -11,13 +11,13 @@ title: Okta Classic Engine API release notes 2025
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Admins prevented from deleting published app instances](#admins-prevented-from-deleting-published-app-instances) | June 4, 2025 |
-| [Authentication claims sharing between Okta orgs is GA in Production](#authentication-claims-sharing-between-okta-orgs-is-ga-in-production) | June 4, 2025 |
-| [Claims sharing between third-party IdPs and Okta is GA in Production](#claims-sharing-between-third-party-idps-and-okta-is-ga-in-production) | June 4, 2025 |
-| [Define default values for custom user attributes is GA in Production](#define-default-values-for-custom-user-attributes-is-ga-in-production) | June 4, 2025 |
-| [Domain restrictions on Realms is GA in Production](#domain-restrictions-on-realms-is-ga-in-production) | June 4, 2025 |
-| [Number matching challenge with the Factors API is GA in Production](#number-matching-challenge-with-the-factors-api-is-ga-in-production) | June 4, 2025 |
+| [Authentication claims sharing between Okta orgs is GA in Production](#authentication-claims-sharing-between-okta-orgs-is-ga-in-production) | May 7, 2025 |
+| [Claims sharing between third-party IdPs and Okta is GA in Production](#claims-sharing-between-third-party-idps-and-okta-is-ga-in-production) | April 9, 2025 |
+| [Define default values for custom user attributes is GA in Production](#define-default-values-for-custom-user-attributes-is-ga-in-production) |  May 7, 2025 |
+| [Domain restrictions on Realms is GA in Production](#domain-restrictions-on-realms-is-ga-in-production) | April 23, 2025 |
+| [Number matching challenge with the Factors API is GA in Production](#number-matching-challenge-with-the-factors-api-is-ga-in-production) | April 9, 2025 |
 | [Restrict access to the Admin Console is GA in Preview](#restrict-access-to-the-admin-console-is-ga-in-preview) | June 4, 2025 |
-| [Developer documentation updates in 2025.06.0](#developer-documentation-updates-in-2025-06-0) | April 2, 2025 |
+| [Developer documentation updates in 2025.06.0](#developer-documentation-updates-in-2025-06-0) | June 4, 2025 |
 | [Bug fixed in 2025.06.0](#bug-fixed-in-2025-06-0)| June 4, 2025 |
 
 #### Admins prevented from deleting published app instances

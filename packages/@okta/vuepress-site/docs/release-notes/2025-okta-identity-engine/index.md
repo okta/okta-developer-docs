@@ -14,13 +14,13 @@ title: Okta Identity Engine API release notes 2025
 |--------|--------------------------|
 | [Admins prevented from deleting published app instances](#admins-prevented-from-deleting-published-app-instances) | June 4, 2025 |
 | [Authentication claims sharing between Okta orgs is GA in Production](#authentication-claims-sharing-between-okta-orgs-is-ga-in-production) | June 4, 2025 |
-| [Claims sharing between third-party IdPs and Okta is GA in Production](#claims-sharing-between-third-party-idps-and-okta-is-ga-in-production) | June 4, 2025 |
-| [Define default values for custom user attributes is GA in Production](#define-default-values-for-custom-user-attributes-is-ga-in-production) | June 4, 2025 |
-| [Domain restrictions on Realms is GA in Production](#domain-restrictions-on-realms-is-ga-in-production) | June 4, 2025 |
+| [Claims sharing between third-party IdPs and Okta is GA in Production](#claims-sharing-between-third-party-idps-and-okta-is-ga-in-production) | April 9, 2025 |
+| [Define default values for custom user attributes is GA in Production](#define-default-values-for-custom-user-attributes-is-ga-in-production) |  May 7, 2025 |
+| [Domain restrictions on Realms is GA in Production](#domain-restrictions-on-realms-is-ga-in-production) | April 23, 2025 |
 | [New password complexity property is self-service EA in Preview](#new-password-complexity-property-is-self-service-ea-in-preview) | June 4, 2025 |
-| [Number matching challenge with the Factors API is GA in Production](#number-matching-challenge-with-the-factors-api-is-ga-in-production) | June 4, 2025 |
+| [Number matching challenge with the Factors API is GA in Production](#number-matching-challenge-with-the-factors-api-is-ga-in-production) | April 9, 2025 |
 | [Restrict access to the Admin Console is GA in Preview](#restrict-access-to-the-admin-console-is-ga-in-preview) | June 4, 2025 |
-| [Shared signal transmitters is GA in Production](#shared-signal-transmitters-is-ga-in-production) | June 4, 2025 |
+| [Shared signal transmitters is GA in Production](#shared-signal-transmitters-is-ga-in-production) | May 7, 2025 |
 | [Single Logout for IdPs is EA in Preview](#single-logout-for-idps-is-ea-in-preview) | June 4, 2025 |
 | [Developer documentation updates in 2025.06.0](#developer-documentation-updates-in-2025-06-0) | June 4, 2025 |
 | [Bugs fixed in 2025.06.0](#bugs-fixed-in-2025-06-0)| June 4, 2025 |
