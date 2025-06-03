@@ -6,6 +6,83 @@ title: Okta Identity Engine API release notes 2025
 
 # Okta Identity Engine API release notes (2025)
 
+## June
+
+### Monthly release 2025.06.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Admins prevented from deleting published app instances](#admins-prevented-from-deleting-published-app-instances) | June 4, 2025 |
+| [Authentication claims sharing between Okta orgs is GA in Production](#authentication-claims-sharing-between-okta-orgs-is-ga-in-production) | June 4, 2025 |
+| [Claims sharing between third-party IdPs and Okta is GA in Production](#claims-sharing-between-third-party-idps-and-okta-is-ga-in-production) | June 4, 2025 |
+| [Define default values for custom user attributes is GA in Production](#define-default-values-for-custom-user-attributes-is-ga-in-production) | June 4, 2025 |
+| [Domain restrictions on Realms is GA in Production](#domain-restrictions-on-realms-is-ga-in-production) | June 4, 2025 |
+| [New password complexity property is self-service EA in Preview](#new-password-complexity-property-is-self-service-ea-in-preview) | June 4, 2025 |
+| [Number matching challenge with the Factors API is GA in Production](#number-matching-challenge-with-the-factors-api-is-ga-in-production) | June 4, 2025 |
+| [Restrict access to the Admin Console is GA in Preview](#restrict-access-to-the-admin-console-is-ga-in-preview) | June 4, 2025 |
+| [Shared signal transmitters is GA in Production](#shared-signal-transmitters-is-ga-in-production) | June 4, 2025 |
+| [Single Logout for IdPs is EA in Preview](#single-logout-for-idps-is-ea-in-preview) | June 4, 2025 |
+| [Developer documentation updates in 2025.06.0](#developer-documentation-updates-in-2025-06-0) | June 4, 2025 |
+| [Bugs fixed in 2025.06.0](#bugs-fixed-in-2025-06-0)| June 4, 2025 |
+
+#### Admins prevented from deleting published app instances
+
+When an app instance has the **Published** version status, admins can no longer delete it from their org. <!-- OKTA-689770 -->
+
+#### Authentication claims sharing between Okta orgs is GA in Production
+
+Authentication claims sharing allows an admin to configure their Okta org to trust claims from IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See [Configure claims sharing](/docs/guides/configure-claims-sharing/oktasaml/main/).  <!-- OKTA-802451 ORG2ORG_CLAIMS_SHARING -->
+
+#### Claims sharing between third-party IdPs and Okta is GA in Production
+
+Authentication claims sharing allows an admin to configure their Okta org to trust claims from third-party IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from a third-party IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See [Configure claims sharing](/docs/guides/configure-claims-sharing/oktasaml/main/). <!-- OKTA-901817 THIRD_PARTY_IDP_CLAIMS_SHARING -->
+
+#### Define default values for custom user attributes is GA in Production
+
+You can now define default values for custom attributes in a user profile. See the [Update User Profile](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/updateUserProfile) endpoint in the Schemas API. <!-- OKTA-907852 ENG_ENABLE_ATTRIBUTE_DEFAULTS -->
+
+#### Domain restrictions on Realms is GA in Production
+
+You can now limit users to a specific domain in Realms, which adds an extra layer of oversight for realm and partner admins and enforces boundaries between user populations. See the [Realms](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Realm/) and [Realm Assignments](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RealmAssignment/) APIs. <!-- OKTA-907851 UD_REALMS_PROFILE_WITH_DOMAIN -->
+
+#### New password complexity property is self-service EA in Preview
+
+You can now use the `oelStatement` property to block words from being used in passwords. This feature enhances security by allowing you to customize your password strength requirements. See the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=3/settings/password/complexity/oelStatement&t=request). <!-- OKTA-849300 PASSWORD_POLICY_OEL_STATEMENT -->
+
+#### Number matching challenge with the Factors API is GA in Production
+
+You can now send number matching challenges for Okta Verify `push` factor enrollments when you send POST requests to the `/users/{userId}/factors/{factorId}/verify` endpoint. For orgs that can't adopt Okta FastPass, this feature improves their overall security.  See the [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/verifyFactor). <!-- OKTA-903176 ENABLE_FACTORS_API_NUMBER_MATCHING_CHALLENGE -->
+
+#### Restrict access to the Admin Console is GA in Preview
+
+By default, users and groups with assigned admin roles have access to the Admin Console app. With this feature, super admins can choose to manually assign the app to delegated admins instead. This is recommended for orgs with admins who don't need access, like business partners, third-party admins, or admins who only use the Okta API. See [Configure administrator settings](https://help.okta.com/okta_help.htm?type=oie&id=administrator-settings) and the corresponding APIs: [Retrieve the Okta Admin Console Assignment Setting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/getAutoAssignAdminAppSetting) and [Update the Okta Admin Console Assignment Setting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/updateAutoAssignAdminAppSetting). <!-- OKTA-717742 ADMIN_APP_AND_ROLE_DECOUPLING -->
+
+#### Shared signal transmitters is GA in Production
+
+Okta uses [CAEP](https://openid.net/specs/openid-caep-specification-1_0.html) to send security-related events and other data-subject signals to third-party security vendors. To enable the transmission of signals from Okta, create an [SSF stream](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFTransmitter/#tag/SSFTransmitter/operation/createSsfStream) using the SSF Transmitter API. Then, configure the third-party receiver to accept signals sent as [Security Event Tokens (SETs)](https://datatracker.ietf.org/doc/html/rfc8417) from Okta. See the [SSF Transmitter API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFTransmitter/) and [SSF Transmitter SET payload structures](https://developer.okta.com/docs/reference/ssf-transmitter-sets/). <!-- OKTA_SSF_TRANSMITTER_PUSH OKTA-673909 -->
+
+#### Single Logout for IdPs is EA in Preview
+
+The Single Logout (SLO) for IdPs feature boosts security for organizations using shared devices and external IdPs by automatically ending IdP sessions when a user signs out of any app. This feature also requires a fresh authentication for every new user, eliminating session hijacking risks on shared devices. SLO for IdP supports both SAML 2.0 and OIDC IdP connections, which provides robust session management for shared workstations in any environment. See [Configure Single Logout for IdPs](/docs/guides/single-logout/openidconnectidp/main/). <!-- SLO_SUPPORT_FOR_EXTERNAL_IDP (OKTA-946177) -->
+
+#### Developer documentation updates in 2025.06.0
+
+* The [Okta Admin Management](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/ ) APIs have been reorganized into functional service groups for improved navigation and user experience. All previous anchors and links to the APIs remain the same.
+
+* The **Email Customization** API has been relabelled as the **Org Email Settings** API under the **Org Management** group. There are no other changes to the API. All previous anchors and links to the API remain the same.
+
+* A [new guide](/docs/guides/custom-widget-migration-gen3/main/) explains how to migrate customizations from the second generation (Gen2) to the third generation (Gen3) of the Sign-In Widget. It describes how to use design tokens instead of CSS className selectors to customize Gen3, and which variables and functions help with your migration.
+
+* New [release notes for Okta Privileged Access APIs](/docs/release-notes/2025-okta-privileged-access/) are now available.
+
+#### Bugs fixed in 2025.06.0
+
+* The `/idp/myaccount/sessions` endpoint didn't accept access tokens granted by custom authorization servers. (OKTA-929488)
+
+* An HTTP 500 error occurred when API requests were sent to `api/v1/policies/{policyId}` and `api/v1/policies/{policyId}/rules/{ruleID}` with certain values in the Accept header. (OKTA-892315)
+
+* MyAccount Authenticators API GET requests (`/idp/myaccount/authenticators/` and `/idp/myaccount/authenticators/{authenticatorId}`) didn't return custom logo details. (OKTA-880048)
+
 ## May
 
 ### Weekly release 2025.05.3
