@@ -58,7 +58,7 @@ By default, users and groups with assigned admin roles have access to the Admin 
 
 #### Bug fixed in 2025.06.0
 
-* An HTTP 500 error occurred when API requests were sent to `api/v1/policies/{policyId}` and `api/v1/policies/{policyId}/rules/{ruleID}` with certain values in the Accept header. (OKTA-892315)
+An HTTP 500 error occurred when API requests were sent to `api/v1/policies/{policyId}` and `api/v1/policies/{policyId}/rules/{ruleID}` with certain values in the Accept header. (OKTA-892315)
 
 ## May
 
