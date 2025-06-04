@@ -15,6 +15,7 @@ title: Okta Identity Engine API release notes 2025
 | [Admins prevented from deleting published app instances](#admins-prevented-from-deleting-published-app-instances) | June 4, 2025 |
 | [Authentication claims sharing between Okta orgs is GA in Production](#authentication-claims-sharing-between-okta-orgs-is-ga-in-production) | June 4, 2025 |
 | [Claims sharing between third-party IdPs and Okta is GA in Production](#claims-sharing-between-third-party-idps-and-okta-is-ga-in-production) | April 9, 2025 |
+| [Conditions for create user permission](#conditions-for-create-user-permission) | June 5, 2025 |
 | [Define default values for custom user attributes is GA in Production](#define-default-values-for-custom-user-attributes-is-ga-in-production) |  May 7, 2025 |
 | [Domain restrictions on Realms is GA in Production](#domain-restrictions-on-realms-is-ga-in-production) | April 23, 2025 |
 | [New password complexity property is self-service EA in Preview](#new-password-complexity-property-is-self-service-ea-in-preview) | June 4, 2025 |
@@ -37,6 +38,10 @@ Authentication claims sharing allows an admin to configure their Okta org to tru
 #### Claims sharing between third-party IdPs and Okta is GA in Production
 
 Authentication claims sharing allows an admin to configure their Okta org to trust claims from third-party IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from a third-party IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See [Configure claims sharing](/docs/guides/configure-claims-sharing/oktasaml/main/). <!-- OKTA-901817 THIRD_PARTY_IDP_CLAIMS_SHARING -->
+
+#### Conditions for create user permission
+
+You can now add conditions when you create user permission for custom admin roles. This enables you to granularly control which user attributes admins can set values for during user creation. See [Permissions conditions](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions-conditions). <!-- OKTA-907853 -->
 
 #### Define default values for custom user attributes is GA in Production
 
