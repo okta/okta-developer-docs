@@ -35,7 +35,7 @@ Authentication claims sharing allows an admin to configure their Okta org to tru
 
 #### Conditions for create user permission
 
-You can now add conditions when you create user permission for custom admin roles. This enables you to granularly control which user attributes admins can set values for during user creation. See [Permissions conditions](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions-conditions). <!-- OKTA-907853 -->
+You can now add conditions to the `okta.user.create` permission for custom admin roles. This enables you to granularly control which user attributes admins can set values for during user creation. See [Permissions conditions](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions-conditions).
 
 #### Define default values for custom user attributes is GA in Production
 
