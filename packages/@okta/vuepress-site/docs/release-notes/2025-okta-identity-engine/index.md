@@ -116,6 +116,8 @@ The Integrator Free Plan org is now available on the [Sign up](/signup) page of 
 
 * Users with `+` in their email address couldn't reset their passwords from email templates. Use the `${encode(String html)}` expression to encode special characters. (OKTA-914601)
 
+* Sending a phone challenge with the MyAccount Phone API (`POST /idp/myaccount/phones/{id}/challenge`) sometimes returned an HTTP 500 Internal Server error. (OKTA-946865)
+
 ### Weekly release 2025.05.2
 
 | Change | Expected in Preview Orgs |
