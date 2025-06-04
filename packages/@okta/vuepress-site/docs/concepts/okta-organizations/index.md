@@ -34,10 +34,17 @@ Production orgs are always a stable release, covered by our Software License Agr
 
 > **Tip:** To verify which type of org you have, look at the footer of any page of your Okta Admin. Preview org footers have the word `Preview` in the cell name (for example: `OP1 Preview Cell (US)`) and include `oktapreview` as part of the org URL (for example: `companyname.oktapreview.com`). Production orgs don't have production indicators in their URLs or cells.
 
-### Integrator free plan and free trial orgs
+### Integrator Free Plan and Free Trial orgs
 
-xyz ...
+Okta offers two free org types for feature review, development, and testing:
 
+* Free trial orgs: Intended for admin users, these orgs have a 30-day limit and require a business email. You can sign up at [Free Trial](https://www.okta.com/free-trial/workforce-identity/). For details on limits and configurations, see [Okta free trial](https://help.okta.com/oie/en-us/content/topics/miscellaneous/okta-free-trial.htm).
+
+* Integrator Free Plan orgs: Designed for developers and integrators building authentication and authorization solutions with Okta. These orgs also require a business email and are available at [Okta Integrator Free Plan](https://developer.okta.com/signup/). For more information on limits and configurations, see [Okta Integrator Free Plan org configurations](/docs/reference/org-defaults/).
+
+Integrator Free Plan orgs are also required for developers submitting to the Okta Integration Network (OIN). For more details, see the [Okta Integration Network](/docs/guides/okta-integration-network/).
+
+> **Note:** Free trial orgs and Integrator Free Plan orgs use example URLs such as `trial-1234567.okta.com`.
 
 ## Admin Console
 The Admin Console is where you go to manage your Okta org. The first page that you see when you sign in as an Okta admin is the **Dashboard** tab. This landing page provides a summary of activity in Okta and in your apps. The page also lists notifications of any problems or outstanding work that you need to complete. The Admin Console also provides you with quick access to your application configuration and API Access Management features.
