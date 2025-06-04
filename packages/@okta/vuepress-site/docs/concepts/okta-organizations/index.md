@@ -3,33 +3,41 @@ title: Okta organizations
 ---
 
 # Okta organizations
-An Okta organization (org) is a root object and a container for all other Okta objects. It contains resources such as users, groups, and applications, as well as policy and configurations for your Okta environment. See [Set up Okta](/docs/guides/sign-into-web-app-redirect/-/main/#set-up-okta).
 
-Within every org, there are users and applications. These are the only mandatory items that must be configured for your org to use Okta. Users can be created in Okta, imported through directory integrations, or imported through application integrations. Applications are connections to public apps (such as Office 365) or proprietary applications (such as your own apps).
+An Okta organization (org) is a root object and a container for all other Okta objects. It contains resources such as users, groups, and app integrations (apps), as well as policy and configurations for your Okta environment.
+
+Within every org, there are users and apps. These are the only mandatory items that must be configured for your org to use Okta. Users can be created in Okta, imported through directory integrations, or imported through application integrations. Apps are connections to public apps (such as Office 365) or connections to proprietary applications (such as your own apps).
 
 ## Org URLs
+
 Okta orgs host pages on subdomains and each org is assigned a URL. The typical org URL is the tenant name (the subdomain), and then the domain name.
 
-**Example domain:** companyname.okta.com
+Example domain: `companyname.okta.com`
 
-**Example EMEA domain:** companyname.okta-emea.com
+Example EMEA domain: `companyname.okta-emea.com`
 
-**Example preview/sandbox domain:** companyname.oktapreview.com
+Example preview/sandbox domain: `companyname.oktapreview.com`
 
 You can customize your Okta org URL by replacing the Okta domain name with your own domain name. Using this feature aliases your Okta organization's domain name to another subdomain that you own, like `login.companyname.com`.
 
 Each organization also has an administrator URL to sign in to the administrator console. The admin URL is the subdomain plus `-admin` (for example, `companyname-admin.okta.com`). If you have [customized your domain](/docs/guides/custom-url-domain/), access the Admin Console using your un-customized domain.
 
-### Preview and production
-Okta orgs come in two varieties: preview orgs and production orgs.
+### Preview and production orgs
 
-Preview orgs allow you to see the next release early and play with Beta features. Preview orgs include [Beta](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#beta) and [Early Access](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#early-access-ea) (EA) features by invitation and include all features that are [Generally Available](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#general-availability-ga) (GA).
+Preview orgs and production orgs are the two main types of Okta orgs.
+
+Preview orgs allow you to see the next release early and explore the Beta features. Preview orgs include [Beta](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#beta) and [Early Access](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#early-access-ea) (EA) features by invitation or enabled through self-service. These orgs include all features that are [Generally Available](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#general-availability-ga) (GA).
 
 > **Note:** Preview orgs can't be converted into Production orgs, and Production orgs can't be converted into Preview orgs.
 
-Production orgs are always a stable release, covered by our Software License Agreement, and don't include [Beta](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#beta) features. Production orgs include EA features by request and include all features that are GA.
+Production orgs are always a stable release, covered by our Software License Agreement, and don't include [Beta](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#beta) features. Production orgs include EA features by request or enabled through self-service, and include all features that are GA.
 
 > **Tip:** To verify which type of org you have, look at the footer of any page of your Okta Admin. Preview org footers have the word `Preview` in the cell name (for example: `OP1 Preview Cell (US)`) and include `oktapreview` as part of the org URL (for example: `companyname.oktapreview.com`). Production orgs don't have production indicators in their URLs or cells.
+
+### Integrator free plan and free trial orgs
+
+xyz ...
+
 
 ## Admin Console
 The Admin Console is where you go to manage your Okta org. The first page that you see when you sign in as an Okta admin is the **Dashboard** tab. This landing page provides a summary of activity in Okta and in your apps. The page also lists notifications of any problems or outstanding work that you need to complete. The Admin Console also provides you with quick access to your application configuration and API Access Management features.
