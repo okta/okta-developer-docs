@@ -985,6 +985,30 @@ export const guides = [
   }
 ];
 
+export const journeys = [
+    {
+      title: "Journeys",
+      path: "/docs/journeys/",
+      subLinks: [
+        {
+          title: "Okta Customer Identity (OCI)",
+          path: "/docs/journeys/1",
+          subLinks: [
+            { title: "Get Started with OCI", path: "/docs/journeys/2" },
+            { title: "Web Sign-in", path: "/docs/journeys/3" },
+            { title: "Mobile Sign-in", path: "/docs/journeys/4" },
+          ]
+        },
+        {
+          title: "ISV Ecosystem",
+          path: "/docs/journeys/6",
+          subLinks: [
+          ]
+        }
+      ],
+    }
+];
+
 export const languagesSdk = [
   {
     title: "SDKs",
@@ -1025,7 +1049,7 @@ export const reference = [
         path: "/docs/reference/okta-expression-language-in-identity-engine/",
       }, {
         title: "Rate Limits",
-        path: "/docs/reference/rate-limits/", 
+        path: "/docs/reference/rate-limits/",
         subLinks: [
           {
             title: "Rate limit dashboard",
