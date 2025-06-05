@@ -10,7 +10,7 @@ title: Okta Identity Engine API release notes 2025
 
 ### Monthly release 2025.06.0
 
-| Change | Expected in Preview orgs |
+| Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Admins prevented from deleting published app instances](#admins-prevented-from-deleting-published-app-instances) | June 4, 2025 |
 | [Authentication claims sharing between Okta orgs is GA in Production](#authentication-claims-sharing-between-okta-orgs-is-ga-in-production) | June 4, 2025 |
@@ -29,7 +29,7 @@ title: Okta Identity Engine API release notes 2025
 
 #### Admins prevented from deleting published app instances
 
-When an app instance has the **Published** version status, admins can no longer delete it from their org. <!-- OKTA-689770 -->
+When an app instance has the **Published** version status in OIN Wizard, admins can no longer delete it from the Integrator Free Plan org. <!-- OKTA-689770 -->
 
 #### Authentication claims sharing between Okta orgs is GA in Production
 
