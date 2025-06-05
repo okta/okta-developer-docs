@@ -7,27 +7,27 @@ meta:
 
 ## Build an OCI proof of concept
 
-This document outlines the essential steps to construct a robust proof of concept (PoC) app leveraging Okta Customer Identity (OCI). This guided journey provides a streamlined path to demonstrate how OCI can serve as a secure and scalable gatekeeper for your customer's user accounts and sensitive information.
+This document outlines the essential steps to construct a robust proof of concept (POC) app using Okta Customer Identity (OCI). This journey describes how OCI can serve as a secure and scalable gatekeeper for your customer's user accounts and sensitive data.
 
-## Develop your OCI PoC
+## Develop your OCI POC
 
-The following sections detail the critical stages in developing an OCI PoC.
+The following sections detail the critical stages in developing an OCI POC.
 
 ### Understand and configure your Okta environment
 
-To begin your OCI PoC, it's important to establish a foundational understanding of Okta and configuring your environment is paramount.
+To begin your OCI POC, it's important to establish a foundational understanding of Okta and configuring your environment is paramount.
 
-Your Okta journey starts with securing [an Okta account](new doc on getting an Okta account), followed by the creation of [an Okta org](/docs/concepts/okta-organizations/). The org functions as the central hub for all your Okta development activities, encapsulating all users, groups, policies, and other Okta objects that your app interacts with.
+Your Okta journey starts with securing [an Okta account](/docs/guides/newdochere), followed by the creation of [an Okta org](/docs/concepts/okta-organizations/). The org serves as your central Okta development hub, encapsulating all users, groups, policies, and other objects your app uses.
 
-After your account and org are provisioned, [set up your org for basic testing](new doc on setting up your org for basic testing). This involves populating it with sample users and a user group, enabling you to immediately commence testing of your PoC app.
+After your account and org are provisioned, [set up your org for basic testing](/docs/guides/newguidehere). This involves populating it with sample users and a user group, enabling you to immediately commence testing of your POC app.
 
 #### Use a custom domain for brand alignment
 
-By default, all orgs have an `okta.com` or `oktapreview.com` URL. When you create a **production** org, you have the option to register a custom domain. A custom domain isn't just for branding. It also unlocks a full spectrum of customization options for the Okta default UI components and messaging, which ensures your app's brand consistency. It also makes it easier to maintain and monitor [user sessions](#manage-user-sessions-with-okta) and lays the groundwork for advanced cross-app features like [Single Logout](#manage-user-sessions-with-okta).
+By default, all orgs have an `okta.com` or `oktapreview.com` URL, for example. When you create a **production** org, you can register a custom domain. A custom domain isn't just for branding. It also unlocks a full spectrum of customization options for the Okta default UI components and messaging, which ensures your app's brand consistency. It also makes it easier to maintain and monitor [user sessions](#manage-user-sessions-with-okta) and lays the groundwork for advanced cross-app features like [Single Logout](#manage-user-sessions-with-okta).
 
 Register a custom domain with your org immediately to avoid the technical debt that you incur if you add it later.
 
-> **Note:** The Okta Integrator Free Plan org, designed for development and testing by developers interested in implmenting an Okta solution, doesn't support creating a custom domain.
+> **Note:** The Okta Integrator Free Plan org, designed for development and testing by developers interested in implementing an Okta solution, doesn't support creating custom domains.
 
 ### Connect your app to Okta
 
@@ -49,7 +49,7 @@ Your Okta org comes with three [preset authentication policies](https://help.okt
 * Any one factor
 * Any two factors
 
-Also, your org comes with four basic authentication factors enabled by default:
+Also, your org comes with four Basic authentication factors enabled by default:
 
 * Password
 * Email
@@ -58,17 +58,19 @@ Also, your org comes with four basic authentication factors enabled by default:
 
 Assign one of these to your app integration to get started.
 
-When you need to [add a new authentication factor](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-authenticators) (for example: passkeys or Okta Verify), you can do that in the Okta Admin Console. Need to build your own custom authentication policy? You can do that in the Admin Console, also. No coding is necessary.
+When you need to [add an authentication factor](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-authenticators) (for example: passkeys or Okta Verify), you can do that in the Admin Console. Need to build your own custom authentication policy? You can do that in the Admin Console, also. No coding is necessary.
 
-> **Note**: If you're using an Okta-hosted sign-in page, any changes to your authentication policy is instantly reflected. For self-hosted sign-in forms, ensure that you keep it in sync with policy changes to prevent user experience issues. Users can't enter a one-time password from their phone if you've forgotten to add support for phone-based authentication to your app.
+> **Note**: If you're using an Okta-hosted sign-in page, any change to your authentication policy is instantly reflected. For self-hosted sign-in forms, ensure that you keep it in sync with policy changes to prevent user experience issues. Users can't enter a one-time passcode from their phone if you've forgotten to add support for phone-based authentication to your app.
 
 ### Use the Okta hosted sign-in page
 
-Use an Okta-hosted sign-in page to sign your users in to your web apps. The Okta-hosted sign-in page offers support for all Okta authentication factors out-of-the-box and automatically adapts to any authentication policy modifications you make in the Admin Console. It also supports self-service user registration, account recovery, password resets, and passwordless authentication, with the ability to adjust behavior based on device, user, and app context.
+Use an Okta-hosted sign-in page to sign your users into your web apps. The Okta-hosted sign-in page supports all Okta authentication factors and adapts to any authentication policy modifications that you make in the Admin Console. It also supports self-service user registration, account recovery, password resets, and passwordless authentication. You can adjust behavior based on device, user, and app context.
 
 > **Note**: For more information on building a mobile app, see [Use our Okta Mobile SDKs for your native mobile apps](#use-our-okta-mobile-sdks-for-native-mobile-apps).
 
-The Okta hosted sign-in page operates on standard IAM protocols such as SAML, OAuth 2.0, or OpenID Connect (OIDC). The default and most common approach is to use your preferred OIDC library to initiate the sign-in flow with Okta. When your user has authenticated successfully, your app receives an ID token (confirming user identity) and an access token (for accessing protected resources like APIs).
+The Okta hosted sign-in page operates on standard IAM protocols such as SAML, OAuth 2.0, or OpenID Connect (OIDC). The default and most common approach is to use your preferred OIDC library to initiate the sign-in flow with Okta. Upon successful user authentication, your app receives an ID token (confirming user identity) and an access token (for accessing protected resources like APIs).
+
+See the following guides for more information:
 
 * [Learn about the Okta Sign-In Widget](new concept doc)
 * [Sign users in to your portal by redirecting them to an Okta sign-in page](/docs/guides/auth-js-redirect/main/)
@@ -79,18 +81,18 @@ This section focuses on branding and advanced user authentication options to ref
 
 ### Customize the sign-in page with your brand
 
-The Okta-hosted sign-in page UI is entirely customizable. After you have [set up a custom URL for your production org](#use-a-custom-domain-url-with-your-okta-org), you can upload graphics and stylesheets to match your brand in the Admin Console.
+The Okta-hosted sign-in page UI is entirely customizable. After your **production** org [has a custom URL](#use-a-custom-domain-url-with-your-okta-org), upload graphics and style sheets in the Admin Console to match your brand.
 
-> **Note:** The Okta Integrator Free Plan org, designed for development and testing by developers interested in implmenting an Okta solution, doesn't support creating a custom domain.
+> **Note:** The Okta Integrator Free Plan org, designed for development and testing by developers interested in implementing an Okta solution, doesn't support creating a custom domain.
 
 * [Style your Okta org with your brand](/docs/concepts/brands/)
 * [Style the sign-in page](/docs/guides/custom-widget-gen3/main/)
 
-???Brent's screenshots of some rebranded Okta-hosted sign-in pages.
+<!-- Brent's screenshots of some rebranded Okta-hosted sign-in pages -->
 
 ### Use our Okta Mobile SDKs for native mobile apps
 
-For native mobile app (Swift and Kotlin), Okta Mobile SDKs simplify the sign-in process, supporting both Okta-hosted and self-hosted sign-in forms with minimal code. These SDKs handle all your tokens, scopes, and server requests to the server in the background, leaving you to focus on core app functionality rather than authentication complexities.
+For native mobile app (Swift and Kotlin), Okta Mobile SDKs simplify the sign-in process, supporting both Okta-hosted and self-hosted sign-in forms with minimal code. These SDKs handle tokens, scopes, and server requests to the server in the background, so you can concentrate on your app's core functionality.
 
 * Okta Mobile SDK for [Swift](https://github.com/okta/okta-mobile-swift) and [Kotlin](https://github.com/okta/okta-mobile-kotlin)
 * [Sign users in to your native app by redirecting them to an Okta-hosted sign-in page](/docs/guides/sign-into-mobile-app-redirect/android/main/)
@@ -100,7 +102,7 @@ For native mobile app (Swift and Kotlin), Okta Mobile SDKs simplify the sign-in 
 
 At a fundamental level, validating an ID token from Okta signifies successful user authentication and provides basic user information. An access token, on the other hand, grants your app permission to access specific resources on behalf of that user.
 
-For a comprehensive PoC, a deeper understanding of tokens is essential:
+For a comprehensive POC, a deeper understanding of tokens is essential:
 
 * **Claims:** What information (claims) can you request during the sign-in process and in what format is it delivered?
 * **Token Verification:** When your app accesses a controlled resource (for example, an API), how do you verify the authenticity of the token?
@@ -114,13 +116,13 @@ Consult these guides for detailed insights:
 
 ## Go further
 
-Beyond basic authentication, a robust identity solution requires careful consideration of session management, flexible sign-in options, efficient user onboarding, and scalable API interactions. This section provides guidance on leveraging the capabilities in each of these areas.
+Beyond Basic authentication, an identity solution requires that you carefully consider session management, flexible sign-in options, efficient user onboarding, and scalable API interactions. This section provides guidance on applying the capabilities in each of these areas.
 
 ### Manage user sessions with Okta for enhanced security
 
 Okta plays a pivotal role in authenticating your users and managing their sessions. When a user signs in through the Okta-hosted sign-in page, Okta establishes an active browser session. For apps that host their own sign-in experiences, you can use the Sessions API to obtain a session token.
 
-By leveraging these Okta-managed sessions and tokens for your app's own user sessions, you gain access to powerful features:
+By using Okta-managed sessions and tokens for your app's user sessions, you gain access to more advanced features:
 
 * **Single Logout (SLO):** Users can sign out of all their apps from a single point, streamlining the sign-out process and enhancing convenience.
 * **Universal Logout (ULO):** Administrators can centrally terminate all of a user's active sessions across all apps if needed, enhancing security and control.
@@ -131,18 +133,18 @@ By leveraging these Okta-managed sessions and tokens for your app's own user ses
 
 ### Use Direct Authentication for your own sign-in forms
 
-Should you want your own sign-in page instead of the Okta-hosted option, consider using Direct Authentication to implement the sign-in flow between your app and Okta. This OAuth 2.0 flow currently supports password, email, and phone factors and features the fewest request and response steps between the user and Okta. This makes it particularly suitable for apps with high customer volumes.
+If you prefer your own sign-in page, consider using Direct Authentication to implement the sign-in flow between your app and Okta. This OAuth 2.0 flow currently supports password, email, and phone factors and features the fewest request and response steps between the user and Okta. This makes it suitable for apps with high customer volumes.
 
 * [Learn about Direct Authentication](new concept)
 * [Use Direct Authentication in your forms](/docs/guides/configure-direct-auth-grants/aotp/main/)
 
 ### Plan your user onboarding campaign
 
-A well-defined user onboarding strategy is crucial for your PoC's success. Consider the various ways a user might obtain an account for your app. Users can create accounts in the app, but often, they're given accounts and must complete the setup themselves. Ask yourself these three questions and ensure that your app supports each applicable use case:
+A well-defined user onboarding strategy is crucial for your POC's success. Consider the various ways that a user might obtain an account for your app. Users can create accounts in the app, but often, they're given accounts and must complete the setup themselves. Ask yourself these three questions and ensure that your app supports each applicable use case:
 
-1. **Initial Account Creation:** What triggers the initial creation of the user account? Is it a beta program, a new company onboarding its employees, or a migration from another identity provider?
-2. **Authentication Initiation:** How is the user's authentication process initiated? Thru email, SMS, or an admin invite notification?
-3.  **Onboarding Experience:** What's the complete user experience for the authentication process? How are they onboarded? How many authentication factors do they need to set up initially? Are you using the Okta-hosted sign-in page or developing your own? Where is the user directed immediately after completing the onboarding process?
+1. **Initial account creation:** What triggers the initial creation of the user account? Is it a beta program, a new company onboarding its employees, or a migration from another identity provider?
+2. **Authentication initiation:** How is the user's authentication process initiated? Through email, SMS, or an admin invite notification?
+3. **Onboarding experience:** What's the complete user experience for the authentication process? How are they onboarded? How many authentication factors do they need to set up initially? Are you using the Okta-hosted sign-in page or developing your own? Where is the user directed immediately after completing the onboarding process?
 
 ### Use the right APIs for scalability
 
