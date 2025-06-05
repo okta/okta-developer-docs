@@ -22,8 +22,8 @@ The following example shows you how to use the API to update your SAML 2.0 app i
       * `logoutRequestUrl`: The URL where you want Okta to send the IdP-initiated logout request.
       * `sessionIndexRequired`: Set to `true` to include the session index (`sessionIndex`) as part of the IdP-initiated logout request. This ends a specific user’s session rather than all active user sessions within that browser.
     * `bindingType`: Set how your app expects Okta to send the IdP-initiated logout request:
-      * `POST`: Send additional data in the request body
-      * `REDIRECT`: Send data as query parameters in the request URL
+      * `POST`: Send additional data in the request body.
+      * `REDIRECT`: Send data as query parameters in the request URL.
 
     **Example request**
 

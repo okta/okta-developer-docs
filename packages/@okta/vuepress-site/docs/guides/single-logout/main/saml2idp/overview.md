@@ -2,7 +2,7 @@ Single Logout for Identity Providers (SLO for IdPs) allows Okta to send sign-out
 
 > **Note**: You must have the [Single Logout feature](/docs/guides/single-logout/openidconnect/main/) enabled to then enable and use the Single Logout for IdPs feature.
 
-The Single Logout feature allows a user to sign out of an SLO-participating app on their device and end their Okta session. The user is then automatically signed out of all other SLO participating apps.
+The Single Logout feature allows a user to sign out of an SLO-participating app on their device and end their Okta session. The user is then automatically signed out of all other SLO-participating apps.
 
 ### Single Logout for IdPs
 

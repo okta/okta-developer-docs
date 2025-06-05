@@ -10,7 +10,7 @@ title: Okta Identity Engine API release notes 2025
 
 ### Monthly release 2025.06.0
 
-| Change | Expected in Preview Orgs |
+| Change | Expected in Preview orgs |
 |--------|--------------------------|
 | [Admins prevented from deleting published app instances](#admins-prevented-from-deleting-published-app-instances) | June 4, 2025 |
 | [Authentication claims sharing between Okta orgs is GA in Production](#authentication-claims-sharing-between-okta-orgs-is-ga-in-production) | June 4, 2025 |
