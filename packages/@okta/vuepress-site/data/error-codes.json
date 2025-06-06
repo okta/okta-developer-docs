@@ -1,6 +1,6 @@
 {
-  "release" : "2025.05.1",
-  "build" : "2025.05.1-begin-166-gf9d09b62d6cf",
+  "release" : "2025.06.1",
+  "build" : "2025.06.1-begin-127-gbc517b79f749",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1896,6 +1896,14 @@
     "statusReasonPhrase" : "Forbidden",
     "errorCode" : "E0000255",
     "errorSummary" : "App instance with Published version status can't be deleted.",
+    "errorDescription" : null
+  }, {
+    "title" : "Response header too long",
+    "includesExceptionMessage" : false,
+    "statusCode" : 414,
+    "statusReasonPhrase" : "URI Too Long",
+    "errorCode" : "E0000256",
+    "errorSummary" : "This request produced a response with a header too large to be processed.",
     "errorDescription" : null
   } ]
 }

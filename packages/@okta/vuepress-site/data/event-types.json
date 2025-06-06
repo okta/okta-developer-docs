@@ -1,6 +1,6 @@
 {
-  "release" : "2025.05.1",
-  "build" : "2025.05.1-begin-166-gf9d09b62d6cf",
+  "release" : "2025.06.1",
+  "build" : "2025.06.1-begin-127-gbc517b79f749",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -99,7 +99,7 @@
     "name" : "Device Platform"
   }, {
     "id" : "device-signal-platform",
-    "name" : "Device Signal Platform"
+    "name" : "Device Assurance"
   }, {
     "id" : "device-mfa",
     "name" : "Device MFA"
@@ -131,8 +131,8 @@
     "id" : "extensibility",
     "name" : "Flow Builder"
   }, {
-    "id" : "extensible-security-platform",
-    "name" : "Extensible Security Platform"
+    "id" : "workforce-custom-objects",
+    "name" : "Workforce Custom Objects"
   }, {
     "id" : "fastpass-and-device-assurance",
     "name" : "FastPass and Device Assurance"
@@ -1504,7 +1504,7 @@
       "schema" : {
         "debugData" : "CsvReportExportDebugData",
         "actor" : null,
-        "targets" : [ "ResourceDetails" ],
+        "targets" : [ "ExportResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -2818,7 +2818,7 @@
       "schema" : {
         "debugData" : "AppOauth2ClientRoleDebugData",
         "actor" : null,
-        "targets" : [ "ResourceDetails" ],
+        "targets" : [ "AppOauth2ClientRoleResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -2836,7 +2836,7 @@
       "schema" : {
         "debugData" : "AppOauth2ClientRoleDebugData",
         "actor" : null,
-        "targets" : [ "ResourceDetails" ],
+        "targets" : [ "AppOauth2ClientRoleResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -6506,10 +6506,10 @@
       "tags" : [ "app" ],
       "mappings" : [ "app.registration_policy.lifecycle.update" ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "RegistrationPolicyDebugData",
         "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
       }
     }, {
       "id" : "application.user_membership.add",
@@ -9542,6 +9542,24 @@
       "info" : {
         "created" : "2025-02-14",
         "release" : "2025.02.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "pam.active_directory.account_rule.applied",
+      "category" : "asa",
+      "description" : "Account rule applied to AD account import. Use this event to identify and troubleshoot issues with account rules in Active Directory connections. This event is triggered when an Active Directory account rule is applied during account import in Okta Privileged Access. It contains details about the rule, the associated account and any notable outcome from applying the rule to the account.",
+      "info" : {
+        "created" : "2025-05-16",
+        "release" : "2025.05.2"
       },
       "beta" : false,
       "internal" : false,
@@ -15262,7 +15280,7 @@
     }, {
       "id" : "system.email.challenge_factor_redeemed",
       "category" : "cred-platform",
-      "description" : "This event indicates that a user completed an email factor challenge. This can be used to identify when a credential sent in an email to a user has been redeemed (the link was clicked or the code was entered). When fired, this event contains information about the result. Success if successful or error reasons should be present for failure cases (e.g. incorrect code, timeout, expired, etc.). The event also contains a debugData with the action (the link was clicked or the code was entered).",
+      "description" : "User completed an email factor challenge. This can be used to identify when a credential sent in an email to a user has been redeemed (the link was clicked or the code was entered). When fired, this event contains information about the result. Success if successful or error reasons should be present for failure cases (e.g. incorrect code, timeout, expired, etc.). The event also contains a debugData with the action (the link was clicked or the code was entered).",
       "info" : {
         "created" : "2019-06-21",
         "release" : "2019.07.0"
@@ -17944,7 +17962,7 @@
     }, {
       "id" : "user.account.lock.limit",
       "category" : "cred-platform",
-      "description" : "This event is fired when a user account has reached the lockout limit. The account will not auto-unlock and a user or client cannot gain access to the account. This event indicates an account that will not be able to log in until remedial action is taken by the account admin. This event can be used to understand the specifics of an account lockout. Often this indicates a client application that is repeatedly attempting to authenticate with invalid credentials such as an old password.",
+      "description" : "User account reached lockout limit and will not be automatically unlocked. This event indicates an account that will not be able to log in until remedial action is taken by the account admin. This event can be used to understand the specifics of an account lockout. Often this indicates a client application that is repeatedly attempting to authenticate with invalid credentials such as an old password.",
       "info" : {
         "created" : "2019-04-18",
         "release" : "2019.05.0"
@@ -18034,7 +18052,7 @@
     }, {
       "id" : "user.account.reset_password",
       "category" : "cred-platform",
-      "description" : "Fired when the user's Okta password is reset.",
+      "description" : "User's Okta password has been reset.",
       "info" : {
         "created" : "2016-04-01",
         "release" : "2016.15"
@@ -18664,7 +18682,7 @@
     }, {
       "id" : "user.import.password",
       "category" : "cred-platform",
-      "description" : "Fired when a user has successfully logged in to Okta and an attempt to import their Password has been made. This can be used to understand if a user password import attempt was successful or if it failed. If the attempt failed, the password import will be tried again on a subsequent successful login. When fired, this event contains information about the import type, and whether or not the password import was successful. If the import is successful, it is safe to \"clean up\" that user from an external system. If the import failed, Okta will continue retrying the import during every successful authentication attempt until the password is successfully imported. Check the failure reason for details about whether any action is needed for the import to succeed.",
+      "description" : "Imported user password from external system during login. This can be used to understand if a user password import attempt was successful or if it failed. If the attempt failed, the password import will be tried again on a subsequent successful login. When fired, this event contains information about the import type, and whether or not the password import was successful. If the import is successful, it is safe to \"clean up\" that user from an external system. If the import failed, Okta will continue retrying the import during every successful authentication attempt until the password is successfully imported. Check the failure reason for details about whether any action is needed for the import to succeed.",
       "info" : {
         "created" : "2020-04-13",
         "release" : "2020.05.1"
@@ -19126,7 +19144,7 @@
       "schema" : {
         "debugData" : "UserRoleDebugData",
         "actor" : null,
-        "targets" : [ "ResourceDetails" ],
+        "targets" : [ "UserRoleResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -19144,7 +19162,7 @@
       "schema" : {
         "debugData" : "UserRoleDebugData",
         "actor" : null,
-        "targets" : [ "ResourceDetails" ],
+        "targets" : [ "UserRoleResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -29710,6 +29728,14 @@
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
           },
+          "principal_entitlements_changes_url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/governance/api/v1/principal-entitlements-changes/gra5ce77wY9qNj79L8g6:gra1q2MG1jbsEamBO0g3" ]
+          },
           "resource_collection_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -30947,6 +30973,22 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "mfa_verified" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "amr_list" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[pwd]", "[pwd, sms]", "[pwd, otp, hwk]" ]
           },
           "username" : {
             "type" : "String",
@@ -38225,6 +38267,267 @@
           }
         }
       },
+      "RegistrationPolicyDebugData" : {
+        "name" : "RegistrationPolicyDebugData",
+        "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "tunnels" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{\"operator\":\"HOTSPOT_VPN\",\"type\":\"VPN\",\"anonymous\":true}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "new_policy_metadata" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{\"defaultRedirectUri\":\"/app/UserHome\",\"activationRequirements\":{\"emailVerificationRequiredToActivate\":false},\"registrationEnabledForSignInWidget\":true,\"callbackId\":null}" ]
+          },
+          "old_policy_metadata" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{\"defaultRedirectUri\":\"/app/UserHome\",\"activationRequirements\":{\"emailVerificationRequiredToActivate\":false},\"registrationEnabledForSignInWidget\":true,\"callbackId\":null}" ]
+          },
+          "new_policy_activate_user" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true" ]
+          },
+          "old_policy_activate_user" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "false" ]
+          },
+          "new_policy_target_group_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "00g11gh0glo9DcMrQ0g4" ]
+          },
+          "old_policy_target_group_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "00g11gh0glo9DcMrQ0g4" ]
+          },
+          "new_policy_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "INACTIVE" ]
+          },
+          "old_policy_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "ACTIVE" ]
+          },
+          "new_policy_profile_schema" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{\"properties\":{\"email\":{\"type\":\"string\",\"title\":\"Email 123\",\"default\":\"Email 123\"},\"password\":{\"type\":\"string\",\"title\":\"Password 123\",\"default\":\"Password\"},\"firstName\":{\"type\":\"string\",\"title\":\"First name\",\"default\":\"string\"},\"lastName\":{\"type\":\"string\",\"title\":\"Last name\",\"default\":\"string\"}},\"required\":[\"email\",\"password\",\"firstName\",\"lastName\"],\"fieldOrder\":[\"email\",\"password\",\"firstName\",\"lastName\"]}" ]
+          },
+          "old_policy_profile_schema" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{\"properties\":{\"email\":{\"type\":\"string\",\"title\":\"Email 123\",\"default\":\"Email 123\"},\"password\":{\"type\":\"string\",\"title\":\"Password 123\",\"default\":\"Password\"},\"firstName\":{\"type\":\"string\",\"title\":\"First name\",\"default\":\"string\"},\"lastName\":{\"type\":\"string\",\"title\":\"Last name\",\"default\":\"string\"}},\"required\":[\"email\",\"password\",\"firstName\",\"lastName\"],\"fieldOrder\":[\"email\",\"password\",\"firstName\",\"lastName\"]}" ]
+          }
+        }
+      },
       "RichClientDebugData" : {
         "name" : "RichClientDebugData",
         "properties" : {
@@ -39625,6 +39928,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "policy_snapshot_json" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"eventId\":\"some-event-id\",\"contextsMap\":{\"deviceType\":\"DESKTOP\",\"userId\":\"some-user-id\"},\"delayTimeInMilliSeconds\":0}" ]
           },
           "changed_device_signals" : {
             "type" : "String",
@@ -44842,6 +45153,19 @@
           }
         }
       },
+      "AppOauth2ClientRoleResourceDetails" : {
+        "name" : "AppOauth2ClientRoleResourceDetails",
+        "properties" : {
+          "privilege_expiration" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "iso8601",
+            "examples" : [ "2026-11-05T09:30:41.000-05:00" ]
+          }
+        }
+      },
       "AuthenticatorEnrollmentResourceDetails" : {
         "name" : "AuthenticatorEnrollmentResourceDetails",
         "properties" : {
@@ -45644,6 +45968,35 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "OktaMfaEnroll", "Password", "wifi", "OktaSignOn", "group_rule", "IdpDiscovery", "ommEnroll", "OAuthAuthzPolicy", "user_lifecycle" ]
+          }
+        }
+      },
+      "ExportResourceDetails" : {
+        "name" : "ExportResourceDetails",
+        "properties" : {
+          "columns" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "url",
+            "examples" : [ "requestId,requestResourceName" ]
+          },
+          "filter" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "name",
+            "examples" : [ "user.firstName eq \"John\"" ]
+          },
+          "exportType" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "name",
+            "examples" : [ "CSV", "JSON" ]
           }
         }
       },
@@ -47462,6 +47815,19 @@
             "customer" : false,
             "format" : "okta:appInstanceId",
             "examples" : [ "0oa1idxxy6n3md1lY0h8" ]
+          }
+        }
+      },
+      "UserRoleResourceDetails" : {
+        "name" : "UserRoleResourceDetails",
+        "properties" : {
+          "privilege_expiration" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "iso8601",
+            "examples" : [ "2026-11-05T09:30:41.000-05:00" ]
           }
         }
       },
