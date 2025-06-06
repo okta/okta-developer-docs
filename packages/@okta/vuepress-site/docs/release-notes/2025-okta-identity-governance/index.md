@@ -15,11 +15,19 @@ For changes prior to 2025, see [Archived Okta Identity Governance API Changelog 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [New variable for Access Certification campaign emails](#new-variable-for-access-certification-campaign-emails)| May 14, 2025 |
+| [Generate a risk assessment is Beta](#generate-a-risk-assessment-is-beta)| May 14, 2025 |
 
 #### New variable for Access Certification campaign emails
 
 You can now include the campaign description in your customized Access Certification campaign email notifications. See the new `${campaign.campaignDescription}` variable in [Use VTL variables](https://developer.okta.com/docs/guides/custom-email/main/#use-vtl-variables).
 <!-- OKTA-912806 -->
+
+#### Generate a risk assessment is Beta
+
+<ApiLifecycle access="beta" />
+
+The [Generate a risk assessment](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Risk-Rules/#tag/Risk-Rules/operation/generatePotentialRiskAssessments) operation is now included in the [Risk Rules API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Risk-Rules/). This operation requires the `okta.governance.riskRule.read` OAuth 2.0 scope. Use this resource to evaluate potential separation of duties (SOD) violations when a user requests entitlements.
+<!-- IGA-SEPARATION-OF-DUTIES OKTA-899035 -->
 
 ## April
 
