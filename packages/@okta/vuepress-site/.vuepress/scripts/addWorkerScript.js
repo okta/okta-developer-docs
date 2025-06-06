@@ -57,7 +57,6 @@ parentPort.once('message', async payload => {
 
     let html
     try {
-      test.a = 1;
       html = await renderer.renderToString(context)
     } catch (e) {
       logger.error(
