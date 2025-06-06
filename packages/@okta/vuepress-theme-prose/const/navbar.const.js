@@ -997,6 +997,7 @@ export const journeys = [
             { title: "Get Started with OCI", path: "/docs/journeys/2" },
             { title: "Web Sign-in", path: "/docs/journeys/3" },
             { title: "Mobile Sign-in", path: "/docs/journeys/4" },
+            { title: "Set up your org", path: "/docs/journeys/set-up-org/" },
           ]
         },
         {
