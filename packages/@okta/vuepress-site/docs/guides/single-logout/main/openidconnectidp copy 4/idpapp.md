@@ -1,1 +1,0 @@
-[Create an OIDC identity provider](/docs/guides/add-an-external-idp/openidconnect/main/)
