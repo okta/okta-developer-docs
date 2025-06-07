@@ -121,6 +121,13 @@
       },
       selectedOption: {
         get: function() {
+        if (this.$page.path === '/docs/guides/single-logout/openidconnectidp/main/') {
+            console.log(`Guide name ${this.guideName} Framework ${this.framework} XXX: ${JSON.stringify(this.options)}`)
+        }
+
+          this.options.forEach(option => {
+            option.framework === this.framework
+          })
           return this.options.find(option => option.framework === this.framework)
         },
         set: function (selectedOption) {
