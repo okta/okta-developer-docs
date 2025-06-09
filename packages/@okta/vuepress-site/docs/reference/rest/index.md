@@ -171,7 +171,7 @@ First, create a service app integration where you can define your scope-based ac
 
 After you obtain the JWKS from your Okta service app, create a JSON Web Token (JWT) for your access token request.
 
-Use the JWK key ID from the private JWKS as the `kid` header parameter and use the following [token claims](/docs/reference/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt) as the JWT payload:
+Use the JWK key ID as the `kid` header parameter and use the following [token claims](/docs/reference/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt) as the JWT payload:
 
 * `aud`: Set this value to `https://{yourOktaDomain}/oauth2/v1/token`.
 * `exp`: The expiration time of the token, in seconds since January 1, 1970 UTC (current UNIX timestamp). Set this value to a maximum of only an hour in the future.
