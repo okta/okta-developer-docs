@@ -79,7 +79,7 @@ The Single Logout (SLO) for IdPs feature boosts security for organizations using
 
 #### Developer documentation updates in 2025.06.0
 
-* The **Email Customization** API has been relabelled as the [**Org Email Settings** API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/) under the **Org Management** group. There are no other changes to the API. All previous anchors and links to the API remain the same.
+* The **Email Customization** API has been relabelled as the [**Org Email Settings** API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/). There are no other changes to the API. All previous anchors and links to the API remain the same.
 
 * A [new guide](/docs/guides/custom-widget-migration-gen3/main/) explains how to migrate customizations from the second generation (Gen2) to the third generation (Gen3) of the Sign-In Widget. It describes how to use design tokens instead of CSS className selectors to customize Gen3, and which variables and functions help with your migration.
 
