@@ -55,7 +55,7 @@ By default, users and groups with assigned admin roles have access to the Admin 
 
 #### Developer documentation updates in 2025.06.0
 
-* The **Email Customization** API has been relabelled as the [**Org Email Settings** API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/) under the **Org Management** group. There are no other changes to the API. All previous anchors and links to the API remain the same.
+* The **Email Customization** API has been relabelled as the [**Org Email Settings** API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/). There are no other changes to the API. All previous anchors and links to the API remain the same.
 
 * New [release notes for Okta Privileged Access APIs](/docs/release-notes/2025-okta-privileged-access/) are now available.
 
