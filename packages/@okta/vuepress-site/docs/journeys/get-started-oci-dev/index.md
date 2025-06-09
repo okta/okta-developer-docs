@@ -5,7 +5,7 @@ meta:
     content: Find out how Okta technologies can help you build a proof of concept Okta Customer Identity app.
 ---
 
-Build a proof of concept (POC) app using Okta Customer Identity (OCI). This guide details essential steps, from setting up your Okta environment and connecting your app, to leveraging preset authentication policies and customizing the sign-in experience for brand alignment. It also covers advanced topics like mobile SDKs, token management, session control, direct authentication, user onboarding, and API scalability to help you create a robust and secure customer identity solution.
+To create a robust and secure customer identity solution, learn how to build a proof of concept (POC) app with Okta Customer Identity (OCI). This POC covers essential setup, app integration, authentication policies, UI customization, and advanced features like mobile SDKs and API scalability.
 
 ## Build an OCI proof of concept
 
