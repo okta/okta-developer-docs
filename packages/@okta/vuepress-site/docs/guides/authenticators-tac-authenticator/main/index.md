@@ -15,8 +15,8 @@ This guide shows you how to integrate a temporary access code (TAC) authenticato
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
-A test user account (opens new window) that you can use to enroll an authenticator
-A test group (opens new window) in your org that the test user is added to
+* A [test user account]() that you can use to enroll an authenticator
+* A [test group]() in your org that the test user is added to
 
 ---
 
@@ -26,28 +26,29 @@ TAC is an authenticator that allows a user to authenticate with a temporary acce
 
 After an admin configures the TAC authenticator settings, admins or help-desk agents can generate a TAC. After an admin generates a TAC, they contact the user who needs it and verifies their identity and their need for a TAC. The admin then sends the TAC to the user.
 
-The TAC authenticator is a knowledge factor that can’t satisfy 2 factor type MFA requirements.
-
 > **Note:** There is no default way to send a TAC to a user. Okta recommends that admins or help-desk agents send a TAC through a secure out-of-band channel. For example, speak to the user directly and tell them the TAC over the phone.
+
+The TAC authenticator is a knowledge factor that can’t satisfy 2 factor type MFA requirements.
 
 ## Configure the TAC authenticator
 
-Use the Authenticators API to set up TAC as an authenticator.
+Use the [Create an authenticator](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/createAuthenticator) endpoint to set up TAC as an authenticator.
 
 Create your own POST request body or copy the example request and input your values.
 
-1. Set the authenticator key as `tac`.
-    1. Enter a value for `name`.
-    1. Set the provider type as `TAC`.
-    1. Set the minimum time-to-live (`minTtl`) for the TAC as 10 minutes.
-    1. Set the maximum TTL (`maxTtl`) for the TAC as 180 minutes.
-    1. Set the default TTL (`defaultTtl`) as 120 minutes.
-    1. Set the number of characters in the TAC (`length`) as `16`.
-    1. Set all the complexity parameters as `true`. This ensures that the TAC includes numbers, letters, and special characters.
-    > **Note:** You can’t set `numbers` as false.
-    1. Set `multiUseAllowed` as `true`. This means that the TAC can be used multiple times before it expires.
-1. Send the `POST /api/v1/authenticators request`.
-1. Copy and paste the `id` of the response into a text editor. Use it in the next section.
+1. Set the following request body parameters:
+   1. Set the authenticator `key` as `tac`.
+   1. Enter a value for `name`.
+   1. Set the provider `type` as `TAC`.
+   1. Set the minimum time-to-live (`minTtl`) for the TAC as `10` minutes.
+   1. Set the maximum TTL (`maxTtl`) for the TAC as `180` minutes.
+   1. Set the default TTL as `120` minutes.
+   1. Set the number of characters in the TAC (`length`) as `16`.
+   1. Set all the complexity parameters as `true`. This ensures that the TAC includes numbers, letters, and special characters.
+      > **Note:** You can’t set numbers as `false`.
+   1. Set `multiUseAllowed` as `true`. This means that the TAC can be used multiple times before it expires.
+2. Send the `POST /api/v1/authenticators` request.
+3. Copy and paste the `id` of the response into a text editor. Use it in the next section.
 
 ### Create TAC authenticator request example
 
@@ -131,15 +132,14 @@ Create your own POST request body or copy the example request and input your val
 
 ### Add TAC to an authenticator enrollment policy
 
-Add the TAC authenticator to an authenticator enrollment policy so that it’s available for use by the test user.
+Add the TAC authenticator to an authenticator enrollment policy so that it’s available for use by the test user. Use the [Create a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) endpoint.
 
-Use the following request body example to create an authenticator enrollment policy.
+Use the following request body example to create an authenticator enrollment policy. Before you create the authenticator enrollment policy, use the [List all groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups) endpoint to retrieve the group `id` of your test group.
 
-1. Retrieve the group id of your test group.
 1. Use the standard values and format from the request body example.
 1. Ensure the following parameters are set correctly:
-1. Under groups.include paste the group id of your test group.
-1. In the settings property, include the following array:
+1. Under `groups.include` use the group `id` of your test group.
+1. In the `settings` property, include the following array:
 
    ```json
     {
