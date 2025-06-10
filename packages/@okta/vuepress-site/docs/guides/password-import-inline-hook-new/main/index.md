@@ -45,7 +45,7 @@ At a high level, the following workflow occurs:
 
 ## Install ngrok
 
-Install and run [ngrok](https://ngrok.com/downloads/) to ensure it's running on your local machine. See [Install ngrok](/docs/guides/event-hook-ngrok/nodejs/main/#install-ngrok) or their [documentation](https://ngrok.com/docs) for further information.
+Install and run [ngrok](https://ngrok.com/downloads/). See [Install ngrok](/docs/guides/event-hook-ngrok/nodejs/main/#install-ngrok) or their [documentation](https://ngrok.com/docs) for further information.
 
 ## Create a local app
 
@@ -69,6 +69,11 @@ const app = express();
 const users = require('./users');
 const { body, validationResult } = require('express-validator');
 app.use(express.json());
+
+// listen for requests :)
+const listener = app.listen(8082, function () {
+  console.log("Your app is listening on port " + listener.address().port);
+});
 ```
 
 Add the following code to use Basic Authentication to validate the incoming call from Okta against the values in the `.env` file. See [HTTP header: Basic Authentication](/docs/guides/common-hook-set-up-steps/nodejs/main/#http-header-basic-authentication).
@@ -101,7 +106,7 @@ In your external service code, you need to get the values of `data.credential.us
 
 ### Check credentials against user store
 
-In this example, your external service code looks up the username in a prepopulated static array of usernames and passwords. It then checks if the supplied password matches the password that exists for that username in the array. This example is a simplification of the process of looking up the credentials in a real-world user store.
+In this example, your sample app code looks up the username in a prepopulated static array of usernames and passwords. It then checks if the supplied password matches the password that exists for that username in the array. This example is a simplification of the process of looking up the credentials in a real-world user store.
 
 <StackSelector snippet="check-against-user-store" noSelector/>
 
@@ -113,13 +118,29 @@ If you return an empty HTTPS response with an HTTP 204 "No content success" stat
 
 Based on the results of the credential check, you return either a command telling Okta to accept the credentials, or an empty response, which results in Okta rejecting the credentials.
 
+The following code previously added in the `server.js` file details the response to Okta. For more information on the `commands` object, see [Create a password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook!c=200&path=commands&t=response).
+
 <StackSelector snippet="send-response" noSelector/>
 
 >**Note:** Using an empty response to reject the credentials is based on the assumption that Okta is set to do that as the default action. In the request from Okta, the property `data.action.credential` specifies the default action. It's currently always set to `UNVERIFIED`, meaning that the default is to reject.
 
-## Run ngrok
+## Run ngrok and your local app
 
-Run the ngrok utility in your `sample-app` folder to expose your local app to the internet and receive Okta hook calls. Make note of the forwarding URL in the ngrok terminal to use when creating your password import inline hook in the following procedure. See [Run ngrok](/docs/guides/event-hook-ngrok/nodejs/main/#run-ngrok).
+Run the ngrok utility in your `sample-app` folder to expose your local app to the internet and receive Okta hook calls. 
+
+```bash
+>ngrok http 8082
+```
+
+Make note of the forwarding URL in the ngrok terminal to use when creating your password import inline hook in the following procedure. See [Run ngrok](/docs/guides/event-hook-ngrok/nodejs/main/#run-ngrok).
+
+Start your sample app's server and make sure it's running:
+
+```bash
+>node server.js
+```
+
+The message `Your app is listening on port 8082" in you terminal console.
 
 ## Activate the password import hook on your Okta org
 
@@ -130,7 +151,7 @@ To set up and activate the password import inline hook:
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 2. Click **Add Inline Hook** and select **Password Import** from the dropdown menu.
 3. Add a name for the hook (in this example, "Password Import Hook").
-4. Add your external service URL, including the endpoint. For example, use the ngrok forwarding url with the endpoint: `https://2d20-142-126-163-77.ngrok.io/passwordImport`.
+4. Add your external service URL, including the endpoint. For example, use the ngrok forwarding url with the endpoint: `https://92c5-165-85-229-169.ngrok-free.app/passwordImport`.
 5. <HookBasicAuthStep/> <HookOAuthNote/>
 6. Click **Save**.
 
@@ -155,10 +176,11 @@ The external service example is now ready with code to receive and respond to an
 To run a test of your password import inline hook, go to the Okta sign-in page for your Okta org.
 
 * Start by signing in with one of the users from the data store, for example, "michelletest@example.com", and enter an incorrect password.
-* Your result should be an "Unable to Sign On" error.
+* Your result should be an "Unable to Sign On" error on your org. The terminal prints: `Not verified. Password not imported.`
 * Sign in again using the correct password.
-* Your result should be access to the Okta org and the import of the user's password into Okta.
+* Your result is access to the Okta org dashboard and the import of the user's password into Okta. The terminal prints: `Password verified! Password imported.`
 * Sign out and sign in again to ensure the hook is no longer called (by reviewing the Admin Console logs).
+* Review the ngrok interface (`http://localhost:4040`) to review the Okta hook calls and your responses to Okta. See [Review ngrok inspection interface](/docs/guides/event-hook-ngrok/nodejs/main/#review-ngrok-inspection-interface)
 
 > **Note:** Review the [troubleshooting](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) section for information if you encounter any setup or configuration difficulties.
 

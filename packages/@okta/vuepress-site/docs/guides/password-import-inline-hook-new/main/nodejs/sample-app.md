@@ -16,12 +16,13 @@
     ```bash
     >npm install express
     >npm install express-basic-auth
+    >npm install express-validator
     >npm install dotenv
     ```
 
 1. In your `sample-app` folder, add a `.env` file to store the username and password used by the Okta hook call for Basic authentication. Add the following variables and values:
 
-``bash
-BASIC_AUTH_USER=admin
-BASIC_AUTH_PASSWORD=supersecret
-``
+    ```bash
+    BASIC_AUTH_USER=admin
+    BASIC_AUTH_PASSWORD=supersecret
+    ```
