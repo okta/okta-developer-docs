@@ -1,15 +1,22 @@
 Create a link for the user to start the sign-in process and be redirected to Okta.
 
 1. Open **views** > **layout.pug**.
-1. Add the code for a sign-in and a sign-out link.
+1. Add the code for a sign-in and a sign-out link by updating the template.
 
    ```pug
-   if authenticated
-       form(method="post", action="/signout")
-         button(type="submit") Sign out
-   else
-       form(method="get", action="/signin")
-         button(type="submit") Sign in
+   doctype html
+   html
+     head
+       title= title
+       link(rel='stylesheet', href='/stylesheets/style.css')
+     body
+       if authenticated
+         form(method="post", action="/signout")
+           button(type="submit") Sign out
+       else
+         form(method="get", action="/signin")
+           button(type="submit") Sign in
+       block content
    ```
 
 1. Open **routes** > **index.js**.
@@ -22,13 +29,13 @@ Create a link for the user to start the sign-in process and be redirected to Okt
    ```
 
 1. Open **app.js**.
-1. Add the route handler for the sign-in and sign-out functionality:
+1. Add the route handler for the sign-in and sign-out functionality directly after the code `app.use('/users', usersRouter);`:
 
    ```js
    app.use('/signin', passport.authenticate('oidc'));
 
    app.post('/signout', (req, res) => {
-      req.signout(err => {
+      req.logout(err => {
          if (err) { return next(err); }
          let params = {
             id_token_hint: '',

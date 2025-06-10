@@ -7,28 +7,28 @@ The user information that Okta returns in an ID token after a user has signed in
    extends layout
 
    block content
-   h2= "My Profile"
-   br
-   div
-      p Hello, #{user.displayName}.
-   br
-   table
-      thead
-         t
-         th Claim
-         th Value
-      tbody
-      for values, claims in user
+     h2= "My Profile"
+     br
+     div
+       p Hello, #{user.displayName}.
+     br
+     table
+       thead
          tr
-         td #{claims}
-         td #{values}
+           th Claim
+           th Value
+         tbody
+         for values, claims in user
+           tr
+             td #{claims}
+             td #{values}
    ```
 
 1. Open **app.js**.
-1. Add the route handler for the profile page:
+1. Add the route handler for the profile page directly after the code `app.use('/authorization-code/callback',...)`:
 
    ```js
    app.use('/profile', (req, res) => {
-     res.render('profile', { user: req.user });
+     res.render('profile', { authenticated: req.isAuthenticated(), user: req.user });
    });
    ```
