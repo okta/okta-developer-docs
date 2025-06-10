@@ -54,10 +54,19 @@ const recordSectionMeta = ({ section, page, guideName, sectionName }) => {
 };
 
 const recordSnippetMeta = ({ section, page, framework, guideName, sectionName, snippet }) => {
-  const name = commonify(framework);
+
+
+    const name = commonify(framework);
   const title = fancify(name);
   section.frameworkByName = section.frameworkByName || {};
   section.frameworkByName[framework] = section.frameworkByName[framework] || {};
+
+
+  // if (guideName === 'single-logout') {
+  //   console.log(`single logout. framework: ${framework} snippet: ${snippet}`);
+  // }
+
+
   section.frameworkByName[framework][snippet] = {
     framework,
     snippet,
@@ -71,11 +80,17 @@ const recordSnippetMeta = ({ section, page, framework, guideName, sectionName, s
   };
   section.snippetByName = section.snippetByName || {};
   section.snippetByName[snippet] = section.snippetByName[snippet] || {};
+  //if section.snippetByName[snippet]
 };
 
 const recordMeta = ({ guidesInfo, page }) => {
   const guideParts = new RegExp(`^${FRAGMENTS}${PATH_LIKE}${PATH_LIKE}${PATH_LIKE}${FILE_LIKE}`);
   const [,guideName, sectionName, framework, snippet] = page.regularPath.match(guideParts);
+
+    if (snippet === 'participateslonote') {
+        console.warn(`Snippet 'participateslonote' is not a valid snippet for ${page.regularPath}`);
+    }
+
   const isGuidesMeta = !guideName;
   const isGuideMeta = guideName && !sectionName;
   const isSectionMeta = sectionName && !framework;
@@ -126,16 +141,28 @@ const updateDerivedMeta = ({ guidesInfo }) => {
       );
       // ...each snippet within each section a list of frameworks in order
       Object.entries(section.snippetByName).forEach( ([snippetName, snippet]) => {
-        snippet.frameworks = section.frameworks.map( framework => section.frameworkByName[framework][snippetName] );
+        snippet.frameworks = section.frameworks.map( framework => {
+            if (!section.frameworkByName[framework][snippetName]) {
+                console.warn(`Guide: ${guide.name}  Snippet: /${framework}/${snippetName}.htm is missing`);
+                // throw new Error(`Guide: ${guide.name}  Snippet: /${framework}/${snippetName}.htm is missing`);
+            }
+            return section.frameworkByName[framework][snippetName]
+        });
       });
       // ...each guide a mainFramework from the sections
       guide.mainFramework = guide.mainFramework || section.mainFramework;
       // ...each guide a collected list of frameworks from the sections
       guide.frameworks = collectFrameworksFromSections({ sections: guide.sections });
+      //console.log(`frameworks1: ${JSON.stringify(guide.frameworks)}`);
+    //   guide.frameworks.forEach(framework => {
+    //     if (framework === null) {
+    //         console.log('YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY');
+    //     }
+    //   })
 
-      if (guide.frameworks.length && guide.page.regularPath === '/docs/guides/single-logout/') {
-        console.log(`page: ${JSON.stringify(guide.page.regularPath)} frameworks:${JSON.stringify(guide.frameworks)}`)
-      }
+    //   if (guide.frameworks.length && guide.page.regularPath === '/docs/guides/single-logout/') {
+    //     console.log(`page: ${JSON.stringify(guide.page.regularPath)} frameworks:${JSON.stringify(guide.frameworks)}`)
+    //   }
     });
   });
 };

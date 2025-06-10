@@ -102,17 +102,38 @@
         // console.log(this.section, 'this.section');
         // console.log(this.snippet, 'this.snippet');
         // when snippet name is provided, find frameworks data for that one
+
+        //if (this.$page.path === '/docs/guides/single-logout/openidconnectidp/main/') {
+        //    console.log(`section name: ${this.sectionName}`);
+        //}
+        // snippetByName has null elements
+        //if (this.$page.path === '/docs/guides/single-logout/openidconnectidp/main/') {
+        //    console.log(`11snippet [${this.snippet}] snipByName: ${JSON.stringify(snippetByName)} `);
+        //}
+
         if (this.snippet) {
+
+            snippetByName?.[this.snippet]?.frameworks.forEach(framework => {
+                if (!framework) {
+                    console.log(`snippet [${this.snippet}] snipByName: ${JSON.stringify(snippetByName)} `);
+                }
+            });
+
           return snippetByName?.[this.snippet]?.frameworks ?? [];
         }
 
         if (typeof snippetByName !== 'object') {
           return [];
         }
-
+//!!!
         // when no snippet name is provided, use the first defined snippet in the snippet data
         const frameworksData = Object.values(snippetByName)[0]?.frameworks ?? [];
-
+        frameworksData.forEach(framework => {
+            if (!framework) {
+                console.log(`snippet [${this.snippet}] snipByName: ${JSON.stringify(snippetByName)} `);
+            }
+        });
+/// check empty data
         return frameworksData;
       },
       snippetComponentKey() {
@@ -121,13 +142,15 @@
       },
       selectedOption: {
         get: function() {
-        if (this.$page.path === '/docs/guides/single-logout/openidconnectidp/main/') {
-            console.log(`Guide name ${this.guideName} Framework ${this.framework} XXX: ${JSON.stringify(this.options)}`)
-        }
+        //if (this.$page.path === '/docs/guides/single-logout/openidconnectidp/main/') {
+        //    console.log(`Guide name ${this.guideName} Framework ${this.framework} XXX: ${JSON.stringify(this.options)}`)
+        //}
 
-          this.options.forEach(option => {
-            option.framework === this.framework
-          })
+          //let badOption = this.options.find(option => {
+          //  if (!option) {
+
+          //  }
+          //})
           return this.options.find(option => option.framework === this.framework)
         },
         set: function (selectedOption) {

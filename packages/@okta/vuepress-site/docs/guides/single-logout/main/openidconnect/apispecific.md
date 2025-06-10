@@ -1,1 +1,0 @@
-Add the three new properties to the `oauthClient` object for IdP-initiated SLO.
