@@ -76,7 +76,9 @@ You need an access token for API requests to each Okta org. After you have API a
 
 ### Create an IdP in the hub org
 
-In the hub org, create an IdP to configure federation between your spoke and hub orgs. Add the IdP by using the [Create an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) request with the following body parameters. This call creates the IdP in the hub org. From the response of the POST request, use the `id` property of the IdP instance in the next step for your `idpId`.
+In the hub org, create an IdP to configure federation between your spoke and hub orgs. Add an Okta Integration IdP by using the [Create an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) request with the following body parameters. This call creates the IdP in the hub org.
+
+From the response of the POST request, use the `id` property of the IdP instance in the next step for your `idpId`.
 
 #### Create an OIDC Okta Integration IdP
 
@@ -121,8 +123,6 @@ curl -v -X POST \
   }
 }' "https://{yourHubOktaDomain}/api/v1/idps"
 ```
-
-From the response of the POST request, use the `id` property of the Okta Integration IdP instance to update this IdP after creating your Org2Org app in the following procedure.
 
 ### Add an Org2Org app integration in a spoke org
 
@@ -169,6 +169,8 @@ In the hub org, update your IdP with the response values from the create an Org2
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
 | `protocol.credentials.client.client_id`  |  The `client_id` of the Org2Org app |
+
+Use the `id` property from the IdP instance you created previously for the `{dpId}` in the endpoint.
 
 ##### Request example
 
