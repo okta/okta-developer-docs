@@ -198,7 +198,7 @@ curl -v -X PUT \
       "email"
     ]
   }
-}' "https://{yourHubOktaDomain}/api/v1/idps"
+}' "https://{yourHubOktaDomain}/api/v1/idps/{idpId}"
 ```
 
 ### Create an OAuth 2.0 service app in the hub org
