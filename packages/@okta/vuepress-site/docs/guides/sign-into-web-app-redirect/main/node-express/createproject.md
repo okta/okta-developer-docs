@@ -3,7 +3,7 @@ Create an empty express application named `okta-express-quickstart` using the fo
 This creates an express application that uses **pug** as the view engine.
 
 ```bash
-npx express-generator --view=pug okta-express-quickstart
+npx express-generator@4.16 --view=pug okta-express-quickstart
 cd okta-express-quickstart
 ```
 
