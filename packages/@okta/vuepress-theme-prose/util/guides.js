@@ -128,8 +128,7 @@ const updateDerivedMeta = ({ guidesInfo }) => {
       Object.entries(section.snippetByName).forEach( ([snippetName, snippet]) => {
         snippet.frameworks = section.frameworks.map( framework => {
             if (!section.frameworkByName[framework][snippetName]) {
-                console.warn(`Guide: ${guide.name}  Snippet: /${framework}/${snippetName}.htm is missing`);
-                // throw new Error(`Guide: ${guide.name}  Snippet: /${framework}/${snippetName}.htm is missing`);
+                throw new Error(`Guide: ${guide.name}  Snippet: /${framework}/${snippetName}.htm is missing`);
             }
             return section.frameworkByName[framework][snippetName];
         });
