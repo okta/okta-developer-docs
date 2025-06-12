@@ -20,7 +20,6 @@ title: Okta Identity Engine API release notes 2025
 | [Domain restrictions on Realms is GA in Production](#domain-restrictions-on-realms-is-ga-in-production) | April 23, 2025 |
 | [New password complexity property is self-service EA in Preview](#new-password-complexity-property-is-self-service-ea-in-preview) | June 4, 2025 |
 | [Number matching challenge with the Factors API is GA in Production](#number-matching-challenge-with-the-factors-api-is-ga-in-production) | April 9, 2025 |
-| [Response body updates for the MyAccount Authenticators API](#response-body-updates-for-the-myaccount-authenticators-api) | June 4, 2025 |
 | [Restrict access to the Admin Console is GA in Preview](#restrict-access-to-the-admin-console-is-ga-in-preview) | June 4, 2025 |
 | [Shared signal transmitters is GA in Production](#shared-signal-transmitters-is-ga-in-production) | May 7, 2025 |
 | [Single Logout for IdPs is EA in Preview](#single-logout-for-idps-is-ea-in-preview) | June 4, 2025 |
@@ -58,12 +57,6 @@ You can now use the `oelStatement` property to block words from being used in pa
 #### Number matching challenge with the Factors API is GA in Production
 
 You can now send number matching challenges for Okta Verify `push` factor enrollments when you send POST requests to the `/users/{userId}/factors/{factorId}/verify` endpoint. For orgs that can't adopt Okta FastPass, this feature improves their overall security.  See the [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/verifyFactor). <!-- OKTA-903176 ENABLE_FACTORS_API_NUMBER_MATCHING_CHALLENGE -->
-
-#### Response body updates for the MyAccount Authenticators API
-
-A new response property, `canChange`, is now returned for `password` enrollments when you make GET calls to the `/idp/myaccount/authenticators/{authenticatorId}/enrollments/` endpoint. This property indicates if the value of a `password` enrollment can be changed. With the addition of the `canChange` property, `canReset`, an existing response property, now indicates whether or not the user can reset the value of their `password` enrollment.
-
-See the [MyAccount Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Authenticators/#tag/Authenticators/operation/listEnrollments!c=200&path=canChange&t=response). <!-- OKTA-870897 -->
 
 #### Restrict access to the Admin Console is GA in Preview
 
