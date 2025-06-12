@@ -62,7 +62,7 @@ Use the Create a policy endpoint to create an authentication policy.
 
 Create your own POST request body or copy the example request and input your values. Copy and paste the `id` of the response into a text editor.
 
-### Example POST rule request
+### Create authentication policy request example
 
 ```json
 {
@@ -86,36 +86,58 @@ Use the Create a policy rule endpoint to create a rule for the authentication po
 
 Create your own POST request body or copy the example request and input your values.
 
-### Example POST rule request
+#### Authentication policy rule for registered devices request example
 
 ```json
 {
-    "name": "Device signal collection policy",
-    "priority": "1",
-    "status": "ACTIVE",
-    "system": false,
+    "name": "Registered devices rule",
     "type": "ACCESS_POLICY",
-    "conditions": null,
-    "_embedded": {
-        "resourceType": "string",
-        "property1": {},
-        "property2": {}
+    "conditions": {
+        "people": {
+            "groups": {
+                "include": [
+                    "00g8ja4e4k9uwJmmg0g7"
+                ]
+            }
+        },
+        "device": {
+            "registered": "true",
+            "managed": "false"
+        }
+    },
+    "actions": {
+        "appSignOn": {
+            "access": "ALLOW",
+            "verificationMethod": {
+                "factorMode": "2FA",
+                "type": "ASSURANCE",
+                "reauthenticateIn": "PT0S",
+                "constraints": [
+                    {
+                        "possession": {
+                            "required": true,
+                            "userPresence": "OPTIONAL"
+                        }
+                    }
+                ]
+            }
+        }
     }
 }
 ```
 
-## Create a device signal collection policy
+## Create a disabled device signal collection policy
 
-Use the Create a policy endpoint to create a device signal collection policy.
+Use the Create a policy endpoint to create a disabled device signal collection policy. By setting the policy as disabled, you can review its rules and ensure that the policy is configured correctly before activating it.
 
 Create your own POST request body or copy the example request and input your values.
 
 1. Set the following request body parameters:
-   1. Enter a value for `name`.
-   2. Set the type as `DEVICE_SIGNAL_COLLECTION`.
-   3. Set the status of the policy as `ACTIVE`.
-2. Send the `POST /api/v1/policies` request.  
-3. Copy and paste the `id` of the response into a text editor. Use it in the next section.
+   * Enter a value for `name`.
+   * Set the type as `DEVICE_SIGNAL_COLLECTION`.
+   * Set the status of the policy as `ACTIVE`.
+1. Send the `POST /api/v1/policies` request.  
+1. Copy and paste the `id` of the response into a text editor. Use it in the next section.
 
 ### Create device signal collection policy request example
 
@@ -123,90 +145,118 @@ Create your own POST request body or copy the example request and input your val
 {
     "name": "Device signal collection policy",
     "type": "DEVICE_SIGNAL_COLLECTION",
-    "status": "ACTIVE"
+    "status": "INACTIVE"
 }
 ```
 
 #### Create device signal collection policy response example
 
-{  
-    "id": "rst8jpde42q54pj090g7",  
-    "status": "ACTIVE",  
-    "name": "Device signal collection policy",  
-    "priority": 1,  
-    "system": false,  
-    "conditions": null,  
-    "created": "2025-06-05T18:52:21.000Z",  
-    "lastUpdated": "2025-06-05T18:52:21.000Z",  
-    "\_links": {  
-        "mappings": {  
-            "href": "https://thomascavanagh-oie.trexcloud.com/api/v1/policies/rst8jpde42q54pj090g7/mappings",  
-            "hints": {  
-                "allow": \[  
-                    "GET",  
-                    "POST"  
-                \]  
-            }  
-        },  
-        "self": {  
-            "href": "https://thomascavanagh-oie.trexcloud.com/api/v1/policies/rst8jpde42q54pj090g7",  
-            "hints": {  
-                "allow": \[  
-                    "GET",  
-                    "PUT",  
-                    "DELETE"  
-                \]  
-            }  
-        },  
-        "rules": {  
-            "href": "https://thomascavanagh-oie.trexcloud.com/api/v1/policies/rst8jpde42q54pj090g7/rules",  
-            "hints": {  
-                "allow": \[  
-                    "GET",  
-                    "POST"  
-                \]  
-            }  
-        },  
-        "deactivate": {  
-            "href": "https://thomascavanagh-oie.trexcloud.com/api/v1/policies/rst8jpde42q54pj090g7/lifecycle/deactivate",  
-            "hints": {  
-                "allow": \[  
-                    "POST"  
-                \]  
-            }  
-        }  
-    },  
-    "type": "DEVICE\_SIGNAL\_COLLECTION"  
+```json
+{
+    "id": "rst8jpde42q54pj090g7",
+    "status": "INIACTIVE",
+    "name": "Device signal collection policy",
+    "priority": 1,
+    "system": false,
+    "conditions": null,
+    "created": "2025-06-05T18:52:21.000Z",
+    "lastUpdated": "2025-06-05T18:52:21.000Z",
+    "_links": {
+        "mappings": {
+            "href": "https://{yourOktaDomain}m/api/v1/policies/rst8jpde42q54pj090g7/mappings",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "POST"
+                ]
+            }
+        },
+        "self": {
+            "href": "https://{yourOktaDomain}/api/v1/policies/rst8jpde42q54pj090g7",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        },
+        "rules": {
+            "href": "https://{yourOktaDomain}/api/v1/policies/rst8jpde42q54pj090g7/rules",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "POST"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "https://{yourOktaDomain}/api/v1/policies/rst8jpde42q54pj090g7/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    },
+    "type": "DEVICE_SIGNAL_COLLECTION"
 }
+```
+
+### Map the device signal collection policy to the authentication policy
+
+Device signal collection policies must be associated with authentication policies. You can do this by mapping the device signal collection policy `id` to the authentication policy `id`.
+
+Use the Map a resource to a policy endpoint to map your device signal collection policy to the your authentication policy.
+
+In the path parameters, use the authentication policy `id` as the `policyId`.
+
+Create your own POST request body or copy the example request and input your values.
+
+/api/v1/policies/{policyId}/mappings
+
+```json
+{
+  "resourceId": "{AuthenticationPolicyId}",
+  "resourceType": "APP"
+}
+```
 
 ### Create a device signal collection policy rule
+
+In this example, create a rule that checks for Okta Verify registered devices when those devices are on `IOS` and `ANDROID` platforms. And allow users to choose which authenticator they want to use to sign in.
 
 Use the Create a policy rule endpoint to create a device signal collection policy rule.
 
 Create your own POST request body or copy the example request and input your values.
 
-1. Set the following request body parameters:  
-   1. Enter a value for name.  
-   2. Set the type as DEVICE\_SIGNAL\_COLLECTION.  
-   3. Set the deviceContextProviders.key as OKTA\_VERIFY  
-      1. This means that the rule applies to devices with Okta Verify.  
-2. Send the POST /api/v1/policies request.  
-3. Copy and paste the id of the response into a text editor. Use it in the next section.  
+1. In the path parameters set the device signal collection policy `id` as the `policyId`.
+1. Set the following request body parameters:
+   * Enter a value for `name`.
+   * Set the type as `DEVICE_SIGNAL_COLLECTION`.
+   * Set the `deviceContextProviders.key` as `OKTA_VERIFY`.
+1. Send the `POST /api/v1/policies/{policyId}/rules` request.
 
-{  
-name: Device signal collection rule  
-        actions:  
-          deviceSignalCollection:  
-            deviceContextProviders: \[  
-              {  
-                key: OKTA\_VERIFY,  
-                allowUserIdentification: ALLOW  
-              },  
-              {  
-                key: DEVICE\_POSTURE\_IDP,  
-                id: 0oa159mE9aOSpCwmr0g4  
-              }  
-            \]  
-        type: DEVICE\_SIGNAL\_COLLECTION  
+#### Create device signal collection policy rule
+
+```json
+{
+  "name": "Device signal collection rule",
+  "actions": {
+    "deviceSignalCollection": {
+      "deviceContextProviders": [
+        {
+          "key": "OKTA_VERIFY",
+          "userIdentification": "IGNORE"
+        }
+      ]
+    }
+  },
+  "type": "DEVICE_SIGNAL_COLLECTION"
 }
+```
+
+#### Use other device context providers
+
+You can use other device context providers
 
