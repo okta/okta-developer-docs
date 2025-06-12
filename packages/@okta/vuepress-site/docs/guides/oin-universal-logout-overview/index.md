@@ -66,7 +66,7 @@ The claims of the JWT are the following:
 
 * `jti`: A unique identifier for this JWT
 * `iss`: The same issuer URL that you receive in an OpenID Connect ID token
-* `sub`: Identifies the "subject" of this token, which in this case is your application. For OpenID Connect clients this is the `client_id`, and for SAML integrations, it's the `appInstanceId`.
+* `sub`: Identifies the "subject" of this token, which in this case is your app. For OpenID Connect clients this is the `client_id`, and for SAML integrations, it's the `appInstanceId`.
 * `aud`: Identifies the "audience" of this token, which is the URL of your Global Token Revocation endpoint. The URL doesn't include query string parameters or a URL fragment.
 * `exp`: The expiration timestamp of the token, which is 5 minutes.
 * `nbf`: A timestamp of 5 minutes in the past.
@@ -84,7 +84,7 @@ Email address:
 
 ```JSON
 {
-  "subject": {
+  "sub_id": {
     "format": "email",
     "email": "user@example.com"
   }
@@ -95,7 +95,7 @@ Issuer and subject identifier within the app:
 
 ```JSON
 {
-  "subject": {
+  "sub_id": {
     "format": "iss_sub",
     "iss": "https://issuer.example.com/",
     "sub": "145234573"
@@ -163,4 +163,4 @@ A large part of the effort to implement this API is implementing the internal re
 
 When you use SAML IdP-initiated single logout, it's ultimately the browser that delivers the logout signal to the Service Providers (SPs). This works by either the IdP redirecting the user's browser to SAML SPs or by embedding the SPs in an iFrame.
 
-Okta Universal Logout is a server-to-server protocol that works entirely outside the context of the user's browser. This ensures that Okta is able to deliver a logout signal to either Okta or the application, even if the user doesn't have an active browser window open.
+Okta Universal Logout is a server-to-server protocol that works entirely outside the context of the user's browser. This ensures that Okta is able to deliver a logout signal to either Okta or the app, even if the user doesn't have an active browser window open.
