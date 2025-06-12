@@ -171,6 +171,7 @@ guides:
  - add-logingov-idp
  - policy-simulation
  - idv-integration
+ - custom-well-known-uri
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
