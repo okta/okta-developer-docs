@@ -6,11 +6,20 @@ The following are Expression Language specifics for SAML properties:
 
 * SAML [integration variables](#integration-variables) you define in the OIN Wizard are considered [Organization properties](/docs/reference/okta-expression-language/#organization-properties) and have the `org.` prefix when you reference them in Expression Language. For example, if your integration variable name is `subdomain`, then you can reference that variable with `org.subdomain`.
 
-* SAML properties support [Expression Language conditional expressions](/docs/reference/okta-expression-language/#conditional-expressions) and evaluates everything between `${` and `}`. For example, the following is an expression for the **ACS URL** property:
+* SAML properties support [Expression Language conditional expressions](/docs/reference/okta-expression-language/#conditional-expressions) and evaluate everything between `${` and `}`. For example, the following expressions are for the **ACS URL** property:
 
     ```js
     ${empty org.baseUrl ? 'https://app.mydomain.com' : org.baseUrl}
     ```
+
+    ```js
+    ${empty org.base_url ? 'https://' += org.subdomain += '.acme.com' : org.base_url}/sso/saml
+    ```
+
+    ```js
+    ${org.integration_type == 'COMMUNITY' ? org.login_url : org.integration_type == 'PORTAL' && org.instance_type == 'SANDBOX' ? 'https://test.acme.com/secur/login_portal.jsp?orgId=' += org.org_id += '&portal_id=' += org.portal_id : org.integration_type == 'PORTAL' && org.instance_type == 'PRODUCTION' ? 'https://login.acme.com/secur/login_portal.jsp?orgId=' += org.org_id += '&portal_id=' += org.portal_id : org.integration_type == 'STANDARD' && org.instance_type == 'SANDBOX' ? 'https://test.acme.com/' : 'https://login.acme.com/'}
+    ```
+
 
 * SAML properties don't support Expression Language [String functions](https://developer.okta.com/docs/reference/okta-expression-language/#string-functions). Use [JSTL functions](https://docs.oracle.com/javaee/5/jstl/1.1/docs/tlddocs/fn/tld-summary.html) instead. For example:
 
