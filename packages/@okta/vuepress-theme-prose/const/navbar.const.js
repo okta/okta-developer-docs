@@ -395,6 +395,10 @@ export const guides = [
             guideName: "device-assurance-policies"
           },
           {
+            title: "Device signal collection policies",
+            guideName: "device-signal-collection-policies",
+          },
+          {
             title: "Test your access policies",
             guideName: "policy-simulation"
           },

@@ -171,6 +171,7 @@ guides:
  - add-logingov-idp
  - policy-simulation
  - idv-integration
+ - device-signal-collection-policies
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
