@@ -80,7 +80,13 @@ In the hub org, create an IdP to configure federation between your spoke and hub
 
 From the response of the POST request, use the `id` property of the IdP instance in the next step for your `idpId`.
 
+Create an OIDC Okta Integration IdP in the following procedure. If you want to use a SAML 2.0 IdP for federation, see [Integrate Okta Org2Org](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg).
+
+>**Note:** The Okta Integration IdP is self-service EA. See [Enable self-service feature](https://help.okta.com/okta_help.htm?type=oie&id=ext_Manage_Early_Access_features).
+
 #### Create an OIDC Okta Integration IdP
+
+<ApiLifecycle access="ea" />
 
 Use the following request body parameters to define your OIDC Okta Integration IdP in the hub org.
 
@@ -92,6 +98,8 @@ Use the following request body parameters to define your OIDC Okta Integration I
 | `protocol.type`  |  `OIDC` |
 | `protocol.credentials.client.token_endpoint_auth_method`  |  `private_key_jwt` |
 | `protocol.credentials.client.client_id`  |  Add a placeholder value for the Org2Org ID, which you create in the next step. Update this value using the procedure [Update the IdP in the hub org](#update-the-idp-in-the-hub-org). |
+
+>**Note:** OIDC federation has a known limitation in Classic Okta orgs when using Org2Org applications. When a user logs into a Service Provider (SP) application or the Okta dashboard through an OIDC-based Org2Org app from the Identity Provider (IDP) org, the MFA challenge configured in the SP org is not enforced.
 
 ##### Request example
 
