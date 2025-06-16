@@ -76,15 +76,123 @@ You need an access token for API requests to each Okta org. After you have API a
 
 ### Create an IdP in the hub org
 
-In the hub org, create an IdP to configure federation between your spoke and hub orgs. Add an Okta Integration IdP by using the [Create an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) request with the following body parameters. This call creates the IdP in the hub org.
+In the hub org, create an IdP to configure federation between your spoke and hub orgs. Add an OpenID Connection IdP <!--Add an Okta Integration IdP--> by using the [Create an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) request with the following body parameters. This call creates the IdP in the hub org.
 
 From the response of the POST request, use the `id` property of the IdP instance in the next step for your `idpId`.
 
 Create an OIDC Okta Integration IdP in the following procedure. If you want to use a SAML 2.0 IdP for federation, see [Integrate Okta Org2Org](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg).
 
->**Note:** The Okta Integration IdP is self-service EA. See [Enable self-service feature](https://help.okta.com/okta_help.htm?type=oie&id=ext_Manage_Early_Access_features).
+<!-->**Note:** The Okta Integration IdP is self-service EA. See [Enable self-service feature](https://help.okta.com/okta_help.htm?type=oie&id=ext_Manage_Early_Access_features).-->
 
-#### Create an OIDC Okta Integration IdP
+#### Create an OpenID Connect IdP
+
+Use the following request body parameters to define your OpenID Connect IdP in the hub org.
+
+See also: [Enterprise identity provider](/docs/guides/add-an-external-idp/openidconnect/main/)
+
+| Parameter |  Description/Value   |
+| --------- |  ------------- |
+| `type`  |  `OPENID_CONNECT` |
+| `name`  |  Specify a name for this OpenID Connect IdP |
+| `protocol.oktaIdpOrgUrl`  |  Your spoke org domain name |
+| `protocol.type`  |  `OIDC` |
+| `protocol.credentials.client.token_endpoint_auth_method`  |  `private_key_jwt` |
+| `protocol.credentials.client.client_id`  |  Add a placeholder value for the Org2Org ID, which you create in the next step. Update this value using the procedure [Update the IdP in the hub org](#update-the-idp-in-the-hub-org). |
+
+##### Request example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer {yourHubAccessToken}" \
+-d '{
+    "type": "OIDC",
+    "name": "OIDC IdP via API",
+    "protocol": {
+        "algorithms": {
+            "request": {
+                "signature": {
+                      "algorithm": "RS256",
+                      "scope": "REQUEST"
+                }
+            }
+        },
+        "endpoints": {
+            "acs": {
+                "binding": "HTTP-POST",
+                "type": "INSTANCE"
+            },
+            "authorization": {
+                "binding": "HTTP-REDIRECT",
+                "url": "https://{your-spoke-org}/oauth2/v1/authorize"
+            },
+            "token": {
+                "binding": "HTTP-POST",
+                "url": "https://{your-spoke-org}/oauth2/v1/token"
+            },
+            "userInfo": {
+                "binding": "HTTP-REDIRECT",
+                "url": "https://{your-spoke-org}/oauth2/v1/userinfo"
+            },
+            "jwks": {
+                "binding": "HTTP-REDIRECT",
+                "url": "https://{your-spoke-org}/oauth2/v1/keys"
+            }
+        },
+        "scopes": [
+            "openid",
+            "profile",
+            "email"
+        ],
+        "type": "OIDC",
+        "credentials": {
+            "client": {
+                "client_id": "EDIT_THIS",
+                "token_endpoint_auth_method": "private_key_jwt",
+                "pkce_required": "False"
+            },
+            "signing": {
+                "algorithm": "RS256"
+            }
+        },
+        "issuer": {
+            "url": "https://{your-spoke-org}.com"
+        }
+    },
+    "policy": {
+        "accountLink": {
+            "action": "AUTO",
+            "filter": "NONE"
+        },
+        "provisioning": {
+            "action": "AUTO",
+            "conditions": {
+                "deprovisioned": {
+                    "action": "NONE"
+                },
+                "suspended": {
+                    "action": "NONE"
+                }
+            },
+            "groups": {
+                "action": "NONE"
+            }
+        },
+        "mapAMRClaims": "FALSE",
+        "maxClockSkew": 120000,
+        "subject": {
+            "userNameTemplate": {
+                "template": "idpuser.email"
+                },
+            "matchType": "USERNAME"
+        }
+    }
+}
+}' "https://{yourHubOktaDomain}/api/v1/idps"
+```
+
+<!--#### Create an OIDC Okta Integration IdP
 
 <ApiLifecycle access="ea" />
 
@@ -130,7 +238,7 @@ curl -v -X POST \
     ]
   }
 }' "https://{yourHubOktaDomain}/api/v1/idps"
-```
+```-->
 
 ### Add an Org2Org app integration in a spoke org
 
@@ -188,8 +296,8 @@ curl -v -X PUT \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer {yourHubAccessToken}" \
 -d '{
-  "type": "OKTA_INTEGRATION",
-  "name": "Example API Okta Integration IdP",
+  "type": "OIDC",
+  "name": "OIDC IdP via API",
   "protocol": {
     "oktaIdpOrgUrl": "https://{your-spoke-org}.com/",
     "type": "OIDC",
