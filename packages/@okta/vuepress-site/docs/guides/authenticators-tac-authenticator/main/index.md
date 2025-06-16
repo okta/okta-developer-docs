@@ -147,7 +147,7 @@ Add the TAC authenticator to an authenticator enrollment policy so that it’s a
 
 Before you create the authenticator enrollment policy, use the [List all groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups) endpoint to retrieve the group `id` of your test group.
 
-1. Use the values and format provided in the [request body example](#create-authenticator-enrollment-policy-example-request).
+1. Use the values and format provided in the [request body example](#create-an-authenticator-enrollment-policy-example-request).
 1. Ensure that the following parameters are set correctly:
     1. Under `groups.include` use the group `id` of your test group.
     1. In the `settings` property, include the following array:
@@ -458,13 +458,14 @@ Use the [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-
 
 After you've configured the TAC with your policies, you can then generate it for your users, as needed. Use the [Create an authenticator enrollment]() endpoint to generate a TAC for a user.
 
+> **Note:** A user can only have one active TAC at any time. If you generate a TAC for a user and then generate a second one, the first TAC becomes invalid and can't be used.
+
 Before you generate the TAC for a user, ensure that you have the following information:
 
 * Use the [List all users](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers) endpoint to retrieve the `id` of the user.
 * Use the [List all authenticators](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticators) endpoint to retrieve the TAC authenticator `id`.
 
-Create your own POST request body or copy the [example request](#generate-a-tac-request-example) and input your values.
-
+1. Use the values and format provided in the [request body example](#generate-a-tac-request-example).
 1. In the path of the POST request, set the `userId` as the `id` of the user.
 1. In the request body, set the following parameters:
    * Set the `authenticatorId` as the `id` of the TAC authenticator.
@@ -526,3 +527,12 @@ After you generate the TAC, copy and paste the value of the `tac` from the [resp
     }
 }
 ```
+
+## Delete a TAC for a user
+
+Use the [Delete an authenticator enrollment]() to delete a TAC that you've generated for a user. When you delete a TAC enrollment, the user can't use that code and you can generate a new TAC for them, if needed.
+
+Before you delete a TAC for a user, ensure that you have the following information:
+
+* Use the [List all users](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers) endpoint to retrieve the `id` of the user.
+* Use the [List all authenticator enrollments]() endpoint to retrieve the TAC `enrollmentid`.
