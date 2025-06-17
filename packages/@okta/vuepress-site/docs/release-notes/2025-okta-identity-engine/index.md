@@ -46,7 +46,7 @@ See the [MyAccount Authenticators API](https://developer.okta.com/docs/api/opena
 
 * Customization fields in email templates were populated with unencoded information. (OKTA-922766)
 
-* The AD Bidirectional Group Management API threw a 500 error because of a null pointer exception. (OKTA-948743)
+* The Directories Integration API for AD Bidirectional Group Management returned a 500 error because of a null pointer exception. (OKTA-948743)
 
 * User grants weren't returned from the Users API (`/users/<userId>clients/<clientId>/grants`) after revoking user sessions and OAuth tokens. (OKTA-944549)
 
