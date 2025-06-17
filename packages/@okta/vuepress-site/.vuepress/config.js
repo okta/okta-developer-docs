@@ -402,6 +402,12 @@ module.exports = ctx => ({
     // add redir url for main guide pages
     let found = guidesInfo.guideInfo[path];
 
+    if (path.startsWith('/docs/reference/api/')) {
+        frontmatter.sitemap = {
+          exclude: true
+        };
+    }
+
     if (path.endsWith('/main/')) {
       // For paths such as /docs/guides/{guide-name}/main/ where the guide has stack selector/frameworks
       let mainPagePath = path.slice(0, -'main/'.length);;
