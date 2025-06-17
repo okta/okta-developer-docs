@@ -30,9 +30,9 @@ In addition, Okta is rolling out the use of `nonce` with the script-src directiv
 
 * When calling the Replace the resource set resource conditions endpoint, `/api/v1/iam/resource-sets/{resourceSetIdOrLabel}/resources/{resourceId}`, including an empty body didn't remove conditions. (OKTA-947764)
 
-* The AD Bidirectional Group Management API threw a 500 error because of a null pointer exception. (OKTA-948743)
+* The Directories Integration API for AD Bidirectional Group Management returned a 500 error because of a null pointer exception. (OKTA-948743)
 
-* User grants weren't returned from the Users API (`/users/<userId>clients/<clientId>/grants`) after revoking user sessions and OAuth tokens. (OKTA-944549)
+* User grants weren't returned from the Users API (`/users/<userId>clients/<clientId>/grants`) after revoking user sessions and OAuth 2.0 tokens. (OKTA-944549)
 
 <!-- Publish on prod deployment June 24, 2025
 * Users could sometimes receive too many password reset emails. (OKTA-916357)

@@ -42,8 +42,6 @@ See the [MyAccount Authenticators API](https://developer.okta.com/docs/api/opena
 
 * When calling the Replace the resource set resource conditions endpoint, `/api/v1/iam/resource-sets/{resourceSetIdOrLabel}/resources/{resourceId}`, including an empty body didn't remove conditions. (OKTA-947764)
 
-* Sending a phone challenge with the MyAccount Phone API (`POST /idp/myaccount/phones/{id}/challenge`) sometimes returned an HTTP 500 Internal Server error. (OKTA-946865)
-
 * Customization fields in email templates were populated with unencoded information. (OKTA-922766)
 
 * The Directories Integration API for AD Bidirectional Group Management returned a 500 error because of a null pointer exception. (OKTA-948743)
