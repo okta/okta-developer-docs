@@ -78,7 +78,7 @@ A generally available (GA) feature is new or enhanced functionality that is enab
 
 Early Access (EA) features are opt-in features that you can try out in your org by asking Okta Support to enable them. Also, the **Features** page in the Admin Console (**Settings** > **Features**) allows Super Admins to enable and disable some self-service EA features themselves (assuming your org is eligible for the feature).
 
-You can disable the EA features that you've enabled by clearing the associated checkboxes on the **Features** page. EA features that you disable are re-enabled by Okta automatically when the feature becomes GA.
+You can disable the EA features that you've enabled by turning off the associated option on the **Features** page. EA features that you disable are re-enabled by Okta automatically when the feature becomes GA.
 
 ## Rate limits
 
