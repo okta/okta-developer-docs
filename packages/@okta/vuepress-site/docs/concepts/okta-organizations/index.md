@@ -6,7 +6,7 @@ title: Okta organizations
 
 An Okta organization (org) is a root object and a container for all other Okta objects. It contains resources such as users, groups, and app integrations (apps), as well as policy and configurations for your Okta environment.
 
-Within every org, there are users and apps. These are the only mandatory items that must be configured for your org to use Okta. Users can be created in Okta, imported through directory integrations, or imported through app integrations. Apps are connections to public apps (such as Office 365) or connections to proprietary apps (such as your own apps).
+Within every org, there are users and apps. These are the only mandatory items that you must configure for your org to use Okta. You can create users in Okta, import them through directory integrations, or through app integrations. Apps are connections to public apps (such as Office 365) or connections to proprietary apps (such as your own apps).
 
 ## Org URLs
 
