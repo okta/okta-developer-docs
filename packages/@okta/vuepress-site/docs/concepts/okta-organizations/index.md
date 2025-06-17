@@ -26,11 +26,9 @@ Each organization also has an administrator URL to sign in to the administrator 
 
 Preview orgs and production orgs are the two main types of Okta orgs.
 
-Preview orgs allow you to see the next release early and explore the Beta features. Preview orgs include [Beta](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#beta) and [Early Access](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#early-access-ea) (EA) features by invitation or enabled through self-service. These orgs include all features that are [Generally Available](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#general-availability-ga) (GA).
+Preview orgs allow you to see the next release early and explore the Beta features. Preview orgs include [Beta](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#beta) and [Early Access](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#early-access-ea) (EA) features by invitation or enabled through self-service. These orgs include all features that are [Generally Available](/docs/api/openapi/okta-management/guides/release-lifecycle/#general-availability-ga) (GA) based on your purchase agreement.
 
-> **Note:** Preview orgs can't be converted into Production orgs, and Production orgs can't be converted into preview orgs.
-
-Production orgs are always a stable release, covered by our software license agreement, and don't include [Beta](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#beta) features. Production orgs include EA features by request or enabled through self-service, and include all features that are GA.
+Production orgs are always a stable release, covered by our software license agreement, and don't include [Beta](/docs/api/openapi/okta-management/guides/release-lifecycle/#beta) features. Production orgs include EA features by request or enabled through self-service, and include features that are GA based on your purchase agreement.
 
 > **Tip:** To verify which type of org you have, look at the footer of any page of your Okta Admin. Preview org footers have the word `Preview` in the cell name (for example: `OP1 Preview Cell (US)`) and include `oktapreview` as part of the org URL (for example: `companyname.oktapreview.com`). Production orgs don't have production indicators in their URLs or cells.
 
@@ -52,7 +50,7 @@ The Admin Console is where you go to manage your Okta org. The first page that y
 
 ## Cells
 
-Each Okta org exists in a specific segment (or "cell") of Okta's infrastructure. A cell is a conceptual grouping of Okta's public-facing services and UI for a subset of orgs. Cells are independent of each other and feature redundancy to ensure availability.
+Each Okta org exists in a specific segment (or cell) of Okta's infrastructure. A cell is a conceptual grouping of Okta's public-facing services and UI for a subset of orgs. Cells are independent of each other and feature redundancy to ensure availability.
 
 > **Tip:** You can locate the cell that your org belongs to by looking at the footer of any page of your Okta Admin.
 
@@ -76,7 +74,7 @@ Multiple orgs allow for the complete segregation of internal and external users,
 
 Okta orgs have different features depending on your contract.
 
-A generally available (GA) feature is new or enhanced functionality that is enabled by default for all customers. Features in GA are supported by Okta Customer Support, and issues are addressed according to your Customer Agreement with Okta.
+A generally available (GA) feature is new or enhanced functionality that is enabled by default for all customers based on your purchase agreement. Features in GA are supported by Okta Customer Support, and issues are addressed according to your Customer Agreement with Okta.
 
 Early Access (EA) features are opt-in features that you can try out in your org by asking Okta Support to enable them. Also, the **Features** page in the Admin Console (**Settings** > **Features**) allows Super Admins to enable and disable some self-service EA features themselves (assuming your org is eligible for the feature).
 
