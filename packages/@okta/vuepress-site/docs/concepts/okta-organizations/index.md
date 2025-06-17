@@ -68,7 +68,7 @@ Usually, your company or project has only one Okta org. Single orgs provide a po
 
 However, in more complex situations, you might need multiple orgs. For example, an org has external, non-transient workers that require access to Active Directory (AD). The org also has some internal, transient workers who don't require access to AD. Their accounts are created directly in Okta, and they’re sent an activation email to set up their password. This activation email is the same email that external users receive if using a single org. This presents challenges around wording and the branding of the email template.
 
-Multiple orgs allow for the complete segregation of internal and external users, and apps and changes made to the internal or external org have no impact on one another. However, multiple orgs add complexity in terms of the number of environments to manage. See [Multi-tenant solutions](/docs/concepts/multi-tenancy/).
+Multiple orgs allow for the complete segregation of internal and external users. In addition, apps and changes made to the internal or external org have no impact on one another. However, multiple orgs add complexity in terms of the number of environments to manage. See [Multi-tenant solutions](/docs/concepts/multi-tenancy/).
 
 ## Org features
 
