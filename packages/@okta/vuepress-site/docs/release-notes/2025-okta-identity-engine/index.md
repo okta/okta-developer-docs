@@ -48,7 +48,7 @@ See the [MyAccount Authenticators API](https://developer.okta.com/docs/api/opena
 
 * The Directories Integration API for AD Bidirectional Group Management returned a 500 error because of a null pointer exception. (OKTA-948743)
 
-* User grants weren't returned from the Users API (`/users/<userId>clients/<clientId>/grants`) after revoking user sessions and OAuth tokens. (OKTA-944549)
+* User grants weren't returned from the Users API (`/users/<userId>clients/<clientId>/grants`) after revoking user sessions and OAuth 2.0 tokens. (OKTA-944549)
 
 <!-- Publish on prod deployment June 24, 2025
 * Users could sometimes receive too many password reset emails. (OKTA-916357)
