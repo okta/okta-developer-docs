@@ -125,7 +125,7 @@ The following code previously added in the `server.js` file details the response
 Run the ngrok utility in your `sample-app` folder to expose your local app to the internet and receive Okta hook calls. 
 
 ```bash
->ngrok http 8082
+ngrok http 8082
 ```
 
 Make note of the forwarding URL in the ngrok terminal to use when creating your password import inline hook in the following procedure. See [Run ngrok](/docs/guides/event-hook-ngrok/nodejs/main/#run-ngrok).
@@ -133,10 +133,10 @@ Make note of the forwarding URL in the ngrok terminal to use when creating your 
 Start your sample app's server and make sure it's running:
 
 ```bash
->node server.js
+node server.js
 ```
 
-The message `Your app is listening on port 8082" in you terminal console.
+The message "Your app is listening on port 8082" in your terminal console.
 
 ## Activate the password import hook on your Okta org
 
@@ -151,13 +151,13 @@ To set up and activate the password import inline hook:
 5. <HookBasicAuthStep/> <HookOAuthNote/>
 6. Click **Save**.
 
-The password import inline hook is now set up with a status of "Active".
+The password import inline hook now has a status of "Active".
 
 > **Note:** You can also set up an inline hook using an API. See [Inline Hooks Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createInlineHook).
 
 ## Import test users
 
-Upload some users into your Okta org using the [Create a user API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#create-user-with-password-import-inline-hook). These users provide data to test your inline hook.
+Upload users into your Okta org using the [Create a user API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#create-user-with-password-import-inline-hook). These users provide data to test your inline hook.
 
 The following example uses sample data from the data store in the `users.js` file of your project.
 
@@ -176,7 +176,7 @@ To run a test of your password import inline hook, go to the Okta sign-in page f
 * Sign in again using the correct password.
 * Your result is access to the Okta org dashboard and the import of the user's password into Okta. The terminal prints: `Password verified! Password imported.`
 * Sign out and sign in again to ensure the hook is no longer called (by reviewing the Admin Console logs).
-* Review the ngrok interface (`http://localhost:4040`) to review the Okta hook calls and your responses to Okta. See [Review ngrok inspection interface](/docs/guides/event-hook-ngrok/nodejs/main/#review-ngrok-inspection-interface)
+* Use the ngrok interface (`http://localhost:4040`) to review the Okta hook calls and your responses to Okta. See [Review ngrok inspection interface](/docs/guides/event-hook-ngrok/nodejs/main/#review-ngrok-inspection-interface)
 
 > **Note:** Review the [troubleshooting](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) section for information if you encounter any setup or configuration difficulties.
 
