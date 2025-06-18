@@ -45,7 +45,7 @@ Install and run [ngrok](https://ngrok.com/downloads/). See [Install ngrok](/docs
 
 ## Create a local app
 
-To get you up-and-running quickly, follow the steps below to build a very basic Express Node.js application. This application simply responds to password import inline hook calls.
+To get you up-and-running quickly, follow the steps below to build a very basic Express Node.js app. This app simply responds to password import inline hook calls.
 
 ### Create a folder and initialize the project
 
