@@ -4,7 +4,7 @@ excerpt: Code the external service for a password import inline hook
 layout: Guides
 ---
 
-This guide provides a working example of an Okta password import hook. It uses the utility [ngrok](https://ngrok.com/) to expose a local app to the internet, and to receive and respond to password import hook calls.
+This guide provides an example of a password import inline hook. It uses the utility [ngrok](https://ngrok.com/) to expose a local app to the internet, and to receive and respond to password import inline hook calls.
 
 ---
 
