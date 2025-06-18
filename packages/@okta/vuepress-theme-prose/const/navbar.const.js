@@ -604,12 +604,12 @@ export const guides = [
             guideName: "custom-url-domain",
           },
           {
-            title: "Sign-in page",
-            guideName: "custom-widget",
-          },
-          {
             title: "Customize associated domains",
             guideName: "custom-well-known-uri",
+          },
+          {
+            title: "Sign-in page",
+            guideName: "custom-widget",
           },
           {
             title: "Migrate to third generation (Gen3), Sign-In Widget",
