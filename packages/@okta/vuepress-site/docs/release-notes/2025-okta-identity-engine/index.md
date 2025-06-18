@@ -6,7 +6,52 @@ title: Okta Identity Engine API release notes 2025
 
 # Okta Identity Engine API release notes (2025)
 
+<!-- ## July
+
+### Monthly release 2025.07.0
+
+####  Org2Org OIDC Sign-on mode is self-service EA in Preview
+
+The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP. This sign-on mode reduces the complexity of configuration between the Org2Org app and the target org, and takes advantage of modern security features of OIDC. You also need to enable the Okta Integration IdP feature to use the OIDC Sign-on mode. See [Secure API connections between orgs with OAuth 2.0](docs/guides/secure-oauth-between-orgs/main/). <!-- OKTA-714847 FF ORG2ORG_ENABLE_OIDC_SOM -->
+
 ## June
+
+### Weekly release 2025.06.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Frame-ancestors rollout for Content Security Policy](#frame-ancestors-rollout-for-content-security-policy) | Jun 17, 2025 |
+| [Response body updates for the MyAccount Authenticators API](#response-body-updates-for-the-myaccount-authenticators-api) | Jun 17, 2025 |
+| [Bugs fixed in 2025.06.1](#bugs-fixed-in-2025-06-1)| Jun 17, 2025 |
+
+#### Frame-ancestors rollout for Content Security Policy
+
+Okta is rolling out the frame-ancestors directive of the Content Security Policy (CSP) for the `/auth/services/devicefingerprint` and `/api/v1/internal/device/nonce` endpoints. To prevent blocking access to these endpoints from embedded frames, add any embedder origin as a trusted origin. See the [Trusted Origins API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/).
+
+In addition, Okta is rolling out the use of `nonce` with the script-src directive of the CSP for the `/auth/services/devicefingerprint`. To prevent blocking inline scripts that you may have injected on the page returned by this endpoint, allowlist your inline script to account for the `nonce` addition to script-src.
+ <!-- OKTA-955073 -->
+
+#### Response body updates for the MyAccount Authenticators API
+
+A new response property, `canChange`, is now returned for `password` enrollments when you make GET calls to the `/idp/myaccount/authenticators/{authenticatorId}/enrollments/` endpoint. This property indicates if the value of a `password` enrollment can be changed. With the addition of the `canChange` property, `canReset`, an existing response property, now indicates whether or not the user can reset the value of their `password` enrollment.
+
+See the [MyAccount Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Authenticators/#tag/Authenticators/operation/listEnrollments!c=200&path=canChange&t=response).
+ <!-- OKTA-870897 -->
+
+#### Bugs fixed in 2025.06.1
+
+* When calling the Replace the resource set resource conditions endpoint, `/api/v1/iam/resource-sets/{resourceSetIdOrLabel}/resources/{resourceId}`, including an empty body didn't remove conditions. (OKTA-947764)
+
+* Customization fields in email templates were populated with unencoded information. (OKTA-922766)
+
+* The Directories Integration API for AD Bidirectional Group Management returned a 500 error because of a null pointer exception. (OKTA-948743)
+
+* User grants weren't returned from the Users API (`/users/<userId>clients/<clientId>/grants`) after revoking user sessions and OAuth 2.0 tokens. (OKTA-944549)
+
+<!-- Publish on prod deployment June 24, 2025
+* Users could sometimes receive too many password reset emails. (OKTA-916357)
+-->
+* App logos could be added or updated using any SVG format. See [Application Logos](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationLogos/#tag/ApplicationLogos/operation/uploadApplicationLogo!path=file&t=request). (OKTA-876028)
 
 ### Monthly release 2025.06.0
 
