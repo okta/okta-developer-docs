@@ -11,7 +11,7 @@ This guide provides an example of a password import inline hook. It uses the uti
 #### Learning outcomes
 
 * Understand the Okta password import inline hook calls and responses.
-* Implement a simple working example of a password import inline hook.
+* Implement a simple example of a password import inline hook.
 * Run and test a password import inline hook using ngrok.
 
 #### What you need
