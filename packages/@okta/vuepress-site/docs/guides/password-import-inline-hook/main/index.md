@@ -25,7 +25,7 @@ This guide provides an example of a password import inline hook. It uses the uti
 
 Use the password import inline hook to migrate users from another data store where you want the users to retain their current credentials.
 
-This guide provides an end-to-end scenario that implements a password import inline hook. It includes example code for a simple local app, exposed to the internet using ngrok, that functions as an external service. This service responds to calls from a password import inline hook that's triggered when a user first signs into your app.
+This guide provides an end-to-end scenario that implements a password import inline hook. It includes example code for a simple local app, exposed to the internet using ngrok, that functions as an external service. This service responds to calls from a password import inline hook that's triggered when a user first signs in to your app.
 
 In the following example, the external service code parses requests from Okta and responds to Okta with commands that indicate whether the end user's credentials are valid. If the credentials are valid, the password is imported into the Okta org.
 
