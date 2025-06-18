@@ -4,13 +4,13 @@ excerpt: Code the external service for a password import inline hook
 layout: Guides
 ---
 
-This guide provides an example of a password import inline hook. It uses the utility [ngrok](https://ngrok.com/) to expose a local app to the internet, and to receive and respond to password import inline hook calls.
+This guide provides an example of an Okta password import inline hook. It uses the utility [ngrok](https://ngrok.com/) to expose a local app to the internet, and to receive and respond to password import inline hook calls.
 
 ---
 
 #### Learning outcomes
 
-* Understand the Okta password import inline hook calls and responses.
+* Understand the password import inline hook calls and responses.
 * Implement a simple example of a password import inline hook.
 * Run and test a password import inline hook using ngrok.
 
@@ -146,7 +146,7 @@ To set up and activate the password import inline hook:
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 2. Click **Add Inline Hook** and select **Password Import** from the dropdown menu.
-3. Add a name for the hook (in this example, "Password Import Hook").
+3. Add a name for the hook (in this example, "Password import inline hook").
 4. Add your external service URL, including the endpoint. For example, use the ngrok forwarding url with the endpoint: `https://92c5-165-85-229-169.ngrok-free.app/passwordImport`.
 5. <HookBasicAuthStep/> <HookOAuthNote/>
 6. Click **Save**.
@@ -192,5 +192,5 @@ Review the following guides to implement other inline or event hook examples:
 
 ## See also
 
-For further reference data on the password import inline hook, see [Password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook).
+For further reference data on the password import inline hook, see [Create a password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook).
 
