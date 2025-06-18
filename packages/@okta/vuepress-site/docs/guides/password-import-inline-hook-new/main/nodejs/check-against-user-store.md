@@ -9,15 +9,15 @@ const users = require('./users');
 ```javascript
 const users = [
   {
-    username: 'testuser@example.com',
+    username: 'jessie.smith@example.com',
     password: 'password1',
   },
   {
-    username: 'testuser2@example.com',
+    username: 'kim.sato@example.com',
     password: 'password2',
   },
     {
-    username: 'testuser3@dexample.com',
+    username: 'rajiv.tal@dexample.com',
     password: 'password3',
   },
 ]

@@ -19,10 +19,6 @@ This guide provides a working example of an Okta password import hook. It uses t
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup/)
 * [ngrok](https://ngrok.com/)
 
-#### Sample code
-
-[???] (add sample code files here(?))
-
 ---
 
 ## About password import inline hook implementation
