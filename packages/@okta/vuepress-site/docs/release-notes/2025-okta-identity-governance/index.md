@@ -8,7 +8,33 @@ Okta Identity Governance is available for both Okta Classic and Identity Engine.
 
 For changes prior to 2025, see [Archived Okta Identity Governance API Changelog (2023-2024)](/docs/release-notes/oig-changelog/).
 
+## June
+
+### Weekly release 2025.06.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [List all access request catalog entries for a user is Beta](#list-all-access-request-catalog-entries-for-a-user-is-beta)| June 17, 2025 |
+
+#### List all access request catalog entries for a user is Beta
+
+<ApiLifecycle access="beta" />
+
+The [List all access request catalog entries for a user](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultUserEntriesV2) (`GET /governance/api/v2/catalogs/default/user/{userId}/entries`) operation is now included in the **Access Requests - V2** > [Catalogs](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/) API. As an admin, use this operation to list access request catalog entries for a particular user. A filter expression query parameter is required to specify the set of entries in the response.
+<!-- OKTA-954146 OKTA-915784, used for (but not dependent on) ACCESS_REQUESTS_UNIFIED_CATALOG -->
+
 ## May
+
+### Weekly release 2025.05.3
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Request condition name length increase](#request-condition-name-length-increase)| May 29, 2025 |
+
+#### Request condition name length increase
+
+The [Request Condition API](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/) has increased the length of the request condition `name` from 50 to 255 characters.
+<!-- OKTA-931650 -->
 
 ### Weekly release 2025.05.1
 
