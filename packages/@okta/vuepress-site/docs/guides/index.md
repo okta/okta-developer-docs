@@ -51,7 +51,6 @@ guides:
  - find-your-app-credentials
  - find-your-domain
  - password-import-inline-hook
- - password-import-inline-hook-new
  - implement-oauth-for-okta
  - implement-oauth-for-okta-serviceapp
  - implement-grant-type

@@ -5,10 +5,10 @@ curl -v -X POST \
 -H "Authorization: SSWS {api_token}" \
 -d '{
   "profile": {
-    "firstName": "Jessie",
-    "lastName": "Smith",
-    "email": "jessie.smith@example.com",
-    "login": "jessie.smith@example.com",
+    "firstName": "Michelle",
+    "lastName": "Test",
+    "email": "michelletest@example.com",
+    "login": "michelletest@example.com",
   },
   "credentials": {
     "password" : {
