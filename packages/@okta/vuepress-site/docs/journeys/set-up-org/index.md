@@ -7,7 +7,7 @@ meta:
 
 # Set up your org
 
-This journey outlines how to set up your Okta org with some basic, but important, settings and how to configure it for some different use cases.
+This journey outlines how to set up your Okta org with some basic, but important, settings and how to configure it for different use cases.
 
 ## Get set up
 
@@ -28,138 +28,138 @@ If you don't have an Okta Identity Engine org, you need to sign up for an Okta a
 
 1. Using the activate link in Okta's email, activate your account and provide a new password. Okta redirects you to the [Admin Console](/docs/concepts/okta-organizations/#admin-console) of your new Identity Engine org.
 
+The email and password that you use to create your account are used as your admin credentials. Your account is automatically created as an admin with the Super Administrator role.
+
 ## Create two user accounts
 
-Users are assigned to non-administrator user groups either during or after their creation. Both methods are covered below. Admins must assign users their admin role after their creation.
+After you get access to your org, create two user accounts.
 
-> **Note**: For a complete guide to all the options not explained in this guide, see [the help docs](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-add-users.htm).
+Users are assigned to non-administrator user groups either during or after their creation. Both methods are covered below. Admins must assign users their admin role after their creation.
 
 ### Create an end user test account
 
 Create an end-user test account to test the end-user experience for your apps.
 
-1. Open the Admin Console for your org.  
-   1. Sign in to your Okta organization with your administrator account.  
-   1. Select **Admin** in the upper-right corner of the page.  
-1. Go to **Directory** \> **People** to view the existing users.  
-1. Select **Add Person**.  
-1. Complete the fields as follows:
+1. Sign in to your Okta org with your administrator account.
+   * Select **Admin** in the upper-right corner of the page. You're redirected to the Admin Console.
+1. Go to **Directory** > **People** to view the existing users.
+1. Select **Add Person**.
+1. Configure your user like this:
 
-| First name | John |
-| :---- | :---- |
-| Last name | Doe |
-| Username | john.doe@oktaice.com |
-| Primary email | john.doe@oktaice.com |
-| Secondary email | Your work email address |
-| Groups | *Leave blank* |
-| Activation | Activate now |
+   > **Note:** Okta supports 3-byte encoded UTF-8 characters for the following values.
 
-> **Note:** Okta supports 3-byte encoded UTF-8 characters in the above fields.
+   * **First name**: John
+   * **Last name**: Doe
+   * **Username**: john.doe@example.com
+   * **Primary email**: john.doe@example.com
+   * **Secondary email**: Enter your email address that you used to create your Okta account
 
-1. Check **I will set password**, and set it to a password of your choosing.  
-1. Ensure **User must change password on first login** is not checked  
-1. Select **Save and Add Another**.
+1. For **Activation**, select **Activate now**.
+1. Select **I will set password**, and enter a password.
+1. Clear the **User must change password on first login** checkbox.
+1. Select **Save and Add Another**. Next, [create a service admin account](#create-an-okta-service-account).
 
-> **Note:** If a user group already exists, you can set Group to that group's name to make them a member of the group on creation.
+See [Add users manually](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-add-users.htm).
 
 ### Create an Okta service account
 
-Create a service admin account to create API Keys used in development tasks.
+Create a service admin account to create API Keys that you can use for development tasks.
 
-1. Still in the existing users page, select **Add Person**.   
-1. Complete the fields as follows:
+1. In the existing **Add Person** dialog, configure your service account like this:
 
-| First name | Okta |
-| :---- | :---- |
-| Last name | Service |
-| Username | okta.service@oktaice.com |
-| Primary email | okta.service@oktaice.com |
-| Secondary email | Your work email address |
-| Groups | *Leave blank* |
-| Activation | Activate now |
+   * **First name**: Okta
+   * **Last name**: Service
+   * **Username**: okta.service@example.com
+   * **Primary email**: okta.service@example.com
+   * **Secondary email**: Enter your email address that you used to create your Okta account
 
-1. Check **I will set password**, and set it to a password of your choosing.  
-1. Ensure **User must change password on first login** is not checked  
-1. Select **Save**.
-
-#### Assign admin permissions to Okta service account
-
-User accounts have no permissions by default, so you need to grant administrator permissions to user accounts explicitly.
-
-1. Go to **Security** \> **Administrators**.  
-1. Select **Roles**.  
-1. In the Super Administrator row, select **Edit** \> **View or edit assignments**.  
-1. Select the **\+ Add Assignment** button**.**  
-1. Start typing *Okta Service* in the top Select admin field. Select it from the options that appear.  
-1. Select **Save Changes**.
+1. For **Activation**, select **Activate now**.
+1. Select **I will set password**, and enter a password.
+1. Clear the **User must change password on first login** checkbox.
+1. Click **Save**.
 
 ### Activate the accounts
 
-If you choose not to activate your test accounts when creating them, you can activate each in turn as follows:
+If you don't activate your test accounts when creating them, you can activate them with this process.
 
-1. Open a new incognito window (Chrome) or private window (Firefox) in your browser.
-1. Open the Admin Console for your org.
-1. Sign into your org as okta.service@oktaice.com using the credentials you created earlier.
+1. In the Admin Console, select your name in the in the upper right corner of the page. [Copy your domain](docs/guides/find-your-domain/main/#find-your-okta-domain) to your clipboard.
+1. In your browser, open a private browsing window. For example, if you're using Chrome as your browser, open a new incognito window.
+1. Paste your domain into the address bar.
+1. Sign into your org as `okta.service@example.com`.
 1. When prompted, follow the steps to set up Okta Verify.
-1. Select Continue.
+1. Select **Continue**.
 1. Close the window.
 
-To activate John’s account, repeat steps 1-6, but use john.doe@oktaice.com as the username.
+Use the same process when you activate your John Doe account, but use `john.doe@example.com` as the username.
+
+### Assign admin permissions to the Okta service account
+
+User accounts have no permissions by default, so you need to grant permissions to your user accounts. In this section, assign admin permission to the Okta Service account.
+
+1. In the Admin Console, go to **Security** > **Administrators**.
+1. Select **Roles**.
+1. Scroll down to the **Super Administrator** row. Select **Edit** > **View or edit assignments**.
+1. Click **Add assignment**.
+1. Under **Select admin**, enter "Okta Service" and select that user from the options that appear.
+1. Click **Save Changes**.
 
 ## Create a user group
 
-Creating user (role) groups and assigning users to them is often done through an import mechanism for whole companies or during the manual creation process. However, it can also be done on a per-user basis. 
+Creating user (role) groups and assigning users to them is often done by an automated import process for large companies. However, you can also assign users to groups with a manual, per-user process.
 
-For simple tests, create the **Retailers** group and add *john.doe* to it.
+For basic testing scenarios, create a group called **Retailers** and assign your John Doe test account to it.
 
 ### Create a group
 
-1. Go to **Directory** \> **Groups** to view the existing groups in your org.  
-1. Select **Add Group**.  
-1. Complete the fields as follows:
-
-| Name | Retailers |
-| :---- | :---- |
-| Group Description | All retailers |
-
-1. Select Add Group.
+1. In your Admin Console, go to **Directory** > **Groups** to view the existing groups in your org.
+1. Select **Add group**.
+1. Enter **Retailers** as the name for the group.
+1. Enter **All retailers** as the description for the group.
+1. Click **Save**.
 
 ### Add a user to the group
 
-1. Still on the existing groups page, select Retailers.
-1. Select Manage People.
-1. Select the + to the right of John Doe’s name.
-1. Select Done.
+1. In the Groups section, select the **Retailers** group. Refresh the page if you don't see the group.
+1. Click **Assign people**.
+1. Click **Assign +** next to John Doe’s name.
+1. Click **Done**.
 
-## Enable an embedded sign-in widget
+## Enable an embedded Okta Sign-in Widget
 
-The Okta sign-in widget can be embedded in your apps rather than hosted by Okta. To enable communication between the widget embedded in your app and your Okta org, enable interaction flow for your Okta org. If you’re using a custom authorization server for your app, you will need to enable the interaction flow for that particular authorization server, too.
+You can embed the Okta Sign-In Widget in your apps rather than have it hosted by Okta. To enable communication between the widget embedded in your app and your Okta org, enable an [interaction code](/docs/concepts/interaction-code/#the-interaction-code-flow).
+
+If you’re using a custom authorization server for your app, you need to enable the interaction code for that particular authorization server.
 
 ### Enable interaction code for your org
 
-1. In the Admin Console, go to **Settings \> Account**.  
-1. Scroll down to the **Embedded widget sign-in support** panel, and then click **Edit**.  
-1. Select the **Interaction code**.  
-   * If selected, admins can use the interaction code as a grant type for their OIDC app integrations and authorization servers.  
-   * If not selected, Okta hides the interaction code as a grant type. Admins can't use the interaction code for any OIDC app integration or authorization server access policy rule in the org.
+1. In the Admin Console, go to **Settings** > **Account**.
+1. Scroll down to the **Embedded widget sign-in support** panel, and then click **Edit**.
+1. Select **Interaction Code**.
+1. Click **Save**.
+
+By selecting **Interaction Code**, admins can use the interaction code as a grant type for their OpenID Connect app integrations and authorization servers.
+
+If it isn't selected, then Okta hides the interaction code as a grant type. Admins can't use the interaction code for any OpenID Connect app integration or with any authorization server access policy rule in the org.
 
 ### Enable interaction code for a custom authorization server
 
-If you’re using a custom authorization server for your app, follow these steps. Otherwise, you can skip these steps.
+If you’re using a custom authorization server for your app, follow these steps. If you aren't using a custom authorization server, go to the [next sectio](#configure-an-app).
 
-1. Go to **Security** \> **API**.  
-1. Select the name of the authorization server to edit.   
-1. Select the **Access Policies** tab.  
-1. Select the pencil icon from the **Actions** column for the Default policy rule.  
-1. Select **Grant Type is** \> **Advanced**  
-1. Select the **Interaction Code** check box.  
+1. In the Admin Console, go to **Security** > **API**.
+1. Under **Name**, select the authorization server to edit.
+1. Select the **Access Policies** tab.
+1. Click the pencil icon under the **Actions** column for the default policy rule.
+1. Select **IF Grant Type is** > **Advanced**
+1. Select the **Interaction Code** check box.
 1. Select **Update Rule**.
+
+<VerifyICGrantType />
 
 ## Configure an app
 
-### Create an app
+Create an app integration that represents the application you want to add authentication to with Okta:
 
-Create an app integration that represents the app you want to add authentication to with Okta:
+### Create an app
 
 1. Go to **Applications** > **Applications** in the Admin Console.
 1. Click **Create App Integration**.
