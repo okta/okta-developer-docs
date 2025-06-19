@@ -88,6 +88,8 @@ API endpoints that take username and password credentials, including the [Authen
 | **Authenticate the same user:**<br>`/api/v1/authn`                | 4 per second               |
 | **Generate or refresh an OAuth 2.0 token:**<br>`/oauth2/v1/token` | 4 per second               |
 
+Per-username rate limit violations appear in the System Log as a `user_rate_limited` failure message.
+
 ## SMS and Call rate limits
 
 * **Per user/per phone rate limit:** The 30-second verification rate limit applies to an SMS or call enrollment or verification message to the same phone number. The rate limit is one challenge per phone number every 30 seconds.
