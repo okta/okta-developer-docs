@@ -37,7 +37,7 @@ For concurrent rate limits, traffic is measured in three different areas. Counts
 * For Microsoft Office 365 traffic, the limit is 75 concurrent transactions per org.
 * For all other traffic, including API requests, the limit is described in the following table.
 
-| Integrator Free Plan  | One App  | Enterprise  | Workforce identity  |
+| Integrator free plan  | One app  | Enterprise  | Workforce identity  |
 | ------------------:   | -------: | ----------: | ------------------: |
 | 15                    | 35       | 75          | 75                  |
 
@@ -61,9 +61,9 @@ An HTTP 429 error response is returned to users that exceed this limit. No other
 
 ## Home page endpoints and per-minute limits
 
-The following endpoints are used by the Okta home page for authentication and user sign-in and have org-wide rate limits:
+The following endpoints are used by the Okta home page for authentication and user sign in and have org-wide rate limits:
 
-| Home page endpoints                                                | Integrator Free Plan    | One App  | Enterprise  | Workforce identity |
+| Home page endpoints                                                | Integrator free plan    | One App  | Enterprise  | Workforce identity |
 | -------------------------------------------------------------------| ----------------:       | -------: | ----------: | ------------------:|
 | `/app/{app}/{key}/sso/saml`                                             | 100                | *600     | *600        | 750                |
 | `/app/office365/{key}/sso/wsfed/active`                                 | N/A                | N/A      | 2000        | 1000               |
@@ -83,7 +83,7 @@ Email limits are applied on a per-recipient basis and vary by email type. The li
 
 API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/) and the [OAuth 2.0 Resource Owner Password flow](/docs/guides/implement-grant-type/ropassword/main/), have a per-username rate limit. These limits prevent brute force attacks with the user's password:
 
-| Action and Okta API endpoint                                      | Per user limits (all orgs) |
+| Action and Okta API endpoint                                      | Per-user limits (all orgs) |
 | ----------------------------------------------------------------- | -------------------------: |
 | **Authenticate the same user:**<br>`/api/v1/authn`                | 4 per second               |
 | **Generate or refresh an OAuth 2.0 token:**<br>`/oauth2/v1/token` | 4 per second               |
