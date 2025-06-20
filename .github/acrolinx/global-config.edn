@@ -35,4 +35,15 @@
     }
  ;;:guidance-profile "e4ea9087-8bac-43dc-8a6b-104478b4b737" ;; from Okta Prod, This is now controlled by Acrolinx Platform Target Assigments
   :template-header
+"
+## Acrolinx score
+A minimum Acrolinx Score of **80** is required. The total score is an average of the subscores.
+Select **Total score** to review the Acrolinx scorecard for your article. Try to increase your individual scores, for example: Correctness. Your content will be clearer and more consistent.
+| Article | **Total score**<br />**Required:80** | Word and phrases<br />(Brand, terms)<br />Preferred: 80 | Correctness<br />(Spelling, grammar)<br />Preferred: 80 | Clarity<br />(Readability)<br />Preferred: 80 | Inclusive language<br />(+ accesibility)<br />Preferred: 80 |
+|---------|:------------------------------------:|:--------------------------------------------------------:|:--------------------------------------------------------:|:---------------------------------------------:|:------------------------------------------------------------:|
+"
+
+ :template-change
+ "| ${s/status} ${s/file} | [${acrolinx/qualityscore}](${acrolinx/scorecard}) | ${acrolinx/scores/words_and_phrases}  | ${acrolinx/scores/correctness}  | ${acrolinx/scores/clarity}  | ${acrolinx/scores/inclusive}  |
+"
 }
