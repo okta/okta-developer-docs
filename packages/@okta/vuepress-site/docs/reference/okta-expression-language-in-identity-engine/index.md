@@ -64,6 +64,8 @@ When you create an Okta expression, you can reference any property that exists i
 
 When you create an Okta expression, you can reference EDR attributes and any property that exists in an Okta device profile.
 
+> **Note:** Federated claims only supports the use of You can only use `device.profile` with federated claism, `device.provider` isn't supported.
+
 | Syntax                             | Definitions                                                                              | Examples                                                       |
 | --------                           | ----------                                                                               | ------------                                                   |
 | `device.profile.$profile_property`  | `profile_property` - references a device profile property  | `device.profile.managed`<br>`device.profile.registered`<br>           |
