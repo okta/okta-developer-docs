@@ -15,7 +15,7 @@
 1. Install the package dependencies, `express`, `express-basic-auth`, and `dotenv`.
 
     ```bash
-    npm install express, express-basic-auth, express-validator, dotenv
+    npm install express express-basic-auth express-validator dotenv
     ```
 
 1. In your `sample-app` folder, add a `.env` file to store the username and password used by the Okta hook call for Basic authentication. Add the following variables and values:
