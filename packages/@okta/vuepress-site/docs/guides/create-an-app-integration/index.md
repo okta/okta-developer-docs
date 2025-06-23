@@ -1,6 +1,6 @@
 ---
-title: Create an API token
-excerpt: How to create a token for the Okta API
+title: Create an app integration in the Okta Admin Console
+excerpt: How to create an app integration in the Okta Admin Console
 layout: Guides
 sections:
  - main
