@@ -76,15 +76,15 @@ You need an access token for API requests to each Okta org. After you have API a
 
 ### Create an IdP in the hub org
 
-In the hub org, create an IdP to configure federation between your spoke and hub orgs. Add an OpenID Connection IdP <!--Add an Okta Integration IdP--> by using the [Create an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) request with the following body parameters. This call creates the IdP in the hub org.
+In the hub org, create an IdP to configure federation between your spoke and hub orgs. <!--Add an OpenID Connection IdP-->Add an OIDC Okta Integration IdP by using the [Create an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) request with the following body parameters. This call creates the IdP in the hub org.
 
 From the response of the POST request, use the `id` property of the IdP instance in the next step for your `idpId`.
 
-If you want to use a SAML 2.0 IdP for federation, see [Integrate Okta Org2Org](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg).
+You can also use the OpenID Connect IdP for an OIDC integration, see [Enterprise identity provider](docs/guides/add-an-external-idp/openidconnect/main/). If you want to use a SAML 2.0 IdP for federation, see [Integrate Okta Org2Org](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg).
 
-<!-- >**Note:** The Okta Integration IdP is self-service EA. See [Enable self-service feature](https://help.okta.com/okta_help.htm?type=oie&id=ext_Manage_Early_Access_features). -->
+> **Note:** The Okta Integration IdP is self-service EA. See [Enable self-service feature](https://help.okta.com/okta_help.htm?type=oie&id=ext_Manage_Early_Access_features).
 
-#### Create an OpenID Connect IdP
+<!-- #### Create an OpenID Connect IdP
 
 Use the following request body parameters to define your OpenID Connect IdP in the hub org.
 
@@ -191,8 +191,9 @@ curl -v -X POST \
 }
 }' "https://{yourHubOktaDomain}/api/v1/idps"
 ```
+-->
 
-<!--#### Create an OIDC Okta Integration IdP
+#### Create an OIDC Okta Integration IdP
 
 <ApiLifecycle access="ea" />
 
@@ -221,7 +222,7 @@ curl -v -X POST \
   "name": "Example API Okta Integration IdP",
   "protocol": {
     "oktaIdpOrgUrl": "https://{your-spoke-org}.com/",
-    "type": "OIDC",
+    "type": "SAML",
     "credentials": {
         "client": {
           "client_id": "EDIT_THIS",
@@ -238,7 +239,7 @@ curl -v -X POST \
     ]
   }
 }' "https://{yourHubOktaDomain}/api/v1/idps"
-```-->
+```
 
 ### Add an Org2Org app integration in a spoke org
 
