@@ -15,8 +15,8 @@ This journey outlines how to set up your Okta org with some basic, but important
 1. [Create two user accounts](#create-two-user-accounts)
 1. [Create a user group](#create-a-group)
 1. [Enable an embedded sign-in widget](#enable-an-embedded-sign-in-widget)
-1. Create an app
-1. Set up your org for different use cases
+1. [Create an app](#configure-an-app)
+1. [Set up your org for different use cases](#)
 
 ## Create your Okta account
 
@@ -143,58 +143,41 @@ If it isn't selected, then Okta hides the interaction code as a grant type. Admi
 
 ### Enable interaction code for a custom authorization server
 
-If you’re using a custom authorization server for your app, follow these steps. If you aren't using a custom authorization server, go to the [next sectio](#configure-an-app).
+If you’re using a custom authorization server for your app, follow these steps. If you aren't using a custom authorization server, go to the [next section](#configure-an-app).
 
 1. In the Admin Console, go to **Security** > **API**.
 1. Under **Name**, select the authorization server to edit.
 1. Select the **Access Policies** tab.
 1. Click the pencil icon under the **Actions** column for the default policy rule.
-1. Select **IF Grant Type is** > **Advanced**
+1. Select **IF Grant Type is** > **Advanced**.
 1. Select the **Interaction Code** check box.
 1. Select **Update Rule**.
 
 <VerifyICGrantType />
 
-## Configure an app
+## Create an app
 
 Create an app integration that represents the application you want to add authentication to with Okta:
 
-### Create an app
+### Native application
 
-1. Go to **Applications** > **Applications** in the Admin Console.
-1. Click **Create App Integration**.
-1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
-1. Select Web Application as application type, and then click Next.
-1. On the New Web App Integration page:
+* [Android](/docs/guides/oie-embedded-common-org-setup/android/main/#create-an-application)
+* [iOS](/docs/guides/oie-embedded-common-org-setup/ios/main/#create-an-application)
 
-   * Enter an application name.
-   * Select the **Refresh Token** checkbox.
-   * Click **Advanced** in the **Grant type** section and ensure that the **Interaction Code** checkbox is selected.
+### Web application
 
-      > **Note:** If the Interaction Code checkbox doesn’t appear, the Interaction Code grant type isn’t enabled for your org. To enable it, go to Settings > Account > Embedded widget sign-in support. See Verify that the Interaction Code grant type is enabled.
+* [ASP.NET](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#create-an-application)
+* [Go](/docs/guides/oie-embedded-common-org-setup/go/main/#create-an-application)
+* [Java](/docs/guides/oie-embedded-common-org-setup/java/main/#create-an-application)
+* [Node.js](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-an-application)
 
-   * Set **Sign-in redirect URIs** to a URI that is appropriate for your app. For example, http://localhost:8080/login/callback if you're using the sample app.
-   * Set **Controlled Access** to **Allow everyone in your organization to access**.
+### Single-Page application
 
-1. Click **Save**.
-1. Note the **Client ID** value (and if applicable, the **Client secret** value) on the **General** tab. You need it later in your embedded solution.
-
-> **Note:** New apps are automatically assigned the default authentication policy, which requires a user to verify their identity with two factors. To view or change this policy, select the **Sign On** tab, and then locate the **User Authentication** section.
-
-### Add a trusted origin and enable CORS
-
-For web applications, you have to identify your app's URL as a trusted origin and enable CORS:
-
-1. In the Admin Console, go to Security > API.
-1. On the API page, select the Trusted Origins tab.
-1. Click Add Origin and then enter a name for the organization origin.
-1. In the Origin URL field, specify the base URL of the website that you want to allow cross-origin requests from. If you're using the sample app, specify http:??localhost:8080.
-1. Under Type, select the CORS and Redirect check boxes.
-1. Click Save.
+* [React](/docs/guides/oie-embedded-common-org-setup/react/main/#create-an-application)
 
 ## Set up your Okta org for your use case
 
-After you create your app integration in your Okta org, configure your app and org to support the use cases that you're implementing:
+After you create your app integration in your Okta org, configure your app and org to support the authentication use cases that you're implementing:
 
 * For a basic password factor only use case, see [Set up your Okta org for a password factor only use case](#set-up-your-okta-org-for-a-password-factor-only-use-case)
 * For a password-optional use case, see [Set up your Okta org for a password-optional use case](#set-up-your-okta-org-for-a-password-optional-use-case)
@@ -202,6 +185,8 @@ After you create your app integration in your Okta org, configure your app and o
 * For a social sign-in use case, see [Set up your Okta org for a social IdP use case](#set-up-your-okta-org-for-a-social-idp-use-case)
 
 ### Set up your Okta org for a password factor only use case
+
+<Is this a section that we still want to include? Okta likely recommends at least 2FA>
 
 This section shows you how to set up your Okta org and app to support password factor-only use cases. These use cases are intended to use the password factor without any additional factors (such as email or phone SMS). In the [Create an application](#create-an-application) section, the app is assigned **Any two factors**. This is the default policy for new apps that requires a user to verify their identity with any two enabled authentication factors.
 
@@ -248,7 +233,7 @@ To ensure that only password-optional users can **sign in** without a password a
 ##### Set up the email authenticator
 
 1. Open the **Admin Console** for your org.
-2. Choose **Security** > **Authenticators** to show the available authenticators.
+2. Go to **Security** > **Authenticators** to see the available authenticators.
 3. Locate the **Email** authenticator on the **Setup** tab, and then select **Actions** > **Edit**.
 4. Set **This authenticator can be used for** to **Authentication and recovery**.
 5. Click **Save**.
@@ -257,7 +242,7 @@ To ensure that only password-optional users can **sign in** without a password a
 
 1. Choose **Directory** > **Groups**.
 2. Click **Add Group**.
-3. Give the group a name, for example, "Password-optional Users."
+3. Give the group a name, for example, "Password-optional users."
 4. Click **Save**.
 
 #### Enable password-optional user sign-up flow
@@ -268,88 +253,95 @@ To ensure that only specific app integrations can let users sign up without a pa
 
 A user profile policy determines the minimum information required from a user to create an account. The policy also determines how the user should verify their identity before creating their account.
 
-1. Go to **Security** > **User Profile Policies** and click **Add user profile policy**.
-1. Locate the **Profile Enrollment** section of the policy and click **Edit**.
+1. Go to **Security** > **User Profile Policies**.
+1. Click **Add user profile policy**.
+1. Enter **Password-optional user profile policy** as the name of the policy. Click **Save**.
+1. For your new policy, and under **Actions**, click the pencil icon to edit the policy.
+1. On the **Enrollment** tab, locate the **Profile Enrollment** section of the policy and click **Edit**.
 1. Set **Self-service registration** to **Allowed**.
 1. Verify that **Required before access is granted** is selected for **Email Verification**.
 1. Set **Add the user to group** to the group that you made for password-optional users, and then click **Save**.
-1. Click **Manage apps**, and then click **Add an App to This Policy**.
-1. Locate your app integration, click **Apply**, and verify that the app is in the Apps list using the new user profile policy.
+1. Go to the **Apps** tab.
+1. Click **Add an App to This Policy**.
+1. Locate your app integration and click **Apply**.
+1. Click **Close** and then verify that the app is in the list of **Apps using this policy**.
 
 #### Enable password-optional user sign-in flow
 
-To ensure that only password-optional users can sign in without a password and everybody else is appropriately prompted for it, do the following:
+To ensure that only password-optional users can sign in without a password and other users are appropriately prompted for it, do the following:
 
 ##### Create a password-optional authenticator enrollment policy
 
 An authenticator enrollment policy determines which authenticators must challenge a user before they’re successfully signed in. In this case, email is set to **Required**, while all the other authenticators are set to **Optional**.
 
 1. Go to **Security** > **Authenticators**.
-2. Select the **Enrollment** tab, and then click **Add A Policy**.
-3. Give the new policy a name, for example, "Password-optional Sign-In Policy."
-4. Set **Assign to groups** to the group you just made for password-optional users.
+2. Go the **Enrollment** tab, and then click **Add a policy**.
+3. Enter **Password-optional sign-in policy** as the name.
+4. Under **Assign to groups**, assign the policy to password-optional group.
 5. Do the following in the **Eligible Authenticators** section:
 
    * Set **Email** to **Required**.
    * Set **Password** to **Optional**.
    * Verify that the remaining authenticators are set to **Optional**.
 
-6. Click **Create Policy**.
+6. Click **Create policy**.
 
 ##### Create a rule for the policy
 
-1. Give the rule a name, for example, "Password-optional Sign-In Rule."
-1. Set **Exclude Users** to the names of your main admin accounts.
-1. Leave the other settings at their defaults, and then click **Create Rule**.
+1. Enter **Password-optional sign-in policy rule** as the name.
+1. Under **Exclude users**, enter your username and `Okta Service` to ensure the policy doesn't apply to your admins.
+1. Leave the other settings at their defaults, and then click **Create rule**.
 1. Move the new policy immediately above the default policy in the list of policies.
 
 ##### Add a global session policy for password-optional users
 
 A global session policy determines user session length and basic authentication rules for groups of users. In this case, the policy turns off MFA for all users in the password-optional user group. Therefore, they only need email authentication to sign in.
 
-1. Go to **Security** > **Global Session Policy**, and click **Add policy**.
-1. Give the policy a name, for example, "Global Password Optional Policy."
-1. Set **Assign to groups** to the group you just made for password-optional users.
-1. Click **Create Policy and Add Rule**, and give the rule a name. Example: "Global Password Optional Rule."
+1. Go to **Security** > **Global Session Policy**.
+1. Click **Add policy**.
+1. Enter **Password-optional global sign-in policy** as the name.
+1. Under **Assign to groups**, assign the policy to password-optional group.
+1. Click **Create policy and add rule**. and give the rule a name.
+1. Enter **Password-optional gsp rule** as the name of the rule.
 1. Verify that **Establish the user session with** is set to **Any factor used to meet the Authentication Policy requirements**.
 1. Set **Multifactor authentication (MFA) is** to **Not required**.
-1. Leave the other settings at their defaults, and then click **Create Rule**.
+1. Leave the other settings at their defaults, and then click **Create rule**.
 
 ##### Add an authentication policy for password-optional users
 
-1. Go to **Security** > **Authentication Policies**, and click **Add a policy**.
-1. Give the policy a name, such as "Authenticate with Email Only", and then click **Save**.
-1. Locate the **Catch-all Rule** of the new policy and select **Actions** > **Edit**.
-1. Set **User must authenticate with** to **Any 1 factor type**, and in the **Possession factor constraints are** section:
+1. Go to **Security** > **Authentication Policies**.
+1. Click **Add a policy**.
+1. Enter **Password-optional authentication policy** as the name.
+1. Click **Save**.
+1. Go to the **Catch-all Rule** of the new policy and select **Actions** > **Edit**.
+1. Set **User must authenticate with** to **Any 1 factor type**.
+1. In the **Possession factor constraints are** section, verify the following:
 
    * Verify that no options are selected.
    * Verify that **Email** is listed in the box under **1 factor type**.
 
-1. Click **Save**, select the **Applications** tab for your newly created policy, and then click **Add app**.
+1. Click **Save**.
+1. Select the **Applications** tab for your newly created policy. Then, click **Add app**.
 1. Find your app in the list and click **Add** next to it.
-1. Click **Close**, and then verify that the app is now listed in the **Applications** tab of the new policy.
+1. Click **Done**.
+1. Verify that the app is now listed in the **Applications** tab of the new policy.
 
 ### Set up your Okta org for a multifactor use case
 
-This section shows you how to set up your Okta org and app to support the multifactor use cases available in this embedded authentication guide. In addition to the password factor, the multifactor use cases presented in this guide use the email and phone factors. Perform the following configuration after you [create an app](#create-an-application) to set up the email and phone factors in your Okta org:
+This section shows you how to set up your Okta org and app to support the multifactor use cases. In addition to the password factor, the multifactor use cases presented in this guide use the email and phone factors. Perform the following configurations to set up the email and phone factors in your Okta org:
 
-1. [Set up the email authenticator for authentication and recovery](#set-up-the-email-authenticator-for-authentication-and-recovery).
 1. [Add the phone authenticator for authentication and recovery](#add-the-phone-authenticator-for-authentication-and-recovery).
 1. [Update your authentication policy with multifactor authentication](#update-your-authentication-policy-with-multifactor-authentication).
 
 > **Note:** The multifactor use cases in this guide implement the password, email, and phone factors. However, there are more supported factors that you can use in your embedded authentication app. See [Multifactor Authentication](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-authenticators).
 
-#### Set up the email authenticator for authentication and recovery
-
-1. Go to **Security** > **Authenticators** in the Admin Console.
-1. Select **Edit** from the **Actions** dropdown menu on the **Email** authenticator row to access the **Email** dialog.
-1. Select **Authentication and recovery** in the **Used for** section, and click **Save**.
-
 #### Add the phone authenticator for authentication and recovery
 
-**Note:** If your org already has the phone authenticator, ensure that **Authentication and recovery** appears in the **Used for** column on the **Setup tab**.
+<This authenticator requires a telephony inline hook to be used>
 
-1. Go to **Security** > **Authenticators** in the Admin Console to add the phone authenticator.
+> **Note:** If your org already has the phone authenticator, ensure that **Authentication and recovery** appears in the **Used for** column on the **Setup tab**.
+
+1. Go to **Security** > **Authenticators**.
 1. Click **Add Authenticator**, and then click **Add** on the **Phone** authenticator tile.
 1. Select **SMS** for the **User can verify with** field.
 
@@ -360,7 +352,7 @@ This section shows you how to set up your Okta org and app to support the multif
 
 #### Update your authentication policy with multifactor authentication
 
-1. Go to **Security** > **Authentication Policies** in the Admin Console.
+1. Go to **Security** > **Authentication Policies**.
 1. Select **Default Policy** as this is the policy that the [app you created](#create-an-application) is assigned to.
 1. Select **Edit** from the **Actions** menu for the **Catch-all Rule** to access the **Edit Rule** dialog.
 1. Scroll down to the **AND User must authenticate with** dropdown menu and select **Password + Another Factor**.
@@ -371,9 +363,9 @@ This section shows you how to set up your Okta org and app to support the multif
 
 ### Set up your Okta org for a social IdP use case
 
-Use this section to set up your Okta org and app to support Facebook IdP use cases that are available in this embedded authentication guide. If you want to implement a use case with another social IdP, see [Add an external Identity Provider](/docs/guides/identity-providers/) for the list of Okta-supported social IdPs and instructions on how to configure them for social login with Okta.
+Use this section to set up your Okta org and app to support Facebook IdP use cases. If you want to implement a use case with another social IdP, see [Add an external identity provider](/docs/guides/identity-providers/) for the list of Okta-supported social IdPs and instructions on how to configure them for social login with Okta.
 
-Perform the following configurations after you [create an app](#create-an-application) to set up the Facebook IdP and your Okta org:
+Follow these steps to set up the Facebook IdP in your Okta org:
 
 1. [Create a Facebook app in Facebook](#create-a-facebook-app-in-facebook).
 1. [Set up the Facebook test user](#set-up-the-facebook-test-user).
