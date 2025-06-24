@@ -82,7 +82,7 @@ From the response of the POST request, use the `id` property of the IdP instance
 
 You can also use the OpenID Connect IdP for an OIDC integration, see [Enterprise identity provider](docs/guides/add-an-external-idp/openidconnect/main/). If you want to use a SAML 2.0 IdP for federation, see [Integrate Okta Org2Org](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg).
 
-> **Note:** The Okta Integration IdP is self-service EA. See [Enable self-service feature](https://help.okta.com/okta_help.htm?type=oie&id=ext_Manage_Early_Access_features).
+> **Note:** Okta Org2Org OIDC sign-on mode and Okta Integration IdP features are in self-service EA. See [Enable self-service feature](https://help.okta.com/okta_help.htm?type=oie&id=ext_Manage_Early_Access_features).
 
 <!-- #### Create an OpenID Connect IdP
 
