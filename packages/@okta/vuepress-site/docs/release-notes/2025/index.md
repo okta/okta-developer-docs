@@ -10,13 +10,18 @@ title: Okta Classic Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Org2Org OIDC Sign-on mode is self-service EA in Preview](#org2org-oidc-sign-on-mode-is-self-service-ea-in-preview) | Jun 25, 2025 |
-| [Okta Integration IdP type is EA in Preview](#okta-integration-idp-type-is-ea-in-preview) | Jun 25, 2025 |
+| [Network zone restrictions for clients is self-service EA in Preview](#network-zone-restrictions-for-clients-is-self-service-ea-in-preview) | Jun 25, 2025 |
+| [Org2Org OIDC Sign-on mode is self-service EA in Preview](#org2org-oidc-sign-on-mode-is-self-service-ea-in-preview) | Jun 17, 2025 |
+| [Okta Integration IdP type is EA in Preview](#okta-integration-idp-type-is-self-service-ea-in-preview) | Jun 25, 2025 |
 | [Bugs fixed in 2025.06.2](#bugs-fixed-in-2025-06-2)| Jun 25, 2025 |
+
+#### Network zone restrictions for clients is self-service EA in Preview
+
+You can now specify an allowlist or denylist network zone for each client to enhance token endpoint security. <!-- OIDC_TOKEN_NETWORK_RESTRICTIONS (OKTA-958762) -->
 
 #### Org2Org OIDC Sign-on mode is self-service EA in Preview
 
-The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP. This sign-on mode reduces the complexity of configuration between the Org2Org app and the target org, and takes advantage of modern security features of OIDC. You also need to enable the Okta Integration IdP feature to use the OIDC Sign-on mode. See [Secure API connections between orgs with OAuth 2.0](docs/guides/secure-oauth-between-orgs/main/). <!-- OKTA-714847 FF ORG2ORG_ENABLE_OIDC_SOM  -->
+The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP. This sign-on mode reduces the complexity of configuration between the Org2Org app and the target org, and takes advantage of modern security features of OIDC. You also need to enable the Okta Integration IdP feature to use the OIDC Sign-on mode. See [Secure API connections between orgs with OAuth 2.0](docs/guides/secure-oauth-between-orgs/main/). <!-- OKTA-714847 FF ORG2ORG_ENABLE_OIDC_SOM Publishing delayed until 6.2 OKTA-950222 -->
 
 #### Okta Integration IdP type is self-service EA in Preview
 
