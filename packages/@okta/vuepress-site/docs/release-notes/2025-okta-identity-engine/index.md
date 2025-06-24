@@ -6,15 +6,31 @@ title: Okta Identity Engine API release notes 2025
 
 # Okta Identity Engine API release notes (2025)
 
-<!-- ## July
+## June
 
-### Monthly release 2025.07.0
+### Weekly release 2025.06.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Org2Org OIDC Sign-on mode is self-service EA in Preview](#org2org-oidc-sign-on-mode-is-self-service-ea-in-preview) | Jun 25, 2025 |
+| [Okta Integration IdP type is EA in Preview](#okta-integration-idp-type-is-ea-in-preview) | Jun 25, 2025 |
+| [Bugs fixed in 2025.06.2](#bugs-fixed-in-2025-06-2)| Jun 25, 2025 |
 
 ####  Org2Org OIDC Sign-on mode is self-service EA in Preview
 
-The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP. This sign-on mode reduces the complexity of configuration between the Org2Org app and the target org, and takes advantage of modern security features of OIDC. You also need to enable the Okta Integration IdP feature to use the OIDC Sign-on mode. See [Secure API connections between orgs with OAuth 2.0](docs/guides/secure-oauth-between-orgs/main/). <!-- OKTA-714847 FF ORG2ORG_ENABLE_OIDC_SOM -->
+The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP. This sign-on mode reduces the complexity of configuration between the Org2Org app and the target org, and takes advantage of modern security features of OIDC. You also need to enable the Okta Integration IdP feature to use the OIDC Sign-on mode. See [Secure API connections between orgs with OAuth 2.0](docs/guides/secure-oauth-between-orgs/main/). <!-- OKTA-714847 FF ORG2ORG_ENABLE_OIDC_SOM  -->
 
-## June
+#### Okta Integration IdP type is EA in Preview
+
+The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with secure defaults. See [Identity Providers](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&path=type&t=response) and [Add an Okta Identity Provider](https://help.okta.com/okta_help.htm?type=oie&id=idp-add-okta).<!-- OKTA_INTEGRATION_IDP_TYPE (OKTA-949786) -->
+
+#### Bugs fixed in 2025.06.2
+
+* For profile enrollments, user information wasn't validated until after it was passed to inline hooks for processing. (OKTA-950273)
+
+* When a deleted app shared a group rule with another app, users were unassigned from both apps. (OKTA-934264)
+
+* The delete operation for the Roles API (/iam/roles/{roleIdOrLabel}) and the Resource Sets API (/iam/resource-sets/{iamPolicyIdOrLabel}) allowed users to delete IAM-based standard roles and resource sets, respectively. (OKTA-926830)
 
 ### Weekly release 2025.06.1
 
