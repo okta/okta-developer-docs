@@ -196,6 +196,8 @@ See the [ISO 3166-1 online lookup tool](https://www.iso.org/obp/ui/#search/code/
 
 ### Group functions
 
+> **Note:** This functionality was previously only available for certain features, but has since been expanded to all features that allow Expression Language.
+
 > **Note:** For the following expression examples, assume that the user is a member of the following groups:
 
 | Group ID                 | Group name               | Group type            | Group source ID |
