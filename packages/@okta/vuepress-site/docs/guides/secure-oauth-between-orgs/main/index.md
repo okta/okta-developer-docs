@@ -204,7 +204,6 @@ Use the following request body parameters to define your OIDC Okta Integration I
 | `type`  |  `OKTA_INTEGRATION` |
 | `name`  |  Specify a name for this Okta Integration IdP |
 | `protocol.oktaIdpOrgUrl`  |  Your spoke org domain name |
-| `protocol.type`  |  `OIDC` |
 | `protocol.credentials.client.token_endpoint_auth_method`  |  `private_key_jwt` |
 | `protocol.credentials.client.client_id`  |  Add a placeholder value for the Org2Org ID, which you create in the next step. Update this value using the procedure [Update the IdP in the hub org](#update-the-idp-in-the-hub-org). |
 
