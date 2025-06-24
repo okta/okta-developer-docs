@@ -31,8 +31,6 @@ The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with
 
 #### Bugs fixed in 2025.06.2
 
-* For profile enrollments, user information wasn't validated until after it was passed to inline hooks for processing. (OKTA-950273)
-
 * When an app with imported app groups was deactivated, and users were subsequently removed from these groups, the event wasn't recorded in the System Log. (OKTA-934264)
 
 * The delete operation for the Roles API (`/iam/roles/{roleIdOrLabel}`) and the Resource Sets API (`/iam/resource-sets/{iamPolicyIdOrLabel}`) allowed users to delete IAM-based standard roles and resource sets, respectively. (OKTA-926830)
