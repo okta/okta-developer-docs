@@ -118,7 +118,7 @@ The Single Logout (SLO) for IdPs feature boosts security for organizations using
 
 #### Expanded use of user.getGroups() function in Okta Expression Language is GA in Preview
 
-The `user.getGroups()` function can now be used across all features that support Expression Language. See [Group functions](/docs/reference/okta-expression-language/#group-functions) for more information. <!-- ENABLE_GET_GROUPS_FUNCTION_ELV2 OKTA-945229-->
+You can now use the `user.getGroups()` function across all features that support Expression Language. See [Group functions](/docs/reference/okta-expression-language/#group-functions). <!-- ENABLE_GET_GROUPS_FUNCTION_ELV2 OKTA-945229-->
 
 #### Developer documentation updates in 2025.06.0
 
