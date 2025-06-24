@@ -221,7 +221,7 @@ curl -v -X POST \
   "name": "Example API Okta Integration IdP",
   "protocol": {
     "oktaIdpOrgUrl": "https://{your-spoke-org}.com/",
-    "type": "SAML",
+    "type": "SAML2",
     "credentials": {
         "client": {
           "client_id": "EDIT_THIS",
