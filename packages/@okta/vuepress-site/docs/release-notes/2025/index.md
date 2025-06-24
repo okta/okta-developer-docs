@@ -14,6 +14,8 @@ The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP
 
 ## June
 
+### Weekly release 2025.06.1
+
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Frame-ancestors rollout for Content Security Policy](#frame-ancestors-rollout-for-content-security-policy) | Jun 17, 2025 |
@@ -51,6 +53,7 @@ In addition, Okta is rolling out the use of `nonce` with the script-src directiv
 | [Domain restrictions on Realms is GA in Production](#domain-restrictions-on-realms-is-ga-in-production) | April 23, 2025 |
 | [Number matching challenge with the Factors API is GA in Production](#number-matching-challenge-with-the-factors-api-is-ga-in-production) | April 9, 2025 |
 | [Restrict access to the Admin Console is GA in Preview](#restrict-access-to-the-admin-console-is-ga-in-preview) | June 4, 2025 |
+| [Expanded use of user.getGroups() function in Okta Expression Language is GA in Preview](#expanded-use-of-user-getgroups-function-in-okta-expression-language-is-ga-in-preview)| June 4, 2025 |
 | [Developer documentation updates in 2025.06.0](#developer-documentation-updates-in-2025-06-0) | June 4, 2025 |
 | [Bug fixed in 2025.06.0](#bug-fixed-in-2025-06-0)| June 4, 2025 |
 
@@ -85,6 +88,10 @@ You can now send number matching challenges for Okta Verify `push` factor enroll
 #### Restrict access to the Admin Console is GA in Preview
 
 By default, users and groups with assigned admin roles have access to the Admin Console app. With this feature, super admins can choose to manually assign the app to delegated admins instead. This is recommended for orgs with admins who don't need access, like business partners, third-party admins, or admins who only use the Okta API. See [Configure administrator settings](https://help.okta.com/okta_help.htm?type=oie&id=administrator-settings) and the corresponding APIs: [Retrieve the Okta Admin Console Assignment Setting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/getAutoAssignAdminAppSetting) and [Update the Okta Admin Console Assignment Setting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/updateAutoAssignAdminAppSetting). <!-- OKTA-717742 ADMIN_APP_AND_ROLE_DECOUPLING -->
+
+#### Expanded use of user.getGroups() function in Okta Expression Language is GA in Preview
+
+You can now use the `user.getGroups()` function across all features that support Expression Language. See [Group functions](/docs/reference/okta-expression-language/#group-functions). <!-- ENABLE_GET_GROUPS_FUNCTION_ELV2 OKTA-945229-->
 
 #### Developer documentation updates in 2025.06.0
 
