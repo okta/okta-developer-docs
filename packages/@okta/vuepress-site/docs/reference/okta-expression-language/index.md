@@ -211,7 +211,7 @@ For more information on using group functions for dynamic and static allowlists,
 
 #### Get Groups for Users
 
-> **Note:** The `user.getGroups` function was previously only available for a limited set of features on Okta Identity Engine, but has since been expanded to all features that allow Expression Language.
+> **Note:** The `user.getGroups` function was previously only available for a limited set of features on Okta Identity Engine, but has been expanded to all features that allow Expression Language.
 
 > **Note:** For the following expression examples, assume that the user is a member of the following groups:
 
