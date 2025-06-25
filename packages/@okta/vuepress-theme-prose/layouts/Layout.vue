@@ -10,7 +10,7 @@
         @updateHeight="updateHeaderHeight"
       >
         <p>
-          <strong>Available now!</strong> The Integrator Free Plan org for developers and integrators is now available. Learn more at the <a
+          All Developer Edition Orgs will be deactivated starting on July 18, 2025. To continue with development and integrations, sign up for the new Integrator Free Plan. Learn more at the <a
             href="https://developer.okta.com/blog/2025/05/13/okta-developer-edition-changes"
             target="_blank"
           >
