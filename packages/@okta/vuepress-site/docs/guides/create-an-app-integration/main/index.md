@@ -6,6 +6,8 @@ layout: Guides
 
 This guide explains what an app integration is, why you need one, and how to create one.
 
+---
+
 #### Learning outcomes
 
 * Learn about app integrations in Okta.
@@ -16,7 +18,9 @@ This guide explains what an app integration is, why you need one, and how to cre
 * An [Okta Integrator Free Plan org](https://developer.okta.com/signup/).
 * An admin user in the Integrator Free Plan org with either the super admin or the app and org admin roles.
 
-### About app integration
+---
+
+## About app integration
 
 App integrations in Okta connect your Okta org to external apps and services. These integrations support several protocols that allow you to manage user access, authentication, and provisioning from a single or centralized platform.
 
@@ -54,22 +58,22 @@ Okta app integrations support standard protocols for both [SSO](https://develope
 * Web Services Federation (WS-Fed): A protocol primarily used by Microsoft apps for federated identity and SSO.
 * SCIM: A standard protocol for automating the exchange of user identity information, enabling automated user provisioning and deprovisioning between Okta and external apps.
 
-These protocols allow you to provide secure, seamless access and automated user management for a wide range of apps and services. Choose the protocol that best fits your app's requirements.
+These protocols allow you to provide secure, seamless access and automated user management for a wide range of apps and services.
 
-### How to create an app integration
+## How to create an app integration
 
 You can add either a prebuilt app integration from the OIN or create a custom app integration based on your org’s needs.
 
-#### Add a prebuilt/existing app integration
+### Add a prebuilt/existing app integration
 
 1. Sign in to the Admin Console.
-    1. [Sign in to your Okta org](https://developer.okta.com/login).
-    1. Click **Admin** in the upper-right corner of the page.
+    a. [Sign in to your Okta org](https://developer.okta.com/login).
+    b. Click **Admin** in the upper-right corner of the page.
 2. Go to **Applications** > **Applications**.
 3. Click **Browse App Catalog**.
 4. Search for the app integration you require. To search, perform one of these two options:
-    1. Type the app integration name in the **Search** bar. Select it from the dropdown or click **See All Results** to have everything displayed as tiles in the main panel. Click the tile to view its details.
-    1. Choose a **Use Case** and optional filters such as **Functionality** or **Industry** to filter the results. When you find the app integration you want, click it to view more details on the details page.
+    * Type the app integration name in the **Search** bar. Select it from the dropdown or click **See All Results** to have everything displayed as tiles in the main panel. Click the tile to view its details.
+    * Choose a **Use Case** and optional filters such as **Functionality** or **Industry** to filter the results. When you find the app integration you want, click it to view more details on the details page.
 5. Determine if this is the correct app integration for your needs. The details page provides a detailed description of the app integration, its use case, and supported functionality.
 6. Select the app from the catalog and click **Add Integration**.
 7. Enter the required information under **General Settings**, and then click **Next**.
@@ -85,7 +89,7 @@ Okta adds an instance of the app integration to your org, and you can now assign
 
 If you need to update the settings for your app integration, including changing sign-in options, see [Configure settings for app integrations](https://help.okta.com/oie/en-us/content/topics/apps/apps-configure-settings.htm).
 
-#### Create a custom app integration
+### Create a custom app integration
 
 You can add an app integration that doesn't exist in the OIN, using the App Integration Wizard (AIW). The wizard allows you to create an app integration and connect Okta with your SAML, OIDC, SWA, or SCIM app. You can also add SCIM provisioning to a custom app integration.
 
@@ -126,13 +130,13 @@ After you create your integration, you can assign it to your users in your org.
 
 The integration created is private and visible only within your own Okta org. If you want to make your app integration publicly available in the OIN, see [Publish an OIN integration](https://developer.okta.com/docs/guides/submit-app-overview/).
 
-#### Create an API Service Integration
+### Create an API Service Integration
 
 You can also add any API service integration listed in the OIN catalog with their Okta tenant org. See [API Service Integrations](https://help.okta.com/oie/en-us/content/topics/apiservice/api-service-integrations.htm).
 
 To build, test, and submit your API service integration to the OIN catalog. See [Build an API service integration](https://developer.okta.com/docs/guides/build-api-integration/main/).
 
-### Test Your Integration
+## Test Your Integration
 
 Once your app is set up:
 
