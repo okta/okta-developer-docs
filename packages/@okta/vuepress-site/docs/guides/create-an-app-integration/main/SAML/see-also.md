@@ -1,0 +1,1 @@
+* See [Publish an OIN integration](https://developer.okta.com/docs/guides/submit-app-overview/) for information on submitting your integration for publication in the OIN.
