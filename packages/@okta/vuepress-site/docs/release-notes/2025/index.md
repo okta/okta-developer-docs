@@ -12,7 +12,7 @@ title: Okta Classic Engine API release notes 2025
 |--------|--------------------------|
 | [Network zone restrictions for clients is self-service EA in Preview](#network-zone-restrictions-for-clients-is-self-service-ea-in-preview) | Jun 25, 2025 |
 | [Org2Org OIDC Sign-on mode is self-service EA in Preview](#org2org-oidc-sign-on-mode-is-self-service-ea-in-preview) | Jun 17, 2025 |
-| [Okta Integration IdP type is EA in Preview](#okta-integration-idp-type-is-self-service-ea-in-preview) | Jun 25, 2025 |
+| [Okta Integration IdP type is self-service EA in Preview](#okta-integration-idp-type-is-self-service-ea-in-preview) | Jun 25, 2025 |
 | [Bugs fixed in 2025.06.2](#bugs-fixed-in-2025-06-2)| Jun 25, 2025 |
 
 #### Network zone restrictions for clients is self-service EA in Preview
