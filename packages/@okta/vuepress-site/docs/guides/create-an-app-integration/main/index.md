@@ -6,8 +6,6 @@ layout: Guides
 
 This guide explains what an app integration is, why you need one, and how to create one.
 
-* * *
-
 #### Learning outcomes
 
 * Learn about app integrations in Okta.
@@ -15,10 +13,8 @@ This guide explains what an app integration is, why you need one, and how to cre
 
 #### What you need
 
-* An [Okta Integrator Free Plan org](https://developer.okta.com/signup/)
-* An admin user in the Integrator Free Plan org with either the super admin or the app and org admin roles
-
-* * *
+* An [Okta Integrator Free Plan org](https://developer.okta.com/signup/).
+* An admin user in the Integrator Free Plan org with either the super admin or the app and org admin roles.
 
 ### About app integration
 
