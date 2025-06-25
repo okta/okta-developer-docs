@@ -91,7 +91,7 @@ In addition to referencing user, app, and organization properties, you can also 
 
 | Syntax            | Definitions                                                 | Evaluation example                                     |
 | ----------------- | ----------------------------------------------------------- | ------------------------------------------------------ |
-| `session.amr`     | `session` reference to a user's session<br> `amr` the attribute name that is resolvable to an array of [Authentication Method References](https://tools.ietf.org/html/rfc8176) | `["pwd"]`&mdash;password used by the user for authentication<br>`["mfa", "pwd", "kba"]`&mdash;password and MFA Security Question used by the user for authentication<br>`["mfa", "mca", "pwd", "sms"]`&mdash;password and MFA SMS used by the user for authentication |
+| `session.amr`     | `session` reference to a user's session<br> `amr` the attribute name that's resolvable to an array of [Authentication Method References](https://tools.ietf.org/html/rfc8176) | `["pwd"]`&mdash;password used by the user for authentication<br>`["mfa", "pwd", "kba"]`&mdash;password and MFA Security Question used by the user for authentication<br>`["mfa", "mca", "pwd", "sms"]`&mdash;password and MFA SMS used by the user for authentication |
 
 ## Functions
 
@@ -208,6 +208,43 @@ For more information on using group functions for dynamic and static allowlists,
 >Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
 >
 >See the parameter examples section of [Use group functions for static group allowlists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allow-lists).
+
+#### Get Groups for Users
+
+> **Note:** The `user.getGroups` function was previously only available for a limited set of features on Okta Identity Engine, but has been expanded to all features that allow Expression Language.
+
+> **Note:** For the following expression examples, assume that the user is a member of the following groups:
+
+| Group ID                 | Group name               | Group type            | Group source ID |
+| --------                 | -----------              | -----------           | ----------- |
+| 00gak46y5hydV6NdM0g4     | Everyone                 | BUILT_IN              | 0oazmqPIbHiVJBG4C0g3 |
+| 00g1emaKYZTWRYYRRTSK     | West Coast Users         | OKTA_GROUP            | 0a81509410bdf807f680 |
+| 00garwpuyxHaWOkdV0g4     | West Coast Admins        | OKTA_GROUP            | 0a03d062d3918fd34742 |
+| 00gjitX9HqABSoqTB0g3     | Engineering Users        | APP_GROUP             | 0aae4be2456eb62f7c3d |
+| 00gnftmgQxC2L19j6I9c     | Engineering Users        | APP_GROUP             | 0a61c8dacb58b3c0716e |
+
+Group functions take in a list of search criteria as input. Each search criterion is a key-value pair:<br>
+**Key:** Specifies the matching property. Currently supported keys are: `group.id`, `group.source.id`, `group.type`, and `group.profile.name`.<br>
+**Value:** Specifies a list of matching values.
+
+The `group.id`, `group.source.id`, and `group.type` keys can match values that are exact.
+
+The `group.profile.name` key supports the operators `EXACT` and `STARTS_WITH` to identify exact matches or matches that include the value. If no operator is specified, the expression uses `STARTS_WITH`. You can't use these operators with `group.id`, `group.source.id`, or `group.type`.
+
+Use `group.source.id` when you need to disambiguate between groups that have the same group name. For example, if you're searching for app groups that start with "Admin" from a given app instance then you can use `group.source.id` to filter multiple groups across the different app group sources.
+
+| Function                 | Return type | Example                                                                                                         | Output explanation                                                                        | Example Output |
+| ---------------          | ----------- | -------                                                                                                         | -----                                                                           | ---- |
+| `user.getGroups`         | Array       | `user.getGroups({'group.id': {'00gjitX9HqABSoqTB0g3'}}, {'group.profile.name': 'West Coast.*'})`                | A list of groups with group ID `00gjitX9HqABSoqTB0g3` and a group name that starts with `West Coast`                                                                | {} |
+|                          |             | `user.getGroups({'group.type': {'OKTA_GROUP'}}, {'group.profile.name': {'Everyone', 'West Coast Admins'}})`     | A list of groups that are of the type `OKTA_GROUP` and the group name starts with `Everyone` or `West Coast Admins` | A list of user groups that contains groups with ID `00garwpuyxHaWOkdV0g4`  |
+|                          |             | `user.getGroups({'group.profile.name': 'East Coast.*'})`                                                        | A list of groups that start with the name `East Coast` | {}                                                                              |
+|                          |             | `user.getGroups({'group.type': {'OKTA_GROUP', 'APP_GROUP'}})`                                                   | A list of groups that are of the type `OKTA_GROUP` or `APP_GROUP` | A list of user groups that contains groups with IDs `00g1emaKYZTWRYYRRTSK`, `00garwpuyxHaWOkdV0g4`, `00gjitX9HqABSoqTB0g3`, and `00gnftmgQxC2L19j6I9c`  |
+|                          |             | `user.getGroups({'group.source.id': '0aae4be2456eb62f7c3d'} , {'group.profile.name': {'Engineering Users'}} )` | A filtered list of user groups that contains groups that start with the name `Engineering Users` and that has the source ID `0aae4be2456eb62f7c3d` | A list of user groups that contains groups with ID `00gjitX9HqABSoqTB0g3` |
+| `user.isMemberOf`        | Boolean     | `user.isMemberOf({'group.id': {'00gjitX9HqABSoqTB0g3', '00garwpuyxHaWOkdV0g4'}}, {'group.type': 'APP_GROUP'})`  | Whether the user is a member of one of the groups with ID `00gjitX9HqABSoqTB0g3` or `00garwpuyxHaWOkdV0g4` and the group type is  `APP_GROUP`   | True        |
+|                          |             | `user.isMemberOf({'group.id': {'00gjitX9HqABSoqTB0g3', '00garwpuyxHaWOkdV0g4'}}, {'group.type': 'BUILT_IN'})`   | Whether the user is a member of one of the groups with ID `00gjitX9HqABSoqTB0g3` or `00garwpuyxHaWOkdV0g4` and the group type is `BUILT_IN`   | False |
+|                          |             | `user.isMemberOf({'group.profile.name': 'West Coast', 'operator': 'STARTS_WITH' })`   | Whether the user is a member of a group whose name starts with `West Coast` | True |
+|                          |             | `user.isMemberOf({'group.profile.name': 'West Coast', 'operator': 'EXACT' })`   | Whether the user is a member of a group whose exact name is `West Coast` | False |
+|                          |             | `user.isMemberOf({'group.source.id': '0aae4be2456eb62f7c3d'} , {'group.profile.name': {'Engineering Users'}} )` | Whether the user is a member of a group whose source ID is `0aae4be2456eb62f7c3d` and the group name starts with `Engineering Users` | True |
 
 ### Linked object function
 

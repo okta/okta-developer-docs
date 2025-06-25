@@ -87,6 +87,7 @@ See the [MyAccount Authenticators API](https://developer.okta.com/docs/api/opena
 | [Restrict access to the Admin Console is GA in Preview](#restrict-access-to-the-admin-console-is-ga-in-preview) | June 4, 2025 |
 | [Shared signal transmitters is GA in Production](#shared-signal-transmitters-is-ga-in-production) | May 7, 2025 |
 | [Single Logout for IdPs is EA in Preview](#single-logout-for-idps-is-ea-in-preview) | June 4, 2025 |
+| [Expanded use of user.getGroups() function in Okta Expression Language is GA in Preview](#expanded-use-of-user-getgroups-function-in-okta-expression-language-is-ga-in-preview)| June 4, 2025 |
 | [Developer documentation updates in 2025.06.0](#developer-documentation-updates-in-2025-06-0) | June 4, 2025 |
 | [Bugs fixed in 2025.06.0](#bugs-fixed-in-2025-06-0)| June 4, 2025 |
 
@@ -133,6 +134,10 @@ Okta uses [CAEP](https://openid.net/specs/openid-caep-specification-1_0.html) to
 #### Single Logout for IdPs is EA in Preview
 
 The Single Logout (SLO) for IdPs feature boosts security for organizations using shared devices and external IdPs by automatically ending IdP sessions when a user signs out of any app. This feature also requires a fresh authentication for every new user, eliminating session hijacking risks on shared devices. SLO for IdP supports both SAML 2.0 and OIDC IdP connections, which provides robust session management for shared workstations in any environment. See [Configure Single Logout for IdPs](/docs/guides/single-logout/openidconnectidp/main/). <!-- SLO_SUPPORT_FOR_EXTERNAL_IDP (OKTA-946177) -->
+
+#### Expanded use of user.getGroups() function in Okta Expression Language is GA in Preview
+
+You can now use the `user.getGroups()` function across all features that support Expression Language. See [Group functions](/docs/reference/okta-expression-language/#group-functions). <!-- ENABLE_GET_GROUPS_FUNCTION_ELV2 OKTA-945229-->
 
 #### Developer documentation updates in 2025.06.0
 
