@@ -103,10 +103,10 @@ You can add an app integration that doesn't exist in the OIN, using the App Inte
         * App logo. For logo details, see
         * App visibility
     * Protocol-specific configuration details:
+
         <StackSnippet snippet="protocol-config" />
 
-6. Create the integration. See:
-     <StackSnippet snippet="integration" />
+6. Create the integration. See <StackSnippet snippet="integration" />
 
 After you create your integration, you can assign it to your users in your org.
 
@@ -118,7 +118,7 @@ You can also add any API service integration listed in the OIN catalog with thei
 
 To build, test, and submit your API service integration to the OIN catalog. See [Build an API service integration](https://developer.okta.com/docs/guides/build-api-integration/main/).
 
-## Test Your Integration
+## Test Your Integrations
 
 Once your app is set up:
 
