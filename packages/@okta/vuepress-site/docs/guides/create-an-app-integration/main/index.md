@@ -106,7 +106,9 @@ You can add an app integration that doesn't exist in the OIN, using the App Inte
 
         <StackSnippet snippet="protocol-config" />
 
-6. Create the integration. See <StackSnippet snippet="integration" />
+6. Create the integration. See:
+
+ <StackSnippet snippet="integration" />
 
 After you create your integration, you can assign it to your users in your org.
 
@@ -128,7 +130,4 @@ Once your app is set up:
 4. Review tokens or SAML assertions using developer tools or Okta logs.
 
 ## See also
-
-* See [Build a SSO integration](https://developer.okta.com/docs/guides/build-sso-integration/openidconnect/main/) for information on how to make your SSO app integration publish in the OIN.
-* See [Build a SCIM provisioning integration overview](https://developer.okta.com/docs/guides/scim-provisioning-integration-overview/main/) for information on how to build a SCIM API service.
-* See [Publish an OIN integration](https://developer.okta.com/docs/guides/submit-app-overview/) for information on submitting your integration for publication in the OIN.
+<StackSnippet snippet="see-also" />
