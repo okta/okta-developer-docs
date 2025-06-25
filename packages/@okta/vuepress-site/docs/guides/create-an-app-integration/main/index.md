@@ -107,7 +107,7 @@ The integration you created is private and visible only within your own Okta org
 
 ### Create an API Service Integration
 
-You can also add any API service integration listed in the OIN catalog with their Okta tenant org. See [API Service Integrations](https://help.okta.com/oie/en-us/content/topics/apiservice/api-service-integrations.htm).
+You can also add any API service integration listed in the OIN catalog with their Okta tenant org. See [API Service Integrations](https://developer.okta.com/docs/guides/oin-api-service-overview/).
 
 To build, test, and submit your API service integration to the OIN catalog. See [Build an API service integration](https://developer.okta.com/docs/guides/build-api-integration/main/).
 
