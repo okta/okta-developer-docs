@@ -437,7 +437,7 @@ export const guides = [
                 guideName: "create-an-api-token",
               },
               {
-                title: "Create an app integration",
+                title: "Create an app integration in the Okta Admin Console",
                 guideName: "create-an-app-integration",
               },
               { title: "Enable CORS", guideName: "enable-cors" },
