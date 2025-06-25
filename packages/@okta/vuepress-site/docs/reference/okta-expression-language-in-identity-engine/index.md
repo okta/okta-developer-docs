@@ -64,7 +64,7 @@ When you create an Okta expression, you can reference any property that exists i
 
 When you create an Okta expression, you can reference EDR attributes and any property that exists in an Okta device profile.
 
-> **Note:** Federated claims only supports the use of You can only use `device.profile` with federated claism, `device.provider` isn't supported.
+> **Note:** You can only use `device.profile` with federated claims. `device.provider` isn't supported.
 
 | Syntax                             | Definitions                                                                              | Examples                                                       |
 | --------                           | ----------                                                                               | ------------                                                   |
@@ -72,6 +72,15 @@ When you create an Okta expression, you can reference EDR attributes and any pro
 | `device.provider.$vendor.$signal`| `vendor` - references a vendor, such as `wsc` for Windows Security Center or `zta` for CrowdStrike <br>`signal` - references the supported EDR signal by the vendor| `device.provider.wsc.fireWall`<br>`device.provider.wsc.autoUpdateSettings`<br>`device.provider.zta.overall`   |
 
 See [Integrate with Endpoint Detection and Response solutions](https://help.okta.com/okta_help.htm?type=oie&id=ext-edr-integration-main) and [Available EDR signals by vendor](https://help.okta.com/okta_help.htm?type=oie&id=ext-edr-integration-available-signals) for details about `vendor` and `signal`.
+
+## Session properties
+
+When you create an Okta expression, you can reference attributes within the `session` context.
+
+| Syntax            | Definitions                                                 | Result                              |
+| ----------------- | ----------------------------------------------------------- | ------------------------------------------------------ |
+| `session.amr`     | `session` - reference to a user's session<br> `amr` - the attribute name that is resolvable to an array of [Authentication Method References](https://tools.ietf.org/html/rfc8176) | Returns the auth method reference for the session, matching what would be produced for the amr claim of an `id_token` |
+| `session.id`     | `session` - reference to a user's session<br> `id` - a unique key for the session | Returns the `externalSessionId` of the session in context, for example, `102DlNZ500tSb6LpTXXjwwxdQ` |
 
 ### Security context
 
