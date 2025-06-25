@@ -57,9 +57,8 @@ In addition, Okta is rolling out the use of `nonce` with the script-src directiv
 
 * User grants weren't returned from the Users API (`/users/<userId>clients/<clientId>/grants`) after revoking user sessions and OAuth 2.0 tokens. (OKTA-944549)
 
-<!-- Publish on prod deployment June 24, 2025
 * Users could sometimes receive too many password reset emails. (OKTA-916357)
--->
+
 * App logos could be added or updated using any SVG format. See [Application Logos](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationLogos/#tag/ApplicationLogos/operation/uploadApplicationLogo!path=file&t=request). (OKTA-876028)
 
 ### Monthly release 2025.06.0
