@@ -103,29 +103,11 @@ You can add an app integration that doesn't exist in the OIN, using the App Inte
         * App logo. For logo details, see
         * App visibility
     * Protocol-specific configuration details:
-        * For OIDC integration:
-            * Sign-in redirect URIs
-            * Grant types
-            * Controlled access
-            * Login initiative flow details
-
-        * For SAML integration:
-            * SSO URL or ACS URL
-            * Audience URI (SP Entity ID)
-            * Name ID format and attribute statement
-            * Signed SAML assertions
-        See [Application Integration Wizard SAML field reference](https://help.okta.com/oie/en-us/content/topics/apps/aiw-saml-reference.htm) for details.
-
-        * For SWA integration:
-            * App’s login page URL
-            * Credential settings
+        <StackSnippet snippet="protocol-config" />
 
 6. Create the integration. See:
-    *  [Create OpenID Connect app integrations](https://help.okta.com/oie/en-us/content/topics/apps/apps_app_integration_wizard_oidc.htm)
-    * [Create SAML app integrations](https://help.okta.com/oie/en-us/content/topics/apps/apps_app_integration_wizard_saml.htm)
-    * [Create SWA app integrations](https://help.okta.com/oie/en-us/content/topics/apps/apps_app_integration_wizard_swa.htm)
-    * [Create SCIM app integrations with Entitlement Management](https://help.okta.com/oie/en-us/content/topics/apps/aiw_scim_entitlements.htm)
-    * [Add SCIM provisioning to app integrations](https://help.okta.com/oie/en-us/content/topics/apps/apps_app_integration_wizard_scim.htm)
+     <StackSnippet snippet="integration" />
+
 After you create your integration, you can assign it to your users in your org.
 
 The integration created is private and visible only within your own Okta org. If you want to make your app integration publicly available in the OIN, see [Publish an OIN integration](https://developer.okta.com/docs/guides/submit-app-overview/).
@@ -144,3 +126,9 @@ Once your app is set up:
 2. Log in to the Okta End-User Dashboard.
 3. Click the app and verify successful redirection/authentication.
 4. Review tokens or SAML assertions using developer tools or Okta logs.
+
+## See also
+
+* See [Build a SSO integration](https://developer.okta.com/docs/guides/build-sso-integration/openidconnect/main/) for information on how to make your SSO app integration publish in the OIN.
+* See [Build a SCIM provisioning integration overview](https://developer.okta.com/docs/guides/scim-provisioning-integration-overview/main/) for information on how to build a SCIM API service.
+* See [Publish an OIN integration](https://developer.okta.com/docs/guides/submit-app-overview/) for information on submitting your integration for publication in the OIN.
