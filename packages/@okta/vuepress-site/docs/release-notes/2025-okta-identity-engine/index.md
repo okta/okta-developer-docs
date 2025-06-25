@@ -6,15 +6,34 @@ title: Okta Identity Engine API release notes 2025
 
 # Okta Identity Engine API release notes (2025)
 
-<!-- ## July
-
-### Monthly release 2025.07.0
-
-####  Org2Org OIDC Sign-on mode is self-service EA in Preview
-
-The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP. This sign-on mode reduces the complexity of configuration between the Org2Org app and the target org, and takes advantage of modern security features of OIDC. You also need to enable the Okta Integration IdP feature to use the OIDC Sign-on mode. See [Secure API connections between orgs with OAuth 2.0](docs/guides/secure-oauth-between-orgs/main/). <!-- OKTA-714847 FF ORG2ORG_ENABLE_OIDC_SOM -->
-
 ## June
+
+### Weekly release 2025.06.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Network zone restrictions for clients is self-service EA in Preview](#network-zone-restrictions-for-clients-is-self-service-ea-in-preview) | Jun 25, 2025 |
+| [Org2Org OIDC Sign-on mode is self-service EA in Preview](#org2org-oidc-sign-on-mode-is-self-service-ea-in-preview) | Jun 17, 2025 |
+| [Okta Integration IdP type is self-service EA in Preview](#okta-integration-idp-type-is-self-service-ea-in-preview) | Jun 25, 2025 |
+| [Bugs fixed in 2025.06.2](#bugs-fixed-in-2025-06-2)| Jun 25, 2025 |
+
+#### Network zone restrictions for clients is self-service EA in Preview
+
+You can now specify an allowlist or denylist network zone for each client to enhance token endpoint security. <!-- OIDC_TOKEN_NETWORK_RESTRICTIONS (OKTA-958762) -->
+
+#### Org2Org OIDC Sign-on mode is self-service EA in Preview
+
+The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP. This sign-on mode reduces the complexity of configuration between the Org2Org app and the target org, and takes advantage of modern security features of OIDC. You also need to enable the Okta Integration IdP feature to use the OIDC Sign-on mode. See [Secure API connections between orgs with OAuth 2.0](docs/guides/secure-oauth-between-orgs/main/). <!-- OKTA-714847 FF ORG2ORG_ENABLE_OIDC_SOM Publishing delayed until 6.2 -->
+
+#### Okta Integration IdP type is self-service EA in Preview
+
+The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with secure defaults. See [Identity Providers](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&path=type&t=response) and [Add an Okta Identity Provider](https://help.okta.com/okta_help.htm?type=oie&id=idp-add-okta).<!-- OKTA_INTEGRATION_IDP_TYPE (OKTA-949786) -->
+
+#### Bugs fixed in 2025.06.2
+
+* When an app with imported app groups was deactivated, and users were subsequently removed from these groups, the event wasn't recorded in the System Log. (OKTA-934264)
+
+* The delete operation for the Roles API (`/iam/roles/{roleIdOrLabel}`) and the Resource Sets API (`/iam/resource-sets/{iamPolicyIdOrLabel}`) allowed users to delete IAM-based standard roles and resource sets, respectively. (OKTA-926830)
 
 ### Weekly release 2025.06.1
 
@@ -48,9 +67,8 @@ See the [MyAccount Authenticators API](https://developer.okta.com/docs/api/opena
 
 * User grants weren't returned from the Users API (`/users/<userId>clients/<clientId>/grants`) after revoking user sessions and OAuth 2.0 tokens. (OKTA-944549)
 
-<!-- Publish on prod deployment June 24, 2025
 * Users could sometimes receive too many password reset emails. (OKTA-916357)
--->
+
 * App logos could be added or updated using any SVG format. See [Application Logos](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationLogos/#tag/ApplicationLogos/operation/uploadApplicationLogo!path=file&t=request). (OKTA-876028)
 
 ### Monthly release 2025.06.0
@@ -68,6 +86,7 @@ See the [MyAccount Authenticators API](https://developer.okta.com/docs/api/opena
 | [Restrict access to the Admin Console is GA in Preview](#restrict-access-to-the-admin-console-is-ga-in-preview) | June 4, 2025 |
 | [Shared signal transmitters is GA in Production](#shared-signal-transmitters-is-ga-in-production) | May 7, 2025 |
 | [Single Logout for IdPs is EA in Preview](#single-logout-for-idps-is-ea-in-preview) | June 4, 2025 |
+| [Expanded use of user.getGroups() function in Okta Expression Language is GA in Preview](#expanded-use-of-user-getgroups-function-in-okta-expression-language-is-ga-in-preview)| June 4, 2025 |
 | [Developer documentation updates in 2025.06.0](#developer-documentation-updates-in-2025-06-0) | June 4, 2025 |
 | [Bugs fixed in 2025.06.0](#bugs-fixed-in-2025-06-0)| June 4, 2025 |
 
@@ -114,6 +133,10 @@ Okta uses [CAEP](https://openid.net/specs/openid-caep-specification-1_0.html) to
 #### Single Logout for IdPs is EA in Preview
 
 The Single Logout (SLO) for IdPs feature boosts security for organizations using shared devices and external IdPs by automatically ending IdP sessions when a user signs out of any app. This feature also requires a fresh authentication for every new user, eliminating session hijacking risks on shared devices. SLO for IdP supports both SAML 2.0 and OIDC IdP connections, which provides robust session management for shared workstations in any environment. See [Configure Single Logout for IdPs](/docs/guides/single-logout/openidconnectidp/main/). <!-- SLO_SUPPORT_FOR_EXTERNAL_IDP (OKTA-946177) -->
+
+#### Expanded use of user.getGroups() function in Okta Expression Language is GA in Preview
+
+You can now use the `user.getGroups()` function across all features that support Expression Language. See [Group functions](/docs/reference/okta-expression-language/#group-functions). <!-- ENABLE_GET_GROUPS_FUNCTION_ELV2 OKTA-945229-->
 
 #### Developer documentation updates in 2025.06.0
 
