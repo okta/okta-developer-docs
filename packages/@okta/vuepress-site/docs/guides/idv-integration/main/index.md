@@ -33,8 +33,6 @@ Okta supports three IDV vendors that admins can configure in the [Admin Console]
 
 * [Persona](/docs/guides/add-id-verification-idp/persona/main/)
 
-<ApiLifecycle access="ea" />
-
 * [CLEAR Verified](https://docs.clearme.com/docs/getting-started)
 
 * [Incode](https://workforce.developer.incode.com/docs/incode-okta-idv-configuration)
