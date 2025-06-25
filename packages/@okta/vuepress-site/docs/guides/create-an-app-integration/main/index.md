@@ -41,7 +41,7 @@ The following table summarizes the key differences:
 
 | Feature | Prebuilt/existing integration | Custom integration | API Service integration |
 | --- | --- | --- | --- |
-| Definition | Integrations that are listed in the OIN app catalog | Integrations that are created within the Okta org for internal use | Integrations that have access to the Core Okta API using OAuth 2.0. |
+| Definition | Integrations that are listed in the [OIN app catalog](https://www.okta.com/integrations/) | Integrations that are created within the Okta org for internal use | Integrations that have access to the Core Okta API using OAuth 2.0. |
 | Benefit | Provides broad visibility and seamless onboarding | Ideal for prototyping or niche use cases | Secure access to Okta APIs without user interaction |
 | Protocols supported | OIDC, SAML, SWA, WS-Fed, SCIM | OIDC, SAML, SWA, SCIM | OAuth 2.0 |
 | Security validation | Reviewed and tested by Okta | No external validation. Handled by the org admin or the developer. | OAuth-based flow with limited scopes and tokens |
@@ -50,13 +50,13 @@ The following table summarizes the key differences:
 
 ### Supported protocols
 
-Okta app integrations support standard protocols for both [SSO](https://developer.okta.com/docs/guides/build-sso-integration/openidconnect/main/) and automated user provisioning:
+Okta app integrations support standard protocols for both [SSO](https://developer.okta.com/docs/guides/oin-sso-overview/) and automated user provisioning:
 
-* OpenID Connect (OIDC): Authentication protocol based on OAuth 2.0, which enables secure SSO and supports advanced security features.
+* [OpenID Connect (OIDC)](https://developer.okta.com/docs/concepts/oauth-openid/): Authentication protocol based on OAuth 2.0, which enables secure SSO and supports advanced security features.
 * [Security Assertion Markup Language (SAML)](https://developer.okta.com/docs/concepts/saml/): An XML-based protocol for exchanging authentication and authorization data between Okta and external apps.
-* Secure Web Authentication (SWA): A form-based authentication method that allows Okta to securely store and submit user credentials for apps that don’t support federated SSO.
-* Web Services Federation (WS-Fed): A protocol primarily used by Microsoft apps for federated identity and SSO.
-* SCIM: A standard protocol for automating the exchange of user identity information, enabling automated user provisioning and deprovisioning between Okta and external apps.
+* [Secure Web Authentication (SWA)](https://help.okta.com/en-us/content/topics/apps/apps-about-swa.htm): A form-based authentication method that allows Okta to securely store and submit user credentials for apps that don’t support federated SSO.
+* [Web Services Federation (WS-Fed)](https://help.okta.com/en-us/content/topics/apps/apps-about-wsfed.htm): A protocol primarily used by Microsoft apps for federated identity and SSO.
+* [SCIM](https://help.okta.com/en-us/content/topics/apps/apps-about-scim.htm): A standard protocol for automating the exchange of user identity information, enabling automated user provisioning and deprovisioning between Okta and external apps.
 
 These protocols allow you to provide secure, seamless access and automated user management for a wide range of apps and services.
 
@@ -67,8 +67,8 @@ You can add either a prebuilt app integration from the OIN or create a custom ap
 ### Add a prebuilt/existing app integration
 
 1. Sign in to the Admin Console.
-    a. [Sign in to your Okta org](https://developer.okta.com/login).
-    b. Click **Admin** in the upper-right corner of the page.
+    1. [Sign in to your Okta org](https://developer.okta.com/login).
+    1. Click **Admin** in the upper-right corner of the page.
 2. Go to **Applications** > **Applications**.
 3. Click **Browse App Catalog**.
 4. Search for the app integration you require. To search, perform one of these two options:
@@ -85,9 +85,7 @@ You can add either a prebuilt app integration from the OIN or create a custom ap
 11. Select **Password reveal** if you want your end users to see the password used to connect to the external app. See [Reveal the password of an app integration](https://help.okta.com/oie/en-us/content/topics/apps/apps_revealing_the_password.htm).
 12. Click **Done**.
 
-Okta adds an instance of the app integration to your org, and you can now assign it to your end users. See [Assign app integrations](https://help.okta.com/oie/en-us/content/topics/apps/apps-assign-applications.htm).
-
-If you need to update the settings for your app integration, including changing sign-in options, see [Configure settings for app integrations](https://help.okta.com/oie/en-us/content/topics/apps/apps-configure-settings.htm).
+Okta adds an instance of the app integration to your org, and you can now assign it to your end users. See [Assign app integrations](https://help.okta.com/oie/en-us/content/topics/apps/apps-assign-applications.htm). If you need to update the settings for your app integration, including changing sign-in options, see [Configure settings for app integrations](https://help.okta.com/oie/en-us/content/topics/apps/apps-configure-settings.htm).
 
 ### Create a custom app integration
 
@@ -98,21 +96,14 @@ You can add an app integration that doesn't exist in the OIN, using the App Inte
 3. Click **Create App Integration**.
 4. Choose the integration type that matches your app’s requirements.
 5. Ensure that you have the following integration settings ready:
-    * General Settings:
-        * App name
-        * App logo. For logo details, see
-        * App visibility
-    * Protocol-specific configuration details:
 
-        <StackSnippet snippet="protocol-config" />
+    <StackSnippet snippet="protocol-config" />
 
-6. Create the integration. See:
-
- <StackSnippet snippet="integration" />
+6. Create the integration. See: <StackSnippet snippet="integration" />
 
 After you create your integration, you can assign it to your users in your org.
 
-The integration created is private and visible only within your own Okta org. If you want to make your app integration publicly available in the OIN, see [Publish an OIN integration](https://developer.okta.com/docs/guides/submit-app-overview/).
+The integration you created is private and visible only within your own Okta org. If you want to make your app integration publicly available in the OIN, see [Publish an OIN integration](https://developer.okta.com/docs/guides/submit-app-overview/).
 
 ### Create an API Service Integration
 
