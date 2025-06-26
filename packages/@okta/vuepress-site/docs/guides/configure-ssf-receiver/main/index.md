@@ -210,61 +210,91 @@ Use the [jwt.io](https://jwt.io/) tool to create the sample identifier-changed S
 
     **Example 1**
 
-
-
+    ```JSON
+    {
+        "iss": "https://issuer.com",
+        "jti": "24c63fb56e5a2d77a6b512616ca9fa24",
+        "iat": 1615305159,
+        "aud": "https://customer.okta.com/",
+        "events": {   "https://schemas.openid.net/secevent/risc/event-type/identifier-changed": {
+                "subject": {
+                    "user": {
+                        "format": "email",
+                        "email": "john@doe.net"
+                    }
+                },
+                "new-value": "john.roe@example.com",
+                "event_timestamp": 1615304991643
+            }
+        }
+    }
+    ```
 
     **Example 2**
 
     ```JSON
-{
-    "iss": "https://issuer.com",
-    "jti": "24c63fb56e5a2d77a6b512616ca9fa24",
-    "iat": 1615305159,
-    "aud": "https://customer.okta.com/",
-    "events": {   "https://schemas.openid.net/secevent/risc/event-type/identifier-changed": {
-            "subject": {
-                "user": {
-                    "format": "email",
-                    "email": "john@doe.net"
-                }
-            },
-            "new-value": "john.roe@example.com",
-            "event_timestamp": 1615304991643
+    {
+        "iss": "https://issuer.com",
+        "jti": "24c63fb56e5a2d77a6b512616ca9fa24",
+        "iat": 1615305159,
+        "aud": "https://customer.okta.com/",
+        "events": {   "https://schemas.openid.net/secevent/risc/event-type/identifier-changed": {
+                "subject": {
+                    "user": {
+                        "format": "email",
+                        "email": "john@doe.net"
+                    }
+                },
+                "new-value": "john.roe@example.com",
+                "event_timestamp": 1615304991643
+            }
         }
     }
-}
+    ```
 
-Payload claim details:
-The email in the user section must match a valid user sign-in email in the Okta org. If the email isn’t valid, then the accepted event is silently ignored and won’t appear in the System Log. 
-The iss value must be the same issuer used to create the Security Events Provider object in Okta. 
-The jti value must be unique to the current message. If you send two messages with the same jti value, then the second message is ignored and won’t appear in the System Log.
-> Note: See the [SSF Security Event Tokens API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/) for more details about allowed events and claims.
-In the VERIFY SIGNATURE section:
-Paste the public key in the first text field. This is the Public Key JSON value you created and saved in [Create and upload the JWKS](#create-and-upload-the-jwks). 
-Paste the public-private key pair in the second text field. This is the Public and Private Key Pair JSON value you created and saved in [Create and upload the JWKS](#create-and-upload-the-jwks)..
-The encoded 64-bit token appears in the Encoded section. The following example is truncated for brevity: 
-eyJraWQiOiJfaUoyMjVDWVN1WFFwZ0wzdjJqbUpKSFB0WXdaOUVLaElicHg0REdrc1ZVIiwidHlwIjoic2VjZXZlbnQrand0IiwiYWxnIjoiUlMyNTYifQ.eyJpc3MiOiJodHRwczovL3RyYW5zbWl0dGVyLnByb3ZpZGVyLmNvbSIsImp.....zYItKdstUUgaVNHOl5tew3KborjZRKYoTNDrz46Y3mwXNsZeUttSTuPSObi5ZdEIuiUfbmMYALwJwbk58ZNUoCmhzVYmixRlE6zGrF-oVtshwHU2vWg5X2MaMiNqurZJeBgn2xcIj5Npjnarz7aEUgYYmSYldkE2lAXE9-Ezrm2hOsQYVDo2mvVQ7D6Dow6sSxROeobH9GnZeC_a13IpZxmiqInqnfdyBrA
+  Payload claim details:
 
-Save the encoded JWT (the SET) in the Encoded section for testing in Postman.
-Send a Security Event Token to Okta
+  * The `aud` value must be your Okta org. For example, `https://customer.okta.com`.
+  * The `email` in the `user` section must match a valid user sign-in email in the Okta org. If the email isn’t valid, then the accepted event is silently ignored and won’t appear in the System Log.
+  * The `iss` value must be the same issuer used to create the Security Events Provider object in Okta.
+  * The `jti` value must be unique to the current message. If you send two messages with the same jti value, then the second message is ignored and won’t appear in the System Log.
+
+  > **Note**: See the [SSF Security Event Tokens API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/) for more details about allowed events and claims.
+
+  In the **VERIFY SIGNATURE** section:
+
+  * Paste the public key in the first text field. This is the **Public Key** JSON value you created and saved in [Create and upload the JWKS](#create-and-upload-the-jwks).
+  * Paste the public-private key pair in the second text field. This is the **Public and Private Key Pair** JSON value you created and saved in [Create and upload the JWKS](#create-and-upload-the-jwks).
+
+  The encoded 64-bit token appears in the **Encoded** section. The following example is truncated for brevity:
+
+  `eyJraWQiOiJfaUoyMjVDWVN1WFFwZ0wzdjJqbUpKSFB0WXdaOUVLaElicHg0REdrc1ZVIiwidHlwIjoic2VjZXZlbnQrand0IiwiYWxnIjoiUlMyNTYifQ.eyJpc3MiOiJodHRwczovL3RyYW5zbWl0dGVyLnByb3ZpZGVyLmNvbSIsImp.....zYItKdstUUgaVNHOl5tew3KborjZRKYoTNDrz46Y3mwXNsZeUttSTuPSObi5ZdEIuiUfbmMYALwJwbk58ZNUoCmhzVYmixRlE6zGrF-oVtshwHU2vWg5X2MaMiNqurZJeBgn2xcIj5Npjnarz7aEUgYYmSYldkE2lAXE9-Ezrm2hOsQYVDo2mvVQ7D6Dow6sSxROeobH9GnZeC_a13IpZxmiqInqnfdyBrA`
+
+6. Save the encoded JWT (the SET) in the **Encoded** section for testing in Postman.
+
+## Send a Security Event Token to Okta
+
 Use the SSF Security Event Tokens API to test sending a SET to your org.
-From Postman, use the following request to send a SET to your org:
-Send Security Events
-POST {{url}}/security/api/v1/security-events
 
-In the request Body tab, select raw.
-Paste the SET (encoded JWT format) that you created previously from Create a SET for testing.
-Click Send.
+1. From Postman, use the following request to send a SET to your org:
 
-If the SET message is valid, an HTTP 202 (accepted) code is returned. From the Admin Console, you can see security events in the System Log details as  Partner reported risk.
+    **Send Security Events**
+    `POST {{url}}/security/api/v1/security-events`
 
+2. In the request **Body** tab, select `raw`.
+3. Paste the SET (encoded JWT format) that you created previously from [Create a SET for testing](#create-a-set-for-testing).
+4. Click **Send**.
 
+    If the SET message is valid, an HTTP 202 (accepted) code is returned. From the Admin Console, you can see security events in the System Log details as `Partner reported risk`.
 
-Next Steps
-Congratulations on sending your first SET to Okta! Now that you understand how to share signals, you can add signal sending for relevant events to your automation.
+    ![An image that displays the System Log details from the Admin Console for a partner reported risk](/img/partner_reported_risk.png)
 
+## Next Steps
 
-A production implementation of the process in this guide differs in the following ways: 
-Keypairs are generated with local tooling and private keys are stored in secrets management.
-SETs are created with an appropriate library for the language you're building in, not jwt.io.
-Automation that sends SETs checks the response code and handles errors appropriately.
+Now that you understand how to share signals, you can add signal sending for relevant events to your automation.
+
+A production implementation of the process in this guide differs in the following ways:
+
+* Keypairs are generated with local tooling and private keys are stored in secrets management.
+* SETs are created with an appropriate library for the language you're building in, not jwt.io.
+* Automation that sends SETs checks the response code and handles errors appropriately.
