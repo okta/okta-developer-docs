@@ -9,14 +9,14 @@ meta:
 
 This journey outlines how to set up your Okta org with some basic, but important, settings and how to configure it for different use cases.
 
-## Get set up
+## Set up your org with these steps
 
 1. [Create your Okta account](#create-your-okta-account)
-1. [Create two user accounts](#create-two-user-accounts)
+1. [Create user accounts](#create-user-accounts)
 1. [Create a user group](#create-a-group)
-1. [Enable an embedded sign-in widget](#enable-an-embedded-okta-sign-in-widget)
+1. [Enable an embedded Sign-In Widget](#enable-an-embedded-okta-sign-in-widget)
 1. [Create an app](#create-an-app)
-1. [Set up your org for different use cases](#)
+1. [Set up your org for different use cases](#set-up-your-okta-org-for-your-use-cases)
 
 ## Create your Okta account
 
@@ -30,15 +30,15 @@ If you don't have an Okta Identity Engine org, you need to sign up for an Okta a
 
 The email and password that you use to create your account are used as your admin credentials. Your account is automatically created as an admin with the Super Administrator role.
 
-## Create two user accounts
+## Create user accounts
 
-After you get access to your org, create two user accounts.
+After you get access to your org, create two user accounts and one service account.
 
 Users are assigned to non-administrator user groups either during or after their creation. Admins must assign users their admin role after their creation.
 
-### Create an end user test account
+### Create two test accounts
 
-Create an end-user test account to test the end-user experience for your apps.
+Create two test accounts to test the end-user experience for your apps.
 
 1. Sign in to your Okta org with your administrator account.
    * Select **Admin** in the upper-right corner of the page. You're redirected to the Admin Console.
@@ -54,6 +54,19 @@ Create an end-user test account to test the end-user experience for your apps.
    * **Primary email**: john.doe@example.com
    * **Secondary email**: Enter your email address that you used to create your Okta account
 
+1. For **Activation**, select **Activate now**.
+1. Select **I will set password**, and enter a password.
+1. Clear the **User must change password on first login** checkbox.
+1. Select **Save and Add Another**.
+
+Create a second test account.
+
+1. Configure your user like this:
+   * **First name**: Alex
+   * **Last name**: Doe
+   * **Username**: alex.doe@example.com
+   * **Primary email**: alex.doe@example.com
+   * **Secondary email**: Enter your email address that you used to create your Okta account
 1. For **Activation**, select **Activate now**.
 1. Select **I will set password**, and enter a password.
 1. Clear the **User must change password on first login** checkbox.
@@ -96,7 +109,7 @@ User accounts have no permissions by default, so you need to grant permissions t
 
 If you don't activate your test accounts when creating them, you can activate them with this process.
 
-1. In the Admin Console, select your name in the in the upper right corner of the page. [Copy your domain](docs/guides/find-your-domain/main/#find-your-okta-domain) to your clipboard.
+1. In the Admin Console, select your name in the upper right corner of the page. [Copy your domain](docs/guides/find-your-domain/main/#find-your-okta-domain) to your clipboard.
 1. In your browser, open a private browsing window. For example, if you're using Chrome as your browser, open a new incognito window.
 1. Paste your domain into the address bar.
 1. Sign into your org as `okta.service@example.com`.
@@ -104,7 +117,7 @@ If you don't activate your test accounts when creating them, you can activate th
 1. Select **Continue**.
 1. Close the window.
 
-Use the same process when you activate your John Doe account, but use `john.doe@example.com` as the username.
+Use the same process when you activate your test accounts, but use `john.doe@example.com` or `alex.doe@example.com` as the username.
 
 ## Create a user group
 
@@ -127,7 +140,7 @@ For basic testing scenarios, create a group called **Retailers** and assign your
 1. Click **Assign +** next to John Doe’s name.
 1. Click **Done**.
 
-## Enable an embedded Okta Sign-in Widget
+## Enable an embedded Okta Sign-In Widget
 
 You can embed the Okta Sign-In Widget in your apps rather than have it hosted by Okta. To enable communication between the widget embedded in your app and your Okta org, enable an [interaction code](/docs/concepts/interaction-code/#the-interaction-code-flow).
 
@@ -142,7 +155,7 @@ If you’re using a custom authorization server for your app, you need to enable
 
 By selecting **Interaction Code**, admins can use the interaction code as a grant type for their OpenID Connect app integrations and authorization servers.
 
-If it isn't selected, then Okta hides the interaction code as a grant type. Admins can't use the interaction code for any OpenID Connect app integration or with any authorization server access policy rule in the org.
+If it isn't selected, then Okta hides the interaction code as a grant type. You can't use the interaction code for any OpenID Connect app integration or with any access policy rule of an authorization server.
 
 ### Enable interaction code for a custom authorization server
 
@@ -153,45 +166,45 @@ If you’re using a custom authorization server for your app, follow these steps
 1. Select the **Access Policies** tab.
 1. Click the pencil icon under the **Actions** column for the default policy rule.
 1. Select **IF Grant Type is** > **Advanced**.
-1. Select the **Interaction Code** check box.
+1. Select the **Interaction Code** checkbox.
 1. Select **Update Rule**.
 
 <VerifyICGrantType />
 
 ## Create an app
 
-Create an app integration that represents the application you want to add authentication to with Okta.
+Create an app integration that represents the app you want to add authentication to with Okta.
 
-For a basic app configuration, follow these steps to set up a web app: [Create an application](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-an-application). If you have a particular type of app that you want to create, see the following types below:
+For a basic app configuration, follow these steps to set up a web app: [Create an app](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-an-application). If you have a particular type of app that you want to create, see the following types:
 
-### Native application
+### Native app
 
-Native applications are desktop or mobile applications that run natively on a device and redirect users to a non-HTTP callback.
+Native apps are desktop or mobile apps that run natively on a device and redirect users to a non-HTTP callback.
 
 * [Android](/docs/guides/oie-embedded-common-org-setup/android/main/#create-an-application)
 * [iOS](/docs/guides/oie-embedded-common-org-setup/ios/main/#create-an-application)
 
-### Web application
+### Web app
 
-Server-side applications are used in scenarios where authentication and tokens are handled on the server.
+Server-side apps are used in scenarios where authentication and tokens are handled on the server.
 
 * [ASP.NET](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#create-an-application)
 * [Go](/docs/guides/oie-embedded-common-org-setup/go/main/#create-an-application)
 * [Java](/docs/guides/oie-embedded-common-org-setup/java/main/#create-an-application)
 * [Node.js](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-an-application)
 
-### Single-Page application
+### Single-Page app
 
-Single-page web applications run in the browser where the client receives tokens.
+Single-page web apps run in the browser where the client receives tokens.
 
 * [React](/docs/guides/oie-embedded-common-org-setup/react/main/#create-an-application)
 
-## Set up your Okta org for your use case
+## Set up your Okta org for your use cases
 
 After you create your app integration in your Okta org, configure your app and org to support the authentication use cases that you're implementing:
 
-* For a password-optional use case, see [Set up your Okta org for a password-optional use case](#set-up-your-okta-org-for-a-password-optional-use-case)
 * For a multifactor use case, see [Set up your Okta org for a multifactor use case](#set-up-your-okta-org-for-a-multifactor-use-case)
+* For a password-optional use case, see [Set up your Okta org for a password-optional use case](#set-up-your-okta-org-for-a-password-optional-use-case)
 
 ### Set up your Okta org for a multifactor use case
 
@@ -247,6 +260,8 @@ To ensure that only password-optional users can **sign in** without a password a
 1. Enter **Group for password optional users** as the description for the group.
 1. Click **Save**.
 
+After you create the **Password optional** group, add the Alex Doe test account to the group. See [Add a user to the group](#add-a-user-to-the-group) and ensure that you add the test account to the **Password optional** group.
+
 #### Enable password-optional user sign-up flow
 
 To ensure that only specific app integrations can let users sign up without a password, do the following:
@@ -277,7 +292,7 @@ To ensure that only password-optional users can sign in without a password and o
 An authenticator enrollment policy determines which authenticators must challenge a user before they’re successfully signed in. In this case, email is set to **Required**, while all the other authenticators are set to **Optional**.
 
 1. Go to **Security** > **Authenticators**.
-2. Go the **Enrollment** tab, and then click **Add a policy**.
+2. Go to the **Enrollment** tab, and then click **Add a policy**.
 3. Enter **Password-optional sign-in policy** as the name.
 4. Under **Assign to groups**, assign the policy to your **Password optional** group.
 5. Do the following in the **Eligible Authenticators** section:
@@ -291,7 +306,7 @@ An authenticator enrollment policy determines which authenticators must challeng
 ##### Create a rule for the policy
 
 1. Enter **Password-optional sign-in policy rule** as the name.
-1. Under **Exclude users**, enter your username and `Okta Service` to ensure the policy doesn't apply to your admins.
+1. Under **Exclude users**, enter your username and `Okta Service` to ensure that the policy doesn't apply to your admins.
 1. Leave the other settings at their defaults, and then click **Create rule**.
 1. Move the new policy immediately above the default policy in the list of policies.
 
@@ -304,7 +319,7 @@ A global session policy determines user session length and basic authentication 
 1. Enter **Password-optional global sign-in policy** as the name.
 1. Under **Assign to groups**, assign the policy to your **Password optional** group.
 1. Click **Create policy and add rule**. and give the rule a name.
-1. Enter **Password-optional gsp rule** as the name of the rule.
+1. Enter **Password-optional GSP rule** as the name of the rule.
 1. Verify that **Establish the user session with** is set to **Any factor used to meet the Authentication Policy requirements**.
 1. Set **Multifactor authentication (MFA) is** to **Not required**.
 1. Leave the other settings at their defaults, and then click **Create rule**.
