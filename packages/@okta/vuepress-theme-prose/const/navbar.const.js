@@ -436,6 +436,10 @@ export const guides = [
                 title: "Create an API token",
                 guideName: "create-an-api-token",
               },
+              {
+                title: "Create an app integration",
+                guideName: "create-an-app-integration",
+              },
               { title: "Enable CORS", guideName: "enable-cors" },
               { title: "Find your Okta domain", guideName: "find-your-domain" },
               {
