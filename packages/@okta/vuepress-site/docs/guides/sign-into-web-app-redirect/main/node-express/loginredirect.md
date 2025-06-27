@@ -7,7 +7,7 @@ Create a link for the user to start the sign-in process and be redirected to Okt
    doctype html
    html
      head
-       title= title
+       title= "Express app"
        link(rel='stylesheet', href='/stylesheets/style.css')
      body
        if authenticated
