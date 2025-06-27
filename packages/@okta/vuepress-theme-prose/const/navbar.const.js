@@ -84,6 +84,10 @@ export const concepts = [
         path: "/docs/concepts/policies/",
       },
       {
+        title: "Token lifecycles",
+        path: "/docs/concepts/token-lifecycles/",
+      },
+      {
         title: "Session management",
         path: "/docs/concepts/session/",
       },
