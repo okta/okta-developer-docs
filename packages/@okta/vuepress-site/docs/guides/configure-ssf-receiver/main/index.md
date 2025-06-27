@@ -1,6 +1,6 @@
 ---
 title: Configure an SSF receiver and publish a SET
-excerpt: Find out how to register your third-party security vendors in Okta to continuously share security information with Okta to prevent security threats to your users.
+excerpt: Register your third-party security vendors in Okta to continuously share security information with Okta and prevent security threats to your users.
 layout: Guides
 ---
 
@@ -23,7 +23,7 @@ Understand how to configure a security events provider in Okta to receive transm
 
 Okta uses the [Shared Signals Framework (SSF)](https://openid.net/wg/sharedsignals/) standard to ingest security-related events and other data-subject signals from third-party provider apps that support the same framework.
 
-You can use the Okta [SSF Receiver API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/) to register third-party providers in Okta. This enables Okta to receive security signals from provider apps using the SSF. The SSF helps create a network between your third-party security vendor apps, continuously sharing security information with Okta. This helps prevent and mitigate security threats to your users.
+You can use the Okta [SSF Receiver API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/) to register third-party providers in Okta. This enables Okta to receive security signals from provider apps using the SSF. The SSF helps create a network between your third-party security vendor apps, continuously sharing security information with Okta. This helps prevent security threats to your users.
 
 ### Security event tokens
 
@@ -293,7 +293,7 @@ Use the SSF Security Event Tokens API to test sending a SET to your org.
 
     ![An image that displays the System Log details from the Admin Console for a partner reported risk](/img/partner_reported_risk.png)
 
-## Next Steps
+## Next steps
 
 Now that you understand how to share signals, you can add signal sending for relevant events to your automation.
 
