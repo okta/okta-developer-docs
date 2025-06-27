@@ -35,6 +35,8 @@ The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with
 
 * The expiry time of one-time verification code emails didn't appear in the message. (OKTA-911703)
 
+* Using a private/public key for client authentication with an empty `kid` in the assertion threw a null pointer exception if there was an invalid `use` parameter in the key. (OKTA-963932)
+
 ### Weekly release 2025.06.1
 
 | Change | Expected in Preview Orgs |
