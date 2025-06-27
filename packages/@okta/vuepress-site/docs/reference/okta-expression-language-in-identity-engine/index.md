@@ -80,7 +80,7 @@ When you create an Okta expression, you can reference attributes within the `ses
 | Syntax            | Definitions                                                 | Result                              |
 | ----------------- | ----------------------------------------------------------- | ------------------------------------------------------ |
 | `session.amr`     | `session` - reference to a user's session<br> `amr` - the attribute name that is resolvable to an array of [Authentication Method References](https://tools.ietf.org/html/rfc8176) | `["pwd", "otp", "mfa"]` - password and MFA OTP used by the user for authentication |
-| `session.id`     | `session` - reference to a user's session<br> `id` - a unique key for the session | |
+| `session.id`     | `session` - reference to a user's session<br> `id` - a unique key for the session |   |
 
 ### Security context
 
