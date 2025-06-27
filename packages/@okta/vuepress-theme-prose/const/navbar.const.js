@@ -753,6 +753,15 @@ export const guides = [
         ],
       },
       {
+        title: "Org Security",
+        subLinks: [
+          {
+            title: "Configure an SSF receiver and publish a SET",
+            path: "/docs/guides/configure-ssf-receiver/",
+          }
+        ],
+      },
+      {
         title: "Manage users",
         subLinks: [
           {
