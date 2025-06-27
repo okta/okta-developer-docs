@@ -316,7 +316,7 @@ Use the previous functions together to check if a user has an Active Directory o
 | Concatenate two strings                                                                     | `user.firstName + user.lastName`            |
 | Concatenate two strings with space                                                          | `user.firstName + " " + user.lastName`      |
 | Ternary operator example:<br>If the group code is 123, assign the value of Sales, else assign Other | `user.groupCode == 123 ? 'Sales' : 'Other'` |
-| [Elvis operator](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html#expressions-operator-elvis): <br> SpEL's shorthand ternary operator that provides a default value if an expression evaluates to null or an empty string; if `Groups.startsWith("OKTA", "TEST", 100)` evaluates to null, returns `{}` (empty list) | `Groups.startsWith("OKTA", "TEST", 100) ?: {}` |
+| [Elvis operator (`?:`)](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html#expressions-operator-elvis): <br> Ternary operator that provides a default value if an expression evaluates to null or an empty string; if `Groups.startsWith("OKTA", "TEST", 100)` evaluates to null, returns `{}` (empty list) | `Groups.startsWith("OKTA", "TEST", 100) ?: {}` |
 
 ## Conditional expressions
 
