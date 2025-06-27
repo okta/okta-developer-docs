@@ -1,12 +1,10 @@
 ---
 title: Configure an SSF receiver and publish a SET
-meta:
-  - name: description
-    content: Find out how to register your third-party security vendors in Okta to continuously share security information with Okta to prevent security threats to your users.
+excerpt: Find out how to register your third-party security vendors in Okta to continuously share security information with Okta to prevent security threats to your users.
 layout: Guides
 ---
 
-Configure security events providers in Okta that represent your third-party providers in Okta that helps create a network between your third-party security vendor apps to continuously share security information with Okta to prevent and mitigate threats to your users.
+Configure security events providers in Okta that represent your third-party providers, enabling continuous sharing of security information with Okta to prevent and mitigate threats to your users.
 
 ---
 
@@ -181,9 +179,7 @@ Use the other Postman requests in the Okta admin tasks - SSF Receiver API folder
 
 ## Send security events
 
-The SSF Security Event Tokens API allows you, the third-party security vendor, to send risk signals to Okta’s Risk Engine for aggregated notification.
-
-Okta uses the SSE framework defined by the OpenID Shared Signals and Events Framework (SSE RFC). Risk signals are ingested as security event tokens (SETs), a type of JSON Web Token (JWT) that must comply with the SET standard: RFC 8417 - Security Event Token (SET).
+The SSF Security Event Tokens API allows you, the third-party security vendor, to send risk signals to Okta’s Risk Engine for aggregated notification. Risk signals are ingested as security event tokens (SETs), a type of JSON Web Token (JWT) that must comply with the SET standard: [RFC 8417 - Security Event Token (SET)](https://datatracker.ietf.org/doc/html/rfc8417).
 
 As a vendor, you can use the **Third-party security vendor tasks - SSF Security Events Token API** folder in the **Configure SSF receiver and publish SET** Postman collection to test sending security events to your Okta org. The following process shows you how to create a sample SET (to indicate an IP change signal), and then send that SET to Okta.
 
@@ -208,29 +204,36 @@ Use the [jwt.io](https://jwt.io/) tool to create the sample identifier-changed S
 4. Replace the `kid` value with the value that you created in [Create and upload the JWKS](#create-and-upload-the-jwks).
 5. Specify a JSON value, similar to the following in the **PAYLOAD** field:
 
-    **Example 1**
+    **User risk change example**
 
     ```JSON
     {
-        "iss": "https://issuer.com",
-        "jti": "24c63fb56e5a2d77a6b512616ca9fa24",
-        "iat": 1615305159,
-        "aud": "https://customer.okta.com/",
-        "events": {   "https://schemas.openid.net/secevent/risc/event-type/identifier-changed": {
-                "subject": {
-                    "user": {
-                        "format": "email",
-                        "email": "john@doe.net"
-                    }
-                },
-                "new-value": "john.roe@example.com",
-                "event_timestamp": 1615304991643
-            }
-        }
+      "iss": "https://issuer.com",
+      "jti": "24c63fb56e5a2d77a6b512616ca9fa24",
+      "iat": 1615305159,
+      "aud": "https://customer.okta.com/",
+      "https://schemas.okta.com/secevent/okta/event-type/user-risk-change": {
+        "subject": {
+          "user": {
+            "format": "email",
+            "email": "user@issuer.com"
+          }
+        },
+        "event_timestamp": 1750980770,
+        "initiating_entity": "admin",
+        "reason_admin": {
+          "en": "critical security activity detected"
+        },
+        "reason_user": {
+          "en": "critical security activity detected"
+        },
+        "previous_level": "low",
+        "current_level": "high"
+      }
     }
     ```
 
-    **Example 2**
+    **Identifier changed example**
 
     ```JSON
     {
