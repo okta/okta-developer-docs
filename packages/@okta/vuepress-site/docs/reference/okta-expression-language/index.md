@@ -209,7 +209,7 @@ For more information on using group functions for dynamic and static allowlists,
 >
 >See the parameter examples section of [Use group functions for static group allowlists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allow-lists).
 
-#### Get Groups for Users
+#### Get groups for users
 
 > **Note:** The `user.getGroups` function was previously only available for a limited set of features on Okta Identity Engine, but has been expanded to all features that allow Expression Language.
 
@@ -240,11 +240,6 @@ Use `group.source.id` when you need to disambiguate between groups that have the
 |                          |             | `user.getGroups({'group.profile.name': 'East Coast.*'})`                                                        | A list of groups that start with the name `East Coast` | {}                                                                              |
 |                          |             | `user.getGroups({'group.type': {'OKTA_GROUP', 'APP_GROUP'}})`                                                   | A list of groups that are of the type `OKTA_GROUP` or `APP_GROUP` | A list of user groups that contains groups with IDs `00g1emaKYZTWRYYRRTSK`, `00garwpuyxHaWOkdV0g4`, `00gjitX9HqABSoqTB0g3`, and `00gnftmgQxC2L19j6I9c`  |
 |                          |             | `user.getGroups({'group.source.id': '0aae4be2456eb62f7c3d'} , {'group.profile.name': {'Engineering Users'}} )` | A filtered list of user groups that contains groups that start with the name `Engineering Users` and that has the source ID `0aae4be2456eb62f7c3d` | A list of user groups that contains groups with ID `00gjitX9HqABSoqTB0g3` |
-| `user.isMemberOf`        | Boolean     | `user.isMemberOf({'group.id': {'00gjitX9HqABSoqTB0g3', '00garwpuyxHaWOkdV0g4'}}, {'group.type': 'APP_GROUP'})`  | Whether the user is a member of one of the groups with ID `00gjitX9HqABSoqTB0g3` or `00garwpuyxHaWOkdV0g4` and the group type is  `APP_GROUP`   | True        |
-|                          |             | `user.isMemberOf({'group.id': {'00gjitX9HqABSoqTB0g3', '00garwpuyxHaWOkdV0g4'}}, {'group.type': 'BUILT_IN'})`   | Whether the user is a member of one of the groups with ID `00gjitX9HqABSoqTB0g3` or `00garwpuyxHaWOkdV0g4` and the group type is `BUILT_IN`   | False |
-|                          |             | `user.isMemberOf({'group.profile.name': 'West Coast', 'operator': 'STARTS_WITH' })`   | Whether the user is a member of a group whose name starts with `West Coast` | True |
-|                          |             | `user.isMemberOf({'group.profile.name': 'West Coast', 'operator': 'EXACT' })`   | Whether the user is a member of a group whose exact name is `West Coast` | False |
-|                          |             | `user.isMemberOf({'group.source.id': '0aae4be2456eb62f7c3d'} , {'group.profile.name': {'Engineering Users'}} )` | Whether the user is a member of a group whose source ID is `0aae4be2456eb62f7c3d` and the group name starts with `Engineering Users` | True |
 
 ### Linked object function
 
