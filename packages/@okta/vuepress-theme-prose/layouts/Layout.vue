@@ -10,7 +10,7 @@
         @updateHeight="updateHeaderHeight"
       >
         <p>
-          All Developer Edition Orgs will be deactivated starting on July 18, 2025. To continue with your development and integrations, sign up for the new Integrator Free Plan. Learn more at the <a
+          All Developer Edition Orgs will be deactivated starting on July 18, 2025. Sign up for the new Integrator Free Plan to continue building and integrating. Learn more at the <a
             href="https://developer.okta.com/blog/2025/05/13/okta-developer-edition-changes"
             target="_blank"
           >
@@ -155,8 +155,8 @@ export default {
   },
   computed: {
     showBanner() {
-      const bannerStartTime = new Date('2025-04-28T09:00:00-07:00'); // 9:00 AM PT
-      const bannerEndTime = new Date('2025-06-28T17:00:00-07:00'); // 5:00 PM PT
+      const bannerStartTime = new Date('2025-06-29T09:00:00-07:00'); // 9:00 AM PT
+      const bannerEndTime = new Date('2025-09-28T17:00:00-07:00'); // 5:00 PM PT
 
       const bannerStartEpochSeconds = Math.floor(bannerStartTime.getTime() / 1000);
       const bannerEndEpochSeconds = Math.floor(bannerEndTime.getTime() / 1000);
