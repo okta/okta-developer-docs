@@ -10,7 +10,7 @@
         @updateHeight="updateHeaderHeight"
       >
         <p>
-          All Developer Edition Orgs will be deactivated starting on July 18, 2025. Sign up for the new Integrator Free Plan to continue building and integrating. Learn more at the <a
+          All Developer Edition Orgs will be deactivated starting on July 18, 2025. Sign up for the new Integrator Free Plan to continue building and integrating. Learn more on the <a
             href="https://developer.okta.com/blog/2025/05/13/okta-developer-edition-changes"
             target="_blank"
           >
