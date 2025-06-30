@@ -13,6 +13,7 @@ title: Okta Identity Engine API release notes 2025
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Network zone restrictions for clients is self-service EA in Preview](#network-zone-restrictions-for-clients-is-self-service-ea-in-preview) | Jun 25, 2025 |
+| [New Okta Expression Language component is self-service EA in Preview](#new-okta-expression-language-component-is-self-service-ea-in-preview) | Jun 25, 2025 |
 | [Org2Org OIDC Sign-on mode is self-service EA in Preview](#org2org-oidc-sign-on-mode-is-self-service-ea-in-preview) | Jun 17, 2025 |
 | [Okta Integration IdP type is self-service EA in Preview](#okta-integration-idp-type-is-self-service-ea-in-preview) | Jun 25, 2025 |
 | [Bugs fixed in 2025.06.2](#bugs-fixed-in-2025-06-2)| Jun 25, 2025 |
@@ -20,6 +21,10 @@ title: Okta Identity Engine API release notes 2025
 #### Network zone restrictions for clients is self-service EA in Preview
 
 You can now specify an allowlist or denylist network zone for each client to enhance token endpoint security. <!-- OIDC_TOKEN_NETWORK_RESTRICTIONS (OKTA-958762) -->
+
+#### New Okta Expression Language component is self-service EA in Preview
+
+You can now use the [`metadata`](/docs/reference/okta-expression-language-in-identity-engine/#okta-account-management) component in an Expression Language condition for an Okta account management policy. You can only use `metadata` in an expression that’s related to password expiry. See [Enable password expiry](https://help.okta.com/okta_help.htm?type=oie&id=oamp-enable-password-expiry). <!-- AMP_FOR_PASSWORD_EXPIRY (OKTA-856236) -->
 
 #### Org2Org OIDC Sign-on mode is self-service EA in Preview
 
