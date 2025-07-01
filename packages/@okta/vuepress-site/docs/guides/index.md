@@ -172,6 +172,7 @@ guides:
  - add-logingov-idp
  - policy-simulation
  - idv-integration
+ - authenticators-tac-authenticator
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
