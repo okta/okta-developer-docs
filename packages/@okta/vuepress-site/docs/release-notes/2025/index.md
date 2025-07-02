@@ -30,7 +30,7 @@ A `system.agent.ldap.config_change_detected` event is generated when an LDAP age
 
 #### New validation rule for user profile attributes in OIN Wizard
 
-The OIN Wizard now requires the use of valid user profile properties when referencing attribute values in EL expressions. The system rejects any invalid user EL expressions and attributes that aren't included in the allowlist. See [Okta user profile](https://developer.okta.com/docs/reference/okta-expression-language/#okta-user-profile). <!--OKTA-820691-->
+The OIN Wizard now requires the use of valid user profile properties when referencing attribute values in EL expressions. The system rejects any invalid user EL expressions and attributes that aren't included in the allowlist. See [SAML properties](https://developer.okta.com/docs/guides/submit-oin-app/saml2/main/#properties). <!--OKTA-820691-->
 
 #### Stricter URL validation in the OIN Wizard
 
