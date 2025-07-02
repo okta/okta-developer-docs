@@ -45,7 +45,7 @@ The OIN Wizard now requires the use of valid user profile properties when refere
 
 #### Stricter URL validation in the OIN Wizard
 
-The OIN Wizard now requires all static URLs to begin with “https://” and be complete. For URL expressions, you can use any valid format. See [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/openidconnect/main/). <!--OKTA-662312-->
+The OIN Wizard now requires all static URLs to begin with "https://" and be complete. For URL expressions, you can use any valid format. See [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/openidconnect/main/). <!--OKTA-662312-->
 
 #### Conditions for create user permission is GA in Production
 
