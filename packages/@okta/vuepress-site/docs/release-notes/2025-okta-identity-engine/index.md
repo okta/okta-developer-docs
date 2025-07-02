@@ -29,7 +29,7 @@ To support these updates, the Application Connections API includes a new endpoin
 
 #### MyAccount Password API is GA in Preview
 
-You can now use the [MyAccount Password API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Password/) to update passwords. <!--OKTA-612157->
+You can now use the [MyAccount Password API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Password/) to update passwords. <!--OKTA-612157-->
 
 #### Integrate Okta with Device Posture Provider
 
@@ -37,7 +37,7 @@ The Device Posture Provider feature enhances Zero Trust security by integrating 
 
 #### System Log event for monitoring LDAP Agent config file changes is EA
 
-A `system.agent.ldap.config_change_detected` event is generated when an LDAP agent detects changes to its configuration file. <!--OKTA-912260->
+A `system.agent.ldap.config_change_detected` event is generated when an LDAP agent detects changes to its configuration file. <!--OKTA-912260-->
 
 #### New validation rule for user profile attributes in OIN Wizard
 
@@ -45,7 +45,7 @@ The OIN Wizard now requires the use of valid user profile properties when refere
 
 #### Stricter URL validation in the OIN Wizard
 
-The OIN Wizard now requires all static URLs to begin with “https://” and be complete. For URL expressions, you can use any valid format. See [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/openidconnect/main/). <!--OKTA-662312->
+The OIN Wizard now requires all static URLs to begin with “https://” and be complete. For URL expressions, you can use any valid format. See [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/openidconnect/main/). <!--OKTA-662312-->
 
 #### Conditions for create user permission is GA in Production
 
