@@ -10,7 +10,7 @@ title: Okta Identity Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [OAuth 2.0 provisioning for Org2Org with Autorotation is GA in Preview](#oauth-2-0-provisioning-for-org2org-with-autorotation-is-ga-in-preview) | July 2, 2025 |
+| [OAuth 2.0 provisioning for Org2Org with Auto-Rotation is GA in Preview](#oauth-2-0-provisioning-for-org2org-with-auto-rotation-is-ga-in-preview) | July 2, 2025 |
 | [MyAccount Password API is GA in Preview](#myaccount-password-api-is-ga-in-preview) | July 2, 2025 |
 | [New Okta Expression Language component is self-service EA in Preview]()| July 2, 2025|
 | [System Log event for monitoring LDAP Agent config file changes is EA](#system-log-event-for-monitoring-ldap-agent-config-file-changes-is-ea) | July 2, 2025 |
@@ -22,7 +22,7 @@ title: Okta Identity Engine API release notes 2025
 | [Developer documentation updates in 2025.07.0 ](#developer-documentation-updates-in-2025-07-0) | 	July 2, 2025 |
 
 
-#### OAuth 2.0 provisioning for Org2Org with Autorotation is GA in Preview
+#### OAuth 2.0 provisioning for Org2Org with Auto-Rotation is GA in Preview
 
 Admins deploying multi-org architectures (for example, Okta hub-and-spoke orgs) need to secure user and group provisioning. Provisioning using OAuth2.0 scoped tokens has several advantages over API tokens, including more access granularity, shorter token lifespans, and automatic key rotation. You can now enable OAuth 2.0 Auto-Rotation for Org2Org app provisioning directly from the Admin Console, in addition to the API.
 
