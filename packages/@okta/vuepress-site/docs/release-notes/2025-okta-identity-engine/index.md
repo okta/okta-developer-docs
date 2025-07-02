@@ -10,9 +10,9 @@ title: Okta Identity Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [OAuth 2.0 provisioning for Org2Org with Auto-Rotation is GA in Preview](#oauth-2-0-provisioning-for-org2org-with-auto-rotation-is-ga-in-preview) | July 2, 2025 |
+| [OAuth 2.0 provisioning for Org2Org with key auto-rotation is GA in Preview](#oauth-2-0-provisioning-for-org2org-with-key-auto-rotation-is-ga-in-preview) | July 2, 2025 |
 | [MyAccount Password API is GA in Preview](#myaccount-password-api-is-ga-in-preview) | July 2, 2025 |
-| [New Okta Expression Language component is self-service EA in Preview]()| July 2, 2025|
+| [New Okta Expression Language component is self-service EA in Preview](#new-okta-expression-language-component-is-self-service-ea-in-preview)| July 2, 2025|
 | [System Log event for monitoring LDAP Agent config file changes is EA](#system-log-event-for-monitoring-ldap-agent-config-file-changes-is-ea) | July 2, 2025 |
 | [Integrate Okta with Device Posture Provider](#integrate-okta-with-device-posture-provider) | July 2, 2025 |
 | [New validation rule for user profile attributes in OIN Wizard](#new-validation-rule-for-user-profile-attributes-in-oin-wizard) | July 2, 2025 |
@@ -22,7 +22,7 @@ title: Okta Identity Engine API release notes 2025
 | [Developer documentation updates in 2025.07.0 ](#developer-documentation-updates-in-2025-07-0) | 	July 2, 2025 |
 
 
-#### OAuth 2.0 provisioning for Org2Org with Auto-Rotation is GA in Preview
+#### OAuth 2.0 provisioning for Org2Org with key auto-rotation is GA in Preview
 
 Admins deploying multi-org architectures (for example, Okta hub-and-spoke orgs) need to secure user and group provisioning. Provisioning using OAuth2.0 scoped tokens has several advantages over API tokens, including more access granularity, shorter token lifespans, and automatic key rotation. You can now enable OAuth 2.0 Auto-Rotation for Org2Org app provisioning directly from the Admin Console, in addition to the API.
 
@@ -42,7 +42,7 @@ A `system.agent.ldap.config_change_detected` event is generated when an LDAP age
 
 #### Integrate Okta with Device Posture Provider
 
-The Device Posture Provider feature enhances Zero Trust security by integrating external device compliance signals into the Okta policy engine. Previously, Okta couldn't leverage signals from third-party or custom tools to enforce access policies. Now, by accepting SAML/OIDC assertions from external compliance services, admins can incorporate custom compliance attributes into device assurance policies. This enables organizations to utilize their existing device trust signals within Okta, and foster a more flexible and secure posture without the need for extra agents or redundant tooling. See the [Device Integrations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceIntegrations/) and [Integrate Okta with Device Posture Provider](https://help.okta.com/okta_help.htm?type=oie&id=device-assurance-dev-posture-idp). <!-- DEVICE_ASSURANCE_CUSTOM_POSTURE_PROVIDER, DEVICE_INTEGRATIONS_PUBLIC_API, and IDP_DEVICE_POSTURE_CLAIMS_MAPPING. Jira OKTA-905229 -->
+The Device Posture Provider feature enhances Zero Trust security by integrating external device compliance signals into the Okta policy engine. Previously, Okta couldn't leverage signals from third-party or custom tools to enforce access policies. Now, by accepting SAML/OIDC assertions from external compliance services, admins can incorporate custom compliance attributes into device assurance policies. This enables orgs to use their existing device trust signals within Okta, and foster a more flexible and secure posture without the need for extra agents or redundant tooling. See the [Device Integrations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceIntegrations/) and [Integrate Okta with Device Posture Provider](https://help.okta.com/okta_help.htm?type=oie&id=device-assurance-dev-posture-idp). <!-- DEVICE_ASSURANCE_CUSTOM_POSTURE_PROVIDER, DEVICE_INTEGRATIONS_PUBLIC_API, and IDP_DEVICE_POSTURE_CLAIMS_MAPPING. Jira OKTA-905229 -->
 
 #### New validation rule for user profile attributes in OIN Wizard
 
