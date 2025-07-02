@@ -56,10 +56,8 @@ Admins couldn’t modify the `classicFooterHelpTitle` object on their sign-in pa
 * `/api/v1/brands/{brandId}/pages/sign-in/customized`
 * `/api/v1/brands/{brandId}/pages/sign-in/preview`
 * `/api/v1/brands/{brandId}/pages/sign-in/default` 
-GET requests didn't return the object either.(OKTA-917840)
 
-
-
+GET requests didn't return the object either. (OKTA-917840)
 
 ## June
 
