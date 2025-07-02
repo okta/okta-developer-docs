@@ -10,8 +10,11 @@ title: Okta Classic Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Admins prevented from deleting published app instances](#admins-prevented-from-deleting-published-app-instances) | June 4, 2025 |
-| [Authentication claims sharing between Okta orgs is GA in Production](#authentication-claims-sharing-between-okta-orgs-is-ga-in-production) | May 7, 2025 |
+| [OAuth 2.0 provisioning for Org2Org with Autorotation is GA in Preview](#oauth-2-0-provisioning-for-org2org-with-autorotation-is-ga-in-preview) | July 2, 2025|
+| [System Log event for monitoring LDAP Agent config file changes is EA](#system-log-event-for-monitoring-ldap-agent-config-file-changes-is-ea) | July 2, 2025 |
+| [New validation rule for user profile attributes in OIN Wizard](#new-validation-rule-for-user-profile-attributes-in-oin-wizard) | July 2, 2025 |
+| [Developer documentation updates in 2025.07.0 ](#developer-documentation-updates-in-2025-07-0) | 	July 2, 2025 |
+| [Bug fixed in 2025.07.0 ](#bug-fixed-in-2025-07-0) | July 2, 2025 |
 
 
 #### OAuth 2.0 provisioning for Org2Org with Autorotation is GA in Preview
@@ -23,28 +26,37 @@ To support these updates, the Application Connections API includes a new endpoin
 
 #### System Log event for monitoring LDAP Agent config file changes is EA
 
-A `system.agent.ldap.config_change_detected` event is generated when an LDAP agent detects changes to its configuration file.
+A `system.agent.ldap.config_change_detected` event is generated when an LDAP agent detects changes to its configuration file. <!--OKTA-912260-->
 
 #### New validation rule for user profile attributes in OIN Wizard
 
-The OIN Wizard now requires the use of valid user profile properties when referencing attribute values in EL expressions. The system rejects any invalid user EL expressions and attributes that aren't included in the allowlist. See [Okta user profile](https://developer.okta.com/docs/reference/okta-expression-language/#okta-user-profile).
+The OIN Wizard now requires the use of valid user profile properties when referencing attribute values in EL expressions. The system rejects any invalid user EL expressions and attributes that aren't included in the allowlist. See [Okta user profile](https://developer.okta.com/docs/reference/okta-expression-language/#okta-user-profile). <!--OKTA-820691-->
 
 #### Stricter URL validation in the OIN Wizard
 
-The OIN Wizard now requires all static URLs to begin with “https://” and be complete. For URL expressions, you can use any valid format. See [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/openidconnect/main/).
+The OIN Wizard now requires all static URLs to begin with “https://” and be complete. For URL expressions, you can use any valid format. See [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/openidconnect/main/). <!--OKTA-662312-->
 
 
 #### Conditions for create user permission is GA in Production
 
-You can now add conditions to the `okta.user.create` permission for custom admin roles. This enables you to granularly control which user attributes admins can set values for during user creation. See [Permissions conditions](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions-conditions).
+You can now add conditions to the `okta.user.create` permission for custom admin roles. This enables you to granularly control which user attributes admins can set values for during user creation. See [Permissions conditions](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions-conditions). <!--OKTA-907853-->
+
+#### Developer documentation updates in 2025.07.0
+
+* The [Okta Admin Management](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/ ) APIs have been reorganized into functional service groups for improved navigation and user experience. All previous anchors and links to the APIs remain the same. <!--OKTA-918957-->
+
+* The **Agent Pools** API has been renamed  **Directory Agent Pools** API and is now grouped under **External Identity Sources**. There are no other changes to the API. All previous anchors and links to the API remain the same. <!--OKTA-955807-->
+
+* The [Password import inline hook](/docs/guides/password-import-inline-hook/nodejs/main/) guide was revised to demonstrate the hook call using the [ngrok utility](https://ngrok.com/), rather than the sample code hosted on [Glitch.com](https://glitch.com/). The hosted sample app on Glitch is scheduled for deprecation on July 8th, 2025. <!--OKTA-949440-->
 
 
-#### Bugs fixed in 2025.07.0
+#### Bug fixed in 2025.07.0
 
-Admins couldn’t modify the `classicFooterHelpTitle` object on their sign-in page when sending PUT requests to these endpoints. GET requests didn't return the object either.
+Admins couldn’t modify the `classicFooterHelpTitle` object on their sign-in page when sending PUT requests to these endpoints. 
 * `/api/v1/brands/{brandId}/pages/sign-in/customized`
 * `/api/v1/brands/{brandId}/pages/sign-in/preview`
-* `/api/v1/brands/{brandId}/pages/sign-in/default` (OKTA-917840)
+* `/api/v1/brands/{brandId}/pages/sign-in/default` 
+GET requests didn't return the object either.(OKTA-917840)
 
 
 
