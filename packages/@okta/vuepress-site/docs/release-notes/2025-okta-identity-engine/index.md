@@ -46,7 +46,7 @@ The Device Posture Provider feature enhances Zero Trust security by integrating 
 
 #### New validation rule for user profile attributes in OIN Wizard
 
-The OIN Wizard now requires the use of valid user profile properties when referencing attribute values in EL expressions. The system rejects any invalid user EL expressions and attributes that aren't included in the allowlist. See [Okta user profile](https://developer.okta.com/docs/reference/okta-expression-language/#okta-user-profile). <!--OKTA-820691-->
+The OIN Wizard now requires the use of valid user profile properties when referencing attribute values in EL expressions. The system rejects any invalid user EL expressions and attributes that aren't included in the allowlist. See [SAML properties](https://developer.okta.com/docs/guides/submit-oin-app/saml2/main/#properties). <!--OKTA-820691-->
 
 #### Stricter URL validation in the OIN Wizard
 
@@ -64,7 +64,7 @@ Okta now supports using Incode and CLEAR Verified as identity providers. This in
 
 * The [Okta Admin Management](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/ ) APIs have been reorganized into functional service groups for improved navigation and user experience. All previous anchors and links to the APIs remain the same. <!--OKTA-918957-->
 
-* A [new guide](docs/guides/configure-ssf-receiver/main/) is available that explains how to register security events providers in Okta, which enables continuous sharing of security information with Okta to prevent security threats. <!--OKTA-918957-->
+* A [new guide](/docs/guides/configure-ssf-receiver/main/) is available that explains how to register security events providers in Okta, which enables continuous sharing of security information with Okta to prevent security threats. <!--OKTA-918957-->
 
 * The **Agent Pools** API has been renamed  **Directory Agent Pools** API and is now grouped under **External Identity Sources**. There are no other changes to the API. All previous anchors and links to the API remain the same. <!--OKTA-955807-->
 
