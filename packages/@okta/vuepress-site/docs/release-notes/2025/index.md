@@ -52,7 +52,7 @@ You can now add conditions to the `okta.user.create` permission for custom admin
 
 #### Bug fixed in 2025.07.0
 
-Admins couldn’t modify the `classicFooterHelpTitle` object on their sign-in page when sending PUT requests to these endpoints. 
+Admins couldn't modify the `classicFooterHelpTitle` object on their sign-in page when sending PUT requests to these endpoints. 
 * `/api/v1/brands/{brandId}/pages/sign-in/customized`
 * `/api/v1/brands/{brandId}/pages/sign-in/preview`
 * `/api/v1/brands/{brandId}/pages/sign-in/default` 
