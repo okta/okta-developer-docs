@@ -4,6 +4,61 @@ title: Okta Classic Engine API release notes 2025
 
 # Okta Classic Engine API release notes (2025)
 
+## July
+
+### Monthly release 2025.07.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [OAuth 2.0 provisioning for Org2Org with key auto-rotation is GA in Preview](#oauth-2-0-provisioning-for-org2org-with-key-auto-rotation-is-ga-in-preview) | July 2, 2025|
+| [System Log event for monitoring LDAP Agent config file changes is EA](#system-log-event-for-monitoring-ldap-agent-config-file-changes-is-ea) | July 2, 2025 |
+| [New validation rule for user profile attributes in OIN Wizard](#new-validation-rule-for-user-profile-attributes-in-oin-wizard) | July 2, 2025 |
+| [Developer documentation updates in 2025.07.0 ](#developer-documentation-updates-in-2025-07-0) | 	July 2, 2025 |
+| [Bug fixed in 2025.07.0 ](#bug-fixed-in-2025-07-0) | July 2, 2025 |
+
+
+#### OAuth 2.0 provisioning for Org2Org with key auto-rotation is GA in Preview
+
+Admins deploying multi-org architectures (for example, Okta hub-and-spoke orgs) need to secure user and group provisioning. Provisioning using OAuth2.0 scoped tokens has several advantages over API tokens, including more access granularity, shorter token lifespans, and automatic key rotation. You can now enable OAuth 2.0 Auto-Rotation for Org2Org app provisioning directly from the Admin Console, in addition to the API.
+
+To support these updates, the Application Connections API includes a new endpoint, [Retrieve a JSON Web Key Set (JWKS) for the default provisioning connection]([https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/getUserProvisioningConnectionJWKS|https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/getUserProvisioningConnectionJWKS]), and schema updates to support key auto-rotation, `rotationMode=AUTO`. See [Update the default provisioning connection]([https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication!path=1/profile&t=request|https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication!path=1/profile&t=request]) and [Integrate Okta Org2Org with Okta]([https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg#Use2|https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg#Use2]). <!-- [OKTA-903533] FF ORG2ORG_ENABLE_PROVISION_JWK -->
+
+
+#### System Log event for monitoring LDAP Agent config file changes is EA
+
+A `system.agent.ldap.config_change_detected` event is generated when an LDAP agent detects changes to its configuration file. <!--OKTA-912260-->
+
+#### New validation rule for user profile attributes in OIN Wizard
+
+The OIN Wizard now requires the use of valid user profile properties when referencing attribute values in EL expressions. The system rejects any invalid user EL expressions and attributes that aren't included in the allowlist. See [SAML properties](https://developer.okta.com/docs/guides/submit-oin-app/saml2/main/#properties). <!--OKTA-820691-->
+
+#### Stricter URL validation in the OIN Wizard
+
+The OIN Wizard now requires all static URLs to begin with "https://" and be complete. For URL expressions, you can use any valid format. See [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/openidconnect/main/). <!--OKTA-662312-->
+
+
+#### Conditions for create user permission is GA in Production
+
+You can now add conditions to the `okta.user.create` permission for custom admin roles. This enables you to granularly control which user attributes admins can set values for during user creation. See [Permissions conditions](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions-conditions). <!--OKTA-907853-->
+
+#### Developer documentation updates in 2025.07.0
+
+* The [Okta Admin Management](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/ ) APIs have been reorganized into functional service groups for improved navigation and user experience. All previous anchors and links to the APIs remain the same. <!--OKTA-918957-->
+
+* The **Agent Pools** API has been renamed  **Directory Agent Pools** API and is now grouped under **External Identity Sources**. There are no other changes to the API. All previous anchors and links to the API remain the same. <!--OKTA-955807-->
+
+* The [Password import inline hook](/docs/guides/password-import-inline-hook/nodejs/main/) guide was revised to demonstrate the hook call using the [ngrok utility](https://ngrok.com/), rather than the sample code hosted on [Glitch.com](https://glitch.com/). The hosted sample app on Glitch is scheduled for deprecation on July 8th, 2025. <!--OKTA-949440-->
+
+
+#### Bug fixed in 2025.07.0
+
+Admins couldn't modify the `classicFooterHelpTitle` object on their sign-in page when sending PUT requests to these endpoints. 
+* `/api/v1/brands/{brandId}/pages/sign-in/customized`
+* `/api/v1/brands/{brandId}/pages/sign-in/preview`
+* `/api/v1/brands/{brandId}/pages/sign-in/default` 
+
+GET requests didn't return the object either. (OKTA-917840)
+
 ## June
 
 ### Weekly release 2025.06.2
