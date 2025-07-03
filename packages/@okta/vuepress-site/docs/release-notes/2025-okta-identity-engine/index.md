@@ -54,7 +54,7 @@ The OIN Wizard now requires all static URLs to begin with "https://" and be comp
 
 #### Conditions for create user permission is GA in Production
 
-You can now add conditions to the `okta.user.create` permission for custom admin roles. This enables you to granularly control which user attributes admins can set values for during user creation. See [Permissions conditions](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions-conditions).  <!--OKTA-907853-->
+You can now add conditions to the `okta.user.create` permission for custom admin roles. This enables you to granularly control which user attributes admins can set values for during user creation. See [Permissions conditions](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#permissions-conditions).  <!--OKTA-907853-->
 
 #### CLEAR Verified and Incode as third-party identity verification providers is GA in Production
 
