@@ -86,7 +86,7 @@ Instead of redirecting to the Okta-hosted Sign-In Widget, you can create a custo
    |   |         |         |         |   |
    |---|---------|---------|---------|---|
    | ![Android](/img/sdks/android.png) | Android | [Okta Identity Engine SDK for Kotlin](https://github.com/okta/okta-idx-android) | [Sample App](https://github.com/okta/okta-idx-android/tree/master/dynamic-app) | [Guide](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/android/main/) |
-   | ![iOS](/img/sdks/iOS.png) | iOS | [Okta Identity Engine SDK for Swift](https://github.com/okta/okta-idx-swift) | [Sample App](https://github.com/okta/okta-idx-swift/tree/master/Samples/EmbeddedAuthWithSDKs/EmbeddedAuth) | [Guide](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/ios/main/) |
+   | ![iOS](/img/sdks/ios.png) | iOS | [Okta Identity Engine SDK for Swift](https://github.com/okta/okta-idx-swift) | [Sample App](https://github.com/okta/okta-idx-swift/tree/master/Samples/EmbeddedAuthWithSDKs/EmbeddedAuth) | [Guide](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/ios/main/) |
 
 > **Note:** The Mobile and Identity Engine SDKs share a [modular architecture](https://developer.okta.com/blog/2022/08/30/introducing-the-new-okta-mobile-sdks#modularized-architecture).
 
@@ -139,4 +139,4 @@ The classic Auth SDKs for [Android](https://github.com/okta/okta-auth-java) (Jav
 |  |   |   |   |  |
 | -- | ------- | -------------------------- | -- | ---------------- |
 | ![Android](/img/sdks/android.png) | Android | [Okta Mobile SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin) |  | [SessionTokenFlow](https://github.com/okta/okta-mobile-kotlin/blob/master/oauth2/src/main/java/com/okta/oauth2/SessionTokenFlow.kt) |
-| ![iOS](/img/sdks/ios.png) | iOS | [Okta Mobile SDK for Swift](https://github.com/okta/okta-mobile-swift) | [Sample App](https://github.com/okta/okta-mobile-swift/tree/master/Samples/ClassicNativeAuth) | [SessionTokenFlow](https://okta.github.io/okta-mobile-swift/development/oktaoauth2/documentation/oktaoauth2/sessiontokenflow/) |
+| ![iOS](/img/sdks/ios.png) | iOS | [Okta Mobile SDK for Swift](https://github.com/okta/okta-mobile-swift) | [Sample App](https://github.com/okta/okta-mobile-swift/tree/master/Samples/ClassicNativeAuth) | [SessionTokenFlow](https://okta.github.io/okta-mobile-swift/development/documentation/oauth2auth/sessiontokenflow) |
