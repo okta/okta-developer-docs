@@ -25,7 +25,7 @@ Universal Directory has a single Okta user profile for every user and an app use
 
 You can manage the User profiles in Universal Directory from the Admin Console or use the [User API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/).
 
-You can manage the Apps user profiles in Universal Directory from the Admin Console or use the [Apps API](/docs/reference/api/apps).
+You can manage the Apps user profiles in Universal Directory from the Admin Console or use the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application).
 
 ### User mappings
 
