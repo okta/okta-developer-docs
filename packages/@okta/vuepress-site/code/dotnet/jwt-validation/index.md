@@ -16,13 +16,13 @@ If you’re writing low-level code that retrieves or uses these tokens, it's imp
 You don't need to validate tokens manually if:
 
 * You’re using ASP.NET or ASP.NET Core
-* You send the tokens to Okta to be validated (this is called [token introspection](/docs/reference/api/oidc/#introspect))
+* You send the tokens to Okta to be validated (this is called [token introspection](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS))
 
 If you need to validate a token manually, and don't want to make a network call to Okta, this guide helps you validate tokens locally.
 
 ### What you need
 
-* Your authorization server URL (see [Composing your base URL](/docs/reference/api/oidc/#composing-your-base-url))
+* Your authorization server URL (see [Composing your base URL](https://developer.okta.com/docs/concepts/auth-servers/))
 * A token (JWT string)
 * Libraries for retrieving the signing keys and validating the token
 

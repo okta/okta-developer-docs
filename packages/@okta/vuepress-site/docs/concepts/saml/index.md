@@ -125,7 +125,7 @@ As discussed earlier, an IdP-initiated sign-in flow starts from the IdP. So, the
 
 In an SP-initiated flow, the user tries to access a protected resource directly on the SP side without the IdP being aware of the attempt. Two issues arise:
 
-- The need to identify the right IdP if authentication of a federated identity is required. With sign-in flows that are SP-initiated, the SP initially doesn't know anything about the identity. Determine how the SP can determine which IdP should receive the SAML request. Sometimes the IdP can be identified when users click an app URL with subdomain information that's mapped to a unique tenant and IdP. If this isn't the case, then prompt the user for additional information. You need something that allows the SP to identify which IdP the user belongs to. Remember, you’re only prompting for an identifier, not credentials. Okta supports passing the identifier to the IdP with the LoginHint parameter. Then, the user doesn't need to input the identifier again when redirected to the IdP to sign in. For instructions on how to trigger Okta to send the LoginHint to the IdP, see [Redirect with SAML deep links](/docs/reference/api/idps#redirect-with-saml-deep-links).
+- The need to identify the right IdP if authentication of a federated identity is required. With sign-in flows that are SP-initiated, the SP initially doesn't know anything about the identity. Determine how the SP can determine which IdP should receive the SAML request. Sometimes the IdP can be identified when users click an app URL with subdomain information that's mapped to a unique tenant and IdP. If this isn't the case, then prompt the user for additional information. You need something that allows the SP to identify which IdP the user belongs to. Remember, you’re only prompting for an identifier, not credentials. Okta supports passing the identifier to the IdP with the LoginHint parameter. Then, the user doesn't need to input the identifier again when redirected to the IdP to sign in. For instructions on how to trigger Okta to send the LoginHint to the IdP, see [Redirect with SAML deep links](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider).
 
 - Support for deep links. Most apps support deep links. For example, you might receive a link to a document that resides on a content management system. Ideally, if you need to authenticate before accessing the document, you would like to be taken to the document immediately after authentication.
 
@@ -141,7 +141,7 @@ In the case of a deep link, the SP sets the `relayState` of the SAML request wit
 
 </div>
 
-For instructions to construct a deep link for SAML IdPs, see [Redirect with SAML deep links](/docs/reference/api/idps#redirect-with-saml-deep-links).
+For instructions to construct a deep link for SAML IdPs, see [Redirect with SAML deep links](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider).
 
 ### Expose SAML configuration in the SP
 

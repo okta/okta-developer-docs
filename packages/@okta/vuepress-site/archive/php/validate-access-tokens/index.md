@@ -50,9 +50,9 @@ The high-level overview of validating an access token looks like this:
 
 ### Retrieve The JSON Web Keys
 
-The JSON Web Keys (JWK) need to be retrieved from your [Okta authorization server](/docs/guides/customize-authz-server/), though your application should have them cached. See [Best practices](/docs/reference/api/oidc/#best-practices). Specifically, your authorization server's Metadata endpoint contains the `jwks_uri`, which you can use to get the JWK.
+The JSON Web Keys (JWK) need to be retrieved from your [Okta authorization server](/docs/guides/customize-authz-server/), though your application should have them cached. See [Best practices](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#best-practices). Specifically, your authorization server's Metadata endpoint contains the `jwks_uri`, which you can use to get the JWK.
 
-> For more information about retrieving this metadata, see [Retrieve Authorization Server Metadata](/docs/reference/api/oidc/#well-knownoauth-authorization-server).
+> For more information about retrieving this metadata, see [Retrieve Authorization Server Metadata](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/getWellKnownOAuthConfigurationCustomAS).
 
 ### Decoding and Validating the Access Token
 
@@ -106,7 +106,7 @@ $jwt = $jwtVerifier->verify($jwt);
 
 ## Validating A Token Remotely With Okta
 
-Alternatively, you can also validate an access or refresh Token using the Token Introspection endpoint: [Introspection Request](/docs/reference/api/oidc/#introspect). This endpoint takes your token as a URL query parameter and returns back a simple JSON response with a boolean `active` property.
+Alternatively, you can also validate an access or refresh Token using the Token Introspection endpoint: [Introspection Request](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS). This endpoint takes your token as a URL query parameter and returns back a simple JSON response with a boolean `active` property.
 
 This incurs a network request which is slower to do verification, but can be used when you want to guarantee that the access token hasn't been revoked.
 
@@ -114,4 +114,4 @@ This incurs a network request which is slower to do verification, but can be use
 
 * A high-level overview of OpenID Connect can be found [here](/docs/concepts/oauth-openid/#openid-connect).
 * The access tokens are in [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) format. They are signed using asymmetrical [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
-* More information about Okta's access tokens can be found in the [OIDC & OAuth 2.0 API Reference](/docs/reference/api/oidc/#id-token).
+* More information about Okta's access tokens can be found in the [OIDC & OAuth 2.0 API Reference](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#id-token-payload).

@@ -322,7 +322,7 @@ For a production system, it is a best practice for an external app that receives
 
 There are multiple ways that external apps can verify that Okta minted the tokens:
 
-* Use the Okta REST API to call the [authorization server introspect operation](/docs/reference/api/oidc/#introspect). The request takes an access token, ID token, refresh token, or device secret and returns a boolean that indicates whether the token is active.
+* Use the Okta REST API to call the [authorization server introspect operation](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/introspect). The request takes an access token, ID token, refresh token, or device secret and returns a boolean that indicates whether the token is active.
 * Get the public key from the Okta-published JWKS endpoint. The key ID is in the header of the JWTs that Okta issues.
 
 ### Test your external app with your authorization server
