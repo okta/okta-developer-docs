@@ -23,6 +23,7 @@ guides:
  - configure-direct-auth-grants
  - configure-native-sso
  - configure-signon-policy
+ - configure-ssf-receiver
  - configure-user-scoped-account-management
  - create-an-api-token
  - custom-email

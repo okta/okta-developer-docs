@@ -1,6 +1,6 @@
 {
-  "release" : "2025.06.1",
-  "build" : "2025.06.1-begin-127-gbc517b79f749",
+  "release" : "2025.07.1",
+  "build" : "2025.07.1-begin-146-g05a164292232",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -1706,6 +1706,168 @@
         "changeDetails" : null
       }
     }, {
+      "id" : "app.ad.password_migration_campaign.cancel.end",
+      "category" : "directories",
+      "description" : "Complete cancellation of migration campaign. This can be used to confirm that the process to cancel a password migration campaign intentionally is complete. This event marks the end of the cancellation process that began with an app.ad.password_migration_campaign.cancel.start event.",
+      "info" : {
+        "created" : "2025-06-24",
+        "release" : "2025.09.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "ad-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "app.ad.password_migration_campaign.cancel.start",
+      "category" : "directories",
+      "description" : "Start cancellation of a password migration campaign. This can be used to track when the process to intentionally cancel a password migration campaign begins. This begins an asynchronous process. Its conclusion is marked by the app.ad.password_migration_campaign.cancel.end event.",
+      "info" : {
+        "created" : "2025-06-24",
+        "release" : "2025.09.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "ad-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "app.ad.password_migration_campaign.create",
+      "category" : "directories",
+      "description" : "Create Active Directory password migration campaign. This can be used to identify when a migration is created to monitor its duration and impact on users. Marks the beginning of a password migration campaign.",
+      "info" : {
+        "created" : "2025-06-24",
+        "release" : "2025.09.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "ad-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "app.ad.password_migration_campaign.finish.end",
+      "category" : "directories",
+      "description" : "Complete password migration campaign. This can be used to confirm that a Finish password migration campaign process has fully completed. This event marks the successful end of the entire campaign lifecycle. This is an asynchronous process and is preceded by an app.ad.password_migration_campaign.finish.start event.",
+      "info" : {
+        "created" : "2025-06-24",
+        "release" : "2025.09.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "ad-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "app.ad.password_migration_campaign.finish.start",
+      "category" : "directories",
+      "description" : "Start password migration campaign completion. This can be used to track the start of the Finish Campaign process. This begins an asynchronous process. Its conclusion is marked by the app.ad.password_migration_campaign.finish.end event.",
+      "info" : {
+        "created" : "2025-06-24",
+        "release" : "2025.09.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "ad-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "app.ad.password_migration_campaign.group.add",
+      "category" : "directories",
+      "description" : "Add group to Active Directory password migration campaign. This can be used to identify groups that have been included in a password migration campaign. This action expands the set of users eligible for password capture by the campaign.",
+      "info" : {
+        "created" : "2025-06-24",
+        "release" : "2025.09.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "ad-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "app.ad.password_migration_campaign.user.capture_password",
+      "category" : "directories",
+      "description" : "Capture user password from Active Directory. This can be used to track progress for individual users and confirm password collection. This event does not signify the full migration of the user, only the successful capture of their password.",
+      "info" : {
+        "created" : "2025-06-24",
+        "release" : "2025.09.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "ad-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "app.ad.password_migration_campaign.user.migrate.end",
+      "category" : "directories",
+      "description" : "Complete individual user password migration. This can be used as a record that a user's credential is fully migrated to Okta. The user's password is now fully migrated and active in Okta.",
+      "info" : {
+        "created" : "2025-06-24",
+        "release" : "2025.09.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "ad-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "app.ad.password_migration_campaign.user.migrate.start",
+      "category" : "directories",
+      "description" : "Start individual user password migration. This can be used to confirm that a specific user's migration process has begun. The conclusion of this asynchronous process is marked by a corresponding app.ad.password_migration_campaign.user.migrate.end event.",
+      "info" : {
+        "created" : "2025-06-24",
+        "release" : "2025.09.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "ad-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
       "id" : "app.app_instance.csr.generate",
       "category" : "federation",
       "description" : "Certificate signing request (CSR) generated.",
@@ -2464,7 +2626,7 @@
     }, {
       "id" : "app.oauth2.as.interact.interaction_code",
       "category" : "federation",
-      "description" : "Fired when interaction code is generated by OIE. This event can be used by administrators to audit interaction_code generation, and troubleshoot why the IdX transaction has failed. When fired, this event contains hashed values of the interaction_code and interaction_handle, as well as information about the client to which they were issued.",
+      "description" : "Interaction code is generated by OIE. This event can be used by administrators to audit interaction_code generation, and troubleshoot why the IdX transaction has failed. When fired, this event contains hashed values of the interaction_code and interaction_handle, as well as information about the client to which they were issued.",
       "info" : {
         "created" : "2020-11-12",
         "release" : "2021.01.0"
@@ -2482,7 +2644,7 @@
     }, {
       "id" : "app.oauth2.as.interact.interaction_handle",
       "category" : "federation",
-      "description" : "Fired when interaction handle is generated by OIE. This event can be used by administrators to detect if additional interaction is required and an interaction handle has been issued. When fired this event contains interaction handle hash and the client to which it was issued.",
+      "description" : "Interaction handle is generated by OIE. This event can be used by administrators to detect if additional interaction is required and an interaction handle has been issued. When fired this event contains interaction handle hash and the client to which it was issued.",
       "info" : {
         "created" : "2020-11-12",
         "release" : "2021.01.0"
@@ -2513,6 +2675,78 @@
         "debugData" : "OAuth2PlatformDebugData",
         "actor" : null,
         "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "app.oauth2.as.resource_server.credentials.lifecycle.activate",
+      "category" : "federation",
+      "description" : "Authorization server access token encryption key is activated. Use this event to find out if a new access token encryption key has been activated for an authorization server. This could be used to audit changes made to authorization server access token encryption keys.",
+      "info" : {
+        "created" : "2025-06-17",
+        "release" : "2025.07.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "OAuth2PlatformDebugData",
+        "actor" : null,
+        "targets" : [ "OAuth2PlatformResourceDetails", "AuthorizationServerResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "app.oauth2.as.resource_server.credentials.lifecycle.create",
+      "category" : "federation",
+      "description" : "Authorization server access token encryption key is created. Use this event to find out if a new access token encryption key has been created for an authorization server. This could be used to audit changes made to authorization server access token encryption keys.",
+      "info" : {
+        "created" : "2025-06-17",
+        "release" : "2025.07.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "OAuth2PlatformDebugData",
+        "actor" : null,
+        "targets" : [ "OAuth2PlatformResourceDetails", "AuthorizationServerResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "app.oauth2.as.resource_server.credentials.lifecycle.deactivate",
+      "category" : "federation",
+      "description" : "Authorization server access token encryption key is deactivated. Use this event to find out if a new access token encryption key has been deactivated for an authorization server. This could be used to audit changes made to authorization server access token encryption keys.",
+      "info" : {
+        "created" : "2025-06-17",
+        "release" : "2025.07.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "OAuth2PlatformDebugData",
+        "actor" : null,
+        "targets" : [ "OAuth2PlatformResourceDetails", "AuthorizationServerResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "app.oauth2.as.resource_server.credentials.lifecycle.delete",
+      "category" : "federation",
+      "description" : "Authorization server access token encryption key is deleted. Use this event to find out if a new access token encryption key has been deleted for an authorization server. This could be used to audit changes made to authorization server access token encryption keys.",
+      "info" : {
+        "created" : "2025-06-17",
+        "release" : "2025.07.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "OAuth2PlatformDebugData",
+        "actor" : null,
+        "targets" : [ "OAuth2PlatformResourceDetails", "AuthorizationServerResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -2860,7 +3094,7 @@
     }, {
       "id" : "app.oauth2.client_id_rate_limit_warning",
       "category" : "federation",
-      "description" : "Fired when requests from a single client id has consumed majority of an org's rate limit on the OAuth2 endpoint. This event can be used by admins to discover and deactivate a rogue client. The admin is able to manage the client via the Syslog UI. When fired, this event contains information about the responsible client id. As of release, this event is fired when a single client id consumes 90% of an org's OAuth2 rate limit; this threshold is subject to change.",
+      "description" : "Requests from a single client ID consumed the majority of an organization's OAuth2 endpoint rate limit. This event can be used by admins to discover and deactivate a rogue client. The admin is able to manage the client via the Syslog UI. When fired, this event contains information about the responsible client id. As of release, this event is fired when a single client id consumes 90% of an org's OAuth2 rate limit; this threshold is subject to change.",
       "info" : {
         "created" : "2019-04-15",
         "release" : "2019.04.2"
@@ -2968,7 +3202,7 @@
     }, {
       "id" : "app.oauth2.interact.interaction_code",
       "category" : "federation",
-      "description" : "Fired when interaction code is generated by OIE. This event can be used by administrators to audit interaction_code generation, and troubleshoot why the IdX transaction has failed. When fired, this event contains hashed values of the interaction_code and interaction_handle, as well as information about the client to which they were issued.",
+      "description" : "Interaction code generated by OIE. This event can be used by administrators to audit interaction_code generation, and troubleshoot why the IdX transaction has failed. When fired, this event contains hashed values of the interaction_code and interaction_handle, as well as information about the client to which they were issued.",
       "info" : {
         "created" : "2020-11-12",
         "release" : "2021.01.0"
@@ -2986,7 +3220,7 @@
     }, {
       "id" : "app.oauth2.interact.interaction_handle",
       "category" : "federation",
-      "description" : "Fired when interaction handle is generated by OIE. This event can be used by administrators to detect if additional interaction is required and an interaction handle has been issued. When fired this event contains interaction handle hash and the client to which it was issued.",
+      "description" : "Interaction handle generated by OIE. This event can be used by administrators to detect if additional interaction is required and an interaction handle has been issued. When fired this event contains interaction handle hash and the client to which it was issued.",
       "info" : {
         "created" : "2020-11-12",
         "release" : "2021.01.0"
@@ -7054,7 +7288,7 @@
     }, {
       "id" : "device.desktop_mfa.configuration.update",
       "category" : "device-mfa",
-      "description" : "Fired when a Desktop MFA configuration is updated by an admin. Admin can monitor who update the Desktop MFA configuration value. More details of configuration update in Target.changeDetails.",
+      "description" : "Desktop MFA configuration updated by an admin. Admin can monitor who update the Desktop MFA configuration value. More details of configuration update in Target.changeDetails.",
       "info" : {
         "created" : "2024-07-24",
         "release" : "2024.08.0"
@@ -7072,7 +7306,7 @@
     }, {
       "id" : "device.desktop_mfa.device_logout.completed",
       "category" : "device-mfa",
-      "description" : "Fired when a device completes a user logout operation and sends the result to Okta. Admin can monitor whether if the user is logged out from a device successfully. You can correlate this event with the device.desktop_mfa.device_logout.started event using trace_id.",
+      "description" : "Device completes user logout operation. Admin can monitor whether the user is logged out from a device successfully. Admin can correlate this event with the device.desktop_mfa.device_logout.started event using trace_id.",
       "info" : {
         "created" : "2025-02-20",
         "release" : "2025.03.0"
@@ -7090,7 +7324,7 @@
     }, {
       "id" : "device.desktop_mfa.device_logout.started",
       "category" : "device-mfa",
-      "description" : "Fired when device logout process is started for a user. The user will be logged out from devices protected by Desktop MFA. Admin can monitor when device logout process is started and what triggers it. If the logout is triggered by Universal Logout flow, you can correlate this event with the user.authentication.universal_logout event using trace_id.",
+      "description" : "Device logout process started for user. User will be logged out from devices protected by Desktop MFA. Admin can monitor when device logout process is started and what triggers it. If the logout is triggered by Universal Logout flow, you can correlate this event with the user.authentication.universal_logout event using trace_id.",
       "info" : {
         "created" : "2025-02-20",
         "release" : "2025.03.0"
@@ -7108,7 +7342,7 @@
     }, {
       "id" : "device.desktop_mfa.enrollment.create",
       "category" : "device-mfa",
-      "description" : "Fired when a Desktop MFA enrollment is registered to Okta Server. Admin can monitor which Okta user and device has enrolled with Desktop MFA. The registration happens after a user logs in a device with an online factor.",
+      "description" : "Desktop MFA enrollment is registered to Okta Server. Admin can monitor which Okta user and device has enrolled with Desktop MFA. The registration happens after a user logs in a device with an online factor.",
       "info" : {
         "created" : "2024-07-24",
         "release" : "2024.08.0"
@@ -7126,7 +7360,7 @@
     }, {
       "id" : "device.desktop_mfa.recovery_pin.generate",
       "category" : "device-mfa",
-      "description" : "Fired when a device recovery PIN is generated by an admin. Admin can monitor who generates a device recovery PIN for which user and device. The event is fired even when the generation fails.",
+      "description" : "Device recovery PIN generated by admin. Admin can monitor who generates a device recovery PIN for which user and device. The event is fired even when the generation fails.",
       "info" : {
         "created" : "2024-07-24",
         "release" : "2024.08.0"
@@ -7144,7 +7378,7 @@
     }, {
       "id" : "device.desktop_mfa.recovery_pin.rotate_secret",
       "category" : "device-mfa",
-      "description" : "Fired when a device rotates the device recovery PIN secret for Desktop MFA to Okta server. Admin can monitor if a rotation happens for the device recovery PIN secret of a user on a device. The rotation is supposed to happen every 7 days for each user on each device.",
+      "description" : "Device rotates recovery PIN secret for Desktop MFA to Okta server. Admin can monitor if a rotation happens for the device recovery PIN secret of a user on a device. The rotation is supposed to happen every 7 days for each user on each device.",
       "info" : {
         "created" : "2024-07-24",
         "release" : "2024.08.0"
@@ -8166,6 +8400,24 @@
         "actor" : null,
         "targets" : [ "ResourceDetails" ],
         "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "governance.principal.settings.update",
+      "category" : "id-fabric",
+      "description" : "Governance principal settings updated. This event can be used to audit governance settings updates or trigger downstream automation that depends on governance principal settings updates. An example of when this event is triggered is when a governance principal assigns a delegate for approvals and reviews.",
+      "info" : {
+        "created" : "2025-06-03",
+        "release" : "2025.06.2"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "access", "certification", "event-hook-eligible" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ "GovernancePrincipalSettingsChangeDetailsEntry" ]
       }
     }, {
       "id" : "group.application_assignment.add",
@@ -12286,7 +12538,7 @@
       "schema" : {
         "debugData" : "UserAuthenticationDebugData",
         "actor" : null,
-        "targets" : [ "UserAuthenticationResourceDetails" ],
+        "targets" : [ "UserAuthenticationResourceDetails", "DeviceSignalPolicyResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -12882,6 +13134,24 @@
         "actor" : null,
         "targets" : null,
         "changeDetails" : null
+      }
+    }, {
+      "id" : "resource.owner.update",
+      "category" : "id-fabric",
+      "description" : "Resource Owner assigned or unassigned. Can be used to audit the assignment or unassignment of resource owners for a resource. The event is triggered when resource owner is assigned or unassigned.",
+      "info" : {
+        "created" : "2025-06-25",
+        "release" : "2025.07.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "resource" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ "ResourceOwnersChangeDetails" ]
       }
     }, {
       "id" : "resource.risk_rule.create",
@@ -14684,6 +14954,24 @@
         "changeDetails" : [ ]
       }
     }, {
+      "id" : "system.api_token.request_outside_allowed_range",
+      "category" : "federation",
+      "description" : "Request with API tokens made from outside the allowed network zone. Use to detect when an API token comes from an IP address that's outside of the specified allowed zone. Fired when an API token comes from an IP address that's outside of the specified allowed zone of the token.",
+      "info" : {
+        "created" : "2025-05-29",
+        "release" : "2025.06.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "token" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
       "id" : "system.api_token.revoke",
       "category" : "federation",
       "description" : "Revoke API token.",
@@ -15694,7 +15982,7 @@
     }, {
       "id" : "system.idp.key.create",
       "category" : "federation",
-      "description" : "Fired when a new Identity provider key credential is created. This can be used to audit that a new identity provider key credential has been created. When fired, this event indicates a new X.509 certificate credential is added to the IdP key store.",
+      "description" : "Identity provider key credential created. This can be used to audit that a new identity provider key credential has been created. When fired, this event indicates a new X.509 certificate credential is added to the IdP key store.",
       "info" : {
         "created" : "2023-12-12",
         "release" : "2023.12.2"
@@ -15712,7 +16000,7 @@
     }, {
       "id" : "system.idp.key.delete",
       "category" : "federation",
-      "description" : "Fired when an Identity provider key credential is deleted. This can be used to audit that an identity provider key credential has been deleted. When fired, this event indicates a X.509 certificate credential by kid is deleted if it isn't currently being used by an active or inactive IdP.",
+      "description" : "Identity provider key credential deleted. This can be used to audit that an identity provider key credential has been deleted. When fired, this event indicates a X.509 certificate credential by kid is deleted if it isn't currently being used by an active or inactive IdP.",
       "info" : {
         "created" : "2023-12-12",
         "release" : "2023.12.2"
@@ -15730,7 +16018,7 @@
     }, {
       "id" : "system.idp.key.update",
       "category" : "federation",
-      "description" : "Fired when an Identity provider key credential is updated. This can be used to audit that an identity provider key credential has been updated. When fired, this event indicates a X.509 certificate credential is updated in the IdP key store.",
+      "description" : "Identity provider key credential updated. This can be used to audit that an identity provider key credential has been updated. When fired, this event indicates a X.509 certificate credential is updated in the IdP key store.",
       "info" : {
         "created" : "2023-12-12",
         "release" : "2023.12.2"
@@ -15748,7 +16036,7 @@
     }, {
       "id" : "system.idp.lifecycle.activate",
       "category" : "federation",
-      "description" : "Fired when an Identity provider is activated. This can be used to audit that an identity provider has been activated. When fired, this event indicates an Identity provider was activated. This event also indicates the type of the identity provider that was activated.",
+      "description" : "Identity provider activated. This can be used to audit that an identity provider has been activated. When fired, this event indicates an Identity provider was activated. This event also indicates the type of the identity provider that was activated.",
       "info" : {
         "created" : "2020-09-03",
         "release" : "2020.09.1"
@@ -15766,7 +16054,7 @@
     }, {
       "id" : "system.idp.lifecycle.create",
       "category" : "federation",
-      "description" : "Fired when a new Identity provider is created. This can be used to audit that a new identity provider has been created. When fired, this event indicates an Identity provider was successfully created. This event also indicates the type of the identity provider that was created.",
+      "description" : "Identity provider created. This can be used to audit that a new identity provider has been created. When fired, this event indicates an Identity provider was successfully created. This event also indicates the type of the identity provider that was created.",
       "info" : {
         "created" : "2020-09-03",
         "release" : "2020.09.1"
@@ -15784,7 +16072,7 @@
     }, {
       "id" : "system.idp.lifecycle.deactivate",
       "category" : "federation",
-      "description" : "Fired when an Identity provider is deactivated. This can be used to audit that an identity provider has been deactivated. When fired, this event indicates an Identity provider has been deactivated. This event also indicates the type of the identity provider that was deactivated.",
+      "description" : "Identity provider deactivated. This can be used to audit that an identity provider has been deactivated. When fired, this event indicates an Identity provider has been deactivated. This event also indicates the type of the identity provider that was deactivated.",
       "info" : {
         "created" : "2020-09-03",
         "release" : "2020.09.1"
@@ -15802,7 +16090,7 @@
     }, {
       "id" : "system.idp.lifecycle.delete",
       "category" : "federation",
-      "description" : "Fired when an Identity provider is deleted. This can be used to audit that an identity provider has been deleted. When fired, this event indicates an Identity provider was deleted. This event also indicates the type of the identity provider that was deleted.",
+      "description" : "Identity provider deleted. This can be used to audit that an identity provider has been deleted. When fired, this event indicates an Identity provider was deleted. This event also indicates the type of the identity provider that was deleted.",
       "info" : {
         "created" : "2020-09-03",
         "release" : "2020.09.1"
@@ -15820,7 +16108,7 @@
     }, {
       "id" : "system.idp.lifecycle.read_client_secret",
       "category" : "federation",
-      "description" : "Fired when Identity provider(s) with a client secret is read. This can be used to audit that identity provider(s) with a client secret has been read. When fired, this event indicates one or more Identity providers with a client secret was read.",
+      "description" : "Identity provider(s) with a client secret is read. This can be used to audit that identity provider(s) with a client secret has been read. When fired, this event indicates one or more Identity providers with a client secret was read.",
       "info" : {
         "created" : "2023-12-15",
         "release" : "2020.12.2"
@@ -15838,7 +16126,7 @@
     }, {
       "id" : "system.idp.lifecycle.update",
       "category" : "federation",
-      "description" : "Fired when an Identity provider is updated. This can be used to audit that an identity provider configuration has been updated. When fired, this event indicates an Identity provider configuration was updated. This event also indicates the type of the identity provider that was updated.",
+      "description" : "Identity provider updated. This can be used to audit that an identity provider configuration has been updated. When fired, this event indicates an Identity provider configuration was updated. This event also indicates the type of the identity provider that was updated.",
       "info" : {
         "created" : "2020-09-03",
         "release" : "2020.09.1"
@@ -17330,6 +17618,24 @@
         "changeDetails" : [ ]
       }
     }, {
+      "id" : "system.oauth2.token.request_outside_allowed_range",
+      "category" : "federation",
+      "description" : "Request with valid bearer tokens made from outside the allowed network zone. Use to detect when a bearer token comes from an IP address that's outside of the specified allowed zone. Fired when a bearer token comes from an IP address that's outside of the specified allowed zone of the client.",
+      "info" : {
+        "created" : "2025-05-29",
+        "release" : "2025.06.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "oauth2" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
       "id" : "system.operation.concurrency_limit.violation",
       "category" : "performance",
       "description" : "Operation concurrency limit violation. This can be used to track if there are too many concurrent operations of the given type.  The operation type information is available in debugData. When fired, this event contains information about the operation such as its actor, type, scope and threshold details. OperationRateLimitType in debugData will indicate the category to which the concurrency limit is being applied (e.g. web_request), OperationRateLimitSubtype defines specific subtypes (e.g. ssws_token) and OperationRateLimitScope will indicate the scope of the rate limit (e.g. token).",
@@ -17814,6 +18120,24 @@
         "actor" : null,
         "targets" : [ "ResourceDetails" ],
         "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "system.well_known_uri.update",
+      "category" : "auth-experiences",
+      "description" : "The well-known URI was updated. Identify the previous and current versions of a well-known URI for a custom brand, such as a assetlinks.json. The brand id and specific well-known URI are available in the target resource.",
+      "info" : {
+        "created" : "2025-06-04",
+        "release" : "2025.07.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "admin" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "WellKnownUriResourceDetails" ],
+        "changeDetails" : [ "WellKnownUriChangeDetailsEntry" ]
       }
     }, {
       "id" : "task.lifecycle.activate",
@@ -45336,6 +45660,22 @@
             "format" : "enum",
             "examples" : [ "RESOURCE", "IDENTITY" ]
           },
+          "AccessTokenEncryptedResponseAlgorithm" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "RSA-OAEP-256", "RSA-OAEP-384", "RSA-OAEP-512" ]
+          },
+          "AuthorizationServerJwksUri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "uri",
+            "examples" : [ "https://example.com" ]
+          },
           "AuthorizationServerId" : {
             "type" : "String",
             "sensitive" : false,
@@ -45744,6 +46084,43 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "WINDOWS", "MACOS" ]
+          }
+        }
+      },
+      "DeviceSignalPolicyResourceDetails" : {
+        "name" : "DeviceSignalPolicyResourceDetails",
+        "properties" : {
+          "device_posture_idp_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "some device posture idp name" ]
+          },
+          "device_posture_idp_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "0oa58vxznzaQdcejb0g8" ]
+          },
+          "allow_okta_verify_user_identification" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "allowed_providers" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "OKTA_VERIFY", "CHROME_DEVICE_TRUST", "DEVICE_POSTURE_IDP" ]
           }
         }
       },
@@ -46307,6 +46684,22 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "secret", "keypair" ]
+          },
+          "KeyUse" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "sig", "enc" ]
+          },
+          "KeyType" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "RSA", "EC" ]
           },
           "KeyId" : {
             "type" : "String",
@@ -47844,6 +48237,35 @@
           }
         }
       },
+      "WellKnownUriResourceDetails" : {
+        "name" : "WellKnownUriResourceDetails",
+        "properties" : {
+          "well_known_uri_purpose" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "CUSTOMIZED" ]
+          },
+          "well_known_uri_path" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "apple-app-site-association", "assetlinks.json", "webauthn" ]
+          },
+          "well_known_uri_brand_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:brandId",
+            "examples" : [ "bnd118g5DODhVRiER0g4" ]
+          }
+        }
+      },
       "X509IdpAppUserResourceDetails" : {
         "name" : "X509IdpAppUserResourceDetails",
         "properties" : {
@@ -49020,6 +49442,19 @@
           }
         }
       },
+      "GovernancePrincipalSettingsChangeDetailsEntry" : {
+        "name" : "GovernancePrincipalSettingsChangeDetailsEntry",
+        "properties" : {
+          "delegate_appointments" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "[{\"delegatePrincipal\": {\"externalId\": \"00ub0oNGTSWTBKOLGLNR\", \"type\": \"OKTA_USER\"}}]" ]
+          }
+        }
+      },
       "IAMAssigneeConfigurationChangeDetailsEntry" : {
         "name" : "IAMAssigneeConfigurationChangeDetailsEntry",
         "properties" : {
@@ -49742,6 +50177,19 @@
           }
         }
       },
+      "ResourceOwnersChangeDetails" : {
+        "name" : "ResourceOwnersChangeDetails",
+        "properties" : {
+          "principals" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "[orn:okta:directory:00o11edPwGqbUrsDm0g4:users:00ub0oNGTSWTBKOLGLNR, orn:okta:directory:00o11edPwGqbUrsDm0g4:users:00ub0oNGTSWTBKOLGLNR, orn:okta:directory:00o11edPwGqbUrsDm0g4:users:00ub0oNGTSWTBKOLGLNR, orn:okta:directory:00o11edPwGqbUrsDm0g4:users:0oa10zdSPwHVVJWYE0g4]", "[orn:okta:directory:00o11edPwGqbUrsDm0g4:groups:00gb0oNGTSWTBKOLGLNR]" ]
+          }
+        }
+      },
       "ResourceSetChangeDetailsEntry" : {
         "name" : "ResourceSetChangeDetailsEntry",
         "properties" : {
@@ -49826,6 +50274,19 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "trusted origin 1" ]
+          }
+        }
+      },
+      "WellKnownUriChangeDetailsEntry" : {
+        "name" : "WellKnownUriChangeDetailsEntry",
+        "properties" : {
+          "representation" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "some JSON value" ]
           }
         }
       }
