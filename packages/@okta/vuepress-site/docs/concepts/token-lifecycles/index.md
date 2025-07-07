@@ -140,8 +140,7 @@ See [Validate ID tokens](/docs/guides/validate-id-tokens/main/) for the Okta imp
 
 ### Exchange
 
-[Token exchange](https://datatracker.ietf.org/doc/html/rfc8693) is used when a service needs to access another service on behalf of an original user.
-This mechanism allows a client app or an API service to obtain a new token from an authorization server based on an existing access token while maintaining user context. This is useful for machine-to-machine or service-to-service requests, such as in the microservices architecture.
+[Token exchange](https://datatracker.ietf.org/doc/html/rfc8693) is used when a service needs to access another service on behalf of an original user. This mechanism is configured for token exchange between highly trusted services and is useful for service-to-service requests, such as in the microservices architecture. It allows a client app or an API service to obtain a new token from an authorization server based on an existing access token while maintaining user context.
 
 The following is the token exchange flow:
 
@@ -151,7 +150,7 @@ The following is the token exchange flow:
 1. Authorization server validates and issues token: The authorization server validates the initial access token and grants a new access token to the initial API service. The new access token is limited to pre-approved scopes between the initial API service and the downstream API service and preserves the original user's context.
 1. Downstream API service access with context: The API service uses this new token to access the downstream service, which can now understand on whose behalf the request is being made.
 
-See [Set up OAuth 2.0 On-Behalf-of-Token-Exchange](https://developer.okta.com/docs/guides/set-up-token-exchange/main/).
+See [Set up OAuth 2.0 On-Behalf-of-Token-Exchange](/docs/guides/set-up-token-exchange/main/).
 
 ### Expiration
 
