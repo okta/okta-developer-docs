@@ -6,6 +6,8 @@ title: Okta Identity Engine API release notes 2025
 
 # Okta Identity Engine API release notes (2025)
 
+## July
+
 ### Monthly release 2025.07.0
 
 | Change | Expected in Preview Orgs |
@@ -19,8 +21,9 @@ title: Okta Identity Engine API release notes 2025
 | [Stricter URL validation in the OIN Wizard](#stricter-url-validation-in-the-oin-wizard)| July 2, 2025 |
 | [Conditions for create user permission is GA in Production](#conditions-for-create-user-permission-is-ga-in-production)| June 9, 2025|
 |[CLEAR Verified and Incode as third-party identity verification providers is GA in Production](#clear-verified-and-incode-as-third-party-identity-verification-providers-is-ga-in-production) | July 2, 2025 |
+| [Changes to Okta app API responses](#changes-to-okta-app-api-responses) | July 7, 2025 |
+| [Restrict access to the Admin Console is GA in Production](#restrict-access-to-the-admin-console-is-ga-in-production) | December 11, 2024 |
 | [Developer documentation updates in 2025.07.0 ](#developer-documentation-updates-in-2025-07-0) | 	July 2, 2025 |
-
 
 #### OAuth 2.0 provisioning for Org2Org with key auto-rotation is GA in Preview
 
@@ -60,13 +63,28 @@ You can now add conditions to the `okta.user.create` permission for custom admin
 
 Okta now supports using Incode and CLEAR Verified as identity providers. This increases the number of identity verification vendors (IDVs) you can use to verify the identity of your users when they onboard or reset their account. Set `IDV_INCODE` or `IDV_CLEAR` as the IdP `type` when you [create an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider). <!--/OKTA-848097-->
 
+#### Changes to Okta app API responses
+
+The following Okta apps won't be returned in the API response for endpoints that list apps (such as the [List all applications](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications) `GET /api/vi/apps` endpoint):
+
+* Okta Access Certifications (key name: `okta_iga`)
+* Okta Access Requests Admin (key name: `okta_access_requests_admin`)
+* Okta Entitlement Management (key name: `okta_entitlement_management`)
+
+In addition, a single app retrieval endpoint won't return these apps either. For example: `GET /api/v1/apps/{appId}` won't return the app object if `{appId}` is the ID for the `okta_iga`, `okta_access_requests_admin`, or `okta_entitlement_management` apps in your org.
+<!-- OKTA-871526 ENG_ENABLE_UI_ADMIN_OIDC_APP -->
+
+#### Restrict access to the Admin Console is GA in Production
+
+By default, users and groups with assigned admin roles have access to the Admin Console app. With this feature, super admins can choose to manually assign the app to delegated admins instead. This is recommended for orgs with admins who don't need access, like business partners, third-party admins, or admins who only use the Okta API. See [Configure administrator settings](https://help.okta.com/okta_help.htm?type=oie&id=administrator-settings) and the corresponding APIs: [Retrieve the Okta Admin Console Assignment Setting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/getAutoAssignAdminAppSetting) and [Update the Okta Admin Console Assignment Setting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/updateAutoAssignAdminAppSetting). <!-- OKTA-717742 ADMIN_APP_AND_ROLE_DECOUPLING -->
+
 #### Developer documentation updates in 2025.07.0
 
 * The [Okta Admin Management](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/ ) APIs have been reorganized into functional service groups for improved navigation and user experience. All previous anchors and links to the APIs remain the same. <!--OKTA-918957-->
 
 * A [new guide](/docs/guides/configure-ssf-receiver/main/) is available that explains how to register security events providers in Okta, which enables continuous sharing of security information with Okta to prevent security threats. <!--OKTA-918957-->
 
-* The **Agent Pools** API has been renamed  **Directory Agent Pools** API and is now grouped under **External Identity Sources**. There are no other changes to the API. All previous anchors and links to the API remain the same. <!--OKTA-955807-->
+* The **Agent Pools** API has been renamed  [**Directory Agent Pools**](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AgentPools/) API and is now grouped under **External Identity Sources**. There are no other changes to the API. All previous anchors and links to the API remain the same. <!--OKTA-955807-->
 
 * The [Password import inline hook](/docs/guides/password-import-inline-hook/nodejs/main/) guide was revised to demonstrate the hook call using the [ngrok utility](https://ngrok.com/), rather than the sample code hosted on [Glitch.com](https://glitch.com/). The hosted sample app on Glitch is scheduled for deprecation on July 8th, 2025. <!--OKTA-949440-->
 
@@ -149,7 +167,7 @@ See the [MyAccount Authenticators API](https://developer.okta.com/docs/api/opena
 | [Domain restrictions on Realms is GA in Production](#domain-restrictions-on-realms-is-ga-in-production) | April 23, 2025 |
 | [New password complexity property is self-service EA in Preview](#new-password-complexity-property-is-self-service-ea-in-preview) | June 4, 2025 |
 | [Number matching challenge with the Factors API is GA in Production](#number-matching-challenge-with-the-factors-api-is-ga-in-production) | April 9, 2025 |
-| [Restrict access to the Admin Console is GA in Preview](#restrict-access-to-the-admin-console-is-ga-in-preview) | June 4, 2025 |
+| [Restrict access to the Admin Console is GA in Preview](#restrict-access-to-the-admin-console-is-ga-in-preview) | December 11, 2024 |
 | [Shared signal transmitters is GA in Production](#shared-signal-transmitters-is-ga-in-production) | May 7, 2025 |
 | [Single Logout for IdPs is EA in Preview](#single-logout-for-idps-is-ea-in-preview) | June 4, 2025 |
 | [Expanded use of user.getGroups() function in Okta Expression Language is GA in Preview](#expanded-use-of-user-getgroups-function-in-okta-expression-language-is-ga-in-preview)| June 4, 2025 |
