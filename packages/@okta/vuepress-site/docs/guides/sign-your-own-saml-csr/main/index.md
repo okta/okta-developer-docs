@@ -31,7 +31,7 @@ See [Get Started with the Okta REST APIs](/docs/reference/rest/) for information
 
 ## List your apps
 
-* For Outbound SAML, use the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications) to return a list of all the apps and to collect the app `id` for each app that you want to update.
+* For outbound SAML, use the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications) to return a list of all the apps and to collect the app `id` for each app that you want to update.
 
 * For inbound SAML, use the [Identity Providers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider) to return a list of all the Identity Providers (IdP) and to collect the full response for each IdP that you want to update.
 
@@ -105,7 +105,7 @@ Use one of the following requests to generate a CSR in JSON format to use with o
 
 * For inbound SAML, change the POST statement to `POST /api/v1/idps/yourIdPID/credentials/csrs/`.
 
-* For PKCS#10 format, change the Accept statement to `Accept: application/pkcs10`.
+* For PKCS#10 format, change the `Accept` statement to `Accept: application/pkcs10`.
 
 > **Note:** `Accept` specifies the response format, and `Content-Type` specifies the request format.
 
@@ -185,11 +185,11 @@ Okta generates the CSR in Base64-encoded DER format. If your process requires a 
 
 Base64-encoded and PEM, DER, and CER certificate formats are supported.
 
-* For CER format, change the Content-Type statement to `Content-Type: application/x-x509-ca-cert`.
+* For CER format, change the `Content-Type` statement to `Content-Type: application/x-x509-ca-cert`.
 
-* For DER format, change the Content-Type statement to `Content-Type: application/pkix-cert`.
+* For DER format, change the `Content-Type` statement to `Content-Type: application/pkix-cert`.
 
-* For Base64-encoded format, add the statement `Content-Transfer-Encoding: base64` after the Content-Type statement.
+* For Base64-encoded format, add the statement `Content-Transfer-Encoding: base64` after the `Content-Type` statement.
 
 Collect the returned Key ID (`credentials.signing.kid`) to use in the next step.
 

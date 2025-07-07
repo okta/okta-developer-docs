@@ -12,7 +12,7 @@ See [Release lifecycle](https://developer.okta.com/docs/api/openapi/okta-managem
 
 Self-service features are features that you can directly enable or disable. Contact Okta Support to enable features that aren't self-service. The [Okta Features API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Feature/) is used to list, enable, and disable self-service features.
 
-> **Note:** A Beta feature marked as self-service remains as self-service, even if it's closed and temporarily unavailable. For example, if an [open Beta](#beta-features) transitions into a closed Beta, the feature remains self-service. This means that it appears in the list of available self-service features, but you can't enable it without contacting Support.
+> **Note:** A Beta feature marked as self-service remains as self-service, even if it's closed and temporarily unavailable. For example, if an [open Beta](#beta-features) transitions into a closed Beta, the feature remains self-service. This means that it appears in the list of available self-service features, but you can't enable it without contacting support.
 
 Only Beta and Early Access (EA) features are considered self-service. After a feature transitions from either of these states to Generally Available (GA), it's no longer listed as an available self-service feature.
 
@@ -20,7 +20,7 @@ Only Beta and Early Access (EA) features are considered self-service. After a fe
 
 Though all available Beta features qualify as "self-service," Betas are either open or closed. You can enable or disable open Betas using the API. But, you can only disable closed Betas. If a feature has dependencies that are in closed Beta, then you can't enable it. If you want to enable a closed Beta, [contact Support](https://support.okta.com). When you enable an open Beta, it triggers an email to the admin who performed the action.
 
-> **Note:** Beta features are only available in Preview orgs.
+> **Note:** Beta features are only available in preview orgs.
 
 ## Dependencies and dependents
 
@@ -56,4 +56,4 @@ In this example:
 * Feature A has three dependencies: Feature B, Feature C, and Feature D.
 * Feature D has one dependent: Feature A.
 
-If Feature A has Feature B as a dependency, then you can't enable Feature A unless you enable Feature B first. Conversely, Feature B has Feature A as one of its dependents. This means that you can't disable Feature B unless you disable Feature A first.
+If feature A has Feature B as a dependency, then you can't enable Feature A unless you enable Feature B first. Conversely, Feature B has Feature A as one of its dependents. This means that you can't disable Feature B unless you disable Feature A first.

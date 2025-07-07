@@ -88,9 +88,9 @@ Consequat torquent magna. [Ridiculus](#last-section). Ac, mattis. Cras cum. Accu
 * Platea `vulputate` `lacinia` integer et facilisis elementum blandit congue quam. Nec turpis semper amet metus ridiculus porta, dolor eu diam. [ridiculus](https://tools.ietf.org/html/rfc6749).
 
 * <ApiLifecycle access="beta" /> Nec turpis semper amet metus ridiculus porta, dolor eu diam:
-    * `prompt`, Primis ad cum fusce Nunco [`/oauth2/${authorizationServerId}/v1/authorize`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS)(custom authorization server)
+    * `prompt`, Primis ad cum fusce Nunco [`/oauth2/${authorizationServerId}/v1/authorize`](/docs/reference/api/oidc/#authorize)(custom authorization server)
     * `consent_method`, magnis nisi euismod penatibus posuere
-    * `consent`, integer taciti [scopes](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scopes)
+    * `consent`, integer taciti [scopes](/docs/reference/api/authorization-servers/#scope-properties)
 
 | `prompt` Value      | `consent_method`                   | `consent`                     | Result       |
 | :------------------ | :--------------------------------- | :---------------------------- | :----------- |
