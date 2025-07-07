@@ -20,7 +20,7 @@ See [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/).
 
 ### API tokens
 
-API tokens are easy to implement but can reduce your org security. The permissions of an API token are the same as those of the admin that creates it. The permissions for an API token can't be changed after it's created. Also, you must manually delete a token. This combination leaves API tokens vulnerable to misuse and exploitation.
+API tokens are simple to implement, but they can weaken your organization's security. An API token inherits the permissions of the admin who created it, and these permissions change if the admin’s privileges are modified. For example, if the admin’s access level is raised or lowered, the token’s permissions are updated accordingly. Additionally, tokens must be deleted manually. These factors make API tokens more susceptible to misuse and exploitation. See [Manage Okta API tokens](https://help.okta.com/okta_help.htm?type=oie&id=ext_API).
 
 If you use API tokens, create the token with a service account that has only the permissions required for your Terraform configuration.
 
