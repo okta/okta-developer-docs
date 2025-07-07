@@ -5,7 +5,7 @@ meta:
     content: An overview of OAuth 2.0 tokens, their use, and lifecycles.
 ---
 
-# OAuth 2.0 token lifecycles
+# Understand the token lifecycle (exchange, refresh, revoke)
 
 OAuth 2.0 is an industry-standard protocol for delegated authorization. It enables a client app to access protected resources on behalf of a user without requiring the user to share their credentials with the client app. Instead, the user grants permission directly to an authorization server, which then issues tokens to the client app. These tokens represent the granted permissions.
 
@@ -137,6 +137,21 @@ The client app validates the ID token locally. This involves:
 * **Nonce check**: (If applicable) Verify that the nonce value to prevent replay attacks.
 
 See [Validate ID tokens](/docs/guides/validate-id-tokens/main/) for the Okta implementation.
+
+### Exchange
+
+[Token exchange](https://datatracker.ietf.org/doc/html/rfc8693) is used when a service needs to access another service on behalf of an original user, such as in a microservice architecture.
+This mechanism allows a client app or an API service to obtain a new token from an authorization server based on an existing access token, while maintaining user context.
+
+The following is the token exchange flow:
+
+1. Obtain an initial access token: A user successfully signs in to an app and obtains an access token.
+1. Initial access token use: The app makes a request to an initial API service using the access token that it received from the user sign-in.
+1. API service requires downstream access: The initial API service needs to interact with another downstream API service, so it requests the authorization server to [exchange](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS!path=3/grant_type&t=request) the user's access token for a new token.
+1. Authorization server validates and issues token: The authorization server validates the initial access token and grants a new access token to the initial API service. The new access token is limited to pre-approved scopes between the initial API service and the downstream API service and preserves the original user’s context.
+1. Downstream API service access with context: The API service uses this new token to access the downstream service, which can now understand on whose behalf the request is being made.
+
+See [Set up OAuth 2.0 On-Behalf-of-Token-Exchange](https://developer.okta.com/docs/guides/set-up-token-exchange/main/).
 
 ### Expiration
 
