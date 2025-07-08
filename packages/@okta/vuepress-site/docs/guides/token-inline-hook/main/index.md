@@ -6,6 +6,8 @@ layout: Guides
 
 This guide provides an example of an Okta token inline hook. It uses the website [Glitch.com](https://glitch.com) as an external service to receive and respond to token inline hook calls.
 
+<GlitchDeprecationNote />
+
 ---
 
 #### Learning outcomes

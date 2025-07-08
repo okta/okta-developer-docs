@@ -16,6 +16,8 @@ The sample project provides external code for three registration inline hook use
 
 > **Note:** This document is only for Identity Engine. If you're using Classic Engine, see [Registration inline hook for Classic Engine](/docs/guides/archive-registration-inline-hook/nodejs/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
+<GlitchDeprecationNote />
+
 ---
 
 #### Learning outcomes
