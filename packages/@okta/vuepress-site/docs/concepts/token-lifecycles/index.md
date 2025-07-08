@@ -49,6 +49,7 @@ A refresh token is a credential used to obtain new access tokens when the curren
 **Characteristics**:
 
 * **Long-lived**: Refresh tokens generally have a longer lifespan than access tokens, sometimes lasting for days, weeks, or even indefinitely until explicitly revoked.
+* **Opaque**: They're treated as opaque strings by the client app. The client doesn't need to parse or understand their internal structure.
 * **Confidential**: Because refresh tokens can be used to acquire new access tokens, they're highly sensitive and the client app must securely stored them. They're typically used only by the client app directly with the authorization server and never sent to the resource server.
 
 **Usage**: When an access token expires, the client app sends the refresh token to the authorization server's [token](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) endpoint to request a new access token (and often a new refresh token).
@@ -166,14 +167,12 @@ When an access token expires, the client app can't use it to access protected re
 
 When an access token expires or is about to expire, the client app can use the refresh token to obtain a new access token (and often a new refresh token and ID token) from the authorization server. The following is the token renewal process:
 
-1. The client app sends the refresh token to the authorization server's token endpoint with a `grant_type` of [`refresh_token`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS!path=3/grant_type&t=request). This is typically a back-channel request that occurs directly between the client app and the authorization server, not through the user's browser.
+1. The client app sends the refresh token to the authorization server's token endpoint with a `grant_type` of [`refresh_token`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS!path=3/grant_type&t=request).
 1. The authorization server validates the refresh token, checking its validity, expiration, and whether it has been revoked.
 1. If the refresh token is valid, the authorization server issues the client a new access token (and potentially a new refresh token and ID token).
 1. The client can then resume accessing protected resources using the newly acquired access token and verify the user's identity with the new ID token.
 
-This mechanism significantly improves user experience by minimizing the need for repeated logins, as the refresh token acts as a long-lived credential for acquiring short-lived access tokens.
-
-See [Refresh access tokens and rotate refresh tokens](/docs/guides/refresh-tokens/main/).
+This mechanism significantly improves user experience by minimizing the need for repeated logins, as the refresh token acts as a long-lived credential for acquiring short-lived access tokens. Public clients, such as browser-based apps, have a higher risk of compromised long-lived refresh token. You can reduce this risk by reducing the [refresh token lifetime](/docs/guides/refresh-tokens/main/#refresh-token-lifetime) and rotating refresh tokens after each use. See [Refresh access tokens and rotate refresh tokens](/docs/guides/refresh-tokens/main/).
 
 ### Revocation (invalidating tokens)
 
