@@ -10,6 +10,8 @@ This guide provides a functional example of an Okta event hook filter. It's base
 
 <EventHookEANote/>
 
+<GlitchDeprecationNote />
+
 ---
 
 #### Learning outcomes

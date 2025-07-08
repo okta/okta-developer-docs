@@ -8,6 +8,8 @@ layout: Guides
 
 This guide provides a functional example of an Okta registration inline hook. It uses the web site [Glitch.com](https://glitch.com) to act as an external service and receive and respond to registration inline hook calls.
 
+<GlitchDeprecationNote />
+
 ---
 
 **Learning outcomes**
