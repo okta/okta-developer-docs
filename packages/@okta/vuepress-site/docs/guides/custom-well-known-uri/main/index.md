@@ -37,9 +37,11 @@ The iOS and Android well-known URIs have similar functions that enable secure as
 
 ## Use associated domains in Okta
 
-In your org, you can view, create, and customize these files by using the [Associated Domain Customizations API]() or in the [Admin Console]().
+In your org, you can view, create, and customize these files by using the [Associated Domain Customizations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/) or in the [Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=configure-associated-domains).
 
-There are various ways to configure these well-known URIs with your org. Consider the following documentation resources to learn more about configuring each well-known URI.
+> **Note:** The maximum file size for each well-known URI file is 100 KB.
+
+There are various ways to configure these well-known URIs with your org. Review the following documentation resources to learn more about configuring each well-known URI.
 
 * [Supporting associated domains (Apple)](https://developer.apple.com/documentation/xcode/supporting-associated-domains)
 * [Verify Android App Links (Android)](https://developer.android.com/training/app-links/verify-android-applinks)
@@ -49,7 +51,9 @@ There are various ways to configure these well-known URIs with your org. Conside
 
 Before you create a customization, retrieve your `brandId` with the [List all brands](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/#tag/Brands/operation/listBrands) endpoint.
 
-Then, use the [Replace the customized well-known URI endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/WellKnownURIs/#tag/WellKnownURIs/operation/replaceBrandWellKnownURI) to create a well-known URI for `/.well-known/apple-app-site-association`. You must format the `apple-app-site-association` well-known URI as a JSON object.
+Then, use the [Replace the customized well-known URI endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/WellKnownURIs/#tag/WellKnownURIs/operation/replaceBrandWellKnownURI) to create a custom well-known URI for `/.well-known/apple-app-site-association`.
+
+> **Note:** You must format the `apple-app-site-association` well-known URI as a JSON object.
 
 1. Create your own PUT request.
 1. In the path parameters, use your `brandId`.
@@ -57,7 +61,7 @@ Then, use the [Replace the customized well-known URI endpoint](https://developer
 1. Use the following request body template and enter your own parameters and values.
 1. After you've set your request body parameters, send the `PUT /api/v1/brands/{brandId}/well-known-uris/{path}/customized` request.
 
-  ```json
+```json
   {
     "representation": {
       "key1": "value1",
@@ -67,9 +71,9 @@ Then, use the [Replace the customized well-known URI endpoint](https://developer
       }
     }
   }
-  ```
+```
 
-> **Note:** The `apple-app-site-association` well-known URI file can't include an `authsrv` parameter. The custom well-known URI content is merged with Okta Verify `authsrv` information.
+> **Note:** The `apple-app-site-association` well-known URI file can't include an `authsrv` parameter. The custom well-known URI content is merged with hardcoded `authsrv` information that enables Okta Verify.
 
 When creating your own URI file, review this [example](https://developer.apple.com/documentation/xcode/supporting-associated-domains#Add-the-associated-domain-file-to-your-website) of an `apple-app-site-association` URI file.
 
@@ -77,7 +81,9 @@ When creating your own URI file, review this [example](https://developer.apple.c
 
 Retrieve your `brandId` with the [List all brands](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/#tag/Brands/operation/listBrands) endpoint.
 
-Use the [Replace the customized well-known URI endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/WellKnownURIs/#tag/WellKnownURIs/operation/replaceBrandWellKnownURI) to create a well-known URI for `/.well-known/assetlinks.json`. You must format the `apple-app-site-association` well-known URI as a JSON array.
+Use the [Replace the customized well-known URI endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/WellKnownURIs/#tag/WellKnownURIs/operation/replaceBrandWellKnownURI) to create a custom well-known URI for `/.well-known/assetlinks.json`.
+
+> **Note:** You must format the `assetLinks.json` well-known URI as a JSON array.
 
 1. Create your own PUT request.
 1. In the path parameters, use your `brandId`.
@@ -85,17 +91,19 @@ Use the [Replace the customized well-known URI endpoint](https://developer.okta.
 1. Use the following request body template and enter your own parameters and values.
 1. After you've set your request body parameters, send the `PUT /api/v1/brands/{brandId}/well-known-uris/{path}/customized` request.
 
-  ```json
-  {
-    "representation": {
+```json
+{
+  "representation": [
+    {
       "key1": "value1",
       "key2": "value2",
       "key3": {
         "key3.1": "value3.1"
       }
     }
-  }
-  ```
+  ]
+}
+```
 
 When creating your own URI file, review this [example](https://developer.android.com/training/app-links/verify-android-applinks#web-assoc) of an `assetLinks.json` URI file.
 
@@ -103,7 +111,9 @@ When creating your own URI file, review this [example](https://developer.android
 
 Retrieve your `brandId` with the [List all brands](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/#tag/Brands/operation/listBrands) endpoint.
 
-Use the [Replace the customized well-known URI endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/WellKnownURIs/#tag/WellKnownURIs/operation/replaceBrandWellKnownURI) to create a well-known URI for `/.well-known/webauthn`. You must format the `webauthn` well-known URI as a JSON object and the `origins` parameter as an array of strings.
+Use the [Replace the customized well-known URI endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/WellKnownURIs/#tag/WellKnownURIs/operation/replaceBrandWellKnownURI) to create a custom well-known URI for `/.well-known/webauthn`.
+
+> **Note:** You must format the `webauthn` well-known URI as a JSON object and the `origins` parameter as an array of strings.
 
 1. Create your own PUT request.
 1. In the path parameters, use your `brandId`.
@@ -122,4 +132,4 @@ In the following request body example, the well-known URI file declares that the
       ]
     }
   }
-  ```
+```
