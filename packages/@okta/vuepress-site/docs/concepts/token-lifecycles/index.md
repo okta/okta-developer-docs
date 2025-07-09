@@ -189,8 +189,8 @@ Token revocation allows for the immediate invalidation of an access token or a r
 
 **Effect**: Once revoked, the token is added to a blocklist or denylist maintained by the authorization server:
 
-* Subsequent validation attempts (local or remote) fail for the access token.
+* Subsequent remote validation attempts fail for the access token.
 * If an access token is invalidated, the client can use the refresh token to obtain a new access token.
-* If the refresh token is invalidated, the corresponding access and ID tokens are invalidated as well. This effectively cuts off all current and future access linked to that refresh token.
+* If the refresh token is invalidated, the corresponding access and ID tokens are invalidated as well. This effectively cuts off all future access linked to that refresh token.
 
 See [Revoke tokens](/docs/guides/revoke-tokens/main/).
