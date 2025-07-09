@@ -30,15 +30,21 @@ After an admin configures the TAC authenticator settings, admins or help-desk ag
 
 ### Use the TAC authenticator in policies
 
-This guide outlines two authentication policy scenarios that allow the use of the TAC authenticator. When you add the TAC authenticator to your own org policies remember that it's a knowledge factor.
+This guide outlines [two authentication policy scenarios](#configure-authentication-policies-for-tac) that allow the use of the TAC authenticator. When you add the TAC authenticator to your own org policies remember that it's a knowledge factor.
 
-Users can use TAC, security questions, and their password as knowledge factors, depending on your authentication policy configuration and which authenticators they have access to. However, if your [global session policy](#create-a-global-session-policy-for-tac) requires MFA, users must also have access to a possession or biometric factor.
+Users can use TAC, security questions, and their password as knowledge factors, depending on your authentication policy configuration and which authenticators they have access to. However, if your global session policy requires MFA, users must also have access to a possession or biometric factor.
+
+#### Configure the TAC authenticator in authenticator enrollment policies
+
+When you create the TAC authenticator, admins can generate TACs for any user in their org by default.
+
+If you want to prevent users from using a TAC as an authenticator when they sign in, set it as **Disabled** in your relevant authenticator enrollment policy. When it’s **Disabled**, admins can still create a TAC for a user. But the option to use a TAC isn't available to users when they sign in.
 
 ## Configure the TAC authenticator
 
 Use the [Create an authenticator](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/createAuthenticator) endpoint to set up TAC as an authenticator.
 
-1. Use the values and format provided in the [request body example](#create-tac-authenticator-request-example).
+1. Use the values and format provided in the [request body example](#create-a-tac-authenticator-request-example).
 1. Ensure that the following request body parameters are set correctly:
    * Set the authenticator `key` as `tac`.
    * Enter a value for `name`.
@@ -133,184 +139,16 @@ Use the [Create an authenticator](https://developer.okta.com/docs/api/openapi/ok
 }
 ```
 
-## Configure the TAC authenticator with policies
-
-Users aren't able to use the TAC authenticator until you configure it in the necessary policies. Configure the TAC authenticator with the following policies:
-
-* [Add TAC to an authenticator enrollment policy](#add-tac-to-an-authenticator-enrollment-policy)
-* [Create a global session policy](#create-a-global-session-policy-for-tac) and [global session policy rule](#create-a-global-session-policy-rule) for TAC
-* [Configure authentication policies for TAC](#configure-authentication-policies-for-tac)
-
-### Add TAC to an authenticator enrollment policy
-
-Add the TAC authenticator to an authenticator enrollment policy so that it’s available for use by the test user. Use the [Create a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) endpoint.
-
-Before you create the authenticator enrollment policy, use the [List all groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups) endpoint to retrieve the group `id` of your test group.
-
-1. Use the values and format provided in the [request body example](#create-an-authenticator-enrollment-policy-example-request).
-1. Ensure that the following parameters are set correctly:
-    1. Under `groups.include` use the group `id` of your test group.
-    1. In the `settings` property, include the following array:
-
-   ```json
-    {
-        "key": "tac",
-        "enroll": {
-            "self": "OPTIONAL"
-        }
-    }
-    ```
-
-1. Send the `POST /api/v1/policies` request.
-
-Users in that group are now able to use the TAC authenticator.
-
-#### Create an authenticator enrollment policy example request
-
-```json
-{
-    "description": null,
-    "name": "Authenticator enrollment policy",
-    "priority": "1",
-    "status": "ACTIVE",
-    "system": false,
-    "type": "MFA_ENROLL",
-    "conditions": {
-        "people": {
-            "groups": {
-                "include": [
-                    "{groupId}"
-                ]
-            }
-        }
-    },
-    "settings": {
-        "authenticators": [
-            {
-                "key": "okta_email",
-                "enroll": {
-                    "self": "OPTIONAL"
-                }
-            },
-            {
-                "key": "okta_verify",
-                "enroll": {
-                    "self": "OPTIONAL"
-                }
-            },
-            {
-                "key": "okta_password",
-                "enroll": {
-                    "self": "REQUIRED"
-                }
-            },
-            {
-                "key": "webauthn",
-                "enroll": {
-                    "self": "OPTIONAL"
-                }
-            },
-            {
-                "key": "security_question",
-                "enroll": {
-                    "self": "OPTIONAL"
-                }
-            },
-             {
-                "key": "tac",
-                "enroll": {
-                    "self": "OPTIONAL"
-                }
-            }
-        ],
-            "type": "AUTHENTICATORS"
-    }
-}
-```
-
-### Create a global session policy for TAC
-
-Create a new global session policy that applies to users in your test group. Use the [Create a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) endpoint.
-
-1. Use the values and format provided in the [request body example](#global-session-policy-request-example).
-1. Ensure that the following parameters are set correctly:
-    * Enter a value for `name`. For example, `TAC global session policy`.
-    * Under `groups.include` use the group `id` of your test group.
-    * Set the `type` as `OKTA_SIGN_ON`.
-1. Send the `POST /api/v1/policies` request.
-1. In the response, copy and paste the `id` of the global session policy. Use it in the [next section](#create-a-global-session-policy-rule).
-
-#### Global session policy request example
-
-```json
-{
-  "description": null,
-  "name": "TAC global session policy",
-  "priority": "1",
-  "status": "ACTIVE",
-  "system": false,
-  "type": "OKTA_SIGN_ON",
-  "conditions": {
-    "people": {
-      "groups": {
-        "include": [
-          "{groupId}"
-        ]
-      }
-    }
-  }
-}
-```
-
-### Create a global session policy rule
-
-Create a global session policy rule that requires users to authenticate with TAC and a second possession or biometric factor. Use the [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) endpoint.
-
-1. Use the values and format provided in the [request body example](#global-session-policy-rule-request-example).
-1. In the path of the POST request, set the `policyId` as the `id` of the **TAC global session policy**.
-1. Ensure that the following parameters are set correctly:
-    * Enter a value for `name`. For example, `Require two factors for TAC users`.
-    * Set the `type` as `SIGN_ON`.
-    * Set `factorPromptMode` as `ALWAYS`.
-    * Set `requireFactor` as `true`.
-1. Send the `POST /api/v1/policies` request.
-
-#### Global session policy rule request example
-
-```json
-{
-  "type": "SIGN_ON",
-  "status": "ACTIVE",
-  "name": "Require two factors for TAC users",
-  "conditions": {
-    "network": {
-      "connection": "ANYWHERE"
-    },
-    "authContext": {
-      "authType": "ANY"
-    }
-  },
-  "actions": {
-    "signon": {
-      "access": "ALLOW",
-      "requireFactor": true,
-      "factorPromptMode": "ALWAYS",
-      "rememberDeviceByDefault": false,
-      "session": {
-        "usePersistentCookie": false,
-        "maxSessionIdleMinutes": 720,
-        "maxSessionLifetimeMinutes": 720
-      }
-    }
-  }
-}
-```
-
-### Configure authentication policies for TAC
+## Configure authentication policies for TAC
 
 There are various ways to configure TAC with authentication policies. Use either of the following authentication policy examples in your own org.
 
-#### Create an authentication policy
+* [Use TAC in an authentication method chain](#use-tac-in-an-authentication-method-chain)
+* [Use TAC with any two factor types](#use-tac-with-any-two-factor-types)
+
+Ensure that you first [create an authentication policy](#create-an-authentication-policy) before creating policy rules for either of the scenarios.
+
+### Create an authentication policy
 
 First, create an authentication policy. Use the [Create a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) endpoint.
 
@@ -320,7 +158,7 @@ First, create an authentication policy. Use the [Create a policy](https://develo
 1. Send the `POST /api/v1/policies` request.
 1. In the response, copy and paste the `id` of the authentication policy.
 
-##### Authentication policy request example
+#### Authentication policy request example
 
 ```json
 {
@@ -339,7 +177,7 @@ First, create an authentication policy. Use the [Create a policy](https://develo
 }
 ```
 
-#### Use TAC in an authentication method chain
+### Use TAC in an authentication method chain
 
 Use this authentication policy rule when you want users to specifically authenticate with TAC and a [WebAuthn](https://help.okta.com/okta_help.htm?type=oie&id=ext-webauthn) factor. You can customize which authenticators to require in the authentication method chain. This policy rule can be used in the following scenario.
 
@@ -355,7 +193,7 @@ Use the [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-
     * Set the `verificationMethod.type` as `AUTH_METHOD_CHAIN`.
 1. Send the `POST /api/v1/policies` request.
 
-##### TAC and authentication method chain request example
+#### TAC and authentication method chain request example
 
 ```json
 {
@@ -402,11 +240,9 @@ Use the [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-
 }
 ```
 
-#### Use TAC with any two factor types
+### Use TAC with any two factor types
 
 Use this authentication policy rule to provide more flexibility for users when they sign in. With this rule, they can use TAC, and any other authenticator to sign in.
-
-> **Note:** To allow users to sign in with TAC and another knowledge factor, your [global session policy](#create-a-global-session-policy-rule) can't require MFA.
 
 Use the [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) endpoint to create the rule.
 
@@ -418,7 +254,7 @@ Use the [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-
     * Set the `verificationMethod.type` as `ASSURANCE`.
 1. Send the `POST /api/v1/policies` request.
 
-##### Any two factors and TAC request example
+#### Any two factors and TAC request example
 
 ```json
 {
@@ -456,7 +292,7 @@ Use the [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-
 
 ## Generate a TAC for a user
 
-After you've configured the TAC with your policies, you can then generate it for your users, as needed. Use the [Create an authenticator enrollment]() endpoint to generate a TAC for a user.
+After you've configured the TAC with your policies, you can then generate it for your users, as needed. Use the [Create an auto-activated TAC authenticator enrollment](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserAuthenticatorEnrollments/#tag/UserAuthenticatorEnrollments/operation/createTacAuthenticatorEnrollment) endpoint to generate a TAC for a user.
 
 > **Note:** A user can only have one active TAC at any time. If you generate a TAC for a user and then generate a second one, the first TAC becomes invalid and can't be used.
 
@@ -474,7 +310,9 @@ Before you generate the TAC for a user, ensure that you have the following infor
    * Set `multiUse` as `true`.
 1. Send the `POST /api/v1/users/{userId}/authenticator-enrollments/tac` request.
 
-After you generate the TAC, copy and paste the value of the `tac` from the [response](#generate-a-tac-response-example) into a text editor. The actual `tac` value is only accessible from the POST response. It's not possible to retrieve the value of the TAC from any other GET requests.
+After you generate the TAC, copy and paste the value of the `tac` from the [response](#generate-a-tac-response-example) into a text editor. Also note the time and date value of `expiresAt` to see when the TAC expires.
+
+The actual `tac` value is only accessible from the POST response. It's not possible to retrieve the value of the TAC from any other GET requests.
 
 ### Generate a TAC request example
 
@@ -530,9 +368,9 @@ After you generate the TAC, copy and paste the value of the `tac` from the [resp
 
 ## Delete a TAC for a user
 
-Use the [Delete an authenticator enrollment]() to delete a TAC that you've generated for a user. When you delete a TAC enrollment, the user can't use that code and you can generate a new TAC for them, if needed.
+Use the [Delete an authenticator enrollment](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserAuthenticatorEnrollments/#tag/UserAuthenticatorEnrollments/operation/deleteAuthenticatorEnrollment) to delete a TAC that you've generated for a user. When you delete a TAC enrollment, the user can't use that code and you can generate a new TAC for them, if needed.
 
 Before you delete a TAC for a user, ensure that you have the following information:
 
 * Use the [List all users](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers) endpoint to retrieve the `id` of the user.
-* Use the [List all authenticator enrollments]() endpoint to retrieve the TAC `enrollmentid`.
+* Use the [List all authenticator enrollments](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserAuthenticatorEnrollments/#tag/UserAuthenticatorEnrollments/operation/listAuthenticatorEnrollments) endpoint to retrieve the TAC `enrollmentid`.
