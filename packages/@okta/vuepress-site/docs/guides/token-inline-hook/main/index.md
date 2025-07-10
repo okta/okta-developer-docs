@@ -52,11 +52,18 @@ The sample Node.js Express app is designed to demonstrate the [Authorization Cod
 
 ### Install the app locally
 
-1. Clone the repo locally: `git clone https://github.com/okta/samples-nodejs-express-4.git`
+Clone the Express Sample Applications for Okta repository and go to the top-level folder.
 
-1. Change to the app folder: `cd samples-nodejs-express-4/`
+```bash
+git clone https://github.com/okta/samples-nodejs-express-4.git
+cd samples-nodejs-express-4/
+```
 
-1. Install the dependencies: `npm install`
+#### Install the dependencies
+
+```bash
+npm install
+```
 
 ### Create an Okta app integration
 
@@ -75,6 +82,14 @@ An Okta app integration represents your app in your Okta org. The integration co
 1. In the **Assignments** section, define the type of **Controlled access** for your app. Select **Allow everyone in your organization to access**. See [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-user-app-assign).
 1. Clear the **Enable immediate access with Federation Broker Mode** checkbox.
 1. Click **Save** to create the app integration. The **General** tab for your integration opens after it's saved. Keep this pane open as you need to copy the **Client ID**, **Client Secret**, and your org domain name when configuring your app.
+
+#### Configure your custom authorization server
+
+This example application uses the custom authorization server. Ensure this server has a default access policy and rule defined in your org.
+
+1. Go to **Security** > **API** and select the `default` custom authorization server.
+1. Click the **Access Policies** tab, and ensure an access policy and rule is available.
+1. Create a new access policy and rule if necessary. See [Create access policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-access-policies).
 
 ### Add the integration credentials to your local app
 
@@ -102,7 +117,7 @@ CLIENT_SECRET=BrPT0k1bCPgdQpiFU7LX...O6ANpoxm-MvwsY29_G-uzxLwGRbL3yhHFEaK9kn_IX
 
 ## Create the external service code
 
-You can now create the external service code that resides on your local machine but will be exposed to the internet using ngrok. The third-party site receives and responds to the token inline hook call from Okta. The responses to the token inline hook call can modify or remove an existing custom claim or an OIDC standard profile claim. You can also update how long an access token or an ID token is valid. In this example, a new claim is added to the identity token. For further information on the token inline hook commands object, see the [Token inline hook reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook).
+You can now create the external service code that resides on your local machine. It will be exposed to the internet using ngrok to act as an external application. This app receives and responds to the token inline hook call from Okta. The responses to the token inline hook call can modify or remove an existing custom claim or an OIDC standard profile claim. You can also update how long an access token or an ID token is valid. In this example, a new claim is added to the identity token. For further information on the token inline hook commands object, see the [Token inline hook reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook).
 
 ### Create a local external service app
 
@@ -251,6 +266,10 @@ The variable, `patientID`, can now be returned to Okta as an additional token cl
     * **PASSWORD**=`supersecret`
 
 These are the HTTP Basic Authentication credentials that validate the inline token request from Okta.-->
+
+## Install ngrok
+
+Install and run [ngrok](https://ngrok.com/downloads/). See [Install ngrok](https://developer.okta.com/docs/guides/event-hook-ngrok/nodejs/main/#install-ngrok) or their [documentation](https://ngrok.com/docs).
 
 ## Run ngrok and your local app
 
