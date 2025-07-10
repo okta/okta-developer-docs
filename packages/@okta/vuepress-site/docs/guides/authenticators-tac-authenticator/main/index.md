@@ -45,6 +45,8 @@ If you want to prevent users from using a TAC as an authenticator when they sign
 
 Use the [Create an authenticator](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/createAuthenticator) endpoint to set up TAC as an authenticator.
 
+To configure the TAC authenticator in the Admin Console, see [Configure the temporary access code authenticator](https://help.okta.com/okta_help.htm?type=oie&id=temporary-access-code).
+
 1. Use the values and format provided in the [request body example](#create-a-tac-authenticator-request-example).
 1. Ensure that the following request body parameters are set correctly:
    * Set the authenticator `key` as `tac`.
