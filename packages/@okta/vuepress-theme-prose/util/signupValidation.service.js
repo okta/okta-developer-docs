@@ -99,7 +99,11 @@ export class SignUpValidation {
       const email_domain = email.split('@')[1];
       const { data: { isBusinessEmail } } = await oktaApi
         .get('/free-trial/api/email-validation', {
-          params: { email_domain },
+          params: { 
+            email_domain,
+            'x-vercel-protection-bypass': 'us9QmTxS0N5kXYYYGJOPUuT9oJCWCsBw',
+            'x-vercel-set-bypass-cookie': true
+          },
         });
 
       return isBusinessEmail;
