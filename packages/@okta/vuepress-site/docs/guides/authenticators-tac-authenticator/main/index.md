@@ -15,6 +15,7 @@ This guide shows you how to integrate a temporary access code (TAC) authenticato
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
+* The Temporary Access Code feature enabled for your org
 * A test [user account](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) that you can use to enroll an authenticator
 * A test [group](https://help.okta.com/okta_help.htm?type=oie&id=usgp-groups-create) in your org that the test user is added to
 
