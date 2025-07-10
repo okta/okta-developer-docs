@@ -31,9 +31,23 @@
   color: #ffffff;
 }
 
+
+.feedback-icon-container {
+  display: none;
+}
+
 @media (max-width: 425px) {
+  #feedback-container {
+    display: none;
+  }
+
   #feedback-tab {
-    width: 28px;
-    height: 124px;
+    height: 50px;
+    width: 30px;
+  }
+
+  .feedback-icon-container {
+    display: block;
+    transform: translate(0, 10px);
   }
 }
