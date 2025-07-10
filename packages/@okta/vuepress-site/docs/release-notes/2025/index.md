@@ -6,6 +6,17 @@ title: Okta Classic Engine API release notes 2025
 
 ## July
 
+### Weekly release 2025.07.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.07.1](#bugs-fixed-in-2025-07-1)| July 9, 2025 |
+
+#### Bugs fixed in 2025.07.1
+
+- The multiple identifiers feature didn't process case sensitivity correctly when evaluating identifier attributes. (OKTA-899235)
+- When GET `/api/v1/apps/{appId}` is called, admins with the **Edit groups' application assignments** permission from the **Group permissions** section or **Edit users' application assignments** permission could view app details without having the required **View applications and their details** permission. (OKTA-801567)
+
 ### Monthly release 2025.07.0
 
 | Change | Expected in Preview Orgs |
