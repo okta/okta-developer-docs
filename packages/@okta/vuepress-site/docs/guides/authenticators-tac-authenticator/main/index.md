@@ -39,7 +39,7 @@ Users can use TAC, security questions, and their password as knowledge factors, 
 
 When you create the TAC authenticator, admins can generate TACs for any user in their org by default.
 
-If you want to prevent users from using a TAC as an authenticator when they sign in, set it as **Disabled** in your relevant authenticator enrollment policy. When it’s **Disabled**, admins can still create a TAC for a user. But the option to use a TAC isn't available to users when they sign in.
+If you want to prevent users from signing in with a TAC authenticator, set it as **Disabled** in your relevant authenticator enrollment policy. When it’s **Disabled**, admins can still create a TAC for a user. But the option to use a TAC isn't available to users when they sign in.
 
 ## Configure the TAC authenticator
 
@@ -371,7 +371,7 @@ The actual `tac` value is only accessible from the POST response. It's not possi
 
 ## Delete a TAC for a user
 
-Use the [Delete an authenticator enrollment](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserAuthenticatorEnrollments/#tag/UserAuthenticatorEnrollments/operation/deleteAuthenticatorEnrollment) to delete a TAC that you've generated for a user. When you delete a TAC enrollment, the user can't use that code and you can generate a new TAC for them, if needed.
+Use the [Delete an authenticator enrollment](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserAuthenticatorEnrollments/#tag/UserAuthenticatorEnrollments/operation/deleteAuthenticatorEnrollment) to delete a TAC that you've generated for a user. When you delete a TAC enrollment, the user can't sign in with that code. You can generate a new TAC for them, if needed.
 
 Before you delete a TAC for a user, ensure that you have the following information:
 
