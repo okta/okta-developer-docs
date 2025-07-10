@@ -9,7 +9,7 @@ meta:
 
 When you develop apps that require the customer to sign in and authenticate, the deployment model for user authentication is a critical design consideration. This page looks at the Okta authentication options and what the differences are between them.
 
-## Redirect vs. embedded
+## Redirect (Okta-hosted) vs. embedded (Self-hosted)
 
 You can divide the Okta deployment models into two approaches:
 
@@ -17,7 +17,7 @@ You can divide the Okta deployment models into two approaches:
 
 **Embedded authentication**: A user sign-in flow where the app retains authentication control without redirection to Okta. This flow uses the Direct Authentication API, a client-hosted embedded Sign-In Widget, SDKs, or other direct API calls.
 
-What deployment model or authentication approach you choose depends on your implementation requirements and client app. In general, the method of delegating user sign-in interaction (redirect authentication) is preferred for many reasons that span from security to user experience. For embedded authentication, the preferred approach is to use the Direct Authentication API over other embedded authentication options.
+What deployment model or authentication approach you choose depends on your implementation requirements and client app. In general, the method of delegating user sign-in interaction (redirect authentication) is preferred for many reasons that span from security to user experience. For embedded authentication, the preferred approach is to use the Direct Authentication API over other embedded authentication options. For further information on what model to select, see [Choose your auth](https://developer.okta.com/docs/guides/sign-in-overview/main/#choose-your-auth).
 
 Use this table and the subsequent sections to better understand the differences between redirect authentication and embedded authentication. These sections also help you to understand what flow works best for your app implementation:
 
@@ -35,7 +35,7 @@ Use this table and the subsequent sections to better understand the differences 
 
 ## Redirect authentication
 
-Redirect authentication through the Okta-hosted widget is the easiest and most secure way to integrate. This is because Okta hosts, maintains, and keeps the Sign-In Widget secure. Okta recommends the Okta-hosted widget for most integrations.
+Redirect authentication (also called Okta-hosted), through the Okta-hosted widget is the easiest and most secure way to integrate. This is because Okta hosts, maintains, and keeps the Sign-In Widget secure. Okta recommends the Okta-hosted widget for most integrations.
 
 <div class="three-quarter">
 
@@ -109,15 +109,13 @@ is -> cl: Return assertion to client
 
 ## Embedded authentication
 
-Embedded authentication authenticates user credentials directly at the client app site using the Direct Authentication API, an embedded Sign-In Widget, authentication SDK, or other direct API calls. Redirection to Okta isn't required. The client app's code determines the methods and processes necessary to authenticate, and then uses SDKs to validate the credentials. Client apps create their own app sessions for user access.
+Embedded authentication (also called Self-hosted) authenticates user credentials directly at the client app site using the Direct Authentication API, an embedded Sign-In Widget, authentication SDK, or other direct API calls. Redirection to Okta isn't required. The client app's code determines the methods and processes necessary to authenticate, and then uses SDKs to validate the credentials. Client apps create their own app sessions for user access.
 
 Client apps may also exchange tokens with a Security Token Service (STS) to provide SSO access to other Service Providers (like CRM, IT, and HR). Using this deployment model, the client’s sign-in page can render mobile user experiences and use mobile platform APIs.
 
 <EmbeddedBrowserWarning />
 
 ## Direct authentication
-
-<ApiLifecycle access="ea" />
 
 You can use the Direct Authentication API with your apps in Identity Engine rather than an embedded SDK, the customer-hosted Okta Sign-in widget, or direct APIs. This allows you to directly authenticate users rather than delegating authentication to Okta Identity Providers and authorization servers through an HTTP redirect in a web browser. Direct authentication is beneficial in scenarios where there's a high degree of trust between the user and the app. It's also beneficial where browser-based flows aren't feasible, like with mobile apps.
 
