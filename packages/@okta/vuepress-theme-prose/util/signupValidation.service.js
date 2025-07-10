@@ -93,16 +93,14 @@ export class SignUpValidation {
 
   async _isWorkEmail(email) {
     // const oktaApi = new Api('https://www.okta.com');
-    const oktaApi = new Api('https://dev-okta-freetrial.vercel.app');
+    const oktaApi = new Api('https://www.okdev.okta.com');
      
     try {
       const email_domain = email.split('@')[1];
       const { data: { isBusinessEmail } } = await oktaApi
         .get('/free-trial/api/email-validation', {
           params: { 
-            email_domain,
-            'x-vercel-protection-bypass': 'us9QmTxS0N5kXYYYGJOPUuT9oJCWCsBw',
-            'x-vercel-set-bypass-cookie': true
+            email_domain
           },
         });
 
