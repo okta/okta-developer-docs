@@ -16,6 +16,7 @@ Learn how to create well-known URI files.
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * A [custom domain](/docs/guides/custom-url-domain)
+* The Associated Domains Customizations feature enabled for your org
 
 ---
 
