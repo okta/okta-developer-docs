@@ -92,7 +92,9 @@ export class SignUpValidation {
   }
 
   async _isWorkEmail(email) {
-    const oktaApi = new Api('https://www.okta.com');
+    // const oktaApi = new Api('https://www.okta.com');
+    const oktaApi = new Api('https://dev-okta-freetrial.vercel.app');
+     
     try {
       const email_domain = email.split('@')[1];
       const { data: { isBusinessEmail } } = await oktaApi
