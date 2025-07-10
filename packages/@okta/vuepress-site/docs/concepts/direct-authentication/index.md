@@ -10,9 +10,9 @@ meta:
 <!-- Direct authentication simplifies the authentication flow, enhances user experience by minimizing redirects, and provides developers with greater control over security measures. -->
 ## What is Direct authentication
 
-[Direct authentication](/docs/guides/configure-direct-auth-grants/aotp/main/) provides a set of [authentication APIs](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS). These APIs allow a client to directly verify authentication factors for a user in exchange for OAuth 2.0 tokens. The client does this without needing to interact with the Sign-In Widget in a browser.
+[Direct authentication](/docs/guides/configure-direct-auth-grants/aotp/main/) provides a set of authentication APIs. These APIs allow a client to directly verify authentication factors for a user in exchange for OAuth 2.0 tokens. The client does this without needing to interact with the Sign-In Widget in a browser.
 
-This is useful for apps that need more control over the authentication flow than can be provided through the Sign-In Widget or non-browser apps. Non-browser apps like native apps can't typically pop up a browser for authentication or if they can, it creates a negative user experience.
+This is useful for apps that need more control over the authentication flow than can be provided through the Sign-In Widget and non-browser apps. Non-browser apps like native apps can't always pop up a browser for authentication or if they can, it creates a negative user experience.
 
 ### Provides more control
 
@@ -45,7 +45,7 @@ At a high level, the direct auth flow has the following steps:
 
 * **Increased security responsibility**: The client app and backend service bear more direct responsibility for secure credential handling (storage and transmission).
 * **Complexity**: The extra control given to the client comes at the cost of more complexity for the client. With other authentication flows, Okta drives the flow based on policy requirements until the user is authenticated. With direct authentication, the client decides how to authenticate the user. But, the client must know how to authenticate the user in a way that satisfies the app's requirements.
-* **Unsupported factors**: Not all authenticator types supported by Okta are currently supported for direct authentication.
+* **Unsupported factors**: Not all authenticator types supported by Okta are currently supported for direct authentication. See [Configure Direct Authentication](/docs/guides/configure-direct-auth-grants/aotp/main/) for the authenticators that Okta supports. Select the dropdown list on the right side of the page to select the different authenticators supported.
 * **Compliance**: Direct authentication may require careful consideration of compliance with various security and privacy regulations (for example, GDPR, HIPAA) regarding direct credential handling.
 
 ## Security best practices
