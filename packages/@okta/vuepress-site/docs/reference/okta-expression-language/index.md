@@ -194,7 +194,6 @@ Group functions return either an array of groups or **True** or **False**.
 | `isMemberOfGroupNameContains`   | Boolean     | `isMemberOfGroupNameContains("admin")`                          |
 | `isMemberOfGroupNameRegex`      | Boolean     | `isMemberOfGroupNameRegex("/.*admin.*")`                        |
 
-
 > **Note:** When EL group functions (such as `isMemberOfGroup` or `isMemberOfGroupName`) are used for app assignments, the profile attributes of the app user aren't updated or reapplied when the user's group membership changes. Okta only updates app user profile attributes when an app is assigned to a user or when mappings are applied.
 
 For more information on using group functions for dynamic and static allowlists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
@@ -223,7 +222,7 @@ These group functions take in a list of search criteria as input. Each search cr
 **Key:** Specifies the matching property. Currently supported keys are: `group.id`, `group.source.id`, `group.type`, and `group.profile.name`.<br>
 **Value:** Specifies a list of matching values.
 
-> **Note:** If you want to use this function with group claims, you need to use projections. See [Get group claims for users](#get-groups-claims-for-users).
+> **Note:** If you want to use this function with group claims, you need to use collection projections. See [Get group claims for users](#get-groups-claims-for-users).
 
 The `group.id`, `group.source.id`, and `group.type` keys can match values that are exact.
 
@@ -259,14 +258,14 @@ You can use collection projections with the `user.getGroups` function. This is u
 
 `user.getGroups($expression).![$projectionExpression]`:
 
-* `user.getGroups` function passing search criteria as an `$expression`: Returns an array. See [Get groups for users](#get-groups-for-users).
+* The `user.getGroups` function, passing search criteria as an `$expression`: Returns an array. See [Get groups for users](#get-groups-for-users).
 * Parameter: (String projectionExpression)
 * Return type: Array
 
 The following examples use `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"})` as the `user.getGroups($expression)`, which would return a list of groups that starts with `Everyone`.
 
 | Function example | Projection Expression | Output explanation |
-| --- | --- |
+| --- | --- | --- |
 | `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![id]` | Group ID (`id`) | Returns a list of group IDs |
 | `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![type]` | Group type (`type`) | Returns a list of types |
 | `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![created]` | Group created date (`created`) | Returns a list of dates when the group was created |
