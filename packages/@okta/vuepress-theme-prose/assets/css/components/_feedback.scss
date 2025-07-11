@@ -30,3 +30,23 @@
   font-family: "arial", sans-serif;
   color: #ffffff;
 }
+
+.feedback-icon-container {
+  display: none;
+}
+
+@media (max-width: 425px) {
+  #feedback-container {
+    display: none;
+  }
+
+  #feedback-tab {
+    width: 30px;
+    height: 50px;
+  }
+
+  .feedback-icon-container {
+    display: block;
+    transform: translate(0, 10px);
+  }
+}

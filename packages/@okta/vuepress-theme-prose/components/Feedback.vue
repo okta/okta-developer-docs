@@ -9,6 +9,9 @@
       <div id="feedback-container">
         <p id="feedback-text">Feedback</p>
       </div>
+      <div class="feedback-icon-container">
+        <img src="/img/icons/feedback.svg">
+      </div>
     </a>
   </div>
 </template>

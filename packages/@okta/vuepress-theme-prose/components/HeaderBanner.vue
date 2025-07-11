@@ -8,7 +8,6 @@
       <slot />
     </div>
     <button 
-      v-if="dismissible" 
       class="dismiss-btn" 
       @click="dismissBanner"
     >
@@ -26,7 +25,7 @@ import storage from "../util/localStorage";
 export default {
   name: "HeaderBanner",
   props: {
-    dismissible: {
+    permanentlyDismissible: {
       type: Boolean,
       default: false,
     },
@@ -54,13 +53,35 @@ export default {
   methods: {
     dismissBanner() {
       this.isDismissed = true;
-      storage.setItem(`banner_dismissed_${this.bannerId}`, "true");
-      this.$emit("updateHeight")
+      
+      if (this.permanentlyDismissible) {
+        // If permanentlyDismissible is true, dismiss forever
+        storage.setItem(`banner_dismissed_${this.bannerId}`, "true");
+      } else {
+        // If permanentlyDismissible is false, dismiss for 24 hours. Refer - https://oktainc.atlassian.net/browse/OKTA-968079?focusedCommentId=8738092
+        const dismissUntil = new Date();
+        dismissUntil.setHours(dismissUntil.getHours() + 24);
+        storage.setItem(`banner_dismissed_${this.bannerId}`, dismissUntil.toISOString());
+      }
+      
+      this.$emit("updateHeight");
     },
     checkDismissal() {
-      if (this.dismissible) {
-        this.isDismissed =
-          storage.getItem(`banner_dismissed_${this.bannerId}`) === "true";
+      const dismissedValue = storage.getItem(`banner_dismissed_${this.bannerId}`);
+      
+      if (!dismissedValue) {
+        this.isDismissed = false;
+        return;
+      }
+      
+      if (this.permanentlyDismissible) {
+        // If permanentlyDismissible is true, check for permanent dismissal
+        this.isDismissed = dismissedValue === "true";
+      } else {
+        // If permanentlyDismissible is false, check if 24 hours have passed
+        const dismissUntil = new Date(dismissedValue);
+        const now = new Date();
+        this.isDismissed = now < dismissUntil;
       }
     },
   },
