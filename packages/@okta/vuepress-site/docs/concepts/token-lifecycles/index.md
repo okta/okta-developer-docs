@@ -52,7 +52,7 @@ A refresh token is a credential used to obtain new access tokens when the curren
 * **Opaque**: They're treated as opaque strings by the client app. The client doesn't need to parse or understand their internal structure.
 * **Confidential**: Because you can use refresh tokens to acquire new access tokens, they're highly sensitive, and the client app must securely store them. They're typically used only by the client app directly with the authorization server and never sent to the resource server.
 
-**Usage**: When an access token expires, the client app sends the refresh token to the authorization server's [token](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) endpoint to request a new access token (and often a new refresh token).
+**Use**: When an access token expires, the client app sends the refresh token to the authorization server's [token](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) endpoint to request a new access token (and often a new refresh token).
 
 ### ID tokens
 
