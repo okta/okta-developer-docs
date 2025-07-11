@@ -16,6 +16,10 @@ export const concepts = [
         path: "/docs/concepts/brands/",
       },
       {
+        title: "Direct authentication",
+        path: "/docs/concepts/direct-authentication/",
+      },
+      {
         title: "Event hooks",
         path: "/docs/concepts/event-hooks/",
       },
@@ -82,6 +86,10 @@ export const concepts = [
       {
         title: "Policies",
         path: "/docs/concepts/policies/",
+      },
+      {
+        title: "Token lifecycles",
+        path: "/docs/concepts/token-lifecycles/",
       },
       {
         title: "Session management",
@@ -435,6 +443,10 @@ export const guides = [
               {
                 title: "Create an API token",
                 guideName: "create-an-api-token",
+              },
+              {
+                title: "Create an app integration",
+                guideName: "create-an-app-integration",
               },
               { title: "Enable CORS", guideName: "enable-cors" },
               { title: "Find your Okta domain", guideName: "find-your-domain" },

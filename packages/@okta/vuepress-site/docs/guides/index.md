@@ -26,6 +26,7 @@ guides:
  - configure-ssf-receiver
  - configure-user-scoped-account-management
  - create-an-api-token
+ - create-an-app-integration
  - custom-email
  - custom-error-pages
  - custom-url-domain
