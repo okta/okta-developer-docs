@@ -198,12 +198,6 @@ Group functions return either an array of groups or **True** or **False**.
 
 For more information on using group functions for dynamic and static allowlists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
 
-> **Important:** When you use `Groups.startsWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the group's email (for example, when using a Google Workspace). If you're targeting groups that may have duplicate group names (such as Google groups), use the `getFilteredGroups` group function instead.
->
->Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
->
->See the parameter examples section of [Use group functions for static group allowlists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allow-lists).
-
 #### Get groups for users
 
 > **Note:** The `user.getGroups` function was previously only available for a limited set of features on Okta Identity Engine, but has been expanded to all features that allow Expression Language.
@@ -222,7 +216,7 @@ These group functions take in a list of search criteria as input. Each search cr
 **Key:** Specifies the matching property. Currently supported keys are: `group.id`, `group.source.id`, `group.type`, and `group.profile.name`.<br>
 **Value:** Specifies a list of matching values.
 
-> **Note:** If you want to use this function with group claims, you need to use collection projections. See [Get group claims for users](#get-groups-claims-for-users).
+> **Note:** While other group functions use **Group attribute statements**, the `user.getGroups` function uses the **Profile attribute statements** because the function is based on the user.
 
 The `group.id`, `group.source.id`, and `group.type` keys can match values that are exact.
 
@@ -242,7 +236,11 @@ Use `group.source.id` when you need to disambiguate between groups that have the
 
 The following functions are designed to work only with group claims. You can't use these functions with property mappings.
 
-> **Note**: Okta recommends using collection projections instead for group claims. See [Get group claims for users](#get-groups-claims-for-users).
+> **Important:** When you use `Groups.startsWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the group's email (for example, when using a Google Workspace). If you're targeting groups that may have duplicate group names (such as Google groups), use the `getFilteredGroups` group function or the `user.getGroups` function instead.
+>
+>Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
+>
+>See the parameter examples section of [Use group functions for static group allowlists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allow-lists).
 
 | Function                        | Return type | Example                                                         |
 | ---------                       | ----------- | -------                                                         |
@@ -250,7 +248,7 @@ The following functions are designed to work only with group claims. You can't u
 | `Groups.startsWith`             | Array       | `Groups.startsWith(app_type/app_instance_id, pattern, limit)`          |
 | `Groups.endsWith`               | Array       | `Groups.endsWith(app_type/app_instance_id, pattern, limit)`            |
 
-#### Get groups claims for users
+#### Collection projections
 
 [Collection projections](https://docs.spring.io/spring-framework/reference/core/expressions/language-ref/collection-projection.html) enable you to use a subexpression (`.![$attr]`) that transforms a collection (like an array) into a new collection. It applies the expression to each element in the array and returns a new collection without modifying the original collection.
 
@@ -273,6 +271,9 @@ The following examples use `user.getGroups({\"group.profile.name\": \"Everyone\"
 | `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![lastMembershipUpdated]` | Timestamp when the groups memberships were last updated (`lastMembershipUpdated`) | Returns a list of `lastMembershipUpdated` times |
 | `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![profile.name]` | Name of the group (`profile.name`) | Returns a list of group names |
 | `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![profile.description]` | Description of the group (`profile.group`) | Returns a list of group profile descriptions |
+|  `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![name]` | Group name | Returns a list of group names |
+
+> **Note:** Groups claims can only be used with the `.![name]` projection expression.
 
 ### Linked object function
 
