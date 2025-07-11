@@ -7,14 +7,13 @@ meta:
 
 # Direct authentication
 
-<!-- Direct authentication simplifies the authentication flow, enhances user experience by minimizing redirects, and provides developers with greater control over security measures. -->
-## What is Direct authentication
+Direct authentication allows client apps to directly verify user credentials and authentication factors without relying on browser interactions. This approach gives apps more control over authentication. It's also useful for non-browser apps, such as mobile apps, where user experience can be negatively impacted by browser interactions.
 
-[Direct authentication](/docs/guides/configure-direct-auth-grants/aotp/main/) provides a set of authentication APIs. These APIs allow a client to directly verify authentication factors for a user in exchange for OAuth 2.0 tokens. The client does this without needing to interact with the Sign-In Widget in a browser.
+## About direct authentication
+
+[Direct authentication](/docs/guides/configure-direct-auth-grants/aotp/main/) provides a set of authentication APIs. These APIs allow a client to directly verify authentication factors for a user in exchange for OAuth 2.0 tokens. The client does this without interacting with the Sign-In Widget in a browser.
 
 This is useful for apps that need more control over the authentication flow than can be provided through the Sign-In Widget and non-browser apps. Non-browser apps like native apps can't always pop up a browser for authentication or if they can, it creates a negative user experience.
-
-### Provides more control
 
 Direct authentication gives you more control over the authentication process. This is achieved by letting the client dictate which factor verifications it obtains from the user. The client then sends those factor verifications to the direct authentication APIs.
 
@@ -60,4 +59,4 @@ Implementing direct authentication requires strict adherence to security best pr
 
 ## Conclusion
 
-Direct authentication offers a powerful approach to optimizing the user sign-in experience for specific application contexts that prioritizes client control and minimizing browser interactions. While it provides significant advantages in terms of control, it also places a greater responsibility on developers to implement robust security measures.
+Direct authentication offers a powerful approach to optimizing the sign-in experience for specific application contexts that prioritize client control and minimizing browser interactions. While it provides significant advantages in terms of control, it also places a greater responsibility on developers to implement robust security measures.
