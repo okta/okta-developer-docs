@@ -32,11 +32,11 @@ Authorization: SSWS 00QCjAl4MlV-WPXM...0HmjFx-vbGua
 
 ### Privilege level
 
-Different Okta API operations require different admin privilege levels. API tokens inherit the privilege level of the admin account that is used to create them. It’s therefore good practice to create a service account to use when you create API tokens. With a separate service account, you can assign specific privilege levels to your API tokens. See [Administrators](https://help.okta.com/okta_help.htm?id=ext_Security_Administrators) for admin account types and the specific privileges of each.
+Different Okta API operations require different admin privilege levels. API tokens inherit the privilege level of the admin account that is used to create them. However, if the admin's privileges are modified, the privilege level of the API token changes to match the new level of the admin. It’s therefore good practice to create a service account to use when you create API tokens. With a separate service account, you can assign specific privilege levels to your API tokens. See [Administrators](https://help.okta.com/okta_help.htm?id=ext_Security_Administrators) for admin account types and the specific privileges of each.
 
 ### OAuth 2.0 instead of API tokens
 
-As an alternative to Okta API tokens, you can use Okta APIs. You can use a scoped OAuth 2.0 access token for various Okta endpoints. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains. For more information, see the [OAuth for Okta](/docs/guides/implement-oauth-for-okta/) guide.
+As an alternative to Okta API tokens, you can use a scoped OAuth 2.0 access token for various Okta endpoints. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains. For more information, see the [OAuth for Okta](/docs/guides/implement-oauth-for-okta/) guide.
 
 ## Create the token
 
