@@ -15,9 +15,9 @@ You can divide the Okta deployment models into two approaches:
 
 **Redirect authentication**: A user sign-in flow that grants authentication control to Okta by redirecting to an Okta hosted sign-in page. This flow uses open protocols like OAuth 2.0 and SAML.
 
-**Embedded authentication**: A user sign-in flow where the app retains authentication control without redirection to Okta. This flow uses the Direct Authentication API, a client-hosted embedded Sign-In Widget, SDKs, or other direct API calls.
+**Embedded authentication**: A user sign-in flow where the app retains authentication control without redirection to Okta. This flow uses direct authentication, a client-hosted embedded Sign-In Widget, SDKs, or other direct API calls.
 
-What deployment model or authentication approach you choose depends on your implementation requirements and client app. In general, the method of delegating user sign-in interaction (redirect authentication) is preferred for many reasons that span from security to user experience. For embedded authentication, the preferred approach is to use the Direct Authentication API over other embedded authentication options. For further information on what model to select, see [Choose your auth](https://developer.okta.com/docs/guides/sign-in-overview/main/#choose-your-auth).
+What deployment model or authentication approach you choose depends on your implementation requirements and client app. In general, the method of delegating user sign-in interaction (redirect authentication) is preferred for many reasons that span from security to user experience. For embedded authentication, the preferred approach is to use direct authentication over other embedded authentication options. For further information on what model to select, see [Choose your auth](https://developer.okta.com/docs/guides/sign-in-overview/main/#choose-your-auth).
 
 Use this table and the subsequent sections to better understand the differences between redirect authentication and embedded authentication. These sections also help you to understand what flow works best for your app implementation:
 
@@ -109,7 +109,7 @@ is -> cl: Return assertion to client
 
 ## Embedded authentication
 
-Embedded authentication (also called Self-hosted) authenticates user credentials directly at the client app site using the Direct Authentication API, an embedded Sign-In Widget, authentication SDK, or other direct API calls. Redirection to Okta isn't required. The client app's code determines the methods and processes necessary to authenticate, and then uses SDKs to validate the credentials. Client apps create their own app sessions for user access.
+Embedded authentication (also called Self-hosted) authenticates user credentials directly at the client app site using direct authentication, an embedded Sign-In Widget, authentication SDK, or other direct API calls. Redirection to Okta isn't required. The client app's code determines the methods and processes necessary to authenticate, and then uses SDKs to validate the credentials. Client apps create their own app sessions for user access.
 
 Client apps may also exchange tokens with a Security Token Service (STS) to provide SSO access to other Service Providers (like CRM, IT, and HR). Using this deployment model, the client’s sign-in page can render mobile user experiences and use mobile platform APIs.
 
@@ -119,7 +119,7 @@ Client apps may also exchange tokens with a Security Token Service (STS) to prov
 
 You can use direct authentication with your apps in Identity Engine rather than an embedded SDK, the customer-hosted Okta Sign-In Widget, or direct APIs. This allows you to directly authenticate users rather than delegating authentication to Okta identity providers and authorization servers through an HTTP redirect in a web browser. Direct authentication is beneficial in scenarios where there's a high degree of trust between the user and the app. It's also beneficial where browser-based flows aren't feasible, like with mobile apps.
 
-See the `/challenge` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/challengeOrgAS), the `/oob-authenticate` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/oob-authenticateOrgAS), and the new `grant_types` for the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token). Also, for information on how to set up each new grant type, see [Configure Direct Auth grant types](/docs/guides/configure-direct-auth-grants/).
+See the `/challenge` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/challengeOrgAS), the `/oob-authenticate` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/oob-authenticateOrgAS), and the new `grant_types` for the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token). Also, for information on how to set up each new grant type, see [Configure Direct Authentication](/docs/guides/configure-direct-auth-grants/).
 
 ### Other embedded authentication solutions
 
