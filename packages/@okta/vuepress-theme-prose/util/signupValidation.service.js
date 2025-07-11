@@ -96,7 +96,7 @@ export class SignUpValidation {
     try {
       const email_domain = email.split('@')[1];
       const { data: { isBusinessEmail } } = await oktaApi
-        .get('/free-trial/api/email-validation', {
+        .get('/free-trial/api/email-validation/', {
           params: { email_domain },
         });
 
