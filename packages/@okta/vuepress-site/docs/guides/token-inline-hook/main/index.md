@@ -83,14 +83,6 @@ An Okta app integration represents your app in your Okta org. The integration co
 1. Clear the **Enable immediate access with Federation Broker Mode** checkbox.
 1. Click **Save** to create the app integration. The **General** tab for your integration opens after it's saved. Keep this pane open as you need to copy the **Client ID**, **Client Secret**, and your org domain name when configuring your app.
 
-#### Configure your custom authorization server
-
-This example application uses the custom authorization server. Ensure this server has a default access policy and rule defined in your org.
-
-1. Go to **Security** > **API** and select the `default` custom authorization server.
-1. Click the **Access Policies** tab, and ensure an access policy and rule is available.
-1. Create a new access policy and rule if necessary. See [Create access policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-access-policies).
-
 ### Add the integration credentials to your local app
 
 1. Open the Express sample app in your editor of choice.
@@ -334,7 +326,7 @@ The token inline hook is now ready for triggering when the default policy rule i
 
 The token inline hook is ready for preview and testing. You now have the following apps configured:
 
-* The Okta-Hosted Login sample app (`samples-nodejs-express-4`) is ready to authenticate users from your Okta org. Start the sample app: `npm run okta-hosted-login-server`.
+* The Okta-hosted Login sample app (`samples-nodejs-express-4`) is ready to authenticate users from your Okta org. Start the sample app: `npm run okta-hosted-login-server`.
 * The external service is ready with code to receive and respond to an Okta token inline hook call through the ngrok utility.
 * The Okta org is set up to call the external service when an app sign in triggers the token inline hook.
 
