@@ -22,7 +22,7 @@ Review [OAuth 2.0 and OpenID Connect](https://developer.okta.com/docs/concepts/o
 
 ## Token types
 
-### Access Tokens
+### Access tokens
 
 An access token is the credential that a client app uses to access protected resources on a resource server.
 
@@ -31,16 +31,16 @@ An access token is the credential that a client app uses to access protected res
 **Characteristics**:
 
   * **Short-lived**: For security reasons, access tokens typically have a short expiration time (for example, minutes or hours).
-  * **Opaque**: While they can be self-contained (like JSON Web Tokens, or JWTs), they're treated as opaque strings by the client app. The client doesn't need to parse or understand their internal structure.
-  * **Scopes**: Access tokens are often associated with specific scopes, which define the granular data access granted (for example, `read:email`, `write:profile`).
+  * **Opaque**: While they can be self-contained (like JSON Web Tokens or JWTs), they're treated as opaque strings by the client app. The client doesn't need to parse or understand their internal structure.
+  * **Scopes**: Access tokens are often associated with specific scopes that define the granular data access to be granted (for example, `read:email`, `write:profile`).
 
-**Usage**: The client app includes the access token in the `Authorization` header of HTTP requests when calling protected API endpoints on the resource server.
+**Use**: The client app includes the access token in the `Authorization` header of HTTP requests when calling protected API endpoints on the resource server.
 
 > **Note**: An "API token" is a broad term that refers to any credential used to authenticate to an API (including static API keys or bearer tokens). In the context of OAuth 2.0, the access token is the API token used for delegated authorization. Unlike static API keys, OAuth 2.0 access tokens have limited lifespans and are tied to a user's specific consent and the client's permissions, making them more secure for delegated access.
 >
 > See [Set up Okta for API access](/docs/reference/rest/#set-up-okta-for-api-access) to use access tokens for API authentication.
 
-### Refresh Tokens
+### Refresh tokens
 
 A refresh token is a credential used to obtain new access tokens when the current access token expires or becomes invalid.
 
@@ -50,11 +50,11 @@ A refresh token is a credential used to obtain new access tokens when the curren
 
 * **Long-lived**: Refresh tokens generally have a longer lifespan than access tokens, sometimes lasting for days, weeks, or even indefinitely until explicitly revoked.
 * **Opaque**: They're treated as opaque strings by the client app. The client doesn't need to parse or understand their internal structure.
-* **Confidential**: Because refresh tokens can be used to acquire new access tokens, they're highly sensitive and the client app must securely stored them. They're typically used only by the client app directly with the authorization server and never sent to the resource server.
+* **Confidential**: Because you can use refresh tokens to acquire new access tokens, they're highly sensitive, and the client app must securely store them. They're typically used only by the client app directly with the authorization server and never sent to the resource server.
 
 **Usage**: When an access token expires, the client app sends the refresh token to the authorization server's [token](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) endpoint to request a new access token (and often a new refresh token).
 
-### ID Tokens
+### ID tokens
 
 An ID token is a security token that contains claims about an authentication event and the user's identity. ID tokens are a core component of OpenID Connect (OIDC), an identity layer that extends the OAuth 2.0 framework.
 
@@ -74,7 +74,7 @@ An ID token is a security token that contains claims about an authentication eve
   * `acr`: The authentication context class reference (OPTIONAL)
   * `amr`: The authentication methods references (OPTIONAL)
 
-**Usage**: The client app receives the ID token from the authorization server. It then validates the ID token to confirm the user's identity before establishing a session or granting access to app-specific resources. ID tokens aren't typically sent to the resource server&mdash;they're consumed by the client app.
+**Use**: The client app receives the ID token from the authorization server. It then validates the ID token to confirm the user's identity before establishing a session or granting access to app-specific resources. ID tokens aren't typically sent to the resource server. They're consumed by the client app.
 
 ### Access tokens vs. ID tokens vs. refresh tokens
 
@@ -101,9 +101,9 @@ The token lifecycle begins with the authorization flow, where tokens are issued:
 1. **Token exchange**: The client app takes the authorization grant (the authorization code) and securely exchanges it with the authorization server's [token](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) endpoint. This exchange is typically a server-to-server communication, ensuring the confidentiality of the client's credentials (such as the client secret).
 1. **Token Issuance**: In response to this successful exchange, the authorization server issues the requested tokens: an access token, and optionally, a refresh token and/or an ID token to the client app.
 
-### Usage
+### Use
 
-Once issued, the client app uses the access token to interact with the resource server, and the ID token to verify user identity:
+After the token is issued, the client app uses the access token to interact with the resource server, and the ID token to verify user identity:
 
 * The client app includes the access token in the `Authorization` HTTP header (typically as a bearer token, for example: `Authorization: Bearer <access_token>`) for every request to a protected resource.
 * The resource server receives the request and extracts the access token. See [Access token validation](#access-token-validation).
@@ -115,7 +115,7 @@ Before granting access, the resource server must validate the received access to
 
 #### Access token validation
 
-Access tokens can be validated locally or remotely:
+You can validate access tokens locally or remotely:
 
 * **Local** (self-contained token validation): If the access token is a self-contained JWT, the resource server can validate it locally without contacting the authorization server. This involves:
   * **Signature verification**: Use the authorization server's public key to verify that the token's signature is valid and hasn’t been tampered with.
@@ -135,7 +135,7 @@ The client app validates the ID token locally. This involves:
 * **Expiration check**: Confirm that the token hasn’t expired.
 * **Issuer check**: Verify that the expected authorization server issued the token.
 * **Audience check**: Ensure that the token is intended for this specific client app.
-* **Nonce check**: (If applicable) Verify that the nonce value to prevent replay attacks.
+* **Nonce check**: (If applicable) Verify that the nonce value exists. This value helps prevent replay attacks.
 
 See [Validate ID tokens](/docs/guides/validate-id-tokens/main/) for the Okta implementation.
 
@@ -161,7 +161,7 @@ Access tokens and ID tokens are short-lived. The following are the results of an
 * The client app, during ID token validation, detects that the ID token has expired.
 * The resource server rejects the request with an HTTP 401 Unauthorized status code, indicating that the access token isn't valid for accessing protected resources.
 
-When an access token expires, the client app can't use it to access protected resources. To maintain continuous access without requiring the user to reauthenticate, the client app relies on the refresh token through the token renewal process. See [Renewal (refreshing tokens)](#renewal-refresh-tokens).
+When an access token expires, the client app can't use it to access protected resources. To maintain continuous access without requiring the user to reauthenticate, the client app relies on the refresh token through the token renewal process. See [Renewal (refresh tokens)](#renewal-refresh-tokens).
 
 ### Renewal (refresh tokens)
 
@@ -172,7 +172,7 @@ When an access token expires or is about to expire, the client app can use the r
 1. If the refresh token is valid, the authorization server issues the client a new access token (and potentially a new refresh token and ID token).
 1. The client can then resume accessing protected resources using the newly acquired access token and verify the user's identity with the new ID token.
 
-This mechanism significantly improves user experience by minimizing the need for repeated logins, as the refresh token acts as a long-lived credential for acquiring short-lived access tokens. Public clients, such as browser-based apps, have a higher risk of compromised long-lived refresh token. You can reduce this risk by reducing the [refresh token lifetime](/docs/guides/refresh-tokens/main/#refresh-token-lifetime) and rotating refresh tokens after each use. See [Refresh access tokens and rotate refresh tokens](/docs/guides/refresh-tokens/main/).
+This mechanism significantly improves user experience by minimizing the need for the user to sign in again, as the refresh token acts as a long-lived credential for acquiring short-lived access tokens. Public clients, such as browser-based apps, have a higher risk of compromised long-lived refresh tokens. You can reduce this risk by reducing the [refresh token lifetime](/docs/guides/refresh-tokens/main/#refresh-token-lifetime) and rotating refresh tokens after each use. See [Refresh access tokens and rotate refresh tokens](/docs/guides/refresh-tokens/main/).
 
 ### Revocation (invalidating tokens)
 
@@ -180,14 +180,14 @@ Token revocation allows for the immediate invalidation of an access token or a r
 
 **Purpose**: To instantly disable a token for use. Common scenarios include:
 
-* The user logs out of the app, requiring all associated tokens to be invalidated.
+* The user signs out of the app, requiring all associated tokens to be invalidated.
 * The user changes their password, which might trigger the revocation of existing tokens for security.
 * A security breach or compromise of a token is detected, needing its immediate invalidation.
 * Administrator action to manually revoke a token.
 
 **Mechanism**: The client app or an admin sends a request to the authorization server's [revocation](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/revokeCustomAS) endpoint, explicitly revoking the access or refresh token.
 
-**Effect**: Once revoked, the token is added to a blocklist or denylist maintained by the authorization server:
+**Effect**: After the token is revoked, it's added to a blocklist or denylist maintained by the authorization server:
 
 * Subsequent remote validation attempts fail for the access token.
 * If an access token is invalidated, the client can use the refresh token to obtain a new access token.
