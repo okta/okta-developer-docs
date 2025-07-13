@@ -19,8 +19,30 @@ Download a CSV file with all event types: [Okta Event Types](/docs/okta-event-ty
 
 >**Note:** Certain tags on the event type indicate the specific behavior of the associated System Log events:<br>
 >
-> * <img src="/img/oie-only-tag.png" alt="An image of the oie-only tag that appears on the event type description." style="vertical-align: middle; padding-bottom: 0; height: 2em;" />: This event type is only available in Okta Identity Engine enabled orgs
-> * <img src="/img/event-hook-eligible-tag.png" alt="An image of the event hook eligible tag that appears on the event type description." style="vertical-align: middle; padding-bottom: 0; height: 2em;" />: This event type is eligible for use with an event hook
-> * <img src="/img/changeDetails-tag.png" alt="An image of the changeDetails tag that appears on the event type description." style="vertical-align: middle; padding-bottom: 0; height: 2em;" />: This event type may include the `changeDetails` object within an associated target
+> * <span class="event-type-tag">oie-only</span>: This event type is only available in Okta Identity Engine enabled orgs
+> * <span class="event-type-tag">event-hook-eligible</span>: This event type is eligible for use with an event hook
+> * <span class="event-type-tag">changeDetails</span>: This event type may include the `changeDetails` object within an associated target
 
 <EventTypes />
+
+<style>
+
+.event-type-tag::before {
+  content: "";
+  padding: 2px 4px;
+  font-family: "fontawesome";
+}
+
+.event-type-tag {
+  display: block;
+  float: left;
+  margin: 2px;
+  padding: 1px 3px;
+  border: 1px solid #DCDCDC;
+  border-radius: 3px;
+  background-color: #ffffff;
+  font-size: 0.7em;
+  font-family: "Menlo"
+}
+
+</style>
