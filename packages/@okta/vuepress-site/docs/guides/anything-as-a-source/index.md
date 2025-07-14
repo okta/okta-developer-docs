@@ -47,8 +47,8 @@ The Identity Sources API synchronizing data flow uses an [identity source sessio
 * **IN_PROGRESS**: The data for the identity source session is being uploaded in the identity source session.
 * **TRIGGERED**: Okta is processing the uploaded data in the identity source session. You can't load new data to the identity source session object at this stage, and you can't cancel the session. You can view sessions with this status on the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page in the Admin Console.
 * **COMPLETED**: Okta has processed the data in the identity source session object. You can't upload new data to the identity source session object if it has this status, because the synchronization data job is considered complete.
-* **CLOSED**: The session is canceled and isn't available for further activity. You can only cancel identity source sessions with the `CREATED` status. You can't cancel a session that has been triggered or completed. Previously loaded data is deleted from a canceled identity source session.
-* **EXPIRED**: This status indicates that the identity source session has timed out during the data loading stage. An identity source session with the `CREATED` status expires after 24 hours of inactivity.
+* **CLOSED**: The session is canceled and isn't available for further activity. You can only cancel identity source sessions with the `CREATED` or `IN_PROGRESS` status. You can't cancel a session that has been triggered or completed. Previously loaded data is deleted from a canceled identity source session.
+* **EXPIRED**: This status indicates that the identity source session has timed out during the data loading stage. An identity source session with the `CREATED` or `IN_PROGRESS` status expires after 24 hours of inactivity.
 * **ERROR**: This status indicates that there was an error during the import job of upserting or deleting entities from the entity database.
 
 ### Identity source session process
@@ -78,11 +78,11 @@ You can load up to 200 KB of data in a single bulk-load (`/bulk-upsert` or `/bul
 
 Create another identity source session object when you exhaust the maximum number of bulk-load requests and need to load more user profiles. Keep in mind that you can only load user data to an identity source session with the `CREATED` status.
 
-> **Note:** Only `"importType": "INCREMENTAL"` is currently supported for an identity source session.
+> **Note:** Only `"importType": "INCREMENTAL"` is supported for an identity source session.
 
 ### Bulk user profile data
 
-The bulk-load request contains an array of external [identity source user profiles for upsert](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDataForUpsert) or [identity source user profiles for delete](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDataForDelete) objects that contain the following:
+The bulk-load request contains an array of external [identity source user profiles objects for upsert](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDataForUpsert) or [identity source user profiles for delete](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDataForDelete) objects. These objects contain the following:
 
 * `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This helps determine if a new user needs to be created or if an existing user needs to be updated.
 
@@ -224,7 +224,7 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
 ### Bulk deactivate user data
 
-When users are deactivated or deleted from your HR source, you need to reflect that status in Okta. Okta doesn't delete user profile objects, it deactivates the users that are no longer active. Use these steps to deactivate a set of user data profiles from Okta.
+When users are deactivated or deleted from your HR source, you need to reflect that status in Okta. Okta doesn't delete user profile objects. It deactivates the users that are no longer active. Use these steps to deactivate a set of user data profiles from Okta.
 
 1. [Create an identity source session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/createIdentitySourceSession):
 
