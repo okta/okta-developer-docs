@@ -201,9 +201,19 @@ For more information on using group functions for dynamic and static allowlists,
 
 #### Get groups for users
 
-The `user.getGroups` function enables you to get information about a user's groups, such as group rules and group claims. While other group functions use **Group attribute statements**, the `user.getGroups` function uses the **Profile attribute statements** because the function is based on the user.
+Use the `user.getGroups` function to get information about a user's groups, such as group rules and group claims. While other group functions use **Group attribute statements**, this function uses the **Profile attribute statements** because the function is based on the user.
 
-> **Note:** The `user.getGroups` function was previously only available for a limited set of features on Okta Identity Engine, but has been expanded to all features that allow Expression Language.
+> **Note:** This function was previously only available for a limited set of features on Okta Identity Engine, but has been expanded to all features that allow Expression Language.
+
+These group functions take in a list of search criteria as input. Each search criterion is a key-value pair:<br>
+**Key:** Specifies the matching property. Currently supported keys are: `group.id`, `group.source.id`, `group.type`, and `group.profile.name`.<br>
+**Value:** Specifies a list of matching values.
+
+* The `group.id`, `group.source.id`, and `group.type` keys can match values that are exact.
+* The `group.profile.name` key supports the operators `EXACT` and `STARTS_WITH` to identify exact matches or matches that include the value. If no operator is specified, the expression uses `STARTS_WITH`. You can't use these operators with `group.id`, `group.source.id`, or `group.type`.
+* The `group.source.id` key supports when you need to disambiguate between groups that have the same group name. For example, if you're searching for app groups that start with "Admin" from a given app instance then you can use `group.source.id` to filter multiple groups across the different app group sources.
+
+The `user.getGroups` function also supports the `.![name]` collection projection for group claims. [Collection projections](https://docs.spring.io/spring-framework/reference/core/expressions/language-ref/collection-projection.html) enable you to use a subexpression (`.![$attr]`) that transforms a collection (like an array) into a new collection. It applies the expression to each element in the array and returns a new collection without modifying the original collection.
 
 > **Note:** For the following expression examples, assume that the user is a member of the following groups:
 
@@ -214,16 +224,6 @@ The `user.getGroups` function enables you to get information about a user's grou
 | 00garwpuyxHaWOkdV0g4     | West Coast Admins        | OKTA_GROUP            | 0a03d062d3918fd34742 |
 | 00gjitX9HqABSoqTB0g3     | Engineering Users        | APP_GROUP             | 0aae4be2456eb62f7c3d |
 | 00gnftmgQxC2L19j6I9c     | Engineering Users        | APP_GROUP             | 0a61c8dacb58b3c0716e |
-
-These group functions take in a list of search criteria as input. Each search criterion is a key-value pair:<br>
-**Key:** Specifies the matching property. Currently supported keys are: `group.id`, `group.source.id`, `group.type`, and `group.profile.name`.<br>
-**Value:** Specifies a list of matching values.
-
-* The `group.id`, `group.source.id`, and `group.type` keys can match values that are exact.
-* The `group.profile.name` key supports the operators `EXACT` and `STARTS_WITH` to identify exact matches or matches that include the value. If no operator is specified, the expression uses `STARTS_WITH`. You can't use these operators with `group.id`, `group.source.id`, or `group.type`.
-* The `group.source.id` key supports when you need to disambiguate between groups that have the same group name. For example, if you're searching for app groups that start with "Admin" from a given app instance then you can use `group.source.id` to filter multiple groups across the different app group sources.
-
-The `user.getGroups` function also supports the `.![name]` collection projection for group claims. [Collection projections](https://docs.spring.io/spring-framework/reference/core/expressions/language-ref/collection-projection.html) enable you to use a subexpression (`.![$attr]`) that transforms a collection (like an array) into a new collection. It applies the expression to each element in the array and returns a new collection without modifying the original collection. 
 
 | Function                 | Return type | Example                                                                                                         | Output explanation                                                                        | Example Output |
 | ---------------          | ----------- | -------                                                                                                         | -----                                                                           | ---- |
@@ -297,11 +297,12 @@ These functions take the following parameters:
 * `assistantSource`: String representing the app name where the assistant relationship is defined. The only currently supported value is `"active_directory"`.
 * `attributeSource`: String representing the specific app instance to query for user attributes, for example `"google"`. This is often the same as `managerSource` or `assistantSource` when dealing with a single Active Directory instance.
 
-The following should be noted about these functions:
-
-* Calling either of the `getManagerUser()` or `getManagerAppUser()` functions doesn't trigger a user profile update after the manager is changed.
-* These functions aren't supported for user profiles sourced from multiple Active Directory instances.
-* These functions aren't supported for user profile attributes from multiple app instances.
+> **Note:**
+>
+> * Calling either of the `getManagerUser()` or `getManagerAppUser()` functions doesn't trigger a user profile update after the manager is changed.
+> * These functions aren't supported for user profiles sourced from multiple Active Directory instances.
+> * These functions aren't supported for user profile attributes from multiple app instances.
+>
 
 ### Directory and Workday functions
 
