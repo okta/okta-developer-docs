@@ -92,14 +92,15 @@ export class SignUpValidation {
   }
 
   async _isWorkEmail(email) {
-    const oktaApi = new Api('https://www.okta.com/oktaapi');
+    const oktaApi = new Api('https://www.okta.com');
     try {
-      const { data: { valid, message } } = await oktaApi
-        .get('/ft/email', {
-          params: { email },
+      const email_domain = email.split('@')[1];
+      const { data: { isBusinessEmail } } = await oktaApi
+        .get('/free-trial/api/email-validation/', {
+          params: { email_domain },
         });
 
-      return valid;
+      return isBusinessEmail;
     } catch (err) {
       console.error(err);
       // If the API fails, log the error
