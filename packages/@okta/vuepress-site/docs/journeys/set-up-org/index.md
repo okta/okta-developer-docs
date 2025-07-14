@@ -22,7 +22,7 @@ This journey outlines how to set up your Okta org with some basic, but important
 
 If you don't have an Okta Identity Engine org, you need to sign up for an Okta account and an Identity Engine org.
 
-1. [Sign up](https://developer.okta.com/signup/oie.html) for an Okta account.
+1. [Sign up](https://developer.okta.com/signup/) for an Okta account.
 
    After you sign up, Okta sends a verification email to the email address that you provide.
 
@@ -96,7 +96,7 @@ Create a service admin account to create API Keys that you can use for developme
 
 ### Assign admin permissions to the Okta service account
 
-User accounts have no permissions by default, so you need to grant permissions to your user accounts. In this section, assign admin permission to the Okta Service account.
+User accounts don't have admin permissions until they're assigned, so you need to grant permissions to your user accounts. In this section, assign admin permission to the Okta Service account.
 
 1. In the Admin Console, go to **Security** > **Administrators**.
 1. Select **Roles**.
@@ -175,7 +175,9 @@ If you’re using a custom authorization server for your app, follow these steps
 
 Create an app integration that represents the app you want to add authentication to with Okta.
 
-For a basic app configuration, follow these steps to set up a web app: [Create an app](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-an-application). If you have a particular type of app that you want to create, see the following types:
+For a basic app configuration, follow these steps to set up a web app: [Create an app](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-an-application). When you follow those steps, ensure that you enable interaction code in the app.
+
+If you have a particular type of app that you want to create, see the following types:
 
 ### Native app
 
