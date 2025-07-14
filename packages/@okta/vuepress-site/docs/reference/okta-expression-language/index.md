@@ -193,12 +193,15 @@ Group functions return either an array of groups or **True** or **False**.
 | `isMemberOfGroupNameStartsWith` | Boolean     | `isMemberOfGroupNameStartsWith("San Fr")`                       |
 | `isMemberOfGroupNameContains`   | Boolean     | `isMemberOfGroupNameContains("admin")`                          |
 | `isMemberOfGroupNameRegex`      | Boolean     | `isMemberOfGroupNameRegex("/.*admin.*")`                        |
+| `user.getGroups`                | Array       | See [Get groups for users](#get-groups-for-users)               |
 
 > **Note:** When EL group functions (such as `isMemberOfGroup` or `isMemberOfGroupName`) are used for app assignments, the profile attributes of the app user aren't updated or reapplied when the user's group membership changes. Okta only updates app user profile attributes when an app is assigned to a user or when mappings are applied.
 
 For more information on using group functions for dynamic and static allowlists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
 
 #### Get groups for users
+
+The `user.getGroups` function enables you to get information about a user's groups, such as group rules and group claims. While other group functions use **Group attribute statements**, the `user.getGroups` function uses the **Profile attribute statements** because the function is based on the user.
 
 > **Note:** The `user.getGroups` function was previously only available for a limited set of features on Okta Identity Engine, but has been expanded to all features that allow Expression Language.
 
@@ -216,13 +219,11 @@ These group functions take in a list of search criteria as input. Each search cr
 **Key:** Specifies the matching property. Currently supported keys are: `group.id`, `group.source.id`, `group.type`, and `group.profile.name`.<br>
 **Value:** Specifies a list of matching values.
 
-> **Note:** While other group functions use **Group attribute statements**, the `user.getGroups` function uses the **Profile attribute statements** because the function is based on the user.
+* The `group.id`, `group.source.id`, and `group.type` keys can match values that are exact.
+* The `group.profile.name` key supports the operators `EXACT` and `STARTS_WITH` to identify exact matches or matches that include the value. If no operator is specified, the expression uses `STARTS_WITH`. You can't use these operators with `group.id`, `group.source.id`, or `group.type`.
+* The `group.source.id` key supports when you need to disambiguate between groups that have the same group name. For example, if you're searching for app groups that start with "Admin" from a given app instance then you can use `group.source.id` to filter multiple groups across the different app group sources.
 
-The `group.id`, `group.source.id`, and `group.type` keys can match values that are exact.
-
-The `group.profile.name` key supports the operators `EXACT` and `STARTS_WITH` to identify exact matches or matches that include the value. If no operator is specified, the expression uses `STARTS_WITH`. You can't use these operators with `group.id`, `group.source.id`, or `group.type`.
-
-Use `group.source.id` when you need to disambiguate between groups that have the same group name. For example, if you're searching for app groups that start with "Admin" from a given app instance then you can use `group.source.id` to filter multiple groups across the different app group sources.
+The `user.getGroups` function also supports the `.![name]` collection projection for group claims. [Collection projections](https://docs.spring.io/spring-framework/reference/core/expressions/language-ref/collection-projection.html) enable you to use a subexpression (`.![$attr]`) that transforms a collection (like an array) into a new collection. It applies the expression to each element in the array and returns a new collection without modifying the original collection. 
 
 | Function                 | Return type | Example                                                                                                         | Output explanation                                                                        | Example Output |
 | ---------------          | ----------- | -------                                                                                                         | -----                                                                           | ---- |
@@ -231,16 +232,11 @@ Use `group.source.id` when you need to disambiguate between groups that have the
 |                          |             | `user.getGroups({'group.profile.name': 'East Coast.*'})`                                                        | A list of groups that start with the name `East Coast` | {}                                                                              |
 |                          |             | `user.getGroups({'group.type': {'OKTA_GROUP', 'APP_GROUP'}})`                                                   | A list of groups that are of the type `OKTA_GROUP` or `APP_GROUP` | A list of user groups that contains groups with IDs `00g1emaKYZTWRYYRRTSK`, `00garwpuyxHaWOkdV0g4`, `00gjitX9HqABSoqTB0g3`, and `00gnftmgQxC2L19j6I9c`  |
 |                          |             | `user.getGroups({'group.source.id': '0aae4be2456eb62f7c3d'} , {'group.profile.name': {'Engineering Users'}} )` | A filtered list of user groups that contains groups that start with the name `Engineering Users` and that has the source ID `0aae4be2456eb62f7c3d` | A list of user groups that contains groups with ID `00gjitX9HqABSoqTB0g3` |
+| `user.getGroups` with `.![name]` collection projection | Array |`user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![name]` | A list of group names | A list of groups that have a group profile name that starts with `Everyone` |
 
-#### Group claims functions
+#### Group-claims only functions
 
 The following functions are designed to work only with group claims. You can't use these functions with property mappings.
-
-> **Important:** When you use `Groups.startsWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the group's email (for example, when using a Google Workspace). If you're targeting groups that may have duplicate group names (such as Google groups), use the `getFilteredGroups` group function or the `user.getGroups` function instead.
->
->Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
->
->See the parameter examples section of [Use group functions for static group allowlists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allow-lists).
 
 | Function                        | Return type | Example                                                         |
 | ---------                       | ----------- | -------                                                         |
@@ -248,32 +244,12 @@ The following functions are designed to work only with group claims. You can't u
 | `Groups.startsWith`             | Array       | `Groups.startsWith(app_type/app_instance_id, pattern, limit)`          |
 | `Groups.endsWith`               | Array       | `Groups.endsWith(app_type/app_instance_id, pattern, limit)`            |
 
-#### Collection projections
-
-[Collection projections](https://docs.spring.io/spring-framework/reference/core/expressions/language-ref/collection-projection.html) enable you to use a subexpression (`.![$attr]`) that transforms a collection (like an array) into a new collection. It applies the expression to each element in the array and returns a new collection without modifying the original collection.
-
-You can use collection projections with the `user.getGroups` function. This is useful specifically for group claims.
-
-`user.getGroups($expression).![$projectionExpression]`:
-
-* The `user.getGroups` function, passing search criteria as an `$expression`: Returns an array. See [Get groups for users](#get-groups-for-users).
-* Parameter: (String projectionExpression)
-* Return type: Array
-
-The following examples use `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"})` as the `user.getGroups($expression)`, which would return a list of groups that starts with `Everyone`.
-
-| Function example | Projection Expression | Output explanation |
-| --- | --- | --- |
-| `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![id]` | Group ID (`id`) | Returns a list of group IDs |
-| `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![type]` | Group type (`type`) | Returns a list of types |
-| `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![created]` | Group created date (`created`) | Returns a list of dates when the group was created |
-| `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![lastUpdated]` | Timestamp for when the group profile was last updated (`lastUpdated`) | Returns a list of times for when the groups were last updated|
-| `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![lastMembershipUpdated]` | Timestamp when the groups memberships were last updated (`lastMembershipUpdated`) | Returns a list of `lastMembershipUpdated` times |
-| `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![profile.name]` | Name of the group (`profile.name`) | Returns a list of group names |
-| `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![profile.description]` | Description of the group (`profile.group`) | Returns a list of group profile descriptions |
-|  `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![name]` | Group name | Returns a list of group names |
-
-> **Note:** Groups claims can only be used with the `.![name]` projection expression.
+> **Important:** When you use `Groups.startsWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the group's email (for example, when using a Google Workspace). If you're targeting groups that may have duplicate group names (such as Google groups), use the `getFilteredGroups` group function or the `user.getGroups` function with collection projections instead.
+>
+>Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )` (See the parameter examples section of [Use group functions for static group allowlists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allowlists).)
+>
+>Example: `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![name]` (See [Get groups for users](#get-groups-for-users).)
+>
 
 ### Linked object function
 
