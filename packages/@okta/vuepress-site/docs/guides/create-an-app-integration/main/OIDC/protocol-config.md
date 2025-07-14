@@ -3,4 +3,4 @@
 * Sign-in redirect URIs
 * Grant types
 * Controlled access
-* Details on the login initiation flow
+* Details on the sign-in initiation flow
