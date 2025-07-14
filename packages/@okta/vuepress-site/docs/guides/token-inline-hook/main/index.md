@@ -330,7 +330,7 @@ The token inline hook is ready for preview and testing. You now have the followi
 * The external service is ready with code to receive and respond to an Okta token inline hook call through the ngrok utility.
 * The Okta org is set up to call the external service when an app sign in triggers the token inline hook.
 
->**Note:** Make sure that you have users assigned to your app and at least one user is part of the [Patients data store](/docs/guides/token-inline-hook/#check-against-the-data-store) in your external service app.
+>**Note:** Make sure that you have active users assigned to your app and at least one user is part of the [Patients data store](/docs/guides/token-inline-hook/#check-against-the-data-store) in your external service app. If you're creating a new test user, ensure they've set up their authenticators in the Express app and are active users before running the hook example.
 
 ### Preview the token inline hook
 
