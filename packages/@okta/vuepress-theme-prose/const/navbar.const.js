@@ -1050,7 +1050,7 @@ export const reference = [
         path: "/docs/reference/okta-expression-language/",
       },
       {
-        title: "Integrator Free Plan Org Configuations",
+        title: "Integrator Free Plan Org Configurations",
         path: "/docs/reference/org-defaults/",
       },
       {
