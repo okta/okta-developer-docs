@@ -11,15 +11,14 @@ This guide outlines how to develop a custom client to manage an identity source 
 
 #### Learning outcomes
 
-* Learn how to use the Identity Sources API to manage an Anything-as-a-Source integration with Okta.
+Learn how to use the Identity Sources API to manage an Anything-as-a-Source integration with Okta.
 
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
-   * A Custom Identity Source integration configured in your Okta org (see [Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source))
+  * A Custom Identity Source integration configured in your Okta org (see [Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source))
       >  **Note:** Your org needs to have the Identity Source Apps feature enabled. Contact your Okta account team to enable this feature. <!-- IDENTITY_SOURCE_APPS feature flag needs to be enabled (Checked with Karthik Reddy on Sept 11, 2023 - this text should remain in place until Eng has enabled all SKUs)-->
-   * [An Okta API token](/docs/guides/create-an-api-token/) to make secure API calls
-
+  * [An Okta API token](/docs/guides/create-an-api-token/) to make secure API calls
 * An HR source from which you want to synchronize user data with Okta
 * A custom client to add Identity Sources API integration
 
@@ -40,15 +39,17 @@ This guide outlines the Identity Sources API flow so that you can develop your c
 
 ### Identity source session
 
-The Identity Sources API synchronizing data flow uses an [identity source session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/getIdentitySourceSession!c=200&path=id&t=response) object to encapsulate the data upload and the data import processing tasks. You need to create an identity source session object each time that you want to synchronize data from the HR source to Okta. The identity source session object uses the following `status` values to indicate each stage of the synchronization process flow.
+The Identity Sources API synchronizing data flow uses an [identity source session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/getIdentitySourceSession!c=200&path=id&t=response) object to encapsulate the data upload and the data import processing tasks. You must create an identity source session object each time that you want to synchronize data from the HR source to Okta. The identity source session object uses the following `status` values to indicate each stage of the synchronization process flow.
 
 ### Identity source session status
 
 * **CREATED**: The identity source session object has been created for a specific Custom Identity Source integration. You can load data to the session at this stage. Data import processing hasn't been invoked, and you can cancel the session at this stage.
+* **IN_PROGRESS**: The data for the identity source session is being uploaded in the identity source session.
 * **TRIGGERED**: Okta is processing the uploaded data in the identity source session. You can't load new data to the identity source session object at this stage, and you can't cancel the session. You can view sessions with this status on the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page in the Admin Console.
-* **COMPLETED**: The data in the identity source session object has been processed by Okta. You can't upload new data to the identity source session object if it has this status, because the synchronization data job is considered complete.
+* **COMPLETED**: Okta has processed the data in the identity source session object. You can't upload new data to the identity source session object if it has this status, because the synchronization data job is considered complete.
 * **CLOSED**: The session is canceled and isn't available for further activity. You can only cancel identity source sessions with the `CREATED` status. You can't cancel a session that has been triggered or completed. Previously loaded data is deleted from a canceled identity source session.
 * **EXPIRED**: This status indicates that the identity source session has timed out during the data loading stage. An identity source session with the `CREATED` status expires after 24 hours of inactivity.
+* **ERROR**: This status indicates that there was an error during the import job of upserting or deleting entities from the entity database.
 
 ### Identity source session process
 
@@ -56,10 +57,11 @@ You can only process one identity source session at a time (for a specific Custo
 
 * You can only load data to an identity source session when it's in the `CREATED` status.
 * There can only be one identity source session in the `CREATED` status for an identity source.
-* An identity source session with the `CREATED` or `TRIGGERED` status is considered active.
+* Only sessions that are in the `IN_PROGRESS` status can be triggered to start an import request.
+* An identity source session with the `CREATED`, `IN_PROGRESS`, or `TRIGGERED` status is considered active.
 * If there are no API requests in 24 hours for an identity source session that has the `CREATED` status, then the status is set to `EXPIRED` and the session can no longer be used.
 * Okta processes the sessions synchronously (not in parallel) for an identity source. If you trigger multiple sessions for an identity source, then the sessions are queued up for sequential processing.
-* You can't create an identity source session within five minutes of triggering an active session associated with the same identity source. If Okta receives a new identity source session request within five minutes of an active identity source session with the `CREATED` or the `TRIGGERED` status, Okta returns a 400 Bad Request response.
+* You can't create an identity source session within five minutes of triggering an active session associated with the same identity source. If Okta receives a new identity source session request within five minutes of an active identity source session with the `CREATED`, `IN_PROGRESS`, or the `TRIGGERED` status, Okta returns a 400 Bad Request response.
 
 > **Note:** You can use the [List all identity source sessions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/listIdentitySourceSessions) request to return active identity source sessions for an identity source.
 
@@ -69,6 +71,8 @@ There are two types of bulk-load requests:
 
 * `/bulk-upsert`: Insert or update user profiles in the bulk-load request
 * `/bulk-delete`: Deactivate the user profiles in the bulk-load request
+
+Once a `/bulk-upsert` or `/bulk-delete` request is made, the identity source session transitions from `CREATED` to `IN_PROGRES` status.
 
 You can load up to 200 KB of data in a single bulk-load (`/bulk-upsert` or `/bulk-delete`) request for an identity source session. This equates to 200 user profiles. To load more user profiles, make multiple bulk-load requests to the same session. The maximum number of bulk-load requests for a session is 50.
 
