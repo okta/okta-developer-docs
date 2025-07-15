@@ -319,6 +319,12 @@
   }
 }
 
+@media (max-width: 425px) {
+  .content--container .content-area {
+    padding: 30px 30px 40px;
+  }
+}
+
 @include media(">=tablet") {
   .content--container .content-area a {
     word-break: normal;
