@@ -203,7 +203,7 @@ The variable, `patientID`, can now be returned to Okta as an additional token cl
 
 ## Extend the sample Express app
 
-The following code extends the local sample Node.js Express app to display the results of the token inline hook claim addition. This step is optional. The token inline hook is functional. The implementation results appear in the external service logs and in the System Logs on your Okta org. But this extension is a nice way to display the added claim.
+The following code extends the local sample Node.js Express app to display the results of the token inline hook claim addition. This step is optional. The token inline hook is functional. The implementation results appear in the external service logs and in the System Logs on your Okta org. This extension is a way to display the added claim.
 
 To extend the local sample Node.js Express app, you need to update the `sample-web-server.js` file.
 
