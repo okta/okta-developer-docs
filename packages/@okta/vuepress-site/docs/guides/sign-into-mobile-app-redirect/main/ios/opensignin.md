@@ -4,7 +4,7 @@ Update the `signIn()` function of `ContentView.swift` with the code to sign in t
 func signIn() {
    Task {
       do {
-         if let token = try await WebAuthentication.shared?.signIn(from: nil)
+         if let token = try await BrowserSignin.shared?.signIn(from: nil)
          {
             try Credential.store(token)
             updateStatus("Signed in", infoText: "", signedInStatus: true)
@@ -32,7 +32,7 @@ func signOut() {
       do {
          // Show the activity indicator and block UI input.
          busy = true
-         try await WebAuthentication.shared?.signOut(from: nil)
+         try await BrowserSignin.shared?.signOut(from: nil)
          // Remove the stored credential.
          try Credential.default?.remove()
          updateStatus("Signed out", infoText: "", signedInStatus: false)
