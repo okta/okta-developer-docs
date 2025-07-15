@@ -8,6 +8,16 @@ title: Okta Identity Engine API release notes 2025
 
 ## July
 
+### Weekly release 2025.07.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bug fixed in 2025.07.2](#bug-fixed-in-2025-07-2)| July 16, 2025 |
+
+#### Bug fixed in 2025.07.2
+
+When the Direct Authentication feature was enabled, calling the Apps API with a custom role couldn’t create OIDC apps. (OKTA-970705)
+
 ### Monthly release 2025.07.0
 
 | Change | Expected in Preview Orgs |
