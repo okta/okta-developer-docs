@@ -685,9 +685,15 @@ export default {
 
         switch (status) {
           case 400: {
-            if (data.errorCauses && data.errorCauses.length) {
-              this.error = data.errorCauses[0].errorSummary;
+            if (data.code === 'WIC_DUP_EMAIL') {
+              this.error = 'An Okta Integrator Free Plan org already exists for the email provided';
+              break;
             }
+            if (data.message) {
+              this.error = message;
+              break;
+            }
+            this.error = GENERIC_ERROR_MSG;
             break;
           }
           default: {
