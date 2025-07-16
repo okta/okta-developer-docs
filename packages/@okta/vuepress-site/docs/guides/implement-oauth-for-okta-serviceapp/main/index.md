@@ -47,7 +47,7 @@ The following are the high-level steps required to perform the Client Credential
 
 > **Notes:**
 > * OAuth for Okta works only with allowed [OAuth 2.0 scopes](https://developer.okta.com/docs/api/oauth2/#okta-admin-management).
-> * For each service app you create, you need to assign admin roles to constrain the permissions and resources of that app for least privilege access. See [Assign admin roles to the OAuth 2.0 service app](#assign-admin-roles-to-the-oauth-2-0-service-app). If you want to bypass assigning admin roles to service apps, you can enable the **Public client app admins** org setting. This automatically assigns the [super admin role](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles) (`SUPER_ADMIN`) after scopes are granted to service apps. Go to **Settings** > **Account** > **Public client app admins** in the Admin Console to edit this setting. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps). Disable this setting after you incorporate admin role assignments in your workflow.
+> * For each service app you create, you need to assign admin roles to constrain the permissions and resources of that app for least privileged access. See [Assign admin roles to the OAuth 2.0 service app](#assign-admin-roles-to-the-oauth-2-0-service-app). If you want to bypass assigning admin roles to service apps, you can enable the **Public client app admins** org setting. This automatically assigns the [super admin role](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles) (`SUPER_ADMIN`) after scopes are granted to service apps. Go to **Settings** > **Account** > **Public client app admins** in the Admin Console to edit this setting. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps). Disable this setting after you incorporate admin role assignments in your workflow.
 
 ## Create a service app integration
 
@@ -117,7 +117,7 @@ curl -i -X POST \
   }'
 ```
 -->
-## Generate the JWK using the API
+## Generate a JWK key pair
 
 The `private_key_jwt` client authentication method is the only supported method for OAuth service apps that want to get access tokens with Okta scopes.
 
@@ -130,9 +130,9 @@ The private key that you use to sign the JWT must have the corresponding public 
     * Algorithm: RSA256
     * Key ID: any random value
 
-> **Note:** Use the JSON Web Key Generator link to generate a JWKS public/private key pair for testing purposes only. For a production use case, use your own internal instance of the key pair generator. See this [key pair generator](https://github.com/mitreid-connect/mkjwk.org) for an example.
+> **Note:** Use the JSON Web Key Generator link from the first step to generate a JWKS public/private key pair for testing purposes only. For a production use case, use your own internal instance of the key pair generator. See this [key pair generator](https://github.com/mitreid-connect/mkjwk.org) for an example.
 
-2. The JSON Web Key Generator tool extracts the public key from the key pair automatically. For testing purposes, copy the Public Key that is provided.
+2. The JSON Web Key Generator tool extracts the public key from the key pair automatically. For testing purposes, copy the public key that's provided.
 
 > **Note:** Some Okta SDKs require that keys be in Privacy Enhanced Mail (PEM) format. If the Okta SDK requires PEM, after you generate the key pair, copy it into a [JWK to PEM Convertor tool](https://8gwifi.org/jwkconvertfunctions.jsp). Then, copy the private key to use when signing the JWT.
 
@@ -151,69 +151,11 @@ The JWKS should look something like this:
     ]
 ```
 
-## Generate the JWK using the Admin Console
+3. Use the [Configure public keys](/docs/guides/client-secret-rotation-key/main/#configure-public-keys) section of the "Client secret rotation and key management" guide to [save your signing key in Okta](/docs/guides/client-secret-rotation-key/main/#save-keys-in-okta) for your app. You can also [add a JWKS URI](/docs/guides/client-secret-rotation-key/main/#use-a-url-to-fetch-keys-dynamically) for Okta to fetch keys dynamically.
 
-Generate a public/private key pair using the Admin Console.
+To have Okta generate the JWK key pair, use the Admin Console. See [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
 
 > **Note:** Use the Admin Console to generate a JWK public/private key pair for testing purposes only. For a production use case, use your own internal instance of the key pair generator. See this [key pair generator](https://github.com/mitreid-connect/mkjwk.org) for an example.
-
-1. In the **Client Credentials** section of the **General** tab, click **Edit** to change the client authentication method.
-
-2. Select **Public key/Private key** as the **Client authentication** method.
-
-  > **Note:** When you switch the client authentication method to **Public key/Private key**, any existing client secrets are deleted.
-
-3. Choose how you want to store the JWK and then use the next sections to complete the steps.
-    * **Save keys in Okta**: Copy your public keys into Okta.
-    * **Use a URL to fetch keys dynamically**: Define the URI where you host your public keys.
-
-### Save keys in Okta
-
-This option allows you to bring your own keys or use the Okta key generator. There’s no limit to the number of JWKs that you can add for an app.
-
-1. Leave the default of **Save keys in Okta**, and then click **Add key**.
-1. Click **Add** and in the **Add a public key** dialog, do one of the following:
-
-    * Paste your own public key into the box. Be sure to include a `kid` as all keys in the JWKS must have a unique ID.<br><br>
-    **OR**<br>
-    * Click **Generate new key** and the 2048-bit RSA public and private keys appear in JWK format.
-
-        Some Okta SDKs require that keys be in Privacy Enhanced Mail (PEM) format. If the Okta SDK requires this format, click **PEM**. The private key appears in PEM format.
-
-        This is your only opportunity to save the private key. Click **Copy to clipboard** to copy the private key and store it somewhere safe.
-
-1. Click **Done**. The new public key is now registered with the app and appears in a table in the **PUBLIC KEYS** section of the **General** tab.
-
-1. Click **Save**. A message states that the client authentication method is now **Public key/Private key**. Any existing client secrets for the app are deleted. Click **Save** to continue.
-
-### Use a URL to fetch keys dynamically
-
-This option allows you to host your public key in a URI and paste the link to the public key in the Admin Console. This URL contains public keys that clients can use to verify the signature of client-based access tokens and OpenID Connect ID tokens. By hosting the keys in a URL, you can conveniently rotate the keys without having to update the app configuration every time.
-
-> **Note:** If you switch from saving keys in Okta to using a URL to fetch keys dynamically, any saved public keys are deleted.
-
-1. After you select **Use a URL to fetch keys dynamically**, enter the URL in the **URL** box, for example: `https://{yourOktaDomian}/oauth2/v1/keys`.
-
-1. Click **Save**.
-
-1. Make note of the client ID. You need this in the [Get an access token](#get-an-access-token) section.
-
-    The JWKS should look something like this:
-
-    ```json
-    {
-        "keys": [
-        {
-            "kty": "RSA",
-            "e": "AQAB",
-            "use": "sig",
-            "kid": "my_key_id",
-            "alg": "RS256",
-            "n": "u0VYW2-76A_lYg5NQihhcPJYYU9-NHbNaO6LFERWnOUbU7l3MJdmCailwSzjO76O-2GdLE-Hn2kx04jWCCPofnQ8xNmFScNo8UQ1dKVq0UkFK-sl-Z0Uu19GiZa2fxSWwg_1g2t-ZpNtKCI279xGBi_hTnupqciUonWe6CIvTv0FfX0LiMqQqjARxPS-6fdBZq8WN9qLGDwpjHK81CoYuzASOezVFYDDyXYzV0X3X_kFVt2sqL5DVN684bEbTsWl91vV-bGmswrlQ0UVUq6t78VdgMrj0RZBD-lFNJcY7CwyugpgLbnm4HEJmCOWJOdjVLj3hFxVVblNJQQ1Z15UXw"
-        }
-      ]
-    }
-    ```
 
 ## Grant allowed scopes
 
@@ -281,7 +223,7 @@ Use the following [JWT claims](https://developer.okta.com/docs/api/openapi/okta-
     }
     ```
 
-2. In the **Signing Key** box, paste the public and private key that you generated in the [Generate the JWK using the Admin Console](#generate-the-jwk-using-the-admin-console) step.
+2. In the **Signing Key** box, paste the public and private key that you generated in the [Generate a key pair](#generate-a-key-pair) step.
 
 3. For the key format, use either the default of **JWT** or switch to **PEM**, and then click **Generate JWT**.
 
@@ -335,7 +277,7 @@ Make a request to the `/users` endpoint using the access token.
 3. Click the **Authorization** tab and from the **Type** dropdown box, select **OAuth 2.0**.
 4. On the right, paste the access token into the **Access Token** box and click **Send**. The response should contain an array of all the users who are associated with your app. This depends on the user's permissions.
 
-**Example Request**
+**Example request**
 
 ```bash
 curl -X GET "https://{yourOktaDomain}/api/v1/users"

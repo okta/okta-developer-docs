@@ -22,8 +22,8 @@ This guide shows you how to rotate and manage your client secrets without servic
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * Access to client secret management APIs: `/api/v1/apps/{appId}/credentials/secrets` and JWKS management `/api/v1/apps/{appId}/credentials/jwks`. See [Application Client Auth Credentials](/openapi/okta-management/management/tag/ApplicationSSOCredentialOAuth2ClientAuth/).
 * An existing OpenID Connect client app in Okta for testing in Okta
-* The[Postman client](https://www.getpostman.com/downloads/) to test requests. See [Get Started with the Okta APIs](https://developer.okta.com/docs/reference/rest/) for information on setting up Postman.
-* The [Client Secret Rotation and Key Management Postman Collection](https://www.postman.com/devdocsteam/workspace/developer-docs-postman-collections/collection/6141897-2cc824d1-a4d2-4a13-8460-988a8f834f5e) that allows you to test the API calls that are described in this guide. Click the ellipses next to the collection name in the left panel. Click **More** > **Export**, and then click **Export JSON**. You can then import the collection into your Postman Workspace.
+* The [Postman client](https://www.getpostman.com/downloads/) to test requests. See [Get Started with the Okta APIs](https://developer.okta.com/docs/reference/rest/) for information on setting up Postman.
+* The [Client Secret Rotation and Key Management Postman Collection](https://www.postman.com/devdocsteam/workspace/developer-docs-postman-collections/collection/6141897-2cc824d1-a4d2-4a13-8460-988a8f834f5e) that allows you to test the API calls that are described in this guide. Click the ellipses next to the collection name in the left panel. Click **More** > **Export**, and then click **Export JSON** to export the collection locally. You can then import the collection into your Postman Workspace.
 
 ---
 
@@ -31,15 +31,19 @@ This guide shows you how to rotate and manage your client secrets without servic
 
 Just like periodically changing passwords, regularly rotating the client secret that your app uses to authenticate is a security best practice. The challenge with rotating the client secret is to facilitate a seamless client secret rotation without service or app downtime. You need the ability to create overlapping client secrets.
 
-Depending on what type of credentials that a [client uses to authenticate](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#client-authentication-methods), a JSON Web Key (JWK) public/private key pair may be required. Apps that use private/public key pairs for client authentication have substantially higher security. This is because only the client can access the private key. But, private/public key pair generation is laborious and time-consuming, and using the API can lead to errors.
-
-### Generate more secrets and JWKS
-
-To make client secret rotation more seamless, generate an additional client secret for web apps, service apps, and native apps using the API. You can also add a JWK public/private key pair (in JWK format) or define a JWKS URI for your app using the API. You can only use the Admin Console to have Okta generate a JWK public/private key pair (in JWK format) for your app.
-
-To use the Admin Console to rotate a secret for an app, add your own JWK key pairs and JWKS URIs, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
-
 > **Note:** Using client authentication with a client secret isn’t recommended for native apps because they’re public clients. The default authorization type for native apps is **Authorization Code with PKCE**. See [Choose an OAuth 2.0 flow](/docs/concepts/oauth-openid/#choose-an-oauth-2-0-flow) for more information on the type of flow to use. See [Implement authorization by grant type](https://developer.okta.com/docs/guides/implement-grant-type/authcodepkce/main/) for more information on how to implement that flow.
+
+### Signing keys
+
+Depending on what type of credentials that a [client uses to authenticate](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#client-authentication-methods), a signing key pair (JWK) may be required. Apps that use signing keys for client authentication have substantially higher security. This is because only the client can access the private key.
+
+### Encryption keys
+
+In addition, you might want to encrypt the ID token minted by an Okta authorization server for your app. This provides an additional layer of security by protecting sensitive information during transmission.
+
+This guide covers the API steps for managing your client secrets and JSON Web Keys. To use the Admin Console to rotate a secret for an app, add your own signing or encryption keys, or add a JWKS URI, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
+
+> **Note:** To have Okta generate a signing or encryption key for you, you must use the Admin Console.
 
 ### About the Postman Collection
 
@@ -244,7 +248,7 @@ In the context of securing your app with Okta, there are two types of public key
 
 * **Signing keys (sig) for client authentication**: These JSON web signature keys are used to authenticate your app with Okta. They ensure that the requests made to Okta are indeed coming from your app, providing a layer of trust and security in the communication process.
 
-You can use the API to add your own signing keys or a JWK URI to authentication your app with Okta. To have Okta generate a signing public/private key pair for your app, use the [Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
+    You can use the API to add your own signing keys or a JWK URI to authentication your app with Okta. To have Okta generate a signing public/private key pair for your app, use the [Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
 
 * **Encryption keys (enc) for ID tokens**: These JSON web encryption keys are used to encrypt the ID token. This provides an additional layer of security by protecting sensitive information during transmission.
 
