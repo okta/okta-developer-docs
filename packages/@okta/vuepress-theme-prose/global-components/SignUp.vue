@@ -686,7 +686,7 @@ export default {
         switch (status) {
           case 400: {
             if (data.code === 'WIC_DUP_EMAIL') {
-              this.error = 'Okta integrator org already exists for email provided';
+              this.error = 'An Okta Integrator Free Plan org already exists for the email provided';
               break;
             }
             if (data.message) {
