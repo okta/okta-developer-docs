@@ -35,7 +35,7 @@ The easiest and most secure way to add a user sign-in flow to your server-side w
 In this quickstart, you:
 
 1. [Create an app integration in the Admin Console](#create-an-app-integration-in-the-admin-console).
-1. [Create and configure a new web app to use Okta](#create-and-configure-a-new-web-application-to-use-okta).
+1. [Create and configure a new web app to use Okta](#create-and-configure-a-new-web-app-to-use-okta).
 1. [Test that a user can sign in and sign out](#test-that-a-user-can-sign-in-and-sign-out).
 1. [Configure different levels of access for specific areas of the site](#configure-different-levels-of-access-for-specific-areas-of-the-site).
 
@@ -48,7 +48,7 @@ An **app integration** represents your app in your Okta org. Use it to configure
 To create an app integration for your app:
 
 1. Open the Admin Console for your org.
-   1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
+   1. [Sign in to your Okta organization](https://developer.okta.com/login) with your admin account.
    [[style="list-style-type:lower-alpha"]]
    1. Click **Admin** in the upper-right corner of the page.
 1. Go to **Applications** > **Applications** to view the current app integrations.
@@ -62,7 +62,7 @@ To create an app integration for your app:
 1. Enter the callback URLs for the local development of your app.
    1. Enter <StackSnippet snippet="signinredirecturi" inline /> for **Sign-in redirect URIs**.
    [[style="list-style-type:lower-alpha"]]
-   1. Enter <StackSnippet snippet="signoutredirecturi" inline /> for **Sign-out redirect URIs**.
+   1. Enter <StackSnippet snippet="signoutredirecturi" inline /> for **Logout redirect URIs**.
 
    > **Note:** The values suggested here are those used in the sample app.
 
@@ -107,10 +107,10 @@ Earlier you [noted the client ID and client secret](#note-your-client-id-and-cli
 
 ### Add the pages and logic for a user to sign in and sign out
 
-A user can start the sign-in process by:
+A user can start the sign-in process by doing one of the following:
 
 * Clicking a sign-in link or button
-* Trying to access a protected page, such as their profile page.
+* Trying to access a protected page, such as their profile page
 
 In both cases, the app redirects the browser to the Okta-hosted sign-in page. See [Redirect to the sign-in page](#redirect-to-the-sign-in-page).
 
