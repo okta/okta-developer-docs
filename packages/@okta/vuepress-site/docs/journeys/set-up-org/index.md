@@ -32,7 +32,7 @@ The email and password that you use to create your account are used as your admi
 
 ## Create user accounts
 
-After you get access to your org, create two user accounts and one service account.
+After you get access to your org, create two user accounts.
 
 Users are assigned to non-administrator user groups either during or after their creation. Admins must assign users their admin role after their creation.
 
@@ -70,40 +70,9 @@ Create a second test account.
 1. For **Activation**, select **Activate now**.
 1. Select **I will set password**, and enter a password.
 1. Clear the **User must change password on first login** checkbox.
-1. Select **Save and Add Another**. Next, [create a service admin account](#create-an-okta-service-account).
+1. Select **Save and Add Another**.
 
 See [Add users manually](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-add-users.htm).
-
-### Create an Okta service account
-
-Create a service admin account to create API Keys that you can use for development tasks.
-
-1. In the existing **Add Person** dialog, configure your service account like this:
-
-   * **First name**: Okta
-   * **Last name**: Service
-   * **Username**: okta.service@example.com
-   * **Primary email**: okta.service@example.com
-   * **Secondary email**: Enter your email address that you used to create your Okta account
-
-1. For **Activation**, select **Activate now**.
-1. Select **I will set password**, and enter a password.
-1. Clear the **User must change password on first login** checkbox.
-
-   > **Note:** If you have a group that you want to add a user to, enter it in **Groups**. Or see [Add a user to the group](#add-a-user-to-the-group)
-
-1. Click **Save**.
-
-### Assign admin permissions to the Okta service account
-
-User accounts don't have admin permissions until they're assigned, so you need to grant permissions to your user accounts. In this section, assign admin permission to the Okta Service account.
-
-1. In the Admin Console, go to **Security** > **Administrators**.
-1. Select **Roles**.
-1. Scroll down to the **Super Administrator** row. Select **Edit** > **View or edit assignments**.
-1. Click **Add assignment**.
-1. Under **Select admin**, enter "Okta Service" and select that user from the options that appear.
-1. Click **Save Changes**.
 
 ### Activate the accounts
 
@@ -112,12 +81,12 @@ If you don't activate your test accounts when creating them, you can activate th
 1. In the Admin Console, select your name in the upper right corner of the page. [Copy your domain](docs/guides/find-your-domain/main/#find-your-okta-domain) to your clipboard.
 1. In your browser, open a private browsing window. For example, if you're using Chrome as your browser, open a new incognito window.
 1. Paste your domain into the address bar.
-1. Sign into your org as `okta.service@example.com`.
+1. Sign into your org as `alex.doe@example.com`.
 1. When prompted, follow the steps to set up Okta Verify.
 1. Select **Continue**.
 1. Close the window.
 
-Use the same process when you activate your test accounts, but use `john.doe@example.com` or `alex.doe@example.com` as the username.
+Use the same process when you activate other accounts.
 
 ## Create a user group
 
@@ -200,6 +169,10 @@ Server-side apps are used in scenarios where authentication and tokens are handl
 Single-page web apps run in the browser where the client receives tokens.
 
 * [React](/docs/guides/oie-embedded-common-org-setup/react/main/#create-an-application)
+
+## Set up your app to use the Okta APIs
+
+This step is optional. However, you can use your web app to interact with Okta APIs. Follow the steps in [Set up Okta for API access](/docs/reference/rest/#set-up-okta-for-api-access) and use the app that you created in the [previous section](#create-an-app).
 
 ## Set up your Okta org for your use cases
 
@@ -308,7 +281,7 @@ An authenticator enrollment policy determines which authenticators must challeng
 ##### Create a rule for the policy
 
 1. Enter **Password-optional sign-in policy rule** as the name.
-1. Under **Exclude users**, enter your username and `Okta Service` to ensure that the policy doesn't apply to your admins.
+1. Under **Exclude users**, enter your username to ensure that the policy doesn't apply to your admins.
 1. Leave the other settings at their defaults, and then click **Create rule**.
 1. Move the new policy immediately above the default policy in the list of policies.
 
