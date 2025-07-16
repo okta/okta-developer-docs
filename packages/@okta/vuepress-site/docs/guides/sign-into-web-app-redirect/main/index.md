@@ -30,7 +30,7 @@ Add a user sign-in flow to a server-side web app with Okta's [redirect model](ht
 
 The easiest and most secure way to add a user sign-in flow to your server-side web app is to use an Okta-hosted Sign-In Widget. When a user attempts to sign in, the app redirects them to the widget hosted on an Okta web page. After they've signed in successfully, Okta redirects them back to the app. This is known as the [redirect authentication deployment model](/docs/concepts/redirect-vs-embedded/#redirect-authentication).
 
-> **Note**: To use the redirect model in a single-page application (SPA), see [Sign users in to your SPA using the redirect model](/docs/guides/sign-into-spa-redirect/). To use the redirect model in a mobile app, see [Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/).
+> **Note**: To use the redirect model in a single-page app (SPA), see [Sign users in to your SPA using the redirect model](/docs/guides/sign-into-spa-redirect/). To use the redirect model in a mobile app, see [Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/).
 
 In this quickstart, you:
 
@@ -39,7 +39,7 @@ In this quickstart, you:
 1. [Test that a user can sign in and sign out](#test-that-a-user-can-sign-in-and-sign-out).
 1. [Configure different levels of access for specific areas of the site](#configure-different-levels-of-access-for-specific-areas-of-the-site).
 
-> **Tip**: You need your Okta org domain to follow this tutorial. It looks like `dev-123456.okta.com` or `trial-123456.okta.com` . See [Find your Okta domain](/docs/guides/find-your-domain/). Where you see `{yourOktaDomain}` in this guide, replace it with your Okta domain.
+> **Tip**: You need your Okta org domain to follow this tutorial. It looks like `dev-123456.okta.com` or `trial-123456.okta.com`. See [Find your Okta domain](/docs/guides/find-your-domain/). Where you see `{yourOktaDomain}` in this guide, replace it with your Okta domain.
 
 ## Create an app integration in the Admin Console
 
@@ -84,7 +84,7 @@ Moving on, where you see `{clientId}` and `{clientSecret}` in this guide, replac
 
 ## Create and configure a new web app to use Okta
 
-Now that you have created the app integration and noted the configuration settings, complete the following steps:
+Now that you’ve created the app integration and noted the configuration settings, complete the following steps:
 
 * [Create a web app](#create-a-web-app).
 * [Add the required packages to your app](#add-the-required-packages-to-your-app)
@@ -160,7 +160,7 @@ Your website may have a protected portion that is only available to authenticate
 
 ### Allow anonymous access
 
-Your website may enable anonymous access for some content but require a user to sign in for other content or to take some other action. For example, an ecommerce site might allow a user to browse anonymously and add items to a cart, but require a user to sign in for checkout and payment.
+Your website may enable anonymous access for some content but require a user to sign in for other content or to take some other action. For example, an ecommerce site might allow users to browse anonymously and add items to a cart. When a user needs to check out and pay, the site requires the user to sign in first.
 
 <StackSnippet snippet="reqauthanon" />
 
