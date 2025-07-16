@@ -21,11 +21,11 @@ For changes prior to 2025, see [Archived Okta Identity Governance API Changelog 
 
 The `_links.relatedEntity` (or `data._links.relatedEntity`) property is now returned for parent catalog entries, in addition to child entries, for the following operations:
 
-* Management APIs > Access Requests - V2 > Catalogs > [List all entries for the default access request catalog](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultEntriesV2)
-* Management APIs > Access Requests - V2 > Catalogs > [Retrieve a catalog entry](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/getCatalogEntryV2)
-* End user APIs > My Catalogs > [List all of my entries for the default access request catalog](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Catalogs/#tag/My-Catalogs/operation/listMyDefaultEntriesV2)
-* End user APIs > My Catalogs > [Retrieve an entry from my catalog](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Catalogs/#tag/My-Catalogs/operation/getMyEntryV2)
-* End user APIs > My Catalogs > [List all of my catalog entry users](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Catalogs/#tag/My-Catalogs/operation/listMyEntryUsersV2)
+* [List all entries for the default access request catalog](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultEntriesV2)
+* [Retrieve a catalog entry](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/getCatalogEntryV2)
+* [List all of my entries for the default access request catalog](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Catalogs/#tag/My-Catalogs/operation/listMyDefaultEntriesV2)
+* [Retrieve an entry from my catalog](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Catalogs/#tag/My-Catalogs/operation/getMyEntryV2)
+* [List all of my catalog entry users](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Catalogs/#tag/My-Catalogs/operation/listMyEntryUsersV2)
 <!--OKTA-958888 -->
 
 #### Bug fixed in 2025.07.2
