@@ -37,7 +37,7 @@ Depending on what type of credentials that a [client uses to authenticate](https
 
 To make client secret rotation more seamless, generate an additional client secret for web apps, service apps, and native apps using the API. You can also add a JWK public/private key pair (in JWK format) or define a JWKS URI for your app using the API. You can only use the Admin Console to have Okta generate a JWK public/private key pair (in JWK format) for your app.
 
-To rotate a secret for an app, add your own JWK key pairs and JWKS URIs using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
+To use the Admin Console to rotate a secret for an app, add your own JWK key pairs and JWKS URIs, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
 
 > **Note:** Using client authentication with a client secret isn’t recommended for native apps because they’re public clients. The default authorization type for native apps is **Authorization Code with PKCE**. See [Choose an OAuth 2.0 flow](/docs/concepts/oauth-openid/#choose-an-oauth-2-0-flow) for more information on the type of flow to use. See [Implement authorization by grant type](https://developer.okta.com/docs/guides/implement-grant-type/authcodepkce/main/) for more information on how to implement that flow.
 
@@ -236,24 +236,36 @@ After you revalidate that your app works after changing the old client secret st
 
 > **Note:** If you turn off **OAuth secrets and key management**, and you have two secrets for an app, Okta retains the secret with the most recent **Creation date**.
 
-## Add a JWK key pair or URI
+## Configure public keys
 
-You can use the API to add your own JWK key pair and JWK URI. To have Okta generate a JWK key pair for your app, use the [Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
+Public keys are used to enhance security by allowing clients to verify the signatures of tokens issued by your app. Public keys can be shared openly. This enables clients to confirm the authenticity of the tokens without compromising the private key.
 
-> **Note:** Use the Admin Console to generate a JWK public/private key pair for testing purposes only. For a production use case, use your own internal instance of the key pair generator. For an example, see [key pair generator](https://github.com/mitreid-connect/mkjwk.org).
+In the context of securing your app with Okta, there are two types of public keys that play crucial roles. Understanding and properly managing these keys is essential for maintaining the security and integrity of your app when interacting with Okta.
 
-### Save keys in Okta
+* **Signing keys (sig) for client authentication**: These JSON web signature keys are used to authenticate your app with Okta. They ensure that the requests made to Okta are indeed coming from your app, providing a layer of trust and security in the communication process.
 
-This option allows you to bring your own keys. You can add up to 50 keys per app.
+You can use the API to add your own signing keys or a JWK URI to authentication your app with Okta. To have Okta generate a signing public/private key pair for your app, use the [Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
+
+* **Encryption keys (enc) for ID tokens**: These JSON web encryption keys are used to encrypt the ID token. This provides an additional layer of security by protecting sensitive information during transmission.
+
+In your requests, include the `use` parameter to indicate which type of key that you want to create. A value of `use: sig` creates a client authentication key. A value of `use: enc` creates a token encryption key.
+
+> **Note:** Use the Admin Console to generate a signing or encryption public/private key pair for testing purposes only. For a production use case, use your own internal instance of the key pair generator. For an example, see [key pair generator](https://github.com/mitreid-connect/mkjwk.org).
+
+#### Save keys in Okta
+
+This option allows you to bring your own signing or encryption keys. You can add up to 50 keys per app.
 
 > **Note**: Some Okta SDKs require that keys be in privacy enhanced mail (PEM) format. If you're using an SDK, verify the format required before you create your JWK.
 
-1. Use the **Add a JWK** request in the **JSON Web Key (JWK) Management API** folder of the Postman collection.
+1. Use the **Add a signing key JWK** or the **Add an encryption key** request in the **JSON Web Key (JWK) Management API** folder of the Postman collection.
 1. In the path parameters, replace the following variables:
     * `{url}`: Your Okta domain URL where the app is configured
     * `{applicationId}`: The application ID
-1. On the **Body** tab, paste your public key.
+1. On the **Body** tab, paste your public key. Be sure to include a value for the `kid` parameter. In addition, verify that the `use` parameter has a value of `sig` to indicate a signing key JWK. For an encryption key JWK, the `use` parameter should be `enc`.
 1. Send the `POST {yourOktaDomain}/api/v1/apps/{applicationId}/credentials/jwks` request. The response should look something like this:
+
+    **Signing key**
 
     ```json
         {
@@ -280,23 +292,51 @@ This option allows you to bring your own keys. You can add up to 50 keys per app
         }
     ```
 
+    **Encryption key**
+
+    ```json
+        {
+            "kty": "RSA",
+            "id": "pks8m1hju1OGb5Gi90g7",
+            "created": "2025-07-15T22:46:10.000Z",
+            "lastUpdated": "2025-07-15T22:46:10.000Z",
+            "status": "ACTIVE",
+            "kid": "zUjOKTJrPP-XFgg7B8nAJN9vAUONXuFPUBi1kD_HLAs",
+            "use": "enc",
+            "_links": {
+                 "deactivate": {
+                    "href": "https://sharper.trexcloud.com/api/v1/apps/0oa8m1md84CzGh86U0g7/credentials/jwks/pks8m1hju1OGb5Gi90g7/lifecycle/deactivate",
+                    "hints": {
+                        "allow": [
+                            "POST"
+                        ]
+                    }
+                 }
+            },
+            "e": "AQAB",
+            "n": "hUo9QIgVHGG9zopM6u2Mj9NYu6IeuwI_seODhZ1qMb66Mhq1QWk7gYbRIfX7cj-IjetiNNwd5lOAB0jL4u8YXAtUfzVPOaQitnmC3rGBEu6JM_zh1yy6zxzgu85ekp2qfUTqdiLaAxmQq0VVQNPGXpN3axb17CtPFG7MjVAuuGSHQAKvGkSmz8av_bIHYbflksACoCohoH_5nFoN6wVamE1w43zwSy8W4SMwzfOQO10lCdBGexnunOKtHsmE0lKD0sb0UI6QGxDwePRy-gJC4s7FkM4gnHxhPbGsoOMlOYiczR5FANtCVA8WjqkJ2uxUvjEaegKjHE16GFKnvavtoQ"
+        }
+    ```
+
 1. Test your app and ensure that all functionality works with the new JWK.
 
-### Use a URL to fetch keys dynamically
+#### Use a URL to fetch keys dynamically
 
 This option allows you to host your public key in a URI. This URL contains public keys that clients can use to verify the signature of client-based access tokens and OpenID Connect ID tokens. By hosting the keys in a URL, you can conveniently rotate the keys without having to update the app configuration every time. Okta dynamically fetches the latest public key for the app, which eliminates the need to manually update the public key when you’re rotating the key pair.
 
-1. Use the **Add a JWK URI** request in the **JSON Web Key (JWK) Management API** folder of the Postman collection.
+1. Use the **Add a signing key URI** or **Add an encryption key URI** request in the **JSON Web Key (JWK) Management API** folder of the Postman collection.
 1. In the path parameters, replace the following variables:
     * `{url}`: Your Okta domain URL where the app is configured
-    * `{applicationId}`: The application ID
-1. On the **Body** tab, use the request body template to add the appropriate values for your app and enter your JWKS URI as the `jwks_uri` value.
+    * `{clientId}`: The application ID
+1. On the **Body** tab, use the request body template to add the appropriate values for your app, and then enter your JWKS URI as the `jwks_uri` value. In addition, verify that the `use` parameter has a value of `sig` to indicate a signing key JWK. For an encryption key JWK, the `use` parameter should be `enc`.
 1. Send the `POST {yourOktaDomain}/oauth2/v1/clients/{clientId}` request. The response should look something like this:
+
+    **Signing key**
 
     ```JSON
         {
-            "client_id": "{{client_id}}",
-            "client_secret": "{{client_secret}}",
+            "client_id": "{client_id}",
+            "client_secret": "{client_secret}",
             "client_id_issued_at": 1642033231,
             "client_secret_expires_at": 0,
             "client_name": "JWKs URI Test App",
@@ -320,7 +360,36 @@ This option allows you to host your public key in a URI. This URL contains publi
         }
     ```
 
-### Retire a public key
+    **Encryption key**
+
+    ```JSON
+        {
+            "client_id": "0oa8m1md84CzGh86U0g7",
+            "client_secret": "26CtEdxtGGkjgYH5FaatFDn3sssoE164wJRGJM5nTCvLxanDR0-T6eMbEu-gcs7f",
+            "client_id_issued_at": 1752619515,
+            "client_secret_expires_at": 0,
+            "client_name": "Encryption URI test app",
+            "client_uri": null,
+            "logo_uri": null,
+            "redirect_uris": [
+                "http://localhost:8080/authorization-code/callback"
+            ],
+            "post_logout_redirect_uris": [
+                "http://localhost:8080"
+            ],
+            "response_types": [
+                "code"
+            ],
+            "grant_types": [
+                "authorization_code"
+            ],
+            "jwks_uri": "https://raspy-term-b82c.imvenkat.workers.dev",
+            "token_endpoint_auth_method": "client_secret_basic",
+            "application_type": "web"
+        }
+    ```
+
+#### Retire a public key
 
 When you’re ready to retire a public key, change the older JWK status from **Active** to **Inactive** using the API.
 
@@ -333,6 +402,8 @@ When you’re ready to retire a public key, change the older JWK status from **A
     * `{applicationId}`: The application ID
     * `{jwksId}`: The `id` of the public JWK
 1. Send the `POST {yourOktaDomain}/api/v1/apps/{applicationId}/credentials/jwks/{jwksId}/lifecycle/deactivate` request. The response should look something like this:
+
+    **Signing key**
 
     ```JSON
         {
@@ -367,13 +438,47 @@ When you’re ready to retire a public key, change the older JWK status from **A
         }
     ```
 
-### Delete a public key
+    **Encryption key**
+
+    ```JSON
+        {
+            "kty": "RSA",
+            "id": "pks8m1hju1OGb5Gi90g7",
+            "created": "2025-07-15T22:46:10.000Z",
+            "lastUpdated": "2025-07-15T22:48:40.000Z",
+            "status": "INACTIVE",
+            "kid": "zUjOKTJrPP-XFgg7B8nAJN9vAUONXuFPUBi1kD_HLAs",
+            "use": "enc",
+            "_links": {
+                "activate": {
+                    "href": "https://sharper.trexcloud.com/api/v1/apps/0oa8m1md84CzGh86U0g7/credentials/jwks/pks8m1hju1OGb5Gi90g7/lifecycle/activate",
+                    "hints": {
+                        "allow": [
+                            "POST"
+                        ]
+                }
+            },
+                "delete": {
+                    "href": "https://sharper.trexcloud.com/api/v1/apps/0oa8m1md84CzGh86U0g7/credentials/jwks/pks8m1hju1OGb5Gi90g7",
+                    "hints": {
+                        "allow": [
+                            "DELETE"
+                        ]
+                }
+            }
+        },
+        "e": "AQAB",
+        "n": "hUo9QIgVHGG9zopM6u2Mj9NYu6IeuwI_seODhZ1qMb66Mhq1QWk7gYbRIfX7cj-IjetiNNwd5lOAB0jL4u8YXAtUfzVPOaQitnmC3rGBEu6JM_zh1yy6zxzgu85ekp2qfUTqdiLaAxmQq0VVQNPGXpN3axb17CtPFG7MjVAuuGSHQAKvGkSmz8av_bIHYbflksACoCohoH_5nFoN6wVamE1w43zwSy8W4SMwzfOQO10lCdBGexnunOKtHsmE0lKD0sb0UI6QGxDwePRy-gJC4s7FkM4gnHxhPbGsoOMlOYiczR5FANtCVA8WjqkJ2uxUvjEaegKjHE16GFKnvavtoQ"
+        }
+    ```
+
+#### Delete a public key
 
 After you deactivate the old key, you can then delete it. This ensures that the older key isn’t used by mistake.
 
 > **Note:** To delete a public key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
 
-1. Use the **Delete a JWK** request in the **JSON Web Key (JWK) Management API** folder of the Postman Csollection.
+1. Use the **Delete a signing key** or **Delete an encryption key** request in the **JSON Web Key (JWK) Management API** folder of the Postman Collection.
 1. In the path parameters, replace the following variables:
     * `{url}`: Your Okta domain URL where the app is configured
     * `{applicationId}`: The application ID
