@@ -33,7 +33,7 @@ After an admin configures the TAC authenticator settings, admins or help-desk ag
 
 This guide outlines [two authentication policy scenarios](#configure-authentication-policies-for-tac) that allow the use of the TAC authenticator. When you add the TAC authenticator to your own org policies remember that it's a knowledge factor.
 
-Users can use TAC, security questions, and their password as knowledge factors, depending on your authentication policy configuration and which authenticators they have access to. However, if your global session policy requires MFA, users must also have access to a possession or biometric factor.
+Users can sign in with TAC, security questions, and their password as knowledge factors, depending on your authentication policy configuration and which authenticators they have access to. However, if your global session policy requires MFA, users must also have access to a possession or biometric factor.
 
 #### Configure the TAC authenticator in authenticator enrollment policies
 
