@@ -30,7 +30,7 @@ The `_links.relatedEntity` (or `data._links.relatedEntity`) property is now retu
 
 #### Bug fixed in 2025.07.2
 
-A null pointer exception occurred when a `PUT /governance/api/v1/collections/{collecionId}/resources/{resourceId}` request was made on a collection without resources.
+A null pointer exception occurred when a `PUT /governance/api/v1/collections/{collecionId}/resources/{resourceId}` request was made on a collection without resources. (OKTA-970817)
 
 ### Monthly release 2025.07.0
 
