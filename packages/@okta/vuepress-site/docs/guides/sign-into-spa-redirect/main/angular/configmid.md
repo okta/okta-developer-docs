@@ -2,6 +2,8 @@ The Okta Angular SDK requires an instance of an `OktaAuth` object with configura
 
 Make the following changes to `src/app/app.config.ts`:
 
+1. Ensure that your default custom authorization server has an access policy. Add an access policy if it's not there. See [Create access polices](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-access-policies).
+
 1. Add the following import lines to the code to pull in the dependencies:
 
    ```ts
