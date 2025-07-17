@@ -42,13 +42,15 @@ The OIN team verifies your submitted integration before they publish it in the [
 
 ### Protocols supported
 
-This guide covers submissions that use the following protocols:
+This guide covers submissions that use the following protocols and integration:
 
 * [OpenID Connect (OIDC)](https://openid.net/connect/)
 
 * [Security Assertion Markup Language (SAML) 2.0](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html)
 
 * [System for Cross-domain Identity Management (SCIM) 2.0](https://scim.cloud)
+
+* [Universal Logout](https://developer.okta.com/docs/guides/oin-universal-logout-overview/)
 
 > **Notes:**
     > * Universal Logout integrations are only supported for SAML 2.0 and OIDC protocols. If you want to submit a Universal Logout integration with SCIM provisioning, you must also submit an SSO integration with either SAML 2.0 or OIDC.
@@ -187,7 +189,7 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 1. [Generate instances for testing](#generate-instances-for-testing). You need to create an app integration instance to test each protocol that your integration supports.
     * For an SSO integration, configure SSO and assign test users on the test instance.
     * For a SCIM integration, configure provisioning and map user profile attributes on the test instance.
-    * For a Universal Logout integration, configure the global token revocation endpoint and any other required properties on the test instance.
+    * For a Universal Logout integration, configure the global token revocation endpoint on the test instance.
 
 1. Test your integration.
    * For an SSO and Universal Logout integrations, test the required flows in the [OIN Submission Tester](#oin-submission-tester) with your generated test instance. Fix any test failures from the OIN Submission Tester, then regenerate the test instance (if necessary) and retest.
@@ -223,6 +225,7 @@ Okta recommends that you generate an instance for testing each protocol supporte
 
 * You must generate separate instances for testing if you support two SSO protocols (one for OIDC and one for SAML). The OIN Submission Tester can only test one protocol at a time.
 * If your SSO integration also supports SCIM, then create one instance for SCIM protocol testing and one instance for each SSO protocol testing.
+* If your integration supports Universal Logout along with an SSO protocol, then create one instance for Universal Logout testing and one instance for each SSO protocol testing.
 
 There are certain conditions where you can test two protocols on one instance. You can create one instance for SSO and SCIM testing if your integration meets all of these conditions:
 
@@ -292,9 +295,9 @@ If you modify a published OIN integration, you must generate an instance based o
 
 #### Add to Tester
 
-> **Note:** The OIN Submission Tester only supports SSO integrations. The **Add to Tester** option isn't available for SCIM integrations.
+> **Note:** The OIN Submission Tester only supports SSO and Universal Logout integrations. The **Add to Tester** option isn't available for SCIM integrations.
 
-* Click **Add to Tester** next to the instance in the **Application instances for testing** list to include it for testing with the OIN Submission Tester. The **Add to Tester** option only appears for SSO instances that are active and eligible for testing.
+* Click **Add to Tester** next to the instance in the **Application instances for testing** list to include it for testing with the OIN Submission Tester. The **Add to Tester** option only appears for SSO and Universal Logout instances that are active and eligible for testing.
 
     The corresponding test cases are populated with the instance name and the **Run test** option is enabled in the OIN Submission Tester.
 
@@ -336,7 +339,7 @@ To edit the app instance from the OIN Wizard, follow these steps:
 
 ### OIN Submission Tester
 
-> **Note:** The OIN Submission Tester only supports SSO integrations.
+> **Note:** The OIN Submission Tester only supports SSO and Universal Logout integrations.
 
 The **Test integration** page includes the integrated OIN Submission Tester, which is a plugin app that runs the minimal tests required to ensure that your sign-in flow works as expected. Ideally, you want to execute other variations of these test cases without the OIN Submission Tester, such as negative and edge test cases. You can't submit your integration in the OIN Wizard until all required tests in the OIN Submission Tester pass.
 
