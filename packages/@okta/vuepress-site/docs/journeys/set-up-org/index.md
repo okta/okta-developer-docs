@@ -11,12 +11,12 @@ This journey outlines how to set up your Okta org with some basic, but important
 
 ## Set up your org with these steps
 
-1. [Create your Okta account](#create-your-okta-account)
-1. [Create user accounts](#create-user-accounts)
-1. [Create a user group](#create-a-group)
-1. [Enable an embedded Sign-In Widget](#enable-an-embedded-okta-sign-in-widget)
-1. [Create an app](#create-an-app)
-1. [Set up your org for different use cases](#set-up-your-okta-org-for-your-use-cases)
+1. [Create your Okta account](#create-your-okta-account).
+1. [Create user accounts](#create-user-accounts).
+1. [Create a user group](#create-a-group).
+1. [Enable an embedded Sign-In Widget](#enable-an-embedded-okta-sign-in-widget).
+1. [Create an app](#create-an-app).
+1. [Set up your org for different use cases](#set-up-your-okta-org-for-your-use-cases).
 
 ## Create your Okta account
 
@@ -72,7 +72,7 @@ Create a second test account.
 1. Clear the **User must change password on first login** checkbox.
 1. Select **Save and Add Another**.
 
-See [Add users manually](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-add-users.htm).
+For more information about creating users, see [Add users manually](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-add-users.htm).
 
 ### Activate the accounts
 
@@ -128,7 +128,7 @@ If it isn't selected, then Okta hides the interaction code as a grant type. You 
 
 ### Enable interaction code for a custom authorization server
 
-If you’re using a custom authorization server for your app, follow these steps. If you aren't using a custom authorization server, go to the [next section](#configure-an-app).
+If you’re using a custom authorization server for your app, follow these steps. If you aren't using a custom authorization server, go to the [next section](#create-an-app).
 
 1. In the Admin Console, go to **Security** > **API**.
 1. Under **Name**, select the authorization server to edit.
@@ -142,9 +142,9 @@ If you’re using a custom authorization server for your app, follow these steps
 
 ## Create an app
 
-Create an app integration that represents the app you want to add authentication to with Okta.
+Create an app integration that represents the app you want to add authentication to with Okta. For a basic app configuration, follow these steps to set up a web app: [Create an app](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-an-application). 
 
-For a basic app configuration, follow these steps to set up a web app: [Create an app](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-an-application). When you follow those steps, ensure that you enable interaction code in the app.
+> **Note:** When you follow those steps, ensure that you enable interaction code in the app.
 
 If you have a particular type of app that you want to create, see the following types:
 
