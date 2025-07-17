@@ -4,12 +4,11 @@ import { getGuidesInfo, guideFromPath } from "../util/guides";
 import {
   concepts,
   guides,
-  journeys,
   languagesSdk,
   reference,
   releaseNotes
 } from "../const/navbar.const";
-
+      
 export default {
   data() {
     return {
@@ -24,7 +23,6 @@ export default {
         homeLink,
         ...this.getGuides(),
         ..._.cloneDeep(concepts),
-        ..._.cloneDeep(journeys),
         {
           title: "API Docs",
           path: "https://developer.okta.com/docs/api",
@@ -37,7 +35,7 @@ export default {
     },
     getNavigationData() {
       this.navigation = this.getNavigation().map(nav => {
-        this.addStatesToLink(nav);
+        this.addStatesToLink(nav);     
         return nav;
       });
       return this.navigation;
@@ -62,7 +60,7 @@ export default {
             const splittedPath = parent.path.split('/')
             if (parent.path.indexOf(parentTitle) >= 0) {
               path = parent.path.replace(parentTitle, this.sanitizeTitle(link));
-            } else if (parent.path == '/code/') {
+            } else if (parent.path == '/code/') { 
               path = `/${splittedPath[1]}/${this.sanitizeTitle(link)}/`;
             } else {
               path = `/${splittedPath[1]}/${splittedPath[2]}/${this.sanitizeTitle(link)}/`;
