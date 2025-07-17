@@ -334,6 +334,10 @@ export const guides = [
                 guideName: "authenticators-google-authenticator",
               },
               {
+                title: "Temporary access code",
+                guideName: "authenticators-tac-authenticator",
+              },
+              {
                 title: "Web Authentication",
                 guideName: "authenticators-web-authn",
               },
@@ -602,6 +606,10 @@ export const guides = [
           {
             title: "Domain and email address",
             guideName: "custom-url-domain",
+          },
+          {
+            title: "Customize associated domains",
+            guideName: "custom-well-known-uri",
           },
           {
             title: "Sign-in page",
