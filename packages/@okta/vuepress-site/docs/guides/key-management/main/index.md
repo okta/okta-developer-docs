@@ -23,6 +23,7 @@ Create and manage keys that you use for authenticating your app and for encrypti
 * Access to the [Application Client Auth Credentials API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialOAuth2ClientAuth/).
 * <ApiLifecycle access="ea" />Access to the [Resource Server Public Keys API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OAuth2ResourceServerCredentialsKeys/).
 * An existing OpenID Connect client app in Okta for testing in Okta
+* An existing custom authorization server
 * A JWK public/private key pair for testing.
 * The [Postman client](https://www.getpostman.com/downloads/) to test requests. See [Get Started with the Okta APIs](https://developer.okta.com/docs/reference/rest/) for information on setting up Postman.
 * The [Key management Postman Collection](https://www.postman.com/devdocsteam/workspace/developer-docs-postman-collections/collection/6141897-2cc824d1-a4d2-4a13-8460-988a8f834f5e) that allows you to test the API calls that are described in this guide. Click the ellipses next to the collection name in the left panel. Click **More** > **Export**, and then click **Export JSON** to export the collection locally. You can then import the collection into your Postman Workspace.
@@ -74,23 +75,33 @@ Use an encryption key to provide an additional layer of security to ID tokens mi
 
 Use an encryption key to encrypt an access token to ensure its confidentiality and protect sensitive information, such as scopes or permissions. You can encrypt access tokens minted by an Okta custom authorization.
 
-In your requests, include the `use` parameter to indicate which type of key that you want to create. A value of `use: sig` creates a client authentication key. A value of `use: enc` creates a token encryption key.
+> **Notes**:
+>
+>This guide covers the API steps for managing your JSON Web Keys and JWK URIs. To use the Admin Console to perform these tasks, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred). To have Okta generate a signing or encryption key for you, using the Admin Console is required.
+>
+>Use the Admin Console to generate a signing or encryption public/private key pair for testing purposes only. For a production use case, use your own internal instance of the key pair generator. For an example, see [key pair generator](https://github.com/mitreid-connect/mkjwk.org).
+>
+>Some Okta SDKs require that keys be in privacy enhanced mail (PEM) format. If you're using an SDK, verify the format required before you create your JWK.
 
-This guide covers the API steps for managing your JSON Web Keys and JWK URIs. To use the Admin Console to perform these tasks, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred). To have Okta generate a signing or encryption key for you, using the Admin Console is required.
-
-> **Note:** Use the Admin Console to generate a signing or encryption public/private key pair for testing purposes only. For a production use case, use your own internal instance of the key pair generator. For an example, see [key pair generator](https://github.com/mitreid-connect/mkjwk.org).
-
-### About the Postman Collection
+## About the Postman Collection
 
 It’s up to you how you make requests to the APIs to manage JWKs. In this guide, Okta provides examples of the required API calls using a Postman Collection to demonstrate them in a language/platform neutral way.
 
+The collection contains three subcollections:
+
+* **Client authentication**: Signing key management tasks
+* **Encrypt the ID token**: Encryption key management tasks
+* **Encrypt an access token**: Encrypting the access token sent from a custom authorization server
+
 > **Note:** Make sure that you [configure your Okta org as the environment in Postman](https://developer.okta.com/docs/reference/rest/).
 
-### Save keys in Okta
+## Save keys in Okta
 
 This option allows you to bring your own signing or encryption keys. You can add up to 50 keys per app. This section assumes that you've already [generated your JWK public and private key pair](#what-you-need).
 
-> **Note**: Some Okta SDKs require that keys be in privacy enhanced mail (PEM) format. If you're using an SDK, verify the format required before you create your JWK.
+> **Note:** To add a public key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
+
+The Postman Collection folders used in this section are the **Client authentication** and **Encrypt the ID token**.
 
 1. Use the **Add a signing key JWK** or the **Add an encryption key** <ApiLifecycle access="ea" /> request.
 1. In the path parameters, replace the following variables:
@@ -155,9 +166,13 @@ This option allows you to bring your own signing or encryption keys. You can add
 
 1. Test your app and ensure that all functionality works with the new JWK.
 
-### Use a URL to fetch keys dynamically
+## Use a URL to fetch keys dynamically
 
 This option allows you to host your public key in a URI. This URL contains public keys that clients can use to verify the signature of client-based access tokens and OpenID Connect ID tokens. By hosting the keys in a URL, you can conveniently rotate the keys without having to update the app configuration every time. Okta dynamically fetches the latest public key for the app, which eliminates the need to manually update the public key when you’re rotating the key pair.
+
+> **Note:** To add a URL to fetch keys dynamically using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
+
+The Postman Collection folders used in this section are the **Client authentication** and **Encrypt the ID token**.
 
 1. Use the **Add a signing key URI** or **Add an encryption key URI** <ApiLifecycle access="ea" />request.
 1. In the path parameters, replace the following variables:
@@ -225,7 +240,7 @@ This option allows you to host your public key in a URI. This URL contains publi
         }
     ```
 
-### Retire a public key
+## Retire a public key
 
 When you’re ready to retire a public key, change the older JWK status from **Active** to **Inactive** using the API.
 
@@ -309,9 +324,9 @@ When you’re ready to retire a public key, change the older JWK status from **A
         }
     ```
 
-### Delete a public key
+## Delete a public key
 
-After you deactivate the old key, you can then delete it. This ensures that the older key isn’t used by mistake.
+After you deactivate the old key, you can then delete it. This ensures that the older key isn’t used by mistake. The Postman Collection folders used in this section are the **Client authentication** and **Encrypt the ID token**.
 
 > **Note:** To delete a public key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
 
@@ -322,7 +337,7 @@ After you deactivate the old key, you can then delete it. This ensures that the 
     * `{{jwksId}}`: The `id` of the public JWK
 1. Send the `DELETE {{yourOktaDomain}}/api/v1/apps/{applicationId}/credentials/jwks/{{jwksId}}` request.
 
-### Add an encryption key algorithm
+## Add an encryption key algorithm
 
 <ApiLifecycle access="ea" />
 
@@ -332,7 +347,7 @@ Optional. You can use the same encryption key with different algorithms. Okta su
 * RSA-OAEP-384
 * RSA-OAEP-512
 
-The encryption key must have a status of **ACTIVE** to add an encryption algorithm.
+The encryption key must have an **ACTIVE** status to add an encryption algorithm. The Postman Collection folder used in this section is **Encrypt the ID token**.
 
 > **Note:** To add an encryption key algorithm using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
 
@@ -383,4 +398,19 @@ Example response
     }
 ```
 
+## Encrypt an access token
 
+You can encrypt access tokens using an encryption key. This ensures the access token's confidentiality and protects sensitive information, such as scopes or permissions. You can encrypt access tokens minted only by an Okta custom authorization server.
+
+## Save keys in Okta
+
+This option allows you to bring your own encryption key. You can add up to 50 keys per authorization server. However, only one key can be active at a time. This section assumes that you've already [generated your JWK public and private key pair](#what-you-need).
+
+> **Note**: Some Okta SDKs require that keys be in privacy enhanced mail (PEM) format. If you're using an SDK, verify the format required before you create your JWK.
+
+1. Use the **Add a signing key JWK** or the **Add an encryption key** <ApiLifecycle access="ea" /> request.
+1. In the path parameters, replace the following variables:
+    * `{{url}}`: Your Okta domain URL where the app is configured
+    * `{{applicationId}}`: The application ID
+1. On the **Body** tab, paste your public key. Be sure to include a value for the `kid` parameter. In addition, verify that the `use` parameter has a value of `sig` to indicate a signing key JWK. For an encryption key JWK, the `use` parameter should be `enc`.
+1. Send the `POST {{yourOktaDomain}}/api/v1/apps/{{applicationId}}/credentials/jwks` request. The response should look something like this:
