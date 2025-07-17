@@ -20,7 +20,7 @@ Before you integrate authentication to your Vue.js app, you must register your a
 
 7. Click **Save**.
 
-    > **Note:** Be sure to also [update the policy rule of the password authenticator](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#update-the-password-authenticator-to-password-only) to not require any additional verification.
+    > **Note:** Be sure to also update the policy rule of the password authenticator to not require any additional verification.
 
 > **Note:** You can verify that both **CORS** and **redirect** are enabled for your app using the Admin Console. Go to **Security** > **API** > **Trusted Origins** page in the Admin Console to review the configured trusted origins.
 > * Ensure that **Interaction Code**, **Refresh Token**, and **Authorization Code** grant types are enabled for your app.

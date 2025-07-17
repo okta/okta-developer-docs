@@ -1,6 +1,6 @@
 > **Note:** The Okta Java SDK embedded authentication sample app uses the Spring Boot framework. See [Spring Boot Getting Started](https://spring.io/guides/gs/spring-boot/).
 
-1. [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
+1. [Set up your Okta org for a password factor only use case](/docs/journeys/set-up-org/#set-up-your-okta-org-for-a-password-factor-only-use-case).
 
 1. Obtain app-specific configuration values (such as `{clientId}`, `{clientSecret}`, `{yourOktaDomain}`) from the app integration that you created in [Create an application](/docs/guides/oie-embedded-common-org-setup/java/main/#create-an-application).
 
@@ -18,7 +18,7 @@
 
 1. Execute `mvn` from the `...\okta-idx-java\samples\embedded-auth-with-sdk\` sample app root directory, and then go to the sample app's home page in your browser: `http://localhost:8080`. <br>The Welcome to the Okta Samples for Java page appears with your app's configuration values.
 
-1. Click **Login** on the welcome page, and then enter the **Username** and **Password** for the user that you created in [Create your Okta account](/docs/guides/oie-embedded-common-org-setup/java/main/#create-your-okta-account).
+1. Click **Login** on the welcome page, and then enter the **Username** and **Password** for the user that you created in [Create your Okta account](/docs/journeys/set-up-org/#create-your-okta-account).
 
 1. Click **Login**. The app redirects you to a page that displays your basic user profile and security token information.
 
