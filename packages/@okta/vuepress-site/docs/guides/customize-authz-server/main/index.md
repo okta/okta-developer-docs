@@ -6,13 +6,13 @@ layout: Guides
 
 <ApiAmProdWarning />
 
-This guide explains the custom OAuth 2.0 authorization server in Okta and how to set it up.
+This guide discusses the custom OAuth 2.0 authorization server in Okta and how to set it up.
 
 ---
 
 #### Learning outcomes
 
-Set up and test your authorization server.
+Set up and test your custom authorization server.
 
 #### What you need
 
@@ -20,7 +20,7 @@ Set up and test your authorization server.
 
 ---
 
-## About the authorization server
+## About the custom authorization server
 
 Okta allows you to create multiple custom authorization servers that you can use to protect your own resource servers. Within each authorization server you can define your own OAuth 2.0 scopes, claims, and access policies.
 
@@ -150,6 +150,10 @@ Create ID token claims for OpenID Connect or access tokens for OAuth 2.0:
       > **Note:** Up to 100 groups are included in the claim. If the filter results in more than that, the request fails.
     * **Disable claim**&mdash;select if you want to temporarily disable the claim for testing or debugging.
     * **Include in**&mdash;specify whether the claim is valid for any scope or select the scopes for which the claim is valid.
+
+## Encrypt access tokens
+
+You can configure your custom authorization server to encrypt access tokens.
 
 ## Test the authorization server
 
