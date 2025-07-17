@@ -103,6 +103,8 @@ Now that you have created the app integration and noted the configuration settin
 
 Earlier you [noted the client ID and client secret](#note-your-client-id-and-client-secret) values generated for your app integration. Add these and your Okta domain to your app's configuration.
 
+> **Note:** Ensure that your default custom authorization server has an access policy. Add an access policy if it's not there. See [Create access polices](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-access-policies).
+
 <StackSnippet snippet="configmid" />
 
 ### Add the pages and logic for a user to sign in and sign out

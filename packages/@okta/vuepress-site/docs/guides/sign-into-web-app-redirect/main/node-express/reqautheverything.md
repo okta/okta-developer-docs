@@ -12,7 +12,7 @@ You can use a middleware function to protect every endpoint so that only authent
    }
    ```
 
-1. Add the following line before the `/profile` definition to enforce authentication.
+1. Add the following line before the `/profile` definition to enforce authentication of all routes defined after adding the middleware.
 
    ```js
    app.use(ensureSignedIn);
