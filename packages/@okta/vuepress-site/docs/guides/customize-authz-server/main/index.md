@@ -151,6 +151,8 @@ Create ID token claims for OpenID Connect or access tokens for OAuth 2.0:
     * **Disable claim**&mdash;select if you want to temporarily disable the claim for testing or debugging.
     * **Include in**&mdash;specify whether the claim is valid for any scope or select the scopes for which the claim is valid.
 
+## Encrypt access tokens
+
 ## Test the authorization server
 
 After you set up and customize your authorization server, test it. Make a request using any one of the API calls that returns OAuth 2.0 and OIDC tokens.
