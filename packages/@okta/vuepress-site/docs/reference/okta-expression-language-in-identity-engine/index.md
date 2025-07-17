@@ -257,7 +257,7 @@ The following examples use `user.getGroups({\"group.profile.name\": \"Everyone\"
 | `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![profile.name]` | Name of the group (`profile.name`) | Returns a list of group names |
 | `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![profile.description]` | Description of the group (`profile.group`) | Returns a list of group profile descriptions |
 
-> **Note:** SAML assertions only supports projections over the `name` attribute only. See [Get groups for users](/docs/reference/okta-expression-language/#get-groups-for-users).
+> **Note:** SAML assertions only supports projections over the `name` attribute only, not with `profile.name`. See [Get groups for users](/docs/reference/okta-expression-language/#get-groups-for-users).
 
 ### Linked object function
 

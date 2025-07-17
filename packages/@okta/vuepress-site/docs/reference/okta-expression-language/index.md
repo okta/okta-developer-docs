@@ -236,7 +236,7 @@ The `user.getGroups` function also supports the `.![name]` collection projection
 
 #### Group-claims only functions
 
-> **Note:** Okta recommends that you use the `user.getGroups` function with collection projections instead. See [Collection projections](/docs/reference/okta-expression-language-in-identity-engine/#collection-projections).
+> **Note:** For non-SAML assertions, Okta recommends that you use the `user.getGroups` function with collection projections instead. See [Collection projections](/docs/reference/okta-expression-language-in-identity-engine/#collection-projections).
 
 The following functions are designed to work only with group claims. You can't use these functions with property mappings.
 
