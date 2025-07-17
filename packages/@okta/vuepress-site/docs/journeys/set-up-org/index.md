@@ -178,8 +178,29 @@ This step is optional. However, you can use your web app to interact with Okta A
 
 After you create your app integration in your Okta org, configure your app and org to support the authentication use cases that you're implementing:
 
+* For a basic password factor only use case, see [Set up your Okta org for a password factor only use case](#set-up-your-okta-org-for-a-password-factor-only-use-case)
 * For a multifactor use case, see [Set up your Okta org for a multifactor use case](#set-up-your-okta-org-for-a-multifactor-use-case)
 * For a password-optional use case, see [Set up your Okta org for a password-optional use case](#set-up-your-okta-org-for-a-password-optional-use-case)
+
+### Set up your Okta org for a password factor only use case
+
+This section shows you how to set up your Okta org and app to support password factor-only use cases. These use cases are intended to use the password factor without any additional factors (such as email or phone SMS). When you [create an app](#create-an-app), the app is assigned **Any two factors**. This is the default policy for new apps that requires a user to verify their identity with any two enabled authentication factors.
+
+First, assign the **Password only** policy to your app:
+
+1. Got to **Applications** > **Applications** in the Admin Console, and then select your app.
+1. Select the **Sign On** tab.
+1. Click **Edit** in the **User Authentication** section.
+1. Select **Password only** for the **Authentication policy**, and then click **Save**.
+
+Next, check that the password authenticator doesn't require any additional verification:
+
+1. Go to **Security** > **Authenticators**.
+1. Select **Edit** from the **Actions** menu on the **Password** authenticator row.
+1. Scroll down on the **Password** policy page to the rules section.
+1. Click the pencil icon next to the **Default Rule** to access the **Edit Rule** dialog.
+1. Select **Not required** in the **AND Additional verification is** section.
+1. Click **Update rule**.
 
 ### Set up your Okta org for a multifactor use case
 
