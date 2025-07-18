@@ -4,6 +4,8 @@ excerpt: Learn how to customize associated domains.
 layout: Guides
 ---
 
+<ApiLifecycle access="ea" />
+
 This guide explains how to create associations between your custom domains and three well-known URI endpoints.
 
 ---

@@ -3,6 +3,7 @@ title: Temporary access code authenticator integration guide
 ---
 
 <ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="ea" />
 
 This guide shows you how to integrate a temporary access code (TAC) authenticator into your authentication use cases with Okta APIs.
 
