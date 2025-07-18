@@ -172,7 +172,7 @@ Server-side apps are used in scenarios where authentication and tokens are handl
 
 Single-page web apps run in the browser where the client receives tokens.
 
-* [React](/docs/guides/oie-embedded-common-org-setup/react/main/#create-an-application)
+[React](/docs/guides/oie-embedded-common-org-setup/react/main/#create-an-application)
 
 ## Set up your app to use the Okta APIs
 
