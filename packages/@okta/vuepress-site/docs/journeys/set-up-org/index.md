@@ -7,7 +7,7 @@ meta:
 
 # Set up your org
 
-This journey outlines how to set up your Okta org with some basic, but important, settings and how to configure it for different use cases.
+This guide outlines how to set up your Okta org with some basic, but important, settings and how to configure it for different use cases.
 
 ## Set up your org with these steps
 
