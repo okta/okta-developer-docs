@@ -153,7 +153,7 @@ Create ID token claims for OpenID Connect or access tokens for OAuth 2.0:
 
 ## Encrypt access tokens
 
-You can configure your custom authorization server to encrypt access tokens. This ensures its confidentiality and protects sensitive information, such as scopes or permissions. see the [Encrypt an access token]() section of the Key management guide.
+You can configure your custom authorization server to encrypt access tokens. This ensures its confidentiality and protects sensitive information, such as scopes or permissions. see the [Encrypt an access token](/docs/guides/key-management/main/#encrypt-an-access-token) section of the Key management guide.
 
 ## Test the authorization server
 

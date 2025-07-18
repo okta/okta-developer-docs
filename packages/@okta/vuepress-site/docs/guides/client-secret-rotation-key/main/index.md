@@ -56,8 +56,8 @@ When you generate a new secret, the original secret remains in **Active** status
 1. Use the **List client secrets for the specified app** request from the Postman Collection.
 1. In the path parameters, replace the following variables:
     * `{url}`: Your Okta domain URL where the app is configured
-    * `{applicationId}`: The application ID
-1. Send the `GET {yourOktaDomain}/api/v1/apps/{applicationId}/credentials/secrets` request.
+    * `{appId}`: The application ID
+1. Send the `GET {yourOktaDomain}/api/v1/apps/{appId}/credentials/secrets` request.
 1. Save the appropriate client secret to use in the deactivate step later.
 
     The response should look something like this:
@@ -65,7 +65,7 @@ When you generate a new secret, the original secret remains in **Active** status
     ```json
         [
             {
-                "id": "ocs14izzvk9BGLiu30h8",
+                "id": "{secretId}",
                 "created": "2022-01-10T21:06:31.000Z",
                 "lastUpdated": "2022-01-10T21:06:31.000Z",
                 "status": "ACTIVE",
@@ -73,7 +73,7 @@ When you generate a new secret, the original secret remains in **Active** status
                 "secret_hash": "jMur1qOhMw_MtC9aQo7YEg",
                 "_links": {
                     "deactivate": {
-                        "href": "https://{yourOktaDomain}/api/v1/apps/ocs14j5h6sbrzwuzR0h8/credentials/secrets/ocs14izzvk9BGLiu30h8/lifecycle/deactivate",
+                        "href": "https://{yourOktaDomain}/api/v1/apps/{appId}/credentials/secrets/{secretId}/lifecycle/deactivate",
                         "hints": {
                             "allow": [
                                 "POST"
@@ -83,7 +83,7 @@ When you generate a new secret, the original secret remains in **Active** status
                 }
             },
             {
-                "id": "ocs14j4d1kdTKN9fg0h8",
+                "id": "{secretId}",
                 "created": "2022-01-10T22:33:19.000Z",
                 "lastUpdated": "2022-01-10T22:33:19.000Z",
                 "status": "ACTIVE",
@@ -91,7 +91,7 @@ When you generate a new secret, the original secret remains in **Active** status
                 "secret_hash": "tI4z6TbSw5YYd8RtcClaEw",
                 "_links": {
                     "deactivate": {
-                        "href": "https://{yourOktaDomain}/api/v1/apps/ocs14j5h6sbrzwuzR0h8/credentials/secrets/ocs14j4d1kdTKN9fg0h8/lifecycle/deactivate",
+                        "href": "https://{yourOktaDomain}/api/v1/apps/{appId}/credentials/secrets/{secretId}/lifecycle/deactivate",
                         "hints": {
                             "allow": [
                                 "POST"
@@ -114,12 +114,12 @@ To have Okta auto-generate the secret, follow these steps:
 1. Use the **Add a client secret: auto-generated** request from the Postman Collection.
 1. In the path parameters, replace the following variables:
     * `{url}`: Your Okta domain URL where the app is configured
-    * `{applicationId}`: The application ID
-1. Send the `POST {yourOktaDomain}/api/v1/apps/{applicationId}/credentials/secrets` request. The response should look something like this:
+    * `{appId}`: The application ID
+1. Send the `POST {yourOktaDomain}/api/v1/apps/{appId}/credentials/secrets` request. The response should look something like this:
 
     ```json
         {
-            "id": "ocs14j5h6sbrzwuzR0h8",
+            "id": "{secretId}",
             "created": "2022-01-10T22:56:18.000Z",
             "lastUpdated": "2022-01-10T22:56:18.000Z",
             "status": "ACTIVE",
@@ -127,7 +127,7 @@ To have Okta auto-generate the secret, follow these steps:
             "secret_hash": "cfQjsGNDYEn5e3rqJME_jQ",
             "_links": {
                 "deactivate": {
-                    "href": "https://{yourOktaDomain}/api/v1/apps/ocs14j5h6sbrzwuzR0h8/credentials/secrets/ocs14izzvk9BGLiu30h8/lifecycle/deactivate",
+                    "href": "https://{yourOktaDomain}/api/v1/apps/{appId}/credentials/secrets/{secretId}/lifecycle/deactivate",
                     "hints": {
                         "allow": [
                             "POST"
@@ -147,13 +147,13 @@ To generate your own secret for use with your app, follow these steps:
 1. Use the **Add a client secret: bring your own secret** request from the Postman Collection.
 1. In the path parameters, replace the following variables:
     * `{url}`: Your Okta domain URL where the app is configured
-    * `{applicationId}`: The application ID
+    * `{appId}`: The application ID
 1. On the **Body** tab, use the request body template and enter your generated secret as the `client_secret` value.
-1. Send the `POST {yourOktaDomain}/api/v1/apps/{applicationId}/credentials/secrets` request. The response should look something like this:
+1. Send the `POST {yourOktaDomain}/api/v1/apps/{appId}/credentials/secrets` request. The response should look something like this:
 
     ```json
         {
-            "id": "ocs14j4d1kdTKN9fg0h8",
+            "id": "{secretId}",
             "created": "2022-01-10T22:33:19.000Z",
             "lastUpdated": "2022-01-10T22:33:19.000Z",
             "status": "ACTIVE",
@@ -161,7 +161,7 @@ To generate your own secret for use with your app, follow these steps:
             "secret_hash": "tI4z6TbSw5YYd8RtcClaEw",
             "_links": {
                 "deactivate": {
-                    "href": "https://{yourOktaDomain}/api/v1/apps/ocs14j5h6sbrzwuzR0h8/credentials/secrets/ocs14j4d1kdTKN9fg0h8/lifecycle/deactivate"
+                    "href": "https://{yourOktaDomain}/api/v1/apps/{appId}/credentials/secrets/{secretId}/lifecycle/deactivate"
                     "hints": {
                         "allow": [
                             "POST"
@@ -183,13 +183,13 @@ After you test your app and everything works correctly with the newly generated 
 1. Use the **Deactivate a client secret** request from the Postman Collection.
 1. In the path parameters, replace the following variables:
     * `{url}`: Your Okta domain URL where the app is configured
-    * `{applicationId}`: The application ID
+    * `{appId}`: The application ID
     * `{secretId}`: The old client secret ID that you obtained in a previous step
-1. Send the `POST {yourOktaDomain}/api/v1/apps/{applicationId}/credentials/secrets/{secretId}/lifecycle/deactivate` request. The response should look something like this:
+1. Send the `POST {yourOktaDomain}/api/v1/apps/{appId}/credentials/secrets/{secretId}/lifecycle/deactivate` request. The response should look something like this:
 
     ```json
         {
-            "id": "ocs14izzvk9BGLiu30h8",
+            "id": "{secretId}",
             "created": "2022-01-10T21:06:31.000Z",
             "lastUpdated": "2022-01-10T22:39:43.000Z",
             "status": "INACTIVE",
@@ -197,7 +197,7 @@ After you test your app and everything works correctly with the newly generated 
             "secret_hash": "jMur1qOhMw_MtC9aQo7YEg",
             "_links": {
                 "activate": {
-                    "href": "https://{yourOktaDomain}/api/v1/apps/ocs14j5h6sbrzwuzR0h8/credentials/secrets/ocs14izzvk9BGLiu30h8/lifecycle/activate",
+                    "href": "https://{yourOktaDomain}/api/v1/apps/{appId}/credentials/secrets/{secretId}/lifecycle/activate",
                     "hints": {
                         "allow": [
                             "POST"
@@ -205,7 +205,7 @@ After you test your app and everything works correctly with the newly generated 
                     }
                 },
                 "delete": {
-                    "href": "https://{yourOktaDomain}/api/v1/apps/ocs14j5h6sbrzwuzR0h8/credentials/secrets/ocs14izzvk9BGLiu30h8",
+                    "href": "https://{yourOktaDomain}/api/v1/apps/{appId}/credentials/secrets/{secretId}8",
                     "hints": {
                         "allow": [
                             "DELETE"
@@ -227,9 +227,9 @@ After you revalidate that your app works after changing the old client secret st
 1. Use the **Delete a client secret** request from the Postman Collection.
 1. In the path parameters, replace the following variables:
     * `{url}`: Your Okta domain URL where the app is configured
-    * `{applicationId}`: The application ID
+    * `{appId}`: The application ID
     * `{secretId}`: The old client secret ID that you obtained in a previous step
-1. Send the `DELETE {yourOktaDomain}/api/v1/apps/{applicationId}/credentials/secrets/{secretId}` request.
+1. Send the `DELETE {yourOktaDomain}/api/v1/apps/{appId}/credentials/secrets/{secretId}` request.
 
 > **Note:** If you turn off **OAuth secrets and key management**, and you have two secrets for an app, Okta retains the secret with the most recent **Creation date**.
 

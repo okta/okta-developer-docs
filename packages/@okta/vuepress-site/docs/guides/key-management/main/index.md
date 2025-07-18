@@ -40,7 +40,7 @@ A JSON Web Key (JWK) is a key pair expressed in JSON format that represents a cr
 
 JWKs are used to verify the signature of JWTs, ensuring that the token was issued by a trusted source and hasn't been tampered with. JWKs can be part of a JWK Set (JWKS), which is a collection of JWKs. This is useful for apps that need to support multiple keys for rotation or different algorithms.
 
-A typical JWK might look like this:
+A typical JWK might look like the following example:
 
 ```JSON
     {
@@ -114,7 +114,7 @@ The **Client authentication** and **Encrypt the ID token** folders of the Postma
 
     > **Note**: You can also add a signing key when you create the app. See the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/oauthClient/jwks&t=request).
 
-    The response should look something like this:
+    The response should look something like the following example:
 
     **Signing key**
 
@@ -193,7 +193,7 @@ The **Client authentication** and **Encrypt the ID token** folders of the Postma
 
     **Note**: You can also add a JWKS URI when you create the app. See the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/oauthClient/jwks_uri&t=request).
 
-    The response should look something like this:
+    The response should look something like the following example:
 
     **Signing key**
 
@@ -266,7 +266,7 @@ When you’re ready to retire a public key, change the older JWK status from **A
     * `{url}`: Your Okta domain URL where the app is configured
     * `{appId}`: The application ID
     * `{jwksId}`: The `id` of the public JWK
-1. Send the `POST {yourOktaDomain}/api/v1/apps/{appId}/credentials/jwks/{jwksId}/lifecycle/deactivate` request. The response should look something like this:
+1. Send the `POST {yourOktaDomain}/api/v1/apps/{appId}/credentials/jwks/{jwksId}/lifecycle/deactivate` request. The response should look something like the following examples:
 
     **Signing key**
 
@@ -435,7 +435,7 @@ This option allows you to bring your own encryption key. You can add up to 50 ke
     * `use: enc`
     * `status: INACTIVE`
     **Note:** You can have only one active key at any given time for the authorization server. When you activate an inactive key, Okta automatically deactivates the current active key.
-1. Send the `POST {yourOktaDomain}/api/v1/authorizationServers/{authServerId}/resourceservercredentials/keys` request. The response should look something like this:
+1. Send the `POST {yourOktaDomain}/api/v1/authorizationServers/{authServerId}/resourceservercredentials/keys` request. The response should look something like the following example:
 
     ```JSON
         {
@@ -478,9 +478,9 @@ To activate an encryption key for your custom authorization server, follow these
 1. Use the **Activate an encryption key** request.
 1. In the path parameters, replace the following variables:
     * `{url}`: Your Okta domain URL where the app is configured
-    * `{authorizationServerId}`: The application ID
+    * `{authorizationServerId}`: The custom authorization server ID
     * `{keyId}`: The `id` of the public JWK
-1. Send the `POST {yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/resourceservercredentials/keys/{keyId}/lifecycle/activate` request. The response should look something like this:
+1. Send the `POST {yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/resourceservercredentials/keys/{keyId}/lifecycle/activate` request. The response should look something like the following example:
 
     ```JSON
         {
@@ -566,7 +566,7 @@ The encryption key must have an **ACTIVE** status to add an encryption algorithm
 1. Use the **Add an encryption key algorithm** request.
 1. In the path parameters, replace the following variables:
     * `{url}`: Your Okta domain URL where the app is configured
-    * `{authorizationServerId}`: The client ID
+    * `{authorizationServerId}`: The custom authorization server ID
 1. On the **Body** tab, use the request body template to add the appropriate values for your client, and then add the `accessTokenEncryptedResponseAlgorithm` with a value of `RSA-OAEP-256`.
 1. Send the `PUT {yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}` request.
 
@@ -609,7 +609,7 @@ When you’re ready to retire a public key, change the JWK status from **Active*
 1. Use the **Deactive a JWK** request after you have the key ID that you need.
 1. In the path parameters, replace the following variables:
     * `{url}`: Your Okta domain URL where the app is configured
-    * `{authorizationServerId}`: The application ID
+    * `{authorizationServerId}`: The custom authorization server ID
     * `{keyId}`: The `id` of the public JWK
 1. Send the `POST {yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/resourceservercredentials/keys/{keyId}/lifecycle/deactivate` request. The response should look something like this:
 
@@ -624,6 +624,13 @@ After you deactivate the old key, you can then delete it. This ensures that the 
 1. Use the **Delete a signing key** or **Delete an encryption key** <ApiLifecycle access="ea" />request.
 1. In the path parameters, replace the following variables:
     * `{url}`: Your Okta domain URL where the app is configured
-    * `{authorizationServerId}`: The application ID
+    * `{authorizationServerId}`: The custom authorization server ID
     * `{keyId}`: The `id` of the public JWK
 1. Send the `DELETE {yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/resourceservercredentials/keys/{keyId}` request.
+
+## See also
+
+* [Client secret rotation](/docs/guides/key-management/main/)
+* [Build a JWT for client authentication](/docs/guides/build-self-signed-jwt/java/main/)
+* [OpenID Connect and OAuth 2.0 API /key endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/oauthKeysCustomAS)
+* [Implement OAuth for Okta with a service app](/docs/guides/implement-oauth-for-okta-serviceapp/main/)
