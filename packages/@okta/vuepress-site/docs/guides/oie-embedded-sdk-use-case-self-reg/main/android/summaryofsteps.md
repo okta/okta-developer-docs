@@ -52,7 +52,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 After the password and email authenticators are verified, the user has the option to enroll the phone authenticator.
 
-> **Note:** Based on the configuration described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-a-multifactor-use-case), the Okta app is set up to require one possession factor (either email or phone). After the email authenticator is verified, the phone authenticator becomes optional.
+> **Note:** Based on the configuration described in [Set up your Okta org for a multifactor use case](/docs/journeys/set-up-org/#set-up-your-okta-org-for-a-multifactor-use-case), the Okta app is set up to require one possession factor (either email or phone). After the email authenticator is verified, the phone authenticator becomes optional.
 
 The following flow describes the steps when the user enrolls the optional phone authenticator.
 
