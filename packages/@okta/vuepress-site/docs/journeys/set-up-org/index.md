@@ -154,7 +154,7 @@ If you have a particular type of app that you want to create, see the following 
 
 ### Native app
 
-Native apps run natively on a device and redirect users to a non-HTTP callback. They can be desktop or mobile apps.
+Native apps are desktop or mobile apps designed for a specific platform. They redirect users to a non-HTTP callback.
 
 * [Android](/docs/guides/oie-embedded-common-org-setup/android/main/#create-an-application)
 * [iOS](/docs/guides/oie-embedded-common-org-setup/ios/main/#create-an-application)
