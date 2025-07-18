@@ -2,7 +2,7 @@ The Okta Angular SDK requires an instance of an `OktaAuth` object with configura
 
 Make the following changes to `src/app/app.config.ts`:
 
-1. Update the import from `@angular/core` by adding `importProvidesFrom`:
+1. Update the import from `@angular/core` by adding `importProvidersFrom`:
 
    ```typescript
    import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
