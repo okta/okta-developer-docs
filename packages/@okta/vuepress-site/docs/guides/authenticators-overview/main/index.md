@@ -27,6 +27,7 @@ The following guides step through adding a type of authenticator to your app usi
 * [Okta Email authenticator](/docs/guides/authenticators-okta-email/aspnet/main/)
 * [Okta Verify](/docs/guides/authenticators-okta-verify/aspnet/main/)
 * [Google Authenticator](/docs/guides/authenticators-google-authenticator/aspnet/main/)
+* [Temporary access code (TAC)](/docs/guides/authenticators-tac-authenticator/main/)
 * [FIDO2 (WebAuthn) authenticators](/docs/guides/authenticators-web-authn/aspnet/main/), such as a USB security key, fingerprint, FaceID, or Windows Hello
 
 > **Note:** See the [Password authenticator](https://help.okta.com/okta_help.htm?type=oie&id=ext-configure-password) page for information on configuring the Password authenticator for your org.
