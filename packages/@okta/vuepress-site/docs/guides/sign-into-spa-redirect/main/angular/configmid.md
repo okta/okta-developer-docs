@@ -32,6 +32,8 @@ Make the following changes to `src/app/app.config.ts`:
    export const appConfig: ApplicationConfig = {
     providers: [
       // other providers as required
+      provideZoneChangeDetection({ eventCoalescing: true }),
+      provideRouter(routes),
       importProvidersFrom(
            OktaAuthModule.forRoot({ oktaAuth })
       )
