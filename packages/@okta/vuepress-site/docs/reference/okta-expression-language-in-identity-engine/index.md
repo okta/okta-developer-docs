@@ -218,7 +218,7 @@ These group functions take in a list of search criteria as input. Each search cr
 | 00gjitX9HqABSoqTB0g3     | Engineering Users        | APP_GROUP             | 0aae4be2456eb62f7c3d |
 | 00gnftmgQxC2L19j6I9c     | Engineering Users        | APP_GROUP             | 0a61c8dacb58b3c0716e |
 
-The `user.getGroups` function also supports collection projections for group claims. See [Collection projections](#collection-projections).
+The `user.getGroups` function also supports collection projections for group claims. See [Collection projections](#collection-projections) and [Federated claims with entitlements](/docs/guides/federated-claims/main/).
 
 | Function                 | Return type | Example                                                                                                         | Output explanation                                                                        | Example Output |
 | ---------------          | ----------- | -------                                                                                                         | -----                                                                           | ---- |
