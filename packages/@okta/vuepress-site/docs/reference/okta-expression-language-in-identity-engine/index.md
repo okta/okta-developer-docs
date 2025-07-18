@@ -196,7 +196,7 @@ See the [ISO 3166-1 online lookup tool](https://www.iso.org/obp/ui/#search/code/
 
 ### Group functions
 
-Use these functions to get information about a user's groups. While other group functions use **Group attribute statements**, these functions use the **Profile attribute statements** because the function is based on the user.
+Use these functions to get information about a user's groups.
 
 > **Note:** The `user.getGroups` function was previously only available for a limited set of features on Okta Identity Engine, but has been expanded to all features that allow Expression Language.
 
@@ -256,7 +256,7 @@ The following examples use `user.getGroups({\"group.profile.name\": \"Everyone\"
 | `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![lastUpdated]` | Timestamp for when the group profile was last updated (`lastUpdated`) | Returns a list of times for when the groups were last updated|
 | `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![lastMembershipUpdated]` | Timestamp when the groups memberships were last updated (`lastMembershipUpdated`) | Returns a list of `lastMembershipUpdated` times |
 | `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![profile.name]` | Name of the group (`profile.name`) | Returns a list of group names |
-| `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![profile.description]` | Description of the group (`profile.group`) | Returns a list of group profile descriptions |
+| `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![profile.description]` | Description of the group (`profile.description`) | Returns a list of group profile descriptions |
 
 ### Linked object function
 
