@@ -2,7 +2,7 @@ The `OktaAuthStateService` and `OktaAuth` services are used together to support 
 
 The `OktaAuth` service has methods for sign-in and sign-out actions.
 
-1. Add buttons, to support sign-in and sign-out actions, to the component template (`app.component.html`), just inside the `<main class="main"></main>` so that they’re visible. Display either the sign-in or sign-out button based on the current authenticated state.
+1. Update the component template `app.component.html` to add buttons, to support sign-in and sign-out actions, just inside the `<main class="main"></main>` so that they’re visible. Either the sign-in or sign-out button displays based on the current authenticated state.
 
    ```html
    @if (isAuthenticated$ | async) {
