@@ -176,6 +176,8 @@ The **Client authentication** and **Encrypt the ID token** folders of the Postma
 
 This option allows you to host your public key in a URI. This URL contains public keys that clients can use to verify the signature of client-based access tokens and OpenID Connect ID tokens.
 
+> **Note:** If you switch from saving keys in Okta to using a URL to fetch keys dynamically, any saved public keys are deleted.
+
 By hosting the keys in a URL, you can conveniently rotate the keys without having to update the app configuration every time. Okta dynamically fetches the latest public key for the app. This eliminates the need to manually update the public key when you’re rotating the key pair.
 
 > **Note:** To add a URL to fetch keys dynamically using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
@@ -496,7 +498,7 @@ To activate an encryption key for your custom authorization server, follow these
 
 ## Use a URL to fetch keys dynamically
 
-This option allows you to host your public key in a URI. By hosting the keys in a URL, you can conveniently rotate the keys without having to update the authorization server configuration every time. Okta dynamically fetches the latest public key, which eliminates the need to manually update the public key when you’re rotating the key pair.
+This option allows you to host your public key in a URI. By hosting the keys in a URL, you can conveniently rotate the keys without having to update the authorization server configuration every time. Okta dynamically fetches the latest public key, which eliminates the need to manually update the public key when you’re rotating the key pair. If you switch from saving keys in Okta to using a URL to fetch keys dynamically, any saved public keys are deleted.
 
 > **Note:** To add a URL to fetch keys dynamically using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
 
@@ -510,7 +512,7 @@ This option allows you to host your public key in a URI. By hosting the keys in 
 
     **Note**: You can also add a JWKS URI when you create the authorization server. See the [Authorization Server API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/#tag/AuthorizationServer/operation/createAuthorizationServer!path=jwks&t=request).
 
-    The response should look something like this (this response is truncated for brevity):
+     The response should look something like the following example. This response is truncated for brevity.
 
     ```JSON
         {
@@ -568,7 +570,7 @@ The encryption key must have an **ACTIVE** status to add an encryption algorithm
 1. On the **Body** tab, use the request body template to add the appropriate values for your client, and then add the `accessTokenEncryptedResponseAlgorithm` with a value of `RSA-OAEP-256`.
 1. Send the `PUT {{yourOktaDomain}}/api/v1/authorizationServers/{{authorizationServerId}}` request.
 
-    Example response. This response has been truncated for brevity.
+    The response should look something like the following example. This response is truncated for brevity.
 
     ```JSON
         {

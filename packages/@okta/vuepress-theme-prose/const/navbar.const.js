@@ -543,8 +543,12 @@ export const guides = [
             guideName: "request-user-consent"
           },
           {
-            title: "Rotate secrets and manage keys",
+            title: "Rotate client secrets",
             guideName: "client-secret-rotation-key",
+          },
+          {
+            title: "Key management",
+            guideName: "key-management",
           },
           {
             title: "Set up On-Behalf-Of Token Exchange",
