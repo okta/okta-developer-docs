@@ -196,7 +196,7 @@ See the [ISO 3166-1 online lookup tool](https://www.iso.org/obp/ui/#search/code/
 
 ### Group functions
 
-Use these functions to get information about a user's groups, such as group rules and group claims. While other group functions use **Group attribute statements**, these functions use the **Profile attribute statements** because the function is based on the user.
+Use these functions to get information about a user's groups. While other group functions use **Group attribute statements**, these functions use the **Profile attribute statements** because the function is based on the user.
 
 > **Note:** The `user.getGroups` function was previously only available for a limited set of features on Okta Identity Engine, but has been expanded to all features that allow Expression Language.
 
