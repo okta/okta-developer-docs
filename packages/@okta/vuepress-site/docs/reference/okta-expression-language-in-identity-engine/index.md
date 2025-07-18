@@ -237,7 +237,7 @@ The `user.getGroups` function also supports collection projections for group cla
 
 [Collection projections](https://docs.spring.io/spring-framework/reference/core/expressions/language-ref/collection-projection.html) enable you to use a subexpression (`.![$projectionExpression]`) that transforms a collection (like an array) into a new collection. It applies the expression to each element in the array and returns a new collection without modifying the original collection.
 
-You can use collection projections with the `user.getGroups` function. This is useful specifically for group claims.
+You can use collection projections with the `user.getGroups` function.
 
 `user.getGroups($expression).![$projectionExpression]`:
 
