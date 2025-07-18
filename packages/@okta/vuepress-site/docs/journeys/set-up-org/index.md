@@ -22,6 +22,8 @@ This guide outlines how to set up your Okta org with some basic, but important, 
 
 If you don't have an Okta Identity Engine org, you need to sign up for an Okta account and an Identity Engine org.
 
+> **Tip:** To get started quickly, you can sign up for an [Integrator Free Plan](/docs/reference/org-defaults/) org.
+
 1. [Sign up](https://developer.okta.com/signup/) for an Okta account.
 
    After you sign up, Okta sends a verification email to the email address that you provide.
