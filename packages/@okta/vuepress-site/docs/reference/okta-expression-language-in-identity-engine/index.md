@@ -248,7 +248,7 @@ You can use collection projections with the `user.getGroups` function.
 The following examples use `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"})` as the `user.getGroups($expression)`, which would return a list of groups that starts with `Everyone`.
 
 | Function example | Projection Expression | Output explanation |
-| --- | --- |
+| --- | --- |---|
 | `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![id]` | Group ID (`id`) | Returns a list of group IDs |
 | `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![type]` | Group type (`type`) | Returns a list of types |
 | `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![created]` | Group created date (`created`) | Returns a list of dates when the group was created |
