@@ -341,11 +341,10 @@ A global session policy determines user session length and basic authentication 
 
 ## Related topics
 
-* [Create an org for testing](https://danielmaharry-okta.github.io/iaproto/build/get-started/get-an-okta-account/)
-* [Create a basic web app integration](https://docs.google.com/document/d/11xLo4oi9-HevntjAdlKc0PVxOX1TzR2vXdpSih__OX8/edit?usp=drive_link)
-* [Run the sample apps](https://danielmaharry-okta.github.io/iaproto/build/get-started/run-the-sample-apps/)
+* [Download and set up the SDK, Sign-In Widget, and sample apps](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/)
+* [Run the sample apps](/docs/guides/oie-embedded-common-run-samples/nodejs/main/)
 
 See the [Okta Docs](https://help.okta.com/en-us/content/index.htm?cshid=csh-index) for more information on the Admin Console dialogs in this guide:
 
-* [Add users manually](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-add-users.htm)
-* [Manage groups](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-groups-main.htm)
+* [Add users manually](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users)
+* [Manage groups](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-assign-group-people)
