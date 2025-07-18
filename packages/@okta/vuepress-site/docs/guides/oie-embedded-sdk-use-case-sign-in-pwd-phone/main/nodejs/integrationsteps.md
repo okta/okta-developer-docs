@@ -101,7 +101,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 The next step is to call `idx.authenticate` passing in the verification code `{ verification: '123'}`.
 
-Then, handle the response from `idx.authenticate`. If the phone code was valid, the method returns a status of `Idx.Status:SUCCESS` with tokens. This status signifies that there are no more factors that are waiting to be enrolled and verified. If the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-multifactor-use-case) were properly followed, the user is successfully signed in and is sent to the default sign-in home page.
+Then, handle the response from `idx.authenticate`. If the phone code was valid, the method returns a status of `Idx.Status:SUCCESS` with tokens. This status signifies that there are no more factors that are waiting to be enrolled and verified. If the steps described in [Set up your Okta org for a multifactor use case](/docs/journeys/set-up-org/#set-up-your-okta-org-for-a-multifactor-use-case) were properly followed, the user is successfully signed in and is sent to the default sign-in home page.
 
 ### 5 (Optional): Get the user profile information
 
