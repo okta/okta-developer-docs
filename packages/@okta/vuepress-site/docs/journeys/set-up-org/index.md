@@ -42,7 +42,7 @@ Users are assigned to non-administrator user groups either during or after their
 
 Create two test accounts to test the end-user experience for your apps.
 
-1. Sign in to your Okta org with your administrator account.
+1. Sign in to your Okta org with your admin account.
    * Select **Admin** in the upper-right corner of the page. You're redirected to the Admin Console.
 1. Go to **Directory** > **People** to view the existing users.
 1. Select **Add Person**.
@@ -83,7 +83,7 @@ If you don't activate your test accounts when creating them, you can activate th
 1. In the Admin Console, select your name in the upper right corner of the page. [Copy your domain](/docs/guides/find-your-domain/main/#find-your-okta-domain) to your clipboard.
 1. In your browser, open a private browsing window. For example, if you're using Chrome as your browser, open a new incognito window.
 1. Paste your domain into the address bar.
-1. Sign into your org as `alex.doe@example.com`.
+1. Sign in to your org as `alex.doe@example.com`.
 1. When prompted, follow the steps to set up Okta Verify.
 1. Select **Continue**.
 1. Close the window.
@@ -182,7 +182,7 @@ This step is optional. However, you can use your web app to interact with Okta A
 
 After you create your app integration in your Okta org, configure your app and org to support the authentication use cases that you're implementing:
 
-* For a basic password factor only use case, see [Set up your Okta org for a password factor only use case](#set-up-your-okta-org-for-a-password-factor-only-use-case)
+* For a basic password factor-only use case, see [Set up your Okta org for a password factor only use case](#set-up-your-okta-org-for-a-password-factor-only-use-case)
 * For a multifactor use case, see [Set up your Okta org for a multifactor use case](#set-up-your-okta-org-for-a-multifactor-use-case)
 * For a password-optional use case, see [Set up your Okta org for a password-optional use case](#set-up-your-okta-org-for-a-password-optional-use-case)
 
@@ -232,7 +232,7 @@ This section shows you how to set up your Okta org and app to support the multif
 
 ### Set up your Okta org for a password-optional use case
 
-For password-optional authentication, you first need to:
+For password-optional authentication, follow these steps first:
 
 1. [Set up the email authenticator for authentication and recovery](#set-up-the-email-authenticator).
 2. [Create a separate group for password-optional users](#create-a-group-for-password-optional-users).
