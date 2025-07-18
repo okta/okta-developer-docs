@@ -26,7 +26,7 @@ If you don't have an Okta Identity Engine org, you need to sign up for an Okta a
 
    After you sign up, Okta sends a verification email to the email address that you provide.
 
-1. Using the activate link in Okta's email, activate your account and provide a new password. Okta redirects you to the [Admin Console](/docs/concepts/okta-organizations/#admin-console) of your new Identity Engine org.
+1. Using the activate link in the email from Okta, activate your account and provide a new password. Okta redirects you to the [Admin Console](/docs/concepts/okta-organizations/#admin-console) of your new Identity Engine org.
 
 The email and password that you use to create your account are used as your admin credentials. Your account is automatically created as an admin with the Super Administrator role.
 
@@ -46,13 +46,13 @@ Create two test accounts to test the end-user experience for your apps.
 1. Select **Add Person**.
 1. Configure your user like this:
 
-   > **Note:** Okta supports 3-byte encoded UTF-8 characters for the following values.
-
    * **First name**: John
    * **Last name**: Doe
    * **Username**: john.doe@example.com
    * **Primary email**: john.doe@example.com
    * **Secondary email**: Enter your email address that you used to create your Okta account
+
+> **Note:** Okta supports 3-byte encoded UTF-8 characters for these values.
 
 1. For **Activation**, select **Activate now**.
 1. Select **I will set password**, and enter a password.
@@ -78,7 +78,7 @@ For more information about creating users, see [Add users manually](https://help
 
 If you don't activate your test accounts when creating them, you can activate them with this process.
 
-1. In the Admin Console, select your name in the upper right corner of the page. [Copy your domain](docs/guides/find-your-domain/main/#find-your-okta-domain) to your clipboard.
+1. In the Admin Console, select your name in the upper right corner of the page. [Copy your domain](/docs/guides/find-your-domain/main/#find-your-okta-domain) to your clipboard.
 1. In your browser, open a private browsing window. For example, if you're using Chrome as your browser, open a new incognito window.
 1. Paste your domain into the address bar.
 1. Sign into your org as `alex.doe@example.com`.
@@ -92,7 +92,7 @@ Use the same process when you activate other accounts.
 
 Creating user (role) groups and assigning users to them is often done by an automated import process for large companies. However, you can also assign users to groups with a manual, per-user process.
 
-For basic testing scenarios, create a group called **Retailers** and assign your John Doe test account to it.
+For basic testing scenarios, create a group called **Retailers**. Assign your John Doe test account to it.
 
 ### Create a group
 
@@ -104,27 +104,29 @@ For basic testing scenarios, create a group called **Retailers** and assign your
 
 ### Add a user to the group
 
-1. In the Groups section, select the **Retailers** group. Refresh the page if you don't see the group.
+1. Under the list of groups, select the **Retailers** group. Refresh the page if you don't see the group.
 1. Click **Assign people**.
 1. Click **Assign +** next to John Doe’s name.
 1. Click **Done**.
 
 ## Enable an embedded Okta Sign-In Widget
 
-You can embed the Okta Sign-In Widget in your apps rather than have it hosted by Okta. To enable communication between the widget embedded in your app and your Okta org, enable an [interaction code](/docs/concepts/interaction-code/#the-interaction-code-flow).
+You can embed the Okta Sign-In Widget in your apps rather than have it hosted by Okta. Enable an [interaction code](/docs/concepts/interaction-code/#the-interaction-code-flow) to allow communication between the widget embedded in your app and your Okta org.
 
 If you’re using a custom authorization server for your app, you need to enable the interaction code for that particular authorization server.
 
 ### Enable interaction code for your org
 
 1. In the Admin Console, go to **Settings** > **Account**.
-1. Scroll down to the **Embedded widget sign-in support** panel, and then click **Edit**.
+1. Scroll down to **Embedded widget sign-in support**, and then click **Edit**.
 1. Select **Interaction Code**.
 1. Click **Save**.
 
 By selecting **Interaction Code**, admins can use the interaction code as a grant type for their OpenID Connect app integrations and authorization servers.
 
-If it isn't selected, then Okta hides the interaction code as a grant type. You can't use the interaction code for any OpenID Connect app integration or with any access policy rule of an authorization server.
+If you don't select it, then Okta hides the interaction code as a grant type.
+
+> **Note:** You can't use the interaction code for any OpenID Connect app integration or with any access policy rule of an authorization server.
 
 ### Enable interaction code for a custom authorization server
 
@@ -150,7 +152,7 @@ If you have a particular type of app that you want to create, see the following 
 
 ### Native app
 
-Native apps are desktop or mobile apps that run natively on a device and redirect users to a non-HTTP callback.
+Native apps run natively on a device and redirect users to a non-HTTP callback. They can be desktop or mobile apps.
 
 * [Android](/docs/guides/oie-embedded-common-org-setup/android/main/#create-an-application)
 * [iOS](/docs/guides/oie-embedded-common-org-setup/ios/main/#create-an-application)
@@ -184,11 +186,11 @@ After you create your app integration in your Okta org, configure your app and o
 
 ### Set up your Okta org for a password factor only use case
 
-This section shows you how to set up your Okta org and app to support password factor-only use cases. These use cases are intended to use the password factor without any additional factors (such as email or phone SMS). When you [create an app](#create-an-app), the app is assigned **Any two factors**. This is the default policy for new apps that requires a user to verify their identity with any two enabled authentication factors.
+This section shows you how to set up your Okta org and app to support password factor-only use cases. These use cases are intended to use the password factor without any additional factors (such as email or phone SMS). When you [create an app](#create-an-app), the app is assigned **Any two factors**. This is the default policy for new apps. It requires a user to verify their identity with any two enabled authentication factors.
 
 First, assign the **Password only** policy to your app:
 
-1. Got to **Applications** > **Applications** in the Admin Console, and then select your app.
+1. Go to **Applications** > **Applications** in the Admin Console, and then select your app.
 1. Select the **Sign On** tab.
 1. Click **Edit** in the **User Authentication** section.
 1. Select **Password only** for the **Authentication policy**, and then click **Save**.
@@ -256,7 +258,7 @@ To ensure that only password-optional users can **sign in** without a password a
 1. Enter **Group for password optional users** as the description for the group.
 1. Click **Save**.
 
-After you create the **Password optional** group, add the Alex Doe test account to the group. See [Add a user to the group](#add-a-user-to-the-group) and ensure that you add the test account to the **Password optional** group.
+After you create the **Password optional** group, add the Alex Doe test account to the group. See [Add a user to the group](#add-a-user-to-the-group).
 
 #### Enable password-optional user sign-up flow
 
@@ -308,13 +310,13 @@ An authenticator enrollment policy determines which authenticators must challeng
 
 ##### Add a global session policy for password-optional users
 
-A global session policy determines user session length and basic authentication rules for groups of users. In this case, the policy turns off MFA for all users in the password-optional user group. Therefore, they only need email authentication to sign in.
+A global session policy determines user session length and authentication rules for groups of users. In this case, the policy turns off MFA for all users in the password-optional user group. Therefore, they only need email authentication to sign in.
 
 1. Go to **Security** > **Global Session Policy**.
 1. Click **Add policy**.
 1. Enter **Password-optional global sign-in policy** as the name.
 1. Under **Assign to groups**, assign the policy to your **Password optional** group.
-1. Click **Create policy and add rule**. and give the rule a name.
+1. Click **Create policy and add rule**. Give the rule a name.
 1. Enter **Password-optional GSP rule** as the name of the rule.
 1. Verify that **Establish the user session with** is set to **Any factor used to meet the Authentication Policy requirements**.
 1. Set **Multifactor authentication (MFA) is** to **Not required**.
