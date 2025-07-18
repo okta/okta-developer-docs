@@ -1,2 +1,2 @@
-* **Sign-in Redirect URI(s)**: `http://localhost:5173/login/callback`
-* **Sign-out Redirect URI(s)**: `http://localhost:5173`
+* **Sign-in Redirect URIs**: `http://localhost:5173/login/callback`
+* **Sign-out Redirect URIs**: `http://localhost:5173`
