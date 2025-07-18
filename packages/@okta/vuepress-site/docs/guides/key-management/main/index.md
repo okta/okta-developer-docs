@@ -101,14 +101,18 @@ This option allows you to bring your own signing or encryption keys. You can add
 
 > **Note:** To add a public key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
 
-The Postman Collection folders used in this section are **Client authentication** and **Encrypt the ID token**.
+The **Client authentication** and **Encrypt the ID token** folders of the Postman Collection ares used in this section.
 
 1. Use the **Add a signing key JWK** or the **Add an encryption key** <ApiLifecycle access="ea" /> request.
 1. In the path parameters, replace the following variables:
     * `{{url}}`: Your Okta domain URL where the app is configured
     * `{{applicationId}}`: The application ID
 1. On the **Body** tab, paste your public key. Be sure to include a value for the `kid` parameter. In addition, verify that the `use` parameter has a value of `sig` to indicate a signing key JWK. For an encryption key JWK, the `use` parameter should be `enc`.
-1. Send the `POST {{yourOktaDomain}}/api/v1/apps/{{applicationId}}/credentials/jwks` request. The response should look something like this:
+1. Send the `POST {{yourOktaDomain}}/api/v1/apps/{{applicationId}}/credentials/jwks` request.
+
+    > **Note**: You can also add a signing key when you create the app. See the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/oauthClient/jwks&t=request)
+
+    The response should look something like this:
 
     **Signing key**
 
@@ -172,14 +176,18 @@ This option allows you to host your public key in a URI. This URL contains publi
 
 > **Note:** To add a URL to fetch keys dynamically using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
 
-The Postman Collection folders used in this section are **Client authentication** and **Encrypt the ID token**.
+The **Client authentication** and **Encrypt the ID token** folders of the Postman Collection are used in this section.
 
 1. Use the **Add a signing key URI** or **Add an encryption key URI** <ApiLifecycle access="ea" />request.
 1. In the path parameters, replace the following variables:
     * `{{url}}`: Your Okta domain URL where the app is configured
     * `{{clientId}}`: The application ID
-1. On the **Body** tab, use the request body template to add the appropriate values for your app, and then enter your JWKS URI as the `jwks_uri` value. In addition, verify that the `use` parameter has a value of `sig` to indicate a signing key JWK. For an encryption key JWK, the `use` parameter should be `enc`.
-1. Send the `POST {{yourOktaDomain}}/oauth2/v1/clients/{{clientId}}` request. The response should look something like this:
+1. On the **Body** tab, use the request body template to add the appropriate values for your app, and then enter your JWKS URI as the `jwks_uri` value.
+1. Send the `POST {{yourOktaDomain}}/oauth2/v1/clients/{{clientId}}` request.
+
+    **Note**: You can also add a JWKS URI when you create the app. See the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/oauthClient/jwks_uri&t=request).
+
+    The response should look something like this:
 
     **Signing key**
 
@@ -240,7 +248,7 @@ The Postman Collection folders used in this section are **Client authentication*
         }
     ```
 
-## Retire a public key
+## Deactivate a key
 
 When you’re ready to retire a public key, change the older JWK status from **Active** to **Inactive** using the API.
 
@@ -324,9 +332,9 @@ When you’re ready to retire a public key, change the older JWK status from **A
         }
     ```
 
-## Delete a public key
+## Delete a key
 
-After you deactivate the old key, you can then delete it. This ensures that the older key isn’t used by mistake. The Postman Collection folders used in this section are **Client authentication** and **Encrypt the ID token**.
+After you deactivate the old key, you can then delete it. This ensures that the older key isn’t used by mistake. The **Client authentication** and **Encrypt the ID token** folders of the Postman Collection are used in this section.
 
 > **Note:** To delete a public key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
 
@@ -347,7 +355,7 @@ Optional. You can use the same encryption key with different algorithms. Okta su
 * RSA-OAEP-384
 * RSA-OAEP-512
 
-The encryption key must have an **ACTIVE** status to add an encryption algorithm. The Postman Collection folder used in this section is **Encrypt the ID token**.
+The encryption key must have an **ACTIVE** status to add an encryption algorithm. The **Encrypt the ID token** folder of the Postman Collection is used in this section.
 
 > **Note:** To add an encryption key algorithm using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
 
@@ -355,7 +363,7 @@ The encryption key must have an **ACTIVE** status to add an encryption algorithm
 1. In the path parameters, replace the following variables:
     * `{{url}}`: Your Okta domain URL where the app is configured
     * `{{clientId}}`: The client ID
-1. On the **Body** tab, use the request body template to add the appropriate values for your client, and then add the `id_token_encrypted_response_alg` with a value of `RSA-OAEP-256`.
+1. On the **Body** tab, use the request body template to add the appropriate values for your client, and then add the `id_token_encrypted_response_alg` parameter with a value of `RSA-OAEP-256`.
 1. Send the `PUT {{yourOktaDomain}}/oauth2/v1/clients/{{clienId}}` request.
 
 Example response
@@ -400,18 +408,227 @@ Example response
 
 ## Encrypt an access token
 
+<ApiLifecycle access="ea" />
+
 You can encrypt access tokens using an encryption key. This ensures the access token's confidentiality and protects sensitive information, such as scopes or permissions. You can encrypt access tokens minted only by an Okta custom authorization server.
 
-## Save keys in Okta
+> **Note**: The **Encrypt an access token** folder of the Postman Collection is used in this section.
 
-This option allows you to bring your own encryption key. You can add up to 50 keys per authorization server. However, only one key can be active at a time. This section assumes that you've already [generated your JWK public and private key pair](#what-you-need).
+## Save keys in Okta for a custom authorization server
 
-The Postman Collection folder used in this section is **Encrypt an access token**.
+This option allows you to bring your own encryption key. You can add up to 50 keys per authorization server. However, only one key can be active at a time. When you add the key, add it with a status of Inactive and then activate it in the [next section](#use-a-url-to-fetch-keys-dynamically-1). This section assumes that you've already [generated your JWK public and private key pair](#what-you-need).
 
+> **Note:** To add a public key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
 
-1. Use the **Add a signing key JWK** or the **Add an encryption key** <ApiLifecycle access="ea" /> request.
+1. Use the **Add an encryption key** request.
 1. In the path parameters, replace the following variables:
     * `{{url}}`: Your Okta domain URL where the app is configured
-    * `{{applicationId}}`: The application ID
-1. On the **Body** tab, paste your public key. Be sure to include a value for the `kid` parameter. In addition, verify that the `use` parameter has a value of `sig` to indicate a signing key JWK. For an encryption key JWK, the `use` parameter should be `enc`.
-1. Send the `POST {{yourOktaDomain}}/api/v1/apps/{{applicationId}}/credentials/jwks` request. The response should look something like this:
+    * `{{authorizationServerId}}`: The custom authorization server ID
+1. On the **Body** tab, paste the public key from the resource server. Parameters to include:
+    * `kid`
+    * `use: enc` to indicate an encryption key JWK
+    * `status: INACTIVE`
+    **Note:** You can have only one active key at any given time for the authorization server. When you activate an inactive key, Okta automatically deactivates the current active key.
+1. Send the `POST {{yourOktaDomain}}/api/v1/authorizationServers/{{authServerId}}/resourceservercredentials/keys` request. The response should look something like this:
+
+    ```JSON
+        {
+            "kty": "RSA",
+            "id": "apk8m6izgi2HsFRfq0g7",
+            "created": "2025-07-18T17:32:45.000Z",
+            "lastUpdated": "2025-07-18T17:32:45.000Z",
+            "status": "INACTIVE",
+            "kid": "zUjOKTJrPP-XFgg7B8nAJN9vAUONXuFPUBi1kD_HLAs",
+            "use": "enc",
+            "_links": {
+                "activate": {
+                    "href": "https://{{yourOktaDomain}}/api/v1/authorizationServers/{{authorizationServerId}}/resourceservercredentials/keys/{{keyId}}/lifecycle/activate",
+                    "hints": {
+                        "allow": [
+                            "POST"
+                        ]
+                    }
+                },
+                "delete": {
+                    "href": "https://{{yourOktaDomain}}/api/v1/authorizationServers/{{authorizationServerId}}/resourceservercredentials/keys/{{KeyId}}",
+                    "hints": {
+                        "allow": [
+                            "DELETE"
+                        ]
+                    }
+                }
+            },
+            "e": "AQAB",
+            "n": "hUo9QIgVHGG9zopM6u2Mj9NYu6IeuwI_seODhZ1qMb66Mhq1QWk7gYbRIfX7cj-IjetiNNwd5lOAB0jL4u8YXAtUfzVPOaQitnmC3rGBEu6JM_zh1yy6zxzgu85ekp2qfUTqdiLaAxmQq0VVQNPGXpN3axb17CtPFG7MjVAuuGSHQAKvGkSmz8av_bIHYbflksACoCohoH_5nFoN6wVamE1w43zwSy8W4SMwzfOQO10lCdBGexnunOKtHsmE0lKD0sb0UI6QGxDwePRy-gJC4s7FkM4gnHxhPbGsoOMlOYiczR5FANtCVA8WjqkJ2uxUvjEaegKjHE16GFKnvavtoQ"
+        }
+    ```
+
+## Activate an encryption key
+
+To activate an encryption key for your custom authorization server, follow these steps.
+
+> **Note:** To activate an encryption key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
+
+1. Use the **Activate an encryption key** request.
+1. In the path parameters, replace the following variables:
+    * `{{url}}`: Your Okta domain URL where the app is configured
+    * `{{authorizationServerId}}`: The application ID
+    * `{{keyId}}`: The `id` of the public JWK
+1. Send the `POST {{yourOktaDomain}}/api/v1/authorizationServers/{{authorizationServerId}}/resourceservercredentials/keys/{{keyId}}/lifecycle/activate` request. The response should look something like this:
+
+    ```JSON
+        {
+            "kty": "RSA",
+            "id": "apk8m6rvgsLSCdAmO0g7",
+            "created": "2025-07-18T19:23:36.000Z",
+            "lastUpdated": "2025-07-18T19:24:38.000Z",
+            "status": "ACTIVE",
+            "kid": "zUjOKTJrPP-XFgg7B8nAJN9vAUONXuFPUBi1kD_HLAs",
+            "use": "enc",
+            "e": "AQAB",
+            "n": "hUo9QIgVHGG9zopM6u2Mj9NYu6IeuwI_seODhZ1qMb66Mhq1QWk7gYbRIfX7cj-IjetiNNwd5lOAB0jL4u8YXAtUfzVPOaQitnmC3rGBEu6JM_zh1yy6zxzgu85ekp2qfUTqdiLaAxmQq0VVQNPGXpN3axb17CtPFG7MjVAuuGSHQAKvGkSmz8av_bIHYbflksACoCohoH_5nFoN6wVamE1w43zwSy8W4SMwzfOQO10lCdBGexnunOKtHsmE0lKD0sb0UI6QGxDwePRy-gJC4s7FkM4gnHxhPbGsoOMlOYiczR5FANtCVA8WjqkJ2uxUvjEaegKjHE16GFKnvavtoQ"
+        }
+    ```
+
+## Use a URL to fetch keys dynamically
+
+This option allows you to host your public key in a URI. By hosting the keys in a URL, you can conveniently rotate the keys without having to update the authorization server configuration every time. Okta dynamically fetches the latest public key, which eliminates the need to manually update the public key when you’re rotating the key pair.
+
+> **Note:** To add a URL to fetch keys dynamically using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
+
+1. Use the **Add an encryption key URI** request.
+1. In the path parameters, replace the following variables:
+    * `{{url}}`: Your Okta domain URL where the app is configured
+    * `{{authorizationServerId}}`: The custom authorization server ID
+1. On the **Body** tab, use the request body template to add the appropriate values for your authorization server, and then add your JWKS URI as the value for `jwksUri`.
+    **Note:** You can have only one JWKS URI at a time for the authorization server.
+1. Send the `PUT {{yourOktaDomainl}}/api/v1/authorizationServers/{{authorizationServerId}}` request.
+
+    **Note**: You can also add a JWKS URI when you create the authorization server. See the [Authorization Server API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/#tag/AuthorizationServer/operation/createAuthorizationServer!path=jwks&t=request).
+
+    The response should look something like this (this response is truncated for brevity):
+
+    ```JSON
+        {
+            "id": "{{authServerId}}",
+            "name": "EncryptionTest",
+            "description": "testing encrypting access token",
+            "audiences": [
+                "api://default"
+            ],
+            "issuer": "https://{{yourOktaDomain}}/oauth2/{{authorizationServerId}}",
+            "issuerMode": "DYNAMIC",
+            "jwksUri": "https://{{yourJWKSURI}}",
+            "status": "ACTIVE",
+            "created": "2025-07-18T17:26:03.000Z",
+            "lastUpdated": "2025-07-18T18:35:33.000Z",
+            "credentials": {
+                "signing": {
+                    "kid": "mGCeIdK0yN6n6Gl_tMV4H8u0q3XpOSxMgY0m_Tw6b1I",
+                    "rotationMode": "AUTO",
+                    "lastRotated": "2025-07-18T17:26:03.000Z",
+                    "nextRotation": "2025-10-16T17:26:03.000Z"
+                }
+            },
+            "default": false,
+            "_links": {
+                "rotateKey": {
+                    "href": "https://{{yourOktaDomain}}/api/v1/authorizationServers/{{authorizationServerId}}/credentials/lifecycle/keyRotate",
+                    "hints": {
+                        "allow": [
+                            "POST"
+                        ]
+                    }
+                },
+        . . . . .
+        }
+    }
+    ```
+
+## Add an encryption key algorithm
+
+Optional. You can use the same encryption key with different algorithms. Okta supports the following algorithms:
+
+* RSA-OAEP-256
+* RSA-OAEP-384
+* RSA-OAEP-512
+
+The encryption key must have an **ACTIVE** status to add an encryption algorithm.
+
+> **Note:** To add an encryption key algorithm using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
+
+1. Use the **Add an encryption key algorithm** request.
+1. In the path parameters, replace the following variables:
+    * `{{url}}`: Your Okta domain URL where the app is configured
+    * `{{authorizationServerId}}`: The client ID
+1. On the **Body** tab, use the request body template to add the appropriate values for your client, and then add the `accessTokenEncryptedResponseAlgorithm` with a value of `RSA-OAEP-256`.
+1. Send the `PUT {{yourOktaDomain}}/api/v1/authorizationServers/{{authorizationServerId}}` request.
+
+    Example response. This response has been truncated for brevity.
+
+    ```JSON
+        {
+            "id": "{{authorizationServerId}}",
+            "name": "namehere",
+            "description": "authorization server description",
+            "audiences": [
+                "api://default"
+            ],
+            "issuer": "https://{{yourOktaDomain}}/oauth2/namehere",
+            "issuerMode": "DYNAMIC",
+            "accessTokenEncryptedResponseAlgorithm": "RSA-OAEP-256",
+            "jwks": {
+                "keys": [
+                    {
+                        "kty": "RSA",
+                        "id": "apk8m6ruyq1P0UlBE0g7",
+                        "status": "ACTIVE",
+                        "kid": "zUjOKTJrPP-XFgg7B8nAJN9vAUONXuFPUBi1kD_HLAs",
+                        "use": "enc",
+                        "e": "AQAB",
+                        "n": "hUo9QIgVHGG9zopM6u2Mj9NYu6IeuwI_seODhZ1qMb66Mhq1QWk7gYbRIfX7cj-IjetiNNwd5lOAB0jL4u8YXAtUfzVPOaQitnmC3rGBEu6JM_zh1yy6zxzgu85ekp2qfUTqdiLaAxmQq0VVQNPGXpN3axb17CtPFG7MjVAuuGSHQAKvGkSmz8av_bIHYbflksACoCohoH_5nFoN6wVamE1w43zwSy8W4SMwzfOQO10lCdBGexnunOKtHsmE0lKD0sb0UI6QGxDwePRy-gJC4s7FkM4gnHxhPbGsoOMlOYiczR5FANtCVA8WjqkJ2uxUvjEaegKjHE16GFKnvavtoQ"
+                    }
+                ]
+            },
+            "status": "ACTIVE",
+            "created": "2022-01-18T18:27:36.000Z",
+            "lastUpdated": "2025-07-18T22:02:38.000Z",
+            "credentials": {
+                "signing": {
+                    "kid": "l4nvlzXevxtEc696HOQdx3ZJChAyBBtv68LW-spKfNM",
+                    "rotationMode": "AUTO",
+                    "lastRotated": "2025-06-27T03:11:18.000Z",
+                    "nextRotation": "2025-09-25T03:11:18.000Z"
+                }
+            }
+        }
+    ```
+
+## Deactivate an encryption key
+
+When you’re ready to retire a public key, change the JWK status from **Active** to **Inactive** using the API.
+
+> **Note:** To retire a public key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
+
+1. Use the **List JWKS** and **Get a JWK** requests to obtain the key ID.
+1. Use the **Deactive a JWK** request after you have the key ID that you need.
+1. In the path parameters, replace the following variables:
+    * `{{url}}`: Your Okta domain URL where the app is configured
+    * `{{authorizationServerId}}}`: The application ID
+    * `{{keyId}}`: The `id` of the public JWK
+1. Send the `POST {{yourOktaDomain}}/api/v1/authorizationServers/{{authorizationServerId}}/resourceservercredentials/keys/{{keyId}}/lifecycle/deactivate` request. The response should look something like this:
+
+??VERIFY THE URL!??
+
+## Delete a public key
+
+After you deactivate the old key, you can then delete it. This ensures that the older key isn’t used by mistake. The **Client authentication** and **Encrypt the ID token** folders of the Postman Collection are used in this section.
+
+> **Note:** To delete a public key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
+
+1. Use the **Delete a signing key** or **Delete an encryption key** <ApiLifecycle access="ea" />request.
+1. In the path parameters, replace the following variables:
+    * `{{url}}`: Your Okta domain URL where the app is configured
+    * `{{authorizationServerId}}`: The application ID
+    * `{{keyId}}`: The `id` of the public JWK
+1. Send the `DELETE {{yourOktaDomain}}/api/v1/authorizationServers/{{authorizationServerId}}/resourceservercredentials/keys/{{keyId}}` request.
