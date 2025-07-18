@@ -84,13 +84,13 @@
    import ProfileView from '../views/ProfileView.vue'
    ```
 
-6. Add a new route to the `index.js` `routes` array:
+6. In the same `index.js` file, add a new route to the top of the `routes` array in the same file:
 
    ```ts
    {
      path: '/profile',
      component: ProfileView,
-   }
+   },
    ```
 
 This component is available at a `/profile` route and displays the user their profile info.
