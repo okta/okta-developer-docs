@@ -8,7 +8,7 @@ sections:
 - main
 ---
 
-Create and manage keys that you use for authenticating your app and for encrypting the ID token. Create and manage keys that you use to encrypt an access token minted by a custom authorization server.
+Create and manage the keys that you use for authenticating your app and for encrypting the ID token. Create and manage keys that you use to encrypt an access token minted by a custom authorization server.
 
 ---
 
@@ -59,7 +59,9 @@ In the context of securing your app with Okta, there are two types of keys that 
 
 #### Signing keys (sig) for client authentication
 
-These JSON web signature keys are used to authenticate your app with Okta. They ensure that the requests made to Okta are indeed coming from your app, providing a layer of trust and security in the communication process. Depending on what type of credentials that a [client uses to authenticate](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#client-authentication-methods), a signing key (JWK) may be required. Apps that use signing keys for client authentication have substantially higher security. This is because only the client can access the private key.
+These JSON web signature keys are used to authenticate your app with Okta. They ensure that the requests made to Okta are indeed coming from your app, providing a layer of trust and security in the communication process.
+
+Depending on what type of credentials that a [client uses to authenticate](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#client-authentication-methods), a signing key (JWK) may be required. Apps that use signing keys for client authentication have substantially higher security. This is because only the client can access the private key.
 
 You can use the API to add your own signing keys or a JWK URI to authentication your app with Okta. To have Okta generate a signing public/private key pair for your app, use the [Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
 
@@ -101,7 +103,7 @@ This option allows you to bring your own signing or encryption keys. You can add
 
 > **Note:** To add a public key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
 
-The **Client authentication** and **Encrypt the ID token** folders of the Postman Collection ares used in this section.
+The **Client authentication** and **Encrypt the ID token** folders of the Postman Collection are used in this section.
 
 1. Use the **Add a signing key JWK** or the **Add an encryption key** <ApiLifecycle access="ea" /> request.
 1. In the path parameters, replace the following variables:
@@ -110,7 +112,7 @@ The **Client authentication** and **Encrypt the ID token** folders of the Postma
 1. On the **Body** tab, paste your public key. Be sure to include a value for the `kid` parameter. In addition, verify that the `use` parameter has a value of `sig` to indicate a signing key JWK. For an encryption key JWK, the `use` parameter should be `enc`.
 1. Send the `POST {{yourOktaDomain}}/api/v1/apps/{{applicationId}}/credentials/jwks` request.
 
-    > **Note**: You can also add a signing key when you create the app. See the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/oauthClient/jwks&t=request)
+    > **Note**: You can also add a signing key when you create the app. See the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/oauthClient/jwks&t=request).
 
     The response should look something like this:
 
@@ -172,7 +174,9 @@ The **Client authentication** and **Encrypt the ID token** folders of the Postma
 
 ## Use a URL to fetch keys dynamically
 
-This option allows you to host your public key in a URI. This URL contains public keys that clients can use to verify the signature of client-based access tokens and OpenID Connect ID tokens. By hosting the keys in a URL, you can conveniently rotate the keys without having to update the app configuration every time. Okta dynamically fetches the latest public key for the app, which eliminates the need to manually update the public key when you’re rotating the key pair.
+This option allows you to host your public key in a URI. This URL contains public keys that clients can use to verify the signature of client-based access tokens and OpenID Connect ID tokens.
+
+By hosting the keys in a URL, you can conveniently rotate the keys without having to update the app configuration every time. Okta dynamically fetches the latest public key for the app. This eliminates the need to manually update the public key when you’re rotating the key pair.
 
 > **Note:** To add a URL to fetch keys dynamically using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
 
@@ -416,7 +420,7 @@ You can encrypt access tokens using an encryption key. This ensures the access t
 
 ## Save keys in Okta for a custom authorization server
 
-This option allows you to bring your own encryption key. You can add up to 50 keys per authorization server. However, only one key can be active at a time. When you add the key, add it with a status of Inactive and then activate it in the [next section](#use-a-url-to-fetch-keys-dynamically-1). This section assumes that you've already [generated your JWK public and private key pair](#what-you-need).
+This option allows you to bring your own encryption key. You can add up to 50 keys per authorization server. However, only one key can be active at a time. When you add the key, add it with a status of `INACTIVE` and then activate it in the [next section](#use-a-url-to-fetch-keys-dynamically-1). This section assumes that you've already [generated your JWK public and private key pair](#what-you-need).
 
 > **Note:** To add a public key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
 
@@ -426,7 +430,7 @@ This option allows you to bring your own encryption key. You can add up to 50 ke
     * `{{authorizationServerId}}`: The custom authorization server ID
 1. On the **Body** tab, paste the public key from the resource server. Parameters to include:
     * `kid`
-    * `use: enc` to indicate an encryption key JWK
+    * `use: enc`
     * `status: INACTIVE`
     **Note:** You can have only one active key at any given time for the authorization server. When you activate an inactive key, Okta automatically deactivates the current active key.
 1. Send the `POST {{yourOktaDomain}}/api/v1/authorizationServers/{{authServerId}}/resourceservercredentials/keys` request. The response should look something like this:
@@ -590,17 +594,6 @@ The encryption key must have an **ACTIVE** status to add an encryption algorithm
                     }
                 ]
             },
-            "status": "ACTIVE",
-            "created": "2022-01-18T18:27:36.000Z",
-            "lastUpdated": "2025-07-18T22:02:38.000Z",
-            "credentials": {
-                "signing": {
-                    "kid": "l4nvlzXevxtEc696HOQdx3ZJChAyBBtv68LW-spKfNM",
-                    "rotationMode": "AUTO",
-                    "lastRotated": "2025-06-27T03:11:18.000Z",
-                    "nextRotation": "2025-09-25T03:11:18.000Z"
-                }
-            }
         }
     ```
 
