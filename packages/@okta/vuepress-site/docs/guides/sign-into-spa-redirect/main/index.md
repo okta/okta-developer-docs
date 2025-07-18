@@ -44,22 +44,24 @@ An app integration represents your app in your Okta org. The integration configu
 
 To create your app integration in Okta using the Admin Console:
 
-1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
+1. [Sign in to your Okta org](https://developer.okta.com/login) with your administrator account.
 1. Click **Admin** in the upper-right corner of the page.
 1. Open the Applications page by selecting **Applications** > **Applications**.
 1. Click **Create App Integration**.
 1. Select a **Sign-in method** of **OIDC - OpenID Connect**.
 1. Select an **Application type** of **Single-Page Application**, then click **Next**.
    > **Note:** If you choose an inappropriate app type, it can break the sign-in or sign-out flows by requiring the verification of a client secret. Public clients don't have a client secret.
-1. Enter an **App integration name**.
+1. Enter an **App integration name**. For example, "My SPA".
 1. Select **Authorization Code** and **Refresh Token** as the **Grant type**. This enables the Authorization Code flow with PKCE for your app. It also can refresh the access token when it expires without prompting the user to reauthenticate.
-1. Enter the **Sign-in redirect URIs** and **Sign-out redirect URIs** for both local development, such as `http://localhost:xxxx/login/callback`, and for production, such as `https://app.example.com/login/callback`:<br>
+1. Enter the **Sign-in redirect URIs** and **Logout redirect URIs** for both local development, such as `http://localhost:xxxx/login/callback`, and for production, such as `https://app.example.com/login/callback`:<br>
 
     <StackSnippet snippet="redirectvalues" />
+
+   > **Note:** The values suggested here are those used in the sample app.
 1. Select the type of **Controlled access** for your app in the **Assignments** section. You can allow all users to have access or limit access to individuals and groups. See the [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-user-app-assign) topic in the Okta product documentation.
 1. Click **Save** to create the app integration and open its configuration page. Keep this page open as you need to copy some values in later steps when configuring your app.
 1. On the **General** tab, scroll to **General Settings** and click **Edit**.
-1. Verify that the **Refresh Token** is selected as a **Grant type**. In the **Refresh Token** section, [refresh token rotation](/docs/guides/refresh-tokens/main/#refresh-token-rotation) is automatically set as the default refresh token behavior.
+1. Verify that the **Refresh Token** is selected as a **Grant type**. In the **Refresh Token** section, **Rotate token after every use**  is automatically set as the default refresh token behavior. See [Refresh token rotation](/docs/guides/refresh-tokens/main/#refresh-token-rotation).
    > **Note:** By default, the **Grace period for token rotation** is set to 30 seconds. You can [change the rotation period](/docs/guides/refresh-tokens/main/#enable-refresh-token-rotation) to between 0 and 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token. Using a value of 0 indicates that there's no grace period. However, a grace period of 0 doesn't necessarily mean that the previous refresh token is immediately invalidated. That token is invalidated after the new one is generated and returned in the response.
 1. In the **Login** section, specify an **Initiate login URI** to have Okta initiate the sign-in flow. When Okta redirects to this URI (for example, `https://example.com:xxxx/login`), the client is triggered to send an authorize request. This URI is also used when users reset their passwords while signing in to the app. Okta redirects the user back to this URI after the password is reset so that the user can continue to sign in.
 1. Click **Save**.
