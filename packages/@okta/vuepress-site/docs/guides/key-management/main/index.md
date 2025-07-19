@@ -122,7 +122,7 @@ The **Client authentication** and **Encrypt the ID token** folders of the Postma
 
     **Signing key**
 
-    ```json
+    ```JSON
         {
             "kty": "RSA",
             "id": "{jwksId}",
@@ -150,7 +150,7 @@ The **Client authentication** and **Encrypt the ID token** folders of the Postma
     **Encryption key**
     <ApiLifecycle access="ea" />
 
-    ```json
+    ```JSON
         {
             "kty": "RSA",
             "id": "pks8m1hju1OGb5Gi90g7",
