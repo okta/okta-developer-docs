@@ -58,7 +58,7 @@ When you generate a new secret, the original secret remains in `ACTIVE` status. 
 
     The response should look something like this:
 
-    ```json
+    ```JSON
         [
             {
                 "id": "{secretId}",
@@ -115,7 +115,7 @@ To have Okta auto-generate the secret using the API, follow these steps:
     * `{appId}`: The application ID
 1. Send the `POST {yourOktaDomain}/api/v1/apps/{appId}/credentials/secrets` request. The response should look something like this:
 
-    ```json
+    ```JSON
         {
             "id": "{secretId}",
             "created": "2022-01-10T22:56:18.000Z",
@@ -149,7 +149,7 @@ To generate your own secret for use with your app, follow these steps:
 1. On the **Body** tab, use the request body template and enter your generated secret as the `client_secret` value.
 1. Send the `POST {yourOktaDomain}/api/v1/apps/{appId}/credentials/secrets` request. The response should look something like this:
 
-    ```json
+    ```JSON
         {
             "id": "{secretId}",
             "created": "2022-01-10T22:33:19.000Z",
@@ -185,7 +185,7 @@ After you test your app and everything works correctly with the newly generated 
     * `{secretId}`: The old client secret ID that you obtained in a previous step
 1. Send the `POST {yourOktaDomain}/api/v1/apps/{appId}/credentials/secrets/{secretId}/lifecycle/deactivate` request. The response should look something like this:
 
-    ```json
+    ```JSON
         {
             "id": "{secretId}",
             "created": "2022-01-10T21:06:31.000Z",
