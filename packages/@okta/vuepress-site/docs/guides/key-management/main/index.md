@@ -71,7 +71,7 @@ You can use the API to add your own signing keys or a JWK URI to authentication 
 
 Use an encryption key to provide an additional layer of security to ID tokens minted by an Okta authorization server for your app. When you encrypt an ID token, only the intended recipient with the corresponding decryption key (private key) can access the original information.
 
-### Secure the access token
+### Keys that secure the access token
 
 <ApiLifecycle access="ea" />
 
@@ -97,7 +97,11 @@ The collection contains three subcollections:
 
 > **Note:** Make sure that you [configure your Okta org as the environment in Postman](https://developer.okta.com/docs/reference/rest/).
 
-## Save keys in Okta
+## Manage keys for client auth and ID token encryption
+
+Use this section to manage signing keys used for client authentication and encryption keys for encrypting ID tokens.
+
+### Save keys in Okta
 
 This option allows you to bring your own signing or encryption keys. You can add up to 50 keys per app. This section assumes that you've already [generated your JWK public and private key pair](#what-you-need).
 
@@ -172,7 +176,7 @@ The **Client authentication** and **Encrypt the ID token** folders of the Postma
 
 1. Test your app and ensure that all functionality works with the new JWK.
 
-## Use a URL to fetch keys dynamically
+### Use a URL to fetch keys dynamically
 
 This option allows you to host your public key in a URI. This URL contains public keys that clients can use to verify the signature of client-based access tokens and OpenID Connect ID tokens.
 
@@ -254,7 +258,7 @@ The **Client authentication** and **Encrypt the ID token** folders of the Postma
         }
     ```
 
-## Deactivate a key
+### Deactivate signing or encryption keys
 
 When you’re ready to retire a public key, change the older JWK status from **Active** to **Inactive** using the API.
 
@@ -338,7 +342,7 @@ When you’re ready to retire a public key, change the older JWK status from **A
         }
     ```
 
-## Delete a key
+### Delete signing or encryption keys
 
 After you deactivate the old key, you can then delete it. This ensures that the older key isn’t used by mistake. The **Client authentication** and **Encrypt the ID token** folders of the Postman Collection are used in this section.
 
@@ -351,7 +355,7 @@ After you deactivate the old key, you can then delete it. This ensures that the 
     * `{jwksId}`: The `id` of the public JWK
 1. Send the `DELETE {yourOktaDomain}/api/v1/apps/{appId}/credentials/jwks/{jwksId}` request.
 
-## Add an encryption key algorithm
+### Add an encryption key algorithm
 
 <ApiLifecycle access="ea" />
 
@@ -412,15 +416,15 @@ Example response
     }
 ```
 
-## Encrypt an access token
+## Manage encryption keys for encrypting access tokens
 
 <ApiLifecycle access="ea" />
 
-You can encrypt access tokens using an encryption key. This ensures the access token's confidentiality and protects sensitive information, such as scopes or permissions. You can encrypt access tokens minted only by an Okta custom authorization server.
+Use this section to manage encryptions keys in a custom authorization server used to encrypt access tokens. You can encrypt access tokens minted by an Okta custom authorization server using an encryption key. This ensures the access token's confidentiality and protects sensitive information, such as scopes or permissions. You can only encrypt access tokens minted by a custom authorization server.
 
 > **Note**: The **Encrypt an access token** folder of the Postman Collection is used in this section.
 
-## Save keys in Okta for a custom authorization server
+### Save encryption keys in Okta
 
 This option allows you to bring your own encryption key. You can add up to 50 keys per authorization server. However, only one key can be active at a time. When you add the key, add it with a status of `INACTIVE` and then activate it in the [next section](#use-a-url-to-fetch-keys-dynamically-1). This section assumes that you've already [generated your JWK public and private key pair](#what-you-need).
 
@@ -469,7 +473,7 @@ This option allows you to bring your own encryption key. You can add up to 50 ke
         }
     ```
 
-## Activate an encryption key
+### Activate an encryption key
 
 To activate an encryption key for your custom authorization server, follow these steps.
 
@@ -496,7 +500,7 @@ To activate an encryption key for your custom authorization server, follow these
         }
     ```
 
-## Use a URL to fetch keys dynamically
+### Use a URL to fetch encryption keys dynamically
 
 This option allows you to host your public key in a URI. By hosting the keys in a URL, you can conveniently rotate the keys without having to update the authorization server configuration every time. Okta dynamically fetches the latest public key, which eliminates the need to manually update the public key when you’re rotating the key pair. If you switch from saving keys in Okta to using a URL to fetch keys dynamically, any saved public keys are deleted.
 
@@ -551,7 +555,7 @@ This option allows you to host your public key in a URI. By hosting the keys in 
     }
     ```
 
-## Add an encryption key algorithm
+### Add an encryption key algorithm
 
 Optional. You can use the same encryption key with different algorithms. Okta supports the following algorithms:
 
@@ -599,7 +603,7 @@ The encryption key must have an **ACTIVE** status to add an encryption algorithm
         }
     ```
 
-## Deactivate an encryption key
+### Deactivate an encryption key
 
 When you’re ready to retire a public key, change the JWK status from **Active** to **Inactive** using the API.
 
@@ -615,7 +619,7 @@ When you’re ready to retire a public key, change the JWK status from **Active*
 
 ??VERIFY THE URL!??
 
-## Delete a public key
+### Delete an encryption key
 
 After you deactivate the old key, you can then delete it. This ensures that the older key isn’t used by mistake. The **Client authentication** and **Encrypt the ID token** folders of the Postman Collection are used in this section.
 
