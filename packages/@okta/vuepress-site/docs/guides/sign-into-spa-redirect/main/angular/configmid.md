@@ -8,6 +8,8 @@ Make the following changes to `src/app/app.config.ts`:
    import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
    ```
 
+1. Ensure that your default custom authorization server has an access policy. Add an access policy if it's not there. See [Create access polices](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-access-policies).
+
 1. Add the following import lines to the code to pull in the dependencies:
 
    ```ts
