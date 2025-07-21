@@ -11,8 +11,9 @@ Add authentication to your mobile app using the Okta [embedded model](/docs/conc
 #### Learning outcomes
 
 * Create an integration that represents your app in your Okta org.
-* Create a sample native iOS app
-* Add dependencies and configure your mobile app to use Okta.
+* Configure the Interaction Code grant type in your Okta org.
+* Open and review the sample native iOS app from the SDK.
+* Add dependencies and configure the sample mobile app to use Okta.
 * Test your integration by signing in as a user.
 
 #### Sample code
@@ -47,7 +48,7 @@ To create your app integration in Okta using the Admin Console:
 
     <StackSnippet snippet="redirectvalues" />
 
-1. Select the grant type
+1. Select the **Grant type**. Ensure the **Authorization Code** grant type is selected. Add the **Refresh Token** grant type and under the **Advanced** arrow, select **Interaction Code**.
 
 1. Select the type of **Controlled access** for your app in the **Assignments** section. You can allow all users to have access or limit access to individuals and groups. See the [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-user-app-assign) topic in the Okta product documentation.
 1. Click **Save** to create the app integration and open its configuration page.
@@ -63,7 +64,7 @@ Enable this grant type to allow apps the ability to use embedded sign-in flows a
 1. Click **Advanced** in the **Grant type** section, and then select **Interaction Code**.
 1. Click **Save**.
 
-For further information on the Interaction Code grant type, see [Interaction Code grant type](/docs/concepts/interaction-code/) and []
+For further information on the Interaction Code grant type, see [Interaction Code grant type](/docs/concepts/interaction-code/).
 
 ### Update the default custom authorization server
 
@@ -82,22 +83,49 @@ You need to configure your custom authorization server to use the Interaction Co
 
 ## Download the Okta Client SDK for Swift
 
-Download the Okta Client SDK for Swift repository to access libraries and sample applications for various authentication flows. See the [Okta Client SDK for Swift ReadMe](https://github.com/okta/okta-mobile-swift?tab=readme-ov-file#okta-client-sdk-for-swift) and the [OktaClient SDK documentation](https://okta.github.io/okta-mobile-swift/development/documentation/). This guide uses the OktaIdxAuth library and sample app to demonstrate a native iOS app with self-hosted authentication.
+Download the Okta Client SDK for Swift repository to access libraries and sample iOS applications for various authentication flows. See the [Okta Client SDK for Swift ReadMe](https://github.com/okta/okta-mobile-swift?tab=readme-ov-file#okta-client-sdk-for-swift) and the [OktaClient SDK documentation](https://okta.github.io/okta-mobile-swift/development/documentation/). This guide uses the `OktaIdxAuth` library and sample app to demonstrate a native iOS app with self-hosted authentication.
 
 ```bash
 git clone https://github.com/okta/okta-mobile-swift.git
 cd okta-mobile-swift
 ```
 
-### Add project dependencies
-
-
-
-### Configure the IdxAuthSignIn sample application
+### Open the self-hosted sample application
 
 1. In Xcode, open the `IdxAuthSignIn.xcodeproj` workspace from the root level (`/Samples/IdxAuthSignIn/IdxAuthSignIn.xcode.proj`).
 1. Select the `IdxAuthSignIn` application target, and choose a simulator type to use.
 1. 
+
+### Add project dependencies
+
+1. In Xcode, choose **File** > **Add Package Dependencies**.
+1. Search for and select `okta-mobile-swift`.
+1. Ensure the **Dependency Rule** is **Up to Next Major Version**, and you're adding to the correct project (`IdxAuthSignIn`).
+1. Click **Add Package**.
+1. In the **Choose Package Products for okta-mobile-swift** dialog, add the packages `AuthFoundation` and `OktaIdxAuth` to the project by clicking in the **Add to Target** field
+1. Click **Add Package**.
+
+### Configure the Okta property list
+
+Update the Okta property list (`Okta.plist`) with the Okta org OIDC settings you created earlier in [Create an Okta integration for your iOS app](#create-an-okta-integration-for-your-ios-app)
+
+1. In Xcode, open the sample app's `Okta.plist` file (`IdxAuthSignIn/IdxAuthSignIn/Okta`).
+1. Use the built-in-editor, or other means, to update the values for the following keys:
+
+    * `issuer_url`: The customer authorization server URL for your org (for example, `https:{yourOktaDomain.okta.com/oauth2/default}`)
+    * `client_id`: The `id` for your Okta app integration (for example, `0oatd7g4tyk3bSlgL8867`)
+    * `scope`: The scopes required by the app. Use `openid profile offline_access`.
+    * `redirect_uri`: Your Okta app integration's **Sign-in redirect URIs** value, for example, `com.okta.{yourOktaDomain}:/callback`
+    * `logout_redirect-uri`: Your Okta app integration's **Sign-our redirect URIs** value, for exampple, `com.okta.{yourOktaDomain}:/`
+
+1. Save the file.
+
+### Run and test the sample application
+
+xyz 
+
+
+
 
 
 
