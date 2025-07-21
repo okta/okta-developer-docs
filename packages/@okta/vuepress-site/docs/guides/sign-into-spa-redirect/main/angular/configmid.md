@@ -5,7 +5,7 @@ Make the following changes to `src/app/app.config.ts`:
 1. Update the import from `@angular/core` by adding `importProvidersFrom`:
 
    ```typescript
-   import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
+   import { ApplicationConfig, importProvidersFrom, /* other imports */ } from '@angular/core';
    ```
 
 2. Add the following import lines to the code to pull in the dependencies:
