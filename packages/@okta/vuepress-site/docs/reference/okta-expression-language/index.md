@@ -35,7 +35,16 @@ Every user has an Okta user profile. The user profile is the central source of t
 | --------          | ----------                                                                    | ------------                                                   |
 | `user.$attribute` | `user` reference to the Okta user<br>`$attribute` the attribute variable name | user.firstName<br>user.lastName<br>user.login<br>user.email |
 
-> **Note:** You can also access the user ID for each user with the following expression: `user.getInternalProperty("id")`.
+#### Okta user ID and status
+
+The Okta user's ID and status can be accessed using the `user.getInternalProperty` function. The parameter passed must be wrapped in quotation marks (`"$attr"`).
+
+| Syntax | Definitions | Example |
+| --- | --- | ---- |
+| `user.getInternalProperty("id")` | Returns the user's ID. See [`id`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser!in=path&path=id&t=request). | `user.getInternalProperty("id") == "00u8lm1rxkdpZTsRK0g7"`|
+| `user.getInternalProperty("status")` | Returns the user's status. See [`status`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!c=200&path=status&t=response) and [User status](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#user-status). | `user.getInternalProperty("status") == "ACTIVE"`|
+
+> **Note:** Use `user.getInternalStatus("status")` for group rules. See [HELP DOC TBD](???).
 
 ### Application user profile
 
