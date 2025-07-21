@@ -4,7 +4,7 @@ excerpt: Configure your Okta org and your mobile app to use Okta's embedded sign
 layout: Guides
 ---
 
-Add authentication to your mobile app using the Okta [embedded model](/docs/concepts/redirect-vs-embedded/#embedded-authentication). This example creates a native iOS app with self-hosted authentication. 
+Add authentication to your mobile app using the Okta [embedded model](/docs/concepts/redirect-vs-embedded/#embedded-authentication). This example creates a native iOS app with self-hosted authentication.
 
 ---
 
@@ -21,23 +21,24 @@ Add authentication to your mobile app using the Okta [embedded model](/docs/conc
 
 ---
 
-## Set up Okta
+## Set up your Okta org
 
-Set up your [Okta org](/docs/concepts/okta-organizations/). You can sign up for an [Okta Integrator Free Plan org](https://developer.okta.com/signup/).
+Set up your [Okta org](/docs/concepts/okta-organizations/). You can sign up free for an [Okta Integrator Free Plan org](https://developer.okta.com/signup/) that works with the sample app.
 
 Make a note of your Okta domain. Use it wherever `{yourOktaDomain}` appears in this guide.
 
 > **Note**: If you're using an existing org, verify that API Access Management is enabled: Open your Admin Console, go to **Security** > **API**, and verify that an **Authorization Servers** tab is present. If not, contact your support team to enable the feature in your org.
 >
 
-## Create an Okta integration for your app
+### Create an Okta integration for your iOS app
 
 An app integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services. This includes which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
 
 To create your app integration in Okta using the Admin Console:
 
 1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account. Click **Admin** on the top right of the page.
-1. Open the apps configuration pane by selecting **Applications** > **Applications**. Click **Create App Integration**.
+1. Open the apps configuration page by selecting **Applications** > **Applications**.
+1. Click **Create App Integration**.
 1. Select a **Sign-in method** of **OIDC - OpenID Connect**.
 1. Select an **Application type** of **Native Application**, then click **Next**.
    > **Note:** If you choose the wrong app type, it can break the sign-in or sign-out flows. Integrations require the verification of a client secret, which public clients don't have.
@@ -46,7 +47,67 @@ To create your app integration in Okta using the Admin Console:
 
     <StackSnippet snippet="redirectvalues" />
 
-1. Click **Save** to update the Okta app settings.
+1. Select the grant type
+
+1. Select the type of **Controlled access** for your app in the **Assignments** section. You can allow all users to have access or limit access to individuals and groups. See the [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-user-app-assign) topic in the Okta product documentation.
+1. Click **Save** to create the app integration and open its configuration page.
+1. On the **General** page, make a note of the following values: x, y, z. You'll need to use these values to configure your iOS app.
+
+### Enable the Interaction Code grant type for your org
+
+Enable this grant type to allow apps the ability to use embedded sign-in flows across your entire org. You must have Super admin permissions to enable this setting.
+
+1. Open the Admin Console for your org.
+1. Go to **Settings** > **Account** > **Embedded widget sign-in support**.
+1. Click **Edit**.
+1. Click **Advanced** in the **Grant type** section, and then select **Interaction Code**.
+1. Click **Save**.
+
+For further information on the Interaction Code grant type, see [Interaction Code grant type](/docs/concepts/interaction-code/) and []
+
+### Update the default custom authorization server
+
+You need to configure your custom authorization server to use the Interaction Code grant type.
+
+1. Open the **Admin Console** for your org and go to **Security** > **API**.
+1. Select the **Authorization Servers** tab, select the custom authorization server that you want to update, can click the edit icon.
+1. Select the **Access Policies** tab.
+1. From the **Actions** column for the policy that applies to your app, edit the **Default Policy Rule**.
+1. Click **Advanced** in the **IF Grant type is** section of the **Edit Rule** dialog.
+1. Select **Interaction Code** in the **Other grants** section.
+
+     <VerifyICGrantType />
+
+1. Click **Update Rule**.
+
+## Download the Okta Client SDK for Swift
+
+Download the Okta Client SDK for Swift repository to access libraries and sample applications for various authentication flows. See the [Okta Client SDK for Swift ReadMe](https://github.com/okta/okta-mobile-swift?tab=readme-ov-file#okta-client-sdk-for-swift) and the [OktaClient SDK documentation](https://okta.github.io/okta-mobile-swift/development/documentation/). This guide uses the OktaIdxAuth library and sample app to demonstrate a native iOS app with self-hosted authentication.
+
+```bash
+git clone https://github.com/okta/okta-mobile-swift.git
+cd okta-mobile-swift
+```
+
+### Add project dependencies
+
+
+
+### Configure the IdxAuthSignIn sample application
+
+1. In Xcode, open the `IdxAuthSignIn.xcodeproj` workspace from the root level (`/Samples/IdxAuthSignIn/IdxAuthSignIn.xcode.proj`).
+1. Select the `IdxAuthSignIn` application target, and choose a simulator type to use.
+1. 
+
+
+
+
+
+
+
+
+
+
 
 ## Create an app
 
