@@ -4,7 +4,7 @@ You need recent versions of [Node](https://nodejs.org/en/) and [npm](https://www
 Create an Angular app named **okta-angular-quickstart** using the following command. Choose any style sheet format you want when it asks you which format you want to use. This guide and the sample app use CSS.
 
 ```shell
-npx @angular/cli@19 new okta-angular-quickstart --ssr=false
+npx @angular/cli@19 new okta-angular-quickstart --ssr=false --style=css
 ```
 
 This creates an Angular app using version 19 regardless of the version of the Angular CLI installed on your system.
