@@ -20,13 +20,12 @@ Create and manage the keys that you use for authenticating your app and for encr
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
-* Access to the [Application Client Auth Credentials API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialOAuth2ClientAuth/).
-* <ApiLifecycle access="ea" />Access to the [Resource Server Public Keys API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OAuth2ResourceServerCredentialsKeys/).
-* An existing OpenID Connect client app in Okta for testing in Okta
-* An existing custom authorization server
+* Access to the [Okta APIs](https://developer.okta.com/docs/api/).
+* An existing OpenID Connect client app and existing custom authorization server in Okta for testing
 * A JWK public/private key pair for testing
 * The [Postman client](https://www.getpostman.com/downloads/) to test requests. See [Get Started with the Okta APIs](https://developer.okta.com/docs/reference/rest/) for information on setting up Postman.
 * The [Key management Postman Collection](https://www.postman.com/devdocsteam/workspace/developer-docs-postman-collections/collection/6141897-2cc824d1-a4d2-4a13-8460-988a8f834f5e) that allows you to test the API calls that are described in this guide. Click the ellipses next to the collection name in the left panel. Click **More** > **Export**, and then click **Export JSON** to export the collection locally. You can then import the collection into your Postman Workspace.
+* The self-service EA ??Token Encryption?? feature enabled for your org to test the encryption key tasks. To enable, go to **Settings** > **Features**, locate the feature and enable.
 
 ---
 
@@ -245,6 +244,8 @@ Example response
 
 #### Add the key and enable encryption for the client
 
+<ApiLifecycle access="ea" />
+
 You can also add an encryption key (with a status of `ACTIVE`) and enable ID token encryption for the client in one request. See the **Update app with encryption key, enable ID token encryption** example in the **Encrypt the ID token** folder of the Postman Collection.
 
 ### Use a URL to fetch keys dynamically
@@ -414,6 +415,8 @@ When you’re ready to retire a public signing key, change the older JWK status 
     ```
 
 #### Disable ID token encryption
+
+<ApiLifecycle access="ea" />
 
 You must first disable ID token encryption before you can deactivate an encryption key. To do that, remove the `id_token_encrypted_response_alg` parameter in a PUT request to `{{url}}/api/v1/apps/{{appId}}`. Use the **Disable ID token encryption for an app** for the example request and response. Then, you can use the [Deactivate keys](#deactivate-keys) section to deactivate the encryption key.
 
@@ -632,7 +635,7 @@ When you’re ready to retire a public key, change the JWK status from **Active*
 > **Note:** To retire a public key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
 
 1. Use the **List JWKS** and **Get a JWK** requests to obtain the key ID.
-1. Use the **Deactive a JWK** request after you have the key ID that you need.
+1. Use the **Deactive an encryption key** request after you have the key ID that you need.
 1. In the path parameters, replace the following variables:
     * `{url}`: Your Okta domain URL where the app is configured
     * `{authorizationServerId}`: The custom authorization server ID
@@ -643,11 +646,11 @@ When you’re ready to retire a public key, change the JWK status from **Active*
 
 ### Delete the encryption key
 
-After you deactivate the old key, you can then delete it. This ensures that the older key isn’t used by mistake. The **Client authentication** and **Encrypt the ID token** folders of the Postman Collection are used in this section.
+After you deactivate the old key, you can then delete it. This ensures that the older key isn’t used by mistake.
 
 > **Note:** To delete a public key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
 
-1. Use the **Delete a signing key** or **Delete an encryption key** <ApiLifecycle access="ea" />request.
+1. Use the **Delete an encryption key** request.
 1. In the path parameters, replace the following variables:
     * `{url}`: Your Okta domain URL where the app is configured
     * `{authorizationServerId}`: The custom authorization server ID
