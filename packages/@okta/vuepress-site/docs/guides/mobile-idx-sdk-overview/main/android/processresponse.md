@@ -1,6 +1,9 @@
 The following code shows these steps in order:
 
 ```kotlin
+import com.okta.authfoundation.client.OidcClientResult
+import com.okta.idx.kotlin.dto.IdxResponse
+
 private suspend fun handleResponse(response: IdxResponse) {
     // Check if the sign-in flow is successful.
     if (response.isLoginSuccessful) {
@@ -36,11 +39,11 @@ private suspend fun handleResponse(response: IdxResponse) {
   */
 private fun proceed(remediation: IdxRemediation) {
     viewModelScope.launch {
-        when (val resumeResult = client?.proceed(remediation)) {
-            is IdxClientResult.Error -> {
+        when (val resumeResult = flow?.proceed(remediation)) {
+            is OidcClientResult.Error -> {
                 // Handle the error.
             }
-            is IdxClientResult.Success -> {
+            is OidcClientResult.Success -> {
                 handleResponse(resumeResult.result)
             }
         }
