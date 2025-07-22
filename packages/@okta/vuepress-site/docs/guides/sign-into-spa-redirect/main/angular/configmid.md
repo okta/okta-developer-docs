@@ -2,6 +2,12 @@ The Okta Angular SDK requires an instance of an `OktaAuth` object with configura
 
 Make the following changes to `src/app/app.config.ts`:
 
+1. Update the import from `@angular/core` by adding `importProvidersFrom`:
+
+   ```typescript
+   import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
+   ```
+
 1. Add the following import lines to the code to pull in the dependencies:
 
    ```ts
@@ -26,6 +32,8 @@ Make the following changes to `src/app/app.config.ts`:
    export const appConfig: ApplicationConfig = {
     providers: [
       // other providers as required
+      provideZoneChangeDetection({ eventCoalescing: true }),
+      provideRouter(routes),
       importProvidersFrom(
            OktaAuthModule.forRoot({ oktaAuth })
       )

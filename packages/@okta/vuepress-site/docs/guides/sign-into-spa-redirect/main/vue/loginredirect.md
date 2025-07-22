@@ -17,7 +17,7 @@
      .mount('#app')
    ```
 
-2. Add buttons to support sign-in and sign-out actions inside the `src/components/HelloWorld.vue` component `<template>` element. Display either the sign-in or sign-out button based on the current authenticated state.
+2. Add buttons to support sign-in and sign-out actions inside the `src/components/HelloWorld.vue` component `<template>` element. Either the sign-in or sign-out button displays based on the current authenticated state.
 
    ```html
    <div>
