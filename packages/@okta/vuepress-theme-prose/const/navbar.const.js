@@ -383,7 +383,7 @@ export const guides = [
             ]
           },
           { title: "Set up your org",
-            path: "set-up-org",
+            guideName: "set-up-org",
           },
           {
             title: "Access policies",
@@ -1026,7 +1026,9 @@ export const journeys = [
           title: "Okta Customer Identity (OCI)",
           path: "/docs/journeys/1",
           subLinks: [
-            { title: "Get Started with OCI", path: "/docs/journeys/2" },
+            { title: "Get Started with OCI",
+              path: "/docs/journeys/2"
+            },
           ]
         },
       ],
