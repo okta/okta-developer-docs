@@ -44,7 +44,7 @@ The Okta user's ID and status can be accessed using the `user.getInternalPropert
 | `user.getInternalProperty("id")` | Returns the user's ID. See [`id`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser!in=path&path=id&t=request). | `user.getInternalProperty("id") == "00u8lm1rxkdpZTsRK0g7"`|
 | `user.getInternalProperty("status")` | Returns the user's status. See [`status`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!c=200&path=status&t=response) and [User status](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#user-status). | `user.getInternalProperty("status") == "ACTIVE"`|
 
-> **Note:** Use `user.getInternalStatus("status")` for group rules. See [HELP DOC TBD](???).
+> **Note:** Use `user.getInternalStatus("status")` for group rules. See [Create group rules](https://help.okta.com/okta_help.htm?type=oie&id=ext_Create_Group_Rules).
 
 ### Application user profile
 
