@@ -94,6 +94,7 @@ guides:
  - saml-inline-hook
  - saml-tracer
  - session-cookie
+ - set-up-org
  - set-up-token-exchange
  - shared-sso-android-ios
  - sharing-cert
