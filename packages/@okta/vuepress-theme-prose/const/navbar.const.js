@@ -383,7 +383,8 @@ export const guides = [
             ]
           },
           { title: "Set up your org",
-            path: "/docs/journeys/set-up-org/" },
+            path: "set-up-org",
+          },
           {
             title: "Access policies",
             guideName: "configure-access-policy",
