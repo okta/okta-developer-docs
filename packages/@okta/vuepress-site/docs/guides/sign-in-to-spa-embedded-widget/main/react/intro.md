@@ -2,10 +2,10 @@ If you want to deploy a React single-page app (SPA) in the [embedded authenticat
 
 ### Integrate the Sign-In Widget with your SPA app
 
-This guide explains how to build a password-only sign-in flow for your React app. Before you build or integrate your React app, ensure that you:
+This guide explains how to build a password-only sign-in flow for your React app. Before you build or integrate your React app, ensure that perform the following steps:
 
-* [enable the Interaction Code grant on your default custom authorization server](/docs/journeys/set-up-org/#enable-interaction-code-for-a-custom-authorization-server)
-* register your React app in Okta by [creating an app integration](#create-an-okta-app-integration)
+* [Enable the Interaction Code grant on your default custom authorization server](/docs/guides/set-up-org/#enable-interaction-code-for-a-custom-authorization-server)
+* Register your React app in Okta by [creating an app integration](#create-an-okta-app-integration)
 
 If you don't have an existing React app, you can [create a new basic React app](#create-a-react-app-optional) from the Create React App command.
 

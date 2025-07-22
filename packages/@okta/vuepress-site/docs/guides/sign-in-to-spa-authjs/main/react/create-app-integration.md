@@ -18,7 +18,7 @@ Before you integrate authentication into your React app, you need to register yo
 6. For this use case, we want to use only the password factor. Click **Edit** and select the **Password only** [preset policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to assign it to your app.
 7. Click **Save**.
 
-   > **Note:** Be sure to also [update the policy rule of the password authenticator](/docs/journeys/set-up-org/#set-up-your-okta-org-for-a-password-factor-only-use-case) to not require any additional verification.
+   > **Note:** Be sure to also [update the policy rule of the password authenticator](/docs/guides/set-up-org/#set-up-your-okta-org-for-a-password-factor-only-use-case) to not require any additional verification.
 
 > **Note:** Cross-Origin Resource Sharing (CORS) is automatically enabled for the Trusted Origins base URI that you specified in the Admin Console. You can verify that both **CORS** and **redirect** are enabled for your app by reviewing the **Security** > **API** > **Trusted Origins** page in the Admin Console.
 

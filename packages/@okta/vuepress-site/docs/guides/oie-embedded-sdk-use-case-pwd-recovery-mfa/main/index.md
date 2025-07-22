@@ -18,7 +18,7 @@ This use case describes how to integrate a password recovery flow into your app 
 #### What you need
 
 * An app that uses the embedded Identity Engine SDK
-* [Okta org already configured for a multifactor use case](/docs/journeys/set-up-org/#set-up-your-okta-org-for-a-multifactor-use-case)
+* [Okta org already configured for a multifactor use case](/docs/guides/set-up-org/#set-up-your-okta-org-for-a-multifactor-use-case)
 * [Identity Engine SDK set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
 
 #### Sample code
@@ -37,7 +37,7 @@ The password recovery use case requires the **password** and **email** factors.
 
 </div>
 
-Before you build a password recovery flow with an email factor, ensure that your org is configured for a multifactor use case. To do that, complete the steps in [Set up your Okta org for a multifactor use case](/docs/journeys/set-up-org/#set-up-your-okta-org-for-a-multifactor-use-case).
+Before you build a password recovery flow with an email factor, ensure that your org is configured for a multifactor use case. To do that, complete the steps in [Set up your Okta org for a multifactor use case](/docs/guides/set-up-org/#set-up-your-okta-org-for-a-multifactor-use-case).
 
 ### Set email as the only factor enabled for password recovery
 

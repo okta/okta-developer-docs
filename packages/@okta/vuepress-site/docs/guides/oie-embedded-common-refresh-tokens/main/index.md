@@ -15,7 +15,7 @@ This guide shows you how to refresh access and ID tokens by using either the Ide
 
 #### What you need
 
-* An [Okta org that is already configured for your use case](/docs/journeys/set-up-org/)
+* An [Okta org that is already configured for your use case](/docs/guides/set-up-org/)
 * An [Identity Engine SDK that is set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
 * An app that uses an Identity Engine SDK that is configured with an `offline_access` scope
 

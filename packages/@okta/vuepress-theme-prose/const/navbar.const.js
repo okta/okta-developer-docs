@@ -382,6 +382,8 @@ export const guides = [
               }
             ]
           },
+          { title: "Set up your org",
+            path: "/docs/journeys/set-up-org/" },
           {
             title: "Access policies",
             guideName: "configure-access-policy",
@@ -1024,17 +1026,8 @@ export const journeys = [
           path: "/docs/journeys/1",
           subLinks: [
             { title: "Get Started with OCI", path: "/docs/journeys/2" },
-            { title: "Web Sign-in", path: "/docs/journeys/3" },
-            { title: "Mobile Sign-in", path: "/docs/journeys/4" },
-            { title: "Set up your org", path: "/docs/journeys/set-up-org/" },
           ]
         },
-        {
-          title: "ISV Ecosystem",
-          path: "/docs/journeys/6",
-          subLinks: [
-          ]
-        }
       ],
     }
 ];

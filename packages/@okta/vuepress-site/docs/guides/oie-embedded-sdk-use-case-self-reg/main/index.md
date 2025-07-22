@@ -19,7 +19,7 @@ Enable a self-registration flow in your app using the embedded SDK.
 #### What you need
 
 * An app that uses the embedded Identity Engine SDK
-* [Okta org already configured for a multifactor use case](/docs/journeys/set-up-org/#set-up-your-okta-org-for-a-multifactor-use-case)
+* [Okta org already configured for a multifactor use case](/docs/guides/set-up-org/#set-up-your-okta-org-for-a-multifactor-use-case)
 * [Identity Engine SDK set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
 
 #### Sample code
