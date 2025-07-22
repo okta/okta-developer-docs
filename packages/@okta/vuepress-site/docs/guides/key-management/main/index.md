@@ -20,7 +20,7 @@ Create and manage the keys that you use for authenticating your app and for encr
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
-* Access to the [Okta APIs](https://developer.okta.com/docs/api/).
+* Access to the [Okta APIs](https://developer.okta.com/docs/api/)
 * An existing OpenID Connect client app and existing custom authorization server in Okta for testing
 * A JWK public/private key pair for testing
 * The [Postman client](https://www.getpostman.com/downloads/) to test requests. See [Get Started with the Okta APIs](https://developer.okta.com/docs/reference/rest/) for information on setting up Postman.
@@ -111,7 +111,7 @@ The **Client authentication** and **Encrypt the ID token** folders of the Postma
 1. Use the **Add a signing key JWK** or the **Add an encryption key** <ApiLifecycle access="ea" /> request.
 1. In the path parameters, replace the following variables:
     * `{url}`: Your Okta domain URL where the app is configured
-    * `{appId}`: The application ID
+    * `{appId}`: The app ID
 1. On the **Body** tab, paste your public key. Then verify the following values are correct:
     * Include a value for the `kid` parameter
     * Use the `use` parameter with a value of `sig` for a signing key JWK
@@ -263,7 +263,7 @@ The **Client authentication** and **Encrypt the ID token** folders of the Postma
 1. Use the **Add a signing key URI** or **Add an encryption key URI** <ApiLifecycle access="ea" />request.
 1. In the path parameters, replace the following variables:
     * `{url}`: Your Okta domain URL where the app is configured
-    * `{clientId}`: The application ID
+    * `{clientId}`: The app ID
 1. On the **Body** tab, use the request body template to add the appropriate values for your app, and then enter your JWKS URI as the `jwks_uri` value.
 1. Send the `POST {yourOktaDomain}/oauth2/v1/clients/{clientId}` request.
 
@@ -340,7 +340,7 @@ When you’re ready to retire a public signing key, change the older JWK status 
 1. Use the **Deactive a JWK** request after you have the JWKS ID that you need.
 1. In the path parameters, replace the following variables:
     * `{url}`: Your Okta domain URL where the app is configured
-    * `{appId}`: The application ID
+    * `{appId}`: The app ID
     * `{jwksId}`: The `id` of the public JWK
 1. Send the `POST {yourOktaDomain}/api/v1/apps/{appId}/credentials/jwks/{jwksId}/lifecycle/deactivate` request. The response should look something like the following examples:
 
@@ -429,7 +429,7 @@ After you deactivate the old key, you can then delete it. This ensures that the 
 1. Use the **Delete a signing key** or **Delete an encryption key** <ApiLifecycle access="ea" />request.
 1. In the path parameters, replace the following variables:
     * `{url}`: Your Okta domain URL where the app is configured
-    * `{appId}`: The application ID
+    * `{appId}`: The app ID
     * `{jwksId}`: The `id` of the public JWK
 1. Send the `DELETE {yourOktaDomain}/api/v1/apps/{appId}/credentials/jwks/{jwksId}` request.
 

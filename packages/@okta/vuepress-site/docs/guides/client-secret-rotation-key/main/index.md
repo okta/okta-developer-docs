@@ -8,7 +8,7 @@ sections:
 - main
 ---
 
-Rotate the client secret that your app uses to authenticate as a security best practice. Use the APIs to manage your client secrets without service or app downtime.
+As a security best practice, rotate the client secret that your app uses to authenticate. Use the APIs to manage your client secrets without service or app downtime.
 
 ---
 
@@ -35,7 +35,7 @@ Just like periodically changing passwords, regularly rotating the client secret 
 
 ### Signing keys
 
-Depending on what type of credentials that a [client uses to authenticate](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#client-authentication-methods), a signing key pair (JWK) may be required. Apps that use signing keys for client authentication have substantially higher security. This is because only the client can access the private key. See [Key management](/docs/guides/key-management/main/) for the steps on managing signing keys and JWKS URIs for your app.
+Depending on the type of credentials that a [client uses to authenticate](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#client-authentication-methods), a signing key pair (JWK) may be required. Apps that use signing keys for client authentication have substantially higher security. This is because only the client can access the private key. See [Key management](/docs/guides/key-management/main/) for the steps on managing signing keys and JWKS URIs for your app.
 
 ### About the Postman Collection
 
@@ -99,7 +99,7 @@ When you generate a new secret, the original secret remains in `ACTIVE` status. 
         ]
     ```
 
-When you’re ready to rotate a client secret for an app, use the following steps with the Postman Collection.
+When you’re ready to rotate a client secret for an app, you can either [auto-generate the secret](#auto-generate-the-secret) or [bring your own](#bring-your-own-client-secret).
 
 > **Note:** To rotate a client secret for an app using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
 
@@ -112,7 +112,7 @@ To have Okta auto-generate the secret using the API, follow these steps:
 1. Use the **Add a client secret: auto-generated** request from the Postman Collection.
 1. In the path parameters, replace the following variables:
     * `{url}`: Your Okta domain URL where the app is configured
-    * `{appId}`: The application ID
+    * `{appId}`: The app ID
 1. Send the `POST {yourOktaDomain}/api/v1/apps/{appId}/credentials/secrets` request. The response should look something like this:
 
     ```JSON
@@ -145,7 +145,7 @@ To generate your own secret for use with your app, follow these steps:
 1. Use the **Add a client secret: bring your own secret** request from the Postman Collection.
 1. In the path parameters, replace the following variables:
     * `{url}`: Your Okta domain URL where the app is configured
-    * `{appId}`: The application ID
+    * `{appId}`: The app ID
 1. On the **Body** tab, use the request body template and enter your generated secret as the `client_secret` value.
 1. Send the `POST {yourOktaDomain}/api/v1/apps/{appId}/credentials/secrets` request. The response should look something like this:
 
@@ -181,7 +181,7 @@ After you test your app and everything works correctly with the newly generated 
 1. Use the **Deactivate a client secret** request from the Postman Collection.
 1. In the path parameters, replace the following variables:
     * `{url}`: Your Okta domain URL where the app is configured
-    * `{appId}`: The application ID
+    * `{appId}`: The app ID
     * `{secretId}`: The old client secret ID that you obtained in a previous step
 1. Send the `POST {yourOktaDomain}/api/v1/apps/{appId}/credentials/secrets/{secretId}/lifecycle/deactivate` request. The response should look something like this:
 
@@ -214,18 +214,18 @@ After you test your app and everything works correctly with the newly generated 
         }
     ```
 
-1. Revalidate that your app works after changing the old client secret status to rule out any possibility that your app is using older credentials. Should there be any issues with your app, you can change the status of the old client secret back to **Active** and troubleshoot.
+1. Validate that your app works after changing the old client secret status to rule out any possibility that your app is using older credentials. Should there be any issues with your app, you can change the status of the old client secret back to **Active** and troubleshoot.
 
 ### Delete the inactive client secret
 
-After you revalidate that your app works after changing the old client secret status, you can delete it.
+After you validate that your app works after changing the old client secret status, you can delete it.
 
 > **Note:** To delete the old client secret using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
 
 1. Use the **Delete a client secret** request from the Postman Collection.
 1. In the path parameters, replace the following variables:
     * `{url}`: Your Okta domain URL where the app is configured
-    * `{appId}`: The application ID
+    * `{appId}`: The app ID
     * `{secretId}`: The old client secret ID that you obtained in a previous step
 1. Send the `DELETE {yourOktaDomain}/api/v1/apps/{appId}/credentials/secrets/{secretId}` request.
 
