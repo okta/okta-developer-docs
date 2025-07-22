@@ -12,11 +12,12 @@ title: Okta Identity Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Bug fixed in 2025.07.2](#bug-fixed-in-2025-07-2)| July 16, 2025 |
+| [Bugs fixed in 2025.07.2](#bugs-fixed-in-2025-07-2)| July 16, 2025 |
 
-#### Bug fixed in 2025.07.2
+#### Bugs fixed in 2025.07.2
 
-When the Direct Authentication feature was enabled, calling the Apps API with a custom role couldn’t create OIDC apps. (OKTA-970705)
+* When the Direct Authentication feature was enabled, calling the Apps API with a custom role couldn’t create OIDC apps. (OKTA-970705)
+* When an admin enabled the Temporary Access Code feature, subsequent `GET /users/{userId}/factors` requests returned HTTP 400 Bad Request errors. (OKTA-979585)
 
 ### Weekly release 2025.07.1
 
