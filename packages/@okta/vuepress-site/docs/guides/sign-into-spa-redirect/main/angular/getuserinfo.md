@@ -39,7 +39,7 @@ The `authState$` subject in `OktaAuthStateService` contains an `idToken` that co
     import { ProfileComponent } from './profile/profile.component';
     ```
 
-4. Add the following to the `routes` array:
+4. Add the following to the `routes` array if it's not there:
 
     ```typescript
     { path: 'profile', component: ProfileComponent }

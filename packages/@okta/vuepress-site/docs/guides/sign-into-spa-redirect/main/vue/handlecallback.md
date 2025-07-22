@@ -6,7 +6,7 @@ The Okta Vue SDK provides the [LoginCallback](https://github.com/okta/okta-vue#u
    import { LoginCallback, navigationGuard } from '@okta/okta-vue'
    ```
 
-2. Add a new route for the callback to the `routes` array. The path should match the path provided in the `redirectUri` property inside the `src/config.js` file.
+2. Add a new route for the callback to `routes` array. The path should match the path provided in the `redirectUri` property inside the `src/config.js` file.
 
    ```js
    {

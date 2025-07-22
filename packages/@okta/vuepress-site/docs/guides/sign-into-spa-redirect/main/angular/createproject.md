@@ -1,10 +1,10 @@
 
 You need recent versions of [Node](https://nodejs.org/en/) and [npm](https://www.npmjs.com/). Okta also recommends installing the [Angular CLI](https://angular.dev/tools/cli).
 
-Create an Angular app named **okta-angular-quickstart** using the following command. Choose any style sheet format you want when it asks you which format you want to use.
+Create an Angular app named **okta-angular-quickstart** using the following command.
 
 ```shell
-npx @angular/cli@19 new okta-angular-quickstart --ssr=false
+npx @angular/cli@19 new okta-angular-quickstart --ssr=false --style=css
 ```
 
 This creates an Angular app using version 19 regardless of the version of the Angular CLI installed on your system.
