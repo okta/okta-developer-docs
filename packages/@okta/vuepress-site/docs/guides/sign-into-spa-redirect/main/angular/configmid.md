@@ -7,15 +7,17 @@ Make the following changes to `src/app/app.config.ts`:
    ```typescript
    import { ApplicationConfig, importProvidersFrom, /* other imports */ } from '@angular/core';
    ```
+   
+2. Ensure that your default custom authorization server has an access policy. Add an access policy if it's not there. See [Create access polices](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-access-policies).
 
-2. Add the following import lines to the code to pull in the dependencies:
+3. Add the following import lines to the code to pull in the dependencies:
 
    ```ts
    import { OktaAuthModule } from '@okta/okta-angular';
    import { OktaAuth } from '@okta/okta-auth-js';
    ```
 
-3. Add an `OktaAuth` object before the `appConfig` as follows, replacing the placeholder values with your own values (see [Find your config values](/docs/guides/sign-into-spa-redirect/angular/main/#find-your-config-values)):
+4. Add an `OktaAuth` object before the `appConfig` as follows, replacing the placeholder values with your own values (see [Find your config values](/docs/guides/sign-into-spa-redirect/angular/main/#find-your-config-values)):
 
    ```ts
    const oktaAuth = new OktaAuth({
@@ -26,7 +28,7 @@ Make the following changes to `src/app/app.config.ts`:
    });
    ```
 
-4. Add the Okta configuration to the `OktaAuthModule` static `forRoot` method in the `ApplicationConfig` object using the `importProvidersFrom` function:
+5. Add the Okta configuration to the `OktaAuthModule` static `forRoot` method in the `ApplicationConfig` object using the `importProvidersFrom` function:
 
    ```ts
    export const appConfig: ApplicationConfig = {

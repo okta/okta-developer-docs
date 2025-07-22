@@ -6,8 +6,6 @@ layout: Guides
 
 This guide provides an example of an Okta token inline hook. It uses the utility [ngrok](https://ngrok.com/) to expose a local app to the internet, and to receive and respond to token inline hook calls.
 
-<GlitchDeprecationNote />
-
 ---
 
 #### Learning outcomes
