@@ -100,6 +100,7 @@ guides:
  - sign-in-to-spa-authjs
  - sign-in-to-spa-embedded-widget
  - sign-into-mobile-app-redirect
+ - sign-into-mobile-app-embedded
  - sign-into-spa-redirect
  - sign-into-web-app-redirect
  - sign-users-out
