@@ -4,7 +4,7 @@ excerpt: Configure your Okta org and your mobile app to use Okta's embedded sign
 layout: Guides
 ---
 
-Add authentication to your mobile app using the Okta [embedded model](/docs/concepts/redirect-vs-embedded/#embedded-authentication). This example creates a native iOS app with self-hosted authentication.
+Add authentication to your mobile app using the Okta [embedded model](/docs/concepts/redirect-vs-embedded/#embedded-authentication). This sample uses a native iOS app with self-hosted authentication.
 
 ---
 
@@ -112,11 +112,11 @@ Update the Okta property list (`Okta.plist`) with the Okta org OIDC settings you
 1. In Xcode, open the sample app's `Okta.plist` file (`IdxAuthSignIn/IdxAuthSignIn/Okta`).
 1. Use the built-in-editor, or other means, to update the values for the following keys:
 
-    * `issuer_url`: The customer authorization server URL for your org (for example, `https:{yourOktaDomain.okta.com/oauth2/default}`)
-    * `client_id`: The `id` for your Okta app integration (for example, `0oatd7g4tyk3bSlgL8867`)
-    * `scope`: The scopes required by the app. Use `openid profile offline_access`.
-    * `redirect_uri`: Your Okta app integration's **Sign-in redirect URIs** value, for example, `com.okta.{yourOktaDomain}:/callback`
-    * `logout_redirect-uri`: Your Okta app integration's **Sign-our redirect URIs** value, for exampple, `com.okta.{yourOktaDomain}:/`
+    * **issuer_url**: The custom authorization server URL for your org (for example, `https:{yourOktaDomain.okta.com/oauth2/default}`)
+    * **client_id**: The `id` for your Okta app integration (for example, `0oatd7g4tyk3bSlgL8867`)
+    * **scope**: The scopes required by the app. Use `openid profile offline_access`.
+    * **redirect_uri**: Your Okta app integration's **Sign-in redirect URIs** value, for example, `com.okta.{yourOktaDomain}:/callback`
+    * **logout_redirect-uri**: Your Okta app integration's **Sign-our redirect URIs** value, for exampple, `com.okta.{yourOktaDomain}:/`
 
 1. Save the file.
 

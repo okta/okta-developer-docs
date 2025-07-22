@@ -52,7 +52,7 @@
           </div>
           <div class="signup__container">
             <div class="signup__item__title">
-              Okta <br> Workforce Identity
+              Okta <br> Platform
             </div>
             <div class="signup__description">
               <div class="signup__rate">
@@ -79,7 +79,7 @@
                   href="https://okta.com/free-trial/workforce-identity"
                   target="_blank"
                 >
-                  <span>Try Okta Workforce Identity <i>→</i></span>
+                  <span>Try Okta Platform <i>→</i></span>
                 </a>
               </div>
             </div>
@@ -458,7 +458,7 @@
             <a
               target="_blank"
               href="https://www.okta.com/workforce-identity/"
-            > Okta Workforce Identity</a> <span class="hidden">and</span>
+            > Okta Platform</a> <span class="hidden">and</span>
             <a
               target="_blank"
               href="https://www.okta.com/customer-identity/"
