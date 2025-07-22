@@ -19,7 +19,7 @@ In addition to configuring the Interaction Code grant type in your [authorizatio
 * In Okta Sign-In Widget version 7+, Identity Engine is enabled by default, so there are no additional steps to take.
 * If you’re using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: true` in the config.
 
-> **Note**: For typical use-case configurations, see [setting up your Okta org](/docs/journeys/set-up-org/).
+> **Note**: For typical use-case configurations, see [setting up your Okta org](/docs/guides/set-up-org/).
 
 ### Apps using an embedded Identity Engine SDK only
 
@@ -27,4 +27,4 @@ If you have a platform-specific app, use an appropriate [Identity Engine SDK](/d
 
 When the remediation process succeeds, Identity Engine sends your app an Interaction Code to exchange for OIDC tokens. Your app uses these tokens to access to your app’s resources.
 
-> **Note:** The authentication policies defined in your org configure the Interaction Code flow remediation experience in your app. See [set up your Okta org](/docs/journeys/set-up-org/).
+> **Note:** The authentication policies defined in your org configure the Interaction Code flow remediation experience in your app. See [set up your Okta org](/docs/guides/set-up-org/).
