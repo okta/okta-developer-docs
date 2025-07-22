@@ -109,7 +109,7 @@ is -> cl: Return assertion to client
 
 ## Embedded authentication
 
-Embedded authentication (also called Self-hosted) authenticates user credentials directly at the client app site using direct authentication, an embedded Sign-In Widget, authentication SDK, or other direct API calls. Redirection to Okta isn't required. The client app's code determines the methods and processes necessary to authenticate, and then uses SDKs to validate the credentials. Client apps create their own app sessions for user access.
+Embedded authentication (also called self-hosted) authenticates user credentials directly at the client app site using direct authentication, an embedded Sign-In Widget, authentication SDK, or other direct API calls. Redirection to Okta isn't required. The client app's code determines the methods and processes necessary to authenticate, and then uses SDKs to validate the credentials. Client apps create their own app sessions for user access.
 
 Client apps may also exchange tokens with a Security Token Service (STS) to provide SSO access to other Service Providers (like CRM, IT, and HR). Using this deployment model, the client’s sign-in page can render mobile user experiences and use mobile platform APIs.
 
