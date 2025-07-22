@@ -9,7 +9,7 @@ meta:
 
 When you develop apps that require the customer to sign in and authenticate, the deployment model for user authentication is a critical design consideration. This page looks at the Okta authentication options and what the differences are between them.
 
-## Redirect (Okta-hosted) vs. embedded (Self-hosted)
+## Redirect (Okta-hosted) vs. embedded (self-hosted)
 
 You can divide the Okta deployment models into two approaches:
 
