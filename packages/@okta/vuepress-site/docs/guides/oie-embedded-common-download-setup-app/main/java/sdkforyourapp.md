@@ -6,14 +6,14 @@ Begin to integrate the SDK into your own app by following these steps:
 
 #### Set up your app with the prerequisites
 
-1. In your Okta Org, [create a new application integration](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application) for your app and [update your custom authorization server](/docs/guides/set-up-org/#enable-interaction-code-for-a-custom-authorization-server) to use the Interaction Code flow.
+1. In your Okta Org, [create an app integration](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application) for your app and [update your custom authorization server](/docs/guides/set-up-org/#enable-interaction-code-for-a-custom-authorization-server) to use the Interaction Code flow.
 1. Ensure that you have all the Identity Engine Java SDK [software requirements](#software-requirements).
 1. Clone the [Identity Engine Java SDK (`okta-idx-java`)](https://github.com/okta/okta-idx-java) repository.
 1. Ensure that you've set the [dependencies](#software-requirements) in your project with the latest [Identity Engine Java SDK released version](https://github.com/okta/okta-idx-java/releases).
 
 #### Import the packages and add the Spring Boot framework
 
-The embedded authentication with SDK sample app uses the Spring Boot framework with the Identity Engine Java SDK. Import the Identity Engine SDK packages as well as any Spring Boot packages that you need.
+The embedded authentication with SDK sample app uses the Spring Boot framework with the Identity Engine Java SDK. Import the Identity Engine SDK packages and any Spring Boot packages that you need.
 
 ```java
 package com.okta.spring.example;
@@ -38,6 +38,6 @@ Start integrating your app using the Identity Engine Java SDK. Begin the Okta au
 AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin()
 ```
 
-See [Okta Java SDK Usage guide](https://github.com/okta/okta-idx-java#usage-guide) for more information on SDK usage.
+See the [Okta Java SDK Usage guide](https://github.com/okta/okta-idx-java#usage-guide) for more information on SDK usage.
 
 Before running your app, ensure that you [set the configuration values](#set-the-configuration-values) for your embedded app with one of the available SDK options. See [Run the embedded SDK sample app](/docs/guides/oie-embedded-common-run-samples/java/main/#run-the-embedded-sdk-sample-app) for step-by-step instructions on how to run a sample app.

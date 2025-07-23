@@ -1,4 +1,4 @@
-### 1: Build a sign-in page on the client and authenticate the user credentials
+### 1: Build a sign-in page on the client
 
 Build a sign-in page that captures the username and password, similar to the following wireframe.
 
@@ -13,7 +13,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-When the user initiates the sign-in process, your app needs to create a new `OktaAuth` object and set its `username` and `password` properties to the values entered by the user. Send this object to `idx.authenticate` to start the authentication process. See [idx.Authenticate](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) for more information. This call begins the multifactor authentication flow.
+When the user initiates the sign-in process, your app needs to create a `OktaAuth` object and set its `username` and `password` properties to the values entered by the user. Send this object to `idx.authenticate` to start the authentication process. See [idx.Authenticate](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) for more information. This call begins the multifactor authentication flow.
 
 If the username and password are valid, `idx.authenticate` returns a status of `Idx.Status:PENDING`. This status indicates that an additional factor needs to be verified before the user is successfully signed in. The response also includes a `nextStep` field that identifies the input parameters of the next step, which in this case is for a phone authenticator key:
 
@@ -42,7 +42,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
->**Note:** For the SDK sample application, each user must set up a phone number for phone verification to see this authenticator option in the page.
+>**Note:** For the SDK sample app, each user must set up a phone number for phone verification to see this authenticator option in the page.
 
 When the user selects the **phone** factor, call `idx.authenticate` and pass in the authentication phone key, `{ authenticator: AuthenticatorKey.PHONE_NUMBER }`. If the call is successful, the method returns a status of `Idx.Status:PENDING`, which indicates that the SDK needs a phone verification method to send the verification code. The `nextStep` field includes the input for this method.
 
@@ -55,13 +55,13 @@ status, // IdxStatus.PENDING
 
 The next step is to redirect the user to a page to enter in the phone verification field.
 
-### 3: Build the phone verification method entry page
+### 3: Build the entry page for the verification method
 
 Build the phone verification method entry page that accepts either SMS or voice verification that is used for authentication.
 
 <div class="half wireframe-border">
 
-![A choose your phone verification method form with SMS and Voice options and a next button](/img/wireframes/choose-phone-verification-method-form.png)
+![A form that lets users choose their verification method with SMS and Voice options and a next button](/img/wireframes/choose-phone-verification-method-form.png)
 
 <!--
 
@@ -84,7 +84,7 @@ status, // IdxStatus.PENDING
 }
 ```
 
-### 4: Build or reuse the phone verification code page
+### 4: Build or reuse the verification code page
 
 Build a page that accepts the code sent to the user's phone number through SMS. Depending on your implementation, this page can be the same page that verifies the email code or a different page.
 
@@ -101,7 +101,9 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 The next step is to call `idx.authenticate` passing in the verification code `{ verification: '123'}`.
 
-Then, handle the response from `idx.authenticate`. If the phone code was valid, the method returns a status of `Idx.Status:SUCCESS` with tokens. This status signifies that there are no more factors that are waiting to be enrolled and verified. If the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/set-up-org/#set-up-your-okta-org-for-a-multifactor-use-case) were properly followed, the user is successfully signed in and is sent to the default sign-in home page.
+Then, handle the response from `idx.authenticate`. If the phone code was valid, the method returns a status of `Idx.Status:SUCCESS` with tokens. This status signifies that there are no more factors that are waiting to be enrolled and verified.
+
+If your org is set up for a [multifactor use case](/docs/guides/set-up-org/#set-up-your-okta-org-for-a-multifactor-use-case), then the user is successfully signed in. They're sent to the default sign-in home page.
 
 ### 5 (Optional): Get the user profile information
 
