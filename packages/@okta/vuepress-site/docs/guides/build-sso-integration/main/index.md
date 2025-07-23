@@ -39,7 +39,7 @@ Okta recommends using OIDC for new SSO integrations.
 
 After you've decided on a protocol, select a deployment model. Okta offers [redirect](/docs/concepts/redirect-vs-embedded/#redirect-authentication) or [embedded](/docs/concepts/redirect-vs-embedded/#embedded-authentication) authentication deploy models. Redirect authentication uses the [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#okta-sign-in-widget) and is the easiest, most secure way to integrate with Okta.
 
-Okta recommends the redirect authentication deployment model if your situation meets the [requirements](/docs/concepts/redirect-vs-embedded/#redirect-vs-embedded). For more information on deployment models and other authentication considerations, see:
+Okta recommends the redirect authentication deployment model if your situation meets the [requirements](/docs/concepts/redirect-vs-embedded/#redirect-okta-hosted-vs-embedded-self-hosted). For more information on deployment models and other authentication considerations, see:
 
 * [Okta deployment models&mdash;redirect vs. embedded](/docs/concepts/redirect-vs-embedded/)
 * [Redirect authentication guides](/docs/guides/redirect-authentication/)
