@@ -6,7 +6,7 @@ title: Set up an Okta app
 
 This guide covers some SDK-specific instructions for how to set up an app. Then, you can [run the Identity Engine sample apps](/docs/guides/oie-embedded-common-run-samples/) or [integrate the SDK or Widget](/docs/guides/oie-embedded-common-download-setup-app/) into your own app.
 
-> **Note:**  For introductory information about setting up an Okta org, see [Set up your org](/docs/journeys/set-up-org/).
+> **Note:**  For introductory information about setting up an Okta org, see [Set up your org](/docs/guides/set-up-org/).
 
 ---
 
@@ -43,9 +43,9 @@ This guide shows you how to set up your Okta org to support the embedded SDK or 
 
 Sample apps are provided for each solution to show you exactly how to integrate the SDK and Sign-In Widget into your own app. Before you can run the sample apps or integrate embedded authentication into your own app, you need to do the following:
 
-1. [Create your Okta account](/docs/journeys/set-up-org/).
+1. [Create your Okta account](/docs/guides/set-up-org/).
 1. [Verify that the Interaction Code grant type is enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled).
-1. [Update the default custom authorization server](/docs/journeys/set-up-org/#enable-interaction-code-for-a-custom-authorization-server).
+1. [Update the default custom authorization server](/docs/guides/set-up-org/#enable-interaction-code-for-a-custom-authorization-server).
 1. [Create an app](#create-an-app).
 
 After you've created your app, you need to [set up your Okta org for your use case](#set-up-your-okta-org-for-your-use-case).
@@ -82,8 +82,8 @@ Create an app integration that represents the app you want to add authentication
 
 After you create your app integration in your Okta org, configure your app and org to support the use cases that you're implementing:
 
-* For a password-optional use case, see [Set up your Okta org for a password-optional use case](/docs/journeys/set-up-org/#set-up-your-okta-org-for-a-password-optional-use-case)
-* For a multifactor use case, see [Set up your Okta org for a multifactor use case](/docs/journeys/set-up-org/#set-up-your-okta-org-for-a-multifactor-use-case)
+* For a password-optional use case, see [Set up your Okta org for a password-optional use case](/docs/guides/set-up-org/#set-up-your-okta-org-for-a-password-optional-use-case)
+* For a multifactor use case, see [Set up your Okta org for a multifactor use case](/docs/guides/set-up-org/#set-up-your-okta-org-for-a-multifactor-use-case)
 * For a social sign-in use case, see [Set up your Okta org for a social IdP use case](#set-up-your-okta-org-for-a-social-idp-use-case)
 
 ### Set up your Okta org for a social IdP use case
