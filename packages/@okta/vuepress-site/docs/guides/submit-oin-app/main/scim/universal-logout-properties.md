@@ -1,3 +1,14 @@
-Universal logout properties
+> **Notes:** 
+* Universal Logout integrations are only supported for SAML 2.0 and OIDC protocols. If you want to submit a Universal Logout integration with SCIM provisioning, you must also submit an SSO integration with either SAML 2.0 or OIDC. For more information, see [Universal Logout](https://developer.okta.com/docs/guides/oin-universal-logout-overview).
+* The **Universal logout properties** section only displays when you select **Universal Logout** along with the protocols that your integration supports from the **Select protocol** section.
 
-Universal Logout integrations are only supported for SAML 2.0 and OIDC protocols. If you want to submit a Universal Logout integration with SCIM provisioning, you must also submit an SSO integration with either SAML 2.0 or OIDC. For more information, see [Universal Logout](https://developer.okta.com/docs/guides/oin-universal-logout-overview).
+| <div style="width:150px">Property</div> | &nbsp; | Description  |
+| ----------------- | --: | ------------ |
+| **Global token revocation endpoint** `*` | |Specify your global token revocation endpoint. If your endpoint URL is dynamic, use the variables specified in the **Integration variables** section. For example: `https://{app.subdomain}.example.org/strawberry/login`. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language).<br>The maximum field length is 1024 characters.|
+| **Authentication method** | | Specifies the authentication method used for Universal Logout. Currently, Okta only supports `SIGNED_JWT`.|
+| **Subject format** | | Specify how the user is identified in the logout request for your app. The default value is **Email**.|
+| | **Email** | Your integration uses the email address of the user. |
+| | **Issuer and Subject identifier** | Your integration uses the user identifier. |
+| **Partial support** | | Select if you only require partial universal logout support for your app. <br> **Note**: If you select this option, while clearing the user's session from Okta, it only revokes the user's refresh tokens, which prevents the user from getting new access in the future. However, the existing user sessions aren't terminated until the user's existing access tokens expire or the user signs out of an application. </br>|
+
+`*` Required properties
