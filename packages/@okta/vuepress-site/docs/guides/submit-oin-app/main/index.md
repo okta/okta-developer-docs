@@ -192,7 +192,7 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 1. [Generate instances for testing](#generate-instances-for-testing). You need to create an app integration instance to test each protocol that your integration supports.
     * For an SSO integration, configure SSO and assign test users on the test instance.
     * For a SCIM integration, configure provisioning and map user profile attributes on the test instance.
-    * For a Universal Logout integration, assign the test user and enable **Logout** option on the instance. You can use the same instance that you created for SSO integration testing.
+    * For the Universal Logout integration, assign the test user and enable **Logout** option on the instance. You can use the same instance that you created for SSO integration testing.
 
 1. Test your integration.
    * For an SSO integration, test the required flows in the [OIN Submission Tester](#oin-submission-tester) with your generated test instance. Fix any test failures from the OIN Submission Tester, then regenerate the test instance (if necessary) and retest.
@@ -228,7 +228,7 @@ Okta recommends that you generate an instance for testing each protocol supporte
 
 * You must generate separate instances for testing if you support two SSO protocols (one for OIDC and one for SAML). The OIN Submission Tester can only test one protocol at a time.
 * If your SSO integration also supports SCIM, then create one instance for SCIM protocol testing and one instance for each SSO protocol testing.
-* If your integration supports Universal Logout along with an SSO protocol, then you can use the same instance that you created for SSO protocol testing.
+* For Universal Logout integration, you can use the same instance that you created for SSO protocol testing.
 
 There are certain conditions where you can test two protocols on one instance. You can create one instance for SSO and SCIM testing if your integration meets all of these conditions:
 
