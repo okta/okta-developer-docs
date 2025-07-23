@@ -776,7 +776,7 @@ Org admins can now consolidate multiple IdP routing rules into a single dynamic 
 
 #### Email Address Bounces API is GA in Production
 
-Okta admins can now control the bounced email address list through the [Email Address Bounces API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/#tag/EmailCustomization/operation/bulkRemoveEmailAddressBounces). When Okta-sent email addresses are blocked from an email service (the bounced email list), admins can use this API to create a list of blocked email addresses to be removed from the email service. Note: This API is not available in Free Trial and Developer orgs. <!-- OKTA-482000 -->
+Okta admins can now control the bounced email address list through the [Email Address Bounces API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/#tag/EmailCustomization/operation/bulkRemoveEmailAddressBounces). When Okta-sent email addresses are blocked from an email service (the bounced email list), admins can use this API to create a list of blocked email addresses to be removed from the email service. Note: This API is not available in Free trial and Integrator free plan orgs. <!-- OKTA-482000 -->
 
 #### Generic OIDC IdP nonce validation enforced
 
@@ -891,7 +891,7 @@ When [role target operations](/docs/reference/api/roles/#role-target-operations)
 
 #### Email Address Bounces API is GA in Preview
 
-Okta admins can now control the bounced email address list through the Email Address Bounces API. When Okta-sent email addresses are blocked from an email service (the bounced email list), admins can use this API to create a list of blocked email addresses to be removed from the email service. Note: This API is not available in Free Trial and Developer orgs. <!-- OKTA-481959 -->
+Okta admins can now control the bounced email address list through the Email Address Bounces API. When Okta-sent email addresses are blocked from an email service (the bounced email list), admins can use this API to create a list of blocked email addresses to be removed from the email service. Note: This API is not available in Free trial and Integrator free plan orgs. <!-- OKTA-481959 -->
 
 #### Trusted Origins for iFrame embedding is EA in Preview
 
