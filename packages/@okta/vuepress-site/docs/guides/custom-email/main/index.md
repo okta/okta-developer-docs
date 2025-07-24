@@ -427,7 +427,7 @@ You can send yourself a test email to see how a custom email template looks and 
 1. Click the email icon to the right of the email template that you’ve customized. A list shows the sender and receiver of the email.
 2. Click **Send test email**.
 
-> **Note:** Super admins can view customized email templates when they're logged in as an admin and send a test email. However, when custom email templates are sent to super admins as part of actual email notification flows, the customizations are not applied. Instead, the default email template is used. This only applies to super admins.
+> **Note:** Super admins can view customized email templates when they're signed in as an admin and send a test email. However, when custom email templates are sent to super admins as part of actual email notification flows, the customizations are not applied. Instead, the default email template is used. This only applies to super admins.
 
 ## Known Issues
 
