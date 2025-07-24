@@ -78,7 +78,7 @@ Use an encryption key to encrypt an access token to ensure its confidentiality a
 
 > **Notes**:
 >
->This guide covers the API steps for managing your JSON Web Keys and JWK URIs. To use the Admin Console to perform these tasks, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred). To have Okta generate a signing or encryption key for you, using the Admin Console is required.
+>This guide covers the API steps for managing your JSON Web Keys and JWK URIs. To use the Admin Console to perform these tasks, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred) and [Encrypt OIDC tokens for app integrations](https://help.okta.com/okta_help.htm?type=oie&id=apps-oidc-token-encryption). To have Okta generate a signing or encryption key for you, using the Admin Console is required.
 >
 >Use the Admin Console to generate a signing or encryption public/private key pair for testing purposes only. For a production use case, use your own internal instance of the key pair generator. For an example, see [key pair generator](https://github.com/mitreid-connect/mkjwk.org).
 >
@@ -104,7 +104,7 @@ Use this section to manage signing keys used for client authentication and encry
 
 This option allows you to bring your own signing or encryption keys. You can add up to 50 keys per app. This section assumes that you've already [generated your JWK public and private key pair](#what-you-need).
 
-> **Note:** To add a public key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
+> **Note:** To add a public key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred) and [Encrypt OIDC tokens for app integrations](https://help.okta.com/okta_help.htm?type=oie&id=apps-oidc-token-encryption).
 
 The **Client authentication** and **Encrypt the ID token** folders of the Postman Collection are used in this section.
 
@@ -183,17 +183,15 @@ The **Client authentication** and **Encrypt the ID token** folders of the Postma
 
 <ApiLifecycle access="ea" />
 
-You must enable ID token encryption to have Okta encrypt the ID token for the client. The encryption key must have an **ACTIVE** status to add an encryption algorithm.
-
-The **Encrypt the ID token** folder of the Postman Collection is used in this section.
-
-> **Note:** To add an encryption key algorithm using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
-
-You can also use this request to change the algorithm for the encryption key. Okta supports the following algorithms:
+You must enable ID token encryption to have Okta encrypt the ID token for the clientnn, and the encryption key must have an **ACTIVE** status. You can also use this request to change the algorithm for the encryption key. Okta supports the following algorithms:
 
 * RSA-OAEP-256
 * RSA-OAEP-384
 * RSA-OAEP-512
+
+The **Encrypt the ID token** folder of the Postman Collection is used in this section.
+
+> **Note:** To enable ID token encryption or change the encryption key algorithm using the Admin Console, see [Encrypt OIDC tokens for app integrations](https://help.okta.com/okta_help.htm?type=oie&id=apps-oidc-token-encryption).
 
 1. Use the **Enable encryption for the client** request.
 1. In the path parameters, replace the following variables:
@@ -256,7 +254,7 @@ This option allows you to host your public key in a URI. This URL contains publi
 
 By hosting the keys in a URL, you can conveniently rotate the keys without having to update the app configuration every time. Okta dynamically fetches the latest public key for the app. This eliminates the need to manually update the public key when you’re rotating the key pair.
 
-> **Note:** To add a URL to fetch keys dynamically using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
+> **Note:** To add a URL to fetch keys dynamically using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred) and [Encrypt OIDC tokens for app integrations](https://help.okta.com/okta_help.htm?type=oie&id=apps-oidc-token-encryption).
 
 The **Client authentication** and **Encrypt the ID token** folders of the Postman Collection are used in this section.
 
@@ -334,7 +332,7 @@ The **Client authentication** and **Encrypt the ID token** folders of the Postma
 
 When you’re ready to retire a public signing key, change the older JWK status from **Active** to **Inactive** using the API. You can only deactivate an encryption key using this request if [ID token encryption isn't enabled](#enable-encryption-for-the-client) for the client. See [Disable ID token encryption](#disable-id-token-encryption).
 
-> **Note:** To retire a public key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
+> **Note:** To retire a public key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred) and [Encrypt OIDC tokens for app integrations](https://help.okta.com/okta_help.htm?type=oie&id=apps-oidc-token-encryption).
 
 1. Use the **List JWKS** and **Get a JWK** requests.
 1. Use the **Deactive a JWK** request after you have the JWKS ID that you need.
@@ -418,13 +416,13 @@ When you’re ready to retire a public signing key, change the older JWK status 
 
 <ApiLifecycle access="ea" />
 
-You must first disable ID token encryption before you can deactivate an encryption key. To do that, remove the `id_token_encrypted_response_alg` parameter in a PUT request to `{{url}}/api/v1/apps/{{appId}}`. Use the **Disable ID token encryption for an app** for the example request and response. Then, you can use the [Deactivate keys](#deactivate-keys) section to deactivate the encryption key.
+You must first disable ID token encryption before you can deactivate an encryption key. To do that, remove the `id_token_encrypted_response_alg` parameter in a PUT request to `{{url}}/api/v1/apps/{{appId}}`. Use the **Disable ID token encryption for an app** in the Postman Collection for the example request and response. Then, you can use the [Deactivate keys](#deactivate-keys) section to deactivate the encryption key.
 
 ### Delete signing or encryption keys
 
 After you deactivate the old key, you can then delete it. This ensures that the older key isn’t used by mistake. The keys must have a `status` of `INACTIVE` to delete them. The **Client authentication** and **Encrypt the ID token** folders of the Postman Collection are used in this section.
 
-> **Note:** To delete a public key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
+> **Note:** To delete a public key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred) and [Encrypt OIDC tokens for app integrations](https://help.okta.com/okta_help.htm?type=oie&id=apps-oidc-token-encryption).
 
 1. Use the **Delete a signing key** or **Delete an encryption key** <ApiLifecycle access="ea" />request.
 1. In the path parameters, replace the following variables:
@@ -445,7 +443,7 @@ Use this section to manage encryptions keys in a custom authorization server. Yo
 
 This option allows you to bring your own encryption key. You can add up to 50 keys per authorization server. However, only one key can be active at a time. When you add the key, add it with a status of `INACTIVE` and then activate it in the [next section](#activate-an-encryption-key). This section assumes that you've already [generated your JWK public and private key pair](#what-you-need).
 
-> **Note:** To add a public key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
+> **Note:** To add a public key using the Admin Console, see [Encrypt OIDC access tokens for authorization servers](https://help.okta.com/okta_help.htm?type=oie&id=api-oidc-token-encryption).
 
 1. Use the **Add an encryption key** request.
 1. In the path parameters, replace the following variables:
@@ -494,7 +492,7 @@ This option allows you to bring your own encryption key. You can add up to 50 ke
 
 To activate an encryption key for your custom authorization server, follow these steps.
 
-> **Note:** To activate an encryption key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
+> **Note:** To activate an encryption key using the Admin Console, see [Encrypt OIDC access tokens for authorization servers](https://help.okta.com/okta_help.htm?type=oie&id=api-oidc-token-encryption).
 
 1. Use the **Activate an encryption key** request.
 1. In the path parameters, replace the following variables:
@@ -519,19 +517,15 @@ To activate an encryption key for your custom authorization server, follow these
 
 ### Enable token encryption
 
-You must enable token encryption to have Okta encrypt the access token. The encryption key must have an **ACTIVE** status.
-
-The **Encrypt an access token** folder of the Postman Collection is used in this section.
-
-> **Note:** To add an encryption key algorithm using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
-
-You can also use this request to change the algorithm for the encryption key. Okta supports the following algorithms:
+You must enable token encryption to have Okta encrypt the access token. The encryption key must have an **ACTIVE** status. You can also use this request to change the algorithm for the encryption key. Okta supports the following algorithms:
 
 * RSA-OAEP-256
 * RSA-OAEP-384
 * RSA-OAEP-512
 
-> **Note:** To enable token encryption or change the algorithm for an encryption key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
+> **Note:** To enable token encryption or change an encryption key algorithm using the Admin Console, see [Encrypt OIDC access tokens for authorization servers](https://help.okta.com/okta_help.htm?type=oie&id=api-oidc-token-encryption).
+
+The **Encrypt an access token** folder of the Postman Collection is used in this section.
 
 1. Use the **Enable token encryption for the auth server** request.
 1. In the path parameters, replace the following variables:
@@ -573,7 +567,7 @@ You can also use this request to change the algorithm for the encryption key. Ok
 
 This option allows you to host your public key in a URI. By hosting the keys in a URL, you can conveniently rotate the keys without having to update the authorization server configuration every time. Okta dynamically fetches the latest public key, which eliminates the need to manually update the public key when you’re rotating the key pair. If you switch from saving keys in Okta to using a URL to fetch keys dynamically, any saved public keys are deleted.
 
-> **Note:** To add a URL to fetch keys dynamically using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
+> **Note:** To add a URL to fetch keys dynamically using the Admin Console, see [Encrypt OIDC access tokens for authorization servers](https://help.okta.com/okta_help.htm?type=oie&id=api-oidc-token-encryption).
 
 1. Use the **Add an encryption key URI** request.
 1. In the path parameters, replace the following variables:
@@ -626,13 +620,13 @@ This option allows you to host your public key in a URI. By hosting the keys in 
 
 ### Disable access token encryption
 
-You must first disable access token encryption before you can deactivate an encryption key. To do that, remove the `accessTokenEncryptedResponseAlgorithm` parameter in a PUT request to `{{url}}/api/v1/authorizationServers/{{authorizationServerId}}`. Use the **Disable access token encryption for the auth server** for the example request and response. Then, you can use the [next section](#deactivate-the-encryption-key) to deactivate the encryption key.
+You must first disable access token encryption before you can deactivate an encryption key. To do that, remove the `accessTokenEncryptedResponseAlgorithm` parameter in a PUT request to `{{url}}/api/v1/authorizationServers/{{authorizationServerId}}`. Use **Disable access token encryption for the auth server** in the Postman Collection for the example request and response. Then, you can use the [next section](#deactivate-the-encryption-key) to deactivate the encryption key.
 
 ### Deactivate the encryption key
 
 When you’re ready to retire a public key, change the JWK status from **Active** to **Inactive** using the API.
 
-> **Note:** To retire a public key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
+> **Note:** To retire a public key using the Admin Console, see [Encrypt OIDC access tokens for authorization servers](https://help.okta.com/okta_help.htm?type=oie&id=api-oidc-token-encryption).
 
 1. Use the **List JWKS** and **Get a JWK** requests to obtain the key ID.
 1. Use the **Deactive an encryption key** request after you have the key ID that you need.
@@ -648,7 +642,7 @@ When you’re ready to retire a public key, change the JWK status from **Active*
 
 After you deactivate the old key, you can then delete it. This ensures that the older key isn’t used by mistake.
 
-> **Note:** To delete a public key using the Admin Console, see [Manage secrets and keys for OIDC apps](https://help.okta.com/okta_help.htm?type=oie&id=oauth-client-cred).
+> **Note:** To delete a public key using the Admin Console, see [Encrypt OIDC access tokens for authorization servers](https://help.okta.com/okta_help.htm?type=oie&id=api-oidc-token-encryption).
 
 1. Use the **Delete an encryption key** request.
 1. In the path parameters, replace the following variables:
