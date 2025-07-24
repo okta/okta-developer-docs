@@ -238,7 +238,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 This step assumes that your org is enabled with the voice feature.
 
-Build a form to capture the user's phone number. And then build a subsequent form for the user to select their phone verification method (either SMS or voice).
+Build a form to capture the user's phone number. Then build a subsequent form for the user to select their phone verification method (either SMS or voice).
 
 <div class="half wireframe-border">
 
