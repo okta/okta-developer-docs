@@ -8,11 +8,11 @@ excerpt: Control user access to Okta.
 
 The Okta Authentication API provides operations to authenticate users, perform multifactor enrollment and verification, recover forgotten passwords, and unlock accounts. It can be used as a standalone API to provide the identity layer on top of your existing application. Or it can be integrated with the Okta [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/) to obtain an Okta [session cookie](/docs/guides/session-cookie/) and access apps within Okta.
 
-The API is targeted for developers who want to build their own end-to-end login experience. Developers can build their own login experience to replace the built-in Okta login experience and addresses the following key scenarios:
+The API is targeted for developers who want to build their own end-to-end sign-in experience. Developers can build their own sign-in experience to replace the built-in Okta login experience and addresses the following key scenarios:
 
 * **Primary authentication** allows you to verify the username and password credentials for a user.
-* **Multifactor authentication** (MFA) strengthens the security of password-based authentication by requiring additional verification of another Factor. For example, in addition to a password, MFA can require a temporary one-time passcode or an SMS passcode. The Authentication API supports user enrollment with MFA factors enabled by the administrator, and MFA challenges based on your global session policy.
-* **Recovery** allows users to securely reset their password if they've forgotten it, or unlock their account if they're locked out due to excessive failed login attempts. This functionality is subject to the security policy set by the administrator.
+* **Multifactor authentication** (MFA) strengthens the security of password-based authentication by requiring additional verification of another Factor. For example, in addition to a password, MFA can require a temporary one-time passcode or an SMS passcode. The Authentication API supports user enrollment with MFA factors enabled by the admin, and MFA challenges based on your global session policy.
+* **Recovery** allows users to securely reset their password if they've forgotten it, or unlock their account if they're locked out due to excessive failed sign-in attempts. This functionality is subject to the security policy set by the admin.
 
 ## Application types
 
@@ -24,11 +24,11 @@ The behavior of the Okta Authentication API varies depending on the type of your
 
 ### Public application
 
-A public app is an app that anonymously starts an authentication or recovery transaction without an API token, such as the [Okta Sign-In Widget](/docs/guides/embedded-siw/). Public applications are aggressively rate-limited to prevent abuse and require primary authentication to be successfully completed before releasing any metadata about a user.
+A public app is an app that anonymously starts an authentication or recovery transaction without an API token, such as the [Okta Sign-In Widget](/docs/guides/embedded-siw/). Public apps are aggressively rate-limited to prevent abuse and require primary authentication to be successfully completed before releasing any metadata about a user.
 
 ### Trusted application
 
-Trusted applications are backend applications that act as an authentication broker or login portal for your Okta organization. Trusted applications may start an authentication or recovery transaction with an administrator API token. Trusted apps may implement their own recovery flows and primary authentication process and may collect other metadata about the user before primary authentication successfully completes.
+Trusted apps are backend apps that act as an authentication broker or sign-in portal for your Okta org. Trusted apps may start an authentication or recovery transaction with an admin API token. Trusted apps may implement their own recovery flows and primary authentication process and may collect other metadata about the user before primary authentication successfully completes.
 
 > **Note:** Trusted web apps may need to override the [client request context](https://developer.okta.com/docs/api/#client-request-context) to forward the originating client context for the user.
 
@@ -98,7 +98,7 @@ The context object allows [trusted web applications](#trusted-application) such 
 
 > **Note:**
 >
-> * Overriding context, such as `deviceToken`, is a highly privileged operation limited to trusted web applications. This requires the app to use a valid administrator API token when making authentication or recovery requests. If an API token isn't provided, the `deviceToken` is ignored.
+> * Overriding context, such as `deviceToken`, is a highly privileged operation limited to trusted web apps. This requires the app to use a valid admin API token when making authentication or recovery requests. If an API token isn't provided, the `deviceToken` is ignored.
 >
 > * Authentication requests that include a Factor challenge with a per-device or per-session sign-on policy must always include the same `deviceToken` for the user. If the `deviceToken` is absent or doesn’t match the previous `deviceToken`, Okta issues a challenge with every authentication attempt.
 >
@@ -898,7 +898,7 @@ Include the `X-Device-Fingerprint` header to supply a device fingerprint. The `X
 
 > **Note:** The use of the `X-Device-Fingerprint` header for new device security Behavior Detection is deprecated. Starting April 12 2021, Okta enabled [improvements to the new device security behavior](https://help.okta.com/okta_help.htm?id=csh-improved-ndbd) for all the existing tenants. New device security behavior only relies on the `deviceToken` in the [Context Object](#context-object) and doesn't rely on the `X-Device-Fingerprint` header. The new or unknown device email notification feature continues to rely on the `X-Device-Fingerprint` header.
 
-Specifying your own device fingerprint in the `X-Device-Fingerprint` header is a highly privileged operation that is limited to trusted web applications and requires making authentication requests with a valid API token. Send the device fingerprint only if the trusted app has a computed fingerprint for the end user's client.
+Specifying your own device fingerprint in the `X-Device-Fingerprint` header is a highly privileged operation that is limited to trusted web apps and requires making authentication requests with a valid API token. Send the device fingerprint only if the trusted app has a computed fingerprint for the end user's client.
 
 > **Note:** The `X-Device-Fingerprint` header is different from the device token. Device-based MFA in the Okta sign-on policy rules depends on the device token only and not on the `X-Device-Fingerprint` header. See [Context Object](#context-object) for more information on the device token. Device-based MFA would work only if you pass the device token in the [client request context](https://developer.okta.com/docs/api/#client-request-context).
 
@@ -3808,7 +3808,7 @@ curl -v -X POST \
 ##### Send activation links
 
 Sends an activation email or SMS when the user is unable to scan the QR Code provided as part of an Okta Verify transaction.
-If the user can't scan the QR Code, they can use the link provided in email or SMS to complete the transaction.
+If the user can't scan the QR Code, they can use the link that's provided in email or SMS to complete the transaction.
 
 > **Note:** The user must click the link from the same device as the one where the Okta Verify app is installed.
 
@@ -4155,7 +4155,7 @@ Verifies an enrolled Factor for an authentication transaction with the `MFA_REQU
 * [Verify U2F Factor](#verify-u2f-factor)
 * [Verify WebAuthn Factor](#verify-webauthn-factor)
 
-> **Note:** If the sign-on (or app sign-on) [policy](#remember-device-policy-object) allows remembering the device, then the end user can choose whether the current device is remembered. This helps reduce the number of times the user is prompted for MFA on the current device. The user's choice can be passed to Okta using the request parameter `rememberDevice` to the verify endpoint. The default value of `rememberDevice` parameter is `false`.
+> **Note:** If the sign-on (or app sign-on) [policy](#remember-device-policy-object) allows remembering the device, then the end user can choose if Okta should remember the current device. This helps reduce the number of times the user is prompted for MFA on the current device. The user's choice can be passed to Okta using the request parameter `rememberDevice` to the verify endpoint. The default value of `rememberDevice` parameter is `false`.
 
 #### Verify Security Question Factor
 
@@ -4784,7 +4784,7 @@ curl -v -X POST \
 
 ##### Response example (waiting for 3-number verification challenge response)
 
-> **Note:** If Okta detects an unusual sign-in attempt, the end user receives a 3-number verification challenge. The correct answer of the challenge is provided in the polling response. This is similar to the standard `waiting` response but with the addition of a `correctAnswer` property in the `challenge` object. The `correctAnswer` property is only be included in the response if the end user is on the 3-number verification challenge view in the Okta Verify mobile app. Look at [Push notification and number challenge](https://help.okta.com/okta_help.htm?id=csh-okta-verify-number-challenge-v1) for more details about this challenge flow.
+> **Note:** If Okta detects an unusual sign-in attempt, the end user receives a three-number verification challenge. The correct answer of the challenge is provided in the polling response. This is similar to the standard `waiting` response but with the addition of a `correctAnswer` property in the `challenge` object. The `correctAnswer` property is only be included in the response if the end user is on the three-number verification challenge view in the Okta Verify mobile app. Look at [Push notification and number challenge](https://help.okta.com/okta_help.htm?id=csh-okta-verify-number-challenge-v1) for more details about this challenge flow.
 
 ```json
 {
@@ -5759,7 +5759,7 @@ Primary authentication of a user's recovery credential (for example: `EMAIL` or 
 Okta provides security in the following ways:
 
 * Since the recovery email is distributed out-of-band and may be viewed on a different user agent or device, this operation doesn’t return a [state token](#state-token) and doesn’t have a `next` link.
-* Okta doesn't publish other metadata about the user until primary authentication has been successfully completed.
+* Okta doesn't publish other metadata about the user until primary authentication is successfully completed.
 See the (response example)[#response-example-for-forgot-password-with-email-factor] for details.
 
 ##### Request example for forgot password with Email Factor
@@ -5919,7 +5919,7 @@ curl -v -X POST \
 
 Allows a [trusted app](#trusted-application) such as an external portal to implement its own primary authentication process. The trusted app can directly obtain a [recovery token](#recovery-token) for a user given just the user's identifier.
 
-> **Note:** Directly obtaining a `recoveryToken` is a highly privileged operation that requires an administrator API token. Okta recommends that you restrict that operation to trusted web applications. Anyone that obtains a `recoveryToken` for a user and knows the answer to a user's recovery question can reset their password or unlock their account.
+> **Note:** Directly obtaining a `recoveryToken` is a highly privileged operation that requires an admin API token. Okta recommends that you restrict that operation to trusted web apps. Anyone that obtains a `recoveryToken` for a user and knows the answer to a user's recovery question can reset their password or unlock their account.
 
 > **Note:** The **public IP address** of your [trusted app](#trusted-application) must be [allowed as a gateway IP address](https://developer.okta.com/docs/api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
@@ -6039,7 +6039,7 @@ Since the recovery email is distributed out-of-band and may be viewed on a diffe
 **Notes:**
 
 * Primary authentication of a user's recovery credential (e.g `EMAIL` or `SMS`) hasn't yet completed.
-* Okta doesn't publish other metadata about the user until primary authentication has been successfully completed.
+* Okta doesn't publish other metadata about the user until primary authentication is successfully completed.
 
 ##### Request example for Email Factor
 
@@ -6075,7 +6075,7 @@ Starts a new unlock recovery transaction with a user identifier (`username`) and
 **Notes:**
 
 * Primary authentication of a user's recovery credential (e.g email or SMS) hasn't yet completed.
-* Okta doesn't publish other metadata about the user until primary authentication has been successfully completed.
+* Okta doesn't publish other metadata about the user until primary authentication is successfully completed.
 * SMS recovery Factor must be enabled through the user's assigned password policy to use this operation.
 
 ##### Request example for unlock account with SMS Factor
@@ -6135,11 +6135,11 @@ curl -v -X POST \
 
 #### Unlock account with trusted application
 
-Allows a [trusted app](#trusted-application) such as an external portal to implement its own primary authentication process. The trusted app can then directly obtain a [recovery token](#recovery-token) for a user given just the user's identifier
+Allows a [trusted app](#trusted-application) such as an external portal to implement its own primary authentication process. The trusted app can then directly obtain a [recovery token](#recovery-token) for a user given just the user's identifier.
 
 **Notes:**
 
-* Directly obtaining a `recoveryToken` is a highly privileged operation that requires an administrator API token. Okta recommends that you restrict that operation to [trusted web applications](#trusted-application). Anyone that obtains a `recoveryToken` for a user and knows the answer to a user's recovery question can reset their password or unlock their account.
+* Directly obtaining a `recoveryToken` is a highly privileged operation that requires an admin API token. Okta recommends that you restrict that operation to [trusted web apps](#trusted-application). Anyone that obtains a `recoveryToken` for a user and knows the answer to a user's recovery question can reset their password or unlock their account.
 
 * The **public IP address** of your [trusted app](#trusted-application) must be [allowed as a gateway IP address](https://developer.okta.com/docs/api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
@@ -6944,7 +6944,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/authn/previous" />
 
-Moves the current [transaction state](#transaction-state) back to the previous state. For example, if the user couldn't complete the enrollment process with their factor, you could revert to the `MFA_ENROLL` state.
+Reverts the [transaction state](#transaction-state) to its previous state. For example, if the user couldn't complete the enrollment process with their factor, you could revert to the `MFA_ENROLL` state.
 
 ##### Request parameters for previous transaction state
 
@@ -7282,7 +7282,7 @@ Authentication API operations return different token types depending on the [sta
 An ephemeral token that encodes the current state of an authentication or recovery transaction.
 
 * The `stateToken` must be passed with every request except when verifying a `recoveryToken` that was distributed out-of-band
-* The `stateToken` is only intended for use between the web app performing the authentication and the Okta API. Never distribute this token to users through email or other out-of-band mechanisms.
+* The `stateToken` is only intended for use between the web app that's performing the authentication and the Okta API. Never distribute this token to users through email or other out-of-band mechanisms.
 * The lifetime of the `stateToken` uses a sliding scale expiration algorithm that extends with every request. Always inspect the `expiresAt` property for the transaction when making decisions based on lifetime.
 
 > **Note:** All Authentication API operations return `401 Unauthorized` status codes when you attempt to use an expired state token.
