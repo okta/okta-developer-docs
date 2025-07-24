@@ -4,10 +4,6 @@ title: Sign in with password and phone factors
 
 <ApiLifecycle access="ie" />
 
-> **Note:** In proxy model architectures, where a server-side app using the embedded SDK is used as a proxy between client apps and Okta servers, a request context for the client apps is required. The expectation is that security enforcement is based on the client request context's IP address and user agent.
->
->However, since these values are currently derived from the server app rather than the client, this enforcement isn't available. As a result, network zones or behaviors that drive their conditions based on these request context values (geolocation, IP Address, or user agent) won't work until a solution to the issue is found.
-
 This guide covers the use case for a user sign-in flow with password and phone factors.
 
 <StackSnippet snippet="pwdoptionalusecase" inline />
@@ -30,6 +26,12 @@ This guide covers the use case for a user sign-in flow with password and phone f
 <StackSnippet snippet="samplecode" />
 
 ---
+
+## About request context and embedded SDKs
+
+In proxy model architectures, a request context for the client apps is required. A proxy model architecture is where a server-side app using the embedded SDK is used as a proxy between client apps and Okta servers. The expectation is that security enforcement is based on the client request context's IP address and user agent.
+
+However, because these values are currently derived from the server app rather than the client, this enforcement isn't available. Therefore, network zones or behaviors that drive their conditions are based on the server app's request context values (geolocation, IP Address, or user agent).
 
 ## Configuration updates
 
