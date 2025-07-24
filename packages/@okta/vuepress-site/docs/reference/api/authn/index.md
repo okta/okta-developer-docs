@@ -52,7 +52,7 @@ Trusted apps are backend apps that act as an authentication broker or sign-in po
 
 Every authentication transaction starts with primary authentication that validates a user's primary password credential. **Password Policy**, **MFA Policy**, and **sign-on policy** are evaluated during primary authentication. They're evaluated to determine if the user's password is expired, a Factor should be enrolled, or additional verification is required. The [transaction state](#transaction-state) of the response depends on the user status, group memberships, and assigned policies.
 
-> **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
+> **Note:** In Identity Engine, the MFA Enrollment Policy name is called the [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
 
 The requests and responses vary depending on the app type, and whether a password expiration warning is sent:
 
@@ -450,7 +450,7 @@ The user is assigned to a **sign-on policy** that requires additional verificati
 
 The user is assigned to an **MFA Policy** that requires enrollment during sign-in and must [select a Factor to enroll](#enroll-factor) to complete the authentication transaction.
 
-> **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
+> **Note:** In Identity Engine, the MFA Enrollment Policy name is called the [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
 
 ```json
 {
@@ -1219,7 +1219,7 @@ curl -v -X POST \
 
 The user is assigned to an MFA Policy that requires enrollment during the sign-in process. They must [select a Factor to enroll](#enroll-factor) to complete the authentication transaction.
 
-> **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
+> **Note:** In Identity Engine, the MFA Enrollment Policy name is called the [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
 
 ```json
 {
@@ -1564,7 +1564,7 @@ curl -v -X POST \
 
 The user is assigned to an MFA Policy that requires enrollment during the sign-in process. They must [select a Factor to enroll](#enroll-factor) to complete the authentication transaction.
 
-> **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
+> **Note:** In Identity Engine, the MFA Enrollment Policy name is called the [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
 
 ```json
 {
@@ -1893,7 +1893,7 @@ You can enroll, activate, manage, and verify factors inside the authentication c
 
 Enrolls a user with a [Factor](/docs/reference/api/factors/#supported-factors-for-providers) assigned by their **MFA Policy**
 
-> **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
+> **Note:** In Identity Engine, the MFA Enrollment Policy name is called the [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
 
 * [Enroll Okta Security Question Factor](#enroll-okta-security-question-factor)
 * [Enroll Okta SMS Factor](#enroll-okta-sms-factor)
@@ -5235,7 +5235,7 @@ the web page that triggers the API request (assuming the origin has been configu
 
 ##### Start verification to get challenge nonce
 
-Verification of the U2F Factor starts with getting the challenge nonce and U2F token details. And then you use the client-side
+Verification of the U2F Factor starts with getting the challenge nonce and U2F token details. Then you use the client-side
 JavaScript API to get the signed assertion from the U2F token.
 
 ##### Request example for verify U2F Factor
@@ -5424,7 +5424,7 @@ This authenticator then generates an assertion that may be used to verify the us
 
 ##### Start verification to get challenge nonce
 
-Verification of the WebAuthn Factor starts with getting the WebAuthn credential request details (including the challenge nonce). And then you use the client-side JavaScript API to get the signed assertion from the WebAuthn authenticator.
+Verification of the WebAuthn Factor starts with getting the WebAuthn credential request details (including the challenge nonce). Then you use the client-side JavaScript API to get the signed assertion from the WebAuthn authenticator.
 
 For more information about these credential request options, see the [WebAuthn spec for PublicKeyCredentialRequestOptions](https://www.w3.org/TR/webauthn/#dictionary-makecredentialoptions).
 
@@ -5794,7 +5794,7 @@ Starts a new password recovery transaction with a user identifier (`username`) a
 
 > **Note:** Primary authentication of a user's recovery credential (for example: email or SMS) hasn't yet completed. Okta doesn't publish other metadata about the user until primary authentication has been successfully completed.
 
-> **Note:** SMS recovery Factor must be enabled through the user's assigned password policy to use this operation.
+> **Note:** The SMS recovery Factor must be enabled through the user's assigned password policy to use this operation.
 
 ##### Request example for forgot password with SMS Factor
 
@@ -6076,7 +6076,7 @@ Starts a new unlock recovery transaction with a user identifier (`username`) and
 
 * Primary authentication of a user's recovery credential (e.g email or SMS) hasn't yet completed.
 * Okta doesn't publish other metadata about the user until primary authentication is successfully completed.
-* SMS recovery Factor must be enabled through the user's assigned password policy to use this operation.
+* The SMS recovery Factor must be enabled through the user's assigned password policy to use this operation.
 
 ##### Request example for unlock account with SMS Factor
 
@@ -6562,7 +6562,7 @@ You can modify the authentication transaction [state machine](#transaction-state
 
 | Property                   | Description                                                                                                                                                | DataType | Nullable | Unique | Readonly |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ------ | -------- |
-| multiOptionalFactorEnroll  | Transitions transaction back to `MFA_ENROLL` state after successful Factor enrollment when other optional factors are available for enrollment        | Boolean  | TRUE     | FALSE  | FALSE    |
+| multiOptionalFactorEnroll  | Reverts transaction back to the `MFA_ENROLL` state after successful Factor enrollment when other optional factors are available for enrollment        | Boolean  | TRUE     | FALSE  | FALSE    |
 
 
 ##### Response parameters for verify recovery token
