@@ -1,11 +1,11 @@
 ---
-title: Okta Expression Language in Okta Identity Engine
+title: Okta Expression Language in Identity Engine
 meta:
 - name: description
-  content: Learn more about the features and syntax of Okta Expression Language in Okta Identity Engine.
+  content: Learn more about the features and syntax of Okta Expression Language in Identity Engine.
 ---
 
-# Okta Expression Language in Okta Identity Engine
+# Okta Expression Language in Identity Engine
 
 <ApiLifecycle access="ie" />
 
