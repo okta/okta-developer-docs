@@ -31,7 +31,7 @@ The OIN Wizard is a full-service tool in the Admin Console for you to do the fol
 
   * Test your SSO integration with the OIN Submission Tester.
   * Test your SCIM integration with manual test cases and Runscope test suites.
-  * Test your Universal Logout integration with manual test cases.
+  * Test your Universal Logout integration manually.
 
 * Submit your integration directly to the OIN team when you're satisfied with your test results.
 * Monitor the status of your submissions through the **Your OIN Integrations** dashboard.
@@ -192,7 +192,7 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 1. [Generate instances for testing](#generate-instances-for-testing). You need to create an app integration instance to test each protocol that your integration supports.
     * For an SSO integration, configure SSO and assign test users on the test instance.
     * For a SCIM integration, configure provisioning and map user profile attributes on the test instance.
-    * For the Universal Logout integration, assign the test user and enable **Logout** option on the instance. You can use the same instance that you created for SSO integration testing.
+    * For the Universal Logout integration, assign the test user and enable the **Logout** option on the instance. You can use the same instance that you created for SSO integration testing.
 
 1. Test your integration.
    * For an SSO integration, test the required flows in the [OIN Submission Tester](#oin-submission-tester) with your generated test instance. Fix any test failures from the OIN Submission Tester, then regenerate the test instance (if necessary) and retest.
