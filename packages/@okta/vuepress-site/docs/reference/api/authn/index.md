@@ -6,17 +6,17 @@ excerpt: Control user access to Okta.
 
 # Authentication API
 
-The Okta Authentication API provides operations to authenticate users, perform multifactor enrollment and verification, recover forgotten passwords, and unlock accounts. It can be used as a standalone API to provide the identity layer on top of your existing application, or it can be integrated with the Okta [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/) to obtain an Okta [session cookie](/docs/guides/session-cookie/) and access apps within Okta.
+The Okta Authentication API provides operations to authenticate users, perform multifactor enrollment and verification, recover forgotten passwords, and unlock accounts. It can be used as a standalone API to provide the identity layer on top of your existing application. Or it can be integrated with the Okta [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/) to obtain an Okta [session cookie](/docs/guides/session-cookie/) and access apps within Okta.
 
-The API is targeted for developers who want to build their own end-to-end login experience to replace the built-in Okta login experience and addresses the following key scenarios:
+The API is targeted for developers who want to build their own end-to-end login experience. Developers can build their own login experience to replace the built-in Okta login experience and addresses the following key scenarios:
 
 * **Primary authentication** allows you to verify the username and password credentials for a user.
-* **Multifactor authentication** (MFA) strengthens the security of password-based authentication by requiring additional verification of another Factor such as a temporary one-time passcode or an SMS passcode. The Authentication API supports user enrollment with MFA factors enabled by the administrator, and MFA challenges based on your global session policy.
-* **Recovery** allows users to securely reset their password if they've forgotten it, or unlock their account if it has been locked out due to excessive failed login attempts. This functionality is subject to the security policy set by the administrator.
+* **Multifactor authentication** (MFA) strengthens the security of password-based authentication by requiring additional verification of another Factor. For example, in addition to a password, MFA can require a temporary one-time passcode or an SMS passcode. The Authentication API supports user enrollment with MFA factors enabled by the administrator, and MFA challenges based on your global session policy.
+* **Recovery** allows users to securely reset their password if they've forgotten it, or unlock their account if they're locked out due to excessive failed login attempts. This functionality is subject to the security policy set by the administrator.
 
 ## Application types
 
-The behavior of the Okta Authentication API varies depending on the type of your application and your org's security policies such as the global session policy, the MFA Enrollment Policy, or the Password Policy.
+The behavior of the Okta Authentication API varies depending on the type of your app and your org's security policies. For example, your org's global session policy, the MFA Enrollment Policy, or the Password Policy can affect the behavior of the API.
 
 > **Note:** Policy evaluation is conditional on the [client request context](https://developer.okta.com/docs/api/#client-request-context) such as IP address.
 
@@ -24,11 +24,11 @@ The behavior of the Okta Authentication API varies depending on the type of your
 
 ### Public application
 
-A public application is an application that anonymously starts an authentication or recovery transaction without an API token, such as the [Okta Sign-In Widget](/docs/guides/embedded-siw/). Public applications are aggressively rate-limited to prevent abuse and require primary authentication to be successfully completed before releasing any metadata about a user.
+A public app is an app that anonymously starts an authentication or recovery transaction without an API token, such as the [Okta Sign-In Widget](/docs/guides/embedded-siw/). Public applications are aggressively rate-limited to prevent abuse and require primary authentication to be successfully completed before releasing any metadata about a user.
 
 ### Trusted application
 
-Trusted applications are backend applications that act as an authentication broker or login portal for your Okta organization and may start an authentication or recovery transaction with an administrator API token. Trusted apps may implement their own recovery flows and primary authentication process and may collect additional metadata about the user before primary authentication successfully completes.
+Trusted applications are backend applications that act as an authentication broker or login portal for your Okta organization. Trusted applications may start an authentication or recovery transaction with an administrator API token. Trusted apps may implement their own recovery flows and primary authentication process and may collect other metadata about the user before primary authentication successfully completes.
 
 > **Note:** Trusted web apps may need to override the [client request context](https://developer.okta.com/docs/api/#client-request-context) to forward the originating client context for the user.
 
@@ -50,11 +50,11 @@ Trusted applications are backend applications that act as an authentication brok
 
 <ApiOperation method="post" url="/api/v1/authn" />
 
-Every authentication transaction starts with primary authentication that validates a user's primary password credential. **Password Policy**, **MFA Policy**, and **sign-on policy** are evaluated during primary authentication to determine if the user's password is expired, a Factor should be enrolled, or additional verification is required. The [transaction state](#transaction-state) of the response depends on the user status, group memberships, and assigned policies.
+Every authentication transaction starts with primary authentication that validates a user's primary password credential. **Password Policy**, **MFA Policy**, and **sign-on policy** are evaluated during primary authentication. They're evaluated to determine if the user's password is expired, a Factor should be enrolled, or additional verification is required. The [transaction state](#transaction-state) of the response depends on the user status, group memberships, and assigned policies.
 
 > **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
 
-The requests and responses vary depending on the application type, and whether a password expiration warning is sent:
+The requests and responses vary depending on the app type, and whether a password expiration warning is sent:
 
 * [Primary Authentication with public applications](#primary-authentication-with-public-applications)&mdash;[Request Example](#request-example-for-primary-authentication-with-public-applications)
 * [Primary Authentication with trusted applications](#primary-authentication-with-trusted-applications)&mdash;[Request Example](#request-example-for-trusted-applications)
@@ -62,7 +62,7 @@ The requests and responses vary depending on the application type, and whether a
 * [Primary Authentication with device fingerprinting](#primary-authentication-with-device-fingerprinting)&mdash;[Request Example](#request-example-for-device-fingerprinting)
 * [Primary Authentication with password expiration warning](#primary-authentication-with-password-expiration-warning)&mdash;[Request Example](#request-example-for-password-expiration-warning)
 
-> **Note:** You must first enable MFA factors and assign a valid sign-on policy to a user to enroll and/or verify an MFA Factor during authentication.
+> **Note:** Enable MFA factors and assign a valid sign-on policy to a user before you enroll and/or verify an MFA Factor during authentication.
 
 #### Request parameters for primary authentication
 
@@ -83,12 +83,12 @@ The authentication transaction [state machine](#transaction-state) can be modifi
 
 | Property                   | Description                                                                                                                                                | DataType | Nullable | Unique | Readonly |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ------ | -------- |
-| multiOptionalFactorEnroll  | Transitions transaction back to `MFA_ENROLL` state after successful Factor enrollment when additional optional factors are available for enrollment        | Boolean  | TRUE     | FALSE  | FALSE    |
+| multiOptionalFactorEnroll  | Transitions transaction back to `MFA_ENROLL` state after successful Factor enrollment when other optional factors are available for enrollment        | Boolean  | TRUE     | FALSE  | FALSE    |
 | warnBeforePasswordExpired  | Transitions transaction to `PASSWORD_WARN` state before `SUCCESS` if the user's password is about to expire and within their password policy warn period   | Boolean  | TRUE     | FALSE  | FALSE    |
 
 ##### Context object
 
-The context object allows [trusted web applications](#trusted-application) such as an external portal to pass additional context for the authentication or recovery transaction.
+The context object allows [trusted web applications](#trusted-application) such as an external portal to pass other context for the authentication or recovery transaction.
 
 | Property    | Description                                                                   | DataType | Nullable | Unique | Readonly | MaxLength |
 | ----------- | ----------------------------------------------------------------------------- | -------- | -------- | ------ | -------- | --------- |
@@ -98,7 +98,7 @@ The context object allows [trusted web applications](#trusted-application) such 
 
 > **Note:**
 >
-> * Overriding context, such as `deviceToken`, is a highly privileged operation limited to trusted web applications. This requires the application to use a valid administrator API token when making authentication or recovery requests. If an API token isn't provided, the `deviceToken` is ignored.
+> * Overriding context, such as `deviceToken`, is a highly privileged operation limited to trusted web applications. This requires the app to use a valid administrator API token when making authentication or recovery requests. If an API token isn't provided, the `deviceToken` is ignored.
 >
 > * Authentication requests that include a Factor challenge with a per-device or per-session sign-on policy must always include the same `deviceToken` for the user. If the `deviceToken` is absent or doesn’t match the previous `deviceToken`, Okta issues a challenge with every authentication attempt.
 >
@@ -118,7 +118,7 @@ Ask the device operating system for a unique device ID. See [Apple's information
 
 [Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction
 
-A `401 Unauthorized` status code is returned for requests with invalid credentials, locked out accounts, or when access is denied by a sign-on policy.
+A `401 Unauthorized` status code is returned for requests with invalid credentials, locked out accounts, or when access is denied because of a sign-on policy.
 
 ```http
 HTTP/1.1 401 Unauthorized
@@ -153,7 +153,7 @@ X-Rate-Limit-Reset: 1447534590
 
 #### Primary authentication with public applications
 
-Authenticates a user with username/password credentials through a [public application](#public-application)
+Authenticates a user with username/password credentials through a [public app](#public-application)
 
 ##### Request example for primary authentication with public applications
 
@@ -175,7 +175,7 @@ curl -v -X POST \
 ##### Response example for primary authentication with a public application (success)
 
 
-Users with a valid password not assigned to a **sign-on policy** with additional verification requirements will successfully complete the authentication transaction.
+Users with a valid password not assigned to a **sign-on policy** with additional verification requirements can successfully complete the authentication transaction.
 
 ```json
 {
@@ -218,7 +218,7 @@ Content-Type: application/json
 
 ##### Response example for primary authentication with a public application (locked out)
 
-Primary authentication requests for a user with a `LOCKED_OUT` status is conditional on the user's password policy. Password policies define whether to display lockout failures that disclose a valid user identifier to the caller.
+Primary authentication requests for a user with a `LOCKED_OUT` status are conditional on the user's password policy. Password policies define whether to display lockout failures that disclose a valid user identifier to the caller.
 
 ##### Response example for primary authentication with public application and hide lockout failures (Default)
 
@@ -898,7 +898,7 @@ Include the `X-Device-Fingerprint` header to supply a device fingerprint. The `X
 
 > **Note:** The use of the `X-Device-Fingerprint` header for new device security Behavior Detection is deprecated. Starting April 12 2021, Okta enabled [improvements to the new device security behavior](https://help.okta.com/okta_help.htm?id=csh-improved-ndbd) for all the existing tenants. New device security behavior only relies on the `deviceToken` in the [Context Object](#context-object) and doesn't rely on the `X-Device-Fingerprint` header. The new or unknown device email notification feature continues to rely on the `X-Device-Fingerprint` header.
 
-Specifying your own device fingerprint in the `X-Device-Fingerprint` header is a highly privileged operation that is limited to trusted web applications and requires making authentication requests with a valid API token. You should send the device fingerprint only if the trusted app has a computed fingerprint for the end user's client.
+Specifying your own device fingerprint in the `X-Device-Fingerprint` header is a highly privileged operation that is limited to trusted web applications and requires making authentication requests with a valid API token. Send the device fingerprint only if the trusted app has a computed fingerprint for the end user's client.
 
 > **Note:** The `X-Device-Fingerprint` header is different from the device token. Device-based MFA in the Okta sign-on policy rules depends on the device token only and not on the `X-Device-Fingerprint` header. See [Context Object](#context-object) for more information on the device token. Device-based MFA would work only if you pass the device token in the [client request context](https://developer.okta.com/docs/api/#client-request-context).
 
@@ -959,7 +959,7 @@ Authenticates a user with a password that is about to expire. The user should [c
 
 **Notes:**
 
-* The `warnBeforePasswordExpired` option must be explicitly specified as `true` to allow the authentication transaction to transition to `PASSWORD_WARN` status.
+* Ensure that you set `warnBeforePasswordExpired` as `true` to allow the authentication transaction to transition to `PASSWORD_WARN` status.
 * Non-expired passwords successfully complete the authentication transaction if this option is omitted or is specified as `false`.
 
 ##### Request example for password expiration warning
@@ -1054,11 +1054,11 @@ curl -v -X POST \
 **Notes:**
 
 * This endpoint only supports SAML-based apps.
-* You must first enable the custom sign-in page for the application before using this API.
+* Enable the custom sign-in page for the app before using this API.
 
-> **Note:** Enabling the custom sign-in page for an application is only available with Classic Engine. See [Identity Engine limitations](/docs/guides/ie-limitations/).
+> **Note:** Enabling the custom sign-in page for an app is only available with Classic Engine. See [Identity Engine limitations](/docs/guides/ie-limitations/).
 
-Every step-up transaction starts with the user accessing an application. If step-up authentication is required, Okta redirects the user to the custom sign-in page with a state token as a request parameter.
+Every step-up transaction starts with the user accessing an app. If step-up authentication is required, Okta redirects the user to the custom sign-in page with a state token as a request parameter.
 
 For example, if the custom sign-in page is set as `https://login.example.com`, then Okta will redirect to `https://login.example.com?stateToken=<token>`. To determine the next step, check the [state of the transaction](#get-transaction-state).
 
@@ -1127,7 +1127,7 @@ curl -v -X POST \
 
 ##### Request example for step-up authentication without Okta session (perform primary authentication)
 
-Primary authentication must be completed by using the value of the **stateToken** request parameter passed to the custom sign-in page.
+Complete the primary authentication by using the value of the **stateToken** request parameter passed to the custom sign-in page.
 
 > **Note:** Global session policy and the related authentication policy are evaluated after successful primary authentication.
 
@@ -1217,8 +1217,7 @@ curl -v -X POST \
 
 ##### Response example for Factor enroll for step-up authentication with Okta session
 
-
-The user is assigned to an MFA Policy that requires enrollment during the sign-in process and must [select a Factor to enroll](#enroll-factor) to complete the authentication transaction.
+The user is assigned to an MFA Policy that requires enrollment during the sign-in process. They must [select a Factor to enroll](#enroll-factor) to complete the authentication transaction.
 
 > **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
 
@@ -1478,7 +1477,7 @@ User is assigned to a global session policy or an authentication policy that req
 
 <ApiLifecycle access="ea" />
 
-Authenticates a user for signing in to the specified application. 
+Authenticates a user for signing in to the specified app.
 
 Only WS-Federation, SAML-based apps are supported.
 
@@ -1563,7 +1562,7 @@ curl -v -X POST \
 
 ##### Response example for Factor enroll
 
-The user is assigned to an MFA Policy that requires enrollment during the sign-in process and must [select a Factor to enroll](#enroll-factor) to complete the authentication transaction.
+The user is assigned to an MFA Policy that requires enrollment during the sign-in process. They must [select a Factor to enroll](#enroll-factor) to complete the authentication transaction.
 
 > **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
 
@@ -1785,7 +1784,7 @@ Content-Type: application/json
 
 Changes a user's password by providing the existing password and the new password for authentication transactions with either the `PASSWORD_EXPIRED` or `PASSWORD_WARN` state
 
-This operation provides an option to revoke all the sessions of the specified user, except for the current session, if the endpoint is called by the user.
+This operation provides an option to revoke all the sessions of the specified user except for the current session, if the endpoint is called by the user.
 
 * The user *must* change their expired password for an authentication transaction with `PASSWORD_EXPIRED` status to successfully complete the transaction.
 * The user *may* opt out of changing their password (skip) when the transaction has a `PASSWORD_WARN` status.
@@ -2867,7 +2866,7 @@ curl -v -X POST \
 
 #### Full page example for Duo enrollment
 
-In this example every element is combined in the html page.
+In this example every element is combined in the HTML page.
 
 ```html
 <html>
@@ -3152,7 +3151,7 @@ curl -v -X POST \
 
 #### Enroll Custom HOTP Factor
 
-Enrollment through the Authentication API is not supported for Custom HOTP Factors. Refer to the [Factors API documentation](/docs/reference/api/factors/#enroll-custom-hotp-factor) if you would like to enroll users for this type of Factor.
+Enrollment through the Authentication API isn’t supported for Custom HOTP Factors. Refer to the [Factors API documentation](/docs/reference/api/factors/#enroll-custom-hotp-factor) if you would like to enroll users for this type of Factor.
 
 ### Activate Factor
 
@@ -3809,7 +3808,7 @@ curl -v -X POST \
 ##### Send activation links
 
 Sends an activation email or SMS when the user is unable to scan the QR Code provided as part of an Okta Verify transaction.
-If for any reason the user can't scan the QR Code, they can use the link provided in email or SMS to complete the transaction.
+If the user can't scan the QR Code, they can use the link provided in email or SMS to complete the transaction.
 
 > **Note:** The user must click the link from the same device as the one where the Okta Verify app is installed.
 
@@ -4156,7 +4155,7 @@ Verifies an enrolled Factor for an authentication transaction with the `MFA_REQU
 * [Verify U2F Factor](#verify-u2f-factor)
 * [Verify WebAuthn Factor](#verify-webauthn-factor)
 
-> **Note:** If the sign-on (or app sign-on) [policy](#remember-device-policy-object) allows remembering the device, then the end user should be prompted to choose whether the current device should be remembered. This helps reduce the number of times the user is prompted for MFA on the current device. The user's choice should be passed to Okta using the request parameter `rememberDevice` to the verify endpoint. The default value of `rememberDevice` parameter is `false`.
+> **Note:** If the sign-on (or app sign-on) [policy](#remember-device-policy-object) allows remembering the device, then the end user can choose whether the current device is remembered. This helps reduce the number of times the user is prompted for MFA on the current device. The user's choice can be passed to Okta using the request parameter `rememberDevice` to the verify endpoint. The default value of `rememberDevice` parameter is `false`.
 
 #### Verify Security Question Factor
 
@@ -4687,7 +4686,7 @@ Sends an asynchronous push notification (challenge) to the device for the user t
 
 **Okta Verify Push details pertaining to auto-push**
 
-* You don't need to pass the `autoPush` flag to Okta unless you have a custom sign-in flow that doesn't use the Okta Sign-In Widget, but want Okta to keep track of this preference. The custom sign-in flow must still handle the logic to actually send the auto-push, since this param only deals with the auto-push setting.
+* You don't need to pass the `autoPush` flag to Okta unless you have a custom sign-in flow that doesn't use the Okta Sign-In Widget, but want Okta to track this preference. The custom sign-in flow must still handle the logic to actually send the auto-push, since this param only deals with the auto-push setting.
 * If you pass the `autoPush` query param when verifying an Okta Verify Push Factor, Okta saves this value as the user's preference to have the push notification sent automatically if the verification is successful (the user taps **Approve** on their phone).
 * If there’s already a saved auto-push preference, the successful verify call overrides the current preference if it’s different from the value of `autoPush`.
 * This saved auto-push preference is always returned in the `/api/v1/authn/` response's `autoPushEnabled` field if the user is enrolled for the Okta Verify Push Factor ([response example](#response-example-for-factor-challenge-for-step-up-authentication-with-okta-session)). If the user's auto-push preference hasn't explicitly been set before, `autoPushEnabled` has a value of false.
@@ -4785,7 +4784,7 @@ curl -v -X POST \
 
 ##### Response example (waiting for 3-number verification challenge response)
 
-> **Note:** If Okta detects an unusual sign-in attempt, the end user will receive a 3-number verification challenge and the correct answer of the challenge will be provided in the polling response. This is similar to the standard `waiting` response but with the addition of a `correctAnswer` property in the `challenge` object. The `correctAnswer` property will only be included in the response if the end user is on the 3-number verification challenge view in the Okta Verify mobile app. Look at [Push notification and number challenge](https://help.okta.com/okta_help.htm?id=csh-okta-verify-number-challenge-v1) for more details about this challenge flow.
+> **Note:** If Okta detects an unusual sign-in attempt, the end user receives a 3-number verification challenge. The correct answer of the challenge is provided in the polling response. This is similar to the standard `waiting` response but with the addition of a `correctAnswer` property in the `challenge` object. The `correctAnswer` property is only be included in the response if the end user is on the 3-number verification challenge view in the Okta Verify mobile app. Look at [Push notification and number challenge](https://help.okta.com/okta_help.htm?id=csh-okta-verify-number-challenge-v1) for more details about this challenge flow.
 
 ```json
 {
@@ -5232,12 +5231,11 @@ curl -v -X POST \
 <ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" /> <SupportsCors />
 
 > **Note:** The `appId` property in Okta U2F enroll/verify API response is the [origin](https://www.ietf.org/rfc/rfc6454.txt) of
-the web page that triggers the API request (assuming the origin has been configured to be trusted by Okta). According to the 
-[FIDO spec](https://fidoalliance.org/specs/fido-u2f-v1.2-ps-20170411/fido-appid-and-facets-v1.2-ps-20170411.html#h2_the-appid-and-facetid-assertions), enroll and verify U2F device with `appId`s in different DNS zone isn’t allowed. For example, if a user enrolled a U2F device through the Okta Sign-In Widget that is hosted at `https://login.company.com`, while the user can verify the U2F Factor from `https://login.company.com`, the user wouldn’t be able to verify it from the Okta portal `https://company.okta.com`, and the U2F device would return error code 4 - `DEVICE_INELIGIBLE`.
+the web page that triggers the API request (assuming the origin has been configured to be trusted by Okta). According to the [FIDO spec](https://fidoalliance.org/specs/fido-u2f-v1.2-ps-20170411/fido-appid-and-facets-v1.2-ps-20170411.html#h2_the-appid-and-facetid-assertions), enroll and verify U2F device with `appId`s in different DNS zone isn’t allowed. For example, if a user enrolled a U2F device through the Okta Sign-In Widget that is hosted at `https://login.company.com`, while the user can verify the U2F Factor from `https://login.company.com`, the user wouldn’t be able to verify it from the Okta portal `https://company.okta.com`, and the U2F device would return error code 4 - `DEVICE_INELIGIBLE`.
 
 ##### Start verification to get challenge nonce
 
-Verification of the U2F Factor starts with getting the challenge nonce and U2F token details and then using the client-side
+Verification of the U2F Factor starts with getting the challenge nonce and U2F token details. And then you use the client-side
 JavaScript API to get the signed assertion from the U2F token.
 
 ##### Request example for verify U2F Factor
@@ -5426,7 +5424,7 @@ This authenticator then generates an assertion that may be used to verify the us
 
 ##### Start verification to get challenge nonce
 
-Verification of the WebAuthn Factor starts with getting the WebAuthn credential request details (including the challenge nonce) then using the client-side JavaScript API to get the signed assertion from the WebAuthn authenticator.
+Verification of the WebAuthn Factor starts with getting the WebAuthn credential request details (including the challenge nonce). And then you use the client-side JavaScript API to get the signed assertion from the WebAuthn authenticator.
 
 For more information about these credential request options, see the [WebAuthn spec for PublicKeyCredentialRequestOptions](https://www.w3.org/TR/webauthn/#dictionary-makecredentialoptions).
 
@@ -5722,7 +5720,7 @@ Starts a new password recovery transaction for a given user and issues a [recove
 
 > **Note:** You can include the optional parameter `relayState` as part of the body in the Forgot Password request. `relayState` is a link to a site where the user is redirected when the password recovery operation completes. The 'relayState' link must point to a trusted origin. The `relayState` parameter is only supported in Classic Engine orgs.
 
-The response is different, depending on whether the request is for a public application or a trusted application.
+The response is different, depending on whether the request is for a public app or a trusted app.
 
 ##### Response parameters for public application for forgot password
 
@@ -5754,14 +5752,14 @@ Content-Type: application/json
 Starts a new password recovery transaction for the email Factor:
 
 * Specify a user identifier (`username`) but no password in the request.
-* If the request is successful, Okta sends a recovery email asynchronously to the user's primary and secondary email address with a [recovery token](#recovery-token) so the user can complete the transaction.
+* If the request is successful, Okta sends a recovery email asynchronously to the user's primary and secondary email address with a [recovery token](#recovery-token). The user can then complete the transaction.
 
 Primary authentication of a user's recovery credential (for example: `EMAIL` or `SMS`) hasn't completed when this request is sent. The user is pending validation.
 
 Okta provides security in the following ways:
 
 * Since the recovery email is distributed out-of-band and may be viewed on a different user agent or device, this operation doesn’t return a [state token](#state-token) and doesn’t have a `next` link.
-* Okta doesn't publish additional metadata about the user until primary authentication has successfully completed.
+* Okta doesn't publish other metadata about the user until primary authentication has been successfully completed.
 See the (response example)[#response-example-for-forgot-password-with-email-factor] for details.
 
 ##### Request example for forgot password with Email Factor
@@ -5794,7 +5792,7 @@ curl -v -X POST \
 
 Starts a new password recovery transaction with a user identifier (`username`) and asynchronously sends an SMS OTP (challenge) to the user's mobile phone. This operation transitions the recovery transaction to the `RECOVERY_CHALLENGE` state and wait for the user to [verify the OTP](#verify-sms-recovery-factor).
 
-> **Note:** Primary authentication of a user's recovery credential (for example: email or SMS) hasn't yet completed. Okta doesn't publish additional metadata about the user until primary authentication has successfully completed.
+> **Note:** Primary authentication of a user's recovery credential (for example: email or SMS) hasn't yet completed. Okta doesn't publish other metadata about the user until primary authentication has been successfully completed.
 
 > **Note:** SMS recovery Factor must be enabled through the user's assigned password policy to use this operation.
 
@@ -5860,7 +5858,7 @@ Starts a new password recovery transaction with a user identifier (`username`) a
 **Notes:**
 
 * Primary authentication of a user's recovery credential (for example: email or SMS or voice call) hasn't yet completed.
-* Okta doesn't publish additional metadata about the user until primary authentication has successfully completed.
+* Okta doesn't publish other metadata about the user until primary authentication has been successfully completed.
 * A voice call recovery Factor must be enabled through the user's assigned password policy to use this operation.
 
 ##### Request example for forgot password with Call Factor
@@ -5919,9 +5917,9 @@ curl -v -X POST \
 
 #### Forgot password with trusted application
 
-Allows a [trusted application](#trusted-application) such as an external portal to implement its own primary authentication process and directly obtain a [recovery token](#recovery-token) for a user given just the user's identifier
+Allows a [trusted app](#trusted-application) such as an external portal to implement its own primary authentication process. The trusted app can directly obtain a [recovery token](#recovery-token) for a user given just the user's identifier.
 
-> **Note:** Directly obtaining a `recoveryToken` is a highly privileged operation that requires an administrator API token and should be restricted to trusted web applications. Anyone that obtains a `recoveryToken` for a user and knows the answer to a user's recovery question can reset their password or unlock their account.
+> **Note:** Directly obtaining a `recoveryToken` is a highly privileged operation that requires an administrator API token. Okta recommends that you restrict that operation to trusted web applications. Anyone that obtains a `recoveryToken` for a user and knows the answer to a user's recovery question can reset their password or unlock their account.
 
 > **Note:** The **public IP address** of your [trusted app](#trusted-application) must be [allowed as a gateway IP address](https://developer.okta.com/docs/api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
@@ -6041,7 +6039,7 @@ Since the recovery email is distributed out-of-band and may be viewed on a diffe
 **Notes:**
 
 * Primary authentication of a user's recovery credential (e.g `EMAIL` or `SMS`) hasn't yet completed.
-* Okta doesn't publish additional metadata about the user until primary authentication has successfully completed.
+* Okta doesn't publish other metadata about the user until primary authentication has been successfully completed.
 
 ##### Request example for Email Factor
 
@@ -6077,7 +6075,7 @@ Starts a new unlock recovery transaction with a user identifier (`username`) and
 **Notes:**
 
 * Primary authentication of a user's recovery credential (e.g email or SMS) hasn't yet completed.
-* Okta doesn't publish additional metadata about the user until primary authentication has successfully completed.
+* Okta doesn't publish other metadata about the user until primary authentication has been successfully completed.
 * SMS recovery Factor must be enabled through the user's assigned password policy to use this operation.
 
 ##### Request example for unlock account with SMS Factor
@@ -6137,11 +6135,11 @@ curl -v -X POST \
 
 #### Unlock account with trusted application
 
-Allows a [trusted application](#trusted-application) such as an external portal to implement its own primary authentication process and directly obtain a [recovery token](#recovery-token) for a user given just the user's identifier
+Allows a [trusted app](#trusted-application) such as an external portal to implement its own primary authentication process. The trusted app can then directly obtain a [recovery token](#recovery-token) for a user given just the user's identifier
 
 **Notes:**
 
-* Directly obtaining a `recoveryToken` is a highly privileged operation that requires an administrator API token and should be restricted to [trusted web applications](#trusted-application). Anyone that obtains a `recoveryToken` for a user and knows the answer to a user's recovery question can reset their password or unlock their account.
+* Directly obtaining a `recoveryToken` is a highly privileged operation that requires an administrator API token. Okta recommends that you restrict that operation to [trusted web applications](#trusted-application). Anyone that obtains a `recoveryToken` for a user and knows the answer to a user's recovery question can reset their password or unlock their account.
 
 * The **public IP address** of your [trusted app](#trusted-application) must be [allowed as a gateway IP address](https://developer.okta.com/docs/api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
@@ -6564,7 +6562,7 @@ You can modify the authentication transaction [state machine](#transaction-state
 
 | Property                   | Description                                                                                                                                                | DataType | Nullable | Unique | Readonly |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ------ | -------- |
-| multiOptionalFactorEnroll  | Transitions transaction back to `MFA_ENROLL` state after successful Factor enrollment when additional optional factors are available for enrollment        | Boolean  | TRUE     | FALSE  | FALSE    |
+| multiOptionalFactorEnroll  | Transitions transaction back to `MFA_ENROLL` state after successful Factor enrollment when other optional factors are available for enrollment        | Boolean  | TRUE     | FALSE  | FALSE    |
 
 
 ##### Response parameters for verify recovery token
@@ -6946,7 +6944,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/authn/previous" />
 
-Moves the current [transaction state](#transaction-state) back to the previous state. For example, if the user couldn't complete the enrollment process with their factor, you could revert back to the `MFA_ENROLL` state.
+Moves the current [transaction state](#transaction-state) back to the previous state. For example, if the user couldn't complete the enrollment process with their factor, you could revert to the `MFA_ENROLL` state.
 
 ##### Request parameters for previous transaction state
 
@@ -7284,7 +7282,7 @@ Authentication API operations return different token types depending on the [sta
 An ephemeral token that encodes the current state of an authentication or recovery transaction.
 
 * The `stateToken` must be passed with every request except when verifying a `recoveryToken` that was distributed out-of-band
-* The `stateToken` is only intended for use between the web application performing the authentication and the Okta API. Never distribute this token to users through email or other out-of-band mechanisms.
+* The `stateToken` is only intended for use between the web app performing the authentication and the Okta API. Never distribute this token to users through email or other out-of-band mechanisms.
 * The lifetime of the `stateToken` uses a sliding scale expiration algorithm that extends with every request. Always inspect the `expiresAt` property for the transaction when making decisions based on lifetime.
 
 > **Note:** All Authentication API operations return `401 Unauthorized` status codes when you attempt to use an expired state token.
