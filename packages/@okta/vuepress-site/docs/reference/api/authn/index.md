@@ -4785,7 +4785,7 @@ curl -v -X POST \
 
 ##### Response example (waiting for 3-number verification challenge response)
 
-> **Note:** If Okta detects an unusual sign-in attempt, the end user will receive a 3-number verification challenge and the correct answer of the challenge will be provided in the polling response. This is similar to the standard `waiting` response but with the addition of a `correctAnswer` property in the `challenge` object. The `correctAnswer` property will only be included in the response if the end user is on the 3-number verification challenge view in the Okta Verify mobile app. Look at [Sign in to your org with Okta Verify](https://help.okta.com/okta_help.htm?id=csh-ov-signin) for more details about this challenge flow.
+> **Note:** If Okta detects an unusual sign-in attempt, the end user will receive a 3-number verification challenge and the correct answer of the challenge will be provided in the polling response. This is similar to the standard `waiting` response but with the addition of a `correctAnswer` property in the `challenge` object. The `correctAnswer` property will only be included in the response if the end user is on the 3-number verification challenge view in the Okta Verify mobile app. Look at [Push notification and number challenge](https://help.okta.com/okta_help.htm?id=csh-okta-verify-number-challenge-v1) for more details about this challenge flow.
 
 ```json
 {
