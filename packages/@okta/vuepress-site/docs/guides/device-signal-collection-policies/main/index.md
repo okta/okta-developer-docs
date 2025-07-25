@@ -24,7 +24,9 @@ This guide describes how to use the [Policies API](https://developer.okta.com/do
 
 Use device signal collection policies to collect contextual information about your user's [registered devices](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-registration) and control how those registered devices are used during authentication. The device signal collection policies can collect [information](https://help.okta.com/okta_help.htm?type=oie&id=ext-ov-datatypes) about registered devices and the platforms that devices use. Device signal collection policies are part of your [authentication policies](/docs/concepts/policies/#authentication-policies) and they're closely related to your [device assurance policies](/docs/guides/device-assurance-policies).
 
-You can use a device signal collection policy in the following use case, as an example. One of your users has a registered device with Okta Verify and another authenticator. And you have an authentication policy that requires users to have registered devices when they sign in. You can use the device signal collection policy to check for devices that are registered with Okta Verify when users sign in. And you can configure the device signal collection policy to let users sign in with their other authenticator instead of automatically using Okta Verify.
+You can use a device signal collection policy in the following use case, as an example.
+
+One of your users has a registered device with Okta Verify and another authenticator. And you have an authentication policy that requires users to have registered devices when they sign in. You can use the device signal collection policy to check for devices that are registered with Okta Verify when users sign in. And you can configure the device signal collection policy to let users sign in with their other authenticator instead of Okta Verify being used to automatically sign them in.
 
 ### About platforms
 
@@ -40,29 +42,29 @@ See [Platform](https://developer.okta.com/docs/api/openapi/okta-management/manag
 
 ### About registered devices
 
-You can use any of the following types of registered devices in your device signal colleciton policies:
+You can use any of the following types of registered devices in your device signal collection policies:
 
 * [Okta Verify](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-ov)
 * [Chrome Device Trust connector](https://help.okta.com/okta_help.htm?type=oie&id=ext-devices-enable-chrome)
-* [Device posture IdP]()
+* [Device posture IdP](https://help.okta.com/okta_help.htm?type=oie&id=device-assurance-dev-posture-idp)
 
 ### How to configure device signal collection policies
 
 To configure a device signal collection policy in your org, follow these steps:
 
-1. [Create an authentication policy that checks for registered devices](#configure-an-authentication-policy-for-registered-devices)
-1. [Create a disabled device signal collection policy](#create-a-disabled-device-signal-collection-policy)
-1. [Map the device signal collection policy to the authentication policy](#map-the-device-signal-collection-policy-to-the-authentication-policy)
-1. [Create a rule for the device signal collection policy](#create-a-device-signal-collection-policy-rule)
-1. [Review and then activate the device signal collection policy](#activate-the-device-signal-collection-policy)
+> **Note:** To configure a device signal collection policy in the Admin Console, see [Create device signal collection rules](https://help.okta.com/okta_help.htm?type=oie&id=create-device-signal-collection-ruleset).
+
+1. [Create an authentication policy that checks for registered devices](#configure-an-authentication-policy-for-registered-devices).
+1. [Create a disabled device signal collection policy](#create-a-disabled-device-signal-collection-policy).
+1. [Map the device signal collection policy to the authentication policy](#map-the-device-signal-collection-policy-to-the-authentication-policy).
+1. [Create a rule for the device signal collection policy](#create-a-device-signal-collection-policy-rule).
+1. [Review and then activate the device signal collection policy](#activate-the-device-signal-collection-policy).
 
 ## Configure an authentication policy for registered devices
 
-If you already have an authentication policy that requires users to have registered devices, go to the [next section](#create-a-disabled-device-signal-collection-policy).
-
 Use the [Create a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) endpoint to create an authentication policy.
 
-Create your own POST request body or copy the [example request](#create-authentication-policy-request-example) and input your values.
+Create your own POST request body or copy the [example request](#create-an-authentication-policy-request-example) and input your values.
 
 1. Ensure that the following request body parameters are set correctly:
    * Enter a value for `name`.
@@ -71,7 +73,7 @@ Create your own POST request body or copy the [example request](#create-authenti
 1. Send the `POST /api/v1/policies` request.
 1. In the response, copy and paste the `id` of the policy into a text editor.
 
-### Create authentication policy request example
+### Create an authentication policy request example
 
 ```json
 {
@@ -93,11 +95,14 @@ Create your own POST request body or copy the [example request](#create-authenti
 
 Use the [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) endpoint to create a rule for the authentication policy that requires devices to be registered.
 
+Before you create the rule for registered devices, use the [List all groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups) endpoint to retrieve the group `id` of your test group.
+
 Create your own POST request body or copy the [example request](#authentication-policy-rule-for-registered-devices-request-example) and input your values.
 
 1. Ensure that the following request body parameters are set correctly:
    * Enter a value for `name`.
    * Set the type as `ACCESS_POLICY`.
+   * Set `groupId` as the `id` of your test group.
    * Set `device.registered` as `true`.
    * Include the `device.managed` property, and set it as `false`. In this example, the authentication policy rule doesn't apply to managed devices.
    * Set the status of the policy as `ACTIVE`.
@@ -147,7 +152,7 @@ Create your own POST request body or copy the [example request](#authentication-
 
 After you've created the authentication policy for registered devices, use the [Create a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) endpoint to create a disabled device signal collection policy. By setting the policy as disabled, you can review its rules and ensure that the policy is configured correctly before activating it.
 
-Create your own POST request body or copy the [example request](#create-device-signal-collection-policy-request-example) and input your values.
+Create your own POST request body or copy the [example request](#create-a-device-signal-collection-policy-request-example) and input your values.
 
 1. Set the following request body parameters:
    * Enter a value for `name`.
@@ -156,7 +161,7 @@ Create your own POST request body or copy the [example request](#create-device-s
 1. Send the `POST /api/v1/policies` request.
 1. In the response, copy and paste the `id` of the policy into a text editor.
 
-### Create device signal collection policy request example
+### Create a device signal collection policy request example
 
 ```json
 {
@@ -166,7 +171,7 @@ Create your own POST request body or copy the [example request](#create-device-s
 }
 ```
 
-### Create device signal collection policy response example
+### Create a device signal collection policy response example
 
 ```json
 {
@@ -222,9 +227,9 @@ Create your own POST request body or copy the [example request](#create-device-s
 
 ## Map the device signal collection policy to the authentication policy
 
-Device signal collection policies must be associated with authentication policies. You can do this by mapping the device signal collection policy `id` to the authentication policy `id`.
+You must associate device signal collection policies with authentication policies. You can do this by mapping the device signal collection policy `id` to the authentication policy `id`.
 
-Use the [Map a resource to a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/mapResourceToPolicy) endpoint to map your device signal collection policy to the your authentication policy.
+Use the [Map a resource to a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/mapResourceToPolicy) endpoint to map your device signal collection policy to your authentication policy.
 
 Create your own POST request body or copy the [example request](#map-the-devie-signal-collection-policy-request-example) and input your values.
 
@@ -249,7 +254,7 @@ In this example, create a rule that checks for Okta Verify registered devices wh
 
 Use the [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) endpoint to create a device signal collection policy rule.
 
-Create your own POST request body or copy the [example request](#create-device-signal-collection-policy-rule-request-example) and input your values.
+Create your own POST request body or copy the [example request](#create-a-device-signal-collection-policy-rule-request-example) and input your values.
 
 1. In the path parameters set the device signal collection policy `id` as the `policyId`.
 1. Set the following request body parameters:
@@ -260,7 +265,7 @@ Create your own POST request body or copy the [example request](#create-device-s
    * Include `IOS` and `ANDROID` as platform conditions.
 1. Send the `POST /api/v1/policies/{policyId}/rules` request.
 
-### Create device signal collection policy rule request example
+### Create a device signal collection policy rule request example
 
 ```json
 {
@@ -302,3 +307,7 @@ Create your own POST request body or copy the [example request](#create-device-s
 Review the device signal collection policy and the rule that you created. Ensure that it's configured with the correct settings.
 
 After you've reviewed the policy and rule, use the [Activate a policy endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/activatePolicy) to activate the policy.
+
+## Review the System Log
+
+Review your System Log events to see if your device signal collection policy is triggered correctly. The device signal collection policy is included as a target of the `policy.evaluate_sign_on` event type. See [System Log query](/docs/reference/system-log-query/) and [Event Types](/docs/reference/api/event-types/).
