@@ -427,6 +427,8 @@ You can send yourself a test email to see how a custom email template looks and 
 1. Click the email icon to the right of the email template that you’ve customized. A list shows the sender and receiver of the email.
 2. Click **Send test email**.
 
+> **Note:** Super admins can view customized email templates when they're signed in as an admin and send a test email. However, when custom email templates are sent to super admins as part of actual email notification flows, the customizations are not applied. Instead, the default email template is used. This only applies to super admins.
+
 ## Known Issues
 
 - Users with free.fr email addresses may not receive emails delivered by Okta. This is due to free.fr enforcing non-standard email processing. The Okta Org API allows you to [retry blocked](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/#tag/EmailCustomization/operation/bulkRemoveEmailAddressBounces) emails, but the free.fr inbox provider continues to block retries. There’s no known workaround beyond asking the user to retrigger the email with a different email address.
