@@ -99,6 +99,7 @@ You can specify certain [Expression Language conditions](https://developer.okta.
 | `accessRequest.$operation`| `accessRequest` references the access context of the request. `operation` references the account management operation: `enroll`, `unenroll`, `recover`, or `unlockAccount`. | String |
 | `accessRequest.authenticator.$id` | `accessRequest` references the access context of the request. `authenticator.id` references an optional authenticator `id`, for example, the `id` of a custom authenticator. | String |
 | `accessRequest.authenticator.$key` | `accessRequest` references the access context of the request. `authenticator.key` references the [authenticator key](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod/0/constraints/knowledge/authenticationMethods/key&t=request). | String |
+| `accessRequest.metadata.type`| `accessRequest` references the access context of the request. `metadata.type` references specific information about the access request. Currently, `metadata` can only be used when referencing a `recover` operation and the only supported `metadata.type` is `expiry`. `expiry` references a recovery request where a password has expired or is expiring soon.  | String |
 
 ## Functions
 
@@ -195,6 +196,8 @@ These functions convert between ISO 3166-1 2-character country codes (Alpha 2), 
 See the [ISO 3166-1 online lookup tool](https://www.iso.org/obp/ui/#search/code/).
 
 ### Group functions
+
+> **Note:** The `user.getGroups` functionality was previously only available for a limited set of features, but has been expanded for all features that allow Expression Language.
 
 > **Note:** For the following expression examples, assume that the user is a member of the following groups:
 

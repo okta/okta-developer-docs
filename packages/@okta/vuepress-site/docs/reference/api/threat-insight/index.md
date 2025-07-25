@@ -14,7 +14,7 @@ Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/works
 
 The Okta ThreatInsight Configuration API provides operations to manage your ThreatInsight configuration.
 
-> **Note:** To prevent abuse, Okta ThreatInsight works in a limited capacity for free trial edition orgs. Please contact Okta support if fully functional Okta ThreatInsight is required.
+> **Note:** To prevent abuse, Okta ThreatInsight works in a limited capacity for Integrator free plan orgs. Please contact Okta support if fully functional Okta ThreatInsight is required.
 
 ## ThreatInsight configuration object
 

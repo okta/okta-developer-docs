@@ -6,6 +6,8 @@ layout: Guides
 
 This guide provides an example of an Okta telephony inline hook. This guide uses [Glitch](https://glitch.com/) as an external service and Twilio as a telephony provider that receives and responds to SMS and voice inline hook calls. While this guide uses Twilio, the process explained in this guide should be similar for any other telephony provider.
 
+<GlitchDeprecationNote />
+
 ---
 
 #### Learning outcomes

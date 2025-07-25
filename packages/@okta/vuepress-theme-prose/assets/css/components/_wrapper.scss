@@ -6,3 +6,10 @@
   min-width: 280px;
   max-width: 1352px;
 }
+
+@media (max-width: 425px) {
+  .wrapper {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+}

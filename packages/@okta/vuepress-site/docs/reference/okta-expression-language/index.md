@@ -31,7 +31,7 @@ When you create an Okta expression, you can reference any attribute that lives o
 
 Every user has an Okta user profile. The user profile is the central source of truth for the core attributes of a user. To reference a user profile attribute, specify `user.` and the attribute variable name. For a list of core user profile attributes, see the [`profile` parameter properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser!c=200&path=profile&t=response).
 
-| Syntax            | Definitions                                                                   | examples                                                       |
+| Syntax            | Definitions                                                                   | Examples                                                       |
 | --------          | ----------                                                                    | ------------                                                   |
 | `user.$attribute` | `user` reference to the Okta user<br>`$attribute` the attribute variable name | user.firstName<br>user.lastName<br>user.login<br>user.email |
 
@@ -45,7 +45,7 @@ To reference a profile attribute of an app user, specify the app variable and th
 
 > **Note:** The app reference is usually the `name` of the app, as distinct from the `label` (display name). See [Application properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications). If your org configures multiple instances of the same app, a randomly assigned suffix differentiates the names of the subsequent instances, for example: `zendesk_9ao1g13`. The name of any specific app instance in the Profile Editor appears in lighter text beneath the label of the app.
 
-| Syntax                | Definitions                                                                                | examples                                                              |
+| Syntax                | Definitions                                                                                | Examples                                                              |
 | --------              | ----------                                                                                 | ------------                                                          |
 | `$app.$attribute`     | `$app` explicit reference to specific app instance<br>`$attribute` the attribute variable name for the app instance's user profile               | zendesk.firstName<br>active_directory.managerUpn<br>google_apps.email |
 | `appuser.$attribute`  | `appuser` implicit reference to in-context app<br>`$attribute` the attribute variable name | appuser.firstName                                                     |
@@ -70,7 +70,7 @@ In addition to referencing user attributes, you can also reference app propertie
 
 ### Application properties
 
-| Syntax            | Definitions                                                                                     | examples                                               |
+| Syntax            | Definitions                                                                                     | Examples                                               |
 | ------            | ----------                                                                                      | ------------                                           |
 | `$app.$attribute` | `$app` explicit reference to specific app instance<br>`$attribute` the attribute variable name  | office365_app.domain<br>zendesk_app.companySubDomain |
 | `app.$attribute`  | `app` implicit reference to in-context app instance<br>`$attribute` the attribute variable name | app.domain<br>app.companySubDomain                     |
@@ -91,7 +91,7 @@ In addition to referencing user, app, and organization properties, you can also 
 
 | Syntax            | Definitions                                                 | Evaluation example                                     |
 | ----------------- | ----------------------------------------------------------- | ------------------------------------------------------ |
-| `session.amr`     | `session` reference to a user's session<br> `amr` the attribute name that is resolvable to an array of [Authentication Method References](https://tools.ietf.org/html/rfc8176) | `["pwd"]`&mdash;password used by the user for authentication<br>`["mfa", "pwd", "kba"]`&mdash;password and MFA Security Question used by the user for authentication<br>`["mfa", "mca", "pwd", "sms"]`&mdash;password and MFA SMS used by the user for authentication |
+| `session.amr`     | `session` reference to a user's session<br> `amr` the attribute name that's resolvable to an array of [Authentication Method References](https://tools.ietf.org/html/rfc8176) | `["pwd"]`&mdash;password used by the user for authentication<br>`["mfa", "pwd", "kba"]`&mdash;password and MFA Security Question used by the user for authentication<br>`["mfa", "mca", "pwd", "sms"]`&mdash;password and MFA SMS used by the user for authentication |
 
 ## Functions
 
@@ -99,7 +99,7 @@ Okta offers various functions to manipulate attributes or properties to generate
 
 ### String functions
 
-| Function                 | Input parameter signature                                     | Return type | example                                                                                                       | Output         |
+| Function                 | Input parameter signature                                     | Return type | Example                                                                                                       | Output         |
 | --------                 | -------------------------                                     | ----------- | -------                                                                                                       | ------         |
 | `String.append`          | (String str, String suffix)                                   | String      | `String.append("This is", " a test")`                                                                         | This is a test |
 | `String.join`            | (String separator, String... strings)                         | String      | `String.join(",", "This", "is", "a", "test")`                                                                 | This,is,a,test |
@@ -187,27 +187,69 @@ Group functions return either an array of groups or **True** or **False**.
 | Function                        | Return type | Example                                                         |
 | ---------                       | ----------- | -------                                                         |
 | `getFilteredGroups`             | Array       | `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40)` |
-| `Groups.contains`               | Array       | `Groups.contains(app_type/app_instance_id, pattern, limit)`            |
-| `Groups.startsWith`             | Array       | `Groups.startsWith(app_type/app_instance_id, pattern, limit)`          |
-| `Groups.endsWith`               | Array       | `Groups.endsWith(app_type/app_instance_id, pattern, limit)`            |
 | `isMemberOfGroupName`           | Boolean     | `isMemberOfGroupName("group1")`                                 |
 | `isMemberOfGroup`               | Boolean     | `isMemberOfGroup("groupId")`                                    |
 | `isMemberOfAnyGroup`            | Boolean     | `isMemberOfAnyGroup("groupId1", "groupId2", "groupId3")`        |
 | `isMemberOfGroupNameStartsWith` | Boolean     | `isMemberOfGroupNameStartsWith("San Fr")`                       |
 | `isMemberOfGroupNameContains`   | Boolean     | `isMemberOfGroupNameContains("admin")`                          |
 | `isMemberOfGroupNameRegex`      | Boolean     | `isMemberOfGroupNameRegex("/.*admin.*")`                        |
-
-> **Note:** The `Groups.contains`, `Groups.startsWith`, and `Groups.endsWith` group functions are designed to work only with group claims. You can't use these functions with property mappings.
+| `user.getGroups`                | Array       | See [Get groups for users](#get-groups-for-users)               |
 
 > **Note:** When EL group functions (such as `isMemberOfGroup` or `isMemberOfGroupName`) are used for app assignments, the profile attributes of the app user aren't updated or reapplied when the user's group membership changes. Okta only updates app user profile attributes when an app is assigned to a user or when mappings are applied.
 
 For more information on using group functions for dynamic and static allowlists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
 
-> **Important:** When you use `Groups.startsWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the group's email (for example, when using a Google Workspace). If you're targeting groups that may have duplicate group names (such as Google groups), use the `getFilteredGroups` group function instead.
+#### Get groups for users
+
+Use the `user.getGroups` function to get information about a user's groups, such as group rules and group claims. While other group functions use **Group attribute statements**, this function uses the **Profile attribute statements** because the function is based on the user.
+
+> **Note:** This function was previously only available for a limited set of features on Okta Identity Engine, but has been expanded to all features that allow Expression Language.
+
+These group functions take in a list of search criteria as input. Each search criterion is a key-value pair:<br>
+**Key:** Specifies the matching property. Currently supported keys are: `group.id`, `group.source.id`, `group.type`, and `group.profile.name`.<br>
+**Value:** Specifies a list of matching values.
+
+* The `group.id`, `group.source.id`, and `group.type` keys can match values that are exact.
+* The `group.profile.name` key supports the operators `EXACT` and `STARTS_WITH` to identify exact matches or matches that include the value. If no operator is specified, the expression uses `STARTS_WITH`. You can't use these operators with `group.id`, `group.source.id`, or `group.type`.
+* The `group.source.id` key supports when you need to disambiguate between groups that have the same group name. For example, if you're searching for app groups that start with "Admin" from a given app instance then you can use `group.source.id` to filter multiple groups across the different app group sources.
+
+The `user.getGroups` function also supports the `.![name]` collection projection for group claims. [Collection projections](https://docs.spring.io/spring-framework/reference/core/expressions/language-ref/collection-projection.html) enable you to use a subexpression (`.![$attr]`) that transforms a collection (like an array) into a new collection. It applies the expression to each element in the array and returns a new collection without modifying the original collection.
+
+> **Note:** For the following expression examples, assume that the user is a member of the following groups:
+
+| Group ID                 | Group name               | Group type            | Group source ID |
+| --------                 | -----------              | -----------           | ----------- |
+| 00gak46y5hydV6NdM0g4     | Everyone                 | BUILT_IN              | 0oazmqPIbHiVJBG4C0g3 |
+| 00g1emaKYZTWRYYRRTSK     | West Coast Users         | OKTA_GROUP            | 0a81509410bdf807f680 |
+| 00garwpuyxHaWOkdV0g4     | West Coast Admins        | OKTA_GROUP            | 0a03d062d3918fd34742 |
+| 00gjitX9HqABSoqTB0g3     | Engineering Users        | APP_GROUP             | 0aae4be2456eb62f7c3d |
+| 00gnftmgQxC2L19j6I9c     | Engineering Users        | APP_GROUP             | 0a61c8dacb58b3c0716e |
+
+| Function                 | Return type | Example                                                                                                         | Output explanation                                                                        | Example Output |
+| ---------------          | ----------- | -------                                                                                                         | -----                                                                           | ---- |
+| `user.getGroups`         | Array       | `user.getGroups({'group.id': {'00gjitX9HqABSoqTB0g3'}}, {'group.profile.name': 'West Coast.*'})`                | A list of groups with group ID `00gjitX9HqABSoqTB0g3` and a group name that starts with `West Coast`                                                                | {} |
+|                          |             | `user.getGroups({'group.type': {'OKTA_GROUP'}}, {'group.profile.name': {'Everyone', 'West Coast Admins'}})`     | A list of groups that are of the type `OKTA_GROUP` and the group name starts with `Everyone` or `West Coast Admins` | A list of user groups that contains groups with ID `00garwpuyxHaWOkdV0g4`  |
+|                          |             | `user.getGroups({'group.profile.name': 'East Coast.*'})`                                                        | A list of groups that start with the name `East Coast` | {}                                                                              |
+|                          |             | `user.getGroups({'group.type': {'OKTA_GROUP', 'APP_GROUP'}})`                                                   | A list of groups that are of the type `OKTA_GROUP` or `APP_GROUP` | A list of user groups that contains groups with IDs `00g1emaKYZTWRYYRRTSK`, `00garwpuyxHaWOkdV0g4`, `00gjitX9HqABSoqTB0g3`, and `00gnftmgQxC2L19j6I9c`  |
+|                          |             | `user.getGroups({'group.source.id': '0aae4be2456eb62f7c3d'} , {'group.profile.name': {'Engineering Users'}} )` | A filtered list of user groups that contains groups that start with the name `Engineering Users` and that has the source ID `0aae4be2456eb62f7c3d` | A list of user groups that contains groups with ID `00gjitX9HqABSoqTB0g3` |
+| `user.getGroups` with `.![name]` collection projection | Array |`user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![name]` | A list of group names | A list of groups that have a group profile name that starts with `Everyone` |
+
+#### Group-claims only functions
+
+The following functions are designed to work only with group claims. You can't use these functions with property mappings.
+
+| Function                        | Return type | Example                                                         |
+| ---------                       | ----------- | -------                                                         |
+| `Groups.contains`               | Array       | `Groups.contains(app_type/app_instance_id, pattern, limit)`            |
+| `Groups.startsWith`             | Array       | `Groups.startsWith(app_type/app_instance_id, pattern, limit)`          |
+| `Groups.endsWith`               | Array       | `Groups.endsWith(app_type/app_instance_id, pattern, limit)`            |
+
+> **Important:** When you use `Groups.startsWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the group's email (for example, when using a Google Workspace). If you're targeting groups that may have duplicate group names (such as Google groups), use the `getFilteredGroups` group function or the `user.getGroups` function with collection projections instead.
 >
->Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
+>Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )` (See the parameter examples section of [Use group functions for static group allowlists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allowlists).)
 >
->See the parameter examples section of [Use group functions for static group allowlists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allow-lists).
+>Example: `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![name]` (See [Get groups for users](#get-groups-for-users).)
+>
 
 ### Linked object function
 
@@ -255,11 +297,12 @@ These functions take the following parameters:
 * `assistantSource`: String representing the app name where the assistant relationship is defined. The only currently supported value is `"active_directory"`.
 * `attributeSource`: String representing the specific app instance to query for user attributes, for example `"google"`. This is often the same as `managerSource` or `assistantSource` when dealing with a single Active Directory instance.
 
-The following should be noted about these functions:
-
-* Calling either of the `getManagerUser()` or `getManagerAppUser()` functions doesn't trigger a user profile update after the manager is changed.
-* These functions aren't supported for user profiles sourced from multiple Active Directory instances.
-* These functions aren't supported for user profile attributes from multiple app instances.
+> **Note:**
+>
+> * Calling either of the `getManagerUser()` or `getManagerAppUser()` functions doesn't trigger a user profile update after the manager is changed.
+> * These functions aren't supported for user profiles sourced from multiple Active Directory instances.
+> * These functions aren't supported for user profile attributes from multiple app instances.
+>
 
 ### Directory and Workday functions
 
@@ -284,6 +327,7 @@ Use the previous functions together to check if a user has an Active Directory o
 | Concatenate two strings                                                                     | `user.firstName + user.lastName`            |
 | Concatenate two strings with space                                                          | `user.firstName + " " + user.lastName`      |
 | Ternary operator example:<br>If the group code is 123, assign the value of Sales, else assign Other | `user.groupCode == 123 ? 'Sales' : 'Other'` |
+| [Elvis operator](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html#expressions-operator-elvis) (`?:`): <br> Ternary operator that provides a default value if an expression evaluates to null or an empty string; if `Groups.startsWith("OKTA", "TEST", 100)` evaluates to null, returns `{}` (empty list) | `Groups.startsWith("OKTA", "TEST", 100) ?: {}` |
 
 ## Conditional expressions
 

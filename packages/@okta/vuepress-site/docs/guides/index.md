@@ -23,6 +23,7 @@ guides:
  - configure-direct-auth-grants
  - configure-native-sso
  - configure-signon-policy
+ - configure-ssf-receiver
  - configure-user-scoped-account-management
  - create-an-api-token
  - custom-email
@@ -172,6 +173,8 @@ guides:
  - policy-simulation
  - idv-integration
  - device-signal-collection-policies
+ - authenticators-tac-authenticator
+ - custom-well-known-uri
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

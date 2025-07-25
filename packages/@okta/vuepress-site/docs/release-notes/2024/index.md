@@ -775,7 +775,7 @@ The Content Security Policy (CSP) feature lets admins control which URLs may be 
 
 #### New mappings property for Policy API is EA in Preview
 
-A new `mappings` property is available for the `links` object in  `GET /api/v1/policies/{policyId}` and `GET /api/v1/policies?type={type}` responses. This property displays links to policy mappings. See [Policy API](/docs/reference/api/policy/#links-object). <!-- OKTA-637310 -->
+A new `mappings` property is available for the `links` object in  `GET /api/v1/policies/{policyId}` and `GET /api/v1/policies?type={type}` responses. This property displays links to policy mappings. See [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/getPolicy!c=200&path=0/_links/mappings&t=response). <!-- OKTA-637310 -->
 
 #### AAL values for Login.gov IdP
 

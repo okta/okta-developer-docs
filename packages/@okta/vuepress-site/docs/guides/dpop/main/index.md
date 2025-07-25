@@ -13,6 +13,8 @@ This guide discusses how to create sender-constrained access tokens that are an 
 * Understand the purpose of Demonstrating Proof-of-Possession
 * Understand how to configure OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) for your org
 
+<GlitchDeprecationNote />
+
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)

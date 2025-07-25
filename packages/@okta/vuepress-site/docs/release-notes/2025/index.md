@@ -4,7 +4,145 @@ title: Okta Classic Engine API release notes 2025
 
 # Okta Classic Engine API release notes (2025)
 
+## July
+
+### Weekly release 2025.07.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.07.1](#bugs-fixed-in-2025-07-1)| July 9, 2025 |
+
+#### Bugs fixed in 2025.07.1
+
+- The multiple identifiers feature didn't process case sensitivity correctly when evaluating identifier attributes. (OKTA-899235)
+- When GET `/api/v1/apps/{appId}` is called, admins with the `okta.groups.appAssignment.manage` permission or `okta.users.appAssignment.manage` permission could view app details without having the required `okta.apps.manage` or `okta.apps.read` permissions. (OKTA-801567)
+
+### Monthly release 2025.07.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [OAuth 2.0 provisioning for Org2Org with key auto-rotation is GA in Preview](#oauth-2-0-provisioning-for-org2org-with-key-auto-rotation-is-ga-in-preview) | July 2, 2025|
+| [System Log event for monitoring LDAP Agent config file changes is EA](#system-log-event-for-monitoring-ldap-agent-config-file-changes-is-ea) | July 2, 2025 |
+| [New validation rule for user profile attributes in OIN Wizard](#new-validation-rule-for-user-profile-attributes-in-oin-wizard) | July 2, 2025 |
+| [Changes to Okta app API responses](#changes-to-okta-app-api-responses) | July 7, 2025 |
+| [Restrict access to the Admin Console is GA in Production](#restrict-access-to-the-admin-console-is-ga-in-production) | December 11, 2024 |
+| [Developer documentation updates in 2025.07.0 ](#developer-documentation-updates-in-2025-07-0) | 	July 2, 2025 |
+| [Bug fixed in 2025.07.0 ](#bug-fixed-in-2025-07-0) | July 2, 2025 |
+
+#### OAuth 2.0 provisioning for Org2Org with key auto-rotation is GA in Preview
+
+Admins deploying multi-org architectures (for example, Okta hub-and-spoke orgs) need to secure user and group provisioning. Provisioning using OAuth2.0 scoped tokens has several advantages over API tokens, including more access granularity, shorter token lifespans, and automatic key rotation. You can now enable OAuth 2.0 Auto-Rotation for Org2Org app provisioning directly from the Admin Console, in addition to the API.
+
+To support these updates, the Application Connections API includes a new endpoint, [Retrieve a JSON Web Key Set (JWKS) for the default provisioning connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/getUserProvisioningConnectionJWKS), and schema updates to support key auto-rotation, `rotationMode=AUTO`. See [Update the default provisioning connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication!path=1/profile&t=request) and [Integrate Okta Org2Org with Okta](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg#Use2). <!-- [OKTA-903533] FF ORG2ORG_ENABLE_PROVISION_JWK -->
+
+
+#### System Log event for monitoring LDAP Agent config file changes is EA
+
+A `system.agent.ldap.config_change_detected` event is generated when an LDAP agent detects changes to its configuration file. <!--OKTA-912260-->
+
+#### New validation rule for user profile attributes in OIN Wizard
+
+The OIN Wizard now requires the use of valid user profile properties when referencing attribute values in EL expressions. The system rejects any invalid user EL expressions and attributes that aren't included in the allowlist. See [SAML properties](https://developer.okta.com/docs/guides/submit-oin-app/saml2/main/#properties). <!--OKTA-820691-->
+
+#### Stricter URL validation in the OIN Wizard
+
+The OIN Wizard now requires all static URLs to begin with "https://" and be complete. For URL expressions, you can use any valid format. See [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/openidconnect/main/). <!--OKTA-662312-->
+
+
+#### Conditions for create user permission is GA in Production
+
+You can now add conditions to the `okta.user.create` permission for custom admin roles. This enables you to granularly control which user attributes admins can set values for during user creation. See [Permissions conditions](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#permissions-conditions). <!--OKTA-907853-->
+
+#### Changes to Okta app API responses
+
+The following Okta apps won't be returned in the API response for endpoints that list apps (such as the [List all applications](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications) `GET /api/vi/apps` endpoint):
+
+* Okta Access Certifications (key name: `okta_iga`)
+* Okta Access Requests Admin (key name: `okta_access_requests_admin`)
+* Okta Entitlement Management (key name: `okta_entitlement_management`)
+
+In addition, a single app retrieval endpoint won't return these apps either. For example: `GET /api/v1/apps/{appId}` won't return the app object if `{appId}` is the ID for the `okta_iga`, `okta_access_requests_admin`, or `okta_entitlement_management` apps in your org.
+<!-- OKTA-871526 ENG_ENABLE_UI_ADMIN_OIDC_APP -->
+
+#### Restrict access to the Admin Console is GA in Production
+
+By default, users and groups with assigned admin roles have access to the Admin Console app. With this feature, super admins can choose to manually assign the app to delegated admins instead. This is recommended for orgs with admins who don't need access, like business partners, third-party admins, or admins who only use the Okta API. See [Configure administrator settings](https://help.okta.com/okta_help.htm?type=oie&id=administrator-settings) and the corresponding APIs: [Retrieve the Okta Admin Console Assignment Setting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/getAutoAssignAdminAppSetting) and [Update the Okta Admin Console Assignment Setting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/updateAutoAssignAdminAppSetting). <!-- OKTA-717742 ADMIN_APP_AND_ROLE_DECOUPLING -->
+
+#### Developer documentation updates in 2025.07.0
+
+* The [Okta Admin Management](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/ ) APIs have been reorganized into functional service groups for improved navigation and user experience. All previous anchors and links to the APIs remain the same. <!--OKTA-918957-->
+
+* The **Agent Pools** API has been renamed  [**Directory Agent Pools**](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AgentPools/) API and is now grouped under **External Identity Sources**. There are no other changes to the API. All previous anchors and links to the API remain the same. <!--OKTA-955807-->
+
+* The [Password import inline hook](/docs/guides/password-import-inline-hook/nodejs/main/) guide was revised to demonstrate the hook call using the [ngrok utility](https://ngrok.com/), rather than the sample code hosted on [Glitch.com](https://glitch.com/). The hosted sample app on Glitch is scheduled for deprecation on July 8th, 2025. <!--OKTA-949440-->
+
+#### Bug fixed in 2025.07.0
+
+Admins couldn't modify the `classicFooterHelpTitle` object on their sign-in page when sending PUT requests to these endpoints.
+* `/api/v1/brands/{brandId}/pages/sign-in/customized`
+* `/api/v1/brands/{brandId}/pages/sign-in/preview`
+* `/api/v1/brands/{brandId}/pages/sign-in/default`
+
+GET requests didn't return the object either. (OKTA-917840)
+
 ## June
+
+### Weekly release 2025.06.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Network zone restrictions for clients is self-service EA in Preview](#network-zone-restrictions-for-clients-is-self-service-ea-in-preview) | Jun 25, 2025 |
+| [Org2Org OIDC Sign-on mode is self-service EA in Preview](#org2org-oidc-sign-on-mode-is-self-service-ea-in-preview) | Jun 17, 2025 |
+| [Okta Integration IdP type is self-service EA in Preview](#okta-integration-idp-type-is-self-service-ea-in-preview) | Jun 25, 2025 |
+| [Bugs fixed in 2025.06.2](#bugs-fixed-in-2025-06-2)| Jun 25, 2025 |
+
+#### Network zone restrictions for clients is self-service EA in Preview
+
+You can now specify an allowlist or denylist network zone for each client to enhance token endpoint security. <!-- OIDC_TOKEN_NETWORK_RESTRICTIONS (OKTA-958762) -->
+
+#### Org2Org OIDC Sign-on mode is self-service EA in Preview
+
+The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP. This sign-on mode reduces the complexity of configuration between the Org2Org app and the target org, and takes advantage of modern security features of OIDC. You also need to enable the Okta Integration IdP feature to use the OIDC Sign-on mode. See [Secure API connections between orgs with OAuth 2.0](docs/guides/secure-oauth-between-orgs/main/). <!-- OKTA-714847 FF ORG2ORG_ENABLE_OIDC_SOM Publishing delayed until 6.2 OKTA-950222 -->
+
+#### Okta Integration IdP type is self-service EA in Preview
+
+The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with secure defaults. See [Identity Providers](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&path=type&t=response) and [Add an Okta Identity Provider](https://help.okta.com/okta_help.htm?type=oie&id=idp-add-okta).<!-- OKTA_INTEGRATION_IDP_TYPE (OKTA-949786) -->
+
+#### Bugs fixed in 2025.06.2
+
+* When an app with imported app groups was deactivated, and users were subsequently removed from these groups, the event wasn't recorded in the System Log. (OKTA-934264)
+
+* The delete operation for the Roles API (`/iam/roles/{roleIdOrLabel}`) and the Resource Sets API (`/iam/resource-sets/{iamPolicyIdOrLabel}`) allowed users to delete IAM-based standard roles and resource sets, respectively. (OKTA-926830)
+
+* The expiry time of one-time verification code emails didn't appear in the message. (OKTA-911703)
+
+* Using a private/public key for client authentication with an empty `kid` in the assertion threw a null pointer exception if there was an invalid `use` parameter in the key. (OKTA-963932)
+
+### Weekly release 2025.06.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Frame-ancestors rollout for Content Security Policy](#frame-ancestors-rollout-for-content-security-policy) | Jun 17, 2025 |
+| [Bugs fixed in 2025.06.1](#bugs-fixed-in-2025-06-1)| Jun 17, 2025 |
+
+#### Frame-ancestors rollout for Content Security Policy
+
+Okta is rolling out the frame-ancestors directive of the Content Security Policy (CSP) for the `/auth/services/devicefingerprint` and `/api/v1/internal/device/nonce` endpoints. To prevent blocking access to these endpoints from embedded frames, add any embedder origin as a trusted origin. See the [Trusted Origins API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/).
+
+In addition, Okta is rolling out the use of `nonce` with the script-src directive of the CSP for the `/auth/services/devicefingerprint`. To prevent blocking inline scripts that you may have injected on the page returned by this endpoint, allowlist your inline script to account for the `nonce` addition to script-src.
+ <!-- OKTA-955073 -->
+
+#### Bugs fixed in 2025.06.1
+
+* When calling the Replace the resource set resource conditions endpoint, `/api/v1/iam/resource-sets/{resourceSetIdOrLabel}/resources/{resourceId}`, including an empty body didn't remove conditions. (OKTA-947764)
+
+* The Directories Integration API for AD Bidirectional Group Management returned a 500 error because of a null pointer exception. (OKTA-948743)
+
+* User grants weren't returned from the Users API (`/users/<userId>clients/<clientId>/grants`) after revoking user sessions and OAuth 2.0 tokens. (OKTA-944549)
+
+* Users could sometimes receive too many password reset emails. (OKTA-916357)
+
+* App logos could be added or updated using any SVG format. See [Application Logos](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationLogos/#tag/ApplicationLogos/operation/uploadApplicationLogo!path=file&t=request). (OKTA-876028)
 
 ### Monthly release 2025.06.0
 
@@ -17,7 +155,8 @@ title: Okta Classic Engine API release notes 2025
 | [Define default values for custom user attributes is GA in Production](#define-default-values-for-custom-user-attributes-is-ga-in-production) |  May 7, 2025 |
 | [Domain restrictions on Realms is GA in Production](#domain-restrictions-on-realms-is-ga-in-production) | April 23, 2025 |
 | [Number matching challenge with the Factors API is GA in Production](#number-matching-challenge-with-the-factors-api-is-ga-in-production) | April 9, 2025 |
-| [Restrict access to the Admin Console is GA in Preview](#restrict-access-to-the-admin-console-is-ga-in-preview) | June 4, 2025 |
+| [Restrict access to the Admin Console is GA in Preview](#restrict-access-to-the-admin-console-is-ga-in-preview) | December 11, 2024 |
+| [Expanded use of user.getGroups() function in Okta Expression Language is GA in Preview](#expanded-use-of-user-getgroups-function-in-okta-expression-language-is-ga-in-preview)| June 4, 2025 |
 | [Developer documentation updates in 2025.06.0](#developer-documentation-updates-in-2025-06-0) | June 4, 2025 |
 | [Bug fixed in 2025.06.0](#bug-fixed-in-2025-06-0)| June 4, 2025 |
 
@@ -52,6 +191,10 @@ You can now send number matching challenges for Okta Verify `push` factor enroll
 #### Restrict access to the Admin Console is GA in Preview
 
 By default, users and groups with assigned admin roles have access to the Admin Console app. With this feature, super admins can choose to manually assign the app to delegated admins instead. This is recommended for orgs with admins who don't need access, like business partners, third-party admins, or admins who only use the Okta API. See [Configure administrator settings](https://help.okta.com/okta_help.htm?type=oie&id=administrator-settings) and the corresponding APIs: [Retrieve the Okta Admin Console Assignment Setting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/getAutoAssignAdminAppSetting) and [Update the Okta Admin Console Assignment Setting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/updateAutoAssignAdminAppSetting). <!-- OKTA-717742 ADMIN_APP_AND_ROLE_DECOUPLING -->
+
+#### Expanded use of user.getGroups() function in Okta Expression Language is GA in Preview
+
+You can now use the `user.getGroups()` function across all features that support Expression Language. See [Group functions](/docs/reference/okta-expression-language/#group-functions). <!-- ENABLE_GET_GROUPS_FUNCTION_ELV2 OKTA-945229-->
 
 #### Developer documentation updates in 2025.06.0
 

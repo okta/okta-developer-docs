@@ -1,6 +1,6 @@
 You can retain authentication control of your Angular single-page app (SPA) without redirection to Okta by implementing [embedded authentication](/docs/concepts/redirect-vs-embedded/#embedded-authentication). Use embedded authentication with the Auth JS SDK. This library provides you with common, reusable OAuth 2.0 methods and properties to handle the interaction between the authorization server and your client app.
 
-You can customize the sign-in experience for your app with minimal use of low-level [Okta Authentication](/docs/reference/api/authn/) and [Okta OpenID Connect (OIDC) and OAuth 2.0](/docs/reference/api/oidc/) APIs.
+You can customize the sign-in experience for your app with minimal use of low-level [Okta Authentication](/docs/reference/api/authn/) and [Okta OpenID Connect (OIDC) and OAuth 2.0](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/) APIs.
 
 The authentication interaction between the authorization server and your client app follows the [Interaction Code](/docs/concepts/interaction-code/) flow. This flow is an extension to the [OAuth 2.0 and OIDC](/docs/concepts/oauth-openid/) standard. It allows you to customize the user authentication experience for your app without redirecting to an authentication component outside of your app. See [Implement authorization by Interaction Code grant type](/docs/guides/implement-grant-type/interactioncode/main/) to understand the Interaction Code flow and necessary interactions between the authorization server and your app.
 

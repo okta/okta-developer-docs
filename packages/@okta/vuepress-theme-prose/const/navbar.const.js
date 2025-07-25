@@ -334,6 +334,10 @@ export const guides = [
                 guideName: "authenticators-google-authenticator",
               },
               {
+                title: "Temporary access code",
+                guideName: "authenticators-tac-authenticator",
+              },
+              {
                 title: "Web Authentication",
                 guideName: "authenticators-web-authn",
               },
@@ -608,6 +612,10 @@ export const guides = [
             guideName: "custom-url-domain",
           },
           {
+            title: "Customize associated domains",
+            guideName: "custom-well-known-uri",
+          },
+          {
             title: "Sign-in page",
             guideName: "custom-widget",
           },
@@ -754,6 +762,15 @@ export const guides = [
             title: "Set up step-up authn with ACR values",
             guideName: "step-up-authentication"
           },
+        ],
+      },
+      {
+        title: "Org Security",
+        subLinks: [
+          {
+            title: "Configure an SSF receiver and publish a SET",
+            path: "/docs/guides/configure-ssf-receiver/",
+          }
         ],
       },
       {
@@ -1021,13 +1038,14 @@ export const reference = [
         path: "/docs/reference/okta-expression-language/",
       },
       {
-        title: "Integrator Free Plan Org Configuations",
+        title: "Expression Language in Identity Engine",
+        path: "/docs/reference/okta-expression-language-in-identity-engine/",
+      }, 
+      {
+        title: "Integrator Free Plan Org Configurations",
         path: "/docs/reference/org-defaults/",
       },
       {
-        title: "Expression Language in Identity Engine",
-        path: "/docs/reference/okta-expression-language-in-identity-engine/",
-      }, {
         title: "Rate Limits",
         path: "/docs/reference/rate-limits/", 
         subLinks: [
