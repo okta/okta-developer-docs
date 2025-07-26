@@ -6,7 +6,7 @@ The following diagram illustrates the beginning of the registration process wher
 
 <div class="full">
 
-![A sequence diagram that shows the beginning of the self-service registration flow, from the user clicking Create Account to their enrolling a password](/img/oie-embedded-sdk/oie-embedded-android-selfservice-pwd-flow-diagram.png)
+![A sequence diagram that shows the beginning of the self-service registration flow, from the user clicking create account to their enrolling a password](/img/oie-embedded-sdk/oie-embedded-android-selfservice-pwd-flow-diagram.png)
 
 <!--
 
