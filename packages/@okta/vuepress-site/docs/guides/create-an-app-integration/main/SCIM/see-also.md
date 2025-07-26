@@ -1,0 +1,2 @@
+* See [Build a SCIM provisioning integration overview](https://developer.okta.com/docs/guides/scim-provisioning-integration-overview/main/) for information on how to build a SCIM API service.
+* See [Publish an OIN integration](https://developer.okta.com/docs/guides/submit-app-overview/) for information on submitting your integration for publication in the OIN.
