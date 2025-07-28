@@ -136,3 +136,14 @@ In the following request body example, the well-known URI file declares that the
     }
   }
 ```
+
+## Review the System Log
+
+After you create associations for your custom domains, you can verify that they're created by referring to the `system.well_known_uri.update` event type. See [Event Types](/docs/reference/api/event-types/).
+
+The `system.well_known_uri.update` event type includes the following information about your association.
+
+* Your custom brand ID
+* The path of the well-known URI that you created an association with
+* The previous content of the well-known URI association and its updated content
+* The date and time when you created it
