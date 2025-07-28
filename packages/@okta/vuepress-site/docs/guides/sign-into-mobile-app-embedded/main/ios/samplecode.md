@@ -1,1 +1,1 @@
-[iOS samples](https://github.com/okta/okta-mobile-swift/tree/master/Samples/IdxAuthSignIn)
+[iOS Auth SignIn examples](https://github.com/okta/okta-mobile-swift/tree/master/Samples/IdxAuthSignIn)
