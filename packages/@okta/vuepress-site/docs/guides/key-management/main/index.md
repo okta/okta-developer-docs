@@ -41,7 +41,7 @@ JWKs are used to verify the signature of JWTs, ensuring that the token was issue
 
 A typical JWK might look like the following example:
 
-```JSON
+```json
     {
         "kty": "RSA",
         "kid": "1234",
@@ -74,7 +74,7 @@ Use an encryption key to provide an additional layer of security to ID tokens mi
 
 <ApiLifecycle access="ea" />
 
-Use an encryption key to encrypt an access token to ensure its confidentiality and protect sensitive information, such as scopes or permissions. You can encrypt access tokens minted by an Okta custom authorization.
+Use an encryption key to encrypt an access token to ensure its confidentiality and protect sensitive information, such as scopes or permissions. You can encrypt access tokens minted by an Okta custom authorization server.
 
 > **Notes**:
 >
@@ -123,7 +123,7 @@ The **Client authentication** and **Encrypt the ID token** folders of the Postma
 
     **Signing key**
 
-    ```JSON
+    ```json
         {
             "kty": "RSA",
             "id": "{jwksId}",
@@ -153,7 +153,7 @@ The **Client authentication** and **Encrypt the ID token** folders of the Postma
     **Encryption key**
     <ApiLifecycle access="ea" />
 
-    ```JSON
+    ```json
         {
             "kty": "RSA",
             "id": "pks8m1hju1OGb5Gi90g7",
@@ -202,7 +202,7 @@ The **Encrypt the ID token** folder of the Postman Collection is used in this se
 
 Example response
 
-```JSON
+```json
     {
         "client_id": "{clientId}",
         "client_secret": "{clientSecret}",
@@ -271,7 +271,7 @@ The **Client authentication** and **Encrypt the ID token** folders of the Postma
 
     **Signing key**
 
-    ```JSON
+    ```json
         {
             "client_id": "{client_id}",
             "client_secret": "{client_secret}",
@@ -301,7 +301,7 @@ The **Client authentication** and **Encrypt the ID token** folders of the Postma
     **Encryption key**
     <ApiLifecycle access="ea" />
 
-    ```JSON
+    ```json
         {
             "client_id": "{client_id}",
             "client_secret": "{client_secret}",
@@ -344,7 +344,7 @@ When you’re ready to retire a public signing key, change the older JWK status 
 
     **Signing key**
 
-    ```JSON
+    ```json
         {
             "kty": "RSA",
             "id": "{jwksId}",
@@ -380,7 +380,7 @@ When you’re ready to retire a public signing key, change the older JWK status 
     **Encryption key**
     <ApiLifecycle access="ea" />
 
-    ```JSON
+    ```json
         {
             "kty": "RSA",
             "id": "{jwksID}",
@@ -456,7 +456,7 @@ This option allows you to bring your own encryption key. You can add up to 50 ke
     **Note:** You can have only one active key at any given time for the authorization server. When you activate an inactive key, Okta automatically deactivates the current active key.
 1. Send the `POST {yourOktaDomain}/api/v1/authorizationServers/{authServerId}/resourceservercredentials/keys` request. The response should look something like the following example:
 
-    ```JSON
+    ```json
         {
             "kty": "RSA",
             "id": "{keyId}",
@@ -501,7 +501,7 @@ To activate an encryption key for your custom authorization server, follow these
     * `{keyId}`: The `id` of the public JWK
 1. Send the `POST {yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/resourceservercredentials/keys/{keyId}/lifecycle/activate` request. The response should look something like the following example:
 
-    ```JSON
+    ```json
         {
             "kty": "RSA",
             "id": "apk8m6rvgsLSCdAmO0g7",
@@ -536,7 +536,7 @@ The **Encrypt an access token** folder of the Postman Collection is used in this
 
     The response should look something like the following example. This response is truncated for brevity.
 
-    ```JSON
+    ```json
         {
             "id": "{authorizationServerId}",
             "name": "namehere",
@@ -581,7 +581,7 @@ This option allows you to host your public key in a URI. By hosting the keys in 
 
      The response should look something like the following example. This response is truncated for brevity.
 
-    ```JSON
+    ```json
         {
             "id": "{authServerId}",
             "name": "AuthServerName",
@@ -636,7 +636,37 @@ When you’re ready to retire a public key, change the JWK status from **Active*
     * `{keyId}`: The `id` of the public JWK
 1. Send the `POST {yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/resourceservercredentials/keys/{keyId}/lifecycle/deactivate` request. The response should look something like this:
 
-??VERIFY THE URL!??
+```json
+    {
+        "kty": "RSA",
+        "id": "{{keyId}}",
+        "created": "2025-07-21T21:57:14.000Z",
+        "lastUpdated": "2025-07-28T22:55:07.000Z",
+        "status": "INACTIVE",
+        "kid": "zUjOKTJrPP-XFgg7B8nAJN9vAUONXuFPUBi1kD_HLAs",
+        "use": "enc",
+        "_links": {
+            "activate": {
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/resourceservercredentials/keys/{keyId}/lifecycle/activate",
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                }
+            },
+            "delete": {
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/resourceservercredentials/keys/{keyId}",
+                "hints": {
+                    "allow": [
+                        "DELETE"
+                    ]
+                }
+            }
+        },
+        "e": "AQAB",
+        "n": "hUo9QIgVHGG9zopM6u2Mj9NYu6IeuwI_seODhZ1qMb66Mhq1QWk7gYbRIfX7cj-IjetiNNwd5lOAB0jL4u8YXAtUfzVPOaQitnmC3rGBEu6JM_zh1yy6zxzgu85ekp2qfUTqdiLaAxmQq0VVQNPGXpN3axb17CtPFG7MjVAuuGSHQAKvGkSmz8av_bIHYbflksACoCohoH_5nFoN6wVamE1w43zwSy8W4SMwzfOQO10lCdBGexnunOKtHsmE0lKD0sb0UI6QGxDwePRy-gJC4s7FkM4gnHxhPbGsoOMlOYiczR5FANtCVA8WjqkJ2uxUvjEaegKjHE16GFKnvavtoQ"
+    }
+```
 
 ### Delete the encryption key
 
@@ -650,8 +680,6 @@ After you deactivate the old key, you can then delete it. This ensures that the 
     * `{authorizationServerId}`: The custom authorization server ID
     * `{keyId}`: The `id` of the public JWK
 1. Send the `DELETE {yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/resourceservercredentials/keys/{keyId}` request.
-
-??TEST??
 
 ## See also
 
