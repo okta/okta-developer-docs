@@ -49,7 +49,7 @@ Sign up for an Okta account, and then set up your new Okta org to test web apps.
 
 The simplest and Okta-recommended way to sign users in to your app is to redirect them to an Okta-hosted sign-in form.
 
-* [Connect your app to Okta](/docs/guides/create-an-app-integration/)
+* [Connect your app to Okta](/docs/guides/create-an-app-integration/openidconnect/main/)
 * [Learn about the Okta Sign-In Widget](waiting)
 * [Sign users in to your SPA by redirecting them to an Okta-hosted sign-in form](/docs/guides/auth-js-redirect/main/)
 
@@ -79,8 +79,9 @@ Learn how to secure other types of apps:
 
 After a user signs in, Okta returns tokens to identify the user and the user's access levels. See [Understand the token lifecycle](/docs/concepts/token-lifecycles/index.md).
 
-If you're using the Okta-hosted sign-in form, Okta returns a cookie to identify the user's session. This establishes an active browser session. If you're using a self-hosted form, your app should use the Sessions API to obtain a session token. Use the following docs to enable sign-out once, sign-out everywhere features:
+If you're using the Okta-hosted sign-in form, Okta returns a JWT to identify the user, their access, and to give you some information about their session. This proves that they have an active browser session. If you're using a self-hosted form, your app should use the [Authorization Code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)authentication flow and `prompt=none` to validate that a session is still active.
 
-* [Use the Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/).
+Use the following docs to enable sign-out once, sign-out everywhere features:
+
 * [Learn about Single Logout](/docs/guides/single-logout/openidconnect/main/).
 * [Learn about Universal Logout](/docs/guides/oin-universal-logout-overview/).
