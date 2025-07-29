@@ -1,10 +1,10 @@
 ---
 title: Sign in to your mobile app
-excerpt: Configure your Okta org and your mobile app to use Okta's embedded sign-in flow.
+excerpt: Configure your Okta org and your native mobile app for basic authentication use cases.
 layout: Guides
 ---
 
-Add authentication to your mobile app using the Okta [embedded model](/docs/concepts/redirect-vs-embedded/#embedded-authentication). This example creates a native iOS app with self-hosted authentication.
+Add authentication to your mobile app using the Okta Client SDK for Swift. This example builds a sample native iOS app, using Okta's APIs and interaction code flow, for browserless authentication.
 
 ---
 
@@ -22,21 +22,13 @@ Add authentication to your mobile app using the Okta [embedded model](/docs/conc
 
 ---
 
-## Okta mobile embedded self-hosted sign in overview
+## Okta native mobile app sign in overview
 
-This guide outlines using the embedded SDK for password-only authentication flows in mobile apps. Okta recommends replacing password-only experiences with password-optional or multifactor experiences due to the vulnerability of password theft and phishing.
-
-It's important to note that the `okta-idx-swift` repository, which previously contained the sample code for this type of integration, is deprecated and no longer actively maintained. Its source code and functionality have been merged into the `okta-mobile-swift` repository, which serves as a unified Okta Client SDK for Swift.
-
-All future development, issues, and pull requests should be directed to the new `okta-mobile-swift` monorepo. For advanced native authentication use-cases with the Okta Identity Engine, you should now use the `OktaIdxAuth` library within the `okta-mobile-swift` SDK.
-
-The following sections demonstrate the iOS sign-in flow processes using the new `okta-mobile-swift` SDK, and begins by setting up your Okta org and the SDK sample application.
-
-### Updated iOS Sign-in Flow with Okta Client SDK for Swift
+This guide outlines using the Okta Client SDK for Swift for integrating authentication flows in to your browserless, native mobile apps.
 
 The Okta Identity Engine SDK represents the sign-in flow as a state machine. You initialize it with your Okta org's app integration details, request the initial step, and then cycle through responding to steps until the user signs in, cancels, or an error occurs. Each sign-in step can include one or more user actions, such as choosing an authenticator or entering a one-time passcode (OTP).
 
-The main objects associated with each step in the flow include: Response (top-level object, representing a step and containing other objects), Remediation (main user actions for a step), Authenticator (verifies user identity), Method (channel for an authenticator), Capability (user action like requesting a new OTP), Field (UI element, static or user input), Form (contains fields for a remediation), Configuration (SDK settings), and Client (session during sign-in).
+The following sections demonstrate the iOS sign-in flow processes using the new `okta-mobile-swift` SDK, and begins by setting up your Okta org integration and then the SDK sample application ([IdxAuthSignIn](https://github.com/okta/okta-mobile-swift/tree/master/Samples/IdxAuthSignIn#idxauthsignin)).
 
 ## Set up your Okta org
 
@@ -70,9 +62,10 @@ To create your app integration in Okta using the Admin Console:
 1. Click **Create App Integration**.
 1. Select a **Sign-in method** of **OIDC - OpenID Connect**.
 1. Select an **Application type** of **Native Application**, then click **Next**.
-   > **Note:** If you choose the wrong app type, it can break the sign-in or sign-out flows. Integrations require the verification of a client secret, which public clients don't have.
+   > **Note:** If you choose the wrong app type, it can break the sign-in or sign-out flows.
 1. Enter an **App integration name**.
 1. Select the **Grant type**. Ensure the **Authorization Code** grant type is selected. Add the **Refresh Token** grant type and under the **Advanced** arrow, select **Interaction Code**.
+    >**Note:** You can't use the direct auth API grant types if you're using the Interaction Code grant.
 1. Enter the callback routes.
 
     <StackSnippet snippet="redirectvalues" />
@@ -83,7 +76,7 @@ To create your app integration in Okta using the Admin Console:
 
 ### Update the default custom authorization server
 
-You need to configure your custom authorization server to use the Interaction Code grant type.
+You need to configure your custom authorization server with an access policy and to use the Interaction Code grant type.
 
 1. Open the **Admin Console** for your org and go to **Security** > **API**.
 1. Select the **Authorization Servers** tab, select the custom authorization server that you want to update, and click the edit icon.
@@ -106,9 +99,9 @@ git clone https://github.com/okta/okta-mobile-swift.git
 cd okta-mobile-swift
 ```
 
-### Open the self-hosted sample application
+### Open the browserless native sample application
 
-1. In Xcode, open the `IdxAuthSignIn.xcodeproj` workspace from the root level (`/Samples/IdxAuthSignIn/IdxAuthSignIn.xcode.proj`).
+1. In Xcode, open the `OktaClient.xcworkspace` workspace from the root level.
 1. Select the `IdxAuthSignIn` application target, and choose a simulator type to use.
 
 ### Add project dependencies
@@ -131,25 +124,9 @@ Update the Okta property list (`Okta.plist`) with the Okta org OIDC settings you
     * `client_id`: The `id` for your Okta app integration (for example, `0oatd7g4tyk3bSlgL8867`)
     * `scope`: The scopes required by the app. Use `openid profile offline_access`.
     * `redirect_uri`: Your Okta app integration's **Sign-in redirect URIs** value, for example, `com.okta.{yourOktaDomain}:/callback`
-    * `logout_redirect-uri`: Your Okta app integration's **Sign-our redirect URIs** value, for exampple, `com.okta.{yourOktaDomain}:/`
+    * `logout_redirect-uri`: Your Okta app integration's **Sign-our redirect URIs** value, for example, `com.okta.{yourOktaDomain}:/`
 
 1. Save the file.
-
-## Review the sign-in flow
-
-### Initialize the client and start the flow
-
-
-### Process the response
-
-
-### Request a token
-
-### Get user profile information
-
-
-### Sign the user out
-
 
 ### Run and test the sample application
 
@@ -159,3 +136,10 @@ Update the Okta property list (`Okta.plist`) with the Okta org OIDC settings you
 1. Your user's profile appears. Click **Token details** to review the access token and the refresh token.
 1. Click **Sign Out** and **Revoke Tokens** to sign out and return to the sign-in screen.
 
+## Next steps
+
+Use the following references to review the authentication options and flows for your app:
+
+* [Configuring your client](https://okta.github.io/okta-mobile-swift/development/documentation/browsersignin/configuringyourclient): a review of the sign-in authentication flows for browser-based apps.
+
+* [Overview of the mobile Identity Engine SDK](/docs/guides/mobile-idx-sdk-overview/ios/main/): a detailed review of the sign-in flow and objects.
