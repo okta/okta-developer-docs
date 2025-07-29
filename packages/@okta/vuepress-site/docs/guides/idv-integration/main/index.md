@@ -79,7 +79,7 @@ After the user triggers a policy evaluation, Okta sends a `POST /oauth2/par` req
 
 The request contains standard pushed authorization request (PAR) [parameters](https://www.rfc-editor.org/rfc/rfc9126.html#name-pushed-authorization-reques) and a `verified_claims` object. The `verified_claims` object contains two identity verification objects that determine how the IDV flow interacts with Okta.
 
-* The `claims` object passes the name of the Okta user to the IDV vendor.
+* The `claims` object passes the information about the Okta user to the IDV vendor.
 * The `verification` object determines the trust framework between Okta and the IDV vendor and the necessary assurance level for a successful IDV flow. `IDV-DELEGATED` is the only trust framework that Okta supports for IDV vendor integration.
 
 When Okta sends the request, a unique verification session is established.
@@ -88,13 +88,10 @@ When Okta sends the request, a unique verification session is established.
 
 To improve readability, the following example values aren’t URL encoded.
 
-```json
-POST /oauth2/par HTTP/1.1
-
-Host: idv-vendor.com
-Content-Type: application/x-www-form-urlencoded
-
-{
+```bash
+curl -L -X POST "https://idv-vendor.com/oauth2/par" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d '{
   "response_type": "code",
   "client_id": "{client_id}",
   "client_secret": "{client_secret}",
@@ -117,9 +114,49 @@ Content-Type: application/x-www-form-urlencoded
           },
           "claims": {
             "given_name": {
-              "fuzzy": "{ud_first_name}"
+              "value": "{ud_mapped_first_name}",
+              "fuzzy": true
             },
-            "family_name": "{ud_last_name}"
+            "family_name": {
+              "value": "{ud_mapped_last_name}",
+              "fuzzy": false
+            },
+            "middle_name": {
+              "value": "{ud_mapped_middle_name}"
+            },
+            "email": {
+              "value": "{ud_mapped_email}"
+            },
+            "bithdate": {
+              "value": "{ud_mapped_birthdate}",
+              "fuzzy": false
+            },
+            "phone_number": {
+              "value": "{ud_mapped_phone_number}",
+              "fuzzy": true
+            },
+            "address": {
+              "street_address": {
+                "value": "{ud_mapped_street_address}",
+                "fuzzy": true
+              },
+              "locality": {
+                "value": "{ud_mapped_city}",
+                "fuzzy": true
+              },
+              "region": {
+                "value": "{ud_mapped_state}",
+                "fuzzy": true
+              },
+              "postal_code": {
+                "value": "{ud_mapped_zipcode}",
+                "fuzzy": false
+              },
+              "country": {
+                "value": "{ud_mapped_country}",
+                "fuzzy": false
+              }
+            }
           }
         }
       ]
@@ -128,7 +165,7 @@ Content-Type: application/x-www-form-urlencoded
   "state": "{external_state_token_id}",
   "login_hint": "{user_id}",
   "redirect_uri": "https://{yourOktadomain}/idp/identity-verification/callback"
-}
+}'
 ```
 
 #### POST /oauth2/par error response
@@ -163,10 +200,10 @@ The error response for an unsuccessful `POST /oauth2/par` request uses this [str
 | idv_flow_{idv_flow_id} | Identifies a specific IDV flow from the IDV vendor. Replace `{idv_flow_id}` with the identifier of the flow. You can leave it out of the request if the `client_id` and `client_secret` are configured to represent a specific flow from the IDV vendor. | String     | String   |
 | verified_claims       | Contains the `verification` and `claims` objects.                                                              | Object     | Object   |
 | verification          | Specifies the parameters and requirements for verifying the claims. Okta uses both the `trust_framework` and `assurance_level` properties. See the OIDC definition of the [verification](https://openid.bitbucket.io/ekyc/openid-ida-verified-claims.html#name-verification-element) property. | Object     | Object   |
-| trust_framework       | Identifies the trust framework that provides assurance about the verified attributes. Okta sets `IDV_DELEGATED` as the default value. This value delegates identity verification and the assurance policy to the IDV vendor. The IDV vendor is then responsible for verifying user identities and sends the results back to Okta. `IDV_DELEGATED` is currently the only supported trust framework. See the OIDC definition of the [trust_framework](https://openid.net/specs/openid-ida-verified-claims-1_0.html#section-5.4.2-5) property. | String     | String   |
-| assurance_level       | Identifies the assurance level that's required for the identity claims of the user. The IDV must map their verification results to the possible assurance levels, `VERIFIED` or `FAILED`. For a successful verification, the IDV vendor must pass  `VERIFIED` as the `assurance_level`. For a failed verification, the IDV vendor must pass `FAILED` or a `null` value. See the OIDC definition of the [assurance_level](https://openid.net/specs/openid-ida-verified-claims-1_0.html#section-5.4.2-6.1.1) property. | String     | String   |
-| claims                | Contains user-specific attributes. `given_name` and `family_name` are currently the only supported claims. See the OIDC definition of the [claims](https://openid.net/specs/openid-ida-verified-claims-1_0.html#name-claims-element) property. | Object     | Object   |
-| fuzzy                 | An extension that adds fuzzy logic to a specified claim to assist with matching the claim value. For example, the `fuzzy` extension is added to the `given_name` claim. The IDV vendor doesn’t need to return an identical match for the user’s given name. The `assurance_level` can still be `VERIFIED`. | String     | String   |
+| trust_framework       | Identifies the trust framework that provides assurance about the verified attributes. Okta sets `IDV_DELEGATED` as the default value. This value delegates identity verification and the assurance policy to the IDV vendor. The IDV vendor is then responsible for verifying user identities and sends the results back to Okta. <br></br>`IDV_DELEGATED` is currently the only supported trust framework. See the OIDC definition of the [trust_framework](https://openid.net/specs/openid-ida-verified-claims-1_0.html#section-5.4.2-5) property. | String     | String   |
+| assurance_level       | Identifies the assurance level that's required for the identity claims of the user. The IDV must map their verification results to the possible assurance levels, `VERIFIED` or `FAILED`. <br></br>For a successful verification, the IDV vendor must pass  `VERIFIED` as the `assurance_level`. For a failed verification, the IDV vendor must pass `FAILED` or a `null` value. See the OIDC definition of the [assurance_level](https://openid.net/specs/openid-ida-verified-claims-1_0.html#section-5.4.2-6.1.1) property. | String     | String   |
+| claims                | Contains user-specific attributes. Okta supports these [OIDC claims](#supported-oidc-claims). For more information, see the OIDC definition of the [claims](https://openid.net/specs/openid-ida-verified-claims-1_0.html#name-claims-element) property. | Object     | Object   |
+| fuzzy                 | An extension that adds fuzzy logic to a specified claim to assist with matching the claim value. IDV vendors can choose whether to add this extension to any `claims` attribute. <br></br>The `fuzzy` extension is set as `true` for all claims by default. | String     | String   |
 | state                 | A unique string that maintains a connection between the request and the callback.                              | String     | String   |
 | redirect_uri          | The URI where the response is sent after the user completes the IDV flow.                                      | String     | String   |
 | login_hint            | Identifier that associates an Okta user within the IDV vendor's app.                                           | String     | String   |
@@ -200,10 +237,8 @@ The user's browser sends the GET request to the IDV vendor's OAuth 2.0 authoriza
 
 #### GET /oauth2/authorize request example
 
-```json
-GET /oauth2/idv-authorize?request_uri=urn:ietf:params:oauth:request_uri:6esc_11ACC5bwc014ltc14eY22c HTTP/1.1
-
-Host: idv-vendor.com
+```bash
+curl -L -X GET "https://idv-vendor.com/oauth2/idv-authorize?request_uri=urn:ietf:params:oauth:request_uri:6esc_11ACC5bwc014ltc14eY22c"
 ```
 
 #### GET /oauth2/authorize error response
@@ -225,12 +260,8 @@ After the user completes the IDV flow, the IDV vendor redirects them to the `red
 
 #### IDV vendor redirect to Okta example
 
-```json
-HTTP/1.1 302
-GET /idp/identity-verification/callback?code=42bbe6319f0b04a43d&state=30pqcSFzH7H0bIftWwYRbNNwbpOpfY-W HTTP/1.1
-
-Host: org.okta.com
-Content-Type: application/x-www-form-urlencoded
+```bash
+curl -L -X GET "https://{yourOktadomain}/idp/identity-verification/callback?code=42bbe6319f0b04a43d&state=30pqcSFzH7H0bIftWwYRbNNwbpOpfY-W"
 ```
 
 ### Okta sends a POST /token request to IDV vendor
@@ -241,18 +272,15 @@ Okta receives the `authorization_code` from the IDV vendor. Okta then uses it to
 
 To improve readability, the following example values aren’t URL encoded.
 
-```json
-POST /token HTTP/1.1
-
-Host: idv-vendor.com
-Content-Type: application/x-www-form-urlencoded
-
-grant_type=authorization_code
-&client_id={client_id}
-&client_secret={client_secret}
-&code=42bbe6319f0b04a43d
-&code_verifier=72e0dca42dd87b345f0652899cba4f92e7b9bb2422f7c5a301ffae41
-&redirect_uri=https://{yourOktadomain}/idp/identity-verification/callback
+```bash
+curl -L -X POST "https://idv-vendor.com/token" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  --data-urlencode "grant_type=authorization_code" \
+  --data-urlencode "client_id={client_id}" \
+  --data-urlencode "client_secret={client_secret}" \
+  --data-urlencode "code=42bbe6319f0b04a43d" \
+  --data-urlencode "code_verifier=72e0dca42dd87b345f0652899cba4f92e7b9bb2422f7c5a301ffae41" \
+  --data-urlencode "redirect_uri=https://{yourOktadomain}/idp/identity-verification/callback"
 ```
 
 #### POST /token error response
@@ -277,7 +305,7 @@ When the `POST /token` request succeeds, the IDV vendor sends an `id_token` in a
 
 Note the following the ways to format the `claims` object for the `id_token` response:
 
-* IDV vendors must not include any `claims` attributes other than the currently supported ones: `given_name` and `family_name`. Okta fails a policy evaluation that returns `claims` attributes other than the supported ones.
+* IDV vendors must not include any `claims` attributes other than the [currently supported ones](#supported-oidc-claims). Okta fails a policy evaluation that returns `claims` attributes other than the supported ones.
 
 * IDV vendors can choose to return a `MATCHED` value for any `claims` attributes, instead of returning identifying information about a user. Returning a `MATCHED` value still indicates that the verification was successful but doesn't require IDV vendors to pass identifying information of a user.
 
@@ -359,3 +387,31 @@ There are multiple possible reasons for the `DENY` result:
 * `CLAIMS_NOT_VERIFIED`: Indicates that the IDV vendor has assessed that not all `claims` attributes were verified.
 * `CLAIM_GIVEN_NAME_NOT_VERIFIED`: Indicates that the `given_name` value wasn't verified.
 * `CLAIM_FAMILY_NAME_NOT_VERIFIED`: Indicates that the `family_name` value wasn't verified.
+
+## Supported OIDC claims
+
+Okta supports the following OIDC claims. IDV vendors can choose among any of these claims and use them in their IDV flow.
+
+> **Note:** IDV vendors must always include the `given_name` and `family_name` claims.
+
+| Supported claim | Description | DataType |
+|-----------------|-------------|----------|
+| given_name      | The user's first name. | String |
+| family_name     | The user's last name or surname. | String |
+| middle_name     | The user's middle name. | String |
+| email           | The user's email address. | String |
+| birthdate       | The user's date of birth. Format the date of birth in the ISO 8601 format (YYYY-MM-DD). | datetime |
+| phone_number    | The user's phone number. Format the phone number in the E.164 format | String |
+| street_address  | The user's street address. This claim can include new lines. | String |
+| locality        | The user's city or locality. | String |
+| region          | The user's state, province, prefecture, or region. | String |
+| postal_code     | The user's postal or ZIP code. | String |
+| country         | The user's country. Format this value with the country name. | String |
+
+### Map Okta user profile attributes to OIDC claims
+
+Okta admins can map any of these supported claims to user profile attributes. See [Map profile attributes from Okta to the IDV vendor IdP](https://help.okta.com/okta_help.htm?type=oie&id=id-verification).
+
+Admins can set user profile attributes as **required** when they map them to to the corresponding IDV vendor attribute. The `given_name` and `family_name` claims are **required** by default. When a PAR request is sent from Okta, and a **required** claim doesn't have a value in the user's profile, then the [initial PAR request](#post-oauth2-par-request-to-idv-vendor) fails.
+
+However, if a claim is mapped but not set as **required**, and it doesn't have a value in the user's profile, then the claim is excluded from the initial PAR request. The PAR request isn't failed.
