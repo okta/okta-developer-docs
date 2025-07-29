@@ -6,6 +6,22 @@ title: Okta Classic Engine API release notes 2025
 
 ## July
 
+### Weekly release 2025.07.3
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.07.3](#bugs-fixed-in-2025-07-3)| July 30, 2025 |
+
+#### Bugs fixed in 2025.07.3
+
+* Okta displayed different error messages for valid and invalid usernames after failed sign-in attempts (failed `POST /authn/factors/{factorIdOrFactorType}/verify` requests). (OKTA-958229)
+* The List all user grants operation (`/api/v1/me/grants`) didn't include pagination links in the header of the response. (OKTA-918661)
+* The following Attack Protection API endpoints returned HTTP 404 Not Found errors unless `-admin` was appended to your org subdomain in the URL path. You can now use your standard org subdomain in the URL path when using the Attack Protection API. (OKTA-925650)
+  * `GET /attack-protection/api/v1/authenticator-settings`
+  * `PUT /attack-protection/api/v1/authenticator-settings`
+  * `GET /attack-protection/api/v1/user-lockout-settings`
+  * `PUT /attack-protection/api/v1/user-lockout-settings`
+
 ### Weekly release 2025.07.1
 
 | Change | Expected in Preview Orgs |
