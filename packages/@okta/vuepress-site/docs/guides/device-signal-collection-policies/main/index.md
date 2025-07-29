@@ -27,7 +27,7 @@ Use device signal collection policies to collect contextual information about yo
 
 You can use a device signal collection policy in the following use case, as an example.
 
-One of your users has a registered device with Okta Verify and another authenticator. And you have an authentication policy that requires users to have registered devices when they sign in. You can use the device signal collection policy to check for devices that are registered with Okta Verify when users sign in. And you can configure the device signal collection policy to let users sign in with their other authenticator instead of Okta Verify being used to automatically sign them in.
+One of your users has a registered device with Okta Verify and another authenticator. And you have an authentication policy that requires users to have registered devices when they sign in to Okta. You can use the device signal collection policy to check for devices that are registered with Okta Verify when users sign in. You can then configure the device signal collection policy to let users sign in to Okta with their other authenticator instead of using Okta Verify to automatically sign them in.
 
 ### About platforms
 
