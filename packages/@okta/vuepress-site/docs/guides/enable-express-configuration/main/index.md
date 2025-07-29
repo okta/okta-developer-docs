@@ -2,18 +2,18 @@
 title: Enable Express Configuration
 meta:
   - name: description
-    content: Use this guide to enable Express Configuration for your Auth0-enabled OIDC OIN integration.
+    content: Use this guide to enable Express Configuration for your Auth0-enabled OIDC or SCIM OIN integration.
 layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
 # Enable Express Configuration
 
-This guide walks you through how to enable Express Configuration for your Auth0-enabled OpenID Connect (OIDC) OIN integration.
+This guide walks you through how to enable Express Configuration for your Auth0-enabled OpenID Connect (OIDC) or SCIM OIN integration.
 
 **Learning outcome**
 
-- Understand how to enable Express Configuration for an Auth0-enabled OIDC OIN integration.
+- Understand how to enable Express Configuration for an Auth0-enabled OIDC or SCIM OIN integration.
 - Verify and test the Express Configuration setup to ensure successful integration.
 
 **What you need**
@@ -38,27 +38,12 @@ auth0 login --domain $AUTH0_DOMAIN --scopes update:tenant_settings --scopes crea
 
 The resource server refers to the Okta Express Configuration API. When you authorize Okta for this resource server using OAuth 2.0, Okta receives an access token and uses it to access user and org information.
 
+ > **Note:** The instructions on this page are for the **<StackSnippet snippet="protocol-name" inline/>** protocol. <br>
+    > If you want to change the protocol instructions on this page, select the protocol you want from the **Instructions for** dropdown list on the right.
+
 Run the following command to [create the resource server](https://auth0.github.io/auth0-cli/auth0_api.html) in Auth0:
 
-> **Note**: The `identifier` parameter is a unique URI that identifies the resource server. The `expressconfigure:sso` scope allows Okta to configure Single Sign-On (SSO) settings.
-
-```bash
-auth0 api post resource-servers \
-  --data '{
-    "name": "Okta Express Configure API",
-    "identifier": "https://system.okta.com/actions/express-configure/v1",
-    "scopes": [
-      {
-        "value": "expressconfigure:sso",
-        "description": "Configure SSO with Express Configuration"
-      }
-    ],
-    "enforce_policies": true,
-    "token_lifetime": 300,
-    "allow_offline_access": false,
-    "skip_consent_for_verifiable_first_party_clients": false
-  }'
-```
+<StackSnippet snippet="create-resource-server" />
 
 ## Configure roles and permissions
 
@@ -75,16 +60,9 @@ auth0 roles create \
   --name "EXPRESS_CONFIGURE_ADMIN_ROLE" \
   --description "Administrator role for Express Configuration"
 ```
-
 ### Assign permissions to the role
 
-Assign the `expressconfigure:sso` permission to the specified role. Replace `$ROLE_ID` with the role ID that you want to grant permission to.
-
-```bash
-auth0 roles permissions add "$ROLE_ID" \
-  --api-id "https://system.okta.com/actions/express-configure/v1" \
-  --permissions "expressconfigure:sso"
-```
+<StackSnippet snippet="assign-permission" />
 
 ## Create a client
 
@@ -138,23 +116,7 @@ Use the client credentials that you create in this step to authorize the `Okta O
 
 Run the following commands to create the client credentials. Ensure that you update the `client_id` value with the OIDC app client ID and include the Auth0 domain in the `audience` parameter.
 
-```bash
-auth0 api post client-grants \
-  --data '{
-    "client_id": "'$OIN_APP_CLIENT_ID'",
-    "audience": "https://'$AUTH0_DOMAIN'/api/v2/",
-    "scope": [
-      "create:connections",
-      "read:connections",
-      "update:connections",
-      "read:connections_options",
-      "update:connections_options",
-      "read:organization_connections",
-      "create:organization_connections",
-      "update:organization_connections"
-    ]
-  }'
-```
+<StackSnippet snippet="assign-client-grant" />
 
 ## Configure and deploy an action
 
@@ -245,6 +207,7 @@ auth0 api patch tenants/settings \
     }
   }'
 ```
+<StackSnippet snippet="update-oin-submission" />
 
 ## Email the Okta Express Configuration team
 
@@ -254,6 +217,8 @@ Email the following information to the Okta Express Configuration team at [expre
 * Your app name in the OIN.
 * Okta OIN Integration Client app client ID.
 
+>No
+
 The Okta Express Configuration team configures your app in the OIN and assigns it to your Integrator Free Plan org. You can then test the feature by creating an instance of your app in the OIN catalog.
 
 # Verification and testing
@@ -262,21 +227,7 @@ Follow these steps to verify and test the Express Configuration feature:
 
 1. Sign in to your [org](/login/) as a user with either the super admin (`SUPER_ADMIN`) role, or the app (`APP_ADMIN`) and org (`ORG_ADMIN`) admin [roles](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
 1. Go to **Applications** > **Applications** in the Admin Console.
-1. Click **Browse App Catalog** and search for your app.
-1. Open your app's detail page and click **Add Integration**.
-1. In **General Settings**, click **Done** to create an instance of your OIN app.
-1. Go to the **Authentication** tab.
-1. Click **Configure SSO with OIDC**. You’re redirected to sign in to the app and prompted to consent to data sharing.
-
-<div class="wireframe-border">
-
-![Configure SSO with OIDC](/img/oin/ec_configure_SSO_with_OIDC.png "Configure SSO with OIDC")
-
-</div>
-
-8. Assign a test Okta user to this app instance.
-9. Sign in to your org using this test user and click your app's tile in the End-User Dashboard.
-10. Verify that the user is successfully signed in to your app.
+<StackSnippet snippet="verify-express-configuration" />
 
 ## Additional information
 
