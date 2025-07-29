@@ -1,3 +1,5 @@
+Run the following commands to create the client credentials. Ensure that you update the `client_id` value with the OIDC app client ID and include the Auth0 domain in the `audience` parameter.
+
 ```bash
 auth0 api post client-grants \
   --data '{

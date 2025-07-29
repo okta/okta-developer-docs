@@ -1,4 +1,4 @@
-> **Note**: The `identifier` parameter is a unique URI that identifies the resource server. The `expressconfigure:sso` scope allows Okta to configure Single Sign-On (SSO) settings and `expressconfigure:scim` scope allows for SCIM provisioning capabilities.
+> **Note**: The `identifier` parameter is a unique URI that identifies the resource server. The `expressconfigure:sso` scope allows Okta to configure SSO settings and `expressconfigure:scim` scope allows for SCIM provisioning capabilities.
 
 ```bash
 auth0 api post resource-servers \

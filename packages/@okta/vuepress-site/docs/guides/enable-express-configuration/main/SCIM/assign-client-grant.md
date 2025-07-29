@@ -1,5 +1,6 @@
+Run the following commands to create the client credentials. Ensure that you update the `client_id` value with the OIDC app client ID and include the Auth0 domain in the `audience` parameter.
 
-> **Note:** If you are updating configuration for SCIM provisioning, ensure that you delete the existing client grant (or toggle it off in the Auth0 Dashboard) before running the command below, as Auth0 doesn’t allow updating existing grants.
+> **Note:** If you’re updating your Express Configuration integration for SCIM provisioning, delete the existing client grant or toggle it off in the Auth0 dashboard. Auth0 doesn’t allow you to update an existing grant, so make sure it’s removed before running the following command.
 
 ```bash
 auth0 api post client-grants \
@@ -22,3 +23,4 @@ auth0 api post client-grants \
       "delete:scim_token"
     ]
   }'
+```
