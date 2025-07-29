@@ -4,7 +4,7 @@ excerpt: How to use the Policies API to manage device signal collection policies
 layout: Guides
 ---
 
-<ApiLifecycle access="ie" /></br>
+<ApiLifecycle access="ie" /></br><ApiLifecycle access="ea" />
 
 This guide describes how to use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/) to manage device signal collection policies in your org.
 
@@ -15,6 +15,7 @@ This guide describes how to use the [Policies API](https://developer.okta.com/do
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
+* The Device Signal Collection Policy feature enabled for your org
 * A test [user account](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users)
 * A test [group](https://help.okta.com/okta_help.htm?type=oie&id=usgp-groups-create) in your org that the test user is added to
 
