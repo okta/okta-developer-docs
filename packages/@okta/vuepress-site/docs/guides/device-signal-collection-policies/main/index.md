@@ -251,7 +251,7 @@ Create your own POST request body or copy the [example request](#map-the-devie-s
 
 ## Create a device signal collection policy rule
 
-In this example, create a rule that checks for Okta Verify registered devices when those devices are on `IOS` and `ANDROID` platforms. And allow users to choose which authenticator they want to use to sign in.
+In this example, create a rule that checks for Okta Verify registered devices when those devices are on `IOS` and `ANDROID` platforms. And allow users to choose which authenticator they want to use to authenticate.
 
 Use the [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) endpoint to create a device signal collection policy rule.
 
