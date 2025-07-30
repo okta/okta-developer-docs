@@ -37,7 +37,7 @@ Every user has an Okta user profile. The user profile is the central source of t
 
 #### Okta user ID and status
 
-The Okta user's ID and status can be accessed using the `user.getInternalProperty` function. To use this function, wrap the parameter in quotation marks (`"$param"`).
+The Okta user's ID and status can be accessed using the `user.getInternalProperty` function. To use this function, wrap the parameter in quotation marks (`"$param"` or `'$param'`).
 
 | Syntax | Definitions | Example |
 | --- | --- | ---- |
