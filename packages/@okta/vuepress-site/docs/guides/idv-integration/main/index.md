@@ -90,7 +90,7 @@ To improve readability, the following example values aren’t URL encoded.
 
 ```bash
 curl -L -X POST "https://idv-vendor.com/oauth2/par" \
-  -H "Content-Type: application/x-www-form-urlencoded" \
+  -H "Content-Type: application/json" \
   -d '{
   "response_type": "code",
   "client_id": "{client_id}",
@@ -201,7 +201,7 @@ The error response for an unsuccessful `POST /oauth2/par` request uses this [str
 | verified_claims       | Contains the `verification` and `claims` objects.                                                              | Object     | Object   |
 | verification          | Specifies the parameters and requirements for verifying the claims. Okta uses both the `trust_framework` and `assurance_level` properties. See the OIDC definition of the [verification](https://openid.bitbucket.io/ekyc/openid-ida-verified-claims.html#name-verification-element) property. | Object     | Object   |
 | trust_framework       | Identifies the trust framework that provides assurance about the verified attributes. Okta sets `IDV_DELEGATED` as the default value. This value delegates identity verification and the assurance policy to the IDV vendor. The IDV vendor is then responsible for verifying user identities and sends the results back to Okta. <br></br>`IDV_DELEGATED` is currently the only supported trust framework. See the OIDC definition of the [trust_framework](https://openid.net/specs/openid-ida-verified-claims-1_0.html#section-5.4.2-5) property. | String     | String   |
-| assurance_level       | Identifies the assurance level that's required for the identity claims of the user. The IDV must map their verification results to the possible assurance levels, `VERIFIED` or `FAILED`. <br></br>For a successful verification, the IDV vendor must pass  `VERIFIED` as the `assurance_level`. For a failed verification, the IDV vendor must pass `FAILED` or a `null` value. See the OIDC definition of the [assurance_level](https://openid.net/specs/openid-ida-verified-claims-1_0.html#section-5.4.2-6.1.1) property. | String     | String   |
+| assurance_level       | Identifies the assurance level that's required for the identity claims of the user. The IDV vendor must map their verification results to the possible assurance levels, `VERIFIED` or `FAILED`. <br></br>For a successful verification, the IDV vendor must pass  `VERIFIED` as the `assurance_level`. For a failed verification, the IDV vendor must pass `FAILED` or a `null` value. See the OIDC definition of the [assurance_level](https://openid.net/specs/openid-ida-verified-claims-1_0.html#section-5.4.2-6.1.1) property. | String     | String   |
 | claims                | Contains user-specific attributes. Okta supports these [OIDC claims](#supported-oidc-claims). For more information, see the OIDC definition of the [claims](https://openid.net/specs/openid-ida-verified-claims-1_0.html#name-claims-element) property. | Object     | Object   |
 | fuzzy                 | An extension that adds fuzzy logic to a specified claim to assist with matching the claim value. IDV vendors can choose whether to add this extension to any `claims` attribute. <br></br>The `fuzzy` extension is set as `true` for all claims by default. | String     | String   |
 | state                 | A unique string that maintains a connection between the request and the callback.                              | String     | String   |
@@ -269,8 +269,6 @@ curl -L -X GET "https://{yourOktadomain}/idp/identity-verification/callback?code
 Okta receives the `authorization_code` from the IDV vendor. Okta then uses it to construct and send a `POST /token` request to the IDV vendor. The request contains a `code_verifier` value that’s compared against the `code_challenge` value provided in the `POST /oauth2/par` [request](#post-oauth2-par-request-to-idv-vendor). The values must match for the `POST /token` request to succeed.
 
 #### POST /token request example
-
-To improve readability, the following example values aren’t URL encoded.
 
 ```bash
 curl -L -X POST "https://idv-vendor.com/token" \
