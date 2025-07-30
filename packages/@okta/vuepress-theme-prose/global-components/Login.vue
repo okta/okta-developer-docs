@@ -15,6 +15,7 @@
           </a>
         </label>
       </div>
+      <!--
       <div class="splitter">
         <span />
         <span>or</span>
@@ -39,7 +40,7 @@
             <span class="google-logo" /> Continue with Google
           </a>
         </div>
-      </div>
+      </div>-->
       <div class="row goto-signup">
         Need an account?
         <SmartLink :item="{ link: '/signup/' }">
