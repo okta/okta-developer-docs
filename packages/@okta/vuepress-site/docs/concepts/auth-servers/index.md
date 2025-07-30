@@ -42,8 +42,8 @@ You can't customize the org authorization server's audience, claims, policies, o
 
 The following discovery endpoints return OAuth 2.0 or OIDC metadata related to your org authorization server:
 
-* **OIDC:** `https://{yourOktaDomain}/.well-known/openid-configuration`
 * **OAuth 2.0:** `https://{yourOktaDomain}/.well-known/oauth-authorization-server`
+* **OIDC:** `https://{yourOktaDomain}/.well-known/openid-configuration`
 
 Clients can use this information to programmatically configure their interactions with Okta.
 
