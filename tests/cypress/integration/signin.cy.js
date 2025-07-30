@@ -18,10 +18,10 @@ describe("Sign in page check spec", () => {
       //expect($elList.eq(2)[0].innerText, "signin with google link").to.eq(
       //  signInPage.SIGN_IN_WITH_GOOGLE_LINK_TEXT
       //);
-      expect($elList.eq(3)[0].innerText, "signup link").to.eq(
+      expect($elList.eq(1)[0].innerText, "signup link").to.eq(
         signInPage.SIGN_UP_LINK_TEXT
       );
-      expect($elList.eq(3)[0].href, "signup link").to.contain(
+      expect($elList.eq(2)[0].href, "signup link").to.contain(
         signInPage.SIGN_UP_LINK
       );
     });
@@ -39,7 +39,7 @@ describe("Sign in page check spec", () => {
         //expect($elList.eq(2)[0].href, "signin with googel link")
         //  .to.contain("0oa3jaktbqkiwCthn0g7")
         //  .and.to.contain("https://okta-dev-parent.trexcloud.com");
-        expect($elList.eq(3)[0].href, "signup link").to.contain(
+        expect($elList.eq(1)[0].href, "signup link").to.contain(
           signInPage.SIGN_UP_LINK
         );
       });
