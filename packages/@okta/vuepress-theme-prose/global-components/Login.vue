@@ -45,9 +45,9 @@ export default {
       const { uris } = this.$site.themeConfig;
 
       return {
-        email: "https://login.okta.com/",
-        github: getIdpUri(uris, "github"),
-        google: getIdpUri(uris, "google"),
+        email: "https://login.okta.com/"
+        //github: getIdpUri(uris, "github"),
+        //google: getIdpUri(uris, "google"),
       };
     },
   },
