@@ -21,7 +21,7 @@ describe("Sign in page check spec", () => {
       expect($elList.eq(1)[0].innerText, "signup link").to.eq(
         signInPage.SIGN_UP_LINK_TEXT
       );
-      expect($elList.eq(2)[0].href, "signup link").to.contain(
+      expect($elList.eq(1)[0].href, "signup link").to.contain(
         signInPage.SIGN_UP_LINK
       );
     });
