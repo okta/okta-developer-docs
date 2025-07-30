@@ -23,8 +23,8 @@ Okta authorization servers support both the OAuth 2.0 and OIDC protocols:
 
 Okta provides two types of authorization servers:
 
-* Org authorization server
-* Custom authorization servers
+* [Org authorization server](#org-authorization-server)
+* [Custom authorization server](#custom-authorization-server)
 
 ## Org authorization server
 
@@ -67,10 +67,12 @@ For custom authorization servers that you create yourself, Okta returns a unique
 
 ### Discovery endpoints - custom authorization server
 
-The following endpoints return OIDC or OAuth 2.0 metadata related to a custom authorization server. Clients can use this information to programmatically configure their interactions with Okta. Custom scopes and custom claims aren't returned.
+The following endpoints return OAuth 2.0 or OIDC metadata related to a custom authorization server:
 
 * **OAuth 2.0:** `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`
 * **OIDC:** `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/openid-configuration`
+
+ Clients can use this information to programmatically configure their interactions with Okta. Custom scopes and custom claims aren't returned.
 
 See [Retrieve the OAuth 2.0 metadata](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/getWellKnownOAuthConfigurationCustomAS) and [Retrieve the OpenID Connect metadata](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/getWellKnownOpenIDConfigurationCustomAS) for a custom authorization server.
 
