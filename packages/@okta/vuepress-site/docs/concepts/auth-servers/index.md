@@ -38,6 +38,8 @@ The issuer for access tokens from an org authorization server is `https://{yourO
 
 You can't customize the org authorization server's audience, claims, policies, or scopes. Access tokens issued by the org authorization server are consumable and verifiable by Okta. They aren't intended for validation or use by your own apps or resource servers.
 
+> **Note**: The contents of access tokens, issued by the org authorization server, are subject to change at any time without notice. Hence, any attempts to validate these access tokens might fail in the future.
+
 ### Discovery endpoints - org authorization servers
 
 The following discovery endpoints return OAuth 2.0 or OIDC metadata related to your org authorization server:
