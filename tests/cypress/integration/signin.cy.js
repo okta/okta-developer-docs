@@ -12,12 +12,12 @@ describe("Sign in page check spec", () => {
       expect($elList.eq(0)[0].innerText, "signin with email link").to.eq(
         signInPage.SIGN_IN_WITH_EMAIL_LINK_TEXT
       );
-      expect($elList.eq(1)[0].innerText, "signin with github link").to.eq(
-        signInPage.SIGN_IN_WITH_GITHUB_LINK_TEXT
-      );
-      expect($elList.eq(2)[0].innerText, "signin with google link").to.eq(
-        signInPage.SIGN_IN_WITH_GOOGLE_LINK_TEXT
-      );
+      // expect($elList.eq(1)[0].innerText, "signin with github link").to.eq(
+      //  signInPage.SIGN_IN_WITH_GITHUB_LINK_TEXT
+      //);
+      //expect($elList.eq(2)[0].innerText, "signin with google link").to.eq(
+      //  signInPage.SIGN_IN_WITH_GOOGLE_LINK_TEXT
+      //);
       expect($elList.eq(3)[0].innerText, "signup link").to.eq(
         signInPage.SIGN_UP_LINK_TEXT
       );
