@@ -15,32 +15,6 @@
           </a>
         </label>
       </div>
-      <!--
-      <div class="splitter">
-        <span />
-        <span>or</span>
-        <span />
-      </div>
-      <div class="row">
-        <div class="field-wrapper">
-          <a
-            class="btn social-btn"
-            :href="uris.github"
-          >
-            <i class="fa fa-github" /> Continue with GitHub
-          </a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="field-wrapper">
-          <a
-            class="btn social-btn"
-            :href="uris.google"
-          >
-            <span class="google-logo" /> Continue with Google
-          </a>
-        </div>
-      </div>-->
       <div class="row goto-signup">
         Need an account?
         <SmartLink :item="{ link: '/signup/' }">
