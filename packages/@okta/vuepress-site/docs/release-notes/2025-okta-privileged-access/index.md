@@ -6,6 +6,19 @@ title: Okta Privileged Access API release notes 2025
 
 Okta Privileged Access (OPA) is available for both Okta Classic and Identity Engine.
 
+## July
+
+### Weekly release 2025.07.3
+
+#### Active Directory rotate password configuration is EA in Preview
+
+Resource admins can now disable the initial password rotation for discovered Active Directory (AD) accounts. Previously, all new or updated AD accounts discovered were automatically initiated for password rotation. Security admins can now set up security policies with rotate-password privileges. End users under that security policy can rotate accessible AD accounts regardless of whether the password was initially rotated. This feature provides the flexibility for OPA admins and end users to manage password rotation.
+
+* Resource admins can disable initial password rotation through an AD account rule (see `enable_initial_password_rotation` in [Create an Active Directory account rule](https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-accounts/#tag/active-directory-accounts/operation/createActiveDirectoryAccountRule)).
+* Security admins can create security policies with AD rules that enable password rotation privileges for end users (see the `update_password` privilege in `rules.privileges` from [Create a security policy](https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-accounts/#tag/active-directory-accounts/operation/createActiveDirectoryAccountRule)).
+* End users with the rotate password privilege can rotate their account password (see [Rotate the password for Active Directory account](https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-accounts/#tag/active-directory-accounts/operation/rotateActiveDirectoryAccountPassword)).
+<!-- OKTA-922640 and OKTA-911729 pam_active_directory_rotate_now FF -->
+
 ## June
 
 ### Monthly release 2025.06.0
