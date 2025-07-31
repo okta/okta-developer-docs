@@ -136,7 +136,7 @@ Update the Okta property list (`Okta.plist`) with the Okta org OIDC settings tha
 1. Your user's profile appears. Click **Token details** to review the access token and the refresh token.
 1. Click **Sign Out** and **Revoke Tokens** to sign out and return to the sign-in page.
 
-<div class="three-quarter">
+<div class="half">
 
 !["An image that shows the ios simulator with the start page of the IdxAuthSignIn app. The title "Embedded Auth with SDKs" and a sign-in button appears."](/img/ios-native-mobile-app-splash-screen.png)
 
