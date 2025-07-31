@@ -47,7 +47,7 @@ export default {
       if (el.guideName) {
         return el.guideName;
       }
-      return el.title.toLowerCase().replace(/ /ig, '-').replace(/\//ig, '-');
+      return el.title.toLowerCase().replace(/ /ig, '-').replace(/\//ig, '-').replace(/[()]/g, '');
     },
 
     addStatesToLink(link, parent = null) {
@@ -58,7 +58,9 @@ export default {
         if (!link.guideName) {
           const parentTitle = this.sanitizeTitle(parent);
           let path = '';
-          if (parentTitle !== 'guides' && parent.path) {
+          if (  parentTitle !== 'guides' &&
+                parentTitle !== 'journeys' &&
+                parent.path) {
             const splittedPath = parent.path.split('/')
             if (parent.path.indexOf(parentTitle) >= 0) {
               path = parent.path.replace(parentTitle, this.sanitizeTitle(link));

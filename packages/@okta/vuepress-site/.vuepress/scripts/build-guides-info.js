@@ -10,6 +10,7 @@ const path = require('path')
 // Also blow up on sanity failures, so we can catch them at build time (even dev build)
 
 const GUIDE_ROOT = 'docs/guides';
+const JOURNEYS_ROOT = 'docs/journeys';
 
 const getFrontMatterFrom = text => text.replace(/.*^---\s/m, '').replace(/^---[\s\S]*/m, '');
 const getMetaFor = path => yaml.safeLoad(getFrontMatterFrom( fs.readFileSync(`${path}/index.md`, { encoding: 'utf8'} ))); // TODO: Path sep?
@@ -20,6 +21,13 @@ const getFrameworksFor = path => {
 };
 
 const guideInfo = {};
+
+const allJourneysMeta = getMetaFor(JOURNEYS_ROOT);
+allJourneysMeta.journeys.forEach( journey => {
+  const journeyMeta = getMetaFor(`${JOURNEYS_ROOT}/${journey}`);
+  journeyMeta.guide = journeyMeta;
+  guideInfo[`/${JOURNEYS_ROOT}/${journey}/`] = {...journeyMeta};
+});
 
 // Load frontmatter yaml to JS from root file index page
 const allGuidesMeta = getMetaFor(GUIDE_ROOT);

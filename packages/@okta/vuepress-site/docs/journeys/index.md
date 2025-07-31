@@ -1,6 +1,8 @@
 ---
 layout: Landing
 title: Journeys
+journeys:
+ - OCI-secure-your-first-web-app
 ---
 
 # Journeys
