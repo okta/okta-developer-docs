@@ -99,7 +99,7 @@ cd okta-mobile-swift
 ### Open the browserless sample app
 
 1. In Xcode, open the `OktaClient.xcworkspace` workspace from the root level.
-1. Select the `IdxAuthSignIn` app target, and choose a simulator type to use.
+1. In the navigator pane, select the `IdxAuthSignIn` app target from `Samples`, and choose a simulator type to use.
 
 ### Add project dependencies
 
@@ -135,6 +135,12 @@ Update the Okta property list (`Okta.plist`) with the Okta org OIDC settings tha
 1. Sign in with a user assigned to your app integration. Authenticate with one or more authenticators based on your app's authentication policy.
 1. Your user's profile appears. Click **Token details** to review the access token and the refresh token.
 1. Click **Sign Out** and **Revoke Tokens** to sign out and return to the sign-in page.
+
+<div class="three-quarter">
+
+!["An image that shows the ios simulator with the start page of the IdxAuthSignIn app. The title "Embedded Auth with SDKs" and a sign-in button appears."](/img/ios-native-mobile-app-splash-screen.png)
+
+</div>
 
 ## Next steps
 
