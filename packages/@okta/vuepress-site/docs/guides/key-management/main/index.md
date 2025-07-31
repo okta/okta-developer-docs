@@ -24,7 +24,7 @@ Create and manage the keys that you use for authenticating your app and for encr
 * An existing OpenID Connect client app and existing custom authorization server in Okta for testing
 * A JWK public/private key pair for testing
 * The [Postman client](https://www.getpostman.com/downloads/) to test requests. See [Get Started with the Okta APIs](https://developer.okta.com/docs/reference/rest/) for information on setting up Postman.
-* The [Key management Postman Collection](https://www.postman.com/devdocsteam/workspace/developer-docs-postman-collections/collection/6141897-2cc824d1-a4d2-4a13-8460-988a8f834f5e) that allows you to test the API calls that are described in this guide. Click the ellipses next to the collection name in the left panel. Click **More** > **Export**, and then click **Export JSON** to export the collection locally. You can then import the collection into your Postman Workspace.
+* The [Key management Postman Collection](https://www.postman.com/devdocsteam/workspace/developer-docs-postman-collections/collection/6141897-7e253bad-5a9d-40c1-ba29-f1b0704f99ad) that allows you to test the API calls that are described in this guide. Click the ellipses next to the collection name in the left panel. Click **More** > **Export**, and then click **Export JSON** to export the collection locally. You can then import the collection into your Postman Workspace.
 * The self-service EA OIDC token encryption feature enabled for your org to test the encryption key tasks. To enable, go to **Settings** > **Features**, locate the feature and enable.
 
 ---
