@@ -87,8 +87,6 @@ When Okta sends the request, a unique verification session is established.
 
 #### POST /oauth2/par request example
 
-To improve readability, the following example values aren’t URL encoded.
-
 ```bash
 curl -L -X POST "https://idv-vendor.com/oauth2/par" \
   -H "Content-Type: application/json" \
@@ -120,17 +118,19 @@ curl -L -X POST "https://idv-vendor.com/oauth2/par" \
             },
             "family_name": {
               "value": "{ud_mapped_last_name}",
-              "fuzzy": false
+              "fuzzy": true
             },
             "middle_name": {
               "value": "{ud_mapped_middle_name}"
+              "fuzzy": true
             },
             "email": {
               "value": "{ud_mapped_email}"
+              "fuzzy": true
             },
             "bithdate": {
               "value": "{ud_mapped_birthdate}",
-              "fuzzy": false
+              "fuzzy": true
             },
             "phone_number": {
               "value": "{ud_mapped_phone_number}",
@@ -151,11 +151,11 @@ curl -L -X POST "https://idv-vendor.com/oauth2/par" \
               },
               "postal_code": {
                 "value": "{ud_mapped_zipcode}",
-                "fuzzy": false
+                "fuzzy": true
               },
               "country": {
                 "value": "{ud_mapped_country}",
-                "fuzzy": false
+                "fuzzy": true
               }
             }
           }
