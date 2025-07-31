@@ -16,6 +16,7 @@ Email the following information to the Okta Express Configuration team at [expre
 * Confirmation that your app supports SCIM provisioning.
 * Your app name in the OIN
 * Okta OIN Integration Client app client ID
+* Your Auth0 domain name
 
 The Okta Express Configuration team configures your app in the OIN and then assigns it to your Integrator Free Plan org.
 

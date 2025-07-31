@@ -5,7 +5,8 @@ Email the following information to the Okta Express Configuration team at [expre
 * Confirmation that you completed all the steps in this guide and that your app is ready to support Express Configuration.
 * Your app name in the OIN
 * Okta OIN Integration Client app client ID
+* Your Auth0 domain name
 
-The Okta Express Configuration team configures your app in the OIN and then assigns it to your Integrator Free Plan org. 
+The Okta Express Configuration team configures your app in the OIN and then assigns it to your Integrator Free Plan org.
 
 You can test the feature by creating an instance of your app in the OIN catalog.
