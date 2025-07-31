@@ -115,13 +115,16 @@ cd okta-mobile-swift
 Update the Okta property list (`Okta.plist`) with the Okta org OIDC settings that you created earlier in [Create an Okta integration for your iOS app](#create-an-okta-integration-for-your-ios-app).
 
 1. In Xcode, open the sample app's `Okta.plist` file (`IdxAuthSignIn/IdxAuthSignIn/Okta`).
-1. Use the built-in-editor, or other means, to update the values for the following keys:
+1. Use the built-in-editor, or other means, to update the string values for the following keys:
 
-    * `issuer_url`: The customer authorization server URL for your org (for example, `https:{yourOktaDomain.okta.com/oauth2/default}`)
-    * `client_id`: The `id` for your Okta app integration (for example, `0oatd7g4tyk3bSlgL8867`)
-    * `scope`: The scopes required by the app. Use `openid profile offline_access`.
-    * `redirect_uri`: Your Okta app integration's **Sign-in redirect URIs** value, for example, `com.okta.{yourOktaDomain}:/callback`
-    * `logout_redirect-uri`: Your Okta app integration's **Sign-our redirect URIs** value, for example, `com.okta.{yourOktaDomain}:/`
+   | Key | Value |
+   | --- | ----- |
+   | `clientId` | The `id` for your Okta app integration (for example, `0oatd7g4tyk3bSlgL8867`) |
+   | `issuer` | The customer authorization server URL for your org (for example, `https:{yourOktaDomain}.okta.com/oauth2/default`) |
+   | `logoutRedirectUri` | Your Okta app integration's **Sign-our redirect URIs** value, for example, `com.okta.{yourOktaDomain}:/` |
+   | `redirectUri` | Your Okta app integration's **Sign-in redirect URIs** value, for example, `com.okta.{yourOktaDomain}:/callback` |
+   | `scope` | The scopes required by the app. Use `openid profile offline_access` |
+   [[.table-word-break]]
 
 1. Save the file.
 

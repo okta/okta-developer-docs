@@ -1,1 +1,0 @@
-A callback URI is required only for the system opening the app from a URL, such as one sent with a notification. This sample is always in the foreground so no callback URI is required.
