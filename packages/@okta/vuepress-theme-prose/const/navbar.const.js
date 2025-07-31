@@ -379,6 +379,10 @@ export const guides = [
               {
                 title: "Identity Engine SDK overview",
                 guideName: "mobile-idx-sdk-overview"
+              },
+              {
+                title: "Sign in to your native mobile app",
+                guideName: "sign-into-mobile-app-embedded"
               }
             ]
           },
