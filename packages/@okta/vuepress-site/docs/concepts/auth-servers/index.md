@@ -57,8 +57,6 @@ Custom authorization servers allow you to define and apply authorization policie
 
 If you subscribe to the Okta [API Access Management](/docs/concepts/api-access-management/) product, you can [create multiple custom authorization servers](/docs/guides/customize-authz-server/main/#create-an-authorization-server) within your Okta org. For each custom authorization server, you can define your own OAuth 2.0 [scopes](/docs/guides/customize-authz-server/main/#create-scopes), [claims](/docs/guides/customize-authz-server/main/#create-claims), and [access policies](/docs/guides/customize-authz-server/main/#create-access-policies). Your own apps or resource servers use and validate the access tokens minted by your custom authorization server. See [Validate access tokens](https://developer.okta.com/docs/guides/validate-access-tokens/) and [Validate ID tokens](https://developer.okta.com/docs/guides/validate-id-tokens/main/).
 
-> **Note:** You can't mix tokens between different authorization servers. By design, authorization servers don't have trust relationships with each other.
-
 See [Create an authorization server](/docs/guides/customize-authz-server/main/#create-an-authorization-server) from the Admin Console, or [Create an authorization server](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/#tag/AuthorizationServer/operation/createAuthorizationServer) from the API.
 
 ### Issuer - custom authorization server
