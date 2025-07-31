@@ -63,7 +63,7 @@ See [Create an authorization server](/docs/guides/customize-authz-server/main/#c
 
 ### Issuer - custom authorization server
 
-For custom authorization servers that you create yourself, Okta returns a unique authorization server identifier (such as `aus9o8wzkhckw9TLa0h7z`). Use this identifier when you see the `{authorizationServerId}` variable for your custom authorization server. The issuer for access tokens from your custom authorization server is in the following format:
+For custom authorization servers that you create yourself, Okta returns a unique authorization server identifier (such as `aus9o8wzkhckw9TLa0h7z`). Use this identifier when you see the `{authorizationServerId}` variable to identify your custom authorization server. The issuer for access tokens from your custom authorization server is in the following format:
 
 `https://{yourOktaDomain}/oauth2/{authorizationServerId}`
 
