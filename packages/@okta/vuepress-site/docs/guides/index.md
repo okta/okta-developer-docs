@@ -172,6 +172,7 @@ guides:
  - add-logingov-idp
  - policy-simulation
  - idv-integration
+ - device-signal-collection-policies
  - authenticators-tac-authenticator
  - custom-well-known-uri
 ---
