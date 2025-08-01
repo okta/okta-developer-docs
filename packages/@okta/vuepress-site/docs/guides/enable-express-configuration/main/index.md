@@ -7,8 +7,6 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-# Enable Express Configuration
-
 This guide walks you through how to enable Express Configuration for your Auth0-enabled <StackSnippet snippet="protocol-name" inline/> OIN integration.
 
 **Learning outcome**
@@ -27,6 +25,8 @@ This guide walks you through how to enable Express Configuration for your Auth0-
 <StackSnippet snippet="notes" />
 
 ## Authenticate with Auth0 CLI
+
+To enable Express Configuration, your first step is to [Authenticate with the Auth0 CLI](https://auth0.github.io/auth0-cli/auth0_login.html) to establish a connection between your app environment and your Auth0 tenant. Run the following command to authenticate with the Auth0 CLI with the appropriate scopes.
 
 <StackSnippet snippet="authenticate-cli" />
 
