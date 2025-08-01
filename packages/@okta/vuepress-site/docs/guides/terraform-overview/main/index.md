@@ -14,7 +14,7 @@ You write code in Terraform that describes the desired state of your Okta org, i
 
 ## Okta plugin for Terraform
 
-Terraform uses plugins called Providers to automate different types of services and applications. The Okta Provider is the plugin for Workforce Identity Cloud (WIC) that enables you to manage your Okta org with Terraform. The provider contains many components that provide the functionality to manage parts of your org, such as groups and applications. In Terraform, these components are identified as resources and data sources. You use resources to describe the desired state of objects in your org and data sources to read the state of objects in your org.
+Terraform uses plugins called Providers to automate different types of services and applications. The Okta Provider is the plugin that enables you to manage your Okta org with Terraform. The provider contains many components that provide the functionality to manage parts of your org, such as groups and applications. In Terraform, these components are identified as resources and data sources. You use resources to describe the desired state of objects in your org and data sources to read the state of objects in your org.
 
 For example, you can include an `okta_groups` resource in your Terraform code to create and update a group. Similarly, you can include an `okta_policy` data source for Terraform to read the information for a policy.
 
