@@ -7,13 +7,20 @@ meta:
 
 # Okta Integrator Free Plan org configurations
 
-This document provides reference details on the default configurations for the Integrator Free Plan orgs available from [https://developer.okta.com/signup/](/signup/). These orgs are for development and testing by developers interested in implementing an Okta solution.
+This document provides reference details on the default configurations for the Integrator Free Plan orgs. These orgs are available from [https://developer.okta.com/signup/](/signup/).
 
-The Integrator Free Plan orgs are also required for those developers planning a submission to the Okta Integration Network (OIN). For further details on this process, see the [Okta Integration Network](/docs/guides/okta-integration-network/).
+Integrator Free Plan orgs are great for developers who want to build and test with Okta. You also need an Integrator Free Plan org if you want to submit to the Okta Integration Network (OIN). See the [Okta Integration Network](/docs/guides/okta-integration-network/).
+
+## Sign up for an Integrator Free Plan org
+
+1. Go to Okta [Sign up](https://developer.otka.com/signup), and in the Okta Workforce Identity tile, select **Sign up for Integrator Free Plan**.
+1. Enter your name, location, and a business email address to create a free Integrator Free Plan org.
+
+You receive a verification email with your org domain name after sign up. Also included is a link to activate your account and set up your password and other authenticators.
 
 ## Integrator Free Plan org features
 
-The Integrator Free Plan org is provisioned with the following features:
+The Integrator Free Plan org is provisioned with the features in the following table. If you require other features or functionality, contact Okta Support or your account representative.
 
 | Feature                                     | Description                                    |
 |---------------------------------------------|------------------------------------------------|

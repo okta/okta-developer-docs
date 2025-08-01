@@ -148,7 +148,7 @@ In this example, create a policy that allows a specific group, **Full time emplo
 
 * Create a network zone, **Corporate Network**, that defines the IP addresses used in your corporate office. See the [Network Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) and [Network zones](https://help.okta.com/okta_help.htm?id=ext-network-zones).
 
-* Ensure that you have [set up your Okta org for a password-optional use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
+* Ensure that you have [set up your Okta org for a password-optional use case](/docs/guides/set-up-org/#set-up-your-okta-org-for-a-password-factor-only-use-case).
 
 ### Create a passwordless policy
 

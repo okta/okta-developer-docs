@@ -33,7 +33,7 @@ This guide covers a sequence of steps that you can follow to build an app that a
 
 Before you build the Facebook IdP sign-in flow, ensure that you've completed the following steps:
 
-* [Set up your app for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-password-factor-only-use-case)
+* [Set up your app for a password factor only use case](/docs/guides/set-up-org/#set-up-your-okta-org-for-a-password-factor-only-use-case)
 
 * [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-social-idp-use-case)
 

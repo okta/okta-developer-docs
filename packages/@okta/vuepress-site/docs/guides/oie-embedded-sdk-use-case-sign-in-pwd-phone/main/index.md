@@ -4,10 +4,6 @@ title: Sign in with password and phone factors
 
 <ApiLifecycle access="ie" />
 
-> **Note:** In proxy model architectures, where a server-side app using the embedded SDK is used as a proxy between client apps and Okta servers, a request context for the client apps is required. The expectation is that security enforcement is based on the client request context's IP address and user agent.
->
->However, since these values are currently derived from the server app rather than the client, this enforcement isn't available. As a result, network zones or behaviors that drive their conditions based on these request context values (geolocation, IP Address, or user agent) won't work until a solution to the issue is found.
-
 This guide covers the use case for a user sign-in flow with password and phone factors.
 
 <StackSnippet snippet="pwdoptionalusecase" inline />
@@ -22,7 +18,7 @@ This guide covers the use case for a user sign-in flow with password and phone f
 #### What you need
 
 * An app that uses the embedded Identity Engine SDK
-* [Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)
+* [Okta org already configured for a multifactor use case](/docs/guides/set-up-org/#set-up-your-okta-org-for-a-multifactor-use-case)
 * [Identity Engine SDK set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
 
 #### Sample code
@@ -30,6 +26,12 @@ This guide covers the use case for a user sign-in flow with password and phone f
 <StackSnippet snippet="samplecode" />
 
 ---
+
+## About request context and embedded SDKs
+
+In proxy model architectures, a request context for the client apps is required. A proxy model architecture is where a server-side app using the embedded SDK is used as a proxy between client apps and Okta servers. The expectation is that security enforcement is based on the client request context's IP address and user agent.
+
+However, because these values are currently derived from the server app rather than the client, this enforcement isn't available. Therefore, network zones or behaviors that drive their conditions are based on the server app's request context values (geolocation, IP Address, or user agent).
 
 ## Configuration updates
 
@@ -41,11 +43,11 @@ This sign-in use case requires the password and phone factors.
 
 </div>
 
-Before you build a sign-in flow with password and phone factors, you need to configure the Okta org to accept both factors in your app. See [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case) to configure your app and Okta org for this use case.
+Before you build a sign-in flow with password and phone factors, you need to configure the Okta org to accept both factors in your app. See [Set up your Okta org for a multifactor use case](/docs/guides/set-up-org/#set-up-your-okta-org-for-a-multifactor-use-case) to configure your app and Okta org for this use case.
 
 ### Set phone as optional for authentication enrollment
 
-The instructions in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case) enables both email and phone factors as optional for enrollment. For this use case, you need to enable the phone factor as optional and disable the email factor.
+The instructions in [Set up your Okta org for a multifactor use case](/docs/guides/set-up-org/#set-up-your-okta-org-for-a-multifactor-use-case) enables both email and phone factors as optional for enrollment. For this use case, you need to enable the phone factor as optional and disable the email factor.
 
 1. In the Admin Console, go to **Security** > **Authenticators**.
 1. On the **Authenticators** page, select the **Enrollment** tab.
