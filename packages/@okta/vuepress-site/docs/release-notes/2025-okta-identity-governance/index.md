@@ -8,6 +8,41 @@ Okta Identity Governance is available for both Okta Classic and Identity Engine.
 
 For changes prior to 2025, see [Archived Okta Identity Governance API Changelog (2023-2024)](/docs/release-notes/oig-changelog/).
 
+## August
+
+### Monthly release 2025.08.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [List all access request catalog entries for a user is GA](#list-all-access-request-catalog-entries-for-a-user-is-ga) | July 16, 2025|
+| [Unified requester experience is EA](#unified-requester-experience-is-ea) | July 16, 2025 |
+| [Bug fixed in 2025.08.0 ](#bug-fixed-in-2025-08-0) | August 7, 2025 |
+
+#### List all access request catalog entries for a user is GA
+
+The [List all access request catalog entries for a user]([https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultUserEntriesV2|https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultUserEntriesV2]) (`GET /governance/api/v2/catalogs/default/user/{userId}/entries`) operation is now included in the **Access Requests - V2** > [Catalogs]([https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/|https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/]) API. As an admin, use this operation to list access request catalog entries for a user. A filter expression query parameter is required to specify the set of entries in the response.
+<!-- [OKTA-954146] [OKTA-915784] [OKTA-975991], used for (but not dependent on) ACCESS_REQUESTS_UNIFIED_CATALOG -->
+
+#### Unified requester experience is EA
+
+Use this feature to create a consistent and unified experience for initiating requests in End-User Dashboard, Slack, and Microsoft Teams regardless of whether the request is managed by conditions or request types. This gives you the flexibility to use either or both methods together to manage resource access without altering the requester experience.
+
+* Request types now appear as tiles in the End-User Dashboard's resource catalog alongside other resources. Your settings for a request type's audience continue to govern which users can view the request type on their dashboard and request access.
+* In Slack and Microsoft Teams, users can now request access to resources that are governed by access request conditions, and the user experience for requesting resources that are managed by request types has also been changed.
+
+Additionally, in the Okta Access Requests app, the **Access requests** page has been renamed to **Resource catalog** and clicking it redirects requesters to the resource catalog on the End-User Dashboard. The **Request types** section in the web app is only visible to admins and team members who own the request type. See <MadCap:xref href="/Content/Topics/identity-governance/access-requests/ar-request-create.htm">Create requests</MadCap:xref>
+
+This is an Early Access feature. See [Enable self-service features](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#early-access-ea).
+
+The following Access Request API updates have been made to support the unified requester experience:
+
+* New `REQUEST_TYPE` option for [accessScopeType](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Requests/#tag/Requests/operation/listAllRequestsV2!c=200&path=data/requested/accessScopeType&t=response) in the [Requests](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Requests/) API
+* New [validRequestOnBehalfOfSettings](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Settings/#tag/Request-Settings/operation/getRequestSettingsV2!c=200&path=validRequestOnBehalfOfSettings&t=response) property for [Request Settings](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Settings/) API
+* [Related entry link updates for catalog entry responses](#related-entity-link-updates-for-catalog-entry-responses)
+* [List all access request catalog entries for a user](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultUserEntriesV2) <!-- OKTA-968620 ACCESS_REQUESTS_UNIFIED_CATALOG EA Preview and Prod -->
+
+#### Bug fixed in 2025.08.0
+
 ## July
 
 ### Weekly release 2025.07.2
