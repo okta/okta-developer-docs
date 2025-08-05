@@ -20,7 +20,7 @@ To enable the Express Configuration feature, email to the Okta Express Configura
 
 * Your Okta Integrator Free Plan org
 * The name of your app in the OIN
-* Your Auth0 App Client ID
+* Your Auth0 App client ID
 * Auth0 tenant domain (include the custom domain, if applicable)
 
 After confirming your app's eligibility, the Okta Express Configuration team provides a public key in PEM format. This key is required to enable Express Configuration. Follow the steps in [Enable Express Configuration](/docs/guides/enable-express-configuration/main/) after receiving the public key.
