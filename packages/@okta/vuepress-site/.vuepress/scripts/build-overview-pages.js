@@ -28,7 +28,11 @@ function sanitizeTitle(el) {
   if (el.guideName) {
     return el.guideName;
   }
-  return el.title.toLowerCase().replace(/ /ig, '-').replace(/\//ig, '-');
+
+  if (el.journeyName) {
+    return el.journeyName;
+  }
+  return el.title.toLowerCase().replace(/ /ig, '-').replace(/\//ig, '-').replace(/[()]/g, '');
 }
 
 let generatedPages = [];
@@ -37,36 +41,44 @@ function generatedLinks(arr, parent = null) {
   if (arr) {
     for (let el of arr) {
       if (el) {
-        if (!el.path && !el.guideName) {
-          const parentTitle = sanitizeTitle(parent);
-          let path = '';
-          if (parentTitle !== 'guides' && parent.path) {
+        if (!el.path && parent && parent.path) {
+          const isGuide = !el.guideName && !parent.path.includes('docs/journeys');
+          const isJourney = !el.journeyName && parent.path.includes('docs/journeys');
+
+          if (isGuide || isJourney) {
+            const parentTitle = sanitizeTitle(parent);
+            const elTitle = sanitizeTitle(el);
             const splittedPath = parent.path.split('/');
-            if (parent.path.indexOf(parentTitle) >= 0) {
-              path = parent.path.replace(parentTitle, sanitizeTitle(el));
-            } else if (parent.path == '/code/') {
-              path = `/${splittedPath[1]}/${sanitizeTitle(el)}/`;
+            let path = '';
+
+            if ((isGuide && parentTitle !== 'guides') || (isJourney && parentTitle !== 'journeys')) {
+              if (parent.path.includes(parentTitle)) {
+                path = parent.path.replace(parentTitle, elTitle);
+              } else if (parent.path === '/code/') {
+                path = `/${splittedPath[1]}/${elTitle}/`;
+              } else {
+                path = `/${splittedPath[1]}/${splittedPath[2]}/${elTitle}/`;
+              }
             } else {
-              path = `/${splittedPath[1]}/${splittedPath[2]}/${sanitizeTitle(el)}/`;
+              path = parent.path + elTitle + "/";
             }
-          } else {
-            path = parent.path + sanitizeTitle(el) + "/";
+
+            const page = {
+              path,
+              title: el.title,
+              frontmatter: {}
+            }
+            if (el.customLandingPage) {
+              page.frontmatter.customLandingPage = true;
+            } else {
+              page.frontmatter.generated = true;
+            }
+            if (el.description) {
+              page.description = el.description;
+            }
+            generatedPages.push(page);
+            el.path = path;
           }
-          const page = {
-            path,
-            title: el.title,
-            frontmatter: {}
-          }
-          if (el.customLandingPage) {
-            page.frontmatter.customLandingPage = true;
-          } else {
-            page.frontmatter.generated = true;
-          }
-          if (el.description) {
-            page.description = el.description;
-          }
-          generatedPages.push(page);
-          el.path = path;
         }
         if (!el.path) {
           el.path = parent.path + sanitizeTitle(el) + "/";
