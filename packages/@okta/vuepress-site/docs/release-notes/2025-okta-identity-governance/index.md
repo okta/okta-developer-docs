@@ -14,9 +14,23 @@ For changes prior to 2025, see [Archived Okta Identity Governance API Changelog 
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
+| [Governance delegates APIs are Beta](#governance-delegates-apis-are-beta) | August 7, 2025 |
 | [List all access request catalog entries for a user is GA](#list-all-access-request-catalog-entries-for-a-user-is-ga) | July 16, 2025|
 | [Unified requester experience is EA](#unified-requester-experience-is-ea) | July 16, 2025 |
 | [Bug fixed in 2025.08.0 ](#bug-fixed-in-2025-08-0) | August 7, 2025 |
+
+#### Governance delegates APIs are Beta
+
+Super admins and users can assign delegates to complete governance tasks. These include access certification campaign reviews and access request approvals, questions, and tasks. When approvers are unavailable, their tasks can be assigned to different stakeholders ( delegates) for a period of time to ensure that governance processes don't stall. This also reduces the time admins and users spend reassigning requests and reviews manually.
+
+The following APIs support the governance delegates flow and are available as Beta:
+
+* Principal Settings API > [Update the principal settings](/iga/openapi/governance.api/tag/Principal-Settings/#tag/Principal-Settings/operation/updatePrincipalSettings)
+* Delegates > [List all delegate appointments](/iga/openapi/governance.api/tag/Delegates/#tag/Delegates/operation/listDelegateAppointments)
+* My Settings > [Retrieve the settings](/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/getMySettings)
+* My Settings > [Update the settings](/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/updateMySettings)
+* My Settings > [List the eligible delegate users](/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/listMyDelegateUsers)
+<!-- OKTA-987070 GOVERNANCE_DELEGATES FF -->
 
 #### List all access request catalog entries for a user is GA
 
@@ -42,6 +56,8 @@ The following Access Request API updates have been made to support the unified r
 * [List all access request catalog entries for a user](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultUserEntriesV2) <!-- OKTA-968620 ACCESS_REQUESTS_UNIFIED_CATALOG EA Preview and Prod -->
 
 #### Bug fixed in 2025.08.0
+
+The filtered entitlement bundles request (GET /governance/api/v1/entitlement-bundles) with the contains (`co`) operator didn't sort results by the substring's location within the `name` field.
 
 ## July
 

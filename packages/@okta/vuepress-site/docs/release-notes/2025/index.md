@@ -10,14 +10,46 @@ title: Okta Classic Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
+| [Breached Credentials Protection is GA in Preview](#breached-credentials-protection-is-ga-in-preview) | May 15, 2025 |
+| [Clear user factors for all devices is GA in Preview](#clear-user-factors-for-all-devices-is-ga-in-preview) | August 7, 2025 |
+| [Encryption of ID tokens and access tokens is EA](#encryption-of-id-tokens-and-access-tokens-is-ea) | August 7, 2025 |
 | [Expanded use of user.getGroups() function in Okta Expression Language is GA in Production](#expanded-use-of-usergetgroups-function-in-okta-expression-language-is-ga-in-production) |June 4, 2025 |
+| [Group Push Mappings is GA in Preview](#group-push-mappings-is-ga-in-preview) | August 7, 2025 |
+| [Multiple active IdP signing certificates is EA](#multiple-active-idp-signing-certificates-is-ea) | August 7, 2025 |
+| [New user profile permission](#new-user-profile-permission) | August 7, 2025 |
 | [OAuth 2.0 provisioning for Org2Org with Autorotation is GA in Preview](#oauth-20-provisioning-for-org2org-with-autorotation-is-ga-in-preview) | April 2, 2025 |
+| [Service Accounts API is EA](#service-accounts-api-is-ea) | August 8, 2025 |
 | [Unified claims generation for custom apps is self-service EA in preview](#unified-claims-generation-for-custom-apps-is-self-service-ea-in-preview) | July 30, 2025 |
+| [Web app integrations now mandate the use of the Authorization Code flow](#web-app-integrations-now-mandate-the-use-of-the-authorization-code-flow) | August 7, 2025 |
 | [Bug fixed in 2025.08.0 ](#bug-fixed-in-2025-08-0) | August 7, 2025 |
+
+#### Breached Credentials Protection is GA in Preview
+
+Protect your org from the impact of credentials that have been compromised. If Okta determines that a username and password combination has been compromised after being compared to a third-party curated dataset, the protection response is customizable through password policies, including resetting the user's password, forcing a logout, or calling a delegated Workflow. See the [Okta Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/). <!-- BREACHED_CREDENTIALS_ADMIN_UX OKTA-822284 -->
+
+#### Clear user factors for all devices is GA in Preview
+
+When you make a Revoke all user sessions (/api/v1/users/{userId}/sessions) request, include the new `[`forgetDevices` parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserSessions/#tag/UserSessions/operation/revokeUserSessions!in=query&path=forgetDevices&t=request) (with a value of `true`) to clear a user's remembered factors on all devices. The user is prompted for full authentication on their next sign-in attempt from any device. The `forgetDevices` parameter is set to `false` by default. <!-- ENG_ENABLE_FORGET_DEVICES_INTENT_FOR_DELETE_USER_SESSIONS_API OKTA-979587 -- >
+
+#### Encryption of ID tokens and access tokens is EA
+
+You can now encrypt OIDC ID tokens for Okta-protected custom app integrations using JSON Web Encryption. You can also now encrypt access tokens minted by a custom authorization server. See [Key management](/docs/guides/key-management/main/). <!-- OIDC_TOKEN_ENCRYPTION OKTA-978457 -- >
 
 #### Expanded use of user.getGroups() function in Okta Expression Language is GA in Production
 
 You can now use the `user.getGroups()` function across all features that support Expression Language. See [Group functions](/docs/reference/okta-expression-language/#group-functions). <!-- ENABLE_GET_GROUPS_FUNCTION_ELV2 OKTA-945229-->
+
+#### Group Push Mappings is GA in Preview
+
+With the API for Group Push, admins can now programmatically create, link, or manage group push configuration in Okta. This allows admins to configure Okta groups to be pushed to connected apps at scale and reduces overhead for large deployments. See [Group Push Mappings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupPushMapping/). <!-- OKTA-962537 GROUP_PUSH_MAPPINGS_PUBLIC_API-->
+
+#### Multiple active IdP signing certificates is EA
+
+Okta now supports multiple active signing certificates for a single SAML identity provider (IdP), enabling seamless certificate rotation with zero downtime. Use the new [`additionalKids` parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider!path=protocol/0/credentials/trust/additionalKids&t=request) to add another signing certificate for the IdP. You can upload up to two certificates per IdP connection. This improvement eliminates the need for tightly coordinated swaps with IdP partners and reduces the risk of authentication failures due to expired certificates. <!-- IDP_ENABLE_MULTIPLE_SIGNING_CERTS OKTA-986239 -->
+
+#### New user profile permission
+
+A new user profile permission (`okta.users.userprofile.read`) is now available that allows granular read-only access to the user profile. See [Permissions](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#oktausersuserprofileread). <!--OKTA-984996-->
 
 #### OAuth 2.0 provisioning for Org2Org with Autorotation is GA in Preview
 
@@ -25,9 +57,21 @@ Admins deploying multi-org architectures (for example Okta hub-and-spoke orgs) n
 
 To support these updates, the Application Connections API includes a new endpoint, [Retrieve a JSON Web Key Set (JWKS) for the default provisioning connection]([https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/getUserProvisioningConnectionJWKS|https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/getUserProvisioningConnectionJWKS]), and schema updates to support token autorotation, `rotationMode=AUTO`. See [Update the default provisioning connection]([https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication!path=1/profile&t=request|https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication!path=1/profile&t=request]) and [Integrate Okta Org2Org with Okta]([https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg#Use2|https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg#Use2]). <!-- [OKTA-903533] FF ORG2ORG_ENABLE_PROVISION_JWK -->
 
+#### Service Accounts API is EA
+
+The new [Service Accounts API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ServiceAccount/) is now available for Okta Privileged Access-enabled orgs. This API allows you to manage SaaS or On-Prem Provisioning (OPP) app accounts. App accounts that you create through the Service Accounts API are visible to resource admins in the Okta Privileged Access dashboard. See [Manage service accounts](https://help.okta.com/okta_help.htm?type=oie&id=saas-manage-service-accounts) in the Okta Privileged Access product documentation.
+
+This feature is available only if you're subscribed to Okta Privileged Access. Ensure that you've set up the Okta Privileged Access app before creating app accounts through the API.
+<!-- OKTA-926544 OKTA-982940 SERVICE_ACCOUNTS_AD -->
+
 #### Unified claims generation for custom apps is self-service EA in preview
 
 Unified claims generation is a new streamlined interface for managing claims (OIDC) and attribute statements (SAML) for Okta-protected custom app integrations. In addition to group and user profile claims, the following new claim types are available: `entitlements` (required OIG), `device.profile`, `session.id`, and `session.amr`. See [Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/). <!-- GENERIC_FEDERATED_CLAIM_LAYER OKTA-971830 -->
+
+#### Web app integrations now mandate the use of the Authorization Code flow
+
+To enhance security, web app integrations now mandate the use of the Authorization Code flow, as the Implicit flow is no longer recommended. See [Build a Single Sign-On (SSO) integration](https://developer.okta.com/docs/guides/build-sso-integration/openidconnect/main/#determine-the-oauth-2-0-flow-to-use).
+<!-- OKTA-703909 -->
 
 #### Bugs fixed in 2025.08.0
 
