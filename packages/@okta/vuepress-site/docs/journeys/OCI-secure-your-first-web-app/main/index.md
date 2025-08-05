@@ -50,7 +50,7 @@ Sign up for an Okta account, and then set up your new Okta org to test web apps.
 The simplest and Okta-recommended way to sign users in to your app is to redirect them to an Okta-hosted sign-in form.
 
 * [Connect your app to Okta](/docs/guides/create-an-app-integration/openidconnect/main/)
-* [Learn about the Okta Sign-In Widget](waiting)
+* [Learn about the Okta Sign-In Widget](/docs/concepts/sign-in-widget/)
 * [Sign users in to your SPA by redirecting them to an Okta-hosted sign-in form](/docs/guides/auth-js-redirect/main/)
 
 By default, users are required to sign in with any two authentication factors: password, email, SMS, and voice. Your org comes with those authenticators pre-configured. Use the Admin Console to enable other factors and change the policy to match your requirements.
@@ -75,11 +75,11 @@ Congratulations, your app now uses Okta to provide its sign-in services.
 Learn how to secure other types of apps:
 
 * [Sign users into a mobile app by redirecting them to an Okta-hosted sign-in form](/docs/guides/sign-into-mobile-app-redirect/ios/main/)
-* [Sign users into a mobile app using a self-hosted sign-in form](/docs/guides/)
+* [Sign users into a mobile app using a self-hosted sign-in form](/docs/guides/sign-into-mobile-app-embedded/main/)
 
 After a user signs in, Okta returns tokens to identify the user and the user's access levels. See [Understand the token lifecycle](/docs/concepts/token-lifecycles/index.md).
 
-If you're using the Okta-hosted sign-in form, Okta returns a JWT to identify the user, their access, and to give you some information about their session. This proves that they have an active browser session. If you're using a self-hosted form, your app should use the [Authorization Code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)authentication flow and `prompt=none` to validate that a session is still active.
+If you're using the Okta-hosted sign-in form, Okta returns a JWT to identify the user, their access, and to give you some information about their session. This proves that they have an active browser session. If you're using a self-hosted form, your app should use the [Authorization Code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) authentication flow and `prompt=none` to validate that a session is still active.
 
 Use the following docs to enable sign-out once, sign-out everywhere features:
 

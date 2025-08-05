@@ -17,5 +17,5 @@ Journeys break down your development project into consumable steps:
 ## Featured journeys
 
 <Cards>
-  <Card href="/docs/journeys/OCI-secure-your-first-web-app/" cardTitle="Secure your first web app">Seamlessly connect your customer-facing app to Okta and configure a secure sign-in experience, using the built-in authentication policies and the Okta hosted sign-in page.</Card>
+  <Card href="/docs/journeys/OCI-secure-your-first-web-app/main/" cardTitle="Secure your first web app">Seamlessly connect your customer-facing app to Okta and configure a secure sign-in experience, using the built-in authentication policies and the Okta hosted sign-in page.</Card>
 </Cards>
