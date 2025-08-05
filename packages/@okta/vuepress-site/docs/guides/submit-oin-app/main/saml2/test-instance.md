@@ -13,7 +13,7 @@
    1. Click **Save**.
    > **Note:** Okta Integrator Free Plan orgs are Identity Engine orgs. See [OIN Wizard authentication policy for testing](/docs/guides/submit-app-prereq/main/#oin-wizard-authentication-policy-for-testing).
 8. Follow these steps if you have the Universal Logout integration with SSO:
-   1. Click the **Sign On** tab, scroll to the **Logout** section.
+   1. Click the **Sign On** tab and scroll to the **Logout** section.
    [[style="list-style-type:lower-alpha"]]
    1. Click **Edit** and select **App logs out when: Okta system or admin initiates logout**.
    1. Click **Save**.
