@@ -41,9 +41,9 @@ Make a note of your Okta domain. Use it wherever `{yourOktaDomain}` appears in t
 Enable this grant type to allow apps the ability to use embedded sign-in flows across your entire org. You must have super admin permissions to enable this setting.
 
 1. Open the Admin Console for your org.
-1. Go to **Settings** > **Account** > **Embedded widget sign-in support**.
+1. Go to **Settings** > **Account** > **Embedded widget sign-in support**. (Scroll down to see this tile.)
 1. Click **Edit**.
-1. Click **Advanced** in the **Grant type** section, and then select **Interaction Code**.
+1. Select **Interaction Code**.
 1. Click **Save**.
 
 For further information on the Interaction Code grant type, see [Interaction Code grant type](/docs/concepts/interaction-code/).
@@ -57,8 +57,8 @@ To create your app integration in Okta using the Admin Console:
 1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account. Click **Admin** on the top right of the page.
 1. Open the apps configuration page by selecting **Applications** > **Applications**.
 1. Click **Create App Integration**.
-1. Select a **Sign-in method** of **OIDC - OpenID Connect**.
-1. Select an **Application type** of **Native Application**, then click **Next**.
+1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
+1. Select **Native Application** as the **Application type**, then click **Next**.
    > **Note:** If you choose the wrong app type, it can break the sign-in or sign-out flows.
 1. Enter an **App integration name**.
 1. Select the **Grant type**. Ensure that the **Authorization Code** grant type is selected. Add the **Refresh Token** grant type and under the **Advanced** arrow, select **Interaction Code**.
@@ -104,7 +104,7 @@ cd okta-mobile-swift
 ### Add project dependencies
 
 1. In Xcode, choose **File** > **Add Package Dependencies**.
-1. Search for and select `okta-mobile-swift`.
+1. Search for and select `https://github.com/okta/okta-mobile-swift`.
 1. Ensure that the **Dependency Rule** is **Up to Next Major Version**, and you're adding to the correct project (`IdxAuthSignIn`).
 1. Click **Add Package**.
 1. In the **Choose Package Products for okta-mobile-swift** dialog, add the packages `AuthFoundation` and `OktaIdxAuth` to the project by clicking in the **Add to Target** field.
