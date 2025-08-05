@@ -16,25 +16,25 @@ It renders a user-friendly interface for all aspects of the identity verificatio
 
 * Improve productivity and reduce development overhead
 
-   * You don't need to build complex authentication features from scratch. Sign-In Widget provides features like user registration, password reset, CAPTCHA, and multifactor authentication (MFA).
+   You don't need to build complex authentication features from scratch. Sign-In Widget provides features like user registration, password reset, CAPTCHA, and multifactor authentication (MFA).
 
-   * You can easily integrate it with your web or mobile app in any of the following ways.
+   You can easily integrate it with your web or mobile app in any of the following ways:
 
-      * Redirect to a dedicated Okta-hosted page
+    * Redirect to a dedicated Okta-hosted page
 
-      * Load it using the Okta CDN
+    * Load it using the Okta CDN
 
-      * Install it as an npm module
+    * Install it as an npm module
 
     Okta also provides SDKs for popular frameworks like Angular, React, and Vue, which further streamline the integration process.
 
 * Provide a centralized and consistent sign-in experience
 
-   * You can customize the sign-in form's appearance using the code editor to seamlessly integrate with your brand. Customization options include your company logo, color schemes, favicon, the text for various labels and links, and the ability to add or modify supported languages.  
+   You can customize the sign-in form's appearance using the code editor to seamlessly integrate with your brand. Customization options include your company logo, color schemes, favicon, the text for various labels and links, and the ability to add or modify supported languages.  
 
-   * You don't need to run a code deployment when you enforce security policies (password complexity, session duration, and MFA requirements) through the Admin Console. The changes are instantly reflected in the Sign-In Widget. 
+   You don't need to run a code deployment when you enforce security policies (password complexity, session duration, and MFA requirements) through the Admin Console. The changes are instantly reflected in the Sign-In Widget. 
 
-You can let Okta host the Sign-In Widget or you can embed it in your code base.
+   You can let Okta host the Sign-In Widget or you can embed it in your code base.
 
 
 ### Okta-hosted Sign-In Widget (recommended) 
