@@ -37,7 +37,7 @@ title: Okta Identity Engine API release notes 2025
 | [Unified claims generation for custom apps is self-service EA in preview](#unified-claims-generation-for-custom-apps-is-self-service-ea-in-preview) | July 30, 2025 |
 | [Universal Logout in the OIN Wizard](#universal-logout-in-the-oin-wizard) | August 7, 2025 |
 | [Web app integrations now mandate the use of the Authorization Code flow](#web-app-integrations-now-mandate-the-use-of-the-authorization-code-flow) | August 7, 2025 |
-| [Developer documentation updates in 2025.08.0 ](#developer-documentation-updates-in-2025-07-0) | August 7, 2025 |
+| [Developer documentation updates in 2025.08.0](#developer-documentation-updates-in-2025080) | August 7, 2025 |
 | [Bug fixed in 2025.08.0 ](#bug-fixed-in-2025-08-0) | August 7, 2025 |
 
 #### Associated Domain Customizations API is self-service EA in Preview
@@ -167,6 +167,10 @@ Universal Logout (UL) in the Okta Integration Network Wizard allows you to build
 
 To enhance security, web app integrations now mandate the use of the Authorization Code flow, as the Implicit flow is no longer recommended. See [Build a Single Sign-On (SSO) integration](https://developer.okta.com/docs/guides/build-sso-integration/openidconnect/main/#determine-the-oauth-2-0-flow-to-use).
 <!-- OKTA-703909 -->
+
+#### Developer documentation updates in 2025.08.0
+
+
 
 #### Bug fixed in 2025.08.0
 
