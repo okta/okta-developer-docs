@@ -16,10 +16,11 @@ Express Configuration is a feature designed to automate the setup of SSO and SCI
 * Express Configuration doesn't support apps with the login flow set to **Prompt with Credentials**.
 * If the login flow is set to **No Prompt**, ensure that your app is configured to pass the correct org to your Auth0 tenant.
 
-To enable the Express Configuration feature, contact the Okta Express Configuration team by emailing them at [expressconfig@okta.com](mailto:expressconfig@okta.com) and provide the following information:
+To enable the Express Configuration feature, email to the Okta Express Configuration team at [expressconfig@okta.com](mailto:expressconfig@okta.com) with the following information:
 
-* Okta Integrator Free Plan org
-* Your app name in the OIN
+* Your Okta Integrator Free Plan org
+* The name of your app in the OIN
+* Your Auth0 App Client ID
 * Auth0 tenant domain (include the custom domain, if applicable)
 
 After confirming your app's eligibility, the Okta Express Configuration team provides a public key in PEM format. This key is required to enable Express Configuration. Follow the steps in [Enable Express Configuration](/docs/guides/enable-express-configuration/main/) after receiving the public key.

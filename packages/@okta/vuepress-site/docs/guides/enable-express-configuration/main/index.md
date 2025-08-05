@@ -48,7 +48,7 @@ Follow these steps to configure the roles and permissions required for managing 
 
 ### Assign Client Credentials to the Okta OIN Integration Client
 
-Use the Client Credentials that you create in this step to authorize the `Okta OIN Integration Client` to access the Auth0 Management API with defined scopes. The OIN can use the token that's returned to create and manage connections on behalf of the orgs. The scopes (`create:connection`, `update:connection`, and so on) securely allows your Auth0 tenant's Management API to create and update [Okta Workforce connections](https://auth0.com/docs/authenticate/identity-providers/enterprise-identity-providers/okta).
+Use this Client Credentials to authorize the `Okta OIN Integration Client` to access the Auth0 Management API with defined scopes. The OIN can use the token that's returned to create and manage connections on behalf of the orgs. The scopes (`create:connection`, `update:connection`, and so on) securely allows your Auth0 tenant's Management API to create and update [Okta Workforce connections](https://auth0.com/docs/authenticate/identity-providers/enterprise-identity-providers/okta).
 
 <StackSnippet snippet="assign-client-grant" />
 
