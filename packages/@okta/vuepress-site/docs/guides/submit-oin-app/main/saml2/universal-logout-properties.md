@@ -7,6 +7,6 @@
 | **Subject format** | | Specify how the user is identified in the logout request for your app. The default value is **Email**.|
 | | **Email** | Your integration uses the email address of the user. |
 | | **Issuer and Subject identifier** | Your integration uses the user identifier. |
-| **Partial support** | | Select if you only require partial universal logout support for your app. <br> **Note**: If you select this option, while clearing the user's session from Okta, the app only revokes the user's refresh tokens, which prevents the user from getting new access in the future. However, the existing user sessions aren't terminated until the user's existing access tokens expire or the user signs out of an application. </br>|
+| **Partial support** | | Select if you only require partial universal logout support for your app. <br> **Note**: If you select this option, while clearing the user's session from Okta, the app only revokes the user's refresh tokens, which prevents the user from getting new access in the future. However, the existing user sessions aren't terminated until the user's existing access tokens expire or the user signs out of an app. </br>|
 
 `*` Required properties
