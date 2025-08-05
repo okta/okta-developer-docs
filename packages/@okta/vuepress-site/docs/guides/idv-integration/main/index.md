@@ -362,8 +362,6 @@ There are multiple possible reasons for the `DENY` result:
 * `MISSING`: Indicates that a required parameter or value wasn't present in the request or response.
 * `RESPONSE_PROCESSING_ERROR`: Indicates that Okta encountered an error while processing the response from the IDV vendor.
 * `ERROR_RESPONSE`: Indicates that the IDV vendor returned an explicit error response to Okta.
-* `SESSION_EXPIRED`: Indicates that the user's verification session expired.
-* `IDV_FLOW_ERROR`: Indicates a generic error occurred during the IDV flow that prevented successful verification.
 * `EMPTY_USER_ID`: Indicates that no user ID was provided in the request to the IDV vendor.
 * `MISSING_CODE_CHALLENGE`: Indicates that the code challenge required for PKCE was missing from the request.
 * `MISSING_APP_INSTANCE`: Indicates that the application instance required for the IDV flow wasn't found or wasn't provided.
@@ -376,5 +374,5 @@ There are multiple possible reasons for the `DENY` result:
 
 Along with the IDV events (`user.identity_verification.start` and `user.identity_verification`), there are two properties that are attached to those events. The properties are also attached to the `policy.evaluate_sign_on` event when an Okta account management policy is involved.
 
-* `idv_reference_id`: This property provides a reference ID that's attached to all the relevant events of an IDV process.
+* `IdvReferenceId`: This property provides a reference ID that's attached to all the relevant events of an IDV process.
 * `IdvFlowId`: This property displays the ID of the IDV flow. Admins can use this property to more easily track information related to a specific IDV flow.
