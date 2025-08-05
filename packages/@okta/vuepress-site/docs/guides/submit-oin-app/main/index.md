@@ -197,6 +197,7 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 1. Test your integration.
    * For an SSO integration, test the required flows in the [OIN Submission Tester](#oin-submission-tester) with your generated test instance. Fix any test failures from the OIN Submission Tester, then regenerate the test instance (if necessary) and retest.
    * For a SCIM integration, execute the [Runscope CRUD tests](#runscope-crud-tests) and the [Okta manual integration tests](#manual-okta-scim-integration-tests) with your generated test instance.
+    * For a Universal Logout integration, test the logout flow manually. See [Test your Universal Logout integration](#test-your-universal-logout-integration).
 
 1. [Submit your integration](#submit-your-integration) after all required tests are successful.
 
@@ -483,13 +484,13 @@ All required tests in the OIN Submission Tester must have passed within 48 hours
 ### Test your Universal Logout integration
 If your integration supports Universal Logout, you need to test the logout flow manually.
 
-1. Ensure you've an active login session on your app.
+1. Ensure you have an active login session on your app.
 1. From the Admin Console, go to **Directory** > **People**.
 1. Select the user that has the current login session on your app.
 1. Click **More Actions** > **Clear User Sessions**.
 1. Select **Also include logout enabled apps and Okta API tokens** and click **Clear and revoke**.
 1. Go back to the app and ensure that the login session is terminated.
-    > **Note**: For partial universal logout support, while clearing the user's session from Okta, it only revokes the user's refresh tokens, which prevents the user from getting new access in the future. However, the existing user sessions aren't terminated until the user's existing access tokens expire or the user signs out of an app.
+    > **Note**: For partial universal logout support, while clearing the user's session from Okta, the app only revokes the user's refresh tokens, which prevents the user from getting new access in the future. However, the existing user sessions aren't terminated until the user's existing access tokens expire or the user signs out of an app.
 
 ### Test your SCIM integration
 
@@ -497,7 +498,7 @@ You need to run three sets of tests for SCIM integrations:
 
 1. [SCIM API specification tests](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api)
 
-    You need to first test your SCIM API service before you conduct Okta-SCIM integration tests. Okta provides you with a SCIM API specification test suite to execute in Runscope. See [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api) for instructions on how to run this test suite. Provide the test results URL in the **Link to Runscope spec test results** field when you submit your integration to the OIN.
+    You need to test your SCIM API service before you conduct Okta-SCIM integration tests. Okta provides you with a SCIM API specification test suite to execute in Runscope. See [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api) for instructions on how to run this test suite. Provide the test results URL in the **Link to Runscope spec test results** field when you submit your integration to the OIN.
 
 1. [Runscope create, read, update, and delete (CRUD) user profile tests](#runscope-crud-tests)
 
