@@ -21,7 +21,7 @@ title: Okta Classic Engine API release notes 2025
 | [Service Accounts API is EA](#service-accounts-api-is-ea) | August 8, 2025 |
 | [Unified claims generation for custom apps is self-service EA in preview](#unified-claims-generation-for-custom-apps-is-self-service-ea-in-preview) | July 30, 2025 |
 | [Web app integrations now mandate the use of the Authorization Code flow](#web-app-integrations-now-mandate-the-use-of-the-authorization-code-flow) | August 7, 2025 |
-| [Bug fixed in 2025.08.0 ](#bug-fixed-in-2025-08-0) | August 7, 2025 |
+| [Developer documentation updates in 2025.08.0](#developer-documentation-updates-in-2025080) | August 7, 2025 |
 
 #### Breached Credentials Protection is GA in Preview
 
@@ -73,7 +73,9 @@ Unified claims generation is a new streamlined interface for managing claims (OI
 To enhance security, web app integrations now mandate the use of the Authorization Code flow, as the Implicit flow is no longer recommended. See [Build a Single Sign-On (SSO) integration](https://developer.okta.com/docs/guides/build-sso-integration/openidconnect/main/#determine-the-oauth-2-0-flow-to-use).
 <!-- OKTA-703909 -->
 
-#### Bugs fixed in 2025.08.0
+#### Developer documentation updates in 2025.08.0
+
+The [Archived Okta Identity Governance API changelog (2023-2024)](/docs/release-notes/oig-changelog/) has been removed. For updates on these APIs, see the Okta Identity Governance API release notes.
 
 ## July
 

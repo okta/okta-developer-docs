@@ -17,7 +17,7 @@ For changes prior to 2025, see [Archived Okta Identity Governance API Changelog 
 | [Governance delegates APIs are Beta](#governance-delegates-apis-are-beta) | August 7, 2025 |
 | [List all access request catalog entries for a user is GA](#list-all-access-request-catalog-entries-for-a-user-is-ga) | July 16, 2025|
 | [Unified requester experience is EA](#unified-requester-experience-is-ea) | July 16, 2025 |
-| [Bug fixed in 2025.08.0 ](#bug-fixed-in-2025-08-0) | August 7, 2025 |
+| [Bug fixed in 2025.08.0 ](#bug-fixed-in-2025080) | August 7, 2025 |
 
 #### Governance delegates APIs are Beta
 

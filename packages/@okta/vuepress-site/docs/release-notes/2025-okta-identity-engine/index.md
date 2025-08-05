@@ -170,7 +170,20 @@ To enhance security, web app integrations now mandate the use of the Authorizati
 
 #### Developer documentation updates in 2025.08.0
 
+* The [Archived Okta Identity Governance API changelog (2023-2024)](/docs/release-notes/oig-changelog/) has been removed. For updates on these APIs, see the Okta Identity Governance API release notes.
 
+* A new Journeys page is available. This  page includes content that helps you with your development project.
+
+  Journeys break down your development project into consumable steps. Each journey provides:
+
+  * Key concepts to absorb
+  * Information on planning for tasks that you need to complete
+  * Links to individual guides to help you build your project
+  * Content related to your project, but not required to finish the project
+
+  The first journey available is Secure your first web app. This journey is helps you connect your web app to Okta and configure a secure sign-in experience. 
+
+  Stay tuned for more journeys made available with subsequent releases.
 
 #### Bug fixed in 2025.08.0
 
