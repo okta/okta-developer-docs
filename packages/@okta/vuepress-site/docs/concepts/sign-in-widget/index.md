@@ -9,7 +9,7 @@ meta:
 
 The Sign-In Widget renders a user-friendly sign-in form for all aspects of the identity verification lifecycle, from initial registration to multifactor authentication and acts as the front door to your app or website.
 
- <div class="half border"> 
+ <div class="half"> 
  
  ![Sign-In Widget](/img/siw/okta-sign-in-javascript.png) 
  
@@ -82,6 +82,8 @@ See [Embedded Okta Sign-In Widget fundamentals](https://developer.okta.com/docs/
 
 ## Related topics
 
-[Okta Sign-In Widget](https://github.com/okta/okta-signin-widget)
-[Okta deployment models - redirect vs. embedded](https://developer.okta.com/docs/concepts/redirect-vs-embedded/)
-[Sign users in overview](https://developer.okta.com/docs/guides/sign-in-overview/main/)
+   [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget)
+
+   [Okta deployment models - redirect vs. embedded](https://developer.okta.com/docs/concepts/redirect-vs-embedded/)
+
+   [Sign users in overview](https://developer.okta.com/docs/guides/sign-in-overview/main/)
