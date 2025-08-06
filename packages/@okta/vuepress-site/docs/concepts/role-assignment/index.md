@@ -6,7 +6,7 @@ title: Role Assignment
 
 As a super admin, you can assign admin permissions to principals so they're able to perform tasks and access resources. Principals can be users, groups of users, or client apps. You can assign [standard roles](#standard-role-assignment), or create [custom roles](#custom-role-assignment) that limit an admin’s access to a subset of [permissions](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions) and [resources](#supported-resources).
 
-This page discusses the concepts of role assignment through APIs. See [Custom administrator roles](https://help.okta.com/okta_help.htm?id=ext-cstm-admin-roles) for product documentation through the Admin Console.
+This page discusses the concepts of role assignment through APIs. For role assignment through the Admin Console, see [Custom administrator roles](https://help.okta.com/okta_help.htm?id=ext-cstm-admin-roles).
 
 ## Standard role assignment
 
@@ -139,7 +139,7 @@ If the resource has a corresponding Okta API, you can specify the resource by it
 
 > **Note:** If you use a role with permissions that don't apply to the resources in the resource set, it doesn't affect the admin role. For example, the `okta.users.userprofile.manage` permission gives the admin no privileges if it’s granted to a resource set that only includes `https://{yourOktaDomain}/api/v1/groups/{targetGroupId}` resources. If you want the admin to be able to manage the users within the group, the resource set must include the corresponding `https://{yourOktaDomain}/api/v1/groups/{targetGroupId}/users` resource.
 
-> **Note:** Governance resources are currently only supported as part of the Standard Resource Sets. You can't use these to create or update other resource sets. See [IAM-based standard roles](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#iam-based-standard-roles).
+> **Note:** Governance resources are currently only supported as part of the standard resource sets. You can't use these to create or update other resource sets. See [IAM-based standard roles](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#iam-based-standard-roles).
 
 #### Binding member identifiers
 
@@ -158,7 +158,7 @@ To specify binding members, use the REST URL of the corresponding Okta API:
   ```
 
 <ApiLifecycle access="ea" />
-* [A specific client application](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/getClient)
+* [A specific client app](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/getClient)
 
   ```bash
   https://{yourOktaDomain}/oauth2/v1/clients/{clientId}
