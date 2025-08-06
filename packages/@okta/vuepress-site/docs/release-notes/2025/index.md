@@ -75,7 +75,7 @@ To enhance security, web app integrations now mandate the use of the Authorizati
 
 #### Developer documentation updates in 2025.08.0
 
-The [Archived Okta Identity Governance API changelog (2023-2024)](/docs/release-notes/oig-changelog/) has been removed. For updates on these APIs, see the Okta Identity Governance API release notes.
+The **Archived Okta Identity Governance API changelog (2023-2024)** has been removed. For updates on these APIs, see the Okta Identity Governance API release notes.
 
 ## July
 

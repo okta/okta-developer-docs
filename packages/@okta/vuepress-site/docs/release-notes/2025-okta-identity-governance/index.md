@@ -6,8 +6,6 @@ title: Okta Identity Governance API release notes 2025
 
 Okta Identity Governance is available for both Okta Classic and Identity Engine.
 
-For changes prior to 2025, see [Archived Okta Identity Governance API Changelog (2023-2024)](/docs/release-notes/oig-changelog/).
-
 ## August
 
 ### Monthly release 2025.08.0
@@ -17,6 +15,7 @@ For changes prior to 2025, see [Archived Okta Identity Governance API Changelog 
 | [Governance delegates APIs are Beta](#governance-delegates-apis-are-beta) | August 7, 2025 |
 | [List all access request catalog entries for a user is GA](#list-all-access-request-catalog-entries-for-a-user-is-ga) | July 16, 2025|
 | [Unified requester experience is EA](#unified-requester-experience-is-ea) | July 16, 2025 |
+| [Developer documentation updates in 2025.08.0](#developer-documentation-updates-in-2025080) | August 7, 2025 |
 | [Bug fixed in 2025.08.0 ](#bug-fixed-in-2025080) | August 7, 2025 |
 
 #### Governance delegates APIs are Beta
@@ -54,6 +53,10 @@ The following Access Request API updates have been made to support the unified r
 * New [validRequestOnBehalfOfSettings](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Settings/#tag/Request-Settings/operation/getRequestSettingsV2!c=200&path=validRequestOnBehalfOfSettings&t=response) property for [Request Settings](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Settings/) API
 * [Related entry link updates for catalog entry responses](#related-entity-link-updates-for-catalog-entry-responses)
 * [List all access request catalog entries for a user](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultUserEntriesV2) <!-- OKTA-968620 ACCESS_REQUESTS_UNIFIED_CATALOG EA Preview and Prod -->
+
+#### Developer documentation updates in 2025.08.0
+
+The **Archived Okta Identity Governance API changelog (2023-2024)** has been removed. For updates on these APIs, see the Okta Identity Governance API release notes.
 
 #### Bug fixed in 2025.08.0
 
