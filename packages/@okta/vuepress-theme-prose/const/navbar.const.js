@@ -761,11 +761,11 @@ export const guides = [
         subLinks: [
           {
             title: "Configure an SSF receiver and publish a SET",
-            path: "/docs/guides/configure-ssf-receiver/",
+            guideName: "configure-ssf-receiver",
           },
           {
             title: "Create an authorization server",
-            path: "/docs/guides/customize-authz-server/main/",
+            guideName: "customize-authz-server/main/",
           },
         ],
       },
