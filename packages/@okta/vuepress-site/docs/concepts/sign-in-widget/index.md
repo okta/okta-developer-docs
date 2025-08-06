@@ -43,7 +43,7 @@ With this approach, the user is redirected to the Okta-hosted sign-in page. Afte
 
 Because Okta hosts the Sign-In Widget, Okta is responsible for its security and maintenance. This means that you don't have to keep it updated with the latest security patches and features. Okta handles this for you automatically.
 
-You can customize the look and feel of the standard sign-in form directly from the Admin Console. This approach is best for if you want a branded experience without needing to host the code yourself. You need to configure a custom domain to use the most advanced customization features.
+You can customize the look and feel of the standard sign-in form directly from the Admin Console. This approach is best if you want a branded experience without needing to host the code yourself. You need to configure a custom domain to use the most advanced customization features.
 
 #### Standard
 
@@ -57,7 +57,7 @@ If you've configured a custom domain and need more control over the Sign-In Widg
 
 ### Self-hosted Sign-In Widget
 
-Embed the Sign-In Widget into your own code base to host the authentication client on your servers. Use this approach if you need the highest level of customization and modifications to the open-source code to fit your requirements. Since the authentication client is hosted on your servers, security is a shared responsibility and you must update Sign-In Widget packages. You can specify the version of the Sign-In Widget to use, either by referencing it from a CDN or installing it locally through npm. This helps to manage updates and ensure stability.
+Embed the Sign-In Widget into your own code base to host the authentication client on your servers. Use this approach if you need the highest level of customization. Since the authentication client is hosted on your servers, security is a shared responsibility and you must update Sign-In Widget packages. You can specify the version of the Sign-In Widget to use, either by referencing it from a CDN or installing it locally through npm. This helps to manage updates and ensure stability.
 
 When you initialize the Sign-In Widget in your code, you pass a configuration object. This object allows you to specify various options:
 
