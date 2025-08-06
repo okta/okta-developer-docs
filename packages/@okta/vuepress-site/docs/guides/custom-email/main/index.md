@@ -15,8 +15,8 @@ This guide explains how to customize and style the default Okta email notificati
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
-* Access to email template customization. Contact [Okta support](https://support.okta.com/help) for help.
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
+* Access to email template customization. Contact [Okta Support](https://support.okta.com/help) for help.
 
 #### Sample code
 
@@ -42,7 +42,7 @@ If you want to use the Admin Console to send a branded email, consider the follo
 
 - If your org has two or more custom brands, domains, and email addresses:
 	- You can't send branded emails from the Admin Console. Okta uses the request host in the URL to determine which brand and email address to use. The Admin Console only works with the Okta subdomain.
-	- Use an Okta API to trigger the email. To send a User Activation email, send a request to the [Activate a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/activateUser) endpoint. Remember to change the domain of your request to the custom domain that's associated with the brand. For example, change `subdomain.okta.com` to `custom.domain.one`.
+	- Use an Okta API to trigger the email. To send a user activation email, send a request to the [Activate a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/activateUser) endpoint. Remember to change the domain of your request to the custom domain that's associated with the brand. For example, change `subdomain.okta.com` to `custom.domain.one`.
 - If your org has one custom brand, domain, and email address:
 	- Okta doesn't use your custom email address. The Okta subdomain appears in the *From* line.
 	- Your theming appears in the content of the email (logo, palette, images). With a single custom brand or domain, the Admin Console assumes that you want to send themed content.
@@ -79,7 +79,7 @@ See [Custom Email Templates](https://developer.okta.com/docs/api/openapi/okta-ma
 
 Use these steps to add or edit a template in one of the Okta-supported languages.
 
-> **Note:** To access email customization with a free Okta Developer Edition org, contact [Okta support](https://support.okta.com/help).
+> **Note:** To access email customization with a free Integrator Free Plan org, contact [Okta Support](https://support.okta.com/help).
 
 1. In the Admin Console, go to **Customizations** > **Brands**, and then select the brand you want.
 1. On the **Emails** tab, click an email template name:
@@ -91,7 +91,7 @@ Use these steps to add or edit a template in one of the Okta-supported languages
    - In the preview window, to see a translation of a customized template, select a language from the dropdown menu. See [Add translations](#add-translations).
 1. Click **Edit** to put the editor in read/write mode.
 1. Make changes directly in the editor. If you type `$`, `#`, or `{`, the editor provides a list of available variables that you can use. See [Use Velocity Templating Language (VTL)](#use-velocity-templating-language).
-   - Click the code editor to full-screen mode.
+   - Click the code editor to full-page mode.
    - Click **Save changes**, then click **Preview** to see your changes before you publish.
    - Click **Reset template** to remove your customizations and restore the default HTML/CSS.
 1. Click **Save changes**. The default language version of your edited message appears in the **Email Templates** table.
@@ -164,7 +164,7 @@ The following table provides a list of all allowed HTML tags and elements in cus
 |-------------------|--------------------|
 | All tags | <ul><li>`id`: Can be alphanumeric and contain `:`, `-`, `_`, or `.`</li><li>`class`: Can be alphanumeric and contain `<space>`, `,`, `-`, or `_`</li><li>`lang`: Can be uppercase or lowercase, and two to 20 characters long</li><li>`title`: Can contain any letter from any language, any numeric character in any script, and `<space>`, `-`, `_`, `'`, `,`, `:`, `[`, `]`, `!`, `.`, `/`, `\`, `(`, `)`, or `&`</li></ul> |
 | `<style>` | `-moz-border-radius`, `-moz-border-radius-bottomleft`, `-moz-border-radius-bottomright`, `-moz-border-radius-topleft`, `-moz-border-radius-topright`, `-moz-box-shadow`, `-moz-outline`, `-moz-outline-color`, `-moz-outline-style`, `-moz-outline-width`, `-o-text-overflow`, `-webkit-border-bottom-left-radius`, `-webkit-border-bottom-right-radius`, `-webkit-border-radius`, `-webkit-border-radius-bottom-left`, `-webkit-border-radius-bottom-right`, `-webkit-border-radius-top-left`, `-webkit-border-radius-top-right`, `-webkit-border-top-left-radius`, `-webkit-border-top-right-radius`, `-webkit-box-shadow`, `azimuth`, `background`, `background-attachment`, `background-color`, `background-position`, `background-repeat`, `border`, `border-bottom`, `border-bottom-color`, `border-bottom-left-radius`, `border-bottom-right-radius`, `border-bottom-style`, `border-bottom-width`, `border-collapse`, `border-color`, `border-left`, `border-left-color`, `border-left-style`, `border-left-width`, `border-radius`, `border-right`, `border-right-color`, `border-right-style`, `border-right-width`, `border-spacing`, `border-style`, `border-top`, `border-top-color`, `border-top-left-radius`, `border-top-right-radius`, `border-top-style`, `border-top-width`, `border-width`, `box-shadow`, `caption-side`, `color`, `cue`, `cue-after`, `cue-before`, `direction`, `elevation`, `empty-cells`, `font`, `font-family`, `font-size`, `font-stretch`, `font-style`, `font-variant`, `font-weight`, `height`, `image()`, `letter-spacing`, `line-height`, `linear-gradient()`, `list-style`, `list-style-image`, `list-style-position`, `list-style-type`, `margin`, `margin-bottom`, `margin-left`, `margin-right`, `margin-top`, `max-height`, `max-width`, `min-height`, `min-width`, `outline`, `outline-color`, `outline-style`, `outline-width`, `padding`, `padding-bottom`, `padding-left`, `padding-right`, `padding-top`,`pause`, `pause-after`, `pause-before`, `pitch`, `pitch-range`, `quotes`, `radial-gradient()`, `rect()`, `repeating-linear-gradient()`, `repeating-radial-gradient()`, `rgb()`, `rgba()`, `richness`, `speak`, `speak-header`, `speak-numeral`, `speak-punctuation`, `speech-rate`, `stress`, `table-layout`, `text-align`, `text-decoration`, `text-indent`, `text-overflow`, `text-shadow`, `text-transform`, `text-wrap`, `unicode-bidi`, `vertical-align`, `voice-family`, `volume`, `white-space`, `width`, `word-spacing`, `word-wrap`,`display`, `float`, `position`, `right`, `left`,`top`, `bottom`, `clear`, `content`, `cursor`, `z-index`, `overflow`, `visibility`, `zoom`, `overflow-x`, `overflow-y`, `page-break-inside`, `page-break-before`, `page-break-after`, `opacity`, `-moz-opacity` |
-| `p` | `align`: Can be any of `middle`, `center`, `left`, `right`, `justify` or `char` |
+| `p` | `align`: Can be any of `middle`, `center`, `left`, `right`, `justify`, or `char` |
 | `label` | `for`: Can be alphanumeric and contain `:`, `-`, `_`, or `.` |
 | `font` | <ul><li>`color`: Can be from the color list or a color code.<ul><li>Color list: `aqua`, `black`, `blue`, `fuchsia`, `gray`, `grey`, `green`, `lime`, `maroon`, `navy`, `olive`, `purple`, `red`, `silver`, `teal`, `white`, or `yellow`</li><li>Color code: Can be HTML/CSS spec three- or six-digit hex</li></ul></li><li>`face`: Can be alphanumeric and contain `;`, `,`, or `-`</li><li>`size`: Can be a number</li></ul> |
 | URLs | `url`: Can contain `http`, `https`, or `mailto` |
@@ -376,6 +376,7 @@ You can reference any Okta User Profile attribute in your email templates.
 | `${campaign.justification}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
 | `${campaign.dueInDays}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
 | `${campaign.endDate}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
+| `${campaign.campaignDescription}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
 
 ## Use functions for email templates
 
@@ -411,12 +412,13 @@ Here are some examples:
 | `${toUpperCase(String input)}`                                       | Converts the given input string to all uppercase                                                                   |
 | `${substring(String input, int startIndex, int endIndex)}`           | Extracts a range of characters from the given input string                                                         |
 | `${formatTimeDiffHoursNow(int hours)}`                               | Produces a formatted duration string from the current time to the given number of hours                                                 |
-| `${formatTimeDiffHoursNowInUserLocale(int hours)}`                   | Produces a localized formatted duration string for the given number of hours                                       |
+| `${formatTimeDiffHoursNowInUserLocale(int hours)}`                   | Produces a locally formatted duration string for the given number of hours                                       |
 | `${formatTimeDiffDateNow(Date date)}`                                | Produces a formatted duration string for the given date                                                            |
-| `${formatTimeDiffDateNowInUserLocale(Date date)}`                    | Produces a localized formatted duration string for the given date                                                  |
+| `${formatTimeDiffDateNowInUserLocale(Date date)}`                    | Produces a locally formatted duration string for the given date                                                  |
 | `${escapeHtml(String html)}`                                         | Escapes the characters in the provided string using HTML entities                                                             |
 | `${escapeHtmlAttr(String html)}`                                     | Encodes data for use in HTML attributes                                                                           |
 | `${getTimeDiffHoursNow(int hours, String timeUnit)}`    | Produces a duration string for the given number of hours converted to the specified time units. Supported string values for the timeUnit argument are milliseconds, seconds, minutes, hours, days, and years. |
+| `${encode(String html)}`                                     | Encodes special characters in the provided string                       |
 
 ## Test your custom email templates
 
@@ -424,6 +426,8 @@ You can send yourself a test email to see how a custom email template looks and 
 
 1. Click the email icon to the right of the email template that you’ve customized. A list shows the sender and receiver of the email.
 2. Click **Send test email**.
+
+> **Note:** Super admins can view customized email templates when they're signed in as an admin and send a test email. However, when custom email templates are sent to super admins as part of actual email notification flows, the customizations are not applied. Instead, the default email template is used. This only applies to super admins.
 
 ## Known Issues
 

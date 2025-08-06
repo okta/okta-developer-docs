@@ -13,7 +13,7 @@ The [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js) (Auth JS) h
 
 #### What you need
 
-[Okta Developer Edition organization](https://developer.okta.com/signup/)
+[Okta Integrator Free Plan org](https://developer.okta.com/signup)
 
 ---
 
@@ -121,7 +121,7 @@ In the same `index.html` file, add the following JavaScript code after the Auth 
 <script type="text/javascript">
 
 // UPDATE THESE FOR YOUR OKTA TENANT
-var baseOktaURL = "https:${yourOKtaDomain}"; //For example, https://dev-08607539.okta.com
+var baseOktaURL = "https:${yourOKtaDomain}"; //For example, https://integrator-123456.okta.com
 var appClientID = "${yourClientID}"; // For example, 0oa73hm5sh9jf6s5e1d6
 
 // Bootstrap the AuthJS Client
@@ -195,7 +195,7 @@ After adding the sign-out function, the sample app is ready to test. Your sample
 
 
    // UPDATE THESE FOR YOUR OKTA TENANT
-   var baseOktaURL = "https:${yourOKtaDomain}"; //For example, https://dev-12345678.okta.com
+   var baseOktaURL = "https:${yourOKtaDomain}"; //For example, "https://integrator-12345678.okta.com"
    var appClientID = "${yourClientID}"; // For example, 0oa73hm5sh9jf6s5e1d6
 
 
@@ -294,7 +294,7 @@ By default, self-service registration isn't enabled for all apps. Use the follow
 
 Based on other policy configurations, the self-service registration flow may be different or include other authenticators. See [Sign-in flows](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-sign-in-flows).
 
-> **Note:** All new users through the self-registration process receive a welcome email. This email activates user access to the apps on your dev org and demonstrates ownership of the email authenticator. If you complete this process, ensure you're in the same browser window as the app sign-in tab.
+> **Note:** All new users through the self-registration process receive a welcome email. This email activates user access to the apps on your Integrator Free Plan org and demonstrates ownership of the email authenticator. If you complete this process, ensure you're in the same browser window as the app sign-in tab.
 
 ## Enable progressive profile enrollment
 
@@ -321,7 +321,7 @@ Progressive profile enrollment builds out a user's profile incrementally during 
 
 ## Add MFA with a mandatory second factor
 
-By default, your dev org isn't configured for multifactor authentication. Use the following steps to understand the policy configurations and set up this use case. This setup requires an end user to authenticate with a password and a phone authenticator.
+By default, your Integrator Free Plan org isn't configured for multifactor authentication. Use the following steps to understand the policy configurations and set up this use case. This setup requires an end user to authenticate with a password and a phone authenticator.
 
 1. Go to **Security** > **Authenticators** and ensure that the phone authenticator is available in the **Authenticators** list on the **Setup** tab.
 
@@ -350,7 +350,7 @@ After your users have enrolled in the phone authenticator, future sign-in flows 
 
 ## Enable password recovery with email magic link
 
-By default, the dev org is configured for a self-service password reset. Review the following steps to understand the policy configurations and to enable your sample app users to self-recover their password through an email magic link.
+By default, the Integrator Free Plan org is configured for a self-service password reset. Review the following steps to understand the policy configurations and to enable your sample app users to self-recover their password through an email magic link.
 
 1. Go to **Security** > **Authenticators**. Ensure that the email authenticator is available in the **Authenticators** list on the **Setup** tab, and that it's used for **Recovery**.
 
@@ -378,7 +378,7 @@ Test the new configurations by recovering a password for a user of your sample a
 
 1. Click the **Send me an email** link.
 
-1. Check your test user's email inbox and wait for the **Account password reset** email from your Okta dev org.
+1. Check your test user's email inbox and wait for the **Account password reset** email from your Integrator Free Plan org.
 
    >**Note:** Stay in the same browser window as the app sign-in tab.
 
@@ -392,25 +392,25 @@ See [Self-service account recovery](https://help.okta.com/okta_help.htm?type=oie
 
 Enable passwordless authentication for your existing users by configuring your Okta org's authenticator enrollment policy, authentication policy, and global session policy. This example uses the email authenticator to authenticate your users instead of a password. For full details and other passwordless implementation options, see [Set up passwordless sign-in experience](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless).
 
-1. Go to **Directory** > **Groups** and click **Add group**. Give the group a name, for example, Passwordless Users, and click **Save**.
+1. Go to **Directory** > **Groups** and click **Add group**. Give the group a name, for example, "Passwordless users", and click **Save**.
 1. Select your new group, and click **Assign people** from the **People** tab. Add one or more users to your new group.
 1. Go to **Security** > **Authenticators** and edit or ensure that the **Email** authenticator is set to **Authentication and recovery**.
 1. Click the **Enrollment** tab, and then click **Add a policy** to add an enrollment policy targeted at your new group. Configure the following fields, and then click **Create Policy**:
-    * **Policy name**: Any name for this policy, for example, Passwordless Enrollment
-    * **Assign to Groups**: Your new group, Passwordless Users
+    * **Policy name**: Any name for this policy, for example, "Passwordless enrollment"
+    * **Assign to Groups**: Your new group, "Passwordless users"
     * **Email** authenticator: Set to required
     * **Password** authenticator: Set to disabled
-1. Add a rule name, for example, Passwordless Enrollment Rule, and click **Create rule** to complete the enrollment policy setup.
+1. Add a rule name, for example, "Passwordless enrollment rule", and click **Create rule** to complete the enrollment policy setup.
 1. Click **Authentication Policies** and assign your sample app to a one-factor authentication policy, if it's not already. In the policy, click **Add rule**, and make the following configurations and then click **Save**:
-    * **Rule name**: Any name for this rule, for example, Passwordless Authentication rule
-    * **User's group membership includes**: Your new group, Passwordless Users
+    * **Rule name**: Any name for this rule, for example, "Passwordless authentication rule"
+    * **User's group membership includes**: Your new group, "Passwordless users"
     * **User must authenticate with**: Any one factor type or IdP
-1. Click **Global Session Policy** and click **Add policy**. Give the policy a name, for example, Global Passwordless Policy, and assign the policy to your new group, Passwordless Users. Click **Create policy and add rule**.
+1. Click **Global Session Policy** and click **Add policy**. Give the policy a name, for example, "Global Passwordless policy", and assign the policy to your new group, "Passwordless users". Click **Create policy and add rule**.
 1. Configure the following fields in the **Add rule** dialog and then click **Create rule**:
-    * **Rule name**: Any name for this rule, for example, Global Passwordless rule
+    * **Rule name**: Any name for this rule, for example, "Global Passwordless rule"
     * **Establish the session with**: Any factor used to meet the Authentication Policy requirements
 
-Test the new configurations by signing in to your sample app with a user added to your Passwordless Users group:
+Test the new configurations by signing in to your sample app with a user added to your "Passwordless users" group:
 
 1. Start your app. On the Okta sign-in page, add the email address of your test user. Notice that there’s no password field on the page.
 1. Add the email address for your test user and click **Next**.

@@ -8,13 +8,101 @@ Okta Identity Governance is available for both Okta Classic and Identity Engine.
 
 For changes prior to 2025, see [Archived Okta Identity Governance API Changelog (2023-2024)](/docs/release-notes/oig-changelog/).
 
+## July
+
+### Weekly release 2025.07.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Related entity link updates for catalog entry responses](#related-entity-link-updates-for-catalog-entry-responses)| July 16, 2025 |
+| [Bug fixed in 2025.07.2](#bug-fixed-in-2025-07-2)| July 16, 2025 |
+
+#### Related entity link updates for catalog entry responses
+
+The `_links.relatedEntity` (or `data._links.relatedEntity`) property is now returned for parent catalog entries, in addition to child entries, for the following operations:
+
+* [List all entries for the default access request catalog](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultEntriesV2)
+* [Retrieve a catalog entry](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/getCatalogEntryV2)
+* [List all of my entries for the default access request catalog](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Catalogs/#tag/My-Catalogs/operation/listMyDefaultEntriesV2)
+* [Retrieve an entry from my catalog](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Catalogs/#tag/My-Catalogs/operation/getMyEntryV2)
+* [List all of my catalog entry users](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Catalogs/#tag/My-Catalogs/operation/listMyEntryUsersV2)
+<!--OKTA-958888 -->
+
+#### Bug fixed in 2025.07.2
+
+A null pointer exception occurred when a `PUT /governance/api/v1/collections/{collecionId}/resources/{resourceId}` request was made on a collection without resources. (OKTA-970817)
+
+### Monthly release 2025.07.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Changes to Okta app API responses](#changes-to-okta-app-api-responses) | July 7, 2025 |
+
+#### Changes to Okta app API responses
+
+The following Okta apps won't be returned in the API response for endpoints that list apps (such as the [List all applications](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications) `GET /api/vi/apps` endpoint):
+
+* Okta Access Certifications (key name: `okta_iga`)
+* Okta Access Requests Admin (key name: `okta_access_requests_admin`)
+* Okta Entitlement Management (key name: `okta_entitlement_management`)
+
+In addition, a single app retrieval endpoint won't return these apps either. For example: `GET /api/v1/apps/{appId}` won't return the app object if `{appId}` is the ID for the `okta_iga`, `okta_access_requests_admin`, or `okta_entitlement_management` apps in your org.
+<!-- OKTA-871526 ENG_ENABLE_UI_ADMIN_OIDC_APP -->
+
+## June
+
+### Weekly release 2025.06.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [List all access request catalog entries for a user is Beta](#list-all-access-request-catalog-entries-for-a-user-is-beta)| June 17, 2025 |
+
+#### List all access request catalog entries for a user is Beta
+
+<ApiLifecycle access="beta" />
+
+The [List all access request catalog entries for a user](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultUserEntriesV2) (`GET /governance/api/v2/catalogs/default/user/{userId}/entries`) operation is now included in the **Access Requests - V2** > [Catalogs](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/) API. As an admin, use this operation to list access request catalog entries for a particular user. A filter expression query parameter is required to specify the set of entries in the response.
+<!-- OKTA-954146 OKTA-915784, used for (but not dependent on) ACCESS_REQUESTS_UNIFIED_CATALOG -->
+
+## May
+
+### Weekly release 2025.05.3
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Request condition name length increase](#request-condition-name-length-increase)| May 29, 2025 |
+
+#### Request condition name length increase
+
+The [Request Condition API](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/) has increased the length of the request condition `name` from 50 to 255 characters.
+<!-- OKTA-931650 -->
+
+### Weekly release 2025.05.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [New variable for Access Certification campaign emails](#new-variable-for-access-certification-campaign-emails)| May 14, 2025 |
+| [Generate a risk assessment is Beta](#generate-a-risk-assessment-is-beta)| May 14, 2025 |
+
+#### New variable for Access Certification campaign emails
+
+You can now include the campaign description in your customized Access Certification campaign email notifications. See the new `${campaign.campaignDescription}` variable in [Use VTL variables](https://developer.okta.com/docs/guides/custom-email/main/#use-vtl-variables).
+<!-- OKTA-912806 -->
+
+#### Generate a risk assessment is Beta
+
+<ApiLifecycle access="beta" />
+
+The [Generate a risk assessment](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Risk-Rules/#tag/Risk-Rules/operation/generatePotentialRiskAssessments) operation is now included in the [Risk Rules API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Risk-Rules/). This operation requires the `okta.governance.riskRule.read` OAuth 2.0 scope. Use this resource to evaluate potential separation of duties (SOD) violations when a user requests entitlements.
+<!-- IGA-SEPARATION-OF-DUTIES OKTA-899035 -->
+
 ## April
 
 ### Monthly release 2025.04.0
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Risk Rules API is Beta](#risk-rules-api-is-beta) | March 5, 2025 |
+| [Risk Rules API is Beta](#risk-rules-api-is-beta) | April 2, 2025 |
 
 #### Risk Rules API is Beta
 
@@ -50,7 +138,6 @@ See [Separation of duties](https://help.okta.com/okta_help.htm?type=oie&id=separ
 <ApiLifecycle access="beta" />
 
 The [Collections API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Collections/) is available in Beta. This API allows you to manage sets of apps and entitlements. See [Resource collections](https://help.okta.com/okta_help.htm?type=oie&id=csh-rc). <!-- OKTA-856259 -->
-
 
 ### Weekly release 2025.03.1
 

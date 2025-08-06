@@ -2,23 +2,59 @@ const guidesInfo = require('./scripts/build-guides-info');
 const overviewPages = require('./scripts/build-overview-pages');
 const findLatestWidgetVersion = require('./scripts/findLatestWidgetVersion');
 const convertReplacementStrings = require('./scripts/convert-replacement-strings');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const Path = require('path');
 const axios = require('axios');
 const { parseString } = require('xml2js');
 const signInWidgetMajorVersion = 7;
 
-const projectRootDir = Path.resolve(__dirname, '../../../../');
-const outputDir = Path.resolve(__dirname, '../dist/');
-
 const WIDGET_VERSION = findLatestWidgetVersion(signInWidgetMajorVersion);
+
+// Cypress tests fail with the OneTrust and Adobe scripts. Creating this wrapper
+// to conditionally skip them on localhost.
+function getOneTrustAndAdobeScripts() {
+    let domainScriptId = process.env.DEPLOY_ENV === 'prod' ?
+        'ac20316c-ea73-4ca8-8b3b-be2d16672166' :
+        'ac20316c-ea73-4ca8-8b3b-be2d16672166-test';
+    let src = process.env.DEPLOY_ENV === 'prod' ?
+        "https://assets.adobedtm.com/6bb3f7663515/7ce314d1f3c9/launch-2f9b28f7d70e.min.js" :
+        "https://assets.adobedtm.com/6bb3f7663515/7ce314d1f3c9/launch-f81506449be8-staging.min.js";
+
+    let scriptSource = '(' + function loadScripts() {
+        function addScript(source, inlineCode, attributes) {
+            var head = document.getElementsByTagName('head')[0];
+            var js = document.createElement("script");
+            if (inlineCode) {
+                js.innerHTML = source;
+            } else if (source) {
+                js.src = source;
+            }
+            attributes && Object.keys(attributes).forEach((key) => {
+                js.setAttribute(key, attributes[key]);
+            });
+            head.appendChild(js);
+        }
+
+        if (window.location.hostname === 'localhost') {
+            return;
+        }
+
+        addScript("https://cdn.cookielaw.org/scripttemplates/otSDKStub.js", null, {"data-domain-script" : "${domainScriptId}"});
+        addScript(null, "function OptanonWrapper() { } console.log('OneTrust script loaded'); ");
+        addScript("${src}");
+    } + ')()';
+    scriptSource = scriptSource.replace('${domainScriptId}', domainScriptId);
+    scriptSource = scriptSource.replace('${src}', src);
+
+    return ['script', {}, scriptSource];
+}
 
 function configUris() {
   switch (process.env.DEPLOY_ENV) {
     case 'prod':
       return {
-        baseUri: 'https://okta-devok12.okta.com',
-        registrationPolicyId: 'reg405abrRAkn0TRf5d6',
+        baseUri: 'https://www.okta.com',
+        baseUriSocial: 'https://okta-devok12.okta.com',
+        campaignId: '701F0000000mDmxIAE',
+        orgPlan: 'Integrator',
         idps: {
           github: '0oayfl0lW6xetjKjD5d5',
           google: '0oay75bnynuF2YStd5d5',
@@ -27,8 +63,10 @@ function configUris() {
     case 'test':
     default:
       return {
-        baseUri: 'https://okta-dev-parent.trexcloud.com',
-        registrationPolicyId: 'reg3kwstakmbOrIly0g7',
+        baseUri: 'https://okta-next-test.oktaweb.dev',
+        baseUriSocial: 'https://okta-dev-parent.trexcloud.com',
+        campaignId: '701F0000000mDmxIAE',
+        orgPlan: 'Integrator',
         idps: {
           github: '0oa3jobx2bBlylNft0g7',
           google: '0oa3jaktbqkiwCthn0g7',
@@ -77,7 +115,8 @@ module.exports = ctx => ({
         // END Google Tag Manager
 
       }
-    `]
+    `],
+    getOneTrustAndAdobeScripts(),
   ],
   title: "Okta Developer",
   description: "Secure, scalable, and highly available authentication and user management for any app.",
@@ -187,6 +226,7 @@ module.exports = ctx => ({
     primary_doc_nav: [
       { text: 'Guides', link: '/docs/guides/' },
       { text: 'Concepts', link: '/docs/concepts/' },
+      { text: 'Journeys', link: '/docs/journeys/' },
       { text: 'Reference', link: '/docs/reference/' },
       { text: 'Languages & SDKs', link: '/code/' },
       { text: 'Release Notes', link: '/docs/release-notes/' },
@@ -271,7 +311,7 @@ module.exports = ctx => ({
       md.use(require('markdown-it-attrs'), {
         leftDelimiter: '[[',
         rightDelimiter: ']]'
-      }) 
+      })
     },
     anchor: {
       permalinkBefore: false,
@@ -363,13 +403,19 @@ module.exports = ctx => ({
     // add redir url for main guide pages
     let found = guidesInfo.guideInfo[path];
 
+    if (path.startsWith('/docs/reference/api/')) {
+        frontmatter.sitemap = {
+          exclude: true
+        };
+    }
+
     if (path.endsWith('/main/')) {
       // For paths such as /docs/guides/{guide-name}/main/ where the guide has stack selector/frameworks
       let mainPagePath = path.slice(0, -'main/'.length);;
       let mainPageGuide = guidesInfo.guideInfo[mainPagePath];
       /*
         The current page might have some frameworks which are displayed in the stack selector. But `guideInfo` doesn't give the frameworks
-        for the pages ending with `/main` but provides frameworks for the parent page of this page. For eg. We'll get the list of frameworks for 
+        for the pages ending with `/main` but provides frameworks for the parent page of this page. For eg. We'll get the list of frameworks for
         `/docs/guides/{guide-folder-name}/{specific-selection}/main/` in its parent page, which is `/docs/guides/{guide-folder-name}/`.
 
         Example guideInfo for the parent page of `/docs/guides/authenticators-okta-verify/main/` which is `/docs/guides/authenticators-okta-verify/`
@@ -381,7 +427,7 @@ module.exports = ctx => ({
           frameworks: [ 'aspnet', 'java', 'nodeexpress' ],
           mainFramework: 'aspnet'
         }
-        
+
         If the parent page of current page guide has frameworks(stack selector) then we don't need to add the current page to sitemap
         but only add the pages with frameworks in the sitemap. Hence, excluding the current page from sitemap here. Refer - OKTA-745577
       */
@@ -395,10 +441,10 @@ module.exports = ctx => ({
 
       mainPagePath = path.slice(0, -'-/main/'.length);
       mainPageGuide = guidesInfo.guideInfo[mainPagePath];
-      /* 
+      /*
         For paths such as /docs/guides/{guide-name}/-/main where there are no frameworks, we need to exclude the current page from sitemap
 
-        Eg. For path - `/docs/guides/build-api-integration/-/main/`, the mainPageGuide will be 
+        Eg. For path - `/docs/guides/build-api-integration/-/main/`, the mainPageGuide will be
 
         {
           title: 'Build an API service integration',
@@ -433,7 +479,7 @@ module.exports = ctx => ({
         exclude: true
       };
     }
-    
+
     if(!frontmatter.canonicalUrl) {
       frontmatter.canonicalUrl = `https://developer.okta.com${path}`;
     }
@@ -442,7 +488,7 @@ module.exports = ctx => ({
       $page.newsFeedDataJson = null;
       let response;
       try {
-        response = await axios.get('https://developer.okta.com/feed.xml');     
+        response = await axios.get('https://developer.okta.com/feed.xml');
       } catch {
         $page.newsFeedDataJson = null;
       }
@@ -452,7 +498,7 @@ module.exports = ctx => ({
           if (err) {
             return;
           }
-        
+
           $page.newsFeedDataJson = jsonObj;
         });
       }

@@ -15,7 +15,7 @@ Configure Login.gov as an external IdP so that your users can quickly sign up or
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * An app that you want to add authentication to. You can [create an app integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard) or use an existing one.
 * An account at [Login.gov](https://secure.login.gov/). You also need a testing account at Login.gov's identity sandbox. See [Login.gov - Partner Dashboard](https://dashboard.int.identitysandbox.gov/).
 
@@ -80,9 +80,9 @@ When you create the Login.gov IdP configuration in Okta, the Login.gov attribute
 
 You can automatically link external IdP accounts to Okta accounts when the user signs in using the external IdP. If **Account Link Policy** is set to Automatic (`AUTO`), then Okta searches the Universal Directory for a user's profile to link. The user profile is found when the **IdP username** value (email) passed by the IdP matches the **Match against** value (username). See [Account Linking and JIT Provisioning](/docs/concepts/identity-providers/#account-linking-and-just-in-time-provisioning).
 
-To remove an existing account link or validate account linking with every sign-in flow, Okta recommends that you make a `DELETE` call to the `/api/v1/idps/{idpId}/users/{userId}` [endpoint](/docs/reference/api/idps/#unlink-user-from-idp) to remove the link between the Okta user and the IdP user before authentication.
+To remove an existing account link or validate account linking with every sign-in flow, Okta recommends that you make a `DELETE` call to the `/api/v1/idps/{idpId}/users/{userId}` [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProviderUsers/#tag/IdentityProviderUsers/operation/unlinkUserFromIdentityProvider) to remove the link between the Okta user and the IdP user before authentication.
 
-If **Account Link Policy** is disabled, no account linking occurs. You can manually create an account link without a transaction by making a `POST` call to the `/api/v1/idps/{idps}/users/{userId}` [endpoint](/docs/reference/api/idps/#link-a-user-to-a-social-provider-without-a-transaction).
+If **Account Link Policy** is disabled, no account linking occurs. You can manually create an account link without a transaction by making a `POST` call to the `/api/v1/idps/{idps}/users/{userId}` [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProviderUsers/#tag/IdentityProviderUsers/operation/linkUserToIdentityProvider).
 
 See [Add an Identity Provider](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) for API examples of account-linking JSON payloads.
 

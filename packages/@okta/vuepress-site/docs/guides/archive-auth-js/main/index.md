@@ -8,7 +8,7 @@ layout: Guides
 
 > **Note:** This document is only for Okta Classic Engine. If you're using Okta Identity Engine, see [Auth JS fundamentals](/docs/guides/auth-js). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
-The Okta Auth JavaScript SDK (auth.js) enables you to create a fully branded sign-in experience. It is built on top of our [Authentication API](/docs/reference/api/authn/) and [OpenID Connect API](/docs/reference/api/oidc/).
+The Okta Auth JavaScript SDK (auth.js) enables you to create a fully branded sign-in experience. It is built on top of our [Authentication API](/docs/reference/api/authn/) and [OpenID Connect API](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).
 
 Auth.js is used by the [Sign-In Widget](/docs/guides/embedded-siw/) that powers the default Okta sign-in page. If you're building a JavaScript front end or a single-page app (SPA), auth.js gives you more control and customization than the Widget.
 
@@ -24,7 +24,7 @@ If you'd like to explore auth.js, see [API Reference](https://github.com/okta/ok
 
 You need the following things for this guide:
 
-* An Okta org. If you don't have an existing org, register for [Okta Developer Edition](https://developer.okta.com/signup/).
+* An Okta org. If you don't have an existing org, register for an [Okta Integrator Free Plan org](https://developer.okta.com/signup/).
 * An OpenID Connect app integration. See the [instructions for creating an app integration](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc).
 * One or more users [assigned to the app integration](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign).
 * An entry in your Org's "Trusted Origins" for your application. To do this, follow the steps found under the "Trusted Origins tab" section in our [API security help page](https://help.okta.com/okta_help.htm?id=Security_API).

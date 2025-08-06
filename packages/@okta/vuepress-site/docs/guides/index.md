@@ -23,13 +23,16 @@ guides:
  - configure-direct-auth-grants
  - configure-native-sso
  - configure-signon-policy
+ - configure-ssf-receiver
  - configure-user-scoped-account-management
  - create-an-api-token
+ - create-an-app-integration
  - custom-email
  - custom-error-pages
  - custom-url-domain
  - custom-widget
  - custom-widget-gen3
+ - custom-widget-migration-gen3
  - customize-authz-server
  - customize-tokens-returned-from-okta
  - customize-tokens-dynamic
@@ -40,10 +43,12 @@ guides:
  - device-authorization-grant
  - embedded-siw
  - enable-cors
+ - enable-express-configuration
  - event-hook-filtering
  - event-hook-hookdeck
  - event-hook-implementation
  - event-hook-ngrok
+ - express-configuration
  - federated-claims
  - find-your-app-credentials
  - find-your-domain
@@ -89,12 +94,14 @@ guides:
  - saml-inline-hook
  - saml-tracer
  - session-cookie
+ - set-up-org
  - set-up-token-exchange
  - shared-sso-android-ios
  - sharing-cert
  - sign-in-to-spa-authjs
  - sign-in-to-spa-embedded-widget
  - sign-into-mobile-app-redirect
+ - sign-into-mobile-app-embedded
  - sign-into-spa-redirect
  - sign-into-web-app-redirect
  - sign-users-out
@@ -167,6 +174,9 @@ guides:
  - build-api-integration
  - add-logingov-idp
  - policy-simulation
+ - idv-integration
+ - authenticators-tac-authenticator
+ - custom-well-known-uri
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

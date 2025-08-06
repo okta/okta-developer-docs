@@ -17,7 +17,7 @@ Configure Single Sign-On and control resource permissions for an OAuth app.
 #### What you need
 
 * Familiarity with the Terraform terms: configuration, resources, and commands. See the Terraform documentation [introductory concepts](https://www.terraform-best-practices.com/key-concepts) article. Also, see the [introduction page for Okta Terraform automation](/docs/guides/terraform-overview/main/).
-* An Okta org and pricing plan that includes support for authorization servers. [Okta's Developer Edition](https://developer.okta.com/signup/) does not include [API Access Management](/docs/concepts/api-access-management/), which is required to use custom authorization servers.
+* An Okta org and pricing plan that includes support for authorization servers. The [Okta Integrator Free Plan org](https://developer.okta.com/signup/) doesn't include [API Access Management](/docs/concepts/api-access-management/), which is required to use custom authorization servers.
 * A [Terraform configuration](/docs/guides/terraform-enable-org-access/main) that can access your Okta org.
 * Admin permissions that enable you to add a scope to your org.
 * Understand your OAuth app's needs for proving identity and resource access.
@@ -322,7 +322,7 @@ For a production system, it is a best practice for an external app that receives
 
 There are multiple ways that external apps can verify that Okta minted the tokens:
 
-* Use the Okta REST API to call the [authorization server introspect operation](/docs/reference/api/oidc/#introspect). The request takes an access token, ID token, refresh token, or device secret and returns a boolean that indicates whether the token is active.
+* Use the Okta REST API to call the [authorization server introspect operation](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/introspect). The request takes an access token, ID token, refresh token, or device secret and returns a boolean that indicates whether the token is active.
 * Get the public key from the Okta-published JWKS endpoint. The key ID is in the header of the JWTs that Okta issues.
 
 ### Test your external app with your authorization server
@@ -341,7 +341,7 @@ For servers that you create using the instructions in this article, the URI ends
 
 * `https://mycompany.okta.com/oauth2/ause865vcvrGz6MxP1ee`
 * `https://mycompany.oktapreview.com/oauth2/ause865vcvrGz6MxP1ee`
-* `https://dev-12300000.okta.com/oauth2/ause865vcvrGz6MxP1ee`
+* `https://integrator-12300000.okta.com/oauth2/ause865vcvrGz6MxP1ee`
 If you use custom domains, use your custom domain in the issuer as the domain, for example:
 
 * `https://sso.mycompany.com/oauth2/ause865vcvrGz6MxP1ee`

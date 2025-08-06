@@ -1,6 +1,6 @@
 > **Note:** This document is only for Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
-This guide discusses how to build a password-only sign-in flow React app that uses the Okta Sign-In Widget for Okta embedded authentication.
+This guide discusses how to build a password-only sign-in flow React app that uses the Okta Sign-In Widget for Okta-embedded authentication.
 
 ---
 
@@ -11,7 +11,7 @@ This guide discusses how to build a password-only sign-in flow React app that us
 
 #### What you need
 
-* [Okta Developer Edition organization](/signup)
+* [Okta Integrator Free Plan org](/signup)
 * [Okta Auth JavaScript SDK](https://github.com/okta/okta-auth-js)
 * [Okta React SDK](https://github.com/okta/okta-react)
 * [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget)

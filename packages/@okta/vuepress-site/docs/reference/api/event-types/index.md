@@ -19,8 +19,30 @@ Download a CSV file with all event types: [Okta Event Types](/docs/okta-event-ty
 
 >**Note:** Certain tags on the event type indicate the specific behavior of the associated System Log events:<br>
 >
-> * `oie-only`: This event type is only available in Okta Identity Engine enabled orgs
-> * `event-hook-eligible`: This event type is eligible for use with an event hook
-> * `changeDetails`: This event type may include the `changeDetails` object within an associated target
+> * <span class="event-type-tag">oie-only</span>: This event type is only available in Okta Identity Engine enabled orgs
+> * <span class="event-type-tag">event-hook-eligible</span>: This event type is eligible for use with an event hook
+> * <span class="event-type-tag">changeDetails</span>: This event type may include the `changeDetails` object within an associated target
 
 <EventTypes />
+
+<style>
+
+.event-type-tag::before {
+  content: "";
+  padding: 2px 4px;
+  font-family: "fontawesome";
+}
+
+.event-type-tag {
+  display: block;
+  float: left;
+  margin: 2px;
+  padding: 1px 3px;
+  border: 1px solid #DCDCDC;
+  border-radius: 3px;
+  background-color: #ffffff;
+  font-size: 0.7em;
+  font-family: "Menlo"
+}
+
+</style>

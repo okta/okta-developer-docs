@@ -15,7 +15,7 @@ This guide shows you how to refresh access and ID tokens by using either the Ide
 
 #### What you need
 
-* An [Okta org that is already configured for your use case](/docs/guides/oie-embedded-common-org-setup/)
+* An [Okta org that is already configured for your use case](/docs/guides/set-up-org/)
 * An [Identity Engine SDK that is set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
 * An app that uses an Identity Engine SDK that is configured with an `offline_access` scope
 
@@ -102,12 +102,12 @@ token_type_hint=access_token
 {
     "active": true,
     "scope": "profile openid offline_access",
-    "username": "foo@bar.com",
+    "username": "jessie.smith@example.com",
     "exp": 1626128470,
     "iat": 1626124870,
-    "sub": "foo@bar.com",
+    "sub": "jessie.smith@example.com",
     "aud": "api://default",
-    "iss": "https://dev-12345678.okta.com/oauth2/default",
+    "iss": "https://integrator-12345678.okta.com/oauth2/default",
     "jti": "AT.4PAhL3RW5Yxn5leKbT3_xpiflVWYvcrKtzgkt9HHwDo.oar2str41LSUbsgXb5d6",
     "token_type": "Bearer",
     "client_id": "0oa14dl1z4nUJxx0z5d7",

@@ -1,6 +1,6 @@
 {
-  "release" : "2025.04.1",
-  "build" : "2025.04.1-begin-120-gbad1f8e3c5e8",
+  "release" : "2025.07.1",
+  "build" : "2025.07.1-begin-146-g05a164292232",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -99,7 +99,7 @@
     "name" : "Device Platform"
   }, {
     "id" : "device-signal-platform",
-    "name" : "Device Signal Platform"
+    "name" : "Device Assurance"
   }, {
     "id" : "device-mfa",
     "name" : "Device MFA"
@@ -131,8 +131,8 @@
     "id" : "extensibility",
     "name" : "Flow Builder"
   }, {
-    "id" : "extensible-security-platform",
-    "name" : "Extensible Security Platform"
+    "id" : "workforce-custom-objects",
+    "name" : "Workforce Custom Objects"
   }, {
     "id" : "fastpass-and-device-assurance",
     "name" : "FastPass and Device Assurance"
@@ -1166,6 +1166,24 @@
         "changeDetails" : [ ]
       }
     }, {
+      "id" : "access.request.expire",
+      "category" : "id-fabric",
+      "description" : "Access request expired. Can be used to audit access to an Okta resource or to trigger downstream automation that depends on request expiration. Okta Identity Governance API can be used to get more details about the expired request.",
+      "info" : {
+        "created" : "2025-03-31",
+        "release" : "2025.05.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "access", "event-hook-eligible" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "AccessRequestRequestDebugData",
+        "actor" : null,
+        "targets" : [ "AccessRequestResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
       "id" : "access.request.reject",
       "category" : "id-fabric",
       "description" : "Access request rejected. Can be used to audit access to an Okta resource or to trigger downstream automation that depends on request rejection. Okta Identity Governance API can be used to get more details about the rejected request.",
@@ -1486,7 +1504,7 @@
       "schema" : {
         "debugData" : "CsvReportExportDebugData",
         "actor" : null,
-        "targets" : [ "ResourceDetails" ],
+        "targets" : [ "ExportResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -1678,6 +1696,168 @@
         "release" : "2011.01"
       },
       "beta" : false,
+      "internal" : false,
+      "tags" : [ "ad-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "app.ad.password_migration_campaign.cancel.end",
+      "category" : "directories",
+      "description" : "Complete cancellation of migration campaign. This can be used to confirm that the process to cancel a password migration campaign intentionally is complete. This event marks the end of the cancellation process that began with an app.ad.password_migration_campaign.cancel.start event.",
+      "info" : {
+        "created" : "2025-06-24",
+        "release" : "2025.09.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "ad-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "app.ad.password_migration_campaign.cancel.start",
+      "category" : "directories",
+      "description" : "Start cancellation of a password migration campaign. This can be used to track when the process to intentionally cancel a password migration campaign begins. This begins an asynchronous process. Its conclusion is marked by the app.ad.password_migration_campaign.cancel.end event.",
+      "info" : {
+        "created" : "2025-06-24",
+        "release" : "2025.09.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "ad-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "app.ad.password_migration_campaign.create",
+      "category" : "directories",
+      "description" : "Create Active Directory password migration campaign. This can be used to identify when a migration is created to monitor its duration and impact on users. Marks the beginning of a password migration campaign.",
+      "info" : {
+        "created" : "2025-06-24",
+        "release" : "2025.09.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "ad-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "app.ad.password_migration_campaign.finish.end",
+      "category" : "directories",
+      "description" : "Complete password migration campaign. This can be used to confirm that a Finish password migration campaign process has fully completed. This event marks the successful end of the entire campaign lifecycle. This is an asynchronous process and is preceded by an app.ad.password_migration_campaign.finish.start event.",
+      "info" : {
+        "created" : "2025-06-24",
+        "release" : "2025.09.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "ad-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "app.ad.password_migration_campaign.finish.start",
+      "category" : "directories",
+      "description" : "Start password migration campaign completion. This can be used to track the start of the Finish Campaign process. This begins an asynchronous process. Its conclusion is marked by the app.ad.password_migration_campaign.finish.end event.",
+      "info" : {
+        "created" : "2025-06-24",
+        "release" : "2025.09.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "ad-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "app.ad.password_migration_campaign.group.add",
+      "category" : "directories",
+      "description" : "Add group to Active Directory password migration campaign. This can be used to identify groups that have been included in a password migration campaign. This action expands the set of users eligible for password capture by the campaign.",
+      "info" : {
+        "created" : "2025-06-24",
+        "release" : "2025.09.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "ad-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "app.ad.password_migration_campaign.user.capture_password",
+      "category" : "directories",
+      "description" : "Capture user password from Active Directory. This can be used to track progress for individual users and confirm password collection. This event does not signify the full migration of the user, only the successful capture of their password.",
+      "info" : {
+        "created" : "2025-06-24",
+        "release" : "2025.09.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "ad-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "app.ad.password_migration_campaign.user.migrate.end",
+      "category" : "directories",
+      "description" : "Complete individual user password migration. This can be used as a record that a user's credential is fully migrated to Okta. The user's password is now fully migrated and active in Okta.",
+      "info" : {
+        "created" : "2025-06-24",
+        "release" : "2025.09.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "ad-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "app.ad.password_migration_campaign.user.migrate.start",
+      "category" : "directories",
+      "description" : "Start individual user password migration. This can be used to confirm that a specific user's migration process has begun. The conclusion of this asynchronous process is marked by a corresponding app.ad.password_migration_campaign.user.migrate.end event.",
+      "info" : {
+        "created" : "2025-06-24",
+        "release" : "2025.09.0"
+      },
+      "beta" : true,
       "internal" : false,
       "tags" : [ "ad-app" ],
       "mappings" : [ ],
@@ -2446,7 +2626,7 @@
     }, {
       "id" : "app.oauth2.as.interact.interaction_code",
       "category" : "federation",
-      "description" : "Fired when interaction code is generated by OIE. This event can be used by administrators to audit interaction_code generation, and troubleshoot why the IdX transaction has failed. When fired, this event contains hashed values of the interaction_code and interaction_handle, as well as information about the client to which they were issued.",
+      "description" : "Interaction code is generated by OIE. This event can be used by administrators to audit interaction_code generation, and troubleshoot why the IdX transaction has failed. When fired, this event contains hashed values of the interaction_code and interaction_handle, as well as information about the client to which they were issued.",
       "info" : {
         "created" : "2020-11-12",
         "release" : "2021.01.0"
@@ -2464,7 +2644,7 @@
     }, {
       "id" : "app.oauth2.as.interact.interaction_handle",
       "category" : "federation",
-      "description" : "Fired when interaction handle is generated by OIE. This event can be used by administrators to detect if additional interaction is required and an interaction handle has been issued. When fired this event contains interaction handle hash and the client to which it was issued.",
+      "description" : "Interaction handle is generated by OIE. This event can be used by administrators to detect if additional interaction is required and an interaction handle has been issued. When fired this event contains interaction handle hash and the client to which it was issued.",
       "info" : {
         "created" : "2020-11-12",
         "release" : "2021.01.0"
@@ -2495,6 +2675,78 @@
         "debugData" : "OAuth2PlatformDebugData",
         "actor" : null,
         "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "app.oauth2.as.resource_server.credentials.lifecycle.activate",
+      "category" : "federation",
+      "description" : "Authorization server access token encryption key is activated. Use this event to find out if a new access token encryption key has been activated for an authorization server. This could be used to audit changes made to authorization server access token encryption keys.",
+      "info" : {
+        "created" : "2025-06-17",
+        "release" : "2025.07.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "OAuth2PlatformDebugData",
+        "actor" : null,
+        "targets" : [ "OAuth2PlatformResourceDetails", "AuthorizationServerResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "app.oauth2.as.resource_server.credentials.lifecycle.create",
+      "category" : "federation",
+      "description" : "Authorization server access token encryption key is created. Use this event to find out if a new access token encryption key has been created for an authorization server. This could be used to audit changes made to authorization server access token encryption keys.",
+      "info" : {
+        "created" : "2025-06-17",
+        "release" : "2025.07.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "OAuth2PlatformDebugData",
+        "actor" : null,
+        "targets" : [ "OAuth2PlatformResourceDetails", "AuthorizationServerResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "app.oauth2.as.resource_server.credentials.lifecycle.deactivate",
+      "category" : "federation",
+      "description" : "Authorization server access token encryption key is deactivated. Use this event to find out if a new access token encryption key has been deactivated for an authorization server. This could be used to audit changes made to authorization server access token encryption keys.",
+      "info" : {
+        "created" : "2025-06-17",
+        "release" : "2025.07.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "OAuth2PlatformDebugData",
+        "actor" : null,
+        "targets" : [ "OAuth2PlatformResourceDetails", "AuthorizationServerResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "app.oauth2.as.resource_server.credentials.lifecycle.delete",
+      "category" : "federation",
+      "description" : "Authorization server access token encryption key is deleted. Use this event to find out if a new access token encryption key has been deleted for an authorization server. This could be used to audit changes made to authorization server access token encryption keys.",
+      "info" : {
+        "created" : "2025-06-17",
+        "release" : "2025.07.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "OAuth2PlatformDebugData",
+        "actor" : null,
+        "targets" : [ "OAuth2PlatformResourceDetails", "AuthorizationServerResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -2800,7 +3052,7 @@
       "schema" : {
         "debugData" : "AppOauth2ClientRoleDebugData",
         "actor" : null,
-        "targets" : [ "ResourceDetails" ],
+        "targets" : [ "AppOauth2ClientRoleResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -2818,7 +3070,7 @@
       "schema" : {
         "debugData" : "AppOauth2ClientRoleDebugData",
         "actor" : null,
-        "targets" : [ "ResourceDetails" ],
+        "targets" : [ "AppOauth2ClientRoleResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -2842,7 +3094,7 @@
     }, {
       "id" : "app.oauth2.client_id_rate_limit_warning",
       "category" : "federation",
-      "description" : "Fired when requests from a single client id has consumed majority of an org's rate limit on the OAuth2 endpoint. This event can be used by admins to discover and deactivate a rogue client. The admin is able to manage the client via the Syslog UI. When fired, this event contains information about the responsible client id. As of release, this event is fired when a single client id consumes 90% of an org's OAuth2 rate limit; this threshold is subject to change.",
+      "description" : "Requests from a single client ID consumed the majority of an organization's OAuth2 endpoint rate limit. This event can be used by admins to discover and deactivate a rogue client. The admin is able to manage the client via the Syslog UI. When fired, this event contains information about the responsible client id. As of release, this event is fired when a single client id consumes 90% of an org's OAuth2 rate limit; this threshold is subject to change.",
       "info" : {
         "created" : "2019-04-15",
         "release" : "2019.04.2"
@@ -2950,7 +3202,7 @@
     }, {
       "id" : "app.oauth2.interact.interaction_code",
       "category" : "federation",
-      "description" : "Fired when interaction code is generated by OIE. This event can be used by administrators to audit interaction_code generation, and troubleshoot why the IdX transaction has failed. When fired, this event contains hashed values of the interaction_code and interaction_handle, as well as information about the client to which they were issued.",
+      "description" : "Interaction code generated by OIE. This event can be used by administrators to audit interaction_code generation, and troubleshoot why the IdX transaction has failed. When fired, this event contains hashed values of the interaction_code and interaction_handle, as well as information about the client to which they were issued.",
       "info" : {
         "created" : "2020-11-12",
         "release" : "2021.01.0"
@@ -2968,7 +3220,7 @@
     }, {
       "id" : "app.oauth2.interact.interaction_handle",
       "category" : "federation",
-      "description" : "Fired when interaction handle is generated by OIE. This event can be used by administrators to detect if additional interaction is required and an interaction handle has been issued. When fired this event contains interaction handle hash and the client to which it was issued.",
+      "description" : "Interaction handle generated by OIE. This event can be used by administrators to detect if additional interaction is required and an interaction handle has been issued. When fired this event contains interaction handle hash and the client to which it was issued.",
       "info" : {
         "created" : "2020-11-12",
         "release" : "2021.01.0"
@@ -6488,10 +6740,10 @@
       "tags" : [ "app" ],
       "mappings" : [ "app.registration_policy.lifecycle.update" ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "RegistrationPolicyDebugData",
         "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
       }
     }, {
       "id" : "application.user_membership.add",
@@ -7036,7 +7288,7 @@
     }, {
       "id" : "device.desktop_mfa.configuration.update",
       "category" : "device-mfa",
-      "description" : "Fired when a Desktop MFA configuration is updated by an admin. Admin can monitor who update the Desktop MFA configuration value. More details of configuration update in Target.changeDetails.",
+      "description" : "Desktop MFA configuration updated by an admin. Admin can monitor who update the Desktop MFA configuration value. More details of configuration update in Target.changeDetails.",
       "info" : {
         "created" : "2024-07-24",
         "release" : "2024.08.0"
@@ -7054,7 +7306,7 @@
     }, {
       "id" : "device.desktop_mfa.device_logout.completed",
       "category" : "device-mfa",
-      "description" : "Fired when a device completes a user logout operation and sends the result to Okta. Admin can monitor whether if the user is logged out from a device successfully. You can correlate this event with the device.desktop_mfa.device_logout.started event using trace_id.",
+      "description" : "Device completes user logout operation. Admin can monitor whether the user is logged out from a device successfully. Admin can correlate this event with the device.desktop_mfa.device_logout.started event using trace_id.",
       "info" : {
         "created" : "2025-02-20",
         "release" : "2025.03.0"
@@ -7072,7 +7324,7 @@
     }, {
       "id" : "device.desktop_mfa.device_logout.started",
       "category" : "device-mfa",
-      "description" : "Fired when device logout process is started for a user. The user will be logged out from devices protected by Desktop MFA. Admin can monitor when device logout process is started and what triggers it. If the logout is triggered by Universal Logout flow, you can correlate this event with the user.authentication.universal_logout event using trace_id.",
+      "description" : "Device logout process started for user. User will be logged out from devices protected by Desktop MFA. Admin can monitor when device logout process is started and what triggers it. If the logout is triggered by Universal Logout flow, you can correlate this event with the user.authentication.universal_logout event using trace_id.",
       "info" : {
         "created" : "2025-02-20",
         "release" : "2025.03.0"
@@ -7090,7 +7342,7 @@
     }, {
       "id" : "device.desktop_mfa.enrollment.create",
       "category" : "device-mfa",
-      "description" : "Fired when a Desktop MFA enrollment is registered to Okta Server. Admin can monitor which Okta user and device has enrolled with Desktop MFA. The registration happens after a user logs in a device with an online factor.",
+      "description" : "Desktop MFA enrollment is registered to Okta Server. Admin can monitor which Okta user and device has enrolled with Desktop MFA. The registration happens after a user logs in a device with an online factor.",
       "info" : {
         "created" : "2024-07-24",
         "release" : "2024.08.0"
@@ -7108,7 +7360,7 @@
     }, {
       "id" : "device.desktop_mfa.recovery_pin.generate",
       "category" : "device-mfa",
-      "description" : "Fired when a device recovery PIN is generated by an admin. Admin can monitor who generates a device recovery PIN for which user and device. The event is fired even when the generation fails.",
+      "description" : "Device recovery PIN generated by admin. Admin can monitor who generates a device recovery PIN for which user and device. The event is fired even when the generation fails.",
       "info" : {
         "created" : "2024-07-24",
         "release" : "2024.08.0"
@@ -7126,7 +7378,7 @@
     }, {
       "id" : "device.desktop_mfa.recovery_pin.rotate_secret",
       "category" : "device-mfa",
-      "description" : "Fired when a device rotates the device recovery PIN secret for Desktop MFA to Okta server. Admin can monitor if a rotation happens for the device recovery PIN secret of a user on a device. The rotation is supposed to happen every 7 days for each user on each device.",
+      "description" : "Device rotates recovery PIN secret for Desktop MFA to Okta server. Admin can monitor if a rotation happens for the device recovery PIN secret of a user on a device. The rotation is supposed to happen every 7 days for each user on each device.",
       "info" : {
         "created" : "2024-07-24",
         "release" : "2024.08.0"
@@ -7892,10 +8144,10 @@
       "tags" : [ "realms" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "SystemDebugData",
         "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
+        "targets" : [ "RealmCreateResourceDetails" ],
+        "changeDetails" : [ ]
       }
     }, {
       "id" : "directory.realm.lifecycle.delete",
@@ -7910,10 +8162,10 @@
       "tags" : [ "realms" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "SystemDebugData",
         "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
+        "targets" : [ "RealmDeleteResourceDetails" ],
+        "changeDetails" : [ ]
       }
     }, {
       "id" : "directory.realm.lifecycle.update",
@@ -8148,6 +8400,24 @@
         "actor" : null,
         "targets" : [ "ResourceDetails" ],
         "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "governance.principal.settings.update",
+      "category" : "id-fabric",
+      "description" : "Governance principal settings updated. This event can be used to audit governance settings updates or trigger downstream automation that depends on governance principal settings updates. An example of when this event is triggered is when a governance principal assigns a delegate for approvals and reviews.",
+      "info" : {
+        "created" : "2025-06-03",
+        "release" : "2025.06.2"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "access", "certification", "event-hook-eligible" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ "GovernancePrincipalSettingsChangeDetailsEntry" ]
       }
     }, {
       "id" : "group.application_assignment.add",
@@ -9524,6 +9794,24 @@
       "info" : {
         "created" : "2025-02-14",
         "release" : "2025.02.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "pam.active_directory.account_rule.applied",
+      "category" : "asa",
+      "description" : "Account rule applied to AD account import. Use this event to identify and troubleshoot issues with account rules in Active Directory connections. This event is triggered when an Active Directory account rule is applied during account import in Okta Privileged Access. It contains details about the rule, the associated account and any notable outcome from applying the rule to the account.",
+      "info" : {
+        "created" : "2025-05-16",
+        "release" : "2025.05.2"
       },
       "beta" : false,
       "internal" : false,
@@ -12250,7 +12538,7 @@
       "schema" : {
         "debugData" : "UserAuthenticationDebugData",
         "actor" : null,
-        "targets" : [ "UserAuthenticationResourceDetails" ],
+        "targets" : [ "UserAuthenticationResourceDetails", "DeviceSignalPolicyResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -12846,6 +13134,24 @@
         "actor" : null,
         "targets" : null,
         "changeDetails" : null
+      }
+    }, {
+      "id" : "resource.owner.update",
+      "category" : "id-fabric",
+      "description" : "Resource Owner assigned or unassigned. Can be used to audit the assignment or unassignment of resource owners for a resource. The event is triggered when resource owner is assigned or unassigned.",
+      "info" : {
+        "created" : "2025-06-25",
+        "release" : "2025.07.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "resource" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ "ResourceOwnersChangeDetails" ]
       }
     }, {
       "id" : "resource.risk_rule.create",
@@ -14414,6 +14720,24 @@
         "changeDetails" : null
       }
     }, {
+      "id" : "system.agent.ldap.config_change_detected",
+      "category" : "directories",
+      "description" : "A monitored variable in an LDAP agent configuration file has changed. This can be used to audit when a customer's LDAP agent configuration file has changed. This event occurs when a monitored variable in an LDAP agent configuration file has changed.",
+      "info" : {
+        "created" : "2025-03-19",
+        "release" : "2025.04.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "ldap-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "LdapDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ "LdapAgentConfigChangeDetailsEntry" ]
+      }
+    }, {
       "id" : "system.agent.ldap.create_user_JIT",
       "category" : "directories",
       "description" : "Perform create user JIT by LDAP agent.",
@@ -14628,6 +14952,24 @@
         "actor" : null,
         "targets" : [ "ApiTokenResourceDetails" ],
         "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "system.api_token.request_outside_allowed_range",
+      "category" : "federation",
+      "description" : "Request with API tokens made from outside the allowed network zone. Use to detect when an API token comes from an IP address that's outside of the specified allowed zone. Fired when an API token comes from an IP address that's outside of the specified allowed zone of the token.",
+      "info" : {
+        "created" : "2025-05-29",
+        "release" : "2025.06.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "token" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
       }
     }, {
       "id" : "system.api_token.revoke",
@@ -15226,7 +15568,7 @@
     }, {
       "id" : "system.email.challenge_factor_redeemed",
       "category" : "cred-platform",
-      "description" : "This event indicates that a user completed an email factor challenge. This can be used to identify when a credential sent in an email to a user has been redeemed (the link was clicked or the code was entered). When fired, this event contains information about the result. Success if successful or error reasons should be present for failure cases (e.g. incorrect code, timeout, expired, etc.). The event also contains a debugData with the action (the link was clicked or the code was entered).",
+      "description" : "User completed an email factor challenge. This can be used to identify when a credential sent in an email to a user has been redeemed (the link was clicked or the code was entered). When fired, this event contains information about the result. Success if successful or error reasons should be present for failure cases (e.g. incorrect code, timeout, expired, etc.). The event also contains a debugData with the action (the link was clicked or the code was entered).",
       "info" : {
         "created" : "2019-06-21",
         "release" : "2019.07.0"
@@ -15640,7 +15982,7 @@
     }, {
       "id" : "system.idp.key.create",
       "category" : "federation",
-      "description" : "Fired when a new Identity provider key credential is created. This can be used to audit that a new identity provider key credential has been created. When fired, this event indicates a new X.509 certificate credential is added to the IdP key store.",
+      "description" : "Identity provider key credential created. This can be used to audit that a new identity provider key credential has been created. When fired, this event indicates a new X.509 certificate credential is added to the IdP key store.",
       "info" : {
         "created" : "2023-12-12",
         "release" : "2023.12.2"
@@ -15658,7 +16000,7 @@
     }, {
       "id" : "system.idp.key.delete",
       "category" : "federation",
-      "description" : "Fired when an Identity provider key credential is deleted. This can be used to audit that an identity provider key credential has been deleted. When fired, this event indicates a X.509 certificate credential by kid is deleted if it isn't currently being used by an active or inactive IdP.",
+      "description" : "Identity provider key credential deleted. This can be used to audit that an identity provider key credential has been deleted. When fired, this event indicates a X.509 certificate credential by kid is deleted if it isn't currently being used by an active or inactive IdP.",
       "info" : {
         "created" : "2023-12-12",
         "release" : "2023.12.2"
@@ -15676,7 +16018,7 @@
     }, {
       "id" : "system.idp.key.update",
       "category" : "federation",
-      "description" : "Fired when an Identity provider key credential is updated. This can be used to audit that an identity provider key credential has been updated. When fired, this event indicates a X.509 certificate credential is updated in the IdP key store.",
+      "description" : "Identity provider key credential updated. This can be used to audit that an identity provider key credential has been updated. When fired, this event indicates a X.509 certificate credential is updated in the IdP key store.",
       "info" : {
         "created" : "2023-12-12",
         "release" : "2023.12.2"
@@ -15694,7 +16036,7 @@
     }, {
       "id" : "system.idp.lifecycle.activate",
       "category" : "federation",
-      "description" : "Fired when an Identity provider is activated. This can be used to audit that an identity provider has been activated. When fired, this event indicates an Identity provider was activated. This event also indicates the type of the identity provider that was activated.",
+      "description" : "Identity provider activated. This can be used to audit that an identity provider has been activated. When fired, this event indicates an Identity provider was activated. This event also indicates the type of the identity provider that was activated.",
       "info" : {
         "created" : "2020-09-03",
         "release" : "2020.09.1"
@@ -15712,7 +16054,7 @@
     }, {
       "id" : "system.idp.lifecycle.create",
       "category" : "federation",
-      "description" : "Fired when a new Identity provider is created. This can be used to audit that a new identity provider has been created. When fired, this event indicates an Identity provider was successfully created. This event also indicates the type of the identity provider that was created.",
+      "description" : "Identity provider created. This can be used to audit that a new identity provider has been created. When fired, this event indicates an Identity provider was successfully created. This event also indicates the type of the identity provider that was created.",
       "info" : {
         "created" : "2020-09-03",
         "release" : "2020.09.1"
@@ -15730,7 +16072,7 @@
     }, {
       "id" : "system.idp.lifecycle.deactivate",
       "category" : "federation",
-      "description" : "Fired when an Identity provider is deactivated. This can be used to audit that an identity provider has been deactivated. When fired, this event indicates an Identity provider has been deactivated. This event also indicates the type of the identity provider that was deactivated.",
+      "description" : "Identity provider deactivated. This can be used to audit that an identity provider has been deactivated. When fired, this event indicates an Identity provider has been deactivated. This event also indicates the type of the identity provider that was deactivated.",
       "info" : {
         "created" : "2020-09-03",
         "release" : "2020.09.1"
@@ -15748,7 +16090,7 @@
     }, {
       "id" : "system.idp.lifecycle.delete",
       "category" : "federation",
-      "description" : "Fired when an Identity provider is deleted. This can be used to audit that an identity provider has been deleted. When fired, this event indicates an Identity provider was deleted. This event also indicates the type of the identity provider that was deleted.",
+      "description" : "Identity provider deleted. This can be used to audit that an identity provider has been deleted. When fired, this event indicates an Identity provider was deleted. This event also indicates the type of the identity provider that was deleted.",
       "info" : {
         "created" : "2020-09-03",
         "release" : "2020.09.1"
@@ -15766,7 +16108,7 @@
     }, {
       "id" : "system.idp.lifecycle.read_client_secret",
       "category" : "federation",
-      "description" : "Fired when Identity provider(s) with a client secret is read. This can be used to audit that identity provider(s) with a client secret has been read. When fired, this event indicates one or more Identity providers with a client secret was read.",
+      "description" : "Identity provider(s) with a client secret is read. This can be used to audit that identity provider(s) with a client secret has been read. When fired, this event indicates one or more Identity providers with a client secret was read.",
       "info" : {
         "created" : "2023-12-15",
         "release" : "2020.12.2"
@@ -15784,7 +16126,7 @@
     }, {
       "id" : "system.idp.lifecycle.update",
       "category" : "federation",
-      "description" : "Fired when an Identity provider is updated. This can be used to audit that an identity provider configuration has been updated. When fired, this event indicates an Identity provider configuration was updated. This event also indicates the type of the identity provider that was updated.",
+      "description" : "Identity provider updated. This can be used to audit that an identity provider configuration has been updated. When fired, this event indicates an Identity provider configuration was updated. This event also indicates the type of the identity provider that was updated.",
       "info" : {
         "created" : "2020-09-03",
         "release" : "2020.09.1"
@@ -17133,7 +17475,7 @@
       }
     }, {
       "id" : "system.log_stream.lifecycle.activate",
-      "category" : "oin-partner-platform",
+      "category" : "data-foundations",
       "description" : "Log stream activated. This event can be used to track and audit when a user activates a log stream. When fired, this event indicates that a user activated a log stream configuration.",
       "info" : {
         "created" : "2021-08-31",
@@ -17151,7 +17493,7 @@
       }
     }, {
       "id" : "system.log_stream.lifecycle.create",
-      "category" : "oin-partner-platform",
+      "category" : "data-foundations",
       "description" : "Log stream created. This event can be used to track and audit when a user creates a log stream. When fired, this event indicates that a user created a log stream configuration.",
       "info" : {
         "created" : "2021-08-31",
@@ -17169,7 +17511,7 @@
       }
     }, {
       "id" : "system.log_stream.lifecycle.deactivate",
-      "category" : "oin-partner-platform",
+      "category" : "data-foundations",
       "description" : "Log stream deactivated. This event can be used to track and audit when a user or Okta deactivates a log stream. When fired, this event indicates that a user or Okta deactivated a log stream configuration.",
       "info" : {
         "created" : "2021-08-31",
@@ -17187,7 +17529,7 @@
       }
     }, {
       "id" : "system.log_stream.lifecycle.delete",
-      "category" : "oin-partner-platform",
+      "category" : "data-foundations",
       "description" : "Log stream deleted. This event can be used to track and audit when a user deletes a log stream. When fired, this event indicates that a user deleted a log stream configuration.",
       "info" : {
         "created" : "2021-08-31",
@@ -17205,7 +17547,7 @@
       }
     }, {
       "id" : "system.log_stream.lifecycle.update",
-      "category" : "oin-partner-platform",
+      "category" : "data-foundations",
       "description" : "Log stream updated. This event can be used to track and audit when a user updates a log stream. When fired, this event indicates that a user updated a log stream configuration.",
       "info" : {
         "created" : "2021-08-31",
@@ -17274,6 +17616,24 @@
         "actor" : null,
         "targets" : [ "PreregistrationMFAFactorResourceDetails" ],
         "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "system.oauth2.token.request_outside_allowed_range",
+      "category" : "federation",
+      "description" : "Request with valid bearer tokens made from outside the allowed network zone. Use to detect when a bearer token comes from an IP address that's outside of the specified allowed zone. Fired when a bearer token comes from an IP address that's outside of the specified allowed zone of the client.",
+      "info" : {
+        "created" : "2025-05-29",
+        "release" : "2025.06.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "oauth2" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
       }
     }, {
       "id" : "system.operation.concurrency_limit.violation",
@@ -17762,6 +18122,24 @@
         "changeDetails" : [ ]
       }
     }, {
+      "id" : "system.well_known_uri.update",
+      "category" : "auth-experiences",
+      "description" : "The well-known URI was updated. Identify the previous and current versions of a well-known URI for a custom brand, such as a assetlinks.json. The brand id and specific well-known URI are available in the target resource.",
+      "info" : {
+        "created" : "2025-06-04",
+        "release" : "2025.07.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "admin" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "WellKnownUriResourceDetails" ],
+        "changeDetails" : [ "WellKnownUriChangeDetailsEntry" ]
+      }
+    }, {
       "id" : "task.lifecycle.activate",
       "category" : "extensibility",
       "description" : "Activated system task.",
@@ -17908,7 +18286,7 @@
     }, {
       "id" : "user.account.lock.limit",
       "category" : "cred-platform",
-      "description" : "This event is fired when a user account has reached the lockout limit. The account will not auto-unlock and a user or client cannot gain access to the account. This event indicates an account that will not be able to log in until remedial action is taken by the account admin. This event can be used to understand the specifics of an account lockout. Often this indicates a client application that is repeatedly attempting to authenticate with invalid credentials such as an old password.",
+      "description" : "User account reached lockout limit and will not be automatically unlocked. This event indicates an account that will not be able to log in until remedial action is taken by the account admin. This event can be used to understand the specifics of an account lockout. Often this indicates a client application that is repeatedly attempting to authenticate with invalid credentials such as an old password.",
       "info" : {
         "created" : "2019-04-18",
         "release" : "2019.05.0"
@@ -17998,7 +18376,7 @@
     }, {
       "id" : "user.account.reset_password",
       "category" : "cred-platform",
-      "description" : "Fired when the user's Okta password is reset.",
+      "description" : "User's Okta password has been reset.",
       "info" : {
         "created" : "2016-04-01",
         "release" : "2016.15"
@@ -18628,7 +19006,7 @@
     }, {
       "id" : "user.import.password",
       "category" : "cred-platform",
-      "description" : "Fired when a user has successfully logged in to Okta and an attempt to import their Password has been made. This can be used to understand if a user password import attempt was successful or if it failed. If the attempt failed, the password import will be tried again on a subsequent successful login. When fired, this event contains information about the import type, and whether or not the password import was successful. If the import is successful, it is safe to \"clean up\" that user from an external system. If the import failed, Okta will continue retrying the import during every successful authentication attempt until the password is successfully imported. Check the failure reason for details about whether any action is needed for the import to succeed.",
+      "description" : "Imported user password from external system during login. This can be used to understand if a user password import attempt was successful or if it failed. If the attempt failed, the password import will be tried again on a subsequent successful login. When fired, this event contains information about the import type, and whether or not the password import was successful. If the import is successful, it is safe to \"clean up\" that user from an external system. If the import failed, Okta will continue retrying the import during every successful authentication attempt until the password is successfully imported. Check the failure reason for details about whether any action is needed for the import to succeed.",
       "info" : {
         "created" : "2020-04-13",
         "release" : "2020.05.1"
@@ -19090,7 +19468,7 @@
       "schema" : {
         "debugData" : "UserRoleDebugData",
         "actor" : null,
-        "targets" : [ "ResourceDetails" ],
+        "targets" : [ "UserRoleResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -19108,7 +19486,7 @@
       "schema" : {
         "debugData" : "UserRoleDebugData",
         "actor" : null,
-        "targets" : [ "ResourceDetails" ],
+        "targets" : [ "UserRoleResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -20738,6 +21116,14 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "ENTITLEMENT_BUNDLE", "GROUP" ]
+          },
+          "expired_at" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "1666156939565", "1698156939565" ]
           },
           "canceled_at" : {
             "type" : "String",
@@ -29666,6 +30052,14 @@
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
           },
+          "principal_entitlements_changes_url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/governance/api/v1/principal-entitlements-changes/gra5ce77wY9qNj79L8g6:gra1q2MG1jbsEamBO0g3" ]
+          },
           "resource_collection_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -30903,6 +31297,22 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "mfa_verified" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "amr_list" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[pwd]", "[pwd, sms]", "[pwd, otp, hwk]" ]
           },
           "username" : {
             "type" : "String",
@@ -38181,6 +38591,267 @@
           }
         }
       },
+      "RegistrationPolicyDebugData" : {
+        "name" : "RegistrationPolicyDebugData",
+        "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "tunnels" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{\"operator\":\"HOTSPOT_VPN\",\"type\":\"VPN\",\"anonymous\":true}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "new_policy_metadata" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{\"defaultRedirectUri\":\"/app/UserHome\",\"activationRequirements\":{\"emailVerificationRequiredToActivate\":false},\"registrationEnabledForSignInWidget\":true,\"callbackId\":null}" ]
+          },
+          "old_policy_metadata" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{\"defaultRedirectUri\":\"/app/UserHome\",\"activationRequirements\":{\"emailVerificationRequiredToActivate\":false},\"registrationEnabledForSignInWidget\":true,\"callbackId\":null}" ]
+          },
+          "new_policy_activate_user" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true" ]
+          },
+          "old_policy_activate_user" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "false" ]
+          },
+          "new_policy_target_group_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "00g11gh0glo9DcMrQ0g4" ]
+          },
+          "old_policy_target_group_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "00g11gh0glo9DcMrQ0g4" ]
+          },
+          "new_policy_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "INACTIVE" ]
+          },
+          "old_policy_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "ACTIVE" ]
+          },
+          "new_policy_profile_schema" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{\"properties\":{\"email\":{\"type\":\"string\",\"title\":\"Email 123\",\"default\":\"Email 123\"},\"password\":{\"type\":\"string\",\"title\":\"Password 123\",\"default\":\"Password\"},\"firstName\":{\"type\":\"string\",\"title\":\"First name\",\"default\":\"string\"},\"lastName\":{\"type\":\"string\",\"title\":\"Last name\",\"default\":\"string\"}},\"required\":[\"email\",\"password\",\"firstName\",\"lastName\"],\"fieldOrder\":[\"email\",\"password\",\"firstName\",\"lastName\"]}" ]
+          },
+          "old_policy_profile_schema" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{\"properties\":{\"email\":{\"type\":\"string\",\"title\":\"Email 123\",\"default\":\"Email 123\"},\"password\":{\"type\":\"string\",\"title\":\"Password 123\",\"default\":\"Password\"},\"firstName\":{\"type\":\"string\",\"title\":\"First name\",\"default\":\"string\"},\"lastName\":{\"type\":\"string\",\"title\":\"Last name\",\"default\":\"string\"}},\"required\":[\"email\",\"password\",\"firstName\",\"lastName\"],\"fieldOrder\":[\"email\",\"password\",\"firstName\",\"lastName\"]}" ]
+          }
+        }
+      },
       "RichClientDebugData" : {
         "name" : "RichClientDebugData",
         "properties" : {
@@ -39581,6 +40252,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "policy_snapshot_json" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"eventId\":\"some-event-id\",\"contextsMap\":{\"deviceType\":\"DESKTOP\",\"userId\":\"some-user-id\"},\"delayTimeInMilliSeconds\":0}" ]
           },
           "changed_device_signals" : {
             "type" : "String",
@@ -44798,6 +45477,19 @@
           }
         }
       },
+      "AppOauth2ClientRoleResourceDetails" : {
+        "name" : "AppOauth2ClientRoleResourceDetails",
+        "properties" : {
+          "privilege_expiration" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "iso8601",
+            "examples" : [ "2026-11-05T09:30:41.000-05:00" ]
+          }
+        }
+      },
       "AuthenticatorEnrollmentResourceDetails" : {
         "name" : "AuthenticatorEnrollmentResourceDetails",
         "properties" : {
@@ -44967,6 +45659,22 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "RESOURCE", "IDENTITY" ]
+          },
+          "AccessTokenEncryptedResponseAlgorithm" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "RSA-OAEP-256", "RSA-OAEP-384", "RSA-OAEP-512" ]
+          },
+          "AuthorizationServerJwksUri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "uri",
+            "examples" : [ "https://example.com" ]
           },
           "AuthorizationServerId" : {
             "type" : "String",
@@ -45379,6 +46087,43 @@
           }
         }
       },
+      "DeviceSignalPolicyResourceDetails" : {
+        "name" : "DeviceSignalPolicyResourceDetails",
+        "properties" : {
+          "device_posture_idp_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "some device posture idp name" ]
+          },
+          "device_posture_idp_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "0oa58vxznzaQdcejb0g8" ]
+          },
+          "allow_okta_verify_user_identification" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "allowed_providers" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "OKTA_VERIFY", "CHROME_DEVICE_TRUST", "DEVICE_POSTURE_IDP" ]
+          }
+        }
+      },
       "DeviceTokenEnrollmentCreateDetails" : {
         "name" : "DeviceTokenEnrollmentCreateDetails",
         "properties" : {
@@ -45600,6 +46345,35 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "OktaMfaEnroll", "Password", "wifi", "OktaSignOn", "group_rule", "IdpDiscovery", "ommEnroll", "OAuthAuthzPolicy", "user_lifecycle" ]
+          }
+        }
+      },
+      "ExportResourceDetails" : {
+        "name" : "ExportResourceDetails",
+        "properties" : {
+          "columns" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "url",
+            "examples" : [ "requestId,requestResourceName" ]
+          },
+          "filter" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "name",
+            "examples" : [ "user.firstName eq \"John\"" ]
+          },
+          "exportType" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "name",
+            "examples" : [ "CSV", "JSON" ]
           }
         }
       },
@@ -45910,6 +46684,22 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "secret", "keypair" ]
+          },
+          "KeyUse" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "sig", "enc" ]
+          },
+          "KeyType" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "RSA", "EC" ]
           },
           "KeyId" : {
             "type" : "String",
@@ -46548,6 +47338,80 @@
           }
         }
       },
+      "RealmCreateResourceDetails" : {
+        "name" : "RealmCreateResourceDetails",
+        "properties" : {
+          "default_realm" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "realm_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "enum",
+            "examples" : [ "DEFAULT", "PARTNER" ]
+          },
+          "realm_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Default Realm", "My Custom Realm" ]
+          },
+          "realm_domains" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "[]", "[domain1.com]", "[domain1.com , domain2.com]", "[domain1.com , domain2.com, domain3.com]" ]
+          }
+        }
+      },
+      "RealmDeleteResourceDetails" : {
+        "name" : "RealmDeleteResourceDetails",
+        "properties" : {
+          "default_realm" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "realm_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "enum",
+            "examples" : [ "DEFAULT", "PARTNER" ]
+          },
+          "realm_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Default Realm", "My Custom Realm" ]
+          },
+          "realm_domains" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "[]", "[domain1.com]", "[domain1.com , domain2.com]", "[domain1.com , domain2.com, domain3.com]" ]
+          }
+        }
+      },
       "RealmUpdateResourceDetails" : {
         "name" : "RealmUpdateResourceDetails",
         "properties" : {
@@ -46559,7 +47423,23 @@
             "format" : "boolean",
             "examples" : [ "true", "false" ]
           },
-          "previous_name_of_realm" : {
+          "previous_realm_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "enum",
+            "examples" : [ "DEFAULT", "PARTNER" ]
+          },
+          "new_realm_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "enum",
+            "examples" : [ "DEFAULT", "PARTNER" ]
+          },
+          "previous_realm_name" : {
             "type" : "String",
             "sensitive" : false,
             "personal" : false,
@@ -46574,6 +47454,22 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ "Default Realm", "My Custom Realm" ]
+          },
+          "previous_realm_domains" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "[]", "[domain1.com]", "[domain1.com , domain2.com]", "[domain1.com , domain2.com, domain3.com]" ]
+          },
+          "new_realm_domains" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "[]", "[domain1.com]", "[domain1.com , domain2.com]", "[domain1.com , domain2.com, domain3.com]" ]
           }
         }
       },
@@ -47315,6 +48211,19 @@
           }
         }
       },
+      "UserRoleResourceDetails" : {
+        "name" : "UserRoleResourceDetails",
+        "properties" : {
+          "privilege_expiration" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "iso8601",
+            "examples" : [ "2026-11-05T09:30:41.000-05:00" ]
+          }
+        }
+      },
       "UserSsoResourceDetails" : {
         "name" : "UserSsoResourceDetails",
         "properties" : {
@@ -47325,6 +48234,35 @@
             "customer" : false,
             "format" : "name",
             "examples" : [ "myCustomSSO", "AUTO_LOGIN", "AWS_FEDERATED_LOGIN", "BASIC_AUTH", "BOOKMARK", "WS_FEDERATION", "OPENID_CONNECT", "SAML_1_1", "AWS_IAM_ROLE", "BROWSER_PLUGIN", "SAML_2_0", "SECURE_PASSWORD_STORE", "NETSUITE_SSO", "RightNowCX" ]
+          }
+        }
+      },
+      "WellKnownUriResourceDetails" : {
+        "name" : "WellKnownUriResourceDetails",
+        "properties" : {
+          "well_known_uri_purpose" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "CUSTOMIZED" ]
+          },
+          "well_known_uri_path" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "apple-app-site-association", "assetlinks.json", "webauthn" ]
+          },
+          "well_known_uri_brand_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:brandId",
+            "examples" : [ "bnd118g5DODhVRiER0g4" ]
           }
         }
       },
@@ -48504,6 +49442,19 @@
           }
         }
       },
+      "GovernancePrincipalSettingsChangeDetailsEntry" : {
+        "name" : "GovernancePrincipalSettingsChangeDetailsEntry",
+        "properties" : {
+          "delegate_appointments" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "[{\"delegatePrincipal\": {\"externalId\": \"00ub0oNGTSWTBKOLGLNR\", \"type\": \"OKTA_USER\"}}]" ]
+          }
+        }
+      },
       "IAMAssigneeConfigurationChangeDetailsEntry" : {
         "name" : "IAMAssigneeConfigurationChangeDetailsEntry",
         "properties" : {
@@ -48881,6 +49832,235 @@
           }
         }
       },
+      "LdapAgentConfigChangeDetailsEntry" : {
+        "name" : "LdapAgentConfigChangeDetailsEntry",
+        "properties" : {
+          "max_total_connections" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "200" ]
+          },
+          "max_connections_per_host" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "10" ]
+          },
+          "polling_thread_count" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "2" ]
+          },
+          "fips_mode" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "ssl_pinning_enabled" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "ldap_search_page_size" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "500" ]
+          },
+          "thread_dump_frequency_in_minutes" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "0" ]
+          },
+          "memory_track_frequency_in_minutes" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "0" ]
+          },
+          "connection_health_check_frequency_in_minutes" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "0" ]
+          },
+          "proxy_enabled" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "ldap_ssl_port" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "636" ]
+          },
+          "ldap_use_ssl" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "ldap_port" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "389" ]
+          },
+          "proxy_port" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "Redacted" ]
+          },
+          "agent_key_2" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "agent_key" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "proxy_host" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "proxy_user" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "proxy_password" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "ldap_domain_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "ldap_admin_password" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "base_dn" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "ldap_admin_dn" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "instance_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "ldap_host" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "agent_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "org_url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "client_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          }
+        }
+      },
       "LiteUserClassificationChangeDetails" : {
         "name" : "LiteUserClassificationChangeDetails",
         "properties" : {
@@ -48997,6 +50177,19 @@
           }
         }
       },
+      "ResourceOwnersChangeDetails" : {
+        "name" : "ResourceOwnersChangeDetails",
+        "properties" : {
+          "principals" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "[orn:okta:directory:00o11edPwGqbUrsDm0g4:users:00ub0oNGTSWTBKOLGLNR, orn:okta:directory:00o11edPwGqbUrsDm0g4:users:00ub0oNGTSWTBKOLGLNR, orn:okta:directory:00o11edPwGqbUrsDm0g4:users:00ub0oNGTSWTBKOLGLNR, orn:okta:directory:00o11edPwGqbUrsDm0g4:users:0oa10zdSPwHVVJWYE0g4]", "[orn:okta:directory:00o11edPwGqbUrsDm0g4:groups:00gb0oNGTSWTBKOLGLNR]" ]
+          }
+        }
+      },
       "ResourceSetChangeDetailsEntry" : {
         "name" : "ResourceSetChangeDetailsEntry",
         "properties" : {
@@ -49081,6 +50274,19 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "trusted origin 1" ]
+          }
+        }
+      },
+      "WellKnownUriChangeDetailsEntry" : {
+        "name" : "WellKnownUriChangeDetailsEntry",
+        "properties" : {
+          "representation" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "some JSON value" ]
           }
         }
       }

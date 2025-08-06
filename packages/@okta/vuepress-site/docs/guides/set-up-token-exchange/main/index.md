@@ -14,7 +14,7 @@ Understand the purpose of OAuth 2.0 On-Behalf-Of Token Exchange.
 
 #### What you need
 
-* [Okta Developer Edition org](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * Two custom authorization servers. See [Create an authorization server](/docs/guides/customize-authz-server/main/#create-an-authorization-server) if you need to add them for use with this guide.
 
 ---
@@ -138,7 +138,7 @@ Go to the `/authorize` endpoint using a request URL with the appropriate paramet
 Note the parameters that are being passed:
 
 * `client_id`: Matches the client ID of your app that you created in the [Create a native app integration](#create-a-native-app-integration) section.
-* `response_type` is `code`: Indicates that you are using the Authorization Code grant type.
+* `response_type` is `code`: Indicates that you’re using the Authorization Code grant type.
 * `scope` is `openid`: Means that the `/token` endpoint returns an ID token. See the **Create Scopes** section of the [Create an authorization server](/docs/guides/customize-authz-server/main/#create-scopes) guide.
 * `redirect_uri`: The callback location where the user agent is directed to along with the code. This must match one of the **Sign-in redirect URIs** that you specified when you created your native app.
 * `state`: An arbitrary alphanumeric string that the authorization server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
@@ -185,7 +185,7 @@ Use the following example to build the request to exchange the authorization cod
 
 ### Token exchange request from service app to API
 
-> **Note:** Include the Base64-encoded client ID and secret within the Authorization header. See the following example for the format.
+> **Note:** Include the Base64-encoded client ID and secret within the authorization header. See the following example for the format.
 
 ```bash
 curl --location --request POST \
@@ -286,7 +286,7 @@ Create an access policy and rule so that the service app can access API2 using a
 
 Perform the requests in the previous [Flow specifics](#flow-specifics) section. When you reach the [token exchange request from the service app](#token-exchange-request-from-service-app-to-api) request, it should look like the following:
 
-> **Note:** Include the Base64-encoded client ID and secret within the Authorization header. See the following example for the format.
+> **Note:** Include the Base64-encoded client ID and secret within the authorization header. See the following example for the format.
 
 ```bash
 curl --location --request POST \

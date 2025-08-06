@@ -16,6 +16,10 @@ export const concepts = [
         path: "/docs/concepts/brands/",
       },
       {
+        title: "Direct authentication",
+        path: "/docs/concepts/direct-authentication/",
+      },
+      {
         title: "Event hooks",
         path: "/docs/concepts/event-hooks/",
       },
@@ -82,6 +86,10 @@ export const concepts = [
       {
         title: "Policies",
         path: "/docs/concepts/policies/",
+      },
+      {
+        title: "Token lifecycles",
+        path: "/docs/concepts/token-lifecycles/",
       },
       {
         title: "Session management",
@@ -334,6 +342,10 @@ export const guides = [
                 guideName: "authenticators-google-authenticator",
               },
               {
+                title: "Temporary access code",
+                guideName: "authenticators-tac-authenticator",
+              },
+              {
                 title: "Web Authentication",
                 guideName: "authenticators-web-authn",
               },
@@ -367,8 +379,15 @@ export const guides = [
               {
                 title: "Identity Engine SDK overview",
                 guideName: "mobile-idx-sdk-overview"
+              },
+              {
+                title: "Sign in to your native mobile app",
+                guideName: "sign-into-mobile-app-embedded"
               }
             ]
+          },
+          { title: "Set up your org",
+            guideName: "set-up-org",
           },
           {
             title: "Access policies",
@@ -420,6 +439,10 @@ export const guides = [
               },
             ],
           },
+          {
+            title: "Integrate Okta with identity verification vendors",
+            guideName: "idv-integration"
+          },
           { title: "Configure AMR claims mapping", guideName: "configure-amr-claims-mapping", hidden: true },
           { title: "Configure claims sharing", guideName: "configure-claims-sharing" },
           { title: "Sign users out", guideName: "oie-embedded-sdk-use-case-basic-sign-out" },
@@ -431,6 +454,10 @@ export const guides = [
               {
                 title: "Create an API token",
                 guideName: "create-an-api-token",
+              },
+              {
+                title: "Create an app integration",
+                guideName: "create-an-app-integration",
               },
               { title: "Enable CORS", guideName: "enable-cors" },
               { title: "Find your Okta domain", guideName: "find-your-domain" },
@@ -600,8 +627,16 @@ export const guides = [
             guideName: "custom-url-domain",
           },
           {
+            title: "Customize associated domains",
+            guideName: "custom-well-known-uri",
+          },
+          {
             title: "Sign-in page",
             guideName: "custom-widget",
+          },
+          {
+            title: "Migrate to third generation (Gen3), Sign-In Widget",
+            guideName: "custom-widget-migration-gen3",
           },
           {
             title: "Sign-In Widget (third generation)",
@@ -703,6 +738,16 @@ export const guides = [
               },
             ]
           },
+          {
+            title: "Express Configuration",
+            path: "/docs/guides/express-configuration/main",
+            subLinks: [
+              {
+                title: "Enable Express Configuration",
+                guideName: "enable-express-configuration",
+              },
+            ]
+          },
         ],
       },
       {
@@ -732,6 +777,15 @@ export const guides = [
             title: "Set up step-up authn with ACR values",
             guideName: "step-up-authentication"
           },
+        ],
+      },
+      {
+        title: "Org Security",
+        subLinks: [
+          {
+            title: "Configure an SSF receiver and publish a SET",
+            path: "/docs/guides/configure-ssf-receiver/",
+          }
         ],
       },
       {
@@ -967,6 +1021,24 @@ export const guides = [
   }
 ];
 
+export const journeys = [
+    {
+      title: "Journeys",
+      path: "/docs/journeys/",
+      subLinks: [
+        {
+          title: "Okta Customer Identity (OCI)",
+          path: "/docs/journeys/1",
+          subLinks: [
+            { title: "Secure your first web app",
+              path: "/docs/journeys/OCI-secure-your-first-web-app"
+            },
+          ]
+        },
+      ],
+    }
+];
+
 export const languagesSdk = [
   {
     title: "SDKs",
@@ -1001,7 +1073,12 @@ export const reference = [
       {
         title: "Expression Language in Identity Engine",
         path: "/docs/reference/okta-expression-language-in-identity-engine/",
-      }, {
+      }, 
+      {
+        title: "Integrator Free Plan Org Configurations",
+        path: "/docs/reference/org-defaults/",
+      },
+      {
         title: "Rate Limits",
         path: "/docs/reference/rate-limits/",
         subLinks: [
@@ -1010,7 +1087,7 @@ export const reference = [
             path: "/docs/reference/rl-dashboard/",
           },
           {
-            title: "Authn/End-user rate limits",
+            title: "Authentication and end-user rate limits",
             path: "/docs/reference/rl-global-enduser/",
           },
           {
@@ -1040,6 +1117,7 @@ export const reference = [
           },
         ]
       },
+      {title: "SSF Transmitter SET payload structures", path: "/docs/reference/ssf-transmitter-sets/"},
       { title: "System Log query", path: "/docs/reference/system-log-query/" },
       { title: "User query options", path: "/docs/reference/user-query/" },
       {
@@ -1066,6 +1144,10 @@ export const releaseNotes = [
       {
         title: "2025 - Identity Governance",
         path: "/docs/release-notes/2025-okta-identity-governance/",
+      },
+      {
+        title: "2025 - Privileged Access",
+        path: "/docs/release-notes/2025-okta-privileged-access/",
       },
       {
         title: "Archive",

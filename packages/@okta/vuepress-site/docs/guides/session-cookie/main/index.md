@@ -14,7 +14,7 @@ Retrieve a session cookie and initiate SSO
 
 #### What you need
 
-[Okta Developer Edition organization](https://developer.okta.com/signup)
+[Okta Integrator Free Plan org](https://developer.okta.com/signup)
 
 ---
 
@@ -24,7 +24,7 @@ Okta uses an HTTP session cookie to provide access to your Okta org and apps acr
 
 > **Note:** Some browsers block third-party cookies by default, which disrupts Okta functionality in certain flows. See [Mitigate the impact of third-party cookie deprecation](https://help.okta.com/okta_help.htm?type=oie&id=ext-third-party-cookies).
 
-Okta sessions are created and managed with the [Session API](/docs/reference/api/sessions/). A session token is sent as part of a request, contained in a `sessionToken` parameter. If the request is successful, the session cookie is set with a `Set-Cookie` header in the response.
+Okta sessions are created and managed with the [Session API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/#tag/Session). A session token is sent as part of a request, contained in a `sessionToken` parameter. If the request is successful, the session cookie is set with a `Set-Cookie` header in the response.
 
 >**Note:** Use session cookies with browsers only. Okta doesn't support or recommend using session cookies outside of a browser because they're subject to change.
 
@@ -32,7 +32,7 @@ Okta sessions are created and managed with the [Session API](/docs/reference/api
 
 ## Retrieve a session cookie through the OpenID Connect authorization endpoint
 
-Use this deployment method in apps where you've implemented both a custom sign-in page and a custom landing page. The sign-in page typically collects the user's credentials through an HTML form submit or POST request. The web app then validates the credentials against your Okta org by calling the [Authentication API](/docs/reference/api/authn/) to obtain a [session token](/docs/reference/api/sessions/#session-token).
+Use this deployment method in apps where you've implemented both a custom sign-in page and a custom landing page. The sign-in page typically collects the user's credentials through an HTML form submit or POST request. The web app then validates the credentials against your Okta org by calling the [Authentication API](/docs/reference/api/authn/) to obtain a [session token](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/#session-token).
 
 After a session token is obtained, it can be passed into the [OpenID Connect authorize endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) to get an Okta session cookie. Executing this flow sets a cookie in the end user's browser and then redirects them back to the `redirect_uri` that is passed into the request.
 

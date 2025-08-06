@@ -2480,7 +2480,7 @@ Content-Type: application/json
 
 ### Delete User
 
-See [Delete a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserLifecycle/#tag/UserLifecycle/operation/unsuspendUser) in the new Okta API reference portal as part of the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/).
+See [Delete a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/deleteUser) in the new Okta API reference portal as part of the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/).
 
 <!--
 <ApiOperation method="delete" url="/api/v1/users/${userId}" />
@@ -4069,7 +4069,7 @@ See [`credentials`](https://developer.okta.com/docs/api/openapi/okta-management/
 
 #### Password object
 
-See [`password`]https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!path=credentials&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+See [`password`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!path=credentials&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
 <!--Specifies a password for a user
 

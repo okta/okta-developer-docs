@@ -19,7 +19,7 @@ This guide explains how to interact with Okta APIs by using scoped OAuth 2.0 acc
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * [Postman client](https://www.getpostman.com/downloads/) to test requests with the access token. See [Get Started with the Okta APIs](https://developer.okta.com/docs/reference/rest/) for information on setting up Postman.
 
 ---
@@ -55,7 +55,7 @@ Create an OAuth 2.0 service app integration using the Admin Console.
 
   > **Note:** You can also use the `/oauth2/v1/clients` endpoint to [create your service app using the API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient). If you use the API, follow the [Generate the JWK using the API](#generate-the-jwk-using-the-api) section first, because you need the `JWKS` parameter value when you create the client using the API.
   >
-  >You can also add more JWKS to the app later using the [Add a new JSON Web Key](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialOAuth2ClientAuth/#tag/ApplicationSSOCredentialOAuth2ClientAuth/operation/addJwk) API.
+  >You can also add more JWKS to the app later using the [Add a JSON Web Key](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOPublicKeys/#tag/ApplicationSSOPublicKeys/operation/addJwk) API.
 
 1. Sign in to your Okta organization as a user with administrative privileges.
 

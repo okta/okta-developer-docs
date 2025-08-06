@@ -1,8 +1,5 @@
 version: 2.1
 
-orbs:
-  platform-helpers: okta/platform-helpers@1
-
 parameters:
   preview:
     type: string
@@ -59,7 +56,7 @@ jobs:
         - store_test_results:
             path: test_results
         - store_artifacts:
-            path: test_results
+            path: /tests/cypress/screenshots
 
   nightly_link_checker:
     docker:
@@ -140,15 +137,6 @@ jobs:
 
 
 workflows:
-  semgrep:
-    when:
-      not: << pipeline.parameters.preview >>
-    jobs:
-      - platform-helpers/job-semgrep-scan:
-          name: "Scan with Semgrep"
-          context:
-            - static-analysis
-
   linting:
     when:
       not: << pipeline.parameters.preview >>

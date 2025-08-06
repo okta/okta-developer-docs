@@ -15,7 +15,7 @@ This guide outlines how to develop a custom client to manage an identity source 
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
    * A Custom Identity Source integration configured in your Okta org (see [Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source))
       >  **Note:** Your org needs to have the Identity Source Apps feature enabled. Contact your Okta account team to enable this feature. <!-- IDENTITY_SOURCE_APPS feature flag needs to be enabled (Checked with Karthik Reddy on Sept 11, 2023 - this text should remain in place until Eng has enabled all SKUs)-->
    * [An Okta API token](/docs/guides/create-an-api-token/) to make secure API calls

@@ -1,28 +1,24 @@
 ## Deploy a Java app
 
-If you're developing a server-side application, you likely only need to do three things after deploying your app:
+If you're developing a server-side app, you likely only need to do three things after deploying your app:
 
 1. Configure your app (or server settings) to force HTTPS.
-2. Configure your app to read your Okta settings (issuer, client ID, and client secret) from environment variables or a secrets provider (HashiCorp Vault).
-2. Modify your Okta app to have sign-in and sign-out redirect URIs that match your production app.
+1. Configure your app to read your Okta settings (issuer, client ID, and client secret) from environment variables or a secrets provider (HashiCorp Vault).
+1. Modify your Okta app to have sign-in and sign-out redirect URIs that match your production app.
 
-Java applications typically build into a WAR or a JAR for production.
+Java apps typically are built into a WAR or a JAR for production.
 
-If you deploy your application as a WAR, it's possible you have a context path. If you do, add this path to your sign-in redirect URI and your sign-out redirect URI for your Okta app.
-
-<!--
-// todo: show how to do this with the Okta CLI
--->
+If you deploy your app as a WAR, it's possible you have a context path. If you do, add this path to your sign-in redirect URI and your sign-out redirect URI for your Okta app.
 
 JAR-based Java apps usually don't have a context, and if you start them locally, they're available at `http://localhost:8080`.
 
 ## Heroku
 
-The easiest way to deploy your Java app to production with Okta is to use Heroku. Okta provides an [Okta Heroku Add-on](https://devcenter.heroku.com/articles/okta) that auto-provisions an Okta org for you and adds the appropriate applications to it.
+The easiest way to deploy your Java app to production with Okta is to use Heroku. Okta provides an [Okta Heroku Add-on](https://devcenter.heroku.com/articles/okta) that auto-provisions an Okta org for you and adds the appropriate apps to it.
 
 To begin, install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and run `heroku login`.
 
-You can deploy your Java application to Heroku in five steps:
+You can deploy your Java app to Heroku in five steps:
 
 1. Run `heroku create`.
 2. Add the Git remote that's created as a remote for your project.
@@ -32,7 +28,7 @@ You can deploy your Java application to Heroku in five steps:
    ```
 
 3. Run `heroku addons:create okta`.
-4. Create a `Procfile` that sets the `PORT` and your Okta configuration.
+4. Create a `Profile` that sets the `PORT` and your Okta configuration.
 
    ```
    web: java -Dserver.port=$PORT -Dokta.oauth2.client-id={OKTA_OAUTH2_CLIENT_ID_WEB} -Dokta.oauth2.client-secret={OKTA_OAUTH2_CLIENT_SECRET_WEB} -jar target/*.jar
@@ -71,4 +67,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 ## Docker
 
-You can package your Java application with Docker, too. See [Angular + Docker with a Big Hug from Spring Boot](https://developer.okta.com/blog/2020/06/17/angular-docker-spring-boot) for a blog post that details how. Specifically, see the [Dockerize Angular + Spring Boot with Jib](https://developer.okta.com/blog/2020/06/17/angular-docker-spring-boot#dockerize-angular-spring-boot-with-jib) section.
+You can package your Java app with Docker, too. See [Angular + Docker with a Big Hug from Spring Boot](https://developer.okta.com/blog/2020/06/17/angular-docker-spring-boot) for a blog post that details how. Specifically, see the [Dockerize Angular + Spring Boot with Jib](https://developer.okta.com/blog/2020/06/17/angular-docker-spring-boot#dockerize-angular-spring-boot-with-jib) section.

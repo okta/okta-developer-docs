@@ -1,1 +1,1 @@
-OIDC
+OIDC app integration

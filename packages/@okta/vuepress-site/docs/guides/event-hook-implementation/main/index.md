@@ -14,9 +14,11 @@ This guide provides a working example of an Okta event hook. It uses the website
 * Implement a working example of an Okta event hook with a Glitch.com project, which acts as an external service.
 * Preview and test an Okta event hook.
 
+<GlitchDeprecationNote />
+
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account
 
 #### Sample code

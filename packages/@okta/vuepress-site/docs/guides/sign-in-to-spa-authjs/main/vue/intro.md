@@ -1,6 +1,6 @@
 You can retain authentication control of your Vue.js single-page app (SPA) without redirection to Okta by implementing [embedded authentication](/docs/concepts/redirect-vs-embedded/#embedded-authentication). Use embedded authentication with the help of the Auth JS and Vue.js libraries. These libraries provide you with common, reusable OAuth 2.0 methods and properties to handle the interaction between the authorization server and your client app.
 
-You can customize the sign-in experience for your app with minimal use of low-level [Okta Authentication](/docs/reference/api/authn/) and [Okta OpenID Connect (OIDC) and OAuth 2.0](/docs/reference/api/oidc/) APIs.
+You can customize the sign-in experience for your app with minimal use of low-level [Okta Authentication](/docs/reference/api/authn/) and [Okta OpenID Connect (OIDC) and OAuth 2.0](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/) APIs.
 
 The authentication interaction between the authorization server and your client app follows the [Interaction Code](/docs/concepts/interaction-code/) flow. This flow is an extension to the [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid/) standard. It allows you to customize the user authentication experience for your app without redirecting to an authentication component outside of your app. See [Implement authorization by Interaction Code grant type](/docs/guides/implement-grant-type/interactioncode/main/) to understand the Interaction Code flow and necessary interactions between the authorization server and your app.
 
@@ -11,7 +11,7 @@ The authentication interaction between the authorization server and your client 
 This guide explains how to build a password-only sign-in use case for your Vue.js app. See [Next steps](#next-steps) for other use cases.
 
 Before you build or integrate your Vue.js app, ensure that you:
-* [enable the Interaction Code grant on your default custom authorization server](/docs/guides/oie-embedded-common-org-setup/android/main/#update-the-default-custom-authorization-server)
+* [enable the Interaction Code grant on your default custom authorization server](/docs/guides/set-up-org/#enable-interaction-code-for-a-custom-authorization-server)
 * register your Vue.js app in Okta by [creating an app integration](#create-an-okta-app-integration)
 
 If you don't have an existing Vue.js app, you can [create a new basic Vue.js app](#create-a-new-vue-js-app-optional) from the Vue CLI.

@@ -4,9 +4,317 @@ title: Okta Classic Engine API release notes 2025
 
 # Okta Classic Engine API release notes (2025)
 
+## July
+
+### Weekly release 2025.07.3
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.07.3](#bugs-fixed-in-2025-07-3) | July 30, 2025 |
+
+#### Bugs fixed in 2025.07.3
+
+* Okta displayed different error messages for valid and invalid usernames after failed sign-in attempts (failed `POST /authn/factors/{factorIdOrFactorType}/verify` requests). (OKTA-958229)
+* The List all user grants operation (`/api/v1/users/me/grants`) didn't include pagination links in the header of the response. (OKTA-918661)
+* The Attack Protection API endpoints returned HTTP 404 Not Found errors unless `-admin` was appended to your org subdomain in the URL path. You can now use your standard org subdomain in the URL path when using the Attack Protection API. (OKTA-925650)
+
+### Weekly release 2025.07.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.07.1](#bugs-fixed-in-2025-07-1) | July 9, 2025 |
+
+#### Bugs fixed in 2025.07.1
+
+- The multiple identifiers feature didn't process case sensitivity correctly when evaluating identifier attributes. (OKTA-899235)
+- When GET `/api/v1/apps/{appId}` is called, admins with the `okta.groups.appAssignment.manage` permission or `okta.users.appAssignment.manage` permission could view app details without having the required `okta.apps.manage` or `okta.apps.read` permissions. (OKTA-801567)
+
+### Monthly release 2025.07.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [OAuth 2.0 provisioning for Org2Org with key auto-rotation is GA in Preview](#oauth-2-0-provisioning-for-org2org-with-key-auto-rotation-is-ga-in-preview) | July 2, 2025|
+| [System Log event for monitoring LDAP Agent config file changes is EA](#system-log-event-for-monitoring-ldap-agent-config-file-changes-is-ea) | July 2, 2025 |
+| [New validation rule for user profile attributes in OIN Wizard](#new-validation-rule-for-user-profile-attributes-in-oin-wizard) | July 2, 2025 |
+| [Changes to Okta app API responses](#changes-to-okta-app-api-responses) | July 7, 2025 |
+| [Restrict access to the Admin Console is GA in Production](#restrict-access-to-the-admin-console-is-ga-in-production) | December 11, 2024 |
+| [Developer documentation updates in 2025.07.0 ](#developer-documentation-updates-in-2025-07-0) | July 2, 2025 |
+| [Bug fixed in 2025.07.0 ](#bug-fixed-in-2025-07-0) | July 2, 2025 |
+
+#### OAuth 2.0 provisioning for Org2Org with key auto-rotation is GA in Preview
+
+Admins deploying multi-org architectures (for example, Okta hub-and-spoke orgs) need to secure user and group provisioning. Provisioning using OAuth2.0 scoped tokens has several advantages over API tokens, including more access granularity, shorter token lifespans, and automatic key rotation. You can now enable OAuth 2.0 Auto-Rotation for Org2Org app provisioning directly from the Admin Console, in addition to the API.
+
+To support these updates, the Application Connections API includes a new endpoint, [Retrieve a JSON Web Key Set (JWKS) for the default provisioning connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/getUserProvisioningConnectionJWKS), and schema updates to support key auto-rotation, `rotationMode=AUTO`. See [Update the default provisioning connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication!path=1/profile&t=request) and [Integrate Okta Org2Org with Okta](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg#Use2). <!-- [OKTA-903533] FF ORG2ORG_ENABLE_PROVISION_JWK -->
+
+
+#### System Log event for monitoring LDAP Agent config file changes is EA
+
+A `system.agent.ldap.config_change_detected` event is generated when an LDAP agent detects changes to its configuration file. <!--OKTA-912260-->
+
+#### New validation rule for user profile attributes in OIN Wizard
+
+The OIN Wizard now requires the use of valid user profile properties when referencing attribute values in EL expressions. The system rejects any invalid user EL expressions and attributes that aren't included in the allowlist. See [SAML properties](https://developer.okta.com/docs/guides/submit-oin-app/saml2/main/#properties). <!--OKTA-820691-->
+
+#### Stricter URL validation in the OIN Wizard
+
+The OIN Wizard now requires all static URLs to begin with "https://" and be complete. For URL expressions, you can use any valid format. See [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/openidconnect/main/). <!--OKTA-662312-->
+
+
+#### Conditions for create user permission is GA in Production
+
+You can now add conditions to the `okta.user.create` permission for custom admin roles. This enables you to granularly control which user attributes admins can set values for during user creation. See [Permissions conditions](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#permissions-conditions). <!--OKTA-907853-->
+
+#### Changes to Okta app API responses
+
+The following Okta apps won't be returned in the API response for endpoints that list apps (such as the [List all applications](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications) `GET /api/vi/apps` endpoint):
+
+* Okta Access Certifications (key name: `okta_iga`)
+* Okta Access Requests Admin (key name: `okta_access_requests_admin`)
+* Okta Entitlement Management (key name: `okta_entitlement_management`)
+
+In addition, a single app retrieval endpoint won't return these apps either. For example: `GET /api/v1/apps/{appId}` won't return the app object if `{appId}` is the ID for the `okta_iga`, `okta_access_requests_admin`, or `okta_entitlement_management` apps in your org.
+<!-- OKTA-871526 ENG_ENABLE_UI_ADMIN_OIDC_APP -->
+
+#### Restrict access to the Admin Console is GA in Production
+
+By default, users and groups with assigned admin roles have access to the Admin Console app. With this feature, super admins can choose to manually assign the app to delegated admins instead. This is recommended for orgs with admins who don't need access, like business partners, third-party admins, or admins who only use the Okta API. See [Configure administrator settings](https://help.okta.com/okta_help.htm?type=oie&id=administrator-settings) and the corresponding APIs: [Retrieve the Okta Admin Console Assignment Setting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/getAutoAssignAdminAppSetting) and [Update the Okta Admin Console Assignment Setting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/updateAutoAssignAdminAppSetting). <!-- OKTA-717742 ADMIN_APP_AND_ROLE_DECOUPLING -->
+
+#### Developer documentation updates in 2025.07.0
+
+* The [Okta Admin Management](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/ ) APIs have been reorganized into functional service groups for improved navigation and user experience. All previous anchors and links to the APIs remain the same. <!--OKTA-918957-->
+
+* The **Agent Pools** API has been renamed  [**Directory Agent Pools**](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AgentPools/) API and is now grouped under **External Identity Sources**. There are no other changes to the API. All previous anchors and links to the API remain the same. <!--OKTA-955807-->
+
+* The [Password import inline hook](/docs/guides/password-import-inline-hook/nodejs/main/) guide was revised to demonstrate the hook call using the [ngrok utility](https://ngrok.com/), rather than the sample code hosted on [Glitch.com](https://glitch.com/). The hosted sample app on Glitch is scheduled for deprecation on July 8th, 2025. <!--OKTA-949440-->
+
+#### Bug fixed in 2025.07.0
+
+Admins couldn't modify the `classicFooterHelpTitle` object on their sign-in page when sending PUT requests to these endpoints.
+* `/api/v1/brands/{brandId}/pages/sign-in/customized`
+* `/api/v1/brands/{brandId}/pages/sign-in/preview`
+* `/api/v1/brands/{brandId}/pages/sign-in/default`
+
+GET requests didn't return the object either. (OKTA-917840)
+
+## June
+
+### Weekly release 2025.06.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Network zone restrictions for clients is self-service EA in Preview](#network-zone-restrictions-for-clients-is-self-service-ea-in-preview) | Jun 25, 2025 |
+| [Org2Org OIDC Sign-on mode is self-service EA in Preview](#org2org-oidc-sign-on-mode-is-self-service-ea-in-preview) | Jun 17, 2025 |
+| [Okta Integration IdP type is self-service EA in Preview](#okta-integration-idp-type-is-self-service-ea-in-preview) | Jun 25, 2025 |
+| [Bugs fixed in 2025.06.2](#bugs-fixed-in-2025-06-2)| Jun 25, 2025 |
+
+#### Network zone restrictions for clients is self-service EA in Preview
+
+You can now specify an allowlist or denylist network zone for each client to enhance token endpoint security. <!-- OIDC_TOKEN_NETWORK_RESTRICTIONS (OKTA-958762) -->
+
+#### Org2Org OIDC Sign-on mode is self-service EA in Preview
+
+The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP. This sign-on mode reduces the complexity of configuration between the Org2Org app and the target org, and takes advantage of modern security features of OIDC. You also need to enable the Okta Integration IdP feature to use the OIDC Sign-on mode. See [Secure API connections between orgs with OAuth 2.0](docs/guides/secure-oauth-between-orgs/main/). <!-- OKTA-714847 FF ORG2ORG_ENABLE_OIDC_SOM Publishing delayed until 6.2 OKTA-950222 -->
+
+#### Okta Integration IdP type is self-service EA in Preview
+
+The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with secure defaults. See [Identity Providers](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&path=type&t=response) and [Add an Okta Identity Provider](https://help.okta.com/okta_help.htm?type=oie&id=idp-add-okta).<!-- OKTA_INTEGRATION_IDP_TYPE (OKTA-949786) -->
+
+#### Bugs fixed in 2025.06.2
+
+* When an app with imported app groups was deactivated, and users were subsequently removed from these groups, the event wasn't recorded in the System Log. (OKTA-934264)
+
+* The delete operation for the Roles API (`/iam/roles/{roleIdOrLabel}`) and the Resource Sets API (`/iam/resource-sets/{iamPolicyIdOrLabel}`) allowed users to delete IAM-based standard roles and resource sets, respectively. (OKTA-926830)
+
+* The expiry time of one-time verification code emails didn't appear in the message. (OKTA-911703)
+
+* Using a private/public key for client authentication with an empty `kid` in the assertion threw a null pointer exception if there was an invalid `use` parameter in the key. (OKTA-963932)
+
+### Weekly release 2025.06.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Frame-ancestors rollout for Content Security Policy](#frame-ancestors-rollout-for-content-security-policy) | Jun 17, 2025 |
+| [Bugs fixed in 2025.06.1](#bugs-fixed-in-2025-06-1)| Jun 17, 2025 |
+
+#### Frame-ancestors rollout for Content Security Policy
+
+Okta is rolling out the frame-ancestors directive of the Content Security Policy (CSP) for the `/auth/services/devicefingerprint` and `/api/v1/internal/device/nonce` endpoints. To prevent blocking access to these endpoints from embedded frames, add any embedder origin as a trusted origin. See the [Trusted Origins API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/).
+
+In addition, Okta is rolling out the use of `nonce` with the script-src directive of the CSP for the `/auth/services/devicefingerprint`. To prevent blocking inline scripts that you may have injected on the page returned by this endpoint, allowlist your inline script to account for the `nonce` addition to script-src.
+ <!-- OKTA-955073 -->
+
+#### Bugs fixed in 2025.06.1
+
+* When calling the Replace the resource set resource conditions endpoint, `/api/v1/iam/resource-sets/{resourceSetIdOrLabel}/resources/{resourceId}`, including an empty body didn't remove conditions. (OKTA-947764)
+
+* The Directories Integration API for AD Bidirectional Group Management returned a 500 error because of a null pointer exception. (OKTA-948743)
+
+* User grants weren't returned from the Users API (`/users/<userId>clients/<clientId>/grants`) after revoking user sessions and OAuth 2.0 tokens. (OKTA-944549)
+
+* Users could sometimes receive too many password reset emails. (OKTA-916357)
+
+* App logos could be added or updated using any SVG format. See [Application Logos](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationLogos/#tag/ApplicationLogos/operation/uploadApplicationLogo!path=file&t=request). (OKTA-876028)
+
+### Monthly release 2025.06.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Admins prevented from deleting published app instances](#admins-prevented-from-deleting-published-app-instances) | June 4, 2025 |
+| [Authentication claims sharing between Okta orgs is GA in Production](#authentication-claims-sharing-between-okta-orgs-is-ga-in-production) | May 7, 2025 |
+| [Claims sharing between third-party IdPs and Okta is GA in Production](#claims-sharing-between-third-party-idps-and-okta-is-ga-in-production) | April 9, 2025 |
+| [Conditions for create user permission](#conditions-for-create-user-permission) | June 9, 2025 |
+| [Define default values for custom user attributes is GA in Production](#define-default-values-for-custom-user-attributes-is-ga-in-production) |  May 7, 2025 |
+| [Domain restrictions on Realms is GA in Production](#domain-restrictions-on-realms-is-ga-in-production) | April 23, 2025 |
+| [Number matching challenge with the Factors API is GA in Production](#number-matching-challenge-with-the-factors-api-is-ga-in-production) | April 9, 2025 |
+| [Restrict access to the Admin Console is GA in Preview](#restrict-access-to-the-admin-console-is-ga-in-preview) | December 11, 2024 |
+| [Expanded use of user.getGroups() function in Okta Expression Language is GA in Preview](#expanded-use-of-user-getgroups-function-in-okta-expression-language-is-ga-in-preview)| June 4, 2025 |
+| [Developer documentation updates in 2025.06.0](#developer-documentation-updates-in-2025-06-0) | June 4, 2025 |
+| [Bug fixed in 2025.06.0](#bug-fixed-in-2025-06-0)| June 4, 2025 |
+
+#### Admins prevented from deleting published app instances
+
+When an app instance has the **Published** version status in OIN Wizard, admins can no longer delete it from the Integrator Free Plan org. <!-- OKTA-689770 -->
+
+#### Authentication claims sharing between Okta orgs is GA in Production
+
+Authentication claims sharing allows an admin to configure their Okta org to trust claims from IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See [Configure claims sharing](/docs/guides/configure-claims-sharing/oktasaml/main/).  <!-- OKTA-802451 ORG2ORG_CLAIMS_SHARING -->
+
+#### Claims sharing between third-party IdPs and Okta is GA in Production
+
+Authentication claims sharing allows an admin to configure their Okta org to trust claims from third-party IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from a third-party IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See [Configure claims sharing](/docs/guides/configure-claims-sharing/oktasaml/main/). <!-- OKTA-901817 THIRD_PARTY_IDP_CLAIMS_SHARING -->
+
+#### Conditions for create user permission
+
+You can now add conditions to the `okta.user.create` permission for custom admin roles. This enables you to granularly control which user attributes admins can set values for during user creation. See [Permissions conditions](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions-conditions).
+
+#### Define default values for custom user attributes is GA in Production
+
+You can now define default values for custom attributes in a user profile. See the [Update User Profile](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/updateUserProfile) endpoint in the Schemas API. <!-- OKTA-907852 ENG_ENABLE_ATTRIBUTE_DEFAULTS -->
+
+#### Domain restrictions on Realms is GA in Production
+
+You can now limit users to a specific domain in Realms, which adds an extra layer of oversight for realm and partner admins and enforces boundaries between user populations. See the [Realms](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Realm/) and [Realm Assignments](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RealmAssignment/) APIs. <!-- OKTA-907851 UD_REALMS_PROFILE_WITH_DOMAIN -->
+
+#### Number matching challenge with the Factors API is GA in Production
+
+You can now send number matching challenges for Okta Verify `push` factor enrollments when you send POST requests to the `/users/{userId}/factors/{factorId}/verify` endpoint. For orgs that can't adopt Okta FastPass, this feature improves their overall security.  See the [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/verifyFactor). <!-- OKTA-903176 ENABLE_FACTORS_API_NUMBER_MATCHING_CHALLENGE -->
+
+#### Restrict access to the Admin Console is GA in Preview
+
+By default, users and groups with assigned admin roles have access to the Admin Console app. With this feature, super admins can choose to manually assign the app to delegated admins instead. This is recommended for orgs with admins who don't need access, like business partners, third-party admins, or admins who only use the Okta API. See [Configure administrator settings](https://help.okta.com/okta_help.htm?type=oie&id=administrator-settings) and the corresponding APIs: [Retrieve the Okta Admin Console Assignment Setting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/getAutoAssignAdminAppSetting) and [Update the Okta Admin Console Assignment Setting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/updateAutoAssignAdminAppSetting). <!-- OKTA-717742 ADMIN_APP_AND_ROLE_DECOUPLING -->
+
+#### Expanded use of user.getGroups() function in Okta Expression Language is GA in Preview
+
+You can now use the `user.getGroups()` function across all features that support Expression Language. See [Group functions](/docs/reference/okta-expression-language/#group-functions). <!-- ENABLE_GET_GROUPS_FUNCTION_ELV2 OKTA-945229-->
+
+#### Developer documentation updates in 2025.06.0
+
+* The **Email Customization** API has been relabelled as the [**Org Email Settings** API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/). There are no other changes to the API. All previous anchors and links to the API remain the same.
+
+* New [release notes for Okta Privileged Access APIs](/docs/release-notes/2025-okta-privileged-access/) are now available.
+
+#### Bug fixed in 2025.06.0
+
+An HTTP 500 error occurred when API requests were sent to `api/v1/policies/{policyId}` and `api/v1/policies/{policyId}/rules/{ruleID}` with certain values in the Accept header. (OKTA-892315)
+
+## May
+
+### Weekly release 2025.05.3
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Integrator Free Plan org now available](#integrator-free-plan-org-now-available) | May 22, 2025 |
+| [Bugs fixed in 2025.05.3](#bugs-fixed-in-2025-05-3)| May 29, 2025 |
+
+#### Integrator Free Plan org now available
+
+The Integrator Free Plan org is now available on the [Sign up](/signup) page of the developer documentation site. These orgs replace the previous Developer Editions Service orgs, which will start being deactivated on July 18th. See [Changes Are Coming to the Okta Developer Edition Organizations](https://developer.okta.com/blog/2025/05/13/okta-developer-edition-changes). For information on the configurations for the Integrator Free Plan orgs, see [Okta Integrator Free Plan org configurations](/docs/reference/org-defaults/). <!-- OKTA-892454 -->
+
+#### Bugs fixed in 2025.05.3
+
+* When enrolling an `sms` factor (`POST /users/{userId}/factors`), an Invalid Phone Number error was sometimes incorrectly returned. (OKTA-923373)
+
+### Weekly release 2025.05.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.05.1](#bugs-fixed-in-2025-05-1)| May 14, 2025 |
+
+#### Bugs fixed in 2025.05.1
+
+* When Okta-to-Okta claims sharing was enabled for a Classic Engine org to an Identity Engine org flow, and the State Token for All Flows feature flag was enabled in the Classic Engine org, users were prompted for MFA on the Identity Engine org when MFA had already been completed on the Classic Engine org. (OKTA-932454)
+
+* An error appeared for some Org2Org users after they completed multifactor authentication when Claims Sharing was enabled. (OKTA-932402)
+
+* In some situations, the `/api/v1/agentPools` API failed to return agents that were stuck in an error state. (OKTA-910056)
+
+### Monthly release 2025.05.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Breached Credentials Protection is EA in Preview](#breached-credentials-protection-is-ea-in-preview) | May 15, 2025 |
+| [New User Role Targets API endpoint](#new-user-role-targets-api-endpoint) | May 7, 2025 |
+| [Define default values for custom user attributes](#define-default-values-for-custom-user-attributes) | May 7, 2025 |
+| [Directories integration API is GA in Preview and Production](#directories-integration-api-is-ga-in-preview-and-production) | May 7, 2025 |
+| [Number matching challenge with the Factors API is GA in Preview](#number-matching-challenge-with-the-factors-api-is-ga-in-preview) | May 7, 2025 |
+| [Claims sharing between third-party IdPs and Okta is GA in Preview](#claims-sharing-between-third-party-idps-and-okta-is-ga-in-preview) | May 7, 2025 |
+| [Entitlement claims is GA in Production](#entitlement-claims-is-ga-in-production) | January 2, 2025 |
+| [POST requests to authorize endpoint is GA in Production](#post-requests-to-authorize-endpoint-is-ga-in-production) | January 8, 2025 |
+| [Authentication claims sharing between Okta orgs is GA in Preview](#authentication-claims-sharing-between-okta-orgs-is-ga-in-preview) | May 7, 2025 |
+| [Bugs fixed in 2025.05.0](#bugs-fixed-in-2025-05-0)| May 7, 2025 |
+
+#### Breached Credentials Protection is EA in Preview
+
+Protect your org from the impact of credentials that have been compromised. If Okta determines that a username and password combination has been compromised after being compared to a third-party curated dataset, the protection response is customizable through password policies, including resetting the user's password, forcing a logout, or calling a delegated Workflow. See the [Okta Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/).
+
+This feature is following a slow rollout process beginning on May 15. <!-- OKTA-925699 -->
+
+#### New User Role Targets API endpoint
+
+The User Role Targets API now includes a new endpoint, [Retrieve a role target by assignment type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetAdmin/#tag/RoleBTargetAdmin/operation/getRoleTargetsByUserIdAndRoleId), that retrieves role targets by user or group assignment type. <!--OKTA-909953 -->
+
+#### Define default values for custom user attributes
+
+You can now define default values for custom attributes in a user profile. See the [Update User Profile](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/updateUserProfile) endpoint in the Schemas API. <!-- OKTA-907852 -->
+
+#### Directories integration API is GA in Preview and Production
+
+The Directories Integration API provides operations to manage Active Directory (AD) group memberships using Okta. This API enables you to define adding or removing users for AD groups. This is now generally available. Previously, this was only available to subscribers of Okta Identity Governance. See [Directories Integration](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DirectoriesIntegration/). <!--AD_BIDIRECTIONAL_GROUP_MANAGEMENT OKTA-734564 OKTA-906684-->
+
+#### Number matching challenge with the Factors API is GA in Preview
+
+You can now send number matching challenges for Okta Verify `push` factor enrollments when you send POST requests to the `/users/{userId}/factors/{factorId}/verify` endpoint. For orgs that can't adopt Okta FastPass, this feature improves their overall security.  See the [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/verifyFactor). <!-- OKTA-903176 -->
+
+#### Claims sharing between third-party IdPs and Okta is GA in Preview
+
+Authentication claims sharing allows an admin to configure their Okta org to trust claims from third-party IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from a third-party IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See [Configure claims sharing](/docs/guides/configure-claims-sharing/oktasaml/main/). <!-- ORG2ORG_CLAIMS_SHARING  OKTA-901817 -->
+
+#### Entitlement claims is GA in Production
+
+You can now enrich tokens with app entitlements that produce deeper integrations. After you configure this feature for your app integration, use the [Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/#reference-attributes) to add entitlements at runtime as OpenID Connect claims and SAML assertions. See [Federated claims with entitlements](/docs/guides/federated-claims/main/). <!-- FEDERATED_CLAIM_GENERATION_LAYER https://oktainc.atlassian.net/browse/OKTA-847041 OKTA-834142 -->
+
+#### POST requests to authorize endpoint is GA in Production
+
+You can now send user data securely in a POST request body to the /authorize endpoint. <!-- OKTA-827104 OAUTH2_AUTHORIZE_WITH_POST -->
+
+#### Authentication claims sharing between Okta orgs is GA in Preview
+
+Authentication claims sharing allows an admin to configure their Okta org to trust claims from IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See [Configure claims sharing](/docs/guides/configure-claims-sharing/oktasaml/main/). <!-- ORG2ORG_CLAIMS_SHARING OKTA-856733 OKTA-802451 -->
+
+#### Bugs fixed in 2025.05.0
+
+* If a third-party SAML IdP sent the `session.amr` SAML attribute without the attribute schema type, Okta rejected the response when the third-party claims sharing feature was enabled. (OKTA-925864)
+
+* When third-party IdP claims sharing was enabled, the redirect to the IdP happened during reauthentication even if the IdP didn't provide any AMR claims. (OKTA-922086)
+
 ## April
 
 ### Weekly release 2025.04.3
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.04.3](#bugs-fixed-in-2025-04-3)| April 30, 2025 |
 
 #### Bugs fixed in 2025.04.3
 
@@ -249,7 +557,7 @@ See [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/m
 
 #### Developer documentation update in 2025.03.0
 
-The list of public permissions has moved from the [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions) topic to the [Permissions in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions) topic. The new topic contains more permission details for you to define your custom admin roles. <!--OKTA-857969--> 
+The list of public permissions has moved from the [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions) topic to the [Permissions in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions) topic. The new topic contains more permission details for you to define your custom admin roles. <!--OKTA-857969-->
 
 #### Bug fixed in 2025.03.0
 

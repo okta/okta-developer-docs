@@ -1,6 +1,6 @@
 {
-  "release" : "2025.04.1",
-  "build" : "2025.04.1-begin-120-gbad1f8e3c5e8",
+  "release" : "2025.07.1",
+  "build" : "2025.07.1-begin-146-g05a164292232",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -141,6 +141,13 @@
     "internalErrorCode" : "access_denied_by_aerial",
     "errorCode" : "access_denied",
     "errorDescription" : "The Aerial service denied the request."
+  }, {
+    "title" : "Disallowed network zone",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "disallowed_network_zone",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The request is made from outside the client's permitted network zones."
   }, {
     "title" : "Associated server not exists",
     "statusCode" : 403,
@@ -414,6 +421,13 @@
     "internalErrorCode" : "direct_auth_recovery_empty_auth_chain",
     "errorCode" : "access_denied",
     "errorDescription" : "Recovery policy does not specify any authenticators that can be used for recovery."
+  }, {
+    "title" : "Eam amr unsatisfiable",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "eam_amr_unsatisfiable",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The amr requested cannot be satisfied with the user's current authenticator enrollments."
   }, {
     "title" : "Eam user canceled request",
     "statusCode" : 403,
@@ -744,6 +758,20 @@
     "errorCode" : "invalid_client",
     "errorDescription" : "The client does not have a JWKSet configured, but the client_assertion requires one."
   }, {
+    "title" : "Client assertion invalid key use",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "client_assertion_invalid_key_use",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "The public key being used for client assertion has an invalid 'use' parameter. Valid values for the 'use' parameter are en."
+  }, {
+    "title" : "Client assertion not signed with signing key",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "client_assertion_not_signed_with_signing_key",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "The client_assertion JWT needs to be signed using a signing key."
+  }, {
     "title" : "Request object invalid issuer",
     "statusCode" : 401,
     "statusReasonPhrase" : "Unauthorized",
@@ -806,6 +834,13 @@
     "internalErrorCode" : "jwks_uri_jku_mismatch_error",
     "errorCode" : "invalid_client",
     "errorDescription" : "The 'jku' in JWT and 'jwks_uri' doesn't match."
+  }, {
+    "title" : "Jwks URI invalid key use",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "jwks_uri_invalid_key_use",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "The public key being used has an invalid 'use' parameter. Valid values for the 'use' parameter are en."
   }, {
     "title" : "Authorize request URI mismatched client",
     "statusCode" : 401,
@@ -1248,13 +1283,6 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "You shouldn't include any sensitive query parameters (en) in token requests. Provide parameters as 'x-www-form-urlencoded' values."
   }, {
-    "title" : "Query parameters not allowed in authorize post request",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "query_parameters_not_allowed_in_authorize_post_requests",
-    "errorCode" : "invalid_request",
-    "errorDescription" : "You shouldn't include any query parameters in authorize POST requests. Provide parameters as 'x-www-form-urlencoded' values."
-  }, {
     "title" : "Unsupported response type with scope",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1577,6 +1605,13 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "'requested_token_type' is invalid or not supported."
   }, {
+    "title" : "Resource app assurance not met",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "resource_app_assurance_not_met",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'resource' app assurance is not met."
+  }, {
     "title" : "Invalid client type native sso",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1829,17 +1864,80 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "The 'challenge' and the 'mfa_token' provided are not associated with each other. Review the values and try again."
   }, {
-    "title" : "Invalid tenant ID",
+    "title" : "Eam invalid ID token hint",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "invalid_tenant_id",
+    "internalErrorCode" : "eam_invalid_id_token_hint",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The id_token_hint cannot be parsed."
+  }, {
+    "title" : "Eam invalid ID token hint signature",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "eam_invalid_id_token_hint_signature",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The id_token_hint signature is invalid."
+  }, {
+    "title" : "Eam ID token hint expired",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "eam_id_token_hint_expired",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The id_token_hint is expired."
+  }, {
+    "title" : "Eam ID token hint expires too far in future",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "eam_id_token_hint_expires_too_far_in_future",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The id_token_hint expires too far in the future."
+  }, {
+    "title" : "Eam ID token hint issued in future",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "eam_id_token_hint_issued_in_future",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The id_token_hint is issued in the future."
+  }, {
+    "title" : "Eam ID token hint before nbf",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "eam_id_token_hint_before_nbf",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The id_token_hint is issued too early."
+  }, {
+    "title" : "Eam ID token hint invalid audience",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "eam_id_token_hint_invalid_audience",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The audience of the id_token_hint is invalid."
+  }, {
+    "title" : "Eam ID token hint invalid issuer",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "eam_id_token_hint_invalid_issuer",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The issuer of the id_token_hint is invalid."
+  }, {
+    "title" : "Eam ID token hint invalid tenant ID",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "eam_id_token_hint_invalid_tenant_id",
     "errorCode" : "invalid_request",
     "errorDescription" : "The tenant id is invalid."
   }, {
-    "title" : "Invalid eam claims",
+    "title" : "Eam ID token hint already used",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "invalid_eam_claims",
+    "internalErrorCode" : "eam_id_token_hint_already_used",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The id_token_hint has already been used."
+  }, {
+    "title" : "Eam invalid claims",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "eam_invalid_claims",
     "errorCode" : "invalid_request",
     "errorDescription" : "The requested claims parameter is invalid."
   }, {
@@ -1927,6 +2025,13 @@
     "errorCode" : "invalid_request_object",
     "errorDescription" : "The request object is issued too early."
   }, {
+    "title" : "Request object JWT invalid key use",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "request_object_jwt_invalid_key_use",
+    "errorCode" : "invalid_request_object",
+    "errorDescription" : "The public key being used for signing the request object has an invalid 'use' parameter. Valid values for the 'use' parameter are en."
+  }, {
     "title" : "Request object invalid jwks",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1954,6 +2059,13 @@
     "internalErrorCode" : "request_object_invalid_secret_length",
     "errorCode" : "invalid_request_object",
     "errorDescription" : "The JWT signature secret length is too short."
+  }, {
+    "title" : "Request object JWT not signed with signing key",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "request_object_jwt_not_signed_with_signing_key",
+    "errorCode" : "invalid_request_object",
+    "errorDescription" : "The request object needs to be signed using a signing key."
   }, {
     "title" : "Invalid request URI",
     "statusCode" : 400,
@@ -2136,6 +2248,13 @@
     "internalErrorCode" : "token_exchange_invalid_audience",
     "errorCode" : "invalid_target",
     "errorDescription" : "Token Exchange requests must include a valid audience of the authorization server."
+  }, {
+    "title" : "Token exchange invalid resource",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "token_exchange_invalid_resource",
+    "errorCode" : "invalid_target",
+    "errorDescription" : "'resource' is invalid or not supported."
   }, {
     "title" : "Invalid token",
     "statusCode" : 401,
@@ -2417,6 +2536,13 @@
     "errorCode" : "server_error",
     "errorDescription" : "Failed to create the access_token."
   }, {
+    "title" : "ID jag not created",
+    "statusCode" : 500,
+    "statusReasonPhrase" : "Internal Server Error",
+    "internalErrorCode" : "id_jag_not_generated",
+    "errorCode" : "server_error",
+    "errorDescription" : "Failed to create the id assertion authorization grant."
+  }, {
     "title" : "Rar token not created",
     "statusCode" : 500,
     "statusReasonPhrase" : "Internal Server Error",
@@ -2535,6 +2661,13 @@
     "internalErrorCode" : "org_authorization_server_only_client",
     "errorCode" : "unauthorized_client",
     "errorDescription" : "This client cannot use a custom authorization server."
+  }, {
+    "title" : "Invalid client for aerial as",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_client_aerial_authorization_server",
+    "errorCode" : "unauthorized_client",
+    "errorDescription" : "This client cannot use the Aerial authorization server."
   }, {
     "title" : "Confidential client required",
     "statusCode" : 400,

@@ -17,7 +17,7 @@ This guide explains an important part of security: minimizing the chances that a
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * An app that can sign in to Okta. To create your own, see the following guides:
   * [Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/)
   * [Sign users into your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/)

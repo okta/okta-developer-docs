@@ -14,7 +14,7 @@ Okta uses the Widget as part of its normal sign-in page. If you would like to cu
 
 <div class="half">
 
-![Screenshot of basic Okta Sign-In Widget](/img/siw/okta-sign-in-javascript.png)
+![Image of basic Okta Sign-In Widget](/img/siw/okta-sign-in-javascript.png)
 
 </div>
 
@@ -46,18 +46,18 @@ See also [Using the npm module](https://github.com/okta/okta-signin-widget#using
 
 #### Bundle the Widget
 
-If you are bundling your assets, import them from `@okta/okta-signin-widget`. For example, using [webpack](https://webpack.js.org/):
+If you’re bundling your assets, import them from `@okta/okta-signin-widget`. For example, using [webpack](https://webpack.js.org/):
 
 ```javascript
 import OktaSignIn from '@okta/okta-signin-widget';
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 ```
 
-> **Note**: Loading CSS requires the [css-loader plugin](https://github.com/webpack-contrib/css-loader).
+> **Note**: Loading CSS requires the [CSS-loader plugin](https://github.com/webpack-contrib/css-loader).
 
 ### Enable cross-origin access
 
-The Widget makes cross-origin requests, so you must enable Cross-Origin Resource Sharing (CORS) in your org. To do this, add your app's URL to your Okta org's Trusted Origins (in **API** > **Trusted Origins**). See [Enable CORS](/docs/guides/enable-cors/).
+The Sign-In Widget makes cross-origin requests, so you must enable Cross-Origin Resource Sharing (CORS) in your org. To do this, add your app's URL to your Okta org's Trusted Origins (in **API** > **Trusted Origins**). See [Enable CORS](/docs/guides/enable-cors/).
 
 ## Usage
 
@@ -102,11 +102,11 @@ To ensure that the Sign-In Widget renders properly on mobile, include the `viewp
 
 ### Use Cases
 
-The Widget can handle several different authentication scenarios. Here are a few common ones:
+The Sign-in Widget can handle several different authentication scenarios. Here are a few common ones:
 
 #### Sign In and Display User's Email
 
-In this case, you would like to use the Widget to sign in to a simple web page and display the user's email. This requires an Okta developer account, and you have to create a Single-Page App (SPA) for it to work.
+In this case, you would like to use the Widget to sign in to a simple web page and display the user's email. This requires an Okta Integrator Free Plan org, and you have to create a Single-Page App (SPA) for it to work.
 
 1. Sign in to your Admin Console. Go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
@@ -218,7 +218,7 @@ function success(res) {
 
 #### Sign in to your app
 
-If you'd like to use the Widget to sign in to your own app instead of Okta, you have to [set up a custom authorization server](/docs/guides/customize-authz-server/) in Okta.
+If you'd like to use the Widget to sign in to your own app instead of Okta, [set up a custom authorization server](/docs/guides/customize-authz-server/).
 
 #### Server-side web app using the authorization code flow
 
@@ -298,9 +298,9 @@ function callMessagesApi() {
 
 The Sign-In Widget render function either results in a success or error. The error function is called when the Widget has been initialized with invalid config options, or has entered a state it can't recover from.
 
-The Sign-In Widget is designed to internally handle any user and API errors. This means that the custom error handler should primarily be used for debugging any configuration errors.
+The Sign-In Widget is designed to handle any user and API errors internally. This means that the custom error handler should primarily be used for debugging any configuration errors.
 
-The Widget doesn't handle three kinds of errors. Handle them with your own code:
+The Sign-in Widget doesn't handle three kinds of errors. Handle them with your own code:
 
 - ConfigError
 - UnsupportedBrowserError
@@ -347,7 +347,7 @@ See the [Okta Vue + Custom Login Example](https://github.com/okta/samples-js-vue
 
 Okta also has mobile SDKs for Android and iOS.
 
-For mobile apps, embedding the Sign-In Widget isn't currently supported. A possible workaround is to redirect to Okta for authentication and [customize the hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget). Support is provided for building your own UI in mobile apps.
+For mobile apps, embedding the Sign-In Widget isn't currently supported. A possible workaround is to redirect to Okta for authentication and to [customize the hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget). Support is provided for building your own UI in mobile apps.
 
 See the following examples:
 

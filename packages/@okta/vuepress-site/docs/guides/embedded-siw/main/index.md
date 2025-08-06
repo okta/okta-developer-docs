@@ -18,7 +18,7 @@ This guide explains authentication fundamentals using JavaScript and the embedde
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup/)
 * Basic knowledge of building front-end JavaScript applications
 
 #### Sample code
@@ -129,7 +129,7 @@ The Sign-In Widget handles various authentication scenarios. See the following s
 
 ### Sign in and display the user's email
 
-In this case, you use the Sign-In Widget to sign in to a simple web page and display the user's email. Ensure that you have an Okta developer account. Then, use the following page of code to create a Single-Page App (SPA).
+In this case, you use the Sign-In Widget to sign in to a simple web page and display the user's email. Ensure that you have an Integrator Free Plan org account. Then, use the following page of code to create a Single-Page App (SPA).
 
 To create and run this sample use case:
 
@@ -169,7 +169,7 @@ Create an app integration in the Okta org that represents the app you want to ad
 1. For this use case, Okta wants to use only the password factor. Click **Edit** and select the **Password only** [preset policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to assign it to your app.
 1. Click **Save**.
 
-   > **Note:** You must also [update the policy rule for the password authenticator](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#update-the-password-authenticator-to-password-only) to not require any additional verification.
+   > **Note:** You must also update the policy rule for the password authenticator to not require any additional verification.
 
 #### Configure the authorization server
 

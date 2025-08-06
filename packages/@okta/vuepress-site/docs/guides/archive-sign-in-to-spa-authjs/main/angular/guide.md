@@ -12,7 +12,7 @@ This guide walks you through integrating authentication and authorization into a
 
 ## Prerequisites
 
-If you don't already have a Developer Edition org, you can create one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
+If you don't already have an Okta Integrator Free Plan org, you can create one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
 
 ### Add an OpenID Connect Client
 
@@ -327,4 +327,4 @@ After the server starts, this message appears in your terminal:
 
 ## Conclusion
 
-You have now successfully authenticated with Okta. With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/).
+You have now successfully authenticated with Okta. With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).

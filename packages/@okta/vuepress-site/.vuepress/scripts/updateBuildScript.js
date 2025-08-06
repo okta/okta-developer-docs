@@ -162,12 +162,9 @@ module.exports = class Build extends EventEmitter {
     });
 
     worker.on('error', error => {
-      console.error(
-        logger.error(
-          chalk.red(`Worker #${workerNumber} sent error: ${error}\n\n${error.stack}`),
-          false
-        )
-      );
+      logger.error(chalk.red(
+        `Worker #${workerNumber} sent error: ${error}\n\n${error.stack}`
+      ))
     });
 
     worker.on('exit', code => {
@@ -175,10 +172,9 @@ module.exports = class Build extends EventEmitter {
       if (code === 0) {
         logger.success(`Worker ${workerNumber} completed successfully.`)
       } else {
-        logger.error(
-          chalk.red(`Worker #${workerNumber} sent exit code: ${code}`),
-          false
-        )
+        logger.error(chalk.red(
+          `Worker #${workerNumber} sent exit code: ${code}`
+        ))
       }
 
       if (this.activeWorkers < MAX_WORKER_THREADS && this.pagesRemaining > 0) {

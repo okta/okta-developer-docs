@@ -25,7 +25,7 @@ Add a user sign-in flow to a server-side web application with Okta's [redirect m
 
 **What you need**
 
-* An [Okta Developer Edition org](/signup/)
+* An [Okta Integrator Free Plan org](/signup/)
 * A recent version of [PHP](https://www.php.net/) and [composer](https://getcomposer.org/) installed.
 
 **Sample code**
@@ -47,7 +47,7 @@ Use this quickstart to learn how to perform these tasks:
 1. [Test that a user can sign in and sign out](#test-that-a-user-can-sign-in-and-sign-out).
 1. [Configure different levels of access for specific areas of the site](#configure-different-levels-of-access-for-specific-areas-of-the-site).
 
-> **Tip**: You need your Okta org domain to follow this tutorial. It looks like `dev-123456.okta.com`. See [Find your Okta domain](/docs/guides/find-your-domain/). Where you see `${yourOktaDomain}` in this guide, replace it with your Okta domain.
+> **Tip**: You need your Okta org domain to follow this tutorial. It looks like `integrator-123456.okta.com`. See [Find your Okta domain](/docs/guides/find-your-domain/). Where you see `${yourOktaDomain}` in this guide, replace it with your Okta domain.
 
 ## Create an app integration in the Admin Console
 
@@ -163,7 +163,7 @@ In both cases, the application redirects the browser to the Okta-hosted sign-in 
 
 After the user signs in, Okta redirects the browser to the sign-in redirect URI you entered earlier. Similarly, after a user signs out, Okta redirects the browser to the sign-out redirect URI. Both sign-in and sign-out redirect URIs are called **callback routes**. Users don't see callback routes, and they aren't the user's final destination. However, your application does need to implement them. See [Define a callback route](#define-a-callback-route).
 
-After the user signs in, Okta returns some of their profile information to your app. The default profile items (called **claims**) returned by Okta include the user's email address, name, and preferred username. These are sent in an [ID token](/docs/reference/api/oidc/#id-token-payload) as part of the redirect to the sign-in redirect URL. See [Get the user's information](#get-the-users-information).
+After the user signs in, Okta returns some of their profile information to your app. The default profile items (called **claims**) returned by Okta include the user's email address, name, and preferred username. These are sent in an [ID token](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#id-token-payload) as part of the redirect to the sign-in redirect URL. See [Get the user's information](#get-the-user-s-information).
 
 #### Redirect to the sign-in page
 
@@ -336,7 +336,7 @@ For example, after the user is signed in, you can extract the user's name from t
 
 > **Note**: Because your app received the ID token in exchange for the authorization code, it's OK to skip the normal checks needed for an ID token that your app received in a redirect.
 
-> **Note:** The claims that you see may differ depending on the scopes requested by your app. See [Configure your application to use Okta](#configure-your-application-to-use-okta) and [Scopes](/docs/reference/api/oidc/#scopes).
+> **Note:** The claims that you see may differ depending on the scopes requested by your app. See [Configure your application to use Okta](#configure-your-application-to-use-okta) and [Scopes](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scopes).
 
 ## Test that a user can sign in and sign out
 
@@ -370,7 +370,7 @@ if(!isset($response['access_token'])) {
 }
 ```
 
-Use the [/token](/docs/reference/api/oidc/#token) reference docs to understand the issue. If the response is `NULL`, echo the response from the curl call to the page:
+Use the [/token](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) reference docs to understand the issue. If the response is `NULL`, echo the response from the curl call to the page:
 
 ```php
 curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([

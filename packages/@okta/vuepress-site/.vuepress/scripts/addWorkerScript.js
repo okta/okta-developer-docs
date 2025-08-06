@@ -1,6 +1,6 @@
 const { parentPort } = require('worker_threads')
 const escape = require('escape-html')
-const { chalk, fs, path, logger } = require('@vuepress/shared-utils')
+const { fs, path, logger } = require('@vuepress/shared-utils')
 const { createBundleRenderer } = require('vue-server-renderer')
 const { normalizeHeadTag } = require('../util/index')
 const { version } = require('../../../package')
@@ -59,24 +59,22 @@ parentPort.once('message', async payload => {
     try {
       html = await renderer.renderToString(context)
     } catch (e) {
-      console.error(
-        logger.error(
-          chalk.red(
-            `Worker #${payload.workerNumber} error rendering ${pagePath}:`
-          ),
-          false
-        )
+      logger.error(
+        `Worker #${payload.workerNumber} error rendering ${pagePath}`
       )
       throw e
     } finally {
-      const filename = pagePath
-        .replace(/\/$/, '/index.html')
-        .replace(/^\//, '')
-      const filePath = path.resolve(payload.outDir, filename)
-      await fs.ensureDir(path.dirname(filePath))
-      await fs.writeFile(filePath, html)
-      filePaths.push(filePath)
-      pagesRendered++
+      if (html) {
+        const filename = pagePath
+            .replace(/\/$/, '/index.html')
+            .replace(/^\//, '')
+        const filePath = path.resolve(payload.outDir, filename)
+        await fs.ensureDir(path.dirname(filePath))
+
+        await fs.writeFile(filePath, html)
+        filePaths.push(filePath)
+        pagesRendered++
+      }
 
       if (pagesRendered % 25 === 0) {
         parentPort.postMessage({

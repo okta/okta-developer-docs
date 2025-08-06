@@ -1,6 +1,6 @@
 {
-  "release" : "2025.04.1",
-  "build" : "2025.04.1-begin-120-gbad1f8e3c5e8",
+  "release" : "2025.07.1",
+  "build" : "2025.07.1-begin-146-g05a164292232",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1888,6 +1888,46 @@
     "statusReasonPhrase" : "Conflict",
     "errorCode" : "E0000254",
     "errorSummary" : "Another request has already been received for the settings for this email template. Please try again later.",
+    "errorDescription" : null
+  }, {
+    "title" : "App instance with published version status cannot be deleted exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000255",
+    "errorSummary" : "App instance with Published version status can't be deleted.",
+    "errorDescription" : null
+  }, {
+    "title" : "Response header too long",
+    "includesExceptionMessage" : false,
+    "statusCode" : 414,
+    "statusReasonPhrase" : "URI Too Long",
+    "errorCode" : "E0000256",
+    "errorSummary" : "This request produced a response with a header too large to be processed.",
+    "errorDescription" : null
+  }, {
+    "title" : "Brand well known uri cannot update default brand exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 405,
+    "statusReasonPhrase" : "Method Not Allowed",
+    "errorCode" : "E0000257",
+    "errorSummary" : "Cannot update the content for the default brand.",
+    "errorDescription" : null
+  }, {
+    "title" : "Brand well known uri invalid path exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 404,
+    "statusReasonPhrase" : "Not Found",
+    "errorCode" : "E0000258",
+    "errorSummary" : "The specified path is not supported. Valid values: [{0}].",
+    "errorDescription" : null
+  }, {
+    "title" : "Breached credential password expire fail during login exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000259",
+    "errorSummary" : "Login not allowed at this time. Reset your password or contact your administrator for further assistance.",
     "errorDescription" : null
   } ]
 }

@@ -780,7 +780,7 @@ Okta now provides a seamless ISV experience to optimize the [Okta Integration Ne
 
 #### Your OIN Integrations instruction updates
 
-The instructions on how to submit your OIN integration have been updated on the **Your OIN Integrations** page of the Admin Console in Developer Edition orgs. <!--OKTA-734095-->
+The instructions on how to submit your OIN integration have been updated on the **Your OIN Integrations** page of the Admin Console in Okta Integrator Free Plan orgs. <!--OKTA-734095-->
 
 #### SCIM 2.0 endpoint call update for user ResourceType requirements
 
@@ -1034,7 +1034,7 @@ The Content Security Policy (CSP) feature lets admins control which URLs may be 
 
 #### New mappings property for Policy API is EA in Preview
 
-A new `mappings` property is available for the `links` object in  `GET /api/v1/policies/{policyId}` and `GET /api/v1/policies?type={type}` responses. This property displays links to policy mappings. See [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/getPolicy). <!-- OKTA-637310 -->
+A new `mappings` property is available for the `links` object in `GET /api/v1/policies/{policyId}` and `GET /api/v1/policies?type={type}` responses. This property displays links to policy mappings. See [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/getPolicy!c=200&path=0/_links/mappings&t=response). <!-- OKTA-637310 -->
 
 #### My Account Authenticators API is GA in Production
 

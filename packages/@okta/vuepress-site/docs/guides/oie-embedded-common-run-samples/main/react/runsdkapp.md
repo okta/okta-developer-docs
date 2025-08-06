@@ -1,7 +1,7 @@
 
 Set up and run the [React Embedded SDK sample app](https://github.com/okta/okta-auth-js/tree/master/samples/generated/react-embedded-auth-with-sdk) with the following steps:
 
-1. [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/react/main/#set-up-your-okta-org-for-a-password-factor-only-use-case), if you haven't already done so.
+1. [Set up your Okta org for a password factor only use case](/docs/guides/set-up-org/#set-up-your-okta-org-for-a-password-factor-only-use-case), if you haven't already done so.
 
 2. Clone the Okta Auth JavaScript (JS) SDK repository.
 

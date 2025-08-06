@@ -15,7 +15,7 @@ This guide describes how to configure your app to pass entitlements in your toke
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * The Identity Governance feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this feature.
 * The Entitlement SAML Assertions and OIDC Claims feature enabled for your org. To enable this feature, go to **Settings** > **Features**, locate the Entitlement SAML Assertions and OIDC Claims feature, and enable.
 * An existing SAML or OIDC app

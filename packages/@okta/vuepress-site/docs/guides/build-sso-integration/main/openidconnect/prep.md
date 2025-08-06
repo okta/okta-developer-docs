@@ -51,7 +51,7 @@ Follow these guides to implement the OAuth 2.0 flows:
 * [Implement Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
 * [Implement Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
 
-> **Note:** You can also review these sample integration quickstarts that use the Okta CLI:
+> **Note:** You can also review these sample integration quickstarts:
 > * [Sign in to SPA](/docs/guides/sign-into-spa-redirect/)
 > * [Sign in to web application](/docs/guides/sign-into-web-app-redirect/)
 

@@ -20,7 +20,7 @@ Know the purpose of a global session policy and authentication policies and be a
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * [Groups created](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) in your org
 * An app that you want to assign to an authentication policy
 * [Authenticators](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators) configured in your org
@@ -50,7 +50,7 @@ You can specify any number of global session policies and the order in which the
 
 In addition to the global session policy, you can configure authentication policies for each app for extra levels of authentication. You can also [share authentication policies across multiple apps](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy).
 
-When you add an app, it's automatically assigned the shared default policy. This policy has a single catch-all rule that allows a user access with only one factor. You can add as many rules to the default policy as you need. However, remember that the changes are applied to both new and existing apps that are assigned the shared default policy.
+When you add an app, it's automatically assigned the shared default policy. This policy has a single catch-all rule that allows a user access with two factors. You can add as many rules to the default policy as you need. However, remember that the changes are applied to both new and existing apps that are assigned the shared default policy.
 
 You don’t have to use the default authentication policy. You can create a policy specifically for an app, or you can [add an app to another existing shared policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy). If you change an app’s sign-on requirements, you can modify its policy or switch to a different shared policy using the [Authentication Policies page](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy).
 
@@ -148,7 +148,7 @@ In this example, create a policy that allows a specific group, **Full time emplo
 
 * Create a network zone, **Corporate Network**, that defines the IP addresses used in your corporate office. See the [Network Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) and [Network zones](https://help.okta.com/okta_help.htm?id=ext-network-zones).
 
-* Ensure that you have [set up your Okta org for a password-optional use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
+* Ensure that you have [set up your Okta org for a password-optional use case](/docs/guides/set-up-org/#set-up-your-okta-org-for-a-password-factor-only-use-case).
 
 ### Create a passwordless policy
 

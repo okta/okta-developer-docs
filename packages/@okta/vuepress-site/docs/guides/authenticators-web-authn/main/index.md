@@ -25,11 +25,11 @@ This guide shows you how to integrate Web Authentication (WebAuthn) into your ap
 
 ## The case for WebAuthn
 
-Passwords and other authenticators that rely on one-time passcodes (OTPs) are vulnerable to security attacks because they rely on relayed information that bad actors can easily obtain. Phishing, where phony websites, phone calls, and other fraudulent tactics are used to gain access to passwords, OTPs, and other data is the major cause of security attacks today.
+Passwords and other authenticators that rely on one-time passcodes (OTPs) are vulnerable to security attacks because they use relayed information that bad actors can obtain. Bad actors use phishing and other fraudulent tactics to gain access to passwords, OTPs, and other data. Phishing is one of the major causes of security attacks today.
 
 To be resistant to phishing attacks, a local communication channel should exist between the device and the authentication factor. WebAuthn supplies this local communication channel by providing a framework to authenticate through USB security keys, fingerprints, Touch ID, and other types of localized authenticators. For example, an app running in a browser can authenticate a user by initiating a biometric request using a fingerprint scanner on their laptop.
 
-Besides being resistant to phishing attacks, WebAuthn can drastically reduce sign-in friction by allowing passwordless sign-ins during reauthentication use cases. For example, mobile banking apps use this type of sign-in today, which allows iPhone users to sign in using only Face ID after the first sign-in with a password.
+Besides being resistant to phishing attacks, WebAuthn can drastically reduce sign-in friction by allowing passwordless sign-ins during reauthentication use cases. For example, mobile banking apps use this type of sign-in. Some mobile banking apps allow iPhone users to sign in using only Face ID after the first sign-in with a password.
 
 > **Note**: For detailed information on the WebAuthn standard, including an up-to-date list of supported browsers, see [webauthn.me](https://a0.to/webauthnme-okta-docs).
 
@@ -53,11 +53,11 @@ In the previous example the public and private keys are generated on the user's 
 
 </div>
 
-As the Service Provider, you can provide WebAuthn support to your users by enabling it in your Okta org and building out support for it in your application using the embedded SDK.
+As the Service Provider, you can provide WebAuthn support to your users. Enable WebAuthn in your Okta org and build out support for it in your app using the embedded SDK.
 
 ## Update configurations
 
-Before you can start using Web Authentication (WebAuthn), you need to enable it in your Okta org and assign it an authentication policy that requires it to be used.
+Before you can start using WebAuthn, you need to enable it in your Okta org and assign it an authentication policy that requires it to be used.
 
 ### Add WebAuthn to your org
 
@@ -80,23 +80,27 @@ First, add the WebAuthn authenticator to your org and enable it.
 
 4. Select the **Enrollment** tab.
 5. Check that **FIDO2 (WebAuthn)** is set to either **Optional** or **Required** in the **Eligible Authenticators** section of the default policy.
-   1. If **FIDO2 (WebAuthn)** is set to **Disabled**, click **Edit** for the default policy
+   1. If **FIDO2 (WebAuthn)** is set to **Disabled**, click **Edit** for the default policy.
    2. Select **Optional** from the dropdown box for **FIDO2 (WebAuthn)**, and then click **Update Policy**.
     [[style="list-style-type:lower-alpha"]]
 
+> **Note:** See [Configure the FIDO2 (WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=ext-webauthn) for information about configuring WebAuthn in the Admin Console.
+
 ### Set your app integration to use the WebAuthn authenticator
 
-New apps are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, it becomes evident when you can share your authentication needs between apps. You should create a policy specifically for your app for testing purposes.
+New apps are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, it becomes evident when you can share your authentication needs between apps. 
+
+Create a policy specifically for your app for testing purposes.
 
 1. Open the **Admin Console** for your org.
 2. Choose **Security > Authentication Policies** to show the available authentication policies.
 3. Click **Add a Policy**.
 4. Give the policy a name, and then click **Save**.
-5. Locate the Catch-all Rule of the new policy and select **Actions > Edit**.
+5. Locate the catch-all rule of the new policy and select **Actions > Edit**.
 6. Select **Allowed after successful authentication**.
-7. Set **User must authenticate with** to **Password + Another factor**.
-8. For **Possession factor constraints**
-   1. Verify that **Device Bound** is selected.
+7. Set **User must authenticate with** to **Password / IdP + Another factor**.
+8. For **Possession factor constraints are**:
+   1. Select **Phishing resistant**.
    2. Verify that **FIDO2 (WebAuthn)** is listed in the box under **Additional factor types**. If it isn't listed, check that the authenticator has been enabled using steps 4 and 5 of [Add WebAuthn to your org](#add-webauthn-to-your-org).
    3. Click **Save**.
     [[style="list-style-type:lower-alpha"]]

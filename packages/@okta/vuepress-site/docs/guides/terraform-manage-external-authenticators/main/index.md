@@ -17,7 +17,7 @@ Enable users to sign in using a trusted external Identity Provider.
 #### What you need
 
 * Familiarity with the Terraform terms: configuration, resources, state, and commands. See the [Terraform overview](/docs/guides/terraform-overview).
-* An [Okta Developer Edition organization](https://developer.okta.com/signup) or an Okta Identity Engine organization.
+* An [Okta Integrator Free Plan org](https://developer.okta.com/signup) or an Okta Identity Engine organization.
 * A Terraform configuration that can access your Okta org. See [Enable Terraform access for your Okta org](/docs/guides/terraform-enable-org-access).
 * An account with [Google](https://accounts.google.com/signup).
 * Access to your [Google Admin Console](admin.google.com) for SAML IdP creation.
@@ -42,7 +42,7 @@ The Okta Terraform Provider supports three types of IdP objects:
 
 You can compare the configuration process for the different IdP types using the examples in this section. All three examples use Google as the IdP.
 
-See [Identity Provider type](/docs/reference/api/idps/#identity-provider-type).
+See [Identity Provider type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&path=type&t=response).
 
 ## Configure a social IdP object
 
@@ -72,11 +72,11 @@ Configure Google as a social IdP in your Terraform configuration:
 | Argument              | Value                              | Description                                                                                                                                               |
 | --------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `name`                | `Google Social IdP`                | The name that appears in the Okta Admin Console                                                                                                           |
-| `type`                | `GOOGLE`                           | The type of Social IdP. See [Identity Provider type](/docs/reference/api/idps/#identity-provider-type).                                                   |
-| `protocol_type`       | `OIDC`                             | The protocol that Google uses as an IdP. See [Identity Provider type](/docs/reference/api/idps/#identity-provider-type)                                   |
+| `type`                | `GOOGLE`                           | The type of Social IdP. See [Identity Provider type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&path=type&t=response).                                                   |
+| `protocol_type`       | `OIDC`                             | The protocol that Google uses as an IdP. See [Identity Provider type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&path=type&t=response)                                   |
 | `client_id`           | {client_id}                       | Client ID of the OAuth 2.0 credentials that you created in the Google Developer Console                                                                   |
 | `client_secret`       | `var.google_oidc_client_secret`    | The variable that represents the client secret of the OAuth 2.0 credentials                                                                               |
-| `scopes`              | `[ "openid", "email", "profile" ]` | The scopes that the Google social IdP requires. See [Identity Provider type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type). |
+| `scopes`              | `[ "openid", "email", "profile" ]` | The scopes that the Google social IdP requires. See [Identity Provider type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&path=type&t=response). |
 | `username_template`   | `idpuser.email`                    | Okta uses the email of the Google user to check for matching Okta users                                                                                   |
 | `subject_match_type`  | `EMAIL`                            | Okta uses the emails of Okta users to match the Google user with an Okta user                                                                             |
 | `account_link_action` | `AUTO`                             | Okta links the IdP user to the existing Okta user if the two users have matching emails                                                                   |
