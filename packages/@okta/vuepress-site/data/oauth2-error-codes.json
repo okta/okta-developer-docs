@@ -1,6 +1,6 @@
 {
-  "release" : "2025.07.1",
-  "build" : "2025.07.1-begin-146-g05a164292232",
+  "release" : "2025.08.1",
+  "build" : "2025.08.1-begin-148-g4865018c558a",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -771,6 +771,20 @@
     "internalErrorCode" : "client_assertion_not_signed_with_signing_key",
     "errorCode" : "invalid_client",
     "errorDescription" : "The client_assertion JWT needs to be signed using a signing key."
+  }, {
+    "title" : "Token encryption no encryption key",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "token_encryption_no_encryption_key",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "No encryption key found for the client."
+  }, {
+    "title" : "Token encryption multiple encryption keys",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "token_encryption_multiple_encryption_keys",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "Multiple encryption keys found for the client."
   }, {
     "title" : "Request object invalid issuer",
     "statusCode" : 401,

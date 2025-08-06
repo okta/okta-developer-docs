@@ -1,6 +1,6 @@
 {
-  "release" : "2025.07.1",
-  "build" : "2025.07.1-begin-146-g05a164292232",
+  "release" : "2025.08.1",
+  "build" : "2025.08.1-begin-148-g4865018c558a",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1928,6 +1928,22 @@
     "statusReasonPhrase" : "Forbidden",
     "errorCode" : "E0000259",
     "errorSummary" : "Login not allowed at this time. Reset your password or contact your administrator for further assistance.",
+    "errorDescription" : null
+  }, {
+    "title" : "Dev org sign on denied exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000260",
+    "errorSummary" : "This developer org has been deactivated. If you need access or have questions, please contact your org admin.",
+    "errorDescription" : null
+  }, {
+    "title" : "Corrupt linked object multiple values exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 500,
+    "statusReasonPhrase" : "Internal Server Error",
+    "errorCode" : "E0000261",
+    "errorSummary" : "The value entered for linked object {0} is invalid for this user.",
     "errorDescription" : null
   } ]
 }
