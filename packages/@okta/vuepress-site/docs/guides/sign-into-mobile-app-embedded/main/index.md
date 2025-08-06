@@ -38,9 +38,9 @@ Make a note of your Okta domain. Use it wherever `{yourOktaDomain}` appears in t
 
 ### Enable the Interaction Code grant type for your org
 
-Enable this grant type to allow apps the ability to use embedded sign-in flows across your entire org. You must have super admin permissions to enable this setting.
+Enable this grant type to allow apps the ability to use embedded sign-in flows across your entire org. You must have the super admin role to enable this setting.
 
-1. Open the Admin Console for your org.
+1. Sign in to the Admin Console for your org.
 1. Go to **Settings** > **Account** > **Embedded widget sign-in support**. (Scroll down to see this tile.)
 1. Click **Edit**.
 1. Select **Interaction Code**.
@@ -52,13 +52,13 @@ For further information on the Interaction Code grant type, see [Interaction Cod
 
 An app integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services. This includes which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
 
-To create your app integration in Okta using the Admin Console:
+To create your app integration in the Okta Admin Console:
 
-1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account. Click **Admin** on the top right of the page.
-1. Open the apps configuration page by selecting **Applications** > **Applications**.
+1. [Sign in to your Okta org](https://developer.okta.com/login) with your admin account. Click **Admin** on the top right of the page.
+1. Go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
-1. Select **Native Application** as the **Application type**, then click **Next**.
+1. Select **Native Application** as the **Application type**, and then click **Next**.
    > **Note:** If you choose the wrong app type, it can break the sign-in or sign-out flows.
 1. Enter an **App integration name**.
 1. Select the **Grant type**. Ensure that the **Authorization Code** grant type is selected. Add the **Refresh Token** grant type and under the **Advanced** arrow, select **Interaction Code**.
@@ -67,15 +67,15 @@ To create your app integration in Okta using the Admin Console:
 
     <StackSnippet snippet="redirectvalues" />
 
-1. Select the type of **Controlled access** for your app in the **Assignments** section. You can allow all users to have access or limit access to individuals and groups. See the [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-user-app-assign) topic in the Okta product documentation.
+1. Select the type of **Controlled access** for your app in the **Assignments** section. You can allow all users to have access or limit access to individuals and groups. See the [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-user-app-assign).
 1. Click **Save** to create the app integration and open its configuration page.
-1. Make a note of the following values: **Client ID**, **Sign-in redirect URIs**, and **Sign-out redirect URIs** n the **General** page. You need to use these values to configure your iOS app.
+1. Make a note of the following values: **Client ID**, **Sign-in redirect URIs**, and **Sign-out redirect URIs** on the **General** page. You need to use these values to configure your iOS app.
 
 ### Update the default custom authorization server
 
 Configure your custom authorization server with an access policy and to use the Interaction Code grant type.
 
-1. Open the **Admin Console** for your org and go to **Security** > **API**.
+1. In the **Admin Console**, go to **Security** > **API**.
 1. Select the **Authorization Servers** tab, select the custom authorization server that you want to update, and click the edit icon.
 1. Select the **Access Policies** tab.
 1. Ensure that your default custom authorization server has an access policy. Add an access policy if it's not there. See [Create access policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-access-policies).
