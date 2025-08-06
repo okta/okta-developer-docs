@@ -23,7 +23,7 @@ title: Okta Identity Engine API release notes 2025
 | [Expanded use of user.getGroups() function in Okta Expression Language is GA in Production](#expanded-use-of-user-getgroups-function-in-okta-expression-language-is-ga-in-production) |June 4, 2025 |
 | [Granular configuration for Keep Me Signed In is GA in Production](#granular-configuration-for-keep-me-signed-in-is-ga-in-production) | January 8, 2025 |
 | [Group Push Mappings is GA in Preview](#group-push-mappings-is-ga-in-preview) | August 7, 2025 |
-| [MyAccount Password API is GA in Production](#myaccount-password-api-is-ga-in-production) | May 24, 2025 |
+| [MyAccount Password API is GA in Production](#myaccount-password-api-is-ga-in-production) | May 24, 2023 |
 | [MyAccount WebAuthn API is EA in Production and GA in Preview](#myaccount-webauthn-api-is-ea-in-production-and-ga-in-preview) | July 16, 2025 |
 | [Multiple active IdP signing certificates is EA](#multiple-active-idp-signing-certificates-is-ea) | August 7, 2025 |
 | [New User Authenticator Enrollments API is GA in Preview](#new-user-authenticator-enrollments-api-is-ga-in-preview) | July 9, 2025|
@@ -43,13 +43,13 @@ title: Okta Identity Engine API release notes 2025
 
 #### Associated Domain Customizations API is self-service EA in Preview
 
-You can now use the [Associated Domain Customizations API](/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/) to view and update the associated domains of your custom domain. Associated domains let you build a trust relationship among your app, the referring domain, the user's credentials that are associated with that domain, and your brand in Okta. This feature makes it easier to adopt phishing-resistant authenticators, like passkeys in the FIDO2 (WebAuthn) authenticator.
+You can now use the [Associated Domain Customizations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/) to view and update the associated domains of your custom domain. Associated domains let you build a trust relationship among your app, the referring domain, the user's credentials that are associated with that domain, and your brand in Okta. This feature makes it easier to adopt phishing-resistant authenticators, like passkeys in the FIDO2 (WebAuthn) authenticator.
 
-See [Customize associated domains](https://developer.okta.com/docs/guides/custom-well-known-uri/main/). <!-- ASSOCIATED_DOMAIN_CUSTOMIZATION OKTA-935558 -->
+See [Customize associated domains](/docs/guides/custom-well-known-uri/main/). <!-- ASSOCIATED_DOMAIN_CUSTOMIZATION OKTA-935558 -->
 
 #### Automate SCIM Integration for OIN Apps with Express Configuration
 
-Express Configuration is a feature designed to automate the setup of SSO and SCIM for instances of OIN SaaS integrations by enterprise customers with minimal manual effort. It allows enterprise customers to securely configure OIDC and SCIM integrations without copying and pasting configuration values between Okta and Auth0-enabled apps. See [Express Configuration](https://developer.okta.com/docs/guides/enable-express-configuration/SCIM/main/). <!-- EXPRESS_CONFIGURATION_SCIM_FOR_AUTH0_APPS OKTA-977761 -->
+Express Configuration is a feature designed to automate the setup of SSO and SCIM for instances of OIN SaaS integrations by enterprise customers with minimal manual effort. It allows enterprise customers to securely configure OIDC and SCIM integrations without copying and pasting configuration values between Okta and Auth0-enabled apps. See [Express Configuration](/docs/guides/enable-express-configuration/SCIM/main/). <!-- EXPRESS_CONFIGURATION_SCIM_FOR_AUTH0_APPS OKTA-977761 -->
 
 #### Breached Credentials Protection is GA in Preview
 
@@ -57,11 +57,11 @@ Protect your org from the impact of credentials that have been compromised. If O
 
 #### Clear user factors for all devices is GA in Preview
 
-When you make a Revoke all user sessions (/api/v1/users/{userId}/sessions) request, include the new [`forgetDevices` parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserSessions/#tag/UserSessions/operation/revokeUserSessions!in=query&path=forgetDevices&t=request) to clear a user's remembered factors on all devices. The user is prompted for full authentication on their next sign-in attempt from any device. The `forgetDevices` parameter is set to `true` by default. <!-- ENG_ENABLE_FORGET_DEVICES_INTENT_FOR_DELETE_USER_SESSIONS_API OKTA-979587 -- >
+When you make a Revoke all user sessions (/api/v1/users/{userId}/sessions) request, include the new [`forgetDevices` parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserSessions/#tag/UserSessions/operation/revokeUserSessions!in=query&path=forgetDevices&t=request) to clear a user's remembered factors on all devices. The user is prompted for full authentication on their next sign-in attempt from any device. The `forgetDevices` parameter is set to `true` by default. <!-- ENG_ENABLE_FORGET_DEVICES_INTENT_FOR_DELETE_USER_SESSIONS_API OKTA-979587 -->
 
 #### Cross App Access is self-service EA in Preview
 
-Admins can now manage third-party app data sharing with the new Cross App Access feature in the Okta Admin Console. This feature moves complex consent processes away from end-users, enhancing security and streamlining the experience. Once configured, end users can access their data from other SaaS apps without navigating OAuth consent flows. See the [Applications Cross Apps Connections API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationCrossAppAccessConnections/) and [Configure Cross App Access](https://help.okta.com/oie/en-us/content/topics/apps/apps-cross-app-access.htm). <!-- ENABLE_CONNECT_WITH_OKTA OKTA-800616) -- >
+Admins can now manage third-party app data sharing with the new Cross App Access feature in the Okta Admin Console. This feature moves complex consent processes away from end-users, enhancing security and streamlining the experience. Once configured, end users can access their data from other SaaS apps without navigating OAuth consent flows. See the [Applications Cross Apps Connections API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationCrossAppAccessConnections/) and [Configure Cross App Access](https://help.okta.com/oie/en-us/content/topics/apps/apps-cross-app-access.htm). <!-- ENABLE_CONNECT_WITH_OKTA OKTA-800616) -->
 
 #### Custom FIDO2 AAGUID is self-service EA in Preview
 

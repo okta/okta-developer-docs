@@ -20,20 +20,22 @@ Okta Identity Governance is available for both Okta Classic and Identity Engine.
 
 #### Governance delegates APIs are Beta
 
+<ApiLifecycle access="beta" />
+
 Super admins and users can assign delegates to complete governance tasks. These include access certification campaign reviews and access request approvals, questions, and tasks. When approvers are unavailable, their tasks can be assigned to different stakeholders ( delegates) for a period of time to ensure that governance processes don't stall. This also reduces the time admins and users spend reassigning requests and reviews manually.
 
 The following APIs support the governance delegates flow and are available as Beta:
 
-* Principal Settings API > [Update the principal settings](/iga/openapi/governance.api/tag/Principal-Settings/#tag/Principal-Settings/operation/updatePrincipalSettings)
-* Delegates > [List all delegate appointments](/iga/openapi/governance.api/tag/Delegates/#tag/Delegates/operation/listDelegateAppointments)
-* My Settings > [Retrieve the settings](/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/getMySettings)
-* My Settings > [Update the settings](/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/updateMySettings)
-* My Settings > [List the eligible delegate users](/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/listMyDelegateUsers)
+* Principal Settings API > [Update the principal settings](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Principal-Settings/#tag/Principal-Settings/operation/updatePrincipalSettings)
+* Delegates > [List all delegate appointments](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Delegates/#tag/Delegates/operation/listDelegateAppointments)
+* My Settings > [Retrieve the settings](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/getMySettings)
+* My Settings > [Update the settings](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/updateMySettings)
+* My Settings > [List the eligible delegate users](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/listMyDelegateUsers)
 <!-- OKTA-987070 GOVERNANCE_DELEGATES FF -->
 
 #### List all access request catalog entries for a user is GA
 
-The [List all access request catalog entries for a user]([https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultUserEntriesV2|https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultUserEntriesV2]) (`GET /governance/api/v2/catalogs/default/user/{userId}/entries`) operation is now included in the **Access Requests - V2** > [Catalogs]([https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/|https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/]) API. As an admin, use this operation to list access request catalog entries for a user. A filter expression query parameter is required to specify the set of entries in the response.
+The [List all access request catalog entries for a user](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultUserEntriesV2) (`GET /governance/api/v2/catalogs/default/user/{userId}/entries`) operation is now included in the **Access Requests - V2** > [Catalogs](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/) API. As an admin, use this operation to list access request catalog entries for a user. A filter expression query parameter is required to specify the set of entries in the response.
 <!-- [OKTA-954146] [OKTA-915784] [OKTA-975991], used for (but not dependent on) ACCESS_REQUESTS_UNIFIED_CATALOG -->
 
 #### Unified requester experience is EA
@@ -43,7 +45,7 @@ Use this feature to create a consistent and unified experience for initiating re
 * Request types now appear as tiles in the End-User Dashboard's resource catalog alongside other resources. Your settings for a request type's audience continue to govern which users can view the request type on their dashboard and request access.
 * In Slack and Microsoft Teams, users can now request access to resources that are governed by access request conditions, and the user experience for requesting resources that are managed by request types has also been changed.
 
-Additionally, in the Okta Access Requests app, the **Access requests** page has been renamed to **Resource catalog** and clicking it redirects requesters to the resource catalog on the End-User Dashboard. The **Request types** section in the web app is only visible to admins and team members who own the request type. See <MadCap:xref href="/Content/Topics/identity-governance/access-requests/ar-request-create.htm">Create requests</MadCap:xref>
+Additionally, in the Okta Access Requests app, the **Access requests** page has been renamed to **Resource catalog** and clicking it redirects requesters to the resource catalog on the End-User Dashboard. The **Request types** section in the web app is only visible to admins and team members who own the request type. See [Create requests](https://help.okta.com/okta_help.htm?type=oie&id=ext-ar-create-manage-reqs).
 
 This is an Early Access feature. See [Enable self-service features](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#early-access-ea).
 
@@ -56,11 +58,11 @@ The following Access Request API updates have been made to support the unified r
 
 #### Developer documentation updates in 2025.08.0
 
-The **Archived Okta Identity Governance API changelog (2023-2024)** has been removed. For updates on these APIs, see the Okta Identity Governance API release notes.
+The **Archived Okta Identity Governance API changelog (2023-2024)** has been removed.
 
 #### Bug fixed in 2025.08.0
 
-The filtered entitlement bundles request (GET /governance/api/v1/entitlement-bundles) with the contains (`co`) operator didn't sort results by the substring's location within the `name` field.
+The filtered entitlement bundles request (`GET /governance/api/v1/entitlement-bundles`) with the contains (`co`) operator didn't sort results by the substring's location within the `name` field.
 
 ## July
 

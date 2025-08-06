@@ -13,7 +13,7 @@ title: Okta Classic Engine API release notes 2025
 | [Breached Credentials Protection is GA in Preview](#breached-credentials-protection-is-ga-in-preview) | May 15, 2025 |
 | [Clear user factors for all devices is GA in Preview](#clear-user-factors-for-all-devices-is-ga-in-preview) | August 7, 2025 |
 | [Encryption of ID tokens and access tokens is EA](#encryption-of-id-tokens-and-access-tokens-is-ea) | August 7, 2025 |
-| [Expanded use of user.getGroups() function in Okta Expression Language is GA in Production](#expanded-use-of-usergetgroups-function-in-okta-expression-language-is-ga-in-production) |June 4, 2025 |
+| [Expanded use of user.getGroups() function in Okta Expression Language is GA in Production](#expanded-use-of-user-getgroups-function-in-okta-expression-language-is-ga-in-production) |June 4, 2025 |
 | [Group Push Mappings is GA in Preview](#group-push-mappings-is-ga-in-preview) | August 7, 2025 |
 | [Multiple active IdP signing certificates is EA](#multiple-active-idp-signing-certificates-is-ea) | August 7, 2025 |
 | [New user profile permission](#new-user-profile-permission) | August 7, 2025 |
@@ -75,7 +75,7 @@ To enhance security, web app integrations now mandate the use of the Authorizati
 
 #### Developer documentation updates in 2025.08.0
 
-The **Archived Okta Identity Governance API changelog (2023-2024)** has been removed. For updates on these APIs, see the Okta Identity Governance API release notes.
+The **Archived Okta Identity Governance API changelog (2023-2024)** has been removed.
 
 ## July
 
