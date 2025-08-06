@@ -55,7 +55,7 @@ const COMMON_NAME_TO_FANCY_NAME = {
   openidconnectidp: 'OpenID Connect IdP',
   saml2idp: `SAML 2.0 IdP`,
   scim: 'SCIM',
-  swa: `Secure Web Authentication`,
+  swa: 'Secure Web Authentication',
   facebook: 'Facebook',
   google: 'Google',
   linkedin: 'LinkedIn',

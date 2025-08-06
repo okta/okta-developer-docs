@@ -1031,11 +1031,10 @@ export const journeys = [
       path: "/docs/journeys/",
       subLinks: [
         {
-          title: "Okta Customer Identity (OCI)",
-          path: "/docs/journeys/1",
+          title: "Secure my customer portal",
           subLinks: [
             { title: "Secure your first web app",
-              path: "/docs/journeys/OCI-secure-your-first-web-app"
+              journeyName: "OCI-secure-your-first-web-app"
             },
           ]
         },
