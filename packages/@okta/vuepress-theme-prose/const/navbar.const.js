@@ -539,10 +539,6 @@ export const guides = [
             guideName: "configure-native-sso",
           },
           {
-            title: "Create an authorization server",
-            guideName: "customize-authz-server",
-          },
-          {
             title: "Request user consent",
             guideName: "request-user-consent"
           },
@@ -766,7 +762,11 @@ export const guides = [
           {
             title: "Configure an SSF receiver and publish a SET",
             path: "/docs/guides/configure-ssf-receiver/",
-          }
+          },
+          {
+            title: "Create an authorization server",
+            path: "/docs/guides/customize-authz-server/main/",
+          },
         ],
       },
       {
@@ -1036,14 +1036,14 @@ export const reference = [
       {
         title: "Expression Language in Identity Engine",
         path: "/docs/reference/okta-expression-language-in-identity-engine/",
-      }, 
+      },
       {
         title: "Integrator Free Plan Org Configurations",
         path: "/docs/reference/org-defaults/",
       },
       {
         title: "Rate Limits",
-        path: "/docs/reference/rate-limits/", 
+        path: "/docs/reference/rate-limits/",
         subLinks: [
           {
             title: "Rate limit dashboard",
@@ -1080,7 +1080,7 @@ export const reference = [
           },
         ]
       },
-      {title: "SSF Transmitter SET payload structures", path: "/docs/reference/ssf-transmitter-sets/"},
+      { title: "SSF Transmitter SET payload structures", path: "/docs/reference/ssf-transmitter-sets/" },
       { title: "System Log query", path: "/docs/reference/system-log-query/" },
       { title: "User query options", path: "/docs/reference/user-query/" },
       {
