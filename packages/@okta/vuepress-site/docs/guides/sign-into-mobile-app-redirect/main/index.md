@@ -13,7 +13,7 @@ Add authentication to your mobile app using the Okta [redirect model](https://de
 * Create an integration that represents your app in your Okta org.
 * Add dependencies and configure your mobile app to use Okta.
 * Add a browser-based sign-in flow that Okta controls (redirect authentication).
-* Load the details of the signed in user and check for an existing authenticated session at app startup.
+* Load the details of the signed-in user and check for an existing authenticated session at app startup.
 * Refresh tokens to keep the user signed in.
 * Make server calls using an access token for the session.
 * Test your integration by signing in as a user.
@@ -33,25 +33,26 @@ Make a note of your Okta domain. Use it wherever `${yourOktaDomain}` appears in 
 > **Note**: If you're using an existing org, verify that API Access Management is enabled: Open your Admin Console, go to **Security** > **API**, and verify that an **Authorization Servers** tab is present. If not, choose one of the following:
 >
 > * Contact your support team to enable the feature in your org.
-> * Use the Admin Console to create your app integrations instead of the CLI.
+> * Use the Admin Console to create your app integrations.
 >
 
 ## Create an Okta integration for your app
 
 An app integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services. This includes which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
 
-To create your app integration in Okta using the Admin Console:
+To create your app integration in the Okta Admin Console:
 
-1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account. Click **Admin** on the top right of the page.
-1. Open the apps configuration pane by selecting **Applications** > **Applications**. Click **Create App Integration**.
+1. [Sign in to your Okta org](https://developer.okta.com/login) with your admin account. Click **Admin** on the top right of the page.
+1. Go to **Applications** > **Applications**. Click **Create App Integration**.
 1. Select a **Sign-in method** of **OIDC - OpenID Connect**.
-1. Select an **Application type** of **Native Application**, then click **Next**.
+1. Select an **Application type** of **Native Application**, and then click **Next**.
    > **Note:** If you choose the wrong app type, it can break the sign-in or sign-out flows. Integrations require the verification of a client secret, which public clients don't have.
 1. Enter an **App integration name**.
 1. Enter the callback routes.
 
     <StackSnippet snippet="redirectvalues" />
 
+1. Select the type of **Controlled access** for your app in the **Assignments** section. You can allow all users to have access or limit access to individuals and groups. See [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-user-app-assign).
 1. Click **Save** to update the Okta app settings.
 
 ## Create an app
