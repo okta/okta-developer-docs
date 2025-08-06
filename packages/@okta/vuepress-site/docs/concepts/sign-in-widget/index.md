@@ -52,7 +52,9 @@ Use the standard sign-in form hosted at your unique Okta URL for a no-code imple
 The standard sign-in form also allows you to customize the sign-in experience for each app or website. For example, if you have multiple brands with distinct websites and domain names under a parent company or you need a different sign-in experience for various apps, you can use distinct branding for each. See [Branding](https://help.okta.com/oie/en-us/content/topics/settings/branding.htm).
 
 #### Advanced
-If you've configured a custom domain and need more control over the Sign-In Widget's appearance, use the built-in code editor. You can make more advanced changes to the HTML, CSS, and JavaScript of the sign-in form. For the third-generation widget, you can use design tokens to customize elements like colors, fonts, borders, and spacing, ensuring consistency with your brand's style guide. See [Style the Sign-In Widget (third generation)](https://developer.okta.com/docs/guides/custom-widget-gen3/main/) or [Style for redirect authentication (second generation)](https://developer.okta.com/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
+If you've configured a custom domain and need more control over the Sign-In Widget's appearance, use the built-in code editor. You can make more advanced changes to the HTML, CSS, and JavaScript of the sign-in form.
+
+For the third-generation widget, you can use design tokens to customize elements like colors, fonts, borders, and spacing, ensuring consistency with your brand's style guide. See [Style the Sign-In Widget (third generation)](https://developer.okta.com/docs/guides/custom-widget-gen3/main/) or [Style for redirect authentication (second generation)](https://developer.okta.com/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
 
 
 ### Self-hosted Sign-In Widget
