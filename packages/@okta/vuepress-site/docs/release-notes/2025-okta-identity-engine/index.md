@@ -172,18 +172,23 @@ To enhance security, web app integrations now mandate the use of the Authorizati
 
 * The [Archived Okta Identity Governance API changelog (2023-2024)](/docs/release-notes/oig-changelog/) has been removed. For updates on these APIs, see the Okta Identity Governance API release notes.
 
-* A new Journeys page is available. This  page includes content that helps you with your development project.
+* [Journeys](/docs/journeys/) is a new and evolving section that includes content to help guide you through your development project. .
 
-  Journeys break down your development project into consumable steps. Each journey provides:
+  Journeys break down your development project into consumable steps:
 
   * Key concepts to absorb
   * Information on planning for tasks that you need to complete
   * Links to individual guides to help you build your project
-  * Content related to your project, but not required to finish the project
+  * Additional content to hep you enhance your project.
 
-  The first journey available is Secure your first web app. This journey is helps you connect your web app to Okta and configure a secure sign-in experience. 
+  The first journey available is [Secure your first web app](/docs/journeys/OCI-secure-your-first-web-app/main/). This journey helps you connect your web app to Okta and configure a secure sign-in experience.
 
-  Stay tuned for more journeys made available with subsequent releases.
+* The new [Create an app integration](/docs/create-an-app-integration/) guide explains what an app integration is, why you need one, and how to create one.
+* The new [Direct authentication](/docs/concepts/direct-authentication/) concept explains what direct authentication is and how you can use it.
+* The new [Set up your org guide](/docs/guides/set-up-org/) outlines how to set up your Okta org with some basic, but important, settings and how to configure it for different use cases.
+* The [Sign in to your native mobile app](/docs/guides/sign-into-mobile-app-embedded) guide describes how to add authentication to your mobile app using the Okta Client SDK for Swift. This example implements a sample iOS app, using Okta APIs and interaction code flow, for browserless authentication.
+* The new [Sign-In Widget](/docs/concepts/oci-siw-concept/) concept provides a high-level overview of the Okta Sign-In Widget.
+* The new [Understand the token lifecycle](/docs/concepts/token-lifecycles) concept provides an overview of OAuth 2.0 tokens, their use, and their lifecycles.
 
 #### Bug fixed in 2025.08.0
 
