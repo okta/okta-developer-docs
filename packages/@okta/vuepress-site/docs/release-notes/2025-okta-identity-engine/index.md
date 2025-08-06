@@ -28,7 +28,7 @@ title: Okta Identity Engine API release notes 2025
 | [Multiple active IdP signing certificates is EA](#multiple-active-idp-signing-certificates-is-ea) | August 7, 2025 |
 | [New User Authenticator Enrollments API is self-service EA in Preview](#new-user-authenticator-enrollments-api-is-self-service-ea-in-preview) | July 9, 2025|
 | [New user profile permission](#new-user-profile-permission) | August 7, 2025 |
-| [OAuth 2.0 provisioning for Org2Org with Autorotation is GA in Production](#oauth-20-provisioning-for-org2org-with-autorotation-is-ga-in-production) | July 2, 2025 |
+| [OAuth 2.0 provisioning for Org2Org with Autorotation is GA in Production](#oauth-2-0-provisioning-for-org2org-with-autorotation-is-ga-in-production) | July 2, 2025 |
 | [Passkeys from Android devices is self-service EA in Preview](#passkeys-from-android-devices-is-self-service-ea-in-preview) | July 16, 2025 |
 | [Send app context to external IdPs is GA in Preview](#send-app-context-to-external-idps-is-ga-in-preview) | May 21, 2025 |
 | [Service Accounts API is EA](#service-accounts-api-is-ea) | August 7, 2025 |

@@ -17,9 +17,9 @@ title: Okta Classic Engine API release notes 2025
 | [Group Push Mappings is GA in Preview](#group-push-mappings-is-ga-in-preview) | August 7, 2025 |
 | [Multiple active IdP signing certificates is EA](#multiple-active-idp-signing-certificates-is-ea) | August 7, 2025 |
 | [New user profile permission](#new-user-profile-permission) | August 7, 2025 |
-| [OAuth 2.0 provisioning for Org2Org with Autorotation is GA in Preview](#oauth-20-provisioning-for-org2org-with-autorotation-is-ga-in-preview) | April 2, 2025 |
+| [OAuth 2.0 provisioning for Org2Org with Autorotation is GA in Production](#oauth-2-0-provisioning-for-org2org-with-autorotation-is-ga-in-production) | April 2, 2025 |
 | [Service Accounts API is EA](#service-accounts-api-is-ea) | August 8, 2025 |
-| [Unified claims generation for custom apps is self-service EA in preview](#unified-claims-generation-for-custom-apps-is-self-service-ea-in-preview) | July 30, 2025 |
+| [Unified claims generation for custom apps is self-service EA in Preview](#unified-claims-generation-for-custom-apps-is-self-service-ea-in-preview) | July 30, 2025 |
 | [Web app integrations now mandate the use of the Authorization Code flow](#web-app-integrations-now-mandate-the-use-of-the-authorization-code-flow) | August 7, 2025 |
 | [Developer documentation updates in 2025.08.0](#developer-documentation-updates-in-2025080) | August 7, 2025 |
 
@@ -51,7 +51,7 @@ Okta now supports multiple active signing certificates for a single SAML identit
 
 A new user profile permission (`okta.users.userprofile.read`) is now available that allows granular read-only access to the user profile. See [Permissions](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#oktausersuserprofileread). <!--OKTA-984996-->
 
-#### OAuth 2.0 provisioning for Org2Org with Autorotation is GA in Preview
+#### OAuth 2.0 provisioning for Org2Org with Autorotation is GA in Production
 
 Admins deploying multi-org architectures (for example Okta hub-and-spoke orgs) need to secure user and group provisioning. Provisioning using OAuth2.0 scoped tokens has several advantages over API tokens, including more access granularity, shorter token lifespans, and automatic key rotation. You can now enable OAuth 2.0 Auto-Rotation for Org2Org app provisioning directly from the Admin Console, in addition to the API.
 
