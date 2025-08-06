@@ -139,7 +139,7 @@ Enable a refresh token in your app integration by following these steps:
 1. Choose **Applications > Applications** to show the app integrations.
 1. Click the name of your integration to open the configuration manager.
 1. Click **Edit** in the **General Settings** section.
-1. Select **Refresh Token** in the **Application** section.
+1. Select **Refresh Token** as the grant type.
 1. Click **Save** at the bottom of the **General Settings** section.
 
 <StackSnippet snippet="refresh" />
