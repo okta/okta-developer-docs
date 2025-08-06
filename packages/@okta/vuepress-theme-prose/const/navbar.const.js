@@ -96,6 +96,10 @@ export const concepts = [
         path: "/docs/concepts/session/",
       },
       {
+        title: "Okta Sign-in Widget",
+        path: "/docs/concepts/sign-in-widget/",
+      },
+      {
         title: "User profiles",
         path: "/docs/concepts/user-profiles/",
       },
@@ -379,6 +383,10 @@ export const guides = [
               {
                 title: "Identity Engine SDK overview",
                 guideName: "mobile-idx-sdk-overview"
+              },
+              {
+                title: "Sign in to your native mobile app",
+                guideName: "sign-into-mobile-app-embedded"
               }
             ]
           },

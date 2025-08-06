@@ -8,22 +8,34 @@ title: Okta Identity Engine API release notes 2025
 
 ## July
 
+### Weekly release 2025.07.3
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.07.3](#bugs-fixed-in-2025-07-3) | July 30, 2025 |
+
+#### Bugs fixed in 2025.07.3
+
+* The List all user grants operation (`/api/v1/users/me/grants`) didn't include pagination links in the header of the response. (OKTA-918661)
+* The Attack Protection API endpoints returned HTTP 404 Not Found errors unless `-admin` was appended to your org subdomain in the URL path. You can now use your standard org subdomain in the URL path when using the Attack Protection API. (OKTA-925650)
+
 ### Weekly release 2025.07.2
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Bugs fixed in 2025.07.2](#bugs-fixed-in-2025-07-2)| July 16, 2025 |
+| [Bugs fixed in 2025.07.2](#bugs-fixed-in-2025-07-2) | July 16, 2025 |
 
 #### Bugs fixed in 2025.07.2
 
 * When the Direct Authentication feature was enabled, calling the Apps API with a custom role couldn’t create OIDC apps. (OKTA-970705)
 * When an admin enabled the Temporary Access Code feature, subsequent `GET /users/{userId}/factors` requests returned HTTP 400 Bad Request errors. (OKTA-979585)
+* This update includes security enhancements. (OKTA-909930)
 
 ### Weekly release 2025.07.1
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Bugs fixed in 2025.07.1](#bugs-fixed-in-2025-07-1)| July 9, 2025 |
+| [Bugs fixed in 2025.07.1](#bugs-fixed-in-2025-07-1) | July 9, 2025 |
 
 #### Bugs fixed in 2025.07.1
 
@@ -45,7 +57,7 @@ title: Okta Identity Engine API release notes 2025
 |[CLEAR Verified and Incode as third-party identity verification providers is GA in Production](#clear-verified-and-incode-as-third-party-identity-verification-providers-is-ga-in-production) | July 2, 2025 |
 | [Changes to Okta app API responses](#changes-to-okta-app-api-responses) | July 7, 2025 |
 | [Restrict access to the Admin Console is GA in Production](#restrict-access-to-the-admin-console-is-ga-in-production) | December 11, 2024 |
-| [Developer documentation updates in 2025.07.0 ](#developer-documentation-updates-in-2025-07-0) | 	July 2, 2025 |
+| [Developer documentation updates in 2025.07.0 ](#developer-documentation-updates-in-2025-07-0) | July 2, 2025 |
 
 #### OAuth 2.0 provisioning for Org2Org with key auto-rotation is GA in Preview
 
