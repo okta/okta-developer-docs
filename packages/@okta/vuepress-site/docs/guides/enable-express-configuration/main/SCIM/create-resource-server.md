@@ -4,7 +4,7 @@ The resource server refers to the Okta Express Configuration API. When you autho
 
 Run the following command to [update the resource server](https://auth0.github.io/auth0-cli/auth0_api.html) in Auth0:
 
-> **Note**: The `identifier` parameter is a unique URI that identifies the resource server. The `expressconfigure:sso` scope allows Okta to configure SSO settings and the `expressconfigure:scim` scope allows for SCIM provisioning capabilities.
+> **Note**: The `expressconfigure:sso` scope allows Okta to configure SSO settings and the `expressconfigure:scim` scope allows for SCIM provisioning capabilities.
 
 ```bash
 auth0 api patch resource-servers/https%3A%2F%2Fsystem.okta.com%2Factions%2Fexpress-configure%2Fv1 \
