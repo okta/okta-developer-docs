@@ -26,7 +26,7 @@ Add authentication to your mobile app using the Okta Client SDK for Swift. This 
 
 This guide introduces using the Okta Client SDK for Swift for integrating authentication flows in to your browserless, mobile apps.
 
-You initialize your mobile app with your Okta org's app integration details. Then the flow requests the initial step, and then cycles through responding to steps until the user signs in, cancels, or an error occurs. Each sign-in step can include one or more user actions, such as choosing an authenticator or entering a one-time passcode (OTP).
+You initialize your mobile app with your Okta org's app integration details. Then the flow requests the initial step, then cycles through responding to steps until the user signs in, cancels, or an error occurs. Each sign-in step can include one or more user actions, such as choosing an authenticator or entering a one-time passcode (OTP).
 
 The following sections demonstrate the iOS sign-in flow processes using`okta-mobile-swift` SDK, and begins by setting up your Okta org integration and then the SDK sample app ([IdxAuthSignIn](https://github.com/okta/okta-mobile-swift/tree/master/Samples/IdxAuthSignIn#idxauthsignin)).
 
@@ -69,7 +69,7 @@ To create your app integration in Okta using the Admin Console:
 
 1. Select the type of **Controlled access** for your app in the **Assignments** section. You can allow all users to have access or limit access to individuals and groups. See the [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-user-app-assign) topic in the Okta product documentation.
 1. Click **Save** to create the app integration and open its configuration page.
-1. On the **General** page, make a note of the following values: **Client ID**, **Sign-in redirect URIs**, and **Sign-out redirect URIs**. You need to use these values to configure your iOS app.
+1. Make a note of the following values: **Client ID**, **Sign-in redirect URIs**, and **Sign-out redirect URIs** n the **General** page. You need to use these values to configure your iOS app.
 
 ### Update the default custom authorization server
 
@@ -131,14 +131,14 @@ Update the Okta property list (`Okta.plist`) with the Okta org OIDC settings tha
 ### Run and test the sample app
 
 1. Click the run button in the toolbar or choose **Product** > **Run** to build and run the app on the selected simulated or a real device.
-1. In the simulator or device, click **Sign In**. You can see the **Client ID** of your app integration at the bottom of the simulator.
-1. Sign in with a user assigned to your app integration. Authenticate with one or more authenticators based on your app's authentication policy.
-1. Your user's profile appears. Click **Token details** to review the access token and the refresh token.
+1. Click **Sign In** in the simulator or device. You can see the **Client ID** of your app integration at the bottom of the simulator.
+1. Sign in with a user assigned to your app integration. Authenticate with one or more authenticators based on your app's authentication policy. Your user's profile appears.
+1. Click **Token details** to review the access token and the refresh token.
 1. Click **Sign Out** and **Revoke Tokens** to sign out and return to the sign-in page.
 
 <div class="half">
 
-!["An image that shows the ios simulator with the start page of the IdxAuthSignIn app. The title "Embedded Auth with SDKs" and a sign-in button appears."](/img/ios-native-mobile-app-splash-screen.png)
+!["An image that shows the iOS simulator with the start page of the IdxAuthSignIn app. The title "Embedded Auth with SDKs" and a sign-in button appears."](/img/ios-native-mobile-app-splash-screen.png)
 
 </div>
 
