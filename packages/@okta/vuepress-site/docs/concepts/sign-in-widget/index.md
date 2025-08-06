@@ -78,9 +78,10 @@ When you initialize the Sign-In Widget in your code, you pass a configuration ob
 
 * `i18n` (Internationalization): This option overrides default text strings and labels for different languages.
 
-See [Embedded Okta Sign-In Widget fundamentals](https://developer.okta.com/docs/guides/embedded-siw/main/) and [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget).
+See [Embedded Okta Sign-In Widget fundamentals](https://developer.okta.com/docs/guides/embedded-siw/main/).
 
+## Related topics
 
-## Next steps
-
-[Sign users in to your web app using the redirect model](https://developer.okta.com/docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/)
+[Okta Sign-In Widget](https://github.com/okta/okta-signin-widget)
+[Okta deployment models - redirect vs. embedded](https://developer.okta.com/docs/concepts/redirect-vs-embedded/)
+[Sign users in overview](https://developer.okta.com/docs/guides/sign-in-overview/main/)
