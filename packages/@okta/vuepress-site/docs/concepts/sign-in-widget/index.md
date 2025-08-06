@@ -11,7 +11,7 @@ The Sign-In Widget renders a user-friendly sign-in form for all aspects of the i
 
 ![Sign-In Widget](/img/siw/okta-sign-in-javascript.png)
 
-It is a JavaScript library that you can integrate in several ways to authenticate users into web and mobile apps for your org. It provides a complete, accessible, pre-built sign-in experience that you can use as is or customize based on your requirements. 
+It's a JavaScript library that you can integrate in several ways to authenticate users into web and mobile apps for your org. It provides a complete, accessible, pre-built sign-in experience that you can use as is or customize based on your requirements. 
 
 ## Benefits 
 
