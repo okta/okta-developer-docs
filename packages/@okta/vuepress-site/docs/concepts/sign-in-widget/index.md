@@ -9,7 +9,7 @@ meta:
 
 The Sign-In Widget renders a user-friendly sign-in form for all aspects of the identity verification lifecycle, from initial registration to multifactor authentication and acts as the front door to your app or website.
 
- <div class="half"> 
+ <div class="half border"> 
  
  ![Sign-In Widget](/img/siw/okta-sign-in-javascript.png) 
  
