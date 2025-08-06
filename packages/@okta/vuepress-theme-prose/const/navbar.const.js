@@ -16,6 +16,10 @@ export const concepts = [
         path: "/docs/concepts/brands/",
       },
       {
+        title: "Direct authentication",
+        path: "/docs/concepts/direct-authentication/",
+      },
+      {
         title: "Event hooks",
         path: "/docs/concepts/event-hooks/",
       },
@@ -82,6 +86,10 @@ export const concepts = [
       {
         title: "Policies",
         path: "/docs/concepts/policies/",
+      },
+      {
+        title: "Token lifecycles",
+        path: "/docs/concepts/token-lifecycles/",
       },
       {
         title: "Session management",
@@ -371,8 +379,15 @@ export const guides = [
               {
                 title: "Identity Engine SDK overview",
                 guideName: "mobile-idx-sdk-overview"
+              },
+              {
+                title: "Sign in to your native mobile app",
+                guideName: "sign-into-mobile-app-embedded"
               }
             ]
+          },
+          { title: "Set up your org",
+            guideName: "set-up-org",
           },
           {
             title: "Access policies",
@@ -439,6 +454,10 @@ export const guides = [
               {
                 title: "Create an API token",
                 guideName: "create-an-api-token",
+              },
+              {
+                title: "Create an app integration",
+                guideName: "create-an-app-integration",
               },
               { title: "Enable CORS", guideName: "enable-cors" },
               { title: "Find your Okta domain", guideName: "find-your-domain" },
@@ -1002,6 +1021,24 @@ export const guides = [
   }
 ];
 
+export const journeys = [
+    {
+      title: "Journeys",
+      path: "/docs/journeys/",
+      subLinks: [
+        {
+          title: "Okta Customer Identity (OCI)",
+          path: "/docs/journeys/1",
+          subLinks: [
+            { title: "Secure your first web app",
+              path: "/docs/journeys/OCI-secure-your-first-web-app"
+            },
+          ]
+        },
+      ],
+    }
+];
+
 export const languagesSdk = [
   {
     title: "SDKs",
@@ -1043,7 +1080,7 @@ export const reference = [
       },
       {
         title: "Rate Limits",
-        path: "/docs/reference/rate-limits/", 
+        path: "/docs/reference/rate-limits/",
         subLinks: [
           {
             title: "Rate limit dashboard",

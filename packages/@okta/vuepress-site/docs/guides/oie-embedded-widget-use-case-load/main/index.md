@@ -15,7 +15,7 @@ Understand the sequence of steps to load the Sign-In Widget.
 #### What you need
 
 * An app that uses the embedded Sign-In Widget and Identity Engine SDK
-* An [Okta org already set up for your use case](/docs/guides/oie-embedded-common-org-setup/)
+* An [Okta org already set up for your use case](/docs/guides/set-up-org/)
 * A [Sign-In Widget and SDK set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#set-up-the-sign-in-widget-and-sdk-for-your-own-app)
 
 #### Sample code

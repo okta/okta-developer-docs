@@ -26,6 +26,7 @@ guides:
  - configure-ssf-receiver
  - configure-user-scoped-account-management
  - create-an-api-token
+ - create-an-app-integration
  - custom-email
  - custom-error-pages
  - custom-url-domain
@@ -93,12 +94,14 @@ guides:
  - saml-inline-hook
  - saml-tracer
  - session-cookie
+ - set-up-org
  - set-up-token-exchange
  - shared-sso-android-ios
  - sharing-cert
  - sign-in-to-spa-authjs
  - sign-in-to-spa-embedded-widget
  - sign-into-mobile-app-redirect
+ - sign-into-mobile-app-embedded
  - sign-into-spa-redirect
  - sign-into-web-app-redirect
  - sign-users-out
