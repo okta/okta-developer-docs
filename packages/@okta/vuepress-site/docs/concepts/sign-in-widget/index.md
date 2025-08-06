@@ -5,7 +5,7 @@ meta:
     content: A high-level overview of the Okta Sign-In Widget.
 ---
 
-# Learn about the Okta Sign-In Widget
+# The Okta Sign-In Widget
 
 The Sign-In Widget is a JavaScript library that you can integrate in several ways to authenticate users into web and mobile apps for your org. It provides a complete, accessible, pre-built sign-in experience that you can use as is or customize based on your requirements. 
 
