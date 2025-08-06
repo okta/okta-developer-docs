@@ -18,7 +18,7 @@ title: Okta Classic Engine API release notes 2025
 | [Multiple active IdP signing certificates is EA](#multiple-active-idp-signing-certificates-is-ea) | August 7, 2025 |
 | [New user profile permission](#new-user-profile-permission) | August 7, 2025 |
 | [OAuth 2.0 provisioning for Org2Org with Autorotation is GA in Production](#oauth-2-0-provisioning-for-org2org-with-autorotation-is-ga-in-production) | April 2, 2025 |
-| [Service Accounts API is EA](#service-accounts-api-is-ea) | August 8, 2025 |
+| [Service Accounts API is EA](#service-accounts-api-is-ea) | August 7, 2025 |
 | [Unified claims generation for custom apps is self-service EA in Preview](#unified-claims-generation-for-custom-apps-is-self-service-ea-in-preview) | July 30, 2025 |
 | [Web app integrations now mandate the use of the Authorization Code flow](#web-app-integrations-now-mandate-the-use-of-the-authorization-code-flow) | August 7, 2025 |
 | [Developer documentation updates in 2025.08.0](#developer-documentation-updates-in-2025-08-0) | August 7, 2025 |
