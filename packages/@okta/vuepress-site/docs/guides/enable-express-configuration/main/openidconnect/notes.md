@@ -1,0 +1,1 @@
+> **Note:** The instructions on this page are for the OIDC protocol. To enable Express Configuration for your Auth0-enabled SCIM OIN integration, select **OpenID Connect** from the **Instructions for** dropdown list on the right.
