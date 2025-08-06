@@ -21,7 +21,7 @@ title: Okta Classic Engine API release notes 2025
 | [Service Accounts API is EA](#service-accounts-api-is-ea) | August 8, 2025 |
 | [Unified claims generation for custom apps is self-service EA in Preview](#unified-claims-generation-for-custom-apps-is-self-service-ea-in-preview) | July 30, 2025 |
 | [Web app integrations now mandate the use of the Authorization Code flow](#web-app-integrations-now-mandate-the-use-of-the-authorization-code-flow) | August 7, 2025 |
-| [Developer documentation updates in 2025.08.0](#developer-documentation-updates-in-2025080) | August 7, 2025 |
+| [Developer documentation updates in 2025.08.0](#developer-documentation-updates-in-2025-08-0) | August 7, 2025 |
 
 #### Breached Credentials Protection is GA in Preview
 
@@ -29,11 +29,11 @@ Protect your org from the impact of credentials that have been compromised. If O
 
 #### Clear user factors for all devices is GA in Preview
 
-When you make a Revoke all user sessions (/api/v1/users/{userId}/sessions) request, include the new `[`forgetDevices` parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserSessions/#tag/UserSessions/operation/revokeUserSessions!in=query&path=forgetDevices&t=request) (with a value of `true`) to clear a user's remembered factors on all devices. The user is prompted for full authentication on their next sign-in attempt from any device. The `forgetDevices` parameter is set to `false` by default. <!-- ENG_ENABLE_FORGET_DEVICES_INTENT_FOR_DELETE_USER_SESSIONS_API OKTA-979587 -- >
+When you make a Revoke all user sessions (/api/v1/users/{userId}/sessions) request, include the new `[`forgetDevices` parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserSessions/#tag/UserSessions/operation/revokeUserSessions!in=query&path=forgetDevices&t=request) (with a value of `true`) to clear a user's remembered factors on all devices. The user is prompted for full authentication on their next sign-in attempt from any device. The `forgetDevices` parameter is set to `false` by default. <!-- ENG_ENABLE_FORGET_DEVICES_INTENT_FOR_DELETE_USER_SESSIONS_API OKTA-979587 -->
 
 #### Encryption of ID tokens and access tokens is EA
 
-You can now encrypt OIDC ID tokens for Okta-protected custom app integrations using JSON Web Encryption. You can also now encrypt access tokens minted by a custom authorization server. See [Key management](/docs/guides/key-management/main/). <!-- OIDC_TOKEN_ENCRYPTION OKTA-978457 -- >
+You can now encrypt OIDC ID tokens for Okta-protected custom app integrations using JSON Web Encryption. You can also now encrypt access tokens minted by a custom authorization server. See [Key management](/docs/guides/key-management/main/). <!-- OIDC_TOKEN_ENCRYPTION OKTA-978457 -->
 
 #### Expanded use of user.getGroups() function in Okta Expression Language is GA in Production
 

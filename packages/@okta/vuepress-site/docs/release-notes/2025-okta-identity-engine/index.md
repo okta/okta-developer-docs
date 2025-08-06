@@ -20,29 +20,30 @@ title: Okta Identity Engine API release notes 2025
 | [Custom FIDO2 AAGUID is self-service EA in Preview](#custom-fido2-aaguid-is-self-service-ea-in-preview) | July 16, 2025 |
 | [Device signal collection policy is self-service EA in Preview](#device-signal-collection-policy-is-self-service-ea-in-preview) | August 7, 2025 |
 | [Encryption of ID tokens and access tokens is EA](#encryption-of-id-tokens-and-access-tokens-is-ea) | August 7, 2025 |
-| [Expanded use of user.getGroups() function in Okta Expression Language is GA in Production](#expanded-use-of-usergetgroups-function-in-okta-expression-language-is-ga-in-production) |June 4, 2025 |
-| [Granular configuration for Keep Me Signed In is GA in Preview](#granular-configuration-for-keep-me-signed-in-is-ga-in-preview) | January 8, 2025 |
+| [Expanded use of user.getGroups() function in Okta Expression Language is GA in Production](#expanded-use-of-user-getgroups-function-in-okta-expression-language-is-ga-in-production) |June 4, 2025 |
+| [Granular configuration for Keep Me Signed In is GA in Production](#granular-configuration-for-keep-me-signed-in-is-ga-in-production) | January 8, 2025 |
 | [Group Push Mappings is GA in Preview](#group-push-mappings-is-ga-in-preview) | August 7, 2025 |
-| [MyAccount Password API is GA in Production](#myaccount-password-api-is-ga-in-production) | July 2, 2025 |
+| [MyAccount Password API is GA in Production](#myaccount-password-api-is-ga-in-production) | May 24, 2025 |
 | [MyAccount WebAuthn API is EA in Production and GA in Preview](#myaccount-webauthn-api-is-ea-in-production-and-ga-in-preview) | July 16, 2025 |
 | [Multiple active IdP signing certificates is EA](#multiple-active-idp-signing-certificates-is-ea) | August 7, 2025 |
-| [New User Authenticator Enrollments API is self-service EA in Preview](#new-user-authenticator-enrollments-api-is-self-service-ea-in-preview) | July 9, 2025|
+| [New User Authenticator Enrollments API is GA in Preview](#new-user-authenticator-enrollments-api-is-ga-in-preview) | July 9, 2025|
 | [New user profile permission](#new-user-profile-permission) | August 7, 2025 |
 | [OAuth 2.0 provisioning for Org2Org with Autorotation is GA in Production](#oauth-2-0-provisioning-for-org2org-with-autorotation-is-ga-in-production) | July 2, 2025 |
 | [Passkeys from Android devices is self-service EA in Preview](#passkeys-from-android-devices-is-self-service-ea-in-preview) | July 16, 2025 |
 | [Send app context to external IdPs is GA in Preview](#send-app-context-to-external-idps-is-ga-in-preview) | May 21, 2025 |
 | [Service Accounts API is EA](#service-accounts-api-is-ea) | August 7, 2025 |
+| [System Log event for Identity Assertion Authorization Grant (ID-JAG) issuance is EA in Preview](#system-log-event-for-identity-assertion-authorization-grant-id-jag-issuance-is-ea-in-preview) | August 7, 2025 |
 | [System Log updates for ID verification events](#system-log-updates-for-id-verification-events) | August 7, 2025 |
 | [Temporary Access Code authenticator is self-service EA in Preview](#temporary-access-code-authenticator-is-self-service-ea-in-preview) | July 16, 2025 |
 | [Unified claims generation for custom apps is self-service EA in preview](#unified-claims-generation-for-custom-apps-is-self-service-ea-in-preview) | July 30, 2025 |
 | [Universal Logout in the OIN Wizard](#universal-logout-in-the-oin-wizard) | August 7, 2025 |
 | [Web app integrations now mandate the use of the Authorization Code flow](#web-app-integrations-now-mandate-the-use-of-the-authorization-code-flow) | August 7, 2025 |
-| [Developer documentation updates in 2025.08.0](#developer-documentation-updates-in-2025080) | August 7, 2025 |
+| [Developer documentation updates in 2025.08.0](#developer-documentation-updates-in-2025-08-0) | August 7, 2025 |
 | [Bug fixed in 2025.08.0 ](#bug-fixed-in-2025-08-0) | August 7, 2025 |
 
 #### Associated Domain Customizations API is self-service EA in Preview
 
-You can now use the [Associated Domain Customizations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/) to view and update the associated domains of your custom domain. Associated domains let you build a trust relationship among your app, the referring domain, the user's credentials that are associated with that domain, and your brand in Okta. This feature makes it easier to adopt phishing-resistant authenticators, like passkeys in the FIDO2 (WebAuthn) authenticator.
+You can now use the [Associated Domain Customizations API](/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/) to view and update the associated domains of your custom domain. Associated domains let you build a trust relationship among your app, the referring domain, the user's credentials that are associated with that domain, and your brand in Okta. This feature makes it easier to adopt phishing-resistant authenticators, like passkeys in the FIDO2 (WebAuthn) authenticator.
 
 See [Customize associated domains](https://developer.okta.com/docs/guides/custom-well-known-uri/main/). <!-- ASSOCIATED_DOMAIN_CUSTOMIZATION OKTA-935558 -->
 
@@ -76,13 +77,13 @@ See [Configure a device signal collection policy](/docs/guides/device-signal-col
 
 #### Encryption of ID tokens and access tokens is EA
 
-You can now encrypt OIDC ID tokens for Okta-protected custom app integrations using JSON Web Encryption. You can also now encrypt access tokens minted by a custom authorization server. See [Key management](/docs/guides/key-management/main/). <!-- OIDC_TOKEN_ENCRYPTION OKTA-978457 -- >
+You can now encrypt OIDC ID tokens for Okta-protected custom app integrations using JSON Web Encryption. You can also now encrypt access tokens minted by a custom authorization server. See [Key management](/docs/guides/key-management/main/). <!-- OIDC_TOKEN_ENCRYPTION OKTA-978457 -->
 
 #### Expanded use of user.getGroups() function in Okta Expression Language is GA in Production
 
 You can now use the `user.getGroups()` function across all features that support Expression Language. See [Group functions](/docs/reference/okta-expression-language/#group-functions). <!-- ENABLE_GET_GROUPS_FUNCTION_ELV2 OKTA-945229-->
 
-#### Granular configuration for Keep Me Signed In is GA in Preview
+#### Granular configuration for Keep Me Signed In is GA in Production
 
 Admins can now configure the post-authentication prompt for Keep Me Signed In (KMSI) at a granular level in authentication policies. This allows admins to selectively enable post-authentication KMSI on a per-user, per-group, or per-app basis. When enabled, this feature exposes a frequency setting that lets admins control how often the post-authentication prompt is presented to users. See [Configure Keep me signed in (KMSI)](/docs/guides/keep-me-signed-in/main/).
 
@@ -104,7 +105,7 @@ You can now use the [MyAccount WebAuthn API](https://developer.okta.com/docs/api
 
 Okta now supports multiple active signing certificates for a single SAML identity provider (IdP), enabling seamless certificate rotation with zero downtime. Use the new [`additionalKids` parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider!path=protocol/0/credentials/trust/additionalKids&t=request) to add another signing certificate for the IdP. You can upload up to two certificates per IdP connection. This improvement eliminates the need for tightly coordinated swaps with IdP partners and reduces the risk of authentication failures due to expired certificates. <!-- IDP_ENABLE_MULTIPLE_SIGNING_CERTS OKTA-986239 -->
 
-#### New User Authenticator Enrollments API is self-service EA in Preview
+#### New User Authenticator Enrollments API is GA in Preview
 
 The [User Authenticator Enrollments API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserAuthenticatorEnrollments/) enables admins to manage the specific authenticator enrollments of their users.
 
@@ -137,6 +138,10 @@ The new [Service Accounts API](https://developer.okta.com/docs/api/openapi/okta-
 This feature is available only if you're subscribed to Okta Privileged Access. Ensure that you've set up the Okta Privileged Access app before creating app accounts through the API.
 <!-- OKTA-926544 OKTA-982940 SERVICE_ACCOUNTS_AD -->
 
+#### System Log event for Identity Assertion Authorization Grant (ID-JAG) issuance is EA in Preview
+
+The `app.oauth2.token.grant.id_jag` event is generated when an app completes an OAuth 2.0 token exchange to get an Identity Assertion Authorization Grant (ID-JAG) JWT. <!-- OKTA-957287 -->
+
 #### System Log updates for ID verification events
 
 There are several updates for events related to identity verification:
@@ -153,7 +158,7 @@ See [Event Types](/docs/reference/api/event-type) and [Identity verification eve
 
 The new Temporary Access Code (TAC) authenticator allows admins to generate temporary codes that let users authenticate in onboarding, account recovery, and other temporary access scenarios. This authenticator enhances security in these scenarios by granting users access to their orgs without having to use their usual authenticators.
 
-To configure the authenticator with Okta APIs, see [Temporary access code authenticator integration guide](https://developer.okta.com/docs/guides/authenticators-tac-authenticator/main/index.md), and to configure it in the Admin Console, see [Configure the temporary access code authenticator](https://help.okta.com/okta_help.htm?type=oie&id=temporary-access-code). <!-- TEMPORARY_ACCESS_CODE OKTA-944116 -->
+To configure the authenticator with Okta APIs, see [Temporary access code authenticator integration guide](/docs/guides/authenticators-tac-authenticator/main/index.md), and to configure it in the Admin Console, see [Configure the temporary access code authenticator](https://help.okta.com/okta_help.htm?type=oie&id=temporary-access-code). <!-- TEMPORARY_ACCESS_CODE OKTA-944116 -->
 
 #### Unified claims generation for custom apps is self-service EA in preview
 
