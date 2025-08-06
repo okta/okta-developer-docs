@@ -47,7 +47,11 @@ You can customize the look and feel of the standard sign-in form directly from t
 
 #### Standard
 
-Use the standard sign-in form hosted at your unique Okta URL for a no-code implementation. You can upload your own company logo, a background image, and a favicon. You can also define a primary and secondary color palette. You can also change the labels and text for various elements in the Sign-In Widget, such as headings, labels, and links. This includes customizing the **Username** field to specify what identifiers users can use, or adding a custom help link.
+Use the standard sign-in form hosted at your unique Okta URL for a no-code implementation. You can make the following customizations:
+
+   * Upload your own company logo, a background image, and a favicon
+   * Define a primary and secondary color palette
+   * Change the labels and text for various elements in the Sign-In Widget, such as headings, labels, and links. This includes customizing the **Username** field to specify what identifiers users can use, or adding a custom help link.
 
 The standard sign-in form also allows you to customize the sign-in experience for each app or website. For example, if you have multiple brands with distinct websites and domain names under a parent company or you need a different sign-in experience for various apps, you can use distinct branding for each. See [Branding](https://help.okta.com/oie/en-us/content/topics/settings/branding.htm).
 
@@ -69,7 +73,7 @@ When you initialize the Sign-In Widget in your code, you pass a configuration ob
 
 * `i18n` (Internationalization): This option overrides default text strings and labels for different languages.
 
-See [Embedded Okta Sign-In Widget fundamentals](https://developer.okta.com/docs/guides/embedded-siw/main/).
+See [Embedded Okta Sign-In Widget fundamentals](https://developer.okta.com/docs/guides/embedded-siw/main/) and [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget).
 
 
 ## Next steps
