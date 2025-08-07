@@ -1,6 +1,6 @@
 You refreshed a token when checking for an existing session in [Check for a session at startup](#check-for-a-session-at-startup). In this case you may want to catch any errors that occur.
 
-Update `refreshToken` in `ContentView.swift` with the following code:
+Update the `refreshToken` function in `ContentView.swift` with the following code:
 
 ```swift
 func refreshToken() {
@@ -29,7 +29,7 @@ Tokens are refreshed regularly. Each refresh requires network activity, which is
 * Check if the device is using cellular data rather than Wi-Fi.
 * Handle failed refresh attempts, especially when the server can't be reached.
 
-The `Token` class contains information such as expiry date. The following function displays the access token, its issue and expiry dates, and any associated refresh token in the info area:
+Update the `showTokenInfo` function in `ContentView.swift` with the following code:
 
 ```swift
 func showTokenInfo() {
