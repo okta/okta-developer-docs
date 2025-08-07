@@ -53,4 +53,4 @@ After you upload the metadata to the external IdP in the next step, you can edit
 
 * **IdP Single Sign-On URL**: The sign-on URL from the IdP. You can sign the AuthN request by selecting **Request Signature**. If you don't specify a **Destination**, Okta automatically sends the request to the IdP SSO URL.
 
-* **IdP Signature Certificate**: Click **Browse files** to upload the certificate from the IdP used to sign the assertion.
+* **IdP Signature Certificate**: Click **Browse files** to upload a certificate from the IdP used to sign the assertion. You can have up to two active certificates per IdP connection. Use the [`additionalKids` parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider!path=protocol/0/credentials/trust/additionalKids&t=request) to add another signing certificate for the IdP.

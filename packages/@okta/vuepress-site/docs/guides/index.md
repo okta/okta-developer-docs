@@ -57,6 +57,7 @@ guides:
  - implement-oauth-for-okta-serviceapp
  - implement-grant-type
  - keep-me-signed-in
+ - key-management
  - manage-orgs-okta-aerial
  - mfa
  - migrate-to-okta-prerequisites
@@ -175,6 +176,7 @@ guides:
  - add-logingov-idp
  - policy-simulation
  - idv-integration
+ - device-signal-collection-policies
  - authenticators-tac-authenticator
  - custom-well-known-uri
 ---
