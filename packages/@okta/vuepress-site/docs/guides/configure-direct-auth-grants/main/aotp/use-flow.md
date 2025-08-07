@@ -14,7 +14,7 @@ curl --request POST \
 
 Note the parameters that are passed:
 
-- `client_id`: Matches the client ID of the application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
+- `client_id`: Matches the client ID of the app that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
 - `scope`: Must be at least `openid`. If you're using a custom authorization server, see the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
 - `grant_type`: `urn:okta:params:oauth:grant-type:otp`, which indicates that you're using the direct authentication OTP grant type. Use this grant type for OTP factors (such as Google Authenticator) that you want to use as a primary factor.
 - `otp`: The one-time passcode that your app obtained from the user.
@@ -38,4 +38,4 @@ If the credentials are valid, Okta responds with the required tokens.
 
 ### Validate access token
 
-When your application passes a request with an access token, the resource server needs to validate it. See [Validate access tokens](/docs/guides/validate-access-tokens/).
+When your app passes a request with an access token, the resource server needs to validate it. See [Validate access tokens](/docs/guides/validate-access-tokens/).

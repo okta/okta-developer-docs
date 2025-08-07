@@ -1,6 +1,6 @@
 ## Update the Global Session Policy
 
-To use a one-factor direct auth grant, configure the Global Session Policy to not have a password requirement.<!-- After phase 1, this may change -->
+To use a one-factor direct auth grant, configure the Global Session Policy to not have a password requirement.
 
 1. Select **Global Session Policy** from the left navigation.
 1. Select the pencil icon of the Default Rule.
