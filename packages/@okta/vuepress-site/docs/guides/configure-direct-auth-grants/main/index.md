@@ -8,7 +8,7 @@ layout: Guides
 
 Configure direct authentication for your app to directly verify user credentials and authentication [factors](https://help.okta.com/okta_help.htm?type=oie&id=ext-configure-authenticators) without relying on browser interactions.
 
-For an overview of direct authentication, how it works, and how and when you would use it for your apps, see [Direct authentication](/docs/concepts/direct-authentication/).
+For an overview of direct authentication, how it works, and how and when you would use it for your apps, see [Direct authentication](https://developer.okta.com/docs/concepts/direct-authentication/).
 
 <StackSnippet snippet="nutrition" />
 
