@@ -1,1 +1,1 @@
-Use the OTP flow when you want to use an OTP factor, such as Google time-based one-time passcode (TOTP) or Okta Verify, as a primary factor.
+Use the OTP authenticator flow when you want to use an OTP factor, such as Google time-based one-time passcode (TOTP) or Okta Verify, as a primary factor.

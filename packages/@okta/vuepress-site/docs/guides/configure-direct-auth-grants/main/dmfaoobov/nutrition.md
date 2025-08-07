@@ -1,13 +1,13 @@
 <ApiLifecycle access="ie" />
 
-Use this guide to implement a direct authentication multifactor out-of-band (MFA OOB) flow for your app. The guide uses Okta Verify Push with the Okta Verify authenticator.
+This page describes how to implement a direct authentication multifactor out-of-band (MFA OOB) flow for your app. The guide uses Okta Verify Push with the Okta Verify authenticator.
 
 ---
 
 #### Learning outcomes
 
 * Understand the OAuth 2.0 direct authentication MFA OOB flow.
-* Set up your app with the MFA OOB grant type.
+* Set up your app for direct authentication.
 * Implement the MFA OOB flow in Okta.
 
 #### What you need

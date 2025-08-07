@@ -1,13 +1,13 @@
 <ApiLifecycle access="ie" />
 
-This guide explains how to implement a direct authentication multifactor out-of-band (MFA OOB) flow for your app. The guide uses the phone authenticator with the SMS or voice factor.
+This page describes how to implement a direct authentication multifactor out-of-band (MFA OOB) flow for your app. The guide uses the phone authenticator with the SMS or voice factor.
 
 ---
 
 #### Learning outcomes
 
 * Understand the OAuth 2.0 direct authentication MFA OOB flow.
-* Set up your app with the MFA OOB grant type.
+* Set up your app for direct authentication.
 * Implement the MFA OOB flow in Okta.
 
 #### What you need

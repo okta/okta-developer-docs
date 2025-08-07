@@ -1,13 +1,13 @@
 <ApiLifecycle access="ie" />
 
-Use this guide to implement a direct authentication multifactor one-time-passcode (MFA OTP) flow for your app.
+This page describes how to implement a direct authentication multifactor flow for your app using the one-time-passcode (MFA OTP) authenticator.
 
 ---
 
 #### Learning outcomes
 
 * Understand the OAuth 2.0 direct authentication MFA OTP flow.
-* Set up your app with the MFA OTP grant type.
+* Set up your app for direct authentication.
 * Implement the MFA OTP flow in Okta.
 
 #### What you need

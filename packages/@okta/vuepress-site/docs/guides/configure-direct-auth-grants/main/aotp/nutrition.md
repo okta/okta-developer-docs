@@ -1,14 +1,16 @@
 <ApiLifecycle access="ie" />
 
-Use this guide to implement a direct authentication single-factor one-time passcode (OTP) flow for your app.
+This page describes how to implement a direct authentication single-factor flow for your app using a one-time passcode (OTP) authenticator.
+
+If you’re looking for a different authenticator supported by direct authentication, select one from the dropdown list on the right.
 
 ---
 
 #### Learning outcomes
 
 * Understand the OAuth 2.0 direct authentication OTP flow.
-* Set up your app with the OTP grant type.
-* Implement the OTP flow in Okta.
+* Set up your app for direct authentication.
+* Implement the OTP authenticator flow in Okta.
 
 #### What you need
 
