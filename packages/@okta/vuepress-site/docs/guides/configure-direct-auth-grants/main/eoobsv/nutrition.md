@@ -1,4 +1,4 @@
-<ApiLifecycle access="ie" />
+## Phone (primary factor)
 
 This page describes how to implement a direct authentication out-of-band (OOB) flow for your app. The guide uses the phone authenticator with SMS or Voice factors.
 

@@ -4,7 +4,11 @@ excerpt: How to configure direct authentication authorization flows using primar
 layout: Guides
 ---
 
-Use this guide to implement direct authentication for your app using either a single-[factor](https://help.okta.com/okta_help.htm?type=oie&id=ext-configure-authenticators) or multifactor authentication.
+<ApiLifecycle access="ie" />
+
+Configure direct authentication for your app to directly verify user credentials and authentication [factors](https://help.okta.com/okta_help.htm?type=oie&id=ext-configure-authenticators) without relying on browser interactions.
+
+For an overview of direct authentication, how it works, and how and when you would use it for your apps, see [Direct authentication](/docs/concepts/direct-authentication/).
 
 <StackSnippet snippet="nutrition" />
 

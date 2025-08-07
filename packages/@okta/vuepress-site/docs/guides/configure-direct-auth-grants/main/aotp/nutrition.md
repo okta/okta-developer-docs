@@ -1,4 +1,4 @@
-<ApiLifecycle access="ie" />
+## OTP (primary factor)
 
 This page describes how to implement a direct authentication single-factor flow for your app using a one-time passcode (OTP) authenticator.
 
