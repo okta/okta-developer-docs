@@ -18,6 +18,7 @@ title: Okta Identity Engine API release notes 2025
 
 * The List all user grants operation (`/api/v1/users/me/grants`) didn't include pagination links in the header of the response. (OKTA-918661)
 * The Attack Protection API endpoints returned HTTP 404 Not Found errors unless `-admin` was appended to your org subdomain in the URL path. You can now use your standard org subdomain in the URL path when using the Attack Protection API. (OKTA-925650)
+* Users with case-insensitive usernames didn't match to existing strict case-sensitive users. (OKTA-969228)
 
 ### Weekly release 2025.07.2
 
@@ -47,7 +48,7 @@ title: Okta Identity Engine API release notes 2025
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [OAuth 2.0 provisioning for Org2Org with key auto-rotation is GA in Preview](#oauth-2-0-provisioning-for-org2org-with-key-auto-rotation-is-ga-in-preview) | July 2, 2025 |
-| [MyAccount Password API is GA in Preview](#myaccount-password-api-is-ga-in-preview) | July 2, 2025 |
+| [MyAccount Password API is GA in Preview](#myaccount-password-api-is-ga-in-preview) | May 24, 2023 |
 | [New Okta Expression Language component is self-service EA in Preview](#new-okta-expression-language-component-is-self-service-ea-in-preview)| July 2, 2025|
 | [System Log event for monitoring LDAP Agent config file changes is EA](#system-log-event-for-monitoring-ldap-agent-config-file-changes-is-ea) | July 2, 2025 |
 | [Integrate Okta with Device Posture Provider](#integrate-okta-with-device-posture-provider) | July 2, 2025 |
