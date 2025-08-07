@@ -5665,5 +5665,17 @@ redirects:
     to: /docs/guides/embedded-siw
   - from: /docs/guides/pysaml2.html
     to: /code/python/pysaml2/
+  - from: /docs/concepts/role-assignment/#standard-role-types
+    to: https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles
+  - from: /docs/concepts/role-assignment/#standard-role-types/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles
+  - from: /docs/concepts/role-assignment/#iam-based-standard-role-types
+    to: https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#iam-based-standard-roles
+  - from: /docs/concepts/role-assignment/#iam-based-standard-role-types/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#iam-based-standard-roles
+  - from: /docs/concepts/role-assignment/#supported-resources
+    to: https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#supported-resources
+  - from: /docs/concepts/role-assignment/#supported-resources
+    to: https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#supported-resources
   - from: /docs/guides/spring_security_saml.html
     to: /code/java/spring_security_saml/
