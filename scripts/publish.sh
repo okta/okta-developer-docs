@@ -67,6 +67,8 @@ if ! npm publish --registry ${REGISTRY}; then
   exit ${BUILD_FAILURE}
 fi
 
+set -x
+
 ARTIFACT_FILE="$(ci-pkginfo -t pkgname)-$(ci-pkginfo -t pkgsemver).tgz"
 DEPLOY_VERSION="$([[ ${ARTIFACT_FILE} =~ vuepress-site-(.*)\.tgz ]] && echo ${BASH_REMATCH[1]})"
 ARTIFACT_PATH="@okta/vuepress-site/-/${ARTIFACT_FILE}"
