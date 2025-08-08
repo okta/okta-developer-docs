@@ -20,7 +20,7 @@ See the following references for a list of standard role types:
 Perform a standard role assignment:
 
 1. Assign a role to a user, group, or client. The user now has access to the admin permissions and resources for the role.
-2. (Optional) If the role supports targets, use one of the target operations ([user role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetAdmin/) or [group role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetBGroup/)) to indicate which specific resource the admin can manage.
+2. (Optional) If the role supports targets, use one of the target operations ([user role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetAdmin/), [group role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetBGroup/), or [client role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetClient/)) to indicate which specific resource the admin can manage.
 
 The following are the entities involved in a standard role assignment:
 
@@ -41,7 +41,7 @@ An assignment of a role to an admin is called a [Binding](https://developer.okta
 Therefore, when dealing with custom roles, these three entities always exist:
 
 * Role: Identified by its `label` or `id`
-* Principal: Either a group or a user - known as a member of the binding
+* Principal: Either a user, group, or client - known as a member of the binding
 * Resource set: Identified by its `id`
 
 ### Custom role assignment for IAM-based standard roles
@@ -97,7 +97,7 @@ The identifier for the tenant that is using the service. This is typically your 
 
 ###### objectType
 
-The object type that's specific to the service. For example, object types `groups` or `users` are used for the `directory` service. For examples of object types, see [Supported resources](#supported-resources).
+The object type that's specific to the service. For example, object types `users` or `groups` are used for the `directory` service. For examples of object types, see [Supported resources](#supported-resources).
 
 ###### objectId
 
