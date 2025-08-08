@@ -64,6 +64,10 @@ export const concepts = [
         path: "/docs/concepts/oauth-openid/",
       },
       {
+        title: "OAuth 2.0 claims",
+        path: "/docs/concepts/oauth-claims/",
+      },
+      {
         title: "Redirect vs. embedded deployment",
         path: "/docs/concepts/redirect-vs-embedded/",
       },
