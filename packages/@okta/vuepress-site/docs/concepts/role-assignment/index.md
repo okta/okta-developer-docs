@@ -19,13 +19,13 @@ See the following references for a list of standard role types:
 
 Perform a standard role assignment:
 
-1. Assign a role to a user or group. The user now has access to the admin permissions and resources for the role.
+1. Assign a role to a user, group, or client. The user now has access to the admin permissions and resources for the role.
 2. (Optional) If the role supports targets, use one of the target operations ([user role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetAdmin/) or [group role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetBGroup/)) to indicate which specific resource the admin can manage.
 
 The following are the entities involved in a standard role assignment:
 
 * Role: Identified either by type or ID returned from the [listing API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleECustom/#tag/RoleECustom/operation/listRoles)
-* Principal: Either a group or a user
+* Principal: Either a user, group, or client app
 * Resource (optional): When using target operations ([user role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetAdmin/), [group role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetBGroup/), or [client role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetClient/)), the resource can be either an app or a group
 
 ## Custom role assignment
