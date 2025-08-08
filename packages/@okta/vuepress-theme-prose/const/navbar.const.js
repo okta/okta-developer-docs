@@ -96,7 +96,7 @@ export const concepts = [
         path: "/docs/concepts/session/",
       },
       {
-        title: "Okta Sign-in Widget",
+        title: "Okta Sign-In Widget",
         path: "/docs/concepts/sign-in-widget/",
       },
       {
