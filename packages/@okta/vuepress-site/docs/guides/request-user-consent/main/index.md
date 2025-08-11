@@ -166,7 +166,7 @@ The following section provides example requests for enabling the consent dialog 
     }
     ```
 
-### Update Scope consent
+### Update scope consent
 
 To enable consent for a scope, you need to [update the appropriate scope](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/#tag/AuthorizationServerScopes/operation/replaceOAuth2Scope) by updating the `consent` property for the scope from `IMPLICIT` (the default) to either `REQUIRED` or `FLEXIBLE`. In this example, set `consent` to `REQUIRED`.
 
@@ -177,7 +177,7 @@ To make consent of a scope optional, set the `consent` property to either `REQUI
 This example shows the JSON body for a PUT request to the default custom authorization server (`https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/scopes/{scopeId}`) to update the `phone` scope. You need the following information for the request:
 
 * `authorizationServerId`: Do a [List authorization servers](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/#tag/AuthorizationServer/operation/listAuthorizationServers) to locate the appropriate ID.
-* `scopeId`: Do a [List Scopes](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/#tag/AuthorizationServerScopes/operation/listOAuth2Scopes) to locate the appropriate ID.
+* `scopeId`: Do a [List scopes](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/#tag/AuthorizationServerScopes/operation/listOAuth2Scopes) to locate the appropriate ID.
 
 ```json
 {
@@ -249,7 +249,7 @@ After you define the scopes that you want to require consent for, prepare an aut
 
     Example with the `prompt` parameter included:
 
-     ```bash
+    ```bash
     curl -X GET
     "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
     &response_type=token
@@ -382,7 +382,7 @@ To revoke consent for a user, you can revoke one consent that is granted or all 
 * `userId`: The user that you want to revoke a grant for. Use the [List all Users](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers) endpoint to locate the user and the `userId` that you need.
 * `grantId`: The grant that you want to revoke. Use the [List all User Grants](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserGrant/#tag/UserGrant/operation/listUserGrants) endpoint with the `userId` to locate the `grantID` that you need.
 
-### Revoke one Grant
+### Revoke one grant
 
 To [revoke one grant for a user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserGrant/#tag/UserGrant/operation/revokeUserGrant), use the `grantId` that you want to revoke for a user in a DELETE request:
 
@@ -396,7 +396,7 @@ curl -v -X DELETE \
 "https://{yourOktaDomain}/api/v1/users/{userId}/grants/{grantId}"
 ```
 
-### Revoke all Grants
+### Revoke all grants
 
 To [revoke all grants for a user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserGrant/#tag/UserGrant/operation/revokeUserGrants), use the `userId` for the user in a DELETE request:
 
@@ -415,7 +415,7 @@ curl -v -X DELETE \
 If you don't see the consent prompt when expected:
 
 * Verify that you haven't already provided consent for that combination of app and scopes. Use the `/grants`[endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserGrant/#tag/UserGrant/operation/listGrantsForUserAndClient) to see which grants have been given and to revoke grants.
-* Check the settings for `prompt`, `consent`, and `consent_method` in the [Apps API table](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/oauthClient/consent_method&t=reques).
+* Check the settings for `prompt`, `consent`, and `consent_method` in the [Apps API table](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/signOnMode&t=request).
 * Make sure that in your app configuration, the `redirect_uri` is an absolute URI and that it's allowed by specifying it in [Trusted Origins](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/).
 * If you aren't using the `default` [authorization server](/docs/concepts/auth-servers/), check that you've created at least one policy with one rule that applies to any scope or the scopes in your test.
 * Check the [System Log](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/) to see what went wrong.
