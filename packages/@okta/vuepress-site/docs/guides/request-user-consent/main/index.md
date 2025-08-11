@@ -23,6 +23,18 @@ Implement an Okta-hosted user consent dialog.
 
 When configured, the Okta-hosted user consent dialog for OAuth 2.0 or OpenID Connect authentication flows enables users to acknowledge and accept that they’re giving an app access to some of their data. With the correct configuration, Okta displays a consent dialog that shows which app is asking for access to what data. The dialog displays the app logo that you specify and also provides details about what data is shared if the user consents.
 
+### The value of consent
+
+User consent dialogs are important when an app requests access to user data, especially for third-party apps. These dialogs allow users to explicity grant or deny permissions. This aligns with data privacy regulations like GDPR and provides transparency about how the user's information is being used.
+
+#### Third-party app access
+
+When a user signs in to a third-party app, that app needs to access user data (like profile info or email) or perform actions on the user's behalf (like posting on their behalf). The consent dialog appears and informs the user about the specific data the app is requesting and allows the user to grant or deny access. This is especially important for OAuth 2.0 and OpenID Connect flows where apps request access to protected resources.
+
+#### Specific data access
+
+Even within a single app, you might want to implement consent dialogs for specific data access points. For example, an app might ask for consent to access a user's calendar data or location information only when those features are used. This granular approach gives users more control over their data.
+
 ## User consent and tokens
 
 User consent represents a user's explicit permission to allow an app to access resources protected by scopes. Consent grants are different from tokens. This is because a consent can outlast a token. There can also be multiple tokens with varying sets of scopes derived from a single consent.
