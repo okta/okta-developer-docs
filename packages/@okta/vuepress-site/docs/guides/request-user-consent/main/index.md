@@ -49,7 +49,7 @@ You can configure which scopes aren't required, which are optional, and which ar
 
 When an app needs to get a new access token from an authorization server, the user isn't prompted for consent if they already consented to the specified scopes. Consent grants remain valid until the user or admin manually revokes them, or until the user, app, authorization server, or scope is deactivated or deleted.
 
-> **Note:** The user only has to grant consent once for a scope per authorization server.
+> **Note**: The user only has to grant consent once for a scope per authorization server.
 
 When a consent dialog appears depends on the values of three elements:
 
@@ -71,7 +71,7 @@ Use the following steps to display the user consent dialog as part of an OpenID 
 1. For this use case, use the **Implicit** flow for testing purposes. In the **Grant type** section, click **Advanced**, and then select **Implicit**.
 1. Select both **Allow ID Token with implicit grant type** and **Allow Access Token with implicit grant type** below **Implicit**.
 
-    **Note:** If you're using Classic Engine, select **Implicit (hybrid)** in the **Grant type** section.
+    **Note**: If you're using Classic Engine, select **Implicit (hybrid)** in the **Grant type** section.
 
     For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
 
@@ -87,7 +87,7 @@ Use the following steps to display the user consent dialog as part of an OpenID 
     * **Implicit**: Indicates that the user doesn't have to grant the app access to the information. User consent is implied.
     * **Optional**: Indicates that the user can skip granting the app access to the information (scope). Scopes that the user skips aren't included in the authorization response. After a user skips a scope, the next time that they sign in, Okta doesn't prompt them for it. If you later make the scope required for the app, the user is then prompted to grant the app access to that scope.
 
-    > **Note:** When you include `prompt=consent` in the authorization request, the user is prompted for all consent-enabled scopes. This includes scopes that are required or optional, even when the user has already given consent for a scope or skipped a scope. The user can also skip scopes that were changed from required to optional.
+    > **Note**: When you include `prompt=consent` in the authorization request, the user is prompted for all consent-enabled scopes. This includes scopes that are required or optional, even when the user has already given consent for a scope or skipped a scope. The user can also skip scopes that were changed from required to optional.
 
 1. When you select **User consent** as **Required** or **Optional**, the **Block services from requesting this scope** checkbox is automatically selected.
 
@@ -108,7 +108,7 @@ The following section provides example requests for enabling the consent dialog 
 
 2. If the `consent_method` is set to `TRUSTED`, you need to update that parameter. The following example shows the JSON body of a PUT request to an existing OpenID Connect app (`https://{yourOktaDomain}/api/v1/apps/{applicationId}`). The request updates the `consent_method` parameter from `TRUSTED` to `REQUIRED`. The value that you specify for `consent_method` depends on the values for `prompt` and `consent`.
 
-    > **Note:** Check the **Settings** [table](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/signOnMode&t=request) of the Apps API reference for information on these properties. Usually, `REQUIRED` is the correct value.
+    > **Note**: Check the **Settings** [table](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/signOnMode&t=request) of the Apps API reference for information on these properties. Usually, `REQUIRED` is the correct value.
 
     ```json
     {
@@ -172,7 +172,7 @@ To enable consent for a scope, you need to [update the appropriate scope](https:
 
 To make consent of a scope optional, set the `consent` property to either `REQUIRED` or `FLEXIBLE` and include `"optional": true` in the request.
 
-> **Note:** See the [Authorization Servers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/) for more information on scope properties and how to use them.
+> **Note**: See the [Authorization Servers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/) for more information on scope properties and how to use them.
 
 This example shows the JSON body for a PUT request to the default custom authorization server (`https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/scopes/{scopeId}`) to update the `phone` scope. You need the following information for the request:
 
@@ -219,7 +219,7 @@ After you define the scopes that you want to require consent for, prepare an aut
 
 2. Use the default custom authorization server's authorization endpoint, for example, `https://{yourOktaDomain}/oauth2/default/v1/authorize`.
 
-    > **Note:** See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
+    > **Note**: See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
 3. Add the following query parameters to the URL:
 
@@ -233,7 +233,7 @@ After you define the scopes that you want to require consent for, prepare an aut
 
     * Optional. The `prompt` parameter. The standard behavior (if you don't include `prompt` in the request) is to prompt the user for consent if they haven't already given consent for the scopes. When you include `prompt=consent` in the request, the user is prompted for consent every time, even if they have already given consent. You must set the `consent_method` and the [consent for the scopes](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/#tag/AuthorizationServerScopes/operation/createOAuth2Scope!path=consent&t=request) to `REQUIRED`. See the [parameter details](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=prompt&t=request) for the `/authorize` endpoint.
 
-    > **Note:** The property values are fully documented in the `/authorize` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) section of the OpenID Connect & OAuth 2.0 API reference.
+    > **Note**: The property values are fully documented in the `/authorize` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) section of the OpenID Connect & OAuth 2.0 API reference.
 
     The resulting URL to request an access token looks something like this:
 
@@ -260,11 +260,11 @@ After you define the scopes that you want to require consent for, prepare an aut
     &nonce={myNonceValue}"
     ```
 
-    > **Note:** The `response_type` for an ID token looks like this: `&response_type=id_token`.
+    > **Note**: The `response_type` for an ID token looks like this: `&response_type=id_token`.
 
 4. Paste the request URL into a browser. The User Consent dialog appears. Click **Allow** to create the grant.
 
-    > **Note:** The user only has to grant consent once for a scope per authorization server.
+    > **Note**: The user only has to grant consent once for a scope per authorization server.
 
 ## Verification
 
@@ -314,13 +314,13 @@ There are several ways to verify that you've successfully created a user grant:
 
 * You can verify that a grant was created by listing the grants given to a specific user:
 
-    ```bash
+  ```bash
     curl -v -X GET \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -H "Authorization: SSWS {api_token} \
     "https://{yourOktaDomain}/api/v1/users/{userId}/grants"
-    ```
+  ```
 
     The response should contain the `scopeId` for the grant that you created when you clicked **Allow** in the previous step.
 
@@ -389,11 +389,11 @@ To [revoke one grant for a user](https://developer.okta.com/docs/api/openapi/okt
 **Example request**
 
 ```bash
-curl -v -X DELETE \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Authorization: SSWS {api_token}" \
-"https://{yourOktaDomain}/api/v1/users/{userId}/grants/{grantId}"
+    curl -v -X DELETE \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -H "Authorization: SSWS {api_token}" \
+    "https://{yourOktaDomain}/api/v1/users/{userId}/grants/{grantId}"
 ```
 
 ### Revoke all grants
@@ -403,11 +403,11 @@ To [revoke all grants for a user](https://developer.okta.com/docs/api/openapi/ok
 **Example request**
 
 ```bash
-curl -v -X DELETE \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Authorization: SSWS {api_token}" \
-"https://{yourOktaDomain}/api/v1/users/{userId}/grants"
+    curl -v -X DELETE \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -H "Authorization: SSWS {api_token}" \
+    "https://{yourOktaDomain}/api/v1/users/{userId}/grants"
 ```
 
 ## Troubleshoot
