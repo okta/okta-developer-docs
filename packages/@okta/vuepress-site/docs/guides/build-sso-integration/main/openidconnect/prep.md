@@ -22,13 +22,13 @@ After you've built the SSO integration in your app with the previous guidance li
 
 ### OIDC customer org credentials
 
-Okta uses a [multi-tenant](/docs/guides/oin-sso-overview/#okta-organization-and-multi-tenancy) local credential system for OIDC integrations. When your customer adds your integration in their Okta org, they obtain a unique set of OIDC credentials. Each instance of your app integration inside a customer org has a separate set of OIDC client credentials that are used to access your application.
+Okta uses a [multi-tenant](/docs/guides/oin-sso-overview/#okta-organization-and-multi-tenancy) local credential system for OIDC integrations. When your customer adds your integration in their Okta org, they obtain a unique set of OIDC credentials. Each instance of your app integration inside a customer org has a separate set of OIDC client credentials that are used to access your app.
 
-This multi-tenant approach differs from other IdPs that use a global credential system, where a given application has the same customer credentials across all orgs.
+This multi-tenant approach differs from other IdPs that use a global credential system, where a given app has the same customer credentials across all orgs.
 
 See the [OIN multi-tenancy](/docs/guides/submit-app-prereq/main/#oin-multi-tenancy) requirement.
 
-You must track client credentials for each app integration instance for your app. For example, consider a scenario where your app integration is added to 10 separate customer orgs. Seven of those customers create a single instance of your app integration. However, the other three customers each create two separate instances of your app integration so they can use different configuration options. This scenario creates a total of 13 sets of client credentials for your application that you need to track.
+You must track client credentials for each app integration instance for your app. For example, consider a scenario where your app integration is added to 10 separate customer orgs. Seven of those customers create a single instance of your app integration. However, the other three customers each create two separate instances of your app integration so they can use different configuration options. This scenario creates a total of 13 sets of client credentials for your app that you need to track.
 
 ### Determine the OAuth 2.0 flow to use
 
@@ -38,7 +38,8 @@ Select the OAuth 2.0 flow to use based on your app:
 
 * For web apps:
 
-   Okta recommends the [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/). This flow is used for apps with a dedicated server-side backend capable of securely storing a client secret. The app integration can also exchange information with an authorization server through trusted back-channel connections.
+   Okta mandates the [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/). This flow is used for apps with a dedicated server-side backend capable of securely storing a client secret. The app integration can also exchange information with an authorization server through trusted back-channel connections.
+   > **Note:** The implicit flow is extremely challenging to implement securely. Therefore, Okta doesn’t recommend its use for token exchange in web apps. If your use case requires the use of an implicit flow for token exchange, contact [Okta Support](https://support.okta.com).
 
 * For single-page apps (SPA):
 
@@ -98,7 +99,7 @@ Okta uses access policies to decide whether to grant scopes. If any of the reque
 There are three URIs that you need to consider when creating an OIDC app for the OIN:
 
 1. **Sign-in redirect URIs**: After the user is successfully authorized by Okta, this is the callback location where the user is directed along with the authorization code. This URI must exactly match at least one of the redirect URI values that are pre-registered in the Okta app integration settings.
-2. Optional. **Initiate login URI**: This URI is used if the app is launched from the Okta dashboard (known as an IdP-initiated flow), and you want your Okta integration to handle redirecting your users to your app to start the sign-in request. When end users click your app in their Okta dashboard, they are redirected to the `initiate_login_uri` of the client app, which constructs the authentication request and redirects the end user back to the authorization server. This URI must exactly match the Initiate URI value that is pre-registered in the Okta app integration settings.
+2. Optional. **Initiate login URI**: This URI is used if the app is launched from the End-User Dashboard (known as an IdP-initiated flow), and you want your Okta integration to handle redirecting your users to your app to start the sign-in request. When users click your app in their End-User Dashboard, they’re redirected to the `initiate_login_uri` of the client app, which constructs the authentication request and redirects the end user back to the authorization server. This URI must exactly match the Initiate URI value that is pre-registered in the Okta app integration settings.
 3. Optional. **Sign-out redirect URIs**: A location to send the user after a sign-out operation is performed and their session is terminated. Otherwise, the user is redirected back to the sign-in page.
 
 ### Token validation
@@ -121,7 +122,7 @@ See [key rotation](/docs/concepts/key-rotation/) or the `/keys` [API endpoint](h
 
 ### Rate limit considerations
 
-When you construct your SSO application, be aware of the limits on requests to Okta APIs. For information on the rate-limit categories, see the [Rate limits overview](/docs/reference/rate-limits/). Okta provides three headers in each response to report on both concurrent and org-wide rate limits.
+When you construct your SSO app, be aware of the limits on requests to Okta APIs. For information on the rate-limit categories, see the [Rate limits overview](/docs/reference/rate-limits/). Okta provides three headers in each response to report on both concurrent and org-wide rate limits.
 
 For org-wide rate limits, the following three headers are provided:
 

@@ -418,6 +418,10 @@ export const guides = [
             guideName: "device-assurance-policies"
           },
           {
+            title: "Device signal collection policies",
+            guideName: "device-signal-collection-policies",
+          },
+          {
             title: "Test your access policies",
             guideName: "policy-simulation"
           },
@@ -566,8 +570,12 @@ export const guides = [
             guideName: "request-user-consent"
           },
           {
-            title: "Rotate secrets and manage keys",
+            title: "Rotate client secrets",
             guideName: "client-secret-rotation-key",
+          },
+          {
+            title: "Key management",
+            guideName: "key-management",
           },
           {
             title: "Set up On-Behalf-Of Token Exchange",
@@ -1156,10 +1164,6 @@ export const releaseNotes = [
         title: "Archive",
         path: "/docs/release-notes/archive",
         subLinks: [
-          {
-            title: "2023-2024 Okta Identity Governance changelog",
-            path: "/docs/release-notes/oig-changelog/"
-          },
           {
             title: "2024 - Classic Engine",
             path: "/docs/release-notes/2024/"

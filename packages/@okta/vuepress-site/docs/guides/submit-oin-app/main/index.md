@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-Learn how to submit an OIDC, SAML 2.0, or SCIM 2.0 integration to the Okta Integration Network (OIN) using the OIN Wizard.
+Learn how to submit an OIDC, SAML 2.0, SCIM 2.0, or Universal Logout integration to the Okta Integration Network (OIN) using the OIN Wizard.
 
 ---
 
@@ -31,6 +31,7 @@ The OIN Wizard is a full-service tool in the Admin Console for you to do the fol
 
   * Test your SSO integration with the OIN Submission Tester.
   * Test your SCIM integration with manual test cases and Runscope test suites.
+  * Test your Universal Logout integration manually.
 
 * Submit your integration directly to the OIN team when you're satisfied with your test results.
 * Monitor the status of your submissions through the **Your OIN Integrations** dashboard.
@@ -42,7 +43,7 @@ The OIN team verifies your submitted integration before they publish it in the [
 
 ### Protocols supported
 
-This guide covers submissions that use the following protocols:
+This guide covers submissions that use the following protocols and integration:
 
 * [OpenID Connect (OIDC)](https://openid.net/connect/)
 
@@ -50,7 +51,10 @@ This guide covers submissions that use the following protocols:
 
 * [System for Cross-domain Identity Management (SCIM) 2.0](https://scim.cloud)
 
+* [Universal Logout](https://developer.okta.com/docs/guides/oin-universal-logout-overview/)
+
 > **Notes:**
+    > * Universal Logout integrations are only supported for SAML 2.0 and OIDC protocols. If you want to submit a Universal Logout integration with SCIM provisioning, you must also submit an SSO integration with either SAML 2.0 or OIDC.
     > * SWA app integrations are no longer accepted for publication in the OIN catalog. However, the OIN team still maintains existing SWA apps.
     > * There are protocol-specific limitations on integrations in the OIN. See [OIN limitations](/docs/guides/submit-app-prereq/main/#oin-limitations).
 
@@ -126,6 +130,12 @@ Continue with the OIN Wizard and configure your protocol settings:
 
     <StackSnippet snippet="protocol-properties" />
 
+#### Universal logout properties
+
+1. Specify the following properties if you want to integrate Universal Logout:
+
+    <StackSnippet snippet="universal-logout-properties"/>
+
 1. Click **Get started with testing** to save your edits and move to the testing section, where you need to enter your integration test details.
 
 #### Dynamic properties with Okta Expression Language
@@ -182,10 +192,13 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 1. [Generate instances for testing](#generate-instances-for-testing). You need to create an app integration instance to test each protocol that your integration supports.
     * For an SSO integration, configure SSO and assign test users on the test instance.
     * For a SCIM integration, configure provisioning and map user profile attributes on the test instance.
+    * For the Universal Logout integration, assign the test user and enable the **Logout** option on the instance. You can use the same instance that you created for SSO integration testing.
 
 1. Test your integration.
    * For an SSO integration, test the required flows in the [OIN Submission Tester](#oin-submission-tester) with your generated test instance. Fix any test failures from the OIN Submission Tester, then regenerate the test instance (if necessary) and retest.
    * For a SCIM integration, execute the [Runscope CRUD tests](#runscope-crud-tests) and the [Okta manual integration tests](#manual-okta-scim-integration-tests) with your generated test instance.
+    * For a Universal Logout integration, test the logout flow manually. See [Test your Universal Logout integration](#test-your-universal-logout-integration).
+
 1. [Submit your integration](#submit-your-integration) after all required tests are successful.
 
 > **Note:** You must have the Okta Browser Plugin installed with **Allow in Incognito** enabled before you use the **OIN Submission Tester**. See [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements).
@@ -216,6 +229,7 @@ Okta recommends that you generate an instance for testing each protocol supporte
 
 * You must generate separate instances for testing if you support two SSO protocols (one for OIDC and one for SAML). The OIN Submission Tester can only test one protocol at a time.
 * If your SSO integration also supports SCIM, then create one instance for SCIM protocol testing and one instance for each SSO protocol testing.
+* For Universal Logout integration, you can use the same instance that you created for SSO protocol testing.
 
 There are certain conditions where you can test two protocols on one instance. You can create one instance for SSO and SCIM testing if your integration meets all of these conditions:
 
@@ -467,13 +481,24 @@ If you have questions or need more support, email Okta developer support at <dev
 
 All required tests in the OIN Submission Tester must have passed within 48 hours of submitting your integration.
 
+### Test your Universal Logout integration
+If your integration supports Universal Logout, you need to test the logout flow manually.
+
+1. Ensure you have an active login session on your app.
+1. From the Admin Console, go to **Directory** > **People**.
+1. Select the user that has the current login session on your app.
+1. Click **More Actions** > **Clear User Sessions**.
+1. Select **Also include logout enabled apps and Okta API tokens** and click **Clear and revoke**.
+1. Go back to the app and ensure that the login session is terminated.
+    > **Note**: For partial universal logout support, while clearing the user's session from Okta, the app only revokes the user's refresh tokens, which prevents the user from getting new access in the future. However, the existing user sessions aren't terminated until the user's existing access tokens expire or the user signs out of an app.
+
 ### Test your SCIM integration
 
 You need to run three sets of tests for SCIM integrations:
 
 1. [SCIM API specification tests](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api)
 
-    You need to first test your SCIM API service before you conduct Okta-SCIM integration tests. Okta provides you with a SCIM API specification test suite to execute in Runscope. See [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api) for instructions on how to run this test suite. Provide the test results URL in the **Link to Runscope spec test results** field when you submit your integration to the OIN.
+    You need to test your SCIM API service before you conduct Okta-SCIM integration tests. Okta provides you with a SCIM API specification test suite to execute in Runscope. See [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api) for instructions on how to run this test suite. Provide the test results URL in the **Link to Runscope spec test results** field when you submit your integration to the OIN.
 
 1. [Runscope create, read, update, and delete (CRUD) user profile tests](#runscope-crud-tests)
 
@@ -544,7 +569,7 @@ Execute the test cases in the [Okta SCIM Test Plan](/standards/SCIM/SCIMFiles/ok
 
 Depending on your test scenario, you can import users from the **Import** tab (see [Import users](https://help.okta.com/okta_help.htm?id=ext_Importing_People)) or create users in Okta before assigning them to your test instance. See [About adding provisioned users](https://help.okta.com/okta_help.htm?type=oie&id=lcm-about-user-management) and [Assign test users to your integration instance](#assign-test-users-to-your-integration-instance).
 
-After you've successfully completed the manual SCIM integration tests, you can submit your integration.
+After you've successfully completed the manual integration tests, you can submit your integration.
 
 ## Submit your integration
 
@@ -564,6 +589,10 @@ The OIN Wizard checks the following for SCIM submissions:
 * The **Link to Runscope CRUD test results** field is specified.
 
 > **Note:** See [Test your SCIM integration](#test-your-scim-integration) for SCIM submission requirements.
+
+The OIN Wizard checks the following for Universal Logout submissions:
+
+* All required instances are detected.
 
 **Submit integration** is enabled after all these requirements are met.
 

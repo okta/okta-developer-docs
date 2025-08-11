@@ -1,6 +1,6 @@
 {
-  "release" : "2025.07.1",
-  "build" : "2025.07.1-begin-146-g05a164292232",
+  "release" : "2025.08.1",
+  "build" : "2025.08.1-begin-148-g4865018c558a",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -106,6 +106,9 @@
   }, {
     "id" : "device-sso",
     "name" : "Device SSO"
+  }, {
+    "id" : "device-access",
+    "name" : "Device Access"
   }, {
     "id" : "directories",
     "name" : "Directories"
@@ -1711,7 +1714,7 @@
       "description" : "Complete cancellation of migration campaign. This can be used to confirm that the process to cancel a password migration campaign intentionally is complete. This event marks the end of the cancellation process that began with an app.ad.password_migration_campaign.cancel.start event.",
       "info" : {
         "created" : "2025-06-24",
-        "release" : "2025.09.0"
+        "release" : "2025.10.0"
       },
       "beta" : true,
       "internal" : false,
@@ -1729,7 +1732,7 @@
       "description" : "Start cancellation of a password migration campaign. This can be used to track when the process to intentionally cancel a password migration campaign begins. This begins an asynchronous process. Its conclusion is marked by the app.ad.password_migration_campaign.cancel.end event.",
       "info" : {
         "created" : "2025-06-24",
-        "release" : "2025.09.0"
+        "release" : "2025.10.0"
       },
       "beta" : true,
       "internal" : false,
@@ -1747,7 +1750,7 @@
       "description" : "Create Active Directory password migration campaign. This can be used to identify when a migration is created to monitor its duration and impact on users. Marks the beginning of a password migration campaign.",
       "info" : {
         "created" : "2025-06-24",
-        "release" : "2025.09.0"
+        "release" : "2025.10.0"
       },
       "beta" : true,
       "internal" : false,
@@ -1765,7 +1768,7 @@
       "description" : "Complete password migration campaign. This can be used to confirm that a Finish password migration campaign process has fully completed. This event marks the successful end of the entire campaign lifecycle. This is an asynchronous process and is preceded by an app.ad.password_migration_campaign.finish.start event.",
       "info" : {
         "created" : "2025-06-24",
-        "release" : "2025.09.0"
+        "release" : "2025.10.0"
       },
       "beta" : true,
       "internal" : false,
@@ -1783,7 +1786,7 @@
       "description" : "Start password migration campaign completion. This can be used to track the start of the Finish Campaign process. This begins an asynchronous process. Its conclusion is marked by the app.ad.password_migration_campaign.finish.end event.",
       "info" : {
         "created" : "2025-06-24",
-        "release" : "2025.09.0"
+        "release" : "2025.10.0"
       },
       "beta" : true,
       "internal" : false,
@@ -1801,7 +1804,7 @@
       "description" : "Add group to Active Directory password migration campaign. This can be used to identify groups that have been included in a password migration campaign. This action expands the set of users eligible for password capture by the campaign.",
       "info" : {
         "created" : "2025-06-24",
-        "release" : "2025.09.0"
+        "release" : "2025.10.0"
       },
       "beta" : true,
       "internal" : false,
@@ -1819,7 +1822,7 @@
       "description" : "Capture user password from Active Directory. This can be used to track progress for individual users and confirm password collection. This event does not signify the full migration of the user, only the successful capture of their password.",
       "info" : {
         "created" : "2025-06-24",
-        "release" : "2025.09.0"
+        "release" : "2025.10.0"
       },
       "beta" : true,
       "internal" : false,
@@ -1837,7 +1840,7 @@
       "description" : "Complete individual user password migration. This can be used as a record that a user's credential is fully migrated to Okta. The user's password is now fully migrated and active in Okta.",
       "info" : {
         "created" : "2025-06-24",
-        "release" : "2025.09.0"
+        "release" : "2025.10.0"
       },
       "beta" : true,
       "internal" : false,
@@ -1855,7 +1858,7 @@
       "description" : "Start individual user password migration. This can be used to confirm that a specific user's migration process has begun. The conclusion of this asynchronous process is marked by a corresponding app.ad.password_migration_campaign.user.migrate.end event.",
       "info" : {
         "created" : "2025-06-24",
-        "release" : "2025.09.0"
+        "release" : "2025.10.0"
       },
       "beta" : true,
       "internal" : false,
@@ -3337,6 +3340,24 @@
       "internal" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
       "mappings" : [ "app.oauth2.token.grant.access_token_success" ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "OAuth2ResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "app.oauth2.token.grant.id_jag",
+      "category" : "cloudmaker",
+      "description" : "OAuth 2.0 Identity Assertion Authorization Grant granted. This event is triggered when an app successfully completes an OAuth token exchange to generate an Identity Assertion Authorization Grant (ID-JAG) JWT. The Identity Assertion relies on a valid ID token obtained from a single sign-on (SSO) flow and the ID-JAG JWT is used in Cross App Access.",
+      "info" : {
+        "created" : "2025-07-01",
+        "release" : "2025.07.3"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
+      "mappings" : [ ],
       "schema" : {
         "debugData" : "SystemDebugData",
         "actor" : null,
@@ -16720,7 +16741,7 @@
     }, {
       "id" : "system.import.session.cancelled",
       "category" : "sync",
-      "description" : "Cancel an import session. This event can be used to identify when an admin cancel import session. This event includes details when the import session be canceled.",
+      "description" : "Import session for identity source canceled. This event appears when an import session is canceled and not available for further activity. Only sessions that are in CREATED or IN_PROGRESS status can be canceled. Previously uploaded entities are deleted from a canceled identity import session.",
       "info" : {
         "created" : "2022-09-19",
         "release" : "2022.10.0"
@@ -16738,7 +16759,7 @@
     }, {
       "id" : "system.import.session.created",
       "category" : "sync",
-      "description" : "Create a new import session. This event can be used to identify when an admin start new import session. This event includes details when the import process be created.",
+      "description" : "Create new import session for identity source. This event appears when a new import session is created for a given identity source to bulk upload entities. This event includes information on when the session was created.",
       "info" : {
         "created" : "2022-09-19",
         "release" : "2022.10.0"
@@ -16756,7 +16777,7 @@
     }, {
       "id" : "system.import.session.expired",
       "category" : "sync",
-      "description" : "Expired an import session. This event can be used to identify when the session is expired. This event includes details when the session is expired.",
+      "description" : "Import session for identity source expired. This event appears when a session in CREATED or IN_PROGRESS status is marked as EXPIRED after 24 hours of inactivity. Expired sessions can no longer be used for import operations.",
       "info" : {
         "created" : "2022-09-19",
         "release" : "2022.10.0"
@@ -16774,7 +16795,7 @@
     }, {
       "id" : "system.import.session.triggered",
       "category" : "sync",
-      "description" : "Triggered an import session to start importing. This event can be used to identify when an admin trigger the import job from an open session. This event includes details when the import process be triggered.",
+      "description" : "Triggered import session for identity source. This event appears when import session was triggered. It's used to make changes in Okta to insert, update, or delete the entities that are submitted by the identity source.",
       "info" : {
         "created" : "2022-09-19",
         "release" : "2022.10.0"
@@ -18988,10 +19009,28 @@
     }, {
       "id" : "user.identity_verification",
       "category" : "workforce-authenticators",
-      "description" : "This event is fired when a user is directed to complete an Identity Verification as a result of an Okta Account Management (OAMP) Policy evaluation. This event indicates an identity verification request has occurred and will contain the results of the id verification. Completion of an id verification will determine whether the trigger OAMP operation can be completed.",
+      "description" : "This event is fired when a user is directed to complete an Identity Verification as a result of an Okta Account Management (OAMP) Policy evaluation. This event indicates an identity verification request has occurred and will contain the results of the id verification. Completion of an id verification will determine whether the trigger OAMP operation can be completed; start is recorded by user.identity_verification.start.",
       "info" : {
         "created" : "2025-02-03",
         "release" : "2025.02.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "policy", "session", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : "UserAuthenticationResourceDetails",
+        "targets" : [ "UserIdentityVerificationResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "user.identity_verification.start",
+      "category" : "workforce-authenticators",
+      "description" : "An Okta account management policy (OAMP) prompted the user to verify their identity with an identity verification service. Helps admins audit identity-verification prompts and troubleshoot IDV-flow issues. Initiates the prompt for identity-verification flow; completion is recorded by user.identity_verification event.",
+      "info" : {
+        "created" : "2025-07-15",
+        "release" : "2025.07.3"
       },
       "beta" : false,
       "internal" : false,
@@ -20728,6 +20767,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -20932,6 +20979,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -21282,6 +21337,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -21478,6 +21541,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -21684,6 +21755,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -21864,6 +21943,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -22053,6 +22140,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -22267,6 +22362,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -22479,6 +22582,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -22701,6 +22812,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -22889,6 +23008,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -23102,6 +23229,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -23332,6 +23467,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -23520,6 +23663,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -23790,6 +23941,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -23986,6 +24145,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -24392,6 +24559,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -24580,6 +24755,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -24802,6 +24985,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -24990,6 +25181,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -25195,6 +25394,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -25440,6 +25647,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -25854,6 +26069,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -26090,6 +26313,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -26352,6 +26583,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -26605,6 +26844,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -26842,6 +27089,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -27067,6 +27322,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -27353,6 +27616,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -27541,6 +27812,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -27795,6 +28074,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -27992,6 +28279,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -28180,6 +28475,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -28442,6 +28745,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -28646,6 +28957,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -28910,6 +29229,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -29123,6 +29450,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -29311,6 +29646,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -29530,6 +29873,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -29735,6 +30086,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -29939,6 +30298,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -30161,6 +30528,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -30349,6 +30724,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -30547,6 +30930,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -30744,6 +31135,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -30940,6 +31339,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -31185,6 +31592,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -31567,6 +31982,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -31788,6 +32211,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -32001,6 +32432,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -32197,6 +32636,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -32539,6 +32986,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -32743,6 +33198,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -32989,6 +33452,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -33194,6 +33665,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -33391,6 +33870,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -33580,6 +34067,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -33768,6 +34263,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -33997,6 +34500,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -34483,6 +34994,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -34696,6 +35215,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -34892,6 +35419,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -35386,6 +35921,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -35639,6 +36182,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -35876,6 +36427,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -36080,6 +36639,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -36342,6 +36909,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -36573,6 +37148,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -36785,6 +37368,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -37327,6 +37918,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -37540,6 +38139,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -37737,6 +38344,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -37933,6 +38548,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -38171,6 +38794,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -38367,6 +38998,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -38658,6 +39297,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -38919,6 +39566,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -39132,6 +39787,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -39320,6 +39983,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -39542,6 +40213,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -39739,6 +40418,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -39927,6 +40614,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -40140,6 +40835,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -40377,6 +41080,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -40622,6 +41333,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -40905,6 +41624,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -41182,6 +41909,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -41362,6 +42097,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -41744,6 +42487,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -41981,6 +42732,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -42169,6 +42928,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -42423,6 +43190,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -42603,6 +43378,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -42841,6 +43624,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -43030,6 +43821,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -43218,6 +44017,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -43477,6 +44284,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -43673,6 +44488,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -43879,6 +44702,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -44076,6 +44907,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -44272,6 +45111,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -44477,6 +45324,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -44707,6 +45562,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -44904,6 +45767,14 @@
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
           },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
           "tunnels" : {
             "type" : "String",
             "sensitive" : false,
@@ -45092,6 +45963,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
           },
           "tunnels" : {
             "type" : "String",
@@ -48100,6 +48979,22 @@
       "UserIdentityVerificationResourceDetails" : {
         "name" : "UserIdentityVerificationResourceDetails",
         "properties" : {
+          "idv_reference_id" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fb1e80ea-e953-4969-b3bd-9635d3695401", "112023b7-e5be-43a4-b3b5-2a946b3df820" ]
+          },
+          "idv_flow_id" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "inq_1q7JQBP61nqP1rVPoo6vFrSfD354", "inq_6fnEUeStMKiLEiyRodobngrDtmkR" ]
+          },
           "assurance_level" : {
             "type" : "String",
             "sensitive" : false,
@@ -49235,6 +50130,14 @@
       "AttackProtectionSettingChangeDetailsEntry" : {
         "name" : "AttackProtectionSettingChangeDetailsEntry",
         "properties" : {
+          "user_enumeration_prevention_enabled_flows" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "ALL", "RECOVERY", "AUTHENTICATION", "NONE" ]
+          },
           "block_suspicious_password_attempts_from_unknown_devices" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -49451,13 +50354,21 @@
             "personal" : false,
             "customer" : false,
             "format" : "json",
-            "examples" : [ "[{\"delegatePrincipal\": {\"externalId\": \"00ub0oNGTSWTBKOLGLNR\", \"type\": \"OKTA_USER\"}}]" ]
+            "examples" : [ "[{\"delegatePrincipal\": {\"externalId\": \"00ub0oNGTSWTBKOLGLNR\", \"type\": \"OKTA_USER\"}, \"startTime\": \"2025-07-23T10:30:00Z\", \"endTime\": \"2025-07-25T10:30:00Z\"}]" ]
           }
         }
       },
       "IAMAssigneeConfigurationChangeDetailsEntry" : {
         "name" : "IAMAssigneeConfigurationChangeDetailsEntry",
         "properties" : {
+          "audit_admin_setting" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
           "third_party_admin_setting" : {
             "type" : "Boolean",
             "sensitive" : false,
