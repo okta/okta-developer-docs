@@ -119,7 +119,7 @@ A new user profile permission (`okta.users.userprofile.read`) is now available t
 
 Admins deploying multi-org architectures (for example Okta hub-and-spoke orgs) need to secure user and group provisioning. Provisioning using OAuth2.0 scoped tokens has several advantages over API tokens, including more access granularity, shorter token lifespans, and automatic key rotation. You can now enable OAuth 2.0 Auto-Rotation for Org2Org app provisioning directly from the Admin Console, in addition to the API.
 
-To support these updates, the Application Connections API includes a new endpoint, [Retrieve a JSON Web Key Set (JWKS) for the default provisioning connection]([https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/getUserProvisioningConnectionJWKS|https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/getUserProvisioningConnectionJWKS]), and schema updates to support token autorotation, `rotationMode=AUTO`. See [Update the default provisioning connection]([https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication!path=1/profile&t=request|https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication!path=1/profile&t=request]) and [Integrate Okta Org2Org with Okta]([https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg#Use2|https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg#Use2]). <!-- [OKTA-903533] FF ORG2ORG_ENABLE_PROVISION_JWK -->
+To support these updates, the Application Connections API includes a new endpoint, [Retrieve a JSON Web Key Set (JWKS) for the default provisioning connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/getUserProvisioningConnectionJWKS), and schema updates to support token autorotation, `rotationMode=AUTO`. See [Update the default provisioning connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication!path=1/profile&t=request) and [Integrate Okta Org2Org with Okta](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg#Use2|https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg#Use2). <!-- [OKTA-903533] FF ORG2ORG_ENABLE_PROVISION_JWK -->
 
 #### Passkeys from Android devices is self-service EA in Preview
 
@@ -152,7 +152,7 @@ There are several updates for events related to identity verification:
 
 * Admins can use two new properties (IdvReferenceId and IdvFlowId) to track events related to IDV processes.
 
-See [Event Types](/docs/reference/api/event-type) and [Identity verification events](/docs/guides/idv-integration/main/#identity-verification-events). <!-- OKTA-927466 -->
+See [Event Types](/docs/reference/api/event-types) and [Identity verification events](/docs/guides/idv-integration/main/#identity-verification-events). <!-- OKTA-927466 -->
 
 #### Temporary Access Code authenticator is self-service EA in Preview
 
@@ -188,11 +188,11 @@ To enhance security, web app integrations now mandate the use of the Authorizati
 
   The first journey available is [Secure your first web app](/docs/journeys/OCI-secure-your-first-web-app/main/). This journey helps you connect your web app to Okta and configure a secure sign-in experience.
 
-* The new [Create an app integration](/docs/create-an-app-integration/) guide explains what an app integration is, why you need one, and how to create one.
+* The new [Create an app integration](/docs/guides/create-an-app-integration/openidconnect/main/) guide explains what an app integration is, why you need one, and how to create one.
 * The new [Direct authentication](/docs/concepts/direct-authentication/) concept explains what direct authentication is and how you can use it.
 * The new [Set up your org guide](/docs/guides/set-up-org/) outlines how to set up your Okta org with some basic, but important, settings and how to configure it for different use cases.
 * The [Sign in to your native mobile app](/docs/guides/sign-into-mobile-app-embedded) guide describes how to add authentication to your mobile app using the Okta Client SDK for Swift. This example implements a sample iOS app, using Okta APIs and interaction code flow, for browserless authentication.
-* The new [Sign-In Widget](/docs/concepts/oci-siw-concept/) concept provides a high-level overview of the Okta Sign-In Widget.
+* The new [Sign-In Widget](/docs/concepts/sign-in-widget/) concept provides a high-level overview of the Okta Sign-In Widget.
 * The new [Understand the token lifecycle](/docs/concepts/token-lifecycles) concept provides an overview of OAuth 2.0 tokens, their use, and their lifecycles.
 
 #### Bug fixed in 2025.08.0

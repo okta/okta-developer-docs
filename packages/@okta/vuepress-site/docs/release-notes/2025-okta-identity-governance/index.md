@@ -15,8 +15,8 @@ Okta Identity Governance is available for both Okta Classic and Identity Engine.
 | [Governance delegates APIs are Beta](#governance-delegates-apis-are-beta) | August 7, 2025 |
 | [List all access request catalog entries for a user is GA](#list-all-access-request-catalog-entries-for-a-user-is-ga) | July 16, 2025|
 | [Unified requester experience is EA](#unified-requester-experience-is-ea) | July 16, 2025 |
-| [Developer documentation updates in 2025.08.0](#developer-documentation-updates-in-2025080) | August 7, 2025 |
-| [Bug fixed in 2025.08.0 ](#bug-fixed-in-2025080) | August 7, 2025 |
+| [Developer documentation updates in 2025.08.0](#developer-documentation-updates-in-2025-08-0) | August 7, 2025 |
+| [Bug fixed in 2025.08.0 ](#bug-fixed-in-2025-08-0) | August 7, 2025 |
 
 #### Governance delegates APIs are Beta
 
