@@ -31,11 +31,11 @@ USE_INTERACTION_CODE=true
 
 #### Run the sample application
 
-Navigate to the project folder and run the sample application. Click **Login** and sign in with a user from your Okta org. After a successful authentication, the user's access token appears on the page.
+Navigate to the project folder and run the sample app. Click **Login** and sign in with a user from your Okta org. After a successful authentication, the user's access token appears on the page.
 
 ```bash
-cd okta-auth-js/test/apps/react-oie
-yarn start
+  cd samples/generated/react-embedded-auth-with-sdk
+  yarn start
 ```
 
 ### Create a React app (optional)
@@ -43,13 +43,13 @@ yarn start
 If you don't have an existing React app, you can quickly create an app by using [Create React App](https://create-react-app.dev/):
 
 ```bash
-npx create-react-app okta-app
+  npx create-react-app okta-app
 ```
 
 Go into your root app directory to view the created files:
 
 ```bash
-cd okta-app
+  cd okta-app
 ```
 
 ### Install dependencies
