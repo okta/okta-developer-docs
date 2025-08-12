@@ -1,8 +1,8 @@
 ---
-title: Client secret rotation and key management
+title: Client secret rotation
 meta:
   - name: description
-    content: Okta client secret rotation helps you rotate and manage your client secrets without service or app downtime. Additionally, you can generate public/private key pairs and manage them using the Admin Console.
+    content: Okta client secret rotation helps you rotate and manage your client secrets without service or app downtime.
 layout: Guides
 sections:
 - main

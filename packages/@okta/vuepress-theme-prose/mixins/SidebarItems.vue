@@ -1,14 +1,16 @@
 <script>
 import _ from "lodash";
 import { getGuidesInfo, guideFromPath } from "../util/guides";
+import { getJourneyInfo, journeyFromPath } from "../util/journeys";
 import {
   concepts,
   guides,
+  journeys,
   languagesSdk,
   reference,
   releaseNotes
 } from "../const/navbar.const";
-      
+
 export default {
   data() {
     return {
@@ -23,6 +25,7 @@ export default {
         homeLink,
         ...this.getGuides(),
         ..._.cloneDeep(concepts),
+        ...this.getJourneys(),
         {
           title: "API Docs",
           path: "https://developer.okta.com/docs/api",
@@ -35,7 +38,7 @@ export default {
     },
     getNavigationData() {
       this.navigation = this.getNavigation().map(nav => {
-        this.addStatesToLink(nav);     
+        this.addStatesToLink(nav);
         return nav;
       });
       return this.navigation;
@@ -45,7 +48,10 @@ export default {
       if (el.guideName) {
         return el.guideName;
       }
-      return el.title.toLowerCase().replace(/ /ig, '-').replace(/\//ig, '-');
+      if (el.journeyName) {
+        return el.journeyName;
+      }
+      return el.title.toLowerCase().replace(/ /ig, '-').replace(/\//ig, '-').replace(/[()]/g, '');
     },
 
     addStatesToLink(link, parent = null) {
@@ -53,21 +59,31 @@ export default {
       link.iHaveChildrenActive = false;
       if (!link.path) {
         link.path = parent.path + this.sanitizeTitle(link) + "/";
-        if (!link.guideName) {
+        const isGuide = !link.guideName && !link.path.includes('docs/journeys');
+        const isJourney = !link.journeyName && link.path.includes('docs/journeys');
+
+        if (isGuide || isJourney) {
           const parentTitle = this.sanitizeTitle(parent);
+          const linkTitle = this.sanitizeTitle(link);
+          const splittedPath = parent.path?.split('/');
           let path = '';
-          if (parentTitle !== 'guides' && parent.path) {
-            const splittedPath = parent.path.split('/')
-            if (parent.path.indexOf(parentTitle) >= 0) {
-              path = parent.path.replace(parentTitle, this.sanitizeTitle(link));
-            } else if (parent.path == '/code/') { 
-              path = `/${splittedPath[1]}/${this.sanitizeTitle(link)}/`;
+
+          const isCorrectParent =
+            (isGuide && parentTitle !== 'guides') ||
+            (isJourney && parentTitle !== 'journeys');
+
+          if (isCorrectParent && parent.path) {
+            if (parent.path.includes(parentTitle)) {
+              path = parent.path.replace(parentTitle, linkTitle);
+            } else if (parent.path === '/code/') {
+              path = `/${splittedPath[1]}/${linkTitle}/`;
             } else {
-              path = `/${splittedPath[1]}/${splittedPath[2]}/${this.sanitizeTitle(link)}/`;
+              path = `/${splittedPath[1]}/${splittedPath[2]}/${linkTitle}/`;
             }
           } else {
-            path = parent.path + this.sanitizeTitle(link) + "/";
+            path = parent.path + linkTitle + "/";
           }
+
           link.path = path;
         }
       }
@@ -136,6 +152,52 @@ export default {
                         : guide.mainFramework
                     ),
                     frameworks: guide.frameworks
+                  });
+                });
+              }
+            }
+          }
+          current = queue.pop();
+        }
+
+      });
+      return navs;
+    },
+
+    getJourneys() {
+      const pages = this.$site.pages;
+      const journeyInfo = getJourneyInfo({ pages });
+      let navs = _.cloneDeep(journeys);
+      const framework = journeyFromPath(this.$route.path).framework;
+      navs.forEach(nav => {
+        let queue = new Array();
+        queue.push(nav);
+        let current = queue.pop();
+        while (current) {
+          if (current?.subLinks) {
+            queue.push(...current.subLinks);
+          } else if (current?.journeyName) {
+            // add sections
+            current.subLinks = [];
+            const journey = journeyInfo.byName[current.journeyName];
+
+            if (Array.isArray(journey?.sections)) {
+              const [firstSection] = journey.sections;
+
+              if (journey.sections.length === 1 && firstSection.name === 'main') {
+                current.title = current.title; // firstSection.title;
+                current.path = firstSection.makeLink(journey.frameworks.includes(framework) ? framework : journey.mainFramework);
+                current.frameworks = journey.frameworks;
+              } else {
+                journey.sections.forEach(section => {
+                  current.subLinks.push({
+                    title: section.title,
+                    path: section.makeLink(
+                      journey.frameworks.includes(framework)
+                        ? framework
+                        : journey.mainFramework
+                    ),
+                    frameworks: journey.frameworks
                   });
                 });
               }

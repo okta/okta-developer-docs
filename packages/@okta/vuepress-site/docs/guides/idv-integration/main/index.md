@@ -374,15 +374,25 @@ Cache-Control: no-cache, no-store
 
 ## Identity verification events
 
-After Okta completes the policy evaluation, regardless of the result, an event is triggered, `user.identity_verification`. Okta admins can view this event in the System Log. See [Event Types](/docs/reference/api/event-type).
+There are two events related to identity verification: `user.identity_verification` and `user.identity_verification.start`. Okta admins can view these events in the System Log. See [Event Types](/docs/reference/api/event-type).
 
-There are two possible results for the event: `ALLOW` (user is successfully verified) or `DENY` (user isn't verified).
+* `user.identity_verification.start`: This event is triggered when an Okta account management policy prompts a user to verify their identity with an IDV vendor.
+* `user.identity_verification`: This event is triggered after Okta completes the evaluation of an Okta account management policy.
+
+For the `user.identity_verification` event, there are two possible results for the event: `ALLOW` (user is successfully verified) or `DENY` (user isn't verified).
 
 The `ALLOW` result provides a `CLAIMS_VERIFIED` reason that indicates the IDV vendor successfully verified the user.
 
 There are multiple possible reasons for the `DENY` result:
 
-* `IDV_NOT_VERIFIED`: Indicates that the IDV vendor is unable to provide information about possible reasons for failure.
+* `PARSING_ERROR`: Indicates that Okta wasn't able to parse the response from the IDV vendor because of invalid or malformed data.
+* `MISSING`: Indicates that a required parameter or value wasn't present in the request or response.
+* `RESPONSE_PROCESSING_ERROR`: Indicates that Okta encountered an error while processing the response from the IDV vendor.
+* `ERROR_RESPONSE`: Indicates that the IDV vendor returned an explicit error response to Okta.
+* `EMPTY_USER_ID`: Indicates that no user ID was provided in the request to the IDV vendor.
+* `MISSING_CODE_CHALLENGE`: Indicates that the code challenge required for PKCE was missing from the request.
+* `MISSING_APP_INSTANCE`: Indicates that the application instance required for the IDV flow wasn't found or wasn't provided.
+* `MISSING_AUTH_STATE_TOKEN`: Indicates that the authentication state token required for the flow was missing or invalid.
 * `CLAIMS_NOT_VERIFIED`: Indicates that the IDV vendor has assessed that not all `claims` attributes were verified.
 * `CLAIM_GIVEN_NAME_NOT_VERIFIED`: Indicates that the `given_name` value wasn't verified.
 * `CLAIM_FAMILY_NAME_NOT_VERIFIED`: Indicates that the `family_name` value wasn't verified.
@@ -418,3 +428,10 @@ Okta admins can map any of these supported claims to user profile attributes. Se
 Admins can set user profile attributes as **required** when they map them to to the corresponding IDV vendor attribute. The `given_name` and `family_name` claims are **required** by default. When a PAR request is sent from Okta, and a **required** claim doesn't have a value in the user's profile, then the [initial PAR request](#post-oauth2-par-request-to-idv-vendor) fails.
 
 However, if a claim is mapped but not set as **required**, and it doesn't have a value in the user's profile, then the claim is excluded from the initial PAR request. The PAR request isn't failed.
+
+### Use the System Log to track identity verification events
+
+Along with the IDV events (`user.identity_verification.start` and `user.identity_verification`), there are two properties that are attached to those events. The properties are also attached to the `policy.evaluate_sign_on` event when an Okta account management policy is involved.
+
+* `IdvReferenceId`: This property provides a reference ID that's attached to all the relevant events of an IDV process.
+* `IdvFlowId`: This property displays the ID of the IDV flow. Admins can use this property to more easily track information related to a specific IDV flow.

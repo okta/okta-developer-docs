@@ -4,6 +4,12 @@ excerpt: How to configure direct authentication authorization flows using primar
 layout: Guides
 ---
 
+<ApiLifecycle access="ie" />
+
+Configure direct authentication for your app to directly verify user credentials and authentication [factors](https://help.okta.com/okta_help.htm?type=oie&id=ext-configure-authenticators) without relying on browser interactions.
+
+For an overview of direct authentication, how it works, and how and when you would use it for your apps, see [Direct authentication](https://developer.okta.com/docs/concepts/direct-authentication/).
+
 <StackSnippet snippet="nutrition" />
 
 ---
@@ -28,7 +34,7 @@ Also, you can use direct authentication where usability constraints hinder the u
 
 ## Enable authenticators for your org
 
-Direct authentication grant type flows use passwordless authentication, such as using Okta Verify and SMS. To use the direct authentication <StackSnippet snippet="granttype" inline /> flow, you must enable a non-password authenticator like <StackSnippet snippet="authenticator" inline />.
+Direct authentication flows use passwordless authentication, such as using Okta Verify and SMS. To use the direct authentication <StackSnippet snippet="granttype" inline /> flow, you must enable a non-password authenticator like <StackSnippet snippet="authenticator" inline />.
 
 1. Open the Admin Console for your org.
 1. Go to **Security** > **Authenticators** to view the available authenticators.
@@ -57,7 +63,7 @@ If your Okta org uses Identity Engine, then the <StackSnippet snippet="granttype
     > **Note:** If you're using a different policy for your app, edit that policy instead.
 
 5. Click **Advanced** in the **IF Grant type is** section.
-6. Select **<StackSnippet snippet="granttype" inline />** in the **Okta direct auth API grants** section (in addition to any other grant type that is already supported).
+6. Select **<StackSnippet snippet="granttype" inline />** in the **Okta direct auth API grants** section (in addition to any other grant type that's already supported).
 7. Click **Update Rule**.
 
 ## Set up your app

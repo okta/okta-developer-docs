@@ -213,7 +213,7 @@ These group functions take in a list of search criteria as input. Each search cr
 * The `group.profile.name` key supports the operators `EXACT` and `STARTS_WITH` to identify exact matches or matches that include the value. If no operator is specified, the expression uses `STARTS_WITH`. You can't use these operators with `group.id`, `group.source.id`, or `group.type`.
 * The `group.source.id` key supports when you need to disambiguate between groups that have the same group name. For example, if you're searching for app groups that start with "Admin" from a given app instance then you can use `group.source.id` to filter multiple groups across the different app group sources.
 
-The `user.getGroups` function also supports the `.![name]` collection projection for group claims. [Collection projections](https://docs.spring.io/spring-framework/reference/core/expressions/language-ref/collection-projection.html) enable you to use a subexpression (`.![$attr]`) that transforms a collection (like an array) into a new collection. It applies the expression to each element in the array and returns a new collection without modifying the original collection.
+The `user.getGroups` function supports the `.![name]` collection projection for the legacy configuration of group claims. [Collection projections](https://docs.spring.io/spring-framework/reference/core/expressions/language-ref/collection-projection.html) enable you to use a subexpression (`.![$attr]`) that transforms a collection (like an array) into a new collection. It applies the expression to each element in the array and returns a new collection without modifying the original collection.
 
 > **Note:** For the following expression examples, assume that the user is a member of the following groups:
 
@@ -235,6 +235,8 @@ The `user.getGroups` function also supports the `.![name]` collection projection
 | `user.getGroups` with `.![name]` collection projection | Array |`user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![name]` | A list of group names | A list of groups that have a group profile name that starts with `Everyone` |
 
 #### Group-claims only functions
+
+> **Note:** These functions are for the legacy configuration of claims. Okta recommends that you use the `user.getGroups` function with collection projections instead. See [Collection projections](/docs/reference/okta-expression-language-in-identity-engine/#collection-projections) and [Federated claims with entitlements](/docs/guides/federated-claims/main/).
 
 The following functions are designed to work only with group claims. You can't use these functions with property mappings.
 
@@ -327,7 +329,7 @@ Use the previous functions together to check if a user has an Active Directory o
 | Concatenate two strings                                                                     | `user.firstName + user.lastName`            |
 | Concatenate two strings with space                                                          | `user.firstName + " " + user.lastName`      |
 | Ternary operator example:<br>If the group code is 123, assign the value of Sales, else assign Other | `user.groupCode == 123 ? 'Sales' : 'Other'` |
-| [Elvis operator](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html#expressions-operator-elvis) (`?:`): <br> Ternary operator that provides a default value if an expression evaluates to null or an empty string; if `Groups.startsWith("OKTA", "TEST", 100)` evaluates to null, returns `{}` (empty list) | `Groups.startsWith("OKTA", "TEST", 100) ?: {}` |
+| [Elvis operator](https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/expressions.html#expressions-operator-elvis) (`?:`): <br> Binary operator that provides a default value if an expression evaluates to null or an empty string; if `Groups.startsWith("OKTA", "TEST", 100)` evaluates to null, returns `{}` (empty list) | `Groups.startsWith("OKTA", "TEST", 100) ?: {}` |
 
 ## Conditional expressions
 

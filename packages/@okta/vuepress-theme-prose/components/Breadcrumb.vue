@@ -93,6 +93,15 @@
             windowPathname = this.$page.regularPath.replace('/-/', `/${menuItem.frameworks[0]}/`);
           }
 
+          if(
+            this.$page.regularPath.indexOf('/-/') > 0 && 
+            journeyFromPath(this.$page.regularPath).journeyName === menuItem.journeyName &&
+            menuItem.frameworks &&
+            menuItem.frameworks.length > 0
+          ) {
+            windowPathname = this.$page.regularPath.replace('/-/', `/${menuItem.frameworks[0]}/`);
+          }
+
           if(menuItem.path != undefined && windowPathname === menuItem.path) {
             //add parent crumbs    
             if (menuItem.parents) {      

@@ -55,7 +55,7 @@ Create an OAuth 2.0 service app integration using the Admin Console.
 
   > **Note:** You can also use the `/oauth2/v1/clients` endpoint to [create your service app using the API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient). If you use the API, follow the [Generate the JWK using the API](#generate-the-jwk-using-the-api) section first, because you need the `JWKS` parameter value when you create the client using the API.
   >
-  >You can also add more JWKS to the app later using the [Add a new JSON Web Key](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialOAuth2ClientAuth/#tag/ApplicationSSOCredentialOAuth2ClientAuth/operation/addJwk) API.
+  >You can also add more JWKS to the app later using the [Add a JSON Web Key](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOPublicKeys/#tag/ApplicationSSOPublicKeys/operation/addJwk) API.
 
 1. Sign in to your Okta organization as a user with administrative privileges.
 
@@ -153,9 +153,9 @@ The JWKS should look something like this:
 
 ## Generate the JWK using the Admin Console
 
-Generate a public/private key pair using the Admin Console.
+Generate a public/private signing key pair using the Admin Console.
 
-> **Note:** Use the Admin Console to generate a JWK public/private key pair for testing purposes only. For a production use case, use your own internal instance of the key pair generator. See this [key pair generator](https://github.com/mitreid-connect/mkjwk.org) for an example.
+> **Note:** Use the Admin Console to generate a JWK signing public/private key pair for testing purposes only. For a production use case, use your own internal instance of the key pair generator. See this [key pair generator](https://github.com/mitreid-connect/mkjwk.org) for an example.
 
 1. In the **Client Credentials** section of the **General** tab, click **Edit** to change the client authentication method.
 
@@ -164,12 +164,12 @@ Generate a public/private key pair using the Admin Console.
   > **Note:** When you switch the client authentication method to **Public key/Private key**, any existing client secrets are deleted.
 
 3. Choose how you want to store the JWK and then use the next sections to complete the steps.
-    * **Save keys in Okta**: Copy your public keys into Okta.
-    * **Use a URL to fetch keys dynamically**: Define the URI where you host your public keys.
+    * **Save keys in Okta**: Copy your public signing keys into Okta.
+    * **Use a URL to fetch keys dynamically**: Define the URI where you host your public signing keys.
 
 ### Save keys in Okta
 
-This option allows you to bring your own keys or use the Okta key generator. There’s no limit to the number of JWKs that you can add for an app.
+This option allows you to bring your own signing keys or use the Okta key generator. You can add up to 50 signing keys per app.
 
 1. Leave the default of **Save keys in Okta**, and then click **Add key**.
 1. Click **Add** and in the **Add a public key** dialog, do one of the following:
@@ -188,7 +188,7 @@ This option allows you to bring your own keys or use the Okta key generator. The
 
 ### Use a URL to fetch keys dynamically
 
-This option allows you to host your public key in a URI and paste the link to the public key in the Admin Console. This URL contains public keys that clients can use to verify the signature of client-based access tokens and OpenID Connect ID tokens. By hosting the keys in a URL, you can conveniently rotate the keys without having to update the app configuration every time.
+This option allows you to host your public signing key in a URI and paste the link to the public key in the Admin Console. This URL contains public signing keys that clients can use to verify the signature of client-based access tokens and OpenID Connect ID tokens. By hosting the keys in a URL, you can conveniently rotate the keys without having to update the app configuration every time.
 
 > **Note:** If you switch from saving keys in Okta to using a URL to fetch keys dynamically, any saved public keys are deleted.
 

@@ -26,7 +26,18 @@ In the **Account matching with IdP Username** section:
 
 In the **<StackSnippet snippet="idp" inline /> Protocol Settings** section:
 
-* **Application context**: <ApiLifecycle access="ea" /> To send the app name and app ID to the IdP, select the **Send Okta application context** checkbox. Okta sends this information to the IdP and the IdP returns the same information to Okta inside the `AttributeStatement` of the response using the `OktaAppInstanceId` and the `OktaAppName` attributes. Use application context to help external IdPs make more informed, context-aware authentication decisions.
+* **Application context**: To send the app name and app ID to the IdP, select the **Send Okta application context** checkbox. Okta sends this information to the IdP and the IdP returns the same information to Okta inside the `AttributeStatement` of the response using the `OktaAppInstanceId` and the `OktaAppName` attributes. Use application context to help external IdPs make more informed, context-aware authentication decisions.
+
+  Example with appropriate attributes in the attribute statement:
+
+  ```bash
+  <saml2:Attribute Name="OktaAppInstanceId" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
+                <saml2:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">001234567890</saml2:AttributeValue>
+            </saml2:Attribute>
+            <saml2:Attribute Name="OktaAppName" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
+                <saml2:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">Oidc Saml</saml2:AttributeValue>
+  </saml2:Attribute>
+  ```
 
 When you set up an IdP in Okta, sometimes the **Issuer**, **Single Sign-On URL**, and **Certificate** values aren't available from the external IdP. This information may not be available until the metadata is uploaded to the IdP. Also, the ACS URL and audience URI values aren't available until you configure the IdP in Okta.
 
@@ -42,4 +53,4 @@ After you upload the metadata to the external IdP in the next step, you can edit
 
 * **IdP Single Sign-On URL**: The sign-on URL from the IdP. You can sign the AuthN request by selecting **Request Signature**. If you don't specify a **Destination**, Okta automatically sends the request to the IdP SSO URL.
 
-* **IdP Signature Certificate**: Click **Browse files** to upload the certificate from the IdP used to sign the assertion.
+* **IdP Signature Certificate**: Click **Browse files** to upload a certificate from the IdP used to sign the assertion. You can have up to two active certificates per IdP connection. Use the [`additionalKids` parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider!path=protocol/0/credentials/trust/additionalKids&t=request) to add another signing certificate for the IdP.

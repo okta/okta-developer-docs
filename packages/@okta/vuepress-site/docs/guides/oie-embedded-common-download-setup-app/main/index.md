@@ -4,7 +4,7 @@ title: Download and set up the SDK, Sign-In Widget, and sample apps
 
 <ApiLifecycle access="ie" />
 
-This guide shows you how to download and configure the Identity Engine SDKs, Sign-In Widget, and accompanying samples after you [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup).
+This guide shows you how to download and configure the Identity Engine SDKs, Sign-In Widget, and accompanying samples after you [create and set up your Okta org](/docs/guides/set-up-org/).
 
 ---
 
@@ -41,7 +41,7 @@ Before you integrate the SDK or widget into your app, you must understand the co
 
 #### Issuer
 
-There are two main types of authorization servers in Okta: [Org](/docs/concepts/auth-servers/#org-authorization-server) and [Custom](/docs/concepts/auth-servers/#custom-authorization-server). To understand which type to use, see [Authorization servers](/docs/concepts/auth-servers/#available-authorization-server-types).
+There are two main types of authorization servers in Okta: [Org](/docs/concepts/auth-servers/#org-authorization-server) and [Custom](/docs/concepts/auth-servers/#custom-authorization-server). To understand which type to use, see [Authorization servers](/docs/concepts/auth-servers/).
 
 <ApiAmProdWarning />
 
