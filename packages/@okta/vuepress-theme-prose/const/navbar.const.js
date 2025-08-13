@@ -796,7 +796,7 @@ export const guides = [
           },
           {
             title: "Create an authorization server",
-            guideName: "customize-authz-server/main/",
+            guideName: "customize-authz-server",
           },
         ],
       },
