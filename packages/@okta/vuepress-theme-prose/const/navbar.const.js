@@ -844,23 +844,11 @@ export const guides = [
         title: "Identity Governance",
         subLinks: [
           {
-            title: "Access Certification",
+            title: "Access Certifications",
             subLinks: [
               {
-                title: "User campaign examples",
-                path: "/docs/guides/anything-as-a-source/",
-              }
-              {
-                title: "Group campaign examples",
-                path: "/docs/guides/anything-as-a-source/",
-              }
-              {
-                title: "App campaign examples",
-                path: "/docs/guides/anything-as-a-source/",
-              }
-              {
-                title: "Separation of Duties (SOD) examples",
-                path: "/docs/guides/anything-as-a-source/",
+                title: "Security access reviews",
+                path: "/docs/guides/iga-security-access-reviews/",
               }
             ],
           },
