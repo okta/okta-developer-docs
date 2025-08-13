@@ -8,6 +8,16 @@ title: Okta Identity Engine API release notes 2025
 
 ## August
 
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [New claims supported for identity verification (IDV) vendor integration is self-service EA in Preview](#new-claims-supported-for-identity-verification-idv-vendor-integration-is-self-service-ea-in-preview) | Aug 13, 2025 |
+
+#### New claims supported for identity verification (IDV) vendor integration is self-service EA in Preview
+
+IDV vendors can now use more OpenID Connect claims when they integrate their IDV service with Okta. And, all `claims` properties now support the fuzzy logic extension. See [Supported OIDC claims](/docs/guides/idv-integration/main/#supported-oidc-claims).
+
+<!-- OKTA-946302 IDV_BIOGRAPHIC_DATA_MATCHING  Preview org date: Aug 13, 2025 -->
+
 ### Monthly release 2025.08.0
 
 | Change | Expected in Preview Orgs |
