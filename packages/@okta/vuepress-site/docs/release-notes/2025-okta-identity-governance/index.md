@@ -18,7 +18,7 @@ Okta Identity Governance is available for both Okta Classic and Identity Engine.
 
 You can now generate access certification campaign reports that are tailored to meet auditor requirements. These reports make preparing for compliance audits faster and easier by reducing the time and manual effort required for assembling and exporting campaign and user access data.
 
-Access certification campaign reports are generated from the auditor reporting package, which is triggered post-campaign completion when the `createReportingPackageEnabled` parameter is true. See [`reportingSettings.createReportingPackageEnabled`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign!path= reportingSettings&t=request) in the [Create a campaign](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign) resource.
+Access certification campaign reports are generated from the auditor reporting package, which is triggered post-campaign completion when the `createReportingPackageEnabled` parameter is true. See [`reportingSettings.createReportingPackageEnabled`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign!path=reportingSettings&t=request) in the [Create a campaign](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign) resource.
 <!--OKTA-982353 IGA_ACCESS_CERT_AUDITOR_REPORTING -->
 
 ### Monthly release 2025.08.0
