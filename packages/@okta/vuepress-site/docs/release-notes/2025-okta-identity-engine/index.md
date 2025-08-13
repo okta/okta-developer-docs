@@ -8,6 +8,8 @@ title: Okta Identity Engine API release notes 2025
 
 ## August
 
+### Weekly release 2025.08.1
+
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [New claims supported for identity verification (IDV) vendor integration is self-service EA in Preview](#new-claims-supported-for-identity-verification-idv-vendor-integration-is-self-service-ea-in-preview) | Aug 13, 2025 |
