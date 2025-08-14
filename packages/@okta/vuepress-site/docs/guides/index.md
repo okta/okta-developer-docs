@@ -276,7 +276,7 @@ If you're creating an Okta integration for the first time, Okta recommends the f
 
 ## Perform Identity Governance tasks through the API
 
-If you're subscribed to Okta Identity Governance, most admin tasks are accomplished through the Admin Console and end users tasks are accomplished through the Okta End-User Dashboard. However, some tasks and flows are only triggered through the API or other Okta apps, such as [Workflows](https://www.okta.com/platform/workflows/). In some cases, you might want to perform the same UI tasks through a customized app or automate using Okta APIs. For these API uses cases, the following guides provide best practice implementation and examples for Okta Identity Governance subscribers:
+Most Okta Identity Governance tasks are accomplished through the Admin Console for admins or the Okta End-User Dashboard for end users. However, you might want to perform the same UI tasks through a customized app or automated services using Okta APIs. In some cases, specific tasks and flows are only triggered through the API or other Okta apps, such as [Workflows](https://www.okta.com/platform/workflows/). For these API uses cases, the following guides provide best practice implementation flows and examples for Okta Identity Governance subscribers:
 
 * Access certifications
   * [Intiate a security access review](/docs/guides/iga-security-access-review)
