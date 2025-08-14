@@ -1,33 +1,36 @@
 ---
-title: OAuth 2.0 claims
+title: OAuth 2.0 and OpenID Connect claims
 meta:
   - name: description
-    content: A high-level overview of OAuth 2.0 claims.
+    content: A high-level overview of OAuth 2.0 and OpenID Connectclaims.
 ---
 
-# Learn about OAuth 2.0 claims
+# Learn about OAuth 2.0 and OpenID Connect claims
 
-OAuth 2.0 claims are a key part of the OAuth 2.0 and OpenID Connect protocols and they're used to pass information about users within those protocols.
-
-claims are key-value pairs of data that provide information about an entity, typically a user.
-
-They are contained within a JSON Web Token (JWT), which is often used as an ID Token or Access Token.
-
-claims are "pieces of information asserted about an entity," and they are used to convey identity and authorization data in a structured, verifiable way.
-
-
-Claims are a statement of a fact only believable if the asserting party is trusted. In OAuth 2.0 and OpenID Connect, the asserting party is the Authorization Server, the subject is the Resource Owner, and the API or the client are the relying party.
-
-The relying party receives both scopes and claims in tokens. You use claims to deliver secure values like user IDs to your applications. Since tokens are integrity-protected, the relying party can trust the scopes and claims it receives and be certain that no malicious party has altered the values.
-
+OAuth 2.0 and OpenID Connect (OIDC) claims are key-value pairs of data that contain information, typically information about a user. These claims are commonly packaged into access and ID tokens. Access tokens and ID tokens are formatted as JSON Web Tokens (JWTs).
 
 ---
 
-## What are OAuth 2.0 claims?
+## What are claims?
 
 A claim is a piece of information asserted about a user. In the context of OAuth 2.0 and OpenID Connect (OIDC), claims are key-value pairs of data contained within a token. This data is used to convey information about the user or to grant permissions for a specific action.
 
-For example, a claim could be the user's name, their email address, or the specific application role they hold, such as admin.
+Tokens issued by Okta contain claims that are statements about a subject (user). For example, the claim can be about a name, identity, key, group, or privilege. The claims in a security token are dependent upon the type of token, the type of credential used to authenticate the user, and the application configuration.
+
+### Is there a difference between OAuth 2.0 and OIDC claims?
+
+OAuth 2.0 and OIDC claims both have similar functions. They're both used as key-value pairs to assert information about an entity. The main difference between them is the contexts that they're used in.
+
+OAuth 2.0 claims are usually used with JWTs to convey information about the user or client and to provide authorization details to APIs and resource servers. OAuth 2.0 claims that are used in JWTs aren't part of the [standard OAuth 2.0 spec](https://www.rfc-editor.org/rfc/rfc6749).
+
+While OIDC claims are used to provide verified identity information about the authenticated user, such as their name, email, and other user profile details.
+
+| Aspect              | OAuth 2.0 claim                                   | OIDC claim                                               |
+|---------------------|---------------------------------------------------|----------------------------------------------------------|
+| Typical format      | Access token (if JWT-based)                       | ID token (JWT)                                           |
+| Purpose             | Authorization (access control)                    | Identity (user profile and authentication)               |
+| Types of claims     | No standard set of OAuth 2.0 claims (except for the claims outlined in the (JSON Web Token (JWT) spec)[https://www.rfc-editor.org/rfc/rfc7519#section-4]) | Standard set (`name`, `email`, `phone_number`) |
+| Example use cases   | API access, scopes, resource access               | User authentication, access to profile info         |
 
 ## Claim types
 
