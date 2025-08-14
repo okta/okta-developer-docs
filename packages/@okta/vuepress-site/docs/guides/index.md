@@ -53,6 +53,7 @@ guides:
  - find-your-app-credentials
  - find-your-domain
  - password-import-inline-hook
+ - iga-security-access-review
  - implement-oauth-for-okta
  - implement-oauth-for-okta-serviceapp
  - implement-grant-type
@@ -256,6 +257,18 @@ If you're using Okta as an identity layer for the first time, start with [How Ok
     * [Token inline hook example](/docs/guides/token-inline-hook/)
     * [Password import inline hook example](/docs/guides/password-import-inline-hook/)
     * [Registration inline hook example](/docs/guides/registration-inline-hook/)
+
+8. Best practice API implementations and examples for Okta Identity Governance subscribers
+
+    * Access certifications
+      * [Intiate a security access review](/docs/guides/iga-security-access-review)
+    * Access requests
+      * How to create a request for catalog entry
+    * Entitlement management
+      * How to create resource labels
+    * Resource collections
+    * Separation of duties
+    * User and group management
 
 ## Publish an integration in the OIN
 
