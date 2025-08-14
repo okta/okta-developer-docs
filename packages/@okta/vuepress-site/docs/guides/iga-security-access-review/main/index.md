@@ -38,24 +38,26 @@ This document shows you how to intiate a security access review through the Okta
 1. Trigger the SAR
 1. Next steps: There are several endpoints for you to manage and act upon the security access review (list all the endpoints, and operation examples) - this is nice to have!
 
-## Create a custom role for security access reviews
+## Set up Okta for API access
+
+### Create a custom role for security access reviews
 
 custom role with `okta.governance.securityAccessReviews.admin.manage` permission (**Manage security access reviews as admin** in the permissions UI)
 
 *Note: remember to tell Eng to add this to the endpoints*
 
-## Access Okta APIs with OAuth 2.0 access token
+### Create an app for OAuth 2.0 authentication
 
 Access OIG APIs by authenticating with an [OAuth 2.0 access token](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/#oauth-20-access-token).
 
-To obtain an OAuth 2.0 access token for API authentication, you need to have an access app in Okta. If you don't already have an access app for API access, then:
+To obtain an OAuth 2.0 access token for API authentication, you need to have an app in Okta for API access. If you don't already have an app for API access, then:
 
 * [Create OIDC app for user-based access](https://developer.okta.com/docs/reference/rest/#create-an-oidc-app-in-okta): Use this app for API requests from a user.
 * [Create a service app for machine-based access](https://developer.okta.com/docs/reference/rest/#create-an-oidc-app-in-okta): Use this app for API requests from a service or daemon without user context.
 
 Grant the `okta.governance.securityAccessReviews.admin.manage` scope to your access app.
 
-## Assign security access reviews custom role
+### Assign security access reviews custom role
 
 Assign to a user
 
@@ -65,13 +67,14 @@ If service app initiated, then assign the role to the app
 
 ## Initiate the security access review
 
-Make the SAR request ... give examples
+1. get user id
+1. Make request to create SAR ... give examples
 
 ## Next steps
 
 Admins can study the security access review after it's been created through an identiy threat workflow or through the APIs.
 
-See [Security access reviews] in the product documentation on how to navigate through all the contents of the review, how to revoke access to resources and entitlements, and how to 
+See [Security access reviews] in the product documentation on how to navigate through all the contents of the review, how to revoke access to resources and entitlements, and how to ...
 
 
 - write about how to manage the SAR
