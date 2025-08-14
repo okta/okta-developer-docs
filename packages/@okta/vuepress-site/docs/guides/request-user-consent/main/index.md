@@ -25,7 +25,7 @@ When configured, the Okta-hosted user consent dialog for OAuth 2.0 or OpenID Con
 
 ### The value of consent
 
-User consent dialogs are important when an app requests access to user data, especially for third-party apps. These dialogs allow users to explicitly grant or deny permissions, which aligns with data privacy regulations like GDPR and provides transparency about how the user's information is being used.
+User consent dialogs are important when an app requests access to user data, especially for third-party apps. These dialogs allow users to explicitly grant or deny permissions, which aligns with data privacy regulations like GDPR and provides transparency about how the user's information is used.
 
 #### Third-party app access
 
