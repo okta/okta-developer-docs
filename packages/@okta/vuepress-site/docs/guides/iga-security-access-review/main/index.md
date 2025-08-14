@@ -44,18 +44,16 @@ custom role with `okta.governance.securityAccessReviews.admin.manage` permission
 
 *Note: remember to tell Eng to add this to the endpoints*
 
-## Access Okta APIs
+## Access Okta APIs with OAuth 2.0 access token
 
-You can access Okta APIs with either an OAuth 2.0 access token or an API token. Okta recommends using scoped OAuth 2.0 access tokens. See [Authentication](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/#authentication).
-
-### Authenticate with OAuth 2.0 access tokens
+Access OIG APIs by authenticating with an [OAuth 2.0 access token](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/#oauth-20-access-token).
 
 To obtain an OAuth 2.0 access token for API authentication, you need to have an access app in Okta. If you don't already have an access app for API access, then:
 
-* Create OIDC app for user-based access
-* Create a service app for machine-based access
+* [Create OIDC app for user-based access](https://developer.okta.com/docs/reference/rest/#create-an-oidc-app-in-okta): Use this app for API requests from a user.
+* [Create a service app for machine-based access](https://developer.okta.com/docs/reference/rest/#create-an-oidc-app-in-okta): Use this app for API requests from a service or daemon without user context.
 
-Assign scopes for SAR to these your API access app
+Grant the `okta.governance.securityAccessReviews.admin.manage` scope to your access app.
 
 ## Assign security access reviews custom role
 
@@ -66,6 +64,8 @@ OR
 If service app initiated, then assign the role to the app
 
 ## Initiate the security access review
+
+Make the SAR request ... give examples
 
 ## Next steps
 
