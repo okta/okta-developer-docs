@@ -844,37 +844,10 @@ export const guides = [
         title: "Identity Governance",
         subLinks: [
           {
-            title: "Access Certifications",
-            subLinks: [
-              {
-                title: "Security access reviews",
-                path: "/docs/guides/iga-security-access-reviews/",
-              }
-            ],
-          },
-          {
-            title: "Access Request",
-            subLinks: [
-              {
-                title: "Access Request examples",
-                path: "/docs/guides/anything-as-a-source/",
-              },
-              {
-                title: "Catalog examples",
-                path: "/docs/guides/anything-as-a-source/",
-              }
-            ],
-          },
-          {
-            title: "Entitlement Management",
-            subLinks: [
-              {
-                title: "Entitlement and Entitlement Bundle use cases",
-                path: "/docs/guides/anything-as-a-source/",
-              }
-            ],
-          },
-        ],
+            title: "Initiate a security access review",
+            guideName: "iga-security-access-review"
+          }
+        ]
       },
       {
         title: "Deploy to Production",
