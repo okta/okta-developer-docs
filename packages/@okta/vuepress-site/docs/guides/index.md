@@ -258,18 +258,6 @@ If you're using Okta as an identity layer for the first time, start with [How Ok
     * [Password import inline hook example](/docs/guides/password-import-inline-hook/)
     * [Registration inline hook example](/docs/guides/registration-inline-hook/)
 
-8. Best practice API implementations and examples for Okta Identity Governance subscribers
-
-    * Access certifications
-      * [Intiate a security access review](/docs/guides/iga-security-access-review)
-    * Access requests
-      * How to create a request for catalog entry
-    * Entitlement management
-      * How to create resource labels
-    * Resource collections
-    * Separation of duties
-    * User and group management
-
 ## Publish an integration in the OIN
 
 Partner integrations connect your app or service to our mutual customers. One of the most common integrations is Single Sign-On (SSO), which gives Okta users the ability to sign in directly to your application through Okta. Many partners also build provisioning integrations (using the SCIM protocol) to automate lifecycle management use cases for their customers. Integrations can also extend Okta functionality or integrate with your service in more complex ways.
@@ -284,3 +272,17 @@ If you're creating an Okta integration for the first time, Okta recommends the f
 1. [Overview of API service apps in the OIN](/docs/guides/oin-api-service-overview/)
 1. [OIN submission requirements](/docs/guides/submit-app-prereq/)
 1. [Submit an app integration](/docs/guides/submit-app-overview/)
+
+## Perform Identity Governance tasks through the API
+
+If you're subscribed to Okta Identity Goverance, most admin tasks are accomplished through the Admin Console and end users tasks are accomplished through the Okta End-User Dashboard. However, some tasks and flows are only triggered through the API, or you might want to perform the same UI tasks through your service app using Okta's APIs. The following guides provide best practice API implementations and examples for Okta Identity Governance subscribers:
+
+    * Access certifications
+      * [Intiate a security access review](/docs/guides/iga-security-access-review)
+    * Access requests
+      * How to create a request for catalog entry
+    * Entitlement management
+      * How to create resource labels
+    * Resource collections
+    * Separation of duties
+    * User and group management
