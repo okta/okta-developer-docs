@@ -206,8 +206,8 @@ You can submit a request by opening a support case to increase the rate limit fo
 
 The following customers can submit requests for rate limit exceptions:
 
-* Workforce Identity Cloud (WIC) customers
-* Customer Identity Solution (CIS) customers
+* Okta Workforce Identity (OWI) customers
+* Okta Customer Identity (OCI) customers
 
 If a request is made for endpoints covered by [Dynamic Scale](/docs/reference/rl-dynamic-scale/) or [Workforce Multipliers](/docs/reference/rl-additional-limits/#workforce-license-rate-limit-multiplier), Okta may deny the request and require that you consult with your account team to explore other options. Typically, this scenario occurs if:
 
