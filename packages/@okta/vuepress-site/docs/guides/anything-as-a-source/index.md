@@ -76,7 +76,7 @@ There are two types of bulk-load requests:
 * `/bulk-upsert`: Insert or update user profiles in the bulk-load request
 * `/bulk-delete`: Deactivate the user profiles in the bulk-load request
 
-Once a `/bulk-upsert` or `/bulk-delete` request is made, the identity source session transitions from `CREATED` to `IN_PROGRES` status.
+Once a `/bulk-upsert` or `/bulk-delete` request is made, the identity source session transitions from `CREATED` to `IN_PROGRESS` status.
 
 You can load up to 200 KB of data in a single bulk-load (`/bulk-upsert` or `/bulk-delete`) request for an identity source session. This equates to 200 user profiles. To load more user profiles, make multiple bulk-load requests to the same session. The maximum number of bulk-load requests for a session is 50.
 
