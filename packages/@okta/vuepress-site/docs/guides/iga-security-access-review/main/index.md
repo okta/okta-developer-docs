@@ -6,14 +6,14 @@ meta:
 layout: Guides
 ---
 
-This guide shows you how to intiate a security access review using the Okta Identity Governance (OIG) APIs. You can only initiate a security access review through the APIs or through [Identity Threat Protection](https://help.okta.com/oie/en-us/content/topics/itp/overview.htm) workflows.
+This guide shows you how to initiate a security access review using the Okta Identity Governance (OIG) APIs. You can only initiate a security access review from your custom app code or from delegated flows in Okta [Workflows](https://help.okta.com/okta_help.htm?type=wf) using the APIs.
 
 ---
 
 #### Learning outcomes
 
 * Learn how to set up Okta to access [Okta Identity Governance APIs](https://developer.okta.com/docs/api/iga/).
-* Learn how to initiate a security access review using the [Okta Identity Goverance](https://developer.okta.com/docs/api/iga/) > [Security Access Review APIs](https://preview.redoc.ly/okta-iga-internal/llo-OKTA-982885-org-governance-settings/openapi/governance.api/tag/Security-Access-Reviews/).
+* Learn how to initiate a security access review using the [Okta Identity Goverance](https://developer.okta.com/docs/api/iga/) > [Security Access Review](https://preview.redoc.ly/okta-iga-internal/llo-OKTA-982885-org-governance-settings/openapi/governance.api/tag/Security-Access-Reviews/) APIs.
 
 #### What you need
 
@@ -24,19 +24,26 @@ This guide shows you how to intiate a security access review using the Okta Iden
 
 ## Overview
 
-- Security access reviews are triggered via ITP Workflows or through the Okta Identity Governance (OIG) APIs
-- Admins can view completed security access reviews through the **Identity Governance** > **Access Certifications** > **Security access reviews** tab.
+Security access reviews offer a holistic access review and response tool that's targetted on a specific user. This is particularly useful when responding to a security event or an identity threat on a user. Security access reviewers can immediately act on fine-grain remediation beyond terminating a user's session, such as revoking access to a specific resource or entitlement.
 
-- Security access reviews are user-centric, resource-centric... see help doc
-- you can act on security access reviews
+You can trigger security access reviews on-demand through your custom app code or through a Workflow sequence using the APIs. Only users or delegated flows assigned with the super admin role (`SUPER_ADMIN`) or a custom role, with the **Managed security access reviews** (`okta.governance.securityAccessReview.admin.manage`) permission, can trigger and view all security access reviews.
 
-This document shows you how to intiate a security access review through the Okta Identity Governance APIs.
+End users that are assigned a security access review are notified by email, and conduct the review through the Okta Security Access app in their Okta End-User Dashboard.
 
+See the [Security Access Reviews](HOC) product documentation for more information.
 
-1. You need to create a custom role that has permission to access the security access review
-1. You need to create API service app to access for API access with the custom role or assign the custom role to the API user.
-1. Trigger the SAR
-1. Next steps: There are several endpoints for you to manage and act upon the security access review (list all the endpoints, and operation examples) - this is nice to have!
+> **Note:** For broader-scoped, scheduled, access reviews for compliance audits, use Access Certification campaigns instead. See [Campaigns](https://help.okta.com/oie/en-us/content/topics/identity-governance/access-certification/campaigns.htm).
+
+This guide shows you how to intiate a security access review using the APIs with OAuth 2.0 authentication:
+
+1. [Set up Okta for API access](#set-up-okta-for-api-access).
+
+    You need to set up Okta so that you can authenticate to Okta APIs and have the proper roles or permissions for security access reviews.
+
+1. [Trigger a security access review](#trigger-a-security-access-review)
+1. [Conduct a security access review and remediation](#next-steps)
+
+    Reviewing and remediating security access reviews through the APIs aren't covered in this guide. These actions are available through the APIs (see [Security Access Reviews] and [My Security Access Review] APIs), however, Okta recommends that you use the Admin Console or End-User Dashboard for these operations. See [Manage security access reviews](HOC) and [Review access](HOC) in the product documentation.
 
 ## Set up Okta for API access
 
@@ -65,15 +72,24 @@ OR
 
 If service app initiated, then assign the role to the app
 
-## Initiate the security access review
+## Trigger a security access review
 
 1. get user id
 1. Make request to create SAR ... give examples
 
-## Next steps
+## Next steps: review and remediation
 
 Admins can study the security access review after it's been created through an identiy threat workflow or through the APIs.
 
+- Admins can view completed security access reviews through the **Identity Governance** > **Access Certifications** > **Security access reviews** tab.
+- End users can review through the Okta Security Review app
+
+- When the security review is CLOSED, all the actions for the access review becomes READ ONLY.
+- Resources are refered to as "Access items" and "sub-access items"
+- Resources are ordered by "Review Priorities" or "Anomalies" or "Governance Labels"
+
+- You can generate an AI summary of each parent access detail (e.g. access detail for an app).
+- 
 See [Security access reviews] in the product documentation on how to navigate through all the contents of the review, how to revoke access to resources and entitlements, and how to ...
 
 
