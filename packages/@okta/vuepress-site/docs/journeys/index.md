@@ -3,6 +3,7 @@ layout: Landing
 title: Journeys
 journeys:
  - OCI-secure-your-first-web-app
+ - OCI-web-sign-in
 ---
 
 # Journeys
@@ -18,4 +19,8 @@ Journeys break down your development project into consumable steps:
 
 <Cards>
   <Card href="/docs/journeys/OCI-secure-your-first-web-app/main/" cardTitle="Secure your first web app">Seamlessly connect your customer-facing app to Okta and configure a secure sign-in experience, using the built-in app sign-in policies and the Okta hosted sign-in page.</Card>
+</Cards>
+
+<Cards>
+  <Card href="/docs/journeys/OCI-web-sign-in/main/" cardTitle="Web Sign-In">Integrate Okta with your customer portal to manage user authentication (sign-in and sign-out) directly through its web interface.</Card>
 </Cards>
