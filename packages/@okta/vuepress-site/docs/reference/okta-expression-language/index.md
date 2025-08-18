@@ -39,12 +39,12 @@ Every user has an Okta user profile. The user profile is the central source of t
 
 The Okta user's ID and status can be accessed using the `user.getInternalProperty` function. To use this function, wrap the parameter in quotation marks (`"$param"` or `'$param'`).
 
-| Syntax | Definitions | Example |
-| --- | --- | ---- |
-| `user.getInternalProperty("id")` | Returns the user's ID. See [`id`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser!in=path&path=id&t=request). | `user.getInternalProperty("id") == "00u8lm1rxkdpZTsRK0g7"`|
-| `user.getInternalProperty("status")` | Returns the [user's status](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!c=200&path=status&t=response). <br>Values: `STAGED`, `PROVISIONED`, `ACTIVE`, `RECOVERY`, `PASSWORD_EXPIRED`, `LOCKED_OUT`, `SUSPENDED`. (`DEPROVISIONED` isn't supported for this function.)  | `user.getInternalProperty("status") == "ACTIVE"`|
+| Syntax | Definition |
+| --- | --- |
+| `user.getInternalProperty("id")` | Returns the user's ID. See [`id`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser!in=path&path=id&t=request). |
+| `user.getInternalProperty("status")` | Returns the [user's status](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!c=200&path=status&t=response). <br>Values: `STAGED`, `PROVISIONED`, `ACTIVE`, `RECOVERY`, `PASSWORD_EXPIRED`, `LOCKED_OUT`, `SUSPENDED`. (`DEPROVISIONED` isn't supported for this function.)  |
 
-> **Note:** Use `user.getInternalStatus("status")` for group rules. See [Create group rules](https://help.okta.com/okta_help.htm?type=oie&id=ext_Create_Group_Rules).
+> **Note:** Use `user.getInternalStatus("status")` for group rules. For example, use `user.getInternalProperty("status") == "ACTIVE"` to apply a group rule only to active users. See [Create group rules](https://help.okta.com/okta_help.htm?type=oie&id=ext_Create_Group_Rules).
 
 ### Application user profile
 
