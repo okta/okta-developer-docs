@@ -280,6 +280,8 @@ Most Okta Identity Governance tasks are accomplished through the Admin Console f
 
 * Access certifications
   * [Intiate a security access review](/docs/guides/iga-security-access-review)
+
+<!-- Categories for future guides
 * Access requests
   * [How to create a request for catalog entry]
 * Entitlement management
@@ -287,3 +289,4 @@ Most Okta Identity Governance tasks are accomplished through the Admin Console f
 * Resource collections
 * Separation of duties
 * User and group management
+-->
