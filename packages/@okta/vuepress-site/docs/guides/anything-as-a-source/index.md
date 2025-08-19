@@ -39,7 +39,21 @@ This guide outlines the Identity Sources API flow, so you can develop your custo
 
 ### Identity source session
 
-The Identity Sources API synchronizing data flow uses an [identity source session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/getIdentitySourceSession!c=200&path=id&t=response) object to encapsulate the data upload and the data import processing tasks. You must create an identity source session object each time that you want to synchronize data from the HR source to Okta. The identity source session object uses the following `status` values to indicate each stage of the synchronization process flow.
+The Identity Sources API synchronizing data flow uses an [identity source session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/getIdentitySourceSession!c=200&path=id&t=response) object to encapsulate the data upload and the data import processing tasks. You must to create an identity source session object each time that you want to synchronize data from the HR source to Okta. The identity source session object uses the following `status` values to indicate each stage of the synchronization process flow.
+
+<div class="full">
+
+![Anything-as-a-Source identity source session statuses and flow](/img/xaas-status-flow.png)
+
+</div>
+
+<!--
+
+Image source:
+
+https://www.figma.com/design/Nh4CiO5w53eXt455CZfPry/LCM-Help-Center-Documentation-Assets?node-id=2-29349&t=UXv3Cne48DR3R9YY-1 
+
+-->
 
 ### Identity source session status
 
@@ -84,16 +98,26 @@ Create another identity source session object when you exhaust the maximum numbe
 
 > **Note:** Only `"importType": "INCREMENTAL"` is supported for an identity source session.
 
-### Bulk user profile data
+### Bulk load data
 
-The bulk-load request contains an array of external [identity source user profiles objects for upsert](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDataForUpsert) or [identity source user profiles for delete](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDataForDelete) objects. These objects contain the following:
+The bulk-load request payload contains an array of external identity source objects. The items in the objects varies depending on the request you're taking.
+
+> **Note:** You can only load user profile data to an identity source session object with the `"entityType": "USERS"` property. Group data load isn't currently supported.
+
+#### Bulk upsert user profiles
+
+Identity source user [`profiles` for upsert](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDataForUpsert) objects contain the following:
 
 * `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This helps determine if a new user needs to be created or if an existing user needs to be updated.
 
 * `profile`: The set of attributes from the HR source to synchronize with the Okta user profile. User profiles are mapped according to the attribute mappings that you specified in your Custom Identity Source configuration. See Declare an identity source schema in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
     > **Note:** All attributes in a `profile` object are treated as strings. Arrays are not supported.
 
-> **Note:** You can only load user profile data to an identity source session object with the `"entityType": "USERS"` property. Group data load isn't currently supported.
+#### Bulk delete user profiles
+
+Identity source user [`profiles` for delete](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDataForDelete) objects contain the following:
+
+* `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This determines the user that needs to be deleted in Okta.
 
 ## Identity Sources API flow
 
@@ -118,9 +142,13 @@ Code your XaaS data synchronization client with the following generalized API fl
 
 <!--
 
-Source image:
+Original Source image:
 
 https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3064%3A5755
+
+Updated image source:
+
+https://www.figma.com/design/Nh4CiO5w53eXt455CZfPry/LCM-Help-Center-Documentation-Assets?node-id=2-29349&t=UXv3Cne48DR3R9YY-1 
 
 -->
 
