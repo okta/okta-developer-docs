@@ -15,32 +15,34 @@ OAuth 2.0 and OpenID Connect (OIDC) claims are key-value pairs of data that cont
 
 A claim is a piece of information asserted about a user. In the context of OAuth 2.0 and OpenID Connect (OIDC), claims are key-value pairs of data contained within a token. This data is used to convey information about the user or to grant permissions for a specific action.
 
+
+
 Tokens issued by Okta contain claims that are statements about a subject (user). For example, the claim can be about a name, identity, key, group, or privilege. The claims in a security token are dependent upon the type of token, the type of credential used to authenticate the user, and the application configuration.
 
-### Is there a difference between OAuth 2.0 and OIDC claims?
+### What's the difference between OAuth 2.0 and OIDC claims
 
 OAuth 2.0 and OIDC claims both have similar functions. They're both used as key-value pairs to assert information about an entity. The main difference between them is the contexts that they're used in.
 
 OAuth 2.0 claims are usually used with JWTs to convey information about the user or client and to provide authorization details to APIs and resource servers. OAuth 2.0 claims that are used in JWTs aren't part of the [standard OAuth 2.0 spec](https://www.rfc-editor.org/rfc/rfc6749).
 
-While OIDC claims are used to provide verified identity information about the authenticated user, such as their name, email, and other user profile details.
+While OIDC claims are used to provide verified identity information about a user, such as their name, email, and other user profile details.
 
 | Aspect              | OAuth 2.0 claim                                   | OIDC claim                                               |
 |---------------------|---------------------------------------------------|----------------------------------------------------------|
 | Typical format      | Access token (if JWT-based)                       | ID token (JWT)                                           |
 | Purpose             | Authorization (access control)                    | Identity (user profile and authentication)               |
-| Types of claims     | No standard set of OAuth 2.0 claims (except for the claims outlined in the (JSON Web Token (JWT) spec)[https://www.rfc-editor.org/rfc/rfc7519#section-4]) | Standard set (`name`, `email`, `phone_number`) |
-| Example use cases   | API access, scopes, resource access               | User authentication, access to profile info         |
+| Types of claims     | No standard set of OAuth 2.0 claims (except for the claims outlined in the (JSON Web Token (JWT) spec)[https://www.rfc-editor.org/rfc/rfc7519#section-4]) | [Standard set of claims] (`name`, `email`, `phone_number`) |
+| Example use cases   | API access, scopes, resource access               | User authentication, access to user profile information         |
 
 ## Claim types
 
-While all claims are simple key-value pairs, they are categorized into three types based on how they're defined and used.
+While all claims are key-value pairs, they're categorized into three types based on how they're defined and used.
 
-**Standard claims**: These are claims with predefined names and meanings as specified by the OpenID Connect standard. They provide fundamental information like the token's issuer (iss), the user's unique ID (sub), or when the token expires (exp).
+**Standard claims**: These are claims with predefined names and meanings as specified by the OIDC standard. They provide fundamental information like the token's issuer (`iss`), the user's unique ID (`sub`), or when the token expires (`exp`).
 
-**Public claims**: You can create your own claims, but they must be named in a way that avoids naming conflicts with others. This is often done using a URI-based naming convention.
+**Public claims**: You can create your own claims, but they must be named in a way that avoids naming conflicts with others.
 
-**Private claims**: These are custom claims created for a specific application or service. They can be any name you choose and are not meant to be publicly registered.
+**Private claims**: These are custom claims created for a specific app or service. They can be any name you choose and are not meant to be publicly registered.
 
 ## Claims in ID tokens versus access tokens
 
