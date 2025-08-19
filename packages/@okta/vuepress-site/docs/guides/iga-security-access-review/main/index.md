@@ -50,7 +50,7 @@ Set up Okta so that you can authenticate to Okta APIs and have the proper roles 
 
 You only have to set up your Okta org for OIG API access once for security access reviews. Okta recommends that you perform these tasks from the Admin Console. However, you can also use [Okta Management APIs](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/) for the same tasks.
 
-### Create custom roles for security access reviews
+### Create a custom admin role for security access reviews
 
 Only super admins (`SUPER_ADMIN`) can initially create security access reviews in Okta Identity Governance orgs.
 
