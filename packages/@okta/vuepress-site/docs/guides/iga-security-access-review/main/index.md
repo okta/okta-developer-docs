@@ -123,9 +123,11 @@ You can use Okta authentication SDKs or code your own API sequence to get an acc
 
 You need to use Okta user IDs as parameters for your security access review requests. Find the Okta user IDs for the following users:
 
-1. The target user for the security access review. This is the user that is the focus of the security access review.
+1. The target user for the security access review. This is the user that the security access review is focused on.
 
 2. The reviewers for the security access review. These are the security analysts or resource owners that assess the user access items and perform any remediation. These reviewers need to be assigned to a custom role with the security access review permission.
+
+> **Note:** The targeted user of the security access review can't be a reviewer. An API error is returned if you specify the same ID in `principalId` as the `reviewerSettings.userSettings` list.
 
 Use the [List all user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers) request with the `find` query parameter and user profile attributes.
 
@@ -261,12 +263,24 @@ Admins can study the security access review after it's been created through an i
 - 
 ### Limitations: 
 
-- only 5 active reviews for a target principal user at a time
+- 500 SAR limit per org
+- 
+- only 5 active reviews for a target principal user at a time, there will be an API limit
+- 
 - SAR is a snapshot, it doesn't get updated
 - 
 - Make decisions more quickly, organized by application, LLM gives you lay of the land more quickly.
 - governance drives security benefits (not just for compliance)
+- Reviewers can't be the principal target of SAR
+- 10 Reviewers max per SAR
 
+- Closing review is at the review level (for all reviewers)
+
+sub accesses:
+- entitlements
+    - can be entitlement values or bundles
+- groups
+- 
 
 ### Security admin user
 
@@ -282,3 +296,9 @@ Admins can study the security access review after it's been created through an i
 - write about how to manage the SAR
 - write about how to revoke entitlements
 - are these immediately required now? due to time limitations, perhaps leave this for now
+- 
+- Supports calling APIs with client credentials
+Does not support “app” as a target
+Does not support “app” as a reviewer
+
+End users don't need any special permission, they are assigned the permission when they are a user.
