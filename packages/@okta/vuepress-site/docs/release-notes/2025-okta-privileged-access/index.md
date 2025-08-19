@@ -10,9 +10,9 @@ Okta Privileged Access (OPA) is available for both Okta Classic and Identity Eng
 
 ### Weekly release 2025.08.2
 
-| Change | Expected in Preview | Expected in Production |
-|--------|---------------------|------------------------|
-| [Active Directory Remote Desktop Protocol (RDP) support is EA](#active-directory-remote-desktop-protocol-rdp-support-is-ea)| August 20, 2025 | |
+| Change | Expected in Preview |
+|--------|---------------------|
+| [Active Directory Remote Desktop Protocol (RDP) support is EA](#active-directory-remote-desktop-protocol-rdp-support-is-ea)| August 20, 2025 |
 
 #### Active Directory Remote Desktop Protocol (RDP) support is EA
 
