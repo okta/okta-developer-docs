@@ -38,7 +38,7 @@ See the [Security Access Reviews](HOC) product documentation for more informatio
 
 See the [Use Okta Identity Governance API in Okta Workflows](https://support.okta.com/help/s/article/use-okta-identity-governance-api-in-okta-workflows?language=en_US) article for an overview of how to use Okta Workflows with OIG APIs.
 
-> **Note:** For compliance audits, a scheduled, broader-scoped access review, such as the Access Certifications campaigns, is more appropriate. See [Campaigns](https://help.okta.com/oie/en-us/content/topics/identity-governance/access-certification/campaigns.htm).
+> **Note:** For scheduled, broader-scoped access reviews, use Access Certifications campaigns. See [Campaigns](https://help.okta.com/oie/en-us/content/topics/identity-governance/access-certification/campaigns.htm). These access reviews are more appropriate for compliance audits.
 
 This guide shows you how to initiate a security access review using the APIs with OAuth 2.0 authentication:
 
