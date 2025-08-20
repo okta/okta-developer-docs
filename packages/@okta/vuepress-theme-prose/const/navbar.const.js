@@ -828,7 +828,7 @@ export const guides = [
         title: "Identity Governance",
         subLinks: [
           {
-            title: "Initiate a security access review",
+            title: "Launch a security access review",
             guideName: "iga-security-access-review"
           }
         ]
