@@ -1,19 +1,19 @@
 ---
-title: Initiate a security access review
+title: Launch a security access review
 meta:
   - name: description
-    content: How to initiate a security access review with the Okta Identity Governance APIs
+    content: How to launch a security access review with the Okta Identity Governance APIs
 layout: Guides
 ---
 
-This guide shows you how to initiate a security access review using the Okta Identity Governance (OIG) APIs. You can initiate a security access review from your custom app code or from delegated flows in [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf) using the APIs. Reviews are performed from the **Okta Security Access Review** app in the End-User Dashboard.
+This guide shows you how to launch a security access review using the Okta Identity Governance (OIG) APIs. You can trigger a security access review from your custom app code or from delegated flows in [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf) using the APIs. Reviews are performed from the **Okta Security Access Review** app.
 
 ---
 
 #### Learning outcomes
 
 * Learn how to set up Okta to access [Okta Identity Governance APIs](https://developer.okta.com/docs/api/iga/).
-* Learn how to initiate a security access review using the [Okta Identity Governance](https://developer.okta.com/docs/api/iga/) > [Security Access Review](https://preview.redoc.ly/okta-iga-internal/llo-OKTA-982885-org-governance-settings/openapi/governance.api/tag/Security-Access-Reviews/) APIs.
+* Learn how to trigger a security access review using the [Okta Identity Governance](https://developer.okta.com/docs/api/iga/) > [Security Access Review](https://preview.redoc.ly/okta-iga-internal/llo-OKTA-982885-org-governance-settings/openapi/governance.api/tag/Security-Access-Reviews/) APIs.
 
 #### What you need
 
@@ -30,21 +30,21 @@ Several reviewers (Okta end users) can be assigned to a security access review f
 
 ### Security access review flow
 
-Security access reviews are initiated through your custom app code or through a delegated Workflow sequence using the APIs. The reviews are intended to be triggered from a security or policy evaluation event that focuses on a particular user. Only admins or delegated flows assigned to the super admin role (`SUPER_ADMIN`) or a custom admin role, with the **Managed security access reviews** (`okta.governance.securityAccessReview.admin.manage`) permission, can trigger and view all security access reviews.
+Security access reviews are launched through your custom app code or through a delegated Workflow sequence using the APIs. The reviews are intended to be triggered from a security or policy evaluation event that focuses on a particular user. Only admins or delegated flows assigned to the super admin role (`SUPER_ADMIN`) or a custom admin role, with the **Managed security access reviews** (`okta.governance.securityAccessReview.admin.manage`) permission, can trigger and view all security access reviews.
 
-After the security access review is generated, an email is sent to designated reviewers, notifying them to review a user's access. The designated reviewers are assigned to the **Okta Security Access Review** app, where they conduct the review. Reviewers are only able to view and act on items in the security access review for which they have access permissions.
+After the security access review is generated, an email is sent to designated reviewers, notifying them to review a user's access. The designated reviewers are assigned to the **Okta Security Access Review** app, where they conduct the review. Reviewers are only able to view and act on items in the security access review for which they have permissions.
 
 See the [Security Access Reviews](HOC) product documentation for more information.
 
 > **Notes:**
-> * Security admins can also create security access reviews manually from the Admin Console, but this isn't the typical process flow. See [Create a security access review](HOC) in the product documentation.
+> * Security admins can also launch security access reviews manually from the Admin Console, but this isn't the typical process flow. See [Create a security access review](HOC) in the product documentation.
 > * For scheduled, broader-scoped access reviews, use Access Certifications campaigns. See [Campaigns](https://help.okta.com/oie/en-us/content/topics/identity-governance/access-certification/campaigns.htm). These access reviews are more appropriate for compliance audits.
 
-This guide shows you how to initiate a security access review using the APIs with OAuth 2.0 authentication:
+This guide shows you how to launch a security access review using the APIs with OAuth 2.0 authentication:
 
 1. [Set up Okta for API access](#set-up-okta-for-api-access).
-1. [Initiate a security access review](#initiate-a-security-access-review).
-1. [Conduct a security access review and remediation](#next-steps-review-and-remediation).
+1. [Launch a security access review](#launch-a-security-access-review).
+1. [Conduct a security access review](#next-steps-review-and-remediation).
 
 ## Set up Okta for API access
 
@@ -94,15 +94,17 @@ If you don't have an app for API access:
 
   See [Service-based API access setup](https://developer.okta.com/docs/reference/rest/#service-based-api-access-setup) to create a service app. Grant the required `okta.governance.securityAccessReviews.admin.manage` scope and assign the required admin role (super admin or your custom role) to the service app.
 
-## Initiate a security access review
+## Launch a security access review
 
-Security access reviews are initiated through a custom app or through a delegated flow in Okta Workflows. Use the following API requests and response examples for either methods.
+The `POST /governance/api/v2/security-access-reviews` API method ([Create a security access review](https://preview.redoc.ly/okta-iga-internal/llo-OKTA-982885-org-governance-settings/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/createSecurityAccessReview)) is used to launch the security access review. A custom app or a delegated flow uses the API to launch the review following a security or policy evaluation event.
 
-> **Note:** Security admins can also create security access reviews manually from the Admin Console, but this isn't the typical process flow. See [Create a security access review](HOC) in the product documentation.
+> **Note:** Security admins can also launch security access reviews manually from the Admin Console, but this isn't the typical process flow. See [Create a security access review](HOC) in the product documentation.
+
+See the API request examples in the following sections to launch a security access review.
 
 ### Get an OAuth 2.0 access token
 
-You can use Okta authentication SDKs or code your own API sequence to get an access token for API access.
+You can use Okta authentication SDKs or code your own sequence to get an access token for API access.
 
 > **Note:** See `getToken` methods from [Okta authentication SDKs](https://developer.okta.com/code/). For example, use [tokenManager.getTokens()](https://www.npmjs.com/package/@okta/okta-auth-js#tokenmanagergettokens) in [Okta Auth JavaScript SDK](https://www.npmjs.com/package/@okta/okta-auth-js#tokenmanagergettokens).
 
@@ -139,7 +141,7 @@ curl -v -X GET \
 
 ```
 
-Use the `id` property of the response payload for your user IDs in the [Create a security access review] request.
+Use the `id` property of the response payload for your user IDs in the [Create a security access review](https://preview.redoc.ly/okta-iga-internal/llo-OKTA-982885-org-governance-settings/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/createSecurityAccessReview) request.
 
 See [User query options](https://developer.okta.com/docs/reference/user-query/) for more query options.
 
@@ -147,7 +149,7 @@ See [User query options](https://developer.okta.com/docs/reference/user-query/) 
 
 ### Create a security access review
 
-Create a security access review with the [Security Access Review] > [Create a security access review] request (`POST /governance/api/v2/security-access-reviews`).
+Create a security access review with the [Create a security access review](https://preview.redoc.ly/okta-iga-internal/llo-OKTA-982885-org-governance-settings/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/createSecurityAccessReview) request (`POST /governance/api/v2/security-access-reviews`).
 
 > **Note:** The targeted user of the security access review can't be a reviewer. An API error is returned if you specify the same ID in `principalId` as one of the IDs in the `reviewerSettings.userSettings` list.
 
@@ -214,4 +216,4 @@ For best practices, considerations, and limitations, see [Security Access Review
 
 Reviewing and managing security access reviews through the APIs aren't covered in this guide. Okta recommends that reviewers use the **Okta Security Access Review** app for these operations. See [Manage security access reviews](HOC) and [Review access](HOC) in the product documentation.
 
-> **Note:** See [Security Access Reviews] and [My Security Access Review] for a complete list of available security access review APIs.
+> **Note:** See [Security Access Reviews](https://preview.redoc.ly/okta-iga-internal/llo-OKTA-982885-org-governance-settings/openapi/governance.api/tag/Security-Access-Reviews/) and [My Security Access Review](https://preview.redoc.ly/okta-iga-internal/llo-OKTA-982885-org-governance-settings/openapi/governance.enduser.api/tag/My-Security-Access-Reviews/) for a complete list of available security access review APIs.
