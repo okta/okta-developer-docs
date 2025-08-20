@@ -102,7 +102,7 @@ Create another identity source session object when you exhaust the maximum numbe
 
 The bulk-load request payload contains an array of external identity source objects. The items in the objects varies depending on the request you're taking.
 
-> **Note:** You can only load user profile data to an identity source session object with the `"entityType": "USERS"` property. Group data load isn't currently supported.
+> **Note:** You can only load user profile data to an identity source session object with the `"entityType": "USERS"` property.
 
 #### Bulk upsert user profiles
 
