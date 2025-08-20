@@ -36,6 +36,8 @@ After the security access review is generated, an email is sent to Okta users, i
 
 See the [Security Access Reviews](HOC) product documentation for more information.
 
+See the [Use Okta Identity Governance API in Okta Workflows](https://support.okta.com/help/s/article/use-okta-identity-governance-api-in-okta-workflows?language=en_US) article for an overview of how to use Okta Workflows with OIG APIs.
+
 > **Note:** For compliance audits, a scheduled, broader-scoped access review, such as the Access Certifications campaigns, is more appropriate. See [Campaigns](https://help.okta.com/oie/en-us/content/topics/identity-governance/access-certification/campaigns.htm).
 
 This guide shows you how to initiate a security access review using the APIs with OAuth 2.0 authentication:
@@ -92,7 +94,7 @@ If you don't have an app for API access:
 
 ## Initiate a security access review
 
-Security access reviews are initiated through a custom app or through a delegated flow in [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf&id=ext-http-method-delegated). You can use the following API requests and response examples for either methods.
+Security access reviews are initiated through a custom app or through a delegated flow in Okta Workflows. You can use the following API requests and response examples for either methods.
 
 ### Get an OAuth 2.0 access token
 
