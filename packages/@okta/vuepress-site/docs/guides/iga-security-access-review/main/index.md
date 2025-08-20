@@ -24,7 +24,7 @@ This guide shows you how to initiate a security access review using the Okta Ide
 
 ## Overview
 
-Security access reviews offer a holistic access review and response tool that's targeted on a specific user. This is particularly useful when responding to a security event or an identity threat on a user. The security access review is a snapshot of a user's resource access at the time of creation. It also provides an AI-generated summary for security admins to quickly assess high-risk accesses and anomalies.
+Security access reviews offer a holistic access review and response tool that's targeted on a specific user. This is particularly useful when responding to a security event or an identity threat on a user. The security access review is a snapshot of a user's resource access at the time of creation. It also provides an AI-generated summary for reviewers to quickly assess high-risk accesses and anomalies.
 
 Several reviewers (Okta end users) can be assigned to a security access review for assessment coverage when app security is provided by different owners. Assigned reviewers can immediately act on fine-grain remediation beyond terminating a user's session, such as revoking access to a specific resource or entitlement.
 
@@ -32,7 +32,7 @@ Several reviewers (Okta end users) can be assigned to a security access review f
 
 Security access reviews are initiated through your custom app code or through a delegated Workflow sequence using the APIs. The reviews are intended to be triggered from a security or policy evaluation event that focuses on a particular user. Only admins or delegated flows assigned to the super admin role (`SUPER_ADMIN`) or a custom admin role, with the **Managed security access reviews** (`okta.governance.securityAccessReview.admin.manage`) permission, can trigger and view all security access reviews.
 
-After the security access review is generated, an email is sent to Okta users, informing them that they need to review a user's access. They conduct the review through the **Okta Security Access Review** app in their Okta End-User Dashboard. Reviewers can only view and act on items in the security access review that they have permission to access.
+After the security access review is generated, an email is sent to designated reviewers, notifying them to review a user's access. The designated reviewers are assigned to the **Okta Security Access Review** app, where they conduct the review. Reviewers are only able to view and act on items in the security access review for which they have access permissions.
 
 See the [Security Access Reviews](HOC) product documentation for more information.
 
@@ -204,14 +204,14 @@ curl -i -X POST \
 }
 ```
 
-The `status` of the security access review is `PENDING` when it's triggered. After the review is generated, the `status` is `ACTIVE` for reviewers to assess and act on the granted access.
+The `status` of the security access review is `PENDING` when it's triggered. After the review is generated, the `status` is `ACTIVE` for reviewers to assess and act on the target user's granted access.
 
 If the reviewer has never conducted a security access review before, the **Okta Security Access Review** app is automatically assigned to them after the review is generated. Reviewers can only view items in the access review that they have permission to view. For example, they can't view the System Log entries for the targeted user if they don't have permission to view System Logs.
 
-For best practices, considerations, and limitations, see [Security Access Review > Best practices and considerations](HOC) in the product documenation.
+For best practices, considerations, and limitations, see [Security Access Review > Best practices and considerations](HOC) in the product documentation.
 
 ## Next steps: review and remediation
 
-Reviewing and remediating security access reviews through the APIs aren't covered in this guide. Okta recommends that you use the Admin Console or End-User Dashboard for these operations. See [Manage security access reviews](HOC) and [Review access](HOC) in the product documentation.
+Reviewing and managing security access reviews through the APIs aren't covered in this guide. Okta recommends that reviewers use the **Okta Security Access Review** app for these operations. See [Manage security access reviews](HOC) and [Review access](HOC) in the product documentation.
 
 > **Note:** See [Security Access Reviews] and [My Security Access Review] for a complete list of available security access review APIs.
