@@ -45,4 +45,8 @@ Download a CSV file with all event types: [Okta Event Types](/docs/okta-event-ty
   font-family: "Menlo"
 }
 
+.dark-theme  .event-type-tag {
+  background-color: #41414b;
+}
+
 </style>
