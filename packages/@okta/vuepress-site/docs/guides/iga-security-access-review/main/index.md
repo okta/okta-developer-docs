@@ -36,8 +36,6 @@ After the security access review is generated, an email is sent to Okta users, i
 
 See the [Security Access Reviews](HOC) product documentation for more information.
 
-See the [Use Okta Identity Governance API in Okta Workflows](https://support.okta.com/help/s/article/use-okta-identity-governance-api-in-okta-workflows?language=en_US) article for an overview of how to use Okta Workflows with OIG APIs.
-
 > **Note:** For scheduled, broader-scoped access reviews, use Access Certifications campaigns. See [Campaigns](https://help.okta.com/oie/en-us/content/topics/identity-governance/access-certification/campaigns.htm). These access reviews are more appropriate for compliance audits.
 
 This guide shows you how to initiate a security access review using the APIs with OAuth 2.0 authentication:
@@ -52,6 +50,8 @@ Set up Okta so that you can authenticate to Okta APIs and have the proper roles 
 
 You only have to set up your Okta org for OIG security access reviews API access once. Okta recommends that you perform these tasks from the Admin Console. However, you can also use [Okta Management APIs](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/) for the same tasks.
 
+> **Note:** See the [Use Okta Identity Governance API in Okta Workflows](https://support.okta.com/help/s/article/use-okta-identity-governance-api-in-okta-workflows?language=en_US) article for an overview of how to use Okta Workflows with OIG APIs.
+
 ### Create a custom admin role for security access reviews
 
 Only super admins (`SUPER_ADMIN`) can initially trigger security access reviews in Okta Identity Governance orgs.
@@ -62,7 +62,7 @@ You need to assign the custom admin role to the principal that manages security 
 
 ### Create an app for OAuth 2.0 authentication
 
-Access OIG APIs by authenticating with an [OAuth 2.0 access token](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/#oauth-20-access-token). To obtain an OAuth 2.0 access token for API authentication, you need to have an app in Okta for API access.
+Access OIG APIs by authenticating with an [OAuth 2.0 access token](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/#oauth-20-access-token). To obtain an OAuth 2.0 access token for API authentication, you need to have an app in Okta for API access. The app provides you with the client ID and secret (or credentials) to request for access tokens.
 
 If you already have an OIDC or service app for API authentication, ensure that your app is granted for the following OAuth 2.0 scope:
 
@@ -70,7 +70,7 @@ If you already have an OIDC or service app for API authentication, ensure that y
 
     In addition, grant any other scopes that you may need for other API requests, such as `okta.users.manage` or `okta.users.read` to request Okta user resources.
 
-Also ensure that your API user or service app is assigned to the IAM role that has permission to manage security access reviews. Assign either:
+Also ensure that your API users or service app are assigned to the IAM role that has permission to manage security access reviews. Assign either:
 
 * The super admin (`SUPER_ADMIN`) role
 
