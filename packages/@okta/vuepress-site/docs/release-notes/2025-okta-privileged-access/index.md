@@ -8,6 +8,19 @@ Okta Privileged Access (OPA) is available for both Okta Classic and Identity Eng
 
 ## August
 
+### Weekly release 2025.08.2
+
+| Change | Expected in Preview |
+|--------|---------------------|
+| [Active Directory Remote Desktop Protocol (RDP) support is EA](#active-directory-remote-desktop-protocol-rdp-support-is-ea)| August 20, 2025 |
+
+#### Active Directory Remote Desktop Protocol (RDP) support is EA
+
+Security admins can grant users RDP access to Windows servers with Active Directory (AD) credentials. After RDP access is granted, end users can connect to Windows servers through RDP using the SFT client. Security admins can set requirements, such as multifactor authentication, approval requests, or resource checkout, in order for users to connect through RDP. Currently, gateways aren't supported for RDP connections with AD credentials.
+
+You can grant RDP permission to AD users on Windows servers through the security policy. See [privileges](https://developer.okta.com/docs/api/openapi/opa/opa/tag/security-policy/#tag/security-policy/operation/CreateSecurityPolicy!path=rules/privileges&t=request) in the Security Policy API. See user access method details in the [List all user access methods for an Active Directory account](https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-accounts/#tag/active-directory-accounts/operation/ListUAMForActiveDirectoryAccount) method and in Server [Resolve resource names](https://developer.okta.com/docs/api/openapi/opa/opa/tag/servers/#tag/servers/operation/ResolveResource!c=200&path=results/user_access_methods&t=response). For product documentation, see [Add rules to a policy](https://help.okta.com/okta_help.htm?type=oie&id=pam-add-rules).
+<!-- OKTA-943925 pam_active_directory_server_rdp Preview: Aug 20, 2025, Production: August 27, 2025 -->
+
 ### Monthly release 2025.08.0
 
 #### Active Directory rotate password configuration is EA
