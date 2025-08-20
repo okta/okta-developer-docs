@@ -90,9 +90,9 @@ If you don't have an app for API access:
 
   See [Service-based API access setup](https://developer.okta.com/docs/reference/rest/#service-based-api-access-setup) to create a service app. Grant the required `okta.governance.securityAccessReviews.admin.manage` scope and assign the required admin role (super admin or your custom role) to the service app.
 
-## Trigger a security access review
+## Initiate a security access review
 
-Security access reviews are typically triggered through a custom app or through a delegated flow in Okta Workflows. This guide shows you the API requests and response examples that you can use in either trigger methods, and is language-agnostic.
+Security access reviews are initiated through a custom app or through a delegated flow in Okta Workflows. Reviews are typically triggered from a security event or policy evaluation. This guide shows you the API requests and response examples that you can use in either trigger methods, and is language-agnostic.
 
 ### Get an OAuth 2.0 access token
 
