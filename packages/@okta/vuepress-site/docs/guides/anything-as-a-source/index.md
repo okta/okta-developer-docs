@@ -39,7 +39,7 @@ This guide outlines the Identity Sources API flow, so you can develop your custo
 
 ### Identity source session
 
-The Identity Sources API synchronizing data flow uses an [identity source session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/getIdentitySourceSession!c=200&path=id&t=response) object to encapsulate the data upload and the data import processing tasks. You must to create an identity source session object each time that you want to synchronize data from the HR source to Okta. The identity source session object uses the following `status` values to indicate each stage of the synchronization process flow.
+The Identity Sources API synchronizing data flow uses an [identity source session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/getIdentitySourceSession!c=200&path=id&t=response) object to encapsulate the data upload and the data import processing tasks. Create an identity source session object each time that you want to synchronize data from the HR source to Okta. The identity source session object uses the following `status` values to indicate each stage of the synchronization process flow.
 
 <div class="full">
 
@@ -79,7 +79,7 @@ You can only process one identity source session at a time (for a specific Custo
 Errors are thrown in the following situations:
 
 * You can't create an identity source session within five minutes of triggering an active session associated with the same identity source. If Okta receives a new identity source session request within five minutes of an active identity source session with the `CREATED`, `IN_PROGRESS`, or the `TRIGGERED` status, Okta returns a 400 Bad Request response.
-*  If you try to do a bulk delete with a non-existant `externalId` or a bulk upsert with an empty or `null` payload, the session status won't move to `IN_PROGRESS`, but remain in a `CREATED` state. If you try to trigger a session still in a `CREATED` state, an error is thrown.
+* If you try to do a bulk delete with a non-existent `externalId` or a bulk upsert with an empty or `null` payload, the session status won't move to `IN_PROGRESS`, but remain in a `CREATED` state. If you try to trigger a session still in a `CREATED` state, an error is thrown.
 
 > **Note:** You can use the [List all identity source sessions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/listIdentitySourceSessions) request to return active identity source sessions for an identity source.
 
@@ -100,7 +100,7 @@ Create another identity source session object when you exhaust the maximum numbe
 
 ### Bulk load data
 
-The bulk-load request payload contains an array of external identity source objects. The items in the objects varies depending on the request you're taking.
+The bulk-load request payload contains an array of external identity source objects. The items in the objects vary depending on the request that you're making.
 
 > **Note:** You can only load user profile data to an identity source session object with the `"entityType": "USERS"` property.
 
@@ -111,7 +111,7 @@ Identity source user [`profiles` for upsert](https://developer.okta.com/docs/api
 * `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This helps determine if a new user needs to be created or if an existing user needs to be updated.
 
 * `profile`: The set of attributes from the HR source to synchronize with the Okta user profile. User profiles are mapped according to the attribute mappings that you specified in your Custom Identity Source configuration. See Declare an identity source schema in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
-    > **Note:** All attributes in a `profile` object are treated as strings. Arrays are not supported.
+    > **Note:** All attributes in a `profile` object are treated as strings. Arrays aren’t supported.
 
 #### Bulk delete user profiles
 
