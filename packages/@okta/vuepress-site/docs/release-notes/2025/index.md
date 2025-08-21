@@ -6,6 +6,18 @@ title: Okta Classic Engine API release notes 2025
 
 ## August
 
+### Weekly release 2025.08.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.08.2](#bugs-fixed-in-2025-08-2)| August 20, 2025 |
+
+#### Bugs fixed in 2025.08.2
+
+* Some app groups that were deleted were still visible in searches. This fix will be slowly made available to all orgs. (OKTA-972614)
+
+* When an app was deleted, group push rules weren't deleted and would sometimes trigger erroneous System Log entries. This fix will be slowly made available to all orgs. (OKTA-881642)
+
 ### Monthly release 2025.08.0
 
 | Change | Expected in Preview Orgs |
