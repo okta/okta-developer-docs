@@ -9,7 +9,7 @@ meta:
 
 <ApiLifecycle access="ie" />
 
-Multifactor authentication (MFA) is an assurance method that requires users to provide two or more verification factors to gain access to a resource, such as an app or user account. This page provides a high-level overview of MFA, how it works in Okta, and the key concepts and terminology you need to understand, when implementing MFA with Okta APIs.
+Multifactor authentication (MFA) is an assurance method that requires users to provide two or more verification factors to gain access to a resource. This page provides a high-level overview of MFA, how it works in Okta, and the key concepts and terminology you need to understand when implementing MFA with Okta APIs.
 
 ---
 
@@ -23,10 +23,10 @@ Multifactor authentication (MFA) is an assurance method that requires users to p
 
 ## What is multifactor authentication
 
-MFA requires users to supply two or more types of evidence that they are who they claim to be:
+MFA requires users to supply two or more types of evidence that prove they’re who they claim to be:
 
 * **Something they know (knowledge-based factor, like a password or PIN):** Knowledge factors rely on information that's only known to the user.
-* **Something they have (possession-based factor, like a smartphone or hardware token):** Possession factors prove that the user has a specific device in their control, often by requiring them to enter a code from an authenticator app or by approving a push notification.
+* **Something they have (possession-based factor, like a smartphone or hardware token):** Possession factors prove that the user has a specific device in their control. For example, sometimes possession factors require users to enter a code from an authenticator app or approve a push notification.
 * **Something they are (biometric-based factor, like a fingerprint or facial recognition):** Biometric factors verify identity by scanning unique traits such as a fingerprint or using facial recognition.
 
 ### Why use MFA
@@ -37,35 +37,35 @@ See [Why Multi-Factor Authentication (MFA) Is Important](https://www.okta.com/id
 
 ### How MFA works in Okta
 
-Use MFA in your org to require users to verify their identity through multiple factors. The sign-in process is controlled through a combination of policies and authenticators. Admins configure authentication and enrollment policies to determine which authenticators are required or disallowed, how users enroll authenticators, and which authenticators are required when users sign in.
+Use MFA in your org to require users to verify their identity through multiple factors. The sign-in process is controlled through a combination of policies and authenticators. Admins configure authenticator enrollment policies to determine which authenticators are required or disallowed for users. And authentication policies are used to specify which authenticators are required when users sign in.
 
-There are many different ways that you can use authenticators in your org. MFA is one method that you can use to enhance the security of your org. You can also use adaptive MFA which is based on context, such as the user's location or device. See [Authentication](https://help.okta.com/oie/en-us/content/topics/security/security_at_okta.htm).
+There are many different ways that you can use authenticators in your org. MFA is one method that you can use to enhance the security of your org. You can also use adaptive MFA, which is based on context, such as the user's location or device. See [Authentication](https://help.okta.com/oie/en-us/content/topics/security/security_at_okta.htm).
 
 ## Key terms with MFA
 
 * **Assurance**: The level of confidence that a user is who they claim to be, based on the authentication methods used.
 * **Authenticator**: A method or device that a user possesses and controls and that they use to verify their identity. Authenticators can be used to satisfy different factor requirements. For example, Okta supports authenticators like Okta Verify, Smart Cards, and YubiKey One-Time Passcodes (OTPs), among others.
 * **Factor**: The category of authentication (knowledge, possession, biometric).
-   > **Note:** In Okta Classic Engine, "factor" is used interchangeably with "authenticator". In Okta Identity Engine, a factor refers to the category of authentication (knowledge, possession, biometric), while an authenticator is a specific method or device. See [Understand the terminology in the User Factors API](#understand-the-terminology-in-the-user-factors-api).
+   > **Note:** In Classic Engine, "factor" is used interchangeably with "authenticator." In Okta Identity Engine, a factor refers to the category of authentication (knowledge, possession, biometric), while an authenticator is a specific method or device. See [Understand the terminology in the User Factors API](#understand-the-terminology-in-the-user-factors-api).
 * **Authenticator method**: The security method used by an authenticator. Typically the authenticator method describes the protocol that the authenticator uses. See [Method characteristics](https://help.okta.com/oie/en-us/content/topics/identity-engine/authenticators/about-authenticators.htm).
 * **Authenticator enrollment**: The specific instance of an authenticator that a user has enrolled and that's linked to them and their account. It refers to the specific configuration of the authenticator and the user who's enrolled it.
 
 See [Understand authenticator terminology with Okta APIs](#understand-authenticator-terminology-with-okta-apis) for more information about some of these terms and how they're used in Okta APIs.
 
-For more conceptual information about MFA, see [What Is Multi-Factor Authentication (MFA)?](https://www.okta.com/blog/2021/08/multi-factor-authentication-mfa/).
+For more conceptual information about MFA, see [What Is Multi-Factor Authentication (MFA)?](https://www.okta.com/blog/2021/08/multi-factor-authentication-mfa/)
 
 ### Understand authenticator terminology with Okta APIs
 
-The terminology of authenticators in Okta's APIs is similar to the terminology that's used in the Okta Admin Console. However, there are some slight differences in how they're represented in the APIs.
+The terminology of authenticators in Okta's APIs is similar to the terminology that's used in the Admin Console. However, there are some slight differences in how they're represented in the APIs.
 
 | Key term                  | Description  |
 |---------------------------|--------------|
 | [Authenticator key](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticators!c=200&path=0/key&t=response) | The authenticator `key` parameter is the name of the authenticator. |
 | [Authenticator type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticators!c=200&path=0/type&t=response) | The authenticator `type` parameter is a category for authenticators. There are various authenticator types and the parameter is used to group authenticators that rely on similar technologies. |
-| [Method type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticatorMethods!c=200&path=13/type&t=response) | The specific security method that an authenticator can use for verification. In the Policy API, the method `type` parameter refers to the specific security methods of an authenticator. It doesn't refer to any of the method characteristics, such as user presence or device-bound, for example. |
+| [Method type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticatorMethods!c=200&path=13/type&t=response) | The specific security method that an authenticator can use for verification. In the Policy API, the method `type` parameter refers to the specific security methods of an authenticator. It doesn't refer to any of the method characteristics, such as user presence or device-bound. |
 | [Authenticator enrollment](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserAuthenticatorEnrollments/) | The instance of an authenticator that is registered to a specific user. |
 
-Refer to the table below for a list of authenticators, their keys, types, and method types.
+Refer to the following table for a list of authenticators, their keys, types, and method types.
 
 | Authenticator key   | Authenticator type      | Method type             |
 |---------------------|-------------------------|-------------------------|
@@ -91,13 +91,13 @@ Refer to the table below for a list of authenticators, their keys, types, and me
 
 There's an important distinction between the terms "authenticator" and "factor" in Identity Engine and Classic Engine.
 
-The [User Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/) provides operations for managing factors. In the context of the User Factors API, "factor" is used with the Classic Engine definition, meaning that you can use the API to manage user authenticators (factors). The factors that you can manage with the User Factors API are the specific instances of authenticators that users have enrolled.
+The [User Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/) provides operations for managing factors. In the context of the User Factors API, "factor" is used with the Classic Engine definition. Which means that you can use the API to manage user authenticators (factors). The factors that you can manage with the User Factors API are the specific instances of authenticators that users have enrolled.
 
 > **Note:** The [User Authenticator Enrollments API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserAuthenticatorEnrollments/) provides similar operations as the User Factors API.
 
 ## About MFA and authenticator enrollment policies
 
-Authenticator enrollment policies control which of the multifactor authenticators are available for a user and when a user can enroll a particular one. You can use these policies to enforce specific requirements for how users enroll authenticators.
+Authenticator enrollment policies control which authenticators are available for a user and when a user can enroll a particular one. You can use these policies to enforce specific requirements for how users enroll authenticators.
 
 To learn how to configure authenticator enrollment policies in the Admin Console, see [Authenticator enrollment policies](https://help.okta.com/oie/en-us/content/topics/identity-engine/policies/about-mfa-enrollment-policies.htm).
 
@@ -107,7 +107,7 @@ You can also configure them by using the [Policy API](https://developer.okta.com
 
 Authentication policies determine the extra levels of authentication that are performed before a user can access an app. Admins can use these policies to specify the required level of assurance for different apps, user groups, or access scenarios. For example, you can set up an authentication policy where the required authenticators change based on the user's network location and device platform.
 
-To learn how to configure authenticator enrollment policies in the Admin Console, see [Authentication policies](https://help.okta.com/oie/en-us/content/topics/identity-engine/policies/about-app-sign-on-policies.htm)
+To learn how to configure authenticator enrollment policies in the Admin Console, see [Authentication policies](https://help.okta.com/oie/en-us/content/topics/identity-engine/policies/about-app-sign-on-policies.htm).
 
 You can also configure them by using the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/).
 
