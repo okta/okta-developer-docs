@@ -13,8 +13,8 @@ The [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js) (Auth JS) h
 
 #### What you need
 
-[Okta Integrator Free Plan org](https://developer.okta.com/signup)
-[Okta custom domain](https://developer.okta.com/docs/guides/custom-url-domain/main/)
+- [Okta Integrator Free Plan org](https://developer.okta.com/signup)
+- [Okta custom domain](https://developer.okta.com/docs/guides/custom-url-domain/main/)
 ---
 
 ## About the Okta Auth JavaScript SDK
@@ -182,7 +182,7 @@ Include the following function within the `body` tags after the `content-jwt` re
 
 This function signs the user out of the Okta session. See [signOut()](https://github.com/okta/okta-auth-js/#signout) in the Auth JS SDK.
 
-> **Note**: If the user has already signed-out or there is no active session found, the browser redirects to the `Sign-out redirect URI` defined in your Okta app integration.
+> **Note**: If the user has already signed-out or there is no active session found, the browser redirects to the **Sign-out redirect URI** defined in your Okta app integration.
 
 After adding the sign-out function, the sample app is ready to test. Your sample app code appears as follows:
 
