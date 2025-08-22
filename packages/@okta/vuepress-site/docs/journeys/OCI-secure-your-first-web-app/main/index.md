@@ -3,9 +3,11 @@ title: Secure your first web app
 meta:
   - name: description
     content: Connect a single-page app to Okta and give it sign-in functionality.
-    date-updated: July 25
-    Target persona: Developer
-    Level: Beginner
+    date-updated: August 7, 2025
+    target persona: Developer
+    level: Beginner
+sections:
+- main
 ---
 
 # Secure your first web app
