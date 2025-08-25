@@ -55,7 +55,9 @@ If you want to update an existing app to use refresh tokens in the Admin Console
 
 ## Refresh token rotation
 
-Refresh token rotation helps a public client to securely rotate refresh tokens after each use. Whether Okta returns a new refresh token with a new access token depends on the [refresh token lifetime](#refresh-token-lifetime) setting. If the lifetime setting hasn't expired, when a client makes a request for a new access token, Okta only returns the new access token. After the lifetime setting expires, Okta returns a new refresh token and a new access token.
+Refresh token rotation is a security best practice that ensures refresh tokens are used only once. This enhances OAuth 2.0 by preventing reuse, as refresh tokens typically have a longer validity than access tokens.
+
+With refresh token rotation, each exchange of a refresh token for a new access token results in a new refresh token being issued, while the old one is invalidated. This prevents replay attacks, enhancing security for public clients like single-page and mobile apps that can't securely store credentials.
 
 ### Refresh token reuse detection
 
