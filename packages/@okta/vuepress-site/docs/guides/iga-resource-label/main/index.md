@@ -24,43 +24,31 @@ This guide shows you how to create a resource label using the Okta Identity Gove
 
 ## Overview
 
-Security access reviews offer a holistic access review and response tool that's targeted on a specific user. This is particularly useful when responding to a security event or an identity threat on a user. The security access review is a snapshot of a user's resource access at the time of creation. It also provides an AI-generated summary for reviewers to quickly assess high-risk accesses and anomalies.
+Resource labels allow you to categorize and organize resources such as apps, groups, entitlements, and collections. Labels support governance automation, streamline configuration, and simplify the management of access reviews and requests.
 
-Several reviewers (Okta end users) can be assigned to a security access review for assessment coverage when app security is provided by different owners. Assigned reviewers can immediately act on fine-grain remediation beyond terminating a user's session, such as revoking access to a specific resource or entitlement.
+< more > 
 
-### Security access review flow
+### Default labels
 
-Security access reviews are launched through your custom app code or through a delegated Workflow sequence using the APIs. The reviews are intended to be triggered from a security or policy evaluation event that focuses on a particular user. Only admins or delegated flows assigned to the super admin role (`SUPER_ADMIN`) or a custom admin role, with the **Managed security access reviews** (`okta.governance.securityAccessReview.admin.manage`) permission, can trigger and view all security access reviews.
+List the set of default labels
 
-After the security access review is generated, an email is sent to designated reviewers, notifying them to review a user's access. The designated reviewers are assigned to the **Okta Security Access Review** app, where they conduct the review. Reviewers are only able to view and act on items in the security access review for which they have permissions.
+### Create a label flow
 
-See the [Security Access Reviews](HOC) product documentation for more information.
+do we need this section? or maybe a section on how to use it?
 
-> **Notes:**
-> * Security admins can also launch security access reviews manually from the Admin Console, but this isn't the typical process flow. See [Create a security access review](HOC) in the product documentation.
-> * For scheduled, broader-scoped access reviews, use Access Certifications campaigns. See [Campaigns](https://help.okta.com/oie/en-us/content/topics/identity-governance/access-certification/campaigns.htm). These access reviews are more appropriate for compliance audits.
-
-This guide shows you how to launch a security access review using the APIs with OAuth 2.0 authentication:
+This guide shows you how to create a resource label using the APIs with OAuth 2.0 authentication:
 
 1. [Set up Okta for API access](#set-up-okta-for-api-access).
-1. [Launch a security access review](#launch-a-security-access-review).
-1. [Conduct a security access review](#next-steps-review-and-remediation).
+1. [List available resource labels]
+1. [Create a resource label]
 
 ## Set up Okta for API access
 
-Set up Okta so that you can authenticate to Okta APIs and have the proper roles or permissions for security access reviews.
+Set up Okta so that you can authenticate to Okta APIs and have the proper roles or permissions to manage resource labels.
 
-You only have to set up your Okta org for OIG security access reviews API access once. Okta recommends that you perform these tasks from the Admin Console. However, you can also use [Okta Management APIs](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/) for the same tasks.
+You only have to set up your Okta org for OIG Labels API access once. Okta recommends that you perform these tasks from the Admin Console. However, you can also use [Okta Management APIs](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/) for the same tasks.
 
 > **Note:** See the [Use Okta Identity Governance API in Okta Workflows](https://support.okta.com/help/s/article/use-okta-identity-governance-api-in-okta-workflows?language=en_US) article for an overview of how to use Okta Workflows with OIG APIs.
-
-### Create a custom admin role for security access reviews
-
-Only super admins (`SUPER_ADMIN`) can initially trigger security access reviews in Okta Identity Governance orgs.
-
-For least-privilege access, Okta recommends that you create a custom role for admins to manage security access reviews. See [Create a role](https://help.okta.com/oie/en-us/content/topics/security/custom-admin-role/create-role.htm) in the production documentation and assign the **Manage security access reviews as admin** permission (`okta.governance.securityAccessReviews.admin.manage`) to your custom admin role.
-
-You need to assign the custom admin role to the principal that manages security access reviews. Principals can be an Okta user or a client app (service app). With the proper roles in place, these principals have the permissions required to trigger and review security access reviews.
 
 ### Create an app for OAuth 2.0 authentication
 
@@ -68,17 +56,14 @@ Access OIG APIs by authenticating with an [OAuth 2.0 access token](https://devel
 
 If you already have an OIDC or service app for API authentication, ensure that your app is granted for the following OAuth 2.0 scope:
 
-* `okta.governance.securityAccessReviews.admin.manage`
+* `okta.governance.labels.read`
 
-    In addition, grant any other scopes that you may need for other API requests, such as `okta.users.manage` or `okta.users.read` to request Okta user resources.
+    In addition, grant any other scopes that you may need for other API requests, such as `okta.apps.manage` or `okta.apps.read` to request Okta app resources.
 
-Also ensure that your API users or service app are assigned to the IAM role that has permission to manage security access reviews. Assign either:
+Also ensure that your API users or service app are assigned to the IAM role that has permission to manage labels. Assign either one of these roles to your principal API requester:
 
+* The apps admin (`APP_ADMIN`) role
 * The super admin (`SUPER_ADMIN`) role
-
-  Or
-
-* Your custom admin role with the **Manage security access reviews as admin** (`okta.governance.securityAccessReviews.admin.manage`) permission.
 
 > **Note:** If you're using Okta Workflows, the **Okta Workflows OAuth** app in your org is used for API authentication. Grant the `okta.governance.securityAccessReviews.admin.manage` scope to this app. See [Authorization > Create a connection from the current Okta org](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-misc-authorization).
 
@@ -116,42 +101,11 @@ Use the obtained OAuth 2.0 access token as bearer tokens in the authentication h
 
 > **Note:** This task isn't required for delegated flow implementations. The **Okta Workflows OAuth** app handles OAuth 2.0 access to APIs. See [Create a connection from the current Okta org](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-misc-authorization) and [Custom API Actions](https://help.okta.com/okta_help.htm?type=wf&id=ext-oktaitp-method-customapiactionaojbwnnd4l).
 
-### Get IDs for your users
 
-Use Okta user IDs as parameters to initiate a security access review using the `POST /governance/api/v2/security-access-reviews` method (see [Create a security access review](https://preview.redoc.ly/okta-iga-internal/llo-OKTA-982885-org-governance-settings/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/createSecurityAccessReview)).
+### Create a resource label
 
-Find the Okta user IDs for the following users:
+Create a resource label with the [Create a label](https://preview.redoc.ly/okta-iga-internal/vn-okta-955721-iga-label-review/openapi/governance.api/tag/Labels/#tag/Labels/operation/createLabel) request (`POST /governance/api/v1/labels`).
 
-1. The target user for the security access review (for the `principalId` parameter)
-
-    This is the user whose access is under review.
-
-2. The reviewers for the security access review (for the `reviewerSettings.userSettings` parameter)
-
-   These are the security analysts or resource owners that assess the user access items and perform any remediation. Reviewers can be an Okta admin or an end user. After the review is created, reviewers are automatically assigned the **Okta Security Access Review** app to conduct the review.
-
-Use the [List all user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers) request with the `find` query parameter and user profile attributes to find the user IDs.
-
-```bash
-curl -v -X GET \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Authorization: Bearer {yourOktaAccessToken}" \
-"https://${yourOktaDomain}/api/v1/users?search=profile.login%20eq%20%22testUser%40example.com%22"
-
-```
-
-Use the `id` property of the response payload for your user IDs in the [Create a security access review](https://preview.redoc.ly/okta-iga-internal/llo-OKTA-982885-org-governance-settings/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/createSecurityAccessReview) request.
-
-See [User query options](https://developer.okta.com/docs/reference/user-query/) for more query options.
-
-> **Note:** This request (and Okta API access app) requires the `okta.users.read` scope.
-
-### Create a security access review
-
-Create a security access review with the [Create a security access review](https://preview.redoc.ly/okta-iga-internal/llo-OKTA-982885-org-governance-settings/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/createSecurityAccessReview) request (`POST /governance/api/v2/security-access-reviews`).
-
-> **Note:** The targeted user of the security access review can't be a reviewer. An API error is returned if you specify the same ID in `principalId` as one of the IDs in the `reviewerSettings.userSettings` list.
 
 #### Request
 
@@ -206,14 +160,14 @@ curl -i -X POST \
 }
 ```
 
-The `status` of the security access review is `PENDING` when it's triggered. After the review is generated, the `status` is `ACTIVE` for reviewers to assess and act on the target user's granted access.
+## Assign labels
 
-If the reviewer has never conducted a security access review before, the **Okta Security Access Review** app is automatically assigned to them after the review is generated. Reviewers can only view items in the access review that they have permission to view. For example, they can't view the System Log entries for the targeted user if they don't have permission to view System Logs.
+## Next steps: use labels in governance reviews and requests
 
-For best practices, considerations, and limitations, see [Security Access Review > Best practices and considerations](HOC) in the product documentation.
+You can use labels to scope access certification campaigns and access reviews.
 
-## Next steps: review and remediation
+You can use labels to target resources in access requests.
 
-Reviewing and managing security access reviews through the APIs aren't covered in this guide. Okta recommends that reviewers use the **Okta Security Access Review** app for these operations. See [Manage security access reviews](HOC) and [Review access](HOC) in the product documentation.
+These stesps aren't covered in this guide. Okta recommends that you use labels in the Admin Console for these tasks. See [Resource labels](HOC) in the product documentation.
 
-> **Note:** See [Security Access Reviews](https://preview.redoc.ly/okta-iga-internal/llo-OKTA-982885-org-governance-settings/openapi/governance.api/tag/Security-Access-Reviews/) and [My Security Access Review](https://preview.redoc.ly/okta-iga-internal/llo-OKTA-982885-org-governance-settings/openapi/governance.enduser.api/tag/My-Security-Access-Reviews/) for a complete list of available security access review APIs.
+> **Note:** See [Labels](https://preview.redoc.ly/okta-iga-internal/vn-okta-955721-iga-label-review/openapi/governance.api/tag/Labels/) for a complete list of available resource label APIs.
