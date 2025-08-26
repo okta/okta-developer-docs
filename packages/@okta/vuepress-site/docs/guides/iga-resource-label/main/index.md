@@ -32,10 +32,6 @@ Resource labels allow you to categorize and organize resources such as apps, gro
 
 List the set of default labels
 
-### Create a label flow
-
-do we need this section? or maybe a section on how to use it?
-
 This guide shows you how to create a resource label using the APIs with OAuth 2.0 authentication:
 
 1. [Set up Okta for API access](#set-up-okta-for-api-access).
@@ -50,42 +46,34 @@ You only have to set up your Okta org for OIG Labels API access once. Okta recom
 
 > **Note:** See the [Use Okta Identity Governance API in Okta Workflows](https://support.okta.com/help/s/article/use-okta-identity-governance-api-in-okta-workflows?language=en_US) article for an overview of how to use Okta Workflows with OIG APIs.
 
-### Create an app for OAuth 2.0 authentication
+### Okta app for OAuth 2.0 authentication
 
 Access OIG APIs by authenticating with an [OAuth 2.0 access token](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/#oauth-20-access-token). To obtain an OAuth 2.0 access token for API authentication, you need to have an app in Okta for API access. The app provides you with the client ID and secret (or credentials) to request for access tokens.
 
 If you already have an OIDC or service app for API authentication, ensure that your app is granted for the following OAuth 2.0 scope:
 
-* `okta.governance.labels.read`
+* `okta.governance.labels.manage`
+* `okta.apps.read`
+* `okta.groups.read`
+* `okta.governance.entitlements.read`
+* `okta.governance.collections.read`
 
-    In addition, grant any other scopes that you may need for other API requests, such as `okta.apps.manage` or `okta.apps.read` to request Okta app resources.
+    In addition, grant any other scopes that you may need for other API requests, such as `okta.governance.entitlements.manage` or `okta.apps.manage`.
 
-Also ensure that your API users or service app are assigned to the IAM role that has permission to manage labels. Assign either one of these roles to your principal API requester:
+Also ensure that your API users or service app are assigned to the admin role that has permission to manage labels. Assign either one of these roles to your principal API requester:
 
 * The apps admin (`APP_ADMIN`) role
 * The super admin (`SUPER_ADMIN`) role
 
-> **Note:** If you're using Okta Workflows, the **Okta Workflows OAuth** app in your org is used for API authentication. Grant the `okta.governance.securityAccessReviews.admin.manage` scope to this app. See [Authorization > Create a connection from the current Okta org](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-misc-authorization).
+> **Note:** If you're using Okta Workflows, the **Okta Workflows OAuth** app in your org is used for API authentication. Grant the required scopes to the **Okta Workflows OAuth** app. See [Authorization > Create a connection from the current Okta org](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-misc-authorization).
 
-If you don't have an app for API access:
+If you don't have an app for API access, see [Set up Okta for API access](//docs/reference/rest/#set-up-okta-for-api-access) and ensure that your app is granted the scopes and admin roles previously mentioned.
 
-* Create an **OIDC-OpenID Connect** sign-in method app for API access if you're making API requests as an Okta user.
+## Manage resource labels
 
-  See [User-based API access setup](https://developer.okta.com/docs/reference/rest/#user-based-api-access-setup) to create an OIDC app. Grant the required `okta.governance.securityAccessReviews.admin.manage` scope to the OIDC app (in addition to any other scope you need).
+Use the [Labels](https://preview.redoc.ly/okta-iga-internal/vn-okta-955721-iga-label-review/openapi/governance.api/tag/Labels/) API to manage governance resource labels.
 
-  Assign the API users to the OIDC app. Ensure that the API users are assigned to the super admin role or to a custom role that contains the **Manage security access reviews as admin** (`okta.governance.securityAccessReviews.admin.manage`) permission.
-
-* Create an **API Services** sign-in method app for API access if you're making API requests from a service or daemon without user context.
-
-  See [Service-based API access setup](https://developer.okta.com/docs/reference/rest/#service-based-api-access-setup) to create a service app. Grant the required `okta.governance.securityAccessReviews.admin.manage` scope and assign the required admin role (super admin or your custom role) to the service app.
-
-## Launch a security access review
-
-The `POST /governance/api/v2/security-access-reviews` API method ([Create a security access review](https://preview.redoc.ly/okta-iga-internal/llo-OKTA-982885-org-governance-settings/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/createSecurityAccessReview)) is used to launch the security access review. A custom app or a delegated flow uses the API to launch the review following a security or policy evaluation event.
-
-> **Note:** Security admins can also launch security access reviews manually from the Admin Console, but this isn't the typical process flow. See [Create a security access review](HOC) in the product documentation.
-
-See the API request examples in the following sections to launch a security access review.
+> **Note:** You can't manage resource labels from the Admin Console. However, you can use existing resource labels in our governance tasks to create reviews, requests, and automation.
 
 ### Get an OAuth 2.0 access token
 
@@ -112,51 +100,60 @@ Create a resource label with the [Create a label](https://preview.redoc.ly/okta-
 ```bash
 
 curl -i -X POST \
-  https://{yourOktaDomain}/governance/api/v2/security-access-reviews \
-  -H 'Authorization: Bearer {yourOktaAccessToken}' \
+  https://subdomain.okta.com/governance/api/v1/labels \
+  -H 'Authorization: YOUR_API_KEY_HERE' \
   -H 'Content-Type: application/json' \
   -d '{
-    "principalId": "00ucpjbi6JMmDvdN40g4",
-    "name": "Security access review for Test user",
-    "reviewerSettings": {
-      "type": "USER",
-      "userSettings": {
-        "includedUserIds": [
-          "00ucpjbi6JMmDvdN40g4",
-          "00ucpjbi6JMmDvdN40g5"
-        ]
+    "name": "Compliance",
+    "values": [
+      {
+        "name": "SOX",
+        "metadata": {
+          "additionalProperties": {
+            "backgroundColor": "blue"
+          }
+        }
+      },
+      {
+        "name": "PII",
+        "metadata": {
+          "additionalProperties": {
+            "backgroundColor": "yellow"
+          }
+        }
       }
-    }
+    ]
   }'
+
 ```
 
 #### Response
 
 ```json
 {
-    "id": "sar1lo5X9wmNTFX7x0g4",
-    "createdBy": "00ucfd4IQoH6YBZgA0g4",
-    "created": "2025-08-19T22:10:34Z",
-    "lastUpdated": "2025-08-19T22:10:34Z",
-    "lastUpdatedBy": "00ucfd4IQoH6YBZgA0g4",
-    "_links": {
-        "securityAccessReviewDetails": {
-            "href": "https://myoktadomain.okta.com/governance/api/v2/security-access-reviews/sar1lo5X9wmNTFX7x0g4",
-            "hints": {}
-        }
+  "labelId": "lbco3v6xlwdtEX2il1d6",
+  "name": "Compliance",
+  "values": [
+    {
+      "labelValueId": "lblo3v6xlwdtEX2il1d1",
+      "name": "SOX",
+      "metadata": {
+        "additionalProperties": {}
+      }
     },
-    "status": "PENDING",
-    "name": "Security access review for Test user",
-    "endTime": "2025-08-26T22:10:33.882Z",
-    "reviewerSettings": {
-        "type": "USER",
-        "userSettings": {
-            "includedUserIds": [
-                "00ucpjbi6JMmDvdN40g4",
-                "00ucpjbi6JMmDvdN40g5"
-            ]
-        }
+    {
+      "labelValueId": "lblo3v6xlwdtEX2il1d6",
+      "name": "PII",
+      "metadata": {
+        "additionalProperties": {}
+      }
     }
+  ],
+  "_links": {
+    "self": {
+      "href": "/governance/api/v1/labels/lbco3v6xlwdtEX2il1d6"
+    }
+  }
 }
 ```
 
