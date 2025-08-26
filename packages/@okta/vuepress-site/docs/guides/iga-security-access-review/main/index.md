@@ -163,7 +163,7 @@ curl -i -X POST \
   -H 'Content-Type: application/json' \
   -d '{
     "principalId": "00ucpjbi6JMmDvdN40g4",
-    "securityAccessReviewName": "Security access review for Test user",
+    "name": "Security access review for Test user",
     "reviewerSettings": {
       "type": "USER",
       "userSettings": {
