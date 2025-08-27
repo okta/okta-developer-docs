@@ -17,7 +17,7 @@ This guide shows you how to launch a security access review using the Okta Ident
 
 #### What you need
 
-* An Okta org subscribed to Okta Identity Governance (OIG)
+* An Okta org that's subscribed to OIG
 * Postman (or a similar tool to follow this guide and test the OIG APIs)
 
 ---
