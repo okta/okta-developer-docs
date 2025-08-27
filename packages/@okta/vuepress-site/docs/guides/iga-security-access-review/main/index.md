@@ -129,11 +129,11 @@ Use Okta user IDs as parameters to initiate a security access review using the `
 
 Find the Okta user IDs for the following users:
 
-1. The target user for the security access review (for the `principalId` parameter)
+1. The target user for the security access review (for the `principalId` parameter). This is the user whose access is under review.
 
-    This is the user whose access is under review.
+  
 
-2. The reviewers for the security access review (for the `reviewerSettings.userSettings` parameter)
+2. The reviewers for the security access review (for the `reviewerSettings.userSettings` parameter).
 
    These are the security analysts or resource owners that assess the user access items and perform any remediation. Reviewers can be an Okta admin or an end user. After the review is created, reviewers are automatically assigned the **Okta Security Access Review** app to conduct the review.
 
@@ -217,7 +217,7 @@ The `status` of the security access review is `PENDING` when it's triggered. Aft
 
 If the reviewer has never conducted a security access review before, the **Okta Security Access Review** app is automatically assigned to them after the review is generated. Reviewers can only view items in the access review that they have permission to view. For example, they can't view the System Log entries for the targeted user if they don't have permission to view System Logs.
 
-For best practices, considerations, and limitations, see [Security Access Review](https://help.okta.com/okta_help.htm?type=oie&id=csh-sar) in the product documentation.
+For best practices, considerations, and limitations, see [Security Access Review](https://help.okta.com/okta_help.htm?type=oie&id=csh-sar).
 
 ## Next steps: review and remediation
 
