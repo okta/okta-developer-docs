@@ -30,7 +30,7 @@ Several reviewers (Okta end users) can be assigned to a security access review f
 
 ### Security access review flow
 
-Security access reviews are launched through your custom app code or through a delegated Workflow sequence using the APIs. The reviews are intended to be triggered from a security or policy evaluation event that focuses on a particular user. Only principals assigned to the super admin role or a custom admin role (with required permissions) can trigger and view all security access reviews.
+Security access reviews are launched through your custom app code or through a delegated Workflow sequence using the APIs. The reviews are intended to be triggered from a security or policy evaluation event that focuses on a particular user. Only principals that are assigned the super admin role or a custom admin role (with required permissions) can trigger and view all security access reviews.
 
 After the security access review is generated, an email is sent to designated reviewers, notifying them to review a user's access. The designated reviewers are assigned to the **Okta Security Access Review** app, where they conduct the review. Reviewers are only able to view and act on items in the security access review for which they have permissions.
 
