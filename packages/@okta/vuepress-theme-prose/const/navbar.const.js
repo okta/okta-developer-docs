@@ -828,6 +828,10 @@ export const guides = [
         title: "Identity Governance",
         subLinks: [
           {
+            title: "Create a resource label",
+            guideName: "iga-resource-label"
+          },
+          {
             title: "Launch a security access review",
             guideName: "iga-security-access-review"
           }

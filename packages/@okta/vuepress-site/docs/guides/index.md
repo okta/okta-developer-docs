@@ -54,6 +54,7 @@ guides:
  - find-your-domain
  - password-import-inline-hook
  - iga-security-access-review
+ - iga-resource-label
  - implement-oauth-for-okta
  - implement-oauth-for-okta-serviceapp
  - implement-grant-type
@@ -280,12 +281,13 @@ Most Okta Identity Governance tasks are accomplished through the Admin Console f
 
 * Access certifications
   * [Launch a security access review](/docs/guides/iga-security-access-review)
+* Resource management
+  * [Create a resource label](/docs/guides/iga-resource-label)
 
 <!-- Categories for future guides
 * Access requests
   * [How to create a request for catalog entry]
 * Entitlement management
-  * [How to create resource labels]
 * Resource collections
 * Separation of duties
 * User and group management
