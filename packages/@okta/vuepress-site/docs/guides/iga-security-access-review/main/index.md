@@ -24,13 +24,13 @@ This guide shows you how to launch a security access review using the Okta Ident
 
 ## Overview
 
-Security access reviews offer a holistic access review and response tool that's targeted on a specific user. This is particularly useful when responding to a security event or an identity threat on a user. The security access review is a snapshot of a user's resource access at the time of creation. It also provides an AI-generated summary for reviewers to quickly assess high-risk accesses and anomalies.
+Security access reviews offer a unified access review and response tool that's targeted on a specific user. This is particularly useful when responding to a security event or an identity threat on a user. The security access review is a snapshot of a user's resource access at the time of creation. It also provides an AI-generated summary for reviewers to quickly assess high-risk accesses and anomalies.
 
 Several reviewers (Okta end users) can be assigned to a security access review for assessment coverage when app security is provided by different owners. Assigned reviewers can immediately act on fine-grain remediation beyond terminating a user's session, such as revoking access to a specific resource or entitlement.
 
 ### Security access review flow
 
-Security access reviews are launched through your custom app code or through a delegated Workflow sequence using the APIs. The reviews are intended to be triggered from a security or policy evaluation event that focuses on a particular user. Only principals assigned to the super admin role (`SUPER_ADMIN`) or a custom admin role, with the **Managed security access reviews** (`okta.governance.securityAccessReview.admin.manage`) permission, can trigger and view all security access reviews.
+Security access reviews are launched through your custom app code or through a delegated Workflow sequence using the APIs. The reviews are intended to be triggered from a security or policy evaluation event that focuses on a particular user. Only principals assigned to the super admin role or a custom admin role (with required permissions) can trigger and view all security access reviews.
 
 After the security access review is generated, an email is sent to designated reviewers, notifying them to review a user's access. The designated reviewers are assigned to the **Okta Security Access Review** app, where they conduct the review. Reviewers are only able to view and act on items in the security access review for which they have permissions.
 
@@ -48,9 +48,9 @@ This guide shows you how to launch a security access review using the APIs with 
 
 ## Set up Okta for API access
 
-Set up Okta so that you can authenticate to Okta APIs and have the proper roles or permissions for security access reviews.
+Set up Okta so that you can authenticate to Okta APIs and have the proper roles and permissions for security access reviews.
 
-You only have to set up your Okta org for OIG security access reviews API access once. Okta recommends that you perform these tasks from the Admin Console. However, you can also use [Okta Management APIs](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/) for the same tasks.
+You only have to set up your Okta org for OIG Security Access Reviews API access once. Okta recommends that you perform these tasks from the Admin Console. However, you can also use [Okta Management APIs](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/) for the same tasks.
 
 > **Note:** See the [Use Okta Identity Governance API in Okta Workflows](https://support.okta.com/help/s/article/use-okta-identity-governance-api-in-okta-workflows?language=en_US) article for an overview of how to use Okta Workflows with OIG APIs.
 
@@ -69,7 +69,7 @@ You need to assign the custom admin role to the principal that manages security 
 
 Access OIG APIs by authenticating with an [OAuth 2.0 access token](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/#oauth-20-access-token). To obtain an OAuth 2.0 access token for API authentication, you need to have an app in Okta for API access. The app provides you with the client ID and secret (or credentials) to request for access tokens.
 
-If you already have an OIDC or service app for API authentication, ensure that your app is granted for the following OAuth 2.0 scope:
+If you already have an OIDC or service app for API authentication, ensure that your app is granted with the following OAuth 2.0 scopes:
 
 * `okta.governance.securityAccessReviews.admin.manage`
 * `okta.users.read`
@@ -90,7 +90,7 @@ If you don't have an app for API access:
 
 * Create an **OIDC-OpenID Connect** sign-in method app for API access if you're making API requests as an Okta user.
 
-  See [User-based API access setup](https://developer.okta.com/docs/reference/rest/#user-based-api-access-setup) to create an OIDC app. Grant the required `okta.governance.securityAccessReviews.admin.manage` scope to the OIDC app (in addition to any other scope you need).
+  See [User-based API access setup](https://developer.okta.com/docs/reference/rest/#user-based-api-access-setup) to create an OIDC app. Grant the required `okta.governance.securityAccessReviews.admin.manage` and `okta.users.read` scopes to the OIDC app (in addition to any other scopes you may need).
 
   Assign the API users to the OIDC app. Ensure that the API users are assigned to the super admin role or to a custom role that is granted the following permissions:
 
@@ -139,7 +139,7 @@ Find the Okta user IDs for the following users:
 
 Use the [List all user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers) request with the `find` query parameter and user profile attributes to find the user IDs.
 
-> **Note:** This request (and Okta API access app) requires the `okta.users.read` scope.
+> **Note:** This request requires the `okta.users.read` scope.
 
 ```bash
 curl -v -X GET \
@@ -150,18 +150,17 @@ curl -v -X GET \
 
 ```
 
-Use the `id` property of the response payload for your user IDs in the [Create a security access review](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/createSecurityAccessReview) request.
+Use the `id` property of the response payload for the user ID parameters in the [Create a security access review](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/createSecurityAccessReview) request.
 
 See [User query options](https://developer.okta.com/docs/reference/user-query/) for more query options.
-
 
 ### Create a security access review
 
 Create a security access review with the [Create a security access review](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/createSecurityAccessReview) request (`POST /governance/api/v2/security-access-reviews`).
 
-> **Note:** The targeted user of the security access review can't be a reviewer. An API error is returned if you specify the same ID in `principalId` as one of the IDs in the `reviewerSettings.userSettings` list.
+> **Note:** The targeted user of the security access review can't be a reviewer. An API error is returned if you specify the same ID in `principalId` as one of the IDs in the `reviewerSettings.userSettings.includeUserIds` list.
 
-#### Request
+#### Request example
 
 ```bash
 
@@ -184,7 +183,7 @@ curl -i -X POST \
   }'
 ```
 
-#### Response
+#### Response example
 
 ```json
 {
