@@ -24,7 +24,7 @@ This guide shows you how to launch a security access review using the Okta Ident
 
 ## Overview
 
-Security access reviews offer a unified access review and response tool that's targeted on a specific user. This is particularly useful when responding to a security event or an identity threat on a user. The security access review is a snapshot of a user's resource access at the time of creation. It also provides an AI-generated summary for reviewers to quickly assess high-risk accesses and anomalies.
+Security access reviews offer a unified tool for reviewing and responding to access privileges for a specific user. This is particularly useful when responding to a security event or an identity threat on a user. The security access review is a snapshot of a user's resource access at the time of creation. It also provides an AI-generated summary for reviewers to quickly assess high-risk accesses and anomalies.
 
 Several reviewers (Okta end users) can be assigned to a security access review for assessment coverage when app security is provided by different owners. Assigned reviewers can immediately act on fine-grain remediation beyond terminating a user's session, such as revoking access to a specific resource or entitlement.
 
