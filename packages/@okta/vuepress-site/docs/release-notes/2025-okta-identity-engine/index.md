@@ -16,7 +16,7 @@ title: Okta Identity Engine API release notes 2025
 
 #### Bug fixed in 2025.08.3
 
-* If a SAML IdP response was missing the `InResponseTo` attribute, OIDC ID tokens that were minted during the same authentication flow sometimes contained the Okta org ID instead of the IdP ID in the `idp` claim. (OKTA-986463)
+If a SAML IdP response was missing the `InResponseTo` attribute, OIDC ID tokens that were minted during the same authentication flow sometimes contained the Okta org ID instead of the IdP ID in the `idp` claim. (OKTA-986463)
 
 ### Weekly release 2025.08.2
 
