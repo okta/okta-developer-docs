@@ -29,6 +29,8 @@ Tokens contain claims that are statements about the subject, such as name, role,
 
 Also, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static/) allowlist. Do this when you need to set group allowlists on a per-app basis using both the org authorization server and a custom authorization server. This helps if you have many groups and don't want to search all of them every time you create a groups claim. This process optionally uses the Okta app profile, which accepts any JSON-compliant content, to create an allowlist of groups that can then easily be referenced.
 
+> **Note**: If you have a new [Okta Integrator Free Plan org](https://developer.okta.com/signup) and plan to use the `default` custom authorization server, check that it has an access policy. Add an access policy if it's not there. See [Create access policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-access-policies).
+
 To add app user permissions to the ID token, create [federated app entitlement claims](/docs/guides/federated-claims/main/). An entitlement is a permission that allows users to take specific actions within a resource, such as a third-party app. App entitlements help you manage different levels of permissions that users can perform within an app.
 
 ## Request a token that contains the custom claim

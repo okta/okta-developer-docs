@@ -55,7 +55,7 @@ To use the <StackSnippet snippet="granttype" inline /> flow, both your client ap
 
 If your Okta org uses Identity Engine, then the <StackSnippet snippet="granttype" inline /> grant type is automatically configured in your org authorization server. For custom authorization servers used with your app, you must enable <StackSnippet snippet="granttype" inline />:
 
-> **Note**: If you use a custom authorization server and have a new [Okta Integrator Free Plan org](https://developer.okta.com/signup), check that your `default` custom authorization server has an access policy. Add an access policy if it's not there. See [Create access policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-access-policies).
+> **Note**: If you have a new [Okta Integrator Free Plan org](https://developer.okta.com/signup) and plan to use the `default` custom authorization server, check that it has an access policy. Add an access policy if it's not there. See [Create access policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-access-policies).
 
 1. In the Admin Console, go to **Security** > **API**.
 2. On the **Authorization Servers** tab, click the pencil icon next to the authorization server that you want to use.

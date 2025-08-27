@@ -27,6 +27,8 @@ This guide explains how to define custom groups claims for tokens that are retur
 
 You can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or static allowlist when you need to set group allowlists on a per-app basis using both the org authorization server and a custom authorization server. Suppose you have many groups but only 20 groups apply to your app. You don't want to search all of your groups every time a groups claim is created. This process optionally uses Okta's flexible app profile, which accepts any JSON-compliant content, to create an allowlist of groups that can then easily be referenced.
 
+> **Note**: If you have a new [Okta Integrator Free Plan org](https://developer.okta.com/signup) and plan to use the `default` custom authorization server, check that it has an access policy. Add an access policy if it's not there. See [Create access policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-access-policies).
+
 Also, you can [add a groups claim](/docs/guides/customize-tokens-groups-claim) to ID tokens for any combination of app groups and user groups to perform SSO using the org authorization server. You can also [add a groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server) to ID tokens and access tokens to perform authentication and authorization using a custom authorization server.
 
 See [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/main/) when you want to define your own custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user.You may also want to add information stored in a user profile to an ID token.

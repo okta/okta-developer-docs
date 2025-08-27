@@ -26,6 +26,8 @@ If you're building a modern app or API, you want to know if your end user is aut
 
 After signed tokens are issued to end users, they can be passed to your app for validation. There are two ways to verify a token: locally or remotely with Okta. The token is signed with a JSON Web Key (JWK) using the RS256 algorithm. To validate the signature, Okta provides your app with a public key that you can use.
 
+> **Note**: If you have a new [Okta Integrator Free Plan org](https://developer.okta.com/signup) and plan to use the `default` custom authorization server, check that it has an access policy. Add an access policy if it's not there. See [Create access policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-access-policies).
+
 * To jump straight to the local validation steps: [What to check when validating an access token](#what-to-check-when-validating-an-access-token)
 * To see how to validate a token directly with Okta: [Validate a token remotely with Okta](#validate-a-token-remotely-with-okta)
 

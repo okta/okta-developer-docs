@@ -26,6 +26,8 @@ Use a dynamic allowlist with an authorization server to customize Okta tokens.
 
 You can create a dynamic or [static allowlist](/docs/guides/customize-tokens-static/) when you need to set group allowlists on a per-app basis using both the org authorization server and a custom authorization server.
 
+> **Note**: If you have a new [Okta Integrator Free Plan org](https://developer.okta.com/signup) and plan to use the `default` custom authorization server, check that it has an access policy. Add an access policy if it's not there. See [Create access policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-access-policies).
+
 If you have many groups but only 20 groups apply to your app, you don't want to search all of your groups every time a groups claim is created. This process optionally uses the Okta app profile, which accepts any JSON-compliant content, to create an allowlist of groups that you can then easily reference.
 
 ### Add a groups claim
