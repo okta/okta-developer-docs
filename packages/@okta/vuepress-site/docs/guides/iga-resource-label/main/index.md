@@ -6,14 +6,14 @@ meta:
 layout: Guides
 ---
 
-This guide shows you how to create a resource label using the Okta Identity Governance (OIG) APIs.
+This guide shows you how to create and assign a resource label using the Okta Identity Governance (OIG) APIs.
 
 ---
 
 #### Learning outcomes
 
 * Learn how to set up Okta to access [Okta Identity Governance APIs](https://developer.okta.com/docs/api/iga/).
-* Learn how to create a resource label using the [Okta Identity Governance](https://developer.okta.com/docs/api/iga/) > [Labels](https://preview.redoc.ly/okta-iga-internal/vn-okta-955721-iga-label-review/openapi/governance.api/tag/Labels/) APIs.
+* Learn how to manage resource labels using the [Okta Identity Governance](https://developer.okta.com/docs/api/iga/) > [Labels](https://preview.redoc.ly/okta-iga-internal/vn-okta-955721-iga-label-review/openapi/governance.api/tag/Labels/) APIs.
 
 #### What you need
 
@@ -26,11 +26,13 @@ This guide shows you how to create a resource label using the Okta Identity Gove
 
 Resource labels allow you to categorize and organize resources such as apps, groups, entitlements, and collections. Labels support governance automation, streamline configuration, and simplify the management of access reviews and requests.
 
-< more > 
+< more detail required> 
 
 ### Default labels
 
-List the set of default labels
+List the set of default labels (out of the box)
+* **Crown Jewel**: value: "Crown Jewel"
+* **Privileged**: value: "Privileged"
 
 This guide shows you how to create a resource label using the APIs with OAuth 2.0 authentication:
 
@@ -60,10 +62,7 @@ If you already have an OIDC or service app for API authentication, ensure that y
 
     In addition, grant any other scopes that you may need for other API requests, such as `okta.governance.entitlements.manage` or `okta.apps.manage`.
 
-Also ensure that your API users or service app are assigned to the admin role that has permission to manage labels. Assign either one of these roles to your principal API requester:
-
-* The apps admin (`APP_ADMIN`) role
-* The super admin (`SUPER_ADMIN`) role
+Also ensure that your API users or service app are assigned to the admin role that has permission to manage labels. Currently, only he super admin (`SUPER_ADMIN`) role can manage labels.
 
 > **Note:** If you're using Okta Workflows, the **Okta Workflows OAuth** app in your org is used for API authentication. Grant the required scopes to the **Okta Workflows OAuth** app. See [Authorization > Create a connection from the current Okta org](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-misc-authorization).
 
