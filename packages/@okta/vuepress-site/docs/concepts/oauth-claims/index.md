@@ -17,11 +17,19 @@ This page provides an overview of OAuth 2.0 and OIDC claims, including their typ
 
 At a basic level, a claim is a piece of information asserted about a subject. In the context of OAuth 2.0 and OpenID Connect (OIDC), claims are key-value pairs of data contained within tokens. Claims are commonly packaged into [access](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#access-token) and [ID tokens](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#id-token). Access tokens and ID tokens are formatted as JSON Web Tokens (JWTs).
 
-> **Note:** Access tokens are usually formatted as JWTs, but not always.
+> **Note:** Access tokens are sometimes formatted as JWTs, but not always.
+
+### Claims versus scopes
+
+Claims and scopes are related in OAuth 2.0 and OIDC, but have some important differences. [Scopes](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scopes) are used to request access to specific resources or actions, while [claims](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#claims) are used to provide information about users and their permissions.
+
+During the authorization flow, an app requests specific scopes. The resulting access token or ID token includes claims that correspond to those scopes. The claims are the actual data returned as a result of that request.
+
+You can use claims for fine-grained permissions and information to enhance the security of your apps. Scopes include bundles of claims, whereas claims can be used with more granularity to control access to specific resources or actions.
 
 ### Claims in access tokens
 
-Claims in access tokens pass information about the user and their permissions to the resource server. Claims are contained within a scope, or you can add [custom claims](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#custom-claims) to an access token. Access tokens can contain scopes and custom claims, while ID tokens can contain claims, but not scopes.
+Claims in access tokens pass information about the user and their permissions to the resource server. Claims are contained within a scope, or you can [add custom claims](/docs/guides/customize-tokens-returned-from-okta/main/) to an access token. Access tokens can contain scopes and custom claims, while ID tokens can contain claims, but not scopes.
 
 Access and ID tokens contain a [header](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#access-token-header), [payload](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#access-token-payload), and [signature](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#access-token-signature).
 
@@ -46,112 +54,70 @@ Along with other parameters, the payload can contain scopes and custom claims. S
 }
 ```
 
-The `scp` (scope) parameter passes two scopes to the resource server: `openid` and `email`. The `email` scope contains the `email` and `email_verified` claims and these claims provide access to the user's email address and its verification status.
+The payload contains various [reserved claims](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#reserved-claims-in-the-payload-section), along with an array of scopes, within the `scp` array. The reserved claims convey some information about the access token. For example, the `iss` (issuer) claim contains the URL of the authorization server that issued the token. And the `aud` (audience) claim contains the intended recipient of the token.
+
+The `scp` (scope) parameter passes two scopes to the resource server: `openid` and `email`. The `email` scope contains the `email` and `email_verified` claims and these claims provide access to the user's email address and its verification status. The `openid` scope indicates that the token is part of an OIDC request.
 
 See [Access token scopes and claims](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#access-token-scopes-and-claims) for information about configuring scopes and claims in access tokens.
 
 ### Claims in ID tokens
 
-Claims in ID tokens pass identifying information about a user to client applications. The identifying information is structured into standard claims that are defined by the OIDC specification. Client applications evaluate this user information and make authorization decisions based on that information.
+Claims in ID tokens pass identifying information about a user to client apps. The identifying information is structured into standard claims that the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) defines. Client apps evaluate the claims and make authorization decisions based on that information.
 
-OAuth 2.0 and OIDC tokens, containing claims, pass information about a user to an authorization server which tells the authorization server who the user is, and what they're allowed to do.
+The claims that you pass in an ID token depend on your use case. In an authentication context, you can pass claims that provide more details about a user, such as their `family_name`, `birthdate`, or `address`. You can use these claims to personalize the user experience in a client app. Or you can use them for enhanced [identity verification](/docs/guides/idv-integration/main/#supported-oidc-claims).
 
-These claims enable precise authorization decisions by allowing downstream services to validate identity and access rights based on the token’s content.
-
-### What's the purpose of claims
-
-Before discussing the different types of claims, it's important to understand how claims fit into the overall OAuth 2.0 and OIDC frameworks.
-
-The following terms are defined based on how they affect the use of claims. For more information about these terms, see the [OAuth 2.0](https://oauth.net/2/) and [OpenID Connect](https://openid.net/connect/) specifications.
-
-- **JWT (JSON Web Token)**: A specific type of token that is encoded as a JSON object and can be verified and trusted because it is digitally signed. See [Access token](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#access-token) for more information about the composite parts of a JWT.
-- **Scope**: A scope determines which resources a token can access and what actions it can perform. Scopes can contain multiple claims. For example, the `profile` scope requests access to default user profile claims such as `name`, `family_name`, and `email`, among others.
-- **Claim**: A piece of information asserted about a subject (user).
-
-### ID token example
-
-An ID token might include the following claims:
+See the following example of an ID token payload.
 
 ```json
 {
   "sub": "user123",
   "email": "user@example.com",
+  "phone_number": "+1234567890",
   "name": "John Doe"
 }
 ```
 
-In this example, the `sub`, `email`, and `name` claims provide information about the user. `sub` indicates the ID of the user, and `email` and `name` provide identifying information about the user.
+In this example, the ID token payload passes the user ID (`sub`), user's email (`email`), phone number (`phone_number`), and their name (`name`). These claims identify the user to the client app.
 
-### Access token example
-
-An access token might include the following claims:
-
-```json
-{
-  "ver": 1,
-  "jti": "AT.0mP4JKAZX1iACIT4vbEDF7LpvDVjxypPMf0D7uX39RE",
-  "iss": "https://{yourOktaDomain}/oauth2/{authorizationServerId}",
-  "aud": "https://api.example.com",
-  "sub": "00ujmkLgagxeRrAg20g3",
-  "iat": 1467145094,
-  "exp": 1467148694,
-  "cid": "nmdP1fcyvdVO11AL7ECm",
-  "uid": "00ujmkLgagxeRrAg20g3",
-  "scp": [
-    "openid",
-    "email",
-    "flights",
-    "custom"
-  ],
-  "auth_time": 1467142021,
-  "custom_claim": "CustomValue"
-}
-```
-
-
-
-### Different uses for claims
-
-OAuth 2.0 and OIDC claims have similar functions. They're both used as key-value pairs to assert information about an subject. However, the contexts that they're used in are different.
-
-OAuth 2.0 claims are usually used with JWTs to convey information about the user or client and to provide authorization details to APIs and resource servers. OAuth 2.0 claims that are used in JWTs aren't part of the [standard OAuth 2.0 spec](https://www.rfc-editor.org/rfc/rfc6749).
-
-While OIDC claims are used to provide verified identity information about a user, such as their name, email, and other user profile details.
+See [ID token](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#id-token) for information about how ID tokens are structured and used in Okta.
 
 ## Claim types
 
-Claims can be categorized into three types based on how they're defined and used.
+Claims can be categorized into two groups based on how they're defined and used.
 
-**Standard claims**: These are claims with predefined names and meanings as specified by the OIDC standard. They provide fundamental information like the token's issuer (`iss`), the user's unique ID (`sub`), or when the token expires (`exp`).
+**Registered claims**: There are seven registered claims that are defined in the [JWT spec](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1). They provide fundamental information like the token's issuer (`iss`), the user's unique ID (`sub`), or when the token expires (`exp`).
 
-**Public claims**: You can create your own claims, but they must be named in a way that avoids naming conflicts with others.
+**Custom claims**: Custom claims consist of [public claims](#public-claims) that third-parties have registered and [private claims](#private-claims) that are created for use between specific parties.
 
-**Private claims**: These are custom claims created for a specific app or service. They can be any name you choose and are not meant to be publicly registered.
+### Public claims
 
-## Claims in ID tokens versus access tokens
+Public claims are designed to avoid naming collision with other registered claims. Public claims include the [OIDC standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). For a full list of public claims, see the [Internet Assigned Numbers Authority (IANA) registry](https://www.iana.org/assignments/jwt/jwt.xhtml).
 
-A single user can have multiple tokens, and the claims within each token serve a different purpose.
+### Private claims
 
-**ID token claims:** These claims are all about identity. They provide information about the user, such as their name, email, or a profile picture. An application uses these claims to verify who the user is and to personalize the user's experience.
+Private claims are created for use between specific parties and aren't included in the IANA registry. You can create private claims to convey information that might be specific to your app or use case.
 
-**Access token claims:** These claims are all about authorization. They grant an application permission to access protected resources, like an API. An API will inspect the claims within an access token to determine if the application has the necessary permissions to perform a requested action.
+## Use claims to customize tokens
 
-## Claims versus scopes
+You can add custom claims to access and ID tokens by using Okta’s API and authorization server settings. This enables you to include additional attributes, such as user roles, department, or any other app-specific data, directly in the token payload. Custom claims can be mapped from user profiles, groups, or external sources, giving you full control over the information delivered to your apps and APIs.
 
-It's common to confuse claims and scopes, but they have distinct roles.
+By leveraging and customizing claims, developers can create robust, secure, and personalized experiences while maintaining precise control over authorization and identity management in the Okta ecosystem.
 
-A scope is a permission requested by an application. For instance, an application might request the email scope to access a user's email address.
+## Secure your claims
 
-A claim is the actual data that is returned as a result of that request. If the user approves the email scope request, a claim containing the user's email address will be included in the ID token. Think of a scope as a question and a claim as the answer.
+The primary method for using claims securely is to validate them. Validate the claims within access and ID tokens. Malicious actors can attempt to tamper with a token to gain unauthorized access to apps. Always validate a token to ensure the following:
 
-## Security and validation
+* Verify the `iss` claim to ensure that a trusted party issued the token.
+* Verify the `exp` claim to ensure that it hasn't expired.
+* Verify the `aud` claim to ensure that it's intended for your app.
 
-Never trust the claims in a token without first validating them. A malicious actor could tamper with a token to gain unauthorized access. You must always validate a token to ensure:
+For more information about validating claims and tokens, see [Validate access tokens](/docs/guides/validate-access-tokens/dotnet/main/) and [Validate ID tokens](/docs/guides/validate-id-tokens/main/).
 
-It was issued by a trusted party (using the iss claim).
+Another way to use claims securely is to follow the principle of least privilege. This means granting users and apps the minimum level of access necessary to perform their tasks. Limit the claims in tokens to reduce the risk of exposing sensitive information.
 
-It has not expired (using the exp claim).
+### Next steps
 
-It was intended for your application (using the aud claim).
-
-Validating these claims is a critical step in securing any application that uses OAuth 2.0.
+* [Learn about tokens](/docs/concepts/token-lifecycles/#token-types) and then learn [how to implement them](/docs/guides/tokens/)
+* Learn about [customizing token claims](/docs/guides/customize-tokens-groups-claim/main/)
+* Explore [JSON Web Token (JWT) claims](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-token-claims)
+* Review [sample use cases for scopes and claims](https://auth0.com/docs/get-started/apis/scopes/sample-use-cases-scopes-and-claims)
