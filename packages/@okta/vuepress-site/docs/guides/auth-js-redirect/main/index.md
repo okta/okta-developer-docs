@@ -199,7 +199,7 @@ After adding the sign-out function, the sample app is ready to test. Your sample
 
 
    // UPDATE THESE FOR YOUR OKTA TENANT
-   var baseOktaURL = "https:${yourOKtaDomain}"; //For example, "https://yourdomain.com"
+   var baseOktaURL = "https:${yourOktaDomain}"; //For example, "https://yourdomain.com"
    var appClientID = "${yourClientID}"; // For example, 0oa73hm5sh9jf6s5e1d6
 
 
