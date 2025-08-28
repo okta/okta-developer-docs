@@ -131,8 +131,6 @@ Find the Okta user IDs for the following users:
 
 1. The target user for the security access review (for the `principalId` parameter). This is the user whose access is under review.
 
-  
-
 2. The reviewers for the security access review (for the `reviewerSettings.userSettings` parameter).
 
    These are the security analysts or resource owners that assess the user access items and perform any remediation. Reviewers can be an Okta admin or an end user. After the review is created, reviewers are automatically assigned the **Okta Security Access Review** app to conduct the review.
