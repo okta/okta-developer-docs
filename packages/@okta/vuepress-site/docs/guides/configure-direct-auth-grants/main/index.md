@@ -8,7 +8,7 @@ layout: Guides
 
 Configure direct authentication for your app to directly verify user credentials and authentication [factors](https://help.okta.com/okta_help.htm?type=oie&id=ext-configure-authenticators) without relying on browser interactions.
 
-For an overview of direct authentication, how it works, and how and when you would use it for your apps, see [Direct authentication](https://developer.okta.com/docs/concepts/direct-authentication/).
+For an overview of direct authentication, how it works, and how and when you can use it for your apps, see [Direct authentication](https://developer.okta.com/docs/concepts/direct-authentication/).
 
 <StackSnippet snippet="nutrition" />
 
@@ -54,6 +54,8 @@ Direct authentication flows use passwordless authentication, such as using Okta 
 To use the <StackSnippet snippet="granttype" inline /> flow, both your client app and the [Okta authorization server](/docs/concepts/auth-servers/) used with the app must have the <StackSnippet snippet="granttype" inline /> grant type enabled.
 
 If your Okta org uses Identity Engine, then the <StackSnippet snippet="granttype" inline /> grant type is automatically configured in your org authorization server. For custom authorization servers used with your app, you must enable <StackSnippet snippet="granttype" inline />:
+
+> **Note**: If you have a new [Okta Integrator Free Plan org](https://developer.okta.com/signup) and plan to use the `default` custom authorization server, check that it has an access policy. Add an access policy if it's not there. See [Create access policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-access-policies).
 
 1. In the Admin Console, go to **Security** > **API**.
 2. On the **Authorization Servers** tab, click the pencil icon next to the authorization server that you want to use.

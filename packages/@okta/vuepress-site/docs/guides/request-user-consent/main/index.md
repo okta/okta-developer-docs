@@ -16,6 +16,9 @@ Implement an Okta-hosted user consent dialog.
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * [OpenID Connect client app](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) created in your Okta org with at least [one user assigned to it](https://help.okta.com/okta_help.htm?id=ext-assign-apps)
+* A custom authorization server in your org. You can use the `default` authorization server.
+
+> **Note**: If you have a new Okta Integrator Free Plan org and plan to use the `default` custom authorization server, check that it has an access policy. Add an access policy if it's not there. See [Create access policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-access-policies).
 
 ---
 

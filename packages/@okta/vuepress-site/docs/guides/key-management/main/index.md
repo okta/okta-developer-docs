@@ -70,11 +70,15 @@ You can use the API to add your own signing keys or a JWK URI to authentication 
 
 Use an encryption key to provide an additional layer of security to ID tokens minted by an Okta org or custom authorization server for your app. When you encrypt an ID token, only the intended recipient with the corresponding decryption key (private key) can access the original information.
 
+> **Note**: If you have a new [Okta Integrator Free Plan org](https://developer.okta.com/signup) and plan to use the `default` custom authorization server, check that it has an access policy. Add an access policy if it's not there. See [Create access policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-access-policies).
+
 ### Keys that secure the access token
 
 <ApiLifecycle access="ea" />
 
 Use an encryption key to encrypt an access token to ensure its confidentiality and protect sensitive information, such as scopes or permissions. You can encrypt access tokens minted by an Okta custom authorization server.
+
+> **Note**: If you have a new [Okta Integrator Free Plan org](https://developer.okta.com/signup), check that your `default` custom authorization server has an access policy. Add an access policy if it's not there. See [Create access policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-access-policies).
 
 > **Notes**:
 >

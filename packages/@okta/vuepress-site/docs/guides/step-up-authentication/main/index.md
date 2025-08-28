@@ -35,6 +35,8 @@ Okta has created predefined `acr_values` that are described in the [Predefined p
 
 The Okta [redirect and embedded](/docs/concepts/redirect-vs-embedded/) deployment models support the use of the `acr_values` parameter. The parameter works with any OpenID Connect (OIDC) app, such as web, native, or SPA, and both the [org authorization server and custom authorization servers](/docs/concepts/auth-servers/) support it.
 
+> **Note**: If you have a new [Okta Integrator Free Plan org](https://developer.okta.com/signup) and plan to use the `default` custom authorization server, check that it has an access policy. Add an access policy if it's not there. See [Create access policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-access-policies).
+
 ### Evaluation flow
 
 In Identity Engine, assurances from policies are always evaluated in order of factor verification, constraints, and re-authentication. The [global session policy](/docs/concepts/policies/#sign-on-policies) is evaluated first, then the authentication policy, and then the `acr_values` parameter in the request. The authentication policy is always evaluated before the `acr_values` parameter.
