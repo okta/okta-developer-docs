@@ -123,7 +123,7 @@ In the same `index.html` file, add the following JavaScript code after the Auth 
 <script type="text/javascript">
 
 // UPDATE THESE FOR YOUR OKTA TENANT
-var baseOktaURL = "https:${yourOKtaDomain}"; //For example, https://yourdomain.com
+var baseOktaURL = "https:${yourOktaDomain}"; //For example, https://yourdomain.com
 var appClientID = "${yourClientID}"; // For example, 0oa73hm5sh9jf6s5e1d6
 
 // Bootstrap the AuthJS Client
