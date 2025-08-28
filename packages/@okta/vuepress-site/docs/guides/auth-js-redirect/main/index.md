@@ -27,7 +27,7 @@ These experiences include fully branded embedded authentication, as with [Auth J
 
 Auth JS also powers our other redirect SDKs that provide simple authentication for server-side web apps and single-page JavaScript apps (SPA). See the [Quickstart guides](/docs/guides/quickstart/).
 
-> Note: For your app to work reliably in all browsers, your Okta org must be configured with a custom domain. This prevents browser privacy features from blocking Okta's session cookies and causing sign-in or sign-out failures.
+> **Note**: For your app to work reliably in all browsers, you must configure your Okta org with a custom domain. This prevents browser privacy features from blocking Okta's session cookies and causing sign-in or sign-out failures.
 
 ### Auth JS and redirect authentication
 
