@@ -284,8 +284,8 @@ Most Okta Identity Governance tasks are accomplished through the Admin Console f
 <!-- Categories for future guides
 * Access requests
   * [How to create a request for catalog entry]
-* Entitlement management
-  * [How to create resource labels]
+* Resource management
+  * [Create a resource label]
 * Resource collections
 * Separation of duties
 * User and group management
