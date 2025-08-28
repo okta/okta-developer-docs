@@ -41,7 +41,7 @@ Consider how your users sign in when they access your portal before designing yo
 Okta provides three [preset authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) that allow you to control who can access your app and how:
 
 * Password only
-* [Multifactor authentication]() means that users must verify their identity in two or more ways to identify themselves. For example, the policy might require the user to enter both a password and a code sent to an email.
+* [Multifactor authentication](/docs/concepts/mfa/) means that users must verify their identity in two or more ways to identify themselves. For example, the policy might require the user to enter both a password and a code sent to an email.
 * [Password optional](/docs/guides/pwd-optional-overview/aspnet/main/) is another authentication policy concept where users don’t need to use a password to sign in.
 
 ### Add a way for users to sign in
@@ -78,9 +78,9 @@ After a user signs in, Okta sends your app a set of tokens to identify the user.
 Learn about tokens, claims, and managing user credentials:
 
 * [Understand the token lifecycle (exchange, refresh, revoke)](/docs/concepts/token-lifecycles/).
-* [Learn about OAuth 2.0 claims]().
+* [Learn about OAuth 2.0 claims](/docs/concepts//).
 * [Learn about authorization servers](/docs/concepts/auth-servers/), the component of Identity Engine that mints tokens and enforces access policies.
-* [Manage user credentials (secure token storage and retrieval)]().
+* [Manage user credentials (secure token storage and retrieval)](/docs/concepts//).
 
 ## Add a way for users to sign out
 
@@ -95,4 +95,4 @@ See advanced secure mechanisms like [Demonstrating Proof of Possession (DPoP)](/
 Go deeper into the protocols underlying the sign-in process:
 
 * [Learn about OAuth and OIDC](/docs/concepts/oauth-openid/).
-* [Learn about Single Sign-On]().
+* [Learn about Single Sign-On](/docs/concepts//).
