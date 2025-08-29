@@ -60,7 +60,7 @@ curl -i -X GET \
 
 ### Example response
 
-The response includes all of your org's [authentication policies](/docs/concepts/policies/#authentication-policies) and the Okta account management policy. In the policy object, the value of the `_embedded.resourceType` parameter is `END_USER_ACCOUNT_MANAGEMENT` for your Okta account management policy. For authentication policies it's `APP`.
+The response includes all of your org's [authentication policies](/docs/concepts/policies/#app-sign-in-policies) and the Okta account management policy. In the policy object, the value of the `_embedded.resourceType` parameter is `END_USER_ACCOUNT_MANAGEMENT` for your Okta account management policy. For authentication policies it's `APP`.
 
 Use the value of the `id` parameter to manage the policy's rules. You can also use the `id` to retrieve the specific policy (GET `/api/v1/policies/{policyId}`).
 

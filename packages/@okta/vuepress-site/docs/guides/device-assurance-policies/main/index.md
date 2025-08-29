@@ -22,7 +22,7 @@ This guide describes how to use the [Device Assurance Policies API](https://deve
 
 ## About device assurance policies
 
-Use device assurance policies to check sets of security-related device attributes as part of your [authentication policies](/docs/concepts/policies/#authentication-policies). For example, you can configure a device assurance policy to check whether a specific operating system version or security patch is installed on a device. Then you can permit that device to access Okta-protected resources.
+Use device assurance policies to check sets of security-related device attributes as part of your [authentication policies](/docs/concepts/policies/#app-sign-in-policies). For example, you can configure a device assurance policy to check whether a specific operating system version or security patch is installed on a device. Then you can permit that device to access Okta-protected resources.
 
 By adding device checks to your authentication policy rules, you can establish minimum requirements for the devices that have access to your org.
 

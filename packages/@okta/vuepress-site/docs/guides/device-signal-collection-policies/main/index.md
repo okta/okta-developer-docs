@@ -23,7 +23,7 @@ This guide describes how to use the [Policies API](https://developer.okta.com/do
 
 ## About device signal collection policies
 
-Use device signal collection policies to collect contextual information about your user's [registered devices](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-registration) and control how those registered devices are used during authentication. The device signal collection policies can collect [information](https://help.okta.com/okta_help.htm?type=oie&id=ext-ov-datatypes) about registered devices and the platforms that devices use. Device signal collection policies are part of your [authentication policies](/docs/concepts/policies/#authentication-policies) and they're closely related to your [device assurance policies](/docs/guides/device-assurance-policies).
+Use device signal collection policies to collect contextual information about your user's [registered devices](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-registration) and control how those registered devices are used during authentication. The device signal collection policies can collect [information](https://help.okta.com/okta_help.htm?type=oie&id=ext-ov-datatypes) about registered devices and the platforms that devices use. Device signal collection policies are part of your [authentication policies](/docs/concepts/policies/#app-sign-in-policies) and they're closely related to your [device assurance policies](/docs/guides/device-assurance-policies).
 
 You can use a device signal collection policy in the following use case, as an example.
 

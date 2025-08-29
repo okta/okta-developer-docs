@@ -34,7 +34,7 @@ You can [configure a global session policy](/docs/guides/configure-signon-policy
 
 ### Control how users access your app
 
-The [authentication policy](#authentication-policies) for each app determines what extra levels of authentication must be performed before a user can access an app. [Add a rule](/docs/guides/configure-access-policy), for example, to prompt groups that are assigned to your app to reauthenticate after 60 minutes.
+The [app sign-in policy](#authentication-policies) for each app determines what extra levels of authentication must be performed before a user can access an app. [Add a rule](/docs/guides/configure-access-policy), for example, to prompt groups that are assigned to your app to reauthenticate after 60 minutes.
 
 A [password policy](#password-policies) also helps you control how users access your app. It determines the requirements for a user's password length and complexity, and it defines how often a user must change their password.
 
@@ -85,27 +85,27 @@ You can configure policies for authentication, passwords, enrollment, device ass
 
 ### Sign-on policies
 
-Sign-on policies and rules enforce policies and rules so users sign in with the right level of access that you provide. [Global session policies](#global-session-policies) and [authentication policies](#authentication-policies) together determine the level of confidence that the user signing in is also the person who owns the account.
+Sign-on policies and rules enforce policies and rules so users sign in with the right level of access that you provide. [Global session policies](#global-session-policies) and [app sign-in policies](#app-sign-in-policies) together determine the level of confidence that the user signing in is also the person who owns the account.
 
 #### Global session policies
 
-A [global session policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) controls who has access and how a user gains access to Okta. See [Global session policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-osop) and [Configure a global session policy and an authentication policy](/docs/guides/configure-signon-policy/main/).
+A [global session policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) controls who has access and how a user gains access to Okta. See [Global session policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-osop) and [Configure a global session policy and an app sign-in policy](/docs/guides/configure-signon-policy/main/).
 
-#### Authentication policies
+#### App sign-in policies
 
-An [authentication policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) determines the extra levels of authentication performed before a user can access an app, such as enforcing factor requirements. See [Authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop).
+An [app sign-in policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) determines the extra levels of authentication performed before a user can access an app, such as enforcing factor requirements. See [App sign-in policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop).
 
-You can create an authentication policy specifically for the app or create a few policies and [share them](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy) across multiple apps.
+You can create an app sign-in policy specifically for the app or create a few policies and [share them](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy) across multiple apps.
 
-Use the [Authentication Policies page](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) to modify an app's sign-on policy or switch to a different policy. See [Configure a global session policy and an authentication policy](/docs/guides/configure-signon-policy/main/). Also, you can [merge duplicate authentication policies with identical rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies) to simplify policy management.
+Use the [App sign-in policies page](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) to modify an app's sign-in policy or switch to a different policy. See [Configure a global session policy and an app sign-in policy](/docs/guides/configure-signon-policy/main/). Also, you can [merge duplicate app sign-in policies with identical rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies) to simplify policy management.
 
 #### Device assurance policies
 
-Use [device assurance policies](/docs/guides/device-assurance-policies/main/) to check sets of security-related device attributes. Device assurance works as part of your [authentication policies](#authentication-policies).
+Use [device assurance policies](/docs/guides/device-assurance-policies/main/) to check sets of security-related device attributes. Device assurance works as part of your [app sign-in policies](#app-sign-in-policies).
 
 For example, you can configure a device assurance policy to check whether a specific operating system version is installed on a device. Once verified, that device can be used to access Okta-protected resources.
 
-After you add at least one device assurance policy, you can include it in authentication policy rules. You can't apply device assurance policies to users, groups, or devices until you make them part of an authentication policy rule.
+After you add at least one device assurance policy, you can include it in app sign-in policy rules. You can't apply device assurance policies to users, groups, or devices until you make them part of an app sign-in policy rule.
 
 <!-- See [Configure a device assurance policy]() for more details. -->
 
@@ -173,7 +173,7 @@ Identity Threat Protection with Okta AI is an identity threat solution that comb
 
 * [Entity risk policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy): The entity risk policy monitors your org for entity risk changes related to identity-based threats. For Admin Console tasks and further information, see [Entity risk policy](https://help.okta.com/okta_help.htm?type=oie&id=csh-entity-risk-policy).
 
-* [session protection policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy): session protection policy monitors user sessions on your org to identify changes in session context. For Admin Console tasks and further information, see [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
+* [Session protection policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy): session protection policy monitors user sessions on your org to identify changes in session context. For Admin Console tasks and further information, see [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
 
 ### API access policies
 
@@ -200,5 +200,5 @@ Policy evaluation is different when you use the AuthN authentication pipeline ve
 
 If you have both Classic Engine and Identity Engine apps:
 
-* Create group-based sign-on policy rules that tightly couple apps to corresponding groups. For example, create a single-page app and then a corresponding group for it that evaluates sign-on policies.
-* Standard risk apps should use one-factor authentication and high risk apps should use two-factor authentication that is defined in a sign-on policy. This should help when you need to lower security for Okta FastPass apps and not disturb the high-risk apps that are still on Classic Engine, but need MFA.
+* Create group-based sign-in policy rules that tightly couple apps to corresponding groups. For example, create a single-page app and then a corresponding group for it that evaluates sign-in policies.
+* Standard risk apps should use one-factor authentication and high risk apps should use two-factor authentication that is defined in a sign-in policy. This should help when you need to lower security for Okta FastPass apps and not disturb the high-risk apps that are still on Classic Engine, but need MFA.
