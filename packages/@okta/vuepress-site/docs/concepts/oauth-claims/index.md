@@ -97,11 +97,14 @@ Public claims are designed to avoid naming collision with other registered claim
 
 Private claims are created for use between specific parties and aren't included in the IANA registry. You can create private claims to convey information that might be specific to your app or use case.
 
-## Use claims to customize tokens
+## Different ways to implement claims
 
-You can add custom claims to access and ID tokens by using Okta’s API and authorization server settings. This enables you to include additional attributes, such as user roles, department, or any other app-specific data, directly in the token payload. Custom claims can be mapped from user profiles, groups, or external sources, giving you full control over the information delivered to your apps and APIs.
+You can use claims in different ways with your Okta org.
 
-By leveraging and customizing claims, developers can create robust, secure, and personalized experiences while maintaining precise control over authorization and identity management in the Okta ecosystem.
+* [Custom claims](/docs/guides/configure-custom-claims/oktaoidc/main/): Learn how to customize the claims that are returned in Okta access and ID tokens. You can add custom claims to access tokens, or add custom claims to ID tokens that are directly relevant to your use case.
+* [Custom group claims](/docs/guides/customize-tokens-returned-from-okta/main/): Similar to custom claims, you can add group claims to ID tokens.
+* [Federated claims](/docs/guides/configure-federated-claims/oktaoidc/main/): Understand how to set up federated claims to share user information across different identity providers, streamlining the user experience and enhancing security.
+* [Claims sharing](/docs/guides/configure-claims-sharing/oktaoidc/main/): You can configure claims sharing if you use an OIDC or SAML 2.0 identity provider (IdP). Claims sharing enables you to share identity-related information (claims) between different orgs to enable secure access to resources.
 
 ## Secure your claims
 
@@ -118,6 +121,5 @@ Another way to use claims securely is to follow the principle of least privilege
 ### Next steps
 
 * [Learn about tokens](/docs/concepts/token-lifecycles/#token-types) and then learn [how to implement them](/docs/guides/tokens/)
-* Learn about [customizing token claims](/docs/guides/customize-tokens-groups-claim/main/)
 * Explore [JSON Web Token (JWT) claims](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-token-claims)
 * Review [sample use cases for scopes and claims](https://auth0.com/docs/get-started/apis/scopes/sample-use-cases-scopes-and-claims)
