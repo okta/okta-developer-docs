@@ -34,8 +34,8 @@ The following section discusses different use cases and what the changes are aft
 
 4. **Are you calling any of these v1/sessions/ endpoints?** These operations work only on the Session ID (`sid`) session and not on the Identity Engine `idx` session.
 
-* GET `/api/v1/sessions/{sessionId}`
-* POST `/api/v1/sessions/{sessionId}/lifecycle/refresh`
-* POST `/api/v1/sessions?additionalFields=cookieToken`
+   * GET `/api/v1/sessions/{sessionId}`
+   * POST `/api/v1/sessions/{sessionId}/lifecycle/refresh`
+   * POST `/api/v1/sessions?additionalFields=cookieToken`
 
-If you're using any of these endpoints, Okta highly recommends that you move away from using the Session ID entirely and use the [My Session Management endpoints](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/#tag/Session/operation/getCurrentSession) instead. This puts you in charge of managing your own session.
+   If you're using any of these endpoints, Okta highly recommends that you move away from using the Session ID entirely and use the [My Session Management endpoints](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/#tag/Session/operation/getCurrentSession) instead. This puts you in charge of managing your own session.
