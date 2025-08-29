@@ -9,7 +9,7 @@ meta:
 
 > **Note**: The [Okta Integrator Free Plan org](/signup/) makes most key developer features available by default for testing. The Okta API Access Management product is an optional add-on in production environments.
 
-API Access Management is the implementation of the OAuth 2.0 standard by Okta. Okta integrates API Access Management with the implementation of OpenID Connect for authentication. OpenID Connect is also available separately. Similarly, Okta provides a client management API for onboarding, monitoring, and deprovisioning client apps. Use API Access Management to secure your APIs.
+API Access Managementssss is the implementation of the OAuth 2.0 standard by Okta. Okta integrates API Access Management with the implementation of OpenID Connect for authentication. OpenID Connect is also available separately. Similarly, Okta provides a client management API for onboarding, monitoring, and deprovisioning client apps. Use API Access Management to secure your APIs.
 
 For the steps on how to add Okta authentication to your API endpoints, see the [Protect your APIs](/docs/guides/protect-your-api/) guide.
 
