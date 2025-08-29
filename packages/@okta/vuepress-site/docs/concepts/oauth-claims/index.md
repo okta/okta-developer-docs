@@ -25,7 +25,7 @@ Claims and scopes are related in OAuth 2.0 and OIDC, but have some important dif
 
 During the authorization flow, an app requests specific scopes. The resulting access token or ID token includes claims that correspond to those scopes. The claims are the actual data returned as a result of that request.
 
-You can use claims for fine-grained permissions and information to enhance the security of your apps. Scopes include bundles of claims, whereas claims can be used with more granularity to control access to specific resources or actions.
+You can use claims for fine-grained permissions and information to enhance the security of your apps. Scopes include bundles of claims, whereas claims provide more granularity that allows you to control access to specific resources or actions.
 
 ### Claims in access tokens
 
@@ -97,15 +97,6 @@ Public claims are designed to avoid naming collision with other registered claim
 
 Private claims are created for use between specific parties and aren't included in the IANA registry. You can create private claims to convey information that might be specific to your app or use case.
 
-## Different ways to implement claims
-
-You can use claims in different ways with your Okta org.
-
-* [Custom claims](/docs/guides/configure-custom-claims/oktaoidc/main/): Learn how to customize the claims that are returned in Okta access and ID tokens. You can add custom claims to access tokens, or add custom claims to ID tokens that are directly relevant to your use case.
-* [Custom group claims](/docs/guides/customize-tokens-returned-from-okta/main/): Similar to custom claims, you can add group claims to ID tokens.
-* [Federated claims](/docs/guides/configure-federated-claims/oktaoidc/main/): Understand how to set up federated claims to share user information across different identity providers, streamlining the user experience and enhancing security.
-* [Claims sharing](/docs/guides/configure-claims-sharing/oktaoidc/main/): You can configure claims sharing if you use an OIDC or SAML 2.0 identity provider (IdP). Claims sharing enables you to share identity-related information (claims) between different orgs to enable secure access to resources.
-
 ## Secure your claims
 
 The primary method for using claims securely is to validate them. Validate the claims within access and ID tokens. Malicious actors can attempt to tamper with a token to gain unauthorized access to apps. Always validate a token to ensure the following:
@@ -117,6 +108,15 @@ The primary method for using claims securely is to validate them. Validate the c
 For more information about validating claims and tokens, see [Validate access tokens](/docs/guides/validate-access-tokens/dotnet/main/) and [Validate ID tokens](/docs/guides/validate-id-tokens/main/).
 
 Another way to use claims securely is to follow the principle of least privilege. This means granting users and apps the minimum level of access necessary to perform their tasks. Limit the claims in tokens to reduce the risk of exposing sensitive information.
+
+## Different ways to implement claims
+
+You can use claims in different ways with your Okta org.
+
+* [Custom claims](/docs/guides/configure-custom-claims/oktaoidc/main/): Learn how to customize the claims that are returned in Okta access and ID tokens. You can add custom claims to access tokens, or add custom claims to ID tokens that are tailored for specific user traits, based on your use case.
+* [Custom group claims](/docs/guides/customize-tokens-returned-from-okta/main/): Similar to custom claims, you can add a custom groups claim to access and ID tokens. You can customize the tokens based on app and user groups.
+* [Federated claims](/docs/guides/configure-federated-claims/oktaoidc/main/): If you have OIDC or SAML apps, learn how to create app entitlement claims that allow you to control permissions for users within specific apps.
+* [Claims sharing](/docs/guides/configure-claims-sharing/oktaoidc/main/): If you use an OIDC or SAML 2.0 identity provider (IdP), learn how to share identity-related information (claims) between different orgs to enable secure access to resources.
 
 ### Next steps
 
