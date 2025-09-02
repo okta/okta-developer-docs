@@ -2,14 +2,14 @@
 title: OAuth 2.0 and OpenID Connect claims
 meta:
   - name: description
-    content: A high-level overview of OAuth 2.0 and OpenID Connectclaims.
+    content: A high-level overview of OAuth 2.0 and OpenID Connect claims.
 ---
 
 # Learn about OAuth 2.0 and OpenID Connect claims
 
 [OAuth 2.0 and OpenID Connect (OIDC)](/docs/concepts/oauth-openid) claims are key-value pairs of data that contain information, typically information about a user. Okta uses these claims to provide context about the user and their permissions.
 
-This page provides an overview of OAuth 2.0 and OIDC claims, including their types and usage, and how they're used in Okta.
+This page provides an overview of OAuth 2.0 and OIDC claims, including their types and how they're used in Okta.
 
 ---
 
@@ -87,11 +87,11 @@ Claims can be categorized into two groups based on how they're defined and used.
 
 **Registered claims**: There are seven registered claims that are defined in the [JWT spec](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1). They provide fundamental information like the token's issuer (`iss`), the user's unique ID (`sub`), or when the token expires (`exp`).
 
-**Custom claims**: Custom claims consist of [public claims](#public-claims) that third-parties have registered and [private claims](#private-claims) that are created for use between specific parties.
+**Custom claims**: Custom claims consist of [public claims](#public-claims) that third parties have registered and [private claims](#private-claims) that are created for use between specific parties.
 
 ### Public claims
 
-Public claims are designed to avoid naming collision with other registered claims. Public claims include the [OIDC standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). For a full list of public claims, see the [Internet Assigned Numbers Authority (IANA) registry](https://www.iana.org/assignments/jwt/jwt.xhtml).
+Public claims are designed to avoid naming collisions with other registered claims. Public claims include the [OIDC standard claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). For a full list of public claims, see the [Internet Assigned Numbers Authority (IANA) registry](https://www.iana.org/assignments/jwt/jwt.xhtml).
 
 ### Private claims
 
@@ -120,6 +120,6 @@ You can use claims in different ways with your Okta org.
 
 ### Next steps
 
-* [Learn about tokens](/docs/concepts/token-lifecycles/#token-types) and then learn [how to implement them](/docs/guides/tokens/)
-* Explore [JSON Web Token (JWT) claims](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-token-claims)
-* Review [sample use cases for scopes and claims](https://auth0.com/docs/get-started/apis/scopes/sample-use-cases-scopes-and-claims)
+* [Learn about tokens](/docs/concepts/token-lifecycles/#token-types) and then learn [how to implement them](/docs/guides/tokens/).
+* Explore [JSON Web Token (JWT) claims](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-token-claims).
+* Review [sample use cases for scopes and claims](https://auth0.com/docs/get-started/apis/scopes/sample-use-cases-scopes-and-claims).
