@@ -6,6 +6,16 @@ title: Okta Classic Engine API release notes 2025
 
 ## August
 
+### Weekly release 2025.08.4
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bug fixed in 2025.08.4](#bug-fixed-in-2025-08-4)| September 4, 2025 |
+
+#### Bug fixed in 2025.08.4
+
+Sometimes the `/userinfo` endpoint returned an error if the EA federated claims feature was enabled. (OKTA-1007745)
+
 ### Weekly release 2025.08.2
 
 | Change | Expected in Preview Orgs |

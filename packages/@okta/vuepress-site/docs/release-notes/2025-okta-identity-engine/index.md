@@ -8,6 +8,18 @@ title: Okta Identity Engine API release notes 2025
 
 ## August
 
+### Weekly release 2025.08.4
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.08.4](#bugs-fixed-in-2025-08-4)| September 4, 2025 |
+
+#### Bugs fixed in 2025.08.4
+
+* The `DELETE api/v1/sessions/{sessionId}` and `POST /api/v1/users/me/lifecycle/delete_sessions` operations didn't work for IDX sessions in Identity Engine. (OKTA-948863, OKTA-948863)
+
+* Sometimes the `/userinfo` endpoint returned an error if the EA federated claims feature was enabled. (OKTA-1007745)
+
 ### Weekly release 2025.08.3
 
 | Change | Expected in Preview Orgs |
