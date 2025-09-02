@@ -270,7 +270,6 @@ Some app types were incorrectly assigned to authentication policies. (OKTA-95600
 | [System Log event for monitoring LDAP Agent config file changes is EA](#system-log-event-for-monitoring-ldap-agent-config-file-changes-is-ea) | July 2, 2025 |
 | [Integrate Okta with Device Posture Provider](#integrate-okta-with-device-posture-provider) | July 2, 2025 |
 | [New validation rule for user profile attributes in OIN Wizard](#new-validation-rule-for-user-profile-attributes-in-oin-wizard) | July 2, 2025 |
-| [Stricter URL validation in the OIN Wizard](#stricter-url-validation-in-the-oin-wizard)| July 2, 2025 |
 | [Conditions for create user permission is GA in Production](#conditions-for-create-user-permission-is-ga-in-production)| June 9, 2025|
 |[CLEAR Verified and Incode as third-party identity verification providers is GA in Production](#clear-verified-and-incode-as-third-party-identity-verification-providers-is-ga-in-production) | July 2, 2025 |
 | [Changes to Okta app API responses](#changes-to-okta-app-api-responses) | July 7, 2025 |
@@ -302,10 +301,6 @@ The Device Posture Provider feature enhances Zero Trust security by integrating 
 #### New validation rule for user profile attributes in OIN Wizard
 
 The OIN Wizard now requires the use of valid user profile properties when referencing attribute values in EL expressions. The system rejects any invalid user EL expressions and attributes that aren't included in the allowlist. See [SAML properties](https://developer.okta.com/docs/guides/submit-oin-app/saml2/main/#properties). <!--OKTA-820691-->
-
-#### Stricter URL validation in the OIN Wizard
-
-The OIN Wizard now requires all static URLs to begin with "https://" and be complete. For URL expressions, you can use any valid format. See [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/openidconnect/main/). <!--OKTA-662312-->
 
 #### Conditions for create user permission is GA in Production
 
