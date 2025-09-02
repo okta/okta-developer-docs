@@ -31,7 +31,7 @@ MFA requires users to supply two or more types of evidence that prove they are w
 * **Something they have (possession-based factor, like a smartphone or hardware token):** Authenticators that satisfy a possession factor prove that the user has a specific device in their control. For example, a user who enters a code from an authenticator app or approves a push notification demonstrates their possession of that device.
 * **Something they are (biometric-based factor, like a fingerprint or facial recognition):** Authenticators that satisfy a biometric factor verify a user's identity by scanning unique traits such as a fingerprint or using facial recognition.
 
-Some authenticators can satisfy more than one factor type. For example, Okta Verify can be used as a possession factor and as a biometric factor.
+Some authenticators can satisfy more than one factor type. For example, you can use Okta Verify as a possession factor and as a biometric factor.
 
 ### Why use MFA
 
@@ -68,8 +68,8 @@ The terminology of authenticators in Okta's APIs is similar to the terminology t
 |---------------------------|--------------|
 | [Authenticator key](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticators!c=200&path=0/key&t=response) | The authenticator `key` parameter is the name of the authenticator. |
 | [Authenticator type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticators!c=200&path=0/type&t=response) | The authenticator `type` parameter is a category for authenticators. There are various authenticator types and the parameter is used to group authenticators that rely on similar technologies. |
-| [Method type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticatorMethods!c=200&path=13/type&t=response) | The specific security method that an authenticator can use for verification. In the Authenticators API, the method `type` parameter refers to the specific security methods of an authenticator. It doesn't refer to any of the method characteristics, such as user presence or device-bound. |
-| [Authenticator enrollment](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserAuthenticatorEnrollments/) | The instance of an authenticator that is registered to a specific user. |
+| [Method type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticatorMethods!c=200&path=13/type&t=response) | The specific security method that an authenticator can use for verification. In the [Authenticators API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/), the method `type` parameter refers to the specific security methods of an authenticator. It doesn't refer to any of the method characteristics, such as user presence or device-bound. |
+| [Authenticator enrollment](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserAuthenticatorEnrollments/) | The instance of an authenticator that's registered to a specific user. |
 
 Refer to the following table for a list of authenticators, their keys, types, and method types.
 
