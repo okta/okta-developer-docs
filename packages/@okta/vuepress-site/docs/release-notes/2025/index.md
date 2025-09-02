@@ -121,6 +121,7 @@ The **Archived Okta Identity Governance API changelog (2023-2024)** has been rem
 | [OAuth 2.0 provisioning for Org2Org with key auto-rotation is GA in Preview](#oauth-2-0-provisioning-for-org2org-with-key-auto-rotation-is-ga-in-preview) | July 2, 2025|
 | [System Log event for monitoring LDAP Agent config file changes is EA](#system-log-event-for-monitoring-ldap-agent-config-file-changes-is-ea) | July 2, 2025 |
 | [New validation rule for user profile attributes in OIN Wizard](#new-validation-rule-for-user-profile-attributes-in-oin-wizard) | July 2, 2025 |
+| [Conditions for create user permission is GA in Production](#conditions-for-create-user-permission-is-ga-in-production) | June 9, 2025 |
 | [Changes to Okta app API responses](#changes-to-okta-app-api-responses) | July 7, 2025 |
 | [Restrict access to the Admin Console is GA in Production](#restrict-access-to-the-admin-console-is-ga-in-production) | December 11, 2024 |
 | [Developer documentation updates in 2025.07.0 ](#developer-documentation-updates-in-2025-07-0) | July 2, 2025 |
@@ -132,7 +133,6 @@ Admins deploying multi-org architectures (for example, Okta hub-and-spoke orgs) 
 
 To support these updates, the Application Connections API includes a new endpoint, [Retrieve a JSON Web Key Set (JWKS) for the default provisioning connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/getUserProvisioningConnectionJWKS), and schema updates to support key auto-rotation, `rotationMode=AUTO`. See [Update the default provisioning connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication!path=1/profile&t=request) and [Integrate Okta Org2Org with Okta](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg#Use2). <!-- [OKTA-903533] FF ORG2ORG_ENABLE_PROVISION_JWK -->
 
-
 #### System Log event for monitoring LDAP Agent config file changes is EA
 
 A `system.agent.ldap.config_change_detected` event is generated when an LDAP agent detects changes to its configuration file. <!--OKTA-912260-->
@@ -140,11 +140,6 @@ A `system.agent.ldap.config_change_detected` event is generated when an LDAP age
 #### New validation rule for user profile attributes in OIN Wizard
 
 The OIN Wizard now requires the use of valid user profile properties when referencing attribute values in EL expressions. The system rejects any invalid user EL expressions and attributes that aren't included in the allowlist. See [SAML properties](https://developer.okta.com/docs/guides/submit-oin-app/saml2/main/#properties). <!--OKTA-820691-->
-
-#### Stricter URL validation in the OIN Wizard
-
-The OIN Wizard now requires all static URLs to begin with "https://" and be complete. For URL expressions, you can use any valid format. See [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/openidconnect/main/). <!--OKTA-662312-->
-
 
 #### Conditions for create user permission is GA in Production
 
