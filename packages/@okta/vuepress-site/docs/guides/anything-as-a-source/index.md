@@ -99,9 +99,9 @@ Each user `profiles` array contains the following:
 * `profile`: The set of attributes from the HR source to synchronize with the Okta user profile. Profiles are mapped according to the attribute mappings that you specified in your Custom Identity Source configuration. See Declare an identity source schema in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
     > **Note:** All attributes in a `profile` object are treated as strings. Arrays aren’t supported.
 
-#### Group data with memberships
+#### Group memberships data
 
-To load bulk groups data with membership information, use `memberships`. The group `memberships` object is an array of pairs, with each pair listing the group's external ID and an array of member IDs in that group. See [group `memberships`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupMembershipsForUpsert!path=memberships&t=request).
+To load bulk group membership information, use `memberships`. The group `memberships` object is an array of pairs, with each pair listing the group's external ID and an array of member IDs in that group. See [group `memberships`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupMembershipsForUpsert!path=memberships&t=request).
 
 Each group `memberships` array contains the following:
 
@@ -109,9 +109,9 @@ Each group `memberships` array contains the following:
 
 * `memberExternalIds`: An array of external membership IDs for the group in the identity source.
 
-#### Group data without memberships
+#### Group data
 
-To load bulk groups data without membership information, use `profiles`. The group `profiles` object is an array of pairs, with each pair listing the group's external ID and the group's `profile` that contain attributes about the group, but no membership data. See [group `profiles`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupsForUpsert!path=profiles&t=request).
+To load bulk groups data, use `profiles`. The group `profiles` object is an array of pairs, with each pair listing the group's external ID and the group's `profile` that contain attributes about the group, but no membership data. See [group `profiles`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupsForUpsert!path=profiles&t=request).
 
 Each group `profiles` array contains the following:
 
@@ -143,16 +143,16 @@ Create another identity source session object when you exhaust the maximum numbe
 
 Bulk upsert data requests take the following objects for the request body:
 
-* Use `profiles` for bulk users or groups without memberships. See [User data](#user-data) and [Group data without memberships](#group-data-without-memberships).
-* User `memberships` for bulk groups with memberships. See [Group data with memberships](#group-data-with-memberships).
+* Use `profiles` for bulk users or groups data. See [User data](#user-data) and [Group data](#group-data).
+* User `memberships` for bulk group memberships data. See [Group memberships data](#group-memberships-data).
 
 #### Bulk delete data requests
 
 Identity source objects for delete use the similar arrays, but the objects only contain the IDs of the entities that are being deleted.
 
 * Use [`profiles` for bulk users](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDataForDelete!path=profiles&t=request), listing the `externalId`. The `externalId` is unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This determines the user that needs to be deleted in Okta.
-* Use [`externalIds` for bulk group data without memberships](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupsDataForDelete!path=externalIds&t=request). This determines the groups that need to be deleted in Okta.
-* Use [`memberships` for bulk group data with memberships](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupMembershipsForDelete!path=memberships&t=request). This determines which members (listed by the `memberExternalIds` array) that need to be removed in each group, listed by `groupExternalId`.
+* Use [`externalIds` for bulk group data](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupsDataForDelete!path=externalIds&t=request). This determines the groups that need to be deleted in Okta.
+* Use [`memberships` for bulk group memberships data](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupMembershipsForDelete!path=memberships&t=request). This determines which members (listed by the `memberExternalIds` array) that need to be removed in each group, listed by `groupExternalId`.
 
 ## Identity Sources API flow
 
