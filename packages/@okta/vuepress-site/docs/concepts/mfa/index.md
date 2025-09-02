@@ -97,7 +97,7 @@ Refer to the following table for a list of authenticators, their keys, types, an
 
 There's an important distinction between the terms "authenticator" and "factor" in Identity Engine and Classic Engine.
 
-The [User Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/) provides operations for managing factors. In the context of the User Factors API, "factor" is used with the Classic Engine definition. Which means that you can use the API to manage user authenticators (factors). The factors that you can manage with the User Factors API are the specific instances of authenticators that users have enrolled.
+The [User Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/) provides operations for managing factors. In the context of the User Factors API, a "factor" is the same as an authenticator method. Which means that you can use the API to manage user authenticators (factors). The factors that you can manage with the User Factors API are authenticator methods that users have enrolled.
 
 > **Note:** The [User Authenticator Enrollments API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserAuthenticatorEnrollments/) provides similar operations as the User Factors API.
 
@@ -119,8 +119,8 @@ You can also configure them by using the [Policy API](https://developer.okta.com
 
 ## Get started with MFA in your org
 
-* [Learn about authentication in the Admin Console](https://help.okta.com/oie/en-us/content/topics/security/security_at_okta.htm)
-* [Configure authenticators in the Admin Console](https://help.okta.com/oie/en-us/content/topics/identity-engine/authenticators/about-authenticators.htm)
+* [Learn about authentication in the Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=ext_Security_at_Okta)
+* [Configure authenticators in the Admin Console](hhttps://help.okta.com/okta_help.htm?type=oie&id=ext-about-authenticators)
 * [Configure authenticators using the Authenticators API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/)
 * [Set up your org for different use cases](/docs/guides/set-up-org/main/#set-up-your-okta-org-for-your-use-cases)
 * [Configure sign-on policies for common scenarios](/docs/guides/configure-signon-policy/main/#configure-sign-on-policies-for-common-scenarios)
