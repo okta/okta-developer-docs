@@ -10,11 +10,13 @@ title: Okta Classic Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Bug fixed in 2025.08.4](#bug-fixed-in-2025-08-4)| September 4, 2025 |
+| [Bugs fixed in 2025.08.4](#bugs-fixed-in-2025-08-4)| September 4, 2025 |
 
-#### Bug fixed in 2025.08.4
+#### Bugs fixed in 2025.08.4
 
-Sometimes the `/userinfo` endpoint returned an error if the EA federated claims feature was enabled. (OKTA-1007745)
+* Admins were sometimes unable to enroll custom TOTP factors (`POST /users/{userId}/factors`). (OKTA-1007379)
+
+* Sometimes the `/userinfo` endpoint returned an error if the EA federated claims feature was enabled. (OKTA-1007745)
 
 ### Weekly release 2025.08.2
 

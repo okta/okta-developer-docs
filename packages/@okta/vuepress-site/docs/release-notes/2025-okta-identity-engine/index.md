@@ -16,9 +16,11 @@ title: Okta Identity Engine API release notes 2025
 
 #### Bugs fixed in 2025.08.4
 
-* The `DELETE api/v1/sessions/{sessionId}` and `POST /api/v1/users/me/lifecycle/delete_sessions` operations didn't work for IDX sessions in Identity Engine. (OKTA-948863, OKTA-948863)
+* Admins were sometimes unable to enroll custom TOTP factors (`POST /users/{userId}/factors`). (OKTA-1007379)
 
 * Sometimes the `/userinfo` endpoint returned an error if the EA federated claims feature was enabled. (OKTA-1007745)
+
+* The `DELETE api/v1/sessions/{sessionId}` and `POST /api/v1/users/me/lifecycle/delete_sessions` operations didn't work for IDX sessions in Identity Engine. (OKTA-948863, OKTA-948863)
 
 ### Weekly release 2025.08.3
 

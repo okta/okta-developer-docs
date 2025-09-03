@@ -10,7 +10,22 @@ Okta Privileged Access (OPA) is available for both Okta Classic and Identity Eng
 
 ### Weekly release 2025.08.4
 
+#### Role permission updates for attribute operations
 
+In addition to previous role permissions, users with `security_admin` permissions can now access the following operations:
+
+* [List all attributes for a group](https://developer.okta.com/docs/api/openapi/opa/opa/tag/attributes/#tag/attributes/operation/ListGroupAttributes) (`GET /v1/teams/{team_name}/groups/{group_name}/attributes`)
+* [Retrieve a group attribute](https://developer.okta.com/docs/api/openapi/opa/opa/tag/attributes/#tag/attributes/operation/FetchGroupAttribute) (`GET /v1/teams/{team_name}/groups/{group_name}/attributes/{attribute_id}`)
+* [List all attributes for a user](https://developer.okta.com/docs/api/openapi/opa/opa/tag/attributes/#tag/attributes/operation/ListUserAttributes) (`GET/v1/teams/{team_name}/users/{user_name}/attributes`)
+* [Retrieve a user attribute](https://developer.okta.com/docs/api/openapi/opa/opa/tag/attributes/#tag/attributes/operation/FetchUserAttribute) (`GET /v1/teams/{team_name}/users/{user_name}/attributes/{attribute_id}`)
+* [List all attribute conflicts for a team](https://developer.okta.com/docs/api/openapi/opa/opa/tag/attributes/#tag/attributes/operation/ListTeamUserAttributeConflicts) (`GET /v1/teams/{team_name}/attributes/conflicts`)
+
+Users need the `security_admin` permission instead of the `resource_admin` permission to access the following operations:
+
+* [Update a group attribute](https://developer.okta.com/docs/api/openapi/opa/opa/tag/attributes/#tag/attributes/operation/UpdateGroupAttribute) (`PUT /v1/teams/{team_name}/groups/{group_name}/attributes/{attribute_id}`)
+* [Update a user attribute](https://developer.okta.com/docs/api/openapi/opa/opa/tag/attributes/#tag/attributes/operation/UpdateUserAttribute) (`PUT /v1/teams/{team_name}/users/{user_name}/attributes/{attribute_id}`)
+
+<!--OKTA-1000610 Preview date: August 28, 2025; Production date: August 29, 2025 -->
 
 ### Weekly release 2025.08.2
 

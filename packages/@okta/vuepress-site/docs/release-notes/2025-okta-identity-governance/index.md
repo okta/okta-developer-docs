@@ -8,12 +8,6 @@ Okta Identity Governance is available for both Okta Classic and Identity Engine.
 
 ## August
 
-### Weekly release 2025.08.4
-
-| Change | Expected in Preview Orgs |
-|--------|--------------------------|
-| [Bugs fixed in 2025.08.4](#bugs-fixed-in-2025-08-4)| September 4, 2025 |
-
 ### Weekly release 2025.08.2
 
 | Change | Expected in Preview Orgs |
