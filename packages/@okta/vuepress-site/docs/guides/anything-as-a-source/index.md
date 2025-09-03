@@ -45,7 +45,7 @@ The Identity Sources API synchronizing data flow uses an [identity source sessio
 ### Identity source session status
 
 * **CREATED**: The identity source session object has been created for a specific Custom Identity Source integration. You can load data to the session at this stage. Data import processing hasn't been invoked, and you can cancel the session at this stage.
-* **IN_PROGRESS**: The data for the identity source session is uploaded in the identity source session.
+* **IN_PROGRESS**: The data for the identity source session is getting uploaded in the identity source session.
 * **TRIGGERED**: Okta is processing the uploaded data in the identity source session. You can't load new data to the identity source session object at this stage, and you can't cancel the session. You can view sessions with this status on the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page in the Admin Console.
 * **COMPLETED**: Okta has processed the data in the identity source session object. You can't upload new data to the identity source session object if it has this status, because the synchronization data job is considered complete.
 * **CLOSED**: The session is canceled and isn't available for further activity. You can only cancel identity source sessions with the `CREATED` or `IN_PROGRESS` status. You can't cancel a session that has been triggered or completed. Previously loaded data is deleted from a canceled identity source session.
@@ -92,7 +92,7 @@ You can load data about users or groups in a bulk-load request, to be upserted o
 
 To load bulk users data, use `profiles`. The user `profiles` object is an array of user profile objects that contain attributes about the user. See [user `profiles`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDataForUpsert!path=profiles&t=request).
 
-Each user `profiles` array contains the following:
+Each user objects in the `profiles` array contains the following:
 
 * `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This helps determine if a new user needs to be created or if an existing user needs to be updated.
 
@@ -103,7 +103,7 @@ Each user `profiles` array contains the following:
 
 To load bulk group membership information, use `memberships`. The group `memberships` object is an array of pairs, with each pair listing the group's external ID and an array of member IDs in that group. See [group `memberships`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupMembershipsForUpsert!path=memberships&t=request).
 
-Each group `memberships` array contains the following:
+Each group object in the `memberships` array contains the following:
 
 * `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific group). This helps determine if a new group needs to be created or if an existing group needs to be updated.
 
@@ -113,7 +113,7 @@ Each group `memberships` array contains the following:
 
 To load bulk groups data, use `profiles`. The group `profiles` object is an array of pairs, with each pair listing the group's external ID and the group's `profile` that contain attributes about the group, but no membership data. See [group `profiles`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupsForUpsert!path=profiles&t=request).
 
-Each group `profiles` array contains the following:
+Each group objects in the `profiles` array contains the following:
 
 * `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific group). This helps determine if a new group needs to be created or if an existing group needs to be updated.
 
@@ -144,11 +144,11 @@ Create another identity source session object when you exhaust the maximum numbe
 Bulk upsert data requests take the following objects for the request body:
 
 * Use `profiles` for bulk users or groups data. See [User data](#user-data) and [Group data](#group-data).
-* User `memberships` for bulk group memberships data. See [Group memberships data](#group-memberships-data).
+* Use `memberships` for bulk group memberships data. See [Group memberships data](#group-memberships-data).
 
 #### Bulk delete data requests
 
-Identity source objects for delete use the similar arrays, but the objects only contain the IDs of the entities that are being deleted.
+Identity source objects for deletion contain the IDs of the entities that are being deleted.
 
 * Use [`profiles` for bulk users](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDataForDelete!path=profiles&t=request), listing the `externalId`. The `externalId` is unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This determines the user that needs to be deleted in Okta.
 * Use [`externalIds` for bulk group data](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupsDataForDelete!path=externalIds&t=request). This determines the groups that need to be deleted in Okta.
@@ -231,7 +231,7 @@ Once the identity source is created, you can load data to it, cancel it, and mon
 
 ### Bulk import data
 
-Use these steps to insert or update a set of user data profiles from your HR source to Okta. You can generally apply the flow for groups as well, but update the response body with the correct identity source data that you're importing. When bulk importing data, you pass the full `profile` or `memberships` object. See [Identity source data](#identity-source-data).
+Use these steps to insert or update a set of user data profiles from your HR source to Okta. You can generally apply the flow for groups as well, but update the request body with the correct identity source data that you're importing. When bulk importing data, you pass the full `profile` or `memberships` object. See [Identity source data](#identity-source-data).
 
 1. [Create an identity source session](#create-an-identity-source-session) if you don't already have one. If you have an existing identity source session, [retrieve the active identity source session](#retrieve-active-identity-source-sessions) to get the session ID.
 
