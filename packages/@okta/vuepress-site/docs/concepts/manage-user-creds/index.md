@@ -47,7 +47,7 @@ Risk areas include:
 * Concurrency issues: Managing tokens involves storage, retrieval, and refresh operations. In complex applications, especially during initialization or with concurrent operations, multiple calls to token storage can lead to shared resource contention.
 * Lack of granular control and scope restrictions: If tokens aren't scoped appropriately, any security compromise can lead to broader unauthorized access to resources, increasing the potential damage. Defining granular and specific scopes within authorization servers is a best practice.
 * Insecure token transmission: All interactions and redirects involving users, applications, and Okta must be secured through HTTPS (SSL/TLS) connections to protect credentials and tokens from interception. Access tokens should be passed exclusively through an HTTP Authorization header and never encoded into a payload or URL, as these could be logged or cached.
-* * Misuse of Authorization Servers: Developers must understand which authorization server to use. Access tokens issued by the Okta Org Authorization Server are intended only for Okta APIs and should never be used by your application for authorization, as their structure can change and your app can't validate them. A Custom Authorization Server should be used to secure your own APIs and mint tokens for your applications.
+* Misuse of Authorization Servers: Developers must understand which authorization server to use. Access tokens issued by the Okta Org Authorization Server are intended only for Okta APIs and should never be used by your application for authorization, as their structure can change and your app can't validate them. A Custom Authorization Server should be used to secure your own APIs and mint tokens for your applications.
 Token validation: Validation of access or ID tokens ensures that a token is trustworthy and hasn't been altered. The server or resource provider must validate every incoming token to ensure it was issued by a legitimate authority and has not been altered or expired. <!-- [For later: The Okta Client SDK's token management system is designed to mitigate these issues and ensure application stability.] -->
 
 ### Token lifecycle
@@ -100,15 +100,15 @@ Here's how this changes the flow for token storage:
 1. Authentication: The user authenticates with the BFF.
 1. Server-side token management: The BFF handles the entire token exchange.
 
-* It receives the user's refresh token and access token from the Identity Provider.
-* It stores the sensitive refresh token securely on the server, for example, in a database or a secure cache. It is never sent to the client.
-* All token expiration and renewal logic is handled by the BFF. When a token expires, the BFF silently uses the refresh token to get a new one; the client is completely unaware of this process.
+   * It receives the user's refresh token and access token from the Identity Provider.
+   * It stores the sensitive refresh token securely on the server, for example, in a database or a secure cache. It is never sent to the client.
+   * All token expiration and renewal logic is handled by the BFF. When a token expires, the BFF silently uses the refresh token to get a new one; the client is completely unaware of this process.
 
 1. Client-side session: Instead of giving the client a token, the BFF provides it with a secure session cookie. This cookie is used by the front end to authenticate with the BFF for subsequent requests.
 1. API requests: When the client makes an API call to the BFF, the BFF validates the session cookie.
 
-* If the session is valid, the BFF retrieves the refresh token from its secure storage and, if necessary, uses it to get a new access token from the Identity Provider.
-* The BFF then uses this fresh access token to call the downstream service on behalf of the client.
+   * If the session is valid, the BFF retrieves the refresh token from its secure storage and, if necessary, uses it to get a new access token from the Identity Provider.
+   * The BFF then uses this fresh access token to call the downstream service on behalf of the client.
 
 1. Token expiration and renewal: If the access token has expired, the BFF automatically uses the stored refresh token to get a new access token from the IdP. The BFF then uses this new access token for the downstream API call. The client app is unaware of the token expiration and renewal flow.
 1. Secure sign-out: The client's sign-out request triggers the BFF to destroy the session and call the Okta revocation endpoint to invalidate the refresh token.
@@ -135,9 +135,9 @@ Here is a simplified step-by-step breakdown of the process:
 1. Token issuance: The authorization server receives the public key and issues a DPoP-bound access token and a refresh token. The access token's payload includes the public key's unique thumbprint, creating a direct link between the token and that specific key.
 1. Proof of possession: When the client wants to use the access token to access a resource server, it performs two actions:
 
-   1. It sends the DPoP-bound access token.
-   {style="list-style-type:lower-alpha"}
-   1. It bundles the HTTP request (including the request's URL and method) using its private key. This signature is sent in a DPoP header.
+   * It sends the DPoP-bound access token.
+   [[style="list-style-type:lower-alpha"]]
+   * It bundles the HTTP request (including the request's URL and method) using its private key. This signature is sent in a DPoP header.
 1. Verification: When the resource server receives a request, it first verifies the access token's validity and then uses the public key thumbprint from the token's payload to verify the signature in the DPoP header. If the signature is valid, it proves the client is the legitimate possessor of the private key and, therefore, the token.
 1. Token expiration and renewal: When the DPoP-bound access token expires, the client can use the refresh token to get a new access token using the key pair from the initial token request.
 1. Secure sign-out: The client should clear the private key and the access token from memory, and clear the refresh token. It also calls the revocation endpoint to revoke the tokens and mark them as invalid in the server database.
@@ -185,8 +185,8 @@ For a detailed matrix of these options, see [Choose your auth](/docs/guides/sign
 
 ### Related documentation
 
-[Secure your first web app](/docs/journeys/OCI-secure-your-first-web-app/main/)
-[Understand the token lifecycle (exchange, refresh, revoke)](/docs/concepts/token-lifecycles/)
-[Sign users in overview](/docs/guides/sign-in-overview/main/)
-[OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/)
-[Okta deployment models - redirect vs. embedded](/docs/concepts/redirect-vs-embedded/)
+* [Secure your first web app](/docs/journeys/OCI-secure-your-first-web-app/main/)
+* [Understand the token lifecycle (exchange, refresh, revoke)](/docs/concepts/token-lifecycles/)
+* [Sign users in overview](/docs/guides/sign-in-overview/main/)
+* [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/)
+* [Okta deployment models - redirect vs. embedded](/docs/concepts/redirect-vs-embedded/)

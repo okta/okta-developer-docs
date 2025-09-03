@@ -53,7 +53,7 @@ export const concepts = [
       },
       {
         title: "Manage user credentials",
-        path: "/docs/concepts/maanage-user-creds/",
+        path: "/docs/concepts/manage-user-creds/",
       },
             {
         title: "Monitor Okta",
