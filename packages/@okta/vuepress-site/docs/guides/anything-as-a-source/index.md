@@ -86,7 +86,7 @@ Errors are thrown in the following situations:
 
 ### Identity source data
 
-You can load data about users or groups in a bulk-load request, to be upserted or deleted in Okta. Bulk groups data can be with or without membership information. You can also create, update, or delete a single group for an external identity source.
+You can load data about users, groups, or group memberships in a bulk-load request, to be upserted or deleted in Okta.
 
 #### User data
 
