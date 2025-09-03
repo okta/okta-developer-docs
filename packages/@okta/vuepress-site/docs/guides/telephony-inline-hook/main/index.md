@@ -91,7 +91,7 @@ In this section, you update a [preset app sign-in policy](https://help.okta.com/
 
 Update the **Okta Dashboard** [preset app sign-in policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to include an additional factor by adding a rule for the Support group that you created.
 
-1. In the Admin Console, go to **Security** > **Authentication Policies**, and then select the **Okta Dashboard** preset policy.
+1. In the Admin Console, go to **Security** > **Authentication policies** > **App sign-in policies**, and then select the **Okta Dashboard** preset policy.
 1. Click **Add Rule** and name the rule.
 1. In the **AND User's group membership includes** dropdown list, select **At least one of the following groups**.
 1. In the box that appears, start typing the group that you created and select it when it appears.

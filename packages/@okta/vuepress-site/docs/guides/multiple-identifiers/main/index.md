@@ -44,7 +44,7 @@ In a hub-and-spoke flow, users go to the sign-in page of the hub org. They're pr
 
 In a standard authentication flow, users go to an app's sign-in page. They're prompted to authenticate with any of the identifiers that you configured. As in the hub-and-spoke flow, Okta evaluates their entry according to your priority setting.
 
-Keep in mind that multiple identifiers don't change an app's MFA requirements or the sequence of the sign-in flow. The settings you configure in your global session and authentication policies determine whether users are prompted for the identifier or password first.
+Keep in mind that multiple identifiers don't change an app's MFA requirements or the sequence of the sign-in flow. The settings you configure in your global session and app sign-in policies determine whether users are prompted for the identifier or password first.
 
 See [Sign-in flows](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-sign-in-flows).
 

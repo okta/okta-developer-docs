@@ -41,15 +41,15 @@ The user was then redirected to the relevant app intent link through an intermed
 
 Identity Engine changes the way Okta processes these requests. It no longer forwards requests to the centralized sign-in page (`/login/login.htm`). Instead, the app intent links location hosts the widget/sign-in experience for the app that the user is attempting to access.
 
-Then, Identity Engine evaluates the Global Session Policy, app sign-in policy, and all other policies relevant to the sign-in experience. Each app intent link is responsible for hosting the sign-in experience on Identity Engine. Because of this, they share a common app intent link rate limit bucket/group similar to what exists for the centralized sign-in page on Classic Engine.
+Then, Identity Engine evaluates the global aession policy, app sign-in policy, and all other policies relevant to the sign-in experience. Each app intent link is responsible for hosting the sign-in experience on Identity Engine. Because of this, they share a common app intent link rate limit bucket/group similar to what exists for the centralized sign-in page on Classic Engine.
 
-### Authentication policies
+### App sign-in policies
 
-Authentication policies are [security policy frameworks](https://csrc.nist.gov/pubs/sp/800/63/b/upd2/final) that allow organizations to model security outcomes for an app. These policies are shareable across applications. For example, you can automatically step up authentication to a strong non-phishable factor when elevated risk is detected. Also, Identity Engine allows you to create flexible apps that can change their authentication methods without having to alter a line of code.
+App sign-in policies are [security policy frameworks](https://csrc.nist.gov/pubs/sp/800/63/b/upd2/final) that allow organizations to model security outcomes for an app. These policies are shareable across applications. For example, you can automatically step up authentication to a strong non-phishable factor when elevated risk is detected. Also, Identity Engine allows you to create flexible apps that can change their authentication methods without having to alter a line of code.
 
-* [Configure a global session policy and authentication policies](/docs/guides/configure-signon-policy/)
+* [Configure a global session policy and app sign-in policies](/docs/guides/configure-signon-policy/)
 
-* [Authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop)
+* [App sign-in policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop)
 
 * [Policies (high-level concept)](/docs/concepts/policies/)
 

@@ -220,7 +220,7 @@ This section shows you how to set up your Okta org and app to support the multif
 
 #### Update your app sign-in policy with multifactor authentication
 
-1. Go to **Security** > **Authentication Policies**.
+1. Go to **Security** > **Authentication policies** > **App sign-in policies**.
 1. Select **Any two factors** as this is the policy that the [app you created](#create-an-app) is assigned to.
 1. Select **Edit** from the **Actions** menu for the **Catch-all Rule** to access the **Edit Rule** dialog.
 1. Scroll down to the **AND User must authenticate with** dropdown menu and select **Password + Another Factor**.
@@ -324,8 +324,8 @@ A global session policy determines user session length and authentication rules 
 
 ##### Add an app sign-in policy for password-optional users
 
-1. Go to **Security** > **Authentication Policies**.
-1. Click **Add a policy**.
+1. Go to **Security** > **Authentication policies** > **App sign-in policies**.
+1. Click **Create policy**.
 1. Enter **Password-optional app sign-in policy** as the name.
 1. Click **Save**.
 1. Go to the **Catch-all Rule** of the new policy and select **Actions** > **Edit**.

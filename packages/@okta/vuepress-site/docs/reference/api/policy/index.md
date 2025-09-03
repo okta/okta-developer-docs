@@ -220,7 +220,7 @@ HTTP 204:
 
 > **Note:** This feature is only available as a part of the Identity Engine. [Contact support](https://support.okta.com/) for information on the Identity Engine.
 
-> **Note:** Within the Identity Engine, this feature is only supported for [authentication policies](#authentication-policy).
+> **Note:** Within the Identity Engine, this feature is only supported for [app sign-in policies](#authentication-policy).
 
 <ApiOperation method="post" url="/api/v1/policies/${policyId}/clone" />
 
@@ -2291,14 +2291,14 @@ refers to the user's `username`. If the user is signing in with the username `jo
 
 An authentication policy determines the extra levels of authentication (if any) that must be performed before you can invoke a specific Okta application. This policy is always associated with an app through a mapping. Identity Engine always evaluates both the global session policy and the authentication policy for the app. The resulting user experience is the union of both policies. Authentication policies have a policy type of `ACCESS_POLICY`.
 
-When you create a new application, the shared default authentication policy is associated with it. You can [create a different authentication policy for the app](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) or [add additional rules to the default authentication policy](/docs/guides/configure-signon-policy/#select-the-policy-and-add-a-rule) to meet your needs. Remember that any rules that you add to the shared authentication policy are automatically assigned to any new application that you create in your org. Additionally, you can [merge duplicate authentication policies with identical rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies) to improve policy management.
+When you create a new application, the shared default authentication policy is associated with it. You can [create a different authentication policy for the app](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) or [add additional rules to the default authentication policy](/docs/guides/configure-signon-policy/#select-the-policy-and-add-a-rule) to meet your needs. Remember that any rules that you add to the shared authentication policy are automatically assigned to any new application that you create in your org. Additionally, you can [merge duplicate app sign-in policies with identical rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies) to improve policy management.
 
-> **Note:** You can have a maximum of 5000 authentication policies in an org.
+> **Note:** You can have a maximum of 5000 app sign-in policies in an org.
 > There is a max limit of 100 rules allowed per policy.
 > When you create an authentication policy, you automatically also create a default policy rule with the lowest priority of `99`.
 > The highest priority that an authentication policy rule can be set to is `0`.
 
-> **Note:** When you [merge duplicate authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies), policy and mapping CRUD operations may be unavailable during the consolidation. When the consolidation is complete, you receive an email.
+> **Note:** When you [merge duplicate app sign-in policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies), policy and mapping CRUD operations may be unavailable during the consolidation. When the consolidation is complete, you receive an email.
 
 ### Okta account management policy
 
@@ -2923,7 +2923,7 @@ The `entityRisk` object's `actions` array can be empty or contain one of two `ac
 
 <ApiLifecycle access="ie" />
 
-Post auth session evaluation, implemented in the API as a policy type, determines the action to take based on changes to an existing user session. After a session event is triggered, the global session policy and all authentication policies are reevaluated and a course of action is undertaken as defined by the Post auth session evaluation policy. The policy type is specified as `POST_AUTH_SESSION`.
+Post auth session evaluation, implemented in the API as a policy type, determines the action to take based on changes to an existing user session. After a session event is triggered, the global session policy and all app sign-in policies are reevaluated and a course of action is undertaken as defined by the Post auth session evaluation policy. The policy type is specified as `POST_AUTH_SESSION`.
 
 >**Note:** This policy replaces the Continuous Access evaluation policy (`CONTINUOUS_ACCESS`), which is now deprecated.
 
@@ -2976,7 +2976,7 @@ You can apply the following conditions to the rules associated with an entity ri
 
 ### Post auth session evaluation object
 
-The `actions` object of the Post auth session evaluation policy rule indicates the next steps to take in response to a failure of the reevaluated global session policy or authentication policies. The `postAuthSession` object further defines the action.
+The `actions` object of the Post auth session evaluation policy rule indicates the next steps to take in response to a failure of the reevaluated global session policy or app sign-in policies. The `postAuthSession` object further defines the action.
 
 | Property                | Description              | Data Type                                       | Required                      | Default |
 | ---                     | ---------------          | ---                                             | ---                           | ---     |

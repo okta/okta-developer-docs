@@ -105,7 +105,7 @@ Using Universal Directory:
 
 - Add any number of directories or domains.
 
-- Store, manage, and apply business and authentication policies that control how you handle different sets of users, including customer and partner users.
+- Store, manage, and apply business and app sign-in policies that control how you handle different sets of users, including customer and partner users.
 
 - Set consistent user access policies with a central policy engine, create policies based on unique user contexts, and employ any combination of MFA factors.
 

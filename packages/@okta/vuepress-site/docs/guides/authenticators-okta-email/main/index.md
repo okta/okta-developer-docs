@@ -89,7 +89,7 @@ First, add the email authenticator to your org and enable it for both authentica
 
 New app integrations are automatically assigned the shared default [app sign-in policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, multiple app integrations can share the same app policy. In testing however, you should create a policy specifically for your test app.
 
-1. Open the **Admin Console** for your org and choose **Security > Authentication Policies** to show the available authentication policies.
+1. Open the **Admin Console** for your org and choose **Security > Authentication Policies** to show the available app sign-in policies.
 2. Click **Add a Policy**, give the policy a name, and then click **Save**.
 3. Locate the Catch-all Rule of the new policy and select **Actions** > **Edit**.
 4. Select **Allowed after successful authentication**, and then set **User must authenticate with** to **Password + Another factor**.

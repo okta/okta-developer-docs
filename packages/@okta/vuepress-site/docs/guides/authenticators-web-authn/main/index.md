@@ -93,7 +93,7 @@ New apps are automatically assigned the shared default [app sign-in policy](http
 Create a policy specifically for your app for testing purposes.
 
 1. Open the **Admin Console** for your org.
-2. Choose **Security > Authentication Policies** to show the available authentication policies.
+2. Choose **Security > Authentication Policies** to show the available app sign-in policies.
 3. Click **Add a Policy**.
 4. Give the policy a name, and then click **Save**.
 5. Locate the catch-all rule of the new policy and select **Actions > Edit**.

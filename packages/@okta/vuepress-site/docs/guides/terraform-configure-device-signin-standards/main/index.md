@@ -34,7 +34,7 @@ Require users to authenticate only with phones and computers that meet your org'
 
 ## Overview
 
-Using a device's attributes to control access to your org requires configuring two sets of policies. Device assurance policies configure device requirements, such as a minimum OS version. Authentication policies include rules that use the assurance policies to authorize a connection.
+Using a device's attributes to control access to your org requires configuring two sets of policies. Device assurance policies configure device requirements, such as a minimum OS version. App sign-in policies include rules that use the assurance policies to authorize a connection.
 
 You can manage both types of policies with Terraform.
 
@@ -58,7 +58,7 @@ Some of the steps in this article require that your Okta org and pricing plan su
 
 1. Open the **Admin** menu.
 
-1. Go to **Security** > **Authentication Policies**.
+1. Go to **Security** > **Authentication policies** > **App sign-in policies**.
 
    > **Note:** Ignore the **Security > Device Assurance Policies** navigation item for this test.
 
@@ -74,7 +74,7 @@ Some of the steps in this article require that your Okta org and pricing plan su
       AND Device assurance policy is
       ```
 
-   If the field exists then you can create device assurance policies and reference them in authentication policies. Otherwise, contact Okta Support about feature availability.
+   If the field exists then you can create device assurance policies and reference them in app sign-in policies. Otherwise, contact Okta Support about feature availability.
 
 
 1. Click **Cancel** to exit the policy editor.
@@ -328,11 +328,11 @@ resource "okta_app_oauth" "OAuthFakeApp" {
 
 }
 
-# AUTHENTICATION POLICIES AND RULES
+# APP SIGN-IN POLICIES AND RULES
 
 resource "okta_app_signon_policy" "my_signin_policy" {
   name        = "My App Sign-On Policy"
-  description = "Authentication Policy to be used on my app."
+  description = "App sign-in policy to be used on my app."
 }
 
 resource "okta_app_signon_policy_rule" "my_signin_policy_deviceassurance" {
@@ -374,7 +374,7 @@ To remove a device assurance policy from your Terraform configuration:
 
 * Remove the resource from your Terraform configuration file.
 
-* Remove any references from authentication policies or elsewhere.
+* Remove any references from app sign-in policies or elsewhere.
 
 When you run `terraform apply`, Terraform removes the old policies from your Okta org.
 

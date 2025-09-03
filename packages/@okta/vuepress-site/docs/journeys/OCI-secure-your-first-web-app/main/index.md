@@ -55,7 +55,7 @@ The simplest and Okta-recommended way to sign users in to your app is to redirec
 
 By default, users are required to sign in with any two authentication factors: password, email, SMS, and voice. Your org comes with those authenticators pre-configured. Use the Admin Console to enable other factors and change the policy to match your requirements.
 
-* Learn about [preset authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies).
+* Learn about [preset app sign-in policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies).
 * [Add an authentication factor](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-authenticators).
 
 The Okta-hosted sign-in form changes its behavior automatically to match your updates to the app sign-in policy.

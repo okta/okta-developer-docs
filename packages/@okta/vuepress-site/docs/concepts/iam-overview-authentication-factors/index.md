@@ -21,7 +21,7 @@ Consider support for the following in the design of your authentication faciliti
 
 - Provisions for your customers and partners to manage and support their own users and manage authentication options they can control, reducing your admin workload. You and your customers can use common admin interfaces by limiting what functions and data different customer admins can see and use. Examples might include facilities for resetting passwords and reporting IAM authentication data for their accounts.
 
-- Provisions for your admins to manage and support your users and manage authentication policies for your users and customers. Examples might include the facilities listed for customer admins above for your domain, plus supporting customers and customer admins, and creating, configuring, and administering customer policies.
+- Provisions for your admins to manage and support your users and manage app sign-in policies for your users and customers. Examples might include the facilities listed for customer admins above for your domain, plus supporting customers and customer admins, and creating, configuring, and administering customer policies.
 
 - APIs and SDKs that allow all elements of your IAM solution, your applications, and other consumers to access authentication functions and data as authorized.
 
@@ -119,11 +119,7 @@ Learn more:
 
 - [About Okta ThreatInsight](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-threatinsight) describes how this product helps prevent credential-based attacks. Okta's ThreatInsight product uses data from the analyses of authentication requests made to thousands of Okta organizations and Okta authentication endpoints to identify suspicious IP addresses. See [Okta ThreatInsight Whitepaper](https://www.okta.com/resources/whitepaper/okta-threatinsight/).
 
-### Authentication policies
-
-Choose from a variety of Okta [policies](#okta-policies) to manage users, including a [sign-on policy](#okta-sign-on-policies) to control how to authenticate a particular set of users.
-
-#### Okta policies
+### Okta policies
 
 An *Okta policy* is a set of rules and conditions that help you manage your users, such as restricting access to members of a certain group or requiring additional authentication factors to access a sensitive app. You can create any number of policies, each of which has one or more rules. Policies are evaluated when a request is processed to determine if it should be accepted. Policies have conditions that determine whether to apply them, and rules have conditions that determine whether and how to apply the policy.
 
@@ -136,6 +132,6 @@ Okta supports a number of different policy types. Read [What are policies](/docs
 Learn more:
 
 - [What are policies](/docs/concepts/policies/)
-- [About Okta sign-on policies](https://help.okta.com/okta_help.htm?id=ext_secpol_poleval) briefly describes sign-on policies, and elaborates on how Okta policies are evaluated.
+- [About Okta sign-on policies](https://help.okta.com/okta_help.htm?id=ext_secpol_poleval) briefly describes sign-on policies, and elaborates on how Okta policies are evaluated in Classic Engine.
 
 **Next step: [Authorization factors](/docs/concepts/iam-overview-authorization-factors/).**

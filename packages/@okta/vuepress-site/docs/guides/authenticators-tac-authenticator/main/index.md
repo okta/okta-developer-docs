@@ -32,7 +32,7 @@ After an admin configures the TAC authenticator settings, admins or help-desk ag
 
 ### Use the TAC authenticator in policies
 
-This guide outlines [two app sign-in policy scenarios](#configure-authentication-policies-for-tac) that allow the use of the TAC authenticator. When you add the TAC authenticator to your own org policies remember that it's a knowledge factor.
+This guide outlines [two app sign-in policy scenarios](#configure-app-sign-in-policies-for-tac) that allow the use of the TAC authenticator. When you add the TAC authenticator to your own org policies remember that it's a knowledge factor.
 
 Users can sign in with TAC, security questions, and their password as knowledge factors, depending on your app sign-in policy configuration and which authenticators they have access to. However, if your global session policy requires MFA, users must also have access to a possession or biometric factor.
 
@@ -143,9 +143,9 @@ To configure the TAC authenticator in the Admin Console, see [Configure the temp
 }
 ```
 
-## Configure authentication policies for TAC
+## Configure app sign-in policies for TAC
 
-There are various ways to configure TAC with authentication policies. Use either of the following app sign-in policy examples in your own org.
+There are various ways to configure TAC with app sign-in policies. Use either of the following app sign-in policy examples in your own org.
 
 * [Use TAC in an authentication method chain](#use-tac-in-an-authentication-method-chain)
 * [Use TAC with any two factor types](#use-tac-with-any-two-factor-types)

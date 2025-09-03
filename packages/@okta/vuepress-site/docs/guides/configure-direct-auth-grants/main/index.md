@@ -26,7 +26,7 @@ Also, you can use direct authentication where usability constraints hinder the u
 >
 > * See [About MFA authenticators](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators) for more information on authenticators, and primary and secondary factors.
 >
-> * See [Configure a global session policy and authentication policies](https://developer.okta.com/docs/guides/configure-signon-policy/main/) for more information on configuring primary and secondary factor conditions.
+> * See [Configure a global session policy and app sign-in policies](https://developer.okta.com/docs/guides/configure-signon-policy/main/) for more information on configuring primary and secondary factor conditions.
 
 ## Grant-type flow
 

@@ -38,7 +38,7 @@ Make a note of your Okta domain. Use it wherever `${yourOktaDomain}` appears in 
 
 ## Create an Okta integration for your app
 
-An app integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services. This includes which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
+An app integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services. This includes which users and groups have access, app sign-in policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
 
 To create your app integration in the Okta Admin Console:
 

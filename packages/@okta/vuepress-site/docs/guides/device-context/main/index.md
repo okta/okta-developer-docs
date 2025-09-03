@@ -117,8 +117,8 @@ Create an app sign-in policy for your app. It must contain two rules that state 
 First, create the policy.
 
 1. Open the **Admin Console** for your org.
-2. Choose **Security** > **Authentication Policies** to show the available authentication policies.
-3. Click **Add a Policy**.
+2. Choose **Security** > **Authentication policies** > **App sign-in policies** to show the available app sign-in policies.
+3. Click **Create policy**.
 4. Set a **Policy Name**. Example: AMFA Test Policy
 5. Click **Save**.
 

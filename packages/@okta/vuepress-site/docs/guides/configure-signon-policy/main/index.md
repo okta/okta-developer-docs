@@ -1,6 +1,6 @@
 ---
-title: Configure a global session policy and authentication policies
-excerpt: How to configure a global session policy and authentication policies.
+title: Configure a global session policy and app sign-in policies
+excerpt: How to configure a global session policy and app sign-in policies.
 layout: Guides
 ---
 

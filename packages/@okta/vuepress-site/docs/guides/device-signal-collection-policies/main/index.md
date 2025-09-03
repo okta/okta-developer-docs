@@ -23,7 +23,7 @@ This guide describes how to use the [Policies API](https://developer.okta.com/do
 
 ## About device signal collection policies
 
-Use device signal collection policies to collect contextual information about your user's [registered devices](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-registration) and control how those registered devices are used during authentication. The device signal collection policies can collect [information](https://help.okta.com/okta_help.htm?type=oie&id=ext-ov-datatypes) about registered devices and the platforms that devices use. Device signal collection policies are part of your [authentication policies](/docs/concepts/policies/#app-sign-in-policies) and they're closely related to your [device assurance policies](/docs/guides/device-assurance-policies).
+Use device signal collection policies to collect contextual information about your user's [registered devices](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-registration) and control how those registered devices are used during authentication. The device signal collection policies can collect [information](https://help.okta.com/okta_help.htm?type=oie&id=ext-ov-datatypes) about registered devices and the platforms that devices use. Device signal collection policies are part of your [app sign-in policies](/docs/concepts/policies/#app-sign-in-policies) and they're closely related to your [device assurance policies](/docs/guides/device-assurance-policies).
 
 You can use a device signal collection policy in the following use case, as an example.
 
@@ -228,7 +228,7 @@ Create your own POST request body or copy the [example request](#create-a-device
 
 ## Map the device signal collection policy to the app sign-in policy
 
-You must associate device signal collection policies with authentication policies. You can do this by mapping the device signal collection policy `id` to the app sign-in policy `id`.
+You must associate device signal collection policies with app sign-in policies. You can do this by mapping the device signal collection policy `id` to the app sign-in policy `id`.
 
 Use the [Map a resource to a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/mapResourceToPolicy) endpoint to map your device signal collection policy to your app sign-in policy.
 

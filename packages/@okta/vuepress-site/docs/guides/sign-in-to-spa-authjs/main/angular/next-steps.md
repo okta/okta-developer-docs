@@ -1,6 +1,6 @@
 After you create a basic sign-in flow for your Angular app, you can extend your app's sign-in experience. You can add features such as multifactor authentication, self-registration, or social IdP authentication.
 
-For each of those features, ensure that you understand the [Interaction Code flow](/docs/guides/implement-grant-type/interactioncode/main/#interaction-code-flow) so that you can handle possible remediation steps of the interaction. In addition to implementing the remediation steps for those features in your app code, you need to configure authenticators and authentication policies for your app.
+For each of those features, ensure that you understand the [Interaction Code flow](/docs/guides/implement-grant-type/interactioncode/main/#interaction-code-flow) so that you can handle possible remediation steps of the interaction. In addition to implementing the remediation steps for those features in your app code, you need to configure authenticators and app sign-in policies for your app.
 
 To use the SDK to implement these features, see the [Okta Auth JavaScript SDK Interaction Code reference](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#usage).
 

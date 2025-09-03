@@ -34,7 +34,7 @@ You can [configure a global session policy](/docs/guides/configure-signon-policy
 
 ### Control how users access your app
 
-The [app sign-in policy](#authentication-policies) for each app determines what extra levels of authentication must be performed before a user can access an app. [Add a rule](/docs/guides/configure-access-policy), for example, to prompt groups that are assigned to your app to reauthenticate after 60 minutes.
+The [app sign-in policy](#app-sign-in-policies) for each app determines what extra levels of authentication must be performed before a user can access an app. [Add a rule](/docs/guides/configure-access-policy), for example, to prompt groups that are assigned to your app to reauthenticate after 60 minutes.
 
 A [password policy](#password-policies) also helps you control how users access your app. It determines the requirements for a user's password length and complexity, and it defines how often a user must change their password.
 
@@ -83,13 +83,15 @@ The [`system` attribute](https://developer.okta.com/docs/api/openapi/okta-manage
 
 You can configure policies for authentication, passwords, enrollment, device assurance, and API access. You can also use identity provider (IdP) discovery policies to create routing rules.
 
-### Sign-on policies
-
-Sign-on policies and rules enforce policies and rules so users sign in with the right level of access that you provide. [Global session policies](#global-session-policies) and [app sign-in policies](#app-sign-in-policies) together determine the level of confidence that the user signing in is also the person who owns the account.
-
-#### Global session policies
+### Global session policies
 
 A [global session policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) controls who has access and how a user gains access to Okta. See [Global session policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-osop) and [Configure a global session policy and an app sign-in policy](/docs/guides/configure-signon-policy/main/).
+
+### Authentication policies
+
+Authentication policies and rules provide control over how users sign in and their level of access to some account actions. [App sign-in policies](#app-sign-in-policies), along with [global session policies](#global-session-policies), determine the level of confidence that the user signing in is also the person who owns the account.
+
+The [Okta account management policy](#okta-account-management-policy) and its rules define authentication requirements for when users enroll or unenroll authenticators, recover their passwords, and unlock their accounts.
 
 #### App sign-in policies
 
@@ -99,19 +101,7 @@ You can create an app sign-in policy specifically for the app or create a few po
 
 Use the [App sign-in policies page](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) to modify an app's sign-in policy or switch to a different policy. See [Configure a global session policy and an app sign-in policy](/docs/guides/configure-signon-policy/main/). Also, you can [merge duplicate app sign-in policies with identical rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies) to simplify policy management.
 
-#### Device assurance policies
-
-Use [device assurance policies](/docs/guides/device-assurance-policies/main/) to check sets of security-related device attributes. Device assurance works as part of your [app sign-in policies](#app-sign-in-policies).
-
-For example, you can configure a device assurance policy to check whether a specific operating system version is installed on a device. Once verified, that device can be used to access Okta-protected resources.
-
-After you add at least one device assurance policy, you can include it in app sign-in policy rules. You can't apply device assurance policies to users, groups, or devices until you make them part of an app sign-in policy rule.
-
-<!-- See [Configure a device assurance policy]() for more details. -->
-
-See [Device assurance](https://help.okta.com/okta_help.htm?type=oie&id=ext-device-assurance) for details about configuring the policy in the Admin Console.
-
-##### Okta account management policy
+#### Okta account management policy
 
 <ApiLifecycle access="ie" />
 
@@ -124,6 +114,18 @@ You can use the Policy API to [manage the rules of the policy](https://developer
 See [Configure an Okta account management policy](/docs/guides/okta-account-management-policy/main/) for more details.
 
 See [Okta account management policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-account-management-policy) for details about configuring the policy in the Admin Console.
+
+#### Device assurance policies
+
+Use [device assurance policies](/docs/guides/device-assurance-policies/main/) to check sets of security-related device attributes. Device assurance works as part of your [app sign-in policies](#app-sign-in-policies).
+
+For example, you can configure a device assurance policy to check whether a specific operating system version is installed on a device. Once verified, that device can be used to access Okta-protected resources.
+
+After you add at least one device assurance policy, you can include it in app sign-in policy rules. You can't apply device assurance policies to users, groups, or devices until you make them part of an app sign-in policy rule.
+
+<!-- See [Configure a device assurance policy]() for more details. -->
+
+See [Device assurance](https://help.okta.com/okta_help.htm?type=oie&id=ext-device-assurance) for details about configuring the policy in the Admin Console.
 
 ### Password policies
 
@@ -151,9 +153,9 @@ See [Authenticator enrollment policy](https://help.okta.com/okta_help.htm?type=o
 
 Grace periods let you designate an amount of time for a user to enroll in a required authenticator. They're configured on a per-authenticator basis so you can minimize sign-in friction and streamline the onboarding process.
 
-For example, you can configure an authentication policy that lets an end user defer enrollment for 10 days. The end user can onboard immediately without the friction of an additional authenticator. However, the end user still needs to enroll before the end of the grace period.
+For example, you can configure an app sign-in policy that lets an end user defer enrollment for 10 days. The end user can onboard immediately without the friction of an additional authenticator. However, the end user still needs to enroll before the end of the grace period.
 
-For details about setting grace periods for authentication policies in the Admin Console, see [Authenticator enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies).
+For details about setting grace periods for app sign-in policies in the Admin Console, see [Authenticator enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies).
 
 To see the grace periods object in the API reference documentation, see the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=1/settings/authenticators/enroll/gracePeriod&t=request).
 
@@ -194,7 +196,7 @@ Policy evaluation is different when you use the AuthN authentication pipeline ve
 |                               | Sign on policy | Multifactor Authentication (MFA) |
 | :---------------------------- | :------------------------------ | :--------- |
 | AuthN authentication pipeline | Uses the [Okta sign-on policy](/docs/guides/archive-configure-signon-policy/main/) only when making calls using the SDKs or the Classic Authentication API. | Set MFA at the org level using the [Okta sign-on policy](/docs/guides/archive-configure-signon-policy/main/#prompt-for-an-mfa-factor-for-a-certain-group) for apps that use the Classic Authentication API. |
-| Identity Engine authentication pipeline | Evaluates both the global session policy and authentication policies when authenticating users. | [Set MFA](/docs/guides/configure-signon-policy/main/) at either the org level or at the app level. |
+| Identity Engine authentication pipeline | Evaluates both the global session policy and app sign-in policies when authenticating users. | [Set MFA](/docs/guides/configure-signon-policy/main/) at either the org level or at the app level. |
 
 ### Best Practices
 

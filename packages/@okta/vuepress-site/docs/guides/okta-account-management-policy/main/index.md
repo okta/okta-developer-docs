@@ -60,7 +60,7 @@ curl -i -X GET \
 
 ### Example response
 
-The response includes all of your org's [authentication policies](/docs/concepts/policies/#app-sign-in-policies) and the Okta account management policy. In the policy object, the value of the `_embedded.resourceType` parameter is `END_USER_ACCOUNT_MANAGEMENT` for your Okta account management policy. For authentication policies it's `APP`.
+The response includes all of your org's [app sign-in policies](/docs/concepts/policies/#app-sign-in-policies) and the Okta account management policy. In the policy object, the value of the `_embedded.resourceType` parameter is `END_USER_ACCOUNT_MANAGEMENT` for your Okta account management policy. For app sign-in policies it's `APP`.
 
 Use the value of the `id` parameter to manage the policy's rules. You can also use the `id` to retrieve the specific policy (GET `/api/v1/policies/{policyId}`).
 
@@ -227,7 +227,7 @@ curl --location --globoff 'https://{yourOktaDomain}/api/v1/policies/{policyId/ru
 
 ### User experience
 
-Users must be inside a trusted network zone and demonstrate low risk behavior before they enroll the designated phishing-resistant authenticator. If they don't meet these requirements, all fields in their profile settings are read-only, including the Reset, Update, and Remove options for their existing security methods. The phishing-resistant authenticators that they haven't enrolled are hidden, which means that they can't access any apps with phishing-resistant authentication policies.
+Users must be inside a trusted network zone and demonstrate low risk behavior before they enroll the designated phishing-resistant authenticator. If they don't meet these requirements, all fields in their profile settings are read-only, including the Reset, Update, and Remove options for their existing security methods. The phishing-resistant authenticators that they haven't enrolled are hidden, which means that they can't access any apps with phishing-resistant app sign-in policies.
 
 This rule also applies to authenticator unenrollment, and users can lock themselves out if they unenroll too many authenticators. Encourage users to always maintain one phishing-resistant authenticator.
 
@@ -398,4 +398,4 @@ curl --location --request PUT 'http://devorg1.okta1.com:1802/api/v1/policies/{po
 
 - [Policies](/docs/concepts/policies/)
 - [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/)
-- [Configure a global session policy and authentication policies](/docs/guides/configure-signon-policy/main/)
+- [Configure a global session policy and app sign-in policies](/docs/guides/configure-signon-policy/main/)

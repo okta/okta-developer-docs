@@ -42,7 +42,7 @@ If you'd like to explore the entire Auth JS SDK, see [Okta Auth JavaScript SDK](
 An Okta app integration represents your app in your Okta org. The integration configures how your app integrates with Okta services, which include the following:
 
 * Users and groups that have access
-* Authentication policies
+* App sign-in policies
 * Token refresh requirements
 * Redirect URLs
 
@@ -334,7 +334,7 @@ By default, your Integrator Free Plan org isn't configured for multifactor authe
    1. For **User can verify with**, select **SMS**.
    1. Set **This authenticator can be used for** to **Authentication and recovery**, and click **Add**.
 
-1. Go to **Security** > **Authentication policies** > **App sign-in**, click **Add a policy**.
+1. Go to **Security** > **Authentication policies** > **App sign-in**, click **Create policy**.
 
 1. Add a name for the policy. For example: **Mandatory MFA**.
 
