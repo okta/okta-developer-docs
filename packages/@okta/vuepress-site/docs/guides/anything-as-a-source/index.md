@@ -45,7 +45,7 @@ The Identity Sources API synchronizing data flow uses an [identity source sessio
 ### Identity source session status
 
 * **CREATED**: The identity source session object has been created for a specific Custom Identity Source integration. You can load data to the session at this stage. Data import processing hasn't been invoked, and you can cancel the session at this stage.
-* **IN_PROGRESS**: The data for the identity source session is getting uploaded in the identity source session.
+* **IN_PROGRESS**: The data for the identity source session is being uploaded in the identity source session.
 * **TRIGGERED**: Okta is processing the uploaded data in the identity source session. You can't load new data to the identity source session object at this stage, and you can't cancel the session. You can view sessions with this status on the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page in the Admin Console.
 * **COMPLETED**: Okta has processed the data in the identity source session object. You can't upload new data to the identity source session object if it has this status, because the synchronization data job is considered complete.
 * **CLOSED**: The session is canceled and isn't available for further activity. You can only cancel identity source sessions with the `CREATED` or `IN_PROGRESS` status. You can't cancel a session that has been triggered or completed. Previously loaded data is deleted from a canceled identity source session.
