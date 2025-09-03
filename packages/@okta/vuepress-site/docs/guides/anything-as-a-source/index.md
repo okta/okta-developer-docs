@@ -92,10 +92,9 @@ You can load data about users, groups, or group memberships in a bulk-load reque
 
 To load bulk users data, use `profiles`. The user `profiles` object is an array of user profile objects that contain attributes about the user. See [user `profiles`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDataForUpsert!path=profiles&t=request).
 
-Each user objects in the `profiles` array contains the following:
+Each user objects in the `profiles` array can contain the following:
 
-* `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This helps determine if a new user needs to be created or if an existing user needs to be updated.
-
+* `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This determines if a new user needs to be created or if an existing user needs to be updated.
 * `profile`: The set of attributes from the HR source to synchronize with the Okta user profile. Profiles are mapped according to the attribute mappings that you specified in your Custom Identity Source configuration. See Declare an identity source schema in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
     > **Note:** All attributes in a `profile` object are treated as strings. Arrays aren’t supported.
 
@@ -103,10 +102,9 @@ Each user objects in the `profiles` array contains the following:
 
 To load bulk groups data, use `profiles`. The group `profiles` object is an array of pairs, with each pair listing the group's external ID and the group's `profile` that contain attributes about the group, but no membership data. See [group `profiles`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupsForUpsert!path=profiles&t=request).
 
-Each group objects in the `profiles` array contains the following:
+Each group objects in the `profiles` array can contain the following:
 
-* `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific group). This helps determine if a new group needs to be created or if an existing group needs to be updated.
-
+* `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific group). This determines if a new group needs to be created or if an existing group needs to be updated.
 * `profile`: The set of attributes from the HR source to synchronize with the Okta group profile. Profiles are mapped according to the attribute mappings that you specified in your Custom Identity Source configuration. See Declare an identity source schema in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
     > **Note:** All attributes in a `profile` object are treated as strings. Arrays aren’t supported.
 
