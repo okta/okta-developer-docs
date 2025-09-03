@@ -16,7 +16,9 @@ const getMetaFor = path => yaml.safeLoad(getFrontMatterFrom( fs.readFileSync(`${
 
 const getFrameworksFor = path => {
   const entries = fs.readdirSync(path);
-  return entries.filter( name => !name.includes('.')).sort(); // assume: no ext = dir, for more simple code
+  return entries
+    .filter(name => !name.includes('.')) // assume: no ext = dir, for more simple code
+    .sort((a, b) => a.localeCompare(b, 'en', {'sensitivity': 'base'}));
 };
 
 const guideInfo = {};

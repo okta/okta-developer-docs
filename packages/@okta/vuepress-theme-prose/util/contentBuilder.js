@@ -3,7 +3,7 @@ import { commonify, fancify, cssForIcon } from './frameworks';
 const PATH_LIKE = '(?:([^\/]*)\/?)';
 const FILE_LIKE = '(?:([^\.\/]*)\.?[^\.\/]*$)';
 
-const alphaSort = (a, b) => a > b ? 1 : a < b ? -1 : 0;
+const alphaSort = (a, b) => a.localeCompare(b, 'en', {'sensitivity': 'base'});
 
 const collectFrameworksFromSections = ({ sections }) => {
   const includedFrameworks = sections.reduce((all, section) => {
