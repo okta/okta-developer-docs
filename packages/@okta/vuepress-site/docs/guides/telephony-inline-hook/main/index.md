@@ -75,9 +75,9 @@ Verify that your org has the Phone authenticator added and enabled for **Authent
 
 > **Note:** If a phone authenticator isn't already added, click **Add Authenticator**, and then **Add** on the Phone tile. Make sure that you select the options mentioned earlier, and then click **Add**.
 
-## Update an authentication policy
+## Update an app sign-in policy
 
-In this section, you update a [preset authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) with another rule. Before you change the authentication policy, you should first create a test group and add a test user for this use case example.
+In this section, you update a [preset app sign-in policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) with another rule. Before you change the app sign-in policy, you should first create a test group and add a test user for this use case example.
 
 ### Create a group and add a user
 
@@ -89,7 +89,7 @@ In this section, you update a [preset authentication policy](https://help.okta.c
 
 ### Add a rule to the policy
 
-Update the **Okta Dashboard** [preset authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to include an additional factor by adding a rule for the Support group that you created.
+Update the **Okta Dashboard** [preset app sign-in policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to include an additional factor by adding a rule for the Support group that you created.
 
 1. In the Admin Console, go to **Security** > **Authentication Policies**, and then select the **Okta Dashboard** preset policy.
 1. Click **Add Rule** and name the rule.

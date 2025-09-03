@@ -57,7 +57,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 The Sign-In Widget displays a page for the user to start verifying their identity by email. Email is the only choice because:
 
 * The user has only enrolled the email authenticator.
-* Email is the only allowed authentication factor in your app integration's authentication policy.
+* Email is the only allowed authentication factor in your app integration's app sign-in policy.
 
 The user clicks **Send me an email** to begin the email challenge flow.
 

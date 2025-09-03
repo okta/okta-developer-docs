@@ -27,7 +27,7 @@ Use device signal collection policies to collect contextual information about yo
 
 You can use a device signal collection policy in the following use case, as an example.
 
-One of your users has a registered device with Okta Verify and another authenticator. And you have an authentication policy that requires users to have registered devices when they sign in to Okta. You can use the device signal collection policy to check for devices that are registered with Okta Verify when users sign in. You can then configure the device signal collection policy to let users sign in to Okta with their other authenticator instead of using Okta Verify to automatically sign them in.
+One of your users has a registered device with Okta Verify and another authenticator. And you have an app sign-in policy that requires users to have registered devices when they sign in to Okta. You can use the device signal collection policy to check for devices that are registered with Okta Verify when users sign in. You can then configure the device signal collection policy to let users sign in to Okta with their other authenticator instead of using Okta Verify to automatically sign them in.
 
 ### About platforms
 
@@ -55,17 +55,17 @@ To configure a device signal collection policy in your org, follow these steps:
 
 > **Note:** To configure a device signal collection policy in the Admin Console, see [Create device signal collection rules](https://help.okta.com/okta_help.htm?type=oie&id=create-device-signal-collection-ruleset).
 
-1. [Create an authentication policy that checks for registered devices](#configure-an-authentication-policy-for-registered-devices).
+1. [Create an app sign-in policy that checks for registered devices](#configure-an-app-sign-in-policy-for-registered-devices).
 1. [Create a disabled device signal collection policy](#create-a-disabled-device-signal-collection-policy).
-1. [Map the device signal collection policy to the authentication policy](#map-the-device-signal-collection-policy-to-the-authentication-policy).
+1. [Map the device signal collection policy to the app sign-in policy](#map-the-device-signal-collection-policy-to-the-app-sign-in-policy).
 1. [Create a rule for the device signal collection policy](#create-a-device-signal-collection-policy-rule).
 1. [Review and then activate the device signal collection policy](#activate-the-device-signal-collection-policy).
 
-## Configure an authentication policy for registered devices
+## Configure an app sign-in policy for registered devices
 
-Use the [Create a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) endpoint to create an authentication policy.
+Use the [Create a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) endpoint to create an app sign-in policy.
 
-Create your own POST request body or copy the [example request](#create-an-authentication-policy-request-example) and input your values.
+Create your own POST request body or copy the [example request](#create-an-app-sign-in-policy-request-example) and input your values.
 
 1. Ensure that the following request body parameters are set correctly:
    * Enter a value for `name`.
@@ -74,7 +74,7 @@ Create your own POST request body or copy the [example request](#create-an-authe
 1. Send the `POST /api/v1/policies` request.
 1. In the response, copy and paste the `id` of the policy into a text editor.
 
-### Create an authentication policy request example
+### Create an app sign-in policy request example
 
 ```json
 {
@@ -94,22 +94,22 @@ Create your own POST request body or copy the [example request](#create-an-authe
 
 ### Create a rule for registered devices
 
-Use the [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) endpoint to create a rule for the authentication policy that requires devices to be registered.
+Use the [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) endpoint to create a rule for the app sign-in policy that requires devices to be registered.
 
 Before you create the rule for registered devices, use the [List all groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups) endpoint to retrieve the group `id` of your test group.
 
-Create your own POST request body or copy the [example request](#authentication-policy-rule-for-registered-devices-request-example) and input your values.
+Create your own POST request body or copy the [example request](#app-sign-in-policy-rule-for-registered-devices-request-example) and input your values.
 
 1. Ensure that the following request body parameters are set correctly:
    * Enter a value for `name`.
    * Set the type as `ACCESS_POLICY`.
    * Set `groupId` as the `id` of your test group.
    * Set `device.registered` as `true`.
-   * Include the `device.managed` property, and set it as `false`. In this example, the authentication policy rule doesn't apply to managed devices.
+   * Include the `device.managed` property, and set it as `false`. In this example, the app sign-in policy rule doesn't apply to managed devices.
    * Set the status of the policy as `ACTIVE`.
 1. Send the `POST /api/v1/policies/{policyId}/rules` request.
 
-#### Authentication policy rule for registered devices request example
+#### App sign-in policy rule for registered devices request example
 
 ```json
 {
@@ -151,7 +151,7 @@ Create your own POST request body or copy the [example request](#authentication-
 
 ## Create a disabled device signal collection policy
 
-After you've created the authentication policy for registered devices, use the [Create a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) endpoint to create a disabled device signal collection policy. By setting the policy as disabled, you can review its rules and ensure that the policy is configured correctly before activating it.
+After you've created the app sign-in policy for registered devices, use the [Create a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) endpoint to create a disabled device signal collection policy. By setting the policy as disabled, you can review its rules and ensure that the policy is configured correctly before activating it.
 
 Create your own POST request body or copy the [example request](#create-a-device-signal-collection-policy-request-example) and input your values.
 
@@ -226,17 +226,17 @@ Create your own POST request body or copy the [example request](#create-a-device
 }
 ```
 
-## Map the device signal collection policy to the authentication policy
+## Map the device signal collection policy to the app sign-in policy
 
-You must associate device signal collection policies with authentication policies. You can do this by mapping the device signal collection policy `id` to the authentication policy `id`.
+You must associate device signal collection policies with authentication policies. You can do this by mapping the device signal collection policy `id` to the app sign-in policy `id`.
 
-Use the [Map a resource to a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/mapResourceToPolicy) endpoint to map your device signal collection policy to your authentication policy.
+Use the [Map a resource to a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/mapResourceToPolicy) endpoint to map your device signal collection policy to your app sign-in policy.
 
 Create your own POST request body or copy the [example request](#map-the-devie-signal-collection-policy-request-example) and input your values.
 
 1. In the path parameters, use the device signal collection policy `id` as the `policyId`.
 1. In the request body, set the following parameters:
-   * Use the `id` of the authentication policy as the `resoureceId`.
+   * Use the `id` of the app sign-in policy as the `resoureceId`.
    * Set the `resourceType` as `APP`.
 1. Send the `POST /api/v1/policies/{policyId}/mappings` request.
 

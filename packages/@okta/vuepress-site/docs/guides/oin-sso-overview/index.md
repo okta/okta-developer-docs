@@ -78,7 +78,7 @@ Ali performs the following tasks:
 * Finds the Acme app in the OIN catalog. Since Acme is in the OIN, Ali knows that he can trust Acme to be securely incorporated into their existing Okta-managed SSO with minimal effort.
 * Adds the Acme app integration from the Admin Console
 * Follows the instructions provided by Acme to configure the app integration
-* Configures the Okta authentication policy and the group of Initech employees who have access to the Acme app
+* Configures the Okta app sign-in policy and the group of Initech employees who have access to the Acme app
 * Tests signing in to the Acme app with existing Okta credentials to verify the authentication flow
 
 Initech's group of employees with privileges can sign in to the Acme app with their existing Okta credentials. No additional Acme app registration is required.

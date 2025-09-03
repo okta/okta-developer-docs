@@ -14,7 +14,7 @@ The phone authenticator is a popular and recommended alternative authenticator b
 
 Before you configure the password-optional experience, ensure that you continue to require valid two-factor authentication from your admin users. The Admin Console must remain accessible to your admin accounts.
 
-* Change the Admin Console authentication policy to require **any two factors** rather than a password plus another factor. Disabling the password authenticator before you do this locks your admins out of the Admin Console.
+* Change the Admin Console app sign-in policy to require **any two factors** rather than a password plus another factor. Disabling the password authenticator before you do this locks your admins out of the Admin Console.
 * Create a separate group for admins and add your admin users to that group.
 * Create separate authenticator enrollment, global session, and authentication policies for this group. Each policy should require two non-password factors.
 * Place this group at the highest priority (at number one) in the authenticator enrollment policy.

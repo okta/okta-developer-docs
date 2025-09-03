@@ -79,7 +79,7 @@ This section walks you through enrolling a user and authenticating that user.
 <StackSnippet snippet="simpleenrollauth" />
 
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You're redirected to the success page.
-    > **Note:** Which authenticators appear during sign-in depends on how your [authentication policy](/docs/guides/configure-signon-policy/main/#authentication-policies) is configured.
+    > **Note:** Which authenticators appear during sign-in depends on how your [app sign-in policy](/docs/guides/configure-signon-policy/main/#app-sign-in-policies) is configured.
 5. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
 ## Enable self-service enrollment
@@ -133,7 +133,7 @@ To enable self-service password-optional enrollments in the Sign-In Widget, <Sta
 
 ## Add MFA with a mandatory second factor
 
-You can modify the app's authentication policy to require the user to have a second factor enabled for authentication. In this example, use the phone authenticator.
+You can modify the app's app sign-in policy to require the user to have a second factor enabled for authentication. In this example, use the phone authenticator.
 
 > **Note:** Your Okta org may have different authenticators enabled by default.
 

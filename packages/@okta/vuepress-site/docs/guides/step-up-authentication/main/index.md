@@ -39,7 +39,7 @@ The Okta [redirect and embedded](/docs/concepts/redirect-vs-embedded/) deploymen
 
 ### Evaluation flow
 
-In Identity Engine, assurances from policies are always evaluated in order of factor verification, constraints, and re-authentication. The [global session policy](/docs/concepts/policies/#sign-on-policies) is evaluated first, then the authentication policy, and then the `acr_values` parameter in the request. The authentication policy is always evaluated before the `acr_values` parameter.
+In Identity Engine, assurances from policies are always evaluated in order of factor verification, constraints, and re-authentication. The [global session policy](/docs/concepts/policies/#sign-on-policies) is evaluated first, then the app sign-in policy, and then the `acr_values` parameter in the request. The app sign-in policy is always evaluated before the `acr_values` parameter.
 
 In Classic Engine when a user doesn't have a session, the more restrictive policy is evaluated first, such as the Okta sign-on policy or the app sign-on policy. Also, if an assurance requirement is more restrictive, such as an `acr_values` parameter, that's evaluated first. The second most restrictive policy or assurance requirement is then evaluated and so on. When a user already has a session, the app sign-on policy is always evaluated first. Then, the `acr_values` parameter in the request.
 

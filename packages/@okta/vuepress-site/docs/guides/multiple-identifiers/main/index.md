@@ -157,7 +157,7 @@ See [Replace the customized sign-in page](https://developer.okta.com/docs/api/op
 
 ## Add apps to a user profile policy
 
-Multiple identifiers are configured at the app level. Add an app to the user profile policy or the IDs don’t work. See [Assign an authentication policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationPolicies/#tag/ApplicationPolicies/operation/assignApplicationPolicy).
+Multiple identifiers are configured at the app level. Add an app to the user profile policy or the IDs don’t work. See [Assign an app sign-in policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationPolicies/#tag/ApplicationPolicies/operation/assignApplicationPolicy).
 
 ```bash
 curl -i -X PUT \

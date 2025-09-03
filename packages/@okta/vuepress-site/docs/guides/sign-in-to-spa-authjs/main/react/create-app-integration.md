@@ -14,7 +14,7 @@ Before you integrate authentication into your React app, you need to register yo
     | Trusted Origins > Base URIs | Specify your app base URI for CORS. For example: `http://localhost:8080`. Ensure that you add trusted origins for all base URIs. |
     | Assignments   | Assign users to your app                                |
 
-5. Select the **Sign On** tab and scroll down to the **User authentication** section. New apps are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup.
+5. Select the **Sign On** tab and scroll down to the **User authentication** section. New apps are automatically assigned the shared default [app sign-in policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup.
 6. For this use case, we want to use only the password factor. Click **Edit** and select the **Password only** [preset policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to assign it to your app.
 7. Click **Save**.
 

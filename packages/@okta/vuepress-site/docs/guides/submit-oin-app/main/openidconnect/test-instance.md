@@ -9,7 +9,7 @@
    1. Select **Password only** from the **Authentication policy** dropdown menu.
    [[style="list-style-type:lower-alpha"]]
    1. Click **Save**.
-   > **Note:** Integrator Free Plan orgs are Identity Engine orgs. See [OIN Wizard authentication policy for testing](/docs/guides/submit-app-prereq/main/#oin-wizard-authentication-policy-for-testing).
+   > **Note:** Integrator Free Plan orgs are Identity Engine orgs. See [OIN Wizard app sign-in policy for testing](/docs/guides/submit-app-prereq/main/#oin-wizard-app-sign-in-policy-for-testing).
 8. Follow these steps if you have the Universal Logout integration with SSO:
    1. Click the **Sign On** tab, scroll to the **Logout** section.
    [[style="list-style-type:lower-alpha"]]

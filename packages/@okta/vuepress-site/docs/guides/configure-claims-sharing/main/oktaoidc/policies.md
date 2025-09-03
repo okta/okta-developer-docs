@@ -1,14 +1,14 @@
 You can configure many scenarios for authentication using claims sharing and policies in your Okta SP and Okta IdP orgs.
 
-### Authentication policy example
+### App sign-in policy example
 
-[Create an authentication policy and rule for your app](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) in your SP org. Select **Any 2 factor types**, don't select a possession constraint, and select **Allow any method that can be used to meet the requirement**.
+[Create an app sign-in policy and rule for your app](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) in your SP org. Select **Any 2 factor types**, don't select a possession constraint, and select **Allow any method that can be used to meet the requirement**.
 
 With trust claims enabled and your IdP org able to verify any two factors, you can satisfy the requirements in the SP org.
 
-#### Other authentication policy scenarios
+#### Other app sign-in policy scenarios
 
-* **Possession factor constraints:** If you enable any possession factor constraints in the authentication policy of your SP org, the IdP org must satisfy the requirement with appropriate factor verification.
+* **Possession factor constraints:** If you enable any possession factor constraints in the app sign-in policy of your SP org, the IdP org must satisfy the requirement with appropriate factor verification.
 
 * **Authentication methods:**
   * **Allow any method that can be used to meet the requirement**: If you enable this setting in your SP org, you can satisfy the policy requirements by using any authenticator that meets those requirements. This includes authenticators that aren't configured locally in the SP org.
@@ -29,7 +29,7 @@ If you have a combination of Okta Identity Engine and Classic Engine orgs, the r
 
 #### Example scenario one
 
-Your SP org is an Identity Engine org. Your IdP is a Classic Engine org. MFA from the Classic Engine org can only satisfy one of the following authentication policy rules on the Identity Engine SP org:
+Your SP org is an Identity Engine org. Your IdP is a Classic Engine org. MFA from the Classic Engine org can only satisfy one of the following app sign-in policy rules on the Identity Engine SP org:
 
 * **Any 1 factor type/IdP**
 * **Any 2 factor types**

@@ -6,7 +6,7 @@ title: Device Context Overview
 
 <ApiLifecycle access="ie" /><br>
 
-Enable a new device rule for your org's authentication policy.
+Enable a new device rule for your org's app sign-in policy.
 
 ---
 #### Learning outcomes
@@ -38,7 +38,7 @@ For server-side apps using an embedded SDK, developers must create the ID and as
 * [Device Context](https://help.okta.com/okta_help.htm?type=oie&id=ext-devcontext-main)
 * [Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection)
 
-Administrators can write authentication policy rules for sign-in requests from a new device using the **new device behavior**. The following diagram shows this flow:
+Administrators can write app sign-in policy rules for sign-in requests from a new device using the **new device behavior**. The following diagram shows this flow:
 
 <div class="full">
 
@@ -77,7 +77,7 @@ Follow these steps to enable this AMFA policy in your app:
 
 1. Update your application to send the `X-Device-Token` header to your org.
 2. Update or create a new global session policy to require a second authentication factor for sign-in requests from new devices.
-3. Update or create an authentication policy for your app to require and identify a second authentication factor for new devices.
+3. Update or create an app sign-in policy for your app to require and identify a second authentication factor for new devices.
 
 > **Note**: For testing purposes, create new policies rather than adding AMFA rules to your existing policies.
 
@@ -107,9 +107,9 @@ These rules declare that:
 
 > **Note**: See [Add a global session policy rule](https://help.okta.com/okta_help.htm?type=oie&id=ext-add-okta-sign-on-policy-rule) to learn how the different MFA settings interact.
 
-### Create a new app authentication policy for AMFA
+### Create a new app app sign-in policy for AMFA
 
-Create an authentication policy for your app. It must contain two rules that state the following:
+Create an app sign-in policy for your app. It must contain two rules that state the following:
 
 1. By default, users authenticate with a username and password only.
 2. If the user is using a new device, require a second authentication factor.

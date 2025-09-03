@@ -36,7 +36,7 @@ In a pre-authentication KMSI flow, users select **Keep me signed in** when they 
 
 In a post-authentication KMSI flow, users who go to your org's sign-in page may be redirected to an identity provider before they can select **Keep me signed in**. After authenticating, these users select **Stay signed in** when they're redirected back to Okta.
 
-In either case, users who select **Keep me signed in** are remembered on their device for the duration set in your authentication policy.
+In either case, users who select **Keep me signed in** are remembered on their device for the duration set in your app sign-in policy.
 
 They can manually reset the KMSI prompt and clear all sessions in their account settings menu by doing the following:
 
@@ -47,7 +47,7 @@ They can manually reset the KMSI prompt and clear all sessions in their account 
 
 Pre-authentication KMSI is enabled in the Organization Security settings of the Admin Console. Once enabled, it's available to all users in your org.
 
-It uses the [MFA lifetime](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/replacePolicyRule!path=4/actions/signon/session&t=request) from your [global session policy](/docs/guides/configure-signon-policy/main/#global-session-policies). You also need to update the [authentication policy](/docs/guides/configure-signon-policy/main/#authentication-policies) for all apps where you want to allow KMSI.
+It uses the [MFA lifetime](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/replacePolicyRule!path=4/actions/signon/session&t=request) from your [global session policy](/docs/guides/configure-signon-policy/main/#global-session-policies). You also need to update the [app sign-in policy](/docs/guides/configure-signon-policy/main/#app-sign-in-policies) for all apps where you want to allow KMSI.
 
 If you want to configure pre-authentication KMSI using the Admin Console, see [Keep me signed in](https://help.okta.com/okta_help.htm?type=oie&id=ext-stay-signed-in).
 
@@ -142,9 +142,9 @@ Include the following:
 '
 ```
 
-### Create an authentication policy rule
+### Create an app sign-in policy rule
 
-Create an authentication policy rule for every app where you want to allow KMSI. See [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule).
+Create an app sign-in policy rule for every app where you want to allow KMSI. See [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule).
 
 Add two conditions:
 
@@ -153,7 +153,7 @@ Add two conditions:
 
 Send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. Include the following:
 
-* Include the `policyId` of the authentication policy.
+* Include the `policyId` of the app sign-in policy.
 * Provide a value for `id`.
 * Set the value of `type` to `ACCESS_POLICY`.
 * In the `appSignOn` object, set the following values:
@@ -164,7 +164,7 @@ See [Create a global session policy rule](#create-a-global-session-policy-rule).
 
 ## Configure post-authentication KMSI
 
-Post-authentication KMSI is set at the app level in an authentication policy, so you can configure it on a per-app basis. First, you need to modify your default global session policy so that your intended KMSI duration is observed.
+Post-authentication KMSI is set at the app level in an app sign-in policy, so you can configure it on a per-app basis. First, you need to modify your default global session policy so that your intended KMSI duration is observed.
 
 ### Modify your global session policy
 
@@ -199,7 +199,7 @@ In a PUT request to the `/api/v1/policies/{policyId}/rules/{ruleId}` endpoint, i
 },
 ```
 
-### Update an authentication policy for post-authentication KMSI
+### Update an app sign-in policy for post-authentication KMSI
 
 In a PUT request to the `/api/v1/policies/{policyId}/rules/{ruleId}` endpoint, include the following:
 

@@ -32,9 +32,9 @@ After an admin configures the TAC authenticator settings, admins or help-desk ag
 
 ### Use the TAC authenticator in policies
 
-This guide outlines [two authentication policy scenarios](#configure-authentication-policies-for-tac) that allow the use of the TAC authenticator. When you add the TAC authenticator to your own org policies remember that it's a knowledge factor.
+This guide outlines [two app sign-in policy scenarios](#configure-authentication-policies-for-tac) that allow the use of the TAC authenticator. When you add the TAC authenticator to your own org policies remember that it's a knowledge factor.
 
-Users can sign in with TAC, security questions, and their password as knowledge factors, depending on your authentication policy configuration and which authenticators they have access to. However, if your global session policy requires MFA, users must also have access to a possession or biometric factor.
+Users can sign in with TAC, security questions, and their password as knowledge factors, depending on your app sign-in policy configuration and which authenticators they have access to. However, if your global session policy requires MFA, users must also have access to a possession or biometric factor.
 
 #### Configure the TAC authenticator in authenticator enrollment policies
 
@@ -145,29 +145,29 @@ To configure the TAC authenticator in the Admin Console, see [Configure the temp
 
 ## Configure authentication policies for TAC
 
-There are various ways to configure TAC with authentication policies. Use either of the following authentication policy examples in your own org.
+There are various ways to configure TAC with authentication policies. Use either of the following app sign-in policy examples in your own org.
 
 * [Use TAC in an authentication method chain](#use-tac-in-an-authentication-method-chain)
 * [Use TAC with any two factor types](#use-tac-with-any-two-factor-types)
 
-Ensure that you first [create an authentication policy](#create-an-authentication-policy) before creating policy rules for either of the scenarios.
+Ensure that you first [create an app sign-in policy](#create-an-app-sign-in-policy) before creating policy rules for either of the scenarios.
 
-### Create an authentication policy
+### Create an app sign-in policy
 
-First, create an authentication policy. Use the [Create a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) endpoint.
+First, create an app sign-in policy. Use the [Create a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) endpoint.
 
-1. Use the values and format provided in the [request body example](#authentication-policy-request-example).
-1. Enter a value for `name`. For example, `TAC authentication policy`.
+1. Use the values and format provided in the [request body example](#app-sign-in-policy-request-example).
+1. Enter a value for `name`. For example, `TAC app sign-in policy`.
 1. Set the `type` as `ACCESS_POLICY`.
 1. Send the `POST /api/v1/policies` request.
-1. In the response, copy and paste the `id` of the authentication policy.
+1. In the response, copy and paste the `id` of the app sign-in policy.
 
-#### Authentication policy request example
+#### App sign-in policy request example
 
 ```json
 {
   "description": null,
-  "name": "TAC authentication policy",
+  "name": "TAC app sign-in policy",
   "priority": "1",
   "status": "ACTIVE",
   "system": false,
@@ -183,14 +183,14 @@ First, create an authentication policy. Use the [Create a policy](https://develo
 
 ### Use TAC in an authentication method chain
 
-Use this authentication policy rule when you want users to specifically authenticate with TAC and a [WebAuthn](https://help.okta.com/okta_help.htm?type=oie&id=ext-webauthn) factor. You can customize which authenticators to require in the authentication method chain. This policy rule can be used in the following scenario.
+Use this app sign-in policy rule when you want users to specifically authenticate with TAC and a [WebAuthn](https://help.okta.com/okta_help.htm?type=oie&id=ext-webauthn) factor. You can customize which authenticators to require in the authentication method chain. This policy rule can be used in the following scenario.
 
 One of your users doesn't have their phone with them and doesn't have access to their Phone or Okta Verify authenticators. You generate a TAC for them that they can use for eight hours. With this policy rule, they're required to use the TAC and their WebAuthn authenticator whenever they sign in.
 
 Use the [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) endpoint to create the rule.
 
 1. Use the values and format provided in the [request body example](#tac-and-authentication-method-chain-request-example).
-1. In the path of the POST request, set the `policyId` as the `id` of the **TAC authentication policy**.
+1. In the path of the POST request, set the `policyId` as the `id` of the **TAC app sign-in policy**.
 1. Ensure that the following parameters are set correctly:
     * Enter a value for `name`. For example, `TAC and authentication method chain`.
     * Under `groups.include` use the group `id` of your test group.
@@ -246,12 +246,12 @@ Use the [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-
 
 ### Use TAC with any two factor types
 
-Use this authentication policy rule to provide more flexibility for users when they sign in. With this rule, they can use TAC, and any other authenticator to sign in.
+Use this app sign-in policy rule to provide more flexibility for users when they sign in. With this rule, they can use TAC, and any other authenticator to sign in.
 
 Use the [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) endpoint to create the rule.
 
 1. Use the values and format provided in the [request body example](#any-two-factors-and-tac-request-example).
-1. In the path of the POST request, set the `policyId` as the `id` of the **TAC authentication policy**.
+1. In the path of the POST request, set the `policyId` as the `id` of the **TAC app sign-in policy**.
 1. Ensure that the following parameters are set correctly:
     * Enter a value for `name`. For example, `Allow any two factors for TAC users`.
     * Under `groups.include` use the group `id` of your test group.

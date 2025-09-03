@@ -84,11 +84,11 @@ Before you can implement authorization, you need to register your app in Okta by
 1. Select **Allow everyone in your organization to access**, then click **Save**. The **General** tab appears.
 1. Copy and save the generated **Client ID** value to implement your authorization flow.
 
-## Set up the authentication policy
+## Set up the app sign-in policy
 
-In direct authentication flows, the client specifies a grant type that indicates the type of authenticator being used. However, the server can't grant a token until the client’s authentication policy is satisfied.
+In direct authentication flows, the client specifies a grant type that indicates the type of authenticator being used. However, the server can't grant a token until the client’s app sign-in policy is satisfied.
 
-> **Note:** This example creates an app authentication policy with a <StackSnippet snippet="noterule" inline /> for testing purposes.
+> **Note:** This example creates an app app sign-in policy with a <StackSnippet snippet="noterule" inline /> for testing purposes.
 
 1. Go to your app’s **Sign On** tab, scroll to the bottom, and click **View policy details**.
 1. Click **Actions** on the right of the Default Policy title and select **Clone policy**.
@@ -99,7 +99,7 @@ In direct authentication flows, the client specifies a grant type that indicates
 1. Skip down to **AND User must authenticate with** and select **<StackSnippet snippet="authwith" inline />**, and then click **Save**.
 1. Open the app that you created and select the **Sign On** tab.
 1. Scroll to the **User authentication** section at the bottom and click **Edit**.
-1. Select the authentication policy that you created and click **Save**.
+1. Select the app sign-in policy that you created and click **Save**.
 
 <StackSnippet snippet="setup-app" />
 

@@ -57,7 +57,7 @@ As the Service Provider, you can provide WebAuthn support to your users. Enable 
 
 ## Update configurations
 
-Before you can start using WebAuthn, you need to enable it in your Okta org and assign it an authentication policy that requires it to be used.
+Before you can start using WebAuthn, you need to enable it in your Okta org and assign it an app sign-in policy that requires it to be used.
 
 ### Add WebAuthn to your org
 
@@ -88,7 +88,7 @@ First, add the WebAuthn authenticator to your org and enable it.
 
 ### Set your app integration to use the WebAuthn authenticator
 
-New apps are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, it becomes evident when you can share your authentication needs between apps. 
+New apps are automatically assigned the shared default [app sign-in policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, it becomes evident when you can share your authentication needs between apps. 
 
 Create a policy specifically for your app for testing purposes.
 

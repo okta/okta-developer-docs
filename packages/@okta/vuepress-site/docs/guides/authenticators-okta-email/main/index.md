@@ -56,7 +56,7 @@ This guide discusses the email authenticator user journeys for both magic links 
 
 ## Update configurations
 
-Before you can start using the email authenticator, you need to enable it in your Okta org and assign it an authentication policy that requires the email authenticator.
+Before you can start using the email authenticator, you need to enable it in your Okta org and assign it an app sign-in policy that requires the email authenticator.
 
 ### Add the email authenticator to your org
 
@@ -87,7 +87,7 @@ First, add the email authenticator to your org and enable it for both authentica
 
 ### Set your app integration to use the email authenticator
 
-New app integrations are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, multiple app integrations can share the same app policy. In testing however, you should create a policy specifically for your test app.
+New app integrations are automatically assigned the shared default [app sign-in policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, multiple app integrations can share the same app policy. In testing however, you should create a policy specifically for your test app.
 
 1. Open the **Admin Console** for your org and choose **Security > Authentication Policies** to show the available authentication policies.
 2. Click **Add a Policy**, give the policy a name, and then click **Save**.

@@ -74,7 +74,7 @@ Create an app integration that represents the app you want to add authentication
 
 <StackSnippet snippet="emailcallbackuri" />
 
-> **Note:** New apps are automatically assigned the default authentication policy, which requires a user to verify their identity with two factors. To view or change this policy, select the **Sign On** tab, and then locate the **User Authentication** section.
+> **Note:** New apps are automatically assigned the default app sign-in policy, which requires a user to verify their identity with two factors. To view or change this policy, select the **Sign On** tab, and then locate the **User Authentication** section.
 
 <StackSnippet snippet="appsbaseurl" />
 

@@ -283,13 +283,13 @@ resource okta_policy_device_assurance_chromeos example{
 
 ## Use device assurance for authentication
 
-To use device assurance, add one or more device assurance policies to an authentication policy.
+To use device assurance, add one or more device assurance policies to an app sign-in policy.
 
-There are two approaches to defining an authentication policy:
+There are two approaches to defining an app sign-in policy:
 
-* Use the default authentication policy representing your Okta app, such as an OAuth web app. In this case, use a Terraform data source to find the ID for the default authentication policy and then add a rule referencing that policy. For an example, see this [policy rule example in the Terraform git repository](https://github.com/okta/terraform-provider-okta/blob/master/examples/resources/okta_app_signon_policy_rule/basic.tf).
+* Use the default app sign-in policy representing your Okta app, such as an OAuth web app. In this case, use a Terraform data source to find the ID for the default app sign-in policy and then add a rule referencing that policy. For an example, see this [policy rule example in the Terraform git repository](https://github.com/okta/terraform-provider-okta/blob/master/examples/resources/okta_app_signon_policy_rule/basic.tf).
 
-* Create an authentication policy for your app and set the policy ID in a field in your app resource in Terraform.
+* Create an app sign-in policy for your app and set the policy ID in a field in your app resource in Terraform.
 
 The high-level steps to enforce device minimum standards:
 
@@ -297,13 +297,13 @@ The high-level steps to enforce device minimum standards:
 
 1. If you don't already have one, create an app for which you want access control, such as an OAuth web app. See the provider for resources with the name `okta_app_<type_name>`.
 
-1. Create an authentication policy resource of type [okta_app_signon_policy](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_signon_policy).
+1. Create an app sign-in policy resource of type [okta_app_signon_policy](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_signon_policy).
 
-1. Create an authentication policy rule of type [okta_app_signon_policy_rule](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_signon_policy_rule) that specifies your device assurance policies. Each rule references its associated policy in its argument `policy_id`. One rule can reference multiple device assurance policies using a list of their IDs.
+1. Create an app sign-in policy rule of type [okta_app_signon_policy_rule](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_signon_policy_rule) that specifies your device assurance policies. Each rule references its associated policy in its argument `policy_id`. One rule can reference multiple device assurance policies using a list of their IDs.
 
-1. Attach the authentication policy to your app by setting the policy ID in the `authentication_policy` field.
+1. Attach the app sign-in policy to your app by setting the policy ID in the `authentication_policy` field.
 
-The following example creates an OAuth app using an `okta_app_oauth` resource and then adds an authentication policy (a sign-on policy) that contains two policy rules:
+The following example creates an OAuth app using an `okta_app_oauth` resource and then adds an app sign-in policy (a sign-on policy) that contains two policy rules:
 
 * One policy rule references the device assurance policy as a matching criterion for authentication.
 
@@ -315,7 +315,7 @@ Some resource types have a `priority` field, which includes policies and rules. 
 
 * Rules with lower priorities must use the Terraform special attribute `depends_on`. Set the value to the priority of the rules that must be created before the current one.
 
-This example shows an authentication policy with two device assurance rules that use priority and `depends_on`. The rule with the lower priority, `my_signin_policy_denyall`, depends on the one with higher priority:
+This example shows an app sign-in policy with two device assurance rules that use priority and `depends_on`. The rule with the lower priority, `my_signin_policy_denyall`, depends on the one with higher priority:
 
 ```hcl
 resource "okta_app_oauth" "OAuthFakeApp" {
