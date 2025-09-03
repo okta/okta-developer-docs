@@ -42,7 +42,7 @@ Okta offers two free org types for feature review, development, and testing:
 
 Integrator free plan orgs are also required for developers submitting to the Okta Integration Network (OIN). For more details, see the [Okta Integration Network](/docs/guides/okta-integration-network/).
 
-> **Note:** Free trial orgs use URLs with the format `https://trial-1234567.okta.com` and Integrator Free Plan orgs use URLs with the format `https://integrator-1234567.okta.com`.
+> **Note:** Free trial orgs are provisioned with URLs of the format `https://trial-1234567.okta.com` and Integrator Free Plan orgs with the format `https://integrator-1234567.okta.com`.
 
 ## Admin Console
 
