@@ -748,7 +748,7 @@ export const guides = [
           },
           {
             title: "Express Configuration",
-            path: "/docs/guides/express-configuration/main",
+            path: "/docs/guides/express-configuration/main/",
             subLinks: [
               {
                 title: "Enable Express Configuration",

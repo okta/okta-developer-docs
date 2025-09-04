@@ -35,6 +35,9 @@ function createContentInfo({
       [, name, framework, sectionName] = path.match(`${fragment}${PATH_LIKE}${PATH_LIKE}${PATH_LIKE}`) || [];
     }
     framework = framework === DEFAULT_FRAMEWORK ? '' : framework;
+    if (framework) {
+        framework = framework.toLowerCase();
+    }
     sectionName = sectionName || DEFAULT_SECTION;
     return { [`${type}Name`]: name, framework, sectionName };
   };
@@ -107,7 +110,7 @@ function createContentInfo({
     info[listKey].forEach(content => {
       content.sections.forEach(section => {
         section.frameworks = Object.keys(section.frameworkByName).sort(alphaSort);
-        section.mainFramework = section.frameworks.length && section.frameworks.reduce((min, next) => min < next ? min : next);
+        section.mainFramework = section.frameworks.length && section.frameworks[0];
 
         Object.entries(section.snippetByName).forEach(([snippetName, snippet]) => {
           snippet.frameworks = section.frameworks.map(framework => {
