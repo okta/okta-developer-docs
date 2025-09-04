@@ -54,7 +54,7 @@ Along with other parameters, the payload can contain scopes and custom claims. S
 }
 ```
 
-The payload contains various [reserved claims](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#reserved-claims-in-the-payload-section), along with an array of scopes, within the `scp` array. The reserved claims convey some information about the access token. For example, the `iss` (issuer) claim contains the URL of the authorization server that issued the token. And the `aud` (audience) claim contains the intended recipient of the token.
+In this access token example, the payload contains various [reserved claims](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#reserved-claims-in-the-payload-section), along with an array of scopes, within the `scp` array. The reserved claims convey some information about the access token. For example, the `iss` (issuer) claim contains the URL of the authorization server that issued the token. And the `aud` (audience) claim contains the intended recipient of the token.
 
 The `scp` (scope) parameter passes two scopes to the resource server: `openid` and `email`. The `email` scope contains the `email` and `email_verified` claims and these claims provide access to the user's email address and its verification status. The `openid` scope indicates that the token is part of an OIDC request.
 
@@ -105,7 +105,7 @@ The primary method for using claims securely is to validate them. Validate the c
 * Verify the `exp` claim to ensure that it hasn't expired.
 * Verify the `aud` claim to ensure that it's intended for your app.
 
-For more information about validating claims and tokens, see [Validate access tokens](/docs/guides/validate-access-tokens/dotnet/main/) and [Validate ID tokens](/docs/guides/validate-id-tokens/main/).
+There are other ways to validate claims and tokens. For more information, see [Validate access tokens](/docs/guides/validate-access-tokens/dotnet/main/) and [Validate ID tokens](/docs/guides/validate-id-tokens/main/).
 
 Another way to use claims securely is to follow the principle of least privilege. This means granting users and apps the minimum level of access necessary to perform their tasks. Limit the claims in tokens to reduce the risk of exposing sensitive information.
 
