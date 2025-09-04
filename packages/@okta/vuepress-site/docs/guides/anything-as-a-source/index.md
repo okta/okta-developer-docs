@@ -166,7 +166,7 @@ Code your XaaS data synchronization client with the following generalized API fl
 3. Trigger the data import process.
 4. Monitor the identity source session until the data processing completes.
 
-The following diagram shows the flow for user data, but generally applies for users and groups:
+The following diagram shows the flow for user data, but generally applies for all entities:
 
 <div class="full">
 
