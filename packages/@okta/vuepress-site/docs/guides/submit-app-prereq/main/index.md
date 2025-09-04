@@ -117,7 +117,7 @@ For Identity Engine orgs, the default app sign-in policy requires MFA. Use the p
 1. Go to **Application** > **Applications** in the Admin Console.
 1. Click **Okta OIN Submission Tester**.
 1. Click the **Sign On** tab, scroll to the **User authentication** section and click **Edit**.
-1. Select **Password only** from the **Authentication policy** dropdown menu.
+1. Select **Password only** from the **App sign-in policy** dropdown menu.
 1. Click **Save**.
 
 The OIN Submission Tester only supports a password authentication flow. Use a password-only app sign-in policy for all your test app instances generated from the OIN Wizard.

@@ -193,7 +193,7 @@ First, assign the **Password only** policy to your app:
 1. Go to **Applications** > **Applications** in the Admin Console, and then select your app.
 1. Select the **Sign On** tab.
 1. Click **Edit** in the **User Authentication** section.
-1. Select **Password only** for the **Authentication policy**, and then click **Save**.
+1. Select **Password only** for the **App sign-in policy**, and then click **Save**.
 
 Next, check that the password authenticator doesn't require any additional verification:
 
@@ -318,7 +318,7 @@ A global session policy determines user session length and authentication rules 
 1. Under **Assign to groups**, assign the policy to your **Password optional** group.
 1. Click **Create policy and add rule**. Give the rule a name.
 1. Enter **Password-optional GSP rule** as the name of the rule.
-1. Verify that **Establish the user session with** is set to **Any factor used to meet the Authentication Policy requirements**.
+1. Verify that **Establish the user session with** is set to **Any factor used to meet the App sign-in policy requirements**.
 1. Set **Multifactor authentication (MFA) is** to **Not required**.
 1. Leave the other settings at their defaults, and then click **Create rule**.
 

@@ -8,7 +8,7 @@
     * To view specific SAML metadata details, click the **More details** arrow.
 7. Follow these steps if you have an Identity Engine Okta Integrator Free Plan org:
    1. Click the **Sign On** tab, scroll to the **User authentication** section, and click **Edit**.
-   1. Select **Password only** from the **Authentication policy** dropdown menu.
+   1. Select **Password only** from the **App sign-in policy** dropdown menu.
    [[style="list-style-type:lower-alpha"]]
    1. Click **Save**.
    > **Note:** Okta Integrator Free Plan orgs are Identity Engine orgs. See [OIN Wizard app sign-in policy for testing](/docs/guides/submit-app-prereq/main/#oin-wizard-app-sign-in-policy-for-testing).

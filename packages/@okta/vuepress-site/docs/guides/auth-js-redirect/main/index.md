@@ -182,7 +182,7 @@ Include the following function within the `body` tags after the `content-jwt` re
 
 This function signs the user out of the Okta session. See [signOut()](https://github.com/okta/okta-auth-js/#signout) in the Auth JS SDK.
 
-> **Note**: If the user has already signed out or there's no active session found, the browser redirects to the **Sign-out redirect URI** defined in your Okta app integration.
+> **Note:** If users have already signed out or there's no active session, the browser redirects to the **Sign-out redirect URI** defined in your app integration.
 
 After adding the sign-out function, the sample app is ready to test. Your sample app code appears as follows:
 
@@ -346,7 +346,7 @@ By default, your Integrator Free Plan org isn't configured for multifactor authe
 
 1. Click the **Sign On** tab, scroll down to the **User authentication** section, and click **Edit**.
 
-1. Select your new app sign-in policy, **Mandatory MFA**, from the **Authentication policy** dropdown menu, and click **Save**.
+1. Select your new app sign-in policy, **Mandatory MFA**, from the **App sign-in policy** dropdown menu, and click **Save**.
 
 1. Test the new configurations by signing in to your app. If your test user doesn't have a phone number enrolled, the user is prompted for the enrollment during sign-in. Enroll the test user, add the SMS code, and the user is signed-in to your sample app.
 
@@ -372,7 +372,7 @@ By default, the Integrator Free Plan org is configured for a self-service passwo
 
 1. Click **Not required** for the **additional verification is** question, and then click **Update rule**.
 
-1. If you previously set the sign-on policy for your app as Mandatory MFA, go to **Applications** > **Applications** and select your app. Click the **Sign On** tab and scroll down to the **User authentication** section and click **Edit**. From the **Authentication policy** dropdown menu, select **One factor access** and click **Save**.
+1. If you previously set the sign-on policy for your app as Mandatory MFA, go to **Applications** > **Applications** and select your app. Click the **Sign On** tab and scroll down to the **User authentication** section and click **Edit**. From the **App sign-in policy** dropdown menu, select **One factor access** and click **Save**.
 
 Test the new configurations by recovering a password for a user of your sample app:
 

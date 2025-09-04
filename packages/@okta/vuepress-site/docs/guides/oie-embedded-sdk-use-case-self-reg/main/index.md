@@ -94,7 +94,7 @@ To replicate this scenario:
    [[style="list-style-type:lower-alpha"]]
    1. Select your app, and then go to the **Sign On** tab.
    1. In the **User authentication** section, click **Edit**.
-   1. Set **Authentication Policy** to **Password only**, and click **Save**.
+   1. Set **App sign-in policy** to **Password only**, and click **Save**.
 1. Set your app's **Initiate login URI** to its sign-in URI. By setting this value, the email verification link for new user enrollment redirects the user to the URL provided in the **Initiate login URI** field.
    1. Select the **General** tab.
    [[style="list-style-type:lower-alpha"]]
@@ -106,4 +106,4 @@ To replicate this scenario:
    1. Click the pencil icon next to the **Default policy**.
    1. Ensure that **Required before access is granted** is selected for **Email Verification**.
 
-During new user registration, there are no factors required other than the password. However, email verification is set to **Required** in the profile enrollment configuration. In this case, the user is sent an email using the **Registration - Activation** email template. The user clicks the link in the activation email and is redirected to the sample app's home page.
+During new user registration, there are no factors required other than the password. However, email verification is set to **Required** in the profile enrollment configuration. In this case, the user receives an email that uses the **Registration - Activation** email template. The user clicks the link in the activation email and is redirected to the sample app's home page.

@@ -148,7 +148,7 @@ You can modify the app's app sign-in policy to require the user to have a second
 2. From the side navigation, select **Applications** > **Applications** and then select the app integration that you created earlier.
 3. Select the **Sign On** tab.
 4. Scroll down to the **User authentication** section and click **Edit**.
-5. From the **Authentication policy** dropdown menu, select **Any two factors** and click **Save**.
+5. From the **App sign-in policy** dropdown menu, select **Any two factors** and click **Save**.
 
 ### Try multifactor authentication
 
@@ -180,7 +180,7 @@ The following diagram illustrates these steps:
 
 ![Email magic link flow for redirect auth](/img/authenticators-email-magic-link-summary-redirect-flow-overview.png "Image title") -->
 
-Try the email magic link recovery flow:
+Try the Email Magic Link recovery flow:
 
 1. Select **Forgot password?** in the Sign-In Widget.
 1. Enter your email or username when prompted and click **Next**.
