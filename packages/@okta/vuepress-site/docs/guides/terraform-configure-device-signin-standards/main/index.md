@@ -52,7 +52,7 @@ For user instructions on how to check device compliance, see the [main Okta arti
 
 ## Confirm your org supports Device Assurance
 
-Some of the steps in this article require that your Okta org and pricing plan support device assurance.
+Some of the steps in this article require your Okta org and pricing plan to support device assurance.
 
 1. [Sign in to your Okta org](https://developer.okta.com/login) with an admin account.
 

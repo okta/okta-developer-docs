@@ -56,7 +56,7 @@ This guide discusses the email authenticator user journeys for both magic links 
 
 ## Update configurations
 
-Before you can start using the email authenticator, you need to enable it in your Okta org and assign it an app sign-in policy that requires the email authenticator.
+There are two things you must do to start using the email authenticator. Enable it in your Okta org and assign it an app sign-in policy that requires the email authenticator.
 
 ### Add the email authenticator to your org
 
@@ -87,7 +87,7 @@ First, add the email authenticator to your org and enable it for both authentica
 
 ### Set your app integration to use the email authenticator
 
-New app integrations are automatically assigned the shared default [app sign-in policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, multiple app integrations can share the same app policy. In testing however, you should create a policy specifically for your test app.
+New app integrations are automatically assigned the shared default [app sign-in policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, multiple app integrations can share an app sign-in policy. In testing however, you should create a policy specifically for your test app.
 
 1. Open the **Admin Console** for your org and choose **Security > Authentication Policies** to show the available app sign-in policies.
 2. Click **Add a Policy**, give the policy a name, and then click **Save**.
@@ -108,9 +108,9 @@ Enable magic links in your org.
 
 1. Open the **Admin Console** for your Okta org.
 2. Choose **Applications > Applications** to show the app integrations that you have already created.
-3. Click the application that you previously created.
+3. Click the app that you previously created.
 4. In the **General Settings** section on the **General** tab, click **Edit**.
-5. Under **EMAIL VERIFICATION EXPERIENCE** enter a callback URI for your application. The sample application uses <StackSnippet snippet="callbackuri" inline />.
+5. Under **EMAIL VERIFICATION EXPERIENCE** enter a callback URI for your app. The sample app uses <StackSnippet snippet="callbackuri" inline />.
 6. Click **Save** to save your changes.
 
 ## Integrate email challenge with magic links
@@ -181,7 +181,7 @@ In each template, find the anchor tag and remove it from the template HTML. The 
 
 </div>
 
-To learn more about customizing email templates and using the velocity template language, see [Customize an email template](https://help.okta.com/okta_help.htm?id=ext_Settings_Email) in the Okta Help Center.
+To learn more about customizing email templates and using the Velocity Template Language, see [Customize an email template](https://help.okta.com/okta_help.htm?id=ext_Settings_Email) in the Okta Help Center.
 
 ## Design considerations when customizing magic link for password recovery
 
@@ -217,9 +217,9 @@ In this recommended option, make a call to [`/forgot_password` API](https://deve
 }
 ```
 
-In the above example, the recovery token is `XE6wE17zmphl3KqAPFxO`.
+In the example before this, the recovery token is `XE6wE17zmphl3KqAPFxO`.
 
-2. Parse the recovery token from the URL and send it using your infrastructure (through an out-of-band channel) to the end user's verified email address or SMS phone number. See [Authentication API - Recovery Token](/docs/reference/api/authn/#recovery-token).
+2. Parse the recovery token from the URL. Then, send it using your infrastructure (through an out-of-band channel) to the end user's verified email address or SMS phone number. See [Authentication API - Recovery Token](/docs/reference/api/authn/#recovery-token).
 
 ## See also
 

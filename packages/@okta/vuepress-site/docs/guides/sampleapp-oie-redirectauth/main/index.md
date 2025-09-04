@@ -55,7 +55,7 @@ To get started, you need to create an Okta OAuth app to represent the <StackSnip
       **Sign-out redirect URIs**: <StackSnippet snippet="signoutredirecturi" inline />
 
    * In the **Assignments** section, select **Allow everyone in your organization to access**. This assigns all Users in the Everyone Group to the app. You must assign the app to either the Everyone Group or a custom Group that you create so that profile enrollment functions correctly.
-5. On the new Application page, click the "Copy to clipboard" icon to copy the <StackSnippet snippet="clientidsd" inline />. Store this information temporarily for use when you <StackSnippet snippet="configfile" inline /> in the next section.
+5. On the new app page, click the "Copy to clipboard" icon to copy the <StackSnippet snippet="clientidsd" inline />. Store this information temporarily for use when you <StackSnippet snippet="configfile" inline /> in the next section.
 
 <StackSnippet snippet="corsissuer" />
 
@@ -312,7 +312,7 @@ Create a Routing Rule that automatically routes all authentication requests to F
 1. On the Identity Providers page in the Admin Console, select the **Routing Rules** tab.
 2. Click **Add Routing Rule**.
 3. Name the Rule, and then for the purposes of this example set two rule conditions:
-    * For **AND User is accessing**, select **Any of the following applications**, and then choose your Application. This routes any attempts to access the <StackSnippet snippet="applang" inline /> app to the Facebook IdP, but still allows you to access your Admin Console normally.
+    * For **AND User is accessing**, select **Any of the following applications**, and then choose your app. This routes any attempts to access the <StackSnippet snippet="applang" inline /> app to the Facebook IdP, but still allows you to access your Admin Console normally.
     * For **THEN Use this identity provider**, select the Facebook IdP that you added earlier, and then click **Create Rule**.
 4. Click **Activate** in the dialog box that appears.
 5. Start the <StackSnippet snippet="applang" inline /> app in an incognito/private browser window and click ç. You are redirected to the Facebook site, where you can sign in.

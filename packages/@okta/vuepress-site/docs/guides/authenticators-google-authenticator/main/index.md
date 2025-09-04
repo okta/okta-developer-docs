@@ -9,7 +9,7 @@ This guide shows you how to integrate Google Authenticator into your authenticat
 ---
 #### Learning outcome
 
-Understand the Google Authenticator flow
+Understand the Google Authenticator flow.
 
 #### What you need
 
@@ -28,13 +28,13 @@ Google Authenticator is an authenticator app developed by Google that's used to 
 
 ### Authentication flow
 
-After a user is enrolled in Google Authenticator, the service provider (for example, a website) presents a challenge. The challenge asks for a time-based one-time passcode (TOTP) during authentication. Google Authenticator generates the TOTP, and the user submits it to the service provider for verification. The service provider independently generates the password and validates that the submitted password is identical to the generated one.
+After a user is enrolled in Google Authenticator, the Service Provider (for example, a website) presents a challenge. The challenge asks for a time-based one-time passcode (TOTP) during authentication. Google Authenticator generates the TOTP, and the user submits it to the Service Provider for verification. The Service Provider independently generates the password and validates that the submitted password is identical to the generated one.
 
-A shared key linking the Google Authenticator app and service provider allows for both entities to generate the same password. The service provider generates the shared key. Then the service provider adds the key to the app during enrollment.
+A shared key linking the Google Authenticator app and Service Provider allows for both entities to generate the same password. The Service Provider generates the shared key. Then the Service Provider adds the key to the app during enrollment.
 
-As the service provider, you can provide Google Authenticator support to your users. Enable Google Authenticator in your Okta org. Use the embedded SDK to build support for it in your app.
+As the Service Provider, you can provide Google Authenticator support to your users. Enable Google Authenticator in your Okta org. Use the embedded SDK to build support for it in your app.
 
-The following diagram illustrates how the Google Authenticator enrollment and challenge flows can work in your application.
+The following diagram illustrates how the Google Authenticator enrollment and challenge flows can work in your app.
 
 <div class="full">
 
@@ -44,7 +44,7 @@ The following diagram illustrates how the Google Authenticator enrollment and ch
 
 ## Update configurations
 
-Before you can start using Google Authenticator, create an Okta org application as described in <StackSnippet snippet="orgconfigurepwdonly" inline/>. Then add Google Authenticator to your app integration by executing the following steps:
+Before you can start using Google Authenticator, create an Okta org app as described in <StackSnippet snippet="orgconfigurepwdonly" inline/>. Then add Google Authenticator to your app integration by executing the following steps:
 
 ### Add Google Authenticator to your org
 
@@ -57,7 +57,7 @@ First, add Google Authenticator to your org and enable it.
    2. Click **Add** on the **Google Authenticator** tile, and then click **Add** in the next dialog.
 4. Select the **Enrollment** tab.
 5. Check that **Google Authenticator** is set to either **Optional** or **Required** in the **Eligible Authenticators** section of the default policy.
-   1. If **Google Authenticator** is set to **Disabled**, click **Edit** for the default policy
+   1. If **Google Authenticator** is set to **Disabled**, click **Edit** for the default policy.
    2. Select **Optional** from the dropdown box for the **Google Authenticator**, and then click **Update Policy**.
 
 ### Set your app integration to use Google Authenticator

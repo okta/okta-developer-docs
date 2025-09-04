@@ -240,7 +240,7 @@ Create your own POST request body or copy the [example request](#map-the-devie-s
    * Set the `resourceType` as `APP`.
 1. Send the `POST /api/v1/policies/{policyId}/mappings` request.
 
-### Map the devie signal collection policy request example
+### Map the device signal collection policy request example
 
 ```json
 {
@@ -249,7 +249,7 @@ Create your own POST request body or copy the [example request](#map-the-devie-s
 }
 ```
 
-## Create a device signal collection policy rule
+## Create a device signal collection rule
 
 In this example, create a rule that checks for Okta Verify registered devices when those devices are on `IOS` and `ANDROID` platforms. And allow users to choose which authenticator they want to use to authenticate.
 
@@ -266,7 +266,7 @@ Create your own POST request body or copy the [example request](#create-a-device
    * Include `IOS` and `ANDROID` as platform conditions.
 1. Send the `POST /api/v1/policies/{policyId}/rules` request.
 
-### Create a device signal collection policy rule request example
+### Create a device signal collection rule request example
 
 ```json
 {

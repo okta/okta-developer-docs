@@ -152,7 +152,7 @@ If you have a particular type of app that you want to create, see the following 
 
 ### Native app
 
-Native apps are desktop or mobile apps designed for a specific platform. They redirect users to a non-HTTP callback.
+Native apps are desktop or mobile apps that are designed for a specific platform. They redirect users to a non-HTTP callback.
 
 * [Android](/docs/guides/oie-embedded-common-org-setup/android/main/#create-an-application)
 * [iOS](/docs/guides/oie-embedded-common-org-setup/ios/main/#create-an-application)
@@ -230,7 +230,7 @@ This section shows you how to set up your Okta org and app to support the multif
 
 ### Set up your Okta org for a password-optional use case
 
-For password-optional authentication, follow these steps first:
+For password-optional authentication, ensure that you follow these steps first:
 
 1. [Set up the email authenticator for authentication and recovery](#set-up-the-email-authenticator).
 2. [Create a separate group for password-optional users](#create-a-group-for-password-optional-users).

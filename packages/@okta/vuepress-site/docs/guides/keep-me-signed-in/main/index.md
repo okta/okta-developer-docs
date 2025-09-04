@@ -60,7 +60,7 @@ If you want to configure pre-authentication KMSI using the Admin Console, see [K
 
 ### Create a global session policy
 
-You can use the Polices API to create a policy or update an existing one. See [Create a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy).
+You can use the Policies API to create a policy or update an existing one. See [Create a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy).
 
 To create a policy, send a POST request to the `/api/v1/policies` endpoint. Include the following:
 
@@ -262,7 +262,7 @@ In a PUT request to the `/api/v1/brands/{brandId}/pages/sign-in/customized` endp
 
 You can reset KMSI for an individual user and clear all of their sessions.
 
-> **Note:** All remembered factors for the user are forgotten. The user is prompted for multifactor authentication (MFA) and KMSI when they next log in.
+> **Note:** All remembered factors for the user are forgotten. The user is prompted for multifactor authentication (MFA) and KMSI when they next sign in.
 
 In a DELETE request to the `/api/v1/users/{userId}/sessions` endpoint, include the `userId` of the individual user:
 

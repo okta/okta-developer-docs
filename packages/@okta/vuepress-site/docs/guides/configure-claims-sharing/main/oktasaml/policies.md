@@ -15,7 +15,7 @@ With trust claims enabled and your IdP org able to verify any two factors, you c
   * **Disallow specific authentication methods**: If you specify authentication methods to disallow, then the SP org disallows those methods.
   * **Allow specific authentication methods**: If you specify authentication methods to allow, then the SP org only considers those methods.
 
-  After you define these conditions, if you still haven't met the policy requirement, then the SP org redirects you to verify any locally configured authenticator. If there's no local authenticator available, or the enrollment policy for a particular authenticator is disabled, then the SP org displays an error.
+  After you define these conditions, you may still not meet the policy requirements. If you still haven't met the policy requirement, then the SP org redirects you to verify any locally configured authenticator. If there's no local authenticator available, or the enrollment policy for a particular authenticator is disabled, then the SP org displays an error.
 
 ### Global session policy example
 

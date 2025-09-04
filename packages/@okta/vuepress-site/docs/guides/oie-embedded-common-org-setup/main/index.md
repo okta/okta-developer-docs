@@ -148,7 +148,7 @@ To connect your org to Facebook, you need to add and configure the Facebook IdP 
 1. In the Admin Console, go to **Security** > **Identity Providers**.
 1. Click **Add Identity Provider**, and then select **Add Facebook**.
 1. Enter a name (for example, Facebook IdP) on the **Add Identity Provider - Facebook** page.
-1. Keep the default **SSO Only** option for the **Idp Usage** field.
+1. Keep the default **SSO Only** option for the **IdP Usage** field.
 1. Specify the Facebook **App ID** as the **Client ID**, and the Facebook **App Secret** as the **Client Secret**.
 1. Keep the default values for **public_profile** and **email** in the **Scopes** field, and click **Add Identity Provider**.
 

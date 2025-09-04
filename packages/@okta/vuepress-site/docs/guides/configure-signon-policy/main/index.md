@@ -6,7 +6,7 @@ layout: Guides
 
 <ApiLifecycle access="ie" /><br>
 
-> **Note:** In Classic Engine, the global session policy is called the Okta sign-on policy and an app sign-in policy is called an app sign-on policy.
+> **Note:** In Classic Engine, the global session policy is named the "Okta sign-on policy" and the app sign-in policy is named as the "app sign-on policy".
 
 > **Note:** This document is only for Identity Engine. If you’re using Classic Engine, see [Configure Okta sign-on and app sign-on policies](/docs/guides/archive-configure-signon-policy). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
@@ -50,9 +50,9 @@ You can specify any number of global session policies and the order in which the
 
 In addition to the global session policy, you can configure app sign-in policies for each app for extra levels of authentication. You can also [share app sign-in policies across multiple apps](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy).
 
-When you add an app, it's automatically assigned the shared default policy. This policy has a single catch-all rule that allows a user access with two factors. You can add as many rules to the default policy as you need. However, remember that the changes are applied to both new and existing apps that are assigned the shared default policy.
+When you add an app, a shared default policy is automatically assigned to it. This policy has a single catch-all rule that allows a user access with two factors. You can add as many rules to the default policy as you need. However, remember that the changes are applied to both new and existing apps that are assigned to the shared default policy.
 
-You don’t have to use the default app sign-in policy. You can create a policy specifically for an app, or you can [add an app to another existing shared policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy). If you change an app’s sign-on requirements, you can modify its policy or switch to a different shared policy using the [App sign-in policies page](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy).
+You don’t have to use the default app sign-in policy. You can create a policy specifically for an app, or you can [add an app to another existing shared policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy). If you change an app’s sign-on requirements, you can modify its policy or switch to a different shared policy. You can do this by using the [App sign-in policies page](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy).
 
 > **Note:** There can be only one app sign-in policy per app.
 
@@ -61,7 +61,7 @@ You don’t have to use the default app sign-in policy. You can create a policy 
 This guide provides step-by-step instructions to configure a global session policy and an app sign-in policy for three common scenarios:
 
 * [Prompt for an additional factor for a group](#prompt-for-an-additional-factor-for-a-group)
-* [Prompt for an additional factor when a user is outside the US](#prompt-for-an-additional-factor-when-a-user-is-outside-the-us)
+* [Prompt for an additional factor for users outside the US](#prompt-for-an-additional-factor-for-users-outside-the-us)
 * [Prompt for passwordless sign-in flow](#prompt-for-a-passwordless-sign-in-flow)
 
 ## Prompt for an additional factor for a group
@@ -104,11 +104,13 @@ Configure a global session policy to prompt a user for a factor [authenticator](
 
 > **Note:** After you create a policy, you must close all active sessions for the new policy to take effect.
 
-## Prompt for an additional factor when a user is outside the US
+## Prompt for an additional factor for users outside the US
 
-You may want a rule that requires all default Okta users to provide a password. But you also want all Okta users outside of the United States to provide both a password and another factor to access your app. You can use the default app sign-in policy’s catch-all rule that challenges all users to provide a password. Then, create another rule that challenges all users not in the United States to provide both a password and another factor each time that they sign in.
+You may want a rule that requires all default Okta users to provide a password. But you also want all Okta users outside of the United States to provide both a password and another factor to access your app. 
 
-Configure another rule for the default app sign-in policy to prompt a user for an additional factor when the user is outside of the United States.
+You can use the default app sign-in policy’s catch-all rule that challenges all users to provide a password. Then, create another rule that challenges all users not in the United States. Configure the rule so that users must provide both a password and another factor each time that they sign in.
+
+Configure another rule for the default app sign-in policy. Create a rule that prompts a user for an additional factor when the user is outside of the United States.
 
 > **Note:**  You can add as many rules to the default app sign-in policy as you want. But remember that changes to the default app sign-in policy are applied to all new apps because it's a shared app policy.
 
@@ -170,7 +172,7 @@ In this example, create a policy that allows a specific group, **Full time emplo
 
 1. For **Establish the user session with**, select **Any factor used to meet the App sign-in policy requirements**.
 
-1. For **Multifactor authentication (MFA) is**, select **Required** so that users in the **Full time employees** group are prompted for a secondary factor before they’re granted access.
+1. For **Multifactor authentication (MFA) is**, select **Required**. This ensures that users in the **Full time employees** group are prompted for a secondary factor before they’re granted access.
 
 1. For **Users will be prompted for MFA**, select how users are prompted for a secondary factor in a given session. For this example, select **At every sign in**.
 
