@@ -15,7 +15,7 @@ This page provides an overview of OAuth 2.0 and OIDC claims, including their typ
 
 ## What are claims
 
-At a basic level, a claim is a piece of information asserted about a subject. In the context of OAuth 2.0 and OpenID Connect (OIDC), claims are key-value pairs of data contained within tokens. Claims are commonly packaged into [access](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#access-token) and [ID tokens](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#id-token). Access tokens and ID tokens are formatted as JSON Web Tokens (JWTs).
+At a basic level, a claim is a piece of information that's asserted about a subject. In the context of OAuth 2.0 and OpenID Connect (OIDC), claims are key-value pairs of data contained within tokens. Claims are commonly packaged into [access](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#access-token) and [ID tokens](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#id-token). Access tokens and ID tokens are formatted as JSON Web Tokens (JWTs).
 
 > **Note:** Access tokens are sometimes formatted as JWTs, but not always.
 
