@@ -9,13 +9,14 @@ meta:
 
 Securely managing your tokens is essential to mitigate risks that directly threaten the protection of user data, such as token theft and account takeover.
 
-## Introduction to terms
+## Terms
 
-* User credentials: The data or information that a user provides to verify their identity. Credentials can be broken down into three categories:
+* [Authorization server](/docs/concepts/auth-servers/): A server that mints OpenID Connect (OIDC) or OAuth 2.0 tokens. It applies access policies that determine who can be issued a token and what scopes that token can have. Conversely, the resource server applies access policies to decide which tokens and scopes it accepts in exchange for access to specific resources.
 
-  * Something the user knows: This is a memorized secret, such as a PIN, or a username and password.
-  * Something the user has: A physical or digital object in their possession. For example, a one-time passcode sent through SMS or a code from an authenticator app, such as Okta Verify.
-  * Something the user is: A unique biometric identifier, such as a fingerprint or a facial scan.
+  Okta supports two types of authorization servers:
+
+  * [Org authorization server](/docs/concepts/auth-servers/#org-authorization-server): A built-in server that supports simple SSO for OIDC apps or for obtaining access tokens for Okta APIs. It doesn't support custom scopes, claims, or policies.
+  * [Custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server): A server that allows you to create and apply authorization policies to secure your own APIs. You can also define custom scopes and claims, and integrate with API gateways. It's recommended to assign one authorization server per API product to maintain separate policies and token expiration times, and to prevent scope name collisions.
 
 * [Authenticator](/docs/guides/authenticators-overview/main/): The mechanism for the user to present their credentials to the identity provider (IdP) for verification. For example, a user might use a smart phone with an authenticator app or a biometric fingerprint reader.
 
@@ -29,12 +30,11 @@ Securely managing your tokens is essential to mitigate risks that directly threa
 
   > **Note**: For a detailed description of the different types of tokens, see [Understand the token lifecycle (exchange, refresh, revoke)](/docs/concepts/token-lifecycles/).
 
-* [Authorization server](/docs/concepts/auth-servers/): A server that mints OpenID Connect (OIDC) or OAuth 2.0 tokens. It applies access policies that determine who can be issued a token and what scopes that token can have. Conversely, the resource server applies access policies to decide which tokens and scopes it accepts in exchange for access to specific resources.
+* User credentials: The data or information that a user provides to verify their identity. Credentials can be broken down into three categories:
 
-  Okta supports two types of authorization servers:
-
-  * [Org authorization server](/docs/concepts/auth-servers/#org-authorization-server): A built-in server that supports simple SSO for OIDC apps or for obtaining access tokens for Okta APIs. It doesn't support custom scopes, claims, or policies.
-  * [Custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server): A server that allows you to create and apply authorization policies to secure your own APIs. You can also define custom scopes and claims, and integrate with API gateways. It's recommended to assign one authorization server per API product to maintain separate policies and token expiration times, and to prevent scope name collisions.
+  * Something the user knows: This is a memorized secret, such as a PIN, or a username and password.
+  * Something the user has: A physical or digital object in their possession. For example, a one-time passcode sent through SMS or a code from an authenticator app, such as Okta Verify.
+  * Something the user is: A unique biometric identifier, such as a fingerprint or a facial scan.
 
 ## Why secure token management is critical
 
