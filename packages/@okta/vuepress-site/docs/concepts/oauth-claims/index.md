@@ -29,7 +29,7 @@ You can use claims for fine-grained permissions and information to enhance the s
 
 ### Claims in access tokens
 
-Claims in access tokens pass information about the user and their permissions to the resource server. Claims are contained within a scope, or you can [add custom claims](/docs/guides/customize-tokens-returned-from-okta/main/) to an access token. Access tokens can contain scopes and custom claims, while ID tokens can contain claims, but not scopes.
+Claims in access tokens pass information about the user and their permissions to the resource server. Access tokens can contain scopes and [custom claims]((/docs/guides/customize-tokens-returned-from-okta/main/)), while ID tokens can contain claims, but not scopes.
 
 Access and ID tokens contain a [header](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#access-token-header), [payload](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#access-token-payload), and [signature](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#access-token-signature).
 
