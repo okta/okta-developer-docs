@@ -23,7 +23,7 @@ When you implement SSO, you let a central IdP handle authentication for you. SSO
 | --- | --- | --- |
 | Authentication | Users enter credentials separately for each app. | Users authenticate once and gain access to multiple apps and services. |
 | Security | Higher risk of password reuse and theft | Strong security with centralized policies like MFA |
-| User experience | Users receive multiple prompts to sign in on each app. Multiple credentials increase password recovery needs. | Seamless access across apps after initial sign-in, providing faster access and less friction for the users.|
+| User experience | Users receive multiple prompts to sign in to each app. Multiple credentials increase password recovery needs. | Seamless access across apps after a user signs in, providing faster access and less friction|
 | Management | Decentralized management requires app-by-app authentication and relying on admin to create accounts | Centralized identity and access management through an IdP. This enables faster user onboarding and app access. |
 
 ## How Okta supports SSO
