@@ -49,5 +49,5 @@ Universal Logout addresses these inconsistencies by creating a more reliable, ce
 
 ## SSO integrations in the Okta Integration Network (OIN)
 
->**Note**: For information on SSO integrations in the Okta Integration Network (OIN), see [Overview of Single Sign-On in the OIN](https://developer.okta.com/docs/guides/oin-sso-overview/).
+The Okta Integration Network (OIN) is a catalog of pre-built integrations with thousands of apps. You can easily integrate Okta SSO to apps with a guided experience that still supports the most secure configuration options. For information on SSO integrations in the Okta Integration Network (OIN), see [Overview of Single Sign-On in the OIN](https://developer.okta.com/docs/guides/oin-sso-overview/).
 
