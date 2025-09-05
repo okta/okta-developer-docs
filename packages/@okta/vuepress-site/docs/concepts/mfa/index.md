@@ -97,7 +97,7 @@ See the following table for a list of authenticators, their keys, types, and met
 
 There's an important distinction between the terms "authenticator" and "factor" in Identity Engine and Classic Engine.
 
-The [User Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/) provides operations for managing factors. In the context of the User Factors API, "factors" works in similar ways as authenticator methods. You can use the User Factors API to manage user authenticators (factors).
+The [User Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/) provides operations for managing factors. In the context of the User Factors API, "factors" work in similar ways as authenticator methods. You can use the User Factors API to manage user authenticators (factors).
 
 > **Note:** The [User Authenticator Enrollments API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserAuthenticatorEnrollments/) provides similar operations as the User Factors API.
 
