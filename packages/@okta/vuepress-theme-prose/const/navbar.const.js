@@ -809,7 +809,7 @@ export const guides = [
         ],
       },
       {
-        title: "Manage users",
+        title: "User management",
         subLinks: [
           {
             title: "Anything-as-a-Source integration",
