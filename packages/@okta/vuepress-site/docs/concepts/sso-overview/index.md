@@ -33,7 +33,7 @@ Okta also handles user verification, multifactor authentication (MFA), and lifec
 
 A user's SSO experience with Okta can happen in a few different ways:
 
-* Okta End-User Dashboard: When a user logs in to their Okta dashboard using their single set of credentials, the dashboard displays a list of all their assigned apps. The user can click an app tile, which automatically signs them in without a second login prompt.
+* Okta End-User Dashboard: When a user signs in to their Okta dashboard using a single set of credentials, the dashboard displays a list of all their assigned apps. The user can click an app tile, which automatically signs them in without a second sign-in prompt.
 
 * User logins: When a user tries to sign in to your service using their IdP account, Okta Customer Identity (OCI) handles the entire authentication process in the background. The user can seamlessly sign in after a quick consent and start watching content without having to create a separate account.
 
