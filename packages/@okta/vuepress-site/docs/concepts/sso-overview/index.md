@@ -37,7 +37,7 @@ A user's SSO experience with Okta can happen in a few different ways:
 
 * User logins: When a user tries to sign in to your service using their IdP account, Okta Customer Identity (OCI) handles the entire authentication process in the background. The user can seamlessly sign in after a quick consent and start watching content without having to create a separate account.
 
-* SSO-integrated app: When the user navigates directly to your app's URL and the app detects that the user isn’t authenticated, it redirects them to the Okta sign-in page. After successful authentication, Okta sends the user back to the app, which then grants them access.
+* SSO-integrated app: When the user navigates directly to your app's URL and your app detects that the user isn’t authenticated, it redirects them to the Okta sign-in page. After successful authentication, Okta sends the user back to your app, which then grants them access to resources.
 
 In these scenarios, the user only has to remember a single credential, which is managed securely by Okta.
 
