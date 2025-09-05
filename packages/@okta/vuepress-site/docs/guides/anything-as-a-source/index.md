@@ -109,11 +109,11 @@ You can load data about different entities to be added, changed, or deleted in O
 
 #### User data
 
-To load bulk users data, use `profiles`. The user `profiles` object is an array of user profile objects that contain attributes about the user.
+To load bulk users data, use `profiles`. The user `profiles` object is an array of user `profile` objects that contain attributes about the user.
 
 Each user object in the `profiles` array can contain the following:
 
-* `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This determines if a new user needs to be created or if an existing user needs to be updated.
+* `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This determines if the API needs to create a new user or update an existing user.
 * `profile`: The set of attributes from the HR source to synchronize with the Okta user profile. Profiles are mapped according to the attribute mappings that you specified in your Custom Identity Source configuration. See Declare an identity source schema in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
     > **Note:** All attributes in a `profile` object are treated as strings. Arrays aren’t supported.
 
@@ -128,7 +128,7 @@ To load bulk groups data, use `profiles`. The group `profiles` object is an arra
 
 Each group object in the `profiles` array can contain the following:
 
-* `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific group). This determines if a new group needs to be created or if an existing group needs to be updated.
+* `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific group). This determines if the API needs to create a new group or update an existing group.
 * `profile`: The set of attributes from the HR source to synchronize with the Okta group profile. Profiles are mapped according to the attribute mappings that you specified in your Custom Identity Source configuration. See Declare an identity source schema in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
     > **Note:** All attributes in a `profile` object are treated as strings. Arrays aren’t supported.
 
