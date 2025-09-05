@@ -2,37 +2,39 @@
 title: Manage user credentials for your apps
 meta:
   - name: description
-    content: An overview of managing user credentials for your apps
+    content: Learn about user credentials and securely managing them
 ---
 
 # Manage user credentials for your apps
 
-## Terminology
+Securely managing your tokens is essential to mitigate risks that directly threaten the protection of user data, such as token theft and account takeover.
 
-User credentials are the data or information that a user provides to verify their identity. Credentials can be broken down into three categories:
+## Introduction to terms
 
-* Something the user knows: This is a memorized secret, such as a PIN, or a username and password.
-* Something the user has: A physical or digital object in their possession. For example, a one-time passcode sent through SMS or a code from an authenticator app, such as Okta Verify.
-* Something the user is: A unique biometric identifier, such as a fingerprint or a facial scan.
+* User credentials: The data or information that a user provides to verify their identity. Credentials can be broken down into three categories:
 
-An [authenticator](/docs/guides/authenticators-overview/main/) is the mechanism for the user to present their credentials to the identity provider (IdP) for verification. For example, a user might use a smart phone with an authenticator app or a biometric fingerprint reader.
+  * Something the user knows: This is a memorized secret, such as a PIN, or a username and password.
+  * Something the user has: A physical or digital object in their possession. For example, a one-time passcode sent through SMS or a code from an authenticator app, such as Okta Verify.
+  * Something the user is: A unique biometric identifier, such as a fingerprint or a facial scan.
 
-Okta uses [OAuth 2.0](/docs/concepts/oauth-openid/#oauth-2-0) and [OpenID Connect](/docs/concepts/oauth-openid/#openid-connect) (OIDC) as the foundational standards for how it issues and manages user tokens. These protocols define how authentication and authorization are handled within your apps. For a detailed conceptual breakdown of OAuth 2.0 and OpenID Connect, see the [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/).
+* [Authenticator](/docs/guides/authenticators-overview/main/): The mechanism for the user to present their credentials to the identity provider (IdP) for verification. For example, a user might use a smart phone with an authenticator app or a biometric fingerprint reader.
 
-Tokens are digital credentials issued by the IdP. They contain information about the user's identity and grant access to a resource or service without requiring the user to re-enter their credentials:
+* OAuth 2.0 and OpenID Connect (OIDC): The foundational standards for how Okta issues and manages user tokens. These protocols define how authentication and authorization are handled within your apps. For a detailed conceptual breakdown of OAuth 2.0 and OpenID Connect, see the [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/).
 
-* The [ID token](/docs/concepts/token-lifecycles/#id-tokens) is a JSON Web Token (JWT) granted by the OIDC provider. It serves to prove a user's identity and contains claims about the authenticated user, such as their name, email, or a unique identifier. This token is primarily intended for the client app to identify the user.
-* The [access token](/docs/concepts/token-lifecycles/#access-tokens) is used to interact with protected APIs and resources as a "Bearer token" when making API requests. [Authorization servers](/docs/concepts/auth-servers/) issue tokens.
-* [Refresh tokens](/docs/guides/refresh-tokens/main/) are opaque tokens used to obtain new ID and access tokens without requiring the user to reauthenticate. These tokens are crucial for maintaining user sessions with minimal impact to the user experience.
+* Tokens: Digital credentials issued by the IdP. They contain information about the user's identity and grant access to a resource or service without requiring the user to re-enter their credentials:
 
-For a detailed description of the different types of tokens, see [Understand the token lifecycle (exchange, refresh, revoke)](/docs/concepts/token-lifecycles/).
+  * [ID token](/docs/concepts/token-lifecycles/#id-tokens): A JSON Web Token (JWT) granted by the OIDC provider. It serves to prove a user's identity and contains claims about the authenticated user, such as their name, email, or a unique identifier. This token is primarily intended for the client app to identify the user.
+  * [Access token](/docs/concepts/token-lifecycles/#access-tokens): Tokens that are used to interact with protected APIs and resources as a "Bearer token" when making API requests. [Authorization servers](/docs/concepts/auth-servers/) issue tokens.
+  * [Refresh tokens](/docs/guides/refresh-tokens/main/): Opaque tokens that are used to obtain new ID and access tokens without requiring the user to reauthenticate. These tokens are crucial for maintaining user sessions with minimal impact to the user experience.
 
-An [authorization server](/docs/concepts/auth-servers/) mints OpenID Connect (OIDC) or OAuth 2.0 tokens. It applies access policies that determine who can be issued a token and what scopes that token can have. Conversely, the resource server applies access policies to decide which tokens and scopes it accepts in exchange for access to specific resources.
+  > **Note**: For a detailed description of the different types of tokens, see [Understand the token lifecycle (exchange, refresh, revoke)](/docs/concepts/token-lifecycles/).
 
-Okta supports two types of authorization servers:
+* [Authorization server](/docs/concepts/auth-servers/): A server that mints OpenID Connect (OIDC) or OAuth 2.0 tokens. It applies access policies that determine who can be issued a token and what scopes that token can have. Conversely, the resource server applies access policies to decide which tokens and scopes it accepts in exchange for access to specific resources.
 
-* The [org authorization server](/docs/concepts/auth-servers/#org-authorization-server) is built in and supports simple SSO for OIDC apps or for obtaining access tokens for Okta APIs. It doesn't support custom scopes, claims, or policies.
-* A [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server) allows you to create and apply authorization policies to secure your own APIs. You can also define custom scopes and claims, and integrate with API gateways. It's recommended to assign one authorization server per API product to maintain separate policies and token expiration times, and to prevent scope name collisions.
+  Okta supports two types of authorization servers:
+
+  * [Org authorization server](/docs/concepts/auth-servers/#org-authorization-server): A built-in server that supports simple SSO for OIDC apps or for obtaining access tokens for Okta APIs. It doesn't support custom scopes, claims, or policies.
+  * [Custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server): A server that allows you to create and apply authorization policies to secure your own APIs. You can also define custom scopes and claims, and integrate with API gateways. It's recommended to assign one authorization server per API product to maintain separate policies and token expiration times, and to prevent scope name collisions.
 
 ## Why secure token management is critical
 
@@ -76,12 +78,12 @@ The optimal choice depends on the required levels of access control and the desi
 
 #### Front channel OAuth model
 
-In a front-channel OAuth model, the app handles all authentication directly, and security tokens are stored in cookies, browser storage, or computer memory.
+In a front-channel OAuth model, the app handles all authentication directly, and tokens are stored in cookies, browser storage, or computer memory.
 
 In this model, the token lifecycle is as follows:
 
 1. Authenticate: The user enters their credentials (such as a username and password) or uses social sign-in. The app uses a client-side library to interact with an identity provider (IdP) to get a security token.
-1. Store tokens after sign-in: After a user successfully authenticates, the app receives a security token. The token can be stored in browser storage (local storage or session storage) or in-memory (as a JavaScript variable).
+1. Store tokens after sign-in: After a user successfully authenticates, the app receives an access token. You can store the token in browser storage (local storage or session storage) or in-memory (as a JavaScript variable).
 1. Retrieve tokens for API requests: The client retrieves the token from memory and attaches it as a Bearer token in the Authorization header for API requests.
 1. Handle token expiration and renewal: When an access token expires, the client uses the refresh token to request a new access token from the authorization server. This happens transparently to the user, allowing for a continuous session.
 1. Secure sign-out: You must clear both the client-side tokens and the server-side refresh token. The app must also call the revocation endpoint to invalidate the refresh token on the server.
@@ -145,7 +147,7 @@ Here’s a simplified step-by-step breakdown of the process:
 
 * Even if an attacker steals a DPoP-bound access token, they can't use it without the corresponding private key. They can't generate the required proof-of-possession signature, so the resource server rejects the request.
 * DPoP provides an additional layer of cryptographic security that effectively neutralizes token theft attacks. If an attacker steals a token but doesn't have the private key, the stolen token is useless.
-* DPoP is a client-level protocol. This means its security benefits apply regardless of your backend architecture, so there’s no centralized point of failure.
+* DPoP is a client-level protocol. This means that its security benefits apply regardless of your backend architecture, so there’s no centralized point of failure.
 
 ##### Considerations
 
@@ -160,7 +162,7 @@ There are different architectural approaches for user authentication. You can ch
 
 #### Redirect sign-in model
 
-Okta recommends using a federation-based model like [OIDC](https://developer.okta.com/docs/concepts/oauth-openid/), where the end-user's browser is [redirected](/docs/concepts/redirect-vs-embedded/#redirect-authentication) to an Okta-hosted sign-in page for apps.
+Okta recommends using a federation-based model like OIDC, where the end-user's browser is [redirected](/docs/concepts/redirect-vs-embedded/#redirect-authentication) to an Okta-hosted sign-in page for apps.
 
 ##### Benefits
 
