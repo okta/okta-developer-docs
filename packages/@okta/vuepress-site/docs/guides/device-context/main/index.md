@@ -125,7 +125,7 @@ First, create the policy.
 Set the catch-all rule to require only the username and password by default.
 
 1. Locate the **Catch-all Rule** for the new policy and select **Actions** > **Edit**.
-2. Verify that **Access is** is set to **Allowed after successful authentication**.
+2. Set **Access is** to **Allowed after successful authentication**, if it isn't already.
 3. Set **User must authenticate with** to **Password**.
 4. Click **Save**.
 
