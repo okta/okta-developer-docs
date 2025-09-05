@@ -17,7 +17,7 @@ When you implement SSO, you let a central IdP handle authentication for you. SSO
 
 </div>
 
-## How SSO differs from a basic sign-in
+## How SSO differs from a basic a sign-in flow
 
 | Features | Basic sign-in | SSO |
 | --- | --- | --- |
