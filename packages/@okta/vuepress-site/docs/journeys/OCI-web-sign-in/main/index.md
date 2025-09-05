@@ -80,7 +80,7 @@ Learn about tokens, claims, and managing user credentials:
 * [Understand the token lifecycle (exchange, refresh, revoke)](/docs/concepts/token-lifecycles/).
 * [Learn about OAuth 2.0 claims](/docs/concepts//).
 * [Learn about authorization servers](/docs/concepts/auth-servers/), the component of Identity Engine that mints tokens and enforces access policies.
-* [Manage user credentials (secure token storage and retrieval)](/docs/concepts//).
+* [Manage user credentials (secure token storage and retrieval)](/docs/concepts/manage-user-creds/).
 
 ## Add a way for users to sign out
 
