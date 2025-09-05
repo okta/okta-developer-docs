@@ -60,6 +60,10 @@ export const concepts = [
         path: "/docs/concepts/multi-tenancy/",
       },
       {
+        title: "Multifactor authentication",
+        path: "/docs/concepts/mfa/",
+      },
+      {
         title: "OAuth 2.0 and OIDC overview",
         path: "/docs/concepts/oauth-openid/",
       },
