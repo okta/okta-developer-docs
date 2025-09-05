@@ -45,7 +45,7 @@ In these scenarios, the user only has to remember a single credential, which is 
 
 With SSO in Okta, a user authenticates once with Okta (the IdP) and can seamlessly access multiple apps, using federation protocols like SAML, OIDC, or WS-Fed. [​Single Logout (SLO)](https://developer.okta.com/docs/guides/single-logout/saml2/main/) extends this by allowing a logout action from one app to propagate back to the IdP and, in turn, notify other connected apps to terminate their sessions. However, as SLO relies on each app’s protocol support, the logout experience can be inconsistent.
 
-Universal Logout addresses these inconsistencies by creating a more reliable, central logout process. When a user logs out, it clears their main Okta session and revokes their tokens. This logout command is then sent to all connected apps, irrespective of the app's protocol. This ensures that user sessions are terminated completely and consistently across all integrations.
+Universal Logout addresses these inconsistencies by creating a more reliable, central sign-out process. When a user signs out, it clears their main Okta session and revokes their tokens. This sign-out command is then sent to all connected apps, irrespective of the app's protocol. This ensures that user sessions are terminated completely and consistently across all integrations.
 
 ## SSO integrations in the Okta Integration Network (OIN)
 
