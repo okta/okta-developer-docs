@@ -28,7 +28,7 @@ When you implement SSO, you let a central IdP handle authentication for you. SSO
 
 ## How Okta supports SSO
 
-Okta is a cloud-based identity and access management (IAM) platform that acts as the centralized IdP for your users. Okta provides SSO integrations for thousands of cloud, on-premises, and mobile apps through its managed Integration Network (OIN). The platform uses standard protocols such as OIDC, SAML, and SWA to maintain these integrations. By integrating your app with Okta using one of these protocols, you can offload the entire authentication process.
+Okta is a cloud-based identity and access management (IAM) platform that acts as the centralized IdP for your users. Okta provides SSO integrations for thousands of cloud, on-premises, and mobile apps. The platform uses standard protocols such as OIDC, SAML, and SWA to maintain these integrations. 
 Okta also handles user verification, multifactor authentication (MFA), and lifecycle management, providing a robust and secure foundation for your app.
 
 A user's SSO experience with Okta can happen in a few different ways:
