@@ -52,6 +52,10 @@ export const concepts = [
         path: "/docs/concepts/key-rotation/",
       },
       {
+        title: "Manage user credentials",
+        path: "/docs/concepts/manage-user-creds/",
+      },
+            {
         title: "Monitor Okta",
         path: "/docs/concepts/monitor/",
       },
