@@ -28,7 +28,7 @@ If you don't have an Okta Identity Engine org, you need to sign up for an Okta a
 
 1. Using the activate link in the email from Okta, activate your account and provide a new password. Okta redirects you to the [Admin Console](/docs/concepts/okta-organizations/#admin-console) of your new Identity Engine org.
 
-The email and password that you use to create your account are used as your admin credentials. Your account is automatically created as an admin with the Super Administrator role.
+The email and password that you use to create your account are used as your admin credentials. Your account is automatically created as an admin with the super administrator role.
 
 ## Create user accounts
 
@@ -38,7 +38,7 @@ Users are assigned to non-administrator user groups either during or after their
 
 ### Create two test accounts
 
-Create two test accounts to test the end-user experience for your apps.
+Create two test accounts to test the user experience for your apps.
 
 1. Sign in to your Okta org with your admin account.
    * Select **Admin** in the upper-right corner of the page. You're redirected to the Admin Console.
@@ -144,7 +144,7 @@ If you’re using a custom authorization server for your app, follow these steps
 
 ## Create an app
 
-Create an app integration that represents the app you want to add authentication to with Okta. For a basic app configuration, follow these steps to set up a web app: [Create an app](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-an-application). 
+Create an app integration that represents the app you want to add authentication to with Okta. For a basic app configuration, follow these steps to set up a web app: [Create an app](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-an-application).
 
 > **Note:** When you follow those steps, ensure that you enable interaction code in the app.
 
@@ -152,7 +152,7 @@ If you have a particular type of app that you want to create, see the following 
 
 ### Native app
 
-Native apps are desktop or mobile apps designed for a specific platform. They redirect users to a non-HTTP callback.
+Native apps are desktop or mobile apps that are designed for a specific platform. They redirect users to a non-HTTP callback.
 
 * [Android](/docs/guides/oie-embedded-common-org-setup/android/main/#create-an-application)
 * [iOS](/docs/guides/oie-embedded-common-org-setup/ios/main/#create-an-application)
@@ -193,7 +193,7 @@ First, assign the **Password only** policy to your app:
 1. Go to **Applications** > **Applications** in the Admin Console, and then select your app.
 1. Select the **Sign On** tab.
 1. Click **Edit** in the **User Authentication** section.
-1. Select **Password only** for the **Authentication policy**, and then click **Save**.
+1. Select **Password only** for the **App sign-in policy**, and then click **Save**.
 
 Next, check that the password authenticator doesn't require any additional verification:
 
@@ -218,19 +218,19 @@ This section shows you how to set up your Okta org and app to support the multif
 4. Set **This authenticator can be used for** to **Authentication and recovery**.
 5. Click **Save**.
 
-#### Update your authentication policy with multifactor authentication
+#### Update your app sign-in policy with multifactor authentication
 
-1. Go to **Security** > **Authentication Policies**.
+1. Go to **Security** > **Authentication policies** > **App sign-in policies**.
 1. Select **Any two factors** as this is the policy that the [app you created](#create-an-app) is assigned to.
 1. Select **Edit** from the **Actions** menu for the **Catch-all Rule** to access the **Edit Rule** dialog.
 1. Scroll down to the **AND User must authenticate with** dropdown menu and select **Password + Another Factor**.
 1. Click **Save**.
 
-   > **Note:** Because the default authentication policy is a shared policy, changes you make apply to both new and existing apps that are assigned to it.
+   > **Note:** Because the default app sign-in policy is a shared policy, changes you make apply to both new and existing apps that are assigned to it.
 
 ### Set up your Okta org for a password-optional use case
 
-For password-optional authentication, follow these steps first:
+For password-optional authentication, ensure that you follow these steps first:
 
 1. [Set up the email authenticator for authentication and recovery](#set-up-the-email-authenticator).
 2. [Create a separate group for password-optional users](#create-a-group-for-password-optional-users).
@@ -244,7 +244,7 @@ To ensure that only password-optional users can **sign in** without a password a
 
 1. [Create a new password-optional authenticator enrollment policy for the group](#create-a-password-optional-authenticator-enrollment-policy).
 2. [Add a global session policy for the group](#add-a-global-session-policy-for-password-optional-users).
-3. [Add an authentication policy for the group](#add-an-authentication-policy-for-password-optional-users).
+3. [Add an app sign-in policy for the group](#add-an-app-sign-in-policy-for-password-optional-users).
 4. Ensure that password-optional users never fall through to the default policy. The default policy should always have a password as a required authenticator.
 5. Explicitly exclude your main admin account from any further password-optional policies that you create.
 
@@ -318,15 +318,15 @@ A global session policy determines user session length and authentication rules 
 1. Under **Assign to groups**, assign the policy to your **Password optional** group.
 1. Click **Create policy and add rule**. Give the rule a name.
 1. Enter **Password-optional GSP rule** as the name of the rule.
-1. Verify that **Establish the user session with** is set to **Any factor used to meet the Authentication Policy requirements**.
+1. Verify that **Establish the user session with** is set to **Any factor used to meet the App sign-in policy requirements**.
 1. Set **Multifactor authentication (MFA) is** to **Not required**.
 1. Leave the other settings at their defaults, and then click **Create rule**.
 
-##### Add an authentication policy for password-optional users
+##### Add an app sign-in policy for password-optional users
 
-1. Go to **Security** > **Authentication Policies**.
-1. Click **Add a policy**.
-1. Enter **Password-optional authentication policy** as the name.
+1. Go to **Security** > **Authentication policies** > **App sign-in policies**.
+1. Click **Create policy**.
+1. Enter **Password-optional app sign-in policy** as the name.
 1. Click **Save**.
 1. Go to the **Catch-all Rule** of the new policy and select **Actions** > **Edit**.
 1. Set **User must authenticate with** to **Any 1 factor type**.

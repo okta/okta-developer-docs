@@ -42,7 +42,7 @@ If you'd like to explore the entire Auth JS SDK, see [Okta Auth JavaScript SDK](
 An Okta app integration represents your app in your Okta org. The integration configures how your app integrates with Okta services, which include the following:
 
 * Users and groups that have access
-* Authentication policies
+* App sign-in policies
 * Token refresh requirements
 * Redirect URLs
 
@@ -182,7 +182,7 @@ Include the following function within the `body` tags after the `content-jwt` re
 
 This function signs the user out of the Okta session. See [signOut()](https://github.com/okta/okta-auth-js/#signout) in the Auth JS SDK.
 
-> **Note**: If the user has already signed out or there's no active session found, the browser redirects to the **Sign-out redirect URI** defined in your Okta app integration.
+> **Note:** If users have already signed out or there's no active session, the browser redirects to the **Sign-out redirect URI** defined in your app integration.
 
 After adding the sign-out function, the sample app is ready to test. Your sample app code appears as follows:
 
@@ -267,7 +267,7 @@ If your app isn't functional, ensure that:
 * Your client ID is accurate from your Okta app integration.
 * Your `redirectUri` is accurate or the port number for your local web server is correct.
 * You've enabled a trusted origin for `http://localhost:9000`. See [About trusted origins](#about-trusted-origins).
-* If your app is bypassing the Okta Sign-In Widget, your user is already signed in. Use a new private or incognito browser window or optionally set the authentication policy for your app to always sign in. That is, the **Re-authentication frequency is** set to **Every sign-in attempt**.
+* If your app is bypassing the Okta Sign-In Widget, your user is already signed in. Use a new private or incognito browser window or optionally set the app sign-in policy for your app to always sign in. That is, the **Re-authentication frequency is** set to **Every sign-in attempt**.
 
 ## Enable profile enrollment (self-service registration)
 
@@ -334,7 +334,7 @@ By default, your Integrator Free Plan org isn't configured for multifactor authe
    1. For **User can verify with**, select **SMS**.
    1. Set **This authenticator can be used for** to **Authentication and recovery**, and click **Add**.
 
-1. Go to **Security** > **Authentication policies**, click **Add a policy**.
+1. Go to **Security** > **Authentication policies** > **App sign-in**, click **Create policy**.
 
 1. Add a name for the policy. For example: **Mandatory MFA**.
 
@@ -346,7 +346,7 @@ By default, your Integrator Free Plan org isn't configured for multifactor authe
 
 1. Click the **Sign On** tab, scroll down to the **User authentication** section, and click **Edit**.
 
-1. Select your new authentication policy, **Mandatory MFA**, from the **Authentication policy** dropdown menu, and click **Save**.
+1. Select your new app sign-in policy, **Mandatory MFA**, from the **App sign-in policy** dropdown menu, and click **Save**.
 
 1. Test the new configurations by signing in to your app. If your test user doesn't have a phone number enrolled, the user is prompted for the enrollment during sign-in. Enroll the test user, add the SMS code, and the user is signed-in to your sample app.
 
@@ -372,7 +372,7 @@ By default, the Integrator Free Plan org is configured for a self-service passwo
 
 1. Click **Not required** for the **additional verification is** question, and then click **Update rule**.
 
-1. If you previously set the sign-on policy for your app as Mandatory MFA, go to **Applications** > **Applications** and select your app. Click the **Sign On** tab and scroll down to the **User authentication** section and click **Edit**. From the **Authentication policy** dropdown menu, select **One factor access** and click **Save**.
+1. If you previously set the sign-on policy for your app as Mandatory MFA, go to **Applications** > **Applications** and select your app. Click the **Sign On** tab and scroll down to the **User authentication** section and click **Edit**. From the **App sign-in policy** dropdown menu, select **One factor access** and click **Save**.
 
 Test the new configurations by recovering a password for a user of your sample app:
 
@@ -394,7 +394,7 @@ See [Self-service account recovery](https://help.okta.com/okta_help.htm?type=oie
 
 ## Enable passwordless authentication
 
-Enable passwordless authentication for your existing users by configuring your Okta org's authenticator enrollment policy, authentication policy, and global session policy. This example uses the email authenticator to authenticate your users instead of a password. For full details and other passwordless implementation options, see [Set up passwordless sign-in experience](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless).
+Enable passwordless authentication for your existing users by configuring your Okta org's authenticator enrollment policy, app sign-in policy, and global session policy. This example uses the email authenticator to authenticate your users instead of a password. For full details and other passwordless implementation options, see [Set up passwordless sign-in experience](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless).
 
 1. Go to **Directory** > **Groups** and click **Add group**. Give the group a name, for example, "Passwordless users", and click **Save**.
 1. Select your new group, and click **Assign people** from the **People** tab. Add one or more users to your new group.
@@ -405,14 +405,14 @@ Enable passwordless authentication for your existing users by configuring your O
     * **Email** authenticator: Set to required
     * **Password** authenticator: Set to disabled
 1. Add a rule name, for example, "Passwordless enrollment rule", and click **Create rule** to complete the enrollment policy setup.
-1. Click **Authentication Policies** and assign your sample app to a one-factor authentication policy, if it's not already. In the policy, click **Add rule**, and make the following configurations and then click **Save**:
+1. Click **Authentication Policies** > **App sign-in** and assign your sample app to a one-factor app sign-in policy, if it's not already. In the policy, click **Add rule**, and make the following configurations and then click **Save**:
     * **Rule name**: Any name for this rule, for example, "Passwordless authentication rule"
     * **User's group membership includes**: Your new group, "Passwordless users"
     * **User must authenticate with**: Any one factor type or IdP
 1. Click **Global Session Policy** and click **Add policy**. Give the policy a name, for example, "Global Passwordless policy", and assign the policy to your new group, "Passwordless users". Click **Create policy and add rule**.
 1. Configure the following fields in the **Add rule** dialog and then click **Create rule**:
     * **Rule name**: Any name for this rule, for example, "Global Passwordless rule"
-    * **Establish the session with**: Any factor used to meet the Authentication Policy requirements
+    * **Establish the session with**: Any factor used to meet the app sign-in policy requirements
 
 Test the new configurations by signing in to your sample app with a user added to your "Passwordless users" group:
 

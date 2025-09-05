@@ -127,7 +127,7 @@ AuthenticationResponse authenticationResponse =
 
 `verifyAuthenticator()` returns an `AuthenticationResponse` object with an `AuthenticationStatus` property of `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION`. This indicates that the user still has authentication factors to enroll before registration is complete.
 
-In this scenario, you configure the app's authentication policy to require a password and another factor. Therefore, the user must enroll at least one of either the email or phone factors. Redirect them to the list page you created earlier to choose which one.
+In this scenario, you configure the app's app sign-in policy to require a password and another factor. Therefore, the user must enroll at least one of either the email or phone factors. Redirect them to the list page you created earlier to choose which one.
 
 <div class="half wireframe-border">
 

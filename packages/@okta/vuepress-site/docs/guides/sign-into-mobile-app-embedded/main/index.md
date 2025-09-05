@@ -50,7 +50,7 @@ For further information on the Interaction Code grant type, see [Interaction Cod
 
 ### Create an Okta integration for your iOS app
 
-An app integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services. This includes which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
+An app integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services. This includes which users and groups have access, app sign-in policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
 
 To create your app integration in the Okta Admin Console:
 
@@ -132,7 +132,7 @@ Update the Okta property list (`Okta.plist`) with the Okta org OIDC settings tha
 
 1. Click the run button in the toolbar or choose **Product** > **Run** to build and run the app on the selected simulated or a real device.
 1. Click **Sign In** in the simulator or device. You can see the **Client ID** of your app integration at the bottom of the simulator.
-1. Sign in with a user assigned to your app integration. Authenticate with one or more authenticators based on your app's authentication policy. Your user's profile appears.
+1. Sign in with a user assigned to your app integration. Authenticate with one or more authenticators based on your app's app sign-in policy. Your user's profile appears.
 1. Click **Token details** to review the access token and the refresh token.
 1. Click **Sign Out** and **Revoke Tokens** to sign out and return to the sign-in page.
 

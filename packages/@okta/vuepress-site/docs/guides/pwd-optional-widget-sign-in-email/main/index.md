@@ -16,7 +16,6 @@ Enable an email-only sign-in flow in your app using the embedded Okta Sign-In Wi
 #### What you need
 
 <StackSnippet snippet="whatyouneed" />
-</br>
 
 #### Sample code
 
@@ -38,7 +37,7 @@ The following summarizes the steps involved in the password-optional sign-in flo
 
 <StackSnippet snippet="integrationsummary" />
 
-### 1. The user submits their username
+### The user submits their username
 
 The user enters their username and clicks **Next** to start the sign-in flow.
 
@@ -52,12 +51,12 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### 2. The user starts the email challenge flow
+### The user starts the email challenge flow
 
 The Sign-In Widget displays a page for the user to start verifying their identity by email. Email is the only choice because:
 
 * The user has only enrolled the email authenticator.
-* Email is the only allowed authentication factor in your app integration's authentication policy.
+* Email is the only allowed authentication factor in your app integration's app sign-in policy.
 
 The user clicks **Send me an email** to begin the email challenge flow.
 
@@ -72,7 +71,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### 3. The user verifies their identity with the email authenticator
+### The user verifies their identity with the email authenticator
 
 Okta Identity Engine sends a verification email to the user's primary email address. The email gives the user two ways to verify their identity:
 

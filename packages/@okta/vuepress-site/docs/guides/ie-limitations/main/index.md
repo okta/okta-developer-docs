@@ -116,7 +116,7 @@ See [Configure user profile policies](https://help.okta.com/okta_help.htm?type=o
 
 ### The `audience` parameter in the Authentication API
 
-**What changed:** Passing the `audience` parameter to the `/api/v1/authn` API isn't supported in Identity Engine because of the new flexible authentication policy that comes with Identity Engine. The Classic Engine pipeline doesn't support the flexible authentication policy.
+**What changed:** Passing the `audience` parameter to the `/api/v1/authn` API isn't supported in Identity Engine because of the new flexible app sign-in policy that comes with Identity Engine. The Classic Engine pipeline doesn't support the flexible app sign-in policy.
 
 **Further information:** [IdP-initiated step-up authentication](/docs/reference/api/authn/#idp-initiated-step-up-authentication)
 

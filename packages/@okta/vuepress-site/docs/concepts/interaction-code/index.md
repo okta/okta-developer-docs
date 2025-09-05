@@ -17,7 +17,7 @@ The Interaction Code grant type allows native, SPA, and web apps to manage user 
 
 The Interaction Code flow consists of a series of interactions between the user and the authorization server, facilitated by the client. Each interaction is called a remediation step and corresponds to a piece of user data required by the authorization server. The client obtains these remediation steps from the Identity Engine component of the [Okta authorization server](/docs/concepts/auth-servers/). The client then prompts the user for the required data at each step to continue the flow.
 
-Each step of the remediation is a criterion of assurance for authenticating the user. Also, each step is evaluated at runtime based on predefined Okta authorization server and authentication policies. The number and nature of remediation steps are configurable in the policies with minimal disruption to the running app. This allows the authentication experience to differ based on user, group, context, app, available factors, and so on.
+Each step of the remediation is a criterion of assurance for authenticating the user. Also, each step is evaluated at runtime based on predefined Okta authorization server and app sign-in policies. The number and nature of remediation steps are configurable in the policies with minimal disruption to the running app. This allows the authentication experience to differ based on user, group, context, app, available factors, and so on.
 
 ### Remediation
 

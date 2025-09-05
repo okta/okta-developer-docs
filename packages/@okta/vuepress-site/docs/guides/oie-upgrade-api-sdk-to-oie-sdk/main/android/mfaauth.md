@@ -2,7 +2,7 @@
 
 For a multifactor sign-in authentication flow using the Java Auth SDK, a typical app has to instantiate the `AuthenticationClient` object and call the `authenticate()` method, similar to the [Map basic sign-in code to the Identity Engine SDK](#map-basic-sign-in-code-to-the-identity-engine-sdk) use case.
 
-In this MFA scenario, there is an additional email factor to verify, therefore the `authenticate()` call returns an `AuthenticationResponse` object with a list of one additional factor to verify: the email factor. The `AuthenticationResponse.getFactors()` method is used to return the list of factors to verify.
+In this MFA scenario, there’s an additional email factor to verify, therefore the `authenticate()` call returns an `AuthenticationResponse` object with a list of one other factor to verify: the email factor. The `AuthenticationResponse.getFactors()` method is used to return the list of factors to verify.
 
 ```java
 final String factorId = authenticationResponse.getFactors().get(0).getId();
@@ -20,7 +20,7 @@ if (factorType == FactorType.EMAIL) {
 
 For the email factor, the app has to verify a code that is sent to the user’s email. The `AuthenticationClient.challengeFactor()` is called to send the verify code email, then the `AuthenticationClient.verifyFactor()` method is used to verify the code from the email.
 
-> **Note:** If there is only one factor in the list, the app doesn’t need to call `challengeFactor()`, as it is automatically triggered.
+> **Note:** If there’s only one factor in the list, the app doesn’t need to call `challengeFactor()`, as it’s automatically triggered.
 
 ```java
 try {
@@ -41,13 +41,13 @@ If the `verifyFactor()` method is successful, an `AuthenticationResponse` object
 
 ### Identity Engine SDK authentication flow for MFA
 
-The Identity Engine MFA authentication flow is initially similar to implementing using the Classic Engine SDK, however, there are slight differences in handling the subsequent multifactors. The authentication flow starts when the app instantiates the `IDXAuthenticationWrapper` client object and calls the `begin()` method. After receiving the username and password from the user, the app passes them as arguments to the `authenticate()` method (similar to the Classic Engine `AuthenticationClient.authenticate()` method). This method returns the Identity Engine `AuthenticationResponse` object with an `AuthenticationStatus`.
+The Identity Engine MFA authentication flow is similar to using the Classic Engine SDK, however, there are slight differences in handling the subsequent multifactors. The authentication flow starts when the app instantiates the `IDXAuthenticationWrapper` client object and calls the `begin()` method. After receiving the username and password from the user, the app passes them as arguments to the `authenticate()` method (similar to the Classic Engine `AuthenticationClient.authenticate()` method). This method returns the Identity Engine `AuthenticationResponse` object with an `AuthenticationStatus`.
 
-> **Note:** Authenticators are the factor credentials that are owned or controlled by the user. These are verified during authentication.
+> **Note:** Authenticators are the factor credentials that users control or own. These are verified during authentication.
 
-If additional factors are required, then `AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` and a list of authenticators (`AuthenticationResponse.getAuthenticators()`) to be verified are returned in the `AuthenticationResponse`. This is where the Identity Engine MFA differs from the Classic Engine MFA. The Identity Engine MFA flow has the following general pattern:
+If other factors are required, then `AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` and a list of authenticators (`AuthenticationResponse.getAuthenticators()`) to be verified are returned in the `AuthenticationResponse`. This is where the Identity Engine MFA differs from the Classic Engine MFA. The Identity Engine MFA flow has the following general pattern:
 
-- AuthenticationResponse returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` &mdash; implying that the app/user has to select the authenticator to verify. The app can provide the user with a selection of authenticators to verify (if there is more than one authenticator) or the app can choose to select the authenticator on behalf of the user and present the user with an appropriate message.
+- AuthenticationResponse returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION`. This implies that the app/user has to select the authenticator to verify. The app can provide the user with a selection of authenticators to verify (if there’s more than one authenticator) or the app can choose to select the authenticator on behalf of the user and present the user with an appropriate message.
 
 - The app calls `IDXAuthenticationWrapper.selectAuthenticator()` to select the authenticator to verify &mdash; this is synonymous with the Java Auth SDK’s `AuthenticationClient.challengeFactor()` method, where the authenticator challenge is triggered. In this case, an email is sent with the verify code.
 
@@ -73,8 +73,8 @@ AuthenticationResponse authenticationResponse =
 - AuthenticationResponse returns either:
   - `AuthenticationStatus=SUCCESS` &mdash; the MFA process is successful and the app can call `AuthenticationResponse.getTokenResponse()` to retrieve the required tokens for authenticated user activity.
   OR
-  -`AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` &mdash; additional authenticator verification is required, and the app can loop through the MFA remediation process again: `[AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` -> `selectAuthenticator()` -> `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` -> `verifyAuthenticator()` -> `check AuthenticationStatus]`.
+  -`AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` &mdash; more authenticator verification is required, and the app can loop through the MFA remediation process again: `[AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` -> `selectAuthenticator()` -> `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` -> `verifyAuthenticator()` -> `check AuthenticationStatus]`.
 
-The number of required/optional authenticators for MFA are configured in the Admin Console and in the authentication policies. The Identity Engine-enabled app is structured in a way that enables the MFA challenges to differ based on user, group, context, and available factors since the MFA process is driven by policies set in Okta and not hard-coded into the app.
+The number of required/optional authenticators for MFA are configured in the Admin Console and in the app sign-in policies. The Identity Engine-enabled app is structured in a way that enables the MFA challenges to differ based on user, group, context, and available factors. This is because policies that are set in Okta drive the MFA process.
 
 For further details on how this use case is implemented with the Java Identity Engine SDK, see [Sign in with password and email factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/android/main/).

@@ -1,18 +1,18 @@
 You can configure scenarios for authentication using claims sharing and policies using your Okta SP org and a third-party IdP.
 
-### Authentication policy example
+### App sign-in policy example
 
-[Create an authentication policy and rule for your app](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) in your SP org. Select **Any 2 factor types**, don't select a possession constraint, and select **Allow any method that can be used to meet the requirement**.
+[Create an app sign-in policy and rule for your app](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) in your SP org. Select **Any 2 factor types**, don't select a possession constraint, and select **Allow any method that can be used to meet the requirement**.
 
-Each individual AMR value represents a factor and possession property. During policy evaluation, Okta uses the AMR values to verify if the authentication policy can be satisfied.
+Each individual AMR value represents a factor and possession property. During policy evaluation, Okta uses the AMR values to verify if the app sign-in policy can be satisfied.
 
-For example, the `pwd` and `sms` AMR claims can satisfy an authentication policy configured with **Any 2 factor types**.
+For example, the `pwd` and `sms` AMR claims can satisfy an app sign-in policy configured with **Any 2 factor types**.
 
-> **Note:** The `mfa` AMR claim isn't mapped to any factor type or method characteristics. It indicates that the user performed authentication using more than one factor type. It's defined to satisfy the authentication policy **Any two factors** configuration and to satisfy the global session policy MFA requirement. If there's any additional constraints from the authentication policy, the `mfa` AMR claim alone doesn't satisfy it. Configure your SP org to require more AMR claims.
+> **Note:** The `mfa` AMR claim isn't mapped to any factor type or method characteristics. It indicates that the user performed authentication using more than one factor type. It's defined to satisfy the app sign-in policy **Any two factors** configuration and to satisfy the global session policy MFA requirement. If there's any additional constraints from the app sign-in policy, the `mfa` AMR claim alone doesn't satisfy it. Configure your SP org to require more AMR claims.
 
-#### Other authentication policy scenarios
+#### Other app sign-in policy scenarios
 
-* **Possession factor constraints:** If you enable any possession factor constraints in the authentication policy of your SP org, Okta uses the AMR values to satisfy the requirement. See [Supported AMR values](#supported-amr-values).
+* **Possession factor constraints:** If you enable any possession factor constraints in the app sign-in policy of your SP org, Okta uses the AMR values to satisfy the requirement. See [Supported AMR values](#supported-amr-values).
 
 * **User must authenticate with:**
   * **Authentication method chain:** If you select **Authentication method chain** instead of **Any 2 factor types**, then Okta can't use AMR values to evaluate the policy. The SP org challenges the user to verify using any locally configured authenticator.
@@ -26,7 +26,7 @@ For example, the `pwd` and `sms` AMR claims can satisfy an authentication policy
 
 ### Global session policy
 
-The global session policy works the same as the authentication policy. AMR values can satisfy the MFA requirement, depending on the AMR values sent.
+The global session policy works the same as the app sign-in policy. AMR values can satisfy the MFA requirement, depending on the AMR values sent.
 
 ### Okta Classic Engine
 

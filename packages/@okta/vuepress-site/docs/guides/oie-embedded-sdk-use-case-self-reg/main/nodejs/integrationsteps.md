@@ -170,7 +170,7 @@ router.post('/enroll-authenticator/okta_password', async (req, res, next) => {
 
 `proceed()` returns a response object with a `status` of `IdxStatus.PENDING` and a `nextStep` field that indicates that the user still has authentication factors to enroll (`enroll-authenticator`) before registration is complete.
 
-In this scenario, you configure the app's authentication policy to require a password and another factor. Therefore, the user must enroll at least one of either the email or phone factors. Redirect them to the list page you created earlier to choose which one.
+In this scenario, you configure the app's app sign-in policy to require a password and another factor. Therefore, the user must enroll at least one of either the email or phone factors. Redirect them to the list page you created earlier to choose which one.
 
 <div class="half wireframe-border">
 

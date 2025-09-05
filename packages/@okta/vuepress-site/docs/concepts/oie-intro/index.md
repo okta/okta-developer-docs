@@ -32,7 +32,7 @@ See [Customize email notifications > Use app context](/docs/guides/custom-email/
 
 App intent links are used to signal intent to access an app. These links are protocol-specific endpoints that you can use to initiate a sign-in flow to an app. Both Identity Provider and Service Provider initiated flows are supported.
 
-Example app intent link for a SAML application:
+Example app intent link for a SAML app:
 `http://{yourOktaDomain}/app/mysamlapp_1/{appInstanceID}/sso/saml`
 
 Before Identity Engine, these endpoints were accessible only with a session. Unauthenticated traffic was redirected to a centralized sign-in page (`/login/login.htm`) with a `fromUri` that represented the app that was originally attempted (the app intent link). This occurred before the request was assessed for rate limiting. A session was established and the request was processed.
@@ -41,15 +41,15 @@ The user was then redirected to the relevant app intent link through an intermed
 
 Identity Engine changes the way Okta processes these requests. It no longer forwards requests to the centralized sign-in page (`/login/login.htm`). Instead, the app intent links location hosts the widget/sign-in experience for the app that the user is attempting to access.
 
-Then, Identity Engine evaluates the Global Session Policy, authentication policy, and all other policies relevant to the sign-in experience. Each app intent link is responsible for hosting the sign-in experience on Identity Engine. Because of this, they share a common app intent link rate limit bucket/group similar to what exists for the centralized sign-in page on Classic Engine.
+Then, Identity Engine evaluates the global session policy, app sign-in policy, and all other policies relevant to the sign-in experience. Each app intent link is responsible for hosting the sign-in experience on Identity Engine. Because of this, they share a common app intent link rate limit bucket/group similar to what exists for the centralized sign-in page on Classic Engine.
 
-### Authentication policies
+### App sign-in policies
 
-Authentication policies are [security policy frameworks](https://csrc.nist.gov/pubs/sp/800/63/b/upd2/final) that allow organizations to model security outcomes for an app. These policies are shareable across applications. For example, you can automatically step up authentication to a strong non-phishable factor when elevated risk is detected. Also, Identity Engine allows you to create flexible apps that can change their authentication methods without having to alter a line of code.
+App sign-in policies are [security policy frameworks](https://csrc.nist.gov/pubs/sp/800/63/b/upd2/final) that allow organizations to model security outcomes for an app. These policies are shareable across apps. For example, you can automatically step up authentication to a strong non-phishable factor when an elevated risk is detected. Also, Identity Engine allows you to create flexible apps that can change their authentication methods without having to alter a line of code.
 
-* [Configure a global session policy and authentication policies](/docs/guides/configure-signon-policy/)
+* [Configure a global session policy and app sign-in policies](/docs/guides/configure-signon-policy/)
 
-* [Authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop)
+* [App sign-in policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop)
 
 * [Policies (high-level concept)](/docs/concepts/policies/)
 
@@ -62,7 +62,7 @@ Okta only supports the following CAPTCHA services:
 - [hCAPTCHA (invisible)](https://docs.hcaptcha.com/invisible)
 - [reCAPTCHA v2 (invisible)](https://developers.google.com/recaptcha/docs/invisible)
 
->**Note:** Using any other CAPTCHA type could lead to lockout. Contact [Okta support](https://support.okta.com) if lockout occurs.
+>**Note:** Using any other CAPTCHA type could lead to a lockout. Contact [Okta Support](https://support.okta.com) if a lockout occurs.
 
 You can use either hCAPTCHA or reCAPTCHA with the redirect or embedded authentication deployment models. See [Okta deployment models](/docs/concepts/redirect-vs-embedded/).
 
@@ -95,7 +95,7 @@ In our documentation, Okta is moving towards supporting Identity Engine by defau
 
 * Pages and page sections covering features that only work in Identity Engine have a blue Identity Engine banner at the top.
 * Content that works in both Identity Engine and Classic Engine have no banner. Any slight differences are covered in the page text.
-* Content written for Classic Engine that won't work in Identity Engine has a note at the top that explains what the issue is, and, if appropriate, where Identity Engine users can go to find support.
+* Content written for Classic Engine that doesn't work in Identity Engine has a note at the top that explains what the issue is. And, if appropriate, the note explains where Identity Engine users can go to find support.
 * For guides that were extensively updated to support Identity Engine, Okta keeps a [Classic Engine](/docs/guides/archive-overview/) version available if needed.
 
 > **Note**: See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.

@@ -13,7 +13,7 @@ meta:
 
 This document details the features and syntax of Expression Language used for the following:
 
-* [Authentication policies](/docs/guides/configure-signon-policy/main/) of Identity Engine
+* [App sign-in policies](/docs/guides/configure-signon-policy/main/) of Identity Engine
 * [Access Certification campaigns](https://help.okta.com/okta_help.htm?id=ext-el-eg), Entitlement Management policies, and [federated claims](/docs/guides/federated-claims/main/) for Okta Identity Governance
 
 Expressions used outside of these areas should continue using the features and syntax of [Expression Language](/docs/reference/okta-expression-language/). This document is updated as new capabilities are added to the language. Expression Language is based on a subset of [SpEL functionality](https://docs.spring.io/spring-framework/reference/core/expressions.html).
@@ -42,7 +42,7 @@ The following operators and functionalities offered by SpEL aren't supported in 
 
 When you create an Okta expression, you can specify entitlements within the `appuser` context.
 
-> **Note:** Entitlements within the `appuser` context are only supported with [federated claims](/docs/guides/federated-claims/main/). You can't use these entitlements in authentication policies.
+> **Note:** Entitlements within the `appuser` context are only supported with [federated claims](/docs/guides/federated-claims/main/). You can't use these entitlements in app sign-in policies.
 
 | Syntax                             | Definitions                                                                              | Examples                                                       |
 | --------                           | ----------                                                                               | ------------                                                   |
@@ -83,7 +83,7 @@ When you create an Okta expression, you can reference attributes within the `ses
 
 ### Security context
 
-You can specify certain [rule conditions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/conditions&t=request) in [authentication policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule). Use expressions based on the security context of the app sign-on request. Security context is made up of the [risk level](https://help.okta.com/okta_help.htm?id=csh-risk-scoring) and the matching [User behaviors](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection) for the request.
+You can specify certain [rule conditions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/conditions&t=request) in [app sign-in policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule). Use expressions based on the security context of the app sign-on request. Security context is made up of the [risk level](https://help.okta.com/okta_help.htm?id=csh-risk-scoring) and the matching [User behaviors](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection) for the request.
 
 | Syntax | Definitions | Type | Examples | Usage   |
 | ------ | ----------- | ---- | -------- | -----   |

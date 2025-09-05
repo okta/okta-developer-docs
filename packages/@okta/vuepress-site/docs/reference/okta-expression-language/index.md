@@ -11,7 +11,7 @@ This document details the features and syntax of the Okta Expression Language (E
 
 > **Note:** Use the features and syntax of the [Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/) if you're using EL for the following features:
 >
-> * [Authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine
+> * [App sign-in policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine
 > * [Access Certification campaigns](https://help.okta.com/okta_help.htm?id=ext-el-eg) with Okta Identity Governance
 > * [Entitlement Management policies](https://help.okta.com/okta_help.htm?id=csh-create-policy) for Okta Identity Governance
 

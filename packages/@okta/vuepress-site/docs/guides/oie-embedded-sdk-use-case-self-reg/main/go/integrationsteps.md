@@ -170,7 +170,7 @@ The flags set in the previous code are used in the following code to toggle the 
   {{end}}
 ```
 
-In this scenario, you configure the app's authentication policy to require a password and another factor. Therefore, the user must enroll at least one of either the email or phone factors.
+In this scenario, you configure the app's app sign-in policy to require a password and another factor. Therefore, the user must enroll at least one of either the email or phone factors.
 
 <div class="half wireframe-border">
 

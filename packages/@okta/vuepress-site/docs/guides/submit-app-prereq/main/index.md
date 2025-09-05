@@ -86,7 +86,7 @@ Part of your OIN Wizard journey includes using the OIN Submission Tester to veri
 
 * Google Chrome browser
 * [Okta Browser Plugin](https://help.okta.com/okta_help.htm?type=eu&id=csh-user-plugin-overview) installed with **Allow in Incognito** enabled
-* A password-only authentication policy for the **Okta OIN Submission Tester** app
+* A password-only app sign-in policy for the **Okta OIN Submission Tester** app
 
 #### OIN Wizard Okta Browser Plugin setup
 
@@ -104,23 +104,23 @@ After you installed the Okta Browser Plugin in your Chrome browser, set **Allow 
 
 > **Note:** Okta recommends that you pin the Okta Browser Plugin extension on your Chrome browser. You can see warnings and errors relating to the Okta Browser Plugin if the extension is pinned to your browser.
 
-#### OIN Wizard authentication policy for testing
+#### OIN Wizard app sign-in policy for testing
 
 <ApiLifecycle access="ie" />
 
 > **Note:** These instructions only apply to Integrator Free Plan orgs with Identity Engine. If you're not sure which solution you're using, check the footer on any page of the Admin Console. The version number is appended with **E** for Identity Engine orgs and **C** for Classic Engine orgs.
 
-The OIN Wizard testing phase uses a plugin app called the **Okta OIN Submission Tester**, which is preinstalled in your Integrator Free Plan org. This app requires a password-only authentication policy to run properly.
+The OIN Wizard testing phase uses a plugin app called the **Okta OIN Submission Tester**, which is preinstalled in your Integrator Free Plan org. This app requires a password-only app sign-in policy to run properly.
 
-For Identity Engine orgs, the default authentication policy requires MFA. Use the preconfigured **Password only** authentication policy that is included in your Integrator Free Plan org for the Okta OIN Submission Tester app.
+For Identity Engine orgs, the default app sign-in policy requires MFA. Use the preconfigured **Password only** app sign-in policy that is included in your Integrator Free Plan org for the Okta OIN Submission Tester app.
 
 1. Go to **Application** > **Applications** in the Admin Console.
 1. Click **Okta OIN Submission Tester**.
 1. Click the **Sign On** tab, scroll to the **User authentication** section and click **Edit**.
-1. Select **Password only** from the **Authentication policy** dropdown menu.
+1. Select **Password only** from the **App sign-in policy** dropdown menu.
 1. Click **Save**.
 
-The OIN Submission Tester only supports a password authentication flow. Use a password-only authentication policy for all your test app instances generated from the OIN Wizard.
+The OIN Submission Tester only supports a password authentication flow. Use a password-only app sign-in policy for all your test app instances generated from the OIN Wizard.
 
 #### Troubleshoot the OIN Submission Tester
 
@@ -130,7 +130,7 @@ If you have issues loading or accessing the OIN Submission Tester, review the fo
 * Ensure that **Allow in Incognito** is enabled for the Okta Browser Plugin extension.
 * Pin the Okta Browser Plugin extension on your Chrome browser to get error notifications.
 * If you're using multiple Okta orgs, the Okta Browser Plugin requires you to trust the current Integrator Free Plan org. Click **Trust** when the **Do you trust this account?** dialog appears for the Okta Browser Plugin extension.
-* Ensure that you're using a password-only authentication policy for the OIN Submission Tester. See [OIN Wizard authentication policy for testing](#oin-wizard-authentication-policy-for-testing).
+* Ensure that you're using a password-only app sign-in policy for the OIN Submission Tester. See [OIN Wizard app sign-in policy for testing](#oin-wizard-app-sign-in-policy-for-testing).
 
 ## Logo guidelines
 

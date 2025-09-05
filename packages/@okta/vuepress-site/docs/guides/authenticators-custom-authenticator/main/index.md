@@ -46,7 +46,7 @@ This guide walks you through the two main tasks needed to integrate with the Okt
 2. [Grant the required scopes](#grant-the-required-scopes): Grant the scopes that you need to create a Custom Authenticator.
 3. [Set up notification services](#set-up-notification-services): Set up <StackSnippet snippet="notifservicelong" inline /> with your Okta org.
 4. [Add a Custom Authenticator](#add-a-custom-authenticator): Create and brand a Custom Authenticator.
-5. [Set up a global session policy and authentication policy](#set-up-a-global-session-policy-and-authentication-policy): Control who can access Okta and how.
+5. [Set up a global session policy and app sign-in policy](#set-up-a-global-session-policy-and-app-sign-in-policy): Control who can access Okta and how.
 
 **Install and configure the Okta Devices SDK**
 
@@ -72,7 +72,7 @@ The following image shows the Devices SDK setup in the Admin Console:
 
 ### Create an OIDC web authentication client
 
-The simplest way to integrate authentication in your app is to use the [Authorization code flow grant type](/docs/guides/implement-grant-type/authcode/main/) and implement the OIDC protocol through a web browser.  You need an access token to start the enrollment flow for the Devices SDK. For future sign-in attempts, consider using refresh tokens. <StackSnippet snippet="samplecode" inline />
+To easily integrate authentication in your app, use the [Authorization code flow grant type](/docs/guides/implement-grant-type/authcode/main/) and implement the OIDC protocol through a web browser.  You need an access token to start the enrollment flow for the Devices SDK. For future sign-in attempts, consider using refresh tokens. <StackSnippet snippet="samplecode" inline />
 
 <StackSnippet snippet="jwtbearernote" />
 
@@ -99,9 +99,9 @@ Alternatively, you can grant scopes using the [Grant consent to scope for app](h
 
 <StackSnippet snippet="customauthenticatoradminconsole" />
 
-### Set up a global session policy and authentication policy
+### Set up a global session policy and app sign-in policy
 
-Set up a global session policy and an authentication policy to integrate with the Devices SDK. See [configure a global session policy and authentication policy](/docs/guides/configure-signon-policy/main/).
+Set up a global session policy and an app sign-in policy to integrate with the Devices SDK. See [configure a global session policy and app sign-in policy](/docs/guides/configure-signon-policy/main/).
 
 ## Install and configure the Okta Devices SDK
 

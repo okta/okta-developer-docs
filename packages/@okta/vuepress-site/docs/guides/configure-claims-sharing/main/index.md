@@ -74,7 +74,7 @@ Configure a simple routing rule for the IdP in the Okta SP org:
    The following are the results if everything is configured properly:
 
    * The user is redirected to the IdP's sign-in page.
-   * The authenticators configured in the authentication policy prompt the user for more authentication.
+   * The authenticators configured in the app sign-in policy prompt the user for more authentication.
    * After successful authentication, the user is redirected to the <StackSnippet snippet="redirect" inline /> specified in the Okta IdP org.
 
    If something is configured incorrectly, the authorization response contains error information to help you resolve the issue.
