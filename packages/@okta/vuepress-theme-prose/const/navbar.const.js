@@ -1056,6 +1056,9 @@ export const journeys = [
             { title: "Secure your first web app",
               journeyName: "OCI-secure-your-first-web-app"
             },
+            { title: "Sign users in through your web app",
+            journeyName: "OCI-web-sign-in"
+            },
           ]
         },
       ],
