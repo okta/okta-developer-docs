@@ -47,6 +47,5 @@ With SSO in Okta, a user authenticates once with Okta (the IdP) and can seamless
 
 Universal Logout addresses these inconsistencies by creating a more reliable, central sign-out process. When a user signs out, it clears their main Okta session and revokes their tokens. This sign-out command is then sent to all connected apps, irrespective of the app's protocol. This ensures that user sessions are terminated completely and consistently across all integrations.
 
-
-The Okta Integration Network (OIN) is a catalog of pre-built integrations with thousands of apps. You can easily integrate Okta SSO to apps with a guided experience that still supports the most secure configuration options. To learn how to integrate Okta SSO with your apps, see [Overview of Single Sign-On in the OIN](https://developer.okta.com/docs/guides/oin-sso-overview/).
+>**Note**: For information on SSO integrations in the Okta Integration Network (OIN), see [Overview of Single Sign-On in the OIN](https://developer.okta.com/docs/guides/oin-sso-overview/).
 
