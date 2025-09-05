@@ -7,7 +7,7 @@ meta:
 
 # What is single sign-on (SSO)?
 
-SSO is an authentication method that allows you to sign on to multiple apps and services using a single authentication flow. For example, instead of signing into every app, you can authenticate once with an Identity Provider (IdP). It provides access to all other connected Service Providers (SPs).
+SSO is an authentication method that allows you to sign in to multiple apps and services using a single authentication flow. For example, instead of signing in to every app, you can authenticate once with an identity provider (IdP). It provides access to all other connected service providers (SPs).
 
 When you implement SSO, you let a central IdP handle authentication for you. SSO works on the federated identity concept, which is a method of linking a user’s identity across multiple separate identity management systems. Once the IdP trusts a user, they're automatically granted access to all connected SPs. This frees you from managing user credentials and session security, and allows you to focus on your core business, such as the respective app functionality.
 
