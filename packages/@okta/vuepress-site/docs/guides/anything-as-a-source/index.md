@@ -95,9 +95,9 @@ There are two types of bulk-load requests:
 
 The bulk-load request payload contains an array of external identity source objects. The items in the objects vary depending on the request that you're making.
 
-Once a bulk-load request is made, the identity source session transitions from `CREATED` to `IN_PROGRESS` status.
+After you make a bulk-load request, the identity source session transitions from `CREATED` to `IN_PROGRESS` status.
 
-You can load up to 200 KB of data or up to 200 entities in a single bulk-load request for an identity source session. To load more data, make multiple bulk-load requests to the same session. The maximum number of bulk-load requests for a session is 50.
+You can load up to 200 KB of data or up to 200 entities in a single bulk-load request for an identity source session. To load more data, make multiple bulk-load requests to the same session. The maximum number of requests for a session is 50.
 
 Create another identity source session object when you exhaust the maximum number of bulk-load requests and need to load more data. Keep in mind that you can only load data to an identity source session with the `CREATED` status.
 
@@ -111,13 +111,13 @@ You can load data about different entities to be added, changed, or deleted in O
 
 To load bulk users data, use `profiles`. The user `profiles` object is an array of user profile objects that contain attributes about the user.
 
-Each user objects in the `profiles` array can contain the following:
+Each user object in the `profiles` array can contain the following:
 
 * `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This determines if a new user needs to be created or if an existing user needs to be updated.
 * `profile`: The set of attributes from the HR source to synchronize with the Okta user profile. Profiles are mapped according to the attribute mappings that you specified in your Custom Identity Source configuration. See Declare an identity source schema in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
     > **Note:** All attributes in a `profile` object are treated as strings. Arrays aren’t supported.
 
-Use the following endpoints to bulk-load users. Each endpoint also lists example payload requests and response bodies:
+Use the following endpoints to bulk load users. Each endpoint also lists example payload requests and response bodies:
 
 * [Upload the data to be upserted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDataForUpsert)
 * [Upload the data to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDataForDelete)
@@ -126,13 +126,13 @@ Use the following endpoints to bulk-load users. Each endpoint also lists example
 
 To load bulk groups data, use `profiles`. The group `profiles` object is an array of pairs, with each pair listing the group's external ID and the group's `profile` that contain attributes about the group, but no membership data.
 
-Each group objects in the `profiles` array can contain the following:
+Each group object in the `profiles` array can contain the following:
 
 * `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific group). This determines if a new group needs to be created or if an existing group needs to be updated.
 * `profile`: The set of attributes from the HR source to synchronize with the Okta group profile. Profiles are mapped according to the attribute mappings that you specified in your Custom Identity Source configuration. See Declare an identity source schema in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
     > **Note:** All attributes in a `profile` object are treated as strings. Arrays aren’t supported.
 
-Use the following endpoints to bulk-load groups. Each endpoint also lists example payload requests and response bodies:
+Use the following endpoints to bulk load groups. Each endpoint also lists example payload requests and response bodies:
 
 * [Upload the group profiles without memberships to be upserted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupsForUpsert)
 * [Upload the group external IDs to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupsDataForDelete)
@@ -143,10 +143,10 @@ To load bulk group membership information, use `memberships`. The group `members
 
 Each group object in the `memberships` array contains the following:
 
-* `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific group). This is the group external ID of which the memberships need to be added.
+* `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific group). Add the memberships to this group external ID.
 * `memberExternalIds`: An array of external membership IDs for the group in the identity source.
 
-Use the following endpoints to bulk-load groups. Each endpoint also lists example payload requests and response bodies:
+Use the following endpoints to bulk load groups. Each endpoint also lists example payload requests and response bodies:
 
 * [Upload the group memberships to be upserted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupsForUpsert)
 * [Upload the group memberships to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupMembershipsForUpsert)
@@ -201,7 +201,7 @@ Before you can start uploading the data from your HR source to Okta, you need to
 
 > **Note:** Only `"importType": "INCREMENTAL"` is supported for an identity source session.
 
-Once the identity source is created, you can load data to it, cancel it, or monitor it.
+After you create the identity source, you can load data to it, cancel it, or monitor it.
 
 ### Bulk import data
 
@@ -245,7 +245,7 @@ When users are deactivated or deleted from your HR source, you need to reflect t
 
 ### Start the data import process
 
-After you finish loading the data you want to insert, update, or delete, [start the data import process](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/startImportFromIdentitySource) from the identity source to Universal Directory. Once you've started the import process, the identity source session status moves to `TRIGGERED`. After the import is done, the identity source session status moves to `COMPLETED`.
+After you finish loading the data you want to insert, update, or delete, [start the data import process](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/startImportFromIdentitySource) from the identity source to Universal Directory. After you've started the import process, the identity source session status moves to `TRIGGERED`. After the import is done, the identity source session status moves to `COMPLETED`.
 
 ### Cancel an identity source session
 
