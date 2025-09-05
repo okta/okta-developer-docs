@@ -2391,6 +2391,10 @@ redirects:
     to: /docs/guides/add-an-external-idp/-/main/#next-steps
   - from: /docs/guides/add-an-external-idp/-/next-steps/index.html
     to: /docs/guides/add-an-external-idp/-/main/#next-steps
+  - from: /docs/guides/add-an-external-idp/azure/main
+    to: /docs/guides/add-an-external-idp/entra/main/
+  - from: /docs/guides/add-an-external-idp/azure/main/index.html
+    to: /docs/guides/add-an-external-idp/entra/main/
   - from: /docs/guides/sharing-cert/overview
     to: /docs/guides/sharing-cert/
   - from: /docs/guides/sharing-cert/generate-new-credential
