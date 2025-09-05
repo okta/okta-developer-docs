@@ -12,7 +12,7 @@ meta:
 User credentials are the data or information that a user provides to verify their identity. Credentials can be broken down into three categories:
 
 * Something the user knows: This is a memorized secret, such as a PIN, or a username and password.
-* Something the user has: A physical or digital object in their possession. For example, a one-time passcode sent through SMS, or a code from an authenticator app, such as Okta Verify.
+* Something the user has: A physical or digital object in their possession. For example, a one-time passcode sent through SMS or a code from an authenticator app, such as Okta Verify.
 * Something the user is: A unique biometric identifier, such as a fingerprint or a facial scan.
 
 An [authenticator](/docs/guides/authenticators-overview/main/) is the mechanism for the user to present their credentials to the identity provider (IdP) for verification. For example, a user might use a smart phone with an authenticator app or a biometric fingerprint reader.
