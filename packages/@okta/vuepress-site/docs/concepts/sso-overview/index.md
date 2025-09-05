@@ -19,7 +19,7 @@ When you implement SSO, you let a central IdP handle authentication for you. SSO
 
 ## How SSO differs from a basic a sign-in flow
 
-| Features | Basic sign-in | SSO |
+| Features | Basic sign-in flow | SSO |
 | --- | --- | --- |
 | Authentication | Users enter credentials separately for each app. | Users authenticate once and gain access to multiple apps and services. |
 | Security | Higher risk of password reuse and theft | Strong security with centralized policies like MFA |
