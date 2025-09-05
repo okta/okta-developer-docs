@@ -86,13 +86,13 @@ Follow these steps to enable this AMFA policy in your app:
 1. Open the **Admin Console** for your org.
 2. Choose **Security** > **Global Session Policy** to show the available global session policies.
 3. Click **Add Policy**.
-4. Set a **Policy Name**. Example: New Device AMFA Policy
+4. Set a **Policy Name**. Example: New device AMFA Policy
 5. Set **Assign to Groups** to your target user groups. Example: Test Users
 6. Click **Create Policy and Add Rule** to save the new policy.
 
 After creating the policy, the **Add Rule** dialog appears.
 
-1. Set a **Rule Name**. Example: New Device AMFA Rule
+1. Set a **Rule Name**. Example: New device AMFA Rule
 2. Set **Behavior is** to **New Device**. This is where the `X-Device-Token` header is selected.
 3. Set **Establish the user session with** to **A password**.
 4. Set **Multifactor authentication (MFA) is** to **Required**.
@@ -100,10 +100,10 @@ After creating the policy, the **Add Rule** dialog appears.
 6. Verify that **Users will be prompted for MFA** is set to **At every sign-in**.
 7. Click **Create Rule** to create the rule.
 
-These rules declare that:
+These rules declare the following:
 
-* Every user starts the sign-in process with a password
-* If "New Device" is true, a second authentication factor is required, and users are prompted as such for each sign-in process.
+* That every user starts the sign-in process with a password.
+* That if "New device" is true, a second authentication factor is required, and users are prompted as such for each sign-in process.
 
 > **Note**: See [Add a global session policy rule](https://help.okta.com/okta_help.htm?type=oie&id=ext-add-okta-sign-on-policy-rule) to learn how the different MFA settings interact.
 
@@ -119,7 +119,7 @@ First, create the policy.
 1. Open the **Admin Console** for your org.
 2. Choose **Security** > **Authentication policies** > **App sign-in policies** to show the available app sign-in policies.
 3. Click **Create policy**.
-4. Set a **Policy Name**. Example: AMFA Test Policy
+4. Set a **Policy Name**. Example: AMFA test policy
 5. Click **Save**.
 
 Set the catch-all rule to require only the username and password by default.
