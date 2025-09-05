@@ -142,7 +142,7 @@ Add a rule that requires an additional authenticator when signing in from a new 
 9. Click **Close**.
 10. Verify the **Applications** tab of the new policy lists the new app.
 
-> **Note**: For more about the expression used in Step 3, see the [Okta Expression Reference Guide](/docs/reference/okta-expression-language-in-identity-engine/#security-context).
+> **Note**: For more about the expression used in step 3, see the [Okta Expression Reference Guide](/docs/reference/okta-expression-language-in-identity-engine/#security-context).
 
 ## See also
 

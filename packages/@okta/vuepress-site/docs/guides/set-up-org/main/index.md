@@ -28,7 +28,7 @@ If you don't have an Okta Identity Engine org, you need to sign up for an Okta a
 
 1. Using the activate link in the email from Okta, activate your account and provide a new password. Okta redirects you to the [Admin Console](/docs/concepts/okta-organizations/#admin-console) of your new Identity Engine org.
 
-The email and password that you use to create your account are used as your admin credentials. Your account is automatically created as an admin with the Super Administrator role.
+The email and password that you use to create your account are used as your admin credentials. Your account is automatically created as an admin with the super administrator role.
 
 ## Create user accounts
 
@@ -38,7 +38,7 @@ Users are assigned to non-administrator user groups either during or after their
 
 ### Create two test accounts
 
-Create two test accounts to test the end-user experience for your apps.
+Create two test accounts to test the user experience for your apps.
 
 1. Sign in to your Okta org with your admin account.
    * Select **Admin** in the upper-right corner of the page. You're redirected to the Admin Console.
