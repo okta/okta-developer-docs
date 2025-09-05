@@ -46,7 +46,7 @@ You assign global session policies to one or more groups. The policies apply to 
 
 > **Note:** It’s possible to accidentally block users with global session policies. For example, if a global session policy requires a user to enter a password, passwordless users can’t sign in. Test your global session policies in a development environment before deploying to production.
 
-For more information on global session policies, see [Sign-on policies](/docs/concepts/policies/#sign-on-policies).
+For more information on global session policies, see [Global session policies](/docs/concepts/policies/#global-session-policies).
 
 ### App sign-in policies
 
@@ -56,7 +56,7 @@ App sign-in policies have no priority order, because every app in your org uses 
 
 Rules within an app sign-in policy have a priority order. Each app sign-in policy has a default, catch-all rule that applies to all users. This default rule has the lowest priority.
 
-For more information on global session policies, see [Sign-on policies](/docs/concepts/policies/#sign-on-policies).
+For more information on global session policies, see [Global session policies](/docs/concepts/policies/#global-session-policies).
 
 ### Authenticator enrollment policies
 
