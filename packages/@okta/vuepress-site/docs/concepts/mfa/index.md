@@ -54,7 +54,7 @@ There are many different ways that you can use authenticators in your org. MFA i
    > **Note:** In Classic Engine, "factor" is used interchangeably with "authenticator." In Identity Engine, a factor refers to the category of authentication (knowledge, possession, biometric), while an authenticator is a specific method or device. See [Understand the terminology in the User Factors API](#understand-the-terminology-in-the-user-factors-api).
 * **Authenticator**: A method or device that a user possesses and controls and that they use to verify their identity. Authenticators can be used to satisfy different factor requirements. For example, Okta supports authenticators like Okta Verify, Smart Cards, and YubiKey One-Time Passcodes (OTPs), among others.
 * **Authenticator method**: The security method used by an authenticator. Typically the authenticator method describes the protocol that the authenticator uses. See [Method characteristics](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-authenticators).
-* **Authenticator enrollment**: The specific instance of an authenticator that a user has enrolled and that's linked to them and their account. It refers to the specific configuration of the authenticator and the user who's enrolled it.
+* **Authenticator enrollment**: The specific instance of an authenticator that a user has enrolled and that's linked to them and their account. It refers to the specific configuration of the authenticator and the user who enrolled it.
 
 See [Understand authenticator terminology with Okta APIs](#understand-authenticator-terminology-with-okta-apis) for more information about some of these terms and how they're used in Okta APIs.
 
