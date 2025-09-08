@@ -6,7 +6,7 @@ layout: Guides
 
 <ApiLifecycle access="ie" /><br>
 
-> **Note:** In Classic Engine, the global session policy is named the "Okta sign-on policy" and the app sign-in policy is named as the "app sign-on policy".
+> **Note:** In Classic Engine, the global session policy is named the "Okta sign-on policy" and the app sign-in policy is named the "app sign-on policy".
 
 > **Note:** This document is only for Identity Engine. If you’re using Classic Engine, see [Configure Okta sign-on and app sign-on policies](/docs/guides/archive-configure-signon-policy). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
