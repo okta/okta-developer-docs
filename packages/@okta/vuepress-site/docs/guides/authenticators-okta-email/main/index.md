@@ -56,7 +56,7 @@ This guide discusses the email authenticator user journeys for both magic links 
 
 ## Update configurations
 
-There are two things you must do to start using the email authenticator. Enable it in your Okta org and assign it an app sign-in policy that requires the email authenticator.
+Before you can start using the email authenticator, enable it in your Okta org and create an app sign-in policy that requires it to be used.
 
 ### Add the email authenticator to your org
 

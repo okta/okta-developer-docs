@@ -57,7 +57,7 @@ As the Service Provider, you can provide WebAuthn support to your users. Enable 
 
 ## Update configurations
 
-Before you can start using WebAuthn, you need to enable it in your Okta org and assign it an app sign-in policy that requires it to be used.
+Before you can start using WebAuthn, enable it in your Okta org and create an app sign-in policy that requires it to be used.
 
 ### Add WebAuthn to your org
 
