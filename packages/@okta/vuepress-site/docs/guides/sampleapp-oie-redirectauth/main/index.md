@@ -55,7 +55,7 @@ To get started, you need to create an Okta OAuth app to represent the <StackSnip
       **Sign-out redirect URIs**: <StackSnippet snippet="signoutredirecturi" inline />
 
    * In the **Assignments** section, select **Allow everyone in your organization to access**. This assigns all Users in the Everyone Group to the app. You must assign the app to either the Everyone Group or a custom Group that you create so that profile enrollment functions correctly.
-5. On the new Application page, click the "Copy to clipboard" icon to copy the <StackSnippet snippet="clientidsd" inline />. Store this information temporarily for use when you <StackSnippet snippet="configfile" inline /> in the next section.
+5. On the new app page, click the "Copy to clipboard" icon to copy the <StackSnippet snippet="clientidsd" inline />. Store this information temporarily for use when you <StackSnippet snippet="configfile" inline /> in the next section.
 
 <StackSnippet snippet="corsissuer" />
 
@@ -79,7 +79,7 @@ This section walks you through enrolling a user and authenticating that user.
 <StackSnippet snippet="simpleenrollauth" />
 
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You're redirected to the success page.
-    > **Note:** Which authenticators appear during sign-in depends on how your [authentication policy](/docs/guides/configure-signon-policy/main/#authentication-policies) is configured.
+    > **Note:** Which authenticators appear during sign-in depends on how your [app sign-in policy](/docs/guides/configure-signon-policy/main/#app-sign-in-policies) is configured.
 5. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
 ## Enable self-service enrollment
@@ -133,7 +133,7 @@ To enable self-service password-optional enrollments in the Sign-In Widget, <Sta
 
 ## Add MFA with a mandatory second factor
 
-You can modify the app's authentication policy to require the user to have a second factor enabled for authentication. In this example, use the phone authenticator.
+You can modify the app's app sign-in policy to require the user to have a second factor enabled for authentication. In this example, use the phone authenticator.
 
 > **Note:** Your Okta org may have different authenticators enabled by default.
 
@@ -148,7 +148,7 @@ You can modify the app's authentication policy to require the user to have a sec
 2. From the side navigation, select **Applications** > **Applications** and then select the app integration that you created earlier.
 3. Select the **Sign On** tab.
 4. Scroll down to the **User authentication** section and click **Edit**.
-5. From the **Authentication policy** dropdown menu, select **Any two factors** and click **Save**.
+5. From the **App sign-in policy** dropdown menu, select **Any two factors** and click **Save**.
 
 ### Try multifactor authentication
 
@@ -180,7 +180,7 @@ The following diagram illustrates these steps:
 
 ![Email magic link flow for redirect auth](/img/authenticators-email-magic-link-summary-redirect-flow-overview.png "Image title") -->
 
-Try the email magic link recovery flow:
+Try the Email Magic Link recovery flow:
 
 1. Select **Forgot password?** in the Sign-In Widget.
 1. Enter your email or username when prompted and click **Next**.
@@ -312,7 +312,7 @@ Create a Routing Rule that automatically routes all authentication requests to F
 1. On the Identity Providers page in the Admin Console, select the **Routing Rules** tab.
 2. Click **Add Routing Rule**.
 3. Name the Rule, and then for the purposes of this example set two rule conditions:
-    * For **AND User is accessing**, select **Any of the following applications**, and then choose your Application. This routes any attempts to access the <StackSnippet snippet="applang" inline /> app to the Facebook IdP, but still allows you to access your Admin Console normally.
+    * For **AND User is accessing**, select **Any of the following applications**, and then choose your app. This routes any attempts to access the <StackSnippet snippet="applang" inline /> app to the Facebook IdP, but still allows you to access your Admin Console normally.
     * For **THEN Use this identity provider**, select the Facebook IdP that you added earlier, and then click **Create Rule**.
 4. Click **Activate** in the dialog box that appears.
 5. Start the <StackSnippet snippet="applang" inline /> app in an incognito/private browser window and click ç. You are redirected to the Facebook site, where you can sign in.

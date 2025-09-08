@@ -22,11 +22,11 @@ This guide describes how to use the [Device Assurance Policies API](https://deve
 
 ## About device assurance policies
 
-Use device assurance policies to check sets of security-related device attributes as part of your [authentication policies](/docs/concepts/policies/#authentication-policies). For example, you can configure a device assurance policy to check whether a specific operating system version or security patch is installed on a device. Then you can permit that device to access Okta-protected resources.
+Use device assurance policies to check sets of security-related device attributes as part of your [app sign-in policies](/docs/concepts/policies/#app-sign-in-policies). For example, you can configure a device assurance policy to check whether a specific operating system version or security patch is installed on a device. Then you can permit that device to access Okta-protected resources.
 
-By adding device checks to your authentication policy rules, you can establish minimum requirements for the devices that have access to your org.
+By adding device checks to your app sign-in policy rules, you can establish minimum requirements for the devices that have access to your org.
 
-After you add at least one device assurance policy, you can include it in your [authentication policy rules](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyRules). You can't apply device assurance policies to users, groups, or devices until you make them part of an authentication policy rule.
+After you add at least one device assurance policy, you can include it in your [app sign-in policy rules](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyRules). You can't apply device assurance policies to users, groups, or devices until you make them part of an app sign-in policy rule.
 
 ### About platforms
 
@@ -123,15 +123,15 @@ Consider the following:
   "displayRemediationMode": "SHOW"
 ```
 
-## Add device assurance to an authentication policy
+## Add device assurance to an app sign-in policy
 
-A device assurance policy doesn't do anything until it's added to an authentication policy rule. Once added to a rule, it's evaluated for that authentication policy.
+A device assurance policy doesn't do anything until it's added to an app sign-in policy rule. Once added to a rule, it's evaluated for that app sign-in policy.
 
 ### Example PUT rule request
 
 Send a PUT request to the `/api/v1/policies/{policyId}/rules` endpoint. Consider the following:
 
-* Select an authentication policy and use its `id` as the `policyId` in your request. See [List all policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies). Use the `ACCESS_POLICY` type.
+* Select an app sign-in policy and use its `id` as the `policyId` in your request. See [List all policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies). Use the `ACCESS_POLICY` type.
 * Set the value of `priority` to `1`.
 * Set `type` to `ACCESS_POLICY`.
 * In the `device` object, set the following:

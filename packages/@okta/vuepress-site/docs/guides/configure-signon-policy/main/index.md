@@ -1,28 +1,28 @@
 ---
-title: Configure a global session policy and authentication policies
-excerpt: How to configure a global session policy and authentication policies.
+title: Configure a global session policy and app sign-in policies
+excerpt: How to configure a global session policy and app sign-in policies.
 layout: Guides
 ---
 
 <ApiLifecycle access="ie" /><br>
 
-> **Note:** In Classic Engine, the global session policy is called the Okta sign-on policy and an authentication policy is called an app sign-on policy.
+> **Note:** In Classic Engine, the global session policy is named the "Okta sign-on policy" and the app sign-in policy is named the "app sign-on policy".
 
 > **Note:** This document is only for Identity Engine. If you’re using Classic Engine, see [Configure Okta sign-on and app sign-on policies](/docs/guides/archive-configure-signon-policy). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
-This guide explains what global session policies and authentication policies are used for and how to add and configure them in your [Okta org](/docs/concepts/okta-organizations/).
+This guide explains what global session policies and app sign-in policies are used for and how to add and configure them in your [Okta org](/docs/concepts/okta-organizations/).
 
 ---
 
 #### Learning outcome
 
-Know the purpose of a global session policy and authentication policies and be able to configure them.
+Know the purpose of a global session policy and app sign-in policies and be able to configure them.
 
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * [Groups created](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) in your org
-* An app that you want to assign to an authentication policy
+* An app that you want to assign to an app sign-in policy
 * [Authenticators](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators) configured in your org
 * A configured [dynamic network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network)
 
@@ -42,26 +42,26 @@ Global session policies help control who can have access and how a user gains ac
 
 You can configure a global session policy to require any of the [factors that you set up](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators). Then use the primary and secondary factor conditions in a rule to define which factors are evaluated. For example, add a rule that prompts for more factors when you want only users who are inside your [corporate network](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/conditions/network&t=request) to have access.
 
-> **Note:** If you select **Any factor used to meet the Authentication Policy requirements**, you remove the global password requirement from the global session policy. This transfers responsibility for defining and enforcing authentication to each of your [authentication policies](#authentication-policies) instead. See [Configure passwordless authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless-auth).
+> **Note:** If you select **Any factor used to meet the App sign-in policy requirements**, you remove the global password requirement from the global session policy. This transfers responsibility for defining and enforcing authentication to each of your [app sign-in policies](#app-sign-in-policies) instead. See [Configure passwordless authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless-auth).
 
 You can specify any number of global session policies and the order in which they’re executed. If a policy in the list doesn't apply to the user trying to sign in, the system moves to the next policy. There’s one required organization-wide policy named default. By definition, the default policy applies to all users.
 
-### Authentication policies
+### App sign-in policies
 
-In addition to the global session policy, you can configure authentication policies for each app for extra levels of authentication. You can also [share authentication policies across multiple apps](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy).
+In addition to the global session policy, you can configure app sign-in policies for each app for extra levels of authentication. You can also [share app sign-in policies across multiple apps](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy).
 
-When you add an app, it's automatically assigned the shared default policy. This policy has a single catch-all rule that allows a user access with two factors. You can add as many rules to the default policy as you need. However, remember that the changes are applied to both new and existing apps that are assigned the shared default policy.
+When you add an app, a shared default policy is automatically assigned to it. This policy has a single catch-all rule that allows a user access with two factors. You can add as many rules to the default policy as you need. However, remember that the changes are applied to both new and existing apps that are assigned to the shared default policy.
 
-You don’t have to use the default authentication policy. You can create a policy specifically for an app, or you can [add an app to another existing shared policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy). If you change an app’s sign-on requirements, you can modify its policy or switch to a different shared policy using the [Authentication Policies page](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy).
+You don’t have to use the default app sign-in policy. You can create a policy specifically for an app, or you can [add an app to another existing shared policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy). If you change an app’s sign-on requirements, you can modify its policy or switch to a different shared policy. You can do this by using the [App sign-in policies page](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy).
 
-> **Note:** There can be only one authentication policy per app.
+> **Note:** There can be only one app sign-in policy per app.
 
 ## Configure sign-on policies for common scenarios
 
-This guide provides step-by-step instructions to configure a global session policy and an authentication policy for three common scenarios:
+This guide provides step-by-step instructions to configure a global session policy and an app sign-in policy for three common scenarios:
 
-* [Prompt for an additional factor for a group](#prompt-for-an-additional-authenticator-for-a-group)
-* [Prompt for an additional factor when a user is outside the US](#prompt-for-an-mfa-factor-when-a-user-is-outside-the-us)
+* [Prompt for an additional factor for a group](#prompt-for-an-additional-factor-for-a-group)
+* [Prompt for an additional factor for users outside the US](#prompt-for-an-additional-factor-for-users-outside-the-us)
 * [Prompt for passwordless sign-in flow](#prompt-for-a-passwordless-sign-in-flow)
 
 ## Prompt for an additional factor for a group
@@ -104,13 +104,15 @@ Configure a global session policy to prompt a user for a factor [authenticator](
 
 > **Note:** After you create a policy, you must close all active sessions for the new policy to take effect.
 
-## Prompt for an additional factor when a user is outside the US
+## Prompt for an additional factor for users outside the US
 
-You may want a rule that requires all default Okta users to provide a password. But you also want all Okta users outside of the United States to provide both a password and another factor to access your app. You can use the default authentication policy’s catch-all rule that challenges all users to provide a password. Then, create another rule that challenges all users not in the United States to provide both a password and another factor each time that they sign in.
+You may want a rule that requires all default Okta users to provide a password. But you also want all Okta users outside of the United States to provide both a password and another factor to access your app. 
 
-Configure another rule for the default authentication policy to prompt a user for an additional factor when the user is outside of the United States.
+You can use the default app sign-in policy’s catch-all rule that challenges all users to provide a password. Then, create another rule that challenges all users not in the United States. Configure the rule so that users must provide both a password and another factor each time that they sign in.
 
-> **Note:**  You can add as many rules to the default authentication policy as you want. But remember that changes to the default authentication policy are applied to all new apps because it's a shared app policy.
+Configure another rule for the default app sign-in policy. Create a rule that prompts a user for an additional factor when the user is outside of the United States.
+
+> **Note:**  You can add as many rules to the default app sign-in policy as you want. But remember that changes to the default app sign-in policy are applied to all new apps because it's a shared app policy.
 
 ### Select the default policy and add a rule
 
@@ -130,7 +132,7 @@ This example assumes that you've already [set up a Dynamic Zone](https://help.ok
 
 1. Configure THEN conditions to define the authentication experience. For this use case, leave the default of **Allowed** for **THEN Access is**.
 
-1. For **Establish the user session with**, select **Any factor used to meet the Authentication Policy requirements**.
+1. For **Establish the user session with**, select **Any factor used to meet the App sign-in policy requirements**.
 
 1. Ensure that MFA is **Required**. Users who sign in to your app from a non-US IP address are prompted for an additional factor.
 
@@ -140,7 +142,7 @@ This example assumes that you've already [set up a Dynamic Zone](https://help.ok
 
 1. Click **Create rule**.
 
->**Note**: You can use the [Applications](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/) and [Policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy) APIs to assign an app to an authentication policy. You need the app ID and the policy ID for this API request. Make a `PUT /api/v1/apps/{appId}/policies/{policyId}` request. No HTTP body is necessary for the PUT request. Then, to check that the assignment was successful, make a `GET /api/v1/apps/{appId}` request. The successful response contains information on the policy associated with the app.
+>**Note**: You can use the [Applications](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/) and [Policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy) APIs to assign an app to an app sign-in policy. You need the app ID and the policy ID for this API request. Make a `PUT /api/v1/apps/{appId}/policies/{policyId}` request. No HTTP body is necessary for the PUT request. Then, to check that the assignment was successful, make a `GET /api/v1/apps/{appId}` request. The successful response contains information on the policy associated with the app.
 
 ## Prompt for a passwordless sign-in flow
 
@@ -168,9 +170,9 @@ In this example, create a policy that allows a specific group, **Full time emplo
 
 1. Configure THEN conditions, which define the authentication experience for the rule. For this use case, leave the default of **Allowed** for **THEN Access is**.
 
-1. For **Establish the user session with**, select **Any factor used to meet the Authentication Policy requirements**.
+1. For **Establish the user session with**, select **Any factor used to meet the App sign-in policy requirements**.
 
-1. For **Multifactor authentication (MFA) is**, select **Required** so that users in the **Full time employees** group are prompted for a secondary factor before they’re granted access.
+1. For **Multifactor authentication (MFA) is**, select **Required**. This ensures that users in the **Full time employees** group are prompted for a secondary factor before they’re granted access.
 
 1. For **Users will be prompted for MFA**, select how users are prompted for a secondary factor in a given session. For this example, select **At every sign in**.
 

@@ -67,7 +67,7 @@ npm install
 
 ### Create an Okta app integration
 
-An Okta app integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services including which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
+An Okta app integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services including which users and groups have access, app sign-in policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
 
 1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
 1. Click **Admin** in the upper-right corner of the page.

@@ -60,7 +60,7 @@ curl -i -X GET \
 
 ### Example response
 
-The response includes all of your org's [authentication policies](/docs/concepts/policies/#authentication-policies) and the Okta account management policy. In the policy object, the value of the `_embedded.resourceType` parameter is `END_USER_ACCOUNT_MANAGEMENT` for your Okta account management policy. For authentication policies it's `APP`.
+The response includes all of your org's [app sign-in policies](/docs/concepts/policies/#app-sign-in-policies) and the Okta account management policy. In the policy object, the value of the `_embedded.resourceType` parameter is `END_USER_ACCOUNT_MANAGEMENT` for your Okta account management policy. For app sign-in policies it's `APP`.
 
 Use the value of the `id` parameter to manage the policy's rules. You can also use the `id` to retrieve the specific policy (GET `/api/v1/policies/{policyId}`).
 
@@ -227,7 +227,7 @@ curl --location --globoff 'https://{yourOktaDomain}/api/v1/policies/{policyId/ru
 
 ### User experience
 
-Users must be inside a trusted network zone and demonstrate low risk behavior before they enroll the designated phishing-resistant authenticator. If they don't meet these requirements, all fields in their profile settings are read-only, including the Reset, Update, and Remove options for their existing security methods. The phishing-resistant authenticators that they haven't enrolled are hidden, which means that they can't access any apps with phishing-resistant authentication policies.
+Users must be inside a trusted network zone and demonstrate low risk behavior before they enroll the designated phishing-resistant authenticator. If they don't meet these requirements, all fields in their profile settings are read-only, including the Reset, Update, and Remove options for their existing security methods. The phishing-resistant authenticators that they haven't enrolled are hidden, which means that they can't access any apps with phishing-resistant app sign-in policies.
 
 This rule also applies to authenticator unenrollment, and users can lock themselves out if they unenroll too many authenticators. Encourage users to always maintain one phishing-resistant authenticator.
 
@@ -337,7 +337,7 @@ See [Add a rule for authenticator enrollment](#add-a-rule-for-authenticator-enro
 
 There are no changes to the user experience when you move password recovery and account unlock to the account management policy. However, be aware of how the account management policy works with the following features:
 
-- [Stay signed in](https://help.okta.com/okta_help.htm?type=oie&id=ext-stay-signed-in): Works with the account management policy if you configure the authentication frequency correctly. The **Prompt for authentication** setting must be more frequent than the equivalent setting in your Okta Dashboard authentication policy. Setting **Prompt for authentication** in your Okta account management policy to every time ensures that users don't have to wait to reset a password.
+- [Stay signed in](https://help.okta.com/okta_help.htm?type=oie&id=ext-stay-signed-in): Works with the account management policy if you configure the authentication frequency correctly. The **Prompt for authentication** setting must be more frequent than the equivalent setting in your Okta Dashboard app sign-in policy. Setting **Prompt for authentication** in your Okta account management policy to every time ensures that users don't have to wait to reset a password.
 - [User enumeration prevention](https://help.okta.com/okta_help.htm?type=oie&id=ext_Security_General): Isn't supported in recovery scenarios with the Okta account management policy.
 If a user doesn't meet the requirements of your Okta account management policy, they can't update their profile settings. All fields are read-only, including the Reset, Update, and Remove options for their existing security methods. Also, the authenticators that they haven't enrolled are hidden.
 
@@ -398,4 +398,4 @@ curl --location --request PUT 'http://devorg1.okta1.com:1802/api/v1/policies/{po
 
 - [Policies](/docs/concepts/policies/)
 - [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/)
-- [Configure a global session policy and authentication policies](/docs/guides/configure-signon-policy/main/)
+- [Configure a global session policy and app sign-in policies](/docs/guides/configure-signon-policy/main/)

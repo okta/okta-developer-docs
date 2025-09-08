@@ -26,7 +26,7 @@ Automate the policies that control how end users authenticate to and access Okta
 
 Users must sign in to access Okta apps. The requirements for signing in are specified using policies. Okta uses several [policy types](https://developer.okta.com/docs/concepts/policies/#policy-types) for controlling user access. Policies apply to Okta groups and apps, depending on the policy type. You can use Terraform to manage these policies by adding them to your configuration.
 
-Policies contain rules that specify a set of conditions and the resulting actions if those conditions are met. For example, you can create a rule for an authentication policy that requires users from a certain country to use two authentication factors when signing in to an Okta app. You can also create a second rule that requires only one authentication factor for known devices.
+Policies contain rules that specify a set of conditions and the resulting actions if those conditions are met. For example, you can create a rule for an app sign-in policy that requires users from a certain country to use two authentication factors when signing in to an Okta app. You can also create a second rule that requires only one authentication factor for known devices.
 
 Many policies and their rules have priority orders that determine the order in which Okta applies them. When a user signs in to your org, Okta checks policies in order of priority and applies the first policy that matches the user. After applying a policy, Okta then checks the rules for that policy in order of priority and applies the first rule that matches the user.
 
@@ -46,17 +46,17 @@ You assign global session policies to one or more groups. The policies apply to 
 
 > **Note:** It’s possible to accidentally block users with global session policies. For example, if a global session policy requires a user to enter a password, passwordless users can’t sign in. Test your global session policies in a development environment before deploying to production.
 
-For more information on global session policies, see [Sign-on policies](/docs/concepts/policies/#sign-on-policies).
+For more information on global session policies, see [Global session policies](/docs/concepts/policies/#global-session-policies).
 
-### Authentication policies
+### App sign-in policies
 
-Use authentication policies to specify the requirements for accessing apps after a user has established an Okta session. With authentication policies, you customize the required authentication factors used for each app in your org. Use the [`okta_app_signon_policy`](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_signon_policy) and [`okta_app_signon_policy_rule`](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_signon_policy_rule) resources to manage authentication policies with Terraform.
+Use app sign-in policies to specify the requirements for accessing apps after a user has established an Okta session. With app sign-in policies, you customize the required authentication factors used for each app in your org. Use the [`okta_app_signon_policy`](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_signon_policy) and [`okta_app_signon_policy_rule`](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_signon_policy_rule) resources to manage app sign-in policies with Terraform.
 
-Authentication policies have no priority order, because every app in your org uses exactly one authentication policy. Multiple apps can use the same authentication policy. Okta provides some preset policies with standard sign-in requirements, including a default policy automatically assigned to new apps.
+App sign-in policies have no priority order, because every app in your org uses exactly one app sign-in policy. Multiple apps can use the same app sign-in policy. Okta provides some preset policies with standard sign-in requirements, including a default policy automatically assigned to new apps.
 
-Rules within an authentication policy have a priority order. Each authentication policy has a default, catch-all rule that applies to all users. This default rule has the lowest priority.
+Rules within an app sign-in policy have a priority order. Each app sign-in policy has a default, catch-all rule that applies to all users. This default rule has the lowest priority.
 
-For more information on global session policies, see [Sign-on policies](/docs/concepts/policies/#sign-on-policies).
+For more information on global session policies, see [Global session policies](/docs/concepts/policies/#global-session-policies).
 
 ### Authenticator enrollment policies
 
@@ -126,7 +126,7 @@ Configure the email authenticator and then create a group, global session policy
    1. Set the `policy_id` to the global session policy ID that you created in the previous step.
    1. Set `status` to `ACTIVE`.
    1. Set `access` to `ALLOW`.
-   1. Set the `primary_factor` argument to `PASSWORD_IDP_ANY_FACTOR`. This allows users to establish a session with any factor that satisfies the authentication policy for the app they’re accessing.
+   1. Set the `primary_factor` argument to `PASSWORD_IDP_ANY_FACTOR`. This allows users to establish a session with any factor that satisfies the app sign-in policy for the app they’re accessing.
 
     ```hcl
     resource "okta_policy_rule_signon" "passwordless_global_session_policy_rule" {
@@ -195,13 +195,13 @@ Configure the email authenticator and then create a group, global session policy
     }
     ```
 
-Now that you’ve created policies that control access to your org, create an authentication policy that controls access to Okta apps. This example creates an authentication policy for the Okta End-User Dashboard, an app built into your Okta org that displays Okta apps to end users.
+Now that you’ve created policies that control access to your org, create an app sign-in policy that controls access to Okta apps. This example creates an app sign-in policy for the Okta End-User Dashboard, an app built into your Okta org that displays Okta apps to end users.
 
-Built-in Okta apps require a special technique to assign authentication policies using Terraform. You add rules to an existing authentication policy that’s assigned to the app, instead of controlling the app settings directly.
+Built-in Okta apps require a special technique to assign app sign-in policies using Terraform. You add rules to an existing app sign-in policy that’s assigned to the app, instead of controlling the app settings directly.
 
-> **Note:** For apps that aren’t built into Okta, add an authentication policy using the `okta_app_signon_policy` resource and assign the policy to an app using the appropriate app resource for your app type. For example, use the `okta_app_oauth` resource for an OAuth app.
+> **Note:** For apps that aren’t built into Okta, add an app sign-in policy using the `okta_app_signon_policy` resource and assign the policy to an app using the appropriate app resource for your app type. For example, use the `okta_app_oauth` resource for an OAuth app.
 
-This next example adds a rule to the authentication policy that’s already assigned to the End-User Dashboard. Before you run your Terraform configuration, check to see if other apps use this authentication policy. This new rule affects those apps.
+This next example adds a rule to the app sign-in policy that’s already assigned to the End-User Dashboard. Before you run your Terraform configuration, check to see if other apps use this app sign-in policy. This new rule affects those apps.
 
 Configure a passwordless sign-in flow for the End-User Dashboard app:
 
@@ -213,7 +213,7 @@ Configure a passwordless sign-in flow for the End-User Dashboard app:
     }
     ```
 
-1. Add an `okta_app_signon_policy` data source to get the attributes of the authentication policy assigned to the End-User Dashboard app. This data source contains the policy ID for the End-User Dashboard for the next step.
+1. Add an `okta_app_signon_policy` data source to get the attributes of the app sign-in policy assigned to the End-User Dashboard app. This data source contains the policy ID for the End-User Dashboard for the next step.
 
    1. Set `app_id` to the End-User Dashboard ID using the data source that you created in the previous step.
    1. Set `depends_on` to the data source that you created in the previous step. This requires that Terraform creates the End-User Dashboard data source first.
@@ -227,16 +227,16 @@ Configure a passwordless sign-in flow for the End-User Dashboard app:
     }
     ```
 
-1. Add an `okta_app_signon_policy_rule` resource to create a rule for the End-User Dashboard authentication policy.
+1. Add an `okta_app_signon_policy_rule` resource to create a rule for the End-User Dashboard app sign-in policy.
 
-   1. Set `policy_id` to the authentication policy ID of the End-User Dashboard. The data source that you created in the last step contains this ID.
+   1. Set `policy_id` to the app sign-in policy ID of the End-User Dashboard. The data source that you created in the last step contains this ID.
    1. Set `access` to `ALLOW`.
    1. Set `factor_mode` to `1FA` to allow users to use any factor to sign in. Assign the group for passwordless users to the rule.
    1. Set `groups_included` to the passwordless group ID.
 
     ```hcl
     resource "okta_app_signon_policy_rule" "passwordless_authentication_policy_rule" {
-      name = "Passwordless Authentication Policy Rule"
+      name = "Passwordless app sign-in policy Rule"
       policy_id = data.okta_app_signon_policy.okta_dashboard_authentication_policy.id
       access = "ALLOW"
       factor_mode = "1FA"
@@ -257,7 +257,7 @@ Run the Terraform configuration to apply the changes to your org:
    1. Go to **Security** > **Global Session Policy** to check the global session policy.
    1. Go to **Security** > **Authenticators** and click **Enrollment** to check the authenticator enrollment policy.
    1. Go to **Directory** > **People** to check the passwordless test user.
-   1. Go to **Security** > **Authentication Policies** and click the authentication policy assigned to the End-User Dashboard app to check the authentication policy rule.
+   1. Go to **Security** > **Authentication policies** > **App sign-in policies** and click the app sign-in policy assigned to the End-User Dashboard app to check the app sign-in policy rule.
 
 Test the passwordless sign-in flow with the user that you created:
 
@@ -365,9 +365,9 @@ This example requires the same scopes as the passwordless sign-in example: `okta
     }
     ```
 
-1. Add an `okta_app_signon_policy_rule` resource to create a rule for the End-User Dashboard authentication policy.
+1. Add an `okta_app_signon_policy_rule` resource to create a rule for the End-User Dashboard app sign-in policy.
 
-   1. Set `policy_id` to the authentication policy ID of the End-User Dashboard.
+   1. Set `policy_id` to the app sign-in policy ID of the End-User Dashboard.
    1. Set `access` to `ALLOW`.
    1. Set `factor_mode` to `2FA` to require any two factors for the sign-in flow. Assign the group for multifactor users to the rule.
    1. Set `groups_included` to the multifactor group ID.
@@ -375,7 +375,7 @@ This example requires the same scopes as the passwordless sign-in example: `okta
 
     ```hcl
     resource "okta_app_signon_policy_rule" "multifactor_authentication_policy_rule" {
-      name = "Multifactor Authentication Policy Rule"
+      name = "Multifactor app sign-in policy Rule"
       policy_id = data.okta_app_signon_policy.okta_dashboard_authentication_policy.id
       access = "ALLOW"
       factor_mode = "2FA"
@@ -397,7 +397,7 @@ Run the Terraform configuration to apply the changes to your org:
    1. Go to **Security** > **Global Session Policies** to check the global session policy.
    1. Go to **Security** > **Authenticators** and click **Enrollment** to check the authenticator enrollment policy.
    1. Go to **Directory** > **People** to check the passwordless test user.
-   1. Go to **Security** > **Authentication Policies** and click the authentication policy assigned to the End-User Dashboard app to check the authentication policy rule.
+   1. Go to **Security** > **Authentication Policies** > **App sign-in policies** and click the app sign-in policy assigned to the End-User Dashboard app to check the app sign-in policy rule.
 
 Test the multifactor sign-in flow:
 

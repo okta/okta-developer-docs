@@ -116,7 +116,7 @@ resource "okta_authenticator" "email_authenticator" {
 }
 
 resource "okta_app_signon_policy_rule" "passwordless_authentication_policy_rule" {
-  name = "Passwordless Authentication Policy Rule"
+  name = "Passwordless App sign-in policy Rule"
   policy_id = data.okta_app_signon_policy.okta_dashboard_authentication_policy.id
   access = "ALLOW"
   factor_mode = "1FA"
@@ -189,6 +189,6 @@ This configuration uses these scopes for the following actions:
 * `okta.authenticators.read`: Reads email authenticator information
 * `okta.groups.manage`: Creates a group for passwordless users
 * `okta.groups.manage`: Reads group information
-* `okta.policies.manage`: Creates global session policies, authentication policies, and authentication enrollment policies
+* `okta.policies.manage`: Creates global session policies, app sign-in policies, and authentication enrollment policies
 * `okta.policies.manage`: Reads policy information
 * `okta.users.manage`: Creates a user that doesn't require a password

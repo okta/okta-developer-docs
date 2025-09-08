@@ -4,7 +4,7 @@ The Interaction Code flow is for you if you want to embed the authentication pro
 
 Okta recommends using an Identity Engine SDK with the Sign-In Widget to implement your embedded authentication Interaction Code flow. See [Languages and SDKs](/code/) for information on Identity Engine SDKs that you can download to start using with your app.
 
-> **Note:** Consider using the Sign-In Widget to test your authentication policies even if you don’t plan to use it in production. It’s quicker to embed it in a test app than coding the whole flow from scratch.
+> **Note:** Consider using the Sign-In Widget to test your app sign-in policies even if you don’t plan to use it in production. It’s quicker to embed it in a test app than coding the whole flow from scratch.
 
 For instructions on how to install and use Identity Engine SDKs, see [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/). Each Identity Engine SDK contains its own example applications with embedded authentication. See [Examples](#examples).
 
@@ -27,4 +27,4 @@ If you have a platform-specific app, use an appropriate [Identity Engine SDK](/d
 
 When the remediation process succeeds, Identity Engine sends your app an Interaction Code to exchange for OIDC tokens. Your app uses these tokens to access to your app’s resources.
 
-> **Note:** The authentication policies defined in your org configure the Interaction Code flow remediation experience in your app. See [set up your Okta org](/docs/guides/set-up-org/).
+> **Note:** The app sign-in policies defined in your org configure the Interaction Code flow remediation experience in your app. See [set up your Okta org](/docs/guides/set-up-org/).

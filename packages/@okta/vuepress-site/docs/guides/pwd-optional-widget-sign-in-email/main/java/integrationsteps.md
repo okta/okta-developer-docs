@@ -48,7 +48,7 @@ public ModelAndView handleMagicLinkCallback(
 
 > **Note**: For more information on magic links and OTP, including customizations and complete user journeys, see [Email Magic Links overview](/docs/guides/email-magic-links-overview/main/).
 
-### 4. Your app handles an authentication success response
+### Your app handles an authentication success response
 
 After the user successfully verifies their identity, Identity Engine sends an interaction code in a query parameter to `${signInRedirectURI}`. For example, `http://localhost:8080/?interaction_code=2JFmObNY8snovJP6_UK5gI_l7RQ-....`
 
