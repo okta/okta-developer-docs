@@ -84,13 +84,7 @@ See [Configure user profile policies](https://help.okta.com/okta_help.htm?type=o
 
 ### Sessions APIs
 
-**What changed:** Some Sessions APIs aren't supported in Identity Engine. However, your existing app could continue to work as long as session management and app interactions are fully contained within the v1/sessions APIs.
-
-**Further information:** APIs not supported in Identity Engine sessions:
-
-* GET `/api/v1/sessions/${sessionId}`
-* POST `/api/v1/sessions/${sessionId}/lifecycle/refresh`
-* POST `/api/v1/sessions?additionalFields=cookieToken`
+**What changed:** This POST `/api/v1/sessions?additionalFields=cookieToken` request using the Sessions API isn't supported in Identity Engine. However, your existing app could continue to work as long as session management and app interactions are fully contained within the `v1/sessions` APIs.
 
 > **Note:** See [Understand how sessions work after the upgrade](/docs/guides/oie-upgrade-sessions-api/main/).
 
