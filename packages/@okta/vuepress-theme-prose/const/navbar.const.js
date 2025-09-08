@@ -104,7 +104,7 @@ export const concepts = [
         path: "/docs/concepts/token-lifecycles/",
       },
       {
-        title: "Single sign-on overview",
+        title: "Single Sign-On overview",
         path: "/docs/concepts/sso-overview/",
       },
       {
