@@ -33,8 +33,8 @@ To add identity-related features to your customer portal, start by creating an O
 
 Sign up for an Okta account, and then set up your new Okta org to test web apps:
 
-* [Get an Okta account](/docs/reference/org-defaults/)
-* [Set up your org for basic testing](/docs/guides/set-up-org/main/)
+* [Get an Okta account](/docs/reference/org-defaults/).
+* [Set up your org for basic testing](/docs/guides/set-up-org/main/).
 
 Consider how your users sign in when they access your portal before designing your sign-in form.
 
@@ -50,8 +50,8 @@ To keep it simple, Okta suggests initiating the sign-in process when a user acce
 
 The Okta platform offers various deployment models to integrate a sign-in form into your portal, using the app as the point of entry:
 
-* Learn about the options for sign-in form [deployment models](/docs/concepts/redirect-vs-embedded/)
-* [Choose the deployment model that best suits your scenario](/docs/concepts/redirect-vs-embedded/#deployment-models-and-the-authentication-api)
+* Learn about the options for sign-in form [deployment models](/docs/concepts/redirect-vs-embedded/).
+* [Choose the deployment model that best suits your scenario](/docs/concepts/redirect-vs-embedded/#deployment-models-and-the-authentication-api).
 
 #### The Okta-hosted way
 
@@ -66,10 +66,10 @@ Learn about customizing the Okta Sign-In Widget:
 
 The alternative is to build a custom sign-in form in your portal. Then, use direct authentication to connect to Okta and to perform the sign-in flow:
 
-* [Learn about Direct Authentication](/docs/concepts/direct-authentication/)
-* [Add multifactor authentication using a password and OTP](/docs/guides/configure-direct-auth-grants/bmfaotp/main/)
-* [Add phone authentication](/docs/guides/configure-direct-auth-grants/fmfaoobsv/main/)
-* [Add Okta Verify Push authentication](/docs/guides/configure-direct-auth-grants/dmfaoobov/main/)
+* [Learn about Direct Authentication](/docs/concepts/direct-authentication/).
+* [Add multifactor authentication using a password and OTP](/docs/guides/configure-direct-auth-grants/bmfaotp/main/).
+* [Add phone authentication](/docs/guides/configure-direct-auth-grants/fmfaoobsv/main/).
+* [Add Okta Verify Push authentication](/docs/guides/configure-direct-auth-grants/dmfaoobov/main/).
 
 ## Maintain a user session
 
@@ -77,10 +77,10 @@ After a user signs in, Okta sends your app a set of tokens to identify the user.
 
 Learn about tokens, claims, and managing user credentials:
 
-* [Understand the token lifecycle (exchange, refresh, revoke)](/docs/concepts/token-lifecycles/)
-* [Learn about OAuth 2.0 claims](/docs/concepts/oauth-claims/)
-* [Learn about authorization servers](/docs/concepts/auth-servers/), the component of Identity Engine that mints tokens and enforces access policies
-* [Manage user credentials (secure token storage and retrieval)](/docs/concepts/manage-user-creds/)
+* [Understand the token lifecycle (exchange, refresh, revoke)](/docs/concepts/token-lifecycles/).
+* [Learn about OAuth 2.0 claims](/docs/concepts/oauth-claims/).
+* [Learn about authorization servers](/docs/concepts/auth-servers/), the component of Identity Engine that mints tokens and enforces access policies.
+* [Manage user credentials (secure token storage and retrieval)](/docs/concepts/manage-user-creds/).
 
 ## Add a way for users to sign out
 
@@ -94,5 +94,5 @@ See advanced secure mechanisms like [Demonstrating Proof of Possession (DPoP)](/
 
 Go deeper into the protocols underlying the sign-in process:
 
-* [Learn about OAuth and OIDC](/docs/concepts/oauth-openid/)
-* [Learn about Single Sign-On](/docs/concepts//)
+* [Learn about OAuth and OIDC](/docs/concepts/oauth-openid/).
+* [Learn about Single Sign-On](/docs/concepts//).
