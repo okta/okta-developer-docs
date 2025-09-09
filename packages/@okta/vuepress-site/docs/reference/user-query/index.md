@@ -385,7 +385,7 @@ Provided fields should be comma-separated, and sub-fields in the profile object 
 
 #### Request example
 
-The following example searches for all users with a status of `DEPROVISIONED` and to include only the `status`, `profile.firstName`, and `profile.city` fields in the response:
+The following example searches for all users with a status of `DEPROVISIONED` and includes only the `status`, `profile.firstName`, and `profile.city` fields in the response:
 
 ```bash
 curl -v -X GET \
