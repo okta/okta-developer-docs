@@ -49,9 +49,9 @@ Sign up for an Okta account, and then set up your new Okta org to test web apps.
 
 The simplest and Okta-recommended way to sign users in to your app is to redirect them to an Okta-hosted sign-in form.
 
-* [Connect your app to Okta](/docs/guides/create-an-app-integration/openidconnect/main/)
-* [Learn about the Okta Sign-In Widget](/docs/concepts/sign-in-widget/)
-* [Sign users in to your SPA by redirecting them to an Okta-hosted sign-in form](/docs/guides/auth-js-redirect/main/)
+* [Connect your app to Okta](/docs/guides/create-an-app-integration/openidconnect/main/).
+* [Learn about the Okta Sign-In Widget](/docs/concepts/sign-in-widget/).
+* [Sign users in to your SPA by redirecting them to an Okta-hosted sign-in form](/docs/guides/auth-js-redirect/main/).
 
 By default, users are required to sign in with any two authentication factors: password, email, SMS, and voice. Your org comes with those authenticators pre-configured. Use the Admin Console to enable other factors and change the policy to match your requirements.
 
@@ -64,9 +64,9 @@ The Okta-hosted sign-in form changes its behavior automatically to match your up
 
 You can restyle the Okta-hosted sign-in form to match your own brand's look and feel. Assign a custom domain URL to your org to enable these customization features.
 
-* Assign a [custom domain](/docs/guides/custom-url-domain/main/) to your org
-* [Style your Okta org with your brand](/docs/concepts/brands/)
-* [Style the Okta-hosted sign-in form](/docs/guides/custom-widget-gen3/main/)
+* Assign a [custom domain](/docs/guides/custom-url-domain/main/) to your org.
+* [Style your Okta org with your brand](/docs/concepts/brands/).
+* [Style the Okta-hosted sign-in form](/docs/guides/custom-widget-gen3/main/).
 
 ## Related topics
 
@@ -74,8 +74,8 @@ Congratulations, your app now uses Okta to provide its sign-in services.
 
 Learn how to secure other types of apps:
 
-* [Sign users into a mobile app by redirecting them to an Okta-hosted sign-in form](/docs/guides/sign-into-mobile-app-redirect/ios/main/)
-* [Sign users into a mobile app using a self-hosted sign-in form](/docs/guides/sign-into-mobile-app-embedded/main/)
+* [Sign users in to a mobile app by redirecting them to an Okta-hosted sign-in form](/docs/guides/sign-into-mobile-app-redirect/ios/main/).
+* [Sign users in to a mobile app using a self-hosted sign-in form](/docs/guides/sign-into-mobile-app-embedded/main/).
 
 After a user signs in, Okta returns tokens to identify the user and the user's access levels. See [Understand the token lifecycle](/docs/concepts/token-lifecycles/index.md).
 
