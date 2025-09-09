@@ -20,6 +20,7 @@ Okta Identity Governance is available for both Okta Classic and Identity Engine.
 | [ORN property included in entitlement bundles and values](#orn-property-included-in-entitlement-bundles-and-values)| September 10, 2025 |
 | [Org Governance Settings API is Beta](#org-governance-settings-api-is-beta)| September 10, 2025 |
 | [Security Access Reviews API is EA](#security-access-reviews-api-is-ea)| September 10, 2025 |
+| [Developer documentation updates in 2025.09.0](#developer-documentation-updates-in-2025-09-0)| September 10, 2025 |
 
 #### Auditor reporting package is self-service EA
 
@@ -67,7 +68,9 @@ Security Access Reviews are a new, security-focused type of access review that c
 See the [Security Access Reviews](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/) API and [Launch a security access review](/docs/guides/iga-security-access-review/main/) guide for details on how to trigger security access reviews through the API.
 <!-- OKTA-1002587 IGA_SECURITY_ACCESS_REVIEW Preview date: Sept 10, 2025 -->
 
-#### Bug fixed in 2025.09.0
+#### Developer documentation updates in 2025.09.0
+
+Best practice implementations of API uses cases are now available for Identity Governance. See **Identity Governance** in the [Guides](/docs/guides/#perform-identity-governance-tasks-through-the-api) section.
 
 ## August
 
