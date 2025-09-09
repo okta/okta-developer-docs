@@ -27,6 +27,8 @@ title: Okta Identity Engine API release notes 2025
 | [Secure Identity Integrations filters in the OIN catalog](#secure-identity-integrations-filters-in-the-oin-catalog) | September 10, 2025 |
 | [Okta Integration IdP type is GA in Preview](#okta-integration-idp-type-is-ga-in-preview) | June 25, 2025 |
 | [Send app context to external IdPs is GA in Production](#send-app-context-to-external-idps-is-ga-in-production) | May 21, 2025 |
+| [New claims supported for identity verification (IDV) vendor integration is self-service EA in Preview](#new-claims-supported-for-identity-verification-idv-vendor-integration-is-self-service-ea-in-preview) | August 13, 2025 |
+| [Passkey and security key subdomain support is self-service EA in Preview](#passkey-and-security-key-subdomain-support-is-self-service-ea-in-preview) | September 4, 2025 |
 
 #### User API Projections
 
@@ -102,6 +104,16 @@ The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with
 #### Send app context to external IdPs is GA in Production
 
 You can now forward context about an app to an external identity provider (IdP) when a user attempts to access the app. When you set the [`sendApplicationContext` parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider!path=protocol/0/settings/sendApplicationContext&t=request) to `true` for an IdP, the app name and unique instance ID are included in the SAML or OpenID Connect request sent to the external IdP. This enhancement allows external IdPs to make more informed, context-aware authentication decisions, supporting advanced security scenarios, and Zero Trust environments. <!-- SEND_APPLICATION_CONTEXT_TO_EXTERNAL_IDP (OKTA-911626)-->
+
+#### New claims supported for identity verification (IDV) vendor integration is self-service EA in Preview
+
+IDV vendors can now use more OpenID Connect claims when they integrate their IDV service with Okta. And, all `claims` properties now support the fuzzy logic extension. See [Supported OIDC claims](/docs/guides/idv-integration/main/#supported-oidc-claims). <!-- OKTA-946302 IDV_BIOGRAPHIC_DATA_MATCHING  Preview org date: Aug 13, 2025 -->
+
+#### Passkey and security key subdomain support is self-service EA in Preview
+
+You can now set a custom relying party (RP) ID for the WebAuthn authenticator. When you set the domain of a custom RP ID, you can allow users to create a single passkey that’s valid for all of the subdomains of the RP ID.
+
+Use the [Replace an authenticator method](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod) endpoint to update your WebAuthn authenticator, or set the custom RP ID in the Admin Console. See [Configure a relying party ID](https://help.okta.com/okta_help.htm?type=oie&id=customize-relying-party-id). <!-- OKTA-1008019 WEBAUTHN_CUSTOM_RP_ID -->
 
 <!-- #### Bugs fixed in 2025.09.0 -->
 
