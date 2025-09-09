@@ -59,8 +59,8 @@ The Okta-recommended way to sign users in to your web portal is to redirect them
 
 Learn about customizing the Okta Sign-In Widget:
 
-* [Learn about the Okta Sign-In Widget](/docs/concepts/sign-in-widget/)
-* [Sign users into your portal by redirecting them to an Okta sign-in page (SPA)](/docs/guides/sign-into-spa-redirect/angular/main/)
+* [Learn about the Okta Sign-In Widget](/docs/concepts/sign-in-widget/).
+* [Sign users into your portal by redirecting them to an Okta sign-in page (SPA)](/docs/guides/sign-into-spa-redirect/angular/main/).
 
 #### The self-hosted way
 
