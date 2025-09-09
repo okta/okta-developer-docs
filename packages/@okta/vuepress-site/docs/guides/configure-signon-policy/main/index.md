@@ -52,6 +52,8 @@ In addition to the global session policy, you can configure app sign-in policies
 
 When you add an app, a shared default policy is automatically assigned to it. This policy has a single catch-all rule that allows a user access with two factors. You can add as many rules to the default policy as you need. However, remember that the changes are applied to both new and existing apps that are assigned to the shared default policy.
 
+> **Note:** API service apps aren't automatically assigned a default app sign-in policy. You must explicitly assign a policy to each API service app.
+
 You don’t have to use the default app sign-in policy. You can create a policy specifically for an app, or you can [add an app to another existing shared policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy). If you change an app’s sign-on requirements, you can modify its policy or switch to a different shared policy. You can do this by using the [App sign-in policies page](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy).
 
 > **Note:** There can be only one app sign-in policy per app.
