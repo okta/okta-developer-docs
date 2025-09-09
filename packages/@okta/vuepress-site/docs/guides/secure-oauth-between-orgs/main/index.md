@@ -80,7 +80,7 @@ In the hub org, create an IdP to configure federation between your spoke and hub
 
 From the response of the POST request, use the `id` property of the IdP instance in the next step for your `idpId`.
 
-You can also use the OpenID Connect IdP for an OIDC integration, see [Enterprise identity provider](docs/guides/add-an-external-idp/openidconnect/main/). If you want to use a SAML 2.0 IdP for federation, see [Integrate Okta Org2Org](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg).
+You can also use the OpenID Connect IdP for an OIDC integration, see [Enterprise identity provider](/docs/guides/add-an-external-idp/openidconnect/main/). If you want to use a SAML 2.0 IdP for federation, see [Integrate Okta Org2Org](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg).
 
 <!-- #### Create an OpenID Connect IdP
 
