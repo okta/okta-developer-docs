@@ -6,6 +6,23 @@ title: Okta Privileged Access API release notes 2025
 
 Okta Privileged Access (OPA) is available for both Okta Classic and Identity Engine.
 
+## September
+
+### Monthly release 2025.09.0
+
+| Change | Expected in Preview | Expected in Production |
+|--------|---------------------|------------------------|
+| [Enable Okta-managed Active Directory accounts is EA](#enable-okta-managed-active-directory-accounts-is-ea)| September 8, 2025 | September 10, 2025 |
+
+#### Enable Okta-managed Active Directory accounts is EA
+
+You can now set up Active Directory (AD) account rules to import AD users that are managed by Okta. When you enable an AD account tha's managed by Okta, active users can sign in to Okta and access all their SSO apps through the Okta End-User Dashboard. Admins and users can still rotate passwords through Okta Privileged Access and have those passwords synchronized with the AD server and Okta. This provides a seamless experience for active AD users to sign in to Okta-integrated apps and benefit from Okta Privileged Access features, such as password rotation.
+
+When you set up AD account rules, you can filter on account names or Okta group memberships in AD rules that have the Okta user management functionality enabled.
+
+To enable Okta-managed users on import, set `enable_import_okta_users` and `enhanced_filters` in the [Create an Active Directory account rule](https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-accounts/#tag/active-directory-accounts/operation/createActiveDirectoryAccountRule).
+<!-- OKTA-917820 OKTA-939621 FF: pam_active_directory_import_okta_users Preview date: Sept 8, 2025 Product date: Sept 10, 2025 -->
+
 ## August
 
 ### Weekly release 2025.08.4
