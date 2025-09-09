@@ -82,8 +82,6 @@ From the response of the POST request, use the `id` property of the IdP instance
 
 You can also use the OpenID Connect IdP for an OIDC integration, see [Enterprise identity provider](docs/guides/add-an-external-idp/openidconnect/main/). If you want to use a SAML 2.0 IdP for federation, see [Integrate Okta Org2Org](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg).
 
-> **Note:** Okta Org2Org OIDC sign-on mode and Okta Integration IdP features are in self-service EA. See [Enable self-service feature](https://help.okta.com/okta_help.htm?type=oie&id=ext_Manage_Early_Access_features).
-
 <!-- #### Create an OpenID Connect IdP
 
 Use the following request body parameters to define your OpenID Connect IdP in the hub org.
@@ -194,8 +192,6 @@ curl -v -X POST \
 -->
 
 #### Create an OIDC Okta Integration IdP
-
-<ApiLifecycle access="ea" />
 
 Use the following request body parameters to define your OIDC Okta Integration IdP in the hub org.
 
@@ -458,8 +454,6 @@ Make a [`POST /api/v1/apps/{Org2OrgAppId}/connections/default?activate=TRUE`](ht
 | `authScheme`  |  `OAUTH2` |
 | `clientId`  |  Specify the corresponding service app client ID in your hub org |
 | `signing.rotationMode` | Specify `AUTO` for automatic key rotation. If `signing.rotationMode` isn't specified, then `rotationMode` is set to `MANUAL` and key rotation isn't automatic for the Org2Org provisioning connection. |
-
->**Note:** Automatic key rotation (`AUTO`) is in <ApiLifecycle access="ea" />.
 
 ##### Request example
 
