@@ -59,7 +59,7 @@ The OIN Wizard now validates each integration variable name and displays an erro
 
 #### Clear user factors for all devices is GA in Production
 
-When you make a Revoke all user sessions (/api/v1/users/{userId}/sessions) request, include the new [`forgetDevices` parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserSessions/#tag/UserSessions/operation/revokeUserSessions!in=query&path=forgetDevices&t=request) (with a value of `true`) to clear a user's remembered factors on all devices. The user is prompted for full authentication on their next sign-in attempt from any device. The `forgetDevices` parameter is set to `false` by default. <!-- ENG_ENABLE_FORGET_DEVICES_INTENT_FOR_DELETE_USER_SESSIONS_API OKTA-979587 -- >
+When you make a Revoke all user sessions (`/api/v1/users/{userId}/sessions`) request, include the new [`forgetDevices` parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserSessions/#tag/UserSessions/operation/revokeUserSessions!in=query&path=forgetDevices&t=request) (with a value of `true`) to clear a user's remembered factors on all devices. The user is prompted for full authentication on their next sign-in attempt from any device. The `forgetDevices` parameter is set to `false` by default. <!-- ENG_ENABLE_FORGET_DEVICES_INTENT_FOR_DELETE_USER_SESSIONS_API OKTA-979587 -- >
 
 #### Secure Identity Integrations filters in the OIN catalog
 
@@ -67,7 +67,7 @@ The Browse App Integration Catalog page now provides three new Secure Identity I
 
 #### Okta Integration IdP type is GA in Preview
 
-The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with secure defaults. See [Identity Providers](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&path=type&t=response)<!-- OKTA_INTEGRATION_IDP_TYPE (OKTA-949786) -->
+The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with secure defaults. See [Identity Providers](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&path=type&t=response).<!-- OKTA_INTEGRATION_IDP_TYPE (OKTA-949786) -->
 
 <!-- #### Bugs fixed in 2025.09.0 -->
 
