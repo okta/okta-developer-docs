@@ -381,7 +381,7 @@ For brevity, only the user information and custom profile attribute are shown.
 
 You can include the `fields` parameter in search expressions to return results that only include a subset of the fields for each user. This is often called field projections in APIs, which can reduce payload size, improve performance, and limit unneccessary data exposure.
 
-Provided fields should be comma-separated, and sub-fields in the profile object should be placed inside a `profile:()` directive, for example `profile:(firstName, city)`. The `id` field is always included, regardless of whether it's specified in the `fields` parameter.
+Comma-separate the fields and place sub-fields in the profile object inside a `profile:()` directive, for example `profile:(firstName, city)`. The `id` field is always included, regardless of whether it's specified in the `fields` parameter.
 
 #### Request example
 
@@ -424,7 +424,7 @@ The filter query parameter (`filter`) returns one or more users that match a fil
 
 > **Note:** For optimal performance, Okta recommends using a `search` parameter instead. See [Search users](#search-users).
 
-The filter query parameter only uses the equal (`eq`) operator of the standard Okta API filtering semantics. The `lastUpdated` property, however, can also implement the inequality operators greater than (`gt`), greater than or equal to (`ge`), less than (`lt`), and less than or equal to (`le`). For example, use these operators to filter users updated before or after a specific date and time. You can combine multiple expressions using the logical operators `and` and `or`, and parentheses. The `not` operator isn't supported. See [`filter`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=filter&t=request).
+The filter query parameter only uses the equal (`eq`) operator of the standard Okta API filtering semantics. The `lastUpdated` property, however, can also implement the inequality operators greater than (`gt`), greater than or equal to (`ge`), less than (`lt`), and less than or equal to (`le`). For example, use these operators to filter users updated before or after a specific date and time. You can combine multiple expressions using the logical operators `and`, `or`, and parentheses. The `not` operator isn't supported. See [`filter`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=filter&t=request).
 
 The filter query parameter is case-sensitive and also supports the `limit` and `after` parameters. See [Limits and pagination](#limits-and-pagination).
 
