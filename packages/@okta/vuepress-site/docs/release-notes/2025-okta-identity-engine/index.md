@@ -29,6 +29,7 @@ title: Okta Identity Engine API release notes 2025
 | [Send app context to external IdPs is GA in Production](#send-app-context-to-external-idps-is-ga-in-production) | May 21, 2025 |
 | [New claims supported for identity verification (IDV) vendor integration is self-service EA in Preview](#new-claims-supported-for-identity-verification-idv-vendor-integration-is-self-service-ea-in-preview) | August 13, 2025 |
 | [Passkey and security key subdomain support is self-service EA in Preview](#passkey-and-security-key-subdomain-support-is-self-service-ea-in-preview) | September 4, 2025 |
+| [Developer documentation update in 2025.09.0](#developer-documentation-update-in-2025090) | September 4, 2025 |
 
 #### User API Projections
 
@@ -115,6 +116,37 @@ You can now set a custom relying party (RP) ID for the WebAuthn authenticator. W
 
 Use the [Replace an authenticator method](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod) endpoint to update your WebAuthn authenticator, or set the custom RP ID in the Admin Console. See [Configure a relying party ID](https://help.okta.com/okta_help.htm?type=oie&id=customize-relying-party-id). <!-- OKTA-1008019 WEBAUTHN_CUSTOM_RP_ID -->
 
+#### Developer documentation update in 2025.09.0
+
+* [Journeys](/docs/journeys/) is an evolving section that includes content to help guide you through your development project. Journeys break down your development project into consumable steps:
+
+  * Key concepts to absorb
+
+  * Information on planning for tasks that you need to complete
+
+  * Links to individual guides to help you build your project
+
+  * Additional content to help you enhance your project.
+
+The next journey available is [Sign users in through your web app](/docs/journeys/OCI-web-sign-in/). This journey helps you connect your web app to Okta and sign your users in and out.
+
+* The new [Multifactor authentication](/docs/concepts/mfa/) concept page explains how MFA works and helps you understand some key terminology when you implement MFA using Okta APIs.
+
+* The new [OAuth 2.0 and OIDC claims](/docs/concepts/oauth-claims/) concept page provides a high-level overview of what claims are, including their types and how they're used in Okta.
+
+* The `revocation` and `revocationCacheLifetime` properties that are used with the Mutual TLS protocol in the [Identity Providers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider!path=protocol/3/credentials/trust&t=request) are now deprecated. Okta now handles CRL caching automatically.
+
+As of October 8, 2025, in Preview orgs, and October 13, 2025, in Production orgs, these properties are ignored if they’re specified in any API requests. Specifying the properties in your API requests doesn't cause any errors since they have no effect.
+
+See [Deprecation Notice - Smart Card IdP Legacy CRL Cache Setting](https://support.okta.com/help/s/article/deprecation-notice-smart-card-idp-legacy-crl-cache-setting?language=en_US).
+
+* The new [Single sign-on](/docs/concepts/sso-overview/) concept is an overview of SSO, explaining what it is, how it differs from a basic sign-in flow, and how Okta supports it.
+
+* Authentication policies have been renamed and are now known as "app sign-in policies." The term "authentication policies" now refers to a group of policies: app sign-in policies, the Okta account management policy, and the session protection policy.
+
+In the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/), the policy type for app sign-in policies is still ACCESS_POLICY. There are no changes to the API. All previous anchors and links to the API remain the same.
+
+* Best practice implementations of API use cases are now available for Identity Governance. See **Identity Governance** in the [Guides](/docs/guides/) section.
 <!-- #### Bugs fixed in 2025.09.0 -->
 
 ## August
