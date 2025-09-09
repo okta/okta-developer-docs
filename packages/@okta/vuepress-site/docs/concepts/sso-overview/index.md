@@ -1,11 +1,11 @@
 ---
-title: Single sign-on overview
+title: Single Sign-On overview
 meta:
   - name: description
     content: A high-level overview of SSO.
 ---
 
-# What is single sign-on (SSO)?
+# What is Single Sign-On (SSO)?
 
 SSO is an authentication method that allows you to sign in to multiple apps and services using a single authentication flow. For example, instead of signing in to every app, you can authenticate once with an identity provider (IdP). It provides access to all other connected service providers (SPs).
 
