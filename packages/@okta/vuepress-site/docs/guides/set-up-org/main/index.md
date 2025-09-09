@@ -188,7 +188,7 @@ After you create your app integration in your Okta org, configure your app and o
 
 This section shows you how to set up your Okta org and app to support password factor-only use cases. These use cases are intended to use the password factor without any additional factors (such as email or phone SMS). When you [create an app](#create-an-app), the app is assigned **Any two factors**. This is the default policy for new apps. It requires a user to verify their identity with any two enabled authentication factors.
 
-> **Note:** API service apps aren't automatically assigned a default app sign-in policy. You must explicitly assign a policy to each API service app.
+> **Note:** API service apps aren't automatically assigned a default app sign-in policy. You must explicitly assign an app sign-in policy to each API service app.
 
 First, assign the **Password only** policy to your app:
 
