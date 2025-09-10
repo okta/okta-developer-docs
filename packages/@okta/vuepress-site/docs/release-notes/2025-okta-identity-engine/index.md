@@ -122,19 +122,9 @@ You can now reference User Status in the Okta expression language. Group Rules c
 
 #### Developer documentation update in 2025.09.0
 
-* [Journeys](/docs/journeys/) is an evolving section that includes content to help guide you through your development project. Journeys break down your development project into consumable steps:
+* The new [Sign users in through your web app](/docs/journeys/OCI-web-sign-in/) journey helps you connect your web app to Okta and sign your users in and out.
 
-  * Key concepts to absorb
-
-  * Information on planning for tasks that you need to complete
-
-  * Links to individual guides to help you build your project
-
-  * Additional content to help you enhance your project
-
-  The new [Sign users in through your web app](/docs/journeys/OCI-web-sign-in/) journey helps you connect your web app to Okta and sign your users in and out.
-
-* The new [Manage user credentials](/docs/concepts/manage-user-creds/) page discusses token storage strategies for your app to mitigate risk.
+* The new [Manage user credentials](/docs/concepts/manage-user-creds/) concept page describes token storage strategies for your app to mitigate risk.
 
 * The new [Multifactor authentication](/docs/concepts/mfa/) concept page explains how MFA works and helps you understand some key terminology when you implement MFA using Okta APIs.
 
@@ -154,7 +144,7 @@ You can now reference User Status in the Okta expression language. Group Rules c
 
 * Best practice implementations of API use cases are now available for Identity Governance. See **Identity Governance** in the [Guides](/docs/guides/) sidebar.
 
-* Okta Identity Governance campaigns and entitlements can now be managed using the Okta Terraform Provider. This enables customers to manage their governance tasks and configure other resources in their Okta org that are maintained through the Terraform Infrastructure-as-Code tool. For more information, refer to  [Terraform Provider for Okta](https://github.com/okta/terraform-provider-okta), and the [Terraform Registry](https://registry.terraform.io/providers/okta/okta/latest/docs) documentation.
+* Okta Identity Governance campaigns and entitlements can now be managed using the Okta Terraform Provider. This enables you to manage their governance tasks and configure other resources in their Okta org that are maintained through the Terraform Infrastructure-as-Code tool. For more information, refer to  [Terraform Provider for Okta](https://github.com/okta/terraform-provider-okta) and the [Terraform Registry](https://registry.terraform.io/providers/okta/okta/latest/docs) documentation.
 
 <!-- #### Bugs fixed in 2025.09.0 -->
 

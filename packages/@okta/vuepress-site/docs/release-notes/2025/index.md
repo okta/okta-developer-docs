@@ -85,7 +85,7 @@ You can now reference User Status in the Okta expression language. Group Rules c
 
 * Best practice implementations of API use cases are now available for Identity Governance. See **Identity Governance** in the [Guides](/docs/guides/) sidebar.
 
-* Okta Identity Governance campaigns and entitlements can now be managed using the Okta Terraform Provider. This enables customers to manage their governance tasks and configure other resources in their Okta org that are maintained through the Terraform Infrastructure-as-Code tool. For more information, refer to  [Terraform Provider for Okta](https://github.com/okta/terraform-provider-okta), and the [Terraform Registry](https://registry.terraform.io/providers/okta/okta/latest/docs) documentation.
+* Okta Identity Governance campaigns and entitlements can now be managed using the Okta Terraform Provider. This enables customers to manage their governance tasks and configure other resources in their Okta org that are maintained through the Terraform Infrastructure-as-Code tool. For more information, refer to  [Terraform Provider for Okta](https://github.com/okta/terraform-provider-okta) and the [Terraform Registry](https://registry.terraform.io/providers/okta/okta/latest/docs) documentation.
 
 <!-- #### Bugs fixed in 2025.09.0 -->
 
