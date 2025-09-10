@@ -53,6 +53,7 @@ guides:
  - find-your-app-credentials
  - find-your-domain
  - password-import-inline-hook
+ - iga-security-access-review
  - implement-oauth-for-okta
  - implement-oauth-for-okta-serviceapp
  - implement-grant-type
@@ -189,14 +190,14 @@ The following links outline what you need to know to successfully integrate auth
 
 If you're using Okta as an identity layer for the first time, start with [How Okta Works](/docs/concepts/how-okta-works/) and the [Okta Data Model](/docs/concepts/okta-data-model/). Then, review the following guides.
 
-1. Get the basics
+1. Get the basics:
 
     * [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/)
     * [Authorization servers](/docs/concepts/auth-servers/)
     * [Policies](/docs/concepts/policies/)
     * [Set up self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/)
 
-2. Sign users in
+2. Sign users in:
 
     * [Sign users in to your SPA using the redirect model](/docs/guides/sign-into-spa-redirect/)
     * [Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/)
@@ -205,7 +206,7 @@ If you're using Okta as an identity layer for the first time, start with [How Ok
     * [Configure a global session policy and app sign-in policies](/docs/guides/configure-signon-policy/)
     * [Single Sign-On with external Identity Providers](/docs/guides/identity-providers)
 
-3. Authorize
+3. Authorize:
 
     * [Implement authorization by grant type](/docs/guides/implement-grant-type/)
     * [Configure SSO for native apps](/docs/guides/configure-native-sso/)
@@ -218,20 +219,21 @@ If you're using Okta as an identity layer for the first time, start with [How Ok
     * [Customize tokens returned from Okta with a dynamic allowlist](/docs/guides/customize-tokens-dynamic/)
     * [Customize tokens returned from Okta with a static allowlist](/docs/guides/customize-tokens-static/)
 
-4. Brand and customize
+4. Brand and customize:
 
     * [Style the Sign-In Widget](/docs/guides/custom-widget/)
     * [Customize SMS messages](/docs/guides/custom-sms-messaging/)
-    * [Customize domain and email address](/docs/guides/custom-url-domain/)
+    * [Customize a domain and email address](/docs/guides/custom-url-domain/)
     * [Customize email notifications and email domains](/docs/guides/custom-email/)
 
-5. Deploy to production
+5. Deploy to production:
 
     * [Pre-launch checklist](/docs/guides/deployment-checklist/)
     * [Deploy your app](/docs/guides/deploy-your-app/)
     * [Migrate to Okta](/docs/guides/migrate-to-okta-prerequisites/)
 
-6. Automate management of your Okta org using Terraform
+6. Automate management of your Okta org using Terraform:
+
     * Essentials
       * [Terraform overview](/docs/guides/terraform-overview/)
       * [Enable Terraform access for your Okta org](/docs/guides/terraform-enable-org-access/)
@@ -250,7 +252,7 @@ If you're using Okta as an identity layer for the first time, start with [How Ok
       * [Organize your configuration](/docs/guides/terraform-organize-configuration/)
       * [Terraform syntax tips](/docs/guides/terraform-syntax-tips)
 
-7. Customize Okta process flows with event or inline hooks
+7. Customize Okta process flows with event or inline hooks:
 
     * [Event hook example](/docs/guides/event-hook-implementation/)
     * [Token inline hook example](/docs/guides/token-inline-hook/)
@@ -271,3 +273,20 @@ If you're creating an Okta integration for the first time, Okta recommends the f
 1. [Overview of API service apps in the OIN](/docs/guides/oin-api-service-overview/)
 1. [OIN submission requirements](/docs/guides/submit-app-prereq/)
 1. [Submit an app integration](/docs/guides/submit-app-overview/)
+
+## Perform Identity Governance tasks through the API
+
+Most Okta Identity Governance tasks are accomplished through the Admin Console for admins or the Okta End-User Dashboard for end users. However, you might want to perform the same UI tasks through a customized app or automated service using Okta APIs. In some cases, specific tasks and flows are only triggered through the API or other Okta apps, such as [Workflows](https://www.okta.com/platform/workflows/). For these API uses cases, the following guides provide best practice implementation flows and examples for Okta Identity Governance subscribers:
+
+* Access certifications
+  * [Launch a security access review](/docs/guides/iga-security-access-review)
+
+<!-- Categories for future guides
+* Access requests
+  * [How to create a request for catalog entry]
+* Resource management
+  * [Create a resource label]
+* Resource collections
+* Separation of duties
+* User and group management
+-->

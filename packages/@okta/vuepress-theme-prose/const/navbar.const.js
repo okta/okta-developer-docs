@@ -841,6 +841,15 @@ export const guides = [
         ],
       },
       {
+        title: "Identity Governance",
+        subLinks: [
+          {
+            title: "Launch a security access review",
+            guideName: "iga-security-access-review"
+          }
+        ]
+      },
+      {
         title: "Deploy to Production",
         subLinks: [
           {
