@@ -54,6 +54,8 @@ Use app sign-in policies to specify the requirements for accessing apps after a 
 
 App sign-in policies have no priority order, because every app in your org uses exactly one app sign-in policy. Multiple apps can use the same app sign-in policy. Okta provides some preset policies with standard sign-in requirements, including a default policy automatically assigned to new apps.
 
+> **Note:** API service apps aren't automatically assigned a default app sign-in policy. You must explicitly assign an app sign-in policy to each API service app.
+
 Rules within an app sign-in policy have a priority order. Each app sign-in policy has a default, catch-all rule that applies to all users. This default rule has the lowest priority.
 
 For more information on global session policies, see [Global session policies](/docs/concepts/policies/#global-session-policies).
