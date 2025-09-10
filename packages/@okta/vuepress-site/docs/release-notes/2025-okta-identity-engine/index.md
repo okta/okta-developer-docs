@@ -132,7 +132,7 @@ You can now reference User Status in the Okta expression language. Group Rules c
 
   * Additional content to help you enhance your project.
 
-  The next journey available is [Sign users in through your web app](/docs/journeys/OCI-web-sign-in/). This journey helps you connect your web app to Okta and sign your users in and out.
+  The new [Sign users in through your web app](/docs/journeys/OCI-web-sign-in/) journey helps you connect your web app to Okta and sign your users in and out.
 
 * The new [Manage user credentials](/docs/concepts/manage-user-creds/) page discusses token storage strategies for your app to mitigate risk.
 
