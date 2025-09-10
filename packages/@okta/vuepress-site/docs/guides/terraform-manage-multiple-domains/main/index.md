@@ -36,7 +36,7 @@ You can customize the domain name of your Okta org. You can also create up to th
 
 Your customized domain enables you to create a seamless branded experience for your users so that all URLs look like your app. For example, you can change the URL domain from the default to `my-example-org.com`.
 
-The multibrand customization feature enables customizing multiple domains and subdomains in addition to a hosted org. To manage branding for a custom domain in Terraform, first follow the instructions in this article to create custom domains and create resources that encapsulate your customizations. Then [create a new brand](docs/guides/terraform-manage-end-user-experience/main/#create-a-new-brand-requires-multibrand-customization) and add your customizations.
+The multibrand customization feature enables customizing multiple domains and subdomains in addition to a hosted org. To manage branding for a custom domain in Terraform, first follow the instructions in this article to create custom domains and create resources that encapsulate your customizations. Then [create a new brand](/docs/guides/terraform-manage-end-user-experience/main/#create-a-new-brand-requires-multibrand-customization) and add your customizations.
 
 ### Set up your Terraform files
 
