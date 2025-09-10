@@ -58,8 +58,7 @@ The entitlement bundle and value resources now include their [Okta resource name
 
 To complement the [Governance delegates](#governance-delegates-apis-are-beta) feature, admins can now configure whether end users can set their own delegates with the Org Governance Settings API. See [delegates.enduser.permissions](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Org-Governance-Settings/#tag/Org-Governance-Settings/operation/updateOrgSettings!path=delegates/enduser/permissions&t=request) in the [Update the org settings](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Org-Governance-Settings/#tag/Org-Governance-Settings/operation/updateOrgSettings) API.
 
-End users can also view their delegate permissions in the My Settings API. See [delegates.permissions](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/getMySettings!c=200&path=delegates/permissions&t=response) in the [Retrieve the settings](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/getMySettings)
-(https://developer.okta.com/docs/api/iga/openapi/governance.enduser.api/tag/My-Settings/#tag/My-Settings/operation/getMySettings) API.
+End users can also view their delegate permissions in the My Settings API. See [delegates.permissions](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/getMySettings!c=200&path=delegates/permissions&t=response) in the [Retrieve the settings](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/getMySettings) API.
 <!-- OKTA-982882 OKTA-987070 GOVERNANCE_DELEGATES FF Preview date: Sept 10, 2025 -->
 
 #### Security Access Reviews API is EA

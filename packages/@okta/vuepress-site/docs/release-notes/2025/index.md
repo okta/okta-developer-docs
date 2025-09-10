@@ -60,7 +60,7 @@ The OIN Wizard now validates each integration variable name and displays an erro
 
 #### Clear user factors for all devices is GA in Production
 
-When you make a Revoke all user sessions (`/api/v1/users/{userId}/sessions`) request, include the new [`forgetDevices` parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserSessions/#tag/UserSessions/operation/revokeUserSessions!in=query&path=forgetDevices&t=request) (with a value of `true`) to clear a user's remembered factors on all devices. The user is prompted for full authentication on their next sign-in attempt from any device. The `forgetDevices` parameter is set to `false` by default. <!-- ENG_ENABLE_FORGET_DEVICES_INTENT_FOR_DELETE_USER_SESSIONS_API OKTA-979587 -- >
+When you make a Revoke all user sessions (`/api/v1/users/{userId}/sessions`) request, include the new [`forgetDevices` parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserSessions/#tag/UserSessions/operation/revokeUserSessions!in=query&path=forgetDevices&t=request) (with a value of `true`) to clear a user's remembered factors on all devices. The user is prompted for full authentication on their next sign-in attempt from any device. The `forgetDevices` parameter is set to `false` by default. <!-- ENG_ENABLE_FORGET_DEVICES_INTENT_FOR_DELETE_USER_SESSIONS_API OKTA-979587 -->
 
 #### Secure Identity Integrations filters in the OIN catalog
 
@@ -82,7 +82,7 @@ The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with
 
   * Additional content to help you enhance your project.
 
-    The next journey available is [Sign users in through your web app](/docs/journeys/OCI-web-sign-in/). This journey helps you connect your web app to Okta and sign your users in and out.
+  The next journey available is [Sign users in through your web app](/docs/journeys/OCI-web-sign-in/). This journey helps you connect your web app to Okta and sign your users in and out.
 
 * The new [Multifactor authentication](/docs/concepts/mfa/) concept page explains how MFA works and helps you understand some key terminology when you implement MFA using Okta APIs.
 
@@ -98,7 +98,7 @@ The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with
 
 * Authentication policies have been renamed and are now known as "app sign-in policies." The term "authentication policies" now refers to a group of policies: app sign-in policies, the Okta account management policy, and the session protection policy.
 
-    In the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/), the policy type for app sign-in policies is still ACCESS_POLICY. There are no changes to the API. All previous anchors and links to the API remain the same.
+    In the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/), the policy type for app sign-in policies is still `ACCESS_POLICY`. There are no changes to the API. All previous anchors and links to the API remain the same.
 
 * Best practice implementations of API use cases are now available for Identity Governance. See **Identity Governance** in the [Guides](/docs/guides/) section.
 
