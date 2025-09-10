@@ -150,7 +150,7 @@ You can now reference User Status in the Okta expression language. Group Rules c
 
     In the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/), the policy type for app sign-in policies is still `ACCESS_POLICY`. There are no changes to the API. All previous anchors and links to the API remain the same.
 
-* Best practice implementations of API use cases are now available for Identity Governance. See **Identity Governance** in the [Guides](/docs/guides/) section.
+* Best practice implementations of API use cases are now available for Identity Governance. See **Identity Governance** in the [Guides](/docs/guides/) sidebar.
 <!-- #### Bugs fixed in 2025.09.0 -->
 
 ## August
