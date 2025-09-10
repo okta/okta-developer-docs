@@ -144,7 +144,7 @@ You can now reference User Status in the Okta expression language. Group Rules c
 
     See [Deprecation Notice - Smart Card IdP Legacy CRL Cache Setting](https://support.okta.com/help/s/article/deprecation-notice-smart-card-idp-legacy-crl-cache-setting?language=en_US).
 
-* The new [Single sign-on](/docs/concepts/sso-overview/) concept is an overview of SSO, explaining what it is, how it differs from a basic sign-in flow, and how Okta supports it.
+* The new [Single Sign-on](/docs/concepts/sso-overview/) concept is an overview of SSO, explaining what it is, how it differs from a basic sign-in flow, and how Okta supports it.
 
 * Authentication policies have been renamed and are now known as "app sign-in policies." The term "authentication policies" now refers to a group of policies: app sign-in policies, the Okta account management policy, and the session protection policy.
 
