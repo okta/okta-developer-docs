@@ -16,7 +16,7 @@ Okta Privileged Access (OPA) is available for both Okta Classic and Identity Eng
 
 #### Enable Okta-managed Active Directory accounts is EA
 
-You can now set up Active Directory (AD) account rules to import AD users that are managed by Okta. When you enable an AD account tha's managed by Okta, active users can sign in to Okta and access all their SSO apps through the Okta End-User Dashboard. Admins and users can still rotate passwords through Okta Privileged Access and have those passwords synchronized with the AD server and Okta. This provides a seamless experience for active AD users to sign in to Okta-integrated apps and benefit from Okta Privileged Access features, such as password rotation.
+You can now set up Active Directory (AD) account rules to import AD users that are managed by Okta. When you enable an AD account that's managed by Okta, active users can sign in to Okta and access all their SSO apps through the Okta End-User Dashboard. Admins and users can still rotate passwords through Okta Privileged Access and have those passwords synchronized with the AD server and Okta. This provides a seamless experience for active AD users to sign in to Okta-integrated apps and benefit from Okta Privileged Access features, such as password rotation.
 
 When you set up AD account rules, you can filter on account names or Okta group memberships in AD rules that have the Okta user management functionality enabled.
 
