@@ -138,11 +138,16 @@ The following table provides a list of all available email templates in an Okta 
 | New Sign-On Notification | New Sign-On Notification | `NewSignOnNotification` | `{request.browser}`, `{request.date}`, `{request.time}`, `{request.location}`, and `{request.ipAddress}` |  Sent to users who authenticated into Okta from an unknown device or browser. The user should contact the Okta system administrator if they don't recognize the sign-in details of the unknown device. |
 | Authenticator Enrolled (Identity Engine)</br></br>MFA Factor Enrolled (Classic Engine) | Security method enrolled (Identity Engine)</br>MFA Factor Enrolled (Classic Engine) | `AuthenticatorEnrolled` | Either `{request.factor}` or `{request.authenticator}` (Identity Engine)</br></br>`{request.factor}`, `{request.date}`, `{request.time}`, and `{request.location}` (Classic Engine) | Sent to users when authenticators are reset (Identity Engine) </br></br>Sent to users with new MFA factor enrollment (Classic Engine) |
 | Authenticator Reset (Identity Engine)</br></br>MFA Factor Reset (Classic Engine) | Security method reset (Identity Engine)</br>MFA Factor Reset (Classic Engine) | `AuthenticatorReset` | Either `{request.factors}` or `{request.authenticators}` (Identity Engine)</br></br>`{request.factors}`, `{request.date}`, `{request.time}`, and `{request.location}` (Classic Engine) | Sent to users when authenticators are reset (Identity Engine) Sent to users when MFA factors are reset (Classic Engine) |
-| Campaign Launched | Access certification campaign: (`campaignName`) | `IGAReviewerNotification` | | Sent to reviewers when they’re assigned reviews to complete in a newly launched campaign. |
-| Campaign Ended | Access certification campaign: (`campaignName`) | `IGAReviewerEndNotification` | | Sent to reviewers if they have pending reviews after a campaign ends. |
-| Campaign Reminder | Access certification campaign: (`campaignName`) | `IGAReviewerPendingNotification` | | Sent to reviewers to remind them of pending reviews. |
-| Reassigned Review | Access certification campaign: (`campaignName`) | `IGAReviewerReassigned` | | Sent to reviewers when an admin or a different reviewer assigns new reviews. |
+| Campaign Launched | Reviews assigned for `${campaign.campaignName}` | `IGAReviewerNotification` | | Sent to reviewers when they're assigned reviews to complete in a newly launched campaign |
+| Campaign Ended | Review period has ended for `${campaign.campaignName}` | `IGAReviewerEndNotification` | | Sent to reviewers if they have pending reviews after a campaign ends |
+| Campaign Reminder | Pending reviews for`${campaign.campaignName}` review due `${campaign.relativeDue}` | `IGAReviewerPendingNotification` | | Sent to reviewers to remind them of pending reviews |
+| Campaign Overdue Reminder | Overdue reviews for `${campaign.campaignName}` | `IGAReviewerOverdueNotification` |  | Sent to first-level reviewers to remind them of overdue reviews |
+| Reassigned Review | Reviews assigned for `${campaign.campaignName}` | `IGAReviewerReassigned` | | Sent to reviewers to inform them that reviews have been assigned to them from an admin or different reviewer |
+| Campaign end date change notification | End date has changed for `${campaign.campaignName}` | `IGAReviewerEndDateChangeNotification` |  | Sent to reviewers to inform them that the campaign end date has changed |
 | IdP MyAccount Email Change Confirmation | Confirm email address change | `MyAccountChangeConfirmation` |  | Sent to users who try to verify an email address using MyAccount APIs. The user must enter the provided code to confirm the change. |
+| Security Access Review Launch | New Security Access Review Assigned: `${securityAccessReview.securityAccessReviewName}` | `securityAccessReviewReviewerNotification` |  | Sent to reviewers to inform them that they've been assigned a security access review |
+| Security Access Review Closing | Reminder: Security Access Review `${securityAccessReview.securityAccessReviewName}` closing in 1 day | `securityAccessReviewClosingOneDayNotification` |  | Sent to reviewers and review creators to inform them that the security access review is closing in one day |
+| Security Access Review Closed | Security Access Review `${securityAccessReview.securityAccessReviewName}` is now closed | `securityAccessReviewEndNotification` |  | Sent to reviewers and review creators to inform them that the review is closed |
 
 ### Use Branding variables
 
@@ -377,6 +382,9 @@ You can reference any Okta User Profile attribute in your email templates.
 | `${campaign.dueInDays}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
 | `${campaign.endDate}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
 | `${campaign.campaignDescription}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
+| `${securityAccessReview.principalName}` | Available in these templates:</br><ul><li>Security Access Review Launch</li><li>Security Access Review Closing</li><li>Security Access Review Closed</li></ul> |
+| `${securityAccessReview.securityAccessReviewName}` | Available in these templates:</br><ul><li>Security Access Review Launch</li><li>Security Access Review Closing</li><li>Security Access Review Closed</li></ul> |
+| `${securityAccessReviewDashboardLink}` | Available in these templates:</br><ul><li>Security Access Review Launch</li><li>Security Access Review Closing</li><li>Security Access Review Closed</li></ul> |
 
 ## Use functions for email templates
 
