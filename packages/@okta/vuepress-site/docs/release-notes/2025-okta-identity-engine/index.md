@@ -134,6 +134,8 @@ You can now reference User Status in the Okta expression language. Group Rules c
 
   The next journey available is [Sign users in through your web app](/docs/journeys/OCI-web-sign-in/). This journey helps you connect your web app to Okta and sign your users in and out.
 
+* The new [Manage user credentials](/docs/concepts/manage-user-creds/) page discusses token storage strategies for your app to mitigate risk.
+
 * The new [Multifactor authentication](/docs/concepts/mfa/) concept page explains how MFA works and helps you understand some key terminology when you implement MFA using Okta APIs.
 
 * The new [OAuth 2.0 and OIDC claims](/docs/concepts/oauth-claims/) concept page provides a high-level overview of what claims are, including their types and how they're used in Okta.
