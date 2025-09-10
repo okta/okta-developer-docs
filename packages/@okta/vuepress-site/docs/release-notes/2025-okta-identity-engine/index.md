@@ -16,20 +16,20 @@ title: Okta Identity Engine API release notes 2025
 | [Org2Org OIDC Sign-on mode is GA in Preview ](#org2org-oidc-sign-on-mode-is-ga-in-preview) | June 17, 2025 |
 | [Anything-as-a-Source for groups and group memberships API is EA](#anything-as-a-source-for-groups-and-group-memberships-api-is-ea) | September 10, 2025 |
 | [New System Log events for bulk groups and bulk group memberships changes](#new-system-log-events-for-bulk-groups-and-bulk-group-memberships-changes) | September 10, 2025 |
-| [Breached Credentials Protection is GA in Production](#breached-credentials-protection-is-ga-in-preview) | May 15, 2025 |
+| [Breached Credentials Protection is GA in Production](#breached-credentials-protection-is-ga-in-production) | May 15, 2025 |
 | [Group Push Mappings is GA in Production](#group-push-mappings-is-ga-in-production) | August 7, 2025  |
 | [Default app sign-in policy for API service apps](#default-app-sign-in-policy-for-api-service-apps) | September 10, 2025 |
 | [New validation rule for integration variables in the OIN Wizard](#new-validation-rule-for-integration-variables-in-the-oin-wizard) | September 10, 2025 |
 | [Clear user factors for all devices is GA in Production](#clear-user-factors-for-all-devices-is-ga-in-production) | August 7, 2025 |
 | [New User Authenticator Enrollments API is GA in Production](#new-user-authenticator-enrollments-api-is-ga-in-production) | July 9, 2025 |
 | [MyAccount WebAuthn API is GA in Production](#myaccount-webauthn-api-is-ga-in-production) | July 16, 2025 |
-| [Response body updates for the MyAccount Authenticators API](#response-body-updates-for-the-myaccount-authenticators-api-1) | June 17, 2025 |
+| [Response body updates for the MyAccount Authenticators API](#response-body-updates-for-the-myaccount-authenticators-api) | June 17, 2025 |
 | [Secure Identity Integrations filters in the OIN catalog](#secure-identity-integrations-filters-in-the-oin-catalog) | September 10, 2025 |
 | [Okta Integration IdP type is GA in Preview](#okta-integration-idp-type-is-ga-in-preview) | June 25, 2025 |
 | [Send app context to external IdPs is GA in Production](#send-app-context-to-external-idps-is-ga-in-production) | May 21, 2025 |
 | [New claims supported for identity verification (IDV) vendor integration is self-service EA in Preview](#new-claims-supported-for-identity-verification-idv-vendor-integration-is-self-service-ea-in-preview) | August 13, 2025 |
 | [Passkey and security key subdomain support is self-service EA in Preview](#passkey-and-security-key-subdomain-support-is-self-service-ea-in-preview) | September 4, 2025 |
-| [Developer documentation update in 2025.09.0](#developer-documentation-update-in-2025090) | September 4, 2025 |
+| [Developer documentation update in 2025.09.0](#developer-documentation-update-in-2025-09-0) | September 4, 2025 |
 
 #### User API Projections
 
@@ -43,7 +43,6 @@ The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP
 #### Anything-as-a-Source for groups and group memberships API is EA
 
 Anything-as-a-Source (XaaS) capabilities allow customers to use a custom identity source with Okta. With XaaS, customers can connect a custom HR app or a custom database to source entities such as users into Okta’s Universal Directory. This release offers XaaS capabilities with groups and group memberships, allowing customers to start sourcing groups with XaaS. Okta now enables creating and updating users, creating and updating groups, and managing group memberships into Okta’s Universal Directory from any identity source using the Identity Source APIs. See [Identity Sources](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/). <!-- IDENTITY_SOURCE_APPS_GROUPS OKTA-1009858 -->
-
 
 #### New System Log events for bulk groups and bulk group memberships changes
 
@@ -128,7 +127,7 @@ Use the [Replace an authenticator method](https://developer.okta.com/docs/api/op
 
   * Additional content to help you enhance your project.
 
-The next journey available is [Sign users in through your web app](/docs/journeys/OCI-web-sign-in/). This journey helps you connect your web app to Okta and sign your users in and out.
+    The next journey available is [Sign users in through your web app](/docs/journeys/OCI-web-sign-in/). This journey helps you connect your web app to Okta and sign your users in and out.
 
 * The new [Multifactor authentication](/docs/concepts/mfa/) concept page explains how MFA works and helps you understand some key terminology when you implement MFA using Okta APIs.
 
@@ -136,15 +135,15 @@ The next journey available is [Sign users in through your web app](/docs/journey
 
 * The `revocation` and `revocationCacheLifetime` properties that are used with the Mutual TLS protocol in the [Identity Providers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider!path=protocol/3/credentials/trust&t=request) are now deprecated. Okta now handles CRL caching automatically.
 
-As of October 8, 2025, in Preview orgs, and October 13, 2025, in Production orgs, these properties are ignored if they’re specified in any API requests. Specifying the properties in your API requests doesn't cause any errors since they have no effect.
+    As of October 8, 2025, in Preview orgs, and October 13, 2025, in Production orgs, these properties are ignored if they’re specified in any API requests. Specifying the properties in your API requests doesn't cause any errors since they have no effect.
 
-See [Deprecation Notice - Smart Card IdP Legacy CRL Cache Setting](https://support.okta.com/help/s/article/deprecation-notice-smart-card-idp-legacy-crl-cache-setting?language=en_US).
+    See [Deprecation Notice - Smart Card IdP Legacy CRL Cache Setting](https://support.okta.com/help/s/article/deprecation-notice-smart-card-idp-legacy-crl-cache-setting?language=en_US).
 
 * The new [Single sign-on](/docs/concepts/sso-overview/) concept is an overview of SSO, explaining what it is, how it differs from a basic sign-in flow, and how Okta supports it.
 
 * Authentication policies have been renamed and are now known as "app sign-in policies." The term "authentication policies" now refers to a group of policies: app sign-in policies, the Okta account management policy, and the session protection policy.
 
-In the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/), the policy type for app sign-in policies is still ACCESS_POLICY. There are no changes to the API. All previous anchors and links to the API remain the same.
+    In the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/), the policy type for app sign-in policies is still ACCESS_POLICY. There are no changes to the API. All previous anchors and links to the API remain the same.
 
 * Best practice implementations of API use cases are now available for Identity Governance. See **Identity Governance** in the [Guides](/docs/guides/) section.
 <!-- #### Bugs fixed in 2025.09.0 -->
