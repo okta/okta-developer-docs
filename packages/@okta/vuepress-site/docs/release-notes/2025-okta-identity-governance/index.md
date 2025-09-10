@@ -70,7 +70,7 @@ See the [Security Access Reviews](https://developer.okta.com/docs/api/iga/openap
 
 #### Developer documentation updates in 2025.09.0
 
-Best practice implementations of API uses cases are now available for Identity Governance. See **Identity Governance** in the [Guides](/docs/guides/#perform-identity-governance-tasks-through-the-api) section.
+Best practice implementations of API uses cases are now available for Identity Governance. See **Identity Governance** in the [Guides](/docs/guides/#perform-identity-governance-tasks-through-the-api) sidebar.
 
 ## August
 

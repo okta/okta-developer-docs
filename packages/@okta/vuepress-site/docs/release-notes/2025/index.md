@@ -20,6 +20,7 @@ title: Okta Classic Engine API release notes 2025
 | [Clear user factors for all devices is GA in Production](#clear-user-factors-for-all-devices-is-ga-in-production) | August 7, 2025 |
 | [Secure Identity Integrations filters in the OIN catalog](#secure-identity-integrations-filters-in-the-oin-catalog) | September 10, 2025 |
 | [Okta Integration IdP type is GA in Preview](#okta-integration-idp-type-is-ga-in-preview) | June 25, 2025 |
+| [User status in Okta Expression Language is GA in Preview](#user-status-in-okta-expression-language-is-ga-in-preview) | September 10, 2025 |
 | [Developer documentation update in 2025.09.0](#developer-documentation-update-in-2025-09-0) | September 4, 2025 |
 
 #### User API Projections
@@ -69,6 +70,10 @@ The Browse App Integration Catalog page now provides three new Secure Identity I
 #### Okta Integration IdP type is GA in Preview
 
 The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with secure defaults. See [Identity Providers](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&path=type&t=response).<!-- OKTA_INTEGRATION_IDP_TYPE (OKTA-949786) -->
+
+#### User status in Okta Expression Language is GA in Preview
+
+You can now reference User Status in the Okta expression language. Group Rules can leverage user statuses to drive group membership. Use the `user.getInternalProperty('status')` function to get the status of a user. See [Okta user ID and status](/docs/reference/okta-expression-language/#okta-user-id-and-status). <!--GROUP_RULES_CRITERIA_USER_STATUS OKTA-969724 -->
 
 #### Developer documentation update in 2025.09.0
 

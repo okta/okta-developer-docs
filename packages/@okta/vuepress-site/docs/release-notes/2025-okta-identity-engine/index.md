@@ -29,6 +29,7 @@ title: Okta Identity Engine API release notes 2025
 | [Send app context to external IdPs is GA in Production](#send-app-context-to-external-idps-is-ga-in-production) | May 21, 2025 |
 | [New claims supported for identity verification (IDV) vendor integration is self-service EA in Preview](#new-claims-supported-for-identity-verification-idv-vendor-integration-is-self-service-ea-in-preview) | August 13, 2025 |
 | [Passkey and security key subdomain support is self-service EA in Preview](#passkey-and-security-key-subdomain-support-is-self-service-ea-in-preview) | September 4, 2025 |
+| [User status in Okta Expression Language is GA in Preview](#user-status-in-okta-expression-language-is-ga-in-preview) | September 10, 2025 |
 | [Developer documentation update in 2025.09.0](#developer-documentation-update-in-2025-09-0) | September 4, 2025 |
 
 #### User API Projections
@@ -114,6 +115,10 @@ IDV vendors can now use more OpenID Connect claims when they integrate their IDV
 You can now set a custom relying party (RP) ID for the WebAuthn authenticator. When you set the domain of a custom RP ID, you can allow users to create a single passkey that’s valid for all of the subdomains of the RP ID.
 
 Use the [Replace an authenticator method](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod) endpoint to update your WebAuthn authenticator, or set the custom RP ID in the Admin Console. See [Configure a relying party ID](https://help.okta.com/okta_help.htm?type=oie&id=customize-relying-party-id). <!-- OKTA-1008019 WEBAUTHN_CUSTOM_RP_ID -->
+
+#### User status in Okta Expression Language is GA in Preview
+
+You can now reference User Status in the Okta expression language. Group Rules can leverage user statuses to drive group membership. Use the `user.getInternalProperty('status')` function to get the status of a user. See [Okta user ID and status](/docs/reference/okta-expression-language/#okta-user-id-and-status). <!--GROUP_RULES_CRITERIA_USER_STATUS OKTA-969724 -->
 
 #### Developer documentation update in 2025.09.0
 
