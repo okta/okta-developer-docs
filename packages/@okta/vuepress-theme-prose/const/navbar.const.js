@@ -476,10 +476,6 @@ export const guides = [
             title: "Basics",
             subLinks: [
               {
-                title: "Create an API token",
-                guideName: "create-an-api-token",
-              },
-              {
                 title: "Create an app integration",
                 guideName: "create-an-app-integration",
               },
@@ -800,6 +796,10 @@ export const guides = [
           {
             title: "Set up step-up authn with ACR values",
             guideName: "step-up-authentication"
+          },
+          {
+            title: "Create an API token",
+            guideName: "create-an-api-token",
           },
         ],
       },
