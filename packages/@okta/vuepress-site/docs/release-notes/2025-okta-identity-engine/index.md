@@ -6,6 +6,148 @@ title: Okta Identity Engine API release notes 2025
 
 # Okta Identity Engine API release notes (2025)
 
+## September
+
+### Monthly release 2025.09.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [User API Projections](#user-api-projections) | September 10, 2025 |
+| [Org2Org OIDC Sign-on mode is GA in Preview ](#org2org-oidc-sign-on-mode-is-ga-in-preview) | June 17, 2025 |
+| [Anything-as-a-Source for groups and group memberships API is EA](#anything-as-a-source-for-groups-and-group-memberships-api-is-ea) | September 10, 2025 |
+| [New System Log events for bulk groups and bulk group memberships changes](#new-system-log-events-for-bulk-groups-and-bulk-group-memberships-changes) | September 10, 2025 |
+| [Breached Credentials Protection is GA in Production](#breached-credentials-protection-is-ga-in-production) | May 15, 2025 |
+| [Group Push Mappings is GA in Production](#group-push-mappings-is-ga-in-production) | August 7, 2025  |
+| [Default app sign-in policy for API service apps](#default-app-sign-in-policy-for-api-service-apps) | September 10, 2025 |
+| [New validation rule for integration variables in the OIN Wizard](#new-validation-rule-for-integration-variables-in-the-oin-wizard) | September 10, 2025 |
+| [Clear user factors for all devices is GA in Production](#clear-user-factors-for-all-devices-is-ga-in-production) | August 7, 2025 |
+| [New User Authenticator Enrollments API is GA in Production](#new-user-authenticator-enrollments-api-is-ga-in-production) | July 9, 2025 |
+| [MyAccount WebAuthn API is GA in Production](#myaccount-webauthn-api-is-ga-in-production) | July 16, 2025 |
+| [Response body updates for the MyAccount Authenticators API](#response-body-updates-for-the-myaccount-authenticators-api) | June 17, 2025 |
+| [Secure Identity Integrations filters in the OIN catalog](#secure-identity-integrations-filters-in-the-oin-catalog) | September 10, 2025 |
+| [Okta Integration IdP type is GA in Preview](#okta-integration-idp-type-is-ga-in-preview) | June 25, 2025 |
+| [Send app context to external IdPs is GA in Production](#send-app-context-to-external-idps-is-ga-in-production) | May 21, 2025 |
+| [New claims supported for identity verification (IDV) vendor integration is self-service EA in Preview](#new-claims-supported-for-identity-verification-idv-vendor-integration-is-self-service-ea-in-preview) | August 13, 2025 |
+| [Passkey and security key subdomain support is self-service EA in Preview](#passkey-and-security-key-subdomain-support-is-self-service-ea-in-preview) | September 4, 2025 |
+| [User status in Okta Expression Language is GA in Preview](#user-status-in-okta-expression-language-is-ga-in-preview) | September 10, 2025 |
+| [Developer documentation update in 2025.09.0](#developer-documentation-update-in-2025-09-0) | September 4, 2025 |
+
+#### User API Projections
+
+You can now use the `fields` query parameter with the list users endpoint (`GET /api/v1/users/`). This parameter lets you specify properties to return for users meeting the search criteria.
+ <!-- OKTA-1011930 -->
+
+#### Org2Org OIDC Sign-on mode is GA in Preview
+
+The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP. This sign-on mode reduces the complexity of configuration between the Org2Org app and the target org, and takes advantage of modern security features of OIDC. See [Secure API connections between orgs with OAuth 2.0](/docs/guides/secure-oauth-between-orgs/main/). <!-- OKTA-1010570 -->
+
+#### Anything-as-a-Source for groups and group memberships API is EA
+
+Anything-as-a-Source (XaaS) capabilities allow customers to use a custom identity source with Okta. With XaaS, customers can connect a custom HR app or a custom database to source entities such as users into Okta’s Universal Directory. This release offers XaaS capabilities with groups and group memberships, allowing customers to start sourcing groups with XaaS. Okta now enables creating and updating users, creating and updating groups, and managing group memberships into Okta’s Universal Directory from any identity source using the Identity Source APIs. See [Identity Sources](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/). <!-- IDENTITY_SOURCE_APPS_GROUPS OKTA-1009858 -->
+
+#### New System Log events for bulk groups and bulk group memberships changes
+
+The following new System Log events indicate when bulk group and bulk group memberships [Identity Sources API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/) are called:
+
+* `system.identity_sources.bulk_group_upsert`
+* `system.identity_sources.bulk_group_delete`
+* `system.identity_sources.bulk_group_membership_upsert`
+* `system.identity_sources.bulk_group_membership_delete`<!-- OKTA-1007703 -->
+
+#### Breached Credentials Protection is GA in Production
+
+Protect your org from the impact of credentials that have been compromised. If Okta determines that a username and password combination has been compromised after being compared to a third-party curated dataset, the protection response is customizable through password policies, including resetting the user's password, forcing a logout, or calling a delegated Workflow. See the [Okta Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/).
+
+This feature is following a slow rollout process. <!-- OKTA-997983 -->
+
+#### Group Push Mappings is GA in Production
+
+With the API for Group Push, admins can now programmatically create, link, or manage group push configuration in Okta. This allows admins to configure Okta groups to be pushed to connected apps at scale and reduces overhead for large deployments. See [Group Push Mappings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupPushMapping/). <!-- OKTA-962537 GROUP_PUSH_MAPPINGS_PUBLIC_API-->
+
+#### Default app sign-in policy for API service apps
+
+API service apps are no longer assigned to the shared default app sign-in policy when they're created. <!-- OKTA-990360 -->
+
+#### New validation rule for integration variables in the OIN Wizard
+
+The OIN Wizard now validates each integration variable name and displays an error if a reserved name is used. <!-- OKTA-980811 -->
+
+#### Clear user factors for all devices is GA in Production
+
+When you make a Revoke all user sessions (`/api/v1/users/{userId}/sessions`) request, include the new [`forgetDevices` parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserSessions/#tag/UserSessions/operation/revokeUserSessions!in=query&path=forgetDevices&t=request) to clear a user's remembered factors on all devices. The user is prompted for full authentication on their next sign-in attempt from any device. The `forgetDevices` parameter is set to `true` by default. <!-- ENG_ENABLE_FORGET_DEVICES_INTENT_FOR_DELETE_USER_SESSIONS_API OKTA-979587 -->
+
+#### New User Authenticator Enrollments API is GA in Production
+
+The [User Authenticator Enrollments API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserAuthenticatorEnrollments/) enables admins to manage the specific authenticator enrollments of their users.
+
+Currently, admins in Identity Engine orgs can’t use Okta APIs to manage user authenticator enrollments with the same level of control that’s possible in Classic Engine orgs. This feature helps admins more effectively manage their user’s enrollments and improves parity between Classic Engine and Identity Engine orgs. <!-- OKTA-971865 AUTHENTICATOR_ENROLLMENTS_ADMIN_MANAGEMENT -->
+
+#### MyAccount WebAuthn API is GA in Production
+
+You can now use the [MyAccount WebAuthn API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/WebAuthn/) to enroll, list, and delete WebAuthn enrollments. Admins can build out an in-app passkey creation and enrollment experience with the MyAccount WebAuthn API operations. <!-- OKTA-971173 IDP_MY_ACCOUNT_API_WEBAUTHN -->
+
+#### Response body updates for the MyAccount Authenticators API
+
+Two new response properties are now returned for `password` enrollments when you make GET calls to the `/idp/myaccount/authenticators/{authenticatorId}/enrollments/` endpoint. These properties provide more specific insight about password enrollments than the `canReset` property. The `canReset` property is now deprecated. It's still functional but it's not recommended for use.
+
+* [`canChangePassword`](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Authenticators/#tag/Authenticators/operation/getEnrollment!c=200&path=canChangePassword&t=response) indicates if a user has permission to perform a password change operation.
+* [`canResetPassword`](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Authenticators/#tag/Authenticators/operation/getEnrollment!c=200&path=canResetPassword&t=response) indicates if a user has permission to perform a password reset operation.
+ <!-- OKTA-962785 -->
+
+#### Secure Identity Integrations filters in the OIN catalog
+
+The Browse App Integration Catalog page now provides three new Secure Identity Integrations checkboxes: **Secure Identity Integrations - Fundamental**, **Secure Identity Integrations - Advanced**, and **Secure Identity Integrations - Strategic**. When you select one, the OIN catalog displays only the apps with that specific functionality. <!-- OKTA-954222 -->
+
+#### Okta Integration IdP type is GA in Preview
+
+The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with secure defaults. See [Identity Providers](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&path=type&t=response).<!-- OKTA_INTEGRATION_IDP_TYPE (OKTA-949786) -->
+
+#### Send app context to external IdPs is GA in Production
+
+You can now forward context about an app to an external identity provider (IdP) when a user attempts to access the app. When you set the [`sendApplicationContext` parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider!path=protocol/0/settings/sendApplicationContext&t=request) to `true` for an IdP, the app name and unique instance ID are included in the SAML or OpenID Connect request sent to the external IdP. This enhancement allows external IdPs to make more informed, context-aware authentication decisions, supporting advanced security scenarios, and Zero Trust environments. <!-- SEND_APPLICATION_CONTEXT_TO_EXTERNAL_IDP (OKTA-911626)-->
+
+#### New claims supported for identity verification (IDV) vendor integration is self-service EA in Preview
+
+IDV vendors can now use more OpenID Connect claims when they integrate their IDV service with Okta. And, all `claims` properties now support the fuzzy logic extension. See [Supported OIDC claims](/docs/guides/idv-integration/main/#supported-oidc-claims). <!-- OKTA-946302 IDV_BIOGRAPHIC_DATA_MATCHING  Preview org date: Aug 13, 2025 -->
+
+#### Passkey and security key subdomain support is self-service EA in Preview
+
+You can now set a custom relying party (RP) ID for the WebAuthn authenticator. When you set the domain of a custom RP ID, you can allow users to create a single passkey that’s valid for all of the subdomains of the RP ID.
+
+Use the [Replace an authenticator method](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod) endpoint to update your WebAuthn authenticator, or set the custom RP ID in the Admin Console. See [Configure a relying party ID](https://help.okta.com/okta_help.htm?type=oie&id=customize-relying-party-id). <!-- OKTA-1008019 WEBAUTHN_CUSTOM_RP_ID -->
+
+#### User status in Okta Expression Language is GA in Preview
+
+You can now reference User Status in the Okta expression language. Group Rules can leverage user statuses to drive group membership. Use the `user.getInternalProperty('status')` function to get the status of a user. See [Okta user ID and status](/docs/reference/okta-expression-language/#okta-user-id-and-status). <!--GROUP_RULES_CRITERIA_USER_STATUS OKTA-969724 -->
+
+#### Developer documentation update in 2025.09.0
+
+* The new [Sign users in through your web app](/docs/journeys/OCI-web-sign-in/) journey helps you connect your web app to Okta and sign your users in and out.
+
+* The new [Manage user credentials](/docs/concepts/manage-user-creds/) concept page describes token storage strategies for your app to mitigate risk.
+
+* The new [Multifactor authentication](/docs/concepts/mfa/) concept page explains how MFA works and helps you understand some key terminology when you implement MFA using Okta APIs.
+
+* The new [OAuth 2.0 and OIDC claims](/docs/concepts/oauth-claims/) concept page provides a high-level overview of what claims are, including their types and how they're used in Okta.
+
+* The `revocation` and `revocationCacheLifetime` properties that are used with the Mutual TLS protocol in the [Identity Providers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider!path=protocol/3/credentials/trust&t=request) are now deprecated. Okta now handles CRL caching automatically.
+
+    As of October 8, 2025, in Preview orgs, and October 13, 2025, in Production orgs, these properties are ignored if they’re specified in any API requests. Specifying the properties in your API requests doesn't cause any errors since they have no effect.
+
+    See [Deprecation Notice - Smart Card IdP Legacy CRL Cache Setting](https://support.okta.com/help/s/article/deprecation-notice-smart-card-idp-legacy-crl-cache-setting?language=en_US).
+
+* The new [Single Sign-on](/docs/concepts/sso-overview/) concept is an overview of SSO, explaining what it is, how it differs from a basic sign-in flow, and how Okta supports it.
+
+* Authentication policies have been renamed and are now known as "app sign-in policies." The term "authentication policies" now refers to a group of policies: app sign-in policies, the Okta account management policy, and the session protection policy.
+
+    In the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/), the policy type for app sign-in policies is still `ACCESS_POLICY`. There are no changes to the API. All previous anchors and links to the API remain the same.
+
+* Best practice implementations of API use cases are now available for Identity Governance. See **Identity Governance** in the [Guides](/docs/guides/) sidebar.
+
+* Okta Identity Governance campaigns and entitlements can now be managed using the Okta Terraform Provider. This enables you to manage their governance tasks and configure other resources in their Okta org that are maintained through the Terraform Infrastructure-as-Code tool. For more information, refer to  [Terraform Provider for Okta](https://github.com/okta/terraform-provider-okta) and the [Terraform Registry](https://registry.terraform.io/providers/okta/okta/latest/docs) documentation.
+
+<!-- #### Bugs fixed in 2025.09.0 -->
+
 ## August
 
 ### Weekly release 2025.08.4
@@ -366,7 +508,7 @@ You can now specify an allowlist or denylist network zone for each client to enh
 
 #### Org2Org OIDC Sign-on mode is self-service EA in Preview
 
-The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP. This sign-on mode reduces the complexity of configuration between the Org2Org app and the target org, and takes advantage of modern security features of OIDC. You also need to enable the Okta Integration IdP feature to use the OIDC Sign-on mode. See [Secure API connections between orgs with OAuth 2.0](docs/guides/secure-oauth-between-orgs/main/). <!-- OKTA-714847 FF ORG2ORG_ENABLE_OIDC_SOM Publishing delayed until 6.2 -->
+The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP. This sign-on mode reduces the complexity of configuration between the Org2Org app and the target org, and takes advantage of modern security features of OIDC. You also need to enable the Okta Integration IdP feature to use the OIDC Sign-on mode. See [Secure API connections between orgs with OAuth 2.0](/docs/guides/secure-oauth-between-orgs/main/). <!-- OKTA-714847 FF ORG2ORG_ENABLE_OIDC_SOM Publishing delayed until 6.2 -->
 
 #### Okta Integration IdP type is self-service EA in Preview
 

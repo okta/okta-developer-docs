@@ -103,6 +103,8 @@ You can create an app sign-in policy specifically for the app or create a few po
 
 Use the [App sign-in policies page](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) to modify an app's sign-in policy or switch to a different policy. See [Configure a global session policy and an app sign-in policy](/docs/guides/configure-signon-policy/main/). Also, you can [merge duplicate app sign-in policies with identical rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies) to simplify policy management.
 
+> **Note:** API service apps aren't automatically assigned a default app sign-in policy. You must explicitly assign an app sign-in policy to each API service app.
+
 #### Okta account management policy
 
 <ApiLifecycle access="ie" />

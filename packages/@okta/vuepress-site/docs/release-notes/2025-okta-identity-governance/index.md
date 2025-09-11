@@ -6,6 +6,74 @@ title: Okta Identity Governance API release notes 2025
 
 Okta Identity Governance is available for both Okta Classic and Identity Engine.
 
+## September
+
+### Monthly release 2025.09.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Auditor reporting package is self-service EA](#auditor-reporting-package-is-self-service-ea)| August 13, 2025 |
+| [Entitlement bundle documented response updates](#entitlement-bundle-documented-response-updates)| September 10, 2025 |
+| [Resource Owners API is Beta](#resource-owners-api-is-beta)| September 10, 2025 |
+| [Governance Labels API is Beta](#governance-labels-api-is-beta)| September 10, 2025 |
+| [ORN property included in collections](#orn-property-included-in-collections)| September 10, 2025 |
+| [ORN property included in entitlement bundles and values](#orn-property-included-in-entitlement-bundles-and-values)| September 10, 2025 |
+| [Org Governance Settings API is Beta](#org-governance-settings-api-is-beta)| September 10, 2025 |
+| [Security Access Reviews API is EA](#security-access-reviews-api-is-ea)| September 10, 2025 |
+| [Developer documentation updates in 2025.09.0](#developer-documentation-updates-in-2025-09-0)| September 10, 2025 |
+
+#### Auditor reporting package is self-service EA
+
+You can now generate access certification campaign reports that are tailored to meet auditor requirements. These reports make preparing for compliance audits faster and easier by reducing the time and manual effort required for assembling and exporting campaign and user access data.
+
+Access certification campaign reports are generated from the auditor reporting package, which is triggered post-campaign completion when the `createReportingPackageEnabled` parameter is true. See [`reportingSettings.createReportingPackageEnabled`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign!path=reportingSettings&t=request) in the [Create a campaign](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign) resource.
+<!--OKTA-982353 IGA_ACCESS_CERT_AUDITOR_REPORTING Preview date: August 13, 2025 -->
+
+#### Entitlement bundle documented response updates
+
+The documented response for [List all entitlement bundles](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlement-Bundles/#tag/Entitlement-Bundles/operation/listEntitlementBundles!c=200&path=data&t=response) and [Retrieve an entitlement bundle](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlement-Bundles/#tag/Entitlement-Bundles/operation/getEntitlementBundle!c=200&path=_links&t=response) has been updated to remove the **One of** (`oneOf`) payload structure. The documented response payload is now flattened to include properties for both `entitlement-bundles-list` and `entitlement-bundles-list-with-entitlements` schemas. This is backward-compatible because the expected returned response schema is the same as before.
+<!-- OKTA-985836 Preview date: Sept 10, 2025 -->
+
+#### Resource Owners API is Beta
+
+Drive automation and simplify Okta Identity Governance (OIG) configuration by assigning owners to resources, such as apps, groups, and entitlements. You can automatically assign reviewers for access certifications or requests that are scoped with specific owner-assigned resources. See the [Resource Owners](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Resource-Owners/) API to manage assigning owners to resources in your OIG org.
+<!-- OKTA-998871 IGA_RESOURCE_OWNERS Preview date: Sept 10, 2025 -->
+
+#### Governance Labels API is Beta
+
+The Labels API enables you to categorize and organize resources, such as apps, groups, entitlements, and collections. You can create, update, and assign key-value labels to resources to support automation, streamline configuration, and simplify the management of access reviews and requests. See [Labels](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/) API.
+<!-- OKTA-998873 IGA_RESOURCE_LABELS Preview date: Sept 10, 2025 -->
+
+#### ORN property included in collections
+
+Collection resources now include their [Okta resource name (ORN)](​​https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) in the response payload. See the `orn` property in the [collection resource](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Collections/#tag/Collections/operation/getCollection!c=200&path=orn&t=response).
+<!-- OKTA-986274 Preview date: Sept 10, 2025 -->
+
+#### ORN property included in entitlement bundles and values
+
+The entitlement bundle and value resources now include their [Okta resource name (ORN)](​​https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) in the response payload. See the `orn` property in the [entitlement value response](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlements/#tag/Entitlements/operation/getEntitlementValue!c=200&path=orn&t=response) and in the [entitlement bundles response](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlement-Bundles/#tag/Entitlement-Bundles/operation/getEntitlementBundle!c=200&path=0/orn&t=response) payloads.
+<!-- OKTA-986269 Preview date: Sept 10, 2025 -->
+
+#### Org Governance Settings API is Beta
+
+To complement the [Governance delegates](#governance-delegates-apis-are-beta) feature, admins can now configure whether end users can set their own delegates with the Org Governance Settings API. See [delegates.enduser.permissions](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Org-Governance-Settings/#tag/Org-Governance-Settings/operation/updateOrgSettings!path=delegates/enduser/permissions&t=request) in the [Update the org settings](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Org-Governance-Settings/#tag/Org-Governance-Settings/operation/updateOrgSettings) API.
+
+End users can also view their delegate permissions in the My Settings API. See [delegates.permissions](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/getMySettings!c=200&path=delegates/permissions&t=response) in the [Retrieve the settings](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/getMySettings) API.
+<!-- OKTA-982882 OKTA-987070 GOVERNANCE_DELEGATES FF Preview date: Sept 10, 2025 -->
+
+#### Security Access Reviews API is EA
+
+Security Access Reviews are a new, security-focused type of access review that can be automatically triggered by events. These reviews provide a unified view of a user's access and contextual information about their access history. Also included is an AI-generated access summary, allowing you to investigate and take immediate remediation actions like revoking access. See [Security Access Reviews](https://help.okta.com/okta_help.htm?type=oie&id=csh-sar) in the product documentation.
+
+See the [Security Access Reviews](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/) API and [Launch a security access review](/docs/guides/iga-security-access-review/main/) guide for details on how to trigger security access reviews through the API.
+<!-- OKTA-1002587 IGA_SECURITY_ACCESS_REVIEW Preview date: Sept 10, 2025 -->
+
+#### Developer documentation updates in 2025.09.0
+
+* Best practice implementations of API use cases are now available for Identity Governance. See **Identity Governance** in the [Guides](/docs/guides/) sidebar.
+
+* Okta Identity Governance campaigns and entitlements can now be managed using the Okta Terraform Provider. This enables customers to manage their governance tasks and configure other resources in their Okta org that are maintained through the Terraform Infrastructure-as-Code tool. For more information, refer to  [Terraform Provider for Okta](https://github.com/okta/terraform-provider-okta) and the [Terraform Registry](https://registry.terraform.io/providers/okta/okta/latest/docs) documentation.
+
 ## August
 
 ### Weekly release 2025.08.2

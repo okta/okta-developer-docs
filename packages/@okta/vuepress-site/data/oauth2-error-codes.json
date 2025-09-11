@@ -1,6 +1,6 @@
 {
-  "release" : "2025.08.1",
-  "build" : "2025.08.1-begin-148-g4865018c558a",
+  "release" : "2025.09.1",
+  "build" : "2025.09.1-begin-149-g85c40017cb22",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -779,12 +779,40 @@
     "errorCode" : "invalid_client",
     "errorDescription" : "No encryption key found for the client."
   }, {
-    "title" : "Token encryption multiple encryption keys",
+    "title" : "Token encryption no active encryption key",
     "statusCode" : 401,
     "statusReasonPhrase" : "Unauthorized",
-    "internalErrorCode" : "token_encryption_multiple_encryption_keys",
+    "internalErrorCode" : "token_encryption_no_active_encryption_key",
     "errorCode" : "invalid_client",
-    "errorDescription" : "Multiple encryption keys found for the client."
+    "errorDescription" : "No active encryption key found for the client."
+  }, {
+    "title" : "Token encryption jwks URI no encryption key",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "token_encryption_jwks_uri_no_encryption_key",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "No encryption key found for the client at the 'jwks_uri'."
+  }, {
+    "title" : "Token encryption jwks URI multiple encryption keys",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "token_encryption_jwks_uri_multiple_encryption_keys",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "Multiple encryption keys found for the client at the 'jwks_uri'."
+  }, {
+    "title" : "Token encryption invalid encryption key client",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "token_encryption_invalid_encryption_key_client",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "Invalid encryption for client with kid=en."
+  }, {
+    "title" : "Token encryption invalid encryption key authorization server",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "token_encryption_invalid_encryption_key_auth_server",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "Invalid encryption for authorization server with kid=en."
   }, {
     "title" : "Request object invalid issuer",
     "statusCode" : 401,
@@ -1702,6 +1730,34 @@
     "internalErrorCode" : "client_assertion_type_invalid",
     "errorCode" : "invalid_request",
     "errorDescription" : "The client_assertion_type is invalid."
+  }, {
+    "title" : "Token encryption no encryption key auth server",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "token_encryption_no_encryption_key_auth_server",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "No encryption key found for the authorization server."
+  }, {
+    "title" : "Token encryption jwks URI no encryption key auth server",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "token_encryption_jwks_uri_no_encryption_key_auth_server",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "No encryption key found for the authorization server at the 'jwksUri'."
+  }, {
+    "title" : "Token encryption jwks URI multiple encryption keys auth server",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "token_encryption_jwks_uri_multiple_encryption_keys_auth_server",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Multiple encryption keys found for the authorization server at the 'jwksUri'."
+  }, {
+    "title" : "Jwks URI error auth server",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "jwks_uri_error_auth_server",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Error retrieving the authorization server JWKSet from jwks_uri."
   }, {
     "title" : "Authorize request object and request URI provided",
     "statusCode" : 400,

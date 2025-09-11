@@ -1,6 +1,6 @@
 {
-  "release" : "2025.08.1",
-  "build" : "2025.08.1-begin-148-g4865018c558a",
+  "release" : "2025.09.1",
+  "build" : "2025.09.1-begin-149-g85c40017cb22",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1944,6 +1944,14 @@
     "statusReasonPhrase" : "Internal Server Error",
     "errorCode" : "E0000261",
     "errorSummary" : "The value entered for linked object {0} is invalid for this user.",
+    "errorDescription" : null
+  }, {
+    "title" : "Idp in use by device posture idp exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000262",
+    "errorSummary" : "Device Assurance or Device Signal Collection policies contain condition(s) with Device Posture IdP signals. Please delete or update the corresponding policies to remove the Device Posture IdP conditions.",
     "errorDescription" : null
   } ]
 }

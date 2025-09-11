@@ -817,7 +817,7 @@ export const guides = [
         ],
       },
       {
-        title: "Manage users",
+        title: "User management",
         subLinks: [
           {
             title: "Anything-as-a-Source integration",
@@ -839,6 +839,15 @@ export const guides = [
             hidden: true
           }
         ],
+      },
+      {
+        title: "Identity Governance",
+        subLinks: [
+          {
+            title: "Launch a security access review",
+            guideName: "iga-security-access-review"
+          }
+        ]
       },
       {
         title: "Deploy to Production",
