@@ -46,7 +46,7 @@ The following new System Log events indicate when bulk group and bulk group memb
 
 #### Breached Credentials Protection is GA in Production
 
-Protect your org from the impact of credentials that have been compromised. If Okta determines that a username and password combination has been compromised after being compared to a third-party curated dataset, the protection response is customizable through password policies, including resetting the user's password, forcing a logout, or calling a delegated Workflow. See the [Okta Policies API]([https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/|https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/]).
+Protect your org from the impact of credentials that have been compromised. If Okta determines that a username and password combination has been compromised after being compared to a third-party curated dataset, the protection response is customizable through password policies, including resetting the user's password, forcing a logout, or calling a delegated Workflow. See the [Okta Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/).
 
 This feature is following a slow rollout process. <!-- OKTA-997983 -->
 
