@@ -122,7 +122,7 @@ You can now reference User Status in the Okta expression language. Group Rules c
 
 #### Developer documentation update in 2025.09.0
 
-* The new [Sign users in through your web app](/docs/journeys/OCI-web-sign-in/) journey helps you connect your web app to Okta and sign your users in and out.
+* The new [Sign users in through your web app](/docs/journeys/OCI-web-sign-in/main/) journey helps you connect your web app to Okta and sign your users in and out.
 
 * The new [Manage user credentials](/docs/concepts/manage-user-creds/) concept page describes token storage strategies for your app to mitigate risk.
 
@@ -142,7 +142,7 @@ You can now reference User Status in the Okta expression language. Group Rules c
 
     In the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/), the policy type for app sign-in policies is still `ACCESS_POLICY`. There are no changes to the API. All previous anchors and links to the API remain the same.
 
-* Best practice implementations of API use cases are now available for Identity Governance. See **Identity Governance** in the [Guides](/docs/guides/) sidebar.
+* Best practice implementations of API use cases are now available for Identity Governance. See **Identity Governance** in the [Guides](/docs/guides/identity-governance/) sidebar.
 
 * Okta Identity Governance campaigns and entitlements can now be managed using the Okta Terraform Provider. This enables you to manage their governance tasks and configure other resources in their Okta org that are maintained through the Terraform Infrastructure-as-Code tool. For more information, refer to  [Terraform Provider for Okta](https://github.com/okta/terraform-provider-okta) and the [Terraform Registry](https://registry.terraform.io/providers/okta/okta/latest/docs) documentation.
 
