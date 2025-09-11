@@ -46,12 +46,12 @@ The Labels API enables you to categorize and organize resources, such as apps, g
 
 #### ORN property included in collections
 
-Collection resources now include their [Okta resource name (ORN)](​​https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) in the response payload. See the `orn` property in the [collection resource](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Collections/#tag/Collections/operation/getCollection!c=200&path=orn&t=response).
+Collection resources now include their [Okta resource name (ORN)](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) in the response payload. See the `orn` property in the [collection resource](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Collections/#tag/Collections/operation/getCollection!c=200&path=orn&t=response).
 <!-- OKTA-986274 Preview date: Sept 10, 2025 -->
 
 #### ORN property included in entitlement bundles and values
 
-The entitlement bundle and value resources now include their [Okta resource name (ORN)](​​https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) in the response payload. See the `orn` property in the [entitlement value response](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlements/#tag/Entitlements/operation/getEntitlementValue!c=200&path=orn&t=response) and in the [entitlement bundles response](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlement-Bundles/#tag/Entitlement-Bundles/operation/getEntitlementBundle!c=200&path=0/orn&t=response) payloads.
+The entitlement bundle and value resources now include their [Okta resource name (ORN)](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) in the response payload. See the `orn` property in the [entitlement value response](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlements/#tag/Entitlements/operation/getEntitlementValue!c=200&path=orn&t=response) and in the [entitlement bundles response](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlement-Bundles/#tag/Entitlement-Bundles/operation/getEntitlementBundle!c=200&path=0/orn&t=response) payloads.
 <!-- OKTA-986269 Preview date: Sept 10, 2025 -->
 
 #### Org Governance Settings API is Beta
@@ -70,7 +70,7 @@ See the [Security Access Reviews](https://developer.okta.com/docs/api/iga/openap
 
 #### Developer documentation updates in 2025.09.0
 
-* Best practice implementations of API use cases are now available for Identity Governance. See **Identity Governance** in the [Guides](/docs/guides/) sidebar.
+* Best practice implementations of API use cases are now available for Identity Governance. See **Identity Governance** in the [Guides](/docs/guides/identity-governance/) sidebar.
 
 * Okta Identity Governance campaigns and entitlements can now be managed using the Okta Terraform Provider. This enables customers to manage their governance tasks and configure other resources in their Okta org that are maintained through the Terraform Infrastructure-as-Code tool. For more information, refer to  [Terraform Provider for Okta](https://github.com/okta/terraform-provider-okta) and the [Terraform Registry](https://registry.terraform.io/providers/okta/okta/latest/docs) documentation.
 
