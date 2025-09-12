@@ -50,9 +50,9 @@ Users need the `security_admin` permission instead of the `resource_admin` permi
 
 ### Weekly release 2025.08.2
 
-| Change | Expected in Preview |
-|--------|---------------------|
-| [Active Directory Remote Desktop Protocol (RDP) support is EA](#active-directory-remote-desktop-protocol-rdp-support-is-ea)| August 20, 2025 |
+| Change | Expected in Preview | Expected in Production |
+|--------|---------------------|------------------------|
+| [Active Directory Remote Desktop Protocol (RDP) support is EA](#active-directory-remote-desktop-protocol-rdp-support-is-ea)| August 20, 2025 | August 27, 2025 |
 
 #### Active Directory Remote Desktop Protocol (RDP) support is EA
 
@@ -63,6 +63,12 @@ You can grant RDP permission to AD users on Windows servers through the security
 
 ### Monthly release 2025.08.0
 
+| Change | Expected in Preview |
+|--------|---------------------|
+| [Active Directory rotate password configuration is EA](#active-directory-rotate-password-configuration-is-ea)| August 7, 2025 |
+| [Service Accounts API is EA](#service-accounts-api-is-ea)| August 7, 2025 |
+| [Search capability for Okta Privileged Access secrets](#search-capability-for-okta-privileged-access-secrets) | August 5, 2025 |
+
 #### Active Directory rotate password configuration is EA
 
 Resource admins can now disable the initial password rotation for discovered Active Directory (AD) accounts. Previously, all new or updated AD accounts discovered were automatically initiated for password rotation. Security admins can now set up security policies with rotate-password privileges. End users under that security policy can rotate accessible AD accounts regardless of whether the password was initially rotated. This feature provides the flexibility for OPA admins and end users to manage password rotation.
@@ -70,18 +76,18 @@ Resource admins can now disable the initial password rotation for discovered Act
 * Resource admins can disable initial password rotation through an AD account rule (see `enable_initial_password_rotation` in [Create an Active Directory account rule](https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-accounts/#tag/active-directory-accounts/operation/createActiveDirectoryAccountRule)).
 * Security admins can create security policies with AD rules that enable password rotation privileges for end users (see the `update_password` privilege in [`rules.privileges`](https://developer.okta.com/docs/api/openapi/opa/opa/tag/security-policy/#tag/security-policy/operation/CreateSecurityPolicy!path=rules/privileges&t=request) from [Create a security policy](https://developer.okta.com/docs/api/openapi/opa/opa/tag/security-policy/#tag/security-policy/operation/CreateSecurityPolicy)).
 * End users with the rotate password privilege can rotate their account password (see [Rotate the password for Active Directory account](https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-accounts/#tag/active-directory-accounts/operation/rotateActiveDirectoryAccountPassword)).
-<!-- OKTA-922640 and OKTA-911729 pam_active_directory_rotate_now FF -->
+<!-- OKTA-922640 and OKTA-911729 pam_active_directory_rotate_now FF Preview date: Aug 7, 2025; Prod date: Aug 11, 2025 -->
 
 #### Service Accounts API is EA
 
 The new [Service Accounts API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ServiceAccount/) is now available for Okta Privileged Access-enabled orgs. This API allows you to manage SaaS or On-Prem Provisioning (OPP) app accounts. App accounts that you create through the Service Accounts API are visible to resource admins in the Okta Privileged Access dashboard. See [Manage service accounts](https://help.okta.com/okta_help.htm?type=oie&id=saas-manage-service-accounts) in the Okta Privileged Access product documentation.
 
 This feature is available only if you're subscribed to Okta Privileged Access. Ensure that you've set up the Okta Privileged Access app before creating app accounts through the API.
-<!-- OKTA-926544 OKTA-982940 SERVICE_ACCOUNTS_AD -->
+<!-- OKTA-926544 OKTA-982940 SERVICE_ACCOUNTS_AD Preview: Aug 7, 2025-->
 
 #### Search capability for Okta Privileged Access secrets
 
-Okta Privileged Access users can now search secrets and their folders. A new `search` query parameter is available for the [List top-level secret folder for a user](https://developer.okta.com/docs/api/openapi/opa/opa/tag/secrets/#tag/secrets/operation/ListTopLevelSecretFoldersForUser) operation. End users can search for secrets or secret folders that they have access to by the secret name or description that contains a substring. <!-- OKTA-977918 OKTA-949368 OKTA-986952 secrets_search FF -->
+Okta Privileged Access users can now search secrets and their folders. A new `search` query parameter is available for the [List top-level secret folder for a user](https://developer.okta.com/docs/api/openapi/opa/opa/tag/secrets/#tag/secrets/operation/ListTopLevelSecretFoldersForUser) operation. End users can search for secrets or secret folders that they have access to by the secret name or description that contains a substring. <!-- OKTA-977918 OKTA-949368 OKTA-986952 secrets_search FF; Preview: Aug 5, 2025, Prod: August 7, 2025-->
 
 ## June
 
