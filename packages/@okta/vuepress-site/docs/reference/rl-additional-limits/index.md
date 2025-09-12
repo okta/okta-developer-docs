@@ -13,6 +13,7 @@ This page provides limits on:
 * [Home page endpoints](#home-page-endpoints-and-per-minute-limits)
 * [Okta-generated emails](#okta-generated-email-rate-limits)
 * [Per-user limits](#per-user-limits)
+* [One-time passcode rate limits](#one-time-passcode-rate-limits)
 * [SMS and Call rate limits](#sms-and-call-rate-limits)
 * [Org creation rate limits](#org-creation-rate-limits)
 * [Workforce license rate limit multiplier](#workforce-license-rate-limit-multiplier)
@@ -89,6 +90,16 @@ API endpoints that take username and password credentials, including the [Authen
 | **Generate or refresh an OAuth 2.0 token:**<br>`/oauth2/v1/token` | 4 per second               |
 
 Per-username rate limit violations appear in the System Log as a `user_rate_limited` failure message.
+
+## One-time passcode rate limits
+
+API endpoints that generate or verify one-time passcodes (OTPs) have a per-user rate limit. These limits prevent brute force attacks with the user's OTP.
+
+| Action and Okta API endpoint                                      | Per-user limits (all orgs) |
+| ----------------------------------------------------------------- | -------------------------: |
+| **Activate a factor:**<br>`/api/v1/users/{userId}/factors/{factorId}/lifecycle/activate`       | 5 per five minutes              |
+| **Verify a factor:**<br>`/api/v1/users/{userId}/factors/{factorId}/verify`         | 5 per five minutes              |
+| **Direct authentication with one-time passcodes:**<br>`/oauth2/v1/token` | 5 per five minutes              |
 
 ## SMS and Call rate limits
 
