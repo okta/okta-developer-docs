@@ -133,6 +133,8 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 * `/api/v1/authn`
 * `/api/v1/authn/factors/{factorIdOrFactorType}/verify`
 * `/api/v1/sessions`
+* `/api/v1/users/{userId}/factors/{factorId}/lifecycle/activate`
+* `/api/v1/users/{userId}/factors/{factorId}/verify`
 * `/login/agentlessDsso`
 * `/login/agentlessDsso/auth`
 * `/login/default`
