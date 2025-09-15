@@ -16,14 +16,14 @@ function getOneTrustAndAdobeScripts() {
         'ac20316c-ea73-4ca8-8b3b-be2d16672166-test';
     let src = process.env.DEPLOY_ENV === 'prod' ?
         "https://assets.adobedtm.com/6bb3f7663515/7ce314d1f3c9/launch-2f9b28f7d70e.min.js" :
-        "https://assets.adobedtm.com/6bb3f7663515/7ce314d1f3c9/launch-f81506449be8-staging.min.js";
+        "https://assets.adobedtm.com/6bb3f7663515/fea558f43eb7/launch-e7dc4271fcde-development.min.js";
 
     let scriptSource = '(' + function loadScripts() {
         function addScript(source, inlineCode, attributes) {
             var head = document.getElementsByTagName('head')[0];
             var js = document.createElement("script");
             if (inlineCode) {
-                js.innerHTML = source;
+                js.innerHTML = inlineCode;
             } else if (source) {
                 js.src = source;
             }
