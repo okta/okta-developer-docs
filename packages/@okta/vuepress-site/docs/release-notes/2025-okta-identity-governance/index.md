@@ -8,6 +8,20 @@ Okta Identity Governance is available for both Okta Classic and Identity Engine.
 
 ## September
 
+
+### Weekly release 2025.09.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.09.1](#bug-fixed-in-2025-09-1)| September 17, 2025 |
+
+#### Bugs fixed in 2025.09.1
+
+* The list entitlement bundles request (`GET /governance/api/v1/entitlement-bundles`) returned an error when the `name` filter had a single quote. (OKTA-1007878)
+* The retrieve principal entitlements request (`GET /governance/api/v1/principal-entitlements`) returned an invalid-condition error when a resource ORN was used in the filter. (OKTA-928086)
+
+
+
 ### Monthly release 2025.09.0
 
 | Change | Expected in Preview Orgs |
