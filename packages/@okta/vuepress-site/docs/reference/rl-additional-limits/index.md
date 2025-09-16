@@ -93,13 +93,13 @@ Per-username rate limit violations appear in the System Log as a `user_rate_limi
 
 ## One-time passcode rate limits
 
-API endpoints that generate or verify one-time passcodes (OTPs) have a per-user rate limit. These limits prevent brute force attacks with the user's OTP.
+API endpoints that generate one-time passcodes (OTPs) have a per-user rate limit. These limits prevent brute force attacks with the user's OTP.
 
 | Action and Okta API endpoint                                      | Per-user limits (all orgs) |
 | ----------------------------------------------------------------- | -------------------------: |
 | **Activate a factor:**<br>`/api/v1/users/{userId}/factors/{factorId}/lifecycle/activate`       | 5 per five minutes              |
-| **Verify a factor:**<br>`/api/v1/users/{userId}/factors/{factorId}/verify`         | 5 per five minutes              |
-| **Direct authentication with one-time passcodes:**<br>`/oauth2/v1/token` | 5 per five minutes              |
+| **Resend a factor enrollment:**<br>`/api/v1/users/{userId}/factors/{factorId}/resend` | 5 per five minutes              |
+| **Direct authentication with OTPs:**<br>`/oauth2/v1/token`<br>`/oauth2/{authorizationServerId}/v1/token` | 5 per five minutes              |
 
 ## SMS and Call rate limits
 
@@ -134,7 +134,7 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 * `/api/v1/authn/factors/{factorIdOrFactorType}/verify`
 * `/api/v1/sessions`
 * `/api/v1/users/{userId}/factors/{factorId}/lifecycle/activate`
-* `/api/v1/users/{userId}/factors/{factorId}/verify`
+* `/api/v1/users/{userId}/factors/{factorId}/resend`
 * `/login/agentlessDsso`
 * `/login/agentlessDsso/auth`
 * `/login/default`
