@@ -13,6 +13,7 @@ This page provides limits on:
 * [Home page endpoints](#home-page-endpoints-and-per-minute-limits)
 * [Okta-generated emails](#okta-generated-email-rate-limits)
 * [Per-user limits](#per-user-limits)
+* [One-time passcode rate limits](#one-time-passcode-rate-limits)
 * [SMS and Call rate limits](#sms-and-call-rate-limits)
 * [Org creation rate limits](#org-creation-rate-limits)
 * [Workforce license rate limit multiplier](#workforce-license-rate-limit-multiplier)
@@ -90,6 +91,16 @@ API endpoints that take username and password credentials, including the [Authen
 
 Per-username rate limit violations appear in the System Log as a `user_rate_limited` failure message.
 
+## One-time passcode rate limits
+
+API endpoints that generate one-time passcodes (OTPs) have a per-user rate limit. These limits prevent brute force attacks with the user's OTP.
+
+| Action and Okta API endpoint                                      | Per-user limits (all orgs) |
+| ----------------------------------------------------------------- | -------------------------: |
+| **Activate a factor:**<br>`/api/v1/users/{userId}/factors/{factorId}/lifecycle/activate`       | 5 per five minutes              |
+| **Resend a factor enrollment:**<br>`/api/v1/users/{userId}/factors/{factorId}/resend` | 5 per five minutes              |
+| **Direct authentication with OTPs:**<br>`/oauth2/v1/token`<br>`/oauth2/{authorizationServerId}/v1/token` | 5 per five minutes              |
+
 ## SMS and Call rate limits
 
 * **Per user/per phone rate limit:** The 30-second verification rate limit applies to an SMS or call enrollment or verification message to the same phone number. The rate limit is one challenge per phone number every 30 seconds.
@@ -122,6 +133,8 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 * `/api/v1/authn`
 * `/api/v1/authn/factors/{factorIdOrFactorType}/verify`
 * `/api/v1/sessions`
+* `/api/v1/users/{userId}/factors/{factorId}/lifecycle/activate`
+* `/api/v1/users/{userId}/factors/{factorId}/resend`
 * `/login/agentlessDsso`
 * `/login/agentlessDsso/auth`
 * `/login/default`
