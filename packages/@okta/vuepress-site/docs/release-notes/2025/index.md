@@ -19,7 +19,7 @@ The **Browse App Integration Catalog** page now provides **Cross App Access** an
 
 #### Bug fixed in 2025.09.1
 
-* When an error occurred during token encryption, a signed JWT was returned instead of an error. (OKTA-987783)
+When an error occurred during token encryption, a signed JWT was returned instead of an error. (OKTA-987783)
 
 ### Monthly release 2025.09.0
 
