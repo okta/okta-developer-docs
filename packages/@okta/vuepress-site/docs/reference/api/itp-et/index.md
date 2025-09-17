@@ -21,7 +21,7 @@ This resource contains detailed reference material on event types triggered with
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| EventUuid              | The ID of the `session.context.change` event that prompted the Admin feedback.               | String         | `721b1961-f0a6-11ee-bfa6-c1c3bad801v3`        |
+| EventUuid              | The ID of the `user.risk.detect` or `user.session.context.change` event that prompted the Admin feedback.               | String         | `721b1961-f0a6-11ee-bfa6-c1c3bad801v3`        |
 | Label              | The type of feedback from the admin, either `true_positive` or `false_positive`                | Enum         |  `true_positive`        |
 | **target** (User)         | The user that the feedback is about           | Object     |        |
 | type        | The type of target object     | String     | User       |
