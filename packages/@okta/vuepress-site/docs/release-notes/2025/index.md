@@ -10,6 +10,7 @@ title: Okta Classic Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
+| [New functionality filters in the OIN catalog](#new-functionality-filters-in-the-oin-catalog) | September 17, 2025 |
 | [Bug fixed in 2025.09.1](#bug-fixed-in-2025-09-1)| September 17, 2025 |
 
 #### New functionality filters in the OIN catalog
