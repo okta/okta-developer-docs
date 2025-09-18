@@ -29,7 +29,7 @@ You can use claims for fine-grained permissions and information to enhance the s
 
 ### Claims in access tokens
 
-Claims in access tokens pass information about the user and their permissions to the resource server. Access tokens can contain scopes and [custom claims]((/docs/guides/customize-tokens-returned-from-okta/main/)), while ID tokens can contain claims, but not scopes.
+Claims in access tokens pass information about the user and their permissions to the resource server. Access tokens can contain scopes and [custom claims](/docs/guides/customize-tokens-returned-from-okta/main/), while ID tokens can contain claims, but not scopes.
 
 Access and ID tokens contain a [header](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#access-token-header), [payload](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#access-token-payload), and [signature](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#access-token-signature).
 
@@ -113,9 +113,9 @@ Another way to use claims securely is to follow the principle of least privilege
 
 You can use claims in different ways with your Okta org.
 
-* [Custom claims](/docs/guides/configure-custom-claims/oktaoidc/main/): Learn how to customize the claims that are returned in Okta access and ID tokens. You can add custom claims to access tokens, or add custom claims to ID tokens that are tailored for specific user traits, based on your use case.
+* [Custom claims](/docs/guides/customize-tokens-returned-from-okta/main/): Learn how to customize the claims that are returned in Okta access and ID tokens. You can add custom claims to access tokens, or add custom claims to ID tokens that are tailored for specific user traits, based on your use case.
 * [Custom group claims](/docs/guides/customize-tokens-returned-from-okta/main/): Similar to custom claims, you can add a custom groups claim to access and ID tokens. You can customize the tokens based on app and user groups.
-* [Federated claims](/docs/guides/configure-federated-claims/oktaoidc/main/): If you have OIDC or SAML apps, learn how to create app entitlement claims that allow you to control permissions for users within specific apps.
+* [Federated claims](/docs/guides/federated-claims/main/): If you have OIDC or SAML apps, learn how to create app entitlement claims that allow you to control permissions for users within specific apps.
 * [Claims sharing](/docs/guides/configure-claims-sharing/oktaoidc/main/): If you use an OIDC or SAML 2.0 identity provider (IdP), learn how to share identity-related information (claims) between different orgs to enable secure access to resources.
 
 ### Next steps

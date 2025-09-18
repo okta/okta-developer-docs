@@ -20,7 +20,7 @@ As a security best practice, rotate the client secret that your app uses to auth
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
-* Access to client secret management APIs: `/api/v1/apps/{appId}/credentials/secrets` and JWKS management `/api/v1/apps/{appId}/credentials/jwks`. See [Application Client Auth Credentials](/openapi/okta-management/management/tag/ApplicationSSOCredentialOAuth2ClientAuth/).
+* Access to client secret management APIs: `/api/v1/apps/{appId}/credentials/secrets` and JWKS management `/api/v1/apps/{appId}/credentials/jwks`. See [Application Client Auth Credentials](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOPublicKeys/#tag/ApplicationSSOPublicKeys).
 * An existing OpenID Connect client app in Okta for testing in Okta
 * The [Postman client](https://www.getpostman.com/downloads/) to test requests. See [Get Started with the Okta APIs](https://developer.okta.com/docs/reference/rest/) for information on setting up Postman.
 * The [Client secret rotation Postman Collection](https://www.postman.com/devdocsteam/workspace/developer-docs-postman-collections/collection/6141897-2dcd48a0-4aaf-4911-9b82-d615f1222604) that allows you to test the API calls that are described in this guide. Click the ellipses next to the collection name in the left panel. Click **More** > **Export**, and then click **Export JSON** to export the collection locally. You can then import the collection into your Postman Workspace.
