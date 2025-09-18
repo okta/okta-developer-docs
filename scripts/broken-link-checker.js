@@ -122,6 +122,7 @@ async function runChecker() {
     },
     page: function (error, pageUrl, customData) {
       processed++;
+      console.log(`Checked: ${processed}/${localUrls.length}`);
       if (error) {
         console.error(`Error on ${pageUrl}:`, error);
       }
