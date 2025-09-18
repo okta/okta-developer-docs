@@ -51,7 +51,7 @@ jobs:
           name: Run link checker
           no_output_timeout: 30m
           command: |
-            yarn broken-link-checker:external > output.txt 2>&1 || true
+            yarn broken-link-checker:external 2>&1 | tee output.txt || true
       - run:
           name: Extract URLs from log
           command: |
