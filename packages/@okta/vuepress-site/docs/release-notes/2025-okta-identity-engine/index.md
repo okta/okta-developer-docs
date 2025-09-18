@@ -8,6 +8,24 @@ title: Okta Identity Engine API release notes 2025
 
 ## September
 
+
+### Weekly release 2025.09.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [New functionality filters in the OIN catalog](#new-functionality-filters-in-the-oin-catalog) | September 17, 2025 |
+| [Bugs fixed in 2025.09.1](#bugs-fixed-in-2025-09-1)| September 17, 2025 |
+
+#### New functionality filters in the OIN catalog
+
+The **Browse App Integration Catalog** page now provides **Cross App Access** and **Privileged Access Management** functionality filters. The new filters help admins quickly find Cross App Access- and Privileged Access Management-enabled apps in the OIN. <!-- OKTA-993623 --> <!-- addNewCaaFunctionalityFilters , addNewPamFunctionalityFilters -->
+
+#### Bugs fixed in 2025.09.1
+
+* In the System Log, `policy.auth_reevaluate.fail` events didn't display risk unless the event was a synchronous flow and the global session policy failed without remediation. (OKTA-1017389) <!-- team.itp.policyAuthReevaluateFailPopulateRiskEnabled -->
+
+* When an error occurred during token encryption, a signed JWT was returned instead of an error. (OKTA-987783)
+
 ### Monthly release 2025.09.0
 
 | Change | Expected in Preview Orgs |
@@ -30,7 +48,7 @@ title: Okta Identity Engine API release notes 2025
 | [New claims supported for identity verification (IDV) vendor integration is self-service EA in Preview](#new-claims-supported-for-identity-verification-idv-vendor-integration-is-self-service-ea-in-preview) | August 13, 2025 |
 | [Passkey and security key subdomain support is self-service EA in Preview](#passkey-and-security-key-subdomain-support-is-self-service-ea-in-preview) | September 4, 2025 |
 | [User status in Okta Expression Language is GA in Preview](#user-status-in-okta-expression-language-is-ga-in-preview) | September 10, 2025 |
-| [Developer documentation update in 2025.09.0](#developer-documentation-update-in-2025-09-0) | September 4, 2025 |
+| [Developer documentation update in 2025.09.0](#developer-documentation-update-in-2025-09-0) | September 10, 2025 |
 
 #### User API Projections
 
