@@ -8,6 +8,17 @@ Okta Privileged Access (OPA) is available for both Okta Classic and Identity Eng
 
 ## September
 
+### Weekly release 2025.09.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Random password generator for unmanaged SaaS accounts is EA](#random-password-generator-for-unmanaged-saas-accounts-is-ea)| September 18, 2025 |
+
+#### Random password generator for unmanaged SaaS accounts is EA
+
+Okta Privilege Access (OPA) end users can generate passwords for their unmanaged SaaS accounts. See [Generate a random password](https://developer.okta.com/docs/api/openapi/opa/opa/tag/random-password-generation/#tag/random-password-generation/operation/CreateRandomPassword) in the [Random Password Generation](https://developer.okta.com/docs/api/openapi/opa/opa/tag/random-password-generation/) API.
+<!--OKTA-940093 pam_random_generator, Preview date: Sept 18, 2025 -->
+
 ### Monthly release 2025.09.0
 
 | Change | Expected in Preview |
