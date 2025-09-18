@@ -27,7 +27,7 @@ Ensure that your app fits your brand:
 ## User authorization and registration
 
 * [Migrate your users in bulk](/docs/guides/migrate-to-okta-bulk/): Use the Okta API to create many users with or without credentials. Make sure to sign into the Admin Console, and check out your settings for Security/General notification emails, to configure whether you want your newly imported users to receive notification emails.
-* [Configure Multifactor Authentication (MFA)](/docs/guides/mfa/ga/set-up-org/): Set up which security factors are used when users sign in.
+* [Configure Multifactor Authentication (MFA)](/docs/guides/set-up-org/main/#set-up-your-okta-org-for-a-multifactor-use-case): Set up which security factors are used when users sign in.
 * [Set up Self-Service Registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/): Allow users to sign up for an account with an email address.
 * [Enable Social Authentication](/docs/guides/add-an-external-idp/): Allow your users to sign in with their other services.
 
