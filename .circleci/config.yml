@@ -38,7 +38,7 @@ jobs:
   broken-link-checker-external:
     docker:
       - image: cimg/node:14.21.3-browsers
-    resource_class: large
+    resource_class: xlarge
     environment:
       NODE_OPTIONS: '--max_old_space_size=3584'
     steps:
