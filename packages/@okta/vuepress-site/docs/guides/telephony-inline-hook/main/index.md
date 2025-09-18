@@ -226,7 +226,7 @@ Review the following guides to implement other inline or event hook examples:
 * [Event hook](/docs/guides/event-hook-implementation/)
 * [Password import inline hook](/docs/guides/password-import-inline-hook/nodejs/main/)
 * [Token inline hook](/docs/guides/token-inline-hook/nodejs/main/)
-* [SAML assertion inline hook](/docs/guides/saml-inline-hook/nodejs/main)
+* [SAML assertion inline hook](/docs/guides/saml-inline-hook/main/)
 * [Registration inline hook](/docs/guides/registration-inline-hook/nodejs/main)
 
 ## See also
