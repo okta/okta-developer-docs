@@ -271,16 +271,6 @@
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>https://developer.okta.com/books/api-security/gateways/comparison/</loc>
-    <lastmod>2024-07-03T18:30:00.000Z</lastmod>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>https://developer.okta.com/books/api-security/gateways/</loc>
-    <lastmod>2024-07-03T18:30:00.000Z</lastmod>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
     <loc>https://developer.okta.com/books/api-security/gateways/problems-they-will-not-solve/</loc>
     <lastmod>2024-07-03T18:30:00.000Z</lastmod>
     <changefreq>daily</changefreq>
