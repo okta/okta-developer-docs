@@ -202,6 +202,20 @@ workflows:
       - inclusive-linting:
           name: "Inclusive Linting"
 
+  broken-link-checker-external:
+    when:
+      not: << pipeline.parameters.preview >>
+    jobs:
+      - broken-link-checker-external:
+          name: "Broken link checker external"
+
+  broken-link-checker-internal:
+    when:
+      not: << pipeline.parameters.preview >>
+    jobs:
+      - broken-link-checker-internal:
+          name: "Broken link checker internal"
+
   build_checks:
     when:
       not: << pipeline.parameters.preview >>
