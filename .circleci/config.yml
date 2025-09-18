@@ -78,7 +78,9 @@ jobs:
           command: yarn build
       - run:
           name: Run link checker
-          command: yarn broken-link-checker:internal > output.txt 2>&1 || true
+          command: |
+            yarn broken-link-checker:internal > output.txt 2>&1 || true
+            cat output.txt
       - run:
           name: Extract URLs from log
           command: |
