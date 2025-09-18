@@ -268,7 +268,7 @@ When you enrolled your test user, the user was only prompted for first and last 
 
 Instead of signing in to Okta, it's possible to route users to an external Identity Provider (IdP) using the Okta IdP Routing Rules.
 
-> **Note:** For B2B scenarios, you may want to add a SAML 2.0 Identity Provider rather than a social Identity Provider. See [Add an external Identity Provider](/docs/guides/add-an-external-idp/saml2/before-you-begin/).
+> **Note:** For B2B scenarios, you may want to add a SAML 2.0 Identity Provider rather than a social Identity Provider. See [Add an external Identity Provider](/docs/guides/add-an-external-idp/saml2/main/).
 
 ### Create a Facebook App
 
