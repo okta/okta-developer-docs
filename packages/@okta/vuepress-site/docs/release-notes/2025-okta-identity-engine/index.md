@@ -247,7 +247,7 @@ See [Customize associated domains](/docs/guides/custom-well-known-uri/main/). <!
 
 #### Automate SCIM Integration for OIN Apps with Express Configuration
 
-Express Configuration is a feature designed to automate the setup of SSO and SCIM for instances of OIN SaaS integrations by enterprise customers with minimal manual effort. It allows enterprise customers to securely configure OIDC and SCIM integrations without copying and pasting configuration values between Okta and Auth0-enabled apps. See [Express Configuration](/docs/guides/enable-express-configuration/SCIM/main/). <!-- EXPRESS_CONFIGURATION_SCIM_FOR_AUTH0_APPS OKTA-977761 -->
+Express Configuration is a feature designed to automate the setup of SSO and SCIM for instances of OIN SaaS integrations by enterprise customers with minimal manual effort. It allows enterprise customers to securely configure OIDC and SCIM integrations without copying and pasting configuration values between Okta and Auth0-enabled apps. See [Express Configuration](/docs/guides/enable-express-configuration/scim/main/). <!-- EXPRESS_CONFIGURATION_SCIM_FOR_AUTH0_APPS OKTA-977761 -->
 
 #### Breached Credentials Protection is GA in Preview
 
@@ -637,7 +637,7 @@ Okta uses [CAEP](https://openid.net/specs/openid-caep-specification-1_0.html) to
 
 #### Single Logout for IdPs is EA in Preview
 
-The Single Logout (SLO) for IdPs feature boosts security for organizations using shared devices and external IdPs by automatically ending IdP sessions when a user signs out of any app. This feature also requires a fresh authentication for every new user, eliminating session hijacking risks on shared devices. SLO for IdP supports both SAML 2.0 and OIDC IdP connections, which provides robust session management for shared workstations in any environment. See [Configure Single Logout for IdPs](/docs/guides/single-logout/openidconnectidp/main/). <!-- SLO_SUPPORT_FOR_EXTERNAL_IDP (OKTA-946177) -->
+The Single Logout (SLO) for IdPs feature boosts security for organizations using shared devices and external IdPs by automatically ending IdP sessions when a user signs out of any app. This feature also requires a fresh authentication for every new user, eliminating session hijacking risks on shared devices. SLO for IdP supports both SAML 2.0 and OIDC IdP connections, which provides robust session management for shared workstations in any environment. See [Configure Single Logout for IdPs](/docs/guides/single-logout/openidconnect/main/). <!-- SLO_SUPPORT_FOR_EXTERNAL_IDP (OKTA-946177) -->
 
 #### Expanded use of user.getGroups() function in Okta Expression Language is GA in Preview
 
@@ -928,7 +928,7 @@ Okta deletes your test account credentials 30 days after you publish your app in
 
 #### Risk Provider and Risk Events APIs are deprecated
 
-These APIs have been deprecated. Use the [SSF Security Event Tokens API]([https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/|https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/]) instead to receive security-related events and other data-subject signals. Use the [SSF Receiver API]([https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/|https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/]) for third-party security event providers. <!-- OKTA-866092 -->
+These APIs have been deprecated. Use the [SSF Security Event Tokens API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/) instead to receive security-related events and other data-subject signals. Use the [SSF Receiver API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/) for third-party security event providers. <!-- OKTA-866092 -->
 
 #### POST requests to authorize endpoint is GA Preview
 

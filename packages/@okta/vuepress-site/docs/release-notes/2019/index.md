@@ -669,7 +669,7 @@ The rate limits for the `/users/me` endpoint have been updated. For more informa
 
 #### Generic OIDC IdP is now GA in Preview
 
-Generic OpenID Connect allows users to sign in to an Okta org using their credentials from their existing account at an OIDC Identity Provider. A generic OIDC IdP can be a third-party IdP that supports OIDC, such as Salesforce or Yahoo or your own custom IdP. You can also configure federation between Okta orgs using OIDC as a replacement for SAML. For more information, see [Federate Okta with OpenID Connect](/docs/guides/add-an-external-idp/openidconnect/before-you-begin/). <!--OKTA-202447-->
+Generic OpenID Connect allows users to sign in to an Okta org using their credentials from their existing account at an OIDC Identity Provider. A generic OIDC IdP can be a third-party IdP that supports OIDC, such as Salesforce or Yahoo or your own custom IdP. You can also configure federation between Okta orgs using OIDC as a replacement for SAML. For more information, see [Federate Okta with OpenID Connect](/docs/guides/add-an-external-idp/openidconnect/main/). <!--OKTA-202447-->
 
 #### User Search is now GA in Production
 
@@ -798,7 +798,7 @@ The following features have already been released as Early Access. To enable the
 
 #### Social Authentication Generally Available
 
-[Social Authentication](/docs/concepts/social-login/) is now Generally Available (GA). <!--OKTA-199632-->
+[Social Authentication](/docs/concepts/identity-providers/) is now Generally Available (GA). <!--OKTA-199632-->
 
 #### IdP Discovery Generally Available
 
