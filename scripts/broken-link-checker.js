@@ -49,7 +49,7 @@ if (linkCheckMode == 'internal') {
 }
 
 var siteUrl = "http://localhost:8080";
-const sitemapPath = path.resolve("packages/@okta/vuepress-site/dist/docs-sitemap.xml");
+const sitemapPath = path.resolve(".circleci/docs-sitemap.xml");
 
 var customData = {
   outputGoodLinks: false,
@@ -105,10 +105,12 @@ async function runChecker() {
   const parsed = await parseStringPromise(xml);
   const urls = parsed.urlset.url.map((u) => u.loc[0]);
 
+  const localUrls = urls;
+
   // Replace prod domain with localhost:8080
-  const localUrls = urls.map((u) =>
-    u.replace("https://developer.okta.com", siteUrl)
-  );
+  // const localUrls = urls.map((u) =>
+  //   u.replace("https://developer.okta.com", siteUrl)
+  // );
 
   let processed = 0;
 

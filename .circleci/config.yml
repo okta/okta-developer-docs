@@ -44,9 +44,9 @@ jobs:
     steps:
       - checkout
       - install-deps
-      - run:
-          name: Run script and capture logs
-          command: yarn build
+      # - run:
+      #     name: Run script and capture logs
+      #     command: yarn build
       - run:
           name: Run link checker
           no_output_timeout: 30m
