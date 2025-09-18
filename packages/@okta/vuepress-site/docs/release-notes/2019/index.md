@@ -115,7 +115,7 @@ The [Features API](/docs/reference/api/features/) provides operations to manage 
 
 #### SAML inline hook is Generally Available in Preview
 
-The [SAML inline hook](/https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook) enables you to customize SAML assertions returned by Okta. You can add attributes or modify existing attributes in outbound SAML assertions. <!-- OKTA-244856 -->
+The [SAML inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook) enables you to customize SAML assertions returned by Okta. You can add attributes or modify existing attributes in outbound SAML assertions. <!-- OKTA-244856 -->
 
 #### Token inline hook is Generally Available in Preview
 

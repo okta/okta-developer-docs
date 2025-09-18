@@ -233,7 +233,7 @@ resource "okta_group" "Finance" {
 
 ### Manage your list of API scopes
 
-Your Terraform configuration must include a list of the Okta API scopes required to perform the associated tasks. For example, Terraform needs the `okta.groups.manage` API scope to create a group in the org's directory. See the [scopes reference](/docs/api/oauth2/) for more information.
+Your Terraform configuration must include a list of the Okta API scopes required to perform the associated tasks. For example, Terraform needs the `okta.groups.manage` API scope to create a group in the org's directory. See the [scopes reference](https://developer.okta.com/docs/api/oauth2/#okta-openid-connect--oauth-20) for more information.
 
 1. Define a `scopes` variable in your `main.tf` file:
 

@@ -374,7 +374,7 @@ Cache-Control: no-cache, no-store
 
 ## Identity verification events
 
-There are two events related to identity verification: `user.identity_verification` and `user.identity_verification.start`. Okta admins can view these events in the System Log. See [Event Types](/docs/reference/api/event-type).
+There are two events related to identity verification: `user.identity_verification` and `user.identity_verification.start`. Okta admins can view these events in the System Log. See [Event Types](/docs/reference/api/event-types).
 
 * `user.identity_verification.start`: This event is triggered when an Okta account management policy prompts a user to verify their identity with an IDV vendor.
 * `user.identity_verification`: This event is triggered after Okta completes the evaluation of an Okta account management policy.

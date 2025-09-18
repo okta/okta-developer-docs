@@ -133,7 +133,7 @@ The [Linked Objects API](/docs/reference/api/linked-objects/) is now available t
 
 #### Bugs Fixed in 2018.45
 
-* The set of roles allowed access to system log information by the [Events API](/docs/reference/api/events) did not match the set of roles allowed access by the [System Log API](/docs/reference/api/system-log/). (OKTA-194899)
+* The set of roles allowed access to system log information by the Events API did not match the set of roles allowed access by the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/). (OKTA-194899)
 * When a user tried to sign in using the Okta Sign-in Widget, they would not be prompted to enroll an optional factor, despite `multiOptionalFactorEnroll` being set to `true`. (OKTA-195195)
 
 #### Previously Released Early Access Features 2018.45 Update
@@ -1332,7 +1332,7 @@ The following feature enhancement is expected in preview orgs February 14, 2018,
 
 #### Keystore Rollover Events Now Logged
 
-OAuth key store rollover events are now included in both the [Events](/docs/reference/api/events) and [System Log](/docs/reference/api/system-log/) APIs.<!-- OKTA-129535 -->
+OAuth key store rollover events are now included in both the Events and [System Log](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/) APIs.<!-- OKTA-129535 -->
 
 #### Bug Fixed
 
