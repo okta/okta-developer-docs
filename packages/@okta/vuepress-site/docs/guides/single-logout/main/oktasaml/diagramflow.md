@@ -23,6 +23,6 @@
 
     `POST https://idp.example.com/slo/logout`
 
-    > **Note:** This URL is whatever the `slo.url` is that you specify when you [configure your IdP for SLO for IdPs](/docs/guides/single-logout/openidconnectidp/main/#configure).
+    > **Note:** This URL is whatever the `slo.url` is that you specify when you [configure your IdP for SLO for IdPs](/docs/guides/single-logout/openidconnect/main/#configure).
 
 * If a downstream app is a SAML app, the SAML app makes a POST or REDIRECT request to the Okta `/app/{app}/{key}/slo/saml/callback` endpoint in response to the Okta outbound logout request. The SAML logout response is included in the request body.
