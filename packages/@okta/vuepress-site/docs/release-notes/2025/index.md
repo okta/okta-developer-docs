@@ -6,6 +6,21 @@ title: Okta Classic Engine API release notes 2025
 
 ## September
 
+### Weekly release 2025.09.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [New functionality filters in the OIN catalog](#new-functionality-filters-in-the-oin-catalog) | September 17, 2025 |
+| [Bug fixed in 2025.09.1](#bug-fixed-in-2025-09-1)| September 17, 2025 |
+
+#### New functionality filters in the OIN catalog
+
+The **Browse App Integration Catalog** page now provides **Cross App Access** and **Privileged Access Management** functionality filters. The new filters help admins quickly find Cross App Access- and Privileged Access Management-enabled apps in the OIN. <!-- OKTA-993623 --> <!-- addNewCaaFunctionalityFilters , addNewPamFunctionalityFilters -->
+
+#### Bug fixed in 2025.09.1
+
+When an error occurred during token encryption, a signed JWT was returned instead of an error. (OKTA-987783)
+
 ### Monthly release 2025.09.0
 
 | Change | Expected in Preview Orgs |
@@ -21,7 +36,7 @@ title: Okta Classic Engine API release notes 2025
 | [Secure Identity Integrations filters in the OIN catalog](#secure-identity-integrations-filters-in-the-oin-catalog) | September 10, 2025 |
 | [Okta Integration IdP type is GA in Preview](#okta-integration-idp-type-is-ga-in-preview) | June 25, 2025 |
 | [User status in Okta Expression Language is GA in Preview](#user-status-in-okta-expression-language-is-ga-in-preview) | September 10, 2025 |
-| [Developer documentation update in 2025.09.0](#developer-documentation-update-in-2025-09-0) | September 4, 2025 |
+| [Developer documentation update in 2025.09.0](#developer-documentation-update-in-2025-09-0) | September 10, 2025 |
 
 #### User API Projections
 
