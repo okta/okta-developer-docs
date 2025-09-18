@@ -20,7 +20,7 @@ Enable users to sign in using a trusted external Identity Provider.
 * An [Okta Integrator Free Plan org](https://developer.okta.com/signup) or an Okta Identity Engine organization.
 * A Terraform configuration that can access your Okta org. See [Enable Terraform access for your Okta org](/docs/guides/terraform-enable-org-access).
 * An account with [Google](https://accounts.google.com/signup).
-* Access to your [Google Admin Console](admin.google.com) for SAML IdP creation.
+* Access to your [Google Admin Console](https://admin.google.com) for SAML IdP creation.
 
 ---
 

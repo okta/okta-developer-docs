@@ -32,7 +32,7 @@ An Okta API service app uses the OAuth 2.0 [Client Credentials authorization flo
 
 In the Okta API service app that controls your Terraform integration, you specify the Okta objects that Terraform can access using API scopes. Scopes are like permissions to do a certain action on a type of resource. For example, the Terraform configuration in this article creates a test group in Okta, which requires the `okta.groups.manage` API scope.
 
-One way to determine the required scopes for the service app is to determine which permissions an admin needs to perform the same kind of action. Next, find the corresponding scopes in the list of [OAuth Admin Management scopes](/docs/api/oauth2/#okta-admin-management) and add them to your service app. For example, adding a group in the Okta Admin console requires the `groups.manage` action. In the table, the corresponding scope is `okta.groups.manage`. Add the same scopes to your Terraform configuration.
+One way to determine the required scopes for the service app is to determine which permissions an admin needs to perform the same kind of action. Next, find the corresponding scopes in the list of [Okta Admin Management scopes](https://developer.okta.com/docs/api/oauth2/#okta-admin-management) and add them to your service app. For example, adding a group in the Okta Admin console requires the `groups.manage` action. In the table, the corresponding scope is `okta.groups.manage`. Add the same scopes to your Terraform configuration.
 
 Separate from granting API scopes, you must assign admin permissions to the app through groups of permissions called admin roles.
 
@@ -75,7 +75,7 @@ For more information on custom roles, see [Custom admin roles](https://help.okta
 
 ## Grant API scopes
 
-Okta _API scopes_ define permissions for an external API client like Terraform. For a full reference, see [the Okta list of Auth 2.0 API scopes](/docs/api/oauth2/#oauth-20-scopes).
+Okta _API scopes_ define permissions for an external API client like Terraform. For a full reference, see [the Okta list of Auth 2.0 API scopes](https://developer.okta.com/docs/api/oauth2/#okta-openid-connect--oauth-20).
 
 > **Note:** Granting new API scopes to a service app requires that the admin has Super Administrator permission.
 
