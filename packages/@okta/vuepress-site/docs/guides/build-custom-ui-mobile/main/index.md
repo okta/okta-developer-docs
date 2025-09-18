@@ -35,7 +35,7 @@ Customize the sign-in experience with a mobile sign-in UI.
 
 Before you can sign a user in, you need to create an Okta app that represents your mobile app.
 
-Use the Okta app that you created when you walked through the [Sign in to your mobile app](/docs/guides/sign-into-mobile-app/-/main/#create-an-okta-integration-for-your-app) guide.
+Use the Okta app that you created when you walked through the [Sign in to your mobile app](/docs/guides/sign-into-mobile-app-redirect/android/main/#create-an-okta-integration-for-your-app) guide.
 
 ## Add and configure packages
 
