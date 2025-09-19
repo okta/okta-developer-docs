@@ -18,7 +18,7 @@ To build the site on your machine and/or to contribute content to the site, [vie
 
 If you run into issues, [view the instructions for troubleshooting](https://github.com/okta/okta-developer-docs/wiki/Troubleshooting).
 
-### Links:
+### Important Links:
 
 - Developer docs: <https://developer.okta.com>
 - Developer forum: <https://devforum.okta.com>
