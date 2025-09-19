@@ -83,6 +83,18 @@ You can divide the Identity Engine deployment model for user authentication into
 
 See [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redirect-vs-embedded/) for an overview of the different deployment models, and see [Sign users in](/docs/guides/sign-in-overview/) for implementation details.
 
+## Passwordless authentication
+
+You can implement passwordless authentication flows using methods such as [Okta FastPass](https://help.okta.com/oie/en-us/content/topics/identity-engine/devices/fp/fp-main.htm) and [Email Magic Link](https://developer.okta.com/docs/guides/email-magic-links-overview/main/). This allows users to authenticate without a password and frictionless user experience and security.
+
+## Device Authorization Grant Flow
+
+The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input-constrained devices, such as smart TVs, digital picture frames, and printers, and devices with no browser. See [Configure Device Authorization Grant Flow](https://developer.okta.com/docs/guides/device-authorization-grant/main/).
+
+## Universal Logout
+
+Universal Logout lets you terminate users' sessions and their tokens for supported apps when Identity Threat Protection identifies a change in risk.
+
 ## SDKs and sample apps
 
 Okta has a host of SDKs available for integrating new Identity Engine features into your apps using [Okta deployment models](#authentication-deployment-models). There are also sample apps to show them in action.
