@@ -23,7 +23,7 @@ function getOneTrustAndAdobeScripts() {
             var head = document.getElementsByTagName('head')[0];
             var js = document.createElement("script");
             if (inlineCode) {
-                js.innerHTML = source;
+                js.innerHTML = inlineCode;
             } else if (source) {
                 js.src = source;
             }
