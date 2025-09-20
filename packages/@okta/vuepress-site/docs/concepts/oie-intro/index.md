@@ -93,7 +93,7 @@ The Device Authorization feature is an OAuth 2.0 grant type. It allows users to 
 
 ## Universal Logout
 
-Universal Logout lets you terminate users' sessions and their tokens for supported apps when Identity Threat Protection identifies a change in risk.
+Universal Logout lets you terminate users' sessions and their tokens for supported apps when Identity Threat Protection identifies a change in risk. You can also build Universal Logout for your app. Universal Logout endpoint simplifies the process of signing users out of all of their active sessions for apps built on the Okta Customer Identity platform.
 
 ## SDKs and sample apps
 
@@ -101,7 +101,7 @@ Okta has a host of SDKs available for integrating new Identity Engine features i
 
 * [Browse our SDKs and samples](/code/)
 * [Set up and explore our Identity Engine sample apps](/docs/guides/oie-embedded-common-download-setup-app/)
-
+* [Automate org management with Terraform](https://developer.okta.com/docs/guides/automate-org-management-with-terraform/)
 ## Identity Engine versus Classic Engine documentation approach
 
 In our documentation, Okta is moving towards supporting Identity Engine by default, while still providing information for Classic Engine users.
