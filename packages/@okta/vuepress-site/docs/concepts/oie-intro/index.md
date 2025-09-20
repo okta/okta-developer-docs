@@ -93,7 +93,10 @@ The Device Authorization feature is an OAuth 2.0 grant type. It allows users to 
 
 ## Universal Logout
 
-Universal Logout lets you terminate users' sessions and their tokens for supported apps when Identity Threat Protection identifies a change in risk. You can also build Universal Logout for your app. Universal Logout endpoint simplifies the process of signing users out of all of their active sessions for apps built on the Okta Customer Identity platform.
+Universal Logout lets you terminate users' sessions and their tokens for supported apps when Identity Threat Protection identifies a change in risk. You can also [build Universal Logout for your app](https://developer.okta.com/docs/guides/oin-universal-logout-overview/). Universal Logout endpoint simplifies the process of signing users out of all of their active sessions for apps built on the Okta Customer Identity platform.
+
+## Improved Terraform support
+You can manage Okta org using Terraform, including groups, policies, apps, and more. Terraform has the ability to manage more configuration resources using standard operating procedures. It uses that description to examine the current state of your org and then creates a plan with the appropriate changes. You can check the plan, modify your description as needed, and run the plan to make the changes. For more information, see [Automate org management with Terraform](https://developer.okta.com/docs/guides/automate-org-management-with-terraform/)
 
 ## SDKs and sample apps
 
@@ -101,7 +104,7 @@ Okta has a host of SDKs available for integrating new Identity Engine features i
 
 * [Browse our SDKs and samples](/code/)
 * [Set up and explore our Identity Engine sample apps](/docs/guides/oie-embedded-common-download-setup-app/)
-* [Automate org management with Terraform](https://developer.okta.com/docs/guides/automate-org-management-with-terraform/)
+
 ## Identity Engine versus Classic Engine documentation approach
 
 In our documentation, Okta is moving towards supporting Identity Engine by default, while still providing information for Classic Engine users.
