@@ -54,7 +54,7 @@ There are various ways to configure these well-known URIs with your org. Review 
 
 Before you create a customization, retrieve your `brandId` with the [List all brands](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/#tag/Brands/operation/listBrands) endpoint.
 
-Then, use the [Replace the customized well-known URI endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/WellKnownURIs/#tag/WellKnownURIs/operation/replaceBrandWellKnownURI) to create a custom well-known URI for `/.well-known/apple-app-site-association`.
+Then, use the [Replace the customized well-known URI endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/#tag/AssociatedDomainCustomizations/operation/replaceBrandWellKnownURI) to create a custom well-known URI for `/.well-known/apple-app-site-association`.
 
 > **Note:** You must format the `apple-app-site-association` well-known URI as a JSON object.
 

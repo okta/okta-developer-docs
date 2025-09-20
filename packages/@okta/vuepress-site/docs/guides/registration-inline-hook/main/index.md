@@ -32,10 +32,6 @@ The sample project provides external code for three registration inline hook use
 * [Glitch.com](https://glitch.com) project or account
 * [A user profile policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment)
 
-#### Sample code
-
-[Okta Registration Inline Hook Example](https://glitch.com/edit/#!/okta-inlinehook-registrationhook-oie)
-
 ---
 
 ## About registration inline hook implementation
@@ -173,7 +169,7 @@ This profile enrollment scenario (self-service registration) involves new users 
 
 Remix your own version of the Okta sample Glitch project and confirm that it's live.
 
-1. Go to the [Okta Registration Inline Hook Example](https://glitch.com/edit/#!/okta-inlinehook-registrationhook-oie).
+1. Go to the Okta Registration Inline Hook Example.
 1. Click **Remix your own** and click **Share**.
 1. Click the copy icon in the **Live site** field. This is your external service URL. Make a note of it as you need it later.
 1. Click **Logs**. If you see the following message, "Your app is listening on port {XXXX}", the app is live and ready to receive Okta requests.
@@ -288,7 +284,7 @@ The scenario of progressive profile enrollment involves existing users prompted 
 
 Remix your own version of the Okta sample Glitch project and confirm that it's live.
 
-1. Go to the [Okta Registration Inline Hook Example](https://glitch.com/edit/#!/okta-inlinehook-registrationhook-oie).
+1. Go to the Okta Registration Inline Hook Example.
 1. Click **Remix your own**, and then click **Share**.
 1. Click the copy icon in the **Live site** field. This is your external service URL. Make a note of it as you need it later.
 1. Click **Logs**. If you see the following message, "Your app is listening on port {XXXX}", the app is live and ready to receive Okta requests.
@@ -413,7 +409,7 @@ This scenario involves both profile enrollment (self-service registration) and p
 
 Remix your own version of the Okta sample Glitch project and confirm that it's live.
 
-1. Go to the [Okta Registration Inline Hook Example](https://glitch.com/edit/#!/okta-inlinehook-registrationhook-oie).
+1. Go to the Okta Registration Inline Hook Example.
 1. Click **Remix your own**, and then click **Share**.
 1. Click the copy icon in the **Live site** field. This is your external service URL. Make a note of it as you need it later.
 1. Click **Logs**. If you see the following message, "Your app is listening on port {XXXX}", the app is live and ready to receive Okta requests.

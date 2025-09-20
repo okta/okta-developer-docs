@@ -85,7 +85,7 @@ See [Hookdeck](https://hookdeck.com/) or their [Product docs](https://hookdeck.c
 
 ### Review Hookdeck dashboard
 
-The Hookdeck dashboard provides an opportunity to review all calls to your local app. See [Browsing events](https://hookdeck.com/docs/browsing-event) for details on using this interface. Use the dashboard link provided by the Hookdeck utility to access details on your hook calls. For example, `http://dashboard..hookdeck.com?team_id=tm_DzF5wrNULyBG`. If you've not logged in to Hookdeck previously, you'll get a guest URL to Hookdeck Console instead.
+The Hookdeck dashboard provides an opportunity to review all calls to your local app. Use the dashboard link provided by the Hookdeck utility to access details on your hook calls. For example, `http://dashboard..hookdeck.com?team_id=tm_DzF5wrNULyBG`. If you've not logged in to Hookdeck previously, you'll get a guest URL to Hookdeck Console instead.
 
 Each call to your local app appears in the dashboard and includes the response body, header, and other details:
 
@@ -97,7 +97,7 @@ Each call to your local app appears in the dashboard and includes the response b
 
 ### Hookdeck development workflow
 
-Hookdeck URLs are reusable and permanent (when you create a free account) and serve the entire development lifecycle&mdash;from development to staging to production. See [Development Workflow](https://hookdeck.com/docs/dev-workflow) for more information on using Hookdeck.
+Hookdeck URLs are reusable and permanent (when you create a free account) and serve the entire development lifecycle&mdash;from development to staging to production. See [Hookdeck Basics](https://hookdeck.com/docs/hookdeck-basics) for more information on using Hookdeck.
 
 ## Create an Okta event hook
 

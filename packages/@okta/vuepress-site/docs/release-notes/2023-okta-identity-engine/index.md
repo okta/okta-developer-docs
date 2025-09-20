@@ -412,7 +412,7 @@ The guides within the Primer for OIN OpenID Connect section have been removed. C
 
 #### New IdP permissions for custom admin roles is EA in Preview
 
-Admins can now leverage new Identity Provider management permissions when creating custom admin roles. These permissions allow more precise access control and reinforce the principle of least privilege. See [Roles](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Role/).
+Admins can now leverage new Identity Provider management permissions when creating custom admin roles. These permissions allow more precise access control and reinforce the principle of least privilege. See [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#roles-in-okta).
 
 #### Bugs fixed in 2023.06.2
 
