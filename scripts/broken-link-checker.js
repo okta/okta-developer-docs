@@ -141,7 +141,7 @@ async function runChecker() {
               console.log(chalk.cyan("  Page: " + innerKey + " (" + innerValue + ")"));
             }
           }
-          process.exit(0);
+          process.exit(1);
         } else {
           console.log("Broken Links: " + chalk.bold.green(0));
           process.exit(0);

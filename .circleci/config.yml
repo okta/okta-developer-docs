@@ -34,68 +34,6 @@ jobs:
     steps:
       - checkout
       - run: bash ./scripts/inclusive-lint.sh
-  
-  broken-link-checker-external:
-    docker:
-      - image: cimg/node:14.21.3-browsers
-    resource_class: large
-    environment:
-      NODE_OPTIONS: '--max_old_space_size=3584'
-    steps:
-      - checkout
-      - install-deps
-      - run:
-          name: Run script and capture logs
-          command: yarn build
-      - run:
-          name: Run link checker
-          no_output_timeout: 30m
-          command: |
-            yarn broken-link-checker:external 2>&1 | tee output.txt || true
-      - run:
-          name: Extract URLs from log
-          command: |
-            grep -o 'Link: https\?://[^[:space:]]*' output.txt | sed 's/Link: //' > urls.txt
-          when: always
-      - run:
-          name: Remove False Positives
-          command: |
-            comm -23 <(sort urls.txt | uniq) <(sort falsepos.txt | uniq) > broken_external_urls.txt
-      - run:
-          name: Print urls to log
-          command: |
-            cat broken_external_urls.txt
-
-  broken-link-checker-internal:
-    docker:
-      - image: cimg/node:14.21.3-browsers
-    resource_class: large
-    environment:
-      NODE_OPTIONS: '--max_old_space_size=3584'
-    steps:
-      - checkout
-      - install-deps
-      - run:
-          name: Run script and capture logs
-          command: yarn build
-      - run:
-          name: Run link checker
-          command: |
-            yarn broken-link-checker:internal > output.txt 2>&1 || true
-            cat output.txt
-      - run:
-          name: Extract URLs from log
-          command: |
-            grep -o 'Link: http\?://[^[:space:]]*' output.txt | sed 's/Link: //' > urls.txt
-          when: always
-      - run:
-          name: Remove False Positives
-          command: |
-            comm -23 <(sort urls.txt | uniq) <(sort falsepos.txt | uniq) > broken_internal_urls.txt
-      - run:
-          name: Print urls to log
-          command: |
-            cat broken_internal_urls.txt
 
   node_build_checks:
       docker:
@@ -205,20 +143,6 @@ workflows:
     jobs:
       - inclusive-linting:
           name: "Inclusive Linting"
-
-  broken-link-checker-external:
-    when:
-      not: << pipeline.parameters.preview >>
-    jobs:
-      - broken-link-checker-external:
-          name: "Broken link checker external"
-
-  broken-link-checker-internal:
-    when:
-      not: << pipeline.parameters.preview >>
-    jobs:
-      - broken-link-checker-internal:
-          name: "Broken link checker internal"
 
   build_checks:
     when:
