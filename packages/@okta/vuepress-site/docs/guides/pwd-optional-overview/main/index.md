@@ -42,6 +42,6 @@ Also, see the <StackSnippet snippet="bestpractices" inline/> guide to learn how 
 
 * [Okta Passwordless Authentication](https://www.okta.com/passwordless-authentication/)
 * [Let's (finally) say goodbye to passwords](https://www.okta.com/go-passwordless/)
-* [Passwordless authentication deployment guide](https://support.okta.com/resource/Deploying_Passwordless_Authentication)
+* [Passwordless authentication deployment guide](https://learning.okta.com/deploy-authentication-policies)
 
 </div>
