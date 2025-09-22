@@ -1,6 +1,6 @@
 ### Building the UI
 
-There are several ways that you can build UI flows in iOS applications. You can use Model-View-ViewModel (MVVM), Viper, or massive view controllers. How you manage transitions between view controllers is up to you, however we recommend the use of the [flow coordinator pattern](https://medium.com/@dkw5877/flow-coordinators-333ed64f3dd). Your flow coordinator instance handles all of the status updates and manages UI navigation. We've also implemented this pattern in our [sample application](https://github.com/okta/samples-ios/tree/master).
+There are several ways that you can build UI flows in iOS apps. You can use Model-View-ViewModel (MVVM), Viper, or massive view controllers. How you manage transitions between view controllers is up to you, however we recommend the use of the [flow coordinator pattern](https://medium.com/@dkw5877/flow-coordinators-333ed64f3dd). Your flow coordinator instance handles all of the status updates and manages UI navigation. We've also implemented this pattern in our [sample application](https://github.com/okta/samples-ios/tree/master).
 
 For example, your application could have the following view controllers:
 - `LoginViewController` - responsible for reading the username and password information from a user and initiating the authentication flow via `OktaAuthSdk`
