@@ -38,7 +38,7 @@ A cross-site scripting attack (XSS) is an attack that executes code in a web pag
 * **Reflected XSS** - Attack payload is submitted by a user, the rendered server response contains the executed code. This differs from Stored XSS where as the attack payload is not persisted, but instead delivered as part of the request, eg. a link: `http://example.com/login?userId=<script>alert(document.cookie)</script>`
 * **DOM based XSS** - The attack payload is executed as the result of an HTML page's DOM changing. With DOM based XSS the attack payload may not leave the victim's browser. The client side JavaScript is exploited.
 
-There are [tons of resources online](https://owasp.org/www-community/attacks/xss/) that cover this topic in great detail, so I'll only provide a basic example here. Earlier in this chapter the string `<img src onerror='alert("haxor")'>` was posted as a Reddit comment. If this string isn't correctly escaped it would have resulted in an annoying popup, shown in <a href="#fig_sanitizing_alert" class="figref"></a>.
+There are [many resources](https://owasp.org/www-community/attacks/xss/) that cover this topic in great detail, so I'll only provide a basic example here. Earlier in this chapter the string `<img src onerror='alert("haxor")'>` was posted as a Reddit comment. If this string isn't correctly escaped it would have resulted in an annoying popup, shown in <a href="#fig_sanitizing_alert" class="figref"></a>.
 
 ![A JavaScript alert popup](/img/books/api-security/sanitizing/images/alert.png "A JavaScript alert popup")
 
