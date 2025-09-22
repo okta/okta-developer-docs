@@ -387,7 +387,7 @@ The `DELETE /groups/${groupId}` [endpoint](/docs/reference/api/groups/#remove-gr
 
 #### Email Factor is now GA in Production
 
-The [Email Factor](/https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor) is now Generally Available (GA) in all Production orgs. <!-- OKTA-231156 -->
+The [Email Factor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor) is now Generally Available (GA) in all Production orgs. <!-- OKTA-231156 -->
 
 #### LinkedIn IdP creation re-enabled in Preview
 

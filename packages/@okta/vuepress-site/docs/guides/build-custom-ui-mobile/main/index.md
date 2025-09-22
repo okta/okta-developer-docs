@@ -41,7 +41,7 @@ Use the Okta app that you created when you walked through the [Sign in to your m
 
 To build the custom sign-in UI, you need to install and configure a platform-specific Okta SDK to your app.
 
-You should already have added and configured packages when you walked through the [Sign in to your mobile app](/docs/guides/sign-into-mobile-app/-/main/#add-packages) guide.
+You should already have added and configured packages when you walked through the [Sign in to your mobile app](/docs/guides/sign-into-mobile-app-redirect/android/main/#add-packages) guide.
 
 In addition, you need to install the platform-specific Okta Authentication SDK. This SDK works together with the OpenID Connect SDK that you have already installed to make authentication requests to Okta.
 
