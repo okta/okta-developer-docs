@@ -24,7 +24,7 @@ This guide provides a useable example of an Okta SAML assertion inline hook. It 
 
 #### Sample code
 
-* [Okta SAML assertion inline hook example](https://glitch.com/edit/#!/okta-inlinehook-samlhook)
+* Okta SAML assertion inline hook example
 * [Spring Boot, SAML, and Okta](https://github.com/oktadev/okta-spring-boot-saml-example)
 
 ---
@@ -72,7 +72,7 @@ You can now create the external service code that resides on your third-party si
 
 In this example code, a new claim is added to the assertion. For further information on the SAML assertion commands object and how you can modify the assertion, see the [SAML assertion inline hook reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook) documentation.
 
-Copy (remix) the Glitch.com project code, [Okta SAML assertion inline hook example](https://glitch.com/edit/#!/okta-inlinehook-samlhook), to run the scenario right away. Skip to the [Activate and enable the SAML assertion inline hook](#activate-and-enable-the-saml-assertion-inline-hook) section to configure the SAML inline hook.
+To run the scenario immediately, copy (remix) the Glitch.com project code for the Okta SAML assertion inline hook example. Skip to the [Activate and enable the SAML assertion inline hook](#activate-and-enable-the-saml-assertion-inline-hook) section to configure the SAML inline hook.
 
 <HookCommonSetupNote/>
 

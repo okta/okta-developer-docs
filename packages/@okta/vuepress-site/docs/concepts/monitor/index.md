@@ -51,7 +51,7 @@ See [Exporting Okta Log Data](https://support.okta.com/help/s/article/Exporting-
 
 For external integration examples, refer to:
 
-* [Splunk Add-on for Okta](https://www.okta.com/integrations/splunk-add-on-for-okta/)
+* [Splunk Add-on for Okta Identity Cloud](https://www.okta.com/integrations/splunk-add-on-for-okta-identity-cloud/)
 * [Datadog Log Management integration](https://www.okta.com/integrations/datadog/)
 * [Sumo Logic integration with Okta](https://www.okta.com/integrations/sumologic/)
 

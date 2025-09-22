@@ -135,7 +135,7 @@ signIn.showSignInToGetTokens({
 
 ### Embedded authentication
 
-Javascript clients that don’t want to use the Sign-In Widget can use the [okta-idx-js](https://github.com/okta/okta-idx-js) and [okta-auth-js](https://github.com/okta/okta-auth-js) SDKs to authenticate using the interaction code flow.
+JavaScript clients that don’t want to use the Sign-In Widget can use the [okta-auth-js](https://github.com/okta/okta-auth-js) SDK to authenticate using the interaction code flow.
 
 ```javascript
 // Get PKCE params

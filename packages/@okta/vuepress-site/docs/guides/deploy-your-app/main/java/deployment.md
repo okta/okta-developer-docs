@@ -14,7 +14,7 @@ JAR-based Java apps usually don't have a context, and if you start them locally,
 
 ## Heroku
 
-The easiest way to deploy your Java app to production with Okta is to use Heroku. Okta provides an [Okta Heroku Add-on](https://devcenter.heroku.com/articles/okta) that auto-provisions an Okta org for you and adds the appropriate apps to it.
+The easiest way to deploy your Java app to production with Okta is to use Heroku.
 
 To begin, install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and run `heroku login`.
 
