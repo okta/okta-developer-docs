@@ -4,7 +4,7 @@ After you complete the [Configuration updates](#configuration-updates), the **Si
 
 <div class="half wireframe-border">
 
-![The widget's sign-in page with a username field, Next button, Sign in with Facebook button, and links to reset your password and sign up](/img/wireframes/widget-sign-in-form-username-only-sign-up-forgot-your-password-facebook-links.png)
+![The Sign-In wiget's sign-in page with a username field, next button, sign-in-with-Facebook button, and links to reset your password and sign up](/img/wireframes/widget-sign-in-form-username-only-sign-up-forgot-your-password-facebook-links.png)
 
 <!--
 Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4662-25341&mode=design&t=mABNx7Cm2rdSOFyx-11 widget-sign-in-form-username-only-sign-up-forgot-your-password-facebook-links
@@ -36,14 +36,14 @@ After the user signs in to Facebook, Facebook redirects them. You defined the re
 
 After your Okta org receives a successful Facebook sign-in request, your org redirects the request to your app's **Sign-in redirect URIs** setting.
 
-This step handles the callback from the widget that returns an `interaction_code`. This code is redeemed in the next step for tokens. The callback URL is defined in two locations and must be identical. These locations are:
+This step handles the callback from the Sign-In Widget that returns an `interaction_code`. This code is redeemed in the next step for tokens. The callback URL is defined in two locations and must be identical. These locations are:
 
 * The `RedirectURI` parameter in the configuration setting defined in [Download and set up the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/).
-* A URI defined in the **Sign-in redirect URIs** field in the Okta app. The **Sign-in redirect URIs** field is described in [Create an application](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-an-application).
+* A URI defined in the **Sign-in redirect URIs** field in the Okta app. The **Sign-in redirect URIs** field is described in [Create an app](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-an-app).
 
-For the sample application, set the **RedirectURI** to `http://localhost:8080/login/callback`
+For the sample app, set the **RedirectURI** to `http://localhost:8080/login/callback`
 
-Okta returns the interaction code to the **Sign-in redirect URI** that's specified in the [create an application step](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-an-application) and is accessed in the sample app from `login.js`.
+Okta returns the interaction code to the **Sign-in redirect URI** that's specified in the [Create an app step](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-an-app) and is accessed in the sample app from `login.js`.
 
 ```JavaScript
 router.get('/login/callback', async (req, res, next) => {
@@ -68,7 +68,7 @@ router.get('/login/callback', async (req, res, next) => {
 
 ### Request and store the tokens from Okta
 
-Use the Interaction Code component of the `login.js` page to request tokens and store them in the SDK.
+Use the interaction code component of the `login.js` page to request tokens and store them in the SDK.
 
 ```JavaScript
   try {
