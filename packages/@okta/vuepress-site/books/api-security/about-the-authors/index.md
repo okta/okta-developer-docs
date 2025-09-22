@@ -29,7 +29,7 @@ title: About the Authors
 
 ## Sai Maddali
 
-**Sai Maddali** is a product manager on Okta's directories team where he is helping build the platform for customers to connect to Okta from various sources. He's spent his entire career in the identity space, coming to Okta from Stormpath where he worked as an engineer supporting developer success, and helped onboard developers to Stormpath's API and SDKs. Sai has a BS in Computer Engineering from Georgia Tech and is passionate about all things identity and user experience. He spends his free time doing street photography centered around people and their identities. You can find Sai on <a href="https://medium.com/@saimaddali" class="url">Medium</a>.
+**Sai Maddali** is a product manager on Okta's directories team where he's helping build the platform for customers to connect to Okta from various sources. He's spent his entire career in the identity space, coming to Okta from Stormpath where he worked as an engineer supporting developer success, and helped onboard developers to Stormpath's API and SDKs. Sai has a BS in Computer Engineering from Georgia Tech and is passionate about all things identity and user experience. He spends his free time doing street photography centered around people and their identities. You can find Sai on <a href="https://medium.com/@saimaddali" class="url">Medium</a>.
 
 ## Matt Raible
 
