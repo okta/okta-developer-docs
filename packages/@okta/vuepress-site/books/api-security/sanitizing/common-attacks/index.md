@@ -9,7 +9,7 @@ title: Common Attacks - Sanitizing Data
 The examples in this chapter have discussed ways to validate inputs but have only hinted at the type of attacks used when inputs are not properly sanitized. Let's look at those potential attacks, and how to prevent them, now.
 
 ### SQL Injection Attacks
-SQL injection is by far the most common form of data sanitization attack, and remains number one in the [OWASP Top 10](https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf) (a popular list of the most commonly found and exploited software vulnerabilities). It's held the number one spot for over 10 years now.
+SQL injection is one of the most common forms of data sanitization attack, and remains in the [OWASP Top 10](https://owasp.org/www-project-top-ten/) (a popular list of the most commonly found and exploited software vulnerabilities).
 
 SQL injection occurs when an attacker is able to query or modify a database due to poor input sanitization. Other query injection attacks are similar, as most are typically a result of string concatenation.  In the following example, a simple user query string is built with concatenation.
 
@@ -38,7 +38,7 @@ A cross-site scripting attack (XSS) is an attack that executes code in a web pag
 * **Reflected XSS** - Attack payload is submitted by a user, the rendered server response contains the executed code. This differs from Stored XSS where as the attack payload is not persisted, but instead delivered as part of the request, eg. a link: `http://example.com/login?userId=<script>alert(document.cookie)</script>`
 * **DOM based XSS** - The attack payload is executed as the result of an HTML page's DOM changing. With DOM based XSS the attack payload may not leave the victim's browser. The client side JavaScript is exploited.
 
-There are [tons of resources online](https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29) that cover this topic in great detail, so I'll only provide a basic example here. Earlier in this chapter the string `<img src onerror='alert("haxor")'>` was posted as a Reddit comment. If this string isn't correctly escaped it would have resulted in an annoying popup, shown in <a href="#fig_sanitizing_alert" class="figref"></a>.
+There are [many resources](https://owasp.org/www-community/attacks/xss/) that cover this topic in great detail, so I'll only provide a basic example here. Earlier in this chapter the string `<img src onerror='alert("haxor")'>` was posted as a Reddit comment. If this string isn't correctly escaped it would have resulted in an annoying popup, shown in <a href="#fig_sanitizing_alert" class="figref"></a>.
 
 ![A JavaScript alert popup](/img/books/api-security/sanitizing/images/alert.png "A JavaScript alert popup")
 
