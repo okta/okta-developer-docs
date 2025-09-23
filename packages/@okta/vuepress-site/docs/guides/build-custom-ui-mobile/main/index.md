@@ -41,7 +41,7 @@ Use the Okta app that you created when you walked through the [Sign in to your m
 
 To build the custom sign-in UI, you need to install and configure a platform-specific Okta SDK to your app.
 
-You should already have added and configured packages when you walked through the [Sign in to your mobile app](/docs/guides/sign-into-mobile-app/-/main/#add-packages) guide.
+You should already have added and configured packages when you walked through the [Sign in to your mobile app](/docs/guides/sign-into-mobile-app-redirect/android/main/#add-packages) guide.
 
 In addition, you need to install the platform-specific Okta Authentication SDK. This SDK works together with the OpenID Connect SDK that you have already installed to make authentication requests to Okta.
 
@@ -64,7 +64,7 @@ For example, multiple screens could handle:
 
 ## Handle authentication responses
 
-Every authentication transaction starts with primary authentication, which validates a user's password. The password policy, MFA policy, and sign-on policy are evaluated during primary authentication. The policies are evaluated to determine if the user's password is expired, a factor should be enrolled, or additional verification is required. The [transaction state](/docs/api/resources/authn/#transaction-state) of the response depends on the user's status, group memberships, and assigned policies.
+Every authentication transaction starts with primary authentication, which validates a user's password. The password policy, MFA policy, and sign-on policy are evaluated during primary authentication. The policies are evaluated to determine if the user's password is expired, a factor should be enrolled, or additional verification is required. The [transaction state](/docs/reference/api/authn/#transaction-state) of the response depends on the user's status, group memberships, and assigned policies.
 
 > **Note:** Custom sign-in only works with [Org MFA](/docs/guides/mfa/sms/main/#set-up-your-org-for-mfa). This means that before you exchange the session token for an access token, you must ensure that [App-Level MFA](https://help.okta.com/okta_help.htm?id=ext_MFA_App_Level) is disabled for the app.
 

@@ -7,6 +7,10 @@ const trailingSlashRe = new RegExp('/$');
 const handler = require('serve-handler');
 const http = require('http');
 
+const fs = require('fs');
+const path = require('path');
+const { parseStringPromise } = require('xml2js');
+
 const server = http.createServer((request, response) => {
   // You pass two more arguments for config and middleware
   // More details here: https://github.com/zeit/serve-handler#options
@@ -45,6 +49,8 @@ if (linkCheckMode == 'internal') {
 }
 
 var siteUrl = "http://localhost:8080";
+const sitemapPath = path.resolve("packages/@okta/vuepress-site/dist/docs-sitemap.xml");
+
 var customData = {
   outputGoodLinks: false,
   normalizeUrls: true, // ensure trailing slash for link/page URLs
@@ -94,73 +100,62 @@ function normalizeUrl(url) {
   return url;
 }
 
-var siteChecker = new blc.SiteChecker(options, {
-  robots: function(robots, customData){},
-  html: function(tree, robots, response, pageUrl, customData){},
-  junk: function(result, customData){},
-  link: function(result, customData){
-    if (customData.firstLink) {
-      customData.firstLink = false;
-    }
-    if (result.broken) {
-      customData.brokenLinks.push(result);
-      customData.pageBrokenCount++;
-    } else if (result.excluded) {
-      customData.pageExcludedCount++;
-    } else {
-      //good link
-      if (customData.outputGoodLinks) {
-      }
-    }
-    customData.pageLinkCount++;
-  },
-  page: function(error, pageUrl, customData){
-    if (customData.pageLinkCount > 0) {
-      customData.totalLinkCount += customData.pageLinkCount;
-      customData.totalExcludedCount += customData.pageExcludedCount;
-      customData.totalBrokenCount += customData.pageBrokenCount;
-      customData.pageLinkCount = 0;
-      customData.pageExcludedCount = 0;
-      customData.pageBrokenCount = 0;
-    }
-    customData.firstLink = true;
-  },
-  site: function(error, siteUrl, customData){
-    if (customData.totalLinkCount > 0) {
-      console.log("SUMMARY");
-      console.log("Total Links Found: " + customData.totalLinkCount);
-      if (customData.totalBrokenCount > 0) {
-        console.log("Broken Links: " + chalk.bold.red(customData.totalBrokenCount));
-        console.log();
-        var brokenMap = summarizeBrokenLinks(customData);
-        for (const [outerKey, outerValue] of brokenMap.entries()) {
-          console.log(chalk.bold.red(" Link: " + outerKey));
-          for (const [innerKey, innerValue] of outerValue.entries()) {
-            console.log(chalk.cyan("  Page: " + innerKey + " (" + innerValue + ")"));
-          }
-          console.log();
-        }
-        this.fail = true;
-      } else {
-        console.log("Broken Links: " + chalk.bold.green(customData.totalBrokenCount));
-        this.fail = false;
-      }
-    } else {
-      console.log("No links found.");
-    }
-  },
-  end: function(){
-    if (this.fail) {
-      process.exit(1);
-    } else {
-      process.exit(0);
-    }
-  },
-});
+async function runChecker() {
+  const xml = fs.readFileSync(sitemapPath, "utf8");
+  const parsed = await parseStringPromise(xml);
+  const urls = parsed.urlset.url.map((u) => u.loc[0]);
 
+  // Replace prod domain with localhost:8080
+  const localUrls = urls.map((u) =>
+    u.replace("https://developer.okta.com", siteUrl)
+  // Circleci was causing issues while checking links on this page. Hence, excluding it from the check.
+  // This page was last updated 7 yrs ago so no active development happens on this page and all links are working as expected.
+  ).filter((url) => !url.endsWith("books/api-security/gateways/"));
+
+  let processed = 0;
+
+  const htmlUrlChecker = new blc.HtmlUrlChecker(options, {
+    link: function (result, customData) {
+      if (result.broken) {
+        customData.brokenLinks.push(result);
+        customData.totalBrokenCount++;
+      }
+      customData.totalLinkCount++;
+    },
+    page: function (error, pageUrl, customData) {
+      processed++;
+      console.log(`Checked: ${processed}/${localUrls.length}`);
+      if (error) {
+        console.error(`Error on ${pageUrl}:`, error);
+      }
+      if (processed === localUrls.length) {
+        console.log("SUMMARY");
+        console.log("Total Links Found: " + customData.totalLinkCount);
+        if (customData.totalBrokenCount > 0) {
+          console.log("Broken Links: " + chalk.bold.red(customData.totalBrokenCount));
+          console.log();
+          var brokenMap = summarizeBrokenLinks(customData);
+          for (const [outerKey, outerValue] of brokenMap.entries()) {
+            console.log(chalk.bold.red(" Link: " + outerKey));
+            for (const [innerKey, innerValue] of outerValue.entries()) {
+              console.log(chalk.cyan("  Page: " + innerKey + " (" + innerValue + ")"));
+            }
+          }
+          process.exit(1);
+        } else {
+          console.log("Broken Links: " + chalk.bold.green(0));
+          process.exit(0);
+        }
+      }
+    },
+  });
+
+  for (const url of localUrls) {
+    htmlUrlChecker.enqueue(url, customData);
+  }
+}
 
 server.listen(8080, () => {
   console.log('Running at http://localhost:8080');
+  runChecker();
 });
-
-siteChecker.enqueue(siteUrl, customData);

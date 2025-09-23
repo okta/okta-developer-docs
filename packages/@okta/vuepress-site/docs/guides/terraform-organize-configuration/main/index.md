@@ -272,7 +272,7 @@ Your Terraform configuration must include a list of the Okta API scopes required
 
 As you add other resource types to Terraform, make changes in multiple places:
 
-1. Review the [reference of Okta admin scopes](/docs/api/oauth2/). Look for scopes that mention that resource. For full read/write access, choose the scope with `manage` in the name. For example, add `okta.groups.manage` to manage groups.
+1. Review the [reference of Okta admin scopes](https://developer.okta.com/docs/api/oauth2/). Look for scopes that mention that resource. For full read/write access, choose the scope with `manage` in the name. For example, add `okta.groups.manage` to manage groups.
 
 1. Enable new scopes on the app that controls your Terraform integration:
 
