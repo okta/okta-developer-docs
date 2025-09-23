@@ -69,3 +69,7 @@ In the optional **Authentication Settings** section:
     * **Exclude specific users**: Exclude these specific users from account linking.
 
     * **Exclude admins**: Exclude users who are assigned admin roles or have admin privileges from account linking.
+
+* **If no match is found**: If automatic linking is enabled and no user is found for account linking during an authentication:
+  * Select **Create new user (JIT)** to create the user using Just-In-Time (JIT) provisioning. See [Account Linking and JIT Provisioning](/docs/concepts/identity-providers/#account-linking-and-just-in-time-provisioning).
+  * Otherwise, select **Reject the authentication responses from IdP** to reject authentication and return an error.
