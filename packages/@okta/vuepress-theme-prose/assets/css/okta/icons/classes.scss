@@ -2067,7 +2067,16 @@ h1 {
 
   background-image: url("/img/icons/idv_persona.svg");
 }
+.icon.clear::before {
+  content: "";
 
+  background-image: url("/img/icons/idv_clear.svg");
+}
+.icon.incode::before {
+  content: "";
+
+  background-image: url("/img/icons/idv_incode.svg");
+}
 .oktatookta-16::before {
   content: $oktatookta;
 
