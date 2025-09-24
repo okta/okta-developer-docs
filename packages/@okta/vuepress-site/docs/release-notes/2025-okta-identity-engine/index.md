@@ -8,6 +8,15 @@ title: Okta Identity Engine API release notes 2025
 
 ## September
 
+### Weekly release 2025.09.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.09.2](#bugs-fixed-in-2025-09-2)| October 1, 2025 |
+
+#### Bugs fixed in 2025.09.2
+
+* A Policies API GET request (`/api/v1/policies`) returned a `rel="next"` link when there were no more results. (OKTA-858605)
 
 ### Weekly release 2025.09.1
 
