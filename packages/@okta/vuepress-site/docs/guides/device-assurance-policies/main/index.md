@@ -15,7 +15,6 @@ This guide describes how to use the [Device Assurance Policies API](https://deve
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
-* Grace period enabled
 * Dynamic OS version compliance enabled
 
 ---
@@ -86,13 +85,13 @@ curl -i -X POST \
 
 To update a device assurance policy, send a PUT request to the `api/v1/device-assurances` endpoint. See [Replace a device assurance policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/replaceDeviceAssurancePolicy).
 
-In this example, you update the policy to enable and configure the grace period feature.
+In this example, you update the policy to enable and configure a grace period.
 
 ### About grace period and remediation
 
 Grace period for device assurance allows you to define a temporary window during which non-compliant devices can still access resources. This gives users time to remediate issues without being locked out, balancing productivity with security standards.
 
-After you enable the **Grace period for device assurance** feature, you can hide or show remediation instructions in the Sign-In Widget:
+You can use grace periods to hide or show remediation instructions in the Sign-In Widget:
 
 * Hide remediation instructions: The Sign-In Widget doesn't display remediation instructions for users who don't pass device assurance compliance.
 * Display remediation instructions: The Sign-In Widget displays remediation instructions for users who don't pass device assurance compliance. You can grant users a period in which they can resolve the device noncompliance before they lose access to apps protected by the policy.
@@ -163,7 +162,7 @@ curl -X PUT "https://${yourOktaDomain}/api/v1/policies/${policyId}/rules" \
 
 ## Check the System Log for device assurance events
 
-Send a GET request to the `/api/v1/logs/ endpoint using one of the following Event Types:
+Send a GET request to the `/api/v1/logs/` endpoint using one of the following Event Types:
 
 * `device.assurance.policy.add`: Use this event to monitor when a device assurance policy is created.
 * `device.assurance.policy.delete`: Use this event to monitor when a device assurance policy is deleted.

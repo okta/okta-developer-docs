@@ -171,8 +171,6 @@ See [Authenticator enrollment policy](https://help.okta.com/okta_help.htm?type=o
 
 **Grace periods**
 
-<ApiLifecycle access="ea" />
-
 Grace periods let you designate an amount of time for a user to enroll in a required authenticator. They're configured on a per-authenticator basis so you can minimize sign-in friction and streamline the onboarding process.
 
 For example, you can configure an app sign-in policy that lets an end user defer enrollment for 10 days. The end user can onboard immediately without the friction of an additional authenticator. However, the end user still needs to enroll before the end of the grace period.
