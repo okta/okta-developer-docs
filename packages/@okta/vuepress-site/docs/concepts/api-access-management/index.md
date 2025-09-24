@@ -129,7 +129,7 @@ Okta provides the API Access Management administrator role to manage authorizati
 
 * The default authorization server is the first custom authorization server. It isn't the same as the organization authorization server.
 
-* Assign one authorization server per API product. Doing so allows teams to maintain separate authorization policies and token expiration times while eliminating scope name collisions. Authorization servers often reflect use cases at the orchestration layer, not individual endpoints. For example, a bank may use one authorization server with a short-lived access token for money transfers. The bank might then use a separate authorization server with a long-lived access token for read-only transaction syncs to QuickBooks.
+* Assign one authorization server per API product. Doing so allows teams to maintain separate authorization policies and token expiration times while eliminating scope name collisions. Authorization servers often reflect use cases at the orchestration layer, not individual endpoints. For example, a bank might use one authorization server with a short-lived access token for money transfers. The bank might then use a separate authorization server with a long-lived access token for read-only transaction syncs to QuickBooks.
 
 * Make the authorization server audience (the `aud` claim) specific to the API to reduce the risk of inappropriate access token reuse. A single global audience is rarely acceptable. For example, instead of using `api.company.com` for the audience, a better approach is specifying `api.company.com/product1` and `api.company.com/product2`.
 
