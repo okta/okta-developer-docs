@@ -297,6 +297,8 @@ Include the following parameters:
 
     In this example, request access for only one scope. When you request an access token for multiple scopes, the format for the scope value looks like this: `scope=okta.users.read okta.apps.read`.
 
+* `client_id`: Specified the client ID of the API service application.
+
 * `client_assertion_type`: Specifies the type of assertion, in this case a JWT token:  `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.
 
 * `client_assertion`: The signed JWT. Paste the JWT that you signed in the [Create and sign the JWT](#create-and-sign-the-jwt) section.
@@ -309,6 +311,7 @@ curl --location --request POST 'https://{yourOktaDomain}/oauth2/v1/token' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'grant_type=client_credentials' \
     --data-urlencode 'scope=okta.users.read' \
+    --data-urlencode 'client_id=0oa4khfb7vUivd2UV0g6' \
     --data-urlencode 'client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer' \
     --data-urlencode 'client_assertion=eyJhbGciOiJSU....tHQ6ggOnrG-ZFRSkZc8Pw'
 ```
