@@ -212,6 +212,8 @@ Include the following parameters in your `/token` request:
 
 * `grant_type`: Use `client_credentials`.
 
+* `client_id`: Set this value to your service app client ID (from the [Create a service app in Okta](#create-a-service-app-in-okta) task).
+
 * `client_assertion_type`: Specifies the type of assertion, in this case a JWT token:  `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
 
 * `client_assertion`: The signed JWT. Paste the JWT that you signed in the [Create and sign the JWT](#create-and-sign-the-jwt) section.
@@ -226,6 +228,7 @@ Include the following parameters in your `/token` request:
         --header 'Content-Type: application/x-www-form-urlencoded' \
         --data-urlencode 'grant_type=client_credentials' \
         --data-urlencode 'scope=okta.users.read' \
+        --data-urlencode 'client_id=0oajncakofQmjxlSw0h3' \
         --data-urlencode 'client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer' \
         --data-urlencode 'client_assertion=eyJhbGciOiJSU....tHQ6ggOnrG-ZFRSkZc8Pw'
     ```

@@ -297,7 +297,7 @@ Include the following parameters:
 
     In this example, request access for only one scope. When you request an access token for multiple scopes, the format for the scope value looks like this: `scope=okta.users.read okta.apps.read`.
 
-* `client_id`: Specified the client ID of the API service application.
+* `client_id`: Specify the client ID of the API service app.
 
 * `client_assertion_type`: Specifies the type of assertion, in this case a JWT token:  `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.
 
