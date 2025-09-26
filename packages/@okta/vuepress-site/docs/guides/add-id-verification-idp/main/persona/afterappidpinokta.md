@@ -137,3 +137,24 @@ Ensure that you’ve created a user account and group for that user. For example
     "type": "ACCESS_POLICY"
 }
 ```
+
+## Test the integration
+
+You can test your integration by using the rule that you configured in the [previous section](#create-an-okta-account-management-policy-rule).
+
+1. Sign in to your org as the user that you created.
+1. Click your username.
+1. Go to **My Settings**.
+1. Select **Security Methods**, and then set up a new authenticator.
+
+If the IDV vendor is set up correctly, you’re prompted to verify your identity and redirected through the <StackSnippet snippet="idp" inline /> IDV flow. Then, the user you created can successfully enroll an authenticator.
+
+### Test image
+
+Use the following image if your verification template requires you to upload a photo. Save the image and then select it when you're prompted to upload a photo.
+
+<div class="half border">
+
+![Okta logo and brand name](/img/idv-test-image.png)
+
+</div>

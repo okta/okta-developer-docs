@@ -1,8 +1,8 @@
 ## Create an Okta account management policy rule
 
-Use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) to create a rule that requires users to be verified by the IDV vendor when they enroll a new authenticator. Create your own `POST` request body or copy the [example request](#okta-account-management-policy-rule-example-request) and input your values.
+Use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) to create a rule that requires users to be verified by <StackSnippet snippet="idp" inline /> when they enroll a new authenticator. Create your own `POST` request body or copy the [example request](#okta-account-management-policy-rule-example-request) and input your values.
 
-Ensure that you’ve created a user account and group for that user. For example, add the user to a group called “Persona IDV test group”.
+Ensure that you’ve created a user account and group for that user. For example, add the user to a group called “<StackSnippet snippet="idp" inline /> IDV test group”.
 
 > **Note:** To add a rule using the Admin Console, see [Edit the Okta account management policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-edit-oamp).
 
@@ -14,7 +14,7 @@ Ensure that you’ve created a user account and group for that user. For example
    * Use the Okta account management policy `id` as the `policyId` value.
    * Set the group ID. Use the [List all groups call](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups) to find the `id` for the test group.
    * Set the `verificationMethod` type to `ID_PROOFING`.
-   * Set the `verificationMethod` > `id` to the Okta Persona IdP that you created in the [previous section](#create-the-idv-vendor-in-okta).
+   * Set the `verificationMethod` > `id` as the ID of the <StackSnippet snippet="idp" inline /> IdP that you created in the [previous section](#create-the-idv-vendor-in-okta).
    * Set `appSignOn` access value to `ALLOW`.
    * Use the following [Okta Expression Language](/docs/reference/okta-expression-language-in-identity-engine/) object:
 
