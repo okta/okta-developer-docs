@@ -187,7 +187,7 @@ Create a SAML IdP object in your org to connect an external service that support
 
 To configure a Google SAML IdP, first create a SAML web app in your Google Admin Console:
 
-1. Confirm that you can access the [Google Admin Console](https://admin.google.com/).
+1. Confirm that you can access the [Google Admin Console](https://admin.google.com).
 1. Add a custom SAML web app.
 1. Enter a name for the web app.
 1. Download the SAML certificate.

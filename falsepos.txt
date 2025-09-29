@@ -57,5 +57,7 @@ https://www.twilio.com/docs/runtime/tutorials/twiml-bins#create-a-new-twiml-bin/
 https://reactjs.org/docs/higher-order-components.html
 https://reactjs.org/docs/hooks-intro.html
 https://trust.okta.com/compliance/
+https://www.gruntwork.io/blog/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code
+
 
 

@@ -84,7 +84,7 @@ When creating your own URI file, review this [example](https://developer.apple.c
 
 Retrieve your `brandId` with the [List all brands](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/#tag/Brands/operation/listBrands) endpoint.
 
-Use the [Replace the customized well-known URI endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/WellKnownURIs/#tag/WellKnownURIs/operation/replaceBrandWellKnownURI) to create a custom well-known URI for `/.well-known/assetlinks.json`.
+Use the [Replace the customized well-known URI endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/#tag/AssociatedDomainCustomizations/operation/replaceBrandWellKnownURI) to create a custom well-known URI for `/.well-known/assetlinks.json`.
 
 > **Note:** You must format the `assetLinks.json` well-known URI as a JSON array.
 
@@ -114,7 +114,7 @@ When creating your own URI file, review this [example](https://developer.android
 
 Retrieve your `brandId` with the [List all brands](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/#tag/Brands/operation/listBrands) endpoint.
 
-Use the [Replace the customized well-known URI endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/WellKnownURIs/#tag/WellKnownURIs/operation/replaceBrandWellKnownURI) to create a custom well-known URI for `/.well-known/webauthn`.
+Use the [Replace the customized well-known URI endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/#tag/AssociatedDomainCustomizations/operation/replaceBrandWellKnownURI) to create a custom well-known URI for `/.well-known/webauthn`.
 
 > **Note:** You must format the `webauthn` well-known URI as a JSON object and the `origins` parameter as an array of strings.
 
