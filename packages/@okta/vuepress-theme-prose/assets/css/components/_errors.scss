@@ -18,3 +18,53 @@
 .errors p {
   max-width: initial;
 }
+
+.error404--container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .possible-causes {
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  .errors--leader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px 0 12px;
+  }
+
+  .errors--title {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+
+  .errors--section-paragraph {
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  .errors--section-paragraph a {
+    text-decoration: underline;
+  }
+
+  .errors--section-paragraph li {
+    margin-bottom: 0;
+  }
+
+  .errors--section-paragraph-heading {
+    display: inline-flex;
+    margin-top: 12px;
+
+    font-weight: 500;
+  }
+}
+
+.dark-theme .errors--leader img {
+  filter: invert(1);
+}
