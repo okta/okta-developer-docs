@@ -8,7 +8,6 @@
       <div class="search--form">
         <div class="CoveoOmnibox" />
       </div>
-      <div class="CoveoAnalytics" />
     </div>
   </div>
 </template>
