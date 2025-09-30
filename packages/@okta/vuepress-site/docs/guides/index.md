@@ -282,7 +282,7 @@ Most Okta Identity Governance tasks are accomplished through the Admin Console f
 * Access certifications
   * [Launch a security access review](/docs/guides/iga-security-access-review)
 * User and resource management
-  * [Create a resource label](/docs/guides/iga-labels)
+  * [Manage governance labels](/docs/guides/iga-labels)
 
 <!-- Categories for future guides
 * Access requests

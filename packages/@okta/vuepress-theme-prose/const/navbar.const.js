@@ -844,7 +844,7 @@ export const guides = [
         title: "Identity Governance",
         subLinks: [
            {
-            title: "Create a resource label",
+            title: "Manage governance labels",
             guideName: "iga-labels"
           },
           {
