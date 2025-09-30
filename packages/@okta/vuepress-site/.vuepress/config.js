@@ -82,8 +82,8 @@ module.exports = ctx => ({
    * Custom head elements here
    */
   head: [
-    ['link', { rel: 'stylesheet', href: 'https://static.cloud.coveo.com/searchui/v2.10110/14/css/CoveoFullSearch.min.css', crossorigin: 'anonymous' }],
-    ['script', { class: 'coveo-script', src: 'https://static.cloud.coveo.com/searchui/v2.10110/14/js/CoveoJsSearch.Lazy.min.js', crossorigin: 'anonymous', defer: true}],
+    ['link', { rel: 'stylesheet', href: 'https://static.cloud.coveo.com/searchui/v2.10110/css/CoveoFullSearch.min.css', crossorigin: 'anonymous' }],
+    ['script', { class: 'coveo-script', src: 'https://static.cloud.coveo.com/searchui/v2.10110/js/CoveoJsSearch.Lazy.min.js', crossorigin: 'anonymous', defer: true}],
     ['script', { src: 'https://geoip-js.com/js/apis/geoip2/v2.1/geoip2.js'}],
     ['link', { rel: 'apple-touch-icon', sizes:'180x180', href: '/favicon/favicon.png' }],
     ['link', { rel: 'icon', type:"image/png", href: '/favicon/favicon.png' }],
