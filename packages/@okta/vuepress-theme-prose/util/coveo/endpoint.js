@@ -7,7 +7,8 @@ import storage from '../localStorage'
 const TOKEN_ENDPOINT =
   "https://wt1ugse0be.execute-api.us-west-2.amazonaws.com/prod/token?site=developer";
 const COVEO_PIPELINE = "oktaproduction9ounvcxa";
-const COVEO_ENDPOINT = "https://platform.cloud.coveo.com/rest/search";
+//const COVEO_ENDPOINT = "https://platform.cloud.coveo.com/rest/search";
+const COVEO_ENDPOINT = 'https://oktaproduction9ounvcxa.org.coveo.com/rest/search';
 const COVEO_KEY = "coveo_token";
 
 const _getToken = () => {
