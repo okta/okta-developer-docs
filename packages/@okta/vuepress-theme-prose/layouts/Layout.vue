@@ -129,6 +129,7 @@ export default {
     Home: () => import("../components/Home.vue"),
     Terms: () => import("../components/Terms.vue"),
     Errors: () => import("../components/Errors.vue"),
+    Error404: () => import("../components/Error404.vue"),
     Copyright: () => import("../components/Copyright.vue"),
     HeaderBanner: () => import("../components/HeaderBanner.vue"),
   },
