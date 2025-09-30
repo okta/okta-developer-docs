@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-This guide shows you how to create a label and add its values using the Okta Identity Governance (OIG) APIs. It also shows you how to assign labels to resources.
+This guide shows you how to create a label and assign it to resources using the Okta Identity Governance (OIG) APIs.
 
 ---
 
@@ -29,7 +29,7 @@ Labels allow you to categorize and organize resources such as apps, groups, enti
 
 See the [Resource labels](https://help.okta.com/okta_help.htm?type=oie&id=resource-labels) product documentation.
 
-Labels are metadata that you can use to add context to resources in Okta. They are defined as key-value pairs and are assigned to resources as such. After you create a label and add its values, they appear in the Admin Console's resource search pages. For example, you can navigate to the **Applications** > **Applications** page or the **Directory** > **Groups** > **Advanced search** pages and the labels appear in the **Governance Labels** search option.
+Labels are metadata that you can use to add context to resources in Okta. They are defined as key-value pairs and are assigned to resources as such. After you create label key-value pairs, they appear in the Admin Console's resource search pages. For example, you can navigate to the **Applications** > **Applications** page or the **Directory** > **Groups** > **Advanced search** pages and the labels appear in the **Governance Labels** search option.
 
 Okta provides two predefined labels in your OIG-enabed org:
 
@@ -51,9 +51,8 @@ Label keys-values pairs are case-insensitive and are unique across all resource 
 This guide shows you the following process steps using the APIs with OAuth 2.0 authentication:
 
 1. [Set up Okta for API access](#set-up-okta-for-api-access).
-1. [List available labels]
-1. [Create a label]
-1. [Assign a label-value pair]
+1. [Create a label](#create-a-label)
+1. [Assign a label-value](#assign-labels)
 
 > **Note:** Only a user with the super admin role can manage (create, delete, update, and assign) labels.
 
@@ -101,7 +100,7 @@ Ensure that your API user is assigned the super admin role (`SUPER_ADMIN`). Only
 
 Use the [Labels](https://preview.redoc.ly/okta-iga-internal/vn-okta-955721-iga-label-review/openapi/governance.api/tag/Labels/) API to manage governance resource labels.
 
-> **Note:** You can't manage resource labels from the Admin Console. However, you can use existing resource labels in our governance tasks to create reviews, requests, and automation.
+> **Note:** You can't manage resource labels from the Admin Console. However, you can use existing resource labels in your governance tasks to create reviews, requests, and automation.
 
 ### Get an OAuth 2.0 access token
 
