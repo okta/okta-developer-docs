@@ -13,7 +13,7 @@ export default {
   },
   analyticsConfig: {
     searchHub: "developer-okta-com",
-    endpoint: "https://oktaproduction9ounvcxa.analytics.org.coveo.com",
+    endpoint: "https://oktaproduction9ounvcxa.analytics.org.coveo.com/rest",
   },
   searchInterfaceConfig: {
     pipeline: "developer-okta-com",
