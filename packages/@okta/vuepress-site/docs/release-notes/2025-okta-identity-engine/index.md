@@ -26,6 +26,8 @@ The **Browse App Integration Catalog** page now provides **Cross App Access** an
 
 * When an error occurred during token encryption, a signed JWT was returned instead of an error. (OKTA-987783)
 
+* Users could submit OIN integrations with incomplete or invalid information. (OKTA-897453)
+
 ### Monthly release 2025.09.0
 
 | Change | Expected in Preview Orgs |
