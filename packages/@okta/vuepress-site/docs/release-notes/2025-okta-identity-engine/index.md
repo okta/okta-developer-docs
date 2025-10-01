@@ -16,7 +16,17 @@ title: Okta Identity Engine API release notes 2025
 
 #### Bugs fixed in 2025.09.2
 
-* A Policies API GET request (`/api/v1/policies`) returned a `rel="next"` link when there were no more results. (OKTA-858605)
+* The `DELETE /policies/{policyId}/mappings/{mappingId}` operation didn’t work when you used it to delete a resource mapping between an API service app and a policy. (OKTA-1020064)
+
+* Users couldn't access the IdP if the `protocol.algorithms.response.signature` value was missing from the response payload when the IdP was created. (OKTA-987923)
+
+* When you retrieved a factor’s transaction status (`GET /users/{userId}/factors/{factorId}/transactions/{transactionId}`), the request didn’t correctly validate that the `userId` matched the `transactionId`. (OKTA-969072)
+
+* In the System Log, `policy.auth_reevaluate.fail` events didn't display risk unless the event was a synchronous flow and the global session policy failed without remediation. (OKTA-1024106)
+
+* When enrolling a phone factor (`POST /users/{userId}/factors`), an "Invalid Phone Number" error was sometimes incorrectly returned. (OKTA-1024021)
+
+* GET calls for federated users to the `/idp/myaccount/authenticators` and `/idp/myaccount/authenticators/{authenticatorId}` endpoints that included an `expand=requirements` query parameter returned an HTTP 404 Not Found error. (OKTA-1022960)
 
 ### Weekly release 2025.09.1
 
