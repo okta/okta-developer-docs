@@ -11,15 +11,17 @@ title: Okta Classic Engine API release notes 2025
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [New functionality filters in the OIN catalog](#new-functionality-filters-in-the-oin-catalog) | September 17, 2025 |
-| [Bug fixed in 2025.09.1](#bug-fixed-in-2025-09-1)| September 17, 2025 |
+| [Bugs fixed in 2025.09.1](#bugs-fixed-in-2025-09-1)| September 17, 2025 |
 
 #### New functionality filters in the OIN catalog
 
 The **Browse App Integration Catalog** page now provides **Cross App Access** and **Privileged Access Management** functionality filters. The new filters help admins quickly find Cross App Access- and Privileged Access Management-enabled apps in the OIN. <!-- OKTA-993623 --> <!-- addNewCaaFunctionalityFilters , addNewPamFunctionalityFilters -->
 
-#### Bug fixed in 2025.09.1
+#### Bugs fixed in 2025.09.1
 
-When an error occurred during token encryption, a signed JWT was returned instead of an error. (OKTA-987783)
+* When an error occurred during token encryption, a signed JWT was returned instead of an error. (OKTA-987783)
+
+* Users could submit OIN integrations with incomplete or invalid information. (OKTA-897453)
 
 ### Monthly release 2025.09.0
 
