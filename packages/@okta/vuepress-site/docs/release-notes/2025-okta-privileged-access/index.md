@@ -8,9 +8,20 @@ Okta Privileged Access (OPA) is available for both Okta Classic and Identity Eng
 
 ## September
 
+### Weekly release 2025.09.2
+
+| Change | Expected in Preview | Expected in Production |
+|--------|--------------------------|-----------------------------|
+| [Exclude symbols in project password policy](#exclude-symbols-in-project-password-policy) | September 18, 2025 | September 22, 2025 |
+
+#### Exclude symbols in project password policy
+
+You can now exclude specific symbols from the generated passwords for server, SaaS app service, Okta service, and Active Directory accounts. This is useful when the target system doesn’t allow certain symbols in its passwords. See `character_options.exclude_certain_symbols` in [Update project password policy for server accounts](https://developer.okta.com/docs/api/openapi/opa/opa/tag/projects/#tag/projects/operation/UpdatePasswordPolicyForProject), [Update a project password policy for SaaS app resources](https://developer.okta.com/docs/api/openapi/opa/opa/tag/projects/#tag/projects/operation/UpdateProjectPasswordPolicyForSaasAppResources), [Update a project password policy for Universal Directory resources](https://developer.okta.com/docs/api/openapi/opa/opa/tag/projects/#tag/projects/operation/UpdateProjectPasswordPolicyForOktaUniversalDirectoryResources), and [Update a project password policy for Active Directory resources](https://developer.okta.com/docs/api/openapi/opa/opa/tag/projects/#tag/projects/operation/UpdateProjectPasswordPolicyForActiveDirectoryResources).
+<!-- OKTA-925876 Preview: Sept 18, 2025, Production: Sept 22, 2025 -->
+
 ### Weekly release 2025.09.1
 
-| Change | Expected in Preview Orgs |
+| Change | Expected in Preview |
 |--------|--------------------------|
 | [Random password generator for unmanaged SaaS accounts is EA](#random-password-generator-for-unmanaged-saas-accounts-is-ea) | September 18, 2025 |
 

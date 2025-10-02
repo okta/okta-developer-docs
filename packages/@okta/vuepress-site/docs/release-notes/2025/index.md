@@ -6,6 +6,20 @@ title: Okta Classic Engine API release notes 2025
 
 ## September
 
+### Weekly release 2025.09.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.09.2](#bugs-fixed-in-2025-09-2)| October 1, 2025 |
+
+#### Bugs fixed in 2025.09.2
+
+* Users couldn't access the IdP if the `protocol.algorithms.response.signature` value was missing from the response payload when the IdP was created. (OKTA-987923)
+
+* When you retrieved a factor’s transaction status (`GET /users/{userId}/factors/{factorId}/transactions/{transactionId}`), the request didn’t correctly validate that the `userId` matched the `transactionId`. (OKTA-969072)
+
+* When enrolling a phone factor (`POST /users/{userId}/factors`), an "Invalid Phone Number" error was sometimes incorrectly returned. (OKTA-1024021)
+
 ### Weekly release 2025.09.1
 
 | Change | Expected in Preview Orgs |

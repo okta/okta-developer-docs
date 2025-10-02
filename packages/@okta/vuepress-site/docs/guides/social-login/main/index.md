@@ -68,6 +68,8 @@ See [Add an Identity Provider](https://developer.okta.com/docs/api/openapi/okta-
 
 For security best practices, consider disabling account linking after all existing users from the external IdP have signed in to your Okta org. At this point, all links have been created. After you disable linking, and JIT provisioning is enabled, Okta adds new users that are created in the external IdP.
 
+> **Note:** If you have account linking enabled and JIT provisioning disabled, then authentication is rejected if no matches are found for account linking.
+
 ## Test the integration
 
 You can test your integration by configuring a [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules) to use <StackSnippet snippet="idp" inline /> as the Identity Provider.
