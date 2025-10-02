@@ -1,1 +1,0 @@
-Use a redirect URI that is appropriate for your app or `http://localhost:8000/login/callback` if you're using the sample app.
