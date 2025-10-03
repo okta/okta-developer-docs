@@ -122,4 +122,4 @@ On March 1, 2022, all new [Okta orgs](/docs/concepts/okta-organizations/) are Id
 
 If you're a Classic Engine customer who wants to upgrade their apps to use Identity Engine, go to [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/) to review the level of effort based on your current configuration and usage telemetry.
 
-For Classic Engine customers who aren’t ready to upgrade at this time, your existing functionality continues to work for now, including your Classic Engine org, v1 API, and SDKs.
+For Classic Engine customers who aren’t ready to upgrade, your existing functionality continues to work for now, including your Classic Engine org, v1 API, and SDKs.
