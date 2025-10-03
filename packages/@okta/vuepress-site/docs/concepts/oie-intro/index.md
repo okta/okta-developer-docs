@@ -35,7 +35,7 @@ App intent links are used to signal intent to access an app. These links are pro
 Example app intent link for a SAML app:
 `http://{yourOktaDomain}/app/mysamlapp_1/{appInstanceID}/sso/saml`
 
-Before Identity Engine, these endpoints were accessible only with a session. Unauthenticated traffic was redirected to a centralized sign-in page (`/login/login.htm`) with a `fromUri` that represented the app that was originally and a StateToken. This occurred before the request was assessed for app-level rate limiting. Upon successful authentication, a session was established and the request was processed.
+Before Identity Engine, these endpoints were accessible only with a session. Unauthenticated traffic was redirected to a centralized sign-in page (`/login/login.htm`) with a `stateToken` and a `fromUri` that represented the app that was originally attempted (the app intent link). This occurred before the request was assessed for app-level rate limiting. Upon successful authentication, a session was established and the request was processed.
 
 The user was then redirected to the relevant app intent link through an intermediate redirect to the generic app SSO endpoint (`/app/{app}/{instanceId}/{linkName}`). The app intent link endpoint validated that the user was assigned to the app, and then enforced the app sign-on policy.
 
