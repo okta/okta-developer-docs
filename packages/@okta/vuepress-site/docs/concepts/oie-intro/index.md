@@ -39,7 +39,7 @@ Before Identity Engine, these endpoints were accessible only with a session. Una
 
 The user was then redirected to the relevant app intent link through an intermediate redirect to the generic app SSO endpoint (`/app/{app}/{instanceId}/{linkName}`). The app intent link endpoint validated that the user was assigned to the app, and then enforced the app sign-on policy.
 
-Identity Engine changes the way Okta processes these requests. It no longer forwards the browser to the centralized sign-in page (`/login/login.htm`). Instead, the app intent links location hosts the widget/sign-in experience for the app that the user is attempting to access, unless there’s a IdP routing rule in place.
+Identity Engine changes the way Okta processes these requests. It no longer forwards the browser to the centralized sign-in page (`/login/login.htm`). Instead, the app intent links location hosts the widget/sign-in experience for the app that the user is attempting to access, unless there’s an IdP routing rule in place.
 
 Then, Identity Engine evaluates the global session policy, app sign-in policy, and all other policies relevant to the sign-in experience. Each app intent link is responsible for hosting the sign-in experience on Identity Engine. Because of this, they share a common app intent link rate limit bucket/group similar to what exists for the centralized sign-in page on Classic Engine.
 
