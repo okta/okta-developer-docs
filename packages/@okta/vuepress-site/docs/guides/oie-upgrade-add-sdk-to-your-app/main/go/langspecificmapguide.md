@@ -1,1 +1,0 @@
-After you add the SDK to your app, the next step is to get [set up](/docs/guides/oie-embedded-common-org-setup/go/main/) with your Okta org. Also, check out the [sample apps](/docs/guides/oie-embedded-common-run-samples) to see working examples of all the supported use cases using the Identity Engine SDK.
