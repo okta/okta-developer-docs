@@ -180,6 +180,7 @@ guides:
  - device-signal-collection-policies
  - authenticators-tac-authenticator
  - custom-well-known-uri
+ - validate-federation
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
@@ -205,6 +206,7 @@ If you're using Okta as an identity layer for the first time, start with [How Ok
     * [Embedded Okta Sign-In Widget fundamentals](/docs/guides/embedded-siw)
     * [Configure a global session policy and app sign-in policies](/docs/guides/configure-signon-policy/)
     * [Single Sign-On with external Identity Providers](/docs/guides/identity-providers)
+    * [Validate your SSO federation](/docs/guides/validate-federation)
 
 3. Authorize:
 
