@@ -77,7 +77,7 @@ To enable a more customized user authentication experience, Okta introduces an e
 You can divide the Identity Engine deployment model for user authentication into three approaches:
 
 * **Okta-hosted (redirect) Sign-In Widget**: Use the redirect (Okta-hosted) Sign-In Widget to authenticate your users, then redirect back to your app. This is the recommended approach as it's the most secure and fastest to implement.
-* **Embedded Sign-In Widget**: Embed (Self-Hosted) the Sign-In Widget into your own code base to handle the authentication on your servers. This provides a balance between complexity and customization. You don't need to build the page to challenge for authentication or recovery.
+* **Embedded Sign-In Widget**: Embed (self-hosted) the Sign-In Widget into your own code base to handle the authentication on your servers. This provides a balance between complexity and customization. You don't need to build the page to challenge for authentication or recovery.
 * **Embedded SDK sign-in flow**: Use Okta SDKs embed (self-host) to create a custom authentication experience. This option is the most complex and leaves you with the most responsibility, but offers the most control of the user presentation.
 * **Embedded API sign-in flow**: Use direct authentication APIs to embed (self-host) an authentication.  This option is a limited set of APIs to challenge end-users for authentication without creating a session for Sign-Sign-On.
 
