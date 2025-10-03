@@ -87,7 +87,7 @@ See [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redire
 
 You can implement passwordless authentication flows using methods such as [Okta FastPass](https://help.okta.com/oie/en-us/content/topics/identity-engine/devices/fp/fp-main.htm) and [Email Magic Link](/docs/guides/email-magic-links-overview/main/). This allows users to authenticate without a password and provides a frictionless user experience.
 
-## Device Authorization Grant Flow
+## Device Authorization Grant flow
 
 The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input-constrained devices, such as smart TVs, digital picture frames, and printers, and devices with no browser. See [Configure Device Authorization Grant Flow](https://developer.okta.com/docs/guides/device-authorization-grant/main/).
 
