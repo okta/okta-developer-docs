@@ -89,7 +89,7 @@ You can implement passwordless authentication flows using methods such as [Okta 
 
 ## Device Authorization Grant flow
 
-The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input-constrained devices, such as smart TVs, digital picture frames, and printers, and devices with no browser. See [Configure Device Authorization Grant Flow](https://developer.okta.com/docs/guides/device-authorization-grant/main/).
+The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input-constrained devices, such as smart TVs, digital picture frames, printers, and devices with no browser. See [Configure Device Authorization Grant Flow](/docs/guides/device-authorization-grant/main/).
 
 ## Universal Logout
 
