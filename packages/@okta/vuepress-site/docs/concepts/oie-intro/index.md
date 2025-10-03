@@ -85,7 +85,7 @@ See [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redire
 
 ## Passwordless authentication
 
-You can implement passwordless authentication flows using methods such as [Okta FastPass](https://help.okta.com/oie/en-us/content/topics/identity-engine/devices/fp/fp-main.htm) and [Email Magic Link](https://developer.okta.com/docs/guides/email-magic-links-overview/main/). This allows users to authenticate without a password and frictionless user experience and security.
+You can implement passwordless authentication flows using methods such as [Okta FastPass](https://help.okta.com/oie/en-us/content/topics/identity-engine/devices/fp/fp-main.htm) and [Email Magic Link](/docs/guides/email-magic-links-overview/main/). This allows users to authenticate without a password and provides a frictionless user experience.
 
 ## Device Authorization Grant Flow
 
