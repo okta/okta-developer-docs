@@ -5677,5 +5677,65 @@ redirects:
     to: https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#supported-resources
   - from: /docs/concepts/role-assignment/#supported-resources
     to: https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#supported-resources
+  - from: /docs/guides/oie-embedded-common-download-setup-app/go/main/
+    to: /docs/guides/oie-embedded-common-download-setup-app/android/main/
+  - from: /docs/guides/oie-embedded-common-download-setup-app/go/main
+    to: /docs/guides/oie-embedded-common-download-setup-app/android/main/
+  - from: /docs/guides/oie-embedded-common-org-setup/go/main/
+    to: /docs/guides/oie-embedded-common-org-setup/android/main/
+  - from: /docs/guides/oie-embedded-common-org-setup/go/main
+    to: /docs/guides/oie-embedded-common-org-setup/android/main/
+  - from: /docs/guides/oie-embedded-common-refresh-tokens/go/main/
+    to: /docs/guides/oie-embedded-common-refresh-tokens/android/main/
+  - from: /docs/guides/oie-embedded-common-refresh-tokens/go/main
+    to: /docs/guides/oie-embedded-common-refresh-tokens/android/main/
+  - from: /docs/guides/oie-embedded-common-run-sampless/go/main/
+    to: /docs/guides/oie-embedded-common-run-samples/android/main/
+  - from: /docs/guides/oie-embedded-common-run-samples/go/main
+    to: /docs/guides/oie-embedded-common-run-samples/android/main/
+  - from: /docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/
+    to: /docs/guides/oie-embedded-sdk-use-case-basic-sign-in/android/main/
+  - from: /docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main
+    to: /docs/guides/oie-embedded-sdk-use-case-basic-sign-in/android/main/
+  - from: /docs/guides/oie-embedded-sdk-use-case-basic-sign-out/go/main/
+    to: /docs/guides/oie-embedded-sdk-use-case-basic-sign-out/android/main/
+  - from: /docs/guides/oie-embedded-sdk-use-case-basic-sign-out/go/main
+    to: /docs/guides/oie-embedded-sdk-use-case-basic-sign-out/android/main/
+  - from: /docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/go/main/
+    to: /docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/android/main/
+  - from: /docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/go/main
+    to: /docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/android/main/
+  - from: /docs/guides/oie-embedded-sdk-use-case-self-reg/go/main/
+    to: /docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/
+  - from: /docs/guides/oie-embedded-sdk-use-case-self-reg/go/main
+    to: /docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/
+  - from: /docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/go/main/
+    to: /docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/android/main/
+  - from: /docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/go/main
+    to: /docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/android/main/
+  - from: /docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/go/main/
+    to: /docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/android/main/
+  - from: /docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/go/main
+    to: /docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/android/main/
+  - from: /docs/guides/oie-embedded-sdk-use-case-sign-in-soc-id/go/main/
+    to: /docs/guides/oie-embedded-sdk-use-case-sign-in-soc-id/android/main/
+  - from: /docs/guides/oie-embedded-sdk-use-case-sign-in-soc-id/go/main
+    to: /docs/guides/oie-embedded-sdk-use-case-sign-in-soc-id/android/main/
+  - from: /docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main/
+    to: /docs/guides/oie-embedded-widget-use-case-basic-sign-in/android/main/
+  - from: /docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main
+    to: /docs/guides/oie-embedded-widget-use-case-basic-sign-in/android/main/
+  - from: /docs/guides/oie-embedded-widget-use-case-load/go/main/
+    to: /docs/guides/oie-embedded-widget-use-case-load/android/main/
+  - from: /docs/guides/oie-embedded-widget-use-case-load/go/main
+    to: /docs/guides/oie-embedded-widget-use-case-load/android/main/
+  - from: /docs/guides/oie-embedded-widget-use-case-sign-in-soc-idp/go/main/
+    to: /docs/guides/oie-embedded-widget-use-case-sign-in-soc-idp/android/main/
+  - from: /docs/guides/oie-embedded-widget-use-case-sign-in-soc-idp/go/main
+    to: /docs/guides/oie-embedded-widget-use-case-sign-in-soc-idp/android/main/
+  - from: /docs/guides/oie-upgrade-add-sdk-to-your-app/go/main/
+    to: /docs/guides/oie-upgrade-add-sdk-to-your-app/android/main/
+  - from: /docs/guides/oie-upgrade-add-sdk-to-your-app/go/main
+    to: /docs/guides/oie-upgrade-add-sdk-to-your-app/android/main/
   - from: /docs/guides/spring_security_saml.html
     to: /code/java/spring_security_saml/
