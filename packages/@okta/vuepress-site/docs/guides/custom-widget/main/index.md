@@ -43,6 +43,12 @@ You can add HTML, CSS, or JavaScript to the sign-in page, customize it [per appl
 
 > **Note:** Before you can customize for redirect authentication, you must customize your [Okta URL domain](/docs/guides/custom-url-domain/).
 
+### Accessibility compliance
+
+The Sign-In Widget (Gen2) button text can be either white or black. By default, the Sign-In Widget uses white text. Sometimes the chosen primary color results in a contrast ratio against white text that's less than 4.5:1. When this happens, the Sign-In Widget changes the primary contrast color (text color) to black to ensure accessibility compliance.
+
+**Example:** If you choose #6B8A16 as your primary color, its contrast ratio against #FFFFFF (white) is 3.98:1 (<4.5:1). The Gen2 Sign-In Widget therefore changes the primary contrast color to black #000000 (black) to achieve a contrast ratio of 5.27:1 (>4.5:1). See [Understand Sign-In Widget color customization](https://help.okta.com/okta_help.htm?type=oie&id=SIW-color-contrast).
+
 ### Content Security Policy (CSP) for your custom domain
 
 Set up a [custom domain](/docs/guides/custom-url-domain/main/) and customize your [CSP](https://content-security-policy.com/) if you also want to customize the sign-in page or error pages. CSP customizations only take effect on custom domains.
