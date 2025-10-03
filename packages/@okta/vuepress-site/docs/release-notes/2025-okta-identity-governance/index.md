@@ -48,7 +48,7 @@ The documented response for [List all entitlement bundles](https://developer.okt
 
 #### Resource Owners API is Beta
 
-Drive automation and simplify Okta Identity Governance (OIG) configuration by assigning owners to resources, such as apps, groups, and entitlements. You can automatically assign reviewers for access certifications or requests that are scoped with specific owner-assigned resources. See the [Resource Owners](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Resource-Owners/) API to manage assigning owners to resources in your OIG org.
+Drive automation and simplify Okta Identity Governance (OIG) configuration by assigning owners to resources, such as apps, groups, and entitlements. You can automatically assign reviewers for access certifications that are scoped with specific owner-assigned resources. See the [Resource Owners](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Resource-Owners/) API to manage assigning owners to resources in your OIG org.
 <!-- OKTA-998871 IGA_RESOURCE_OWNERS Preview date: Sept 10, 2025 -->
 
 #### Governance Labels API is Beta
