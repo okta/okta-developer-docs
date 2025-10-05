@@ -1160,6 +1160,41 @@ export const reference = [
           },
         ]
       },
+      {
+        title: "Rate Limits",
+        path: "/docs/reference/rate-limits-new/",
+        subLinks: [
+          {
+            title: "Concurrency rate limits",
+            path: "/docs/reference/rl2-concurrency/",
+          },
+          {
+            title: "Burst rate limits",
+            path: "/docs/reference/rl2-burst",
+          },
+          {
+            title: "Client-based rate limits",
+            path: "/docs/reference/rl2-client-based",
+          },
+
+          {
+            title: "Monitoring and troubleshooting rate limits",
+            path: "/docs/reference/rl2-monitor/",
+          },
+          {
+            title: "Increasing rate limits",
+            path: "/docs/reference/rl2-increase/",
+          },
+          {
+            title: "Client-based rate limits",
+            path: "/docs/reference/rl-client-based/",
+          },
+          {
+            title: "Rate limits",
+            path: "/docs/reference/rl2-limits",
+          }
+        ]
+      },
       { title: "SSF Transmitter SET payload structures", path: "/docs/reference/ssf-transmitter-sets/" },
       { title: "System Log query", path: "/docs/reference/system-log-query/" },
       { title: "User query options", path: "/docs/reference/user-query/" },
