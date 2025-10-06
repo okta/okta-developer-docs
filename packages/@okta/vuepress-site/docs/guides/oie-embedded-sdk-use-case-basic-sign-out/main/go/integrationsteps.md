@@ -31,5 +31,5 @@ has been opened. In the meantime, a reference to manually revoke the token using
 After the user is signed out, send them to the default page after a sign-out.
 
 ## See also
-[Validate your SSO federation](docs/guides/validate-federation/main/).
+[Validate your SSO federation](docs/guides/validate-federation/main/)
 

@@ -25,5 +25,5 @@ When the sign-out request is initiated, create the following flow:
 After the access token is revoked and the session is no longer valid, redirect the user to the signed-out page.
 
 ## See also
-[Validate your SSO federation](docs/guides/validate-federation/main/).
+[Validate your SSO federation](docs/guides/validate-federation/main/)
 
