@@ -843,14 +843,14 @@ export const guides = [
       {
         title: "Identity Governance",
         subLinks: [
-           {
-            title: "Manage governance labels",
-            guideName: "iga-labels"
-          },
           {
             title: "Launch a security access review",
             guideName: "iga-security-access-review"
-          }
+          },
+          {
+            title: "Manage governance labels",
+            guideName: "iga-labels"
+          },
         ]
       },
       {

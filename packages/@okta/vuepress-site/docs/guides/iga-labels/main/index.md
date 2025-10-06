@@ -26,13 +26,17 @@ This guide shows you how to create labels and assign them to resources using the
 
 ## Overview
 
-Labels allow you to categorize and organize resources such as apps, groups, entitlements, and collections. Labels support governance automation, streamline configuration, and simplify the management of access reviews and requests.
+Labels allow you to categorize and organize resources such as apps, groups, entitlements, and collections. Labels are defined as key-value pair metadata that are assigned to resources to add valuable context.
 
-See the [Resource labels](https://help.okta.com/okta_help.htm?type=oie&id=resource-labels) product documentation.
+Labels in OIG provide several key benefits:
 
-Labels are metadata that you can use to add context to resources in Okta. They're defined as key-value pairs and are assigned to resources as such. After you create label key-value pairs, they appear in the Admin Console's resource search pages.
+* Streamlined Governance: Labels enable automated governance workflows, simplifying creating access reviews and request tasks.
 
-For example, the labels appear in the **Governance Labels** search option when you go to the **Applications** > **Applications** or the **Directory** > **Groups** > **Advanced search** pages.
+* Simplified Management: They make it easier to configure and manage your resources by providing a clear way to categorize them.
+
+* Efficient Searching: After you create your labels and assign them to resources, they become a filterable option in the Admin Console's resource search functionality. For example, go to the **Applications** > **Applications** or the **Directory** > **Groups** > **Advanced search** pages to view the **Governance Labels** search option.
+
+See to the [Resource labels](https://help.okta.com/okta_help.htm?type=oie&id=resource-labels) product documentation.
 
 Okta provides two predefined labels in your OIG-enabed org:
 
@@ -47,9 +51,9 @@ The following governance label limits apply to each Okta org:
 
 * Maximum of ten label keys
 * Maximum of ten values for each label key
-* Maximum of 10 label-values can be assigned for each resource
+* Maximum of ten label-values can be assigned to each resource
 
-Label keys-values pairs are case-insensitive and are unique across all resource labels in an org.
+Label key-value pairs are case-insensitive and are unique across all resource labels in an org.
 
 This guide shows you the following process steps using the APIs with OAuth 2.0 authentication:
 
@@ -103,36 +107,25 @@ Ensure that your API user is assigned the super admin role (`SUPER_ADMIN`). Only
 
 ## Manage resource labels
 
-Use the [Labels](https://preview.redoc.ly/okta-iga-internal/vn-okta-955721-iga-label-review/openapi/governance.api/tag/Labels/) API to manage governance resource labels.
+Use the [Labels](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/) API to manage governance labels.
 
-> **Note:** You can't manage resource labels from the Admin Console. However, you can use existing resource labels in the Admin Console for your governance tasks to create reviews, requests, and automation.
+The examples in this section assumes that you're making the request with an OAuth 2.0 access token. See [Get an access token and make a request](https://developer.okta.com/docs/reference/rest/#get-an-access-token-and-make-a-request) for API requests from a user. Ensure that your  OAuth 2.0 access token is granted the required scopes for the request.
 
-### Get an OAuth 2.0 access token
-
-You can use Okta authentication SDKs or code your own sequence to get an access token for API access.
-
-> **Note:** See `getToken` methods from [Okta authentication SDKs](https://developer.okta.com/code/). For example, use [tokenManager.getTokens()](https://www.npmjs.com/package/@okta/okta-auth-js#tokenmanagergettokens) in [Okta Auth JavaScript SDK](https://www.npmjs.com/package/@okta/okta-auth-js#tokenmanagergettokens).
-
-* For API requests from a user, see [Get an access token and make a request](https://developer.okta.com/docs/reference/rest/#get-an-access-token-and-make-a-request).
-
-* For API requests from a service app, see [Get an access token from a signed JWT](https://developer.okta.com/docs/reference/rest/#get-an-access-token-from-a-signed-jwt).
-
-Use the obtained OAuth 2.0 access token as bearer tokens in the authentication header of your API requests.
-
-> **Note:** This task isn't required for delegated flow implementations. The **Okta Workflows OAuth** app handles OAuth 2.0 access to APIs. See [Create a connection from the current Okta org](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-misc-authorization) and [Custom API Actions](https://help.okta.com/okta_help.htm?type=wf&id=ext-oktaitp-method-customapiactionaojbwnnd4l).
+> **Note:** You can't manage labels from the Admin Console. However, you can use existing resource labels, created throught the API, in the Admin Console for your governance tasks.
 
 ### Create a label
 
-Create a resource label with the [Create a label](https://preview.redoc.ly/okta-iga-internal/vn-okta-955721-iga-label-review/openapi/governance.api/tag/Labels/#tag/Labels/operation/createLabel) request (`POST /governance/api/v1/labels`).
+Create a label with the [Create a label](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/#tag/Labels/operation/createLabel) request (`POST /governance/api/v1/labels`). You can define up to ten label values for the label key to generate label key-value pairs.
 
+> **Note:** You need the `okta.governance.labels.manage` scope to request this resource.
 
-#### Request
+#### Request example
 
 ```bash
 
 curl -i -X POST \
   https://subdomain.okta.com/governance/api/v1/labels \
-  -H 'Authorization: YOUR_API_KEY_HERE' \
+  -H 'Authorization: Bearer <YOUR_ACCESS_TOKEN>' \
   -H 'Content-Type: application/json' \
   -d '{
     "name": "Compliance",
@@ -158,7 +151,7 @@ curl -i -X POST \
 
 ```
 
-#### Response
+#### Response example
 
 ```json
 {
@@ -169,14 +162,18 @@ curl -i -X POST \
       "labelValueId": "lblo3v6xlwdtEX2il1d1",
       "name": "SOX",
       "metadata": {
-        "additionalProperties": {}
+        "additionalProperties": {
+          "backgroundColor": "blue"
+        }
       }
     },
     {
       "labelValueId": "lblo3v6xlwdtEX2il1d6",
       "name": "PII",
       "metadata": {
-        "additionalProperties": {}
+        "additionalProperties": {
+          "backgroundColor": "yellow"
+        }
       }
     }
   ],
@@ -188,7 +185,43 @@ curl -i -X POST \
 }
 ```
 
-## Assign labels
+After you create your labels, they appear as search options in the Admin Console resource page.
+
+### Assign labels
+
+Assign labels to resources with the [Assign the labels to resources](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/#tag/Labels/operation/assignResourceLabels) request (`POST /governance/api/v1/resource-labels/assign`).
+
+#### Request example
+
+```bash
+curl -i -X POST \
+  https://subdomain.okta.com/governance/api/v1/resource-labels/assign \
+  -H 'Authorization: YOUR_AUTH_INFO_HERE' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "resourceOrns": [
+      "orn:okta:idp:00o11edPwGqbUrsDm0g4:apps:oidc:0oafxqCAJWWGELFTYASJ",
+      "orn:okta:directory:00o11edPwGqbUrsDm0g4:groups:00g10ctakVI6XlTdk0g4",
+      "orn:okta:governance:00o11edPwGqbUrsDm0g4:entitlement-bundles:enbogpaj3XUzcM62u1d6",
+      "orn:okta:governance:00o11edPwGqbUrsDm0g4:collections:cologpaj3XUzcM62u1d6",
+      "orn:okta:governance:00o11rndFqmZ5rNfs0g4:entitlement-values:ent63C22YQoNMWOJf0g2"
+    ],
+    "labelValueIds": [
+      "lblo3v6xlwdtEX2il1d1",
+      "lblo3v6xlwdtEX2il1d2"
+    ]
+  }'
+```
+
+#### Response example
+
+
+
+
+
+### Update labels
+
+### Delete a label
 
 ## Next steps: use labels in governance reviews and requests
 
@@ -197,11 +230,3 @@ You can use labels to scope access certification campaigns and access reviews.
 You can use labels to target resources in access requests.
 
 These stesps aren't covered in this guide. Okta recommends that you use labels in the Admin Console for these tasks. See [Resource labels](HOC) in the product documentation.
-
-> **Note:** See [Labels](https://preview.redoc.ly/okta-iga-internal/vn-okta-955721-iga-label-review/openapi/governance.api/tag/Labels/) for a complete list of available resource label APIs.
-
-
-## Update labels
-
-## Delete a label
-
