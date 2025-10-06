@@ -86,8 +86,7 @@ To test JIT provisioning with the SP flow:
 1. As an admin user, sign in to your Okta org.
 1. Go to **Directory** > **People** and add the new test user in Okta. See [Add users manually](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-add-users.htm) for complete instructions.
 1. Go to **Applications** > **Applications** > your app integration instance in the Admin Console.
-1. Click the **Assignments** tab.
-1. Click **Assign** > **Assign to People**.
+1. Click the **Assignments** tab, **Assign**, and then **Assign to People**.
 1. Find the name of the new test user and click **Assign** next to their name. A dialog box appears with the title **Assign {app-name} to People**.
 1. Click **Save and Go Back**.
 1. On the **People** page, click **Done**.
@@ -100,6 +99,8 @@ To test JIT provisioning with the SP flow:
 1. Verify that the new user was created in your app with supported attributes passed from the Okta profile.
 
 #### Test JIT provisioning with the IdP flow
+
+> **Note**: This section is optional. Follow these steps only if your app supports JIT provisioning with the IdP flow.
 
 Test case preconditions:
 
@@ -115,8 +116,7 @@ To test JIT provisioning with the IdP flow:
 1. As an Okta admin user, sign in to your Okta org.
 1. Go to **Directory** > **People** and add the new test user in Okta. See [Add users manually](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-add-users.htm) for complete instructions.
 1. Go to **Applications** > **Applications** > your app integration instance in the Admin Console.
-1. Click the **Assignments** tab.
-1. Click **Assign** > **Assign to People**.
+1. Click the **Assignments** tab, **Assign**, and then **Assign to People**.
 1. Find the name of the new test user and click **Assign** next to their name. A dialog box appears with the title **Assign {app-name} to People**.
 1. Click **Save and Go Back**.
 1. On the **People** page, click **Done**.

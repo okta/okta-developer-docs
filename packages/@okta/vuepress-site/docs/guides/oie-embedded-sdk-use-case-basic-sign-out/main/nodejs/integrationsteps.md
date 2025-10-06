@@ -40,3 +40,6 @@ After the access token is revoked and the local app session is no longer valid, 
 // Clear okta session with logout redirect
     res.redirect(signoutRedirectUrl);
 ```
+
+## See also
+* [Validate your SSO federation](docs/guides/validate-federation/main/).
