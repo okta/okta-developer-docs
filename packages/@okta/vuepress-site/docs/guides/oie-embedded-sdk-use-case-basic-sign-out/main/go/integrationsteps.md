@@ -29,3 +29,7 @@ has been opened. In the meantime, a reference to manually revoke the token using
 ### 4: Redirect the user to the default signed-out page
 
 After the user is signed out, send them to the default page after a sign-out.
+
+## See also
+* [Validate your SSO federation](docs/guides/validate-federation/main/).
+

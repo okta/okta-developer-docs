@@ -26,3 +26,7 @@ var client = new IdxClient();
 ### 3: Send the user to the signed-out page
 
 After the user is signed out, send them to the desired page.
+
+## See also
+* [Validate your SSO federation](docs/guides/validate-federation/main/).
+
