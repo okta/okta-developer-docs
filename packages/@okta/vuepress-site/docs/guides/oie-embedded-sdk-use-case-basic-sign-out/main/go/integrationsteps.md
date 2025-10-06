@@ -1,8 +1,8 @@
-### 1: Create a sign-out UI element
+### Create a sign-out UI element
 
 The first step is to create an element that allows the user to sign out of the app.
 
-### 2: Remove the tokens from the local session
+### Remove the tokens from the local session
 
 Remove the tokens stored in session during a sign-in flow from session state.
 
@@ -17,7 +17,7 @@ if err != nil {
 
 ```
 
-### 3: Remove the tokens from the server
+### Remove the tokens from the server
 
 The next step is to revoke the tokens on the server. Use the
 [token revocation endpoint](/docs/guides/revoke-tokens/main/#revoke-an-access-token-or-a-refresh-token)
