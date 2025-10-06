@@ -24,7 +24,7 @@ This guide outlines the steps to validate your single sign-on (SSO) and Just-In-
 
 The Service Provider (SP) flow (also known as the app-initiated flow) is a sign-in process that begins when a user starts directly from the app rather than from the identity provider's dashboard.
 
-To test the app-initiated sign-in flow, you need to execute the test cases as an end user persona. Use one of the test end users you previously [assigned to your integration](docs/guides/submit-oin-app/openidconnect/main/#assign-test-users-to-your-integration-instance).
+To test the app-initiated sign-in flow, you need to execute the test cases as an end user persona. Use one of the test end users you previously [assigned to your integration](/docs/guides/submit-oin-app/openidconnect/main/#assign-test-users-to-your-integration-instance).
 
 There are two options to sign in with the SP-initiated flow:
 
@@ -131,4 +131,4 @@ To test JIT provisioning with the IdP flow:
 
 
 ## See also
-[Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/openidconnect/main/)
+[Submit an integration with the OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/)
