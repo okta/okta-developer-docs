@@ -7,13 +7,9 @@ element that allows the user to sign out of the app.
 
 When the sign out is initiated, create the following flow:
 
-1. Obtain the access token from the session state. This token was placed into
-   the session state during the
-   [user sign-in flow](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/).
-   The code snippet uses objects from the
-  `Microsoft.Owin.Security` to manage the session state of the tokens.
-1. Call the `RevokeTokensAsync` method on the `IDXClient` passing in the
-   access token obtained in step 1.
+1. Obtain the access token from the session state. This token was placed into the session state during the [user sign-in flow](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/).
+The code snippet uses objects from the `Microsoft.Owin.Security` to manage the session state of the tokens.
+1. Call the `RevokeTokensAsync` method on the `IDXClient` passing in the access token obtained in step 1.
 
 ```csharp
 var client = new IdxClient();
@@ -28,5 +24,5 @@ var client = new IdxClient();
 After the user is signed out, send them to the desired page.
 
 ## See also
-* [Validate your SSO federation](docs/guides/validate-federation/main/).
+[Validate your SSO federation](docs/guides/validate-federation/main/).
 
