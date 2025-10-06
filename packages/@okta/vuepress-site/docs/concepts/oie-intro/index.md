@@ -96,7 +96,7 @@ The Device Authorization feature is an OAuth 2.0 grant type. It allows users to 
 Universal Logout lets you terminate user sessions and their tokens for supported apps when Identity Threat Protection identifies a change in risk. You can also [build Universal Logout for your app](/docs/guides/oin-universal-logout-overview/). A Universal Logout endpoint simplifies the process of signing users out of all of their active sessions for apps built on the Okta Customer Identity platform.
 
 ## Improved Terraform support
-You can manage your Okta org using Terraform, including groups, policies, and apps. Terraform can manage more configuration resources using standard operating procedures. It uses resource descriptions to examine the current state of your org, and then creates a plan with the appropriate changes. You can check the plan, modify your description as needed, and run the plan. For more information, see [Automate org management with Terraform](/docs/guides/automate-org-management-with-terraform/)
+You can manage your Okta org using Terraform, including groups, policies, and apps. Terraform can manage more configuration resources using standard operating procedures. It uses resource descriptions to examine the current state of your org, and then creates a plan with the appropriate changes. You can check the plan, modify your description as needed, and run the plan. For more information, see [Automate org management with Terraform](/docs/guides/automate-org-management-with-terraform/).
 
 ## SDKs and sample apps
 
