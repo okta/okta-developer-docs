@@ -35,11 +35,11 @@ App intent links are used to signal intent to access an app. These links are pro
 Example app intent link for a SAML app:
 `http://{yourOktaDomain}/app/mysamlapp_1/{appInstanceID}/sso/saml`
 
-Before Identity Engine, these endpoints were accessible only with a session. Unauthenticated traffic was redirected to a centralized sign-in page (`/login/login.htm`) with a `fromUri` that represented the app that was originally attempted (the app intent link). This occurred before the request was assessed for rate limiting. A session was established and the request was processed.
+Before Identity Engine, these endpoints were accessible only with a session. Unauthenticated traffic was redirected to a centralized sign-in page (`/login/login.htm`) with a `stateToken` and a `fromUri` that represented the app that was originally attempted (the app intent link). This occurred before the request was assessed for app-level rate limiting. Upon successful authentication, a session was established and the request was processed.
 
 The user was then redirected to the relevant app intent link through an intermediate redirect to the generic app SSO endpoint (`/app/{app}/{instanceId}/{linkName}`). The app intent link endpoint validated that the user was assigned to the app, and then enforced the app sign-on policy.
 
-Identity Engine changes the way Okta processes these requests. It no longer forwards requests to the centralized sign-in page (`/login/login.htm`). Instead, the app intent links location hosts the widget/sign-in experience for the app that the user is attempting to access.
+Identity Engine changes the way Okta processes these requests. It no longer forwards the browser to the centralized sign-in page (`/login/login.htm`). Instead, the app intent links location hosts the widget/sign-in experience for the app that the user is attempting to access, unless there’s an IdP routing rule in place.
 
 Then, Identity Engine evaluates the global session policy, app sign-in policy, and all other policies relevant to the sign-in experience. Each app intent link is responsible for hosting the sign-in experience on Identity Engine. Because of this, they share a common app intent link rate limit bucket/group similar to what exists for the centralized sign-in page on Classic Engine.
 
@@ -77,10 +77,26 @@ To enable a more customized user authentication experience, Okta introduces an e
 You can divide the Identity Engine deployment model for user authentication into three approaches:
 
 * **Okta-hosted (redirect) Sign-In Widget**: Use the redirect (Okta-hosted) Sign-In Widget to authenticate your users, then redirect back to your app. This is the recommended approach as it's the most secure and fastest to implement.
-* **Embedded Sign-In Widget**: Embed the Sign-In Widget into your own code base to handle the authentication on your servers. This provides a balance between complexity and customization.
-* **Embedded SDK-driven sign-in flow**: Use our SDKs to create a custom authentication experience. This option is the most complex and leaves you with the most responsibility, but offers the most control.
+* **Embedded Sign-In Widget**: Embed (self-hosted) the Sign-In Widget into your own code base to handle the authentication on your servers. This provides a balance between complexity and customization. You don't need to build the page to challenge for authentication or recovery.
+* **Embedded SDK sign-in flow**: Use the Okta embedded SDK (self-host) to create a custom authentication experience. This option is the most complex and leaves you with the most responsibility, but offers the most control of the user presentation.
+* **Embedded API sign-in flow**: Use direct authentication APIs to embed (self-host) an authentication. This option uses a limited set of APIs to challenge end users for authentication without creating a session for single sign-on.
 
 See [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redirect-vs-embedded/) for an overview of the different deployment models, and see [Sign users in](/docs/guides/sign-in-overview/) for implementation details.
+
+## Passwordless authentication
+
+You can implement passwordless authentication flows using methods such as [Okta FastPass](https://help.okta.com/oie/en-us/content/topics/identity-engine/devices/fp/fp-main.htm) and [Email Magic Link](/docs/guides/email-magic-links-overview/main/). This allows users to authenticate without a password and provides a frictionless user experience.
+
+## Device Authorization Grant flow
+
+The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input-constrained devices, such as smart TVs, digital picture frames, printers, and devices with no browser. See [Configure Device Authorization Grant Flow](/docs/guides/device-authorization-grant/main/).
+
+## Universal Logout
+
+Universal Logout lets you terminate user sessions and their tokens for supported apps when Identity Threat Protection identifies a change in risk. You can also [build Universal Logout for your app](/docs/guides/oin-universal-logout-overview/). A Universal Logout endpoint simplifies the process of signing users out of all of their active sessions for apps built on the Okta Customer Identity platform.
+
+## Improved Terraform support
+You can manage your Okta org using Terraform, including groups, policies, and apps. Terraform can manage more configuration resources using standard operating procedures. It uses resource descriptions to examine the current state of your org, and then creates a plan with the appropriate changes. You can check the plan, modify your description as needed, and run the plan. For more information, see [Automate org management with Terraform](/docs/guides/automate-org-management-with-terraform/).
 
 ## SDKs and sample apps
 
@@ -104,6 +120,6 @@ In our documentation, Okta is moving towards supporting Identity Engine by defau
 
 On March 1, 2022, all new [Okta orgs](/docs/concepts/okta-organizations/) are Identity Engine orgs, so that all new customers can take advantage of the new features.
 
-If you're a Classic Engine customer who wants to upgrade their apps to use Identity Engine, go to [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/).
+If you're a Classic Engine customer who wants to upgrade their apps to use Identity Engine, go to [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/) to review the level of effort based on your current configuration and telemetry use.
 
-For Classic Engine customers who don't yet want to upgrade, your existing functionality continues to work for now, including your Classic Engine org, v1 API, and SDKs.
+For Classic Engine customers who aren’t ready to upgrade, your existing functionality continues to work for now, including your Classic Engine org, v1 API, and SDKs.
