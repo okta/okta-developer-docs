@@ -338,7 +338,7 @@ To fix this, update your authorization server to use your custom domain:
 
 1. Sign in to your Okta account and go to **Security** > **API** > **Authorization Servers**.
 
-1. Locate the default** custom authorization server, and then click **Edit**.
+1. Locate the **default** custom authorization server, and then click **Edit**.
 
 1. In the **Settings** section, click **Edit**.
 
@@ -377,7 +377,7 @@ The [Email Domains API](https://developer.okta.com/docs/api/openapi/okta-managem
 ### Known Issues
 
 - You can't configure Okta to send emails through a domain that uses [SendGrid](https://sendgrid.com/). Instead, configure a subdomain with your DNS provider for custom Okta emails.
-- - You can't have more than 10 DNS lookups in your SPF record.
+- You can't have more than 10 DNS lookups in your SPF record.
 
 ## Next steps
 
