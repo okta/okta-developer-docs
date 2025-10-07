@@ -70,7 +70,7 @@ Test JIT provisioning using either SSO flow:
 - SP-initiated SSO flow: [Test JIT provisioning using the SP-initiated flow](#test-jit-provisioning-using-the-sp-initiated-flow)
 - IdP SSO flow: [Test JIT provisioning using the IdP-initiated flow](#test-jit-provisioning-with-the-idp-flow)
 
-#### Test JIT provisioning with the SP flow
+#### Test JIT provisioning using the SP-initiated flow
 
 Test case preconditions:
 
