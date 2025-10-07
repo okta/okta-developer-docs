@@ -58,6 +58,18 @@ To test the SP-initiated flow using a sign-in page:
 1. Sign out of your app.
 1. Verify that you're able to sign out and are redirected to the sign-in page.
 
+### Test the IdP-initiated sign-in flow
+
+> **Note**: This section is optional. Follow these steps only if your app supports the IdP-initiated sign-inflow.
+
+1. Open an incognito window in your browser.
+1. Sign in to your Okta org as a user that has been assigned to the app integration instance.
+1. Click the icon with four boxes next to your name > **My end user dashboard**.
+1. Confirm your app tile appears on your End-User Dashboard .
+1. Click your app tile and confirm you can sign in to your application successfully.
+Sign out of the app.
+1. Verify that you're able to sign out and are redirected to the sign-in page.
+
 
 ### Test JIT provisioning
 
@@ -106,7 +118,7 @@ Test case preconditions:
 
 * App integration supports the IdP-initiated flow
 * App integration supports JIT provisioning
-* The [Sign in with the IdP flow](#sign-in-with-the-idp-flow) test case was executed successfully
+* The [Test the IdP-initiated sign-in flow](#test-the-idp-initiated-sign-in-flow) test case was executed successfully
 * A new test user profile that isn't in your org or your app
 
 To test JIT provisioning using the IdP-initiated flow:
