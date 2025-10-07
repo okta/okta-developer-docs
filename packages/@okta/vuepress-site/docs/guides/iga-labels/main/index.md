@@ -440,4 +440,4 @@ After labels are created and assigned to resources in your Okta org, you can use
 
 * See [Resource labels](https://help.okta.com/okta_help.htm?type=oie&id=resource-labels) in the product documentation.
 
-* See [Create resource campaigns](https://help.okta.com/oie/en-us/content/topics/identity-governance/access-certification/iga-ac-create-campaign.htm) to scope access certification resource campaigns based on labels.
+* See [Create resource campaigns](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-campaigns) to scope access certification resource campaigns based on labels.
