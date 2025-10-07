@@ -1,5 +1,5 @@
 ---
-title: Validate federation
+title: Validate SSO federation
 guideName: validate-federation
 layout: Guides
 sections:

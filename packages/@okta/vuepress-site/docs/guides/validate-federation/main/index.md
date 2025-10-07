@@ -1,9 +1,9 @@
 ---
-title: Validate your SSO federation
-guideName: validate-federation
+title: Validate SSO federation
+excerpt: Validate your single sign-on (SSO) and Just-In-Time (JIT) provisioning integration.
+layout: Guides
 ---
-This guide outlines the steps to validate your single sign-on (SSO) and Just-In-Time (JIT) provisioning integration.
-
+Validate your single sign-on (SSO) and Just-In-Time (JIT) provisioning integration.
 ---
 
 #### Learning outcomes
@@ -17,40 +17,40 @@ This guide outlines the steps to validate your single sign-on (SSO) and Just-In-
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * An app that uses SSO integration
 
+---
+> **Note**: This guide describes testing through a web browser. For mobile apps, you can use a fresh app install or clear the app's data to ensure a clean session.
 
-> **Note**: The following steps describe testing through a web browser. For mobile apps, you can use a fresh app install or clear the app's data to ensure a clean session.
-
-### Test the SP-initiated sign-on flow
+### Test the SP-initiated sign-in flow
 
 The Service Provider (SP) flow (also known as the app-initiated flow) is a sign-in process that begins when a user starts directly from the app rather than from the identity provider's dashboard.
 
 To test the app-initiated sign-in flow, you need to execute the test cases as an end user persona. Use one of the test end users you previously [assigned to your integration](/docs/guides/submit-oin-app/openidconnect/main/#assign-test-users-to-your-integration-instance).
 
-There are two options to sign in with the SP-initiated flow:
+The end user has two options for signing in using the SP-initiated flow:
 
-1. Direct URL: [Sign in with a direct URL for the SP flow](#sign-in-with-a-direct-url-for-the-sp-flow)
-2. Sign-in page: [Sign in with the sign-in page for the SP flow](#sign-in-with-the-sign-in-page-for-the-sp-flow)
+1. Direct URL: [Sign in with a direct URL](#sign-in-with-a-direct-url)
+2. Sign-in page: [Sign in with the sign-in page](#sign-in-with-the-sign-in-page)
 
-#### Sign in with a direct URL for the SP flow
+#### Sign in using a direct URL
 
-> **Note**: Ensure that the app is integrated with Okta tenent.
+> **Note**: Ensure that the app is integrated with an Okta tenent.
 
-To test the SP-initiated flow with a direct URL:
+To test the SP-initiated flow using a direct URL:
 
-1. Open a new incognito window in your browser.
+1. Open an incognito window in your browser.
 1. Go to the app sign-in page directly from the browser URL address field (for example: `https://berryfarm.example.org/strawberry/signin`). The browser redirects you to Okta for authentication.
 1. Sign in with Okta credentials for the test end user.
 1. Confirm that you’re signed in to the app.
 1. Sign out of your app.
 1. Verify that you're able to sign out and are redirected to the sign-in page.
 
-#### Sign in with a sign-in page for the SP flow
+#### Sign in with a sign-in page
 
-> **Note**: Ensure that the app is integrated with Okta tenant.
+> **Note**: Ensure that the app is integrated with an Okta tenant.
 
-To test the SP-initiated flow with a sign-in page:
+To test the SP-initiated flow using a sign-in page:
 
-1. Open a new incognito window in your browser.
+1. Open an incognito window in your browser.
 1. Go to the app sign-in page.
 1. Initiate the sign-in action from the sign-in page (such as clicking **Sign in with Okta**).
 1. Sign in with Okta credentials for the test end user.
@@ -59,7 +59,7 @@ To test the SP-initiated flow with a sign-in page:
 1. Verify that you're able to sign out and are redirected to the sign-in page.
 
 
-### How to test JIT provisioning
+### Test JIT provisioning
 
 > **Note**: This section is optional. Follow these steps only if your app supports JIT provisioning.
 
