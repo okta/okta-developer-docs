@@ -90,7 +90,7 @@ To test JIT provisioning using the SP-initiated flow:
 1. Find the name of the new test user and click **Assign** next to their name. A dialog appears with the title **Assign {app-name} to People**.
 1. Click **Save and Go Back**.
 1. On the **People** page, click **Done**.
-1. Open a new incognito window in your browser.
+1. Open an incognito window in your browser.
 1. Go to the app sign-in page directly from the browser URL address field (for example: `https://berryfarm.example.org/strawberry/signin`). The browser redirects you to Okta for authentication.
 1. Sign in with Okta credentials for the new test user that was assigned to the app integration.
 1. Confirm that you can sign in to the app.
