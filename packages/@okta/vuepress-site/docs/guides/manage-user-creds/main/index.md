@@ -1,5 +1,5 @@
 ---
-title: Credential management with the Okta Client SDK
+title: Credential management using the Okta Client SDK
 meta:
   - name: description
     content: Learn about how to securely manage user credentials using the Okta Client SDK.
