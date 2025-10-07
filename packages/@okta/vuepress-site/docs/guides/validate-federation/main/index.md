@@ -98,7 +98,7 @@ To test JIT provisioning using the SP-initiated flow:
 1. Verify that you're able to sign out and are redirected to the sign-in page.
 1. Verify that the new user was created in your app with supported attributes passed from the Okta profile.
 
-#### Test JIT provisioning with the IdP flow
+#### Test JIT provisioning using the IdP-initiated flow
 
 > **Note**: This section is optional. Follow these steps only if your app supports JIT provisioning with the IdP flow.
 
