@@ -100,7 +100,7 @@ To test JIT provisioning using the SP-initiated flow:
 
 #### Test JIT provisioning using the IdP-initiated flow
 
-> **Note**: This section is optional. Follow these steps only if your app supports JIT provisioning with the IdP flow.
+> **Note**: This section is optional. Follow these steps only if your app supports JIT provisioning with the IdP-initiated flow.
 
 Test case preconditions:
 
