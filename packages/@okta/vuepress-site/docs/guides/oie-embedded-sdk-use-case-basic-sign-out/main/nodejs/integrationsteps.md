@@ -42,4 +42,4 @@ After the access token is revoked and the local app session is no longer valid, 
 ```
 
 ## See also
-[Validate your SSO federation](/docs/guides/validate-federation/main/)
+[Validate SSO federation](/docs/guides/validate-federation/main/)
