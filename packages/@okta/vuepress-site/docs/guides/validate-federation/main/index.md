@@ -109,7 +109,7 @@ Test case preconditions:
 * The [Sign in with the IdP flow](#sign-in-with-the-idp-flow) test case was executed successfully
 * A new test user profile that isn't in your app
 
-To test JIT provisioning with the IdP flow:
+To test JIT provisioning using the IdP-initiated flow:
 
 1. As an Okta admin user, verify that the test user doesn't exist in your Okta org.
 1. As an app admin user, verify that the test user doesn't exist in the app. Sign in to your app and verify that there's no user with the same unique attributes as your new test user.
