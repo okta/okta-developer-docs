@@ -63,7 +63,7 @@ To test the SP-initiated flow using a sign-in page:
 
 > **Note**: This section is optional. Follow these steps only if your app supports JIT provisioning.
 
-To test JIT provisioning, you need to execute the test cases with two personas: as a customer admin user and as an end user. The customer admin user sets up the new end user in Okta, and the new end user signs in to the app. The new user profile is provisioned in the app without extra admin intervention.
+To test JIT provisioning, you need to execute the test cases using two personas: as a customer admin user and as an end user. The customer admin user sets up the new end user in Okta, and the new end user signs in to the app. The new user profile is provisioned in the app without extra admin intervention.
 
 Test JIT provisioning with either SSO flow:
 
