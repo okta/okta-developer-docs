@@ -87,7 +87,7 @@ To test JIT provisioning using the SP-initiated flow:
 1. Go to **Directory** > **People** and add the new test user in Okta. See [Add users manually](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-add-users.htm) for complete instructions.
 1. Go to **Applications** > **Applications** > your app integration instance in the Admin Console.
 1. Click the **Assignments** tab, **Assign**, and then **Assign to People**.
-1. Find the name of the new test user and click **Assign** next to their name. A dialog box appears with the title **Assign {app-name} to People**.
+1. Find the name of the new test user and click **Assign** next to their name. A dialog appears with the title **Assign {app-name} to People**.
 1. Click **Save and Go Back**.
 1. On the **People** page, click **Done**.
 1. Open a new incognito window in your browser.
