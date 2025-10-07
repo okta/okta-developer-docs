@@ -120,7 +120,7 @@ To test JIT provisioning with the IdP flow:
 1. Find the name of the new test user and click **Assign** next to their name. A dialog box appears with the title **Assign {app-name} to People**.
 1. Click **Save and Go Back**.
 1. On the **People** page, click **Done**.
-1. Open a new incognito window in your browser.
+1. Open an incognito window in your browser.
 1. Go to your Okta org URL.
 1. Sign in as the new user that you assigned to the app integration. The End-User Dashboard appears.
 1. Confirm that your app tile appears on the End-User Dashboard.
