@@ -61,7 +61,7 @@ After a user successfully signs in, you receive a `Token` object. The first step
 * How it works: Use the static `Credential.store()` function. This saves the token using the configured TokenStorage mechanism and returns a `Credential` object for you to work with.
 * Developer-assigned tags: You can add optional tags (metadata) during storage. These tags are useful for querying and managing multiple credentials later. For example, you could tag tokens based on user roles or the service they are for.
 
-### JavaScript example: Storing a token
+### JavaScript example: Store a token
 
 ```javascript
     // Assume 'newToken' is a Token object received after a successful sign-in
@@ -78,9 +78,7 @@ After a user successfully signs in, you receive a `Token` object. The first step
 
 ## Retrieve and work with credentials
 
-After storing the token, you need to retrieve credentials to maintain user sessions and authorize API requests.
-
-The SDK offers several convenient methods for this.
+After storing the token, you need to retrieve credentials to maintain user sessions and authorize API requests. The SDK offers several convenient methods for this.
 
 ### Work with the default credential
 
@@ -90,7 +88,7 @@ For most single-user apps, you simplify the development process significantly by
 * Use the `Credential.getDefault()` static method to easily access the default credential, for example, to check if a user is already signed in when the app starts.
 * The `Credential` class sends an event (for example, `default_changed`) whenever the default credential is set or removed. You can listen for this event to dynamically update your UI, such as transitioning from a sign-in page to a signed-in view.
 
-#### JavaScript example: Checking for a default user on app load
+#### JavaScript example: Check for a default user on app load
 
 ```javascript
     // On app launch, check for a default credential
@@ -127,7 +125,7 @@ You can retrieve specific credentials using one of the following examples:
 * Developer tags: Use `Credential.find({ tags: '...' })` to find credentials that match the tags that you assigned during token storage.
 * ID token claims: You can also query credentials based on the claims within the ID token, such as the user's email (`sub`).
 
-### JavaScript example: Finding credentials
+### JavaScript example: Find credentials
 
 ```javascript
     // Find a credential using a tag
@@ -151,7 +149,7 @@ Access tokens are short-lived for security reasons. The SDK simplifies the proce
 * `refresh()`: Immediately refreshes the token.
 * `refreshIfNeeded()`: A smarter function that only refreshes the token if it has expired or is about to expire within a predefined grace interval. This is the recommended approach for proactively managing token expiration before making an API call.
 
-### JavaScript example: Refreshing a token before an API call
+### JavaScript example: Refresh a token before an API call
 
 ```javascript
     async function makeAuthenticatedApiRequest(credential, url, data) {
@@ -185,7 +183,7 @@ When a user signs out or a session needs to be terminated, it's critical to prop
 * `remove()`: This function only deletes the credential from the client-side `TokenStorage`. It doesn't invalidate the tokens on the server, and therefore poses a security risk if the tokens were compromised. Use this with caution.
 * `SessionLogoutFlow()` or `signOut()`: For browser-based flows that create an Okta session cookie, you may need a specific sign-out function to clear the server-side session cookies in addition to revoking tokens.
 
-### JavaScript example: Secure sign-out
+### JavaScript example: Secure sign out
 
 ```javascript
     async function handleSignOut(credential) {
