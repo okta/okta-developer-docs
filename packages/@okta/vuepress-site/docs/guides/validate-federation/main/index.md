@@ -107,7 +107,7 @@ Test case preconditions:
 * App integration supports IdP flow
 * App integration supports JIT provisioning
 * The [Sign in with the IdP flow](#sign-in-with-the-idp-flow) test case was executed successfully
-* A new test user profile that isn't in your app
+* A new test user profile that isn't in your org or your app
 
 To test JIT provisioning using the IdP-initiated flow:
 
