@@ -124,7 +124,7 @@ To test JIT provisioning with the IdP flow:
 1. Go to your Okta org URL.
 1. Sign in to the Okta org as the new user that was assigned to the app integration. The End-User Dashboard appears.
 1. Confirm that your app tile appears on the Okta End-User Dashboard.
-1. Click your app tile and confirm that you can sign in.
+1. Click the app tile and confirm that you can sign in.
 1. Sign out of your app.
 1. Verify that you're able to sign out and are redirected to the sign-in page.
 1. Verify that the new user was created in your app with supported attributes. These attributes are passed from the Okta profile, such as the user's name and email.
