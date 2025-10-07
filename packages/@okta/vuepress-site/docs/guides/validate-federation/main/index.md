@@ -74,7 +74,7 @@ Test JIT provisioning using either SSO flow:
 
 Test case preconditions:
 
-* App integration supports SP flow
+* App integration supports the SP-initiated flow
 * App integration supports JIT provisioning
 * The [Sign in with the SP flow](#sign-in-with-a-direct-url-for-the-sp-flow) test case was executed successfully
 * A new test user profile that isn't in your app
