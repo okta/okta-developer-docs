@@ -114,7 +114,7 @@ See [Custom entitlement with extensions](#custom-entitlement-with-extensions) fo
 
 #### Roles schema
 
-The `urn:okta:scim:schemas:core:1.0:Entitlement` schema contains the following information:
+The `urn:okta:scim:schemas:core:1.0:Role` schema contains the following information:
 
 |Parameter | Type | Description | Notes |
 |---|---|---|---|
