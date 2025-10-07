@@ -9,7 +9,7 @@ When the sign out is initiated, create the following flow:
 
 1. Obtain the access token from the session state. This token was placed into the session state during the [user sign-in flow](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/).
 The code snippet uses objects from the `Microsoft.Owin.Security` to manage the session state of the tokens.
-1. Call the `RevokeTokensAsync` method on the `IDXClient` passing in the access token obtained in step 1.
+1. Call the `RevokeTokensAsync` method of `IDXClient` and pass in the access token that you obtained in step 1.
 
 ```csharp
 var client = new IdxClient();
