@@ -16,7 +16,7 @@ Validate your single sign-on (SSO) and Just-In-Time (JIT) provisioning integrati
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * An app that uses SSO integration
-
+* Optional. An app integration that supports JIT provisioning, and a test user that isn't in your org or assigned to this app.
 ---
 > **Note**: This guide describes testing through a web browser. For mobile apps, you can use a fresh app install or clear the app's data to ensure a clean session.
 
@@ -96,7 +96,7 @@ To test JIT provisioning using the SP-initiated flow:
 1. As an admin user, verify that the test user doesn't exist in your Okta org.
 1. As an admin user, verify that the test user doesn't exist in the app. Sign in to your app and verify that there's no user with the same unique attributes as your new test user.
 1. As an admin user, sign in to your Okta org.
-1. Go to **Directory** > **People** and add the new test user in Okta. See [Add users manually](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-add-users.htm) for complete instructions.
+1. Go to **Directory** > **People** and add the new test user in Okta. See [Add users manually](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) for complete instructions.
 1. Go to **Applications** > **Applications** > your app integration instance in the Admin Console.
 1. Click the **Assignments** tab, **Assign**, and then **Assign to People**.
 1. Find the name of the new test user and click **Assign** next to their name. A dialog appears with the title **Assign {app-name} to People**.
@@ -126,7 +126,7 @@ To test JIT provisioning using the IdP-initiated flow:
 1. As an Okta admin user, verify that the test user doesn't exist in your Okta org.
 1. As an app admin user, verify that the test user doesn't exist in the app. Sign in to your app and verify that there's no user with the same unique attributes as your new test user.
 1. As an Okta admin user, sign in to your Okta org.
-1. Go to **Directory** > **People** and add the new test user in Okta. See [Add users manually](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-add-users.htm) for complete instructions.
+1. Go to **Directory** > **People** and add the new test user in Okta. See [Add users manually](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) for complete instructions.
 1. Go to **Applications** > **Applications** > your app integration instance in the Admin Console.
 1. Click the **Assignments** tab, **Assign**, and then **Assign to People**.
 1. Find the name of the new test user and click **Assign** next to their name. A dialog appears with the title **Assign {app-name} to People**.
