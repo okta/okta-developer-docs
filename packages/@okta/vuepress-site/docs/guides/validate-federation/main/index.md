@@ -67,7 +67,7 @@ To test JIT provisioning, you need to execute the test cases using two personas:
 
 Test JIT provisioning using either SSO flow:
 
-- With SP-initiated SSO flow: [Test JIT provisioning with the SP flow](#test-jit-provisioning-with-the-sp-flow)
+- SP-initiated SSO flow: [Test JIT provisioning using the SP-initiated flow](#test-jit-provisioning-using-the-sp-initiated-flow)
 - IdP SSO flow: [Test JIT provisioning using the IdP-initiated flow](#test-jit-provisioning-with-the-idp-flow)
 
 #### Test JIT provisioning with the SP flow
