@@ -1,6 +1,6 @@
 {
-  "release" : "2025.09.1",
-  "build" : "2025.09.1-begin-149-g85c40017cb22",
+  "release" : "2025.10.1",
+  "build" : "2025.10.1-begin-109-ga745d53f813b",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -330,6 +330,13 @@
     "internalErrorCode" : "security_method_setup_not_allowed",
     "errorCode" : "access_denied",
     "errorDescription" : "Security method can't be set up at this time."
+  }, {
+    "title" : "Password reset not allowed",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "password_reset_not_allowed",
+    "errorCode" : "access_denied",
+    "errorDescription" : "Reset password is not allowed at this time. Please contact support for assistance."
   }, {
     "title" : "Ciba feature not supported",
     "statusCode" : 400,
@@ -1164,6 +1171,13 @@
     "errorCode" : "invalid_grant",
     "errorDescription" : "SAML Assertion Bearer Grant is not supported by OIE."
   }, {
+    "title" : "Token exchange subject token expired",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "token_exchange_subject_token_expired",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The 'subject_token' either expired or the session associated with it was terminated."
+  }, {
     "title" : "Web sso token exchange request requires scope",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1192,19 +1206,26 @@
     "errorCode" : "invalid_grant",
     "errorDescription" : "The application's assurance requirements are not met by the 'subject_token'."
   }, {
-    "title" : "Web sso subject token expired",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "web_sso_subject_token_expired",
-    "errorCode" : "invalid_grant",
-    "errorDescription" : "The 'subject_token' either expired or the session associated with it was terminated."
-  }, {
     "title" : "Web sso client not permitted",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "web_sso_client_not_permitted",
     "errorCode" : "invalid_grant",
     "errorDescription" : "The target audience app must be configured to allow the client to request a 'web_sso_token'."
+  }, {
+    "title" : "Interclient sso token exchange request requires scope",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "interclient_sso_token_exchange_request_requires_scope",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The 'actor_token' must have the 'interclient_access' scope to request a 'interclient_sso_token'."
+  }, {
+    "title" : "Interclient sso client not permitted",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "interclient_sso_client_not_permitted",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The 'interclient_sso_token' is currently only supported for SAML and OIDC apps."
   }, {
     "title" : "Client requires MFA native sso",
     "statusCode" : 400,
