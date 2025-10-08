@@ -23,24 +23,24 @@ Validate your single sign-on (SSO) and Just-In-Time (JIT) provisioning integrati
 
 ### Overview
 
-Validate your SSO federation and JIT provisioning integration to ensure that authentication, authorization, and user provisioning work as expected. The validation process includes testing from both Service Provider (SP) and Identity Provider (IdP) perspectives. The testing process confirms that users can sign in and sign out successfully. 
+Validate your SSO federation and JIT provisioning integration to ensure that authentication, authorization, and user provisioning work as expected. The validation process includes testing from both Service Provider (SP) and Identity Provider (IdP) perspectives. The testing process confirms that users can sign in and sign out successfully.
 
 If you skip the federation testing, it can lead to sign in failures, user provisioning issues, and a poor user experience.
 
 This guide outlines step-by-step instructions to validate your SSO and JIT provisioning integration of your web and mobile apps.
 
-> **Note**: This guide describes testing through a web browser. For mobile apps, you can use a fresh app install or clear the app's data to ensure a clean session.
+> **Note**: The steps in this guide use a web browser. For mobile apps, you can use a fresh app install or clear the app's data to ensure a clean session.
 
 ### Test the SP-initiated sign-in flow
 
-The SP flow is also known as the app-initiated flow. It’s a sign-in process that begins when a user starts directly from the app, rather than from the identity provider's dashboard.
+The SP flow is also known as the app-initiated flow. It’s a sign-in process that begins when a user starts directly from the app, rather than from the IdP's dashboard.
 
 To test the app-initiated sign-in flow, you need to execute the test cases as an end user persona. Use one of the test end users you previously [assigned to your integration](/docs/guides/submit-oin-app/openidconnect/main/#assign-test-users-to-your-integration-instance).
 
 The end user has two options for signing in using the SP-initiated flow:
 
-1. Direct URL: [Sign in with a direct URL](#sign-in-with-a-direct-url)
-2. Sign-in page: [Sign in with the sign-in page](#sign-in-with-the-sign-in-page)
+1. Direct URL: [Sign in using a direct URL](#sign-in-using-a-direct-url)
+2. Sign-in page: [Sign in using the sign-in page](#sign-in-using-the-sign-in-page)
 
 #### Sign in using a direct URL
 
@@ -55,7 +55,7 @@ To test the SP-initiated flow using a direct URL:
 1. Sign out of your app.
 1. Verify that you're able to sign out and are redirected to the sign-in page.
 
-#### Sign in with a sign-in page
+#### Sign in using the sign-in page
 
 > **Note**: Ensure that the app is integrated with an Okta tenant. This is required to enable SSO for end users and to allow admins to manage the access from the Admin Console.
 
