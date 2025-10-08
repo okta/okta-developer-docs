@@ -29,7 +29,7 @@ The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP
 
 #### User status in Okta Expression Language is GA in Preview
 
-You can now reference User Status in the Okta expression language. Group Rules can leverage user statuses to drive group membership. Use the `user.getInternalProperty('status')` function  to get the status of a user. See [Okta user ID and status](/docs/reference/okta-expression-language/#okta-user-id-and-status).
+You can now reference User Status in the Okta Expression Language. Group Rules can leverage user statuses to drive group membership. Use the `user.getInternalProperty('status')` function  to get the status of a user. See [Okta user ID and status](/docs/reference/okta-expression-language/#okta-user-id-and-status).
 <!--GROUP_RULES_CRITERIA_USER_STATUS OKTA-969724 -->
 
 #### Network zone restrictions for clients is GA in Preview
