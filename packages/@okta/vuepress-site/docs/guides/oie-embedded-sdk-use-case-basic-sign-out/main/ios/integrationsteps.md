@@ -32,3 +32,5 @@ IDXClient.Token.revoke(token: "access_token",
     }
 }
 ```
+## See also
+* [Validate SSO federation](/docs/guides/validate-federation/main/).

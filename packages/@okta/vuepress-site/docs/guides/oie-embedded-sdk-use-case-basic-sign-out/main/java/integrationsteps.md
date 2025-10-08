@@ -1,8 +1,8 @@
-### 1: Create a sign-out UI element
+### Create a sign-out UI element
 
 The first step is to create a link, button, or other similar UI element that allows the user to sign out of the app.
 
-### 2: Revoke the access token
+### Revoke the access token
 
 When the sign-out request is initiated, create the following flow:
 
@@ -35,6 +35,9 @@ When the sign-out request is initiated, create the following flow:
     ...
 ```
 
-### 3: Send the user to the signed-out page
+### Send the user to the signed-out page
 
 After the access token is revoked and the session is no longer valid, redirect the user to the signed-out page.
+
+## See also
+* [Validate SSO federation](/docs/guides/validate-federation/main/).
