@@ -36,7 +36,7 @@ This guide outlines step-by-step instructions to validate your SSO and JIT provi
 
 The SP flow is also known as the app-initiated flow. It’s a sign-in process that begins when a user starts directly from the app, rather than from the IdP's dashboard.
 
-To test the app-initiated sign-in flow, you need to execute the test cases as an end user persona. Use one of the test end users you previously [assigned to your integration](/docs/guides/submit-oin-app/openidconnect/main/#assign-test-users-to-your-integration-instance).
+To test the app-initiated sign-in flow, you need to execute the test cases as an end user. Use one of the test end users that you previously [assigned to your integration](/docs/guides/submit-oin-app/openidconnect/main/#assign-test-users-to-your-integration-instance).
 
 The end user has two options for signing in using the SP-initiated flow:
 
