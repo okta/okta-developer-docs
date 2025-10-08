@@ -3,7 +3,8 @@ title: Validate SSO federation
 excerpt: Validate your single sign-on (SSO) and Just-In-Time (JIT) provisioning integration.
 layout: Guides
 ---
-Validate your single sign-on (SSO) and Just-In-Time (JIT) provisioning integration.
+
+Learn how to validate your single sign-on (SSO) and Just-In-Time (JIT) provisioning integration, and test different sign-in flows.
 
 ---
 
