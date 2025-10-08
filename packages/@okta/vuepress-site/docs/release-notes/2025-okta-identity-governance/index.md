@@ -6,8 +6,19 @@ title: Okta Identity Governance API release notes 2025
 
 Okta Identity Governance is available for both Okta Classic and Identity Engine.
 
-## September
+## October
 
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [New System Log event](#new-system-log-event-1)| October 8, 2025 |
+| [Bugs fixed in 2025.10.0]()| October 8, 2025 |
+
+#### New System Log event
+
+The [`governance.settings.update`](https://developer.okta.com/docs/reference/api/event-types/?q=governance.settings.update) System Log event is triggered when super admins update the delegate settings to allow or block users from assigning their own delegate.
+<!-- OKTA-1005733 Preview date: Oct 8, 2025 -->
+
+## September
 
 ### Weekly release 2025.09.1
 
