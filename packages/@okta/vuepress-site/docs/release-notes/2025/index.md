@@ -15,6 +15,7 @@ title: Okta Classic Engine API release notes 2025
 | [Network zone restrictions for clients is GA in Preview](#network-zone-restrictions-for-clients-is-ga-in-preview) | October 8, 2025 |
 | [Okta Integration IdP type is GA in Production](#okta-integration-idp-type-is-ga-in-production) | October 8, 2025 |
 | [Behavior Detections for new ASN](#behavior-detections-for-new-asn) | October 8, 2025 |
+| [Developer documentation update in 2025.10.0](#developer-documentation-update-in-2025-10-0) | October 8, 2025 |
 
 #### Org2Org OIDC Sign-on mode is GA in Production
 
@@ -37,8 +38,11 @@ The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with
 #### Behavior Detections for new ASN
 
 Admins have been able to create behavior detections for IP, Velocity, Location, or Device. This new functionality introduces behavior detection on a new ASN (Autonomous System Number), based on the IP found in the request tied to the event. See [Add an ASN behavior](https://help.okta.com/okta_help.htm?id=asn-behavior-detection).
+<!-- OKTA-948028 BEHAVIOR_DETECTION_NEW_ASN -->
 
- <!-- OKTA-948028 BEHAVIOR_DETECTION_NEW_ASN -->
+#### Developer documentation update in 2025.10.0
+
+The [Create an API token](https://developer.okta.com/docs/guides/create-an-api-token/main/) guide has been moved under the **API Security** section of the **Guides** sidebar.
 
 ## September
 

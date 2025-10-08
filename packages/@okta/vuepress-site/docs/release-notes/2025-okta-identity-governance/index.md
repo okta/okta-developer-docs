@@ -8,10 +8,19 @@ Okta Identity Governance is available for both Okta Classic and Identity Engine.
 
 ## October
 
+### Monthly release 2025.10.0
+
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
+| [Entitlement history is Beta](#entitlement-history-is-beta)| September 10, 2025 |
 | [New System Log event](#new-system-log-event-1)| October 8, 2025 |
-| [Bugs fixed in 2025.10.0]()| October 8, 2025 |
+
+#### Entitlement history is Beta
+
+Admins can now access a user's entitlement history. This feature improves auditing and compliance tasks and enhances visibility for troubleshooting access issues. See [Retrieve an entitlement history](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Principal-Entitlements/#tag/Principal-Entitlements/operation/getPrincipalEntitlementsHistory) in the Principal Entitlements API.
+
+You can also access this feature from the Admin Console. See [View user entitlements](https://help.okta.com/okta_help.htm?type=oie&id=view-user-entitlements) in the product documentation.
+<!-- OKTA-992288 OKTA-992282 IGA_ENTITLEMENTS_HISTORY Preview-date: Sept 10, 2025 (as Beta) -->
 
 #### New System Log event
 

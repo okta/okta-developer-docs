@@ -20,8 +20,7 @@ title: Okta Identity Engine API release notes 2025
 | [Temporary Access Code authenticator is GA in Preview](#temporary-access-code-authenticator-is-ga-in-preview) | July 16, 2025 |
 | [Custom admin roles for ITP](#custom-admin-roles-for-itp-is-ga-in-production) | May 7, 2025 |
 | [Enrollment grace periods is GA in Preview](#enrollment-grace-periods-is-ga-in-preview) | May 21, 2025 |
-| [Aerial](#aerial) | October 8, 2025 |
-| [Bugs fixed in 2025.10.0](#bugs-fixed-in-2025-10-0) | October 8, 2025 |
+| [Developer documentation update in 2025.10.0](#developer-documentation-update-in-2025-10-0) | October 8, 2025 |
 
 #### Org2Org OIDC Sign-on mode is GA in Production
 
@@ -67,14 +66,9 @@ Today, when admins define an enrollment policy for a group, the entire group mus
 With Enrollment Grace Periods, end users can defer enrollment in new authenticators until an admin-defined deadline when enrollment becomes mandatory. This allows end users to enroll at a time convenient to them and allows for more graceful enrollment before enforcing new authenticator types in authentication policies. See [Authenticator enrollment policies](/docs/concepts/policies/#authenticator-enrollment-policies) and the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=1/settings/authenticators/enroll/gracePeriod&t=request).
 <!-- ENROLLMENT_POLICY_GRACE_PERIOD (OKTA-832949) preview date: May 21, 2025 -->
 
-#### Aerial
+#### Developer documentation update in 2025.10.0
 
-The default authorization server can no longer be renamed to `aerial`.
- <!-- OKTA-798863 -->
-
-#### Bugs fixed in 2025.10.0
-
-A call to the [Change the status of an org](https://developer.okta.com/docs/api/openapi/aerial/aerial/tag/Orgs/#tag/Orgs/operation/changeOrgStatus) API could set the parent org status to `INACTIVE`. (OKTA-688836)
+The [Create an API token](https://developer.okta.com/docs/guides/create-an-api-token/main/) guide has been moved under the **API Security** section of the **Guides** sidebar.
 
 ## September
 
