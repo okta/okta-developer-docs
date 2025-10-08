@@ -108,7 +108,7 @@ Use the [Labels](https://developer.okta.com/docs/api/iga/openapi/governance.api/
 
 Examples in this section assume that you're making the request with an OAuth 2.0 access token. See [Get an access token and make a request](https://developer.okta.com/docs/reference/rest/#get-an-access-token-and-make-a-request) for API requests from a user.
 
-> **Note:** You can't manage labels from the Admin Console. You can, however, use existing labels, created through the API, in the Admin Console for your governance tasks.
+> **Note:** You can't manage labels from the Admin Console. You can use existing labels, created through the API, in the Admin Console for your governance tasks.
 
 ### Create a label
 
