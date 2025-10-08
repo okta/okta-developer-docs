@@ -1176,7 +1176,6 @@ export const reference = [
             title: "Client-based rate limits",
             path: "/docs/reference/rl2-client-based/",
           },
-
           {
             title: "Monitoring and troubleshooting rate limits",
             path: "/docs/reference/rl2-monitor/",
