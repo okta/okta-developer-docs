@@ -21,11 +21,19 @@ Validate your single sign-on (SSO) and Just-In-Time (JIT) provisioning integrati
 
 ---
 
+### Overview
+
+Validate your SSO federation and JIT provisioning integration to ensure that authentication, authorization, and user provisioning work as expected. The validation process includes testing from both Service Provider (SP) and Identity Provider (IdP) perspectives. The testing process confirms that users can sign in and sign out successfully. 
+
+If you skip the federation testing, it can lead to sign in failures, user provisioning issues, and a poor user experience.
+
+This guide outlines step-by-step instructions to validate your SSO and JIT provisioning integration of your web and mobile apps.
+
 > **Note**: This guide describes testing through a web browser. For mobile apps, you can use a fresh app install or clear the app's data to ensure a clean session.
 
 ### Test the SP-initiated sign-in flow
 
-The Service Provider (SP) flow is also known as the app-initiated flow. It’s a sign-in process that begins when a user starts directly from the app, rather than from the identity provider's dashboard.
+The SP flow is also known as the app-initiated flow. It’s a sign-in process that begins when a user starts directly from the app, rather than from the identity provider's dashboard.
 
 To test the app-initiated sign-in flow, you need to execute the test cases as an end user persona. Use one of the test end users you previously [assigned to your integration](/docs/guides/submit-oin-app/openidconnect/main/#assign-test-users-to-your-integration-instance).
 
