@@ -86,6 +86,10 @@ Learn about tokens, claims, and managing user credentials:
 
 How a user signs out of an app and what happens next is as important as how they sign in. What happens when they click the sign-out button? What will they see when they return to an app after their session has timed out? See [Add a sign-out experience (Sign a user out of a SPA)](/docs/guides/auth-js-redirect/main/#add-a-sign-out-function).
 
+## Test your sign-in and sign-out flows
+
+Now that you have everything set up, test that your sign-in and sign-out flows work. See [Validate SSO federation](/docs/guides/validate-federation/main/).
+
 ## Go further
 
 Congratulations, your portal now signs users in and out. There are many ways to expand and customize the basic functionality that you've implemented so far.
