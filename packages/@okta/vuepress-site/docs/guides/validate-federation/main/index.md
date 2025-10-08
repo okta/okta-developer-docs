@@ -4,6 +4,7 @@ excerpt: Validate your single sign-on (SSO) and Just-In-Time (JIT) provisioning 
 layout: Guides
 ---
 Validate your single sign-on (SSO) and Just-In-Time (JIT) provisioning integration.
+
 ---
 
 #### Learning outcomes
@@ -17,12 +18,14 @@ Validate your single sign-on (SSO) and Just-In-Time (JIT) provisioning integrati
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * An app that uses SSO integration
 * Optional. An app integration that supports JIT provisioning, and a test user that isn't in your org or assigned to this app.
+
 ---
+
 > **Note**: This guide describes testing through a web browser. For mobile apps, you can use a fresh app install or clear the app's data to ensure a clean session.
 
 ### Test the SP-initiated sign-in flow
 
-The Service Provider (SP) flow (also known as the app-initiated flow) is a sign-in process that begins when a user starts directly from the app rather than from the identity provider's dashboard.
+The Service Provider (SP) flow is also known as the app-initiated flow. It’s a sign-in process that begins when a user starts directly from the app, rather than from the identity provider's dashboard.
 
 To test the app-initiated sign-in flow, you need to execute the test cases as an end user persona. Use one of the test end users you previously [assigned to your integration](/docs/guides/submit-oin-app/openidconnect/main/#assign-test-users-to-your-integration-instance).
 
@@ -33,7 +36,7 @@ The end user has two options for signing in using the SP-initiated flow:
 
 #### Sign in using a direct URL
 
-> **Note**: Ensure that the app is integrated with an Okta tenent.
+> **Note**: Ensure that the app is integrated with an Okta tenent. This is required to enable SSO for end users and to allow admins to manage the access from the Admin Console.
 
 To test the SP-initiated flow using a direct URL:
 
@@ -46,7 +49,7 @@ To test the SP-initiated flow using a direct URL:
 
 #### Sign in with a sign-in page
 
-> **Note**: Ensure that the app is integrated with an Okta tenant.
+> **Note**: Ensure that the app is integrated with an Okta tenant. This is required to enable SSO for end users and to allow admins to manage the access from the Admin Console.
 
 To test the SP-initiated flow using a sign-in page:
 
@@ -65,11 +68,10 @@ To test the SP-initiated flow using a sign-in page:
 1. Open an incognito window in your browser.
 1. Sign in to your Okta org as a user that has been assigned to the app integration instance.
 1. Click the icon with four boxes next to your name > **My end user dashboard**.
-1. Confirm your app tile appears on your End-User Dashboard .
-1. Click your app tile and confirm you can sign in to your application successfully.
-Sign out of the app.
+1. Confirm that your app tile appears on your End-User Dashboard.
+1. Click your app tile and confirm that you can sign in to your app successfully.
+1. Sign out of the app.
 1. Verify that you're able to sign out and are redirected to the sign-in page.
-
 
 ### Test JIT provisioning
 
@@ -80,7 +82,7 @@ To test JIT provisioning, you need to execute the test cases using two personas:
 Test JIT provisioning using either SSO flow:
 
 - SP-initiated SSO flow: [Test JIT provisioning using the SP-initiated flow](#test-jit-provisioning-using-the-sp-initiated-flow)
-- IdP SSO flow: [Test JIT provisioning using the IdP-initiated flow](#test-jit-provisioning-with-the-idp-flow)
+- IdP SSO flow: [Test JIT provisioning using the IdP-initiated flow](#test-jit-provisioning-using-the-idp-initiated-flow)
 
 #### Test JIT provisioning using the SP-initiated flow
 
@@ -95,7 +97,7 @@ To test JIT provisioning using the SP-initiated flow:
 
 1. Sign in to your org as an admin user, verify that the test user doesn't exist in your Okta org.
 1. Sign in to your app as an admin user, verify that your new test user doesn't exist in the app. Ensure that there's no user with the same unique attributes as your new test user.
-1. Sign in to your Okta org as  an admin user .
+1. Sign in to your Okta org as an admin user.
 1. Go to **Directory** > **People** and add the new test user in Okta. See [Add users manually](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) for complete instructions.
 1. Go to **Applications** > **Applications** > your app integration instance in the Admin Console.
 1. Click the **Assignments** tab, **Assign**, and then **Assign to People**.
@@ -125,7 +127,7 @@ To test JIT provisioning using the IdP-initiated flow:
 
 1. Sign in to your org as an admin user, verify that the test user doesn't exist in your Okta org.
 1. Sign in to your app as an admin user, verify that your new test user doesn't exist in the app. Ensure that there's no user with the same unique attributes as your new test user.
-1. Sign in to your Okta org as  an admin user .
+1. Sign in to your Okta org as an admin user.
 1. Go to **Directory** > **People** and add the new test user in Okta. See [Add users manually](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) for complete instructions.
 1. Go to **Applications** > **Applications** > your app integration instance in the Admin Console.
 1. Click the **Assignments** tab, **Assign**, and then **Assign to People**.
@@ -140,7 +142,6 @@ To test JIT provisioning using the IdP-initiated flow:
 1. Sign out of your app.
 1. Verify that you're able to sign out and are redirected to the sign-in page.
 1. Verify that the new user was created in your app with supported attributes. These attributes are passed from the Okta profile, such as the user's name and email.
-
 
 ## See also
 [Submit an integration with the OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/)
