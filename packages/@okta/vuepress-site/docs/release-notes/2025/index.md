@@ -42,7 +42,7 @@ Admins have been able to create behavior detections for IP, Velocity, Location, 
 
 #### Developer documentation update in 2025.10.0
 
-The [Create an API token](https://developer.okta.com/docs/guides/create-an-api-token/main/) guide has been moved under the **API Security** section of the **Guides** sidebar.
+The [Create an API token](https://developer.okta.com/docs/guides/create-an-api-token/main/) guide has been moved from the **Sign users in** > **Basics** section to the **API Security** section of the **Guides** sidebar.
 
 ## September
 
