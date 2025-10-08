@@ -136,7 +136,6 @@ To test JIT provisioning using the IdP-initiated flow:
 
 1. Sign in to your org as an admin user, verify that the test user doesn't exist in your Okta org.
 1. Sign in to your app as an admin user, verify that your new test user doesn't exist in the app. Ensure that there's no user with the same unique attributes as your new test user.
-1. Sign in to your Okta org as an admin user.
 1. Go to **Directory** > **People** and add the new test user in Okta. See [Add users manually](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) for complete instructions.
 1. Go to **Applications** > **Applications** > your app integration instance in the Admin Console.
 1. Click the **Assignments** tab, **Assign**, and then **Assign to People**.
