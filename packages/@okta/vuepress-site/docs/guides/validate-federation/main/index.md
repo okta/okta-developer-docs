@@ -25,7 +25,7 @@ Validate your single sign-on (SSO) and Just-In-Time (JIT) provisioning integrati
 
 Validate your SSO federation and JIT provisioning integration to ensure that authentication, authorization, and user provisioning work as expected. The validation process includes testing from both Service Provider (SP) and Identity Provider (IdP) perspectives. The testing process confirms that users can sign in and sign out successfully.
 
-If you skip the federation testing, it can lead to sign in failures, user provisioning issues, and a poor user experience.
+If you skip the federation testing, it can lead to sign in failures, user provisioning issues, and an inconsistent user experience.
 
 This guide outlines step-by-step instructions to validate your SSO and JIT provisioning integration of your web and mobile apps.
 
