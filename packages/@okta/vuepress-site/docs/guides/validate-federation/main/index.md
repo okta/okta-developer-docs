@@ -36,7 +36,7 @@ This guide outlines step-by-step instructions to validate your SSO and JIT provi
 
 The SP flow is also known as the app-initiated flow. It’s a sign-in process that begins when a user starts directly from the app, rather than from the IdP's dashboard.
 
-To test the app-initiated sign-in flow, you need to execute the test cases as an end user. Use one of the test end users that you previously [assigned to your integration](/docs/guides/submit-oin-app/openidconnect/main/#assign-test-users-to-your-integration-instance).
+To test the SP-initiated sign-in flow, you need to execute the test cases as an end user. Use one of the test end users that you previously [assigned to your integration](/docs/guides/submit-oin-app/openidconnect/main/#assign-test-users-to-your-integration-instance).
 
 The end user has two options for signing in using the SP-initiated flow:
 
@@ -76,7 +76,7 @@ To test the SP-initiated flow using a sign-in page:
 
 1. Open an incognito window in your browser.
 1. Sign in to your Okta org as a user that has been assigned to the app integration instance.
-1. Click the icon with four boxes next to your name > **My end user dashboard**.
+1. Click the icon with four boxes next to your name, and click **My end user dashboard**.
 1. Confirm that your app tile appears on your End-User Dashboard.
 1. Click your app tile and confirm that you can sign in to your app successfully.
 1. Sign out of the app.
