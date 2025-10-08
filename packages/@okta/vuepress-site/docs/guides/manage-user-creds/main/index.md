@@ -48,11 +48,11 @@ The Okta Client SDKs are designed as a modular library ecosystem to ensure archi
 
 The SDK's token management system is built on several key components that work together to provide a seamless and secure developer experience.
 
-* `Credential`: This is the main convenience class for interacting with tokens. It acts as a runtime wrapper for a * `Token` object, exposing simplified methods for the entire token lifecycle. Each `Credential` instance is uniquely tied to a corresponding `Token`.
+* `Credential`: This is the main convenience class for interacting with tokens. It acts as a runtime wrapper for a `Token` object, exposing simplified methods for the entire token lifecycle. Each `Credential` instance is uniquely tied to a corresponding `Token`.
 * `Token`: An immutable data object representing the full set of OAuth 2.0 tokens (access token, refresh token, ID token) received from the authorization server. This object persists across app launches to keep your user signed in.
 * `TokenStorage`: An interface responsible for the secure Create, Read, Update, and Delete (CRUD) operations of `Token` objects.
-* `CredentialDataSource`: A factory that creates and caches `Credential` instances, ensuring only one unique instance exists at runtime for any given `Token`.
-* `CredentialCoordinator`: The central orchestrator that manages interactions between all the above components to ensure data consistency.
+* `CredentialDataSource`: A factory that creates and caches `Credential` instances, ensuring that only one unique instance exists at runtime for any given `Token`.
+* `CredentialCoordinator`: The central orchestrator that manages interactions between all of the above components to ensure data consistency.
 
 ## Store credentials
 
@@ -64,7 +64,7 @@ After a user successfully signs in, you receive a `Token` object. The first step
 ### JavaScript example: Store a token
 
 ```javascript
-    // Assume 'newToken' is a Token object received after a successful sign-in
+    // Assume 'newToken' is a Token object received after a successful user sign in
     try {
     // Store the token with an optional tag
       const credential = await Credential.store(newToken, ['service:purchase']);
@@ -98,7 +98,7 @@ For most single-user apps, you simplify the development process significantly by
     // User is signed in. Proceed to the main app view.
         showUserProfile(credential);
     } else {
-    // No default user. Show the sign-in screen.
+    // No default user. Show the sign-in page.
         showLoginScreen();
     }
 
@@ -169,7 +169,7 @@ Access tokens are short-lived for security reasons. The SDK simplifies the proce
 
         } catch (error) {
             console.error('API request failed. User may need to re-authenticate.', error);
-            // If refresh fails (e.g., refresh token is invalid), redirect to sign-in
+            // If refresh fails (for example, refresh token is invalid), redirect the user to sign in
             showLoginScreen();
         }
     }
@@ -179,7 +179,7 @@ Access tokens are short-lived for security reasons. The SDK simplifies the proce
 
 When a user signs out or a session needs to be terminated, it's critical to properly remove the credentials from both the client and the server.
 
-* `revoke()`: This function uses the Okta [revocation endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/revokeCustomAS) to invalidate the tokens on the authorization server. If successful, it automatically removes the credential from local storage. By default, this function revokes both the access and refresh tokens. This is the most secure way to sign out a user.
+* `revoke()`: This function uses the Okta [revocation endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/revokeCustomAS) to invalidate the tokens on the authorization server. If successful, it automatically removes the credential from local storage. By default, this function revokes both the access and refresh tokens. This is the most secure way to sign a user out.
 * `remove()`: This function only deletes the credential from the client-side `TokenStorage`. It doesn't invalidate the tokens on the server, and therefore poses a security risk if the tokens were compromised. Use this with caution.
 * `SessionLogoutFlow()` or `signOut()`: For browser-based flows that create an Okta session cookie, you may need a specific sign-out function to clear the server-side session cookies in addition to revoking tokens.
 
@@ -192,13 +192,13 @@ When a user signs out or a session needs to be terminated, it's critical to prop
             await credential.revoke();
             console.log('User signed out and tokens revoked.');
 
-            // The credential is also automatically removed from local storage.
-            // Now, redirect to the sign-in page.
+            // The credential is also automatically removed from local storage
+            // Now, redirect to the sign-in page
             redirectTo('/signin');
 
         } catch (error) {
             console.error('Error during sign-out:', error);
-            // Even if server revocation fails, ensure local state is cleared and redirect
+            // Even if server revocation fails, ensure that local state is cleared and redirect
             await credential.remove(); // Failsafe local removal
             redirectTo('/signin');
         }
