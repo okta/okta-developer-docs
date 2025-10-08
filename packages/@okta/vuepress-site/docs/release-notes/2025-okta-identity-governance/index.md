@@ -13,7 +13,7 @@ Okta Identity Governance is available for both Okta Classic and Identity Engine.
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Entitlement history is Beta](#entitlement-history-is-beta)| September 10, 2025 |
-| [New System Log event](#new-system-log-event-1)| October 8, 2025 |
+| [New governance setting System Log event](#new-governance-setting-system-log-event)| October 8, 2025 |
 
 #### Entitlement history is Beta
 
@@ -22,7 +22,7 @@ Admins can now access a user's entitlement history. This feature improves auditi
 You can also access this feature from the Admin Console. See [View user entitlements](https://help.okta.com/okta_help.htm?type=oie&id=view-user-entitlements) in the product documentation.
 <!-- OKTA-992288 OKTA-992282 IGA_ENTITLEMENTS_HISTORY Preview-date: Sept 10, 2025 (as Beta) -->
 
-#### New System Log event
+#### New governance setting System Log event
 
 The [`governance.settings.update`](https://developer.okta.com/docs/reference/api/event-types/?q=governance.settings.update) System Log event is triggered when super admins update the delegate settings to allow or block users from assigning their own delegate.
 <!-- OKTA-1005733 Preview date: Oct 8, 2025 -->
