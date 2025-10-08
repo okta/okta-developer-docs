@@ -12,9 +12,12 @@ Okta Privileged Access (OPA) is available for both Okta Classic and Identity Eng
 
 | Change | Expected in Preview | Expected in Production |
 |--------|--------------------------|-----------------------------|
-| [More account details for end users](#more-account-details-for-end-users) | October 9, 2025 |  |
 | [Random password generator for unmanaged SaaS accounts is GA](#random-password-generator-for-unmanaged-saas-accounts-is-ga) | September 18, 2025 | September 29, 2025 |
+<!--
+| [More account details for end users](#more-account-details-for-end-users) | October 9, 2025 |  |
+-->
 
+<!--
 #### More account details for end users
 
 End users now have access to more account and rotation details from the Active Directory account details page, such as the `sAMAccountName`, the security identifier (`sid`), and password rotation statistics.
@@ -24,7 +27,7 @@ See the following changes to the response schema of [Retrieve an Active Director
 * Additional properties in the `account` object
 * New `last_checked_out_by` property in the `checkout_details` object
 
-<!-- OKTA-976835 pam_active_directory_enduser_account_details, Preview date: Oct 9, 2025 -->
+-- OKTA-976835 pam_active_directory_enduser_account_details, Preview date: Oct 9, 2025 -->
 
 #### Random password generator for unmanaged SaaS accounts is GA
 
