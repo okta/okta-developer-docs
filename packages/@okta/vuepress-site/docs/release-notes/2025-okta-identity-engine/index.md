@@ -39,7 +39,7 @@ You can now specify an allowlist or denylist network zone for each client to enh
 
 #### Okta Integration IdP type is GA in Production
 
-The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with secure defaults. See [Identity Providers](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&path=type&t=response)
+The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with secure defaults. See [Identity Providers](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&path=type&t=response).
 <!-- OKTA_INTEGRATION_IDP_TYPE (OKTA-949786) -->
 
 #### Behavior Detections for new ASN
@@ -51,7 +51,7 @@ Admins have been able to create behavior detections for IP, Velocity, Location, 
 
 The new Temporary Access Code (TAC) authenticator allows admins to generate temporary codes that let users authenticate in onboarding, account recovery, and other temporary access scenarios. This authenticator enhances security in these scenarios by granting users access to their orgs without having to use their usual authenticators.
 
-To configure the authenticator with Okta APIs, see [Temporary access code authenticator integration guide](https://developer.okta.com/docs/guides/authenticators-tac-authenticator/main/index.md), and to configure it in the Admin Console, see [Configure the temporary access code authenticator](https://help.okta.com/okta_help.htm?type=oie&id=temporary-access-code).
+To configure the authenticator with Okta APIs, see [Temporary access code authenticator integration guide](/docs/guides/authenticators-tac-authenticator/main/), and to configure it in the Admin Console, see [Configure the temporary access code authenticator](https://help.okta.com/okta_help.htm?type=oie&id=temporary-access-code).
 <!-- TEMPORARY_ACCESS_CODE OKTA-944116 preview date: July 16, 2025 -->
 
 #### Custom admin roles for ITP is GA in Production
