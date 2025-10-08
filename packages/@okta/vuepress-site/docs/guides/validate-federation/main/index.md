@@ -72,7 +72,7 @@ To test the SP-initiated flow using a sign-in page:
 
 ### Test the IdP-initiated sign-in flow
 
-> **Note**: This section is optional. Follow these steps only if your app supports the IdP-initiated sign-inflow.
+> **Note**: This section is optional. Follow these steps only if your app supports the IdP-initiated sign-in flow.
 
 1. Open an incognito window in your browser.
 1. Sign in to your Okta org as a user that has been assigned to the app integration instance.
