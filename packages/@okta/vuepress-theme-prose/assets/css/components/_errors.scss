@@ -25,15 +25,19 @@
   align-items: center;
 
   .possible-causes {
-    margin-top: 12px;
+    margin-top: -12px !important;
     margin-bottom: 12px;
+  }
+
+  .possible-causes ul {
+    padding: 0 0 0 1rem;
   }
 
   .errors--leader {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 100px 0 12px;
+    margin: 100px 0 100px;
   }
 
   .errors--title {

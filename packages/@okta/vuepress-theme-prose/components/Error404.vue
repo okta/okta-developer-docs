@@ -17,11 +17,10 @@
       <div class="error404--container">
         <div class="errors--text">
           <div class="errors--section-paragraph">
-            The page you requested is unavailable. It may have been moved, removed, or is no longer valid.
+            The page you requested is unavailable. It may have been moved, removed, or is no longer valid. A few possible causes could be:
           </div>
 
           <div class="errors--section-paragraph possible-causes">
-            Possible causes:
             <ul>
               <li>
                 <span class="errors--section-paragraph-heading">Truncated URL:</span> Some email clients may break links across lines. Copy and paste the full URL into your browser.
