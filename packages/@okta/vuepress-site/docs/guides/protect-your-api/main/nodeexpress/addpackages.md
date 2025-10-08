@@ -4,4 +4,4 @@ The [Okta JWT Verifier](https://www.npmjs.com/package/@okta/jwt-verifier) librar
 npm install @okta/jwt-verifier
 ```
 
-> **Note:** All Okta JS libraries are hosted on [npm](https://www.npmjs.org/).
+> **Note:** All Okta JS libraries are hosted on [npm](https://www.npmjs.com/).
