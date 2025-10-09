@@ -5,7 +5,7 @@ meta:
     content: Learn about how to securely manage user credentials using the Okta Client SDK.
 ---
 
-Securely manage your tokens using the Okta Client SDK, which provides a robust token management system designed to handle complex scenarios.
+Securely manage your tokens using the Okta JavaScript Client SDK, which provides a robust token management system designed to handle complex scenarios.
 
 ---
 
@@ -18,7 +18,7 @@ Securely manage your tokens using the Okta Client SDK, which provides a robust t
 
 #### What you need
 
-[The Okta Client SDK configured for your app](link to SDK)
+[The Okta JavaScript Client SDK configured for your app](link to SDK)
 
 ---
 
@@ -33,7 +33,7 @@ After the user (or other identity) is authenticated within an app, you must mana
 * Ensure that it's correctly refreshed as required.
 * Remove it after reaching expiration or a direct deletion request.
 
-The Okta Client SDK provides a robust token management system designed to handle complex scenarios, such as multi-threaded access and data race conditions. This allows you to focus on your app's features rather than building a complex token management system from scratch.
+The Okta JavaScript Client SDK provides a robust token management system designed to handle complex scenarios, such as multi-threaded access and data race conditions. This allows you to focus on your app's features rather than building a complex token management system from scratch.
 
 ### Okta Client SDK design principles
 
@@ -209,12 +209,12 @@ When a user signs out or a session needs to be terminated, it's critical to prop
 
 Use the following key recommendations for secure token management:
 
-* Always use the [Authorization Code Flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/).
-* Use [short-lived access tokens](/docs/guides/oie-embedded-common-refresh-tokens/-/main/).
-* Use and rotate [refresh tokens](/docs/guides/refresh-tokens/main/#refresh-token-rotation).
+* Always use the <a href="https://developer.okta.com/docs/guides/implement-grant-type/authcodepkce/main/" target="_blank">Authorization Code Flow with PKCE</a>.
+* Use <a href="https://developer.okta.com/docs/guides/oie-embedded-common-refresh-tokens/-/main/" target="_blank">short-lived access tokens</a>.
+* Use and rotate <a href="https://developer.okta.com/docs/guides/refresh-tokens/main/#refresh-token-rotation/" target="_blank">refresh tokens</a>.
 * Implement robust XSS and CSRF protections.
-* Always [revoke tokens](/docs/guides/revoke-tokens/main/) when a user signs out.
-* Register a [custom domain URL for your Okta org](/docs/guides/custom-url-domain/main/) to unlock branding capabilities and simplify session management.
+* Always <a href="https://developer.okta.com/docs/guides/revoke-tokens/main/" target="_blank">revoke tokens</a> when a user signs out.
+* Register a <a href="https://developer.okta.com/docs/guides/custom-url-domain/main/" target="_blank">custom domain URL for your Okta org</a> to unlock branding capabilities and simplify session management.
 * To mitigate risk and ensure proper access token use:
-  * Configure APIs with specific [authorization server](/docs/guides/customize-authz-server/main/) audiences, for example, `api.company.com/product1` instead of the base `api.company.com`.
-  * Use [granular scopes](/docs/guides/customize-authz-server/main/#create-scopes), for example, `com.okta.product1.admin` instead of a generic administrator scope.
+  * Configure APIs with specific <a href="https://developer.okta.com/docs/guides/customize-authz-server/main/" target="_blank">authorization server</a> audiences, for example, `api.company.com/product1` instead of the base `api.company.com`.
+  * Use <a href="https://developer.okta.com/docs/guides/customize-authz-server/main/#create-scopes" target="_blank">granular scopes</a>, for example, `com.okta.product1.admin` instead of a generic administrator scope.
