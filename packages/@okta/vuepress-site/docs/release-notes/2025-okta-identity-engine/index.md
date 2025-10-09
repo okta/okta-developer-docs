@@ -68,9 +68,9 @@ With Enrollment Grace Periods, end users can defer enrollment in new authenticat
 
 #### Developer documentation update in 2025.10.0
 
-* The new [Validate SSO Federation](/docs/guides/validate-federation/main/) guide explains how to validate your single sign-on (SSO) and Just-In-Time (JIT) provisioning integration, and then test different sign-in flows.
+* The new [Validate SSO Federation](/docs/guides/validate-federation/) guide explains how to validate your single sign-on (SSO) and Just-In-Time (JIT) provisioning integration, and then test different sign-in flows.
 
-* The [Create an API token](/docs/guides/create-an-api-token/main/) guide has been moved from the **Sign users in** > **Basics** section to the **API Security** section of the **Guides** sidebar.
+* The [Create an API token](/docs/guides/create-an-api-token/) guide has been moved from the **Sign users in** > **Basics** section to the **API Security** section of the **Guides** sidebar.
 
 ## September
 
