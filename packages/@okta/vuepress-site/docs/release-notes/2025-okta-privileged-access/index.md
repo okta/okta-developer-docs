@@ -23,6 +23,7 @@ See the following changes to the response schema of [Retrieve an Active Director
 * New `rotation` object
 * Additional properties in the `account` object
 * New `last_checked_out_by` property in the `checkout_details` object
+
 <!-- OKTA-976835 OKTA-1031370 pam_active_directory_enduser_account_details, Preview date: Oct 9, 2025 -->
 
 #### Random password generator for unmanaged SaaS accounts is GA
