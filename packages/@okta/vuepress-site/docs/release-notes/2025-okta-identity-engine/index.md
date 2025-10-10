@@ -13,7 +13,7 @@ title: Okta Identity Engine API release notes 2025
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Org2Org OIDC Sign-on mode is GA in Production](#org2org-oidc-sign-on-mode-is-ga-in-production) | October 8, 2025 |
-| [User status in Okta Expression Language is GA in Preview](#user-status-in-okta-expression-language-is-ga-in-preview) | October 8, 2025 |
+| [User status in Okta Expression Language is GA in Production](#user-status-in-okta-expression-language-is-ga-in-production) | October 8, 2025 |
 | [Network zone restrictions for clients is GA in Preview](#network-zone-restrictions-for-clients-is-ga-in-preview) | October 8, 2025 |
 | [Okta Integration IdP type is GA in Production](#okta-integration-idp-type-is-ga-in-production) | October 8, 2025 |
 | [Behavior Detections for new ASN](#behavior-detections-for-new-asn) | October 8, 2025 |
