@@ -1,8 +1,8 @@
 ## Create an Okta account management policy rule
 
-Use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) to create a rule that requires users to be verified by the IDV vendor when they enroll a new authenticator. Create your own `POST` request body or copy the [example request](#okta-account-management-policy-rule-example-request) and input your values.
+Use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) to create a rule that requires users to be verified by your custom IDV vendor when they enroll a new authenticator. Create your own `POST` request body or copy the [example request](#okta-account-management-policy-rule-example-request) and input your values.
 
-Ensure that you’ve created a user account and group for that user. For example, add the user to a group called “Persona IDV test group”.
+Ensure that you’ve created a group for users who you want to verify with your custom IDV vendor. For example, create a group called “Custom IDV test group”.
 
 > **Note:** To add a rule using the Admin Console, see [Edit the Okta account management policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-edit-oamp).
 
@@ -137,3 +137,11 @@ Ensure that you’ve created a user account and group for that user. For example
     "type": "ACCESS_POLICY"
 }
 ```
+
+## Test the integration
+
+After you've configured your custom IDV vendor and created the Okta account management policy rule, you can test the integration.
+
+Testing the integration can depend on your IDV vendor. Depending on your vendor, you might be able to use sandbox environment to complete the verification. See your IDV vendor's documentation for more information about testing the integration.
+
+However, there's a simple way to test if the Okta account management policy and IDV vendor are set up correctly in your org. Try to enroll an authenticator using your test user. If everything is set up correctly, that user is prompted to verify their identity with the IDV vendor before they can complete the enrollment.

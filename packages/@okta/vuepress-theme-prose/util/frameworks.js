@@ -28,6 +28,7 @@ const COMMON_NAME_TO_FANCY_NAME = {
   persona: 'Persona',
   incode: 'Incode',
   clear: 'CLEAR Verified',
+  customidv: 'Custom IDV',
   react: 'React',
   preact: 'Preact',
   vue: 'Vue.js',

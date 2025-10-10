@@ -137,3 +137,19 @@ Ensure that you’ve created a user account and group for that user. For example
     "type": "ACCESS_POLICY"
 }
 ```
+
+## Test the integration
+
+You now have a <StackSnippet snippet="idp" inline /> project in a Sandbox environment. You can configure different IDV settings in the Sandbox environment and perform test verifications to see how your IDV flow works.
+
+1. Go to your <StackSnippet snippet="idp" inline /> dashboard.
+1. Go to **Projects** and select your project.
+1. Click **Preview**.
+1. Click **Generate** to create a link to a test verification session.
+1. Open the generated link in a new browser tab.
+
+You can use the link to test the IDV flow or you can share it with others. In the Sandbox environment, no actual verifications are performed. You can use test credentials to complete the verification. The test verification doesn't interact with Okta so you can only test the IDV flow.
+
+To test the integration with Okta, you must use a real user account with verifiable user information in your org and use a Production environment project. For example, if your IDV flow requires a government-issued ID, your user account must have an ID that matches that requirement.
+
+When you're ready to go live with your CLEAR project, you can publish your project to the Production environment. See [Going Live with CLEAR](http://docs.clearme.com/docs/going-live-with-clear).

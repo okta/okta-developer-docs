@@ -2077,6 +2077,11 @@ h1 {
 
   background-image: url("/img/icons/idv_incode.svg");
 }
+.icon.customidv::before {
+  content: "";
+
+  background-image: url("/img/icons/idv_custom.svg");
+}
 .oktatookta-16::before {
   content: $oktatookta;
 

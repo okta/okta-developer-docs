@@ -1,1 +1,0 @@
-See [Sandbox vs. Production Environments](https://help.withpersona.com/articles/6I2kGhfPvSuUjYq4z6tpmB/).

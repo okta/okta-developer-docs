@@ -5,19 +5,7 @@ meta:
     content: Okta supports identity verification with external enterprise identity verification vendors. Get an overview of the process and prerequisites, as well as the setup instructions.
 ---
 
-## <StackSnippet snippet="idp" inline />
-
-This document explains how to configure <StackSnippet snippet="idp" inline />, an identity verification (IDV) vendor, as an identity provider (IdP) for your app. You can configure <StackSnippet snippet="idp" inline /> as an IdP in your org by creating an account with <StackSnippet snippet="idp" inline />, adding it as an IdP in Okta, and then testing the configuration.
-
-> **Note:** <StackSnippet snippet="idp" inline /> works as an IDV vendor, but is listed as an IdP in the Admin Console. This guide refers to <StackSnippet snippet="idp" inline /> as an IDV vendor.
-
-Okta manages the connection to the IDV vendor for your app, sitting between your app and the vendor that verifies your users. When a user signs in, you can verify their identity by having them submit a proof of identity to the IDV vendor.
-
----
-
 <StackSnippet snippet="learningoutcome" inline />
-
----
 
 ## What is an IDV vendor
 
@@ -39,7 +27,7 @@ Because of its stricter verification, you might only use an IDV vendor for sensi
 
 ## Alternate use cases
 
-You can use <StackSnippet snippet="idp" inline /> to verify your user identities in different scenarios. Use the following Okta Expression Language expressions for different scenarios.
+You can use your IDV vendor to verify your user identities in different scenarios. Use the following Okta Expression Language expressions for different scenarios.
 
 > **Note:** You can use the [Okta account management policy rule](#create-an-okta-account-management-policy-rule) without any expression. If you don't use any expression in the rule then your user is prompted to verify their identity when the following events occur:
 >
@@ -58,5 +46,3 @@ When you test the integration, if you’re not redirected to the IDV flow, revie
 * Review the Okta account management policy rule. Ensure that you’ve added the correct Okta Expression Language expression and that the `verificationMethod` type is set to `ID_PROOFING`.
 
 * Ensure that your user has the authenticators that they're allowed to enroll.
-
-* Ensure that your API key was created in the sandbox environment.

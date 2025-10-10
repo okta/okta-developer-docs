@@ -25,6 +25,7 @@ Not sure what an identity provider is? See [External Identity Providers](/docs/c
   <Card href="/docs/guides/add-id-verification-idp/persona/main" headerImage="/img/idp-logos/idv_persona.svg">Persona</Card>
   <Card href="/docs/guides/add-id-verification-idp/clear/main" headerImage="/img/idp-logos/idv_clear.svg">CLEAR Verified</Card>
   <Card href="/docs/guides/add-id-verification-idp/incode/main" headerImage="/img/idp-logos/idv_incode.svg">Incode</Card>
+  <Card href="/docs/guides/add-id-verification-idp/customidv/main" headerImage="/img/idp-logos/idv_custom.svg">Custom IDV</Card>
 </Cards>
 
 ## Social Logins
