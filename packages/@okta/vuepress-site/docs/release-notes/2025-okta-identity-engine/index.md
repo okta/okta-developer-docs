@@ -27,7 +27,7 @@ title: Okta Identity Engine API release notes 2025
 The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP. This sign-on mode reduces the complexity of configuration between the Org2Org app and the target org, and takes advantage of modern security features of OIDC. See [Secure API connections between orgs with OAuth 2.0](/docs/guides/secure-oauth-between-orgs/main/).
 <!-- OKTA-1010571 FF ORG2ORG_ENABLE_OIDC_SOM -->
 
-#### User status in Okta Expression Language is GA in Preview
+#### User status in Okta Expression Language is GA in Production
 
 You can now reference User Status in the Okta Expression Language. Group Rules can leverage user statuses to drive group membership. Use the `user.getInternalProperty('status')` function  to get the status of a user. See [Okta user ID and status](/docs/reference/okta-expression-language/#okta-user-id-and-status).
 <!--GROUP_RULES_CRITERIA_USER_STATUS OKTA-969724 -->
