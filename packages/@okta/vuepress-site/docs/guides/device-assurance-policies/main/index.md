@@ -162,7 +162,7 @@ curl -X PUT "https://${yourOktaDomain}/api/v1/policies/${policyId}/rules" \
 
 ## Check the System Log for device assurance events
 
-Send a GET request to the `/api/v1/logs/` endpoint using one of the following Event Types:
+Send a GET request to the `/api/v1/logs/` endpoint using one of the following event types:
 
 * `device.assurance.policy.add`: Use this event to monitor when a device assurance policy is created.
 * `device.assurance.policy.delete`: Use this event to monitor when a device assurance policy is deleted.
