@@ -32,7 +32,7 @@ You can now specify an allowlist or denylist network zone for each client to enh
 
 #### Okta Integration IdP type is GA in Production
 
-The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with secure defaults. See [Identity Providers](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&path=type&t=response)
+The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with secure defaults. See [Identity Providers](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&path=type&t=response).
 <!-- OKTA_INTEGRATION_IDP_TYPE (OKTA-949786) -->
 
 #### Behavior Detections for new ASN
