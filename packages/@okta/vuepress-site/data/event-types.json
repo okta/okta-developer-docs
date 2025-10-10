@@ -1,6 +1,6 @@
 {
-  "release" : "2025.09.1",
-  "build" : "2025.09.1-begin-149-g85c40017cb22",
+  "release" : "2025.10.1",
+  "build" : "2025.10.1-begin-134-g95ec1798a9ad",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -97,9 +97,6 @@
   }, {
     "id" : "device-platform",
     "name" : "Device Platform"
-  }, {
-    "id" : "device-signal-platform",
-    "name" : "Device Assurance"
   }, {
     "id" : "device-mfa",
     "name" : "Device MFA"
@@ -220,6 +217,12 @@
   }, {
     "id" : "isv-submissions",
     "name" : "ISV Submissions"
+  }, {
+    "id" : "isv-orgs-experience",
+    "name" : "ISV Orgs Experience"
+  }, {
+    "id" : "isv-catalog-and-telemetry",
+    "name" : "ISV Catalog and Telemetry"
   }, {
     "id" : "okta-access-gateway-and-agents",
     "name" : "Okta Access Gateway and Agents"
@@ -841,6 +844,10 @@
     "description" : "",
     "tags" : [ ]
   }, {
+    "id" : "device-access",
+    "description" : "",
+    "tags" : [ ]
+  }, {
     "id" : "device-mfa",
     "description" : "",
     "tags" : [ ]
@@ -1026,6 +1033,10 @@
     "tags" : [ ]
   }, {
     "id" : "dr",
+    "description" : "",
+    "tags" : [ ]
+  }, {
+    "id" : "bot-protection",
     "description" : "",
     "tags" : [ ]
   }, {
@@ -8560,6 +8571,24 @@
         "changeDetails" : [ "GovernancePrincipalSettingsChangeDetailsEntry" ]
       }
     }, {
+      "id" : "governance.settings.update",
+      "category" : "id-fabric",
+      "description" : "Org governance settings updated. This event can be used to audit governance settings updates or trigger downstream automation that depends on governance settings updates. An example of this event is when an admin configures whether end users can assign a delegate for approvals and reviews.",
+      "info" : {
+        "created" : "2025-08-25",
+        "release" : "2025.10.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "access", "certification", "event-hook-eligible" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ "GovernanceSettingsChangeDetailsEntry" ]
+      }
+    }, {
       "id" : "group.application_assignment.add",
       "category" : "lca",
       "description" : "Add assigned application to group.",
@@ -13654,6 +13683,42 @@
         "changeDetails" : [ ]
       }
     }, {
+      "id" : "security.bot_protection.settings.update",
+      "category" : "essential-security",
+      "description" : "The bot protection settings for detection or enforcement were updated. Indicates a change to bot protection settings including detection threshold, protected flows, and the enforcement action.",
+      "info" : {
+        "created" : "2025-09-23",
+        "release" : "2025.10.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "bot-protection", "security" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ "BotProtectionChangeDetailsEntry" ]
+      }
+    }, {
+      "id" : "security.bot_protection.status.update",
+      "category" : "essential-security",
+      "description" : "The bot protection status was updated to monitoring, enforced, or disabled mode. Indicates a change in the bot protection status to being enabled in monitoring/enforced mode or disabled.",
+      "info" : {
+        "created" : "2025-09-23",
+        "release" : "2025.10.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "bot-protection", "security" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ "BotProtectionChangeDetailsEntry" ]
+      }
+    }, {
       "id" : "security.breached_credential.detected",
       "category" : "adaptive",
       "description" : "A credential, such as a password, which is associated with a known breach was used during an authentication flow. Used to identify users for whom credential rotation or other risk mitigation is necessary. The actor is the user with the breached credential. For Identity Engine, a target will indicate the specific credential associated with the breach. The outcome for this event will always be SUCCESS with a severity level of WARN. If breached credential protection is enabled, auser.session.clear will also be fired. These two events can be correlated by the Request ID.",
@@ -15991,7 +16056,7 @@
         "debugData" : "SystemDebugData",
         "actor" : null,
         "targets" : [ "EmailDomainResourceDetails" ],
-        "changeDetails" : [ ]
+        "changeDetails" : [ "EmailDomainChangeDetailsEntry" ]
       }
     }, {
       "id" : "system.email_domain.verify",
@@ -19214,6 +19279,42 @@
         "actor" : null,
         "targets" : [ "DeviceTrustResourceDetails" ],
         "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "user.device_session.end",
+      "category" : "device-access",
+      "description" : "User ended a device session. This event is fired when a user logs out or locks their desktop. This may be useful to audit when the lifecycle of a given device session has ended.",
+      "info" : {
+        "created" : "2025-09-24",
+        "release" : "2026.01.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "device-access", "oie-only" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "user.device_session.start",
+      "category" : "device-access",
+      "description" : "User established a device session. This event may be used to identify users which are using Device-Bound SSO. This may be useful to audit when a user established their device session, either at desktop logon or after a successful authentication in the browser. After the device session is established, the resultant deviceSessionId will appear in the authenticationContext of events fired where the device session was used.",
+      "info" : {
+        "created" : "2025-09-24",
+        "release" : "2026.01.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "device-access", "oie-only" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
       }
     }, {
       "id" : "user.identity_snapshot.attestation.create",
@@ -42014,6 +42115,14 @@
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
           },
+          "are_policies_reevaluated" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
           "policy_snapshot_json" : {
             "type" : "String",
             "sensitive" : false,
@@ -47330,6 +47439,14 @@
       "UserAuthenticationResourceDetails" : {
         "name" : "UserAuthenticationResourceDetails",
         "properties" : {
+          "policy_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "rst3reaTOgst82eO30g4", "rst4j71vgjbAQXuCy0g4" ]
+          },
           "policy_name" : {
             "type" : "String",
             "sensitive" : false,
@@ -47337,6 +47454,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "Any 2 Factors", "Okta Admin Console" ]
+          },
+          "policy_rule_priority" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "0", "1", "99" ]
           },
           "policy_rule_factor_mode" : {
             "type" : "String",
@@ -49005,6 +49130,14 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "0pryfphL1VzqpPOKo0g3", "ruly14UDd30XRoSI20g3" ]
+          },
+          "matched_global_session_policy_rule_action" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "ALLOW", "DENY" ]
           },
           "matched_global_session_policy_rule_display_name" : {
             "type" : "String",
@@ -51230,6 +51363,43 @@
           }
         }
       },
+      "BotProtectionChangeDetailsEntry" : {
+        "name" : "BotProtectionChangeDetailsEntry",
+        "properties" : {
+          "supported_flows" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "SSR", "SIGN_IN, SSPR", "SIGN_IN, SSPR, SSR" ]
+          },
+          "enforcement_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "CAPTCHA" ]
+          },
+          "mode" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "MONITORING", "ENFORCED", "DISABLED" ]
+          },
+          "level" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "LOW", "MEDIUM", "HIGH" ]
+          }
+        }
+      },
       "CustomRoleChangeDetailsEntry" : {
         "name" : "CustomRoleChangeDetailsEntry",
         "properties" : {
@@ -51394,6 +51564,27 @@
           }
         }
       },
+      "EmailDomainChangeDetailsEntry" : {
+        "name" : "EmailDomainChangeDetailsEntry",
+        "properties" : {
+          "user_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : true,
+            "format" : "username",
+            "examples" : [ "admin1", "admin2" ]
+          },
+          "email_domain_display_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "displayName",
+            "examples" : [ "Admin1", "Admin2" ]
+          }
+        }
+      },
       "Entry" : {
         "name" : "Entry",
         "properties" : { }
@@ -51429,6 +51620,19 @@
             "customer" : false,
             "format" : "json",
             "examples" : [ "[{\"delegatePrincipal\": {\"externalId\": \"00ub0oNGTSWTBKOLGLNR\", \"type\": \"OKTA_USER\"}, \"startTime\": \"2025-07-23T10:30:00Z\", \"endTime\": \"2025-07-25T10:30:00Z\"}]" ]
+          }
+        }
+      },
+      "GovernanceSettingsChangeDetailsEntry" : {
+        "name" : "GovernanceSettingsChangeDetailsEntry",
+        "properties" : {
+          "settings" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{enduser:{ permissions: ['WRITE']}}" ]
           }
         }
       },

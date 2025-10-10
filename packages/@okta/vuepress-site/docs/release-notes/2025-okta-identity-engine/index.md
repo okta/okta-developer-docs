@@ -6,6 +6,72 @@ title: Okta Identity Engine API release notes 2025
 
 # Okta Identity Engine API release notes (2025)
 
+## October
+
+### Monthly release 2025.10.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Org2Org OIDC Sign-on mode is GA in Production](#org2org-oidc-sign-on-mode-is-ga-in-production) | October 8, 2025 |
+| [User status in Okta Expression Language is GA in Production](#user-status-in-okta-expression-language-is-ga-in-production) | October 8, 2025 |
+| [Network zone restrictions for clients is GA in Preview](#network-zone-restrictions-for-clients-is-ga-in-preview) | October 8, 2025 |
+| [Okta Integration IdP type is GA in Production](#okta-integration-idp-type-is-ga-in-production) | October 8, 2025 |
+| [Behavior Detections for new ASN](#behavior-detections-for-new-asn) | October 8, 2025 |
+| [Temporary Access Code authenticator is GA in Preview](#temporary-access-code-authenticator-is-ga-in-preview) | July 16, 2025 |
+| [Custom admin roles for ITP](#custom-admin-roles-for-itp-is-ga-in-production) | May 7, 2025 |
+| [Enrollment grace periods is GA in Preview](#enrollment-grace-periods-is-ga-in-preview) | May 21, 2025 |
+| [Developer documentation update in 2025.10.0](#developer-documentation-update-in-2025-10-0) | October 8, 2025 |
+
+#### Org2Org OIDC Sign-on mode is GA in Production
+
+The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP. This sign-on mode reduces the complexity of configuration between the Org2Org app and the target org, and takes advantage of modern security features of OIDC. See [Secure API connections between orgs with OAuth 2.0](/docs/guides/secure-oauth-between-orgs/main/).
+<!-- OKTA-1010571 FF ORG2ORG_ENABLE_OIDC_SOM -->
+
+#### User status in Okta Expression Language is GA in Production
+
+You can now reference User Status in the Okta Expression Language. Group Rules can leverage user statuses to drive group membership. Use the `user.getInternalProperty('status')` function  to get the status of a user. See [Okta user ID and status](/docs/reference/okta-expression-language/#okta-user-id-and-status).
+<!--GROUP_RULES_CRITERIA_USER_STATUS OKTA-969724 -->
+
+#### Network zone restrictions for clients is GA in Preview
+
+You can now specify an allowlist or denylist network zone for each client to enhance OIDC token endpoint security.
+<!-- OIDC_TOKEN_NETWORK_RESTRICTIONS (OKTA-958762) -->
+
+#### Okta Integration IdP type is GA in Production
+
+The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with secure defaults. See [Identity Providers](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&path=type&t=response).
+<!-- OKTA_INTEGRATION_IDP_TYPE (OKTA-949786) -->
+
+#### Behavior Detections for new ASN
+
+Admins have been able to create behavior detections for IP, Velocity, Location, or Device. This new functionality introduces behavior detection on a new ASN (Autonomous System Number), based on the IP found in the request tied to the event. See [Add an ASN behavior](https://help.okta.com/okta_help.htm?type=oie&id=asn-behavior-detection).
+ <!-- OKTA-948028 BEHAVIOR_DETECTION_NEW_ASN -->
+
+#### Temporary Access Code authenticator is GA in Preview
+
+The new Temporary Access Code (TAC) authenticator allows admins to generate temporary codes that let users authenticate in onboarding, account recovery, and other temporary access scenarios. This authenticator enhances security in these scenarios by granting users access to their orgs without having to use their usual authenticators.
+
+To configure the authenticator with Okta APIs, see [Temporary access code authenticator integration guide](/docs/guides/authenticators-tac-authenticator/main/), and to configure it in the Admin Console, see [Configure the temporary access code authenticator](https://help.okta.com/okta_help.htm?type=oie&id=temporary-access-code).
+<!-- TEMPORARY_ACCESS_CODE OKTA-944116 preview date: July 16, 2025 -->
+
+#### Custom admin roles for ITP is GA in Production
+
+Through this feature, customers can use granular ITP permissions and resources to create custom roles to right-size authorization for ITP configuration and monitoring. See [Configure custom admin roles for ITP](https://help.okta.com/okta_help.htm?type=oie&amp;id=csh-itp-rbac).
+<!-- OKTA-849446 CUSTOM_ADMIN_ROLE_ITP -->
+
+#### Enrollment grace periods is GA in Preview
+
+Today, when admins define an enrollment policy for a group, the entire group must enroll immediately, which can be disruptive to their day-to-day tasks.
+
+With Enrollment Grace Periods, end users can defer enrollment in new authenticators until an admin-defined deadline when enrollment becomes mandatory. This allows end users to enroll at a time convenient to them and allows for more graceful enrollment before enforcing new authenticator types in authentication policies. See [Authenticator enrollment policies](/docs/concepts/policies/#authenticator-enrollment-policies) and the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=1/settings/authenticators/enroll/gracePeriod&t=request).
+<!-- ENROLLMENT_POLICY_GRACE_PERIOD (OKTA-832949) preview date: May 21, 2025 -->
+
+#### Developer documentation update in 2025.10.0
+
+* The new [Validate SSO Federation](/docs/guides/validate-federation/) guide explains how to validate your single sign-on (SSO) and Just-In-Time (JIT) provisioning integration, and then test different sign-in flows.
+
+* The [Create an API token](/docs/guides/create-an-api-token/) guide has been moved from the **Sign users in** > **Basics** section to the **API Security** section of the **Guides** sidebar.
+
 ## September
 
 ### Weekly release 2025.09.2

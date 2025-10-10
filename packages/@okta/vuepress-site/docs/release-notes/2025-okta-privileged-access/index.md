@@ -6,6 +6,31 @@ title: Okta Privileged Access API release notes 2025
 
 Okta Privileged Access (OPA) is available for both Okta Classic and Identity Engine.
 
+## October
+
+### Monthly release 2025.10.0
+
+| Change | Expected in Preview | Expected in Production |
+|--------|--------------------------|-----------------------------|
+| [More account details for end users](#more-account-details-for-end-users) | October 9, 2025 |  |
+| [Random password generator for unmanaged SaaS accounts is GA](#random-password-generator-for-unmanaged-saas-accounts-is-ga) | September 18, 2025 | September 29, 2025 |
+
+#### More account details for end users
+
+End users now have access to more account and rotation details from the Active Directory account details page, such as the `sAMAccountName`, the security identifier (`sid`), and password rotation statistics.
+See the following changes to the response schema of [Retrieve an Active Directory account](https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-accounts/#tag/active-directory-accounts/operation/GetActiveDirectoryAccountDetails):
+
+* New `rotation` object
+* Additional properties in the `account` object
+* New `last_checked_out_by` property in the `checkout_details` object
+
+<!-- OKTA-976835 OKTA-1031370 pam_active_directory_enduser_account_details, Preview date: Oct 9, 2025 -->
+
+#### Random password generator for unmanaged SaaS accounts is GA
+
+Okta Privilege Access (OPA) end users can generate passwords for their unmanaged SaaS accounts. See [Generate a random password](https://developer.okta.com/docs/api/openapi/opa/opa/tag/random-password-generation/#tag/random-password-generation/operation/CreateRandomPassword) in the [Random Password Generation](https://developer.okta.com/docs/api/openapi/opa/opa/tag/random-password-generation/) API.
+<!--OKTA-940093 pam_random_generator, Preview date: Sept 18, 2025 Planned Prod date: 9/29 -->
+
 ## September
 
 ### Weekly release 2025.09.2

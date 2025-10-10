@@ -1,6 +1,6 @@
 {
-  "release" : "2025.09.1",
-  "build" : "2025.09.1-begin-149-g85c40017cb22",
+  "release" : "2025.10.1",
+  "build" : "2025.10.1-begin-134-g95ec1798a9ad",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1952,6 +1952,14 @@
     "statusReasonPhrase" : "Forbidden",
     "errorCode" : "E0000262",
     "errorSummary" : "Device Assurance or Device Signal Collection policies contain condition(s) with Device Posture IdP signals. Please delete or update the corresponding policies to remove the Device Posture IdP conditions.",
+    "errorDescription" : null
+  }, {
+    "title" : "Duplicate standard iam role assignment exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000263",
+    "errorSummary" : "Attempted to assign a duplicate standard role assignment to an admin",
     "errorDescription" : null
   } ]
 }

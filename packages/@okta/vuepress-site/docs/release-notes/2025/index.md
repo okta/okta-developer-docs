@@ -4,6 +4,46 @@ title: Okta Classic Engine API release notes 2025
 
 # Okta Classic Engine API release notes (2025)
 
+## October
+
+### Monthly release 2025.10.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Org2Org OIDC Sign-on mode is GA in Production](#org2org-oidc-sign-on-mode-is-ga-in-production) | October 8, 2025 |
+| [User status in Okta Expression Language is GA in Preview](#user-status-in-okta-expression-language-is-ga-in-preview) | October 8, 2025 |
+| [Network zone restrictions for clients is GA in Preview](#network-zone-restrictions-for-clients-is-ga-in-preview) | October 8, 2025 |
+| [Okta Integration IdP type is GA in Production](#okta-integration-idp-type-is-ga-in-production) | October 8, 2025 |
+| [Behavior Detections for new ASN](#behavior-detections-for-new-asn) | October 8, 2025 |
+| [Developer documentation update in 2025.10.0](#developer-documentation-update-in-2025-10-0) | October 8, 2025 |
+
+#### Org2Org OIDC Sign-on mode is GA in Production
+
+The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP. This sign-on mode reduces the complexity of configuration between the Org2Org app and the target org, and takes advantage of modern security features of OIDC. See [Secure API connections between orgs with OAuth 2.0](/docs/guides/secure-oauth-between-orgs/main/). <!-- OKTA-1010571 FF ORG2ORG_ENABLE_OIDC_SOM -->
+
+#### User status in Okta Expression Language is GA in Preview
+
+You can now reference User Status in the Okta Expression Language. Group Rules can leverage user statuses to drive group membership. Use the `user.getInternalProperty('status')` function to get the status of a user. See [Okta user ID and status](/docs/reference/okta-expression-language/#okta-user-id-and-status).
+<!--GROUP_RULES_CRITERIA_USER_STATUS OKTA-969724 -->
+
+#### Network zone restrictions for clients is GA in Preview
+
+You can now specify an allowlist or denylist network zone for each client to enhance OIDC token endpoint security. <!-- OIDC_TOKEN_NETWORK_RESTRICTIONS (OKTA-958762) -->
+
+#### Okta Integration IdP type is GA in Production
+
+The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with secure defaults. See [Identity Providers](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&path=type&t=response).
+<!-- OKTA_INTEGRATION_IDP_TYPE (OKTA-949786) -->
+
+#### Behavior Detections for new ASN
+
+Admins have been able to create behavior detections for IP, Velocity, Location, or Device. This new functionality introduces behavior detection on a new ASN (Autonomous System Number), based on the IP found in the request tied to the event. See [Add an ASN behavior](https://help.okta.com/okta_help.htm?id=asn-behavior-detection).
+<!-- OKTA-948028 BEHAVIOR_DETECTION_NEW_ASN -->
+
+#### Developer documentation update in 2025.10.0
+
+The [Create an API token](https://developer.okta.com/docs/guides/create-an-api-token/main/) guide has been moved from the **Sign users in** > **Basics** section to the **API Security** section of the **Guides** sidebar.
+
 ## September
 
 ### Weekly release 2025.09.2
