@@ -1072,6 +1072,9 @@ export const journeys = [
             { title: "Sign users in through your web app",
               journeyName: "OCI-web-sign-in"
             },
+            { title: "Apply your brand to the Okta user experience",
+              journeyName: "OCI-branding"
+            },
           ]
         },
       ],

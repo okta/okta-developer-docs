@@ -10,84 +10,89 @@ sections:
 - main
 ---
 
+# Apply your brand to the Okta user experience
 
-Introduction
+Design and apply a custom look and feel to the Okta-hosted Sign-In Widget that matches your brand.
+
+## Introduction
+
 You have a customer-facing app that uses the Okta-hosted Sign-In Widget and messaging services. Design and apply your own look and feel to these elements to keep your customers engaged with your brand. Deliver a seamless, branded experience that builds trust with your users.
 
-Learn
+## Learn
 
-Learn about Okta
 There are three key elements to the theming of the Okta out-of-the-box user experience:
 
-The Sign-In Widget is the default Okta UI for registration, enrollment, verification, and account recovery. You can customize it to match your brand. (info)
-Okta Expression Language is used to customize our email and SMS messages (info)
-Okta Brands allows you to manage multiple brands in one Okta org. (info)
+* The [Sign-In Widget](/docs/concepts/sign-in-widget/) is the default Okta UI for registration, enrollment, verification, and account recovery. You can customize it to match your brand.
+* The [Okta Expression Language](/docs/reference/okta-expression-language/) is used to customize our email and SMS messages.
+* Okta [Brands](https://developer.okta.com/docs/concepts/brands/) allows you to manage multiple brands in one Okta org.
 
-See the repository of example stylesheets for the Sign-In Widget for examples of the types of updates that you can make.(info)
+See the [repository of example stylesheets for the Sign-In Widget]() for examples of the types of updates that you can make.
 
-> Note: This document is only for Identity Engine. See Identify your Okta solution to determine your Okta version. (info)
+> Note: This document is only for Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
-Plan
+## Plan
 
-Plan ahead
-To get the most from Okta's branding options:
+To get the most from the Okta branding options:
 
-Purchase a custom domain for your org to associate with the brand.
-Identify your brand-matching design for the Sign-in Widget. 
-Identify how messages and error pages from Okta should be worded to reflect your brand.
-Decide if you will use one domain for all brands or separate domains. (info)
+* Purchase a custom domain for your org to associate with the brand.
+* Identify your brand-matching design for the Sign-In Widget.
+* Identify how messages and error pages from Okta should be worded to reflect your brand.
+* Decide if you want to use [one domain for all brands or separate domains]().
 
-Any user trying to make look and feel changes in the Admin Console must be a super admin or an org admin, or have a role with customization permissions. (info)
+Any user trying to make look and feel changes in the Admin Console must be a super admin or an org admin, or have [a role with customization permissions](https://help.okta.com/okta_help.htm?type=oie&id=csh-create-role).
 
-Build
+## Build
 
-Upgrade the sign-in widget
-Consider using the latest third-generation Sign-in Widget for the best customization options.
+To apply your brand to the Okta-hosted Sign-In Widget, start by considering an upgrade to the third-generation Sign-In Widget, and then register a vanity domain.
 
-Differences between the second and third generation widget (info)
-How to upgrade to the third-generation widget (info) 
-Register a vanity domain with your org
-All customizations are tied to the custom domain which you must first attach to your org. 
+### Upgrade the Sign-In Widget
 
-Add a custom domain to your org (info)
-Add a custom domain to your org (multibrand in a single org) 
-Using a second brand for “User Acceptance Testing”
-Apply your brand to the sign-in widget
-Create a stylesheet and any required javascript for custom behaviors and attach it to your custom domain in the admin console.
+Consider using the latest third-generation Sign-In Widget for the best customization options.
 
-Use our samples repo (info) to build the correct CSS to match your design.
-For a second or third generation widget, add your stylesheets and scripts. (info)
-For a third generation widget, you can also use design tokens. (info)
-Apply your brand to Okta's default text elements
-The text of every email, SMS, and error page delivered by Okta for a custom domain can be customized and localised to match your messaging.
+* [Differences between the second and third generation widget](https://help.okta.com/oie/en-us/content/topics/reference/siw-compare-generations.htm?cshid=ext-compare-siw)
+* [How to upgrade to the third-generation widget](/docs/guides/custom-widget-migration-gen3/main/)
 
-Customise your email templates (info)
-Application - Level Context Logic
-Customise your SMS messages (info)
-Customise your error pages (info)
-Specific notes on localisation or accessibility requirements?
-Test your customizations
-The Okta default UI spans user registration, enrollment, verification and account recovery. 
+### Register a vanity domain with your org
 
-Test that your new look and feel is consistent for your users across all four actions. 
-Test that your error pages work as expected.
-Test that your text works in different languages as expected.
-Copy/Synchronize your settings from UAT to Production (using Admin UX or Terraform)
+All customizations are tied to the custom domain that you must first attach to your org. See [Add a custom domain to your org](/docs/guides/custom-url-domain/main/).
 
-Related Topics
+### Apply your brand to the Sign-In Widget
 
-Congratulations - your app now wraps its Okta components in your brand's look and feel. Your design team and your customers are both happy.
+Create a stylesheet and any required JavaScript for custom behaviors and attach it to your custom domain in the Admin Console.
+
+* Use [our samples repo](LINK_HERE) to build the correct CSS to match your design.
+* For a second or third generation widget, [add your stylesheets and scripts](/docs/guides/custom-widget/main/#style-for-redirect-authentication).
+* For a third generation widget, [you can also use design tokens](/docs/guides/custom-widget-gen3/main/).
+
+### Apply your brand to Okta default text elements
+
+You can customize the text of every email, SMS, and error page delivered by Okta for a custom domain and also localize it to match your messaging.
+
+* [Customize your email templates](/docs/guides/custom-email/main/)
+  * [Application-level context logic](/docs/guides/custom-email/main/)
+* [Customize your SMS messages](/docs/guides/custom-sms-messaging/main/)
+* [Customize your error pages](/docs/guides/custom-error-pages/main/)
+
+## Test your customizations
+
+The Okta default UI spans user registration, enrollment, verification, and account recovery.
+
+* Test that your new look and feel is consistent for your users across all four actions.
+* Test that your error pages work as expected.
+* Test that your text works in different languages as expected.
+* [Copy/Synchronize your settings from UAT to Production (using Admin UX or Terraform)](LINK_HERE)
+
+## Related topics
+
+Congratulations, your app now wraps its Okta components in your brand's look and feel. Your design team and your customers are both happy.
 
 Go deeper into the Okta APIs that allow you to manipulate your customizations in code:
 
-Use the Brands API to manage Brands, and their metadata, in your orgs. (info)
-Use the Custom Email Templates API to manage email customizations. (info)
-Use the SMS Templates API to manage SMS customizations. (info)
+* Use the [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/) to manage Brands, and their metadata, in your orgs.
+* Use the [Custom Email Templates API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTemplates/) to manage email customizations.
+* Use the [SMS Templates API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/) to manage SMS customizations.
 
 This journey is part of the Secure your Portal pathway, which also contains:
 
-Add a sign-in form to your SPA
-Add a sign-in form to your mobile app
-Migrate / import users into your org 
-Work with multiple brands in one org
-Upgrade your org to Okta Identity Engine
+* [Secure your first web app](/docs/journeys/OCI-secure-your-first-web-app/main/)
+* [Sign users in through your web app](/docs/journeys/OCI-web-sign-in/main/)

@@ -24,3 +24,7 @@ Journeys break down your development project into consumable steps:
 <Cards>
   <Card href="/docs/journeys/OCI-web-sign-in/main/" cardTitle="Sign users in through your web app">Integrate Okta with your customer portal to manage user authentication (sign-in and sign-out) directly through its web interface.</Card>
 </Cards>
+<br>
+<Cards>
+  <Card href="/docs/journeys/OCI-branding/main/" cardTitle="Apply your brand to the Okta user experience">Design and apply a custom look and feel to the Okta-hosted Sign-In Widget that matches your brand.</Card>
+</Cards>
