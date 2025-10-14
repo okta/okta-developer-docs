@@ -682,7 +682,7 @@ redirects:
   - from: /docs/api/resources/users.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/
   - from: /docs/api/resources/sessions.html
-    to: /docs/reference/api/sessions/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/
   - from: /docs/api/resources/apps.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
   - from: /reference/error_codes
@@ -764,7 +764,7 @@ redirects:
   - from: /docs/api/resources/schemas
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/
   - from: /docs/api/resources/sessions
-    to: /docs/reference/api/sessions/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/
   - from: /docs/api/resources/system_log
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
   - from: /docs/api/resources/templates
@@ -1364,7 +1364,7 @@ redirects:
   - from: /docs/api/reference
     to: /docs/api/reference/
   - from: /docs/api/resources
-    to: /docs/api/resources/
+    to: /docs/api/reference/
   - from: /docs/api/resources/factor_admin
     to: /docs/api/resources/factor-admin/
   - from: /docs/reference/api
