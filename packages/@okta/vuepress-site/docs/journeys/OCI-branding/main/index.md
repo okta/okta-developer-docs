@@ -39,7 +39,7 @@ To get the most from the Okta branding options:
 * Identify how messages and error pages from Okta should be worded to reflect your brand.
 * Decide if you want to use [one domain for all brands or separate domains]().
 
-Any user trying to make look and feel changes in the Admin Console must be a super admin or an org admin, or have [a role with customization permissions](https://help.okta.com/okta_help.htm?type=oie&id=csh-create-role).
+Any user trying to make look and feel changes in the Admin Console must be a super admin, an org admin, or have [a role with customization permissions](https://help.okta.com/okta_help.htm?type=oie&id=csh-create-role).
 
 ## Build
 
@@ -47,7 +47,7 @@ To apply your brand to the Okta-hosted Sign-In Widget, start by considering an u
 
 ### Upgrade the Sign-In Widget
 
-Consider using the latest third-generation Sign-In Widget for the best customization options.
+Consider using the third-generation Sign-In Widget for the best customization options.
 
 * [Differences between the second and third generation widget](https://help.okta.com/oie/en-us/content/topics/reference/siw-compare-generations.htm?cshid=ext-compare-siw)
 * [How to upgrade to the third-generation widget](/docs/guides/custom-widget-migration-gen3/main/)
@@ -69,7 +69,7 @@ Create a stylesheet and any required JavaScript for custom behaviors and attach 
 You can customize the text of every email, SMS, and error page delivered by Okta for a custom domain and also localize it to match your messaging.
 
 * [Customize your email templates](/docs/guides/custom-email/main/)
-  * [Application-level context logic](/docs/guides/custom-email/main/)
+  * [Add application-level context logic](/docs/guides/custom-email/main/)
 * [Customize your SMS messages](/docs/guides/custom-sms-messaging/main/)
 * [Customize your error pages](/docs/guides/custom-error-pages/main/)
 
@@ -80,7 +80,7 @@ The Okta default UI spans user registration, enrollment, verification, and accou
 * Test that your new look and feel is consistent for your users across all four actions.
 * Test that your error pages work as expected.
 * Test that your text works in different languages as expected.
-* [Copy/Synchronize your settings from UAT to Production (using Admin UX or Terraform)](LINK_HERE)
+* [Copy/Synchronize your settings from UAT to Production (using the Admin Console or Terraform)](LINK_HERE)
 
 ## Related topics
 
@@ -92,7 +92,7 @@ Go deeper into the Okta APIs that allow you to manipulate your customizations in
 * Use the [Custom Email Templates API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTemplates/) to manage email customizations.
 * Use the [SMS Templates API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/) to manage SMS customizations.
 
-This journey is part of the Secure your Portal pathway, which also contains:
+This journey is part of the Secure your portal pathway, which also contains:
 
 * [Secure your first web app](/docs/journeys/OCI-secure-your-first-web-app/main/)
 * [Sign users in through your web app](/docs/journeys/OCI-web-sign-in/main/)
