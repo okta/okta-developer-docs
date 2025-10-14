@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-Learn how to submit an OIDC, SAML 2.0, SCIM 2.0, or Universal Logout integration to the Okta Integration Network (OIN) using the OIN Wizard.
+Learn how to submit an OIDC, SAML 2.0, SCIM 2.0, Universal Logout, or Entitlement Management integration to the Okta Integration Network (OIN) using the OIN Wizard.
 
 ---
 
@@ -31,6 +31,7 @@ The OIN Wizard is a full-service tool in the Admin Console for you to do the fol
 
   * Test your SSO integration with the OIN Submission Tester.
   * Test your SCIM integration with manual test cases and Runscope test suites.
+  * Test your SCIM-based Entitlement Management manually.
   * Test your Universal Logout integration manually.
 
 * Submit your integration directly to the OIN team when you're satisfied with your test results.
@@ -51,10 +52,13 @@ This guide covers submissions that use the following protocols and integration:
 
 * [System for Cross-domain Identity Management (SCIM) 2.0](https://scim.cloud)
 
-* [Universal Logout](https://developer.okta.com/docs/guides/oin-universal-logout-overview/)
+* [Entitlement Management](docs/guides/scim-with-entitlements/main/)
+
+* [Universal Logout](/docs/guides/oin-universal-logout-overview/)
 
 > **Notes:**
     > * Universal Logout integrations are only supported for SAML 2.0 and OIDC protocols. If you want to submit a Universal Logout integration with SCIM provisioning, you must also submit an SSO integration with either SAML 2.0 or OIDC.
+    > * Entitlement Management is only supported for SCIM-based provisioning.
     > * SWA app integrations are no longer accepted for publication in the OIN catalog. However, the OIN team still maintains existing SWA apps.
     > * There are protocol-specific limitations on integrations in the OIN. See [OIN limitations](/docs/guides/submit-app-prereq/main/#oin-limitations).
 
@@ -129,6 +133,16 @@ Continue with the OIN Wizard and configure your protocol settings:
 1. Specify the following protocol properties in the **<StackSnippet snippet="protocol-name" inline/> properties** section:
 
     <StackSnippet snippet="protocol-properties" />
+
+#### entitlement management properties
+
+1. Specify the following properties if you want to integrate Entitlement Management:
+
+> **Notes**:
+    * Entitlement Management is only supported for SCIM-based integrations.
+    * The SCIM entitlement management properties section only displays when you select Entitlement Management along with the protocols that your integration supports from the Identity Lifecycle Management section.
+
+    <StackSnippet snippet="entitlement-management-properties"/>
 
 #### Universal logout properties
 
