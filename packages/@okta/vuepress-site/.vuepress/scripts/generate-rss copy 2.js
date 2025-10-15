@@ -1,7 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const MarkdownIt = require('markdown-it');
-const md = new MarkdownIt();
 
 // Helper to generate RSS XML from markdown
 function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutputPath) {
@@ -18,8 +16,8 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
     // Try to extract a date from the first table row if possible
     const dateMatch = bodyLines.join('\n').match(/\|\s*\[.*?\]\(.*?\)\s*\|\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})\s*\|/);
     const pubDate = dateMatch ? new Date(dateMatch[1]) : new Date();
-    // Convert Markdown to HTML for the description
-    const description = md.render(bodyLines.join('\n').trim());
+    const description = bodyLines.join('\n').trim();
+    // Generate a unique link for the item
     const itemLink = `${siteUrl}#${title.replace(/[^a-zA-Z0-9]/g, '')}`;
     return { title, pubDate, description, itemLink };
   });
