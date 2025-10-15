@@ -390,10 +390,10 @@ There are multiple possible reasons for the `DENY` result. See the following tab
 
 | Error reason                       | Description                                                                                                      |
 |-----------------------------------|------------------------------------------------------------------------------------------------------------------|
-| `PARSING_ERROR`                    | Indicates that Okta wasn't able to parse the response from the IDV vendor because of invalid or malformed data.   |
-| `MISSING`                           | Indicates that a required parameter or value wasn't present in the request or response.                          |
-| `RESPONSE_PROCESSING_ERROR`       | Indicates that Okta encountered an error while processing the response from the IDV vendor.                      |
-| `ERROR_RESPONSE`                    | Indicates that the IDV vendor returned an explicit error response to Okta.                                       |
+| `PARSING_ERROR`                    | Indicates that Okta wasn't able to parse the response from the IDV vendor because of invalid or malformed data. There are multiple versions of this error that relate to the specific parsing issue encountered. For example, you can see `PARSING_ERROR_GIVENNAME` or `PARSING_ERROR_FAMILYNAME` if there's a parsing issue with those parameters. |
+| `MISSING`                           | Indicates that a required parameter or value wasn't present in the request or response. There are multiple versions of this error that relate to the specific issue encountered. For example, you can see `MISSING_GIVENNAME` or `MISSING_FAMILYNAME` if those parameters aren't included.                          |
+| `RESPONSE_PROCESSING_ERROR`       | Indicates that Okta encountered an error while processing the response from the IDV vendor. There are multiple versions of this error that relate to the specific issue encountered. For example, you can see `RESPONSE_PROCESSING_ERROR_PAR` if there's an issue with the PAR request.                       |
+| `ERROR_RESPONSE`                    | Indicates that the IDV vendor returned an explicit error response to Okta. There are multiple versions of this error that relate to the specific issue encountered. For example, you can see `ERROR_RESPONSE_TOKEN` if the token that's provided is invalid.                                       |
 | `EMPTY_USER_ID`                     | Indicates that no user ID was provided in the request to the IDV vendor.                                         |
 | `MISSING_CODE_CHALLENGE`            | Indicates that the code challenge required for PKCE was missing from the request.                                |
 | `MISSING_APP_INSTANCE`              | Indicates that the application instance required for the IDV flow wasn't found or wasn't provided.               |
