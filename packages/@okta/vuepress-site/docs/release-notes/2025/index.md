@@ -6,6 +6,16 @@ title: Okta Classic Engine API release notes 2025
 
 ## October
 
+### Weekly release 2025.10.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bug fixed in 2025.10.1](#bug-fixed-in-2025-10-1)| October 15, 2025 |
+
+#### Bug fixed in 2025.10.1
+
+When an admin attempted to update the signing certificate for an Org2Org IdP integration, an error was returned. (OKTA-1035340)
+
 ### Monthly release 2025.10.0
 
 | Change | Expected in Preview Orgs |
@@ -82,8 +92,8 @@ The **Browse App Integration Catalog** page now provides **Cross App Access** an
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [User API Projections](#user-api-projections) | September 10, 2025 |
-| [Org2Org OIDC Sign-on mode is GA in Preview ](#org2org-oidc-sign-on-mode-is-ga-in-preview) | June 17, 2025 |
-| [Anything-as-a-Source for groups and group memberships API is EA in Preview ](#anything-as-a-source-for-groups-and-group-memberships-api-is-ea-in-preview) | September 10, 2025 |
+| [Org2Org OIDC Sign-on mode is GA in Preview](#org2org-oidc-sign-on-mode-is-ga-in-preview) | June 17, 2025 |
+| [Anything-as-a-Source for groups and group memberships API is EA in Preview](#anything-as-a-source-for-groups-and-group-memberships-api-is-ea-in-preview) | September 10, 2025 |
 | [New System Log events for bulk groups and bulk group memberships changes](#new-system-log-events-for-bulk-groups-and-bulk-group-memberships-changes) | September 10, 2025 |
 | [Breached Credentials Protection is GA in Production](#breached-credentials-protection-is-ga-in-production) | May 15, 2025 |
 | [Group Push Mappings is GA in Production](#group-push-mappings-is-ga-in-production) | August 7, 2025 |
@@ -279,8 +289,8 @@ The **Archived Okta Identity Governance API changelog (2023-2024)** has been rem
 
 #### Bugs fixed in 2025.07.1
 
-- The multiple identifiers feature didn't process case sensitivity correctly when evaluating identifier attributes. (OKTA-899235)
-- When GET `/api/v1/apps/{appId}` is called, admins with the `okta.groups.appAssignment.manage` permission or `okta.users.appAssignment.manage` permission could view app details without having the required `okta.apps.manage` or `okta.apps.read` permissions. (OKTA-801567)
+* The multiple identifiers feature didn't process case sensitivity correctly when evaluating identifier attributes. (OKTA-899235)
+* When GET `/api/v1/apps/{appId}` is called, admins with the `okta.groups.appAssignment.manage` permission or `okta.users.appAssignment.manage` permission could view app details without having the required `okta.apps.manage` or `okta.apps.read` permissions. (OKTA-801567)
 
 ### Monthly release 2025.07.0
 
@@ -292,8 +302,8 @@ The **Archived Okta Identity Governance API changelog (2023-2024)** has been rem
 | [Conditions for create user permission is GA in Production](#conditions-for-create-user-permission-is-ga-in-production) | June 9, 2025 |
 | [Changes to Okta app API responses](#changes-to-okta-app-api-responses) | July 7, 2025 |
 | [Restrict access to the Admin Console is GA in Production](#restrict-access-to-the-admin-console-is-ga-in-production) | December 11, 2024 |
-| [Developer documentation updates in 2025.07.0 ](#developer-documentation-updates-in-2025-07-0) | July 2, 2025 |
-| [Bug fixed in 2025.07.0 ](#bug-fixed-in-2025-07-0) | July 2, 2025 |
+| [Developer documentation updates in 2025.07.0](#developer-documentation-updates-in-2025-07-0) | July 2, 2025 |
+| [Bug fixed in 2025.07.0](#bug-fixed-in-2025-07-0) | July 2, 2025 |
 
 #### OAuth 2.0 provisioning for Org2Org with key auto-rotation is GA in Preview
 
@@ -339,6 +349,7 @@ By default, users and groups with assigned admin roles have access to the Admin 
 #### Bug fixed in 2025.07.0
 
 Admins couldn't modify the `classicFooterHelpTitle` object on their sign-in page when sending PUT requests to these endpoints.
+
 * `/api/v1/brands/{brandId}/pages/sign-in/customized`
 * `/api/v1/brands/{brandId}/pages/sign-in/preview`
 * `/api/v1/brands/{brandId}/pages/sign-in/default`
