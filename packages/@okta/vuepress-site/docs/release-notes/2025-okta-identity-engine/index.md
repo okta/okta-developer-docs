@@ -12,7 +12,7 @@ title: Okta Identity Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Custom IDV vendors](#custom-idv-vendors) | October 15, 2025 |
+| [Custom IDV vendors](#custom-idv-vendors) | October 22, 2025 |
 | [Bugs fixed in 2025.10.1](#bugs-fixed-in-2025-10-1)| October 15, 2025 |
 
 #### Custom IDV vendors
@@ -28,6 +28,8 @@ Okta now supports using custom identity verification (IDV) vendors as identity v
 * When a call was made to the User Risk (`/api/v1/users/{userId}/risk`) endpoint with an OAuth 2.0 access token issued to a service app, the endpoint returned an  HTTP 403 "Invalid session" error. (OKTA-1024961)
 
 * The `GET /api/v1/sessions/{sessionId}` and `POST /api/v1/sessions/{sessionId}/lifecycle/refresh` operations didn't work for IDX sessions in Identity Engine. When the `GET /api/v1/sessions/me` and `POST /api/v1/sessions/me/lifecycle/refresh` endpoints were used with an IDX session, the `Session.createdAt` property was populated with the user's last sign-in time instead of the actual session creation time. (OKTA-948866)
+
+* Authentication challenges sometimes returned an incorrect app ID when a custom relying party ID was used. (OKTA-1025465)
 
 ### Monthly release 2025.10.0
 
