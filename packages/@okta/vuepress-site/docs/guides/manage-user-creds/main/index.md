@@ -18,7 +18,7 @@ Securely manage your tokens using the Okta JavaScript Client SDK, which provides
 
 #### What you need
 
-[The Okta JavaScript Client SDK configured for your app](link to SDK)
+[The Okta JavaScript Client SDK configured for your app](https://github.com/okta/okta-client-javascript)
 
 ---
 
