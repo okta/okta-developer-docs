@@ -6,7 +6,7 @@ layout: Guides
 
 This guide explains how to customize the sign-in page for both redirect and embedded deployment models.
 
-> **Note:** This document is for the second generation (Gen2) of the Okta Sign-In Widget. See [Migrate to the third generation (Gen3) of the Sign-In Widget](/docs/guides/custom-widget-migration-gen3/main/) for details about Gen3.
+> **Note:** This document is for the second generation (Gen2) of the Okta Sign-In Widget. See [Style the Sign-In Widget (third generation)](https://developer.okta.com/docs/guides/custom-widget-gen3/main/) for third generation (Gen3) styling information. See [Migrate to the third generation (Gen3) of the Sign-In Widget](/docs/guides/custom-widget-migration-gen3/main/) to migrate from Gen2 to Gen3.
 
 ---
 
@@ -33,13 +33,13 @@ This guide explains how to customize the sign-in page for both redirect and embe
 
 The sign-in page is a JavaScript library that gives you a fully featured and customizable sign-in experience. Use it to authenticate users on any website. How you customize the sign-in page depends on whether Okta hosts it (redirect authentication) or you embed it in your app (embedded authentication).
 
-* Redirect authentication: Okta hosts the sign-in page that appears when your applications redirect to Okta to sign users in. You can customize the page using easy controls or a code editor that is provided. See [Style for redirect authentication](#style-for-redirect-authentication).
+* Redirect authentication: Okta hosts the sign-in page that appears when your apps redirect to Okta to sign users in. You can customize the page using easy controls or a code editor that is provided. See [Style for redirect authentication](#style-for-redirect-authentication).
 
 * Embedded authentication: After you've [installed the Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#embedded-self-hosted) in your project, configure the authentication scenarios that you want to support. Then you can customize the sign-in page. Match your branding using CSS and JavaScript to apply customizations. See [Style for embedded authentication](#style-for-embedded-authentication).
 
 ## Style for redirect authentication
 
-You can add HTML, CSS, or JavaScript to the sign-in page, customize it [per application](#per-application-customization) and for multiple brands. You can use variables and request context, and bypass the custom sign-in page.
+You can add HTML, CSS, or JavaScript to the sign-in page, customize it [per app](#per-application-customization) and for multiple brands. You can use variables and request context, and bypass the custom sign-in page.
 
 > **Note:** Before you can customize for redirect authentication, you must customize your [Okta URL domain](/docs/guides/custom-url-domain/).
 
@@ -178,7 +178,7 @@ A conditional that allows you to set behaviors for a migration to Gen3 of the Si
 
 Gen3 of the Sign-In Widget uses design tokens, unlike Gen2, so it requires different styling. Use `useSiwGen3` to add specific code that works when you enable Gen3, but doesn't affect other code in the template if you need to roll back to Gen2.
 
-> **Note:** If your org uses Okta Classic Engine, the `useSiwGen3` variable appears in the code editor, but you can't use it.
+> **Note:** If your org uses Classic Engine, the `useSiwGen3` variable appears in the code editor, but you can't use it.
 
 The following example shows how to style the `login-container` for a migration to Gen3:
 
@@ -270,7 +270,7 @@ Classic Engine users get the following object returned from `OktaUtil.getRequest
 }
 ```
 
-For an OpenID Connect application, the application's client ID is stored in the request context object and is retrievable using the following commands:
+For an OpenID Connect app, the app's client ID is stored in the request context object and is retrievable using the following commands:
 
 ```javascript
 // Identity Engine
@@ -281,7 +281,7 @@ OktaUtil.getRequestContext().target.clientId
 
 There's more information available about the client app, such as `label`.
 
-> **Note:** The `getRequestContext()` method only returns a value when the Okta-hosted sign-in page is loaded in the context of an application. For example, SP-initiated flows in SAML or the `/authorize` route for OpenID Connect. Otherwise, it returns `undefined`.
+> **Note:** The `getRequestContext()` method only returns a value when the Okta-hosted sign-in page is loaded in the context of an app. For example, SP-initiated flows in SAML or the `/authorize` route for OpenID Connect. Otherwise, it returns `undefined`.
 
 See [Per-application customization](#per-application-customization) for an example of what you can do with request context.
 
@@ -327,7 +327,7 @@ To suppress the brief appearance of the Sign-In Widget, use a [custom domain](/d
 <style> #okta-login-container{ opacity:0; transition-delay:200ms; transition:opacity 500ms; -webkit-transition:opacity 500ms; /* Safari */ }</style>
 ```
 
-- (Optional) You can add more context for build-out. In the HTML header as part of the JavaScript code block, add the following:
+- (Optional) You can add more context for the build-out. In the HTML header as part of the JavaScript code block, add the following:
 
 ```javascript
 var myContext = {
@@ -370,7 +370,7 @@ if (myContext.isLoginHidden) {
 
 Consider alternative integrations within your app. Since the IdP is known, you can redirect for IdP verification for all authentication flows, or use the [Web Finger API](/docs/reference/api/webfinger/). However, your integration may be limited based on context.
 
-> **Note:** In OIE, [app sign-in policy rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) include conditions about the device platform and the target application. The WebFinger API doesn't include device and application details in its responses.
+> **Note:** In Identity Engine, [app sign-in policy rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) include conditions about the device platform and the target app. The WebFinger API doesn't include device and app details in its responses.
 
 ## Style for embedded authentication
 
@@ -667,11 +667,11 @@ Example:
 
 ### Per-application customization
 
-The Sign-In Widget for embedded authentication is application aware. This means that your client-side customizations can understand which application caused the sign-in page to load. This is useful when you have multiple applications or brands that you want to support.
+The Sign-In Widget for embedded authentication is app aware. This means that your client-side customizations can understand which app caused the sign-in page to load. This is useful when you have multiple apps or brands that you want to support.
 
 When the page renders, an object called `OktaUtil` exists on the page. By calling the `OktaUtil.getRequestContext()` method, scripts on the page can get details about the current request.
 
-To access the application's client ID (which uniquely identifies the application), write a function to safely get the client ID from the request context:
+To access the app's client ID (which uniquely identifies the app), write a function to safely get the client ID from the request context:
 
 ```html
 // Identity Engine
