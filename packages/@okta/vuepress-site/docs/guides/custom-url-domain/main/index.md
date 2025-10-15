@@ -24,7 +24,7 @@ For customizing an Okta-managed domain or using your own TLS certificate:
 
 For customizing a domain using your own TLS certificate:
 
-* A valid TLS certificate for your subdomain (2048 bits, 3072 bits, or 4096 bits) (PEM-encoded)
+* A valid TLS certificate for your subdomain
 * A private key (2048 bits, 3072 bits, or 4096 bits) (PEM-encoded)
 
 For configuring a custom email address:
@@ -80,15 +80,15 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 
   * If you have an Okta-managed certificate and you later get a CAA record, Okta can't renew your certificate. You must either add `letsencrypt.org` to the issuers list or remove the CAA record.
 
-* If you use an Okta-managed certificate, you need to remove [network zones](https://help.okta.com/okta_help.htm?id=ext-network-zones) from your org. If you can't remove network zones, you can create a custom domain using your own TLS certificate. See [Use your own TLS certificate](#use-your-own-tls-certificate).
+* If you use an Okta-managed certificate, you need to remove [network zones](https://help.okta.com/okta_help.htm?id=ext-network-zones) from your org. Network zones can potentially interfere with the automatic certificate renewal process. If you can't remove network zones, you can create a custom domain using your own TLS certificate. See [Use your own TLS certificate](#use-your-own-tls-certificate).
 
 * You can't sign in to [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf&id=ext-Okta-workflows) through a custom domain (Okta-managed or using your own TLS certificate). Sign in through your default [Okta domain](/docs/guides/find-your-domain/main/).
 
 * If you use your own TLS certificate, consider the following:
 
-  * It can be 2048 bits, 3072 bits, or 4096 bits.
+  * The RSA key sizes must be 2048 bits, 3072 bits, or 4096 bits.
 
-  * It should be signed with the SHA-256 hash algorithm.
+  * It should be signed with a SHA256, SHA384, or SHA512 hash algorithm.
 
   * It must not be expired.
 
@@ -352,7 +352,9 @@ To fix this, update your authorization server to use your custom domain:
 
 ## About custom email addresses
 
-A custom email address allows you to present a branded experience to your end users. Emails that Okta sends to your end users appear to come from your custom email address instead of `noreply@okta.com`. You can switch to a different custom email address or revert to the default Okta domain, but you can use only one email domain at a time.
+A custom email address allows you to present a branded experience to your end users. Emails that Okta sends to your end users appear to come from your custom email address instead of `noreply@okta.com`. You can switch to a different custom email address or revert to the default Okta domain, but you can use only one email domain at a time, per brand.
+
+You can only send emails from a custom email address if you've configured a custom email domain within that brand. Emails with default content will be sent if the brand in the customer’s org is using the default Okta domain to send emails from.
 
 Okta sends your super admins a confirmation email after your custom email address is configured and operating correctly. To ensure continuous operation, Okta polls your custom email domain once every 24 hours. If a problem occurs, Okta alerts super admins by email, and Okta-generated emails are sent from the default address `noreply@okta.com` until the problem is resolved.
 
