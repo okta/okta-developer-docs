@@ -4,13 +4,13 @@
   <title>Okta Developer Docs Release Notes (Classic Engine)</title>
   <link>https://developer.okta.com/docs/release-notes/2025/</link>
   <description>Recent release notes for Okta Classic Engine API</description>
-  <pubDate>Wed, 15 Oct 2025 18:22:06 GMT</pubDate>
+  <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
   
     <item>
       <title>Monthly release 2025.10.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025101</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025101</guid>
-      <pubDate>Wed, 08 Oct 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -35,7 +35,7 @@
       <title>Monthly release 2025.10.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025100</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025100</guid>
-      <pubDate>Wed, 08 Oct 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -94,7 +94,7 @@
       <title>Weekly release 2025.09.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025092</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025092</guid>
-      <pubDate>Wed, 01 Oct 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -129,7 +129,7 @@
       <title>Weekly release 2025.09.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025091</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025091</guid>
-      <pubDate>Wed, 17 Sep 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -167,7 +167,7 @@
       <title>Monthly release 2025.09.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025090</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025090</guid>
-      <pubDate>Wed, 10 Sep 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -280,7 +280,7 @@
       <title>Weekly release 2025.08.4</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025084</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025084</guid>
-      <pubDate>Thu, 04 Sep 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -312,7 +312,7 @@
       <title>Weekly release 2025.08.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025082</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025082</guid>
-      <pubDate>Wed, 20 Aug 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -344,7 +344,7 @@
       <title>Monthly release 2025.08.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025080</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025080</guid>
-      <pubDate>Thu, 15 May 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -440,7 +440,7 @@
       <title>Weekly release 2025.07.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025073</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025073</guid>
-      <pubDate>Wed, 30 Jul 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -469,7 +469,7 @@
       <title>Weekly release 2025.07.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025071</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025071</guid>
-      <pubDate>Wed, 09 Jul 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -497,7 +497,7 @@
       <title>Monthly release 2025.07.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025070</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025070</guid>
-      <pubDate>Wed, 02 Jul 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -589,7 +589,7 @@
       <title>Weekly release 2025.06.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025062</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025062</guid>
-      <pubDate>Wed, 25 Jun 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -645,7 +645,7 @@
       <title>Weekly release 2025.06.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025061</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025061</guid>
-      <pubDate>Tue, 17 Jun 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -694,7 +694,7 @@
       <title>Monthly release 2025.06.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025060</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025060</guid>
-      <pubDate>Wed, 04 Jun 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -787,7 +787,7 @@
       <title>Weekly release 2025.05.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025053</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025053</guid>
-      <pubDate>Thu, 22 May 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -820,7 +820,7 @@
       <title>Weekly release 2025.05.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025051</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025051</guid>
-      <pubDate>Wed, 14 May 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -855,7 +855,7 @@
       <title>Monthly release 2025.05.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025050</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025050</guid>
-      <pubDate>Thu, 15 May 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -943,7 +943,7 @@
       <title>Weekly release 2025.04.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025043</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025043</guid>
-      <pubDate>Wed, 30 Apr 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -993,7 +993,7 @@
       <title>Weekly release 2025.04.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025042</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025042</guid>
-      <pubDate>Wed, 09 Apr 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -1031,7 +1031,7 @@
       <title>Weekly release 2025.04.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025041</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025041</guid>
-      <pubDate>Wed, 09 Apr 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -1087,7 +1087,7 @@
       <title>Monthly release 2025.04.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025040</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025040</guid>
-      <pubDate>Wed, 02 Apr 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -1195,7 +1195,7 @@
       <title>Weekly release 2025.03.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025033</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025033</guid>
-      <pubDate>Wed, 26 Mar 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -1233,7 +1233,7 @@
       <title>Weekly release 2025.03.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025032</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025032</guid>
-      <pubDate>Wed, 19 Mar 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -1260,7 +1260,7 @@
       <title>Weekly release 2025.03.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025031</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025031</guid>
-      <pubDate>Wed, 12 Mar 2025 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -1298,7 +1298,7 @@
       <title>Monthly release 2025.03.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025030</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025030</guid>
-      <pubDate>Wed, 23 Oct 2024 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -1380,7 +1380,7 @@ See <a href="https://developer.okta.com/docs/api/openapi/okta-management/managem
       <title>Weekly release 2025.02.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025022</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025022</guid>
-      <pubDate>Thu, 20 Feb 2025 05:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -1418,7 +1418,7 @@ See <a href="https://developer.okta.com/docs/api/openapi/okta-management/managem
       <title>Weekly release 2025.02.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025021</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025021</guid>
-      <pubDate>Thu, 13 Feb 2025 05:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -1462,7 +1462,7 @@ See <a href="https://developer.okta.com/docs/api/openapi/okta-management/managem
       <title>Monthly release 2025.02.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025020</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025020</guid>
-      <pubDate>Wed, 23 Oct 2024 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -1542,7 +1542,7 @@ See <a href="https://developer.okta.com/docs/api/openapi/okta-management/managem
       <title>Weekly release 2025.01.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025012</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025012</guid>
-      <pubDate>Wed, 29 Jan 2025 05:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -1578,7 +1578,7 @@ See <a href="https://developer.okta.com/docs/api/openapi/okta-management/managem
       <title>Weekly release 2025.01.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025011</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025011</guid>
-      <pubDate>Wed, 15 Jan 2025 05:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -1603,7 +1603,7 @@ See <a href="https://developer.okta.com/docs/api/openapi/okta-management/managem
       <title>Monthly release 2025.01.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025010</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025010</guid>
-      <pubDate>Wed, 08 Jan 2025 05:00:00 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:16:45 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
