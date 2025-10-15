@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const MarkdownIt = require('markdown-it');
-const md = new MarkdownIt();
+const mdParser = new MarkdownIt(); // Renamed to avoid conflict
 
 // Helper to generate RSS XML from markdown
 function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutputPath) {
@@ -9,9 +9,9 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
     console.error(`Markdown file not found: ${mdPath}`);
     return;
   }
-  const md = fs.readFileSync(mdPath, 'utf8');
+  const mdContent = fs.readFileSync(mdPath, 'utf8'); // Renamed to avoid conflict
   // Split by '### ' for weekly/monthly releases, fallback to '## ' if not found
-  const sections = md.includes('### ') ? md.split('\n### ') : md.split('\n## ');
+  const sections = mdContent.includes('### ') ? mdContent.split('\n### ') : mdContent.split('\n## ');
   const releases = sections.slice(1).map(section => {
     const [titleLine, ...bodyLines] = section.split('\n');
     const title = titleLine.trim();
@@ -19,7 +19,7 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
     const dateMatch = bodyLines.join('\n').match(/\|\s*\[.*?\]\(.*?\)\s*\|\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})\s*\|/);
     const pubDate = dateMatch ? new Date(dateMatch[1]) : new Date();
     // Convert Markdown to HTML for the description
-    const description = md.render(bodyLines.join('\n').trim());
+    const description = mdParser.render(bodyLines.join('\n').trim());
     const itemLink = `${siteUrl}#${title.replace(/[^a-zA-Z0-9]/g, '')}`;
     return { title, pubDate, description, itemLink };
   });
