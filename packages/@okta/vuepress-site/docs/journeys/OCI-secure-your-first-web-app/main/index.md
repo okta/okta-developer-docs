@@ -87,3 +87,8 @@ Use the following docs to enable sign-out once, sign-out everywhere features:
 
 * [Learn about Single Logout](/docs/guides/single-logout/openidconnect/main/).
 * [Learn about Universal Logout](/docs/guides/oin-universal-logout-overview/).
+
+This journey is part of the Secure your portal pathway, which also contains:
+
+* [Sign users in through your web app](/docs/journeys/OCI-web-sign-in/main/)
+* [Apply your brand to the Okta user experience](/docs/journeys/OCI-branding/main/)

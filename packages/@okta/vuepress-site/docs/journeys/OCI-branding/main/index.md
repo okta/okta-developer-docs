@@ -26,7 +26,7 @@ There are three key elements to the theming of the Okta out-of-the-box user expe
 * The [Okta Expression Language](/docs/reference/okta-expression-language/) is used to customize our email and SMS messages.
 * Okta [Brands](https://developer.okta.com/docs/concepts/brands/) allows you to manage multiple brands in one Okta org.
 
-See the [repository of example style sheets for the Sign-In Widget]() for examples of the types of updates that you can make.
+See the [repository of example style sheets for the Sign-In Widget](LINK_HERE) for examples of the types of updates that you can make.
 
 > Note: This document is only for Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
@@ -37,7 +37,7 @@ To get the most from the Okta branding options:
 * Purchase a custom domain for your org to associate with the brand.
 * Identify your brand-matching design for the Sign-In Widget.
 * Identify how messages and error pages from Okta should be worded to reflect your brand.
-* Decide if you want to use [one domain for all brands or separate domains]().
+* Decide if you want to use [one domain for all brands or separate domains](LINK_HERE).
 
 Users that make branding changes in the Admin Console must have a super admin or org admin role, or have [a role with customization permissions](https://help.okta.com/okta_help.htm?type=oie&id=csh-create-role).
 
@@ -61,7 +61,7 @@ All customizations are tied to the custom domain that you must first attach to y
 Create a stylesheet and any required JavaScript for custom behaviors and attach it to your custom domain in the Admin Console:
 
 * Use [our samples repo](LINK_HERE) to build the correct CSS to match your design.
-* [Add your style sheets and scripts](/docs/guides/custom-widget/main/#style-for-redirect-authentication). You can do this using either the second or third-generation widget.
+* Add your style sheets and scripts. You can do this using either the [second](/docs/guides/custom-widget/main/#style-for-redirect-authentication) or [third-generation](/docs/guides/custom-widget-gen3/main/) widget.
 * [Use design tokens](/docs/guides/custom-widget-gen3/main/). You can do this using the third-generation widget.
 
 ### Apply your brand to Okta default text elements
