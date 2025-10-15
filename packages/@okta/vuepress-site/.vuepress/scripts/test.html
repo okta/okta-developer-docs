@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Okta Developer Docs Release Notes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+        }
+        .release-notes-container {
+            max-width: 900px;
+            margin: auto;
+        }
+        .release-item {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .release-item h2 {
+            color: #0056b3;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 5px;
+            margin-top: 0;
+        }
+        .release-item h3 {
+            color: #333;
+            margin-top: 20px;
+        }
+        .release-item h4 {
+            color: #555;
+            margin-top: 15px;
+            border-left: 4px solid #f0ad4e;
+            padding-left: 10px;
+        }
+        .release-item a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .release-item a:hover {
+            text-decoration: underline;
+        }
+        .release-item table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .release-item th, .release-item td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .release-item th {
+            background-color: #e9ecef;
+            color: #333;
+        }
+        /* Custom formatting for Markdown conversion */
+        .release-content pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><a href="https://developer.okta.com/docs/release-notes/2025/" target="_blank">Okta Developer Docs Release Notes</a></h1>
+        <p>Recent release notes for Okta Developer Docs</p>
+    </header>
+
+    <div class="release-notes-container">
+        <section id="october" class="release-item">
+            <h2><a href="https://developer.okta.com/docs/release-notes/2025/#October" target="_blank">October</a></h2>
+            <p><strong>Published Date:</strong> Invalid Date</p>
+            <div class="release-content">
+                <h3>Monthly release 2025.10.0</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Change</th>
+                            <th>Expected in Preview Orgs</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><a href="#org2org-oidc-sign-on-mode-is-ga-in-production">Org2Org OIDC Sign-on mode is GA in Production</a></td><td>October 8, 2025</td></tr>
+                        <tr><td><a href="#user-status-in-okta-expression-language-is-ga-in-preview">User status in Okta Expression Language is GA in Preview</a></td><td>October 8, 2025</td></tr>
+                        <tr><td><a href="#network-zone-restrictions-for-clients-is-ga-in-preview">Network zone restrictions for clients is GA in Preview</a></td><td>October 8, 2025</td></tr>
+                        <tr><td><a href="#okta-integration-idp-type-is-ga-in-production">Okta Integration IdP type is GA in Production</a></td><td>October 8, 2025</td></tr>
+                        <tr><td><a href="#behavior-detections-for-new-asn">Behavior Detections for new ASN</a></td><td>October 8, 2025</td></tr>
+                        <tr><td><a href="#developer-documentation-update-in-2025-10-0">Developer documentation update in 2025.10.0</a></td><td>October 8, 2025</td></tr>
+                    </tbody>
+                </table>
+                
+                <h4 id="org2org-oidc-sign-on-mode-is-ga-in-production">Org2Org OIDC Sign-on mode is GA in Production</h4>
+                <p>The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP. This sign-on mode reduces the complexity of configuration between the Org2Org app and the target org, and takes advantage of modern security features of OIDC. See <a href="/docs/guides/secure-oauth-between-orgs/main/">Secure API connections between orgs with OAuth 2.0</a>.</p>
+                
+                <h4 id="user-status-in-okta-expression-language-is-ga-in-preview">User status in Okta Expression Language is GA in Preview</h4>
+                <p>You can now reference User Status in the Okta Expression Language. Group Rules can leverage user statuses to drive group membership. Use the <code>user.getInternalProperty('status')</code> function to get the status of a user. See <a href="/docs/reference/okta-expression-language/#okta-user-id-and-status">Okta user ID and status</a>.</p>
+                
+                <h4 id="network-zone-restrictions-for-clients-is-ga-in-preview">Network zone restrictions for clients is GA in Preview</h4>
+                <p>You can now specify an allowlist or denylist network zone for each client to enhance OIDC token endpoint security.</p>
+                
+                <h4 id="okta-integration-idp-type-is-ga-in-production">Okta Integration IdP type is GA in Production</h4>
+                <p>The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with secure defaults. See <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&amp;path=type&amp;t=response">Identity Providers</a>.</p>
+                
+                <h4 id="behavior-detections-for-new-asn">Behavior Detections for new ASN</h4>
+                <p>Admins have been able to create behavior detections for IP, Velocity, Location, or Device. This new functionality introduces behavior detection on a new ASN (Autonomous System Number), based on the IP found in the request tied to the event. See <a href="https://help.okta.com/okta_help.htm?id=asn-behavior-detection">Add an ASN behavior</a>.</p>
+                
+                <h4 id="developer-documentation-update-in-2025-10-0">Developer documentation update in 2025.10.0</h4>
+                <p>The <a href="https://developer.okta.com/docs/guides/create-an-api-token/main/">Create an API token</a> guide has been moved from the <strong>Sign users in</strong> &gt; <strong>Basics</strong> section to the <strong>API Security</strong> section of the <strong>Guides</strong> sidebar.</p>
+                
+            </div>
+        </section>
+        <section id="september" class="release-item">
+            <h2><a href="https://developer.okta.com/docs/release-notes/2025/#September" target="_blank">September</a></h2>
+            <p><strong>Published Date:</strong> Invalid Date</p>
+            <div class="release-content">
+                <h3>Weekly release 2025.09.2</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Change</th>
+                            <th>Expected in Preview Orgs</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><a href="#bugs-fixed-in-2025-09-2">Bugs fixed in 2025.09.2</a></td><td>October 1, 2025</td></tr>
+                    </tbody>
+                </table>
+                
+                <h4 id="bugs-fixed-in-2025-09-2">Bugs fixed in 2025.09.2</h4>
+                <ul>
+                    <li>Users couldn't access the IdP if the <code>protocol.algorithms.response.signature</code> value was missing from the response payload when the IdP was created. (OKTA-987923)</li>
+                    <li>When you retrieved a factor’s transaction status (<code>GET /users/{userId}/factors/{factorId}/transactions/{transactionId}</code>), the request didn’t correctly validate that the <code>userId</code> matched the <code>transactionId</code>. (OKTA-969072)</li>
+                    <li>When enrolling a phone factor (<code>POST /users/{userId}/factors</code>), an "Invalid Phone Number" error was sometimes incorrectly returned. (OKTA-1024021)</li>
+                </ul>
+                
+                <h3>Weekly release 2025.09.1</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Change</th>
+                            <th>Expected in Preview Orgs</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><a href="#new-functionality-filters-in-the-oin-catalog">New functionality filters in the OIN catalog</a></td><td>September 17, 2025</td></tr>
+                        <tr><td><a href="#bugs-fixed-in-2025-09-1">Bugs fixed in 2025.09.1</a></td><td>September 17, 2025</td></tr>
+                    </tbody>
+                </table>
+                
+                <h4 id="new-functionality-filters-in-the-oin-catalog">New functionality filters in the OIN catalog</h4>
+                <p>The <strong>Browse App Integration Catalog</strong> page now provides <strong>Cross App Access</strong> and <strong>Privileged Access Management</strong> functionality filters. The new filters help admins quickly find Cross App Access- and Privileged Access Management-enabled apps in the OIN.</p>
+                
+                <h4 id="bugs-fixed-in-2025-09-1">Bugs fixed in 2025.09.1</h4>
+                <ul>
+                    <li>When an error occurred during token encryption, a signed JWT was returned instead of an error. (OKTA-987783)</li>
+                    <li>Users could submit OIN integrations with incomplete or invalid information. (OKTA-897453)</li>
+                </ul>
+
+                <h3>Monthly release 2025.09.0</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Change</th>
+                            <th>Expected in Preview Orgs</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><a href="#user-api-projections">User API Projections</a></td><td>September 10, 2025</td></tr>
+                        <tr><td><a href="#org2org-oidc-sign-on-mode-is-ga-in-preview">Org2Org OIDC Sign-on mode is GA in Preview</a></td><td>June 17, 2025</td></tr>
+                        <tr><td><a href="#anything-as-a-source-for-groups-and-group-memberships-api-is-ea-in-preview">Anything-as-a-Source for groups and group memberships API is EA in Preview</a></td><td>September 10, 2025</td></tr>
+                        <tr><td><a href="#new-system-log-events-for-bulk-groups-and-bulk-group-memberships-changes">New System Log events for bulk groups and bulk group memberships changes</a></td><td>September 10, 2025</td></tr>
+                        <tr><td><a href="#breached-credentials-protection-is-ga-in-production">Breached Credentials Protection is GA in Production</a></td><td>May 15, 2025</td></tr>
+                        <tr><td><a href="#group-push-mappings-is-ga-in-production">Group Push Mappings is GA in Production</a></td><td>August 7, 2025</td></tr>
+                        <tr><td><a href="#new-validation-rule-for-integration-variables-in-the-oin-wizard">New validation rule for integration variables in the OIN Wizard</a></td><td>September 10, 2025</td></tr>
+                        <tr><td><a href="#clear-user-factors-for-all-devices-is-ga-in-production">Clear user factors for all devices is GA in Production</a></td><td>August 7, 2025</td></tr>
+                        <tr><td><a href="#secure-identity-integrations-filters-in-the-oin-catalog">Secure Identity Integrations filters in the OIN catalog</a></td><td>September 10, 2025</td></tr>
+                        <tr><td><a href="#okta-integration-idp-type-is-ga-in-preview">Okta Integration IdP type is GA in Preview</a></td><td>June 25, 2025</td></tr>
+                        <tr><td><a href="#user-status-in-okta-expression-language-is-ga-in-preview">User status in Okta Expression Language is GA in Preview</a></td><td>September 10, 2025</td></tr>
+                        <tr><td><a href="#developer-documentation-update-in-2025-09-0">Developer documentation update in 2025.09.0</a></td><td>September 10, 2025</td></tr>
+                    </tbody>
+                </table>
+
+                <h4 id="user-api-projections">User API Projections</h4>
+                <p>You can now use the <code>fields</code> query parameter with the list users endpoint (<code>GET /api/v1/users/</code>). This parameter lets you specify properties to return for users meeting the search criteria. </p>
+
+                <h4 id="org2org-oidc-sign-on-mode-is-ga-in-preview">Org2Org OIDC Sign-on mode is GA in Preview</h4>
+                <p>The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP. This sign-on mode reduces the complexity of configuration between the Org2Org app and the target org, and takes advantage of modern security features of OIDC. See <a href="/docs/guides/secure-oauth-between-orgs/main/">Secure API connections between orgs with OAuth 2.0</a>. </p>
+
+                <h4 id="anything-as-a-source-for-groups-and-group-memberships-api-is-ea-in-preview">Anything-as-a-Source for groups and group memberships API is EA in Preview</h4>
+                <p>Anything-as-a-Source (XaaS) capabilities allow customers to use a custom identity source with Okta. With XaaS, customers can connect a custom HR app or a custom database to source entities such as users into Okta’s Universal Directory. This release offers XaaS capabilities with groups and group memberships, allowing customers to start sourcing groups with XaaS. Okta now enables creating and updating users, creating and updating groups, and managing group memberships into Okta’s Universal Directory from any identity source using the Identity Source APIs. See <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/">Identity Sources</a>. </p>
+
+                <h4 id="new-system-log-events-for-bulk-groups-and-bulk-group-memberships-changes">New System Log events for bulk groups and bulk group memberships changes</h4>
+                <p>The following new System Log events indicate when bulk group and bulk group memberships <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/">Identity Sources API</a> are called:</p>
+                <ul>
+                    <li><code>system.identity_sources.bulk_group_upsert</code></li>
+                    <li><code>system.identity_sources.bulk_group_delete</code></li>
+                    <li><code>system.identity_sources.bulk_group_membership_upsert</code></li>
+                    <li><code>system.identity_sources.bulk_group_membership_delete</code></li>
+                </ul>
+
+                <h4 id="breached-credentials-protection-is-ga-in-production">Breached Credentials Protection is GA in Production</h4>
+                <p>Protect your org from the impact of credentials that have been compromised. If Okta determines that a username and password combination has been compromised after being compared to a third-party curated dataset, the protection response is customizable through password policies, including resetting the user's password, forcing a logout, or calling a delegated Workflow. See the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/">Okta Policies API</a>.</p>
+                <p>This feature is following a slow rollout process. </p>
+
+                <h4 id="group-push-mappings-is-ga-in-production">Group Push Mappings is GA in Production</h4>
+                <p>With the API for Group Push, admins can now programmatically create, link, or manage group push configuration in Okta. This allows admins to configure Okta groups to be pushed to connected apps at scale and reduces overhead for large deployments. See <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupPushMapping/">Group Push Mappings API</a>.</p>
+
+                <h4 id="new-validation-rule-for-integration-variables-in-the-oin-wizard">New validation rule for integration variables in the OIN Wizard</h4>
+                <p>The OIN Wizard now validates each integration variable name and displays an error if a reserved name is used. </p>
+
+                <h4 id="clear-user-factors-for-all-devices-is-ga-in-production">Clear user factors for all devices is GA in Production</h4>
+                <p>When you make a Revoke all user sessions (<code>/api/v1/users/{userId}/sessions</code>) request, include the new <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserSessions/#tag/UserSessions/operation/revokeUserSessions!in=query&amp;path=forgetDevices&amp;t=request"><code>forgetDevices</code> parameter</a> (with a value of <code>true</code>) to clear a user's remembered factors on all devices. The user is prompted for full authentication on their next sign-in attempt from any device. The <code>forgetDevices</code> parameter is set to <code>false</code> by default. </p>
+
+                <h4 id="secure-identity-integrations-filters-in-the-oin-catalog">Secure Identity Integrations filters in the OIN catalog</h4>
+                <p>The Browse App Integration Catalog page now provides three new Secure Identity Integrations checkboxes: <strong>Secure Identity Integrations - Fundamental</strong>, <strong>Secure Identity Integrations - Advanced</strong>, and <strong>Secure Identity Integrations - Strategic</strong>. When you select one, the OIN catalog displays only the apps with that specific functionality. </p>
+
+                <h4 id="okta-integration-idp-type-is-ga-in-preview">Okta Integration IdP type is GA in Preview</h4>
+                <p>The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with secure defaults. See <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&amp;path=type&amp;t=response">Identity Providers</a>.</p>
+
+                <h4 id="user-status-in-okta-expression-language-is-ga-in-preview">User status in Okta Expression Language is GA in Preview</h4>
+                <p>You can now reference User Status in the Okta expression language. Group Rules can leverage user statuses to drive group membership. Use the <code>user.getInternalProperty('status')</code> function to get the status of a user. See <a href="/docs/reference/okta-expression-language/#okta-user-id-and-status">Okta user ID and status</a>. </p>
+
+                <h4 id="developer-documentation-update-in-2025-09-0">Developer documentation update in 2025.09.0</h4>
+                <ul>
+                    <li>The <code>revocation</code> and <code>revocationCacheLifetime</code> properties that are used with the Mutual TLS protocol in the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider!path=protocol/3/credentials/trust&amp;t=request">Identity Providers API</a> are now deprecated. Okta now handles CRL caching automatically.</li>
+                    <li>As of October 8, 2025, in Preview orgs, and October 13, 2025, in Production orgs, these properties are ignored if they’re specified in any API requests. Specifying the properties in your API requests doesn't cause any errors since they have no effect.</li>
+                    <li>See <a href="https://support.okta.com/help/s/article/deprecation-notice-smart-card-idp-legacy-crl-cache-setting?language=en_US">Deprecation Notice - Smart Card IdP Legacy CRL Cache Setting</a>.</li>
+                    <li>Best practice implementations of API use cases are now available for Identity Governance. See <strong>Identity Governance</strong> in the <a href="/docs/guides/identity-governance/">Guides</a> sidebar.</li>
+                    <li>Okta Identity Governance campaigns and entitlements can now be managed using the Okta Terraform Provider. This enables customers to manage their governance tasks and configure other resources in their Okta org that are maintained through the Terraform Infrastructure-as-Code tool. For more information, refer to  <a href="https://github.com/okta/terraform-provider-okta">Terraform Provider for Okta</a> and the <a href="https://registry.terraform.io/providers/okta/okta/latest/docs">Terraform Registry</a> documentation.</li>
+                </ul>
+            </div>
+        </section>
+        <section id="footer">
+            <p style="text-align: center; color: #666; font-size: 0.9em; margin-top: 40px;">This page is a static HTML render of the Okta Developer Release Notes RSS Feed.</p>
+        </section>
+    </div>
+
+</body>
+</html>
