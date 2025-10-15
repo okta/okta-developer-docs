@@ -97,6 +97,7 @@ curl -L -X POST "https://idv-vendor.com/oauth2/par" \
   "code_challenge": "{code_challenge}",
   "code_challenge_method": "{code_challenge_method}",
   "scope": "openid profile identity_assurance idv_flow_{idv_flow_id}",
+  "nonce": "{nonceValue}",
   "claims": {
     "id_token": {
       "verified_claims": [
@@ -200,6 +201,7 @@ The error response for an unsuccessful `POST /oauth2/par` request uses this [str
 | identity_assurance    | Requests access to the `verified_claims` object.                                                               | String     | String   |
 | idv_flow_{idv_flow_id} | Identifies a specific IDV flow from the IDV vendor. Replace `{idv_flow_id}` with the identifier of the flow. You can leave it out of the request if the `client_id` and `client_secret` are configured to represent a specific flow from the IDV vendor. | String     | String   |
 | verified_claims       | Contains the `verification` and `claims` objects.                                                              | Object     | Object   |
+| nonce                 | A unique, random string that’s used to associate a client session with an ID token. Okta generates this value. | String     | String   |
 | verification          | Specifies the parameters and requirements for verifying the claims. Okta uses both the `trust_framework` and `assurance_level` properties. See the OIDC definition of the [verification](https://openid.bitbucket.io/ekyc/openid-ida-verified-claims.html#name-verification-element) property. | Object     | Object   |
 | trust_framework       | Identifies the trust framework that provides assurance about the verified attributes. Okta sets `IDV_DELEGATED` as the default value. This value delegates identity verification and the assurance policy to the IDV vendor. The IDV vendor is then responsible for verifying user identities and sends the results back to Okta. <br></br>`IDV_DELEGATED` is currently the only supported trust framework. See the OIDC definition of the [trust_framework](https://openid.net/specs/openid-ida-verified-claims-1_0.html#section-5.4.2-5) property. | String     | String   |
 | assurance_level       | Identifies the assurance level that's required for the identity claims of the user. The IDV vendor must map their verification results to the possible assurance levels, `VERIFIED` or `FAILED`. <br></br>For a successful verification, the IDV vendor must pass  `VERIFIED` as the `assurance_level`. For a failed verification, the IDV vendor must pass `FAILED` or a `null` value. See the OIDC definition of the [assurance_level](https://openid.net/specs/openid-ida-verified-claims-1_0.html#section-5.4.2-6.1.1) property. | String     | String   |
@@ -300,7 +302,7 @@ The error response for an unsuccessful `POST /token` request uses this [structur
 
 ### IDV vendor responds with id_token
 
-When the `POST /token` request succeeds, the IDV vendor sends an `id_token` in a JSON Web Token (JWT) encoded format back to Okta in response. The `id_token` includes the `verified_claims` object. This object contains the results of the identity verification for the user.
+When the `POST /token` request succeeds, the IDV vendor sends an `id_token` in a JSON Web Token (JWT) encoded format back to Okta in response. The `id_token` includes the `verified_claims` object. This object contains the results of the identity verification for the user. Vendors can choose to pass the `verification_process` and `time` attributes in the [`verification`](https://openid.net/specs/openid-ida-verified-claims-1_0.html#name-verification-element) response object. They aren't required.
 
 Note the following the ways to format the `claims` object for the `id_token` response:
 
@@ -325,6 +327,7 @@ Cache-Control: no-cache, no-store
       "verification": {
         "trust_framework": "IDV-DELEGATED",
         "assurance_level": "VERIFIED",
+        "verification_process": "DSf33219LcP-729",
         "time": "2024-10-07T10:00:00Z"
       },
       "claims": {
@@ -383,19 +386,28 @@ For the `user.identity_verification` event, there are two possible results for t
 
 The `ALLOW` result provides a `CLAIMS_VERIFIED` reason that indicates the IDV vendor successfully verified the user.
 
-There are multiple possible reasons for the `DENY` result:
+There are multiple possible reasons for the `DENY` result. See the following table.
 
-* `PARSING_ERROR`: Indicates that Okta wasn't able to parse the response from the IDV vendor because of invalid or malformed data.
-* `MISSING`: Indicates that a required parameter or value wasn't present in the request or response.
-* `RESPONSE_PROCESSING_ERROR`: Indicates that Okta encountered an error while processing the response from the IDV vendor.
-* `ERROR_RESPONSE`: Indicates that the IDV vendor returned an explicit error response to Okta.
-* `EMPTY_USER_ID`: Indicates that no user ID was provided in the request to the IDV vendor.
-* `MISSING_CODE_CHALLENGE`: Indicates that the code challenge required for PKCE was missing from the request.
-* `MISSING_APP_INSTANCE`: Indicates that the application instance required for the IDV flow wasn't found or wasn't provided.
-* `MISSING_AUTH_STATE_TOKEN`: Indicates that the authentication state token required for the flow was missing or invalid.
-* `CLAIMS_NOT_VERIFIED`: Indicates that the IDV vendor has assessed that not all `claims` attributes were verified.
-* `CLAIM_GIVEN_NAME_NOT_VERIFIED`: Indicates that the `given_name` value wasn't verified.
-* `CLAIM_FAMILY_NAME_NOT_VERIFIED`: Indicates that the `family_name` value wasn't verified.
+| Error reason                       | Description                                                                                                      |
+|-----------------------------------|------------------------------------------------------------------------------------------------------------------|
+| `PARSING_ERROR`                    | Indicates that Okta wasn't able to parse the response from the IDV vendor because of invalid or malformed data. There are multiple versions of this error that relate to the specific parsing issue encountered. For example, you can see `PARSING_ERROR_GIVENNAME` or `PARSING_ERROR_FAMILYNAME` if there's a parsing issue with those parameters. |
+| `MISSING`                           | Indicates that a required parameter or value wasn't present in the request or response. There are multiple versions of this error that relate to the specific issue encountered. For example, you can see `MISSING_GIVENNAME` or `MISSING_FAMILYNAME` if those parameters aren't included.                          |
+| `RESPONSE_PROCESSING_ERROR`       | Indicates that Okta encountered an error while processing the response from the IDV vendor. There are multiple versions of this error that relate to the specific issue encountered. For example, you can see `RESPONSE_PROCESSING_ERROR_PAR` if there's an issue with the PAR request.                       |
+| `ERROR_RESPONSE`                    | Indicates that the IDV vendor returned an explicit error response to Okta. There are multiple versions of this error that relate to the specific issue encountered. For example, you can see `ERROR_RESPONSE_TOKEN` if the token that's provided is invalid.                                       |
+| `EMPTY_USER_ID`                     | Indicates that no user ID was provided in the request to the IDV vendor.                                         |
+| `MISSING_CODE_CHALLENGE`            | Indicates that the code challenge required for PKCE was missing from the request.                                |
+| `MISSING_APP_INSTANCE`              | Indicates that the application instance required for the IDV flow wasn't found or wasn't provided.               |
+| `MISSING_AUTH_STATE_TOKEN`          | Indicates that the authentication state token required for the flow was missing or invalid.                      |
+| `CLAIMS_NOT_VERIFIED`               | Indicates that the IDV vendor has assessed that not all `claims` attributes were verified.                       |
+| `CLAIM_GIVEN_NAME_NOT_VERIFIED`     | Indicates that the `given_name` value wasn't verified.                                                           |
+| `CLAIM_FAMILY_NAME_NOT_VERIFIED`    | Indicates that the `family_name` value wasn't verified.                                                          |
+
+### Use the System Log to track identity verification events
+
+Along with the IDV events (`user.identity_verification.start` and `user.identity_verification`), there are two properties that are attached to those events. The properties are also attached to the `policy.evaluate_sign_on` event when an Okta account management policy is involved.
+
+* `IdvReferenceId`: This property provides a reference ID that's attached to all the relevant events of an IDV process.
+* `IdvFlowId`: This property displays the ID of the IDV flow. Admins can use this property to more easily track information related to a specific IDV flow.
 
 ## Supported OIDC claims
 
@@ -428,10 +440,3 @@ Okta admins can map any of these supported claims to user profile attributes. Se
 Admins can set user profile attributes as **required** when they map them to to the corresponding IDV vendor attribute. The `given_name` and `family_name` claims are **required** by default. When a PAR request is sent from Okta, and a **required** claim doesn't have a value in the user's profile, then the [initial PAR request](#post-oauth2-par-request-to-idv-vendor) fails.
 
 However, if a claim is mapped but not set as **required**, and it doesn't have a value in the user's profile, then the claim is excluded from the initial PAR request. The PAR request isn't failed.
-
-### Use the System Log to track identity verification events
-
-Along with the IDV events (`user.identity_verification.start` and `user.identity_verification`), there are two properties that are attached to those events. The properties are also attached to the `policy.evaluate_sign_on` event when an Okta account management policy is involved.
-
-* `IdvReferenceId`: This property provides a reference ID that's attached to all the relevant events of an IDV process.
-* `IdvFlowId`: This property displays the ID of the IDV flow. Admins can use this property to more easily track information related to a specific IDV flow.
