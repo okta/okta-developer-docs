@@ -17,16 +17,13 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
     const dateMatch = bodyLines.join('\n').match(/\|\s*\[.*?\]\(.*?\)\s*\|\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})\s*\|/);
     const pubDate = dateMatch ? new Date(dateMatch[1]) : new Date();
     const description = bodyLines.join('\n').trim();
-    // Generate a unique link for the item
-    const itemLink = `${siteUrl}#${title.replace(/[^a-zA-Z0-9]/g, '')}`;
-    return { title, pubDate, description, itemLink };
+    return { title, pubDate, description };
   });
 
   const rssItems = releases.map(rel => `
     <item>
       <title>${rel.title}</title>
-      <link>${rel.itemLink}</link>
-      <guid>${rel.itemLink}</guid>
+      <link>${siteUrl}#${rel.title.replace(/[^a-zA-Z0-9]/g, '')}</link>
       <pubDate>${rel.pubDate.toUTCString()}</pubDate>
       <description><![CDATA[${rel.description}]]></description>
     </item>

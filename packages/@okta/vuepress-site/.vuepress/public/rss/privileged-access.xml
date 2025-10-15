@@ -4,11 +4,12 @@
   <title>Okta Developer Docs Release Notes (Privileged Access)</title>
   <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/</link>
   <description>Recent release notes for Okta Privileged Access API</description>
-  <pubDate>Wed, 15 Oct 2025 15:25:17 GMT</pubDate>
+  <pubDate>Wed, 15 Oct 2025 17:44:45 GMT</pubDate>
   
     <item>
       <title>Monthly release 2025.10.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025100</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025100</guid>
       <pubDate>Thu, 09 Oct 2025 04:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview | Expected in Production |
 |--------|--------------------------|-----------------------------|
@@ -38,6 +39,7 @@ Okta Privilege Access (OPA) end users can generate passwords for their unmanaged
     <item>
       <title>Weekly release 2025.09.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025092</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025092</guid>
       <pubDate>Thu, 18 Sep 2025 04:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview | Expected in Production |
 |--------|--------------------------|-----------------------------|
@@ -53,6 +55,7 @@ You can now exclude specific symbols from the generated passwords for server, Sa
     <item>
       <title>Weekly release 2025.09.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025091</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025091</guid>
       <pubDate>Thu, 18 Sep 2025 04:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview |
 |--------|--------------------------|
@@ -68,6 +71,7 @@ Okta Privilege Access (OPA) end users can generate passwords for their unmanaged
     <item>
       <title>Monthly release 2025.09.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025090</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025090</guid>
       <pubDate>Mon, 08 Sep 2025 04:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview | Expected in Production |
 |--------|---------------------|------------------------|
@@ -89,6 +93,7 @@ To enable Okta-managed users on import, set `enable_import_okta_users` and `enha
     <item>
       <title>Weekly release 2025.08.4</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025084</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025084</guid>
       <pubDate>Thu, 28 Aug 2025 04:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview | Expected in Production |
 |--------|---------------------|------------------------|
@@ -116,6 +121,7 @@ Users need the `security_admin` permission instead of the `resource_admin` permi
     <item>
       <title>Weekly release 2025.08.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025082</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025082</guid>
       <pubDate>Wed, 20 Aug 2025 04:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview | Expected in Production |
 |--------|---------------------|------------------------|
@@ -133,6 +139,7 @@ You can grant RDP permission to AD users on Windows servers through the security
     <item>
       <title>Monthly release 2025.08.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025080</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025080</guid>
       <pubDate>Thu, 07 Aug 2025 04:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview |
 |--------|---------------------|
@@ -167,7 +174,8 @@ Okta Privileged Access users can now search secrets and their folders. A new `se
     <item>
       <title>Monthly release 2025.06.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025060</link>
-      <pubDate>Wed, 15 Oct 2025 15:25:17 GMT</pubDate>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025060</guid>
+      <pubDate>Wed, 15 Oct 2025 17:44:45 GMT</pubDate>
       <description><![CDATA[#### Updates to password rotation frequency
 
 You can now schedule the password rotation frequency for all projects up to a maximum of 400 days. The `periodic_rotation_duration_in_seconds` parameter now has a maximum value of 34,560,000 seconds in the following operations:
@@ -182,7 +190,8 @@ You can now schedule the password rotation frequency for all projects up to a ma
     <item>
       <title>Weekly release 2025.05.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025053</link>
-      <pubDate>Wed, 15 Oct 2025 15:25:17 GMT</pubDate>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025053</guid>
+      <pubDate>Wed, 15 Oct 2025 17:44:45 GMT</pubDate>
       <description><![CDATA[* [OPA Active Directory API resources are EA](#opa-active-directory-api-resources-are-ea)
 * [Cloud Infrastructure Entitlements API is deprecated](#cloud-infrastructure-entitlements-api-is-deprecated)
 

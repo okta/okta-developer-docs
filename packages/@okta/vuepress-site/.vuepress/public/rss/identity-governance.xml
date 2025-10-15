@@ -4,11 +4,12 @@
   <title>Okta Developer Docs Release Notes (Identity Governance)</title>
   <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/</link>
   <description>Recent release notes for Okta Identity Governance API</description>
-  <pubDate>Wed, 15 Oct 2025 15:25:17 GMT</pubDate>
+  <pubDate>Wed, 15 Oct 2025 17:44:45 GMT</pubDate>
   
     <item>
       <title>Monthly release 2025.10.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025100</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025100</guid>
       <pubDate>Wed, 10 Sep 2025 04:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
@@ -34,6 +35,7 @@ The [`governance.settings.update`](https://developer.okta.com/docs/reference/api
     <item>
       <title>Weekly release 2025.09.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025091</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025091</guid>
       <pubDate>Wed, 17 Sep 2025 04:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
@@ -49,6 +51,7 @@ The [`governance.settings.update`](https://developer.okta.com/docs/reference/api
     <item>
       <title>Monthly release 2025.09.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025090</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025090</guid>
       <pubDate>Wed, 13 Aug 2025 04:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
@@ -121,6 +124,7 @@ See the [Security Access Reviews](https://developer.okta.com/docs/api/iga/openap
     <item>
       <title>Weekly release 2025.08.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025082</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025082</guid>
       <pubDate>Wed, 20 Aug 2025 04:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
@@ -135,6 +139,7 @@ The List all grants API operation ( `GET /governance/api/v1/grants`) returned an
     <item>
       <title>Monthly release 2025.08.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025080</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025080</guid>
       <pubDate>Thu, 07 Aug 2025 04:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
@@ -197,6 +202,7 @@ The filtered entitlement bundles request (`GET /governance/api/v1/entitlement-bu
     <item>
       <title>Weekly release 2025.07.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025072</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025072</guid>
       <pubDate>Wed, 16 Jul 2025 04:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
@@ -223,6 +229,7 @@ A null pointer exception occurred when a `PUT /governance/api/v1/collections/{co
     <item>
       <title>Monthly release 2025.07.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025070</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025070</guid>
       <pubDate>Mon, 07 Jul 2025 04:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
@@ -246,6 +253,7 @@ In addition, a single app retrieval endpoint won't return these apps either. For
     <item>
       <title>Weekly release 2025.06.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025061</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025061</guid>
       <pubDate>Tue, 17 Jun 2025 04:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
@@ -265,6 +273,7 @@ The [List all access request catalog entries for a user](https://developer.okta.
     <item>
       <title>Weekly release 2025.05.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025053</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025053</guid>
       <pubDate>Thu, 29 May 2025 04:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
@@ -280,6 +289,7 @@ The [Request Condition API](https://developer.okta.com/docs/api/iga/openapi/gove
     <item>
       <title>Weekly release 2025.05.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025051</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025051</guid>
       <pubDate>Wed, 14 May 2025 04:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
@@ -305,6 +315,7 @@ The [Generate a risk assessment](https://developer.okta.com/docs/api/iga/openapi
     <item>
       <title>Monthly release 2025.04.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025040</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025040</guid>
       <pubDate>Wed, 02 Apr 2025 04:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
@@ -338,6 +349,7 @@ See [Separation of duties](https://help.okta.com/okta_help.htm?type=oie&id=separ
     <item>
       <title>Weekly release 2025.03.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025032</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025032</guid>
       <pubDate>Wed, 19 Mar 2025 04:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
@@ -354,6 +366,7 @@ The [Collections API](https://developer.okta.com/docs/api/iga/openapi/governance
     <item>
       <title>Weekly release 2025.03.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025031</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025031</guid>
       <pubDate>Wed, 12 Mar 2025 04:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
@@ -368,6 +381,7 @@ The `requestOnBehalfOfSettings` property wasn’t validated for `DIRECT_REPORT` 
     <item>
       <title>Monthly release 2025.03.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025030</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025030</guid>
       <pubDate>Wed, 05 Mar 2025 05:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
@@ -399,6 +413,7 @@ The `remediationSettings.autoRemediationSettings` and `principalScopeSettings.pr
     <item>
       <title>Weekly release 2025.02.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025021</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025021</guid>
       <pubDate>Thu, 13 Feb 2025 05:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
@@ -415,6 +430,7 @@ Breaking change: The [List all entitlement](https://developer.okta.com/docs/api/
     <item>
       <title>Monthly release 2025.02.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025020</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025020</guid>
       <pubDate>Thu, 06 Feb 2025 05:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
@@ -431,6 +447,7 @@ An `access.request.settings.update` System Log event now appears when a **Reques
     <item>
       <title>Weekly release 2025.01.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025012</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025012</guid>
       <pubDate>Wed, 29 Jan 2025 05:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
@@ -445,6 +462,7 @@ An `access.request.settings.update` System Log event now appears when a **Reques
     <item>
       <title>Monthly release 2025.01.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025010</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025010</guid>
       <pubDate>Wed, 08 Jan 2025 05:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
