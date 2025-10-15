@@ -4,24 +4,19 @@
   <title>Okta Developer Docs Release Notes (Classic Engine)</title>
   <link>https://developer.okta.com/docs/release-notes/2025/</link>
   <description>Recent release notes for Okta Classic Engine API</description>
-  <pubDate>Tue, 14 Oct 2025 20:50:07 GMT</pubDate>
+  <pubDate>Wed, 15 Oct 2025 15:25:17 GMT</pubDate>
   
     <item>
-      <title>Weekly release 2025.10.1</title>
-      <link>https://developer.okta.com/docs/release-notes/2025/#Weeklyrelease2025101</link>
-      <pubDate>Tue, 14 Oct 2025 04:00:00 GMT</pubDate>
+      <title>Monthly release 2025.10.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2025/#Monthlyrelease2025101</link>
+      <pubDate>Wed, 08 Oct 2025 04:00:00 GMT</pubDate>
       <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Test api rn](#test-api-rn) | October 14, 2025 |
-| [Test api rn2](#test-api-rn2) | October 14, 2025 |
+| [test feature](#test-feature) | October 8, 2025 |
 
-#### Test api rn
+#### Test feature
 
-The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP. This sign-on mode reduces the complexity of configuration between the Org2Org app and the target org, and takes advantage of modern security features of OIDC. See [Secure API connections between orgs with OAuth 2.0](/docs/guides/secure-oauth-between-orgs/main/). <!-- OKTA-1010571 FF ORG2ORG_ENABLE_OIDC_SOM -->
-
-#### Test api rn2
-
-The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP. This sign-on mode reduces the complexity of configuration between the Org2Org app and the target org, and takes advantage of modern security features of OIDC. See [Secure API connections between orgs with OAuth 2.0](/docs/guides/secure-oauth-between-orgs/main/). <!-- OKTA-1010571 FF ORG2ORG_ENABLE_OIDC_SOM -->]]></description>
+blah blah blah]]></description>
     </item>
   
 

@@ -1,18 +1,16 @@
----
-title: Okta Identity Governance API release notes 2025
----
-
-# Okta Identity Governance API release notes (2025)
-
-Okta Identity Governance is available for both Okta Classic and Identity Engine.
-
-[![RSS Feed](https://img.shields.io/badge/rss-feed-orange?logo=rss)](/rss/identity-governance.xml)
-
-## October
-
-### Monthly release 2025.10.0
-
-| Change | Expected in Preview Orgs |
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>Okta Developer Docs Release Notes (Identity Governance)</title>
+  <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/</link>
+  <description>Recent release notes for Okta Identity Governance API</description>
+  <pubDate>Wed, 15 Oct 2025 15:25:17 GMT</pubDate>
+  
+    <item>
+      <title>Monthly release 2025.10.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025100</link>
+      <pubDate>Wed, 10 Sep 2025 04:00:00 GMT</pubDate>
+      <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Entitlement history is Beta](#entitlement-history-is-beta)| September 10, 2025 |
 | [New governance setting System Log event](#new-governance-setting-system-log-event)| October 8, 2025 |
@@ -29,22 +27,30 @@ You can also access this feature from the Admin Console. See [View user entitlem
 The [`governance.settings.update`](https://developer.okta.com/docs/reference/api/event-types/?q=governance.settings.update) System Log event is triggered when super admins update the delegate settings to allow or block users from assigning their own delegate.
 <!-- OKTA-1005733 Preview date: Oct 8, 2025 -->
 
-## September
+## September]]></description>
+    </item>
+  
 
-### Weekly release 2025.09.1
-
-| Change | Expected in Preview Orgs |
+    <item>
+      <title>Weekly release 2025.09.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025091</link>
+      <pubDate>Wed, 17 Sep 2025 04:00:00 GMT</pubDate>
+      <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Bugs fixed in 2025.09.1](#bugs-fixed-in-2025-09-1)| September 17, 2025 |
 
 #### Bugs fixed in 2025.09.1
 
 * The list entitlement bundles request (`GET /governance/api/v1/entitlement-bundles`) returned an error when the `name` filter had a single quote. (OKTA-1007878)
-* The retrieve principal entitlements request (`GET /governance/api/v1/principal-entitlements`) returned an invalid-condition error when a resource ORN was used in the filter. (OKTA-928086)
+* The retrieve principal entitlements request (`GET /governance/api/v1/principal-entitlements`) returned an invalid-condition error when a resource ORN was used in the filter. (OKTA-928086)]]></description>
+    </item>
+  
 
-### Monthly release 2025.09.0
-
-| Change | Expected in Preview Orgs |
+    <item>
+      <title>Monthly release 2025.09.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025090</link>
+      <pubDate>Wed, 13 Aug 2025 04:00:00 GMT</pubDate>
+      <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Auditor reporting package is self-service EA](#auditor-reporting-package-is-self-service-ea)| August 13, 2025 |
 | [Entitlement bundle documented response updates](#entitlement-bundle-documented-response-updates)| September 10, 2025 |
@@ -108,21 +114,29 @@ See the [Security Access Reviews](https://developer.okta.com/docs/api/iga/openap
 
 * Okta Identity Governance campaigns and entitlements can now be managed using the Okta Terraform Provider. This enables customers to manage their governance tasks and configure other resources in their Okta org that are maintained through the Terraform Infrastructure-as-Code tool. For more information, refer to  [Terraform Provider for Okta](https://github.com/okta/terraform-provider-okta) and the [Terraform Registry](https://registry.terraform.io/providers/okta/okta/latest/docs) documentation.
 
-## August
+## August]]></description>
+    </item>
+  
 
-### Weekly release 2025.08.2
-
-| Change | Expected in Preview Orgs |
+    <item>
+      <title>Weekly release 2025.08.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025082</link>
+      <pubDate>Wed, 20 Aug 2025 04:00:00 GMT</pubDate>
+      <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Bug fixed in 2025.08.2](#bug-fixed-in-2025-08-2)| August 20, 2025 |
 
 #### Bug fixed in 2025.08.2
 
-The List all grants API operation ( `GET /governance/api/v1/grants`) returned an incorrect number of objects. (OKTA-995619)
+The List all grants API operation ( `GET /governance/api/v1/grants`) returned an incorrect number of objects. (OKTA-995619)]]></description>
+    </item>
+  
 
-### Monthly release 2025.08.0
-
-| Change | Expected in Preview Orgs |
+    <item>
+      <title>Monthly release 2025.08.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025080</link>
+      <pubDate>Thu, 07 Aug 2025 04:00:00 GMT</pubDate>
+      <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Governance delegates APIs are Beta](#governance-delegates-apis-are-beta) | August 7, 2025 |
 | [List all access request catalog entries for a user is GA](#list-all-access-request-catalog-entries-for-a-user-is-ga) | July 16, 2025|
@@ -176,11 +190,15 @@ The **Archived Okta Identity Governance API changelog (2023-2024)** has been rem
 
 The filtered entitlement bundles request (`GET /governance/api/v1/entitlement-bundles`) with the contains (`co`) operator didn't sort results by the substring's location within the `name` field.
 
-## July
+## July]]></description>
+    </item>
+  
 
-### Weekly release 2025.07.2
-
-| Change | Expected in Preview Orgs |
+    <item>
+      <title>Weekly release 2025.07.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025072</link>
+      <pubDate>Wed, 16 Jul 2025 04:00:00 GMT</pubDate>
+      <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Related entity link updates for catalog entry responses](#related-entity-link-updates-for-catalog-entry-responses)| July 16, 2025 |
 | [Bug fixed in 2025.07.2](#bug-fixed-in-2025-07-2)| July 16, 2025 |
@@ -198,11 +216,15 @@ The `_links.relatedEntity` (or `data._links.relatedEntity`) property is now retu
 
 #### Bug fixed in 2025.07.2
 
-A null pointer exception occurred when a `PUT /governance/api/v1/collections/{collecionId}/resources/{resourceId}` request was made on a collection without resources. (OKTA-970817)
+A null pointer exception occurred when a `PUT /governance/api/v1/collections/{collecionId}/resources/{resourceId}` request was made on a collection without resources. (OKTA-970817)]]></description>
+    </item>
+  
 
-### Monthly release 2025.07.0
-
-| Change | Expected in Preview Orgs |
+    <item>
+      <title>Monthly release 2025.07.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025070</link>
+      <pubDate>Mon, 07 Jul 2025 04:00:00 GMT</pubDate>
+      <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Changes to Okta app API responses](#changes-to-okta-app-api-responses) | July 7, 2025 |
 
@@ -217,11 +239,15 @@ The following Okta apps won't be returned in the API response for endpoints that
 In addition, a single app retrieval endpoint won't return these apps either. For example: `GET /api/v1/apps/{appId}` won't return the app object if `{appId}` is the ID for the `okta_iga`, `okta_access_requests_admin`, or `okta_entitlement_management` apps in your org.
 <!-- OKTA-871526 ENG_ENABLE_UI_ADMIN_OIDC_APP -->
 
-## June
+## June]]></description>
+    </item>
+  
 
-### Weekly release 2025.06.1
-
-| Change | Expected in Preview Orgs |
+    <item>
+      <title>Weekly release 2025.06.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025061</link>
+      <pubDate>Tue, 17 Jun 2025 04:00:00 GMT</pubDate>
+      <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [List all access request catalog entries for a user is Beta](#list-all-access-request-catalog-entries-for-a-user-is-beta)| June 17, 2025 |
 
@@ -232,22 +258,30 @@ In addition, a single app retrieval endpoint won't return these apps either. For
 The [List all access request catalog entries for a user](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultUserEntriesV2) (`GET /governance/api/v2/catalogs/default/user/{userId}/entries`) operation is now included in the **Access Requests - V2** > [Catalogs](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/) API. As an admin, use this operation to list access request catalog entries for a particular user. A filter expression query parameter is required to specify the set of entries in the response.
 <!-- OKTA-954146 OKTA-915784, used for (but not dependent on) ACCESS_REQUESTS_UNIFIED_CATALOG -->
 
-## May
+## May]]></description>
+    </item>
+  
 
-### Weekly release 2025.05.3
-
-| Change | Expected in Preview Orgs |
+    <item>
+      <title>Weekly release 2025.05.3</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025053</link>
+      <pubDate>Thu, 29 May 2025 04:00:00 GMT</pubDate>
+      <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Request condition name length increase](#request-condition-name-length-increase)| May 29, 2025 |
 
 #### Request condition name length increase
 
 The [Request Condition API](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/) has increased the length of the request condition `name` from 50 to 255 characters.
-<!-- OKTA-931650 -->
+<!-- OKTA-931650 -->]]></description>
+    </item>
+  
 
-### Weekly release 2025.05.1
-
-| Change | Expected in Preview Orgs |
+    <item>
+      <title>Weekly release 2025.05.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025051</link>
+      <pubDate>Wed, 14 May 2025 04:00:00 GMT</pubDate>
+      <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [New variable for Access Certification campaign emails](#new-variable-for-access-certification-campaign-emails)| May 14, 2025 |
 | [Generate a risk assessment is Beta](#generate-a-risk-assessment-is-beta)| May 14, 2025 |
@@ -264,11 +298,15 @@ You can now include the campaign description in your customized Access Certifica
 The [Generate a risk assessment](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Risk-Rules/#tag/Risk-Rules/operation/generatePotentialRiskAssessments) operation is now included in the [Risk Rules API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Risk-Rules/). This operation requires the `okta.governance.riskRule.read` OAuth 2.0 scope. Use this resource to evaluate potential separation of duties (SOD) violations when a user requests entitlements.
 <!-- IGA-SEPARATION-OF-DUTIES OKTA-899035 -->
 
-## April
+## April]]></description>
+    </item>
+  
 
-### Monthly release 2025.04.0
-
-| Change | Expected in Preview Orgs |
+    <item>
+      <title>Monthly release 2025.04.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025040</link>
+      <pubDate>Wed, 02 Apr 2025 04:00:00 GMT</pubDate>
+      <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Risk Rules API is Beta](#risk-rules-api-is-beta) | April 2, 2025 |
 
@@ -293,11 +331,15 @@ The following new properties were added to support the SOD feature in existing I
 
 See [Separation of duties](https://help.okta.com/okta_help.htm?type=oie&id=separation-of-duties) in the product documentation. <!-- IGA_SEPARATION_OF_DUTIES, OKTA-896397-->
 
-## March
+## March]]></description>
+    </item>
+  
 
-### Weekly release 2025.03.2
-
-| Change | Expected in Preview Orgs |
+    <item>
+      <title>Weekly release 2025.03.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025032</link>
+      <pubDate>Wed, 19 Mar 2025 04:00:00 GMT</pubDate>
+      <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Collections API is Beta](#collections-api-is-beta)| March 19, 2025 |
 
@@ -305,21 +347,29 @@ See [Separation of duties](https://help.okta.com/okta_help.htm?type=oie&id=separ
 
 <ApiLifecycle access="beta" />
 
-The [Collections API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Collections/) is available in Beta. This API allows you to manage sets of apps and entitlements. See [Resource collections](https://help.okta.com/okta_help.htm?type=oie&id=csh-rc). <!-- OKTA-856259 -->
+The [Collections API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Collections/) is available in Beta. This API allows you to manage sets of apps and entitlements. See [Resource collections](https://help.okta.com/okta_help.htm?type=oie&id=csh-rc). <!-- OKTA-856259 -->]]></description>
+    </item>
+  
 
-### Weekly release 2025.03.1
-
-| Change | Expected in Preview Orgs |
+    <item>
+      <title>Weekly release 2025.03.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025031</link>
+      <pubDate>Wed, 12 Mar 2025 04:00:00 GMT</pubDate>
+      <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Bug fixed in 2025.03.1](#bug-fixed-in-2025-03-1)| March 12, 2025 |
 
 #### Bug fixed in 2025.03.1
 
-The `requestOnBehalfOfSettings` property wasn’t validated for `DIRECT_REPORT` when a user calls the [Retrieve an entry’s request fields](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Catalogs/#tag/My-Catalogs/operation/getMyCatalogEntryRequestFieldsV2) (`GET /governance/api/v2/my/catalogs/default/entries/{entryId}/request-fields`). (OKTA-807528)
+The `requestOnBehalfOfSettings` property wasn’t validated for `DIRECT_REPORT` when a user calls the [Retrieve an entry’s request fields](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Catalogs/#tag/My-Catalogs/operation/getMyCatalogEntryRequestFieldsV2) (`GET /governance/api/v2/my/catalogs/default/entries/{entryId}/request-fields`). (OKTA-807528)]]></description>
+    </item>
+  
 
-### Monthly release 2025.03.0
-
-| Change | Expected in Preview Orgs |
+    <item>
+      <title>Monthly release 2025.03.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025030</link>
+      <pubDate>Wed, 05 Mar 2025 05:00:00 GMT</pubDate>
+      <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Entitlements and Entitlement Bundles APIs are GA](#entitlements-and-entitlement-bundles-apis-are-ga) | March 5, 2025 |
 | [New Access Certifications campaign](#new-access-certifications-campaign) | March 5, 2025 |
@@ -342,11 +392,15 @@ A new property, `resourceSettings.includeAdminRoles`, has been added to the acce
 
 The `remediationSettings.autoRemediationSettings` and `principalScopeSettings.predefinedInactiveUsersScope` properties were missing from the Access Certification campaign schema in the Campaigns API reference. (OKTA-880900)
 
-## February
+## February]]></description>
+    </item>
+  
 
-### Weekly release 2025.02.1
-
-| Change | Expected in Preview Orgs |
+    <item>
+      <title>Weekly release 2025.02.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025021</link>
+      <pubDate>Thu, 13 Feb 2025 05:00:00 GMT</pubDate>
+      <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [List all entitlements API response update](#list-all-entitlements-api-response-update) | February 13, 2025 |
 
@@ -354,11 +408,15 @@ The `remediationSettings.autoRemediationSettings` and `principalScopeSettings.pr
 
 <ApiLifecycle access="beta" />
 
-Breaking change: The [List all entitlement](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlements/#tag/Entitlements/operation/listEntitlements) response no longer returns a `values` object. Previously, this response returned an empty array for this property after the following update in `2024.04.0`: List all entitlements will no longer return values. To fetch values for a given entitlement, use [List all values for an entitlement](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlements/#tag/Entitlements/operation/listEntitlementValues) or [List all entitlement values](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlements/#tag/Entitlements/operation/listAllEntitlementValues). <!-- OKTA-828247 -->
+Breaking change: The [List all entitlement](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlements/#tag/Entitlements/operation/listEntitlements) response no longer returns a `values` object. Previously, this response returned an empty array for this property after the following update in `2024.04.0`: List all entitlements will no longer return values. To fetch values for a given entitlement, use [List all values for an entitlement](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlements/#tag/Entitlements/operation/listEntitlementValues) or [List all entitlement values](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlements/#tag/Entitlements/operation/listAllEntitlementValues). <!-- OKTA-828247 -->]]></description>
+    </item>
+  
 
-### Monthly release 2025.02.0
-
-| Change | Expected in Preview Orgs |
+    <item>
+      <title>Monthly release 2025.02.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025020</link>
+      <pubDate>Thu, 06 Feb 2025 05:00:00 GMT</pubDate>
+      <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [New System Log event](#new-system-log-event) | February 6, 2025 |
 
@@ -366,21 +424,29 @@ Breaking change: The [List all entitlement](https://developer.okta.com/docs/api/
 
 An `access.request.settings.update` System Log event now appears when a **Request of behalf of** setting is toggled on or off in the Admin Console, or when you set or change the `requestOnBehalfOfSettings` object for [Requests Settings](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Settings/#tag/Request-Settings). The event's `debugData` property includes the app for which the setting was updated and the `changeDetails` property includes the previous and new state of the setting. <!--OKTA-857992-->
 
-## January
+## January]]></description>
+    </item>
+  
 
-### Weekly release 2025.01.2
-
-| Change | Expected in Preview Orgs |
+    <item>
+      <title>Weekly release 2025.01.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025012</link>
+      <pubDate>Wed, 29 Jan 2025 05:00:00 GMT</pubDate>
+      <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Bug fixed in 2025.01.2](#bug-fixed-in-2025-01-2) | January 29, 2025 |
 
 #### Bug fixed in 2025.01.2
 
-* The `okta.accessRequests.catalog.read` scope was missing from the Okta Identity Governance APIs. (OKTA-846162) <!-- To be moved to IGA RN -->
+* The `okta.accessRequests.catalog.read` scope was missing from the Okta Identity Governance APIs. (OKTA-846162) <!-- To be moved to IGA RN -->]]></description>
+    </item>
+  
 
-### Monthly release 2025.01.0
-
-| Change | Expected in Preview Orgs |
+    <item>
+      <title>Monthly release 2025.01.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025010</link>
+      <pubDate>Wed, 08 Jan 2025 05:00:00 GMT</pubDate>
+      <description><![CDATA[| Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Selected Okta Identity Governance APIs are now GA](#selected-okta-identity-governance-apis-are-now-ga) | January 8, 2025 |
 
@@ -399,4 +465,8 @@ The following Access Requests - V2 administrative APIs are now EA:
 * [List all entries for the default access request catalog](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultEntriesV2)
 * [Retrieve a catalog entry by an ID](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/getCatalogEntryV2)
 
-For further information, see [Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) and [Okta Identity Governance API](https://developer.okta.com/docs/api/iga/).<!--OKTA-848466-->
+For further information, see [Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) and [Okta Identity Governance API](https://developer.okta.com/docs/api/iga/).<!--OKTA-848466-->]]></description>
+    </item>
+  
+</channel>
+</rss>

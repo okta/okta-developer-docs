@@ -4,7 +4,19 @@ title: Okta Classic Engine API release notes 2025
 
 # Okta Classic Engine API release notes (2025)
 
+[![RSS Feed](https://img.shields.io/badge/rss-feed-orange?logo=rss)](/rss/classic.xml)
+
 ## October
+
+### Monthly release 2025.10.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [test feature](#test-feature) | October 8, 2025 |
+
+#### Test feature
+
+blah blah blah
 
 ### Monthly release 2025.10.0
 

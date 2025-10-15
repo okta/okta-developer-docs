@@ -6,6 +6,8 @@ title: Okta Identity Engine API release notes 2025
 
 # Okta Identity Engine API release notes (2025)
 
+[![RSS Feed](https://img.shields.io/badge/rss-feed-orange?logo=rss)](/rss/identity-engine.xml)
+
 ## October
 
 ### Monthly release 2025.10.0
