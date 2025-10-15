@@ -50,7 +50,7 @@ You can also [configure a custom email address](#about-custom-email-addresses) t
 
 ### Multibrand and custom domains
 
-You can create up to three custom domains with multibrand customizations and up to 200 custom domains by contacting support to increase your limit.
+You can create up to three custom domains for each custom brand and also configure multibrand customizations. Each custom domain can be associated with only one brand. You can create up to 200 custom domains by contacting support to increase your limit.
 
 You can only preview or visit a branded page after you map it to a custom domain. For example, you can only view brand assets applied to the Okta-hosted sign-in page after you map it to a custom domain. After you create a brand, map it to a custom domain. Then you can make further customizations, preview them, and publish them.
 
@@ -127,6 +127,8 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 
 This method of configuring a custom domain is recommended because Okta manages your certificate renewals in perpetuity. Okta manages certificate renewals through an integration with Let's Encrypt, which is a free certificate authority. The certificate procurement process is free, and also faster and easier than configuring a custom domain with your own TLS certificate.
 
+You can create up to three custom domains for each custom brand. Each custom domain can be associated with only one brand. Use the following process to create a custom domain for your org. You can use the same process to add additional custom domains.
+
 > **Note:** If your custom domain uses your own TLS certificate and you want to migrate to an Okta-managed certificate, contact [Support](https://support.okta.com/help/s/opencase).
 
 > **Note:** You don't need a [Certificate Authority Authorization (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record to use an Okta-managed TLS certificate. However, if you do have a CAA record, keep the following in mind:
@@ -177,6 +179,8 @@ After you click **Finish**, it may take several minutes before your custom domai
     >   * There may be an operational issue with Let's Encrypt that you can check with [https://letsencrypt.status.io/](https://letsencrypt.status.io/). After you configure your DNS records you might click **Next** too quickly to verify the records. In that case, it's possible that the DNS records are verifiable by Okta but not yet by Let's Encrypt. The result is a failed authorization. A warning notification appears: `A new TXT value has been generated. Update your DNS record with the new TXT value, wait for it to propagate, and then return here to verify.`
 
 ## Use your own TLS certificate
+
+You can create a custom domain that uses your own TLS certificate. Use the following process to create a custom domain with your own TLS certificate for your org. You can use the same process to add additional custom domains.
 
 ### Validate your TLS certificate
 
