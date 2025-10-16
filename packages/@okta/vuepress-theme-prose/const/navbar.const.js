@@ -848,7 +848,11 @@ export const guides = [
           {
             title: "Launch a security access review",
             guideName: "iga-security-access-review"
-          }
+          },
+          {
+            title: "Manage governance labels",
+            guideName: "iga-labels"
+          },
         ]
       },
       {
