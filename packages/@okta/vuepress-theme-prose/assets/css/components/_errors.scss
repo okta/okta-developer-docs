@@ -48,6 +48,19 @@
     margin-bottom: 6px;
   }
 
+  .errors--section-homepage {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 30px;
+
+    font-size: 18px;
+  }
+
+  .errors--section-homepage a {
+    text-decoration: underline;
+  }
+
   .errors--section-paragraph {
     margin-top: 12px;
     margin-bottom: 12px;

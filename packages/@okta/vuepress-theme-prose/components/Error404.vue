@@ -40,6 +40,14 @@
           <div class="errors--section-paragraph">
             For further assistance, please <a href="mailto:info@okta.com">contact us</a>.
           </div>
+          <div class="errors--section-homepage">
+            <div>
+              Return to the
+              <RouterLink :to="'/'">
+                <span>homepage</span>
+              </RouterLink>.
+            </div>
+          </div>
         </div>
       </div>
     </section>
