@@ -1191,6 +1191,10 @@ export const releaseNotes = [
         path: "/docs/release-notes/2025-okta-privileged-access/",
       },
       {
+        title: "2025 - Access Gateway",
+        path: "/docs/release-notes/2025-okta-access-gateway/",
+      },
+      {
         title: "Archive",
         path: "/docs/release-notes/archive",
         subLinks: [
