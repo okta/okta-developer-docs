@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>Okta Developer Docs Release Notes (Privileged Access)</title>
+  <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/</link>
+  <description>Recent release notes for Okta Privileged Access API</description>
+  <pubDate>Mon, 20 Oct 2025 17:14:18 GMT</pubDate>
+  
+    <item>
+      <title>Monthly release 2025.10.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025100</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025100</guid>
+      <pubDate>Mon, 20 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview</th>
+<th>Expected in Production</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#more-account-details-for-end-users">More account details for end users</a></td>
+<td>October 9, 2025</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#random-password-generator-for-unmanaged-saas-accounts-is-ga">Random password generator for unmanaged SaaS accounts is GA</a></td>
+<td>September 18, 2025</td>
+<td>September 29, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>More account details for end users</h4>
+<p>End users now have access to more account and rotation details from the Active Directory account details page, such as the <code>sAMAccountName</code>, the security identifier (<code>sid</code>), and password rotation statistics.
+See the following changes to the response schema of <a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-accounts/#tag/active-directory-accounts/operation/GetActiveDirectoryAccountDetails">Retrieve an Active Directory account</a>:</p>
+<ul>
+<li>New <code>rotation</code> object</li>
+<li>Additional properties in the <code>account</code> object</li>
+<li>New <code>last_checked_out_by</code> property in the <code>checkout_details</code> object</li>
+</ul>
+<h4>Random password generator for unmanaged SaaS accounts is GA</h4>
+<p>Okta Privilege Access (OPA) end users can generate passwords for their unmanaged SaaS accounts. See <a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/random-password-generation/#tag/random-password-generation/operation/CreateRandomPassword">Generate a random password</a> in the <a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/random-password-generation/">Random Password Generation</a> API.</p>
+<h2>September</h2>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.09.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025092</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025092</guid>
+      <pubDate>Sun, 19 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview</th>
+<th>Expected in Production</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#exclude-symbols-in-project-password-policy">Exclude symbols in project password policy</a></td>
+<td>September 18, 2025</td>
+<td>September 22, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Exclude symbols in project password policy</h4>
+<p>You can now exclude specific symbols from the generated passwords for server, SaaS app service, Okta service, and Active Directory accounts. This is useful when the target system doesn’t allow certain symbols in its passwords. See <code>character_options.exclude_certain_symbols</code> in <a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/projects/#tag/projects/operation/UpdatePasswordPolicyForProject">Update project password policy for server accounts</a>, <a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/projects/#tag/projects/operation/UpdateProjectPasswordPolicyForSaasAppResources">Update a project password policy for SaaS app resources</a>, <a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/projects/#tag/projects/operation/UpdateProjectPasswordPolicyForOktaUniversalDirectoryResources">Update a project password policy for Universal Directory resources</a>, and <a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/projects/#tag/projects/operation/UpdateProjectPasswordPolicyForActiveDirectoryResources">Update a project password policy for Active Directory resources</a>.</p>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.09.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025091</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025091</guid>
+      <pubDate>Sat, 18 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#random-password-generator-for-unmanaged-saas-accounts-is-ea">Random password generator for unmanaged SaaS accounts is EA</a></td>
+<td>September 18, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Random password generator for unmanaged SaaS accounts is EA</h4>
+<p>Okta Privilege Access (OPA) end users can generate passwords for their unmanaged SaaS accounts. See <a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/random-password-generation/#tag/random-password-generation/operation/CreateRandomPassword">Generate a random password</a> in the <a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/random-password-generation/">Random Password Generation</a> API.</p>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Monthly release 2025.09.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025090</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025090</guid>
+      <pubDate>Fri, 17 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview</th>
+<th>Expected in Production</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#enable-okta-managed-active-directory-accounts-is-ea">Enable Okta-managed Active Directory accounts is EA</a></td>
+<td>September 8, 2025</td>
+<td>September 15, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Enable Okta-managed Active Directory accounts is EA</h4>
+<p>You can now set up Active Directory (AD) account rules to import AD users that are managed by Okta. When you enable an AD account that's managed by Okta, active users can sign in to Okta and access all their SSO apps through the Okta End-User Dashboard. Admins and users can still rotate passwords through Okta Privileged Access and have those passwords synchronized with the AD server and Okta. This provides a seamless experience for active AD users to sign in to Okta-integrated apps and benefit from Okta Privileged Access features, such as password rotation.</p>
+<p>When you set up AD account rules, you can filter on account names or Okta group memberships in AD rules that have the Okta user management functionality enabled.</p>
+<p>To enable Okta-managed users on import, set <code>enable_import_okta_users</code> and <code>enhanced_filters</code> in the <a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-accounts/#tag/active-directory-accounts/operation/createActiveDirectoryAccountRule">Create an Active Directory account rule</a>.</p>
+<h2>August</h2>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.08.4</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025084</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025084</guid>
+      <pubDate>Thu, 16 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview</th>
+<th>Expected in Production</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#role-permission-updates-for-attribute-operations">Role permission updates for attribute operations</a></td>
+<td>August 28, 2025</td>
+<td>September 2, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Role permission updates for attribute operations</h4>
+<p>In addition to previous role permissions, users with <code>security_admin</code> permissions can now access the following operations:</p>
+<ul>
+<li><a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/attributes/#tag/attributes/operation/ListGroupAttributes">List all attributes for a group</a> (<code>GET /v1/teams/{team_name}/groups/{group_name}/attributes</code>)</li>
+<li><a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/attributes/#tag/attributes/operation/FetchGroupAttribute">Retrieve a group attribute</a> (<code>GET /v1/teams/{team_name}/groups/{group_name}/attributes/{attribute_id}</code>)</li>
+<li><a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/attributes/#tag/attributes/operation/ListUserAttributes">List all attributes for a user</a> (<code>GET/v1/teams/{team_name}/users/{user_name}/attributes</code>)</li>
+<li><a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/attributes/#tag/attributes/operation/FetchUserAttribute">Retrieve a user attribute</a> (<code>GET /v1/teams/{team_name}/users/{user_name}/attributes/{attribute_id}</code>)</li>
+<li><a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/attributes/#tag/attributes/operation/ListTeamUserAttributeConflicts">List all attribute conflicts for a team</a> (<code>GET /v1/teams/{team_name}/attributes/conflicts</code>)</li>
+</ul>
+<p>Users need the <code>security_admin</code> permission instead of the <code>resource_admin</code> permission to access the following operations:</p>
+<ul>
+<li><a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/attributes/#tag/attributes/operation/UpdateGroupAttribute">Update a group attribute</a> (<code>PUT /v1/teams/{team_name}/groups/{group_name}/attributes/{attribute_id}</code>)</li>
+<li><a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/attributes/#tag/attributes/operation/UpdateUserAttribute">Update a user attribute</a> (<code>PUT /v1/teams/{team_name}/users/{user_name}/attributes/{attribute_id}</code>)</li>
+</ul>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.08.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025082</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025082</guid>
+      <pubDate>Wed, 15 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview</th>
+<th>Expected in Production</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#active-directory-remote-desktop-protocol-rdp-support-is-ea">Active Directory Remote Desktop Protocol (RDP) support is EA</a></td>
+<td>August 20, 2025</td>
+<td>August 27, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Active Directory Remote Desktop Protocol (RDP) support is EA</h4>
+<p>Security admins can grant users RDP access to Windows servers with Active Directory (AD) credentials. After RDP access is granted, end users can connect to Windows servers through RDP using the SFT client. Security admins can set requirements, such as multifactor authentication, approval requests, or resource checkout, in order for users to connect through RDP. Currently, gateways aren't supported for RDP connections with AD credentials.</p>
+<p>You can grant RDP permission to AD users on Windows servers through the security policy. See <a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/security-policy/#tag/security-policy/operation/CreateSecurityPolicy!path=rules/privileges&amp;t=request">privileges</a> in the Security Policy API. See user access method details in the <a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-accounts/#tag/active-directory-accounts/operation/ListUAMForActiveDirectoryAccount">List all user access methods for an Active Directory account</a> method and in Server <a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/servers/#tag/servers/operation/ResolveResource!c=200&amp;path=results/user_access_methods&amp;t=response">Resolve resource names</a>. For product documentation, see <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=pam-add-rules">Add rules to a policy</a>.</p>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Monthly release 2025.08.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025080</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025080</guid>
+      <pubDate>Tue, 14 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#active-directory-rotate-password-configuration-is-ea">Active Directory rotate password configuration is EA</a></td>
+<td>August 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#service-accounts-api-is-ea">Service Accounts API is EA</a></td>
+<td>August 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#search-capability-for-okta-privileged-access-secrets">Search capability for Okta Privileged Access secrets</a></td>
+<td>August 5, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Active Directory rotate password configuration is EA</h4>
+<p>Resource admins can now disable the initial password rotation for discovered Active Directory (AD) accounts. Previously, all new or updated AD accounts discovered were automatically initiated for password rotation. Security admins can now set up security policies with rotate-password privileges. End users under that security policy can rotate accessible AD accounts regardless of whether the password was initially rotated. This feature provides the flexibility for OPA admins and end users to manage password rotation.</p>
+<ul>
+<li>Resource admins can disable initial password rotation through an AD account rule (see <code>enable_initial_password_rotation</code> in <a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-accounts/#tag/active-directory-accounts/operation/createActiveDirectoryAccountRule">Create an Active Directory account rule</a>).</li>
+<li>Security admins can create security policies with AD rules that enable password rotation privileges for end users (see the <code>update_password</code> privilege in <a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/security-policy/#tag/security-policy/operation/CreateSecurityPolicy!path=rules/privileges&amp;t=request"><code>rules.privileges</code></a> from <a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/security-policy/#tag/security-policy/operation/CreateSecurityPolicy">Create a security policy</a>).</li>
+<li>End users with the rotate password privilege can rotate their account password (see <a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-accounts/#tag/active-directory-accounts/operation/rotateActiveDirectoryAccountPassword">Rotate the password for Active Directory account</a>).</li>
+</ul>
+<h4>Service Accounts API is EA</h4>
+<p>The new <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ServiceAccount/">Service Accounts API</a> is now available for Okta Privileged Access-enabled orgs. This API allows you to manage SaaS or On-Prem Provisioning (OPP) app accounts. App accounts that you create through the Service Accounts API are visible to resource admins in the Okta Privileged Access dashboard. See <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=saas-manage-service-accounts">Manage service accounts</a> in the Okta Privileged Access product documentation.</p>
+<p>This feature is available only if you're subscribed to Okta Privileged Access. Ensure that you've set up the Okta Privileged Access app before creating app accounts through the API.</p>
+<h4>Search capability for Okta Privileged Access secrets</h4>
+<p>Okta Privileged Access users can now search secrets and their folders. A new <code>search</code> query parameter is available for the <a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/secrets/#tag/secrets/operation/ListTopLevelSecretFoldersForUser">List top-level secret folder for a user</a> operation. End users can search for secrets or secret folders that they have access to by the secret name or description that contains a substring.</p>
+<h2>June</h2>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Monthly release 2025.06.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025060</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025060</guid>
+      <pubDate>Mon, 13 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<h4>Updates to password rotation frequency</h4>
+<p>You can now schedule the password rotation frequency for all projects up to a maximum of 400 days. The <code>periodic_rotation_duration_in_seconds</code> parameter now has a maximum value of 34,560,000 seconds in the following operations:</p>
+<ul>
+<li><a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/projects/#tag/projects/operation/UpdatePasswordPolicyForProject">Update project password policy for server accounts</a>(<code>/v1/teams/{team_name}/resource_groups/{resource_group_id}/projects/{project_id}/server_password_settings</code>)</li>
+<li><a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/projects/#tag/projects/operation/UpdateProjectPasswordPolicyForActiveDirectoryResources">Update a project password policy for Active Directory resources</a> (<code>/v1/teams/{team_name}/resource_groups/{resource_group_id}/projects/{project_id}/active_directory_password_settings</code>)</li>
+</ul>
+<h2>May</h2>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.05.3</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025053</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025053</guid>
+      <pubDate>Sun, 12 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<ul>
+<li><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#opa-active-directory-api-resources-are-ea">OPA Active Directory API resources are EA</a></li>
+<li><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#cloud-infrastructure-entitlements-api-is-deprecated">Cloud Infrastructure Entitlements API is deprecated</a></li>
+</ul>
+<h4>OPA Active Directory API resources are EA</h4>
+<p>You can now manage Okta Privileged Access (OPA) Active Directory (AD) integrations through the API. To enable this Early Access feature, contact Okta Support. See the <a href="https://help.okta.com/oie/en-us/content/topics/privileged-access/pam-ad-accounts.htm">Manage Active Directory accounts</a> product documentation. The following OPA AD API resources are available:</p>
+<ul>
+<li><a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-accounts/">Active Directory Accounts API</a></li>
+<li><a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-connections/">Active Directory Connections API</a></li>
+<li><a href="https://developer.okta.com/docs/api/openapi/opa/opa/tag/projects/#tag/projects/operation/ListResourceGroupProjectActiveDirectoryAccounts">Active Directory resources through the Projects API</a></li>
+</ul>
+<h4>Cloud Infrastructure Entitlements API is deprecated</h4>
+<p>The Cloud infrastructure entitlements feature is no longer supported in Okta Privileged Access. All resources in the Cloud Infrastructure Entitlements API are now deprecated.</p>
+]]></description>
+    </item>
+  
+</channel>
+</rss>

@@ -1,0 +1,2236 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>Okta Developer Docs Release Notes (Identity Engine)</title>
+  <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/</link>
+  <description>Recent release notes for Okta Identity Engine API</description>
+  <pubDate>Mon, 20 Oct 2025 17:14:18 GMT</pubDate>
+  
+    <item>
+      <title>Weekly release 2025.10.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025101</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025101</guid>
+      <pubDate>Mon, 20 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#custom-idv-vendors">Custom IDV vendors</a></td>
+<td>October 22, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-10-1">Bugs fixed in 2025.10.1</a></td>
+<td>October 15, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Custom IDV vendors</h4>
+<p>Okta now supports using custom identity verification (IDV) vendors as identity verification providers. Custom IDV vendors must use a standardized process to integrate with Okta. See <a href="/docs/guides/idv-integration/main/">Integrate Okta with identity verification vendors</a>. Use the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider">Create an IdP endpoint</a> or the <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=idp-add-custom-idv-vendor">Admin Console</a> to add a custom IDV vendor.</p>
+<h4>Bugs fixed in 2025.10.1</h4>
+<ul>
+<li>
+<p>When an admin attempted to update the signing certificate for an Org2Org IdP integration, an error was returned. (OKTA-1035340)</p>
+</li>
+<li>
+<p>When a call was made to the User Risk (<code>/api/v1/users/{userId}/risk</code>) endpoint with an OAuth 2.0 access token issued to a service app, the endpoint returned an  HTTP 403 &quot;Invalid session&quot; error. (OKTA-1024961)</p>
+</li>
+<li>
+<p>The <code>GET /api/v1/sessions/{sessionId}</code> and <code>POST /api/v1/sessions/{sessionId}/lifecycle/refresh</code> operations didn't work for IDX sessions in Identity Engine. When the <code>GET /api/v1/sessions/me</code> and <code>POST /api/v1/sessions/me/lifecycle/refresh</code> endpoints were used with an IDX session, the <code>Session.createdAt</code> property was populated with the user's last sign-in time instead of the actual session creation time. (OKTA-948866)</p>
+</li>
+<li>
+<p>Authentication challenges sometimes returned an incorrect app ID when a custom relying party ID was used. (OKTA-1025465)</p>
+</li>
+</ul>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Monthly release 2025.10.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025100</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025100</guid>
+      <pubDate>Sun, 19 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#org2org-oidc-sign-on-mode-is-ga-in-production">Org2Org OIDC Sign-on mode is GA in Production</a></td>
+<td>October 8, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#user-status-in-okta-expression-language-is-ga-in-production">User status in Okta Expression Language is GA in Production</a></td>
+<td>October 8, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#network-zone-restrictions-for-clients-is-ga-in-preview">Network zone restrictions for clients is GA in Preview</a></td>
+<td>October 8, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#okta-integration-idp-type-is-ga-in-production">Okta Integration IdP type is GA in Production</a></td>
+<td>October 8, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#behavior-detections-for-new-asn">Behavior Detections for new ASN</a></td>
+<td>October 8, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#temporary-access-code-authenticator-is-ga-in-preview">Temporary Access Code authenticator is GA in Preview</a></td>
+<td>July 16, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#custom-admin-roles-for-itp-is-ga-in-production">Custom admin roles for ITP</a></td>
+<td>May 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#enrollment-grace-periods-is-ga-in-preview">Enrollment grace periods is GA in Preview</a></td>
+<td>May 21, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-update-in-2025-10-0">Developer documentation update in 2025.10.0</a></td>
+<td>October 8, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Org2Org OIDC Sign-on mode is GA in Production</h4>
+<p>The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP. This sign-on mode reduces the complexity of configuration between the Org2Org app and the target org, and takes advantage of modern security features of OIDC. See <a href="/docs/guides/secure-oauth-between-orgs/main/">Secure API connections between orgs with OAuth 2.0</a>.</p>
+<h4>User status in Okta Expression Language is GA in Production</h4>
+<p>You can now reference User Status in the Okta Expression Language. Group Rules can leverage user statuses to drive group membership. Use the <code>user.getInternalProperty('status')</code> function  to get the status of a user. See <a href="/docs/reference/okta-expression-language/#okta-user-id-and-status">Okta user ID and status</a>.</p>
+<h4>Network zone restrictions for clients is GA in Preview</h4>
+<p>You can now specify an allowlist or denylist network zone for each client to enhance OIDC token endpoint security.</p>
+<h4>Okta Integration IdP type is GA in Production</h4>
+<p>The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with secure defaults. See <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&amp;path=type&amp;t=response">Identity Providers</a>.</p>
+<h4>Behavior Detections for new ASN</h4>
+<p>Admins have been able to create behavior detections for IP, Velocity, Location, or Device. This new functionality introduces behavior detection on a new ASN (Autonomous System Number), based on the IP found in the request tied to the event. See <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=asn-behavior-detection">Add an ASN behavior</a>.</p>
+<h4>Temporary Access Code authenticator is GA in Preview</h4>
+<p>The new Temporary Access Code (TAC) authenticator allows admins to generate temporary codes that let users authenticate in onboarding, account recovery, and other temporary access scenarios. This authenticator enhances security in these scenarios by granting users access to their orgs without having to use their usual authenticators.</p>
+<p>To configure the authenticator with Okta APIs, see <a href="/docs/guides/authenticators-tac-authenticator/main/">Temporary access code authenticator integration guide</a>, and to configure it in the Admin Console, see <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=temporary-access-code">Configure the temporary access code authenticator</a>.</p>
+<h4>Custom admin roles for ITP is GA in Production</h4>
+<p>Through this feature, customers can use granular ITP permissions and resources to create custom roles to right-size authorization for ITP configuration and monitoring. See <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=csh-itp-rbac">Configure custom admin roles for ITP</a>.</p>
+<h4>Enrollment grace periods is GA in Preview</h4>
+<p>Today, when admins define an enrollment policy for a group, the entire group must enroll immediately, which can be disruptive to their day-to-day tasks.</p>
+<p>With Enrollment Grace Periods, end users can defer enrollment in new authenticators until an admin-defined deadline when enrollment becomes mandatory. This allows end users to enroll at a time convenient to them and allows for more graceful enrollment before enforcing new authenticator types in authentication policies. See <a href="/docs/concepts/policies/#authenticator-enrollment-policies">Authenticator enrollment policies</a> and the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=1/settings/authenticators/enroll/gracePeriod&amp;t=request">Policies API</a>.</p>
+<h4>Developer documentation update in 2025.10.0</h4>
+<ul>
+<li>
+<p>The new <a href="/docs/guides/validate-federation/">Validate SSO Federation</a> guide explains how to validate your single sign-on (SSO) and Just-In-Time (JIT) provisioning integration, and then test different sign-in flows.</p>
+</li>
+<li>
+<p>The <a href="/docs/guides/create-an-api-token/">Create an API token</a> guide has been moved from the <strong>Sign users in</strong> &gt; <strong>Basics</strong> section to the <strong>API Security</strong> section of the <strong>Guides</strong> sidebar.</p>
+</li>
+</ul>
+<h2>September</h2>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.09.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025092</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025092</guid>
+      <pubDate>Sat, 18 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-09-2">Bugs fixed in 2025.09.2</a></td>
+<td>October 1, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Bugs fixed in 2025.09.2</h4>
+<ul>
+<li>
+<p>The <code>DELETE /policies/{policyId}/mappings/{mappingId}</code> operation didn’t work when you used it to delete a resource mapping between an API service app and a policy. (OKTA-1020064)</p>
+</li>
+<li>
+<p>Users couldn't access the IdP if the <code>protocol.algorithms.response.signature</code> value was missing from the response payload when the IdP was created. (OKTA-987923)</p>
+</li>
+<li>
+<p>When you retrieved a factor’s transaction status (<code>GET /users/{userId}/factors/{factorId}/transactions/{transactionId}</code>), the request didn’t correctly validate that the <code>userId</code> matched the <code>transactionId</code>. (OKTA-969072)</p>
+</li>
+<li>
+<p>In the System Log, <code>policy.auth_reevaluate.fail</code> events didn't display risk unless the event was a synchronous flow and the global session policy failed without remediation. (OKTA-1024106)</p>
+</li>
+<li>
+<p>When enrolling a phone factor (<code>POST /users/{userId}/factors</code>), an &quot;Invalid Phone Number&quot; error was sometimes incorrectly returned. (OKTA-1024021)</p>
+</li>
+<li>
+<p>GET calls for federated users to the <code>/idp/myaccount/authenticators</code> and <code>/idp/myaccount/authenticators/{authenticatorId}</code> endpoints that included an <code>expand=requirements</code> query parameter returned an HTTP 404 Not Found error. (OKTA-1022960)</p>
+</li>
+</ul>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.09.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025091</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025091</guid>
+      <pubDate>Fri, 17 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-functionality-filters-in-the-oin-catalog">New functionality filters in the OIN catalog</a></td>
+<td>September 17, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-09-1">Bugs fixed in 2025.09.1</a></td>
+<td>September 17, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>New functionality filters in the OIN catalog</h4>
+<p>The <strong>Browse App Integration Catalog</strong> page now provides <strong>Cross App Access</strong> and <strong>Privileged Access Management</strong> functionality filters. The new filters help admins quickly find Cross App Access- and Privileged Access Management-enabled apps in the OIN.</p>
+<h4>Bugs fixed in 2025.09.1</h4>
+<ul>
+<li>
+<p>In the System Log, <code>policy.auth_reevaluate.fail</code> events didn't display risk unless the event was a synchronous flow and the global session policy failed without remediation. (OKTA-1017389)</p>
+</li>
+<li>
+<p>When an error occurred during token encryption, a signed JWT was returned instead of an error. (OKTA-987783)</p>
+</li>
+<li>
+<p>Users could submit OIN integrations with incomplete or invalid information. (OKTA-897453)</p>
+</li>
+</ul>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Monthly release 2025.09.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025090</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025090</guid>
+      <pubDate>Thu, 16 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#user-api-projections">User API Projections</a></td>
+<td>September 10, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#org2org-oidc-sign-on-mode-is-ga-in-preview">Org2Org OIDC Sign-on mode is GA in Preview</a></td>
+<td>June 17, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#anything-as-a-source-for-groups-and-group-memberships-api-is-ea">Anything-as-a-Source for groups and group memberships API is EA</a></td>
+<td>September 10, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-system-log-events-for-bulk-groups-and-bulk-group-memberships-changes">New System Log events for bulk groups and bulk group memberships changes</a></td>
+<td>September 10, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#breached-credentials-protection-is-ga-in-production">Breached Credentials Protection is GA in Production</a></td>
+<td>May 15, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#group-push-mappings-is-ga-in-production">Group Push Mappings is GA in Production</a></td>
+<td>August 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#default-app-sign-in-policy-for-api-service-apps">Default app sign-in policy for API service apps</a></td>
+<td>September 10, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-validation-rule-for-integration-variables-in-the-oin-wizard">New validation rule for integration variables in the OIN Wizard</a></td>
+<td>September 10, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#clear-user-factors-for-all-devices-is-ga-in-production">Clear user factors for all devices is GA in Production</a></td>
+<td>August 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-user-authenticator-enrollments-api-is-ga-in-production">New User Authenticator Enrollments API is GA in Production</a></td>
+<td>July 9, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#myaccount-webauthn-api-is-ga-in-production">MyAccount WebAuthn API is GA in Production</a></td>
+<td>July 16, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#response-body-updates-for-the-myaccount-authenticators-api">Response body updates for the MyAccount Authenticators API</a></td>
+<td>June 17, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#secure-identity-integrations-filters-in-the-oin-catalog">Secure Identity Integrations filters in the OIN catalog</a></td>
+<td>September 10, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#okta-integration-idp-type-is-ga-in-preview">Okta Integration IdP type is GA in Preview</a></td>
+<td>June 25, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#send-app-context-to-external-idps-is-ga-in-production">Send app context to external IdPs is GA in Production</a></td>
+<td>May 21, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-claims-supported-for-identity-verification-idv-vendor-integration-is-self-service-ea-in-preview">New claims supported for identity verification (IDV) vendor integration is self-service EA in Preview</a></td>
+<td>August 13, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#passkey-and-security-key-subdomain-support-is-self-service-ea-in-preview">Passkey and security key subdomain support is self-service EA in Preview</a></td>
+<td>September 4, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#user-status-in-okta-expression-language-is-ga-in-preview">User status in Okta Expression Language is GA in Preview</a></td>
+<td>September 10, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-update-in-2025-09-0">Developer documentation update in 2025.09.0</a></td>
+<td>September 10, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>User API Projections</h4>
+<p>You can now use the <code>fields</code> query parameter with the list users endpoint (<code>GET /api/v1/users/</code>). This parameter lets you specify properties to return for users meeting the search criteria.</p>
+<h4>Org2Org OIDC Sign-on mode is GA in Preview</h4>
+<p>The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP. This sign-on mode reduces the complexity of configuration between the Org2Org app and the target org, and takes advantage of modern security features of OIDC. See <a href="/docs/guides/secure-oauth-between-orgs/main/">Secure API connections between orgs with OAuth 2.0</a>.</p>
+<h4>Anything-as-a-Source for groups and group memberships API is EA</h4>
+<p>Anything-as-a-Source (XaaS) capabilities allow customers to use a custom identity source with Okta. With XaaS, customers can connect a custom HR app or a custom database to source entities such as users into Okta’s Universal Directory. This release offers XaaS capabilities with groups and group memberships, allowing customers to start sourcing groups with XaaS. Okta now enables creating and updating users, creating and updating groups, and managing group memberships into Okta’s Universal Directory from any identity source using the Identity Source APIs. See <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/">Identity Sources</a>.</p>
+<h4>New System Log events for bulk groups and bulk group memberships changes</h4>
+<p>The following new System Log events indicate when bulk group and bulk group memberships <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/">Identity Sources API</a> are called:</p>
+<ul>
+<li><code>system.identity_sources.bulk_group_upsert</code></li>
+<li><code>system.identity_sources.bulk_group_delete</code></li>
+<li><code>system.identity_sources.bulk_group_membership_upsert</code></li>
+<li><code>system.identity_sources.bulk_group_membership_delete</code></li>
+</ul>
+<h4>Breached Credentials Protection is GA in Production</h4>
+<p>Protect your org from the impact of credentials that have been compromised. If Okta determines that a username and password combination has been compromised after being compared to a third-party curated dataset, the protection response is customizable through password policies, including resetting the user's password, forcing a logout, or calling a delegated Workflow. See the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/">Okta Policies API</a>.</p>
+<p>This feature is following a slow rollout process.</p>
+<h4>Group Push Mappings is GA in Production</h4>
+<p>With the API for Group Push, admins can now programmatically create, link, or manage group push configuration in Okta. This allows admins to configure Okta groups to be pushed to connected apps at scale and reduces overhead for large deployments. See <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupPushMapping/">Group Push Mappings API</a>.</p>
+<h4>Default app sign-in policy for API service apps</h4>
+<p>API service apps are no longer assigned to the shared default app sign-in policy when they're created.</p>
+<h4>New validation rule for integration variables in the OIN Wizard</h4>
+<p>The OIN Wizard now validates each integration variable name and displays an error if a reserved name is used.</p>
+<h4>Clear user factors for all devices is GA in Production</h4>
+<p>When you make a Revoke all user sessions (<code>/api/v1/users/{userId}/sessions</code>) request, include the new <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserSessions/#tag/UserSessions/operation/revokeUserSessions!in=query&amp;path=forgetDevices&amp;t=request"><code>forgetDevices</code> parameter</a> to clear a user's remembered factors on all devices. The user is prompted for full authentication on their next sign-in attempt from any device. The <code>forgetDevices</code> parameter is set to <code>true</code> by default.</p>
+<h4>New User Authenticator Enrollments API is GA in Production</h4>
+<p>The <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserAuthenticatorEnrollments/">User Authenticator Enrollments API</a> enables admins to manage the specific authenticator enrollments of their users.</p>
+<p>Currently, admins in Identity Engine orgs can’t use Okta APIs to manage user authenticator enrollments with the same level of control that’s possible in Classic Engine orgs. This feature helps admins more effectively manage their user’s enrollments and improves parity between Classic Engine and Identity Engine orgs.</p>
+<h4>MyAccount WebAuthn API is GA in Production</h4>
+<p>You can now use the <a href="https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/WebAuthn/">MyAccount WebAuthn API</a> to enroll, list, and delete WebAuthn enrollments. Admins can build out an in-app passkey creation and enrollment experience with the MyAccount WebAuthn API operations.</p>
+<h4>Response body updates for the MyAccount Authenticators API</h4>
+<p>Two new response properties are now returned for <code>password</code> enrollments when you make GET calls to the <code>/idp/myaccount/authenticators/{authenticatorId}/enrollments/</code> endpoint. These properties provide more specific insight about password enrollments than the <code>canReset</code> property. The <code>canReset</code> property is now deprecated. It's still functional but it's not recommended for use.</p>
+<ul>
+<li><a href="https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Authenticators/#tag/Authenticators/operation/getEnrollment!c=200&amp;path=canChangePassword&amp;t=response"><code>canChangePassword</code></a> indicates if a user has permission to perform a password change operation.</li>
+<li><a href="https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Authenticators/#tag/Authenticators/operation/getEnrollment!c=200&amp;path=canResetPassword&amp;t=response"><code>canResetPassword</code></a> indicates if a user has permission to perform a password reset operation.</li>
+</ul>
+<h4>Secure Identity Integrations filters in the OIN catalog</h4>
+<p>The Browse App Integration Catalog page now provides three new Secure Identity Integrations checkboxes: <strong>Secure Identity Integrations - Fundamental</strong>, <strong>Secure Identity Integrations - Advanced</strong>, and <strong>Secure Identity Integrations - Strategic</strong>. When you select one, the OIN catalog displays only the apps with that specific functionality.</p>
+<h4>Okta Integration IdP type is GA in Preview</h4>
+<p>The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with secure defaults. See <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&amp;path=type&amp;t=response">Identity Providers</a>.</p>
+<h4>Send app context to external IdPs is GA in Production</h4>
+<p>You can now forward context about an app to an external identity provider (IdP) when a user attempts to access the app. When you set the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider!path=protocol/0/settings/sendApplicationContext&amp;t=request"><code>sendApplicationContext</code> parameter</a> to <code>true</code> for an IdP, the app name and unique instance ID are included in the SAML or OpenID Connect request sent to the external IdP. This enhancement allows external IdPs to make more informed, context-aware authentication decisions, supporting advanced security scenarios, and Zero Trust environments.</p>
+<h4>New claims supported for identity verification (IDV) vendor integration is self-service EA in Preview</h4>
+<p>IDV vendors can now use more OpenID Connect claims when they integrate their IDV service with Okta. And, all <code>claims</code> properties now support the fuzzy logic extension. See <a href="/docs/guides/idv-integration/main/#supported-oidc-claims">Supported OIDC claims</a>.</p>
+<h4>Passkey and security key subdomain support is self-service EA in Preview</h4>
+<p>You can now set a custom relying party (RP) ID for the WebAuthn authenticator. When you set the domain of a custom RP ID, you can allow users to create a single passkey that’s valid for all of the subdomains of the RP ID.</p>
+<p>Use the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod">Replace an authenticator method</a> endpoint to update your WebAuthn authenticator, or set the custom RP ID in the Admin Console. See <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=customize-relying-party-id">Configure a relying party ID</a>.</p>
+<h4>User status in Okta Expression Language is GA in Preview</h4>
+<p>You can now reference User Status in the Okta expression language. Group Rules can leverage user statuses to drive group membership. Use the <code>user.getInternalProperty('status')</code> function to get the status of a user. See <a href="/docs/reference/okta-expression-language/#okta-user-id-and-status">Okta user ID and status</a>.</p>
+<h4>Developer documentation update in 2025.09.0</h4>
+<ul>
+<li>
+<p>The new <a href="/docs/journeys/OCI-web-sign-in/main/">Sign users in through your web app</a> journey helps you connect your web app to Okta and sign your users in and out.</p>
+</li>
+<li>
+<p>The new <a href="/docs/concepts/manage-user-creds/">Manage user credentials</a> concept page describes token storage strategies for your app to mitigate risk.</p>
+</li>
+<li>
+<p>The new <a href="/docs/concepts/mfa/">Multifactor authentication</a> concept page explains how MFA works and helps you understand some key terminology when you implement MFA using Okta APIs.</p>
+</li>
+<li>
+<p>The new <a href="/docs/concepts/oauth-claims/">OAuth 2.0 and OIDC claims</a> concept page provides a high-level overview of what claims are, including their types and how they're used in Okta.</p>
+</li>
+<li>
+<p>The <code>revocation</code> and <code>revocationCacheLifetime</code> properties that are used with the Mutual TLS protocol in the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider!path=protocol/3/credentials/trust&amp;t=request">Identity Providers API</a> are now deprecated. Okta now handles CRL caching automatically.</p>
+<p>As of October 8, 2025, in Preview orgs, and October 13, 2025, in Production orgs, these properties are ignored if they’re specified in any API requests. Specifying the properties in your API requests doesn't cause any errors since they have no effect.</p>
+<p>See <a href="https://support.okta.com/help/s/article/deprecation-notice-smart-card-idp-legacy-crl-cache-setting?language=en_US">Deprecation Notice - Smart Card IdP Legacy CRL Cache Setting</a>.</p>
+</li>
+<li>
+<p>The new <a href="/docs/concepts/sso-overview/">Single Sign-on</a> concept is an overview of SSO, explaining what it is, how it differs from a basic sign-in flow, and how Okta supports it.</p>
+</li>
+<li>
+<p>Authentication policies have been renamed and are now known as &quot;app sign-in policies.&quot; The term &quot;authentication policies&quot; now refers to a group of policies: app sign-in policies, the Okta account management policy, and the session protection policy.</p>
+<p>In the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/">Policies API</a>, the policy type for app sign-in policies is still <code>ACCESS_POLICY</code>. There are no changes to the API. All previous anchors and links to the API remain the same.</p>
+</li>
+<li>
+<p>Best practice implementations of API use cases are now available for Identity Governance. See <strong>Identity Governance</strong> in the <a href="/docs/guides/identity-governance/">Guides</a> sidebar.</p>
+</li>
+<li>
+<p>Okta Identity Governance campaigns and entitlements can now be managed using the Okta Terraform Provider. This enables you to manage their governance tasks and configure other resources in their Okta org that are maintained through the Terraform Infrastructure-as-Code tool. For more information, refer to  <a href="https://github.com/okta/terraform-provider-okta">Terraform Provider for Okta</a> and the <a href="https://registry.terraform.io/providers/okta/okta/latest/docs">Terraform Registry</a> documentation.</p>
+</li>
+</ul>
+<h2>August</h2>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.08.4</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025084</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025084</guid>
+      <pubDate>Wed, 15 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-08-4">Bugs fixed in 2025.08.4</a></td>
+<td>September 4, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Bugs fixed in 2025.08.4</h4>
+<ul>
+<li>
+<p>Admins were sometimes unable to enroll custom TOTP factors (<code>POST /users/{userId}/factors</code>). (OKTA-1007379)</p>
+</li>
+<li>
+<p>Sometimes the <code>/userinfo</code> endpoint returned an error if the EA federated claims feature was enabled. (OKTA-1007745)</p>
+</li>
+<li>
+<p>The <code>DELETE api/v1/sessions/{sessionId}</code> and <code>POST /api/v1/users/me/lifecycle/delete_sessions</code> operations didn't work for IDX sessions in Identity Engine. (OKTA-948863, OKTA-455249)</p>
+</li>
+</ul>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.08.3</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025083</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025083</guid>
+      <pubDate>Tue, 14 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bug-fixed-in-2025-08-3">Bug fixed in 2025.08.3</a></td>
+<td>August 27, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Bug fixed in 2025.08.3</h4>
+<p>If a SAML IdP response was missing the <code>InResponseTo</code> attribute, OIDC ID tokens that were minted during the same authentication flow sometimes contained the Okta org ID instead of the IdP ID in the <code>idp</code> claim. (OKTA-986463)</p>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.08.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025082</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025082</guid>
+      <pubDate>Mon, 13 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-08-2">Bugs fixed in 2025.08.2</a></td>
+<td>August 20, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Bugs fixed in 2025.08.2</h4>
+<ul>
+<li>
+<p>Some custom admin roles had different permissions for authentication policies (<code>ACCESS_POLICY</code>) and device signal collection policies (<code>DEVICE_SIGNAL_COLLECTION</code>) and couldn't access or manage device signal collection policies and rules. (OKTA-982043)</p>
+</li>
+<li>
+<p>Some app groups that were deleted were still visible in searches. This fix will be slowly made available to all orgs. (OKTA-972614)</p>
+</li>
+<li>
+<p>When an app was deleted, group push rules weren't deleted and would sometimes trigger erroneous System Log entries. This fix will be slowly made available to all orgs. (OKTA-881642)</p>
+</li>
+</ul>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Monthly release 2025.08.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025080</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025080</guid>
+      <pubDate>Sun, 12 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#associated-domain-customizations-api-is-self-service-ea-in-preview">Associated Domain Customizations API is self-service EA in Preview</a></td>
+<td>July 16, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#automate-scim-integration-for-oin-apps-with-express-configuration">Automate SCIM Integration for OIN Apps with Express Configuration</a></td>
+<td>August 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#breached-credentials-protection-is-ga-in-preview">Breached Credentials Protection is GA in Preview</a></td>
+<td>May 15, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#clear-user-factors-for-all-devices-is-ga-in-preview">Clear user factors for all devices is GA in Preview</a></td>
+<td>August 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#cross-app-access-is-self-service-ea-in-preview">Cross App Access is self-service EA in Preview</a></td>
+<td>August 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#custom-fido2-aaguid-is-self-service-ea-in-preview">Custom FIDO2 AAGUID is self-service EA in Preview</a></td>
+<td>July 16, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#device-signal-collection-policy-is-self-service-ea-in-preview">Device signal collection policy is self-service EA in Preview</a></td>
+<td>August 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#encryption-of-id-tokens-and-access-tokens-is-ea">Encryption of ID tokens and access tokens is EA</a></td>
+<td>August 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#expanded-use-of-user-getgroups-function-in-okta-expression-language-is-ga-in-production">Expanded use of user.getGroups() function in Okta Expression Language is GA in Production</a></td>
+<td>June 4, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#granular-configuration-for-keep-me-signed-in-is-ga-in-production">Granular configuration for Keep Me Signed In is GA in Production</a></td>
+<td>January 8, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#group-push-mappings-is-ga-in-preview">Group Push Mappings is GA in Preview</a></td>
+<td>August 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#myaccount-password-api-is-ga-in-production">MyAccount Password API is GA in Production</a></td>
+<td>May 24, 2023</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#myaccount-webauthn-api-is-ea-in-production-and-ga-in-preview">MyAccount WebAuthn API is EA in Production and GA in Preview</a></td>
+<td>July 16, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#multiple-active-idp-signing-certificates-is-ea">Multiple active IdP signing certificates is EA</a></td>
+<td>August 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-user-authenticator-enrollments-api-is-ga-in-preview">New User Authenticator Enrollments API is GA in Preview</a></td>
+<td>July 9, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-user-profile-permission">New user profile permission</a></td>
+<td>August 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#oauth-2-0-provisioning-for-org2org-with-autorotation-is-ga-in-production">OAuth 2.0 provisioning for Org2Org with Autorotation is GA in Production</a></td>
+<td>July 2, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#passkeys-from-android-devices-is-self-service-ea-in-preview">Passkeys from Android devices is self-service EA in Preview</a></td>
+<td>July 16, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#send-app-context-to-external-idps-is-ga-in-preview">Send app context to external IdPs is GA in Preview</a></td>
+<td>May 21, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#service-accounts-api-is-ea">Service Accounts API is EA</a></td>
+<td>August 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#system-log-event-for-identity-assertion-authorization-grant-id-jag-issuance-is-ea-in-preview">System Log event for Identity Assertion Authorization Grant (ID-JAG) issuance is EA in Preview</a></td>
+<td>August 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#system-log-updates-for-id-verification-events">System Log updates for ID verification events</a></td>
+<td>August 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#temporary-access-code-authenticator-is-self-service-ea-in-preview">Temporary Access Code authenticator is self-service EA in Preview</a></td>
+<td>July 16, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#unified-claims-generation-for-custom-apps-is-self-service-ea-in-preview">Unified claims generation for custom apps is self-service EA in preview</a></td>
+<td>July 30, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#universal-logout-in-the-oin-wizard">Universal Logout in the OIN Wizard</a></td>
+<td>August 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#web-app-integrations-now-mandate-the-use-of-the-authorization-code-flow">Web app integrations now mandate the use of the Authorization Code flow</a></td>
+<td>August 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-updates-in-2025-08-0">Developer documentation updates in 2025.08.0</a></td>
+<td>August 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bug-fixed-in-2025-08-0">Bug fixed in 2025.08.0</a></td>
+<td>August 7, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Associated Domain Customizations API is self-service EA in Preview</h4>
+<p>You can now use the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/">Associated Domain Customizations API</a> to view and update the associated domains of your custom domain. Associated domains let you build a trust relationship among your app, the referring domain, the user's credentials that are associated with that domain, and your brand in Okta. This feature makes it easier to adopt phishing-resistant authenticators, like passkeys in the FIDO2 (WebAuthn) authenticator.</p>
+<p>See <a href="/docs/guides/custom-well-known-uri/main/">Customize associated domains</a>.</p>
+<h4>Automate SCIM Integration for OIN Apps with Express Configuration</h4>
+<p>Express Configuration is a feature designed to automate the setup of SSO and SCIM for instances of OIN SaaS integrations by enterprise customers with minimal manual effort. It allows enterprise customers to securely configure OIDC and SCIM integrations without copying and pasting configuration values between Okta and Auth0-enabled apps. See <a href="/docs/guides/enable-express-configuration/scim/main/">Express Configuration</a>.</p>
+<h4>Breached Credentials Protection is GA in Preview</h4>
+<p>Protect your org from the impact of credentials that have been compromised. If Okta determines that a username and password combination has been compromised after being compared to a third-party curated dataset, the protection response is customizable through password policies, including resetting the user's password, forcing a logout, or calling a delegated Workflow. See the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/">Okta Policies API</a>.</p>
+<h4>Clear user factors for all devices is GA in Preview</h4>
+<p>When you make a Revoke all user sessions (/api/v1/users/{userId}/sessions) request, include the new <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserSessions/#tag/UserSessions/operation/revokeUserSessions!in=query&amp;path=forgetDevices&amp;t=request"><code>forgetDevices</code> parameter</a> to clear a user's remembered factors on all devices. The user is prompted for full authentication on their next sign-in attempt from any device. The <code>forgetDevices</code> parameter is set to <code>true</code> by default.</p>
+<h4>Cross App Access is self-service EA in Preview</h4>
+<p>Admins can now manage third-party app data sharing with the new Cross App Access feature in the Okta Admin Console. This feature moves complex consent processes away from end-users, enhancing security and streamlining the experience. Once configured, end users can access their data from other SaaS apps without navigating OAuth consent flows. See the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationCrossAppAccessConnections/">Applications Cross Apps Connections API</a> and <a href="https://help.okta.com/oie/en-us/content/topics/apps/apps-cross-app-access.htm">Configure Cross App Access</a>.</p>
+<h4>Custom FIDO2 AAGUID is self-service EA in Preview</h4>
+<p>You can now use the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/">Authenticators API</a> to create, view, and update custom Authenticator Attestation Global Unique Identifiers (AAGUIDs).</p>
+<p>Admins can add non-FIDO Metadata Service (MDS) security keys and other authenticators and have more granular control over them. This extends FIDO2 (WebAuthn) authenticator support to a wider range of security keys and other authenticators, which gives admins greater flexibility and control over the security in their environment.</p>
+<h4>Device signal collection policy is self-service EA in Preview</h4>
+<p>With the new device signal collection policy, admins can override Okta default behavior and specify how Okta must collect device data, which is then used to evaluate authentication policies.</p>
+<p>See <a href="/docs/guides/device-signal-collection-policies/main/">Configure a device signal collection policy</a>.</p>
+<h4>Encryption of ID tokens and access tokens is EA</h4>
+<p>You can now encrypt OIDC ID tokens for Okta-protected custom app integrations using JSON Web Encryption. You can also now encrypt access tokens minted by a custom authorization server. See <a href="/docs/guides/key-management/main/">Key management</a>.</p>
+<h4>Expanded use of user.getGroups() function in Okta Expression Language is GA in Production</h4>
+<p>You can now use the <code>user.getGroups()</code> function across all features that support Expression Language. See <a href="/docs/reference/okta-expression-language/#group-functions">Group functions</a>.</p>
+<h4>Granular configuration for Keep Me Signed In is GA in Production</h4>
+<p>Admins can now configure the post-authentication prompt for Keep Me Signed In (KMSI) at a granular level in authentication policies. This allows admins to selectively enable post-authentication KMSI on a per-user, per-group, or per-app basis. When enabled, this feature exposes a frequency setting that lets admins control how often the post-authentication prompt is presented to users. See <a href="/docs/guides/keep-me-signed-in/main/">Configure Keep me signed in (KMSI)</a>.</p>
+<p>The post-authentication prompt text (title, subtitle, accept button, and reject button) is now customizable through the Brands API. See <a href="/docs/guides/keep-me-signed-in/main/#customize-post-authentication-sign-in-prompts">Customize post-authentication sign-in prompts</a>.</p>
+<h4>Group Push Mappings is GA in Preview</h4>
+<p>With the API for Group Push, admins can now programmatically create, link, or manage group push configuration in Okta. This allows admins to configure Okta groups to be pushed to connected apps at scale and reduces overhead for large deployments. See <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupPushMapping/">Group Push Mappings API</a>.</p>
+<h4>MyAccount Password API is GA in Production</h4>
+<p>You can now use the <a href="https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Password/">MyAccount Password API</a> to update passwords.</p>
+<h4>MyAccount WebAuthn API is EA in Production and GA in Preview</h4>
+<p>You can now use the <a href="https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/WebAuthn/">MyAccount WebAuthn API</a> to enroll, list, and delete WebAuthn enrollments. Admins can build out an in-app passkey creation and enrollment experience with the MyAccount WebAuthn API operations.</p>
+<h4>Multiple active IdP signing certificates is EA</h4>
+<p>Okta now supports multiple active signing certificates for a single SAML identity provider (IdP), enabling seamless certificate rotation with zero downtime. Use the new <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider!path=protocol/0/credentials/trust/additionalKids&amp;t=request"><code>additionalKids</code> parameter</a> to add another signing certificate for the IdP. You can upload up to two certificates per IdP connection. This improvement eliminates the need for tightly coordinated swaps with IdP partners and reduces the risk of authentication failures due to expired certificates.</p>
+<h4>New User Authenticator Enrollments API is GA in Preview</h4>
+<p>The <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserAuthenticatorEnrollments/">User Authenticator Enrollments API</a> enables admins to manage the specific authenticator enrollments of their users.</p>
+<p>Currently, admins in Identity Engine orgs can’t use Okta APIs to manage user authenticator enrollments with the same level of control that’s possible in Classic Engine orgs. This feature helps admins more effectively manage their user’s enrollments and improves parity between Classic Engine and Identity Engine orgs.</p>
+<h4>New user profile permission</h4>
+<p>A new user profile permission (<code>okta.users.userprofile.read</code>) is now available that allows granular read-only access to the user profile. See <a href="https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#oktausersuserprofileread">Permissions</a>.</p>
+<h4>OAuth 2.0 provisioning for Org2Org with Autorotation is GA in Production</h4>
+<p>Admins deploying multi-org architectures (for example Okta hub-and-spoke orgs) need to secure user and group provisioning. Provisioning using OAuth2.0 scoped tokens has several advantages over API tokens, including more access granularity, shorter token lifespans, and automatic key rotation. You can now enable OAuth 2.0 Auto-Rotation for Org2Org app provisioning directly from the Admin Console, in addition to the API.</p>
+<p>To support these updates, the Application Connections API includes a new endpoint, <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/getUserProvisioningConnectionJWKS">Retrieve a JSON Web Key Set (JWKS) for the default provisioning connection</a>, and schema updates to support token autorotation, <code>rotationMode=AUTO</code>. See <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication!path=1/profile&amp;t=request">Update the default provisioning connection</a> and <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=ext-org2org-intg#Use2">Integrate Okta Org2Org with Okta</a>.</p>
+<h4>Passkeys from Android devices is self-service EA in Preview</h4>
+<p>Okta now accepts passkeys that are generated by Android devices. Okta associates these passkeys with trusted web domains to enable users to authenticate with them. This expands the number of device types that Okta supports for passkey use.</p>
+<p>You can enable Android passkeys by customizing the <code>assetlinks.json</code> file. See <a href="/docs/guides/custom-well-known-uri/main/">Customize associated domains</a> and <a href="https://developer.android.com/identity/sign-in/credential-manager#add-support-dal">Add support for Digital Asset Links</a>.</p>
+<h4>Send app context to external IdPs is GA in Preview</h4>
+<p>You can now forward context about an app to an external identity provider (IdP) when a user attempts to access the app. When you set the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider!path=protocol/0/settings/sendApplicationContext&amp;t=request"><code>sendApplicationContext</code> parameter</a> to <code>true</code> for an IdP, the app name and unique instance ID are included in the SAML or OpenID Connect request sent to the external IdP. This enhancement allows external IdPs to make more informed, context-aware authentication decisions, supporting advanced security scenarios, and Zero Trust environments.</p>
+<h4>Service Accounts API is EA</h4>
+<p>The new <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ServiceAccount/">Service Accounts API</a> is now available for Okta Privileged Access-enabled orgs. This API allows you to manage SaaS or On-Prem Provisioning (OPP) app accounts. App accounts that you create through the Service Accounts API are visible to resource admins in the Okta Privileged Access dashboard. See <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=saas-manage-service-accounts">Manage service accounts</a> in the Okta Privileged Access product documentation.</p>
+<p>This feature is available only if you're subscribed to Okta Privileged Access. Ensure that you've set up the Okta Privileged Access app before creating app accounts through the API.</p>
+<h4>System Log event for Identity Assertion Authorization Grant (ID-JAG) issuance is EA in Preview</h4>
+<p>The <code>app.oauth2.token.grant.id_jag</code> event is generated when an app completes an OAuth 2.0 token exchange to get an Identity Assertion Authorization Grant (ID-JAG) JWT.</p>
+<h4>System Log updates for ID verification events</h4>
+<p>There are several updates for events related to identity verification:</p>
+<ul>
+<li>
+<p>A new event related to ID verification (<code>user.identity_verification.start</code>) can be viewed in the System Log.</p>
+</li>
+<li>
+<p>New reasons for the DENY result of the <code>user.identity_verification</code> event have been added.</p>
+</li>
+<li>
+<p>Admins can use two new properties (IdvReferenceId and IdvFlowId) to track events related to IDV processes.</p>
+</li>
+</ul>
+<p>See <a href="/docs/reference/api/event-types">Event Types</a> and <a href="/docs/guides/idv-integration/main/#identity-verification-events">Identity verification events</a>.</p>
+<h4>Temporary Access Code authenticator is self-service EA in Preview</h4>
+<p>The new Temporary Access Code (TAC) authenticator allows admins to generate temporary codes that let users authenticate in onboarding, account recovery, and other temporary access scenarios. This authenticator enhances security in these scenarios by granting users access to their orgs without having to use their usual authenticators.</p>
+<p>To configure the authenticator with Okta APIs, see <a href="/docs/guides/authenticators-tac-authenticator/main/index.md">Temporary access code authenticator integration guide</a>, and to configure it in the Admin Console, see <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=temporary-access-code">Configure the temporary access code authenticator</a>.</p>
+<h4>Unified claims generation for custom apps is self-service EA in preview</h4>
+<p>Unified claims generation is a new streamlined interface for managing claims (OIDC) and attribute statements (SAML) for Okta-protected custom app integrations. In addition to group and user profile claims, the following new claim types are available: <code>entitlements</code> (required OIG), <code>device.profile</code>, <code>session.id</code>, and <code>session.amr</code>. Collection projections in Expression Language can also be used to get claims information. See <a href="/docs/reference/okta-expression-language-in-identity-engine/">Okta Expression Language in Identity Engine</a>.</p>
+<h4>Universal Logout in the OIN Wizard</h4>
+<p>Universal Logout (UL) in the Okta Integration Network Wizard allows you to build, test, and submit UL functionality to the Okta Integration Network (OIN). Universal Logout lets you terminate users' sessions and revoke their tokens for supported OIN apps, as well as for generic OpenID Connect (OIDC) and Security Assertion Markup Language (SAML) apps. See <a href="https://developer.okta.com/docs/guides/submit-oin-app/openidconnect/main/">Submit an integration with the OIN Wizard</a>.</p>
+<h4>Web app integrations now mandate the use of the Authorization Code flow</h4>
+<p>To enhance security, web app integrations now mandate the use of the Authorization Code flow, as the Implicit flow is no longer recommended. See <a href="https://developer.okta.com/docs/guides/build-sso-integration/openidconnect/main/#determine-the-oauth-2-0-flow-to-use">Build a Single Sign-On (SSO) integration</a>.</p>
+<h4>Developer documentation updates in 2025.08.0</h4>
+<ul>
+<li>
+<p>The <strong>Archived Okta Identity Governance API changelog (2023-2024)</strong> has been removed. For updates on these APIs, see the <a href="/docs/release-notes/2025-okta-identity-governance/">Okta Identity Governance API release notes</a>.</p>
+</li>
+<li>
+<p><a href="/docs/journeys/">Journeys</a> is a new and evolving section that includes content to help guide you through your development project.</p>
+<p>Journeys break down your development project into consumable steps:</p>
+<ul>
+<li>Key concepts to absorb</li>
+<li>Information on planning for tasks that you need to complete</li>
+<li>Links to individual guides to help you build your project</li>
+<li>Additional content to hep you enhance your project.</li>
+</ul>
+<p>The first journey available is <a href="/docs/journeys/OCI-secure-your-first-web-app/main/">Secure your first web app</a>. This journey helps you connect your web app to Okta and configure a secure sign-in experience.</p>
+</li>
+<li>
+<p>The new <a href="/docs/guides/create-an-app-integration/openidconnect/main/">Create an app integration</a> guide explains what an app integration is, why you need one, and how to create one.</p>
+</li>
+<li>
+<p>The new <a href="/docs/concepts/direct-authentication/">Direct authentication</a> concept explains what direct authentication is and how you can use it.</p>
+</li>
+<li>
+<p>The new <a href="/docs/guides/set-up-org/">Set up your org guide</a> outlines how to set up your Okta org with some basic, but important, settings and how to configure it for different use cases.</p>
+</li>
+<li>
+<p>The <a href="/docs/guides/sign-into-mobile-app-embedded">Sign in to your native mobile app</a> guide describes how to add authentication to your mobile app using the Okta Client SDK for Swift. This example implements a sample iOS app, using Okta APIs and interaction code flow, for browserless authentication.</p>
+</li>
+<li>
+<p>The new <a href="/docs/concepts/sign-in-widget/">Sign-In Widget</a> concept provides a high-level overview of the Okta Sign-In Widget.</p>
+</li>
+<li>
+<p>The new <a href="/docs/concepts/token-lifecycles">Understand the token lifecycle</a> concept provides an overview of OAuth 2.0 tokens, their use, and their lifecycles.</p>
+</li>
+</ul>
+<h4>Bug fixed in 2025.08.0</h4>
+<p>Some app types were incorrectly assigned to authentication policies. (OKTA-956009)</p>
+<h2>July</h2>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.07.3</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025073</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025073</guid>
+      <pubDate>Sat, 11 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-07-3">Bugs fixed in 2025.07.3</a></td>
+<td>July 30, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Bugs fixed in 2025.07.3</h4>
+<ul>
+<li>The List all user grants operation (<code>/api/v1/users/me/grants</code>) didn't include pagination links in the header of the response. (OKTA-918661)</li>
+<li>The Attack Protection API endpoints returned HTTP 404 Not Found errors unless <code>-admin</code> was appended to your org subdomain in the URL path. You can now use your standard org subdomain in the URL path when using the Attack Protection API. (OKTA-925650)</li>
+<li>Users with case-insensitive usernames didn't match to existing strict case-sensitive users. (OKTA-969228)</li>
+</ul>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.07.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025072</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025072</guid>
+      <pubDate>Fri, 10 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-07-2">Bugs fixed in 2025.07.2</a></td>
+<td>July 16, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Bugs fixed in 2025.07.2</h4>
+<ul>
+<li>When the Direct Authentication feature was enabled, calling the Apps API with a custom role couldn’t create OIDC apps. (OKTA-970705)</li>
+<li>When an admin enabled the Temporary Access Code feature, subsequent <code>GET /users/{userId}/factors</code> requests returned HTTP 400 Bad Request errors. (OKTA-979585)</li>
+<li>This update includes security enhancements. (OKTA-909930)</li>
+</ul>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.07.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025071</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025071</guid>
+      <pubDate>Thu, 09 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-07-1">Bugs fixed in 2025.07.1</a></td>
+<td>July 9, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Bugs fixed in 2025.07.1</h4>
+<ul>
+<li>The multiple identifiers feature didn't process case sensitivity correctly when evaluating identifier attributes. (OKTA-899235)</li>
+<li>When GET <code>/api/v1/apps/{appId}</code> is called, admins with the <code>okta.groups.appAssignment.manage</code> permission or <code>okta.users.appAssignment.manage</code> permission could view app details without having the required <code>okta.apps.manage</code> or <code>okta.apps.read</code> permissions. (OKTA-801567)</li>
+</ul>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Monthly release 2025.07.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025070</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025070</guid>
+      <pubDate>Wed, 08 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#oauth-2-0-provisioning-for-org2org-with-key-auto-rotation-is-ga-in-preview">OAuth 2.0 provisioning for Org2Org with key auto-rotation is GA in Preview</a></td>
+<td>July 2, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#myaccount-password-api-is-ga-in-preview">MyAccount Password API is GA in Preview</a></td>
+<td>May 24, 2023</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-okta-expression-language-component-is-self-service-ea-in-preview">New Okta Expression Language component is self-service EA in Preview</a></td>
+<td>July 2, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#system-log-event-for-monitoring-ldap-agent-config-file-changes-is-ea">System Log event for monitoring LDAP Agent config file changes is EA</a></td>
+<td>July 2, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#integrate-okta-with-device-posture-provider">Integrate Okta with Device Posture Provider</a></td>
+<td>July 2, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-validation-rule-for-user-profile-attributes-in-oin-wizard">New validation rule for user profile attributes in OIN Wizard</a></td>
+<td>July 2, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#conditions-for-create-user-permission-is-ga-in-production">Conditions for create user permission is GA in Production</a></td>
+<td>June 9, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#clear-verified-and-incode-as-third-party-identity-verification-providers-is-ga-in-production">CLEAR Verified and Incode as third-party identity verification providers is GA in Production</a></td>
+<td>July 2, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#changes-to-okta-app-api-responses">Changes to Okta app API responses</a></td>
+<td>July 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#restrict-access-to-the-admin-console-is-ga-in-production">Restrict access to the Admin Console is GA in Production</a></td>
+<td>December 11, 2024</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-updates-in-2025-07-0">Developer documentation updates in 2025.07.0</a></td>
+<td>July 2, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>OAuth 2.0 provisioning for Org2Org with key auto-rotation is GA in Preview</h4>
+<p>Admins deploying multi-org architectures (for example, Okta hub-and-spoke orgs) need to secure user and group provisioning. Provisioning using OAuth2.0 scoped tokens has several advantages over API tokens, including more access granularity, shorter token lifespans, and automatic key rotation. You can now enable OAuth 2.0 Auto-Rotation for Org2Org app provisioning directly from the Admin Console, in addition to the API.</p>
+<p>To support these updates, the Application Connections API includes a new endpoint, <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/getUserProvisioningConnectionJWKS">Retrieve a JSON Web Key Set (JWKS) for the default provisioning connection</a>, and schema updates to support key auto-rotation, <code>rotationMode=AUTO</code>. See <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication!path=1/profile&amp;t=request">Update the default provisioning connection</a> and <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=ext-org2org-intg#Use2">Integrate Okta Org2Org with Okta</a>.</p>
+<h4>MyAccount Password API is GA in Preview</h4>
+<p>You can now use the <a href="https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Password/">MyAccount Password API</a> to update passwords.</p>
+<h4>New Okta Expression Language component is self-service EA in Preview</h4>
+<p>You can now use the <a href="/docs/reference/okta-expression-language-in-identity-engine/#okta-account-management"><code>metadata</code></a> component in an Expression Language condition for an Okta account management policy. You can only use <code>metadata</code> in an expression that’s related to password expiry. See <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=oamp-enable-password-expiry">Enable password expiry</a>.</p>
+<h4>System Log event for monitoring LDAP Agent config file changes is EA</h4>
+<p>A <code>system.agent.ldap.config_change_detected</code> event is generated when an LDAP agent detects changes to its configuration file.</p>
+<h4>Integrate Okta with Device Posture Provider</h4>
+<p>The Device Posture Provider feature enhances Zero Trust security by integrating external device compliance signals into the Okta policy engine. Previously, Okta couldn't leverage signals from third-party or custom tools to enforce access policies. Now, by accepting SAML/OIDC assertions from external compliance services, admins can incorporate custom compliance attributes into device assurance policies. This enables orgs to use their existing device trust signals within Okta, and foster a more flexible and secure posture without the need for extra agents or redundant tooling. See the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceIntegrations/">Device Integrations API</a> and <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=device-assurance-dev-posture-idp">Integrate Okta with Device Posture Provider</a>.</p>
+<h4>New validation rule for user profile attributes in OIN Wizard</h4>
+<p>The OIN Wizard now requires the use of valid user profile properties when referencing attribute values in EL expressions. The system rejects any invalid user EL expressions and attributes that aren't included in the allowlist. See <a href="https://developer.okta.com/docs/guides/submit-oin-app/saml2/main/#properties">SAML properties</a>.</p>
+<h4>Conditions for create user permission is GA in Production</h4>
+<p>You can now add conditions to the <code>okta.user.create</code> permission for custom admin roles. This enables you to granularly control which user attributes admins can set values for during user creation. See <a href="https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#permissions-conditions">Permissions conditions</a>.</p>
+<h4>CLEAR Verified and Incode as third-party identity verification providers is GA in Production</h4>
+<p>Okta now supports using Incode and CLEAR Verified as identity providers. This increases the number of identity verification vendors (IDVs) you can use to verify the identity of your users when they onboard or reset their account. Set <code>IDV_INCODE</code> or <code>IDV_CLEAR</code> as the IdP <code>type</code> when you <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider">create an IdP</a>.</p>
+<h4>Changes to Okta app API responses</h4>
+<p>The following Okta apps won't be returned in the API response for endpoints that list apps (such as the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications">List all applications</a> <code>GET /api/vi/apps</code> endpoint):</p>
+<ul>
+<li>Okta Access Certifications (key name: <code>okta_iga</code>)</li>
+<li>Okta Access Requests Admin (key name: <code>okta_access_requests_admin</code>)</li>
+<li>Okta Entitlement Management (key name: <code>okta_entitlement_management</code>)</li>
+</ul>
+<p>In addition, a single app retrieval endpoint won't return these apps either. For example: <code>GET /api/v1/apps/{appId}</code> won't return the app object if <code>{appId}</code> is the ID for the <code>okta_iga</code>, <code>okta_access_requests_admin</code>, or <code>okta_entitlement_management</code> apps in your org.</p>
+<h4>Restrict access to the Admin Console is GA in Production</h4>
+<p>By default, users and groups with assigned admin roles have access to the Admin Console app. With this feature, super admins can choose to manually assign the app to delegated admins instead. This is recommended for orgs with admins who don't need access, like business partners, third-party admins, or admins who only use the Okta API. See <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=administrator-settings">Configure administrator settings</a> and the corresponding APIs: <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/getAutoAssignAdminAppSetting">Retrieve the Okta Admin Console Assignment Setting</a> and <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/updateAutoAssignAdminAppSetting">Update the Okta Admin Console Assignment Setting</a>.</p>
+<h4>Developer documentation updates in 2025.07.0</h4>
+<ul>
+<li>
+<p>The <a href="https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/">Okta Admin Management</a> APIs have been reorganized into functional service groups for improved navigation and user experience. All previous anchors and links to the APIs remain the same.</p>
+</li>
+<li>
+<p>A <a href="/docs/guides/configure-ssf-receiver/main/">new guide</a> is available that explains how to register security events providers in Okta, which enables continuous sharing of security information with Okta to prevent security threats.</p>
+</li>
+<li>
+<p>The <strong>Agent Pools</strong> API has been renamed  <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AgentPools/"><strong>Directory Agent Pools</strong></a> API and is now grouped under <strong>External Identity Sources</strong>. There are no other changes to the API. All previous anchors and links to the API remain the same.</p>
+</li>
+<li>
+<p>The <a href="/docs/guides/password-import-inline-hook/nodejs/main/">Password import inline hook</a> guide was revised to demonstrate the hook call using the <a href="https://ngrok.com/">ngrok utility</a>, rather than the sample code hosted on <a href="https://glitch.com/">Glitch.com</a>. The hosted sample app on Glitch is scheduled for deprecation on July 8th, 2025.</p>
+</li>
+</ul>
+<h2>June</h2>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.06.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025062</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025062</guid>
+      <pubDate>Tue, 07 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#network-zone-restrictions-for-clients-is-self-service-ea-in-preview">Network zone restrictions for clients is self-service EA in Preview</a></td>
+<td>Jun 25, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#org2org-oidc-sign-on-mode-is-self-service-ea-in-preview">Org2Org OIDC Sign-on mode is self-service EA in Preview</a></td>
+<td>Jun 17, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#okta-integration-idp-type-is-self-service-ea-in-preview">Okta Integration IdP type is self-service EA in Preview</a></td>
+<td>Jun 25, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-06-2">Bugs fixed in 2025.06.2</a></td>
+<td>Jun 25, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Network zone restrictions for clients is self-service EA in Preview</h4>
+<p>You can now specify an allowlist or denylist network zone for each client to enhance token endpoint security.</p>
+<h4>Org2Org OIDC Sign-on mode is self-service EA in Preview</h4>
+<p>The Org2Org app now includes an OIDC Sign-on mode using the Okta Integration IdP. This sign-on mode reduces the complexity of configuration between the Org2Org app and the target org, and takes advantage of modern security features of OIDC. You also need to enable the Okta Integration IdP feature to use the OIDC Sign-on mode. See <a href="/docs/guides/secure-oauth-between-orgs/main/">Secure API connections between orgs with OAuth 2.0</a>.</p>
+<h4>Okta Integration IdP type is self-service EA in Preview</h4>
+<p>The new Okta Integration IdP type allows you to configure Org2Org OIDC IdPs with secure defaults. See <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/listIdentityProviders!c=200&amp;path=type&amp;t=response">Identity Providers</a> and <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=idp-add-okta">Add an Okta Identity Provider</a>.</p>
+<h4>Bugs fixed in 2025.06.2</h4>
+<ul>
+<li>
+<p>When an app with imported app groups was deactivated, and users were subsequently removed from these groups, the event wasn't recorded in the System Log. (OKTA-934264)</p>
+</li>
+<li>
+<p>The delete operation for the Roles API (<code>/iam/roles/{roleIdOrLabel}</code>) and the Resource Sets API (<code>/iam/resource-sets/{iamPolicyIdOrLabel}</code>) allowed users to delete IAM-based standard roles and resource sets, respectively. (OKTA-926830)</p>
+</li>
+<li>
+<p>Using a private/public key for client authentication with an empty <code>kid</code> in the assertion threw a null pointer exception if there was an invalid <code>use</code> parameter in the key. (OKTA-963932)</p>
+</li>
+</ul>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.06.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025061</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025061</guid>
+      <pubDate>Mon, 06 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#frame-ancestors-rollout-for-content-security-policy">Frame-ancestors rollout for Content Security Policy</a></td>
+<td>Jun 17, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#response-body-updates-for-the-myaccount-authenticators-api">Response body updates for the MyAccount Authenticators API</a></td>
+<td>Jun 17, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-06-1">Bugs fixed in 2025.06.1</a></td>
+<td>Jun 17, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Frame-ancestors rollout for Content Security Policy</h4>
+<p>Okta is rolling out the frame-ancestors directive of the Content Security Policy (CSP) for the <code>/auth/services/devicefingerprint</code> and <code>/api/v1/internal/device/nonce</code> endpoints. To prevent blocking access to these endpoints from embedded frames, add any embedder origin as a trusted origin. See the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/">Trusted Origins API</a>.</p>
+<p>In addition, Okta is rolling out the use of <code>nonce</code> with the script-src directive of the CSP for the <code>/auth/services/devicefingerprint</code>. To prevent blocking inline scripts that you may have injected on the page returned by this endpoint, allowlist your inline script to account for the <code>nonce</code> addition to script-src.</p>
+<h4>Response body updates for the MyAccount Authenticators API</h4>
+<p>A new response property, <code>canChange</code>, is now returned for <code>password</code> enrollments when you make GET calls to the <code>/idp/myaccount/authenticators/{authenticatorId}/enrollments/</code> endpoint. This property indicates if the value of a <code>password</code> enrollment can be changed. With the addition of the <code>canChange</code> property, <code>canReset</code>, an existing response property, now indicates whether or not the user can reset the value of their <code>password</code> enrollment.</p>
+<p>See the <a href="https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Authenticators/#tag/Authenticators/operation/listEnrollments!c=200&amp;path=canChange&amp;t=response">MyAccount Authenticators API</a>.</p>
+<h4>Bugs fixed in 2025.06.1</h4>
+<ul>
+<li>
+<p>When calling the Replace the resource set resource conditions endpoint, <code>/api/v1/iam/resource-sets/{resourceSetIdOrLabel}/resources/{resourceId}</code>, including an empty body didn't remove conditions. (OKTA-947764)</p>
+</li>
+<li>
+<p>Customization fields in email templates were populated with unencoded information. (OKTA-922766)</p>
+</li>
+<li>
+<p>The Directories Integration API for AD Bidirectional Group Management returned a 500 error because of a null pointer exception. (OKTA-948743)</p>
+</li>
+<li>
+<p>User grants weren't returned from the Users API (<code>/users/&lt;userId&gt;clients/&lt;clientId&gt;/grants</code>) after revoking user sessions and OAuth 2.0 tokens. (OKTA-944549)</p>
+</li>
+<li>
+<p>Users could sometimes receive too many password reset emails. (OKTA-916357)</p>
+</li>
+<li>
+<p>App logos could be added or updated using any SVG format. See <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationLogos/#tag/ApplicationLogos/operation/uploadApplicationLogo!path=file&amp;t=request">Application Logos</a>. (OKTA-876028)</p>
+</li>
+</ul>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Monthly release 2025.06.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025060</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025060</guid>
+      <pubDate>Sun, 05 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#admins-prevented-from-deleting-published-app-instances">Admins prevented from deleting published app instances</a></td>
+<td>June 4, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#authentication-claims-sharing-between-okta-orgs-is-ga-in-production">Authentication claims sharing between Okta orgs is GA in Production</a></td>
+<td>June 4, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#claims-sharing-between-third-party-idps-and-okta-is-ga-in-production">Claims sharing between third-party IdPs and Okta is GA in Production</a></td>
+<td>April 9, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#conditions-for-create-user-permission">Conditions for create user permission</a></td>
+<td>June 9, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#define-default-values-for-custom-user-attributes-is-ga-in-production">Define default values for custom user attributes is GA in Production</a></td>
+<td>May 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#domain-restrictions-on-realms-is-ga-in-production">Domain restrictions on Realms is GA in Production</a></td>
+<td>April 23, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-password-complexity-property-is-self-service-ea-in-preview">New password complexity property is self-service EA in Preview</a></td>
+<td>June 4, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#number-matching-challenge-with-the-factors-api-is-ga-in-production">Number matching challenge with the Factors API is GA in Production</a></td>
+<td>April 9, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#restrict-access-to-the-admin-console-is-ga-in-preview">Restrict access to the Admin Console is GA in Preview</a></td>
+<td>December 11, 2024</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#shared-signal-transmitters-is-ga-in-production">Shared signal transmitters is GA in Production</a></td>
+<td>May 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#single-logout-for-idps-is-ea-in-preview">Single Logout for IdPs is EA in Preview</a></td>
+<td>June 4, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#expanded-use-of-user-getgroups-function-in-okta-expression-language-is-ga-in-preview">Expanded use of user.getGroups() function in Okta Expression Language is GA in Preview</a></td>
+<td>June 4, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-updates-in-2025-06-0">Developer documentation updates in 2025.06.0</a></td>
+<td>June 4, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-06-0">Bugs fixed in 2025.06.0</a></td>
+<td>June 4, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Admins prevented from deleting published app instances</h4>
+<p>When an app instance has the <strong>Published</strong> version status in OIN Wizard, admins can no longer delete it from the Integrator Free Plan org.</p>
+<h4>Authentication claims sharing between Okta orgs is GA in Production</h4>
+<p>Authentication claims sharing allows an admin to configure their Okta org to trust claims from IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See <a href="/docs/guides/configure-claims-sharing/oktasaml/main/">Configure claims sharing</a>.</p>
+<h4>Claims sharing between third-party IdPs and Okta is GA in Production</h4>
+<p>Authentication claims sharing allows an admin to configure their Okta org to trust claims from third-party IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from a third-party IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See <a href="/docs/guides/configure-claims-sharing/oktasaml/main/">Configure claims sharing</a>.</p>
+<h4>Conditions for create user permission</h4>
+<p>You can now add conditions to the <code>okta.user.create</code> permission for custom admin roles. This enables you to granularly control which user attributes admins can set values for during user creation. See <a href="https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions-conditions">Permissions conditions</a>.</p>
+<h4>Define default values for custom user attributes is GA in Production</h4>
+<p>You can now define default values for custom attributes in a user profile. See the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/updateUserProfile">Update User Profile</a> endpoint in the Schemas API.</p>
+<h4>Domain restrictions on Realms is GA in Production</h4>
+<p>You can now limit users to a specific domain in Realms, which adds an extra layer of oversight for realm and partner admins and enforces boundaries between user populations. See the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Realm/">Realms</a> and <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RealmAssignment/">Realm Assignments</a> APIs.</p>
+<h4>New password complexity property is self-service EA in Preview</h4>
+<p>You can now use the <code>oelStatement</code> property to block words from being used in passwords. This feature enhances security by allowing you to customize your password strength requirements. See the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=3/settings/password/complexity/oelStatement&amp;t=request">Policy API</a>.</p>
+<h4>Number matching challenge with the Factors API is GA in Production</h4>
+<p>You can now send number matching challenges for Okta Verify <code>push</code> factor enrollments when you send POST requests to the <code>/users/{userId}/factors/{factorId}/verify</code> endpoint. For orgs that can't adopt Okta FastPass, this feature improves their overall security.  See the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/verifyFactor">Factors API</a>.</p>
+<h4>Restrict access to the Admin Console is GA in Preview</h4>
+<p>By default, users and groups with assigned admin roles have access to the Admin Console app. With this feature, super admins can choose to manually assign the app to delegated admins instead. This is recommended for orgs with admins who don't need access, like business partners, third-party admins, or admins who only use the Okta API. See <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=administrator-settings">Configure administrator settings</a> and the corresponding APIs: <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/getAutoAssignAdminAppSetting">Retrieve the Okta Admin Console Assignment Setting</a> and <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/updateAutoAssignAdminAppSetting">Update the Okta Admin Console Assignment Setting</a>.</p>
+<h4>Shared signal transmitters is GA in Production</h4>
+<p>Okta uses <a href="https://openid.net/specs/openid-caep-specification-1_0.html">CAEP</a> to send security-related events and other data-subject signals to third-party security vendors. To enable the transmission of signals from Okta, create an <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFTransmitter/#tag/SSFTransmitter/operation/createSsfStream">SSF stream</a> using the SSF Transmitter API. Then, configure the third-party receiver to accept signals sent as <a href="https://datatracker.ietf.org/doc/html/rfc8417">Security Event Tokens (SETs)</a> from Okta. See the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFTransmitter/">SSF Transmitter API</a> and <a href="https://developer.okta.com/docs/reference/ssf-transmitter-sets/">SSF Transmitter SET payload structures</a>.</p>
+<h4>Single Logout for IdPs is EA in Preview</h4>
+<p>The Single Logout (SLO) for IdPs feature boosts security for organizations using shared devices and external IdPs by automatically ending IdP sessions when a user signs out of any app. This feature also requires a fresh authentication for every new user, eliminating session hijacking risks on shared devices. SLO for IdP supports both SAML 2.0 and OIDC IdP connections, which provides robust session management for shared workstations in any environment. See <a href="/docs/guides/single-logout/openidconnect/main/">Configure Single Logout for IdPs</a>.</p>
+<h4>Expanded use of user.getGroups() function in Okta Expression Language is GA in Preview</h4>
+<p>You can now use the <code>user.getGroups()</code> function across all features that support Expression Language. See <a href="/docs/reference/okta-expression-language/#group-functions">Group functions</a>.</p>
+<h4>Developer documentation updates in 2025.06.0</h4>
+<ul>
+<li>
+<p>The <strong>Email Customization</strong> API has been relabelled as the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/"><strong>Org Email Settings</strong> API</a>. There are no other changes to the API. All previous anchors and links to the API remain the same.</p>
+</li>
+<li>
+<p>A <a href="/docs/guides/custom-widget-migration-gen3/main/">new guide</a> explains how to migrate customizations from the second generation (Gen2) to the third generation (Gen3) of the Sign-In Widget. It describes how to use design tokens instead of CSS className selectors to customize Gen3, and which variables and functions help with your migration.</p>
+</li>
+<li>
+<p>New <a href="/docs/release-notes/2025-okta-privileged-access/">release notes for Okta Privileged Access APIs</a> are now available.</p>
+</li>
+</ul>
+<h4>Bugs fixed in 2025.06.0</h4>
+<ul>
+<li>
+<p>The <code>/idp/myaccount/sessions</code> endpoint didn't accept access tokens granted by custom authorization servers. (OKTA-929488)</p>
+</li>
+<li>
+<p>An HTTP 500 error occurred when API requests were sent to <code>api/v1/policies/{policyId}</code> and <code>api/v1/policies/{policyId}/rules/{ruleID}</code> with certain values in the Accept header. (OKTA-892315)</p>
+</li>
+<li>
+<p>MyAccount Authenticators API GET requests (<code>/idp/myaccount/authenticators/</code> and <code>/idp/myaccount/authenticators/{authenticatorId}</code>) didn't return custom logo details. (OKTA-880048)</p>
+</li>
+</ul>
+<h2>May</h2>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.05.3</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025053</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025053</guid>
+      <pubDate>Sat, 04 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#integrator-free-plan-org-now-available">Integrator Free Plan org now available</a></td>
+<td>May 22, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-05-3">Bugs fixed in 2025.05.3</a></td>
+<td>May 29, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Integrator Free Plan org now available</h4>
+<p>The Integrator Free Plan org is now available on the <a href="/signup">Sign up</a> page of the developer documentation site. These orgs replace the previous Developer Editions Service orgs, which will start being deactivated on July 18th. See <a href="https://developer.okta.com/blog/2025/05/13/okta-developer-edition-changes">Changes Are Coming to the Okta Developer Edition Organizations</a>. For information on the configurations for the Integrator Free Plan orgs, see <a href="/docs/reference/org-defaults/">Okta Integrator Free Plan org configurations</a>.</p>
+<h4>Bugs fixed in 2025.05.3</h4>
+<ul>
+<li>
+<p>When third-party claims sharing was enabled, users couldn't sign in using their IdP because of an authentication loop. (OKTA-939862)</p>
+</li>
+<li>
+<p>When enrolling an <code>sms</code> factor (<code>POST /users/{userId}/factors</code>), an Invalid Phone Number error was sometimes incorrectly returned. (OKTA-923373)</p>
+</li>
+<li>
+<p>Users with <code>+</code> in their email address couldn't reset their passwords from email templates. Use the <code>${encode(String html)}</code> expression to encode special characters. (OKTA-914601)</p>
+</li>
+<li>
+<p>Sending a phone challenge with the MyAccount Phone API (<code>POST /idp/myaccount/phones/{id}/challenge</code>) sometimes returned an HTTP 500 Internal Server error. (OKTA-946865)</p>
+</li>
+</ul>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.05.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025052</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025052</guid>
+      <pubDate>Fri, 03 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#enrollment-grace-periods-is-ea-in-preview">Enrollment grace periods is EA in Preview</a></td>
+<td>May 21, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#send-app-context-to-external-idps-is-ea-in-preview">Send app context to external IdPs is EA in Preview</a></td>
+<td>May 21, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Enrollment grace periods is EA in Preview</h4>
+<p>Today, when admins define an enrollment policy for a group, the entire group must enroll immediately, which can be disruptive to their day-to-day tasks.</p>
+<p>With Enrollment Grace Periods, end users can defer enrollment in new authenticators until an admin-defined deadline when enrollment becomes mandatory. This allows end users to enroll at a time convenient to them and allows for more graceful enrollment before enforcing new authenticator types in authentication policies. See <a href="/docs/concepts/policies/#authenticator-enrollment-policies">Authenticator enrollment policies</a> and the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=1/settings/authenticators/enroll/gracePeriod&amp;t=request">Policies API</a>.</p>
+<h4>Send app context to external IdPs is EA in Preview</h4>
+<p>You can now forward context about an app to an external identity provider (IdP) when a user attempts to access the app. When you enable the <strong>Application context</strong> checkbox for an IdP, the app name and unique instance ID are included in the SAML or OpenID Connect request sent to the external IdP. This enhancement allows external IdPs to make more informed, context-aware authentication decisions, supporting advanced security scenarios, and Zero Trust environments. To enable this feature, go to <strong>Settings</strong> &gt; <strong>Features</strong> in the Admin Console, locate <strong>Send Application Context to an External IdP</strong>, and enable.</p>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.05.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025051</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025051</guid>
+      <pubDate>Thu, 02 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-05-1">Bugs fixed in 2025.05.1</a></td>
+<td>May 14, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Bugs fixed in 2025.05.1</h4>
+<ul>
+<li>
+<p>After enrolling a <code>call</code> factor (<code>POST /users/{userId}/factors</code>), the <code>resend.href</code> link in the response body returned an HTTP 404 Not Found error when it was used. (OKTA-926672)</p>
+</li>
+<li>
+<p>In some situations, the <code>/api/v1/agentPools</code> API failed to return agents that were stuck in an error state. (OKTA-910056)</p>
+</li>
+</ul>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Monthly release 2025.05.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025050</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025050</guid>
+      <pubDate>Wed, 01 Oct 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#breached-credentials-protection-is-ea-in-preview">Breached Credentials Protection is EA in Preview</a></td>
+<td>May 15, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#custom-admin-roles-for-itp">Custom admin roles for ITP</a></td>
+<td>May 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-user-role-targets-api-endpoint">New User Role Targets API endpoint</a></td>
+<td>May 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#define-default-values-for-custom-user-attributes">Define default values for custom user attributes</a></td>
+<td>May 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#directories-integration-api-is-ga-in-preview-and-production">Directories integration API is GA in Preview and Production</a></td>
+<td>May 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#number-matching-challenge-with-the-factors-api-is-ga-in-preview">Number matching challenge with the Factors API is GA in Preview</a></td>
+<td>May 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#claims-sharing-between-third-party-idps-and-okta-is-ga-in-preview">Claims sharing between third-party IdPs and Okta is GA in Preview</a></td>
+<td>May 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#express-configuration-for-oin-apps">Express Configuration for OIN apps</a></td>
+<td>May 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-end-user-enrollments-api-is-ga-in-production">New End-user Enrollments API is GA in Production</a></td>
+<td>March 5, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-system-log-for-super-admin-privilege-grant">New System Log for super admin privilege grant</a></td>
+<td>May 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#entitlement-claims-is-ga-in-production">Entitlement claims is GA in Production</a></td>
+<td>January 2, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#post-requests-to-authorize-endpoint-is-ga-in-production">POST requests to authorize endpoint is GA in Production</a></td>
+<td>January 8, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#authentication-claims-sharing-between-okta-orgs-is-ga-in-preview">Authentication claims sharing between Okta orgs is GA in Preview</a></td>
+<td>May 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#shared-signal-transmitters-is-ga-in-preview">Shared signal transmitters is GA in Preview</a></td>
+<td>May 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-update-in-2025-05-0">Developer documentation update in 2025.05.0</a></td>
+<td>May 7, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-05-0">Bugs fixed in 2025.05.0</a></td>
+<td>May 7, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Breached Credentials Protection is EA in Preview</h4>
+<p>Protect your org from the impact of credentials that have been compromised. If Okta determines that a username and password combination has been compromised after being compared to a third-party curated dataset, the protection response is customizable through password policies, including resetting the user's password, forcing a logout, or calling a delegated Workflow. See the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/">Okta Policies API</a>.</p>
+<p>This feature is following a slow rollout process beginning on May 15.</p>
+<h4>Custom admin roles for ITP</h4>
+<p>Through this feature, customers can use granular ITP permissions and resources to create custom roles to right-size authorization for ITP configuration and monitoring. See <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=csh-itp-rbac">Configure custom admin roles for ITP</a>.</p>
+<h4>New User Role Targets API endpoint</h4>
+<p>The User Role Targets API now includes a new endpoint, <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetAdmin/#tag/RoleBTargetAdmin/operation/getRoleTargetsByUserIdAndRoleId">Retrieve a role target by assignment type</a>, that retrieves role targets by user or group assignment type.</p>
+<h4>Define default values for custom user attributes</h4>
+<p>You can now define default values for custom attributes in a user profile. See the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/updateUserProfile">Update User Profile</a> endpoint in the Schemas API.</p>
+<h4>Directories integration API is GA in Preview and Production</h4>
+<p>The Directories Integration API provides operations to manage Active Directory (AD) group memberships using Okta. This API enables you to define adding or removing users for AD groups. This is now generally available. Previously, this was only available to subscribers of Okta Identity Governance. See <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DirectoriesIntegration/">Directories Integration</a>.</p>
+<h4>Number matching challenge with the Factors API is GA in Preview</h4>
+<p>You can now send number matching challenges for Okta Verify <code>push</code> factor enrollments when you send POST requests to the <code>/users/{userId}/factors/{factorId}/verify</code> endpoint. For orgs that can't adopt Okta FastPass, this feature improves their overall security.  See the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/verifyFactor">Factors API</a>.</p>
+<h4>Claims sharing between third-party IdPs and Okta is GA in Preview</h4>
+<p>Authentication claims sharing allows an admin to configure their Okta org to trust claims from third-party IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from a third-party IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See <a href="/docs/guides/configure-claims-sharing/oktasaml/main/">Configure claims sharing</a>.</p>
+<h4>Express Configuration for OIN apps</h4>
+<p>Express Configuration is a feature designed to automate the setup of SSO for instances of OIN SaaS integrations by enterprise customers with minimal manual effort. It allows enterprise customers to securely configure OpenID Connect (OIDC) integrations without copying and pasting configuration values between Okta and Auth0-enabled apps. See <a href="/docs/guides/express-configuration/main/">Express Configuration</a>.</p>
+<h4>New End-user Enrollments API is GA in Production</h4>
+<p>The new <a href="https://developer.okta.com/docs/api/openapi/okta-signin-experience-management/signinexp/tag/endUserEnrollments/">End-user Enrollments API</a> enables end users to enroll and unenroll authenticators by entering a URL directly into their browser. This reduces the time spent administering complex authenticator enrollment flows, and provides a streamlined enrollment process for users. After a user enrolls or unenrolls an authenticator, you can use the <code>redirect_uri</code> property to redirect them to another page.</p>
+<h4>New System Log for super admin privilege grant</h4>
+<p>A new System Log event now indicates when the super admin role (<code>app.oauth2.client.privilege.grant</code>) is granted to an API service integration.</p>
+<h4>Entitlement claims is GA in Production</h4>
+<p>You can now enrich tokens with app entitlements that produce deeper integrations. After you configure this feature for your app integration, use the <a href="/docs/reference/okta-expression-language-in-identity-engine/#reference-attributes">Okta Expression Language in Identity Engine</a> to add entitlements at runtime as OpenID Connect claims and SAML assertions. See <a href="/docs/guides/federated-claims/main/">Federated claims with entitlements</a>.</p>
+<h4>POST requests to authorize endpoint is GA in Production</h4>
+<p>You can now send user data securely in a POST request body to the /authorize endpoint.</p>
+<h4>Authentication claims sharing between Okta orgs is GA in Preview</h4>
+<p>Authentication claims sharing allows an admin to configure their Okta org to trust claims from IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See <a href="/docs/guides/configure-claims-sharing/oktasaml/main/">Configure claims sharing</a>.</p>
+<h4>Shared signal transmitters is GA in Preview</h4>
+<p>Okta uses <a href="https://openid.net/specs/openid-caep-specification-1_0.html">CAEP</a> to send security-related events and other data-subject signals to third-party security vendors. To enable the transmission of signals from Okta, create an <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFTransmitter/#tag/SSFTransmitter/operation/createSsfStream">SSF stream</a> using the SSF Transmitter API. Then, configure the third-party receiver to accept signals sent as <a href="https://datatracker.ietf.org/doc/html/rfc8417">Security Event Tokens (SETs)</a> from Okta. See the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFTransmitter/">SSF Transmitter API</a> and <a href="https://developer.okta.com/docs/reference/ssf-transmitter-sets/">SSF Transmitter SET payload structures</a>.</p>
+<h4>New Applications API object</h4>
+<p>A new <code>universalLogout</code> object is returned in the Applications API for orgs that have Identity Threat Protection enabled.</p>
+<h4>Developer documentation update in 2025.05.0</h4>
+<p>The new <a href="/docs/guides/idv-integration/main/">Integrate Okta with identity verification vendors guide</a> describes how third-party identity verification (IDV) vendors can integrate with Okta. IDV vendors can use the guide to integrate their service with Okta orgs.</p>
+<h4>Bugs fixed in 2025.05.0</h4>
+<ul>
+<li>
+<p>If a third-party SAML IdP sent the <code>session.amr</code> SAML attribute without the attribute schema type, Okta rejected the response when the third-party claims sharing feature was enabled. (OKTA-925864)</p>
+</li>
+<li>
+<p>When third-party IdP claims sharing was enabled, the redirect to the IdP happened during reauthentication even if the IdP didn't provide any AMR claims. (OKTA-922086)</p>
+</li>
+</ul>
+<h2>April</h2>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.04.3</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025043</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025043</guid>
+      <pubDate>Tue, 30 Sep 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-04-3">Bugs fixed in 2025.04.3</a></td>
+<td>April 30, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Bugs fixed in 2025.04.3</h4>
+<ul>
+<li>
+<p>Some versions of the Sign-In Widget v3 returned an error when trying to display the consent screen. (OKTA-755616)</p>
+</li>
+<li>
+<p>The <code>user.profile.firstName</code> tag in email templates didn't escape or render Unicode characters correctly. (OKTA-840719)</p>
+</li>
+<li>
+<p>Requests made using the <code>sortBy</code> parameter with custom attributes to the List all users or List all groups endpoints threw an HTTP 400 Bad Request error. (OKTA-886166)</p>
+</li>
+<li>
+<p>Some admins with a custom role (<code>okta.apps.read</code>, <code>okta.apps.clientCredentials.read</code> permissions) couldn’t view client secrets for apps that they had permission to view. (OKTA-893511)</p>
+</li>
+<li>
+<p>After their accounts were suspended, users who correctly answered their security question were moved to an Active status in API calls. (OKTA-897292)</p>
+</li>
+<li>
+<p>The number of groups that could be returned in tokens for a groups claim was still restricted in the authorization code sign-in flow when an inline hook was used. (OKTA-907362)</p>
+</li>
+<li>
+<p>When a resource set contained a <code>devices</code> resource, the Retrieve a resource endpoint returned a <code>null</code> response for the devices <code>self</code> object. (OKTA-914364)</p>
+</li>
+<li>
+<p>When the List all Subscriptions API with a Workflows Administrator role (<code>WORKFLOWS_ADMIN</code>) was called, an HTTP 400 Bad Request error was returned. (OKTA-918276)</p>
+</li>
+<li>
+<p>Users received an HTTP 400 Bad Request error during self-service registration in preview orgs with a Registration Inline hook. (OKTA-918774)</p>
+</li>
+<li>
+<p>When an Okta Classic Engine org was involved in a multi-org Okta-to-Okta authentication flow, and Okta-to-Okta claims sharing was enabled, the <code>OktaAuth</code> (SAML) and <code>okta_auth</code> (OIDC) claims weren't processed correctly. (OKTA-918969)</p>
+</li>
+<li>
+<p>When Okta-to-Okta claims sharing was enabled, federated users who were sourced from a third-party identity provider were incorrectly prompted to provide a password on their hub org. (OKTA-919385)</p>
+</li>
+</ul>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.04.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025042</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025042</guid>
+      <pubDate>Mon, 29 Sep 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#subscriptions-api-no-longer-supports-okta-issue">Subscriptions API no longer supports OKTA_ISSUE</a></td>
+<td>April 9, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-04-2">Bugs fixed in 2025.04.2</a></td>
+<td>April 16, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Subscriptions API no longer supports OKTA_ISSUE</h4>
+<p>The Subscriptions API no longer supports the <code>notificationType</code> value <code>OKTA_ISSUE</code>.</p>
+<h4>Bugs fixed in 2025.04.2</h4>
+<ul>
+<li>
+<p>Email notifications weren’t sent to end users when security methods were enrolled using POST requests to the <code>/users/{userId}/factors</code> endpoint and the <code>activate</code> parameter was set to <code>true</code>. (OKTA-891169)</p>
+</li>
+<li>
+<p>Updates made to ACS URIs for an app using the Applications API (PUT <code>/apps/{appId}</code>) didn't take effect if the app was created without those URLs. (OKTA-909218)</p>
+</li>
+</ul>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.04.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025041</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025041</guid>
+      <pubDate>Sun, 28 Sep 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#advanced-device-posture-checks">Advanced device posture checks</a></td>
+<td>April 9, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#claims-sharing-between-third-party-idps-and-okta-is-self-service-ea-in-preview">Claims sharing between third-party IdPs and Okta is self-service EA in Preview</a></td>
+<td>April 9, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#number-matching-challenge-with-the-factors-api-is-self-service-ea-in-preview">Number matching challenge with the Factors API is self-service EA in Preview</a></td>
+<td>April 9, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#oauth-2-0-provisioning-for-org2org-with-auto-rotation-is-self-service-ea-in-preview">OAuth 2.0 provisioning for Org2Org with Auto-Rotation is self-service EA in Preview</a></td>
+<td>April 2, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-04-1">Bugs fixed in 2025.04.1</a></td>
+<td>April 9, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Advanced device posture checks</h4>
+<p>Advanced posture checks provide extended device assurance to users. It empowers admins to enforce compliance based on customized device attributes that extend beyond Okta’s standard checks. Using osquery, this feature facilitates real-time security assessments across macOS devices. As a result, orgs gain enhanced visibility and control over their device fleet and ensure that only trusted devices can access sensitive resources. See <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=csh-device-assurance-adv-posture-check">Configure advanced posture checks for device assurance</a> and the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DevicePostureCheck/">Device Posture Checks API</a>.</p>
+<h4>Claims sharing between third-party IdPs and Okta is self-service EA in Preview</h4>
+<p>Authentication claims sharing allows an admin to configure their Okta org to trust claims from third-party IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from a third-party IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See <a href="/docs/guides/configure-claims-sharing/oktasaml/main/">Configure claims sharing</a>.</p>
+<h4>Number matching challenge with the Factors API is self-service EA in Preview</h4>
+<p>You can now send number matching challenges for Okta Verify <code>push</code> factor enrollments when you send POST requests to the <code>/users/{userId}/factors/{factorId}/verify</code> endpoint. For orgs that can't adopt Okta FastPass, this feature improves their overall security. See the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/verifyFactor">Factors API</a>.</p>
+<h4>OAuth 2.0 provisioning for Org2Org with Auto-Rotation is self-service EA in Preview</h4>
+<p>Admins deploying multi-org architectures (for example, Okta hub-and-spoke orgs) need to secure user and group provisioning. Provisioning using OAuth 2.0 scoped tokens has several advantages over API tokens, including more access granularity, shorter token lifespans, and automatic key rotation. You can now enable OAuth 2.0 Auto-Rotation for Org2Org app provisioning directly from the Admin Console, in addition to the API.</p>
+<p>To support these updates, the Application Connections API includes a new endpoint, <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/getUserProvisioningConnectionJWKS">Retrieve a JSON Web Key Set (JWKS) for the default provisioning connection</a>, and schema updates to support token autorotation, <code>rotationMode=AUTO</code>. See <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication!path=1/profile&amp;t=request">Update the default provisioning connection</a> and <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=ext-org2org-intg#Use2">Integrate Okta Org2Org with Okta</a>.</p>
+<h4>Bugs fixed in 2025.04.1</h4>
+<ul>
+<li>
+<p>In Preview orgs, org admins couldn't edit IdP group assignments when a super admin group was included in the group list. (OKTA-880124)</p>
+</li>
+<li>
+<p>The <code>id_token_hint</code> parameter was exposed in the System Log. (OKTA-890738)</p>
+</li>
+<li>
+<p>POST requests to the <code>/authorize</code> endpoint that contained query parameters received an error. (OKTA-905143)</p>
+</li>
+</ul>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Monthly release 2025.04.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025040</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025040</guid>
+      <pubDate>Sat, 27 Sep 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#domain-restrictions-on-realms">Domain restrictions on Realms</a></td>
+<td>April 23, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#oauth-2-0-provisioning-for-org2org-with-auto-rotation-is-ea-in-preview">OAuth 2.0 provisioning for Org2Org with Auto-Rotation is EA in Preview</a></td>
+<td>April 2, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#retrieve-the-ssf-stream-status-is-ea-in-preview">Retrieve the SSF Stream status is EA in Preview</a></td>
+<td>April 2, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#oin-test-account-information-deleted-after-30-days">OIN test account information deleted after 30 days</a></td>
+<td>April 2, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#risk-provider-and-risk-events-apis-are-deprecated">Risk Provider and Risk Events APIs are deprecated</a></td>
+<td>April 2, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#post-requests-to-authorize-endpoint-is-ga-preview">POST requests to authorize endpoint is GA Preview</a></td>
+<td>January 8, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#integration-variable-limit-increase-in-oin-submission">Integration variable limit increase in OIN Submission</a></td>
+<td>April 2, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#conditional-requests-and-entity-tags-are-ga-in-production">Conditional requests and entity tags are GA in Production</a></td>
+<td>January 16, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-rate-limit-event-type">New rate limit event type</a></td>
+<td>April 2, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#create-dynamic-resource-sets-with-conditions-is-ga-in-preview">Create dynamic resource sets with conditions is GA in Preview</a></td>
+<td>November 7, 2024</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#okta-account-management-policy-is-ga-in-production">Okta account management policy is GA in Production</a></td>
+<td>December 11, 2024</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#okta-sign-in-widget-custom-template-updates">Okta Sign-In Widget custom template updates</a></td>
+<td>April 2, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-update-in-2025-04-0">Developer documentation update in 2025.04.0</a></td>
+<td>April 2, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-04-0">Bugs fixed in 2025.04.0</a></td>
+<td>April 2, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Domain restrictions on Realms</h4>
+<p>You can now limit users to a specific domain in Realms, which adds an extra layer of oversight for realm and partner admins and enforces boundaries between user populations. See the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Realm/">Realms</a> and <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RealmAssignment/">Realm Assignments</a> APIs.</p>
+<h4>OAuth 2.0 provisioning for Org2Org with Auto-Rotation is EA in Preview</h4>
+<p>Admins deploying multi-org architectures (for example, Okta hub-and-spoke orgs) need to secure user and group provisioning. Provisioning using OAuth 2.0 scoped tokens has several advantages over API tokens, including more access granularity, shorter token lifespans, and automatic key rotation. You can now enable OAuth 2.0 Auto-Rotation for Org2Org app provisioning directly from the Admin Console, in addition to the API.</p>
+<p>To support these updates, the Application Connections API includes a new endpoint, <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/getUserProvisioningConnectionJWKS">Retrieve a JSON Web Key Set (JWKS) for the default provisioning connection</a>, and schema updates to support token auto-rotation, <code>rotationMode=AUTO</code>. See <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication!path=1/profile&amp;t=request">Update the default provisioning connection</a> and <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=ext-org2org-intg#Use2">Integrate Okta Org2Org with Okta</a>.</p>
+<h4>Retrieve the SSF Stream status is EA in Preview</h4>
+<p>Retrieve the SSF Stream status endpoint (<code>/api/v1/ssf/stream/status</code>) is now available. The status indicates whether the transmitter is able to transmit events over the stream. This endpoint is available if you have enabled the Enable Managed Apple ID federation and provisioning feature for your org.</p>
+<h4>OIN test account information deleted after 30 days</h4>
+<p>Okta deletes your test account credentials 30 days after you publish your app in <strong>OIN Wizard</strong>. You must create a new test account and re-enter the required information before submitting the app.</p>
+<h4>Risk Provider and Risk Events APIs are deprecated</h4>
+<p>These APIs have been deprecated. Use the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/">SSF Security Event Tokens API</a> instead to receive security-related events and other data-subject signals. Use the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/">SSF Receiver API</a> for third-party security event providers.</p>
+<h4>POST requests to authorize endpoint is GA Preview</h4>
+<p>You can now send user data securely in a POST request body to the <code>/authorize</code> endpoint.</p>
+<h4>Integration variable limit increase in OIN Submission</h4>
+<p>The maximum number of integration variables allowed in OIN submission has increased from three to eight. The apps migrated from OIN Manager with more than eight variables can retain all existing variables but can't add new variables.</p>
+<h4>Conditional requests and entity tags are GA in Production</h4>
+<p>You can now use conditional requests and entity tags to tag and check for specific versions of resources. Currently this is only available to use with user profiles. See <a href="https://developer.okta.com/docs/api/#conditional-requests-and-entity-tags">Conditional Requests and Entity Tags</a>.</p>
+<h4>New rate limit event type</h4>
+<p>This rate limit event type now appears in the System Log: <code>system.rate_limit.configuration.update</code>. It logs the following:</p>
+<ul>
+<li>Changes to client-based rate limit settings</li>
+<li>Changes in the rate limit warning notification threshold</li>
+<li>If the rate limit notification is enabled or disabled</li>
+<li>Updates to the rate-limit percentage of an API token</li>
+</ul>
+<h4>Create dynamic resource sets with conditions is GA in Preview</h4>
+<p>Resource set conditions help you limit the scope of a role by excluding an admin's access to certain apps. This gives you more granular control over your custom admin roles and helps meet your org's unique security needs. See <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=resource-set-conditions">Resource set conditions</a> and the corresponding <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleCResourceSetResource/">Resource Set Resources</a> API.</p>
+<h4>Okta account management policy is GA in Production</h4>
+<p>The Okta account management policy helps admins easily build phishing resistance into actions such as account unlock, password recovery, authenticator enrollment, and profile setting changes. Using the familiar rule-based framework of an authentication policy, admins can now customize which phishing-resistant authenticators are required when users attempt these common self-service actions. All of the configurations in the authentication policies can now be applied for authenticator management. See <a href="/docs/guides/okta-account-management-policy/main/">Configure an Okta account management policy</a>.</p>
+<h4>Okta Sign-In Widget custom template updates</h4>
+<p>Admins can now use the <code>useSiwGen3</code> variable in the sign-in page code editor to help with migrations from Gen2 to Gen3 of the Okta Sign-In Widget. See <a href="/docs/guides/custom-widget/main/#usesiwgen3">Use the code editor</a>.</p>
+<h4>Developer documentation update in 2025.04.0</h4>
+<p>The <a href="/docs/guides/update-oin-app/openidconnect/main/">Update a published integration with the OIN Wizard</a> is a newly restructured guide which consists of our existing publish integration content and a brand new <a href="/docs/guides/update-oin-app/scim/main/#configure-attribute-mappingshttps://developer.okta.com/docs/guides/update-oin-app/scim/main/#configure-attribute-mappings">updating the attribute mapping flow</a> section for SCIM integrations.</p>
+<h4>Bugs fixed in 2025.04.0</h4>
+<ul>
+<li>
+<p>The result of System Log events triggered by the <code>use_dpop_nonce</code> OAuth 2.0 error was FAILURE instead of CHALLENGE. (OKTA-902314)</p>
+</li>
+<li>
+<p>When the Okta-to-Okta Claims Sharing feature was enabled, users who signed in using ADSSO on a spoke org were prompted for their password in the hub org. (OKTA-897340)</p>
+</li>
+<li>
+<p>Admins using multiple user types sometimes encountered an internal error when attempting to update an app instance. (OKTA-880825)</p>
+</li>
+<li>
+<p>If an AAGUID key that wasn’t verified by the FIDO Alliance Metadata Service (MDS) was added to an authenticator group, then future PUT requests to <code>api/v1/authenticators/{authenticatorId}/methods/webauthn</code> failed. (OKTA-875920)</p>
+</li>
+<li>
+<p>The wrong HTTP error code was returned for the SSF stream creation operation when one stream already existed. (OKTA-868972)</p>
+</li>
+<li>
+<p>A Policies API GET request (<code>/api/v1/policies</code>) returned a <code>rel=&quot;next&quot;</code> link when there were no more results. (OKTA-858605)</p>
+</li>
+<li>
+<p>The OIN Submission Tester didn't support custom domains in the IdP flow. (OKTA-835402)</p>
+</li>
+<li>
+<p>When <code>/api/v1/apps</code> was called, it returned all applications assigned, even though the user wasn't part of the assigned resource set. (OKTA-826548)</p>
+</li>
+</ul>
+<h2>March</h2>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.03.3</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025033</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025033</guid>
+      <pubDate>Fri, 26 Sep 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#advanced-search-using-conditioned-profile-attributes">Advanced search using conditioned profile attributes</a></td>
+<td>March 26, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-03-3">Bugs fixed in 2025.03.3</a></td>
+<td>March 26, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Advanced search using conditioned profile attributes</h4>
+<p>If you have an admin role with permission conditions to access certain user profile attributes, you can now search for those users with those attributes. Note that this search enhancement doesn't support the <code>OR</code> operator.</p>
+<h4>Bugs fixed in 2025.03.3</h4>
+<ul>
+<li>
+<p>Custom role admins with permission conditions couldn't search for users by <code>firstName</code> or <code>lastName</code>. (OKTA-894392)</p>
+</li>
+<li>
+<p>The <code>user.identity_verification</code> System Log event displayed an incorrect assurance level for completed identity verifications with DENY results. (OKTA-893343)</p>
+</li>
+<li>
+<p>Some PUT requests to the <code>brands/{brandId}/templates/email/{templateName}/settings</code> endpoint received HTTP 500 Internal Server Error messages. (OKTA-886167)</p>
+</li>
+<li>
+<p>GET requests to the <code>/api/v1/users/me/appLinks</code> endpoint sometimes returned an HTTP 500 Internal Server error. (OKTA-873694)</p>
+</li>
+</ul>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.03.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025031</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025031</guid>
+      <pubDate>Thu, 25 Sep 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-03-1">Bugs fixed in 2025.03.1</a></td>
+<td>March 12, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Bugs fixed in 2025.03.1</h4>
+<ul>
+<li>
+<p><code>createdBy</code> and <code>lastUpdatedBy</code> custom attributes couldn't be used in group rules. (OKTA-566492)</p>
+</li>
+<li>
+<p>Custom admins who were limited to viewing only application group members received incomplete results when using the <code>List All Users API</code> without a <code>search</code> or <code>filter</code> parameter. (OKTA-801592)</p>
+</li>
+<li>
+<p>The JSON Web Token that Okta generates and sends to the OpenID Connect identity provider contained a string <code>exp</code> instead of a number 'exp'. (OKTA-852446)</p>
+</li>
+<li>
+<p>When making POST requests to <code>users/{userId}/factors/{factorId}/verify</code> or <code>authn/factors/{factorId}/verify</code> endpoints with <code>factorType</code> instead of <code>factorId</code> in the URL path, multiple failed verification attempts didn't lock users out and the failed attempts weren't logged in the System Log. (OKTA-871469)</p>
+</li>
+<li>
+<p>When Okta sent a request with a refresh token to the token inline hook, the session user was sometimes sent rather than the refresh token user in <code>request.data.context</code>. (OKTA-869758)</p>
+</li>
+</ul>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Monthly release 2025.03.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025030</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025030</guid>
+      <pubDate>Wed, 24 Sep 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#global-token-revocation-for-wizard-saml-and-oidc-apps-is-ga-in-production">Global token revocation for wizard SAML and OIDC apps is GA in Production</a></td>
+<td>September 11, 2024</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#oidc-idps-now-support-group-sync-is-ga-in-production">OIDC IdPs now support group sync is GA in Production</a></td>
+<td>October 23, 2024</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#granular-account-linking-for-certain-identity-providers-is-ga-in-production">Granular account linking for certain Identity Providers is GA in Production</a></td>
+<td>December 11, 2024</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#realms-for-workforce-is-ga-in-production">Realms for Workforce is GA in Production</a></td>
+<td>February 13, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#improved-group-search-functionality-is-ga-in-production">Improved group search functionality is GA in Production</a></td>
+<td>February 12, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#improved-user-search-functionality-is-ga-in-production">Improved user search functionality is GA in Production</a></td>
+<td>February 12, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#improved-realms-and-device-search-functionality-is-ga-in-production">Improved realms and device search functionality is GA in Production</a></td>
+<td>February 12, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-end-user-enrollments-api-is-ga-in-preview">New End-user Enrollments API is GA in Preview</a></td>
+<td>March 5, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#clear-verified-as-a-third-party-identity-verification-provider-is-ea-in-preview">CLEAR Verified as a third-party identity verification provider is EA in Preview</a></td>
+<td>March 5, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#verify-an-ssf-stream-is-ea-in-preview">Verify an SSF Stream is EA in Preview</a></td>
+<td>March 5, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#myaccount-password-api-updates">MyAccount Password API updates</a></td>
+<td>March 5, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#identity-security-posture-management-functionality-in-the-oin-catalog">Identity Security Posture Management functionality in the OIN catalog</a></td>
+<td>March 5, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#default-global-session-policy-rule-update">Default global session policy rule update</a></td>
+<td>March 5, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-updates-in-2025-03-0">Developer documentation updates in 2025.03.0</a></td>
+<td>March 5, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-03-0">Bugs fixed in 2025.03.0</a></td>
+<td>March 5, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Global token revocation for wizard SAML and OIDC apps is GA in Production</h4>
+<p>Universal Logout clears sessions and tokens for wizard SAML and OIDC apps. This enhancement extends Universal Logout functionality to more types of apps and provides greater flexibility to admins.</p>
+<h4>OIDC IdPs now support group sync is GA in Production</h4>
+<p>OpenID Connect identity providers (IdPs) now support full group sync and adding a user to a group that they don't already belong to. A user who authenticates with an external IdP is added to all available groups when <strong>Full sync of groups</strong> is enabled. The user is added to any groups that they don't already belong to when <strong>Add user to missing groups</strong> is enabled. This allows you to specify certain groups that users should be added to.</p>
+<h4>Granular account linking for certain Identity Providers is GA in Production</h4>
+<p>When admins link users from SAML and OIDC identity providers, they can now exclude specific users and admins. This improves security by allowing admins to configure granular access control scenarios. See <strong>Add an external Identity Provider</strong> for <a href="/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta">OpenId Connect</a> and <a href="/docs/guides/add-an-external-idp/saml2/main/#create-an-identity-provider-in-okta">SAML 2.0</a>.</p>
+<h4>Realms for Workforce is GA in Production</h4>
+<p>The Realms and Realms Management APIs allow you to unlock greater flexibility in managing and delegating the management of your distinct user populations within a single Okta org. See <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Realm/">Realms</a> and <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RealmAssignment/">Realm Assignments</a>.</p>
+<h4>Improved group search functionality is GA in Production</h4>
+<p>You can now search for groups whose names or descriptions contain specified text. This makes it easier to find a group when you don't recall its exact name. Use the <code>co</code> operator within the <code>search</code> parameter of the Groups API. See <a href="https://developer.okta.com/docs/api/#operators">Operators</a> and <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups!in=query&amp;path=search&amp;t=request"><code>search</code> within the Groups API</a>.</p>
+<h4>Improved user search functionality is GA in Production</h4>
+<p>You can now search for users whose names, email addresses, or usernames contain specified text. This makes it easier to do user lookups and add users to groups. Use the <code>co</code> operator within the <code>search</code> parameter of the Users API. See <a href="https://developer.okta.com/docs/api/#operators">Operators</a> and <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&amp;path=search&amp;t=request"><code>search</code> within the Users API</a>.</p>
+<h4>Improved realms and device search functionality is GA in Production</h4>
+<p>We've extended the contains (<code>co</code>) operator to realms and devices. You can now search for realms and devices whose profile attributes contain specified text through API. This makes lookups easier without needing to recall the exact names of various profile attributes. Use the <code>co</code> operator within the <code>search</code> parameter. See <a href="https://developer.okta.com/docs/api/#contains-operator">Contains operator</a> and the <code>search</code> parameter in the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Realm/#tag/Realm/operation/listRealms!in=query&amp;path=search&amp;t=request">Realms</a> and <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/#tag/Device/operation/listDevices!in=query&amp;path=search&amp;t=request">Devices</a> APIs.</p>
+<h4>New End-user Enrollments API is GA in Production</h4>
+<p>The new <a href="https://developer.okta.com/docs/api/openapi/okta-signin-experience-management/signinexp/tag/endUserEnrollments/">End-user Enrollments API</a> enables end users to enroll and unenroll authenticators by entering a URL directly into their browser. This reduces the time spent administering complex authenticator enrollment flows, and provides a streamlined enrollment process for users. After a user enrolls or unenrolls an authenticator, you can use the <code>redirect_uri</code> property to redirect them to another page.</p>
+<h4>CLEAR Verified as a third-party identity verification provider is EA in Preview</h4>
+<p>Okta now supports using CLEAR Verified as an identity provider. This increases the number of identity verification vendors (IDVs) you can use to verify the identity of your users when they onboard or reset their account. Set <code>IDV_CLEAR</code> as the IdP <code>type</code> when you <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider">create an IdP</a>.</p>
+<h4>Verify an SSF Stream is EA in Preview</h4>
+<p>Okta SSF Transmitter now supports the verification endpoint to enable receivers to request verification events and validate the end-to-end delivery between the transmitter and receiver. In addition, the SSF Transmitter verification events claim structure is now compliant with the OpenID Shared Signals Framework ID3 spec.</p>
+<h4>MyAccount Password API updates</h4>
+<p>Admins can now send a PUT request to the <code>/idp/myaccount/password</code> endpoint to update the password for a user. Also, admins can send a GET request to the <code>/idp/myaccount/password/complexity-requirements</code> endpoint to retrieve password complexity requirements. See <a href="https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Password/#tag/Password/operation/replacePassword">Replace a Password</a> and <a href="https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Password/#tag/Password/operation/getPasswordRequirements">Retrieve the Password Complexity Requirements</a>.</p>
+<h4>Identity Security Posture Management functionality in the OIN catalog</h4>
+<p>The <strong>Okta Integration Network</strong> page now provides <strong>Identity Security Posture Management</strong> functionality. When you select it, the OIN catalog displays only the apps with Identity Security Posture Management functionality.</p>
+<h4>Default global session policy rule update</h4>
+<p>The default value for the <code>maxSessionLifetimeMinutes</code> property of the default global session policy rule is now <code>1440</code> (24 hours) and can be changed. Previously the <code>maxSessionLifetimeMinutes</code> property of the default global session policy rule was read-only.
+See the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=3/actions/signon/session/maxSessionLifetimeMinutes&amp;t=request">Policies API</a>.</p>
+<h4>Developer documentation updates in 2025.03.0</h4>
+<ul>
+<li>
+<p>The list of public permissions has moved from the <a href="https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions">Roles in Okta</a> topic to the <a href="https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions">Permissions in Okta</a> topic. The new topic contains more permission details for you to define your custom admin roles.</p>
+</li>
+<li>
+<p>A new section has been added to the API documentation: <a href="https://developer.okta.com/docs/api/openapi/okta-signin-experience-management/guides/overview/">Sign-in Experience API</a>. It contains the new End-user Enrollments API that enables end users to enroll and unenroll authenticators by entering a URL directly into their browser.</p>
+</li>
+</ul>
+<h4>Bugs fixed in 2025.03.0</h4>
+<ul>
+<li>
+<p>Some certificates with trailing characters were uploaded successfully to the <code>/domains/{domainId}/certificate</code> endpoint, despite their invalid format. (OKTA-486406)</p>
+</li>
+<li>
+<p>An incorrect response was returned when a <code>/token</code> request was sent with an inactive user in a direct authentication flow. (OKTA-853984)</p>
+</li>
+</ul>
+<h2>February</h2>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.02.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025022</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025022</guid>
+      <pubDate>Tue, 23 Sep 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#incode-as-a-third-party-identity-verification-provider-is-ea-in-preview">Incode as a third-party identity verification provider is EA in Preview</a></td>
+<td>February 20, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-02-2">Bugs fixed in 2025.02.2</a></td>
+<td>February 20, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Incode as a third-party identity verification provider is EA in Preview</h4>
+<p>Okta now supports using Incode as an identity provider. This increases the number of identity verification vendors (IDVs) you can use to verify the identity of your users when they onboard or reset their account. Set <code>IDV_INCODE</code> as the IdP <code>type</code> when you <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider">create an IdP</a>.</p>
+<h4>Bugs fixed in 2025.02.2</h4>
+<ul>
+<li>
+<p>An API request to create a resource set with a duplicate name sometimes returned a 5xx error instead of a 4xx error response. (OKTA-867792)</p>
+</li>
+<li>
+<p>Admins couldn't retrieve more than five entitlement SAML assertions and OIDC claims when configuring apps. (OKTA-865900)</p>
+</li>
+<li>
+<p>The contains (<code>co</code>) operator sometimes gave unclear error messages when using less than three characters or with other operators. (OKTA-846206)</p>
+</li>
+<li>
+<p>When an admin attempted to revoke an API token (<code>DELETE /api/v1/api-tokens/{apiTokenId}</code>), and the credential used to authenticate the request was an <code>access_token</code> for a Service client, an HTTP 403 error was returned. (OKTA-844384)</p>
+</li>
+</ul>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.02.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025021</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025021</guid>
+      <pubDate>Mon, 22 Sep 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-02-1">Bugs fixed in 2025.02.1</a></td>
+<td>February 13, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Bugs fixed in 2025.02.1</h4>
+<ul>
+<li>
+<p>When a GET request was made using the User Grants API (<code>/api/v1/users/{userId}/grants</code>), the response didn't include pagination links in the response header. (OKTA-826775)</p>
+</li>
+<li>
+<p>The Users API returned inconsistent responses in Classic Engine orgs that allowed self-service registration and in Identity Engine orgs that were migrated from these orgs. (OKTA-833094)</p>
+</li>
+<li>
+<p>In the Admin Console, updates in the code editor that Okta couldn't parse returned a 500 Internal Server Error. (OKTA-837068)</p>
+</li>
+<li>
+<p>The On-Behalf of Token Exchange flow was returning the wrong error message when an invalid <code>subject_token_type</code> was requested. (OKTA-841223)</p>
+</li>
+<li>
+<p>When a POST request was made (<code>/api/v1/authorizationServers/{authServerId}/policies</code>) to create an authorization policy, the <code>created</code> and <code>lastUpdated</code> properties had a null value. (OKTA-848623)</p>
+</li>
+<li>
+<p>The <code>/user/verify_idx_credentials</code> endpoint didn't accept arbitrary <code>fromUri</code> values. (OKTA-853353)</p>
+</li>
+<li>
+<p>AMR values weren't forwarded to the app when a user signed in and Okta-to-Okta claims sharing was configured. (OKTA-860242)</p>
+</li>
+<li>
+<p>Some identity provider API POST (<code>/api/v1/idps</code>) and PUT (<code>/api/v1/idps/{idpId}</code>) requests returned an HTTP 500 error code if the request didn't have the <code>policy.accountLink</code> object in the request body. (OKTA-865143)</p>
+</li>
+</ul>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Monthly release 2025.02.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025020</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025020</guid>
+      <pubDate>Sun, 21 Sep 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#ip-exempt-zone-is-ga-in-preview">IP Exempt Zone is GA in Preview</a></td>
+<td>October 23, 2024</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#global-token-revocation-for-wizard-saml-and-oidc-apps-is-ga-in-preview">Global token revocation for wizard SAML and OIDC apps is GA in Preview</a></td>
+<td>September 11, 2024</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#oidc-idps-now-support-group-sync-is-ga-in-preview">OIDC IdPs now support group sync is GA in Preview</a></td>
+<td>October 23, 2024</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#granular-account-linking-for-certain-identity-providers-is-ga">Granular account linking for certain identity providers is GA</a></td>
+<td>December 11, 2024</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#realms-for-workforce-is-ga-in-preview">Realms for Workforce is GA in Preview</a></td>
+<td>February 13, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#improved-group-search-functionality-is-ga-in-preview">Improved group search functionality is GA in Preview</a></td>
+<td>February 12, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#improved-user-search-functionality-is-ga-in-preview">Improved user search functionality is GA in Preview</a></td>
+<td>February 12, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#support-for-importing-active-directory-group-descriptions-is-ga-in-production">Support for importing Active Directory group descriptions is GA in Production</a></td>
+<td>February 6, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-updates-in-2025-02-0">Developer documentation updates in 2025.02.0</a></td>
+<td>February 6, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-02-0">Bugs fixed in 2025.02.0</a></td>
+<td>February 6, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>IP Exempt Zone is GA in Preview</h4>
+<p>This feature introduces <code>useAsExemptList</code> as a read-only Boolean property that distinguishes the new default IP exempt zones from other zones. When you enable this feature and you make a GET <code>api/v1/zones</code> request, Okta returns <code>useAsExemptList</code> in the response. The value <code>true</code> indicates that the zone is an exempt zone. Only system generated exempt zones are available.</p>
+<h4>Global token revocation for wizard SAML and OIDC apps is GA in Preview</h4>
+<p>Universal Logout clears sessions and tokens for wizard SAML and OIDC apps. This enhancement extends Universal Logout functionality to more types of apps and provides greater flexibility to admins.</p>
+<h4>OIDC IdPs now support group sync is GA in Preview</h4>
+<p>OpenID Connect (OIDC) identity providers (IdPs) now support full group sync and adding a user to a group that they don't already belong to. A user who authenticates with an external IdP is added to all available groups when <strong>Full sync of groups</strong> is enabled. The user is added to any groups that they don't already belong to when <strong>Add user to missing groups</strong> is enabled. This allows you to specify certain groups that users should be added to.</p>
+<h4>Granular account linking for certain identity providers is GA</h4>
+<p>When admins link users from SAML and OIDC identity providers, they can now exclude specific users and admins. This improves security by allowing admins to configure granular access control scenarios. See <strong>Add an external Identity Provider</strong> for <a href="/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta">OpenID Connect</a> and <a href="/docs/guides/add-an-external-idp/saml2/main/#create-an-identity-provider-in-okta">SAML 2.0</a>.</p>
+<h4>Realms for Workforce is GA in Preview</h4>
+<p>The Realms and Realms Management APIs allow you to unlock greater flexibility in managing and delegating the management of your distinct user populations within a single Okta org. See <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Realm/">Realms</a> and <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RealmAssignment/">Realm Assignments</a>.</p>
+<h4>Improved group search functionality is GA in Preview</h4>
+<p>You can now search for groups whose names or descriptions contain specified text. This makes it easier to find a group when you don't recall its exact name. Use the <code>co</code> operator within the <code>search</code> parameter of the Groups API. See <a href="https://developer.okta.com/docs/api/#operators">Operators</a> and <code>search</code> within the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups!in=query&amp;path=search&amp;t=request">Groups API</a>.</p>
+<h4>Improved user search functionality is GA in Preview</h4>
+<p>You can now search for users whose names, email addresses, or usernames contain specified text. This makes it easier to add users to groups or apps. Use the <code>co</code> operator within the <code>search</code> parameter of the Users API. See <a href="https://developer.okta.com/docs/api/#operators">Operators</a> and <code>search</code> within the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&amp;path=search&amp;t=request">Users API</a>.</p>
+<h4>Support for importing Active Directory group descriptions is GA in Production</h4>
+<p>The descriptions of groups sourced from Active Directory now use their description from AD. These replace any previous descriptions of AD-sourced groups in Okta, which used a pretty-printed version of the distinguished name (DN) instead.</p>
+<h4>Developer documentation updates in 2025.02.0</h4>
+<ul>
+<li>The <a href="/docs/guides/custom-widget-gen3/main/#use-the-aftertransform-function-recommended">Style the Sign-In Widget (third generation)</a> guide, under <strong>Brand and Customize</strong>, now describes how to use the <code>afterTransform</code> function. The function allows you to apply DOM customizations to the third generation of the widget. For example, you can use <code>afterTransform</code> to change button text or to add an instructional paragraph.</li>
+<li>The new <a href="/docs/guides/device-assurance-policies/main/">Configure a device assurance policy</a> guide, under <strong>Sign users in</strong>, describes how to manage device assurance policies in your org. The guide uses the <a href="/docs/guides/device-assurance-policies/main/">Device Assurance Policies API</a> to create and edit a policy, and add device assurance to an authentication policy. It also shows how to use the <a href="/docs/reference/system-log-query/">System Log API</a> to check for device assurance events.</li>
+<li>The <a href="/docs/guides/submit-app/apiservice/main/">OIN Manager: submit an integration</a> guide has been updated to include <strong>API service</strong> submission instructions.</li>
+</ul>
+<h4>Bugs fixed in 2025.02.0</h4>
+<ul>
+<li>When calling deleted app users through the Apps API, the API returned a 500 internal server error instead of a 404 error. (OKTA-832609)</li>
+<li>PUT requests (<code>/api/v1/apps/appId</code>) to update an OpenID Connect app took 30 seconds to complete. (OKTA-852488)</li>
+<li>When the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/#tag/Device/operation/listDevices">List all devices API</a> was used with a <code>search</code> query parameter, it sometimes returned outdated records for <code>screenLockType</code> and <code>managementStatus</code>.  (OKTA-856387)</li>
+</ul>
+<h2>January</h2>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.01.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025012</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025012</guid>
+      <pubDate>Sat, 20 Sep 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#authentication-claims-sharing-between-okta-orgs-is-ea-in-preview">Authentication claims sharing between Okta orgs is EA in Preview</a></td>
+<td>January 29, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-01-2">Bugs fixed in 2025.01.2</a></td>
+<td>January 29, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Authentication claims sharing between Okta orgs is EA in Preview</h4>
+<p>Authentication claims sharing allows an admin to configure their Okta org to trust claims from IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See <a href="/docs/guides/configure-claims-sharing/oktasaml/main/">Configure claims sharing</a>.</p>
+<h4>Bugs fixed in 2025.01.2</h4>
+<ul>
+<li>When the Default Network Zone IP Exempt List feature was enabled for an org, an admin was able to delete the default example IP zone using the Zones API (<code>/api/v1/zones/{DefaultExemptIpZone ID}</code>). (OKTA-817263)</li>
+<li>The <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PrincipalRateLimit/#tag/PrincipalRateLimit/operation/listPrincipalRateLimitEntities">List all principal rate limits</a> returned an empty response when querying with a custom <code>client_id</code> and using OAuth 2.0 for authentication.  (OKTA-832687)</li>
+<li>When a super admin updated a deactivated user to a different realm, admins received a <code>Resource not found</code> error. (OKTA-699778)</li>
+<li>Events for tokens revoked in bulk for a resource didn't appear in the System Log. (OKTA-834025)</li>
+<li>Refresh tokens for OpenID Connect apps that have Single Logout enabled with user session details were getting invalidated before their max lifetime. (OKTA-730794)</li>
+<li>Account unlock didn't work for some orgs using the Okta account management policy. (OKTA-848066)</li>
+</ul>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2025.01.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025011</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025011</guid>
+      <pubDate>Fri, 19 Sep 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-01-1">Bugs fixed in 2025.01.1</a></td>
+<td>January 15, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Bugs fixed in 2025.01.1</h4>
+<ul>
+<li>
+<p>When an admin attempted to delete an IdP using the SDK, the operation failed with an HTTP 500 response code. (OKTA-846005)</p>
+</li>
+<li>
+<p>POST requests with an OAuth token to the <code>/devices/{deviceId}/lifecycle/deactivate</code> endpoint by an API service app using the Client Credentials flow returned 403 error responses. The deactivations succeeded in spite of the error response. (OKTA-838539)</p>
+</li>
+</ul>
+]]></description>
+    </item>
+  
+
+    <item>
+      <title>Monthly release 2025.01.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025010</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025010</guid>
+      <pubDate>Thu, 18 Sep 2025 17:14:18 GMT</pubDate>
+      <description><![CDATA[<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Expected in Preview Orgs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#additional-use-case-selection-in-the-oin-wizard">Additional use case selection in the OIN Wizard</a></td>
+<td>January 8, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#configure-identity-verification-with-third-party-identity-verification-providers-is-ga-production">Configure Identity Verification with third-party Identity Verification providers is GA Production</a></td>
+<td>October 2, 2024</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#deprecated-api-endpoints-extend-grant-and-revoke-okta-support-access">Deprecated API endpoints: Extend, Grant, and Revoke Okta Support access</a></td>
+<td>January 8, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#granular-configuration-for-keep-me-signed-in-is-ea-in-preview">Granular configuration for Keep Me Signed In is EA in Preview</a></td>
+<td>January 8, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#multiple-identifiers-is-ga-in-preview">Multiple Identifiers is GA in Preview</a></td>
+<td>November 7, 2024</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-group-source-id-key-for-group-functions-in-expression-language">New group.source.id key for group functions in Expression Language</a></td>
+<td>January 2, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#post-requests-to-the-authorize-endpoint-is-self-service-ea">POST requests to the authorize endpoint is self-service EA</a></td>
+<td>January 8, 2025</td>
+</tr>
+<tr>
+<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bug-fixed-in-2025-01-0">Bug fixed in 2025.01.0</a></td>
+<td>January 8, 2025</td>
+</tr>
+</tbody>
+</table>
+<h4>Additional use case selection in the OIN Wizard</h4>
+<p>Independent software vendors (ISVs) can select the following additional use case categories when they submit their integration to the OIN:</p>
+<ul>
+<li>Automation</li>
+<li>Centralized Logging</li>
+<li>Directory and HR Sync</li>
+<li>Multifactor Authentication (MFA)</li>
+</ul>
+<p>See <a href="/docs/guides/submit-app-prereq/main/#oin-wizard-use-case-selection">OIN Wizard use case selection</a>.</p>
+<h4>Configure Identity Verification with third-party Identity Verification providers is GA Production</h4>
+<p>You can now configure third-party Identity Verification providers using the IdP API and <a href="/docs/guides/okta-account-management-policy/main/">Okta account management policy rules</a>. Okta supports Persona as a third-party Identity Verification provider.</p>
+<p>Identity Verification enables you to use a third-party Identity Verification provider to verify the identity of your users. Verification requirements and the Identity Verification provider are based on your authentication policies and configurations within your Okta org. To configure an Identity Verification provider in the Admin Console, see <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=id-verification">Add an Identity Verification vendor as Identity Provider</a>.</p>
+<h4>Deprecated API endpoints: Extend, Grant, and Revoke Okta Support access</h4>
+<p>The following API endpoints have been deprecated:</p>
+<ul>
+<li><a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/extendOktaSupport">Extend Okta Support access</a> (<code>POST /api/v1/org/privacy/oktaSupport/extend</code>)</li>
+<li><a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/grantOktaSupport">Grant Okta Support access</a> (<code>POST /api/v1/org/privacy/oktaSupport/grant</code>)</li>
+<li><a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/revokeOktaSupport">Revoke Okta Support access</a> (<code>POST /api/v1/org/privacy/oktaSupport/revoke</code>)</li>
+</ul>
+<p>Use the <a href="https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/updateOktaSupportCase">Update an Okta Support case</a> endpoint to extend, grant, or revoke Okta Support access for a specific support case. For the corresponding Okta Admin Console feature, see <a href="https://help.okta.com/okta_help.htm?type=oie&amp;id=settings-support-access">Give access to Okta Support</a>.</p>
+<h4>Granular configuration for Keep Me Signed In is EA in Preview</h4>
+<p>Admins can now configure the post-authentication prompt for Keep Me Signed In (KMSI) at a granular level in authentication policies. This allows admins to selectively enable post-authentication KMSI on a per-user, per-group, or per-app basis. When enabled, this feature exposes a frequency setting that lets admins control how often the post-authentication prompt is presented to users. See <a href="/docs/guides/keep-me-signed-in/main/">Configure Keep me signed in (KMSI)</a>.</p>
+<p>The post-authentication prompt text (title, subtitle, accept button, and reject button) is now customizable through the Brands API. See <a href="/docs/guides/keep-me-signed-in/main/#customize-post-authentication-sign-in-prompts">Customize post-authentication sign-in prompts</a>.</p>
+<h4>Multiple Identifiers is GA in Preview</h4>
+<p>Today, end users must sign in to Okta with a username or email address only. With the Multiple Identifiers feature, admins can configure identifiers, or user attributes from Universal Directory, that an end user can enter to authenticate. Multiplier identifiers work in sign-in, recovery, self-service registration, and unlock flows. Admins can configure up to three identifiers, including email (which is still a required identifier). See <a href="/docs/guides/multiple-identifiers/main/">Configure multiple identifiers</a>.</p>
+<h4>New group.source.id key for group functions in Expression Language</h4>
+<p>You can now use the <code>group.source.id</code> key in Expression Language group functions to filter between groups that have the same name. See <a href="/docs/reference/okta-expression-language-in-identity-engine/#group-functions">Group functions</a>.</p>
+<h4>POST requests to the authorize endpoint is Self-Service EA</h4>
+<p>You can now send user data securely in a POST request body to the /authorize endpoint.</p>
+<h4>Developer documentation updates in 2025.01.0</h4>
+<p>The Sign users in to your SPA using redirect guides for the <a href="/docs/guides/sign-into-spa-redirect/angular/main/">Angular</a> and <a href="/docs/guides/sign-into-spa-redirect/react/main/">React</a> platforms are now revised to use updated versions of Okta SDKs, framework dependencies, and coding patterns.</p>
+<h4>Bug fixed in 2025.01.0</h4>
+<p>Requests to the <code>/policies/{policyId}/rules</code> and <code>/policies/{policyId}/rules/{ruleId}</code> endpoints to create or update Okta account management policy rules included default Keep me signed in (KMSI) settings in the responses. (OKTA-848236)</p>
+]]></description>
+    </item>
+  
+</channel>
+</rss>
