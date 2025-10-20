@@ -30,7 +30,7 @@ Labels in OIG provide several key benefits:
 
 * Simplify management: They make it easier to configure and manage your resources by providing a clear way to categorize them.
 
-* Streamline governance: Labels enable automated governance flows, simplifying creating access reviews and request tasks.
+* Streamline governance: Labels enable automated governance flows, which simplifies creating access reviews and request tasks.
 
 * Efficient searching and enhanced visibility: After you create governance labels and assign them to resources, they become a filterable option in the Admin Console's resource search functionality. For example, go to the **Applications** or the **Groups** > **Advanced search** pages to view the **Governance Labels** search option.
 
@@ -47,17 +47,17 @@ Okta provides two predefined labels in your OIG-enabed org:
 
 You can't modify the predefined **Crown Jewel** and **Privileged** labels.
 
-The following governance label limits apply to each Okta org:
+The following maximum label limits apply to each Okta org:
 
-* A maximum of ten label keys
-* A maximum of ten values for each label key
-* A maximum of ten label-values can be assigned to each resource
+* 10 label keys
+* 10 values for each label key
+* 10 label values can be assigned to each resource
 
 Label key-value pairs are case-insensitive and are unique across all resource labels in an org.
 
 > **Notes:**
 > * Only a user with the super admin role can manage (create, delete, update, and assign) labels.
-> * The ten label-keys maximum value doesn't include the predefined **Crown Jewel** and **Privileged** labels. So technically, you can use up to 12 label keys in your org.
+> * The 10 label-keys maximum value doesn't include the predefined **Crown Jewel** and **Privileged** labels. So technically, you can use up to 12 label keys in your org.
 
 ## Set up Okta for API access
 
