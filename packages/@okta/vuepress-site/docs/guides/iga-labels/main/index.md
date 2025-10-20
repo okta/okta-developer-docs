@@ -45,7 +45,7 @@ Okta provides two predefined labels in your OIG-enabed org:
 | Crown Jewel | Crown Jewel | green |
 | Privileged | Privileged | red |
 
-You can add more values to the predefined **Crown Jewel** and **Privileged** label keys (up to the maximum limit for values). However, you can't delete or modify these predefined label keys and associated label values.
+You can't modify the predefined **Crown Jewel** and **Privileged** labels.
 
 The following governance label limits apply to each Okta org:
 
@@ -55,7 +55,9 @@ The following governance label limits apply to each Okta org:
 
 Label key-value pairs are case-insensitive and are unique across all resource labels in an org.
 
-> **Note:** Only a user with the super admin role can manage (create, delete, update, and assign) labels.
+> **Notes:**
+> * Only a user with the super admin role can manage (create, delete, update, and assign) labels.
+> * The ten label-keys maximum value doesn't include the predefined **Crown Jewel** and **Privileged** labels. So technically, you can use up to 12 label keys in your org.
 
 ## Set up Okta for API access
 
@@ -188,7 +190,7 @@ curl -i -X POST \
 }
 ```
 
-After you create your labels, they appear as search options in the Admin Console resource page. Save the `labelValueId` values to assign resources to these label values.
+After you create your labels, they appear as search options in the Admin Console resource pages. Save the `labelValueId` values in the response to assign resources to these label values.
 
 ### Assign labels
 
