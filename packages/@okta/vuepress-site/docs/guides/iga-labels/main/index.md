@@ -32,7 +32,7 @@ Labels in OIG provide several key benefits:
 
 * Streamline governance: Labels enable automated governance flows, simplifying creating access reviews and request tasks.
 
-* Efficient search: After you create governance labels and assign them to resources, they become a filterable option in the Admin Console's resource search functionality. For example, go to the **Applications** or the **Groups** > **Advanced search** pages to view the **Governance Labels** search option.
+* Efficient searching and enhanced visibility: After you create governance labels and assign them to resources, they become a filterable option in the Admin Console's resource search functionality. For example, go to the **Applications** or the **Groups** > **Advanced search** pages to view the **Governance Labels** search option.
 
 See the [Resource labels](https://help.okta.com/okta_help.htm?type=oie&id=resource-labels) product documentation.
 
