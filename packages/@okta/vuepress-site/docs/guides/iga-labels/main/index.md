@@ -18,19 +18,19 @@ This guide shows you how to create labels and assign them to resources using the
 #### What you need
 
 * An Okta org that's subscribed to OIG
-* Postman (or a similar tool to follow this guide and test the OIG APIs)
+* Okta Workflows or Postman to follow this guide and test the OIG APIs
 
 ---
 
 ## Overview
 
-Labels allow you to categorize and organize resources such as apps, groups, entitlements, and collections. Labels are defined as key-value pair metadata that are assigned to resources to add valuable context.
+Labels allow you to categorize and organize resources such as apps, groups, entitlement values, and collections. Labels are defined as key-value pair metadata that are assigned to resources to add valuable context.
 
 Labels in OIG provide several key benefits:
 
 * Simplify management: They make it easier to configure and manage your resources by providing a clear way to categorize them.
 
-* Streamline governance: Labels enable automated governance workflows, simplifying creating access reviews and request tasks.
+* Streamline governance: Labels enable automated governance flows, simplifying creating access reviews and request tasks.
 
 * Efficient search: After you create governance labels and assign them to resources, they become a filterable option in the Admin Console's resource search functionality. For example, go to the **Applications** or the **Groups** > **Advanced search** pages to view the **Governance Labels** search option.
 
