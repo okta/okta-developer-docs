@@ -13,7 +13,7 @@ Add the following endpoint URLs for the Okta IdP that you're configuring. In the
 * **Authorization endpoint**: The URL of the Okta IdP's OAuth 2.0 authorization endpoint. For example: `https://{theOktaIdPOrg}/oauth2/v1/authorize`
 * **Token endpoint**: The URL of the Okta IdP's token endpoint for obtaining access and ID tokens. For example: `https://{theOktaIdPOrg}/oauth2/v1/token`
 * **JWKS endpoint**: The URL of the Okta IdP's JSON Web Key Set document. This document contains signing keys that are used to validate the signatures from the provider. For example: `https://{theOktaIdPOrg}/oauth2/v1/keys`
-* **Userinfo endpoint (optional)**: For an Okta-to Okta-configuration, you must specify the `/userinfo` endpoint. Okta issues a [thin ID token](/docs/concepts/api-access-management/#tokens-and-scopes) with the access token when using the authorization code flow. This thin ID token doesn't contain all the user profile claims that you need, including the user's first name and family name. Use this endpoint to get the identity information about the user. For example: `https://{theOktaIdPOrg}/oauth2/v1/userinfo`
+* **Userinfo endpoint (optional)**: For an Okta-to Okta configuration, you must specify the `/userinfo` endpoint. Okta issues a [thin ID token](/docs/concepts/api-access-management/#tokens-and-scopes) with the access token when using the authorization code flow. This thin ID token doesn't contain all the user profile claims that you need, including the user's first name and family name. Use this endpoint to get the identity information about the user. For example: `https://{theOktaIdPOrg}/oauth2/v1/userinfo`
 
 > **Note:** Okta requires an access token returned from the IdP if you add the `/userinfo` endpoint URL.
 
