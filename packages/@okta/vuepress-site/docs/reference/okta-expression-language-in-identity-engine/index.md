@@ -233,12 +233,12 @@ The `user.getGroups` function also supports collection projections for group cla
 
 | Function                 | Return type | Example                                                                                                         | Output explanation                                                                        | Example Output |
 | ---------------          | ----------- | -------                                                                                                         | -----                                                                           | ---- |
-| `user.getGroups`         | Array       | `user.getGroups({'group.id': {'00gjitX9HqABSoqTB0g3'}}, {'group.profile.name': 'West Coast.*'})`                | A list of groups with group ID `00gjitX9HqABSoqTB0g3` and a group name that starts with `West Coast`                                                                | {} |
+| `user.getGroups`         | Array       | `user.getGroups({'group.id': {'00gjitX9HqABSoqTB0g3'}}, {'group.profile.name': 'Engineering.*'})`                | A list of groups with group ID `00gjitX9HqABSoqTB0g3` and a group name that starts with `Engineering`                                                                | The `Engineering Users` group with ID `00gjitX9HqABSoqTB0g3` |
 |                          |             | `user.getGroups({'group.type': {'OKTA_GROUP'}}, {'group.profile.name': {'Everyone', 'West Coast Admins'}})`     | A list of groups that are of the type `OKTA_GROUP` and the group name starts with `Everyone` or `West Coast Admins` | A list of user groups that contains groups with ID `00garwpuyxHaWOkdV0g4`  |
 |                          |             | `user.getGroups({'group.profile.name': 'East Coast.*'})`                                                        | A list of groups that start with the name `East Coast` | {}                                                                              |
 |                          |             | `user.getGroups({'group.type': {'OKTA_GROUP', 'APP_GROUP'}})`                                                   | A list of groups that are of the type `OKTA_GROUP` or `APP_GROUP` | A list of user groups that contains groups with IDs `00g1emaKYZTWRYYRRTSK`, `00garwpuyxHaWOkdV0g4`, `00gjitX9HqABSoqTB0g3`, and `00gnftmgQxC2L19j6I9c`  |
 |                          |             | `user.getGroups({'group.source.id': '0aae4be2456eb62f7c3d'} , {'group.profile.name': {'Engineering Users'}} )` | A filtered list of user groups that contains groups that start with the name `Engineering Users` and that has the source ID `0aae4be2456eb62f7c3d` | A list of user groups that contains groups with ID `00gjitX9HqABSoqTB0g3` |
-| | | `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![profile.name]` | A list of group names | A list of groups whose names begin with `Everyone` |
+| | | `user.getGroups({'group.profile.name': 'Everyone'}).![profile.name]` | A list of group names | A list of groups whose names begin with `Everyone` |
 | `user.isMemberOf`        | Boolean     | `user.isMemberOf({'group.id': {'00gjitX9HqABSoqTB0g3', '00garwpuyxHaWOkdV0g4'}}, {'group.type': 'APP_GROUP'})`  | Whether the user is a member of one of the groups with ID `00gjitX9HqABSoqTB0g3` or `00garwpuyxHaWOkdV0g4` and the group type is  `APP_GROUP`   | True        |
 |                          |             | `user.isMemberOf({'group.id': {'00gjitX9HqABSoqTB0g3', '00garwpuyxHaWOkdV0g4'}}, {'group.type': 'BUILT_IN'})`   | Whether the user is a member of one of the groups with ID `00gjitX9HqABSoqTB0g3` or `00garwpuyxHaWOkdV0g4` and the group type is `BUILT_IN`   | False |
 |                          |             | `user.isMemberOf({'group.profile.name': 'West Coast', 'operator': 'STARTS_WITH' })`   | Whether the user is a member of a group whose name starts with `West Coast` | True |
@@ -257,17 +257,17 @@ You can use collection projections with the `user.getGroups` function.
 * Parameter: (String projectionExpression). The `projectExpression` can be any group attribute. See [the response schema of the List all groups endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups!c=200&path=created&t=response).
 * Return type: Array
 
-The following examples use `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"})` as the `user.getGroups($expression)`, which would return a list of groups that starts with `Everyone`.
+The following examples use `user.getGroups({'group.profile.name': 'Everyone'})` as the `user.getGroups($expression)`, which would return a list of groups that starts with `Everyone`.
 
 | Function example | Projection Expression | Output explanation |
 | --- | --- |---|
-| `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![id]` | Group ID (`id`) | Returns a list of group IDs |
-| `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![type]` | Group type (`type`) | Returns a list of types |
-| `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![created]` | Group created date (`created`) | Returns a list of dates when the group was created |
-| `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![lastUpdated]` | Timestamp for when the group profile was last updated (`lastUpdated`) | Returns a list of times for when the groups were last updated|
-| `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![lastMembershipUpdated]` | Timestamp when the groups memberships were last updated (`lastMembershipUpdated`) | Returns a list of `lastMembershipUpdated` times |
-| `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![profile.name]` | Name of the group (`profile.name`) | Returns a list of group names |
-| `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![profile.description]` | Description of the group (`profile.description`) | Returns a list of group profile descriptions |
+| `user.getGroups({'group.profile.name': 'Everyone'}).![id]` | Group ID (`id`) | Returns a list of group IDs |
+| `user.getGroups({'group.profile.name': 'Everyone'}).![type]` | Group type (`type`) | Returns a list of types |
+| `user.getGroups({'group.profile.name': 'Everyone'}).![created]` | Group created date (`created`) | Returns a list of dates when the group was created |
+| `user.getGroups({'group.profile.name': 'Everyone'}).![lastUpdated]` | Timestamp for when the group profile was last updated (`lastUpdated`) | Returns a list of times for when the groups were last updated|
+| `user.getGroups({'group.profile.name': 'Everyone'}).![lastMembershipUpdated]` | Timestamp when the groups memberships were last updated (`lastMembershipUpdated`) | Returns a list of `lastMembershipUpdated` times |
+| `user.getGroups({'group.profile.name': 'Everyone'}).![profile.name]` | Name of the group (`profile.name`) | Returns a list of group names |
+| `user.getGroups({'group.profile.name': 'Everyone'}).![profile.description]` | Description of the group (`profile.description`) | Returns a list of group profile descriptions |
 
 ### Linked object function
 
