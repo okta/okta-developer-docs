@@ -50,7 +50,7 @@ You can also [configure a custom email address](#about-custom-email-addresses) t
 
 ### Multibrand and custom domains
 
-You can create up to three custom domains for each custom brand and also configure multibrand customizations. Each custom domain can be associated with only one brand. You can create up to 200 custom domains by contacting support to increase your limit.
+You can create up to three custom domains with multibrand customizations. Each custom domain can be associated with only one brand. You can create up to 200 custom domains by contacting support to increase your limit.
 
 You can only preview or visit a branded page after you map it to a custom domain. For example, you can only view brand assets applied to the Okta-hosted sign-in page after you map it to a custom domain. After you create a brand, map it to a custom domain. Then you can make further customizations, preview them, and publish them.
 
@@ -127,7 +127,7 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 
 This method of configuring a custom domain is recommended because Okta manages your certificate renewals in perpetuity. Okta manages certificate renewals through an integration with Let's Encrypt, which is a free certificate authority. The certificate procurement process is free, and also faster and easier than configuring a custom domain with your own TLS certificate.
 
-You can create up to three custom domains for each custom brand. Each custom domain can be associated with only one brand. Use the following process to create a custom domain for your org. You can use the same process to add other custom domains.
+You can create up to three custom domains in your org. Each custom domain can be associated with only one brand. Use the following process to create a custom domain for your org. You can use the same process to add other custom domains.
 
 > **Note:** If your custom domain uses your own TLS certificate and you want to migrate to an Okta-managed certificate, contact [Support](https://support.okta.com/help/s/opencase).
 
@@ -291,6 +291,14 @@ You can also use a tool such as `dig` or `nslookup` to test and verify that your
 After you've changed your DNS records, DNS providers or your local machine may cache old records. If you've verified that your records are correct, but your custom domain isn't working, try flushing the DNS cache.
 
 There are websites available for flushing the caches for [Google DNS](https://google-public-dns.appspot.com/cache) and [Open DNS](https://cachecheck.opendns.com/).
+
+### Set up a Web Application Firewall (WAF)
+
+This is an optional step when you're configuring a custom domain.
+
+You can use a **Bring your own certificate (advanced)** custom domain, and bring your own TLS certificate, to enforce a WAF. You can use a WAF to filter or monitor access to your Okta tenant. To restrict all user traffic, configure advanced firewall policies to block traffic outside your designated access point. See [What is a Web Application Firewall (WAF)?](https://www.okta.com/identity-101/waf/).
+
+> **Note:** For guidance about implementing a WAF with your custom domain, contact your Okta account team.
 
 ## Update other Okta settings
 
