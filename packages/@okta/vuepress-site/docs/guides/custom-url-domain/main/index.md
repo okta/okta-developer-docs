@@ -50,7 +50,9 @@ You can also [configure a custom email address](#about-custom-email-addresses) t
 
 ### Multibrand and custom domains
 
-You can create up to three custom domains with multibrand customizations. Each custom domain can be associated with only one brand. You can create up to 200 custom domains by contacting support to increase your limit.
+You can create up to three custom domains with multibrand customizations. The three custom domains limit applies to your entire org. You can only ever have three custom domains, regardless of the number of brands you create. Each custom domain can be associated with only one brand.
+
+> **Note:** However, you can create up to 200 custom domains by contacting support to increase your limit.
 
 You can only preview or visit a branded page after you map it to a custom domain. For example, you can only view brand assets applied to the Okta-hosted sign-in page after you map it to a custom domain. After you create a brand, map it to a custom domain. Then you can make further customizations, preview them, and publish them.
 
@@ -127,7 +129,9 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 
 This method of configuring a custom domain is recommended because Okta manages your certificate renewals in perpetuity. Okta manages certificate renewals through an integration with Let's Encrypt, which is a free certificate authority. The certificate procurement process is free, and also faster and easier than configuring a custom domain with your own TLS certificate.
 
-You can create up to three custom domains in your org. Each custom domain can be associated with only one brand. Use the following process to create a custom domain for your org. You can use the same process to add other custom domains.
+You can create up to three custom domains in your org. The three custom domains limit applies to your entire org. You can only ever have three custom domains, regardless of the number of brands you create. Each custom domain can be associated with only one brand.
+
+Use the following process to create a custom domain for your org. You can use the same process to add other custom domains.
 
 > **Note:** If your custom domain uses your own TLS certificate and you want to migrate to an Okta-managed certificate, contact [Support](https://support.okta.com/help/s/opencase).
 
