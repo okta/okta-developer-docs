@@ -32,9 +32,11 @@ Labels in OIG provide several key benefits:
 
 * Streamline governance: Labels enable automated governance flows, which simplifies creating access reviews and request tasks.
 
-* Efficient searching and enhanced visibility: After you create governance labels and assign them to resources, they become a filterable option in the Admin Console's resource search functionality. For example, go to the **Applications** or the **Groups** > **Advanced search** pages to view the **Governance Labels** search option.
+* Efficient searching and enhanced visibility: After you create governance labels and assign them to resources, they become filterable options in the Admin Console's resource search functionality. For example, go to the **Applications** or the **Groups** > **Advanced search** pages to view the **Governance Labels** search options.
 
-See the [Resource labels](https://help.okta.com/okta_help.htm?type=oie&id=resource-labels) product documentation.
+You can only manage labels with the [Labels API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/). However, you can use the labels in the Admin Console after they are created and assigned to resources through the API. See the [Resource labels](https://help.okta.com/okta_help.htm?type=oie&id=resource-labels) product documentation.
+
+> **Note:** Only users with the super admin role (`SUPER_ADMIN`) or a custom role with the [label permissions](https://help.okta.com/okta_help.htm?type=oie&id=cstm-admin-role-labels-permissions) can manage labels. See [Assign roles to your API users](#assign-roles-to-your-api-users).
 
 ### Predefined labels and limits
 
@@ -55,9 +57,7 @@ The following maximum label limits apply to each Okta org:
 
 Label key-value pairs are case-insensitive and are unique across all resource labels in an org.
 
-> **Notes:**
-> * Only a user with the super admin role can manage (create, delete, update, and assign) labels.
-> * The 10 label-keys maximum value doesn't include the predefined **Crown Jewel** and **Privileged** labels. So technically, you can use up to 12 label keys in your org.
+> **Note:** The 10 label-keys maximum value doesn't include the predefined **Crown Jewel** and **Privileged** labels. So technically, you can use up to 12 label keys in your org.
 
 ## Set up Okta for API access
 
@@ -65,7 +65,8 @@ Set up Okta so that you can authenticate to Okta APIs and have the proper roles 
 
 1. [Set up an app for OAuth 2.0 authentication](#set-up-an-app-for-oauth-2-0-authentication).
 1. [Grant scopes required for labels](#scopes-required-for-labels).
-1. [Assign API users to your API access app](#assign-api-users-to-your-api-access-app).
+1. [Assign roles to your API users](#assign-roles-to-your-api-users).
+1. [Assign API users to a role and to your API access app](#assign-api-users-to-a-role-and-to-your-api-access-app).
 
 You only have to set up your Okta org for OIG Labels API access once. Okta recommends that you perform these tasks from the Admin Console. However, you can also use [Okta Management APIs](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/) for the same tasks.
 
@@ -97,20 +98,29 @@ In addition, grant any other scopes that you may need for other API requests, su
 
 > **Note:** If you're using Okta Workflows, the **Okta Workflows OAuth** app in your org is used for API authentication. Grant these required scopes to this app. See [Authorization > Create a connection from the current Okta org](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-misc-authorization).
 
+### Assign roles to your API users
+
+Assign a role to your API user (or non-user principal) with adequate permissions to manage the [Labels API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/) .
+This is either a custom role with the label permissions or the super admin role (`SUPER_ADMIN`).
+
+You can create a custom role with the following permissions:
+
+* `okta.governance.labels.read`: to view existing labels
+* `okta.governance.labels.manage`: to create, update, assign, and delete labels
+
+See [Use custom admin roles](https://help.okta.com/okta_help.htm?type=oie&id=csh-create-cstm-admin-role) in the product documentation to a create custom role with the [label permissions](https://help.okta.com/okta_help.htm?type=oie&id=cstm-admin-role-labels-permissions).
+
+If you don't have a custom role with these permissions, assign the super admin (`SUPER_ADMIN`) role to your API users.
+
 ### Assign API users to your API access app
 
 Assign the user requesting the Labels APIs to your API access app. This is the app for API access in [Set up an app for OAuth 2.0 authentication](#set-up-an-app-for-oauth-2-0-authentication). See [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign).
-
-Ensure that your API user is assigned as the super admin role (`SUPER_ADMIN`).
-Only super admins can manage labels using the [Labels](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/) APIs.
 
 ## Manage resource labels
 
 Use the [Labels](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/) API to manage governance labels.
 
 Examples in this section assume that you're making the request with an OAuth 2.0 access token. See [Get an access token and make a request](https://developer.okta.com/docs/reference/rest/#get-an-access-token-and-make-a-request) for API requests from a user.
-
-> **Note:** You can't manage labels from the Admin Console. You can use existing labels, created through the API, in the Admin Console for your governance tasks.
 
 ### Create a label
 
@@ -120,7 +130,7 @@ Create a label with the [Create a label](https://developer.okta.com/docs/api/iga
 * Specify the list of values in the `values` array.
 * For each `values.name` value, you can specify the background color in the `metadata.additionalProperties.backgroundColor` parameter. The supported background colors are red, orange, yellow, green, blue, purple, teal, beige, and gray.
 
-You can define up to ten label values for a label key to generate label key-value pairs.
+You can define up to 10 label values for a label key to generate label key-value pairs.
 
 > **Note:** You need the `okta.governance.labels.manage` scope for this request.
 
