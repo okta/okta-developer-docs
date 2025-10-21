@@ -34,7 +34,7 @@ Labels in OIG provide several key benefits:
 
 * Efficient searching and enhanced visibility: After you create governance labels and assign them to resources, they become filterable options in the Admin Console's resource search functionality. For example, go to the **Applications** or the **Groups** > **Advanced search** pages to view the **Governance Labels** search options.
 
-You can only manage labels with the [Labels API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/). However, you can use the labels in the Admin Console after they are created and assigned to resources through the API. See the [Resource labels](https://help.okta.com/okta_help.htm?type=oie&id=resource-labels) product documentation.
+You can only manage labels with the [Labels API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/). However, you can use the labels in the Admin Console after they're created and assigned to resources through the API. See the [Resource labels](https://help.okta.com/okta_help.htm?type=oie&id=resource-labels) product documentation.
 
 > **Note:** Only users with the super admin role (`SUPER_ADMIN`) or a custom role with the [label permissions](https://help.okta.com/okta_help.htm?type=oie&id=cstm-admin-role-labels-permissions) can manage labels. See [Assign roles to your API users](#assign-roles-to-your-api-users).
 
