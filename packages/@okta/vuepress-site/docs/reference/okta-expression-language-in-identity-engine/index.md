@@ -220,7 +220,7 @@ These group functions take in a list of search criteria as input. Each search cr
 * The `group.source.id` key supports when you need to disambiguate between groups that have the same group name. For example, if you're searching for app groups that start with "Admin" from a given app instance then you can use `group.source.id` to filter multiple groups across the different app group sources.
 * You can use logical operators conceptually to pass multiple conditions to these functions.
   * When you pass an array or set of values for a single attribute, the function matches if any of those values is true. This is like using the `OR` operator. Example: `user.getGroups({"group.profile.name": {"Sales", "Marketing", "Engineering"}})` to match if a user is in the `Sales`, `Marketing`, or `Engineering` group.
-  * When you pass multiple separate conditionsl, the function matches only if all conditions are true. This is like using the `AND` operator. Example: `user.isMemberOf({"group.type": {"OKTA_GROUP"}}, {"group.profile.name": "Sales", "operator": "STARTS_WITH"})` to match groups that have `type=OKTA_GROUP` and the name starts with `Sales`.
+  * When you pass multiple separate conditions, the function matches only if all conditions are true. This is like using the `AND` operator. Example: `user.isMemberOf({"group.type": {"OKTA_GROUP"}}, {"group.profile.name": "Sales", "operator": "STARTS_WITH"})` to match groups that have `type=OKTA_GROUP` and the name starts with `Sales`.
 
 > **Note:** For the following expression examples, assume that the user is a member of the following groups:
 
