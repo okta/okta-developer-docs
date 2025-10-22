@@ -83,7 +83,7 @@ Drive automation and simplify Okta Identity Governance (OIG) configuration by as
 
 #### Governance Labels API is Beta
 
-The Labels API enables you to categorize and organize resources, such as apps, groups, entitlements, and collections. You can create, update, and assign key-value labels to resources to support automation, streamline configuration, and simplify the management of access reviews and requests. See [Labels](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/) API.
+The Labels API enables you to categorize and organize resources, such as apps, groups, entitlements, and collections. You can create, update, and assign key-value labels to resources to support automation, streamline configuration, and simplify the management of access reviews and requests. See the [Labels](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/) API and [Manage governance labels](/docs/guides/iga-labels/).
 <!-- OKTA-998873 IGA_RESOURCE_LABELS Preview date: Sept 10, 2025 -->
 
 #### ORN property included in collections
