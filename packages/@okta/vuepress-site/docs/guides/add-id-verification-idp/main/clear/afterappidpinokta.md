@@ -14,7 +14,7 @@ Ensure that you’ve created a group for users who you want to verify with CLEAR
    * Use the Okta account management policy `id` as the `policyId` value.
    * Set the group ID. Use the [List all groups call](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups) to find the `id` for the test group.
    * Set the `verificationMethod` type to `ID_PROOFING`.
-   * Set the `verificationMethod` > `id` as the ID of the <StackSnippet snippet="idp" inline /> IdP that you created in the [previous section](#create-the-idv-vendor-in-okta).
+   * Set the `verificationMethod.id` as the ID of the <StackSnippet snippet="idp" inline /> IdP that you created in the [previous section](#create-the-idv-vendor-in-okta).
    * Set `appSignOn` access value to `ALLOW`.
    * Use the following [Okta Expression Language](/docs/reference/okta-expression-language-in-identity-engine/) object:
 
@@ -150,6 +150,6 @@ You now have a <StackSnippet snippet="idp" inline /> project in a Sandbox enviro
 
 You can use the link to test the IDV flow or you can share it with others. In the Sandbox environment, no actual verifications are performed. You can use test credentials to complete the verification. The test verification doesn't interact with Okta so you can only test the IDV flow.
 
-To test the integration with Okta, you must use a real user account with verifiable user information in your org and use a Production environment project. For example, if your IDV flow requires a government-issued ID, your user account must have an ID that matches that requirement.
+To test the integration with Okta, you must use a real user account with verifiable user information and use a Production environment project. For example, if your IDV flow requires a government-issued ID, your user account must have an ID that matches that requirement.
 
 When you're ready to go live with your CLEAR project, you can publish your project to the Production environment. See [Going Live with CLEAR](http://docs.clearme.com/docs/going-live-with-clear).

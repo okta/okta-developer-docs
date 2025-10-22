@@ -14,7 +14,7 @@ Ensure that you’ve created a user account and group for that user. For example
    * Use the Okta account management policy `id` as the `policyId` value.
    * Set the group ID. Use the [List all groups call](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups) to find the `id` for the test group.
    * Set the `verificationMethod` type to `ID_PROOFING`.
-   * Set the `verificationMethod` > `id` to the Okta Persona IdP that you created in the [previous section](#create-the-idv-vendor-in-okta).
+   * Set the `verificationMethod.id` to the Okta Persona IdP that you created in the [previous section](#create-the-idv-vendor-in-okta).
    * Set `appSignOn` access value to `ALLOW`.
    * Use the following [Okta Expression Language](/docs/reference/okta-expression-language-in-identity-engine/) object:
 

@@ -5,7 +5,7 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
 1. Set the following request body parameters:
 
     * Enter a value for `name`.
-    * Set `type` to `IDV_INCODE`.
+    * Set `type` to `IDV_CLEAR`.
     * Set `ID_PROOFING` as the protocol type.
     * Use the **Client ID** and **Client Secret** values from the [previous section](#create-an-app-at-the-idv-vendor) as the `client_id` and `client_secret` values.
     * Set the `scopes` array to include the `profile`, `identity_assurance`, and `openid` scopes.
