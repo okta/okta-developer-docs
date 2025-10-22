@@ -100,7 +100,7 @@ In addition, grant any other scopes that you may need for other API requests, su
 
 ### Assign roles to your API users
 
-Assign a role to your API user (or non-user principal) with adequate permissions to manage the [Labels API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/) .
+Assign a role to your API user (or non-user principal) with adequate permissions to manage the [Labels API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/).
 This is either a custom role with the label permissions or the super admin role (`SUPER_ADMIN`).
 
 You can create a custom role with the following permissions:
