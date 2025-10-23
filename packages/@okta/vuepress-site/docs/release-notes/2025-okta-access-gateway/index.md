@@ -16,4 +16,4 @@ Access Gateway is available for both Okta Classic and Identity Engine.
 
 #### Okta Access Gateway APIs
 
-You can now configure Okta Access Gateway identity providers (IdPs) and applications using REST API calls. This enhances convenience by providing you with another way to configure apps, to configure them programmatically, and on the fly. See [Okta Access Gateway API](https://developer.okta.com/docs/api/openapi/oag/guides/overview/).
+You can now configure Okta Access Gateway identity providers (IdPs) and applications using REST API calls. This is a convenient way to configure apps programmatically or on the fly. See [Okta Access Gateway API](https://developer.okta.com/docs/api/openapi/oag/guides/overview/).
