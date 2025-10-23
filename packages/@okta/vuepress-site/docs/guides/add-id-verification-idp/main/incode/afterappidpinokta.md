@@ -149,7 +149,9 @@ You can test the integration directly from your <StackSnippet snippet="idp" inli
 1. Under **Employee**, select the user you want to test the IDV flow with.
 1. Under **Verification method**, select **Via sharing a Link**.
 1. Click **Generate Verification & Copy Link**. The link is copied to your clipboard.
-1. Open the generated link in a new browser tab.
+1. Paste the link into a new browser tab to open it.
 1. Complete the IDV flow.
 
 To verify that the Okta account management policy and <StackSnippet snippet="idp" inline /> are set up correctly in your org, try to enroll an authenticator with your user. If your IDV vendor and policy are set up correctly, that user is prompted to verify their identity with the IDV vendor before they can complete the enrollment.
+
+> **Note:** Your user may not be able to complete the IDV flow if their information doesn't match the verifiable information required by your IDV vendor. Review the [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) if you encounter errors when testing the IDV flow. See [Identity verification events](/docs/guides/idv-integration/main/#identity-verification-events) for information about IDV events in the System Log.

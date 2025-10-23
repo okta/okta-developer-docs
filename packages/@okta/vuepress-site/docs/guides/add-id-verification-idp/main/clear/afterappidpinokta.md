@@ -153,3 +153,5 @@ You can use the link to test the IDV flow or you can share it with others. In th
 To test the integration with Okta, you must use a real user account with verifiable user information and use a Production environment project. For example, if your IDV flow requires a government-issued ID, your user account must have an ID that matches that requirement.
 
 When you're ready to go live with your CLEAR project, you can publish your project to the Production environment. See [Going Live with CLEAR](http://docs.clearme.com/docs/going-live-with-clear).
+
+> **Note:** Your user may not be able to complete the IDV flow if their information doesn't match the verifiable information required by your IDV vendor. Review the [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) if you encounter errors when testing the IDV flow. See [Identity verification events](/docs/guides/idv-integration/main/#identity-verification-events) for information about IDV events in the System Log.

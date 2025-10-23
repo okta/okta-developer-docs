@@ -145,3 +145,5 @@ After you've configured your custom IDV vendor and created the Okta account mana
 Testing the integration can depend on your IDV vendor. Depending on your vendor, you might be able to use a sandbox environment to complete the verification. See your IDV vendor's documentation for more information about testing the integration.
 
 However, there's a simple way to test if the Okta account management policy and IDV vendor are set up correctly in your org. Try to enroll an authenticator using your test user. If your IDV vendor and policy are set up correctly, that user is prompted to verify their identity with the IDV vendor before they can complete the enrollment.
+
+> **Note:** Your user may not be able to complete the IDV flow if their information doesn't match the verifiable information required by your IDV vendor. Review the [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) if you encounter errors when testing the IDV flow. See [Identity verification events](/docs/guides/idv-integration/main/#identity-verification-events) for information about IDV events in the System Log.

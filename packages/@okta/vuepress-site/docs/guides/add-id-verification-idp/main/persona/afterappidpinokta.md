@@ -149,6 +149,8 @@ You can test your integration by using the rule that you configured in the [prev
 
 If the IDV vendor is set up correctly, you’re prompted to verify your identity and redirected through the <StackSnippet snippet="idp" inline /> IDV flow. Then, the user you created can successfully enroll an authenticator.
 
+> **Note:** Review the [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) if you encounter errors when testing the IDV flow. See [Identity verification events](/docs/guides/idv-integration/main/#identity-verification-events) for information about IDV events in the System Log.
+
 ### Test image
 
 Use the following image if your verification template requires you to upload a photo. Save the image and then select it when you're prompted to upload a photo.
