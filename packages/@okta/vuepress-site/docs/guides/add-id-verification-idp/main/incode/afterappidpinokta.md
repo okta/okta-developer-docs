@@ -1,6 +1,6 @@
 ## Create an Okta account management policy rule
 
-Use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) to create a rule that requires users to be verified by <StackSnippet snippet="idp" inline /> when they enroll a new authenticator. Create your own `POST` request body or copy the [example request](#okta-account-management-policy-rule-example-request) and input your values.
+Use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) to create a rule that requires <StackSnippet snippet="idp" inline /> to verify users when they enroll a new authenticator. Create your own `POST` request body or copy the [example request](#okta-account-management-policy-rule-example-request) and input your values.
 
 Ensure that you’ve created a user account and group for that user. For example, add the user to a group called “<StackSnippet snippet="idp" inline /> IDV test group”.
 
@@ -152,4 +152,4 @@ You can test the integration directly from your <StackSnippet snippet="idp" inli
 1. Open the generated link in a new browser tab.
 1. Complete the IDV flow.
 
-To verify that the the Okta account management policy and <StackSnippet snippet="idp" inline /> are set up correctly in your org, try to enroll an authenticator with your user. If your IDV vendor and policy are set up correctly, that user is prompted to verify their identity with the IDV vendor before they can complete the enrollment.
+To verify that the Okta account management policy and <StackSnippet snippet="idp" inline /> are set up correctly in your org, try to enroll an authenticator with your user. If your IDV vendor and policy are set up correctly, that user is prompted to verify their identity with the IDV vendor before they can complete the enrollment.
