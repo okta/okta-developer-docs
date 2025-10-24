@@ -260,7 +260,7 @@ Request an OAuth 2.0 access token with a call to your Okta [org authorization se
 In Postman, the initial `/authorize` request is included in the **Authorization** tab > **OAuth 2.0** type > **Configure New Token** section.
 
 > **Notes:**
-> * See [Token lifetime](/docs/reference/api/oidc/#token-lifetime).
+> * See [Token lifetime](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#token-lifetime).
 > * Okta recommends that you always use the Authorization Code with PKCE grant flow. See [Implement the Authorization Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/) for details on this grant type.
 
 1. Select the request that you want to make from Postman, such as a `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
