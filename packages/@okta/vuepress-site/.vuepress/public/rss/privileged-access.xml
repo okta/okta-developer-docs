@@ -4,13 +4,13 @@
   <title>Okta Developer Docs Release Notes (Privileged Access)</title>
   <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/</link>
   <description>Recent release notes for Okta Privileged Access API</description>
-  <pubDate>Wed, 22 Oct 2025 17:52:08 GMT</pubDate>
+  <pubDate>Thu, 23 Oct 2025 19:26:13 GMT</pubDate>
   
     <item>
       <title>Monthly release 2025.10.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025100</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025100</guid>
-      <pubDate>Wed, 22 Oct 2025 17:52:08 GMT</pubDate>
+      <pubDate>Thu, 23 Oct 2025 19:26:13 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -51,7 +51,7 @@ See the following changes to the response schema of <a href="https://developer.o
       <title>Weekly release 2025.09.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025092</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025092</guid>
-      <pubDate>Tue, 21 Oct 2025 17:52:08 GMT</pubDate>
+      <pubDate>Wed, 22 Oct 2025 19:26:13 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -78,7 +78,7 @@ See the following changes to the response schema of <a href="https://developer.o
       <title>Weekly release 2025.09.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025091</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025091</guid>
-      <pubDate>Mon, 20 Oct 2025 17:52:08 GMT</pubDate>
+      <pubDate>Tue, 21 Oct 2025 19:26:13 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -103,7 +103,7 @@ See the following changes to the response schema of <a href="https://developer.o
       <title>Monthly release 2025.09.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025090</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025090</guid>
-      <pubDate>Sun, 19 Oct 2025 17:52:08 GMT</pubDate>
+      <pubDate>Mon, 20 Oct 2025 19:26:13 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -133,7 +133,7 @@ See the following changes to the response schema of <a href="https://developer.o
       <title>Weekly release 2025.08.4</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025084</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025084</guid>
-      <pubDate>Sat, 18 Oct 2025 17:52:08 GMT</pubDate>
+      <pubDate>Sun, 19 Oct 2025 19:26:13 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -172,7 +172,7 @@ See the following changes to the response schema of <a href="https://developer.o
       <title>Weekly release 2025.08.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025082</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025082</guid>
-      <pubDate>Fri, 17 Oct 2025 17:52:08 GMT</pubDate>
+      <pubDate>Sat, 18 Oct 2025 19:26:13 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -200,7 +200,7 @@ See the following changes to the response schema of <a href="https://developer.o
       <title>Monthly release 2025.08.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025080</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025080</guid>
-      <pubDate>Thu, 16 Oct 2025 17:52:08 GMT</pubDate>
+      <pubDate>Fri, 17 Oct 2025 19:26:13 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -244,7 +244,7 @@ See the following changes to the response schema of <a href="https://developer.o
       <title>Monthly release 2025.06.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025060</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025060</guid>
-      <pubDate>Wed, 15 Oct 2025 17:52:08 GMT</pubDate>
+      <pubDate>Thu, 16 Oct 2025 19:26:13 GMT</pubDate>
       <description><![CDATA[<h4>Updates to password rotation frequency</h4>
 <p>You can now schedule the password rotation frequency for all projects up to a maximum of 400 days. The <code>periodic_rotation_duration_in_seconds</code> parameter now has a maximum value of 34,560,000 seconds in the following operations:</p>
 <ul>
@@ -260,7 +260,7 @@ See the following changes to the response schema of <a href="https://developer.o
       <title>Weekly release 2025.05.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025053</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025053</guid>
-      <pubDate>Tue, 14 Oct 2025 17:52:08 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 19:26:13 GMT</pubDate>
       <description><![CDATA[<ul>
 <li><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#opa-active-directory-api-resources-are-ea">OPA Active Directory API resources are EA</a></li>
 <li><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#cloud-infrastructure-entitlements-api-is-deprecated">Cloud Infrastructure Entitlements API is deprecated</a></li>
