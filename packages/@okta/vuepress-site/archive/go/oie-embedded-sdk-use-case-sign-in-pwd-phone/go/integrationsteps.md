@@ -33,7 +33,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 During page load, call the `Client` object's `InitLogin` method. This method returns an object of type
 `LoginResponse` that is used to initate the sign-in process with Okta.  The object
 also contains a list of available social Identity Providers (IdPs) that is discussed in more detail in the
-[Sign in with Facebook](/docs/guides/oie-embedded-sdk-use-case-sign-in-soc-idp/go/main)
+Sign in with Facebook
 use case.
 
 ```go
@@ -259,4 +259,4 @@ if lr.Token() != nil {
 ### 11 (Optional): Get the user profile information
 
 Optionally, you can obtain basic user information after a successful user
-sign-in by making a request to the Okta OpenID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-the-user-profile-information) for more information.
+sign-in by making a request to the Okta OpenID Connect authorization server. See Get the user profile information for more information.

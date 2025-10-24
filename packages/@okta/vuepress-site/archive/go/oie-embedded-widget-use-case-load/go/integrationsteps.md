@@ -7,7 +7,7 @@ The first step is when the user clicks the sign-in link. This link directs the u
 Obtain the parameters required to display the Sign-In Widget when the sign-in page loads. Source these
 parameters using different methods. The main parameters include:
 
-* Client ID, issuer, scopes&mdash;sourced from the [configuration settings](/docs/guides/oie-embedded-common-download-setup-app/go/main/#configuration-settings)
+* Client ID, issuer, scopes&mdash;sourced from the configuration settings
 * Interaction Handle&mdash;obtained from the `/interact` endpoint
 * PKCE parameters, otp, state, and nonce&mdash;generated values
 * Base URL&mdash;derived from the issuer URL

@@ -1,6 +1,6 @@
 ### Your app displays the sign-in page
 
-Build a sign-in page that captures the user's name and password with the Widget. Ensure that the page completes the steps described in [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/go/main/) when the page loads.
+Build a sign-in page that captures the user's name and password with the Widget. Ensure that the page completes the steps described in Load the Widget when the page loads.
 
 ### The user submits their username and password
 
