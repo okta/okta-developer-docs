@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "a59ca90b-474a-4e21-8dcd-d39f02bd47f3",
 		"name": "Org (Okta API)",
-		"description": "The [Okta Org API](/docs/api/rest/org.html) provides operations to manage your org account settings such as contact information, granting Okta Support access, and more.",
+		"description": "The [Okta Org API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingGeneral/) provides operations to manage your org account settings such as contact information, granting Okta Support access, and more.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
