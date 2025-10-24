@@ -1,4 +1,4 @@
-> **Note:** Try to [run the embedded SDK sample app](/docs/guides/oie-embedded-common-run-samples/go/main/#run-the-embedded-sdk-sample-app) and explore the available [embedded authentication use cases](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/) to get familiar with the SDK before you start to integrate your own embedded app.
+> **Note:** Try to run the embedded SDK sample app and explore the available embedded authentication use cases to get familiar with the SDK before you start to integrate your own embedded app.
 
 Begin to integrate the SDK into your own app by following these steps:
 
