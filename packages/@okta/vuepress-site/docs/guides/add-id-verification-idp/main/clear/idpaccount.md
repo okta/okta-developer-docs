@@ -1,1 +1,1 @@
-[CLEAR Verified](https://docs.clearme.com/docs/okta)
+[CLEAR1](https://docs.clearme.com/docs/okta)

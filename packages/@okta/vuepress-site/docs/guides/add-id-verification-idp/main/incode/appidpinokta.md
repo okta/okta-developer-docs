@@ -65,7 +65,7 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
 ```json
 {
   "id": "0oaf35tu47hnH9mlZ0w6",
-  "name": "Incode IdP",
+  "name": "Incode IDV",
   "status": "ACTIVE",
   "created": "2025-01-15T20:54:04.000Z",
   "lastUpdated": "2025-01-15T20:54:05.000Z",

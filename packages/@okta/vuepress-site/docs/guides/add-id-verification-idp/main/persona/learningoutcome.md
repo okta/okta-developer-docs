@@ -5,8 +5,6 @@ This document explains how to configure <StackSnippet snippet="idp" inline />, a
 
 > **Note:** <StackSnippet snippet="idp" inline /> works as an IDV vendor, but is listed as an IdP in the Admin Console. This guide refers to <StackSnippet snippet="idp" inline /> as an IDV vendor.
 
-Okta manages the connection to the IDV vendor for your app, sitting between your app and the vendor that verifies your users. When a user signs in, you can verify their identity by having them submit a proof of identity to the IDV vendor.
-
 ---
 
 #### Learning outcomes

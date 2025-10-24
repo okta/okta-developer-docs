@@ -5,8 +5,6 @@ This document explains how to configure a custom IDV vendor as an identity provi
 
 > **Note:** IDV vendors are listed as IdPs in the Admin Console. This guide refers to the custom IDV vendor as an IDV vendor.
 
-Okta manages the connection to the IDV vendor for your app, sitting between your app and the vendor that verifies your users. When a user signs in, you can verify their identity by having them submit a proof of identity to the IDV vendor.
-
 ---
 
 #### Learning outcomes

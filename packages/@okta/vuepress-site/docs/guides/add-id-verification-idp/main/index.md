@@ -23,6 +23,12 @@ Because of its stricter verification, you might only use an IDV vendor for sensi
 
 <StackSnippet snippet="appidpinokta" />
 
+### Map profile attributes from Okta to your IDV vendor
+
+<ApiLifecycle access="ea" />
+
+After you've created the IDV vendor in Okta, you can map other profile attributes from your user directory to attributes in your IDV vendor. Okta sends the `givenName` and `familyName` attributes by default. You can map additional attributes as needed. See [Map profile attributes from Okta to an identity verification vendor](https://help.okta.com/okta_help.htm?type=oie&id=idp-map-profile-attribs).
+
 <StackSnippet snippet="afterappidpinokta" />
 
 ## Alternate use cases
@@ -31,9 +37,13 @@ You can use your IDV vendor to verify your user identities in different scenario
 
 > **Note:** You can use the [Okta account management policy rule](#create-an-okta-account-management-policy-rule) without any expression. If you don't use any expression in the rule then your user is prompted to verify their identity when the following events occur:
 >
-> * They enroll or unenroll authenticators
+> * They enroll or unenroll authenticators.
 >
-> * They edit their personal information in their **My Settings**
+> * They edit their personal information in their **Settings**.
+>
+> * They reset their password in **Settings** or in the Sign-in widget.
+>
+> * They unlock their account.
 
 <StackSnippet snippet="alternateusecase" />
 

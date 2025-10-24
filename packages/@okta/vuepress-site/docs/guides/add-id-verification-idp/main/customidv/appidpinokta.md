@@ -14,6 +14,10 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
       * `endpoints.authorization.url`: The **Authorize URL** that your IDV vendor provided.
       * `endpoints.token.url`: The **Token URL** that your IDV vendor provided.
       * `endpoints.jwks.url`: The **JWKS URL** that your IDV vendor provided.
+    * Set the `properties.idvMetadata` object values:
+      * `vendorDisplayName`: The **Vendor name** that your IDV vendor provided.
+      * `termsOfUse`: The **End user license agreement (EULA)** URL that your IDV vendor provided.
+      * `privacyPolicy`: The **Privacy policy** URL that your IDV vendor provided.
     * Set the `scopes` array to include the `profile`, `identity_assurance`, and `openid` scopes.
       * `profile`: This scope allows the IDV vendor to request access to basic user profile information from Okta.
       * `identity_assurance`: This scope requests access to the `verified_claims` object so that the IDV vendor can send and receive information about the level of assurance of the IDV flow.
@@ -22,7 +26,6 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
 1. Send the `POST /api/v1/idps` request.
 
 1. After you create the IDV vendor, copy the value of `id` from the response body and paste it into a text editor. Use it in the next section.
-
 
 ### Example request
 

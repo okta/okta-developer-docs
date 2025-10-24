@@ -8,6 +8,7 @@ At [<StackSnippet snippet="idp" inline />](https://workforce.incode.com/overview
 1. Click **Publish**. Set the **Environment** as **Sandbox** and then click **Publish** again.
 1. Go to **Integrations**, and select the **OpenID Connect** tab.
 1. Click **Add client ID & secret**.
+1. Select **Okta** as the OIDC configuration.
 1. In the first drop-down menu, select **Sandbox**. In the other drop-down menu, select your project name.
 1. Click **Next**.
 1. Copy the **Client ID** and **Client Secret** values into a text editor. You need these values in the next section.

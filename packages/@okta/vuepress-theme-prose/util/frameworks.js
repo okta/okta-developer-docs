@@ -27,7 +27,7 @@ const COMMON_NAME_TO_FANCY_NAME = {
   smartcard: 'Smart Card',
   persona: 'Persona',
   incode: 'Incode',
-  clear: 'CLEAR Verified',
+  clear: 'CLEAR1',
   customidv: 'Custom IDV',
   react: 'React',
   preact: 'Preact',

@@ -14,7 +14,7 @@ Ensure that you’ve created a group for users who you want to verify with your 
    * Use the Okta account management policy `id` as the `policyId` value.
    * Set the group ID. Use the [List all groups call](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups) to find the `id` for the test group.
    * Set the `verificationMethod` type to `ID_PROOFING`.
-   * Set the `verificationMethod` > `id` to the Okta Persona IdP that you created in the [previous section](#create-the-idv-vendor-in-okta).
+   * Set the `verificationMethod` > `id` as the ID of the custom IDV vendor IdP that you created in the [previous section](#create-the-idv-vendor-in-okta).
    * Set `appSignOn` access value to `ALLOW`.
    * Use the following [Okta Expression Language](/docs/reference/okta-expression-language-in-identity-engine/) object:
 
@@ -142,7 +142,7 @@ Ensure that you’ve created a group for users who you want to verify with your 
 
 After you've configured your custom IDV vendor and created the Okta account management policy rule, you can test the integration.
 
-Testing the integration can depend on your IDV vendor. Depending on your vendor, you might be able to use a sandbox environment to complete the verification. See your IDV vendor's documentation for more information about testing the integration.
+Testing the integration can depend on your IDV vendor. Depending on your vendor, you might be able to use a sandbox environment to complete the verification. Refer to your IDV vendor's documentation for more information about testing the integration.
 
 However, there's a simple way to test if the Okta account management policy and IDV vendor are set up correctly in your org. Try to enroll an authenticator using your test user. If your IDV vendor and policy are set up correctly, that user is prompted to verify their identity with the IDV vendor before they can complete the enrollment.
 
