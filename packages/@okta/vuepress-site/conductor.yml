@@ -66,7 +66,7 @@ redirects:
   - from: /docs/getting_started/policy.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/
   - from: /docs/api/rest/sessions.html
-    to: /docs/reference/api/sessions/
+    to: https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Sessions/
   - from: /docs/api/rest/templates.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/
   - from: /docs/getting_started/tokens.html
@@ -324,7 +324,7 @@ redirects:
   - from: /standards/SAML/index
     to: /docs/concepts/saml/
   - from: /docs/reference/api/sessions.html
-    to: /docs/reference/api/sessions/
+    to: https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Sessions/
   - from: /docs/guides/okta_mobile_connect
     to: https://help.okta.com/en-us/okta_help_CSH.htm#ext_Okta_Mobile_Connect
   - from: /docs/reference/okta-expression-language/index
@@ -436,13 +436,13 @@ redirects:
   - from: /docs/api/resources/schemas/index.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/
   - from: /docs/api/resources/sessions/index.html
-    to: /docs/reference/api/sessions/
+    to: https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Sessions/
   - from: /docs/api/resources/system_log/index.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
   - from: /docs/api/resources/templates/index.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/
   - from: /docs/api/resources/threat-insight/index.html
-    to: /docs/reference/api/threat-insight/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ThreatInsight/
   - from: /docs/api/resources/trusted-origins/index.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/
   - from: /docs/api/resources/users/index.html
