@@ -1,1 +1,1 @@
-[download and set up the SDK, widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/go/main/)
+download and set up the SDK, widget, and sample app
