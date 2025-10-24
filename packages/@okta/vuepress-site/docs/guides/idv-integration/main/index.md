@@ -34,9 +34,11 @@ Okta supports three IDV vendors that admins can configure in the [Admin Console]
 
 * [Persona](/docs/guides/add-id-verification-idp/persona/main/)
 
-* [CLEAR Verified](https://docs.clearme.com/docs/getting-started)
+* [CLEAR Verified](/docs/guides/add-id-verification-idp/clear/main/)
 
-* [Incode](https://workforce.developer.incode.com/docs/incode-okta-idv-configuration)
+* [Incode](/docs/guides/add-id-verification-idp/incode/main/)
+
+After you've integrated your IDV service with this process, it can be added as an identity provider (IdP) in orgs. See [Custom IDV vendor](/docs/guides/add-id-verification-idp/customidv/main/).
 
 ## How IDV vendors integrate with Okta
 
