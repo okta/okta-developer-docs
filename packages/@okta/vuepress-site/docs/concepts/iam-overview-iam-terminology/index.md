@@ -4,6 +4,9 @@ title: IAM terminology
 
 # IAM terminology
 
+See [Glossary](https://help.okta.com/okta_help.htm?id=ext_glossary).
+
+<!--
 - **Access control:** Grant or deny individual requests to view or update a restricted resource. Access is based on the resource, the nature of the request, whether the user is authenticated, the user's authorization, relevant policies, and other data. (Access control is part of *authorization*.) The term access control can also refer broadly to IAM. See [What Is Access Control & How Crucial Is It to Cybersecurity?](https://www.okta.com/identity-101/access-control/)
 
 - **Authentication:** Processes and services to prove the claimed identity of an individual user, machine, software component, or any other entity. Typical authentication mechanisms include conventional password schemes, biometric devices, cryptographic methods, and one-time passcodes. See [The Ultimate Authentication Playbook](https://www.okta.com/blog/2019/02/the-ultimate-authentication-playbook/).
@@ -61,3 +64,4 @@ title: IAM terminology
 - **WS-Fed (WS-Federation):** An XML-based protocol used for SSO. It's typically used to sign in to legacy Windows-based web applications and Microsoft Office 365, where Okta acts as an authorization server or Identity Provider. See [WS-Fed app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-apps-about-wsfed).
 
 - **Zero Trust:** An architectural security strategy that is based on the principles of least-privilege access controls and strict user authentication or "never trust, always verify." It requires all users to be authenticated, authorized, and continuously validated before being granted or keeping access to applications and data. Okta features help you architect, design, and build zero trust applications. See [What is Zero Trust Security?](http://okta.com/blog/2019/01/what-is-zero-trust-security/)
+-->
