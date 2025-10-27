@@ -2,7 +2,7 @@
 
 Use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) to create a rule that requires <StackSnippet snippet="idp" inline /> to verify users when they enroll a new authenticator. Create your own `POST` request body or copy the [example request](#okta-account-management-policy-rule-example-request) and input your values.
 
-Ensure that you’ve created a group for users who you want to verify with CLEAR. For example, create a group called “<StackSnippet snippet="idp" inline /> IDV test group”.
+Ensure that you’ve created a group for users who you want to verify with <StackSnippet snippet="idp" inline />. For example, create a group called "CLEAR1 IDV test group".
 
 > **Note:** To add a rule using the Admin Console, see [Edit the Okta account management policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-edit-oamp).
 
@@ -152,6 +152,6 @@ You can use the link to test the IDV flow or you can share it with others. In th
 
 To test the integration with Okta, you must use a real user account with verifiable user information and use a Production environment project. For example, if your IDV flow requires a government-issued ID, your user account must have an ID that matches that requirement.
 
-When you're ready to go live with your CLEAR project, you can publish your project to the Production environment. See [Going Live with CLEAR](http://docs.clearme.com/docs/going-live-with-clear).
+When you're ready to go live with your <StackSnippet snippet="idp" inline /> project, you can publish your project to the Production environment. See [Going Live with <StackSnippet snippet="idp" inline />](http://docs.clearme.com/docs/going-live-with-clear).
 
 > **Note:** Your user may not be able to complete the IDV flow if their information doesn't match the verifiable information required by your IDV vendor. Review the [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) if you encounter errors when testing the IDV flow. See [Identity verification events](/docs/guides/idv-integration/main/#identity-verification-events) for information about IDV events in the System Log.

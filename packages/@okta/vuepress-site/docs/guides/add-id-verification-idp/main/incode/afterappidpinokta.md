@@ -2,7 +2,7 @@
 
 Use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) to create a rule that requires <StackSnippet snippet="idp" inline /> to verify users when they enroll a new authenticator. Create your own `POST` request body or copy the [example request](#okta-account-management-policy-rule-example-request) and input your values.
 
-Ensure that you’ve created a user account and group for that user. For example, add the user to a group called “<StackSnippet snippet="idp" inline /> IDV test group”.
+Ensure that you’ve created a user account and group for that user. For example, add the user to a group called "<StackSnippet snippet="idp" inline /> IDV test group".
 
 > **Note:** To add a rule using the Admin Console, see [Edit the Okta account management policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-edit-oamp).
 

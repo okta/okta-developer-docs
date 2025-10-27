@@ -22,7 +22,7 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
 ```json
 {
   "type": "IDV_CLEAR",
-  "name": "CLEAR Verified IDV",
+  "name": "CLEAR1 IDV",
   "protocol": {
     "type": "ID_PROOFING",
     "scopes": [
@@ -65,7 +65,7 @@ Use the [IdP API](https://developer.okta.com/docs/api/openapi/okta-management/ma
 ```json
 {
   "id": "0oab50jh0UPiB6xde0w6",
-  "name": "CLEAR Verified IDV",
+  "name": "CLEAR1 IDV",
   "status": "ACTIVE",
   "created": "2025-01-14T19:59:41.000Z",
   "lastUpdated": "2025-01-14T19:59:41.000Z",

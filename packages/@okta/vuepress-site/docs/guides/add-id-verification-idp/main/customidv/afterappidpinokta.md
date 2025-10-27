@@ -2,7 +2,7 @@
 
 Use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) to create a rule that requires your custom IDV vendor to verify users when they enroll a new authenticator. Create your own `POST` request body or copy the [example request](#okta-account-management-policy-rule-example-request) and input your values.
 
-Ensure that you’ve created a group for users who you want to verify with your custom IDV vendor. For example, create a group called “Custom IDV test group”.
+Ensure that you’ve created a group for users who you want to verify with your custom IDV vendor. For example, create a group called "Custom IDV test group".
 
 > **Note:** To add a rule using the Admin Console, see [Edit the Okta account management policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-edit-oamp).
 

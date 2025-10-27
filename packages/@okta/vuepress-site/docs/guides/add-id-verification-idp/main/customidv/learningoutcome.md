@@ -1,7 +1,7 @@
 ## <StackSnippet snippet="idp" inline />
 
-This document explains how to configure a custom IDV vendor as an identity provider (IdP) for your org. You can configure a custom IDV vendor as an IdP in your org by creating an account with the vendor, adding it as an IdP in Okta, and then testing the configuration.
-<br></br>
+This document explains how to configure a custom IDV vendor as an identity provider (IdP) for your org. You can configure a custom IDV vendor as an IdP in your org by creating an account with the vendor, adding it as an IdP in Okta, and then testing the configuration. If you don't have a custom IDV vendor that you want to use, [you can create your own IDV service](/docs/guides/idv-integration/) and use this guide to add it as an IdP.
+<br/><br/>
 
 > **Note:** IDV vendors are listed as IdPs in the Admin Console. This guide refers to the custom IDV vendor as an IDV vendor.
 
