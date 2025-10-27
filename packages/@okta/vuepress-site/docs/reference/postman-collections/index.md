@@ -11,8 +11,6 @@ meta:
 
 Learn how to [use Postman with the Okta REST APIs](https://developer.okta.com/docs/api/).
 
-<!-- > **Note:** These buttons are also available at the top of each [API reference page](/docs/reference/api/apps/). -->
-
 You can still import any Okta API collection for Postman from the following list:
 
 

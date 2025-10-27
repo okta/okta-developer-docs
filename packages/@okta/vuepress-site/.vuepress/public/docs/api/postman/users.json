@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "72792a40-e8df-4658-aa90-cfafb4c5c940",
 		"name": "Users (Okta API)",
-		"description": "The [Okta User API](/docs/api/rest/users.html) provides operations to manage users in your organization.",
+		"description": "The [Okta User API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/) provides operations to manage users in your organization.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [

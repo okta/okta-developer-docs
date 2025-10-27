@@ -63,7 +63,7 @@ Before implementing a token inline hook, you can now preview the hook request an
 
 #### Revoke user sessions is GA in Preview
 
-You can end all Okta sessions for a user when resetting their password. All sessions of the specified user are revoked except for the current session. This option protects the user account from unauthorized access. See the `revokeSession` parameter in the [Users API](/docs/reference/api/users/#change-password). <!-- OKTA-542645-->
+You can end all Okta sessions for a user when resetting their password. All sessions of the specified user are revoked except for the current session. This option protects the user account from unauthorized access. See the `revokeSession` parameter in the Users API. <!-- OKTA-542645-->
 
 #### Step-up authentication using ACR values is GA in Prod
 
@@ -283,15 +283,15 @@ Additional measures are now applied to block suspicious SMS and Voice traffic fr
 
 #### Clone authentication policies are GA in Production
 
-Creating an authentication policy from scratch is a manual, error-prone task because you need to visually copy existing rules into the new policy. Okta now offers the ability to clone a policy. You can use either the Admin Console or the new Clone a Policy operation on the Policy API. See [Clone a Policy](/docs/reference/api/policy/#clone-a-policy). <!--OKTA-525110-->
+Creating an authentication policy from scratch is a manual, error-prone task because you need to visually copy existing rules into the new policy. Okta now offers the ability to clone a policy. You can use either the Admin Console or the new Clone a Policy operation on the Policy API. See Clone a Policy. <!--OKTA-525110-->
 
 #### Default authenticator enrollment policy settings format is GA in Production
 
-For orgs that recently enabled the Authenticator Enrollment Policy feature, the new default [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy) is created with settings in the authenticator format instead of the factor format. For existing orgs that have the Authenticator Enrollment Policy feature enabled, the settings of the default authenticator enrollment policy continues to be in the factor format. <!--OKTA-535005-->
+For orgs that recently enabled the Authenticator Enrollment Policy feature, the new default authenticator enrollment policy is created with settings in the authenticator format instead of the factor format. For existing orgs that have the Authenticator Enrollment Policy feature enabled, the settings of the default authenticator enrollment policy continues to be in the factor format. <!--OKTA-535005-->
 
 #### Dynamic IdP routing is GA in Production
 
-Org admins can now consolidate multiple IdP routing rules into a single dynamic routing rule. Dynamic routing rules use expression language to match users to any IdP, based on attributes of their login object. This reduces the volume and complexity of routing rules and the manual effort of managing them. See [Policy Action with Dynamic IdP routing](/docs/reference/api/policy/#policy-action-with-dynamic-idp-routing). <!--OKTA-520972-->
+Org admins can now consolidate multiple IdP routing rules into a single dynamic routing rule. Dynamic routing rules use expression language to match users to any IdP, based on attributes of their login object. This reduces the volume and complexity of routing rules and the manual effort of managing them. See Policy Action with Dynamic IdP routing. <!--OKTA-520972-->
 
 #### Factors API support for Okta Verify authenticator enrollment flows is GA in Preview
 
@@ -426,7 +426,7 @@ The default authorization server is a custom authorization server provided by Ok
 
 #### PKCE validation for OIDC app integrations is GA in Production
 
-You can now require Proof Key for Code Exchange (PKCE) as an additional verification for any OpenID Connect app integration except service apps. This more closely aligns with the OAuth Security Best Current Practice recommendation to use PKCE with the authorization code flow regardless of the client type. Use the `pkce_required` [property](/docs/reference/api/apps/#oauth-credential-object) with the Apps API to require PKCE for your app.<!--OKTA-523773-->
+You can now require Proof Key for Code Exchange (PKCE) as an additional verification for any OpenID Connect app integration except service apps. This more closely aligns with the OAuth Security Best Current Practice recommendation to use PKCE with the authorization code flow regardless of the client type. Use the `pkce_required` property with the Apps API to require PKCE for your app.<!--OKTA-523773-->
 
 #### Signed request support for generic SAML IdP is GA in Production
 
@@ -446,15 +446,15 @@ Admins can now customize the error message that users receive when their access 
 
 #### Dynamic IdP routing is GA in Preview
 
-Org admins can now consolidate multiple IdP routing rules into a single dynamic routing rule. Dynamic routing rules use expression language to match users to any IdP, based on attributes of their login object. This reduces the volume and complexity of routing rules and the manual effort of managing them. See [Policy Action with Dynamic IdP routing](/docs/reference/api/policy/#policy-action-with-dynamic-idp-routing).<!--OKTA-520971-->
+Org admins can now consolidate multiple IdP routing rules into a single dynamic routing rule. Dynamic routing rules use expression language to match users to any IdP, based on attributes of their login object. This reduces the volume and complexity of routing rules and the manual effort of managing them. See Policy Action with Dynamic IdP routing.<!--OKTA-520971-->
 
 #### The update logo for application operation is updated
 
-The [update logo for application](/docs/reference/api/apps/#application-logo-operations) API operation has been updated to support logo images in SVG format. In addition, the updated logo guidelines require a square image dimension of 200px by 200px to avoid distortion.<!--OKTA-511103-->
+The update logo for application API operation has been updated to support logo images in SVG format. In addition, the updated logo guidelines require a square image dimension of 200px by 200px to avoid distortion.<!--OKTA-511103-->
 
 #### Clone authentication policies are GA in Preview
 
-Creating an authentication policy from scratch is a manual, error-prone task because you need to visually copy existing rules into the new policy. Okta now offers the ability to clone a policy. You can use either the Admin Console or the new Clone a Policy operation on the Policy API. See [Clone a Policy](/docs/reference/api/policy/#clone-a-policy).<!--OKTA-515109-->
+Creating an authentication policy from scratch is a manual, error-prone task because you need to visually copy existing rules into the new policy. Okta now offers the ability to clone a policy. You can use either the Admin Console or the new Clone a Policy operation on the Policy API. See Clone a Policy.<!--OKTA-515109-->
 
 #### Improvements to the self-service password reset experience are GA in Preview
 
@@ -466,7 +466,7 @@ For SWA apps with an account sign-in option set to **Users share a single userna
 
 #### Default authenticator enrollment policy settings format is GA in Preview
 
-For orgs that recently enabled the Authenticator Enrollment Policy feature, the new default [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy ) is created with settings in the authenticator format instead of the factor format. Any existing orgs that have the Authenticator Enrollment Policy feature enabled, the settings of the default authenticator enrollment policy continues to be in the factor format.<!--OKTA-527304-->
+For orgs that recently enabled the Authenticator Enrollment Policy feature, the new default authenticator enrollment policy is created with settings in the authenticator format instead of the factor format. Any existing orgs that have the Authenticator Enrollment Policy feature enabled, the settings of the default authenticator enrollment policy continues to be in the factor format.<!--OKTA-527304-->
 
 #### Developer documentation updates in 2022.09.0
 
@@ -552,7 +552,7 @@ Previously, the self-service unlock (SSU) flow created unnecessary friction in t
 
 #### PKCE validation for OIDC app integrations is GA in Preview
 
-You can now require Proof Key for Code Exchange (PKCE) as an additional verification for any OpenID Connect app integration except service apps. This more closely aligns with the OAuth Security Best Current Practice recommendation to use PKCE with the authorization code flow regardless of the client type. Use the `pkce_required` [property](/docs/reference/api/apps/#oauth-credential-object) with the Apps API to require PKCE for your app. <!-- OKTA-518333 -->
+You can now require Proof Key for Code Exchange (PKCE) as an additional verification for any OpenID Connect app integration except service apps. This more closely aligns with the OAuth Security Best Current Practice recommendation to use PKCE with the authorization code flow regardless of the client type. Use the `pkce_required` property with the Apps API to require PKCE for your app. <!-- OKTA-518333 -->
 
 #### Configurable API token rate limits is GA in Production
 
@@ -658,7 +658,7 @@ Typically, collecting end-user data during the initial sign-up process creates f
 
 #### PKCE validation for OIDC app integrations is Self-Service EA in Preview
 
-You can now require Proof Key for Code Exchange (PKCE) as an additional verification for any OpenID Connect app integration except service apps. This more closely aligns with the OAuth Security Best Current Practice recommendation to use PKCE with the authorization code flow regardless of the client type. Use the `pkce_required` [property](/docs/reference/api/apps/#oauth-credential-object) with the Apps API to require PKCE for your app. <!-- OKTA-506682 -->
+You can now require Proof Key for Code Exchange (PKCE) as an additional verification for any OpenID Connect app integration except service apps. This more closely aligns with the OAuth Security Best Current Practice recommendation to use PKCE with the authorization code flow regardless of the client type. Use the `pkce_required` property with the Apps API to require PKCE for your app. <!-- OKTA-506682 -->
 
 #### Signed request support for generic SAML IdP is GA in Preview
 
@@ -666,7 +666,7 @@ Using signed SAML requests ensures that incoming requests are from genuine appli
 
 #### Support for Okta Resource Name is GA in Preview
 
-The [Okta Resource Name](/docs/concepts/role-assignment/#okta-resource-name-orn) (ORN) uniquely identifies an Okta [resource set](/docs/reference/api/roles/#resource-set-object) that is associated with a custom admin role assignment. <!-- OKTA-503417 -->
+The [Okta Resource Name](/docs/concepts/role-assignment/#okta-resource-name-orn) (ORN) uniquely identifies an Okta resource set that is associated with a custom admin role assignment. <!-- OKTA-503417 -->
 
 #### Trusted Origins for iFrame embedding is GA in Production
 
@@ -768,11 +768,11 @@ The mandatory `profileAttributes` parameter wasn't validated and the primary `em
 
 #### Admin Roles with Delegated Flows Resource Set support is EA in Preview
 
-With delegated flows, admins can be assigned the ability to run Okta Workflows through the Administrator Roles API. Flows that are delegated to an admin appear in the **Delegated Flows** page where admins can invoke them without signing in to the Workflows Console. This gives super admins more granular control over their admin assignments. See [Resource Sets](/docs/concepts/role-assignment/#resource-sets) in the Custom Role assignment concept and [Supported resources](/docs/reference/api/roles/#supported-resources) in the Administrator Roles API. <!-- OKTA-450117 -->
+With delegated flows, admins can be assigned the ability to run Okta Workflows through the Administrator Roles API. Flows that are delegated to an admin appear in the **Delegated Flows** page where admins can invoke them without signing in to the Workflows Console. This gives super admins more granular control over their admin assignments. See [Resource Sets](/docs/concepts/role-assignment/#resource-sets) in the Custom Role assignment concept and Supported resources in the Administrator Roles API. <!-- OKTA-450117 -->
 
 #### Dynamic IdP routing is EA in Preview
 
-Org admins can now consolidate multiple IdP routing rules into a single dynamic routing rule. Dynamic routing rules use expression language to match users to any IdP, based on attributes of their login object. This reduces the volume and complexity of routing rules and the manual effort of managing them. See [Policy Action with Dynamic IdP routing](/docs/reference/api/policy/#policy-action-with-dynamic-idp-routing). <!-- OKTA-501508 -->
+Org admins can now consolidate multiple IdP routing rules into a single dynamic routing rule. Dynamic routing rules use expression language to match users to any IdP, based on attributes of their login object. This reduces the volume and complexity of routing rules and the manual effort of managing them. See Policy Action with Dynamic IdP routing. <!-- OKTA-501508 -->
 
 #### Email Address Bounces API is GA in Production
 
@@ -800,11 +800,11 @@ Users who attempt to enroll in Okta Verify using SMS can now be rate limited. Th
 
 #### Password as an optional authenticator is GA in Production
 
-Passwords are weak authenticators and prone to security issues. Currently all users are required to enroll a password. This also causes friction during the self-service registration process. You can now create a password-optional or passwordless sign-in experience for your end users. It makes the registration process quicker by removing the need to set up a password. It also provides a safer and more secure sign-in experience as users can instead use stronger authenticators such as possession-based authenticators or biometrics. Okta gives you the flexibility to target specific groups of users in your organization with passwordless flows, allowing you to gradually roll out the experience across your entire user base. See [Create User with Optional Password enabled](/docs/reference/api/users/#create-user-with-optional-password-enabled). <!-- OKTA-497367 -->
+Passwords are weak authenticators and prone to security issues. Currently all users are required to enroll a password. This also causes friction during the self-service registration process. You can now create a password-optional or passwordless sign-in experience for your end users. It makes the registration process quicker by removing the need to set up a password. It also provides a safer and more secure sign-in experience as users can instead use stronger authenticators such as possession-based authenticators or biometrics. Okta gives you the flexibility to target specific groups of users in your organization with passwordless flows, allowing you to gradually roll out the experience across your entire user base. See Create User with Optional Password enabled. <!-- OKTA-497367 -->
 
 #### Regular expression support for matching users with a generic inbound OIDC IdP
 
-Admins can configure the Okta OIDC Identity Provider to only authenticate users from an inbound OIDC IdP if their usernames match a predefined regular expression pattern. See the `filter` property from the [Subject Policy object](/docs/reference/api/idps/#subject-policy-object) in the IdPs API and the Authentication Settings section in the [OIDC IdP](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta) configuration. <!-- OKTA-500903 -->
+Admins can configure the Okta OIDC Identity Provider to only authenticate users from an inbound OIDC IdP if their usernames match a predefined regular expression pattern. See the `filter` property from the Subject Policy object in the IdPs API and the Authentication Settings section in the [OIDC IdP](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta) configuration. <!-- OKTA-500903 -->
 
 #### Signed request support for generic SAML IdP is EA in Preview
 
@@ -812,7 +812,7 @@ Using signed SAML requests ensures that incoming requests are from genuine appli
 
 #### System Log events for telephony rate limit violations
 
-Telephony `system.sms.send.*` and `system.voice.send.*` events are now issued as a `DENY` System Log message when SMS or Voice messages are blocked due to telephony operational rate limit violations. The `system.operation.rate_limit.violation` event is still fired, but will be deprecated in the 2022.08.0 release. See the [System Log API](/docs/reference/api/system-log/). <!-- OKTA-498664 -->
+Telephony `system.sms.send.*` and `system.voice.send.*` events are now issued as a `DENY` System Log message when SMS or Voice messages are blocked due to telephony operational rate limit violations. The `system.operation.rate_limit.violation` event is still fired, but will be deprecated in the 2022.08.0 release. See the System Log API. <!-- OKTA-498664 -->
 
 #### Telephony inline hook is GA in Preview
 
@@ -824,13 +824,13 @@ The MyAccount API now provides user-scoped endpoints that don't require admin to
 
 #### Bugs fixed in 2022.06.0
 
-* The User Consent URIs (`logo_uri`, `policy_uri`, and `tos_uri`) configured in an app's [settings](/docs/reference/api/apps/#settings-10) weren't validated for HTTP or HTTPS URI schemes. (OKTA-395220)
+* The User Consent URIs (`logo_uri`, `policy_uri`, and `tos_uri`) configured in an app's settings weren't validated for HTTP or HTTPS URI schemes. (OKTA-395220)
 
-* Primary and secondary email addresses weren't verified when the email addresses were added or modified through the `/users/me` [API endpoint](/docs/reference/api/users/#update-current-user-s-profile). This issue was fixed in 2022.05.0. (OKTA-444089)
+* Primary and secondary email addresses weren't verified when the email addresses were added or modified through the `/users/me` API endpoint. This issue was fixed in 2022.05.0. (OKTA-444089)
 
-* No System Log error event was triggered when a request to the [Forgot password API endpoint](/docs/reference/api/users/#forgot-password) (`/users/{userId}/credentials/forgot_password`) was made for a user with a `LOCKED_OUT` status. (OKTA-485242)
+* No System Log error event was triggered when a request to the Forgot password API endpoint (`/users/{userId}/credentials/forgot_password`) was made for a user with a `LOCKED_OUT` status. (OKTA-485242)
 
-* No error messages were returned when an API request was made to [create](/docs/reference/api/roles/#create-resource-set) or [update](/docs/reference/api/roles/#add-more-resources) a resource set with invalid ORNs. This occurred if the request was made to an org with the **Okta Resource Name (ORN) in API for Administrator Roles** feature enabled. (OKTA-499775)
+* No error messages were returned when an API request was made to create or update a resource set with invalid ORNs. This occurred if the request was made to an org with the **Okta Resource Name (ORN) in API for Administrator Roles** feature enabled. (OKTA-499775)
 
 ## May
 
@@ -873,7 +873,7 @@ This API allows you to change who receives email notifications for each individu
 
 #### Bug fixed in 2022.05.1
 
-When [role target operations](/docs/reference/api/roles/#role-target-operations) included an invalid `roleId`, an incorrect 500 system error was returned. (OKTA-487507)
+When role target operations included an invalid `roleId`, an incorrect 500 system error was returned. (OKTA-487507)
 
 ### Monthly release 2022.05.0
 
@@ -899,7 +899,7 @@ You can now choose what origins can embed Okta sign-in pages and Okta End-User D
 
 #### Authorize requests to generic OIDC IdPs now include nonce parameter
 
-For generic OIDC IdPs, a  randomized `nonce` parameter is now included in all authorize requests. The `nonce` value is sent to the IdP and can be verified in the returned ID Token. See [Identity Providers API](/docs/reference/api/idps/#oauth-2-0-authorization-server-authorization-endpoint-object). <!-- OKTA-199689 -->
+For generic OIDC IdPs, a  randomized `nonce` parameter is now included in all authorize requests. The `nonce` value is sent to the IdP and can be verified in the returned ID Token. See Identity Providers API. <!-- OKTA-199689 -->
 
 #### Signed request support for generic OIDC IdP is GA in Production
 
@@ -911,7 +911,7 @@ Rotating client secrets without service or application downtime is a challenge. 
 
 #### Okta API access with OAuth 2.0 for Org2Org is GA in Production
 
-The Okta Org2Org integration enables you to push and match both users and groups from one Okta org to another. Previously, this integration only supported token-based access to the Okta API. You can now [configure the Org2Org integration](/docs/guides/secure-oauth-between-orgs/) to access the Okta API as an [OAuth 2.0 client](/docs/reference/api/apps/#token-based-provisioning-connection-profile-properties). This increases security by limiting the scope of access and providing a better mechanism to rotate credentials. <!-- OKTA-493694 -->
+The Okta Org2Org integration enables you to push and match both users and groups from one Okta org to another. Previously, this integration only supported token-based access to the Okta API. You can now [configure the Org2Org integration](/docs/guides/secure-oauth-between-orgs/) to access the Okta API as an OAuth 2.0 client. This increases security by limiting the scope of access and providing a better mechanism to rotate credentials. <!-- OKTA-493694 -->
 
 #### New permissions for custom admin roles
 
@@ -922,17 +922,17 @@ Super admins can now assign these new permissions to their custom admin roles:
 * Manage customizations
 * View customizations
 
-The authorization server permissions can be scoped to a subset of the org's authorization servers. With these new permissions, super admins can now create custom admin roles with more granular permissions for managing their org's customizations and authorization servers. See [ORN Resource Sets in the Role assignment](/docs/concepts/role-assignment/#okta-resource-name-orn) concept and the [Resource Set object in the Administrator Roles API](/docs/reference/api/roles/#resource-set-object). <!--  OKTA-487349 -->
+The authorization server permissions can be scoped to a subset of the org's authorization servers. With these new permissions, super admins can now create custom admin roles with more granular permissions for managing their org's customizations and authorization servers. See [ORN Resource Sets in the Role assignment](/docs/concepts/role-assignment/#okta-resource-name-orn) concept and the Resource Set object in the Administrator Roles API. <!--  OKTA-487349 -->
 
 #### Password as an optional authenticator is GA in Preview
 
-Passwords are weak authenticators and prone to security issues. Currently all users are required to enroll a password. This also causes friction during the self-service registration process. You can now create a password-optional or passwordless sign-in experience for your end users. It makes the registration process quicker by removing the need to set up a password. It also provides a safer and more secure sign-in experience as users can instead use stronger authenticators such as possession-based authenticators or biometrics. Okta gives you the flexibility to target specific groups of users in your organization with passwordless flows, allowing you to gradually roll out the experience across your entire user base. See [Create User with Optional Password enabled](/docs/reference/api/users/#create-user-with-optional-password-enabled). <!-- OKTA-492427 -->
+Passwords are weak authenticators and prone to security issues. Currently all users are required to enroll a password. This also causes friction during the self-service registration process. You can now create a password-optional or passwordless sign-in experience for your end users. It makes the registration process quicker by removing the need to set up a password. It also provides a safer and more secure sign-in experience as users can instead use stronger authenticators such as possession-based authenticators or biometrics. Okta gives you the flexibility to target specific groups of users in your organization with passwordless flows, allowing you to gradually roll out the experience across your entire user base. See Create User with Optional Password enabled. <!-- OKTA-492427 -->
 
 #### Bugs fixed in 2022.05.0
 
 * Web and SPA app integrations using the [OIDC API](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/) with the `Login Initiated By` feature incorrectly returned an error if they were created using an `authorization_code` or `interaction_code` grant type. (OKTA-435855)
 
-* If the Administrator Roles API ([users](/docs/reference/api/roles/#remove-a-group-target-from-a-group-administrator-role-given-to-a-user) and [groups](/docs/reference/api/roles/#remove-a-group-target-from-a-group-administrator-role-given-to-a-group)) endpoints contained an invalid role type, an HTTP 500 Internal Server Error was returned. (OKTA-393032)
+* If the Administrator Roles API (users and groups) endpoints contained an invalid role type, an HTTP 500 Internal Server Error was returned. (OKTA-393032)
 
 * Custom email address attribute mapping for the GitHub IdP failed due to a conflict in the `id` external attribute. (OKTA-460058)
 
@@ -946,7 +946,7 @@ Passwords are weak authenticators and prone to security issues. Currently all us
 
 #### Bug fixed in 2022.04.3
 
-* When an unsupported [constraint](/docs/reference/api/policy/#constraints) was added to the authentication policy verification method, an error wasn't returned from the Policy API.  (OKTA-434893)
+* When an unsupported constraint was added to the authentication policy verification method, an error wasn't returned from the Policy API.  (OKTA-434893)
 
 ### Weekly release 2022.04.1
 
@@ -984,7 +984,7 @@ Email magic links are enhanced to allow end users to authenticate in two differe
 
 #### Password as an optional authenticator is EA in Preview
 
-Passwords are weak authenticators and prone to security issues. Currently all users are required to enroll a password. This also causes friction during the self-service registration process. You can now create a password-optional or passwordless sign-in experience for your end users. It makes the registration process quicker by removing the need to set up a password. It also provides a safer and more secure sign-in experience as users can instead use stronger authenticators such as possession-based authenticators or biometrics. Okta gives you the flexibility to target specific groups of users in your organization with passwordless flows, allowing you to gradually roll out the experience across your entire user base. See [Create User with Optional Password enabled](/docs/reference/api/users/#create-user-with-optional-password-enabled).
+Passwords are weak authenticators and prone to security issues. Currently all users are required to enroll a password. This also causes friction during the self-service registration process. You can now create a password-optional or passwordless sign-in experience for your end users. It makes the registration process quicker by removing the need to set up a password. It also provides a safer and more secure sign-in experience as users can instead use stronger authenticators such as possession-based authenticators or biometrics. Okta gives you the flexibility to target specific groups of users in your organization with passwordless flows, allowing you to gradually roll out the experience across your entire user base. See Create User with Optional Password enabled.
 
 #### Native SSO support is EA in Preview
 
@@ -1012,7 +1012,7 @@ Okta authorization servers now support push authorization requests in the `/par`
 
 #### Signed request support for generic OIDC IdP is GA in Preview
 
-When customers [integrate Okta with an OpenID Connect-based Identity Provider](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta), Okta asks the IdP to authenticate the user with request elements that are passed as query parameters in the URL. The new [Signed Request Object](/docs/reference/api/idps/#oidc-algorithms-object) allows customers to send these parameters encoded in a JWT instead, improving security on the authorization request sent to the OpenID Connect provider or authorization server.
+When customers [integrate Okta with an OpenID Connect-based Identity Provider](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta), Okta asks the IdP to authenticate the user with request elements that are passed as query parameters in the URL. The new Signed Request Object allows customers to send these parameters encoded in a JWT instead, improving security on the authorization request sent to the OpenID Connect provider or authorization server.
 
 #### Client secret rotation and key management is GA in Preview
 
@@ -1020,11 +1020,11 @@ Rotating client secrets without service or application downtime is a challenge. 
 
 #### Okta Org2Org integration supporting Okta API access using an OAuth 2.0 client is GA in Preview
 
-The Okta Org2Org integration enables you to push and match both users and groups from one Okta org to another. Previously, this integration only supported token-based access to the Okta API. You can now [configure the Org2Org integration](/docs/guides/secure-oauth-between-orgs/) to access the Okta API as an [OAuth 2.0 client](/docs/reference/api/apps/#token-based-provisioning-connection-profile-properties). This increases security by limiting the scope of access and providing a better mechanism to rotate credentials.
+The Okta Org2Org integration enables you to push and match both users and groups from one Okta org to another. Previously, this integration only supported token-based access to the Okta API. You can now [configure the Org2Org integration](/docs/guides/secure-oauth-between-orgs/) to access the Okta API as an OAuth 2.0 client. This increases security by limiting the scope of access and providing a better mechanism to rotate credentials.
 
 #### Bug fixed in 2022.04.0
 
-Performing a POST request on the `/apps/{applicationId}` [endpoint](/docs/reference/api/apps/#update-application) didn't update the secret if the org had the [Client Credentials Management](/docs/guides/implement-grant-type/clientcreds/main/#client-credentials-flow) feature enabled. (OKTA-482341)
+Performing a POST request on the `/apps/{applicationId}` endpoint didn't update the secret if the org had the [Client Credentials Management](/docs/guides/implement-grant-type/clientcreds/main/#client-credentials-flow) feature enabled. (OKTA-482341)
 
 ## March
 
@@ -1058,7 +1058,7 @@ The `auth_time` [claim](https://developer.okta.com/docs/api/openapi/okta-oauth/g
 
 #### Bugs fixed in 2022.03.1
 
-* Performing a GET request on the `/policies/` [endpoint](/docs/reference/api/policy/) sometimes returned a page with the wrong number of items. (OKTA-455164)
+* Performing a GET request on the `/policies/` endpoint sometimes returned a page with the wrong number of items. (OKTA-455164)
 * When the [List email templates](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTemplates/#tag/CustomTemplates/operation/listEmailTemplates) or the [List email customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTemplates/#tag/CustomTemplates/operation/listEmailCustomizations) operations were performed on the `/brands/` endpoint, the base address in the link response header contained the `-admin` string instead of the requested base address. (OKTA-465356)
 * When modifying the [custom email activation template](/docs/guides/custom-email/main/#use-customizable-email-templates), an admin could save the template without either of the required `verificationLink` or `verificationToken` elements. (OKTA-472895)
 * When modifying the [custom email challenge template](/docs/guides/custom-email/main/#use-customizable-email-templates), an admin could save the template without either of the required `emailAuthenticationLink` or `verificationToken` elements. (OKTA-472928)
@@ -1080,7 +1080,7 @@ The user-authenticated epoch timestamp is provided as the `auth_time` [claim in 
 
 #### Custom Administrator Roles is GA in Production
 
-The Okta [Custom Administrator Roles](/docs/reference/api/roles/) API provides operations that you can use to create customized roles and assign them to a user or a group.
+The Okta Custom Administrator Roles API provides operations that you can use to create customized roles and assign them to a user or a group.
 
 #### Email Address Bounces API is EA in Preview
 
@@ -1096,7 +1096,7 @@ Two policy name changes are included in this release: app sign-on policy is rena
 
 #### Signed request support for generic OIDC IdP is EA in Preview
 
-When customers [integrate Okta with an OpenID Connect-based Identity Provider](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta), Okta asks the IdP to authenticate the user with request elements that are passed as query parameters in the URL. The new [signed request object](/docs/reference/api/idps/#oidc-algorithms-object) allows customers to send these parameters encoded in a JWT instead, improving security on the authorization request sent to the OpenID Connect provider or authorization server.
+When customers [integrate Okta with an OpenID Connect-based Identity Provider](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta), Okta asks the IdP to authenticate the user with request elements that are passed as query parameters in the URL. The new signed request object allows customers to send these parameters encoded in a JWT instead, improving security on the authorization request sent to the OpenID Connect provider or authorization server.
 
 #### Bugs fixed in 2022.03.0
 
@@ -1114,7 +1114,7 @@ When customers [integrate Okta with an OpenID Connect-based Identity Provider](/
 
 #### Okta Org2Org integration now supports Okta API access using an OAuth 2.0 client
 
-The Okta Org2Org integration enables you to push and match both users and groups from one Okta org to another. Previously, this integration only supported token-based access to the Okta API. You can now [configure the Org2Org integration](/docs/guides/secure-oauth-between-orgs/) to access the Okta API as an [OAuth 2.0 client](/docs/reference/api/apps/#token-based-provisioning-connection-profile-properties). This increases security by limiting the scope of access and providing a better mechanism to rotate credentials. <!-- OKTA-468121 -->
+The Okta Org2Org integration enables you to push and match both users and groups from one Okta org to another. Previously, this integration only supported token-based access to the Okta API. You can now [configure the Org2Org integration](/docs/guides/secure-oauth-between-orgs/) to access the Okta API as an OAuth 2.0 client. This increases security by limiting the scope of access and providing a better mechanism to rotate credentials. <!-- OKTA-468121 -->
 
 ### Weekly release 2022.02.1
 
@@ -1145,7 +1145,7 @@ The [OAuth token endpoint](https://developer.okta.com/docs/api/openapi/okta-oaut
 
 #### Custom Administrator Roles is GA in Preview
 
-The Okta [Custom Administrator Roles](/docs/reference/api/roles/) API provides operations that you can use to create customized roles and assign them to a user or a group. <!--OKTA-457514-->
+The Okta Custom Administrator Roles API provides operations that you can use to create customized roles and assign them to a user or a group. <!--OKTA-457514-->
 
 #### Client secret rotation and key management is EA
 
@@ -1153,7 +1153,7 @@ Rotating client secrets without service or application downtime is a challenge. 
 
 #### Group role assignment improvement
 
-[Assigning a role to a group](/docs/reference/api/roles/#assign-a-role-to-a-group) through the Administrator Roles API has been enhanced by retaining the existing role assignment ID where possible. <!--OKTA-457506-->
+Assigning a role to a group through the Administrator Roles API has been enhanced by retaining the existing role assignment ID where possible. <!--OKTA-457506-->
 
 #### Custom Domains with Okta-Managed Certificates is GA in Production
 
@@ -1161,7 +1161,7 @@ When you customize an Okta URL domain, your Okta-hosted pages are branded with y
 
 #### Bug fixed in 2022.02.0
 
-In the [Custom Administrator Roles](/docs/reference/api/roles/) API, some public DELETE requests returned a different response code than their contract. (OKTA-456896)
+In the Custom Administrator Roles API, some public DELETE requests returned a different response code than their contract. (OKTA-456896)
 
 ## January
 
@@ -1187,9 +1187,9 @@ The masking algorithm now reveals fewer digits in API responses for shorter prof
 
 * When an invalid client assertion type was provided during a [Client Credentials grant type flow](/docs/guides/implement-grant-type/clientcreds/main/), the error response code was 401 instead of 400. (OKTA-456503)
 
-* When the [Create a new Binding](/docs/reference/api/roles/#create-a-new-binding) or the [Add more Members to a Binding](/docs/reference/api/roles/#add-more-members-to-a-binding) operation was performed on the `/iam/resource-sets` endpoint, and included all users or all groups in the request, the request didn't fail as expected. (OKTA-459994)
+* When the Create a new Binding or the Add more Members to a Binding operation was performed on the `/iam/resource-sets` endpoint, and included all users or all groups in the request, the request didn't fail as expected. (OKTA-459994)
 
-* When the [Get all policies](/docs/reference/api/policy/#list-all-policies-by-type) operation was performed on the `/policies` endpoint, unused Radius policies were returned. (OKTA-460965)
+* When the Get all policies operation was performed on the `/policies` endpoint, unused Radius policies were returned. (OKTA-460965)
 
 ### Weekly release 2022.01.1
 
@@ -1201,11 +1201,11 @@ The masking algorithm now reveals fewer digits in API responses for shorter prof
 
 * If the [Create a Scope](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/#tag/AuthorizationServerScopes/operation/createOAuth2Scope) endpoint received multiple requests at or near the same time, duplicate Scopes could be created. (OKTA-442533)
 
-* When the [Update resource set](/docs/reference/api/roles/#update-resource-set) endpoint was called, the `resourceSetId` parameter was required in the body of the request. (OKTA-445144)
+* When the Update resource set endpoint was called, the `resourceSetId` parameter was required in the body of the request. (OKTA-445144)
 
 * When the [Upload Theme background image](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Themes/#tag/Themes/operation/uploadBrandThemeBackgroundImage) endpoint was called, the image was converted to PNG format. (OKTA-458260)
 
-* When the [List events](/docs/reference/api/system-log/#list-events) operation was performed on the `/logs` endpoint, some system logs showed the incorrect status for debug behaviors if there was missing data that prevented behavior evaluation. (OKTA-455372)
+* When the List events operation was performed on the `/logs` endpoint, some system logs showed the incorrect status for debug behaviors if there was missing data that prevented behavior evaluation. (OKTA-455372)
 
 ### Monthly release 2022.01.0
 
@@ -1222,7 +1222,7 @@ An authorization server's issuer URL can be used to validate whether tokens are 
 
 When there are apps that use Okta's subdomain and other apps that use the custom domain, the issuer validation breaks because the value is hard-coded to one domain or the other.
 
-With Dynamic Issuer Mode, the issuer value in minted tokens is dynamically updated based on the URL that is used to initiate the original authorize request. See [Client application settings](/docs/reference/api/apps/#settings-10). <!--OKTA-452668-->
+With Dynamic Issuer Mode, the issuer value in minted tokens is dynamically updated based on the URL that is used to initiate the original authorize request. See Client application settings. <!--OKTA-452668-->
 
 #### Custom domains with Okta-managed certificates is GA in Production
 
@@ -1230,7 +1230,7 @@ When you customize an Okta URL domain, your Okta-hosted pages are branded with y
 
 #### New permissions for custom admin roles
 
-The Administrator Roles API includes new app [permissions](/docs/reference/api/roles/#permission-properties) for custom admin roles to run end-to-end imports. See [About role permissions](https://help.okta.com/okta_help.htm?id=csh-cstm-admin-role-app-permissions).<!--OKTA-433371-->
+The Administrator Roles API includes new app permissions for custom admin roles to run end-to-end imports. See [About role permissions](https://help.okta.com/okta_help.htm?id=csh-cstm-admin-role-app-permissions).<!--OKTA-433371-->
 
 #### Self-service password reset with User API
 

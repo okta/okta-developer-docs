@@ -59,8 +59,8 @@ The following legacy events, already present in the `/api/v1/events` endpoint, a
 
 Added `strict` optional parameter to the following operations:
 
-* [Update User](/docs/reference/api/users/#update-user)
-* [Change Password](/docs/reference/api/users/#change-password)
+* Update User
+* Change Password
 
 This parameter allows you to force the validation of the password policy's `minAge` and `passwordHistory` requirements when an updated password is sent. This will be Generally Available in preview orgs starting on Dec 13, 2017 and in production orgs starting on Dec 19, 2017.
 <!-- OKTA-148151 -->
@@ -96,7 +96,7 @@ Some orgs did not receive this functionality because they were identified as pos
 
 Some preview orgs created with the Developer Paid edition will receive the new functionality on preview orgs starting December 6, 2017, and on production orgs starting December 12, 2017.
 
-See [the User Model documentation](/docs/reference/api/users/#user-model) for more information. <!-- OKTA-150507 -->
+See the User Model documentation for more information. <!-- OKTA-150507 -->
 
 #### JWT as a Request Parameter
 
@@ -159,7 +159,7 @@ The System Log and Events APIs now report the `userId` in API Access Management 
 
 #### IdP Provisioning Policy Conditions in GA
 
-Identity Provider Provisioning Policy [Conditions](/docs/reference/api/idps/#provisioning-policy-object) are now Generally Available. <!--OKTA 123811-->
+Identity Provider Provisioning Policy Conditions are now Generally Available. <!--OKTA 123811-->
 
 ### API Bug Fixes
 
@@ -175,7 +175,7 @@ The following bug fixes are available now on preview orgs, and will be available
 
 ### API Feature Enhancements: New Query Parameter for Create User
 
-Use [the new query parameter `nextLogin`](/docs/reference/api/users/#request-parameters) with a create user API request to create and activate a user with an expired password.
+Use the new query parameter `nextLogin` with a create user API request to create and activate a user with an expired password.
 The user has to change his or her password the next time they log in. This new query parameter eliminates the need to use two API calls to achieve the same result. <!-- OKTA-142029 -->
 
 This feature enhancement is expected in preview orgs starting November 1, 2017, and in production orgs starting November 6, 2017.
@@ -414,16 +414,16 @@ We've changed the behavior of OpenID Connect scopes:
 
 #### Help Desk Administrator Role Generally Available
 
-The Help Desk Administrator Role (`HELP_DESK_ADMIN`) is generally available via the [Roles API](/docs/reference/api/roles/#role-properties).
+The Help Desk Administrator Role (`HELP_DESK_ADMIN`) is generally available via the Roles API.
 For information about this role, see the [in-app help](https://help.okta.com/okta_help.htm?id=ext_The_Help_Desk_Admin_Role). <!-- OKTA-141867 -->
 
 #### Policy API
 
-The Policy API enables an Administrator to perform policy and policy rule operations. The policy framework is used by Okta to control rules and settings that govern, among other things, user session lifetime, whether multi-factor authentication is required when logging in, what MFA factors may be employed, password complexity requirements, and what types of self-service operations are permitted under various circumstances. For more information, see Okta's [API Reference](/docs/reference/api/policy/).
+The Policy API enables an Administrator to perform policy and policy rule operations. The policy framework is used by Okta to control rules and settings that govern, among other things, user session lifetime, whether multi-factor authentication is required when logging in, what MFA factors may be employed, password complexity requirements, and what types of self-service operations are permitted under various circumstances. For more information, see Okta's API Reference.
 
 #### Password Policy API
 
-The Password Policy type controls settings that determine a user's password length and complexity, as well as the frequency with which a password can be changed. This policy also governs the recovery operations that may be performed by the user, including change password, reset (forgot) password and self-service password unlock. For more information, see Okta's [API Reference](/docs/reference/api/policy/#GroupPasswordPolicy).
+The Password Policy type controls settings that determine a user's password length and complexity, as well as the frequency with which a password can be changed. This policy also governs the recovery operations that may be performed by the user, including change password, reset (forgot) password and self-service password unlock. For more information, see Okta's API Reference.
 
 
 ## 2017.38
@@ -441,15 +441,15 @@ Dates for preview and production release are the earliest possible release date.
 
 #### Policy API
 
-The Policy API enables an Administrator to perform policy and policy rule operations. The policy framework is used by Okta to control rules and settings that govern, among other things, user session lifetime, whether multi-factor authentication is required when logging in, what MFA factors may be employed, password complexity requirements, and what types of self-service operations are permitted under various circumstances. For more information, see Okta's [API Reference](/docs/reference/api/policy/).
+The Policy API enables an Administrator to perform policy and policy rule operations. The policy framework is used by Okta to control rules and settings that govern, among other things, user session lifetime, whether multi-factor authentication is required when logging in, what MFA factors may be employed, password complexity requirements, and what types of self-service operations are permitted under various circumstances. For more information, see Okta's API Reference.
 
 #### Password Policy API
 
-The Password Policy type controls settings that determine a user's password length and complexity, as well as the frequency with which a password can be changed. This policy also governs the recovery operations that may be performed by the user, including change password, reset (forgot) password and self-service password unlock. For more information, see Okta's [API Reference](/docs/reference/api/policy/#GroupPasswordPolicy),
+The Password Policy type controls settings that determine a user's password length and complexity, as well as the frequency with which a password can be changed. This policy also governs the recovery operations that may be performed by the user, including change password, reset (forgot) password and self-service password unlock. For more information, see Okta's API Reference,
 
 #### Key Rotation for OpenID Connect and OAuth Apps
 
-You can now specify the key rotation mode for OpenID Connect and OAuth apps in the Apps API with `autoKeyRollover`. More information can be found in the [API Reference](/docs/reference/api/apps/#oauth-credential-object).
+You can now specify the key rotation mode for OpenID Connect and OAuth apps in the Apps API with `autoKeyRollover`. More information can be found in the API Reference.
 
 ### API Bug Fixes
 
@@ -460,7 +460,7 @@ Bug fixes are expected on preview orgs starting September 20, 2017, and on produ
 
 ## 2017.36
 
-The [Policy API](/docs/reference/api/policy/) and [Password Policy API](/docs/reference/api/policy/#GroupPasswordPolicy) are Generally Available in preview orgs starting on September 7, 2017 and in production orgs starting on October 9, 2017.
+The Policy API and Password Policy AP are Generally Available in preview orgs starting on September 7, 2017 and in production orgs starting on October 9, 2017.
 
 The Policy API enables an Administrator to perform policy and policy rule operations. The policy framework is used by Okta to control rules and settings that govern, among other things, user session lifetime, whether multi-factor authentication is required when logging in, what MFA factors may be employed, password complexity requirements, and what types of self-service operations are permitted under various circumstances.
 
@@ -490,7 +490,7 @@ This API can be enabled beginning August 22, 2017 for preview orgs, and beginnin
 
 This bug fix is expected on preview orgs starting August 31, 2017, and on production orgs starting Sept 5, 2017.
 
-* Some requests to update a user via [`/api/v1/users/${userId}`](/docs/reference/api/users/#update-user) failed with a 500 Internal Server Error. (OKTA-138214)
+* Some requests to update a user via `/api/v1/users/${userId}` failed with a 500 Internal Server Error. (OKTA-138214)
 
 
 ## 2017.34
@@ -570,7 +570,7 @@ This allows you to use one `client_id` for an application that needs to make use
 #### OpenID Connect Group Claim Retrieves Application Groups
 <!-- OKTA_132193 -->
 
-OpenID Connect, which uses the Okta Authorization Server, can retrieve [application groups](/docs/reference/api/apps/#application-group-model) for use in tokens.
+OpenID Connect, which uses the Okta Authorization Server, can retrieve application groups for use in tokens.
 Previously, application groups could only be retrieved with the Custom Authorization Server.
 
 You can use Okta Expression Language [`getFilteredGroups` function](/docs/reference/okta-expression-language/#group-functions) to retrieve application groups.
@@ -614,7 +614,7 @@ Okta is [certified for OpenID Connect](http://openid.net/certification/). For mo
 #### Key Rollover
 <!-- OKTA-132045  -->
 
-We provide the ability to generate a certificate with a specified validity period for the [Apps API](/docs/reference/api/apps/) and [Identity Providers API](/docs/reference/api/idps/).
+We provide the ability to generate a certificate with a specified validity period for the Apps API and Identity Providers API.
 
 #### SHA-256 Signed Certificates for New SAML 2.0 Apps
 
@@ -657,7 +657,7 @@ For information about Early Access (EA) and General Availability (GA), see [Okta
 
 #### Key Rollover
 
-We provide the ability to generate a certificate with specified validity period (see the [Apps API](/docs/reference/api/apps/) and [Identity Providers API](/docs/reference/api/idps/)). We build OpenID Connect and API Access Management on this feature. <!-- OKTA-132045  -->
+We provide the ability to generate a certificate with specified validity period (see the Apps API and Identity Providers API). We build OpenID Connect and API Access Management on this feature. <!-- OKTA-132045  -->
 
 #### Email for Two-Factor Authentication  <!-- OKTA-134593  -->
 
@@ -669,7 +669,7 @@ These platform bug fixes are in preview orgs with this release and expected in p
 
 * Under some circumstances users who did not have a secondary email address could not perform a self-service password reset operation.   (OKTA-128340)
 
-* "When the `expand` parameter was set in GET requests to [`/api/v1/groups`](/docs/reference/api/groups/#list-groups), the second and subsequent pages of the response did not have the same `expand` setting.  (OKTA-132503)
+* "When the `expand` parameter was set in GET requests to `/api/v1/groups`, the second and subsequent pages of the response did not have the same `expand` setting.  (OKTA-132503)
 
 * [`/oauth2/v1/clients`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient) returned HTTP status code 200 rather than 201 when creating a client successfully.  (OKTA-128839)
 
@@ -696,7 +696,7 @@ The following platform features are Generally Available (GA) in preview orgs (as
 
 #### Key Rollover
 
-We provide the ability to generate a certificate with specified validity period (see the [Apps API](/docs/reference/api/apps/) and [Identity Providers API](/docs/reference/api/idps/)). We build OpenID Connect and API Access Management on this feature.<!-- OKTA-132045  -->
+We provide the ability to generate a certificate with specified validity period (see the Apps API and Identity Providers API). We build OpenID Connect and API Access Management on this feature.<!-- OKTA-132045  -->
 
 ### Platform Bugs Fixed
 
@@ -710,7 +710,7 @@ These platform bug fixes are available in preview orgs and expected in productio
 
 * [`/oauth2/v1/clients`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient) didn't allow default values for optional parameters. (OKTA-130910)
 
-* Neither [`/oauth2/v1/clients`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient) nor [`/api/v1/apps`](/docs/reference/api/apps/#add-application) required client secrets to be unique. (OKTA-131259)
+* Neither [`/oauth2/v1/clients`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient) nor `/api/v1/apps` required client secrets to be unique. (OKTA-131259)
 
 * [`/oauth2/v1/clients`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient) returned an incorrect resource URI in the response header.  (OKTA-131891)
 
@@ -743,7 +743,7 @@ The following feature enhancement is available on GitHub:
 
 #### OpenID Connect
 
-[OpenID Connect](/docs/reference/api/oidc) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
+OpenID Connect is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
 
  OpenID Connect allows a range of clients, including Web-based, mobile, and JavaScript clients, to request and receive information about authenticated sessions and end users. The specification suite is extensible, supporting optional features such as encryption of identity data, discovery of OpenID Providers, and session management.
 
@@ -752,7 +752,7 @@ The following feature enhancement is available on GitHub:
 
 #### Key Rollover
 
-We provide the ability to generate a certificate with specified validity period (see the [Apps API](/docs/reference/api/apps/) and [Identity Providers API](/docs/reference/api/idps)). We build OpenID Connect and API Access Management on this feature.<!-- OKTA-132045  -->
+We provide the ability to generate a certificate with specified validity period (see the Apps API and Identity Providers API). We build OpenID Connect and API Access Management on this feature.<!-- OKTA-132045  -->
 
 #### Limit Age of Events
 
@@ -767,7 +767,7 @@ Version 1.13.0 of the [Okta Sign-In Widget](https://github.com/okta/okta-signin-
 
 #### Allow Unsuspending Users During Inbound SAML Login
 
-You can configure the JIT settings for a SAML identity provider (IdP) to enable unsuspending users during inbound SAML login. See the [Identity Providers API](/docs/reference/api/idps) for more information.<!-- OKTA-128384 -->
+You can configure the JIT settings for a SAML identity provider (IdP) to enable unsuspending users during inbound SAML login. See the Identity Providers API for more information.<!-- OKTA-128384 -->
 
 #### Email Factor
 
@@ -893,8 +893,8 @@ You can export data before Okta deletes it. We recommend using Security Informat
 
 #### System Logs Track Key Rotation and Generation
 Logged information about key rotation and generation for apps and identity providers is available by using GET requests to either of the following endpoints: `/api/v1/events` or `/api/v1/logs`.
-For more information, see [Identity Provider Signing Key Store Operations](/docs/reference/api/idps/#identity-provider-signing-key-store-operations)
-or [Update Key Credential for Application](/docs/reference/api/apps/#update-key-credential-for-application).
+For more information, see Identity Provider Signing Key Store Operations
+or Update Key Credential for Application.
 
 Here is a response from `/api/v1/logs`:
 
@@ -911,7 +911,7 @@ The [Auth Clients API](https://developer.okta.com/docs/api/openapi/okta-oauth/oa
 OAuth 2.0 and OpenID Connect endpoints.
 
 #### Create OAuth 2.0 and OpenID Connect Clients with Apps API
-The [Apps API](/docs/reference/api/apps/) supports creating and configuring
+The Apps API supports creating and configuring
 OAuth 2.0 or OpenID Connect clients. Alternatively, you can use
 [Client Registration API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/) (RFC 7591 and RFC 7592)
 to create and manage clients.
@@ -949,7 +949,7 @@ Okta returns the `registration_endpoint` in OAuth 2.0 and OpenID Connect `.well-
 The `credentials.signing.kid` property of an app was available even if its sign-on mode does not support
 certificates. Only apps using the following sign-on mode types support certificates: SAML 2.0, SAML 1.1,
 WS-Fed, or OpenID Connect. For more information,
-see: [Application Key Store Operations](/docs/reference/api/apps/#application-key-store-operations) (OKTA-76439)
+see: Application Key Store Operations (OKTA-76439)
 
 #### WWW-Authenticate Header in HTTP 401 Response
 When a call to the token, introspect, or revocation endpoint of OpenID Connect or API Access Management
@@ -1153,7 +1153,7 @@ Additionally, the Set Recovery Question Answer operation doesn't validate comple
 #### Step-up Authentication for SAML Apps is an Early Access Feature
 
 Every step-up transaction starts with a user accessing an application. If step-up authentication is required, Okta redirects the user to the custom login page with state token as a request parameter.
-For more information, see the [SP initiated Step-up Authentication documentation](/docs/reference/api/authn/#sp-initiated-step-up-authentication).
+For more information, see the SP initiated Step-up Authentication documentation.
 
 #### Simple HAL Links Generally Available in Preview for May, 2017
 
@@ -1348,7 +1348,7 @@ For a full description of the new rate limits, see [API Rate Limits](/docs/refer
 
 ### Platform Feature Improvement: System Log Notifications for OpenID Connect Apps
 
-Notifications are entered in the [System Log](/docs/reference/api/system-log/) when OpenID Connect apps are created or updated.
+Notifications are entered in the System Log when OpenID Connect apps are created or updated.
 
 ### Platform Bugs Fixed
 
@@ -1460,7 +1460,7 @@ For example:
 * Add an app manager contact email address.
 * Use the profile to define an allowlist of groups that you can then reference and pass as claims using the [Okta Expression Language function `getFilteredGroups`](/docs/reference/okta-expression-language/#group-functions).
 
-For more information, see the [Apps API](/docs/reference/api/apps/#profile-object).
+For more information, see the Apps API.
 
 Note that the status code for service claims errors has changed from 500 to 400 as part of this feature. <!--OKTA-123128-->
 
@@ -1758,11 +1758,11 @@ As noted above, to change user state, the `self` link should be called to retrie
 Using `GET /api/v1/idps/${idpId}/users/${userId}/credentials/tokens`, you can fetch the Access Tokens minted by a social authentication provider.
 When a user authenticates to Okta via a Social IdP, this request returns the tokens and metadata provided by the Social IdP.
 Clients can use the Access Token against the social provider's endpoints in order to fetch additional profile attributes that Okta doesn't support in Universal Directory, for example, nested attributes.
-For more information, see the [Identity Providers API](/docs/reference/api/idps/#social-authentication-token-operation). <!-- OKTA-118687 -->
+For more information, see the Identity Providers API. <!-- OKTA-118687 -->
 
 ### Platform Bugs Fixed
 
- * Searches on [User](/docs/reference/api/users/#list-users-with-search) incorrectly returned deleted users or out-of-date user status in some cases. (OKTA-116928)
+ * Searches on User incorrectly returned deleted users or out-of-date user status in some cases. (OKTA-116928)
  * Some orgs were unable to add OpenID Connect or OAuth 2.0 clients to an access policy in a custom Authorization Server. (OKTA-117630)
  * When deleting a claim from a custom Authorization Server, the Delete dialog didn't close after clicking **OK** or **Cancel**. (OKTA-124271)
  * Read-only Administrator UI didn't exactly match that role's access rights. (OKTA-123116)
@@ -1885,7 +1885,7 @@ If your org or integrations depend on the previous behavior, you can request the
  * Removing the last app target from an `APP_ADMIN` role assignment changed the scope of the role assignment to all app targets. Now an exception is thrown.
     To target all apps, delete the APP_ADMIN role assignment and recreate it. (OKTA-115122)
  * Adding the first app target failed to change the scope of the role assignment from applying to all app targets to only applying to the specified target.
-    See [Administrator Roles API](/docs/reference/api/roles/#add-app-target-to-app-administrator-role) for details. (OKTA-115122)
+    See Administrator Roles API for details. (OKTA-115122)
  * Application Administrators were incorrectly able to create an OpenID Connect service client even though they weren't assigned an OpenID Connect client app. (OKTA-115168)
  * Some orgs weren't able to deprovision a user, receiving an incorrect 403 error: "Operation failed because user profile is mastered under another system." (OKTA-119549)
 <!-- * Read-only Administrators were incorrectly able to view the administrator UI for deleting authorization servers. (OKTA-123116) hold for production -->
@@ -2012,7 +2012,7 @@ For a full description of the rate limit changes, see [API Rate Limits](/docs/re
 #### Revoke Access Tokens and Refresh Tokens
 
 Use the `oauthTokens` parameter when clearing user sessions to revoke all OpenID Connect and OAuth Access Tokens and Refresh Tokens
-issued to the user. For more information, see [the Users API](/docs/reference/api/users/#clear-user-sessions).<!-- OKTA-116904 -->
+issued to the user. For more information, see the Users API.<!-- OKTA-116904 -->
 
 #### Token Requests with Grant Type password
 
@@ -2049,11 +2049,11 @@ When determining the user locale via the API, Okta uses the locale setting in th
 
 Added `lifecycle/reactivate` endpoint.
 
-This endpoint enables the API user to recover from failure in the authentication workflow, specifically when the user password is not set. In those cases this endpoint can be used to restart the activation by getting a new token and proceeding to set the user credentials. For more information, see the [API Reference](/docs/reference/api/users/#reactivate-user). <!-- OKTA-119096 -->
+This endpoint enables the API user to recover from failure in the authentication workflow, specifically when the user password is not set. In those cases this endpoint can be used to restart the activation by getting a new token and proceeding to set the user credentials. For more information, see the API Reference. <!-- OKTA-119096 -->
 
 #### Linking Users to Social Identity Providers
 
-Added a number of APIs that allow you to link an existing Okta user to a Social Identity Provider via an `externalId`. For more information, see [Identity Provider User Operations](/docs/reference/api/idps/#identity-provider-user-operations) <!-- OKTA-97257 -->
+Added a number of APIs that allow you to link an existing Okta user to a Social Identity Provider via an `externalId`. For more information, see Identity Provider User Operations. <!-- OKTA-97257 -->
 
 ### Platform Bugs Fixed
 

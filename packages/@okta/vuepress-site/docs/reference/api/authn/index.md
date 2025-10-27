@@ -20,7 +20,7 @@ The behavior of the Okta Authentication API varies depending on the type of your
 
 > **Note:** Policy evaluation is conditional on the [client request context](https://developer.okta.com/docs/api/#client-request-context) such as IP address.
 
-> **Note:** In Identity Engine, the Multifactor (MFA) enrollment policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
+> **Note:** In Identity Engine, the Multifactor (MFA) enrollment policy name has changed to [authenticator enrollment policy](https://developer.okta.com/docs/concepts/policies/#authenticator-enrollment-policies).
 
 ### Public application
 
@@ -52,7 +52,7 @@ Trusted apps are backend apps that act as an authentication broker or sign-in po
 
 Every authentication transaction starts with primary authentication that validates a user's primary password credential. **Password Policy**, **MFA Policy**, and **sign-on policy** are evaluated during primary authentication. They're evaluated to determine if the user's password is expired, a Factor should be enrolled, or additional verification is required. The [transaction state](#transaction-state) of the response depends on the user status, group memberships, and assigned policies.
 
-> **Note:** In Identity Engine, the MFA Enrollment Policy name is called the [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
+> **Note:** In Identity Engine, the MFA Enrollment Policy name is called the [authenticator enrollment policy](https://developer.okta.com/docs/concepts/policies/#authenticator-enrollment-policies).
 
 The requests and responses vary depending on the app type, and whether a password expiration warning is sent:
 
@@ -450,7 +450,7 @@ The user is assigned to a **sign-on policy** that requires additional verificati
 
 The user is assigned to an **MFA Policy** that requires enrollment during sign-in and must [select a Factor to enroll](#enroll-factor) to complete the authentication transaction.
 
-> **Note:** In Identity Engine, the MFA Enrollment Policy name is called the [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
+> **Note:** In Identity Engine, the MFA Enrollment Policy name is called the [authenticator enrollment policy](https://developer.okta.com/docs/concepts/policies/#authenticator-enrollment-policies).
 
 ```json
 {
@@ -1219,7 +1219,7 @@ curl -v -X POST \
 
 The user is assigned to an MFA Policy that requires enrollment during the sign-in process. They must [select a Factor to enroll](#enroll-factor) to complete the authentication transaction.
 
-> **Note:** In Identity Engine, the MFA Enrollment Policy name is called the [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
+> **Note:** In Identity Engine, the MFA Enrollment Policy name is called the [authenticator enrollment policy](https://developer.okta.com/docs/concepts/policies/#authenticator-enrollment-policies).
 
 ```json
 {
@@ -1564,7 +1564,7 @@ curl -v -X POST \
 
 The user is assigned to an MFA Policy that requires enrollment during the sign-in process. They must [select a Factor to enroll](#enroll-factor) to complete the authentication transaction.
 
-> **Note:** In Identity Engine, the MFA Enrollment Policy name is called the [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
+> **Note:** In Identity Engine, the MFA Enrollment Policy name is called the [authenticator enrollment policy](https://developer.okta.com/docs/concepts/policies/#authenticator-enrollment-policies).
 
 ```json
 {
@@ -1884,16 +1884,16 @@ curl -v -X POST \
 
 You can enroll, activate, manage, and verify factors inside the authentication context with `/api/v1/authn/factors`.
 
-> **Note:** You can enroll, manage, and verify factors outside the authentication context with [`/api/v1/users/:uid/factors/`](/docs/reference/api/factors/#factor-verification-operations).
+> **Note:** You can enroll, manage, and verify factors outside the authentication context with [`/api/v1/users/{userId}}/factors/`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/).
 
 ### Enroll Factor
 
 
 <ApiOperation method="post" url="/api/v1/authn/factors" /> <SupportsCors />
 
-Enrolls a user with a [Factor](/docs/reference/api/factors/#supported-factors-for-providers) assigned by their **MFA Policy**
+Enrolls a user with a [Factor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/) assigned by their **MFA Policy**
 
-> **Note:** In Identity Engine, the MFA Enrollment Policy name is called the [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
+> **Note:** In Identity Engine, the MFA Enrollment Policy name is called the [authenticator enrollment policy](https://developer.okta.com/docs/concepts/policies/#authenticator-enrollment-policies).
 
 * [Enroll Okta Security Question Factor](#enroll-okta-security-question-factor)
 * [Enroll Okta SMS Factor](#enroll-okta-sms-factor)
@@ -1917,9 +1917,9 @@ Enrolls a user with a [Factor](/docs/reference/api/factors/#supported-factors-fo
 
 | Parameter   | Description                                                                   | Param Type  | DataType                                                      | Required |
 | ----------- | ----------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------- | -------- |
-| factorType  | type of Factor                                                                | Body        | [Factor Type](/docs/reference/api/factors/#factor-type)                            | TRUE     |
-| profile     | profile of a [supported Factor](/docs/reference/api/factors/#supported-factors-for-providers)      | Body        | [Factor Profile object](/docs/reference/api/factors/#factor-profile-object)        | TRUE     |
-| provider    | Factor provider                                                               | Body        | [Provider Type](/docs/reference/api/factors/#provider-type)                        | TRUE     |
+| factorType  | type of Factor                                                                | Body        | [Factor Type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor!path=0/factorType&t=request)                            | TRUE     |
+| profile     | profile of a [supported Factor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/)      | Body        | [Factor Profile object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/listFactors!c=200&path=0/profile&t=response)        | TRUE     |
+| provider    | Factor provider                                                               | Body        | [Provider Type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/listSupportedFactors!c=200&path=provider&t=response)                        | TRUE     |
 | stateToken  | [state token](#state-token) for the current transaction                           | Body        | String                                                        | TRUE     |
 
 #### Response parameters for enroll Factor
@@ -1927,11 +1927,11 @@ Enrolls a user with a [Factor](/docs/reference/api/factors/#supported-factors-fo
 
 [Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction
 
-> **Note:** Some [Factor types](/docs/reference/api/factors/#factor-type) require [activation](#activate-factor) to complete the enrollment process. The [authentication transaction](#transaction-state) transitions to `MFA_ENROLL_ACTIVATE` if a Factor requires activation.
+> **Note:** Some [Factor types](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor!path=0/factorType&t=request) require [activation](#activate-factor) to complete the enrollment process. The [authentication transaction](#transaction-state) transitions to `MFA_ENROLL_ACTIVATE` if a Factor requires activation.
 
 #### Enroll Okta Security Question Factor
 
-Enrolls a user with the Okta `question` Factor and [question profile](/docs/reference/api/factors/#question-profile)
+Enrolls a user with the Okta `question` Factor and [question profile](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor!path=3/profile/answer&t=request).
 
 > **Note:** The Security Question Factor doesn't require activation and is `ACTIVE` after enrollment.
 
@@ -1982,7 +1982,7 @@ curl -v -X POST \
 
 #### Enroll Okta SMS Factor
 
-Enrolls a user with the Okta `sms` Factor and an [SMS profile](/docs/reference/api/factors/#sms-profile). A text message with an OTP is sent to the device during enrollment and must be [activated](#activate-sms-factor) by following the `next` link relation to complete the enrollment process.
+Enrolls a user with the Okta `sms` Factor and an [SMS profile](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor!path=4/profile/phoneNumber&t=request). A text message with an OTP is sent to the device during enrollment and must be [activated](#activate-sms-factor) by following the `next` link relation to complete the enrollment process.
 
 ##### Request example for enroll Okta SMS Factor
 
@@ -2098,7 +2098,7 @@ curl -v -X POST \
 
 #### Enroll Okta Call Factor
 
-Enrolls a user with the Okta `call` Factor and a [Call profile](/docs/reference/api/factors/#call-profile). A voice call with an OTP is sent to the device during enrollment and must be [activated](#activate-call-factor) by following the `next` link relation to complete the enrollment process.
+Enrolls a user with the Okta `call` Factor and a [Call profile](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor!path=0/profile/phoneExtension&t=request). A voice call with an OTP is sent to the device during enrollment and must be [activated](#activate-call-factor) by following the `next` link relation to complete the enrollment process.
 
 ##### Request example for enroll Okta Call Factor
 
@@ -2623,7 +2623,7 @@ curl -v -X POST \
 
 #### Enroll RSA SecurID factor
 
-Enrolls a user with an RSA SecurID factor and a [token profile](/docs/reference/api/factors/#token-profile). RSA tokens must be verified with the [current pin+passcode](/docs/reference/api/factors/#factor-verification-object) as part of the enrollment request.
+Enrolls a user with an RSA SecurID factor and a [token profile](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor!path=5/profile/credentialId&t=request). RSA tokens must be verified with the [current pin+passcode](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/verifyFactor!path=0/passCode&t=request) as part of the enrollment request.
 
 ##### Request example for enroll RSA SecurID Factor
 
@@ -2671,7 +2671,7 @@ curl -v -X POST \
 
 #### Enroll Symantec Validation and ID Protection Service Factor
 
-Enrolls a user with a Symantec Validation and ID Protection Service Factor and a [token profile](/docs/reference/api/factors/#token-profile). Symantec tokens must be verified with the [current and next passcodes](/docs/reference/api/factors/#factor-verification-object) as part of the enrollment request.
+Enrolls a user with a Symantec Validation and ID Protection Service Factor and a [token profile](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor!path=5/profile/credentialId&t=request). Symantec tokens must be verified with the [current and next passcodes](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/verifyFactor!path=0/passCode&t=request) as part of the enrollment request.
 
 ##### Request example for enroll Symantec Validation and ID Protection Service Factor
 
@@ -2720,7 +2720,7 @@ curl -v -X POST \
 
 #### Enroll YubiKey Factor
 
-Enrolls a user with a Yubico Factor (YubiKey). A YubiKey must be verified with the [current passcode](/docs/reference/api/factors/#factor-verification-object) as part of the enrollment request.
+Enrolls a user with a Yubico Factor (YubiKey). A YubiKey must be verified with the [current passcode](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/verifyFactor!path=0/passCode&t=request) as part of the enrollment request.
 
 ##### Request example for enroll YubiKey Factor
 
@@ -3151,13 +3151,13 @@ curl -v -X POST \
 
 #### Enroll Custom HOTP Factor
 
-Enrollment through the Authentication API isn’t supported for Custom HOTP Factors. Refer to the [Factors API documentation](/docs/reference/api/factors/#enroll-custom-hotp-factor) if you would like to enroll users for this type of Factor.
+Enrollment through the Authentication API isn’t supported for Custom HOTP Factors. Refer to the [Factors API documentation](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor) if you would like to enroll users for this type of Factor.
 
 ### Activate Factor
 
 <ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/lifecycle/activate" /> <SupportsCors />
 
-The `sms`,`call`, and `token:software:totp` [Factor types](/docs/reference/api/factors/#factor-type) require activation to complete the enrollment process.
+The `sms`,`call`, and `token:software:totp` [Factor types](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor!path=0/factorType&t=request) require activation to complete the enrollment process.
 
 * [Activate TOTP Factor](#activate-totp-factor)
 * [Activate SMS Factor](#activate-sms-factor)
@@ -7567,17 +7567,17 @@ Specifies the password requirements related to password age and history
 
 ### Factor object
 
-A subset of [Factor properties](/docs/reference/api/factors/#factor-object) published in an authentication transaction during `MFA_ENROLL`, `MFA_REQUIRED`, or `MFA_CHALLENGE` states
+A subset of [Factor properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor!path=5/factorType&t=request) published in an authentication transaction during `MFA_ENROLL`, `MFA_REQUIRED`, or `MFA_CHALLENGE` states
 
 | Property       | Description                                                                                    | DataType                                                       | Nullable | Unique | Readonly |
 | -------------- | ----------------------------------------------------------------------------------------       | -------------------------------------------------------------- | -------- | ------ | -------  |
 | _embedded      | [embedded resources](#factor-embedded-resources) related to the Factor                         | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |
 | _links         | [discoverable resources](#factor-links-object) for the Factor                                  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |
-| factorType     | type of Factor                                                                                 | [Factor Type](/docs/reference/api/factors/#factor-type)                             | FALSE    | TRUE   | TRUE     |
+| factorType     | type of Factor                                                                                 | [Factor Type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor!path=0/factorType&t=request)                             | FALSE    | TRUE   | TRUE     |
 | id             | unique key for Factor                                                                          | String                                                         | TRUE     | TRUE   | TRUE     |
-| profile        | profile of a [supported Factor](/docs/reference/api/factors/#supported-factors-for-providers)                       | [Factor Profile object](/docs/reference/api/factors/#factor-profile-object)         | TRUE     | FALSE  | TRUE     |
-| provider       | Factor provider                                                                                | [Provider Type](/docs/reference/api/factors/#provider-type)                         | FALSE    | TRUE   | TRUE     |
-| vendorName     | Factor vendor name (same as provider but for On-Prem MFA it depends on administrator settings) | [Provider Type](/docs/reference/api/factors/#provider-type)                         | FALSE    | TRUE   | TRUE     |
+| profile        | profile of a [supported Factor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/)                       | [Factor Profile object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/listFactors!c=200&path=0/profile&t=response)         | TRUE     | FALSE  | TRUE     |
+| provider       | Factor provider                                                                                | [Provider Type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/listSupportedFactors!c=200&path=provider&t=response)                         | FALSE    | TRUE   | TRUE     |
+| vendorName     | Factor vendor name (same as provider but for On-Prem MFA it depends on administrator settings) | [Provider Type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/listSupportedFactors!c=200&path=provider&t=response)                         | FALSE    | TRUE   | TRUE     |
 
 ```json
 {
