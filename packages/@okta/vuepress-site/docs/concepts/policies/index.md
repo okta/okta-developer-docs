@@ -141,7 +141,7 @@ Identity Threat Protection with Okta AI is an identity threat solution that comb
 
 * [Session protection policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy): This policy monitors user sessions on your org to identify changes in session context. For Admin Console tasks and further information, see [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
 
-* [Session violation detection policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy): This policy decides if there is a violation of the user session that requires Okta to re-evaluate the global session policy or the app sign-in policy. That decision is based on settings that the admin configures in the session violation detection policy. For Admin Console tasks and further information, see [Session violation detection]().
+* [Session violation detection policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy): This policy decides if there is a violation of the user session that requires Okta to re-evaluate the global session policy or the app sign-in policy. That decision is based on settings that the admin configures in the session violation detection policy. For Admin Console tasks and further information, see [Session violation detection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
 
 #### Device signal collection policies
 
@@ -198,6 +198,8 @@ Identity Threat Protection with Okta AI is an identity threat solution that comb
 * [Entity risk policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy): The entity risk policy monitors your org for entity risk changes related to identity-based threats. For Admin Console tasks and further information, see [Entity risk policy](https://help.okta.com/okta_help.htm?type=oie&id=csh-entity-risk-policy).
 
 * [Session protection policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy): session protection policy monitors user sessions on your org to identify changes in session context. For Admin Console tasks and further information, see [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
+
+* [Session violation detection policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy): This policy decides if there is a violation of the user session that requires Okta to re-evaluate the global session policy or the app sign-in policy. That decision is based on settings that the admin configures in the session violation detection policy. For Admin Console tasks and further information, see [Session violation detection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
 
 ### API access policies
 
