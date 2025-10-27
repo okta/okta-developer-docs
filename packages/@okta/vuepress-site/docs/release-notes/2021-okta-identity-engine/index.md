@@ -13,7 +13,7 @@ title: Okta Identity Engine API Products release notes 2021
 
 #### Bug fixed in 2021.12.2
 
-The [`login_hint`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=login_hint&t=request) didn't appear in the **Username** box even though the admin had already set up the sign-in flow with the [Org2Org](/docs/concepts/multi-tenancy/#diagram) OIDC [app](/docs/reference/api/apps/). (OKTA-445843)
+The [`login_hint`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=login_hint&t=request) didn't appear in the **Username** box even though the admin had already set up the sign-in flow with the [Org2Org](/docs/concepts/multi-tenancy/#diagram) OIDC app. (OKTA-445843)
 
 ### Monthly release 2021.12.0
 
@@ -48,7 +48,7 @@ An authorization server's issuer URL can be used to validate whether tokens are 
 
 When there are apps that use Okta's subdomain and other apps that use the custom domain, the issuer validation breaks because the value is hard-coded to one domain or the other.
 
-With Dynamic Issuer Mode, the issuer value in minted tokens is dynamically updated based on the URL that is used to initiate the original authorize request. See [Client application settings](/docs/reference/api/apps/#settings-10). <!--OKTA-447358-->
+With Dynamic Issuer Mode, the issuer value in minted tokens is dynamically updated based on the URL that is used to initiate the original authorize request. See Client application settings. <!--OKTA-447358-->
 
 #### Error response updated for malicious IP address sign-in requests
 
@@ -94,7 +94,7 @@ SAML app requests that don't support the SAML protocol resulted in an `HTTP 500 
 
 #### Profile enrollment policies can't be modified to deny access
 
-Admins can't update a [Profile Enrollment policy](/docs/reference/api/policy/#profile-enrollment-policy) by setting the `access` property to `DENY` in the [Profile Enrollment Action object](/docs/reference/api/policy/#profile-enrollment-action-object). <!--OKTA-442998-->
+Admins can't update a Profile Enrollment policy by setting the `access` property to `DENY` in the Profile Enrollment Action object. <!--OKTA-442998-->
 
 #### Bug fixed in 2021.11.2
 
@@ -108,7 +108,7 @@ Clients failed to access a custom domain if the optional `certificateChain` prop
 
 #### Bug fixed in 2021.11.1
 
-When the [Update User endpoint](/docs/reference/api/users/#update-user) or the [Change Recovery Question endpoint](/docs/reference/api/users/#change-recovery-question) was used to update the user's security question, Okta Identity Engine still returned the old security question. (OKTA-442243)
+When the Update User endpoint or the Change Recovery Question endpoint was used to update the user's security question, Okta Identity Engine still returned the old security question. (OKTA-442243)
 
 ### Monthly release 2021.11.0
 
@@ -179,7 +179,7 @@ The [Devices API](https://developer.okta.com/docs/api/openapi/okta-management/ma
 
 #### New Policy Authenticator settings are available in the Policy API
 
-[Policy Authenticator](/docs/reference/api/policy/#policy-authenticator-object) configurations are now included in the Policy API's [Multifactor (MFA) Enrollment Policy](/docs/reference/api/policy/#multifactor-mfa-enrollment-policy) settings. You can configure either [Authenticators](/docs/reference/api/policy/#policy-authenticators-settings-example) or [Factors](/docs/reference/api/policy/#policy-factors-settings-example) for an MFA Enrollment Policy with this API update. The Policy Authenticator configurations are available for all active Authenticators, including enrollment and recovery Authenticators. <!--OKTA-429994-->
+Policy Authenticator configurations are now included in the Policy API's Multifactor (MFA) Enrollment Policy settings. You can configure either Authenticators or Factors for an MFA Enrollment Policy with this API update. The Policy Authenticator configurations are available for all active Authenticators, including enrollment and recovery Authenticators. <!--OKTA-429994-->
 
 ### Weekly release 2021.09.3
 
