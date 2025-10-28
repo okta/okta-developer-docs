@@ -8,6 +8,16 @@ Okta Identity Governance is available for both Okta Classic and Identity Engine.
 
 ## October
 
+### Weekly release 2025.10.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bug fixed in 2025.10.2](#bug-fixed-in-2025-10-2)| October 29, 2025 |
+
+#### Bug fixed in 2025.10.2
+
+The [Access Request - V2](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Requests/) APIs didn’t support the client credentials authentication flow. (OKTA-1044065)
+
 ### Weekly release 2025.10.1
 
 | Change | Expected in Preview Orgs |
