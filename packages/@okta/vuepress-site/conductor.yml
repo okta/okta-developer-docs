@@ -5722,7 +5722,7 @@ redirects:
   - from: /docs/reference/api/behavior-rules/index.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Behavior/
   - from: /docs/reference/api/brands/index.html
-    to: ttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/
   - from: /docs/reference/api/captchas/index.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CAPTCHA/
   - from: /docs/reference/api/device-assurance-policies/index.html
@@ -5758,7 +5758,7 @@ redirects:
   - from: /docs/reference/api/myaccount/index.html
     to: https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/
   - from: /docs/reference/api/oauth-clients/index.html
-    to: ttps://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/
   - from: /docs/reference/api/oidc/index.html
     to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/reference/api/org/index.html
@@ -5856,7 +5856,7 @@ redirects:
   - from: /docs/reference/api/behavior-rules
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Behavior/
   - from: /docs/reference/api/brands
-    to: ttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/
   - from: /docs/reference/api/captchas
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CAPTCHA/
   - from: /docs/reference/api/device-assurance-policies
@@ -5890,9 +5890,9 @@ redirects:
   - from: /docs/reference/api/myaccount-migration
     to: https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/
   - from: /docs/reference/api/myaccount
-    to: httpss://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/
+    to: https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/
   - from: /docs/reference/api/oauth-clients
-    to: ttps://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/
   - from: /docs/reference/api/oidc
     to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/reference/api/org
