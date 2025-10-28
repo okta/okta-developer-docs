@@ -54,20 +54,33 @@ Multibrand orgs have a non-deletable default brand called the subdomain brand. H
 
 To use multibrand customization in the Admin Console, see [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding).
 
-### Use the Brands API
+#### User Activation email
+
+If you try to use the Admin Console to send a branded User Activation email, the default Okta branding is applied.
+
+To ensure that the activation email is branded, use the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserLifecycle/#tag/UserLifecycle/operation/activateUser). In your request, change `subdomain.okta.com` to the custom domain associated with the brand. For example, `custom.domain.one`. See [Multibrand and custom domains](#multibrand-and-custom-domains).
+
+> **Note:** This solution works for Okta customers. If you import users with Active Directory or Human Resources as a Service (HRaaS), it can be difficult to use the API.
+
+### Use the Customizations APIs
 
 There are public APIs and updates to existing APIs for multibrand customization:
 
-- [Domains](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomDomain/)
+- [Custom Domains](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomDomain/)
 - [Email domains](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailDomain/)
 - [Brands](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/)
-- [Loading page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Themes/#tag/Themes/operation/listBrandThemes)
+- [Themes](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Themes/)
+- [Loading page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Themes/#tag/Themes/operation/listBrandThemes!c=200&path=loadingPageTouchPointVariant&t=response)
 - [Sign-in page code editor and custom labels](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/getCustomizedSignInPage)
 - [Error pages](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/getCustomizedErrorPage)
 - [Sign-In Widget version](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/listAllSignInWidgetVersions)
-- [Default app for the Sign-In Widget](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/#tag/Brands/operation/listBrands)
+- [Default app for the Sign-In Widget](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/#tag/Brands/operation/listBrands!c=200&path=defaultApp&t=response)
 - [Sign-out page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/getSignOutPageSettings)
-- [Brand locale](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/#tag/Brands/operation/listBrands)
+- [Brand locale](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/#tag/Brands/operation/listBrands!c=200&path=locale&t=response)
+
+### Default brand sign-in page and error page
+
+With multibrand customizations enabled, you can't update the default brand's sign-in page or error page HTML content. The API returns a 403 HTTP status message. See [About subdomain brands and custom brands](#about-subdomain-brands-and-custom-brands).
 
 ### Multibrand and resource sets
 
@@ -88,6 +101,19 @@ If you want to use the Admin Console to send a branded email, consider the follo
 	- Your theming appears in the content of the email (logo, palette, images). With a single custom brand or domain, the Admin Console assumes that you want to send themed content.
 - If your org doesn't have a custom brand, domain, and email address, you can only trigger Okta-branded emails from the Admin Console.
 
+See [About custom email addresses](/docs/guides/custom-url-domain/main/#about-custom-email-addresses).
+
+#### Email domains
+
+Keep in mind the following when setting up domains for an org with branded emails:
+
+- If you don’t have any domains configured, or you have multiple domains configured, the emails use your org’s default brand. See [About subdomain brands versus custom domains](#about-subdomain-brands-and-custom-brands).
+- If there's only one domain configured, the emails use the brand associated with that domain.
+
+#### Email senders
+
+The main Okta email provider allows you to use each unique email sender (root domain, no-reply@company.com) only once in each cell. To bypass this limitation, use a subdomain to keep email senders unique (for example, no-reply@brandA.company.com and no-reply@brandB.company.com).
+
 ### Multibrand and redirect URIs
 
 Multibrand orgs use dynamic issuer mode for IdP. As a result, Okta uses the domain from the authorize request as the domain for the redirect URI when returning the authentication response. The Admin Console UI displays the org's Okta subdomain when the org has multiple custom domains configured.
@@ -100,17 +126,7 @@ URIs that you use in the following settings revert to the Okta subdomain:
 
 You can replace the base path with a custom domain and Okta uses the brand associated with the domain.
 
-## FAQs
-
-### How many custom domains per org?
-
-All paid orgs get a maximum of three custom domains. You can request up to 200 custom domains at no cost.
-
-### Can all custom domains use Okta-managed certificates?
-
-Yes. Okta recommends this approach so customers never have to maintain any certificates.
-
-### How are apps assigned to brands?
+### Brands and assigned apps
 
 Users are routed to the desired app using the `client_id` in the custom domain as a URL parameter.
 
@@ -125,34 +141,3 @@ In all three cases the user signs in to the same OIDC app, but sees three differ
 Access management to apps is controlled through app assignments, so any user can still access any app. You can apply any brand to any app.
 
 If a custom domain doesn’t contain a `client _id`, Okta routes the user to the default app.
-
-### Any limitations/assumptions to be aware of?
-
-#### Email domains
-
-Keep in mind the following when setting up domains for an org with branded emails:
-
-- If you don’t have any domains configured, or you have multiple domains configured, the emails use your org’s default brand. See [About subdomain brands versus custom domains](#about-subdomain-brands-and-custom-brands).
-- If there's only one domain configured, the emails use the brand associated with that domain.
-
-#### Email senders
-
-The main Okta email provider allows you to use each unique email sender (root domain, no-reply@company.com) only once in each cell. To bypass this limitation, use a subdomain to keep email senders unique (for example, no-reply@brandA.company.com and no-reply@brandB.company.com).
-
-#### User Activation email
-
-If you try to use the Admin Console to send a branded User Activation email, the default Okta branding is applied.
-
-To ensure that the activation email is branded, use the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserLifecycle/#tag/UserLifecycle/operation/activateUser). In your request, change `subdomain.okta.com` to the custom domain associated with the brand. For example, `custom.domain.one`. See [Multibrand and custom domains](#multibrand-and-custom-domains).
-
-> **Note:** This solution works for Okta customers. If you import users with Active Directory or Human Resources as a Service (HRaaS), it can be difficult to use the API.
-
-#### Default brand sign-in page and error page
-
-With multibrand customizations enabled, you can't update the default brand's sign-in page or error page HTML content. The API returns a 403 HTTP status message. See [About subdomain brands and custom brands](#about-subdomain-brands-and-custom-brands).
-
-#### Data migrations
-
-- **Flag ON behavior:** Okta migrates any customizations (code, logos, labels) to a newly created brand. This is a one-time migration for only the first time that an org turns on multibrand.
-
-- **Flag ON/OFF/ON behavior:** Okta doesn't remigrate existing customizations made to the default brand so that customizations don’t overwrite the previously customized brand.
