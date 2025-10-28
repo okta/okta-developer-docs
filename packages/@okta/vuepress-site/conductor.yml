@@ -77,7 +77,7 @@ redirects:
     to: /docs/guides/create-an-api-token/
   - from: /docs/api/rest/users.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/
-  - from: /docs/reference/api/user
+  - from: /docs/reference/api/users
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/
   - from: /docs/platform-release-notes/platform-release-notes/index.html
     to: /docs/release-notes/
@@ -5679,3 +5679,271 @@ redirects:
     to: https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#supported-resources
   - from: /docs/guides/spring_security_saml.html
     to: /code/java/spring_security_saml/
+  - from: /docs/reference/api/admin-notifications/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Subscription/
+  - from: /docs/reference/api/agent-pools/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AgentPools/
+  - from: /docs/reference/api/api-service-integrations/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApiServiceIntegrations/
+  - from: /docs/reference/api/api-tokens/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApiToken/
+  - from: /docs/reference/api/apps/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
+  - from: /docs/reference/api/asa/ad-connections/index.html
+     to: https://developer.okta.com/docs/api/openapi/asa/asa/tag/ad-connections/
+  - from: /docs/reference/api/asa/attributes/index.html
+     to: https://developer.okta.com/docs/api/openapi/asa/asa/tag/attributes/
+  - from: /docs/reference/api/asa/audits/index.html
+     to: https://developer.okta.com/docs/api/openapi/asa/asa/tag/audits/
+  - from: /docs/reference/api/asa/clients/index.html
+     to: https://developer.okta.com/docs/api/openapi/asa/asa/tag/clients/
+  - from: /docs/reference/api/asa/entitlements/index.html
+     to: https://developer.okta.com/docs/api/openapi/asa/asa/tag/entitlements/  
+  - from: /docs/reference/api/asa/groups/index.html
+     to: https://developer.okta.com/docs/api/openapi/asa/asa/tag/groups/
+  - from: /docs/reference/api/asa/introduction/index.html
+     to: https://developer.okta.com/docs/api/openapi/asa/guides/overview/
+  - from: /docs/reference/api/asa/projects/index.html
+     to: https://developer.okta.com/docs/api/openapi/asa/asa/tag/projects/
+  - from: /docs/reference/api/asa/service-users/index.html
+     to: https://developer.okta.com/docs/api/openapi/asa/asa/tag/service-users/
+  - from: /docs/reference/api/asa/services/index.html
+     to: https://developer.okta.com/docs/api/openapi/asa/asa/tag/services/
+  - from: /docs/reference/api/asa/teams/index.html
+     to: https://developer.okta.com/docs/api/openapi/asa/asa/tag/teams/
+  - from: /docs/reference/api/asa/users/index.html
+     to: https://developer.okta.com/docs/api/openapi/asa/asa/tag/users/
+  - from: /docs/reference/api/attack-protection/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AttackProtection/
+  - from: /docs/reference/api/authenticators-admin/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/
+  - from: /docs/reference/api/authorization-servers/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/
+  - from: /docs/reference/api/behavior-rules/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Behavior/
+  - from: /docs/reference/api/brands/index.html
+     to: ttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/
+  - from: /docs/reference/api/captchas/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CAPTCHA/
+  - from: /docs/reference/api/device-assurance-policies/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/
+  - from: /docs/reference/api/devices/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/
+  - from: /docs/reference/api/domains/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomDomain/
+  - from: /docs/reference/api/email-domains/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailDomain/
+  - from: /docs/reference/api/event-hooks/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/
+  - from: /docs/reference/api/factors/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/
+  - from: /docs/reference/api/features/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Feature/
+  - from: /docs/reference/api/groups/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/
+  - from: /docs/reference/api/hook-keys/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/HookKey/
+  - from: /docs/reference/api/idps/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/
+  - from: /docs/reference/api/inline-hooks/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/
+  - from: /docs/reference/api/linked-objects/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LinkedObject/
+  - from: /docs/reference/api/log-streaming/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LogStream/
+  - from: /docs/reference/api/mappings/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProfileMapping/
+  - from: /docs/reference/api/myaccount-migration/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/
+  - from: /docs/reference/api/myaccount/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/
+  - from: /docs/reference/api/oauth-clients/index.html
+     to: ttps://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/
+  - from: /docs/reference/api/oidc/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
+  - from: /docs/reference/api/org/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingGeneral/
+  - from: /docs/reference/api/policy/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/
+  - from: /docs/reference/api/principal-rate-limits/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PrincipalRateLimit/
+  - from: /docs/reference/api/push-providers/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PushProvider/ 
+  - from: /docs/reference/api/rate-limit-settings/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RateLimitSettings/
+  - from: /docs/reference/api/risk-events/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/
+  - from: /docs/reference/api/risk-providers/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/
+  - from: /docs/reference/api/roles/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/
+  - from: /docs/reference/api/schemas/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/
+  - from: /docs/reference/api/sessions/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/
+  - from: /docs/reference/api/sms-templates/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/
+  - from: /docs/reference/api/system-log/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
+  - from: /docs/reference/api/templates/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/
+  - from: /docs/reference/api/threat-insight/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ThreatInsight/
+  - from: /docs/reference/api/trusted-origins/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/
+  - from: /docs/reference/api/uischema/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/
+  - from: /docs/reference/api/user-types/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/
+  - from: /docs/reference/api/users/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/
+  - from: /docs/reference/api/xaas/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/
+  - from: /docs/reference/api/zones/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/
+  - from: /docs/reference/import-hook/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createUserImportInlineHook
+  - from: /docs/reference/password-hook/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook
+  - from: /docs/reference/registration-hook/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook
+  - from: /docs/reference/saml-hook/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook
+  - from: /docs/reference/telephony-hook/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook
+  - from: /docs/reference/token-hook/index.html
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook
+  - from: /docs/reference/api/admin-notifications
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Subscription/
+  - from: /docs/reference/api/agent-pools
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AgentPools/
+  - from: /docs/reference/api/api-service-integrations
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApiServiceIntegrations/
+  - from: /docs/reference/api/api-tokens
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApiToken/
+  - from: /docs/reference/api/apps
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
+  - from: /docs/reference/api/asa/ad-connections
+     to: https://developer.okta.com/docs/api/openapi/asa/asa/tag/ad-connections/
+  - from: /docs/reference/api/asa/attributes
+     to: https://developer.okta.com/docs/api/openapi/asa/asa/tag/attributes/
+  - from: /docs/reference/api/asa/audits
+     to: https://developer.okta.com/docs/api/openapi/asa/asa/tag/audits/
+  - from: /docs/reference/api/asa/clients
+     to: https://developer.okta.com/docs/api/openapi/asa/asa/tag/clients/
+  - from: /docs/reference/api/asa/entitlements
+     to: https://developer.okta.com/docs/api/openapi/asa/asa/tag/entitlements/  
+  - from: /docs/reference/api/asa/groups
+     to: https://developer.okta.com/docs/api/openapi/asa/asa/tag/groups/
+  - from: /docs/reference/api/asa/introduction
+     to: https://developer.okta.com/docs/api/openapi/asa/guides/overview/
+  - from: /docs/reference/api/asa/projects
+     to: https://developer.okta.com/docs/api/openapi/asa/asa/tag/projects/
+  - from: /docs/reference/api/asa/service-users
+     to: https://developer.okta.com/docs/api/openapi/asa/asa/tag/service-users/
+  - from: /docs/reference/api/asa/services
+     to: https://developer.okta.com/docs/api/openapi/asa/asa/tag/services/
+  - from: /docs/reference/api/asa/teams
+     to: https://developer.okta.com/docs/api/openapi/asa/asa/tag/teams/
+  - from: /docs/reference/api/asa/users
+     to: https://developer.okta.com/docs/api/openapi/asa/asa/tag/users/
+  - from: /docs/reference/api/attack-protection
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AttackProtection/
+  - from: /docs/reference/api/authenticators-admin
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/
+  - from: /docs/reference/api/authorization-servers
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/
+  - from: /docs/reference/api/behavior-rules
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Behavior/
+  - from: /docs/reference/api/brands
+     to: ttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/
+  - from: /docs/reference/api/captchas
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CAPTCHA/
+  - from: /docs/reference/api/device-assurance-policies
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/
+  - from: /docs/reference/api/devices
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/
+  - from: /docs/reference/api/domains
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomDomain/
+  - from: /docs/reference/api/email-domains
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailDomain/
+  - from: /docs/reference/api/event-hooks
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/
+  - from: /docs/reference/api/factors
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/
+  - from: /docs/reference/api/features
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Feature/
+  - from: /docs/reference/api/groups
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/
+  - from: /docs/reference/api/hook-keys
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/HookKey/
+  - from: /docs/reference/api/idps
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/
+  - from: /docs/reference/api/inline-hooks
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/
+  - from: /docs/reference/api/linked-objects
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LinkedObject/
+  - from: /docs/reference/api/log-streaming
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LogStream/
+  - from: /docs/reference/api/mappings
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProfileMapping/
+  - from: /docs/reference/api/myaccount-migration
+     to: https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/
+  - from: /docs/reference/api/myaccount
+     to: httpss://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/
+  - from: /docs/reference/api/oauth-clients
+     to: ttps://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/
+  - from: /docs/reference/api/oidc
+     to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
+  - from: /docs/reference/api/org
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingGeneral/
+  - from: /docs/reference/api/policy
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/
+  - from: /docs/reference/api/principal-rate-limits
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PrincipalRateLimit/
+  - from: /docs/reference/api/push-providers
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PushProvider/ 
+  - from: /docs/reference/api/rate-limit-settings
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RateLimitSettings/
+  - from: /docs/reference/api/risk-events
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/
+  - from: /docs/reference/api/risk-providers
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/
+  - from: /docs/reference/api/roles
+     to: https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/
+  - from: /docs/reference/api/schemas
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/
+  - from: /docs/reference/api/sessions
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/
+  - from: /docs/reference/api/sms-templates
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/
+  - from: /docs/reference/api/system-log
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
+  - from: /docs/reference/api/templates
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/
+  - from: /docs/reference/api/threat-insight
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ThreatInsight/
+  - from: /docs/reference/api/trusted-origins
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/
+  - from: /docs/reference/api/uischema
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/
+  - from: /docs/reference/api/user-types
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/
+  - from: /docs/reference/api/users
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/
+  - from: /docs/reference/api/xaas
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/
+  - from: /docs/reference/api/zones
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/
+  - from: /docs/reference/import-hook
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createUserImportInlineHook
+  - from: /docs/reference/password-hook
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook
+  - from: /docs/reference/registration-hook
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook
+  - from: /docs/reference/saml-hook
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook
+  - from: /docs/reference/telephony-hook
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook
+  - from: /docs/reference/token-hook
+     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook
