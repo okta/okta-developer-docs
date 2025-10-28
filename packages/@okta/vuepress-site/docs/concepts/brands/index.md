@@ -50,11 +50,11 @@ You can only visit a branded touchpoint (such as a logo or color) after you map 
 
 Multibrand orgs have a non-deletable default brand called the subdomain brand. However, you can create several custom brands. The subdomain brand always appears at the Okta subdomain URL and can’t have a custom domain. You can swap out the logo and other assets, but you can’t edit custom code for the sign-in page or error pages. You can only use a custom domain and custom code for sign-in pages and error pages on custom brands.
 
-### Use the Admin Console
+## Use the Admin Console
 
 To use multibrand customization in the Admin Console, see [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding).
 
-#### User Activation email
+### User Activation email
 
 If you try to use the Admin Console to send a branded User Activation email, the default Okta branding is applied.
 
@@ -62,7 +62,7 @@ To ensure that the activation email is branded, use the [Users API](https://deve
 
 > **Note:** This solution works for Okta customers. If you import users with Active Directory or Human Resources as a Service (HRaaS), it can be difficult to use the API.
 
-### Use the Customizations APIs
+## Use the Customizations APIs
 
 There are public APIs and updates to existing APIs for multibrand customization:
 
@@ -78,18 +78,18 @@ There are public APIs and updates to existing APIs for multibrand customization:
 - [Sign-out page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/getSignOutPageSettings)
 - [Brand locale](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/#tag/Brands/operation/listBrands!c=200&path=locale&t=response)
 
-### Default brand sign-in page and error page
+## Default brand sign-in page and error page
 
 With multibrand customizations enabled, you can't update the default brand's sign-in page or error page HTML content. The API returns a 403 HTTP status message. See [About subdomain brands and custom brands](#about-subdomain-brands-and-custom-brands).
 
-### Multibrand and resource sets
+## Multibrand and resource sets
 
 Make a custom admin role specific to a brand by using a customization resource type. See:
 
 - [Create a resource set - Okta Identity Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-resource-set)
 - [Create a resource set - Okta Classic Engine](https://help.okta.com/okta_help.htm?id=ext-create-resource-set)
 
-### Multibrand and emails
+## Multibrand and emails
 
 If you want to use the Admin Console to send a branded email, consider the following:
 
@@ -103,18 +103,18 @@ If you want to use the Admin Console to send a branded email, consider the follo
 
 See [About custom email addresses](/docs/guides/custom-url-domain/main/#about-custom-email-addresses).
 
-#### Email domains
+### Email domains
 
 Keep in mind the following when setting up domains for an org with branded emails:
 
 - If you don’t have any domains configured, or you have multiple domains configured, the emails use your org’s default brand. See [About subdomain brands versus custom domains](#about-subdomain-brands-and-custom-brands).
 - If there's only one domain configured, the emails use the brand associated with that domain.
 
-#### Email senders
+### Email senders
 
 The main Okta email provider allows you to use each unique email sender (root domain, no-reply@company.com) only once in each cell. To bypass this limitation, use a subdomain to keep email senders unique (for example, no-reply@brandA.company.com and no-reply@brandB.company.com).
 
-### Multibrand and redirect URIs
+## Multibrand and redirect URIs
 
 Multibrand orgs use dynamic issuer mode for IdP. As a result, Okta uses the domain from the authorize request as the domain for the redirect URI when returning the authentication response. The Admin Console UI displays the org's Okta subdomain when the org has multiple custom domains configured.
 
@@ -126,7 +126,7 @@ URIs that you use in the following settings revert to the Okta subdomain:
 
 You can replace the base path with a custom domain and Okta uses the brand associated with the domain.
 
-### Brands and assigned apps
+## Brands and assigned apps
 
 Users are routed to the desired app using the `client_id` in the custom domain as a URL parameter.
 
