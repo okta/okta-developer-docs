@@ -5947,4 +5947,3 @@ redirects:
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook
   - from: /docs/reference/token-hook
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook
-    
