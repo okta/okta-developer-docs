@@ -142,14 +142,14 @@ Continue with the OIN Wizard and configure your protocol settings:
 
 1. Specify the following properties if you want to integrate Entitlement Management:
 
-> **Notes**:
-    * Entitlement Management is only supported for SCIM-based integrations.
-    * The SCIM entitlement management properties section only displays when you select Entitlement Management along with the protocols that your integration supports from the Identity Lifecycle Management section.
+    > **Notes:**
+    > * Entitlement Management is only supported for SCIM-based integrations.
+    > * The SCIM entitlement management properties section only displays when you select Entitlement Management along with the protocols that your integration supports from the Identity Lifecycle Management section.
 
     <StackSnippet snippet="entitlement-management-properties"/>
 
 1. Click **+ Add another** to add another resource type.
-1. If you need to delete a resource type, click the delete icon () next to it.
+1. If you need to delete a resource type, click the delete icon (![trash can; delete icon](/img/icons/odyssey/delete.svg)) next to it.
 
 #### Universal logout properties
 
@@ -211,14 +211,17 @@ Click **Test your integration** to save your test information and begin the inte
 The OIN Wizard journey includes the **Test integration** experience page to help you configure and test your integration within the same org before submission. These are the tasks that you need to complete:
 
 1. [Generate instances for testing](#generate-instances-for-testing). You need to create an app integration instance to test each protocol that your integration supports.
+
     * For an SSO integration, configure SSO and assign test users on the test instance.
     * For a SCIM integration, configure provisioning and map user profile attributes on the test instance.
     * For SCIM entitlement management integration, manually test this functionality as follows:
+
         1. Verify that the **Governance Engine** is **Enabled**. To enable it, see [Enable Governance Engine](https://help.okta.com/oie/en-us/content/topics/identity-governance/em/entitlement-mgt.htm?cshid=ext-entitlement-mgt).
         1. Configure provisioning and update the operations supported by your SCIM server
         1. Verify that the resource types or entitlements supported by your SCIM server are listed in the **Governance** tab.
         1. Map user profile attributes on the test instance.
         1. Assign the entitlements to the users manually for testing or automatically through a defined policy. For more information, see [Assign entitlements to users](https://help.okta.com/oie/en-us/content/topics/identity-governance/em/assign-entitlements-users.htm).
+
     * For the Universal Logout integration, assign the test user and enable the **Logout** option on the instance. You can use the same instance that you created for SSO integration testing.
 
 1. Test your integration.
@@ -534,7 +537,7 @@ You need to run three sets of tests for SCIM integrations:
 
 1. [Entitlement management Runscope tests](#entitlement-management-runscope-tests)
 
-    Enter the results URL from these tests in the Link to SCIM Entitlement Management Runscope test results field when you submit your integration to the OIN.
+    Enter the results URL from these tests in the **Link to SCIM Entitlement Management Runscope test results** field when you submit your integration to the OIN.
 
 1. [Manual Okta SCIM integration tests](#manual-okta-scim-integration-tests)
 
@@ -597,7 +600,7 @@ When you're satisfied with your Runscope CRUD test results, enter them in the **
 
 #### Entitlement management Runscope tests
 
-1. Download the Okta SCIM 2.0 Entitlements Test file.
+1. Download the [Okta SCIM 2.0 Entitlements Test](/standards/SCIM/SCIMFiles/Okta-SCIM-20-Entitlements-Test.json) file.
 
     This Entitlement management test file is built for the BlazeMeter Runscope API monitoring tool. If you don't have a Runscope account, you can sign up with a [free trial to Runscope](https://www.runscope.com/okta) for Okta developers.
 
