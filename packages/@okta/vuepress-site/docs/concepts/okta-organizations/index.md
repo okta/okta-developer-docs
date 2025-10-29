@@ -72,7 +72,7 @@ Multiple orgs allow for the complete segregation of internal and external users.
 
 ## Multiple-org management with Okta Aerial
 
-Okta Aerial is an administration service designed to enable multi-org management from a single, centralized account. It introduces an account layer that allows administrators to view and manage all their Okta orgs, including both production and preview environments. Okta Aerial helps for resolving administrative challenges faced by many organizations, such as achieving multi-org visibility, securing admin access through Identity Lifecycle Management (LCM), and enforcing consistent policies across multiple orgs. Okta Aerial also simplifies the management of subscribed Okta products, helping you and partners reduce the total cost of managing Okta.
+Okta Aerial is an administration service designed to enable multi-org management from a single, centralized account. It introduces an account layer that allows administrators to view and manage all their Okta orgs, including both production and preview environments. Okta Aerial resolves administrative challenges faced by many organizations, such as achieving multi-org visibility, securing admin access through Identity Lifecycle Management (LCM), and enforcing consistent policies across multiple orgs. Okta Aerial also simplifies the management of subscribed Okta products, helping you and partners reduce the total cost of managing Okta.
 
 See [Manage orgs with Okta Aerial](/docs/guides/maange-orgs-okta-aerial/) and [Okta Aerial](https://help.okta.com/okta_help.htm?type=aerial&id=overview).
 
