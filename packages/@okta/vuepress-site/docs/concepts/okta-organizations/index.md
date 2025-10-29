@@ -70,6 +70,20 @@ However, in more complex situations, you might need multiple orgs. For example, 
 
 Multiple orgs allow for the complete segregation of internal and external users. In addition, apps and changes made to the internal or external org have no impact on one another. However, multiple orgs add complexity in terms of the number of environments to manage. See [Multi-tenant solutions](/docs/concepts/multi-tenancy/).
 
+## Multiple-org management with Okta Aerial
+
+Okta Aerial is an administration service designed to enable multi-org management from a single, centralized account. It introduces an account layer that allows administrators to view and manage all their Okta orgs, including both production and preview environments. Okta Aerial helps to resolve administrative challenges faced by many organizations, such as achieving multi-org visibility, securing admin access through Identity Lifecycle Management (LCM), and enforcing consistent policies across multiple orgs. Okta Aerial also simplifies the management of subscribed Okta products, helping you and partners reduce the total cost of managing Okta.
+
+See [Manage orgs with Okta Aerial](/docs/guides/maange-orgs-okta-aerial/main/) and [Okta Aerial](https://help.okta.com/okta_help.htm?type=aerial&id=overview).
+
+## Org creator
+
+The Org creator product allows the creation of new Okta orgs from an existing parent org. It's accessible through the [Org Creator API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgCreator/). This product allows organizations using multi-org deployment architectures, such as managed service providers (MSP), to create new orgs.
+
+> **Note:** You need to have the **Platform - Multi-org Deployment** product to enable the **Org Creator API** feature. Contact your Okta account team to purchase this product and to enable the Org Creator API feature.
+
+For details, see [Org Creator](/docs/concepts/org-creator/).
+
 ## Org features
 
 Okta orgs have different features depending on your contract.
