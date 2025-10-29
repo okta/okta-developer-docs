@@ -2,7 +2,7 @@
 
 Use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) to create a rule that requires <StackSnippet snippet="idp" inline /> to verify users when they enroll a new authenticator. Create your own `POST` request body or copy the [example request](#okta-account-management-policy-rule-example-request) and input your values.
 
-Ensure that you’ve created a user account and group for that user. For example, add the user to a group called "Persona IDV test group".
+Ensure that you’ve created a user account and group for that user. For example, add the user to a group called "<StackSnippet snippet="idp" inline /> IDV test group".
 
 > **Note:** To add a rule using the Admin Console, see [Edit the Okta account management policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-edit-oamp).
 
@@ -14,7 +14,7 @@ Ensure that you’ve created a user account and group for that user. For example
    * Use the Okta account management policy `id` as the `policyId` value.
    * Set the group ID. Use the [List all groups call](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups) to find the `id` for the test group.
    * Set the `verificationMethod` type to `ID_PROOFING`.
-   * Set the `verificationMethod.id` to the Okta Persona IdP that you created in the [previous section](#create-the-idv-vendor-in-okta).
+   * Set the `verificationMethod.id` as the ID of the <StackSnippet snippet="idp" inline /> IdP that you created in the [previous section](#create-the-idv-vendor-in-okta).
    * Set `appSignOn` access value to `ALLOW`.
    * Use the following [Okta Expression Language](/docs/reference/okta-expression-language-in-identity-engine/) object:
 
@@ -140,23 +140,18 @@ Ensure that you’ve created a user account and group for that user. For example
 
 ## Test the integration
 
-You can test your integration by using the rule that you configured in the [previous section](#create-an-okta-account-management-policy-rule).
+After you've configured <StackSnippet snippet="idp" inline /> as an IDV vendor and created the Okta account management policy rule, you can test the integration.
 
-1. Sign in to your org as the user that you created.
-1. Click your username.
-1. Go to **My Settings**.
-1. Select **Security Methods**, and then set up a new authenticator.
+You can test the integration directly from your <StackSnippet snippet="idp" inline /> app. However, you must use a real user account with verifiable user information. For example, if your IDV flow requires a government-issued ID, your user account must have an ID that matches that requirement.
 
-If the IDV vendor is set up correctly, you’re prompted to verify your identity and redirected through the <StackSnippet snippet="idp" inline /> IDV flow. Then, the user you created can successfully enroll an authenticator.
+1. Go to your <StackSnippet snippet="idp" inline /> dashboard.
+1. Go to **Helpdesk Verification**.
+1. Under **Employee**, select the user you want to test the IDV flow with.
+1. Under **Verification method**, select **Via sharing a Link**.
+1. Click **Generate Verification & Copy Link**. The link is copied to your clipboard.
+1. Paste the link into a new browser tab to open it.
+1. Complete the IDV flow.
 
-> **Note:** Review the [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) if you encounter errors when testing the IDV flow. See [Identity verification events](/docs/guides/idv-integration/main/#identity-verification-events) for information about IDV events in the System Log.
+To verify that the Okta account management policy and <StackSnippet snippet="idp" inline /> are set up correctly in your org, try to enroll an authenticator with your user. If your IDV vendor and policy are set up correctly, that user is prompted to verify their identity with the IDV vendor before they can complete the enrollment.
 
-### Test image
-
-Use the following image if your verification template requires you to upload a photo. Save the image and then select it when you're prompted to upload a photo.
-
-<div class="half border">
-
-![Okta logo and brand name](/img/idv-test-image.png)
-
-</div>
+> **Note:** Your user may not be able to complete the IDV flow if their information doesn't match the verifiable information required by your IDV vendor. Review the [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) if you encounter errors when testing the IDV flow. See [Identity verification events](/docs/guides/idv-integration/main/#identity-verification-events) for information about IDV events in the System Log.

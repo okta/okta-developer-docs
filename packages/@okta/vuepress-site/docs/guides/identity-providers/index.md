@@ -5,7 +5,7 @@ meta:
     content: Okta supports both enterprise and social identity providers (social login).
 ---
 
-Okta integrates with many identity providers. Select an identity provider card to add [enterprise](#enterprise-identity-providers) or [social login](#social-logins) to your app.
+Okta integrates with many identity providers. Select an identity provider card to add [enterprise](#enterprise-identity-providers), [social login](#social-logins), or [identity verification](#enterprise-identity-verification-vendors) to your app.
 
 Not sure what an identity provider is? See [External Identity Providers](/docs/concepts/identity-providers/).
 
@@ -22,6 +22,9 @@ Not sure what an identity provider is? See [External Identity Providers](/docs/c
 ## Enterprise identity verification vendors
 
 <Cards>
+  <Card href="/docs/guides/add-id-verification-idp/clear/main" headerImage="/img/idp-logos/idv_clear.svg">CLEAR1</Card>
+  <Card href="/docs/guides/add-id-verification-idp/customidv/main" headerImage="/img/idp-logos/idv_custom.svg">Custom IDV</Card>
+  <Card href="/docs/guides/add-id-verification-idp/incode/main" headerImage="/img/idp-logos/idv_incode.svg">Incode</Card>
   <Card href="/docs/guides/add-id-verification-idp/persona/main" headerImage="/img/idp-logos/idv_persona.svg">Persona</Card>
 </Cards>
 
@@ -39,7 +42,7 @@ Not sure what an identity provider is? See [External Identity Providers](/docs/c
   <Card href="/docs/guides/add-logingov-idp/main/" headerImage="/img/idp-logos/login-gov-logo.svg">Login.gov</Card>
   <Card href="/docs/guides/social-login/microsoft/main/" headerImage="/img/idp-logos/microsoft.svg">Microsoft</Card>
   <Card href="/docs/guides/add-an-external-idp/openidconnect/main/" headerImage="/img/idp-logos/oidc.png">OpenID Connect</Card>
-  <Card href="/docs/guides/social-login/paypal/main" headerImage="/img/idp-logos/paypal.png">Paypal</Card>
+  <Card href="/docs/guides/social-login/paypal/main" headerImage="/img/idp-logos/paypal.png">PayPal</Card>
   <Card href="/docs/guides/social-login/salesforce/main" headerImage="/img/idp-logos/salesforce.svg">Salesforce</Card>
   <Card href="/docs/guides/social-login/spotify/main" headerImage="/img/idp-logos/spotify.png">Spotify</Card>
   <Card href="/docs/guides/social-login/xero/main" headerImage="/img/idp-logos/xero.png">Xero</Card>
