@@ -112,13 +112,13 @@ The policy allows for the following specific expressions:
 | `accessRequest.{operation}`| `accessRequest` references the access context of the request. `operation` references the account management operation: `enroll`, `unenroll`, `recover`, or `unlockAccount`. | String |
 | `accessRequest.authenticator.{id}` | `accessRequest` references the access context of the request. `authenticator.id` references an optional authenticator `id`, for example, the `id` of a custom authenticator. | String |
 | `accessRequest.authenticator.{key}` | `accessRequest` references the access context of the request. `authenticator.key` references the [authenticator key](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod/0/constraints&t=request). | String |
-| 
+| <ApiLifecycle access="ea" />`device.profile.{property}` | `device` references the device context of the request. `profile` references the device profile. `property` references device properties such as `registered` or `managed`. <br></br> For information about expressions related to device context, see [Expression Language attributes for devices](https://help.okta.com/okta_help.htm?type=oie&id=csh-fp-policy-custom-expression). | String |
 
 ### Condition Object example
 
 ```bash
 "elCondition": {
-    "condition": "accessRequest.operation == \'enroll\' && ( accessRequest.authenticator.key == \'okta_verify\' || accessRequest.authenticator.key == \'webauthn\' || accessRequest.authenticator.key == \'smart_card_idp\' || accessRequest.authenticator.key == \'yubikey_token\' )"
+    "condition": "accessRequest.operation == \'enroll\' && ( accessRequest.authenticator.key == \'okta_verify\' || accessRequest.authenticator.key == \'webauthn\' || accessRequest.authenticator.key == \'smart_card_idp\' || accessRequest.authenticator.key == \'yubikey_token\' ) || device.profile.platform == MACOS"
 },
 ```
 
