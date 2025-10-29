@@ -8,6 +8,26 @@ title: Okta Identity Engine API release notes 2025
 
 ## October
 
+### Weekly release 2025.10.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.10.2](#bugs-fixed-in-2025-10-2)| October 29, 2025 |
+
+#### Bugs fixed in 2025.10.2
+
+* In Workflows, the Okta Connector app didn’t display a list of available connector actions. (OKTA-946866)
+
+* GET calls to the `/idp/myaccount/profile/schema` endpoint returned external profile attributes with `READ_WRITE` permissions. (OKTA-992346)
+
+* When a GET policies (`/api/v1/policies`) or policy rules (`/api/v1/policies/{policyId}/rules`) request was made after the `userType` object was deleted, the response still contained the deleted object's `userType` ID. (OKTA-1018705)
+
+* Group push mappings created using the public group push API with a `DOMAIN_LOCAL` group scope failed to push. (OKTA-1025408)
+
+* Calls to the `POST /api/v1/realms` endpoint failed when a domain name in the `allowedDomains` array was longer than six characters due to an incorrect validation limit. (OKTA-1038603)
+
+* API calls for user searches that included the same field multiple times in the `fields` parameter returned a 500 error. (OKTA-1044193)
+
 ### Weekly release 2025.10.1
 
 | Change | Expected in Preview Orgs |
