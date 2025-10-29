@@ -10,7 +10,7 @@ Within every org, there are users and apps. These are the only mandatory items t
 
 ## Org URLs
 
-Okta orgs are hosted on subdomains and each org is assigned a URL. The typical org URL is the tenant name (the subdomain), and then the domain name.
+Okta orgs are hosted on subdomains and each org is provided a URL. The typical org URL is the tenant name (the subdomain), and then the domain name.
 
 Example domain: `companyname.okta.com`
 
@@ -72,13 +72,13 @@ Multiple orgs allow for the complete segregation of internal and external users.
 
 ## Multiple-org management with Okta Aerial
 
-Okta Aerial is an administration service designed to enable multi-org management from a single, centralized account. It introduces an account layer that allows administrators to view and manage all their Okta orgs, including both production and preview environments. Okta Aerial helps to resolve administrative challenges faced by many organizations, such as achieving multi-org visibility, securing admin access through Identity Lifecycle Management (LCM), and enforcing consistent policies across multiple orgs. Okta Aerial also simplifies the management of subscribed Okta products, helping you and partners reduce the total cost of managing Okta.
+Okta Aerial is an administration service designed to enable multi-org management from a single, centralized account. It introduces an account layer that allows administrators to view and manage all their Okta orgs, including both production and preview environments. Okta Aerial helps for resolving administrative challenges faced by many organizations, such as achieving multi-org visibility, securing admin access through Identity Lifecycle Management (LCM), and enforcing consistent policies across multiple orgs. Okta Aerial also simplifies the management of subscribed Okta products, helping you and partners reduce the total cost of managing Okta.
 
 See [Manage orgs with Okta Aerial](/docs/guides/maange-orgs-okta-aerial/main/) and [Okta Aerial](https://help.okta.com/okta_help.htm?type=aerial&id=overview).
 
 ## Org creator
 
-The Org creator product allows the creation of new Okta orgs from an existing parent org. It's accessible through the [Org Creator API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgCreator/). This product allows organizations using multi-org deployment architectures, such as managed service providers (MSP), to create new orgs.
+The Org creator product allows the creation of new Okta orgs from an existing parent org. It's accessible through the [Org Creator API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgCreator/). This product allows organizations using multi-org deployment architectures, such as managed service providers (MSP), to create orgs, which are designated child orgs, allowing them to use existing configurations from the parent org.
 
 > **Note:** You need to have the **Platform - Multi-org Deployment** product to enable the **Org Creator API** feature. Contact your Okta account team to purchase this product and to enable the Org Creator API feature.
 
@@ -88,7 +88,7 @@ For details, see [Org Creator](/docs/concepts/org-creator/).
 
 Okta orgs have different features depending on your contract.
 
-A generally available (GA) feature is new or enhanced functionality that is enabled by default for all customers based on your purchase agreement. Features in GA are supported by Okta Customer Support, and issues are addressed according to your Customer Agreement with Okta.
+A generally available (GA) feature is new or enhanced functionality that is enabled by default for all customers based on your purchase agreement. Features in GA are supported by Okta customer support, and issues are addressed according to your customer agreement with Okta.
 
 Early Access (EA) features are opt-in features that you can try out in your org by asking Okta Support to enable them. Also, the **Features** page in the Admin Console (**Settings** > **Features**) allows Super Admins to enable and disable some self-service EA features themselves (assuming your org is eligible for the feature).
 
@@ -100,4 +100,4 @@ Rate limiting controls the number of API requests that can be sent to an organiz
 
 It’s used to protect resources from accidental overuse and intentional attacks. For example, accidental overuse might be where a client's script heavily calls our APIs. An intentional or malicious attack might be trying thousands of password combinations for a user or sending millions of requests to an Okta org to prevent the users of that org from using Okta.
 
-See [Rate Limits](/docs/reference/rate-limits/) for more information on the endpoints and operations that are subject to rate limits and what the limits are for your Okta org.
+See [Rate Limits](/docs/reference/rate-limits/) for more information on the endpoints and operations that are subject to rate limits.
