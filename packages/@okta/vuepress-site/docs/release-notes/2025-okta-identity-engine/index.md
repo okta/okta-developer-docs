@@ -28,8 +28,6 @@ title: Okta Identity Engine API release notes 2025
 
 * API calls for user searches that included the same field multiple times in the `fields` parameter returned a 500 error. (OKTA-1044193)
 
-
-
 ### Weekly release 2025.10.1
 
 | Change | Expected in Preview Orgs |
