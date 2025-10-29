@@ -44,15 +44,15 @@ The OIN team verifies your submitted integration before they publish it in the [
 
 ### Protocols supported
 
-This guide covers submissions that use the following protocols and integration:
+This guide covers submissions that use the following protocols and integrations:
 
 * [OpenID Connect (OIDC)](https://openid.net/connect/)
 
 * [Security Assertion Markup Language (SAML) 2.0](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html)
 
-* [System for Cross-domain Identity Management (SCIM) 2.0](https://scim.cloud)
+* [System for Cross-domain Identity Management (SCIM) 2.0 Provisioning](https://scim.cloud)
 
-* [Entitlement Management](docs/guides/scim-with-entitlements/main/)
+* [SCIM 2.0 Entitlement Management](/docs/guides/scim-with-entitlements/main/)
 
 * [Universal Logout](/docs/guides/oin-universal-logout-overview/)
 
@@ -86,7 +86,7 @@ Start your integration submission for OIN publication:
 
 1. Click **Configure your integration**.
 
-### Configure your integration
+### Add integration details
 
 Continue with the OIN Wizard and configure your integration:
 
@@ -102,6 +102,10 @@ Continue with the OIN Wizard and configure your integration:
     | **Use Cases** | Add optional use case categories that apply to your integration:<br><ul><li>Automation</li> <li>Centralized Logging</li> <li>Directory and HR Sync</li> <li>Identity Governance and Administration (IGA)</li> <li>Identity Verification</li> <li>Multifactor Authentication (MFA)</li> <li>Zero Trust</li></ul>You can select up to three optional use cases. Default use cases are assigned to your integration based on supported features. See [Use case guidelines](/docs/guides/submit-app-prereq/main/#use-case-guidelines). |
 
     `*` Required properties
+
+1. Click **Configure your integration**.
+
+### Configure your integration
 
 #### Integration variables
 
@@ -134,7 +138,7 @@ Continue with the OIN Wizard and configure your protocol settings:
 
     <StackSnippet snippet="protocol-properties" />
 
-#### entitlement management properties
+#### SCIM 2.0 entitlement management properties
 
 1. Specify the following properties if you want to integrate Entitlement Management:
 
@@ -143,6 +147,9 @@ Continue with the OIN Wizard and configure your protocol settings:
     * The SCIM entitlement management properties section only displays when you select Entitlement Management along with the protocols that your integration supports from the Identity Lifecycle Management section.
 
     <StackSnippet snippet="entitlement-management-properties"/>
+
+1. Click **+ Add another** to add another resource type.
+1. If you need to delete a resource type, click the delete icon () next to it.
 
 #### Universal logout properties
 
@@ -206,12 +213,19 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 1. [Generate instances for testing](#generate-instances-for-testing). You need to create an app integration instance to test each protocol that your integration supports.
     * For an SSO integration, configure SSO and assign test users on the test instance.
     * For a SCIM integration, configure provisioning and map user profile attributes on the test instance.
+    * For SCIM entitlement management integration, manually test this functionality as follows:
+        1. Verify that the **Governance Engine** is **Enabled**. To enable it, see [Enable Governance Engine](https://help.okta.com/oie/en-us/content/topics/identity-governance/em/entitlement-mgt.htm?cshid=ext-entitlement-mgt).
+        1. Configure provisioning and update the operations supported by your SCIM server
+        1. Verify that the resource types or entitlements supported by your SCIM server are listed in the **Governance** tab.
+        1. Map user profile attributes on the test instance.
+        1. Assign the entitlements to the users manually for testing or automatically through a defined policy. For more information, see [Assign entitlements to users](https://help.okta.com/oie/en-us/content/topics/identity-governance/em/assign-entitlements-users.htm).
     * For the Universal Logout integration, assign the test user and enable the **Logout** option on the instance. You can use the same instance that you created for SSO integration testing.
 
 1. Test your integration.
    * For an SSO integration, test the required flows in the [OIN Submission Tester](#oin-submission-tester) with your generated test instance. Fix any test failures from the OIN Submission Tester, then regenerate the test instance (if necessary) and retest.
    * For a SCIM integration, execute the [Runscope CRUD tests](#runscope-crud-tests) and the [Okta manual integration tests](#manual-okta-scim-integration-tests) with your generated test instance.
-    * For a Universal Logout integration, test the logout flow manually. See [Test your Universal Logout integration](#test-your-universal-logout-integration).
+   * For SCIM entitlement management integration, execute the [Entitlement Management Runscope tests](#entitlement-management-runscope-tests) and the [Okta manual integration tests](#manual-okta-scim-integration-tests) with your generated test instance
+   * For a Universal Logout integration, test the logout flow manually. See [Test your Universal Logout integration](#test-your-universal-logout-integration).
 
 1. [Submit your integration](#submit-your-integration) after all required tests are successful.
 
@@ -242,7 +256,7 @@ Generate instances for testing in your Integrator Free Plan org directly from th
 Okta recommends that you generate an instance for testing each protocol supported by your integration:
 
 * You must generate separate instances for testing if you support two SSO protocols (one for OIDC and one for SAML). The OIN Submission Tester can only test one protocol at a time.
-* If your SSO integration also supports SCIM, then create one instance for SCIM protocol testing and one instance for each SSO protocol testing.
+* If your SSO integration also supports SCIM and SCIM entitlement management, then create one instance for SCIM protocol and SCIM entitlement management testing and one instance for each SSO protocol testing.
 * For Universal Logout integration, you can use the same instance that you created for SSO protocol testing.
 
 There are certain conditions where you can test two protocols on one instance. You can create one instance for SSO and SCIM testing if your integration meets all of these conditions:
@@ -518,6 +532,10 @@ You need to run three sets of tests for SCIM integrations:
 
     Enter the results URL from these tests in the **Link to Runscope CRUD test results** field when you submit your integration to the OIN.
 
+1. [Entitlement management Runscope tests](#entitlement-management-runscope-tests)
+
+    Enter the results URL from these tests in the Link to SCIM Entitlement Management Runscope test results field when you submit your integration to the OIN.
+
 1. [Manual Okta SCIM integration tests](#manual-okta-scim-integration-tests)
 
     You must certify that you've completed these tests when you submit your integration to the OIN.
@@ -576,6 +594,14 @@ When you're satisfied with your Runscope CRUD test results, enter them in the **
     `https://www.runscope.com/radar/abcdefghijkl/m01nopq2-3456-7r8s-9012-t34567uvw890/history/123ef4gh-i567-89j0-1k2l-3m4n5o678901`.
 
 1. Paste the test results URL into the **Link to Runscope CRUD test results** field in the OIN Wizard **Test integration** > **SCIM integration testing step** section.
+
+#### Entitlement management Runscope tests
+
+1. Download the Okta SCIM 2.0 Entitlements Test file.
+
+    This Entitlement management test file is built for the BlazeMeter Runscope API monitoring tool. If you don't have a Runscope account, you can sign up with a [free trial to Runscope](https://www.runscope.com/okta) for Okta developers.
+
+1. Follow the instructions from step [2](https://developer.okta.com/docs/guides/submit-oin-app/scim/main/#runscope-crud-tests:~:text=for%20Okta%20developers.-,From%20Runscope%2C,-click%20Import%20Test) in the [Runscope CRUD tests](#runscope-crud-tests) section.
 
 #### Manual Okta SCIM integration tests
 
