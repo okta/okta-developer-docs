@@ -21,7 +21,7 @@ With trust claims enabled and your IdP org able to verify any two factors, you c
 
   **Registered** and **Managed** status: When a user authenticates with Okta Verify on the IdP org, device claims for the **registered** and **managed** statuses are extracted from the device context. These claims are included in the outbound OpenID Connect ID token. The `okta_auth` payload within the ID token response contains the information about device claims.
 
-  The SP org uses these claims to satisfy policies that require Okta Verify-specific device conditions: `device.managed` or `device.registered`.
+  The SP org uses these claims to satisfy policies that require Okta Verify-specific device conditions, such as device state and device management.
 
 ### Global session policy example
 
