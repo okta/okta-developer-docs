@@ -80,7 +80,7 @@ There are public APIs and updates to existing APIs for multibrand customization:
 
 ## Default brand sign-in page and error page
 
-With multibrand customizations enabled, you can't update the default brand's sign-in page or error page HTML content. The API returns a 403 HTTP status message. See [About subdomain brands and custom brands](#about-subdomain-brands-and-custom-brands).
+With multibrand customizations enabled, you can't update the default brand's sign-in page or error page HTML content. The API returns a 403 HTTP status message. See [Multibrand and custom domains](#multibrand-and-custom-domains).
 
 ## Multibrand and resource sets
 
@@ -107,7 +107,7 @@ See [About custom email addresses](/docs/guides/custom-url-domain/main/#about-cu
 
 Keep in mind the following when setting up domains for an org with branded emails:
 
-- If you don’t have any domains configured, or you have multiple domains configured, the emails use your org’s default brand. See [About subdomain brands versus custom domains](#about-subdomain-brands-and-custom-brands).
+- If you don’t have any domains configured, or you have multiple domains configured, the emails use your org’s default brand. See [Subdomain brands and custom brands](#subdomain-brands-and-custom-brands).
 - If there's only one domain configured, the emails use the brand associated with that domain.
 
 ### Email senders
