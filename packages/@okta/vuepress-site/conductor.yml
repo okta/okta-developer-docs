@@ -5951,3 +5951,7 @@ redirects:
     to: /code/#archived-sdks
   - from: /docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/index.html
     to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-sdk-use-case-sign-in-soc-idp/go/main
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-sdk-use-case-sign-in-soc-idp/go/main/index.html
+    to: /code/#archived-sdks
