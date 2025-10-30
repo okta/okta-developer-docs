@@ -18,7 +18,7 @@ Okta Privileged Access (OPA) is available for both Okta Classic and Identity Eng
 #### More account details for end users
 
 End users now have access to more account and rotation details from the Active Directory account details page, such as the `sAMAccountName`, the security identifier (`sid`), and password rotation statistics.
-See the following changes to the response schema of [Retrieve an Active Directory account](https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-accounts/#tag/active-directory-accounts/operation/GetActiveDirectoryAccountDetails):
+See the following changes to the response schema of [Retrieve an Active Directory account](https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-accounts/#tag/active-directory-accounts/operation/GetActiveDirectoryAccountEndUser):
 
 * New `rotation` object
 * Additional properties in the `account` object
