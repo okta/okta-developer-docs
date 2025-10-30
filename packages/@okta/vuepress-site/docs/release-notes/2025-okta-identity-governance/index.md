@@ -34,6 +34,7 @@ The client credential flow for API service apps didn’t work for some governanc
 |--------|--------------------------|
 | [Entitlement history is Beta](#entitlement-history-is-beta)| September 10, 2025 |
 | [New governance setting System Log event](#new-governance-setting-system-log-event)| October 8, 2025 |
+| [Auditor reporting package is GA](#auditor-reporting-package-is-ga)| August 13, 2025 |
 
 #### Entitlement history is Beta
 
@@ -46,6 +47,13 @@ You can also access this feature from the Admin Console. See [View user entitlem
 
 The [`governance.settings.update`](https://developer.okta.com/docs/reference/api/event-types/?q=governance.settings.update) System Log event is triggered when super admins update the delegate settings to allow or block users from assigning their own delegate.
 <!-- OKTA-1005733 Preview date: Oct 8, 2025 -->
+
+#### Auditor reporting package is GA
+
+You can now generate access certification campaign reports that are tailored to meet auditor requirements. These reports make preparing for compliance audits faster and easier by reducing the time and manual effort required for assembling and exporting campaign and user access data.
+
+Access certification campaign reports are generated from the auditor reporting package, which is triggered post-campaign completion when the `createReportingPackageEnabled` parameter is true. See [`reportingSettings.createReportingPackageEnabled`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign!path=reportingSettings&t=request) in the [Create a campaign](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign) resource.
+<!--OKTA-982353 IGA_ACCESS_CERT_AUDITOR_REPORTING Preview date: August 13, 2025 -->
 
 ## September
 
