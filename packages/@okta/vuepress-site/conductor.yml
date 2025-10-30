@@ -5947,3 +5947,7 @@ redirects:
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook
   - from: /docs/reference/token-hook
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook
+  - from: /docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/index.html
+    to: /code/#archived-sdks
