@@ -144,3 +144,9 @@ The [Okta Core Management APIs](/docs/reference/core-okta-api/) allow you to man
 | ![Java](/img/sdks/java.png) | Java | [Okta Management SDK for Java](https://github.com/okta/okta-sdk-java) | [Guide](https://github.com/okta/okta-sdk-java#getting-started) |
 | ![node.js](/img/sdks/nodejs.png) | node.js | [Okta Management SDK for node.js](https://github.com/okta/okta-sdk-nodejs) | [Guide](https://github.com/okta/okta-sdk-nodejs#getting-started) |
 | ![Go](/img/sdks/go.png) | Go | [Okta Management SDK for Go](https://github.com/okta/okta-sdk-golang) | [Guide](https://github.com/okta/okta-sdk-golang#getting-started) |
+
+### Archived SDK
+
+> **Note**: The [Okta IDX SDK for Golang](https://github.com/okta/okta-idx-golang) has been archived and is no longer actively maintained or supported. This decision was made as part of our efforts to consolidate and improve our SDK offerings. Okta recommends using [redirect authentication](/docs/guides/sign-into-web-app-redirect/go/main/) instead.
+>
+> The [Golang sample apps](https://github.com/okta/samples-golang) have also been archived and are no longer actively maintained or supported.

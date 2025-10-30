@@ -140,9 +140,3 @@ The classic Auth SDKs for [Android](https://github.com/okta/okta-auth-java) (Jav
 | -- | ------- | -------------------------- | -- | ---------------- |
 | ![Android](/img/sdks/android.png) | Android | [Okta Mobile SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin) |  | [SessionTokenFlow](https://github.com/okta/okta-mobile-kotlin/blob/master/oauth2/src/main/java/com/okta/oauth2/SessionTokenFlow.kt) |
 | ![iOS](/img/sdks/ios.png) | iOS | [Okta Mobile SDK for Swift](https://github.com/okta/okta-mobile-swift) | [Sample App](https://github.com/okta/okta-mobile-swift/tree/master/Samples/ClassicNativeAuth) | [SessionTokenFlow](https://okta.github.io/okta-mobile-swift/development/documentation/oauth2auth/sessiontokenflow) |
-
-### Archived SDK
-
-> **Note**: The [Okta IDX SDK for Golang](https://github.com/okta/okta-idx-golang) has been archived and is no longer actively maintained or supported. This decision was made as part of our efforts to consolidate and improve our SDK offerings. Okta recommends using [redirect authentication](/docs/guides/sign-into-web-app-redirect/go/main/) instead.
->
-> The [Golang sample apps](https://github.com/okta/samples-golang) have also been archived and are no longer actively maintained or supported.
