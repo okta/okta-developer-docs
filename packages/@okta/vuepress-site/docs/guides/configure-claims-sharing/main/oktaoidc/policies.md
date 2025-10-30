@@ -17,6 +17,11 @@ With trust claims enabled and your IdP org able to verify any two factors, you c
 
   After you define these conditions, you may still not meet the policy requirements. If you still haven't met the policy requirement, then the SP org redirects you to verify any locally configured authenticator. If there's no local authenticator available, or the enrollment policy for a particular authenticator is disabled, then the SP org displays an error.
 
+* **Device claims:**
+  * **Registered** or **Managed** status: When a user authenticates with Okta Verify on the IdP org, device claims for the **registered** and **managed** statuses are extracted from the device context. These claims are included in the outbound OpenID Connect ID token. The `okta_auth` payload within the ID token response contains the information about device claims.
+
+  The SP org uses these claims to satisfy poicies that require Okta Verify-specific device conditions: `device.managed` or `device.registered`.
+
 ### Global session policy example
 
 This same concept applies to the global session policy. If trust claims aren’t enabled and only the password authenticator is configured, you can’t set a global session policy that requires MFA.
