@@ -837,7 +837,6 @@ export const guides = [
           {
             title: "Manage orgs with Okta Aerial",
             guideName: "manage-orgs-okta-aerial",
-            hidden: true
           }
         ],
       },
@@ -1196,6 +1195,10 @@ export const releaseNotes = [
       {
         title: "2025 - Access Gateway",
         path: "/docs/release-notes/2025-okta-access-gateway/",
+      },
+      {
+        title: "2025 - Aerial",
+        path: "/docs/release-notes/2025-okta-aerial/",
       },
       {
         title: "Archive",
