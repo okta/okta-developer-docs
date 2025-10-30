@@ -144,7 +144,7 @@ Continue with the OIN Wizard and configure your protocol settings:
 
     > **Notes:**
     > * Entitlement Management is only supported for SCIM-based integrations.
-    > * The SCIM entitlement management properties section only displays when you select Entitlement Management along with the protocols that your integration supports from the Identity Lifecycle Management section.
+    > * The SCIM entitlement management properties section only displays when you select **Entitlement Management** along with the protocols that your integration supports from the **Identity Lifecycle Management** section.
 
     <StackSnippet snippet="entitlement-management-properties"/>
 
@@ -217,7 +217,7 @@ The OIN Wizard journey includes the **Test integration** experience page to help
     * For SCIM entitlement management integration, manually test this functionality as follows:
 
         1. Verify that the **Governance Engine** is **Enabled**. To enable it, see [Enable Governance Engine](https://help.okta.com/oie/en-us/content/topics/identity-governance/em/entitlement-mgt.htm?cshid=ext-entitlement-mgt).
-        1. Configure provisioning and update the operations supported by your SCIM server
+        1. Configure provisioning and update the operations supported by your SCIM server.
         1. Verify that the resource types or entitlements supported by your SCIM server are listed in the **Governance** tab.
         1. Map user profile attributes on the test instance.
         1. Assign the entitlements to the users manually for testing or automatically through a defined policy. For more information, see [Assign entitlements to users](https://help.okta.com/oie/en-us/content/topics/identity-governance/em/assign-entitlements-users.htm).
