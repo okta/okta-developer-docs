@@ -10,6 +10,7 @@
     "dev": "yarn conductor:validate && vuepress dev .",
     "prebuild": "node .vuepress/scripts/yml-parse-check.js",
     "build": ".vuepress/scripts/build.sh",
+    "build-with-redirect": ".vuepress/scripts/build-with-redirect.sh",
     "postbuild": "node .vuepress/scripts/strip-guide-parts-from-sitemap.js"
   },
   "repository": {
