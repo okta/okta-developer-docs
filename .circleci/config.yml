@@ -4,6 +4,9 @@ parameters:
   preview:
     type: string
     default: ""
+  preview_with_redirect:
+    type: string
+    default: ""
 
 commands:
   install-deps:
