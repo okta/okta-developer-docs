@@ -5955,7 +5955,55 @@ redirects:
     to: /code/#archived-sdks
   - from: /docs/guides/oie-embedded-sdk-use-case-sign-in-soc-idp/go/main/index.html
     to: /code/#archived-sdks
-  - from: /docs/guides/oie-embedded-sdk-use-case-sign-in-soc-idp/go/main
+  - from: /docs/guides/oie-embedded-sdk-use-case-self-reg/go/main
     to: /code/#archived-sdks
-  - from: /docs/guides/oie-embedded-sdk-use-case-sign-in-soc-idp/go/main/index.html
+  - from: /docs/guides/oie-embedded-sdk-use-case-self-reg/go/main/index.html
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/go/main
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/go/main/index.html
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/go/main
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/go/main/index.html
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-sdk-use-case-basic-sign-out/go/main
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-sdk-use-case-basic-sign-out/go/main/index.html
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-widget-use-case-load/go/main
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-widget-use-case-load/go/main/index.html
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main/index.html
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-widget-use-case-sign-in-soc-idp/go/main
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-widget-use-case-sign-in-soc-idp/go/main/index.html
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-upgrade-add-sdk-to-your-app/go/main
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-upgrade-add-sdk-to-your-app/go/main/index.html
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/go/main
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/go/main/index.html
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-common-run-samples/go/main
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-common-run-samples/go/main/index.html
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-common-refresh-tokens/go/main
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-common-refresh-tokens/go/main/index.html
+    to: /code/#archived-sdks
+  - from: docs/guides/oie-embedded-common-org-setup/go/main
+    to: /code/#archived-sdks
+  - from: docs/guides/oie-embedded-common-org-setup/go/main/index.html
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-common-download-setup-app/go/main
+    to: /code/#archived-sdks
+  - from: /docs/guides/oie-embedded-common-download-setup-app/go/main/index.html
     to: /code/#archived-sdks
