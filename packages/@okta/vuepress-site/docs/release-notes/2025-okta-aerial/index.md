@@ -4,7 +4,7 @@ title: Okta Aerial API release notes 2025
 
 # Okta Aerial API release notes (2025)
 
-These release notes list customer-visible changes to the Okta Aerial API. Okta Aerial aligns with the Okta Classic and Okta Identity Engine release dates, but updates to the Aerial service deploy from outside these dates.
+These release notes list customer-visible changes to the Okta Aerial API. Okta Aerial aligns with the Okta Classic and Okta Identity Engine release, but updates to the Aerial service deploy from outside their release dates.
 
 * The Aerial services preview date are expected updates to the preview environment (`https://aerial-sandbox.okta.com`)
 
@@ -24,7 +24,7 @@ See also [Introduction to the Okta Aerial API](https://developer.okta.com/docs/a
 
 Many organizations struggle with managing multiple Okta environments, leading to fragmented visibility and increased administrative overhead. Okta Aerial addresses these challenges by providing a centralized administration service that enables multi-org management from a single account. This solution introduces an account layer that allows administrators to view and manage all their Okta orgs, including both production and preview environments, from an Admin Console or through APIs. As a result, Okta Aerial simplifies the management of subscribed Okta products, helps achieve comprehensive multi-org visibility, and secures admin access, reducing the total cost of managing Okta for you and your partners.
 
-See [Manage orgs with Okta Aerial](/docs/guides/maange-orgs-okta-aerial/) and [Okta Aerial](https://help.okta.com/okta_help.htm?type=aerial&id=overview).
+See [Manage orgs with Okta Aerial](/docs/guides/manage-orgs-okta-aerial/) and [Okta Aerial](https://help.okta.com/okta_help.htm?type=aerial&id=overview).
 
 ## October 2025
 

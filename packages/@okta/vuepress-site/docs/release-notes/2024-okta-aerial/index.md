@@ -56,7 +56,7 @@ If a child org is linked to Okta Aerial, System Log events for product updates n
 
 #### New property available for Okta Aerial API
 
-A new `adminOrg` property is available for the `org` object of the Okta Aerial API. This property represents the Aerial org. A new filter allows admins to retrieve the Aerial org of their account (`filter=adminOrg eq true`). See [List all Orgs](/openapi/aerial/aerial/tag/Orgs/#tag/Orgs/operation/getOrgs).
+A new `adminOrg` property is available for the `org` object of the Okta Aerial API. This property represents the Aerial org. A new filter allows admins to retrieve the Aerial org of their account (`filter=adminOrg eq true`). See [List all Orgs](https://developer.okta.com/docs/api/openapi/aerial/aerial/tag/Orgs/#tag/Orgs/operation/getOrgs).
 
 #### Bug fixes
 
