@@ -296,14 +296,6 @@ After you've changed your DNS records, DNS providers or your local machine may c
 
 There are websites available for flushing the caches for [Google DNS](https://google-public-dns.appspot.com/cache) and [Open DNS](https://cachecheck.opendns.com/).
 
-### Set up a Web Application Firewall (WAF)
-
-This is an optional step when you're configuring a custom domain.
-
-You can use a **Bring your own certificate (advanced)** custom domain, and bring your own TLS certificate, to enforce a WAF. You can use a WAF to filter or monitor access to your Okta tenant. To restrict all user traffic, configure advanced firewall policies to block traffic outside your designated access point. See [What is a Web Application Firewall (WAF)?](https://www.okta.com/identity-101/waf/).
-
-> **Note:** For guidance about implementing a WAF with your custom domain, contact your Okta account team.
-
 ## Update other Okta settings
 
 After you add your custom domain, some features or APIs require extra configuration to reflect that change.
