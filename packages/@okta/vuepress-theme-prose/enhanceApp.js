@@ -27,11 +27,9 @@ export default ({ Vue, options, router, siteData }) => {
     if (to.matched.length > 0 && to.matched[0].path === "*") {
       if (typeof window !== 'undefined' && window.location.hostname.startsWith('preview')) {
         async function processRedirects(yamlUrl) {
-          let response;
-          try {
-            response = await fetch(yamlUrl);
-          } catch (error) {
-            console.error('Error processing redirects:', error);
+          const response = await fetch(yamlUrl);
+
+          if (!response.ok) {
             next("/errors/404.html");
 
             return;
