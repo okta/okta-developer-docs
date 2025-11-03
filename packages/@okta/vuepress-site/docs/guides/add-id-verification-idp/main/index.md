@@ -25,8 +25,6 @@ Because of its stricter verification, you might only use an IDV vendor for sensi
 
 ### Map profile attributes from Okta to your IDV vendor
 
-<ApiLifecycle access="ea" />
-
 After you've created the IDV vendor in Okta, you can map other profile attributes from your user directory to attributes in your IDV vendor. Okta sends the `givenName` and `familyName` attributes by default. You can map other attributes as needed. See [Map profile attributes from Okta to an identity verification vendor](https://help.okta.com/okta_help.htm?type=oie&id=idp-map-profile-attribs).
 
 <StackSnippet snippet="afterappidpinokta" />
