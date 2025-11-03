@@ -140,16 +140,7 @@ Continue with the OIN Wizard and configure your protocol settings:
 
 #### SCIM 2.0 entitlement management properties
 
-1. Specify the following properties if you want to integrate Entitlement Management:
-
-    > **Notes:**
-    > * Entitlement Management is only supported for SCIM-based integrations.
-    > * The SCIM entitlement management properties section only displays when you select **Entitlement Management** along with the protocols that your integration supports from the **Identity Lifecycle Management** section.
-
-    <StackSnippet snippet="entitlement-management-properties"/>
-
-1. Click **+ Add another** to add another resource type.
-1. If you need to delete a resource type, click the delete icon (![trash can; delete icon](/img/icons/odyssey/delete.svg)) next to it.
+<StackSnippet snippet="entitlement-management-properties"/>
 
 #### Universal logout properties
 
