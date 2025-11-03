@@ -4,7 +4,7 @@ title: Manage orgs with Okta Aerial
 
 This guide explains how to add orgs to your Okta Aerial account and manage Aerial org settings.
 
-> **Note:** Access to Okta Aerial requires an additional product to be present. Ensure that your Okta account team gives you access to the Okta Aerial API.
+> **Note:** You need to have the **Platform - Multi-org Deployment** product enabled and have access to the Okta Aerial API. Contact your Okta customer support for more information.
 
 ---
 
@@ -17,8 +17,8 @@ This guide explains how to add orgs to your Okta Aerial account and manage Aeria
 
 #### What you need
 
-- An Okta Aerial account
-- A parent org
+- An Okta Aerial account (provided by your Account team)
+- A parent org (provided by your Account team)
 - Access to the Org creator API
 - Access to the Okta Aerial API
 
@@ -44,7 +44,7 @@ Okta Aerial introduces a few terms to the Okta ecosystem:
 | Term                                                           | Definition                                                                    |
 |----------------------------------------------------------------|--------------------------------------------------------------------------------|
 | Aerial account              | The management layer around multiple orgs within Okta. The Aerial account lives outside of your orgs and can manage any production or preview org linked to the Aerial account. Each Aerial account has a dedicated Aerial org.  |
-| Aerial org        | Used to register API clients and acts as an [authorization server](/docs/concepts/auth-servers/) for all API calls made in the associated Aerial account. The Aerial org also contains all [System Log](https://help.okta.com/okta_help.htm?type=oie&id=ext_Reports_SysLog) events associated with Okta Aerial actions. |
+| Aerial org        | Used to register API clients and acts as an authorization serverfor all API calls made in the associated Aerial account. The Aerial org also contains all System Log events associated with Okta Aerial actions. |
 | Products       | Okta-determined sets of features. With the Okta Aerial API, you can view subscribed products for an Aerial account and enable a subset of products to orgs. |
 | Features | Distinct pieces of functionality. Features are bundled within products but may also be offered separately, for example, Early Access features. |
 
@@ -62,11 +62,9 @@ Okta provides the following environments to use with your Aerial account:
 
 Use either the sandbox or production URL for the placeholder `{aerialDomain}` in your API calls.
 
-See [Link the org to the Aerial account](#link-the-org-to-the-aerial-account).
+See [Introduction to the Okta Aerial API](https://developer.okta.com/docs/api/openapi/aerial/guides/overview/#introduction-to-the-okta-aerial-api).
 
-### Summary of steps
-
-Follow these steps to create and configure new orgs in your Aerial account:
+### Create and configure new orgs in your Aerial account
 
 1. [Authenticate with Okta Aerial](#authenticate-with-okta-aerial): Configure an API client in the Aerial org to call the Okta Aerial API.
 1. [Create and configure a child org](#create-a-child-org): Create a child org based on the parent org using the Org creator API.
