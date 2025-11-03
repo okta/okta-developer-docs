@@ -4,19 +4,27 @@ title: Okta Aerial API release notes 2025
 
 # Okta Aerial API release notes (2025)
 
-The release notes lists customer-visible changes to the Okta Aerial API.
+These release notes list customer-visible changes to the Okta Aerial API. Okta Aerial aligns with the Okta Classic and Okta Identity Engine release dates, but updates to the Aerial service deploy from outside these dates.
 
-## November
+* The Aerial services preview date are expected updates to the preview environment (`https://aerial-sandbox.okta.com`)
 
-### Monthly release 2025.11.0
+* The Aerial services production date are expected updates to the production environment (`https://aerial-apac.okta.com`)
 
-| Change | Expected in Aerial Services |
-|--------|-----------------------------|
-| [Okta Aerial is GA]()| November 13, 2025 |
+See also [Introduction to the Okta Aerial API](https://developer.okta.com/docs/api/openapi/aerial/guides/overview/).
+
+## November 2025
+
+### Monthly release
+
+| Change | Expected in Aerial services preview | Expected in Aerial services production |
+|--------|-----------------------------| -----------------------------|
+| [Okta Aerial is GA](#okta-aerial-is-ga)| November 4, 2025 | November 10, 2025 |
 
 #### Okta Aerial is GA
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet condimentum metus. Nam sed neque ac turpis pharetra convallis eget eget leo. Nam suscipit lectus ut mauris vestibulum, sollicitudin dictum neque fringilla. Cras mattis nisi sodales ex luctus, quis vulputate nisi auctor. Nunc cursus nulla sit amet mattis hendrerit. Donec eu nisi mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed risus mollis, laoreet massa finibus, commodo est. Fusce sed sapien tempor, sollicitudin est facilisis, dictum purus. Vestibulum sed felis diam. Sed vestibulum massa tortor, sed tincidunt diam lacinia vitae.
+Many organizations struggle with managing multiple Okta environments, leading to fragmented visibility and increased administrative overhead. Okta Aerial addresses these challenges by providing a centralized administration service that enables multi-org management from a single account. This solution introduces an account layer that allows administrators to view and manage all their Okta orgs, including both production and preview environments, from an Admin Console or through APIs. As a result, Okta Aerial simplifies the management of subscribed Okta products, helps achieve comprehensive multi-org visibility, and secures admin access, reducing the total cost of managing Okta for you and your partners.
+
+See [Manage orgs with Okta Aerial](/docs/guides/maange-orgs-okta-aerial/) and [Okta Aerial](https://help.okta.com/okta_help.htm?type=aerial&id=overview).
 
 ## October 2025
 
