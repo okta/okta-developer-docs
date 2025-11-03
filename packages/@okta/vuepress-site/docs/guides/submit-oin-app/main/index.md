@@ -142,7 +142,6 @@ Continue with the OIN Wizard and configure your protocol settings:
 
 1. Click **Get started with testing** to save your edits and move to the testing section, where you need to enter your integration test details.
 
-
 #### Dynamic properties with Okta Expression Language
 
  The OIN Wizard supports [Okta Expression Language](/docs/reference/okta-expression-language/#reference-user-attributes) to generate dynamic properties, such as URLs or URIs, based on your customer tenant. You can specify dynamic strings for your <StackSnippet snippet="protocol-name" inline/> properties in the OIN Wizard:
