@@ -84,7 +84,7 @@ Start your integration submission for OIN publication:
 
 ### Integration details
 
-Continue with the OIN Wizard and configure your integration:
+Configure your OIN catalog properties:
 
 #### OIN catalog properties
 
@@ -102,6 +102,8 @@ Continue with the OIN Wizard and configure your integration:
 1. Click **Configure your integration**.
 
 ### Configure your integration
+
+Continue with the OIN Wizard and configure your integration:
 
 #### Integration variables
 
