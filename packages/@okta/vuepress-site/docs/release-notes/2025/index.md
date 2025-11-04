@@ -46,6 +46,7 @@ To improve test reliability, the OIN Submission test flow now automatically dete
 
 * API content in the References section has been removed. All removed content can be found in the [**API docs**](https://developer.okta.com/docs/api/) section.
 * New [release notes for Okta Access Gateway APIs](/docs/release-notes/2025-okta-access-gateway/) are now available.
+* The Go language documentation has been removed from the Identity Engine (IDX) guides. Additionally, the main SDK page is updated to include details about the archived SDKs. See [Archived SDK](/code/#archived-sdks).
 
 #### Bugs fixed in 2025.11.0
 
