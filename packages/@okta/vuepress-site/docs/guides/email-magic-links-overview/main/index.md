@@ -50,7 +50,7 @@ The OTP experience involves an extra step for the user. The user must copy the O
 
 Magic links only work when there's complete assurance that the person who started the request is the same one who clicked the magic link. This requires a user who signs in to your app in a browser. Then the user needs to be in the same browser on the same device when they click the magic link.
 
-If either their browser or device is different, the magic link is disabled. They must either return to the original browser to use the magic link or use the OTP instead.
+If either their browser or device is different, Okta disables the magic link. They must either return to the original browser to use the magic link or use the OTP instead.
 
 The following diagram illustrates this logic.
 
