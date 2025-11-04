@@ -34,7 +34,7 @@ The OIN Wizard currently supports updates for integrations that use the followin
 
 * [Entitlement Management](https://developer.okta.com/docs/guides/scim-with-entitlements/main/)
 
-> **Note:** You can also update OIDC, SAML 2.0, and SCIM 2.0 integrations with the [OIN Wizard](/docs/guides/update-oin-app/) that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
+> **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, and SCIM 2.0 integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
 
 When you edit a published OIN integration, you need to test the flows for the updated version and the published version for backwards compatibility. The integration version that was previously installed in your customer's org isn't modified with the updated version from the OIN catalog. Testing the published version for backwards compatibility ensures that your integration still works for customers who have already installed it. See [Update integration considerations](#update-integration-considerations) before you edit your published integration.
 
