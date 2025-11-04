@@ -1,7 +1,7 @@
 1. Specify the following properties if you want to integrate Entitlement Management:
 
     > **Notes:**
-    > * Entitlement Management is only supported for SCIM-based integrations.
+    > * Entitlement Management is only supported for SCIM.
     > * The **SCIM entitlement management properties** section only appears when you select **Entitlement Management** along with the protocols that your integration supports from the **Identity Lifecycle Management** section.
 
     | Property | Description |
