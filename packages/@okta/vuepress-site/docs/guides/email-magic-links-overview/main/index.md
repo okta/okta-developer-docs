@@ -33,7 +33,7 @@ When using email to prove their identity, a user can copy an OTP from an email i
 
 The Okta email authenticator provides a simple way for a user to authenticate themselves or recover their accounts. It supports two methods for them to validate their credentials as part of those processes. In both methods, an email is sent to their primary email address and either:
 
-1. They copy an OTP from the email to their app and submits it to Identity Engine for authentication.
+1. They copy an OTP from the email to their app and submit it to Identity Engine for authentication.
 1. They click a link in the email that submits the OTP to Identity Engine for authentication on their behalf.
 
 If a valid OTP is submitted within a set time, either the user is authenticated or they continue their authentication process. The following diagram illustrates the user's experience with the two options.
