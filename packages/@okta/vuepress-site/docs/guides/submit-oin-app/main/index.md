@@ -52,7 +52,7 @@ This guide covers submissions that use the following protocols and integrations:
 
 * [System for Cross-domain Identity Management (SCIM) 2.0 Provisioning](https://scim.cloud)
 
-* [SCIM 2.0 Entitlement Management](/docs/guides/scim-with-entitlements/main/)
+* [SCIM 2.0 Entitlement Management](https://datatracker.ietf.org/doc/html/rfc7644#section-3.3)
 
 * [Universal Logout](/docs/guides/oin-universal-logout-overview/)
 
