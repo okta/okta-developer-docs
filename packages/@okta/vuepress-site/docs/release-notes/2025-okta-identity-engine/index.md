@@ -26,6 +26,7 @@ title: Okta Identity Engine API release notes 2025
 | [Associated Domain Customizations API is GA in Preview](#associated-domain-customizations-api-is-ga-in-preview) | July 16, 2025 |
 | [Claims sharing with device claims](#claims-sharing-with-device-claims) | November 5, 2025 |
 | [Enrollment grace periods is GA in Preview](#enrollment-grace-periods-is-ga-in-preview) | May 21, 2025 |
+| [New System Log event for AD agent changes](#new-system-log-event-for-ad-agent-changes) | November 5, 2025 |
 | [Developer documentation updates in 2025.11.0](#developer-documentation-updates-in-2025-11-0) | November 5, 2025 |
 | [Bugs fixed in 2025.11.0](#bugs-fixed-in-2025-11-0)| November 5, 2025 |
 
@@ -98,6 +99,10 @@ You can now use shared device claims to satisfy advanced policy conditions on th
 Today, when admins define an enrollment policy for a group, the entire group must enroll immediately, which can be disruptive to their day-to-day tasks.
 
 With Enrollment Grace Periods, end users can defer enrollment in new authenticators until an admin-defined deadline when enrollment becomes mandatory. This allows end users to enroll at a time convenient to them and allows for more graceful enrollment before enforcing new authenticator types in authentication policies. See [Authenticator enrollment policies](/docs/concepts/policies/#authenticator-enrollment-policies) and the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=1/settings/authenticators/enroll/gracePeriod&t=request). <!-- ENROLLMENT_POLICY_GRACE_PERIOD (OKTA-832949) preview date: May 21, 2025 -->
+
+#### New System Log event for AD agent changes
+
+A new System Log event (`system.agent.ad.config.change.detected`) reports when Okta Sspport modified an AD agent configuration.
 
 #### Developer documentation updates in 2025.11.0
 

@@ -15,6 +15,7 @@ title: Okta Classic Engine API release notes 2025
 | [Network zone restrictions for clients is GA in Production](#network-zone-restrictions-for-clients-is-ga-in-production) | June 25, 2025 |
 | [Behavior Detections for new ASN](#behavior-detections-for-new-asn-1) | October 8, 2025 |
 | [Incognito session validation in OIN Submission Tester](#incognito-session-validation-in-oin-submission-tester) | November 5, 2025 |
+| [New System Log event for AD agent changes](#new-system-log-event-for-ad-agent-changes) | November 5, 2025 |
 | [Developer documentation updates in 2025.11.0](#developer-documentation-updates-in-2025-11-0) | November 5, 2025 |
 | [Bugs fixed in 2025.11.0](#bugs-fixed-in-2025-11-0)| November 5, 2025 |
 
@@ -41,6 +42,10 @@ OIE: (https://help.okta.com/okta_help.htm?type=oie&id=asn-behavior-detection)
 #### Incognito session validation in OIN Submission Tester
 
 To improve test reliability, the OIN Submission test flow now automatically detects conflicting incognito tabs or windows. If active incognito tabs or windows are found, the prompt allows you to close all detected incognito tabs or windows with a single action before the test begins. <!-- OKTA-943185 -->
+
+#### New System Log event for AD agent changes
+
+A new System Log event (`system.agent.ad.config.change.detected`) reports when Okta Sspport modified an AD agent configuration.
 
 #### Developer documentation updates in 2025.11.0
 
