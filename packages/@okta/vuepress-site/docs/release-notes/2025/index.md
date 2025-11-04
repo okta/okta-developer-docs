@@ -10,22 +10,14 @@ title: Okta Classic Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
+| [Network zone restrictions for clients is GA in Production](#network-zone-restrictions-for-clients-is-ga-in-production) | June 25, 2025 |
+| [Behavior Detections for new ASN](#behavior-detections-for-new-asn) | October 8, 2025 |
 | [Custom domains and certificates](#custom-domains-and-certificates) | November 5, 2025 |
 | [Submit entitlement management integrations](#submit-entitlement-management-integrations) | November 5, 2025 |
-| [Network zone restrictions for clients is GA in Production](#network-zone-restrictions-for-clients-is-ga-in-production) | June 25, 2025 |
-| [Behavior Detections for new ASN](#behavior-detections-for-new-asn-1) | October 8, 2025 |
 | [Incognito session validation in OIN Submission Tester](#incognito-session-validation-in-oin-submission-tester) | November 5, 2025 |
 | [New System Log event for AD agent changes](#new-system-log-event-for-ad-agent-changes) | November 5, 2025 |
 | [Developer documentation updates in 2025.11.0](#developer-documentation-updates-in-2025-11-0) | November 5, 2025 |
 | [Bugs fixed in 2025.11.0](#bugs-fixed-in-2025-11-0)| November 5, 2025 |
-
-#### Custom domains and certificates
-
-Okta now supports the use of SHA 384 and SHA 512 signed certificates for custom domains. See [Customize domain and email address](/docs/guides/custom-url-domain/main/). <!-- ENG_SHA_384_512_SUPPORT_FOR_CUSTOM_DOMAIN_CERTS OKTA-1045667 -->
-
-#### Submit entitlement management integrations
-
-Independent Software Vendors (ISVs) can now submit SCIM 2.0-based entitlement management integrations to the Okta Integration Network (OIN). This enhancement enables customers and IT admins to discover, manage, and assign fine-grained entitlements such as roles and permissions directly from Okta. By standardizing entitlement management, organizations can automate access assignments and streamline Identity Governance, ensuring users receive the right access and roles without manual intervention. For more information, see [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/scim/main/). <!-- OKTA-1025782 ENTITLEMENTS_SUBMISSION -->
 
 #### Network zone restrictions for clients is GA in Production
 
@@ -38,6 +30,14 @@ Admins have been able to create behavior detections for IP, Velocity, Location, 
 Classic: (https://help.okta.com/okta_help.htm?id=asn-behavior-detection)
 OIE: (https://help.okta.com/okta_help.htm?type=oie&id=asn-behavior-detection)
 <!-- BEHAVIOR_DETECTION_NEW_ASN OKTA-948028 -->
+
+#### Custom domains and certificates
+
+Okta now supports the use of SHA 384 and SHA 512 signed certificates for custom domains. See [Customize domain and email address](/docs/guides/custom-url-domain/main/). <!-- ENG_SHA_384_512_SUPPORT_FOR_CUSTOM_DOMAIN_CERTS OKTA-1045667 -->
+
+#### Submit entitlement management integrations
+
+Independent Software Vendors (ISVs) can now submit SCIM 2.0-based entitlement management integrations to the Okta Integration Network (OIN). This enhancement enables customers and IT admins to discover, manage, and assign fine-grained entitlements such as roles and permissions directly from Okta. By standardizing entitlement management, organizations can automate access assignments and streamline Identity Governance, ensuring users receive the right access and roles without manual intervention. For more information, see [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/scim/main/). <!-- OKTA-1025782 ENTITLEMENTS_SUBMISSION -->
 
 #### Incognito session validation in OIN Submission Tester
 
