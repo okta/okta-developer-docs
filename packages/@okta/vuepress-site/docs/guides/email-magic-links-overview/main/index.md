@@ -76,7 +76,7 @@ When you evaluate whether to support magic links in addition to OTPs in the emai
 Integrating EML into your app is a two-step process.
 
 1. Create an endpoint for your magic link. This endpoint checks the validity of the OTP and sends it to Identity Engine for validation.
-1. Set that endpoint as the callback URL for magic links for your app with the Admin Console for your org.
+1. Use the Admin Console to set that endpoint as the callback URL for magic links for your app.
 
 ### Create an endpoint for your magic links
 
