@@ -6,6 +6,18 @@ title: Okta Identity Engine API release notes 2025
 
 # Okta Identity Engine API release notes (2025)
 
+## November
+
+### Monthly release 2025.11.0
+
+
+
+
+#### Developer documentation updates in 2025.11.0
+
+* API content in the References section has been removed. All removed content can be found in the [**API docs**](https://developer.okta.com/docs/api/) section.
+* New [release notes for Okta Access Gateway APIs](/docs/release-notes/2025-okta-access-gateway/) are now available.
+
 ## October
 
 ### Weekly release 2025.10.2
