@@ -45,13 +45,18 @@ To improve test reliability, the OIN Submission test flow now automatically dete
 #### Developer documentation updates in 2025.11.0
 
 * API content in the References section has been removed. All removed content can be found in the [**API docs**](https://developer.okta.com/docs/api/) section.
+
 * New [release notes for Okta Access Gateway APIs](/docs/release-notes/2025-okta-access-gateway/) are now available.
+
 * The Go language documentation has been removed from the Identity Engine (IDX) guides. Additionally, the main SDK page is updated to include details about the archived SDKs. See [Archived SDK](/code/#archived-sdks).
 
 #### Bugs fixed in 2025.11.0
 
 * A new System Log event (`system.agent.ad.config.change.detected`) reports when Okta Sspport modified an AD agent configuration. (OKTA-1047077)
+
 * When an admin activated a client's public key, the `app.oauth2.credentials.lifecycle.activate` System Log event reported the key as still inactive. (OKTA-1046747)
+
+* When an admin selected the OIDC sign-in method for an app that also supported SAML, both the SAML and OIDC configuration instructions were displayed. (OKTA-977350)
 
 ## October
 

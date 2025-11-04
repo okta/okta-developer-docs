@@ -75,7 +75,7 @@ IDV vendors can now use more OpenID Connect claims when they integrate their IDV
 
 #### Temporary Access Code authenticator is GA in Production
 
-The new Temporary Access Code (TAC) authenticator allows admins to generate temporary codes that let users authenticate in onboarding, account recovery, and other temporary access scenarios. This authenticator enhances security in these scenarios by granting users access to their orgs without having to use their usual authenticators. 
+The new Temporary Access Code (TAC) authenticator allows admins to generate temporary codes that let users authenticate in onboarding, account recovery, and other temporary access scenarios. This authenticator enhances security in these scenarios by granting users access to their orgs without having to use their usual authenticators.
 
 To configure the authenticator with Okta APIs, see [Temporary access code authenticator integration guide](https://developer.okta.com/docs/guides/authenticators-tac-authenticator/main/index.md), and to configure it in the Admin Console, see [Configure the temporary access code authenticator](https://help.okta.com/okta_help.htm?type=oie&id=temporary-access-code). <!-- TEMPORARY_ACCESS_CODE OKTA-944116 preview date: July 16, 2025 -->
 
@@ -102,18 +102,22 @@ With Enrollment Grace Periods, end users can defer enrollment in new authenticat
 #### Developer documentation updates in 2025.11.0
 
 * API content in the References section has been removed. All removed content can be found in the [**API docs**](https://developer.okta.com/docs/api/) section.
+
 * New [release notes for Okta Access Gateway APIs](/docs/release-notes/2025-okta-access-gateway/) are now available.
+
 * The Go language documentation has been removed from the Identity Engine (IDX) guides. Additionally, the main SDK page is updated to include details about the archived SDKs. See [Archived SDK](/code/#archived-sdks).
 
 #### Bugs fixed in 2025.11.0
 
 * A new System Log event (`system.agent.ad.config.change.detected`) reports when Okta Sspport modified an AD agent configuration. (OKTA-1047077)
 
-* When an admin activated a client's public key, the `app.oauth2.credentials.lifecycle.activate` System Log event reported the key as still inactive. (OKTA-1046747) (OKTA-1046747)
+* When an admin activated a client's public key, the `app.oauth2.credentials.lifecycle.activate` System Log event reported the key as still inactive. (OKTA-1046747)
 
-* When a user made a GET policies (/api/v1/policies) or policy rules (/api/v1/policies/{policyId}/rules) request after the `app` object was deleted, the response still contained the deleted object's ID. (OKTA-1044117) (OKTA-1044117)
+* When a user made a GET policies (`/api/v1/policies`) or policy rules (`/api/v1/policies/{policyId}/rules`) request after the `app` object was deleted, the response still contained the deleted object's ID. (OKTA-1044117)
 
-* In orgs with the **Send Application Context to an External IdP** feature enabled, users couldn't access apps if the app names had trailing spaces. (OKTA-998869) (OKTA-998869)
+* In orgs with the **Send Application Context to an External IdP** feature enabled, users couldn't access apps if the app names had trailing spaces. (OKTA-998869)
+
+* When an admin selected the OIDC sign-in method for an app that also supported SAML, both the SAML and OIDC configuration instructions were displayed. (OKTA-977350)
 
 ## October
 
