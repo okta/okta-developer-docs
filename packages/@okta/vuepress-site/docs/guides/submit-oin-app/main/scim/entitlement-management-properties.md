@@ -19,6 +19,4 @@
     `*` Required properties
 
 1. Click **+ Add another** to add another resource type.
-1. If you need to delete a resource type, click the delete icon
-
-    ![trash can; delete icon](/img/icons/odyssey/delete.svg) next to it.
+1. If you need to delete a resource type, click the delete icon <span style="height: 12px;display:inline-block;    transform:translateY(-12px);">![trash can; delete icon](/img/icons/odyssey/delete.svg)</span>next to it.
