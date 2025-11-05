@@ -18,7 +18,7 @@ title: Okta Identity Engine API release notes 2025
 | [Temporary Access Code authenticator is GA in Production](#temporary-access-code-authenticator-is-ga-in-production) | July 16, 2025 |
 | [Associated Domain Customizations API is GA in Preview](#associated-domain-customizations-api-is-ga-in-preview) | July 16, 2025 |
 | [New claims supported for identity verification (IDV) vendor integration is now GA in Preview](#new-claims-supported-for-identity-verification-idv-vendor-integration-is-now-ga-in-preview) | August 13, 2025 |
-| [Passkey and security key subdomain support is GA in Preview](#passkey-and-security-key-subdomain-support-is-ga-in-preview) | September 4, 2025 |
+| [Passkey and security key subdomain support is GA in Production](#passkey-and-security-key-subdomain-support-is-ga-in-production) | September 4, 2025 |
 | [Behavior Detections for new ASN](#behavior-detections-for-new-asn) | October 8, 2025 |
 | [Express Configuration supports Universal Logout](#express-configuration-supports-universal-logout) | November 5, 2025 |
 | [Custom domains and certificates](#custom-domains-and-certificates) | November 5, 2025 |
