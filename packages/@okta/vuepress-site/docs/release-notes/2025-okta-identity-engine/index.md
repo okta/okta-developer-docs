@@ -50,7 +50,7 @@ You can enable Android passkeys by customizing the `assetlinks.json` file. See [
 
 The new Temporary Access Code (TAC) authenticator allows admins to generate temporary codes that let users authenticate in onboarding, account recovery, and other temporary access scenarios. This authenticator enhances security in these scenarios by granting users access to their orgs without having to use their usual authenticators.
 
-To configure the authenticator with Okta APIs, see [Temporary access code authenticator integration guide](https://developer.okta.com/docs/guides/authenticators-tac-authenticator/main/index.md), and to configure it in the Admin Console, see [Configure the temporary access code authenticator](https://help.okta.com/okta_help.htm?type=oie&id=temporary-access-code). <!-- TEMPORARY_ACCESS_CODE OKTA-944116 preview date: July 16, 2025 -->
+To configure the authenticator with Okta APIs, see [Temporary access code authenticator integration guide](/docs/guides/authenticators-tac-authenticator/main/index.md), and to configure it in the Admin Console, see [Configure the temporary access code authenticator](https://help.okta.com/okta_help.htm?type=oie&id=temporary-access-code). <!-- TEMPORARY_ACCESS_CODE OKTA-944116 preview date: July 16, 2025 -->
 
 #### Associated Domain Customizations API is GA in Preview
 
