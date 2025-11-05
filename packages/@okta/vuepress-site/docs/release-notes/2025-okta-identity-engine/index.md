@@ -62,7 +62,7 @@ See [Customize associated domains](/docs/guides/custom-well-known-uri/main/). <!
 
 IDV vendors can now use more OpenID Connect claims when they integrate their IDV service with Okta. And, all `claims` properties now support the fuzzy logic extension. See [Supported OIDC claims](/docs/guides/idv-integration/main/#supported-oidc-claims). <!-- OKTA-946302 IDV_BIOGRAPHIC_DATA_MATCHING  Preview org date: Aug 13, 2025 -->
 
-#### Passkey and security key subdomain support is GA in Preview
+#### Passkey and security key subdomain support is GA in Production
 
 You can now set a custom relying party (RP) ID for the WebAuthn authenticator. When you set the domain of a custom RP ID, you can allow users to create a single passkey that’s valid for all of the subdomains of the RP ID.
 
