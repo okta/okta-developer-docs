@@ -53,7 +53,7 @@ A new System Log event (`system.agent.ad.config.change.detected`) reports when O
 
 #### Bugs fixed in 2025.11.0
 
-* A new System Log event (`system.agent.ad.config.change.detected`) reports when Okta Sspport modified an AD agent configuration. (OKTA-1047077)
+* A new System Log event (`system.agent.ad.config.change.detected`) reports when Okta Support modified an AD agent configuration. (OKTA-1047077)
 
 * When an admin activated a client's public key, the `app.oauth2.credentials.lifecycle.activate` System Log event reported the key as still inactive. (OKTA-1046747)
 
