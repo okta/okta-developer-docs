@@ -4,7 +4,7 @@ title: Manage orgs with Okta Aerial
 
 This guide explains how to add orgs to your Okta Aerial account and manage Aerial org settings.
 
-> **Note:** You need to have the **Platform - Multi-org Deployment** product enabled and have access to the Okta Aerial API. Contact your Okta customer support for more information.
+> **Note:** You need to enable the `Platform - Multi-org Deployment` or `Sandbox - Preview` product to have access to the Okta Aerial. Contact your Okta customer support for more information.
 
 ---
 
@@ -43,8 +43,8 @@ Okta Aerial introduces a few terms to the Okta ecosystem:
 
 | Term                                                           | Definition                                                                    |
 |----------------------------------------------------------------|--------------------------------------------------------------------------------|
-| Aerial account              | The management layer around multiple orgs within Okta. The Aerial account lives outside of your orgs and can manage any production or preview org linked to the Aerial account. Each Aerial account has a dedicated Aerial org.  |
-| Aerial org        | Used to register API clients and acts as an authorization serverfor all API calls made in the associated Aerial account. The Aerial org also contains all System Log events associated with Okta Aerial actions. |
+| Aerial account              | The management layer around multiple orgs within Okta. The Aerial account resides outside your orgs and can manage any production or preview org linked to the Aerial account. Each Aerial account has a dedicated Aerial org.  |
+| Aerial org        | Used to register API clients and acts as an authorization server for all API calls made in the associated Aerial account. The Aerial org also contains all System Log events associated with Okta Aerial actions. |
 | Products       | Okta-determined sets of features. With the Okta Aerial API, you can view subscribed products for an Aerial account and enable a subset of products to orgs. |
 | Features | Distinct pieces of functionality. Features are bundled within products but may also be offered separately, for example, Early Access features. |
 
