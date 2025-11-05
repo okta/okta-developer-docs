@@ -277,7 +277,7 @@ The test account allows the OIN team to verify that your integration flow works 
 > **Note:** Okta recommends that you:
 > * Use sample (non-production) data for testing.
 > * Use `isvtest@okta.com` as the test account username in your app. You can use an alternative username with a different domain, provided that you own or have a license to use the domain and don't infringe upon any rights of any third parties.
-> * Ensure that the test account doesn't have access to your production environment.
+> * Ensure that you provide a test account in your production environment.
 > * Be aware that Okta automatically deletes test account credentials 30 days after your app is published in the OIN Wizard. To resubmit your app after this period, create a new test account and provide the required information.
 
 ## Customer configuration document guidelines
