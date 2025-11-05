@@ -106,7 +106,7 @@ A new System Log event (`system.agent.ad.config_change_detected`) reports when O
 
 * New [release notes for Okta Access Gateway APIs](/docs/release-notes/2025-okta-access-gateway/) are now available.
 
-* The [Okta IDX SDK for Golang](https://github.com/okta/okta-idx-golang) and the [Golang sample apps](https://github.com/okta/samples-golang) were archived and the corresponding Go language documentation has been removed from the Identity Engine (IDX) guides. Additionally, the main SDK page is updated to include details about these archived SDKs. See [Archived SDKs](/code/#archived-sdks).
+* The [Okta IDX SDK for Golang](https://github.com/okta/okta-idx-golang) and the [Golang sample apps](https://github.com/okta/samples-golang) were archived and the corresponding Go language documentation has been removed. Additionally, the main SDK page is updated to include details about these archived SDKs. See [Archived SDKs](/code/#archived-sdks).
 
 #### Bugs fixed in 2025.11.0
 
