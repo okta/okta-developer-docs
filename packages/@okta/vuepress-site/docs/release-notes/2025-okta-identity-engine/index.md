@@ -70,11 +70,7 @@ Use the [Replace an authenticator method](https://developer.okta.com/docs/api/op
 
 #### Behavior Detections for new ASN
 
-Admins have been able to create behavior detections for IP, Velocity, Location, or Device. This new functionality introduces behavior detection on a new ASN (Autonomous System Number), based on the IP found in the request tied to the event. See [Add an ASN behavior](see below).
-
-Classic: (https://help.okta.com/okta_help.htm?id=asn-behavior-detection)
-OIE: (https://help.okta.com/okta_help.htm?type=oie&id=asn-behavior-detection)
-<!-- BEHAVIOR_DETECTION_NEW_ASN OKTA-948028 -->
+Admins have been able to create behavior detections for IP, Velocity, Location, or Device. This new functionality introduces behavior detection on a new ASN (Autonomous System Number), based on the IP found in the request tied to the event. See [Add an ASN behavior](https://help.okta.com/okta_help.htm?type=oie&id=asn-behavior-detection). <!-- BEHAVIOR_DETECTION_NEW_ASN OKTA-948028 -->
 
 #### Express Configuration supports Universal Logout
 
