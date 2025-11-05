@@ -98,7 +98,7 @@ You can now use shared device claims to satisfy advanced policy conditions on th
 
 #### New System Log event for AD agent changes
 
-A new System Log event (`system.agent.ad.config.change.detected`) reports when Okta Sspport modified an AD agent configuration.
+A new System Log event (`system.agent.ad.config_change_detected`) reports when Okta Support modified an AD agent configuration.
 
 #### Developer documentation updates in 2025.11.0
 
