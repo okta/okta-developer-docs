@@ -78,7 +78,7 @@ See [Manage orgs with Okta Aerial](/docs/guides/manage-orgs-okta-aerial) and [Ok
 
 ## Org creator
 
-The Org creator product allows the creation of new Okta orgs from an existing parent org. It's accessible through the [Org Creator API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgCreator/). This product allows organizations using multi-org deployment architectures, such as managed service providers (MSP), to create orgs, which are designated child orgs, allowing them to use existing configurations from the parent org.
+The Org creator allows you to create Okta orgs from an existing parent org. It's accessible through the [Org Creator API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgCreator/). This product allows orgs that use multi-org deployment architectures, such as managed service providers (MSP), to create  designated child orgs that have the same configurations as the parent org.
 
 > **Note:** You need to have the **Platform - Multi-org Deployment** product to enable the **Org Creator API** feature. Contact your Okta account team to purchase this product and to enable the Org Creator API feature.
 
