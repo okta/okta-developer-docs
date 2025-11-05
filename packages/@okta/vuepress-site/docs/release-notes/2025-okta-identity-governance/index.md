@@ -12,7 +12,7 @@ Okta Identity Governance is available for both Okta Classic and Identity Engine.
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Entitlement history is GA in Production](#entitlement-history-is-ga-in-production) | September 10, 2025 (as Beta) |
+| [Entitlement history is GA in Production](#entitlement-history-is-ga-in-production) | September 10, 2025 |
 | [Resource Owners API is GA in Production](#resource-owners-api-is-ga-in-production) | September 10, 2025 |
 | [Security access reviews API is GA in Preview](#security-access-reviews-api-is-ga-in-preview) | September 10, 2025 |
 | [Security access review manual remediation](#security-access-review-manual-remediation) | November 5, 2025 |
