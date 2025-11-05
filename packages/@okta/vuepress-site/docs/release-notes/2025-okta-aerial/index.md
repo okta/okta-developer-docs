@@ -6,7 +6,7 @@ title: Okta Aerial API release notes 2025
 
 These release notes list customer-visible changes to the Okta Aerial API. Okta Aerial aligns with the Okta Classic Engine and Okta Identity Engine release, but updates to the Aerial service deploy from outside their release dates.
 
-* The Aerial services preview date are expected updates to the preview environment (`https://aerial-sandbox.okta.com`)
+* The Aerial services preview date are expected updates to the preview environment (`https://aerial-sandbox.okta.com`).
 
 * The Aerial services production date are expected updates to the production environment (`https://aerial-apac.okta.com`)
 
