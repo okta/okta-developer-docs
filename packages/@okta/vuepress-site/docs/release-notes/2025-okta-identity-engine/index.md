@@ -106,11 +106,11 @@ A new System Log event (`system.agent.ad.config.change.detected`) reports when O
 
 #### Developer documentation updates in 2025.11.0
 
-* API content in the References section has been removed. All removed content can be found in the [**API docs**](https://developer.okta.com/docs/api/) section.
+* Removed API placeholder pages from the **References** section. Links to these legacy pages now automatically redirect to the [API docs](https://developer.okta.com/docs/api/).
 
 * New [release notes for Okta Access Gateway APIs](/docs/release-notes/2025-okta-access-gateway/) are now available.
 
-* The Go language documentation has been removed from the Identity Engine (IDX) guides. Additionally, the main SDK page is updated to include details about the archived SDKs. See [Archived SDK](/code/#archived-sdks).
+* The [Okta IDX SDK for Golang](https://github.com/okta/okta-idx-golang) and the [Golang sample apps](https://github.com/okta/samples-golang) were archived and the corresponding Go language documentation has been removed from the Identity Engine (IDX) guides. Additionally, the main SDK page is updated to include details about these archived SDKs. See [Archived SDKs](/code/#archived-sdks).
 
 #### Bugs fixed in 2025.11.0
 
