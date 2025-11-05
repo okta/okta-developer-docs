@@ -6,11 +6,19 @@ excerpt: >-
 
 # Rate limits overview
 
-Rate limits define how many requests can be made to an API endpoint within a specific time window. They help protect the reliability and performance of the platform by preventing excessive traffic that could degrade service or introduce security risks, such as Distributed Denial of Service (DDoS) attacks. Rate limits also promote fairness by ensuring all users have equitable access to the service.
+Rate limits are essential for maintaining both service continuity and effective security control. By acting as guardrails, rate limiting ensures systems remain stable and protected against sudden traffic spikes or malicious attacks.
+
+Fundamentally, rate limits define how many requests can be made to an API endpoint within a specific time window. They help protect the reliability and performance of the platform by preventing excessive traffic that could degrade service or introduce security risks, such as Distributed Denial of Service (DDoS) attacks. Rate limits also promote fairness by ensuring all users have equitable access to the service.
 
 Okta implements rate limits using buckets. A rate limiting bucket is a collection of one or more API endpoints that share a defined quota of a specific number of calls per unit of time. This quota is consumed by a set of clients associated with the bucket---this association is known as the scope of the bucket. The most general scope for a bucket is the entire organization. This bucket is shared by every client in the organization that uses the associated APIs. Additional more specific buckets can be nested beneath a broader bucket and may be applicable to a subset of APIs for a subset of clients.
 
 For example, there may be a bucket for `/api/v1/authorize` with a quota of 1200 requests per minute for the entire organization. Nested beneath it, there could be a bucket for `/api/v1/authorize` with a quota of 600 requests per minute assigned to a specific client application `APP_123`. When `APP_123` calls `/api/v1/authorize`, the remaining quota status will be 1,199 for that minute for the organization, and 599 remaining for `APP_123`.
+
+<div >
+
+![This image displays the rate limit by bucket for an organization.](/img/rate-limits/rate-limit-by-bucket.png)
+
+</div>
 
 There are two additional types of scopes that can apply to a bucket:
 
