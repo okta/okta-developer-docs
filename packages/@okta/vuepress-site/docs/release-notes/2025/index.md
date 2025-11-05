@@ -4,6 +4,61 @@ title: Okta Classic Engine API release notes 2025
 
 # Okta Classic Engine API release notes (2025)
 
+## November
+
+### Monthly release 2025.11.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Network zone restrictions for clients is GA in Production](#network-zone-restrictions-for-clients-is-ga-in-production) | June 25, 2025 |
+| [Behavior Detections for new ASN](#behavior-detections-for-new-asn) | October 8, 2025 |
+| [Custom domains and certificates](#custom-domains-and-certificates) | November 5, 2025 |
+| [Submit entitlement management integrations](#submit-entitlement-management-integrations) | November 5, 2025 |
+| [Incognito session validation in OIN Submission Tester](#incognito-session-validation-in-oin-submission-tester) | November 5, 2025 |
+| [New System Log event for AD agent changes](#new-system-log-event-for-ad-agent-changes) | November 5, 2025 |
+| [Developer documentation updates in 2025.11.0](#developer-documentation-updates-in-2025-11-0) | November 5, 2025 |
+| [Bugs fixed in 2025.11.0](#bugs-fixed-in-2025-11-0)| November 5, 2025 |
+
+#### Network zone restrictions for clients is GA in Production
+
+You can now specify an allowlist or denylist network zone for each client to enhance OIDC token endpoint security. <!-- OIDC_TOKEN_NETWORK_RESTRICTIONS (OKTA-958762) -->
+
+#### Behavior Detections for new ASN
+
+Admins have been able to create behavior detections for IP, Velocity, Location, or Device. This new functionality introduces behavior detection on a new ASN (Autonomous System Number), based on the IP found in the request tied to the event. See [Add an ASN behavior](https://help.okta.com/okta_help.htm?id=asn-behavior-detection). <!-- BEHAVIOR_DETECTION_NEW_ASN OKTA-948028 -->
+
+#### Custom domains and certificates
+
+Okta now supports the use of SHA 384 and SHA 512 signed certificates for custom domains. See [Customize domain and email address](/docs/guides/custom-url-domain/main/). <!-- ENG_SHA_384_512_SUPPORT_FOR_CUSTOM_DOMAIN_CERTS OKTA-1045667 -->
+
+#### Submit entitlement management integrations
+
+Independent Software Vendors (ISVs) can now submit SCIM 2.0-based entitlement management integrations to the Okta Integration Network (OIN). This enhancement enables customers and IT admins to discover, manage, and assign fine-grained entitlements such as roles and permissions directly from Okta. By standardizing entitlement management, organizations can automate access assignments and streamline Identity Governance, ensuring users receive the right access and roles without manual intervention. For more information, see [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/scim/main/). <!-- OKTA-1025782 ENTITLEMENTS_SUBMISSION -->
+
+#### Incognito session validation in OIN Submission Tester
+
+To improve test reliability, the OIN Submission test flow now automatically detects conflicting incognito tabs or windows. If active incognito tabs or windows are found, the prompt allows you to close all detected incognito tabs or windows with a single action before the test begins. <!-- OKTA-943185 -->
+
+#### New System Log event for AD agent changes
+
+A new System Log event (`system.agent.ad.config.change.detected`) reports when Okta Sspport modified an AD agent configuration.
+
+#### Developer documentation updates in 2025.11.0
+
+* Removed API placeholder pages from the **References** section. Links to these legacy pages now automatically redirect to the [API docs](https://developer.okta.com/docs/api/).
+
+* New [release notes for Okta Access Gateway APIs](/docs/release-notes/2025-okta-access-gateway/) are now available.
+
+* The [Okta IDX SDK for Golang](https://github.com/okta/okta-idx-golang) and the [Golang sample apps](https://github.com/okta/samples-golang) were archived and the corresponding Go language documentation has been removed from the Identity Engine (IDX) guides. Additionally, the main SDK page is updated to include details about these archived SDKs. See [Archived SDKs](/code/#archived-sdks).
+
+#### Bugs fixed in 2025.11.0
+
+* A new System Log event (`system.agent.ad.config.change.detected`) reports when Okta Sspport modified an AD agent configuration. (OKTA-1047077)
+
+* When an admin activated a client's public key, the `app.oauth2.credentials.lifecycle.activate` System Log event reported the key as still inactive. (OKTA-1046747)
+
+* When an admin selected the OIDC sign-in method for an app that also supported SAML, both the SAML and OIDC configuration instructions were displayed. (OKTA-977350)
+
 ## October
 
 ### Weekly release 2025.10.2
