@@ -4,7 +4,7 @@ title: Manage orgs with Okta Aerial
 
 This guide explains how to add orgs to your Okta Aerial account and manage Aerial org settings.
 
-> **Note:** The `Platform - Multi-org Deployment` or `Sandbox - Preview` products are required to have access to Okta Aerial. Contact your Okta customer support for more information.
+> **Note:** The `Platform - Multi-org Deployment` or `Sandbox - Preview` products are required to have access to Okta Aerial. Contact Okta customer support for more information.
 
 ---
 
