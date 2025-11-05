@@ -24,7 +24,7 @@ For customizing an Okta-managed domain or using your own TLS certificate:
 
 For customizing a domain using your own TLS certificate:
 
-* A valid TLS certificate for your subdomain (2048 bits, 3072 bits, or 4096 bits) (PEM-encoded)
+* A valid TLS certificate for your subdomain
 * A private key (2048 bits, 3072 bits, or 4096 bits) (PEM-encoded)
 
 For configuring a custom email address:
@@ -42,7 +42,7 @@ For example, you use Okta as a user store for your apps, but you don't want your
 
 > **Note:** Set up a [custom domain](/docs/guides/custom-url-domain/main/) and customize your [CSP (Content security policy)](https://content-security-policy.com/) if you also want to customize the [sign-in page](/docs/guides/custom-widget/main/#content-security-policy-csp-for-your-custom-domain) and [error pages](/docs/guides/custom-error-pages/main/#content-security-policy-csp-for-your-custom-domain).
 
-Okta serves pages on your custom domain over HTTPS. To set up this feature, you need to provide a TLS certificate that is valid for your domain. See [Validate your TLS certificate](#validate-your-tls-certificate).
+Okta serves pages on your custom domain over HTTPS. To set up this feature, you need to provide a TLS certificate that’s valid for your domain. See [Validate your TLS certificate](#validate-your-tls-certificate).
 
 You can also [configure a custom email address](#about-custom-email-addresses) to present a branded experience to your end users.
 
@@ -50,7 +50,9 @@ You can also [configure a custom email address](#about-custom-email-addresses) t
 
 ### Multibrand and custom domains
 
-You can create up to three custom domains with multibrand customizations and up to 200 custom domains by contacting support to increase your limit.
+You can create up to three custom domains with multibrand customizations. The three custom domains limit applies to your entire org. You can only ever have three custom domains, regardless of the number of brands you create. Each custom domain can be associated with only one brand.
+
+> **Note:** However, you can create up to 200 custom domains by contacting support to increase your limit.
 
 You can only preview or visit a branded page after you map it to a custom domain. For example, you can only view brand assets applied to the Okta-hosted sign-in page after you map it to a custom domain. After you create a brand, map it to a custom domain. Then you can make further customizations, preview them, and publish them.
 
@@ -80,15 +82,15 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 
   * If you have an Okta-managed certificate and you later get a CAA record, Okta can't renew your certificate. You must either add `letsencrypt.org` to the issuers list or remove the CAA record.
 
-* If you use an Okta-managed certificate, you need to remove [network zones](https://help.okta.com/okta_help.htm?id=ext-network-zones) from your org. If you can't remove network zones, you can create a custom domain using your own TLS certificate. See [Use your own TLS certificate](#use-your-own-tls-certificate).
+* If you use an Okta-managed certificate, you need to remove [network zones](https://help.okta.com/okta_help.htm?id=ext-network-zones) from your org. Network zones can potentially interfere with the automatic certificate renewal process. If you can't remove network zones, you can create a custom domain using your own TLS certificate. See [Use your own TLS certificate](#use-your-own-tls-certificate).
 
 * You can't sign in to [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf&id=ext-Okta-workflows) through a custom domain (Okta-managed or using your own TLS certificate). Sign in through your default [Okta domain](/docs/guides/find-your-domain/main/).
 
 * If you use your own TLS certificate, consider the following:
 
-  * It can be 2048 bits, 3072 bits, or 4096 bits.
+  * The RSA key sizes must be 2048 bits, 3072 bits, or 4096 bits.
 
-  * It should be signed with the SHA-256 hash algorithm.
+  * It should be signed with a SHA256, SHA384, or SHA512 hash algorithm.
 
   * It must not be expired.
 
@@ -126,6 +128,10 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 ## Use an Okta-managed certificate
 
 This method of configuring a custom domain is recommended because Okta manages your certificate renewals in perpetuity. Okta manages certificate renewals through an integration with Let's Encrypt, which is a free certificate authority. The certificate procurement process is free, and also faster and easier than configuring a custom domain with your own TLS certificate.
+
+You can create up to three custom domains in your org. The three custom domains limit applies to your entire org. You can only ever have three custom domains, regardless of the number of brands you create. Each custom domain can be associated with only one brand.
+
+Use the following process to create a custom domain for your org. You can use the same process to add other custom domains.
 
 > **Note:** If your custom domain uses your own TLS certificate and you want to migrate to an Okta-managed certificate, contact [Support](https://support.okta.com/help/s/opencase).
 
@@ -177,6 +183,8 @@ After you click **Finish**, it may take several minutes before your custom domai
     >   * There may be an operational issue with Let's Encrypt that you can check with [https://letsencrypt.status.io/](https://letsencrypt.status.io/). After you configure your DNS records you might click **Next** too quickly to verify the records. In that case, it's possible that the DNS records are verifiable by Okta but not yet by Let's Encrypt. The result is a failed authorization. A warning notification appears: `A new TXT value has been generated. Update your DNS record with the new TXT value, wait for it to propagate, and then return here to verify.`
 
 ## Use your own TLS certificate
+
+You can create a custom domain that uses your own TLS certificate. Use the following process to create a custom domain with your own TLS certificate for your org. You can use the same process to add other custom domains.
 
 ### Validate your TLS certificate
 
@@ -238,13 +246,13 @@ Before Okta can serve traffic over your domain, add an alias from your custom do
 
 1. Return to your Domain Name registrar and locate the option to modify your DNS records.
 
-1. Paste the CNAME **Host** URL into the appropriate field at the registrar, for example, the **Name** or **Host** field. Often a registrar creates an A record automatically when you create a subdomain. Make sure that the CNAME record and the A record don't have the same name.
+2. Paste the CNAME **Host** URL into the appropriate field at the registrar, for example, the **Name** or **Host** field. Often a registrar creates an A record automatically when you create a subdomain. Make sure that the CNAME record and the A record don't have the same name.
 
 > **Note:** Depending on your registrar, you may only need to enter the subdomain part. For example, if you picked the subdomain `id.example.com`, your registrar may only require you to create a CNAME record for `id` (because `.example.com` is implied). If you're not sure, check your registrar's documentation.
 
-1. Paste the CNAME **Value** into the appropriate field at the registrar, for example, the **Record** or **Value** field.
+3. Paste the CNAME **Value** into the appropriate field at the registrar, for example, the **Record** or **Value** field.
 
-1. Save the record.
+4. Save the record.
 
 Uploading your TLS certificate is the next step in the configuration wizard.
 
@@ -348,7 +356,9 @@ To fix this, update your authorization server to use your custom domain:
 
 ## About custom email addresses
 
-A custom email address allows you to present a branded experience to your end users. Emails that Okta sends to your end users appear to come from your custom email address instead of `noreply@okta.com`. You can switch to a different custom email address or revert to the default Okta domain, but you can use only one email domain at a time.
+A custom email address allows you to present a branded experience to your end users. Emails that Okta sends to your end users appear to come from your custom email address instead of `noreply@okta.com`. You can switch to a different custom email address or revert to the default Okta domain, but you can use only one email domain at a time, per brand.
+
+You can only send emails from a custom email address if you've configured a custom email domain within that brand. Emails with default content are sent if you're using the default Okta domain to send emails from.
 
 Okta sends your super admins a confirmation email after your custom email address is configured and operating correctly. To ensure continuous operation, Okta polls your custom email domain once every 24 hours. If a problem occurs, Okta alerts super admins by email, and Okta-generated emails are sent from the default address `noreply@okta.com` until the problem is resolved.
 
