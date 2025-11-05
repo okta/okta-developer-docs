@@ -1189,7 +1189,7 @@ export const reference = [
             path: "/docs/reference/rl-client-based/",
           },
           {
-            title: "Rate limits",
+            title: "Additional Rate limits",
             path: "/docs/reference/rl2-limits",
           }
         ]
