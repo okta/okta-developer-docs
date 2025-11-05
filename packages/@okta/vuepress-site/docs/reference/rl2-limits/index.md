@@ -1,9 +1,9 @@
 ---
-title: Rate limits
+title: Additional Rate limits
 category: rate limits
 ---
 
-# Rate limits
+# Additional Rate limits
 
 This page details the rate limits that apply to various buckets, primarily scoped to organizations unless otherwise specified.
 
