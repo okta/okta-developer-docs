@@ -41,7 +41,7 @@ To improve test reliability, the OIN Submission test flow now automatically dete
 
 #### New System Log event for AD agent changes
 
-A new System Log event (`system.agent.ad.config_change_detected`) reports when Okta Support modified an AD agent configuration.
+The System Log event (`system.agent.ad.config_change_detected`) reports when Okta Support modified an AD agent configuration.
 
 #### Developer documentation updates in 2025.11.0
 
