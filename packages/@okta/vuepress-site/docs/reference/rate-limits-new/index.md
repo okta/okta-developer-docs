@@ -77,14 +77,12 @@ By default, any API token and OAuth 2.0 application you create is configured to 
 The rate limit capacity allocation can be changed in the Admin Console settings for the respective API token and OAuth2.0 application or through the [principal rate limits](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PrincipalRateLimit/#tag/PrincipalRateLimit) API.
 
 Configuring rate limits by token in the Admin Console:
-div >
 
 ![This image displays the location in the Admin Console that configures rate limits by token using a slide-bar percentage.](/img/rate-limits/rate-limit-token.png)
 
 </div>
 
 Configuring rate limits by OAuth 2.0 app in the Admin Console:
-div >
 
 ![This image displays the location in the Admin Console that configures rate limits by OAuth 2.0 app using a slide-bar percentage.](/img/rate-limits/rate-limit-apps.png)
 

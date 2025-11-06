@@ -5,7 +5,7 @@ category: rate limits
 
 # Client-based rate limits
 
-Client-based rate limiting provides granular, targeted protection for the unauthenticated endpoints used during an application's access flow. It helps isolate noisy neighbors---such as a misconfigured app, a runaway script, or a bad actor---preventing them from consuming your entire org-wide rate limit and impacting other users and applications.
+Client-based rate limiting provides granular, targeted protection for the unauthenticated endpoints used during an application's access flow. It helps isolate noisy neighbors&mdash;such as a misconfigured app, a runaway script, or a bad actor&mdash;preventing them from consuming your entire org-wide rate limit and impacting other users and applications.
 
 This framework applies to:
 

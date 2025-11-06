@@ -46,7 +46,7 @@ What you can do here:
 
 Who has access:
 
-The Rate Limit dashboard can be accessed through the Admin console > **Reports** > **Rate Limits**. Only the following administrative roles can access this dashboard:
+The Rate Limit dashboard can be accessed through the Admin console: **Reports** > **Rate Limits**. Only the following administrative roles can access this dashboard:
 
 * App Admin (`APP_ADMIN`)
 * Mobile Admin (`MOBILE_ADMIN`)
@@ -92,7 +92,7 @@ You can hover over the line graph or bar graph to get more details. The details 
 
 </div>
 
-### API Table
+### APIs Table
 
 This sortable, filterable table shows each API endpoint showing:
 
@@ -116,13 +116,7 @@ Customize your org’s client rate limit behavior and warning thresholds in this
 
 #### Client-based rate limiting
 
-Client-based rate limiting provides granular, targeted protection for the unauthenticated endpoints used during an application's access flow By default, per-client rate limiting is enabled. Each client is allocated 60 requests per minute. See [Client-based rate limits](/docs/reference/rl2-client-based) for more details.
-
-| Mode                        | Description                                                                                                                                         |
-|-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Enforce and log per client  | (Recommended) This is the default setting. The rate limit is based on client-specific values, and violation information is logged as System Log events. |
-| Log per client              | The rate limit is based on the org-wide values, but client-specific violation information is still logged. This allows you to analyze potential impact without actively blocking requests. |
-| Do nothing                  | (Not Recommended) Rate limits aren't enforced at the client-specific level; only org-wide limits apply. No client-specific events are logged.         |
+Client-based rate limiting provides granular, targeted protection for the unauthenticated endpoints used during an application's access flow By default, per-client rate limiting is enabled. Each client is allocated 60 requests per minute. See [Client-based rate limits](/docs/reference/rl2-client-based/#configuration-and-monitoring) for more details.
 
 #### Warning thresholds
 
@@ -158,7 +152,14 @@ Clicking an API in the API table takes you to a deep-dive dashboard. Any alerts 
 
 * Bar Graph: shows the top 10 IP addresses, API tokens, or OAuth 2.0 applications that consume the most traffic for that API.
 
-Okta provides several tools to give you real-time visibility into your API usage so that you can prevent disruptions and resolve incidents quickly. The troubleshooting process can be simplified into four steps: Confirm, identify, correlate, and action.
+## Troubleshooting rate limits
+
+Okta provides several tools to give you real-time visibility into your API usage so that you can prevent disruptions and resolve incidents quickly. The troubleshooting process can be simplified into four steps:
+
+* Confirm
+* Identify
+* Correlate
+* Action
 
 ### Confirm you’re hitting a rate limit
 
@@ -178,7 +179,7 @@ Okta provides several tools to give you real-time visibility into your API usage
 
 </div>
 
-### Example rate limit header with org-scoped rate limit exceeded
+#### Example rate limit header with org-scoped rate limit exceeded
 
 <div class="three-quarter">
 
@@ -186,7 +187,7 @@ Okta provides several tools to give you real-time visibility into your API usage
 
 </div>
 
-### Example rate limit header with concurrent rate limit exceeded
+#### Example rate limit header with concurrent rate limit exceeded
 
 <div class="three-quarter">
 
@@ -201,7 +202,7 @@ Check the rate limit dashboard for more information:
 1. Go to your Admin Console. Click **Reports** > **Rate Limits**
 1. On the **Overview** tab and the deep-dive dashboard for APIs, identify:
     1. Which API endpoints are exceeding limits
-    {style="list-style-type:lower-alpha"}
+    [[style="list-style-type:lower-alpha"]]
     1. Any spikes in warnings, bursts, or violations
     1. The top contributors (IP, app, or token)
 
@@ -218,8 +219,6 @@ Search the System Log for the following events or use the [System Log API](https
 
 Each event includes the endpoint (`requestURI`), the actor, thresholds, and actual counts, along with the direct link to the rate limit dashboard.
 
-[Maybe image here]
-
 ### Action
 
 After you have confirmed 429s and understand the root cause, you can employ a few strategies.
@@ -231,4 +230,3 @@ After you have confirmed 429s and understand the root cause, you can employ a fe
 | Rogue Automation                   | An inefficient or misconfigured script—such as a customer data sync process, an IT management tool, or a testing suite—makes excessive and repetitive API calls in a tight loop without proper error handling or delays. | Implement throttle logic, 429 error handling and retries with backoff.<br>Adjust the token or application rate limit.<br>Avoid aggressive, unnecessary polling to Okta. Use event hooks if available and suitable for your use case.<br>Retrieve only necessary data to avoid repeatable calls.<br>Consider peak usage and batch jobs across time, if possible.                    |
 | Individual Client Flooding an Endpoint | A single client application, such as a public-facing mobile app or an internal web portal, floods a specific unauthenticated endpoint like /authorize due to a bug or batch test, triggering client-based limits designed to isolate the misbehaving actor. | Enable per-client limits and logging.<br>Request a per-client rate limit adjustment (default 60).                                                                                                                                                                                                                                         |
 | Importing Data to Okta             | A migration from a workforce HR system sync attempts to create or update thousands of users at once without proper throttling, quickly consuming management API rate limits.                                 | Request a rate limit increase in advance of the rollout.<br>Leverage Just-In-Time (JIT) provisioning.<br>Increase AD agent thread count to 10.<br>Avoid last minute imports and load your data well ahead of the go-live.                                                                                                                 |
-
