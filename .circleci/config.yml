@@ -173,16 +173,22 @@ jobs:
 
 workflows:
   linting:
+    when:
+      and:
+        - not: << pipeline.parameters.preview >>
+        - not: << pipeline.parameters.preview_with_redirect >>
     jobs:
       - inclusive-linting:
           name: "Inclusive Linting"
-          unless: << or(pipeline.parameters.preview, pipeline.parameters.preview_with_redirect) >>
 
   build_checks:
+    when:
+      and:
+        - not: << pipeline.parameters.preview >>
+        - not: << pipeline.parameters.preview_with_redirect >>
     jobs:
       - node_build_checks:
           name: "Build and Checks"
-          unless: << or(pipeline.parameters.preview, pipeline.parameters.preview_with_redirect) >>
 
   nightly:
     triggers:
