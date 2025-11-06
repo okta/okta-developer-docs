@@ -13,7 +13,6 @@ Okta Identity Governance is available for both Okta Classic and Identity Engine.
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Entitlement history is GA in Production](#entitlement-history-is-ga-in-production) | September 10, 2025 |
-| [Resource Owners API is GA in Production](#resource-owners-api-is-ga-in-production) | September 10, 2025 |
 | [Security access reviews API is GA in Preview](#security-access-reviews-api-is-ga-in-preview) | September 10, 2025 |
 | [Security access review manual remediation](#security-access-review-manual-remediation) | November 5, 2025 |
 | [Security access review updates](#security-access-review-updates) | November 5, 2025 |
@@ -32,15 +31,6 @@ For access and sub-access items where the access revocation or restoration canâ€
 When you flag the access item for manual remediation, Okta fires an `access.review.action` System Log event.
 
 See [`supportedActions`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/executeSecurityAccessReviewAccessesAction!path=type&t=request), [`manualRemediationTypes`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/listSecurityAccessReviewAccesses!c=200&path=data/manualRemediationTypes&t=response), and [`remediationStatus`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/listSecurityAccessReviewAccesses!c=200&path=data/remediationStatus&t=response). <!--OKTA-1001463 IGA_SECURITY_ACCESS_REVIEW Preview date: Nov 5, 2025 -->
-
-#### Resource Owners API is GA in Production
-
-Assign owners to groups, apps, entitlements, and entitlement bundles. This feature allows you to automatically route access request steps and access certification campaign reviews to the correct stakeholder, improving the efficiency and accuracy of your governance processes. It also helps ensure that the right stakeholder is always involved in access decisions without requiring manual updates to your configurations.
-
-* Access Requests: When configuring approval sequences in access request conditions, you can now assign approvals, tasks, or questions directly to resource owners. See [Configure an approval sequence](https://help.okta.com/okta_help.htm?type=oie&id=csh-rcar-approval-sequences).
-* Access Certifications: When creating certification campaigns, you can now select the **Resource Owner** as the designated reviewer. See [Certification campaign reviews](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-reviewing).
-
-See the [Resource Owners](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Resource-Owners/) API and [Resource Owners](https://help.okta.com/okta_help.htm?type=oie&id=resource-owners) in the product documentation to manage assigning owners to resources in your OIG org. <!-- OKTA-998871 IGA_RESOURCE_OWNERS Preview date: Sept 10, 2025 -->
 
 #### Security access reviews API is GA in Preview
 
