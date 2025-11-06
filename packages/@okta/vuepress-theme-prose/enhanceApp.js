@@ -25,32 +25,6 @@ export default ({ Vue, options, router, siteData }) => {
      * Catch `404` in router and redirect to custom 404 page
      */
     if (to.matched.length > 0 && to.matched[0].path === "*") {
-      if (typeof window !== 'undefined' && window.location.hostname.startsWith('preview')) {
-        async function processRedirects(yamlUrl) {
-          const response = await fetch(yamlUrl);
-
-          if (!response.ok) {
-            next("/errors/404.html");
-
-            return;
-          }
-
-          const yamlText = await response.text();
-          const data = jsyaml.load(yamlText);
-
-          data.redirects.forEach(entry => {
-            const { from: from1, to: to1 } = entry;
-            if ((from1.endsWith('.html') && from1.slice(0, -5) === to.path) || (to.path === from1)) {
-              window.location.href = to1;
-            }
-          });
-        }
-
-        processRedirects('/conductor/conductor.yml');
-        
-        return;
-      }
-
       next("/errors/404.html");
     } else {
       next();
