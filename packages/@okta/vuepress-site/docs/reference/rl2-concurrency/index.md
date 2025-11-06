@@ -7,11 +7,20 @@ category: rate limits
 
 Concurrency limits control how many transactions your organization can have in-flight at the same time. Unlike per-minute rate limits, which measure the total number of requests over a time window, concurrency limits are enforced in real-time to ensure system stability.
 
-Concurrency is tracked across three separate areas: agent traffic, Microsoft Office 365 traffic, and all other traffic (including API requests), which has a default limit of 75 simultaneous transactions for Okta Workforce Identity (OWI) customers.
+Concurrency is tracked across three separate areas: agent traffic, Microsoft Office 365 traffic, and all other traffic (including API requests), which has a default limit of 75 simultaneous transactions for Okta Workforce Identity (OWI) customers. Okta has selected these default concurrency limits to align with the expected volume of traffic for a given organization.
 
 | Integrator Free Plan | Okta Customer Identity | Okta Workforce Identity |
 | :------------------: | :--------------------: | :---------------------: |
 | 35                   | 75                     | 75                      |
+
+As your organization grows, the concurrency rate limit increases as well. The following concurrency limits are applied based on the [rate limit multiplier](/docs/reference/rl2-increase/) applied to an organization.
+
+| Multiplier | Concurrency Limit |
+|:----------:|:----------------:|
+| 1x         | 75               |
+| 5x         | 125              |
+| 10x        | 200              |
+| 50x        | 375              |
 
 While typical user-driven traffic rarely hits these limits, they become a critical consideration in two key scenarios:
 
@@ -55,4 +64,3 @@ Your organization's concurrency limit can be increased with the DynamicScale add
 | 5x         | 125               |
 | 10x        | 200               |
 | 50x        | 375               |
-
