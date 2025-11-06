@@ -72,7 +72,7 @@ Create a second test account.
 1. Clear the **User must change password on first login** checkbox.
 1. Select **Save and Add Another**.
 
-For more information about creating users, see [Add users manually](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-add-users.htm).
+For more information about creating users, see [Add users manually](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users).
 
 ### Activate the accounts
 
