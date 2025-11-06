@@ -10,11 +10,11 @@ category: rate limits
 If you are building high-volume, user-facing applications, DynamicScale is the ideal solution. It's designed to handle the massive scale of consumer authentication and authorization traffic.
 
 * Who it's for: Okta Customer Identity (OCI) customers only.
-* How it works: DynamicScale is a purchased add-on that applies a multiplier---from 5x to 1000x--to the default rate limits for specific organization(s).
+* How it works: DynamicScale is a purchased add&mdash;on that applies a multiplier-from 5x to 1000x&mdash;to the default rate limits for specific organization(s).
 * Applicable Endpoints: This service is targeted specifically at authentication and authorization endpoints to ensure a seamless experience for your end-users. DynamicScale does not increase the base rate limits for Management endpoints. For the complete list of eligible endpoints, visit Rate Limits.
 * How to get it: DynamicScale can be purchased for a Production or Preview organization. Contact your Okta sales representative for more details.
 
-## For Okta Workforce Identity: Workforce License Multiplier
+## For Okta Workforce Identity: Workforce license multiplier
 
 For our Workforce Identity customers, Okta provides an automatic rate limit increase for authentication and authorization endpoints based on the number of Universal Directory or Single Sign-On licenses your organization has purchased. This ensures that as your workforce grows, Okta scales with you.
 
@@ -30,7 +30,7 @@ For our Workforce Identity customers, Okta provides an automatic rate limit incr
 * Applicable Endpoints: This multiplier applies to common authentication, authorization, and single-entity read endpoints (like getting a single user or app). For the complete list of eligible endpoints, visit Rate Limits.
 * Need more? If this automatic multiplier is still insufficient for your needs, you can use the manual request process outlined above.
 
-## For All Customers: Request a Manual Rate Limit Increase
+## For all customers: Request a manual rate limit increase
 
 If you have a planned high-traffic event like an application launch, a large user migration, or a seasonal peak, you can request a temporary rate limit increase. If your organization's baseline traffic has permanently grown, you can also request a permanent increase.
 

@@ -1181,10 +1181,6 @@ export const reference = [
             path: "/docs/reference/rl2-increase/",
           },
           {
-            title: "Client-based rate limits",
-            path: "/docs/reference/rl-client-based/",
-          },
-          {
             title: "Additional Rate limits",
             path: "/docs/reference/rl2-limits",
           }

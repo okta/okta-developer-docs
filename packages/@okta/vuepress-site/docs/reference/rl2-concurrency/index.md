@@ -41,26 +41,16 @@ For example:
 You can estimate your own needs using the following formula:
 
 ```sh
-
 Concurrency = (Requests per Minute / 60) * (Avg. Request Duration in ms / 1000)
+```
 
 or
 
+```sh
 Concurrency = (RPM*Avg. Request Duration in ms)/60,000
-
 ```
 
 ## Graceful degradation and retries
 
 To minimize customer impact, Okta has a built-in resiliency mechanism. For many endpoints, when a 429 error occurs due to a concurrency limit, our load balancer intercepts the request and automatically retries it on separate application services before returning an error to your client. This is a fallback mechanism for graceful degradation that often resolves temporary spikes in a few seconds or minutes without any perceived impact. A prolonged state of retries may indicate a more serious underlying issue.
 
-### Increasing concurrency limits
-
-Your organization's concurrency limit can be increased with the DynamicScale add-on or with a workforce multiplier. The increased limits are:
-
-| Multiplier | Concurrency Limit |
-| :--------: | :---------------: |
-| 1x         | 75                |
-| 5x         | 125               |
-| 10x        | 200               |
-| 50x        | 375               |
