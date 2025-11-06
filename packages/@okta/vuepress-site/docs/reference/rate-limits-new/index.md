@@ -28,8 +28,6 @@ There are two additional types of scopes that can apply to a bucket:
 
 Buckets scoped to authenticated users are independent and not nested under any other bucket. That is, requests made by authenticated users to APIs covered by these buckets don't count under any other bucket. For example, there exists a bucket with org-wide scope for `/api/v1/users/*` with a quota of 1000 requests per minute and a separate bucket for `/api/v1/users/m`e scoped to authenticated users with a quota of 40 requests per 10 seconds. A request to `/api/v1/users/me` by an authenticated user would decrement the authenticated user bucket to 39 remaining calls, while leaving the `/api/v1/users/* bucket untouched`.
 
-[Placeholder for a diagram or image here]
-
 A bucket’s quota can vary based on several factors, including---but not limited to---the type of service subscription (For example, OWI versus OCI), the HTTP method used (for example, GET versus POST), the number of licenses purchased, and any applicable add-ons, such as DynamicScale. If the quota is exceeded within the defined time window, additional requests are rejected with an HTTP 429 Too Many Requests response until the quota resets. Okta notifies all Super Administrators through e-mail and other means when an org-wide rate limit is nearing its threshold and again when it has been exceeded.
 
 You can monitor rate limit usage through the Rate Limit Dashboard, System Log, or by inspecting the rate limiting headers included in API responses.
@@ -44,7 +42,11 @@ The logic behind the Okta implementation of rate limits can be summarized in the
 1. Matches the request against the configured rate limit bucket(s)
 1. Updates the counters and notifies
 
-[Place holder for an image, visual, or diagram]
+<div >
+
+![This image displays the rate limit flow and options.](/img/rate-limits/rate-limit-flow.png)
+
+</div>
 
 ### Matching requests
 
@@ -70,9 +72,23 @@ After a request has been matched, the counters for the impacted buckets are upda
 
 To protect your organization from a single rogue script or misbehaving integration, Okta provides a mechanism to set a specific rate limit capacity for individual API tokens and OAuth 2.0 applications. This ensures that one client can't consume the entire org-wide rate limit for a given endpoint, which prevents it from causing a widespread outage for your other critical integrations.
 
-By default, every API token and OAuth 2.0 application you create is configured to use 50% of an API endpoint's total rate limit capacity. This can be changed in the Admin Console settings for the respective API token and OAuth2.0 application or through the [principal rate limits](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PrincipalRateLimit/#tag/PrincipalRateLimit) API.
+By default, any API token and OAuth 2.0 application you create is configured to consume no more than 50% of an API endpoint's total rate limit capacity. This does not guarantee a minimum rate limit for a token or app, but does provide a ceiling. For example, if your org-wide limit for the `/api/v1/logs` endpoint is 120 requests per minute, a single API token can only make 60 requests per minute to that endpoint before being rate-limited. This default behavior acts as a crucial safeguard in environments with multiple integrations.
 
-This means if your org-wide limit for the `/api/v1/logs` endpoint is 120 requests per minute, a single API token can only make 60 requests per minute to that endpoint before being rate-limited. This default behavior acts as a crucial safeguard in environments with multiple integrations.
+The rate limit capacity allocation can be changed in the Admin Console settings for the respective API token and OAuth2.0 application or through the [principal rate limits](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PrincipalRateLimit/#tag/PrincipalRateLimit) API.
+
+Configuring rate limits by token in the Admin Console:
+div >
+
+![This image displays the location in the Admin Console that configures rate limits by token using a slide-bar percentage.](/img/rate-limits/rate-limit-token.png)
+
+</div>
+
+Configuring rate limits by OAuth 2.0 app in the Admin Console:
+div >
+
+![This image displays the location in the Admin Console that configures rate limits by OAuth 2.0 app using a slide-bar percentage.](/img/rate-limits/rate-limit-apps.png)
+
+</div>
 
 ### Understanding capacity allocation
 
