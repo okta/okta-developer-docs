@@ -1118,7 +1118,7 @@ export const reference = [
         path: "/docs/reference/org-defaults/",
       },
       {
-        title: "Rate Limits",
+        title: "Rate Limits (original",
         path: "/docs/reference/rate-limits/",
         subLinks: [
           {
