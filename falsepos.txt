@@ -59,6 +59,14 @@ https://reactjs.org/docs/hooks-intro.html
 https://trust.okta.com/compliance/
 https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1/
 https://admin.google.com/
-
-
-
+https://docs.withpersona.com/docs/getting-started/
+https://search.maven.org/artifact/com.okta.android/okta-oidc-android/
+https://search.maven.org/search?q=a:okta-jwt-verifier/
+https://www.npmjs.com/
+https://www.npmjs.com/package/cors/
+https://www.npmjs.com/package/dotenv/
+https://www.npmjs.com/package/@okta/jwt-verifier/
+https://www.npmjs.com/package/@okta/okta-auth-js#getting-started/
+https://www.npmjs.com/package/@okta/okta-auth-js#tokenmanagergettokens/
+https://www.npmjs.com/package/@okta/okta-signin-widget/
+https://www.npmjs.com/search?q=@okta/
