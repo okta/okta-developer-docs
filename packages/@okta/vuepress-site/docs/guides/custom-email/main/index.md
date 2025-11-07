@@ -277,7 +277,7 @@ In your email templates, you can use any conditional logic that VTL supports, su
 
 ### VTL and Java methods
 
-VTL is a Java-based template engine. See [What is Velocity?](https://velocity.apache.org/engine/1.7/user-guide.html#what-is-velocity).
+VTL is a Java-based template engine. See [What is Velocity](https://velocity.apache.org/engine/1.7/user-guide.html#what-is-velocity).
 
 As a result, you can use Java methods to customize Okta email templates. Consult the following Java methods:
 
@@ -286,7 +286,7 @@ As a result, you can use Java methods to customize Okta email templates. Consult
 
 See [user.groups.names](#usergroupsnames) for a customization example that uses the `contains` method.
 
-### VTL and Expression language (EL)
+### VTL and Expression Language (EL)
 
 Velocity Template Language differs from [Expression Language (EL)](/docs/reference/okta-expression-language/) syntax in the following ways:
 
@@ -296,11 +296,11 @@ Velocity Template Language differs from [Expression Language (EL)](/docs/referen
 
 ### Customization examples
 
-Add the logic in the following examples to the `<head>` of each email template you want to customize.
+Add the logic in the following examples to the `<head>` of each email template that you want to customize.
 
 #### app.name
 
-The following example uses the `${app.name}` variable, which you can apply to all email notification templates. However, it is only available in [Identity Engine](/docs/concepts/oie-intro/).
+The following example uses the `${app.name}` variable, which you can apply to all email notification templates. However, it’s only available in [Identity Engine](/docs/concepts/oie-intro/).
 
 It customizes an email using the following logic:
 
