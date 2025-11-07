@@ -264,41 +264,107 @@ If you use functions while adding more locales, use the `getTimeDiffHoursNow` fu
 
 To delete all custom translations and revert to the Okta template, click **Reset to Default**.
 
-## Use Velocity Templating Language
+## Velocity Template Language (VTL)
 
-[Velocity Templating Language (VTL)](https://velocity.apache.org/engine/2.3/user-guide.html) allows you to customize your org's email templates so that you can use the following:
+Velocity Template Language (VTL) allows you to customize your org's email templates so that you can use the following:
 
-- Enhanced conditional logic
-- All attributes in the Okta [User Profile object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!path=profile&t=request)
-- Some of the org attributes in the VTL variables
+* Enhanced conditional logic
+* All attributes in the Okta [User Profile object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!path=profile&t=request)
+* Some of the org attributes in the VTL variables
 
 Email templates use both common and unique VTL variables. When you interpolate variables in the template, precede them with a dollar sign. Use dot notation to reference subobjects. For example, reference the first name of a user with `${user.profile.firstName}`.
 
-See [Use VTL variables](#use-vtl-variables) for available email template variables.
+See [VTL variables](#vtl-variables).
 
-### Use conditional logic
+In your email templates, you can use any conditional logic that VTL supports, such as `if`, `elseif`, or `else` constructs and `foreach` loops. See the [Velocity User Guide](https://velocity.apache.org/engine/2.3/user-guide.html).
 
-In your email templates, you can use any conditional logic that VTL supports, such as `if`, `elseif`, or `else` constructs and `foreach` loops. See the [Velocity documentation](https://velocity.apache.org/engine/2.3/user-guide.html).
+### VTL and Java methods
 
-### Customization example
+VTL is a Java-based template engine. See [What is Velocity?](https://velocity.apache.org/engine/1.7/user-guide.html#what-is-velocity).
 
-The following example uses the `${app.name}` variable, which is only available in Identity Engine.
+As a result, you can use Java methods to customize Okta email templates. Consult the following Java methods:
+
+- [List-based method references](https://docs.oracle.com/javase/8/docs/api/java/util/List.html)
+- [String-based method references](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)
+
+See user.groups.names for a customization example that uses the `contains` method.
+
+### VTL and Expression language (EL)
+
+Velocity Template Language differs from [Expression Language (EL)](/docs/reference/okta-expression-language/) syntax in the following ways:
+
+- You can leave off the curly brackets for variable names. Shorthand notation is acceptable in most languages.
+- The format is simplified. Add a dollar sign before the variable that you want to add to a template, and use dot notation for sub-objects.
+- Most Velocity variables can be used anywhere, but some are limited to specific templates. Refer to the [Template availability column]() for details.
+
+### Customization examples
+
+The following examples use variables and methods to customize templates for Okta email notifications. Add the logic to the `<head>` of each email template you want to customize.
+
+#### app.name
+
+The following example uses the `${app.name}` variable, which is only available in [Identity Engine](/docs/concepts/oie-intro/). However, you can apply it to all email notification templates.
+
+It customizes an email using the following logic:
+
+- If the end user is registered to the `app.name` “Toys R’ Fun”, the “Toys R’ Fun” logo appears in the email.
+- If the end user is registered to the `app.name` “Fidget Spinners Unlimited”, the “Fidget Spinners” logo appears in the email.
+- If the end user is registered to any other app within your Okta domain or subdomain, the parent logo appears in the email.
 
 ```html
-#if(${app.name} == "Toys R' Fun")
-<img src="https://cdn.toysrfun.com/logo" height="37">
-<a id="support-link" href="https://support.toysrfun.com/help/?language=en_US" style="text-decoration: none;"> Contact Toy Support </a>
-#elseif(${app.name} == "Fidget Spinners Unlimited")
-<img src="https://cdn.fidgetsu.com/logo" height="37">
-<a id="support-link" href="https://support.fidgetsu.com/help/?language=en_US" style="text-decoration: none;"> Contact Fidget SU Support </a>
-#else
-<img src="${parentLogoUrl}" height="37">
-#end
+<head>
+
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+   #if(${app.name} == "Toys R' Fun")
+      <img src="https://cdn.toysrfun.com/logo" height="37">
+      <a id="support-link" href="https://support.toysrfun.com/help/?language=en_US" style="text-decoration: none;"> Contact Toy Support </a>
+   #elseif(${app.name} == "Fidget Spinners Unlimited")
+      <img src="https://cdn.fidgetsu.com/logo" height="37">
+      <a id="support-link" href="https://support.fidgetsu.com/help/?language=en_US" style="text-decoration: none;"> Contact Fidget SU Support </a>
+   #else
+      <img src="${parentLogoUrl}" height="37">
+   #end
+
+</head>
 ```
 
-### Use VTL variables
+#### user.groups.names
 
-You can reference any Okta User Profile attribute in your email templates.
+The following example uses the `${user.groups.names}` variable. It also appends the variable with the `contains` Java method to limit the array to the specified element (“TAC users”). See [contains](https://docs.oracle.com/javase/8/docs/api/java/util/List.html#contains-java.lang.Object-).
+
+You can use `${user.groups.names}` in both Classic Engine and Identity Engine. You can also apply it to all email notification templates. This example customizes the User Activation template. See the [list of available templates](/docs/guides/custom-email/main/#use-customizable-email-templates).
+
+The org for this example uses the default brand with a custom email domain. As a result, you can apply different brands to your email templates without creating multiple custom domains.
+
+The example code uses the following logic:
+
+- If the end user is a member of the TAC users group in your org:
+  - The default activation link in the email template is replaced with the URL associated with Brand 1.
+  - The default logo in the email template is replaced with the Brand1 logo.
+- If the end user is a member of any other group in your org:
+  - The default activation link in the email template is replaced with the URL associated with Brand 2.
+  - The default logo in the email template is replaced with the Brand2 logo.
+
+```html
+<head>
+
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+   #if( $user.groups.names.contains("TAC users") )
+      #set( $customActivationLink = $activationLink.replace("default.oktapreview.com", "brand1.custom.org"))
+      #set( $customBrandThemeLogo = "[Brand1 logo]" )
+   #else
+      #set( $customActivationLink = $activationLink.replace("default.oktapreview.com", "brand2.custom.org"))
+      #set( $customBrandThemeLogo = "Brand2 logo" )
+   #end
+
+</head>
+```
+
+### VTL variables
+
+You can reference any [Okta User Profile attribute](/docs/concepts/user-profiles/) in your email templates.
 
 > **Note:** Some attributes are only available in Identity Engine (see Identity Engine notes in the following table). You can use any other variable in both the Identity Engine and the Classic Engine.
 
