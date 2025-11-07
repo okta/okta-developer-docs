@@ -415,27 +415,23 @@ Along with the IDV events (`user.identity_verification.start` and `user.identity
 
 Okta supports the following OIDC claims. IDV vendors can choose among any of these claims and use them in their IDV flow.
 
-To use the claims that are Early Access, enable the **More Universal Directory attributes available for identity verification mapping** feature in your Okta org.
-
 > **Note:** IDV vendors must always include the `given_name` and `family_name` claims.
 
 | Supported claim | Description | DataType |
 |-----------------|-------------|----------|
 | given_name      | The user's first name. | String |
 | family_name     | The user's last name or surname. | String |
-| middle_name <ApiLifecycle access="ea" />    | The user's middle name. | String |
-| email <ApiLifecycle access="ea" />          | The user's email address. | String |
-| birthdate <ApiLifecycle access="ea" />      | The user's date of birth. Format the date of birth in the ISO 8601 format (YYYY-MM-DD). | datetime |
-| phone_number <ApiLifecycle access="ea" />   | The user's phone number. Format the phone number in the E.164 format | String |
-| street_address <ApiLifecycle access="ea" /> | The user's street address. This claim can include new lines. | String |
-| locality <ApiLifecycle access="ea" />       | The user's city or locality. | String |
-| region <ApiLifecycle access="ea" />         | The user's state, province, prefecture, or region. | String |
-| postal_code <ApiLifecycle access="ea" />    | The user's postal or ZIP code. | String |
-| country <ApiLifecycle access="ea" />        | The user's country. Format this value with the country name. | String |
+| middle_name     | The user's middle name. | String |
+| email           | The user's email address. | String |
+| birthdate       | The user's date of birth. Format the date of birth in the ISO 8601 format (YYYY-MM-DD). | datetime |
+| phone_number    | The user's phone number. Format the phone number in the E.164 format | String |
+| street_address  | The user's street address. This claim can include new lines. | String |
+| locality        | The user's city or locality. | String |
+| region         | The user's state, province, prefecture, or region. | String |
+| postal_code    | The user's postal or ZIP code. | String |
+| country       | The user's country. Format this value with the country name. | String |
 
 ### Map Okta user profile attributes to OIDC claims
-
-<ApiLifecycle access="ea" />
 
 Okta admins can map any of these supported claims to user profile attributes. See [Map profile attributes from Okta to the IDV vendor IdP](https://help.okta.com/okta_help.htm?type=oie&id=id-verification).
 

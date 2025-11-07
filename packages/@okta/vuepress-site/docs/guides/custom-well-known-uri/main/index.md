@@ -4,8 +4,6 @@ excerpt: Learn how to customize associated domains.
 layout: Guides
 ---
 
-<ApiLifecycle access="ea" />
-
 This guide explains how to create associations between your custom domains and three well-known URI endpoints.
 
 ---
@@ -18,7 +16,6 @@ Learn how to create well-known URI files.
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * A [custom domain](/docs/guides/custom-url-domain)
-* The Associated Domains Customizations feature enabled for your org
 
 ---
 
