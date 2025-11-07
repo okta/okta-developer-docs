@@ -290,7 +290,7 @@ See [user.groups.names](#usergroupsnames) for a customization example that uses 
 
 Velocity Template Language differs from [Expression Language (EL)](/docs/reference/okta-expression-language/) syntax in the following ways:
 
-* You can leave off the curly brackets for variable names. Shorthand notation is acceptable in most languages.
+* You can leave off the curly brackets for variable names. Shorthand notation is acceptable in most languages. For example, you can use `$variable` instead of `${variable}`.
 * The format is simplified. Add a dollar sign before the variable that you want to add to a template, and use dot notation for sub-objects.
 * Most Velocity variables can be used anywhere, but some are limited to specific templates. Refer to the [Template availability column](#vtl-variables) for details.
 
@@ -305,14 +305,12 @@ The following example uses the `${app.name}` variable, which you can apply to al
 It customizes an email using the following logic:
 
 * If the end user is registered to an app with the name “Toys R’ Fun”, the “Toys R’ Fun” logo appears in the email.
-* If the end user is registered to an app with the name “Fidget Spinners Unlimited”, the “Fidget Spinners” logo appears in the email.
-* If the end user is registered to any other app within your Okta domain or subdomain, the parent logo appears in the email.
+* If the end user is registered to an app with the name “Fidget Spinners Unlimited”, the “Fidget Spinners Unlimited” logo appears in the email.
+* If the end user is registered to any other app within your Okta domain or subdomain, the default logo appears in the email.
 
 ```html
 <head>
-
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
    #if(${app.name} == "Toys R' Fun")
       <img src="https://cdn.toysrfun.com/logo" height="37">
       <a id="support-link" href="https://support.toysrfun.com/help/?language=en_US" style="text-decoration: none;"> Contact Toy Support </a>
@@ -322,13 +320,12 @@ It customizes an email using the following logic:
    #else
       <img src="${parentLogoUrl}" height="37">
    #end
-
 </head>
 ```
 
 #### user.groups.names
 
-The following example uses the `${user.groups.names}` variable with the `contains` Java method to limit the array to the specified element (“ToysRFun users”). See [contains](https://docs.oracle.com/javase/8/docs/api/java/util/List.html#contains-java.lang.Object-).
+The following example uses the `${user.groups.names}` variable with the `contains` Java method to limit the array to the specified group (users that are members of the “ToysRFun” group). See [contains](https://docs.oracle.com/javase/8/docs/api/java/util/List.html#contains-java.lang.Object-).
 
 You can use `${user.groups.names}` in both Classic Engine and [Identity Engine](/docs/concepts/oie-intro/). You can also apply it to all email notification templates. This example customizes the User Activation template in particular. See the [list of available templates](/docs/guides/custom-email/main/#use-customizable-email-templates).
 
@@ -336,7 +333,7 @@ The org for this example uses the default brand with a custom email domain. As a
 
 The example code uses the following logic:
 
-* If the end user is a member of the "ToysRFun" users group in your org:
+* If the end user is a member of the "ToysRFun" group in your org:
   * The default activation link in the email template is replaced with the URL associated with ToysRFun.
   * The default logo in the email template is replaced with the ToysRFun logo.
 * If the end user is a member of any other group in your org:
@@ -345,17 +342,14 @@ The example code uses the following logic:
 
 ```html
 <head>
-
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-   #if( $user.groups.names.contains("ToysRFun users") )
+   #if( $user.groups.names.contains("ToysRFun") )
       #set( $customActivationLink = $activationLink.replace("default.oktapreview.com", "activation.toysrfun.com"))
       #set( $customBrandThemeLogo = "https://cdn.toysrfun.com/logo" )
    #else
       #set( $customActivationLink = $activationLink.replace("default.oktapreview.com", "activation.fidgetsu.com"))
       #set( $customBrandThemeLogo = "https://cdn.fidgetsu.com/logo" )
    #end
-
 </head>
 ```
 
