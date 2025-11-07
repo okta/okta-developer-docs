@@ -389,7 +389,7 @@ When you make a Revoke all user sessions (/api/v1/users/{userId}/sessions) reque
 
 #### Cross App Access is self-service EA in Preview
 
-Admins can now manage third-party app data sharing with the new Cross App Access feature in the Okta Admin Console. This feature moves complex consent processes away from end-users, enhancing security and streamlining the experience. Once configured, end users can access their data from other SaaS apps without navigating OAuth consent flows. See the [Applications Cross Apps Connections API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationCrossAppAccessConnections/) and [Configure Cross App Access](https://help.okta.com/oie/en-us/content/topics/apps/apps-cross-app-access.htm). <!-- ENABLE_CONNECT_WITH_OKTA OKTA-800616) -->
+Admins can now manage third-party app data sharing with the new Cross App Access feature in the Okta Admin Console. This feature moves complex consent processes away from end-users, enhancing security and streamlining the experience. Once configured, end users can access their data from other SaaS apps without navigating OAuth consent flows. See the [Applications Cross Apps Connections API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationCrossAppAccessConnections/) and [Configure Cross App Access](https://help.okta.com/okta_help.htm?type=oie&id=apps-cross-app-access). <!-- ENABLE_CONNECT_WITH_OKTA OKTA-800616) -->
 
 #### Custom FIDO2 AAGUID is self-service EA in Preview
 

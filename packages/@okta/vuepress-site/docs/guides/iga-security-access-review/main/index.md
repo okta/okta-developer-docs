@@ -58,7 +58,7 @@ You only have to set up your Okta org for OIG Security Access Reviews API access
 
 Only super admins (`SUPER_ADMIN`) can initially trigger security access reviews in Okta Identity Governance orgs.
 
-For least-privilege access, Okta recommends that you create a custom role for admins to manage security access reviews. See [Create a role](https://help.okta.com/oie/en-us/content/topics/security/custom-admin-role/create-role.htm) and assign following permissions to your custom role:
+For least-privilege access, Okta recommends that you create a custom role for admins to manage security access reviews. See [Create a role](https://help.okta.com/okta_help.htm?type=oie&id=csh-create-role) and assign following permissions to your custom role:
 
 * **Manage security access reviews as admin** (`okta.governance.securityAccessReviews.admin.manage`)
 * **View users** (`okta.users.read`)

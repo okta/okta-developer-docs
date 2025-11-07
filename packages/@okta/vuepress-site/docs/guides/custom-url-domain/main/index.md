@@ -30,7 +30,7 @@ For customizing a domain using your own TLS certificate:
 For configuring a custom email address:
 
 * Access to the DNS records of your public custom domain
-* If you use a custom email provider, you need to configure the Sender Policy Framework (SPF) and DomainKeys Identified Mail (DKIM). See [Use your own email provider](https://help.okta.com/oie/en-us/content/topics/settings/custom-email-provider.htm).
+* If you use a custom email provider, you need to configure the Sender Policy Framework (SPF) and DomainKeys Identified Mail (DKIM). See [Use your own email provider](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-provider-main).
 
 ---
 
