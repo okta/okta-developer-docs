@@ -15,7 +15,7 @@ For the steps on how to add Okta authentication to your API endpoints, see the [
 
 ## OAuth 2.0 and OpenID Connect
 
-When do you use API Access Management and when do you use OpenID Connect?
+
 
 ### Simple use cases
 
