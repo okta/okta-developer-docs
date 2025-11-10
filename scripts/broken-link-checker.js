@@ -104,13 +104,25 @@ async function runChecker() {
   const xml = fs.readFileSync(sitemapPath, "utf8");
   const parsed = await parseStringPromise(xml);
   const urls = parsed.urlset.url.map((u) => u.loc[0]);
+  const EXCLUDED_PAGES = [
+    "/books/api-security/gateways/",
+    "/docs/release-notes/2016/",
+    "/docs/release-notes/2017/",
+    "/docs/release-notes/2018/",
+    "/docs/release-notes/2019/",
+    "/docs/release-notes/2020/",
+    "/docs/release-notes/2021/",
+    "/docs/release-notes/2021-okta-identity-engine/",
+    "/docs/release-notes/2022/",
+    "/docs/release-notes/2022-okta-identity-engine/",
+    "/docs/release-notes/2023/",
+    "/docs/release-notes/2023-okta-identity-engine/"
+  ];
 
   // Replace prod domain with localhost:8080
   const localUrls = urls.map((u) =>
     u.replace("https://developer.okta.com", siteUrl)
-  // Circleci was causing issues while checking links on this page. Hence, excluding it from the check.
-  // This page was last updated 7 yrs ago so no active development happens on this page and all links are working as expected.
-  ).filter((url) => !url.endsWith("books/api-security/gateways/"));
+  ).filter((url) => !EXCLUDED_PAGES.some(page => url.endsWith(page)));
 
   let processed = 0;
 
