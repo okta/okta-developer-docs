@@ -4,6 +4,9 @@ parameters:
   preview:
     type: string
     default: ""
+  preview_with_redirect:
+    type: string
+    default: ""
 
 commands:
   install-deps:
@@ -135,18 +138,54 @@ jobs:
             chmod +x ./scripts/update-dev-docs-pr-cci.sh
             ./scripts/update-dev-docs-pr-cci.sh
 
+  netlify_manual_with_redirects:
+    docker:
+      - image: cimg/node:14.21.3-browsers
+    resource_class: xlarge
+    steps:
+      - run:
+          name: Has secrets?
+          command: |
+            if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
+              echo "Missing required secrets."
+              exit 1
+            fi
+      - checkout
+      - install-deps
+      - run:
+          name: Build preview
+          command: |
+            yarn build-with-redirect
+      - run:
+          name: Install Netlify CLI
+          command: |
+            npm install netlify-cli@17.23.5 -g
+      - run:
+          name: Deploy preview to Netlify
+          command: |
+            netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site
+      - run:
+          name: Update PR with preview link
+          command: |
+            chmod +x ./scripts/update-dev-docs-pr-cci.sh
+            ./scripts/update-dev-docs-pr-cci.sh
+
 
 workflows:
   linting:
     when:
-      not: << pipeline.parameters.preview >>
+      and:
+        - not: << pipeline.parameters.preview >>
+        - not: << pipeline.parameters.preview_with_redirect >>
     jobs:
       - inclusive-linting:
           name: "Inclusive Linting"
 
   build_checks:
     when:
-      not: << pipeline.parameters.preview >>
+      and:
+        - not: << pipeline.parameters.preview >>
+        - not: << pipeline.parameters.preview_with_redirect >>
     jobs:
       - node_build_checks:
           name: "Build and Checks"
@@ -168,3 +207,9 @@ workflows:
     jobs:
       - netlify_manual:
           name: "Netlify Manual"
+
+  netlify_manual_with_redirects:
+    when: << pipeline.parameters.preview_with_redirect >>
+    jobs:
+      - netlify_manual_with_redirects:
+          name: "Netlify Manual With Redirects"
