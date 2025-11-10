@@ -88,7 +88,7 @@ For details, see [Org Creator](/docs/concepts/org-creator/).
 
 Okta orgs have different features depending on your contract.
 
-A Generally Available (GA) feature is new or enhanced functionality that is enabled by default for all customers based on your purchase agreement. Features in GA are supported by Okta customer support, and issues are addressed according to your customer agreement with Okta.
+A Generally Available (GA) feature is new or enhanced functionality that's enabled by default for all customers based on your purchase agreement. Features in GA are supported by Okta customer support, and issues are addressed according to your customer agreement with Okta.
 
 Early Access (EA) features are opt-in features that you can try out in your org by asking Okta Support to enable them. Also, the **Features** page in the Admin Console (**Settings** > **Features**) allows Super Admins to enable and disable some self-service EA features themselves (assuming your org is eligible for the feature).
 
