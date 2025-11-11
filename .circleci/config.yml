@@ -58,8 +58,6 @@ jobs:
       - attach_workspace:
           at: ~/project
       - checkout
-      - run: |
-          pip install -r requirements.txt
       - platform-helpers-general/step-load-dependencies
       - platform-helpers-general/step-run-snyk-monitor:
           scan-all-projects: true
