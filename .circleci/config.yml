@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  platform-helpers-general: okta/general-platform-helpers@1.9.4
+
 parameters:
   preview:
     type: string
@@ -30,6 +33,39 @@ commands:
             - ~/.cache/
 
 jobs:
+  build:
+    docker:
+      - image: cimg/node:14.21.3-browsers
+    resource_class: large
+    environment:
+      NODE_OPTIONS: '--max_old_space_size=3584'
+    steps:
+      - checkout
+      - install-deps
+      - run:
+          name: Build
+          command: yarn build
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+            - .git # repo metadata is used by Snyk CLI
+
+  snyk-scan:
+    docker:
+      - image: cimg/python:3.10
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - checkout
+      - run: |
+          pip install -r requirements.txt
+      - platform-helpers-general/step-load-dependencies
+      - platform-helpers-general/step-run-snyk-monitor:
+          scan-all-projects: true
+          skip-unresolved: false
+          run-on-non-main: true
+
   inclusive-linting:
     docker:
       - image: cimg/base:current
@@ -172,6 +208,24 @@ jobs:
 
 
 workflows:
+  default-workflow:
+    jobs:
+      - build
+      - platform-helpers-general/job-snyk-prepare:
+          name: prepare-snyk
+          requires:
+            - build
+      - snyk-scan:
+          context:
+            - static-analysis
+          name: execute-snyk
+          requires:
+            - prepare-snyk
+          filters:
+            branches:
+              only:
+                - ik-add-snyk-scan
+
   linting:
     when:
       and:
