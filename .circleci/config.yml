@@ -215,7 +215,7 @@ workflows:
             - static-analysis
           name: execute-snyk
           requires:
-            - node_build_checks
+            - Build and Checks
           filters:
             branches:
               only:
