@@ -211,16 +211,12 @@ workflows:
   default-workflow:
     jobs:
       - build
-      - platform-helpers-general/job-snyk-prepare:
-          name: prepare-snyk
-          requires:
-            - build
       - snyk-scan:
           context:
             - static-analysis
           name: execute-snyk
           requires:
-            - prepare-snyk
+            - build
           filters:
             branches:
               only:
