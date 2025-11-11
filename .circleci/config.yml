@@ -33,24 +33,6 @@ commands:
             - ~/.cache/
 
 jobs:
-  build:
-    docker:
-      - image: cimg/node:14.21.3-browsers
-    resource_class: large
-    environment:
-      NODE_OPTIONS: '--max_old_space_size=3584'
-    steps:
-      - checkout
-      - install-deps
-      - run:
-          name: Build
-          command: yarn build
-      - persist_to_workspace:
-          root: ~/project
-          paths:
-            - .
-            - .git
-
   snyk-scan:
     docker:
       - image: cimg/python:3.10
@@ -94,6 +76,11 @@ jobs:
             path: test_results
         - store_artifacts:
             path: /tests/cypress/screenshots
+        - persist_to_workspace:
+            root: ~/project
+            paths:
+              - .
+              - .git
 
   nightly_link_checker:
     docker:
@@ -206,20 +193,6 @@ jobs:
 
 
 workflows:
-  snyk-scan:
-    jobs:
-      - build
-      - snyk-scan:
-          context:
-            - static-analysis
-          name: execute-snyk
-          requires:
-            - build
-          filters:
-            branches:
-              only:
-                - master
-
   linting:
     when:
       and:
@@ -237,6 +210,16 @@ workflows:
     jobs:
       - node_build_checks:
           name: "Build and Checks"
+      - snyk-scan:
+          context:
+            - static-analysis
+          name: execute-snyk
+          requires:
+            - node_build_checks
+          filters:
+            branches:
+              only:
+                - master
 
   nightly:
     triggers:
