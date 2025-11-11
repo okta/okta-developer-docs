@@ -49,7 +49,7 @@ jobs:
           root: ~/project
           paths:
             - .
-            - .git # repo metadata is used by Snyk CLI
+            - .git
 
   snyk-scan:
     docker:
@@ -206,7 +206,7 @@ jobs:
 
 
 workflows:
-  default-workflow:
+  snyk-scan:
     jobs:
       - build
       - snyk-scan:
@@ -218,7 +218,7 @@ workflows:
           filters:
             branches:
               only:
-                - ik-add-snyk-scan
+                - master
 
   linting:
     when:
