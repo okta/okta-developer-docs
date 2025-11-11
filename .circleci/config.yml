@@ -219,7 +219,7 @@ workflows:
           filters:
             branches:
               only:
-                - ik-add-snyk-scan
+                - master
 
   nightly:
     triggers:
