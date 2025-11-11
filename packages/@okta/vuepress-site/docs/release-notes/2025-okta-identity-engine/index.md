@@ -8,6 +8,16 @@ title: Okta Identity Engine API release notes 2025
 
 ## November
 
+### Weekly release 2025.11.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.11.1](#bugs-fixed-in-2025-11-1)| November 13, 2025 |
+
+#### Bugs fixed in 2025.11.1
+
+* When ISVs attempted to edit a submitted app in the OIN wizard where the `scim_base_url` App Instance Property (AIP) was specifically used as the SCIM base URL, the resubmission failed. (OKTA-1047355)
+
 ### Monthly release 2025.11.0
 
 | Change | Expected in Preview Orgs |

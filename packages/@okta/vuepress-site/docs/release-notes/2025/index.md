@@ -6,6 +6,14 @@ title: Okta Classic Engine API release notes 2025
 
 ## November
 
+### Weekly release 2025.11.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bug fixed in 2025.10.1](#bug-fixed-in-2025-11-1)| November 13, 2025 |
+
+#### Bug fixed in 2025.11.1
+
 ### Monthly release 2025.11.0
 
 | Change | Expected in Preview Orgs |
