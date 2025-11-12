@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-  <title>Okta Developer Docs Release Notes (Identity Engine)</title>
+  <title>Okta Identity Engine API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/</link>
   <description>Recent release notes for Okta Identity Engine API</description>
-  <pubDate>Wed, 12 Nov 2025 19:49:55 GMT</pubDate>
+  <pubDate>Wed, 12 Nov 2025 20:19:01 GMT</pubDate>
   
     <item>
       <title>Weekly release 2025.10.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025101</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025101</guid>
-      <pubDate>Wed, 12 Nov 2025 19:49:55 GMT</pubDate>
+      <pubDate>Wed, 12 Nov 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -37,7 +37,7 @@
       <title>Monthly release 2025.10.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025100</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025100</guid>
-      <pubDate>Tue, 11 Nov 2025 19:49:55 GMT</pubDate>
+      <pubDate>Tue, 11 Nov 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -92,7 +92,7 @@
       <title>Weekly release 2025.09.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025092</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025092</guid>
-      <pubDate>Mon, 10 Nov 2025 19:49:55 GMT</pubDate>
+      <pubDate>Mon, 10 Nov 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -115,7 +115,7 @@
       <title>Weekly release 2025.09.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025091</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025091</guid>
-      <pubDate>Sun, 09 Nov 2025 19:49:55 GMT</pubDate>
+      <pubDate>Sun, 09 Nov 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -142,7 +142,7 @@
       <title>Monthly release 2025.09.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025090</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025090</guid>
-      <pubDate>Sat, 08 Nov 2025 19:49:55 GMT</pubDate>
+      <pubDate>Sat, 08 Nov 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -237,7 +237,7 @@
       <title>Weekly release 2025.08.4</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025084</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025084</guid>
-      <pubDate>Fri, 07 Nov 2025 19:49:55 GMT</pubDate>
+      <pubDate>Fri, 07 Nov 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -260,7 +260,7 @@
       <title>Weekly release 2025.08.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025083</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025083</guid>
-      <pubDate>Thu, 06 Nov 2025 19:49:55 GMT</pubDate>
+      <pubDate>Thu, 06 Nov 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -283,7 +283,7 @@
       <title>Weekly release 2025.08.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025082</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025082</guid>
-      <pubDate>Wed, 05 Nov 2025 19:49:55 GMT</pubDate>
+      <pubDate>Wed, 05 Nov 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -306,7 +306,7 @@
       <title>Monthly release 2025.08.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025080</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025080</guid>
-      <pubDate>Tue, 04 Nov 2025 19:49:55 GMT</pubDate>
+      <pubDate>Tue, 04 Nov 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -437,7 +437,7 @@
       <title>Weekly release 2025.07.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025073</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025073</guid>
-      <pubDate>Mon, 03 Nov 2025 19:49:55 GMT</pubDate>
+      <pubDate>Mon, 03 Nov 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -460,7 +460,7 @@
       <title>Weekly release 2025.07.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025072</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025072</guid>
-      <pubDate>Sun, 02 Nov 2025 19:49:55 GMT</pubDate>
+      <pubDate>Sun, 02 Nov 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -483,7 +483,7 @@
       <title>Weekly release 2025.07.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025071</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025071</guid>
-      <pubDate>Sat, 01 Nov 2025 19:49:55 GMT</pubDate>
+      <pubDate>Sat, 01 Nov 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -506,7 +506,7 @@
       <title>Monthly release 2025.07.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025070</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025070</guid>
-      <pubDate>Fri, 31 Oct 2025 19:49:55 GMT</pubDate>
+      <pubDate>Fri, 31 Oct 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -569,7 +569,7 @@
       <title>Weekly release 2025.06.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025062</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025062</guid>
-      <pubDate>Thu, 30 Oct 2025 19:49:55 GMT</pubDate>
+      <pubDate>Thu, 30 Oct 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -604,7 +604,7 @@
       <title>Weekly release 2025.06.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025061</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025061</guid>
-      <pubDate>Wed, 29 Oct 2025 19:49:55 GMT</pubDate>
+      <pubDate>Wed, 29 Oct 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -635,7 +635,7 @@
       <title>Monthly release 2025.06.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025060</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025060</guid>
-      <pubDate>Tue, 28 Oct 2025 19:49:55 GMT</pubDate>
+      <pubDate>Tue, 28 Oct 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -710,7 +710,7 @@
       <title>Weekly release 2025.05.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025053</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025053</guid>
-      <pubDate>Mon, 27 Oct 2025 19:49:55 GMT</pubDate>
+      <pubDate>Mon, 27 Oct 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -737,7 +737,7 @@
       <title>Weekly release 2025.05.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025052</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025052</guid>
-      <pubDate>Sun, 26 Oct 2025 19:49:55 GMT</pubDate>
+      <pubDate>Sun, 26 Oct 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -764,7 +764,7 @@
       <title>Weekly release 2025.05.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025051</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025051</guid>
-      <pubDate>Sat, 25 Oct 2025 19:49:55 GMT</pubDate>
+      <pubDate>Sat, 25 Oct 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -787,7 +787,7 @@
       <title>Monthly release 2025.05.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025050</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025050</guid>
-      <pubDate>Fri, 24 Oct 2025 19:49:55 GMT</pubDate>
+      <pubDate>Fri, 24 Oct 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -870,7 +870,7 @@
       <title>Weekly release 2025.04.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025043</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025043</guid>
-      <pubDate>Thu, 23 Oct 2025 19:49:55 GMT</pubDate>
+      <pubDate>Thu, 23 Oct 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -893,7 +893,7 @@
       <title>Weekly release 2025.04.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025042</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025042</guid>
-      <pubDate>Wed, 22 Oct 2025 19:49:55 GMT</pubDate>
+      <pubDate>Wed, 22 Oct 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -920,7 +920,7 @@
       <title>Weekly release 2025.04.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025041</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025041</guid>
-      <pubDate>Tue, 21 Oct 2025 19:49:55 GMT</pubDate>
+      <pubDate>Tue, 21 Oct 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -959,7 +959,7 @@
       <title>Monthly release 2025.04.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025040</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025040</guid>
-      <pubDate>Mon, 20 Oct 2025 19:49:55 GMT</pubDate>
+      <pubDate>Mon, 20 Oct 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -1034,7 +1034,7 @@
       <title>Weekly release 2025.03.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025033</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025033</guid>
-      <pubDate>Sun, 19 Oct 2025 19:49:55 GMT</pubDate>
+      <pubDate>Sun, 19 Oct 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -1061,7 +1061,7 @@
       <title>Weekly release 2025.03.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025031</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025031</guid>
-      <pubDate>Sat, 18 Oct 2025 19:49:55 GMT</pubDate>
+      <pubDate>Sat, 18 Oct 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -1084,7 +1084,7 @@
       <title>Monthly release 2025.03.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025030</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025030</guid>
-      <pubDate>Fri, 17 Oct 2025 19:49:55 GMT</pubDate>
+      <pubDate>Fri, 17 Oct 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -1163,7 +1163,7 @@
       <title>Weekly release 2025.02.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025022</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025022</guid>
-      <pubDate>Thu, 16 Oct 2025 19:49:55 GMT</pubDate>
+      <pubDate>Thu, 16 Oct 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -1190,7 +1190,7 @@
       <title>Weekly release 2025.02.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025021</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025021</guid>
-      <pubDate>Wed, 15 Oct 2025 19:49:55 GMT</pubDate>
+      <pubDate>Wed, 15 Oct 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -1213,7 +1213,7 @@
       <title>Monthly release 2025.02.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025020</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025020</guid>
-      <pubDate>Tue, 14 Oct 2025 19:49:55 GMT</pubDate>
+      <pubDate>Tue, 14 Oct 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -1272,7 +1272,7 @@
       <title>Weekly release 2025.01.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025012</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025012</guid>
-      <pubDate>Mon, 13 Oct 2025 19:49:55 GMT</pubDate>
+      <pubDate>Mon, 13 Oct 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -1299,7 +1299,7 @@
       <title>Weekly release 2025.01.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025011</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025011</guid>
-      <pubDate>Sun, 12 Oct 2025 19:49:55 GMT</pubDate>
+      <pubDate>Sun, 12 Oct 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
@@ -1322,7 +1322,7 @@
       <title>Monthly release 2025.01.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025010</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025010</guid>
-      <pubDate>Sat, 11 Oct 2025 19:49:55 GMT</pubDate>
+      <pubDate>Sat, 11 Oct 2025 20:19:01 GMT</pubDate>
       <description><![CDATA[<table>
 <thead>
 <tr>
