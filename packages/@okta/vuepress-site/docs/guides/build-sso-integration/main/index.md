@@ -42,8 +42,6 @@ After you've decided on a protocol, select a deployment model. Okta offers [redi
 Okta recommends the redirect authentication deployment model if your situation meets the [requirements](/docs/concepts/redirect-vs-embedded/#redirect-okta-hosted-vs-embedded-self-hosted). For more information on deployment models and other authentication considerations, see:
 
 * [Okta deployment models&mdash;redirect vs. embedded](/docs/concepts/redirect-vs-embedded/)
-* [Redirect authentication guides](/docs/guides/redirect-authentication/)
-* [Embedded authentication guides](/docs/guides/embedded-authentication/)
 
 ## Build your integration
 

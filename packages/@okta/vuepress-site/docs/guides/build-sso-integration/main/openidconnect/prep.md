@@ -2,7 +2,7 @@ If you haven't built the OIDC service in your app yet, review the [OAuth 2.0 and
 
 For OIDC integrations that you want to publish in the OIN catalog, review the following implementation topics:
 
-1. [Determine a suitable OAuth 2.0 flow](#determine-the-oauth-2-0-flow-to-use) to use based on your app type.
+1. Use Authorization Code flow with client secrets for your app. In Okta, you'll select the Web Application OIDC type.
 1. [Determine the scopes](#scopes) that you require for your OIDC client (your app).
 1. Consider how your app stores [customer client credentials](#oidc-customer-org-credentials).
 1. Understand how to [validate tokens](#token-validation) in your OIDC client.
@@ -41,7 +41,7 @@ Select the OAuth 2.0 flow to use based on your app:
    Okta mandates the [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/). This flow is used for apps with a dedicated server-side backend capable of securely storing a client secret. The app integration can also exchange information with an authorization server through trusted back-channel connections.
    > **Note:** The implicit flow is extremely challenging to implement securely. Therefore, Okta doesn’t recommend its use for token exchange in web apps. If your use case requires the use of an implicit flow for token exchange, contact [Okta Support](https://support.okta.com).
 
-* For single-page apps (SPA):
+* For single-page apps (SPA) and mobile apps:
 
    Okta recommends the [Authorization Code flow with a Proof Key for Code Exchange (PKCE)](/docs/concepts/oauth-openid/#authorization-code-flow-with-pkce) to control access between your SPA app and a resource server.
 
