@@ -20,7 +20,7 @@ title: Okta Identity Engine API release notes 2025
 
 * When you attempted to enroll some security keys using an AAGUID group, the enrollment failed because of an issue with trust certificate validation. (OKTA-963828)
 
-* A null pointer exception was returned when a `PUT /api/v1/meta/uischemas/{id}` request was sent with no value set in the `scope` parameter. (OKTA-1032202)
+* A null pointer exception was returned when a `PUT /api/v1/meta/uischemas/{id}` request was sent with no value set for the `scope` parameter. (OKTA-1032202)
 
 <!-- #### Bugs fixed in 2025.11.1 -->
 
