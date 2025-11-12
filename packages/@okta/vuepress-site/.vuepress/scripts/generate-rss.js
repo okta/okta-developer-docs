@@ -22,6 +22,18 @@ function convertSubheadingLinksToHtml(text, siteUrl) {
   });
 }
 
+// Helper to extract only markdown tables from content
+function extractTables(markdown) {
+  // Match all markdown tables (lines starting and ending with |, including header and rows)
+  const tableRegex = /((?:\|.*\n)+)/g;
+  const tables = [];
+  let match;
+  while ((match = tableRegex.exec(markdown)) !== null) {
+    tables.push(match[1]);
+  }
+  return tables.join('\n');
+}
+
 // Helper to generate RSS XML from markdown
 function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutputPath) {
   if (!fs.existsSync(mdPath)) {
@@ -37,10 +49,11 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
     const title = titleLine.trim();
     // Subtract idx days from now for each item
     const pubDate = new Date(now.getTime() - idx * 24 * 60 * 60 * 1000);
-    // Strip markdown comments and convert subheading links to HTML with absolute URLs before converting to HTML
+    // Only process table content
     let cleanedBody = stripMarkdownComments(bodyLines.join('\n').trim());
-    cleanedBody = convertSubheadingLinksToHtml(cleanedBody, siteUrl);
-    const description = mdParser.render(cleanedBody);
+    let tablesOnly = extractTables(cleanedBody);
+    tablesOnly = convertSubheadingLinksToHtml(tablesOnly, siteUrl);
+    const description = mdParser.render(tablesOnly);
     const itemLink = `${siteUrl}#${title.replace(/[^a-zA-Z0-9]/g, '')}`;
     return { title, pubDate, description, itemLink };
   });
@@ -76,7 +89,7 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
 // Classic Engine Release Notes
 generateRssFromMarkdown(
   path.join(__dirname, '../../docs/release-notes/2025/index.md'),
-  'Okta Developer Docs Release Notes (Classic Engine)',
+  'Okta Classic Engine API release notes',
   'Recent release notes for Okta Classic Engine API',
   'https://developer.okta.com/docs/release-notes/2025/',
   path.join(__dirname, '../public/rss/classic.xml')
@@ -85,7 +98,7 @@ generateRssFromMarkdown(
 // Identity Engine Release Notes
 generateRssFromMarkdown(
   path.join(__dirname, '../../docs/release-notes/2025-okta-identity-engine/index.md'),
-  'Okta Developer Docs Release Notes (Identity Engine)',
+  'Okta Identity Engine API release notes',
   'Recent release notes for Okta Identity Engine API',
   'https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/',
   path.join(__dirname, '../public/rss/identity-engine.xml')
@@ -94,7 +107,7 @@ generateRssFromMarkdown(
 // Identity Governance Release Notes
 generateRssFromMarkdown(
   path.join(__dirname, '../../docs/release-notes/2025-okta-identity-governance/index.md'),
-  'Okta Developer Docs Release Notes (Identity Governance)',
+  'Okta Identity Governance API release notes',
   'Recent release notes for Okta Identity Governance API',
   'https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/',
   path.join(__dirname, '../public/rss/identity-governance.xml')
@@ -103,7 +116,7 @@ generateRssFromMarkdown(
 // Privileged Access Release Notes
 generateRssFromMarkdown(
   path.join(__dirname, '../../docs/release-notes/2025-okta-privileged-access/index.md'),
-  'Okta Developer Docs Release Notes (Privileged Access)',
+  'Okta Privileged Access API Release Notes',
   'Recent release notes for Okta Privileged Access API',
   'https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/',
   path.join(__dirname, '../public/rss/privileged-access.xml')
