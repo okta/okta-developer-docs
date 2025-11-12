@@ -4,35 +4,14 @@
   <title>Okta Privileged Access API Release Notes</title>
   <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/</link>
   <description>Recent release notes for Okta Privileged Access API</description>
-  <pubDate>Wed, 12 Nov 2025 20:19:01 GMT</pubDate>
+  <pubDate>Wed, 12 Nov 2025 22:04:15 GMT</pubDate>
   
     <item>
       <title>Monthly release 2025.10.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025100</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025100</guid>
-      <pubDate>Wed, 12 Nov 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview</th>
-<th>Expected in Production</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#more-account-details-for-end-users">More account details for end users</a></td>
-<td>October 9, 2025</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#random-password-generator-for-unmanaged-saas-accounts-is-ga">Random password generator for unmanaged SaaS accounts is GA</a></td>
-<td>September 18, 2025</td>
-<td>September 29, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Wed, 12 Nov 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#more-account-details-for-end-users">More account details for end users</a>	October 9, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#random-password-generator-for-unmanaged-saas-accounts-is-ga">Random password generator for unmanaged SaaS accounts is GA</a>	September 18, 2025]]></description>
     </item>
   
 
@@ -40,24 +19,8 @@
       <title>Weekly release 2025.09.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025092</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025092</guid>
-      <pubDate>Tue, 11 Nov 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview</th>
-<th>Expected in Production</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#exclude-symbols-in-project-password-policy">Exclude symbols in project password policy</a></td>
-<td>September 18, 2025</td>
-<td>September 22, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Tue, 11 Nov 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#exclude-symbols-in-project-password-policy">Exclude symbols in project password policy</a>	September 18, 2025]]></description>
     </item>
   
 
@@ -65,22 +28,8 @@
       <title>Weekly release 2025.09.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025091</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025091</guid>
-      <pubDate>Mon, 10 Nov 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#random-password-generator-for-unmanaged-saas-accounts-is-ea">Random password generator for unmanaged SaaS accounts is EA</a></td>
-<td>September 18, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Mon, 10 Nov 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#random-password-generator-for-unmanaged-saas-accounts-is-ea">Random password generator for unmanaged SaaS accounts is EA</a>	September 18, 2025]]></description>
     </item>
   
 
@@ -88,24 +37,8 @@
       <title>Monthly release 2025.09.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025090</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025090</guid>
-      <pubDate>Sun, 09 Nov 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview</th>
-<th>Expected in Production</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#enable-okta-managed-active-directory-accounts-is-ea">Enable Okta-managed Active Directory accounts is EA</a></td>
-<td>September 8, 2025</td>
-<td>September 15, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Sun, 09 Nov 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#enable-okta-managed-active-directory-accounts-is-ea">Enable Okta-managed Active Directory accounts is EA</a>	September 8, 2025]]></description>
     </item>
   
 
@@ -113,24 +46,8 @@
       <title>Weekly release 2025.08.4</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025084</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025084</guid>
-      <pubDate>Sat, 08 Nov 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview</th>
-<th>Expected in Production</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#role-permission-updates-for-attribute-operations">Role permission updates for attribute operations</a></td>
-<td>August 28, 2025</td>
-<td>September 2, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Sat, 08 Nov 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#role-permission-updates-for-attribute-operations">Role permission updates for attribute operations</a>	August 28, 2025]]></description>
     </item>
   
 
@@ -138,24 +55,8 @@
       <title>Weekly release 2025.08.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025082</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025082</guid>
-      <pubDate>Fri, 07 Nov 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview</th>
-<th>Expected in Production</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#active-directory-remote-desktop-protocol-rdp-support-is-ea">Active Directory Remote Desktop Protocol (RDP) support is EA</a></td>
-<td>August 20, 2025</td>
-<td>August 27, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Fri, 07 Nov 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#active-directory-remote-desktop-protocol-rdp-support-is-ea">Active Directory Remote Desktop Protocol (RDP) support is EA</a>	August 20, 2025]]></description>
     </item>
   
 
@@ -163,30 +64,8 @@
       <title>Monthly release 2025.08.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025080</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025080</guid>
-      <pubDate>Thu, 06 Nov 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#active-directory-rotate-password-configuration-is-ea">Active Directory rotate password configuration is EA</a></td>
-<td>August 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#service-accounts-api-is-ea">Service Accounts API is EA</a></td>
-<td>August 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#search-capability-for-okta-privileged-access-secrets">Search capability for Okta Privileged Access secrets</a></td>
-<td>August 5, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Thu, 06 Nov 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#active-directory-rotate-password-configuration-is-ea">Active Directory rotate password configuration is EA</a>	August 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#service-accounts-api-is-ea">Service Accounts API is EA</a>	August 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#search-capability-for-okta-privileged-access-secrets">Search capability for Okta Privileged Access secrets</a>	August 5, 2025]]></description>
     </item>
   
 
@@ -194,7 +73,7 @@
       <title>Monthly release 2025.06.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025060</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Monthlyrelease2025060</guid>
-      <pubDate>Wed, 05 Nov 2025 20:19:01 GMT</pubDate>
+      <pubDate>Wed, 05 Nov 2025 22:04:15 GMT</pubDate>
       <description><![CDATA[]]></description>
     </item>
   
@@ -203,7 +82,7 @@
       <title>Weekly release 2025.05.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025053</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/#Weeklyrelease2025053</guid>
-      <pubDate>Tue, 04 Nov 2025 20:19:01 GMT</pubDate>
+      <pubDate>Tue, 04 Nov 2025 22:04:15 GMT</pubDate>
       <description><![CDATA[]]></description>
     </item>
   

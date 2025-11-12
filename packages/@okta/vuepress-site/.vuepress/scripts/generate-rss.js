@@ -22,16 +22,55 @@ function convertSubheadingLinksToHtml(text, siteUrl) {
   });
 }
 
-// Helper to extract only markdown tables from content
+// Helper to extract all markdown tables, including those at the start of the content
 function extractTables(markdown) {
-  // Match all markdown tables (lines starting and ending with |, including header and rows)
-  const tableRegex = /((?:\|.*\n)+)/g;
+  // Match blocks of consecutive lines that start with '|'
+  const lines = markdown.split('\n');
   const tables = [];
-  let match;
-  while ((match = tableRegex.exec(markdown)) !== null) {
-    tables.push(match[1]);
+  let currentTable = [];
+  for (let line of lines) {
+    if (line.trim().startsWith('|')) {
+      currentTable.push(line);
+    } else {
+      if (currentTable.length > 0) {
+        tables.push(currentTable.join('\n'));
+        currentTable = [];
+      }
+    }
   }
-  return tables.join('\n');
+  // Add the last table if the file ends with a table
+  if (currentTable.length > 0) {
+    tables.push(currentTable.join('\n'));
+  }
+  return tables.join('\n\n');
+}
+
+// Helper to remove table headers from markdown tables
+function removeTableHeaders(tableMarkdown) {
+  const lines = tableMarkdown.split('\n');
+  // Remove the first two lines: header and separator
+  if (lines.length > 2 && lines[0].trim().startsWith('|') && lines[1].trim().startsWith('|')) {
+    return lines.slice(2).join('\n');
+  }
+  return tableMarkdown;
+}
+
+// Helper to format table rows as plain text with tab separation and HTML line breaks
+function formatRowsAsPlainTextWithBr(tableRows) {
+  // Each row is a line like: | data | date |
+  // We'll split by pipes, trim, and join with a tab and <br>
+  return tableRows
+    .split('\n')
+    .map(row => {
+      const cells = row.split('|').map(cell => cell.trim()).filter(Boolean);
+      // Only format rows with at least 2 cells
+      if (cells.length >= 2) {
+        return `${cells[0]}\t${cells[1]}`;
+      }
+      return '';
+    })
+    .filter(Boolean)
+    .join('<br>');
 }
 
 // Helper to generate RSS XML from markdown
@@ -52,8 +91,17 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
     // Only process table content
     let cleanedBody = stripMarkdownComments(bodyLines.join('\n').trim());
     let tablesOnly = extractTables(cleanedBody);
+    // Remove table headers from each table and format as plain text with tab separation and <br>
+    tablesOnly = tablesOnly
+      .split('\n\n')
+      .map(table => {
+        const rows = removeTableHeaders(table).trim();
+        return formatRowsAsPlainTextWithBr(rows);
+      })
+      .join('<br>');
     tablesOnly = convertSubheadingLinksToHtml(tablesOnly, siteUrl);
-    const description = mdParser.render(tablesOnly);
+    // Output as plain text with <br> for line breaks in RSS readers
+    const description = tablesOnly;
     const itemLink = `${siteUrl}#${title.replace(/[^a-zA-Z0-9]/g, '')}`;
     return { title, pubDate, description, itemLink };
   });

@@ -4,32 +4,14 @@
   <title>Okta Identity Engine API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/</link>
   <description>Recent release notes for Okta Identity Engine API</description>
-  <pubDate>Wed, 12 Nov 2025 20:19:01 GMT</pubDate>
+  <pubDate>Wed, 12 Nov 2025 22:04:15 GMT</pubDate>
   
     <item>
       <title>Weekly release 2025.10.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025101</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025101</guid>
-      <pubDate>Wed, 12 Nov 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#custom-idv-vendors">Custom IDV vendors</a></td>
-<td>October 22, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-10-1">Bugs fixed in 2025.10.1</a></td>
-<td>October 15, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Wed, 12 Nov 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#custom-idv-vendors">Custom IDV vendors</a>	October 22, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-10-1">Bugs fixed in 2025.10.1</a>	October 15, 2025]]></description>
     </item>
   
 
@@ -37,54 +19,8 @@
       <title>Monthly release 2025.10.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025100</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025100</guid>
-      <pubDate>Tue, 11 Nov 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#org2org-oidc-sign-on-mode-is-ga-in-production">Org2Org OIDC Sign-on mode is GA in Production</a></td>
-<td>October 8, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#user-status-in-okta-expression-language-is-ga-in-production">User status in Okta Expression Language is GA in Production</a></td>
-<td>October 8, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#network-zone-restrictions-for-clients-is-ga-in-preview">Network zone restrictions for clients is GA in Preview</a></td>
-<td>October 8, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#okta-integration-idp-type-is-ga-in-production">Okta Integration IdP type is GA in Production</a></td>
-<td>October 8, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#behavior-detections-for-new-asn">Behavior Detections for new ASN</a></td>
-<td>October 8, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#temporary-access-code-authenticator-is-ga-in-preview">Temporary Access Code authenticator is GA in Preview</a></td>
-<td>July 16, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#custom-admin-roles-for-itp-is-ga-in-production">Custom admin roles for ITP</a></td>
-<td>May 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#enrollment-grace-periods-is-ga-in-preview">Enrollment grace periods is GA in Preview</a></td>
-<td>May 21, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-update-in-2025-10-0">Developer documentation update in 2025.10.0</a></td>
-<td>October 8, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Tue, 11 Nov 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#org2org-oidc-sign-on-mode-is-ga-in-production">Org2Org OIDC Sign-on mode is GA in Production</a>	October 8, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#user-status-in-okta-expression-language-is-ga-in-production">User status in Okta Expression Language is GA in Production</a>	October 8, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#network-zone-restrictions-for-clients-is-ga-in-preview">Network zone restrictions for clients is GA in Preview</a>	October 8, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#okta-integration-idp-type-is-ga-in-production">Okta Integration IdP type is GA in Production</a>	October 8, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#behavior-detections-for-new-asn">Behavior Detections for new ASN</a>	October 8, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#temporary-access-code-authenticator-is-ga-in-preview">Temporary Access Code authenticator is GA in Preview</a>	July 16, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#custom-admin-roles-for-itp-is-ga-in-production">Custom admin roles for ITP</a>	May 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#enrollment-grace-periods-is-ga-in-preview">Enrollment grace periods is GA in Preview</a>	May 21, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-update-in-2025-10-0">Developer documentation update in 2025.10.0</a>	October 8, 2025]]></description>
     </item>
   
 
@@ -92,22 +28,8 @@
       <title>Weekly release 2025.09.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025092</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025092</guid>
-      <pubDate>Mon, 10 Nov 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-09-2">Bugs fixed in 2025.09.2</a></td>
-<td>October 1, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Mon, 10 Nov 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-09-2">Bugs fixed in 2025.09.2</a>	October 1, 2025]]></description>
     </item>
   
 
@@ -115,26 +37,8 @@
       <title>Weekly release 2025.09.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025091</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025091</guid>
-      <pubDate>Sun, 09 Nov 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-functionality-filters-in-the-oin-catalog">New functionality filters in the OIN catalog</a></td>
-<td>September 17, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-09-1">Bugs fixed in 2025.09.1</a></td>
-<td>September 17, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Sun, 09 Nov 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-functionality-filters-in-the-oin-catalog">New functionality filters in the OIN catalog</a>	September 17, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-09-1">Bugs fixed in 2025.09.1</a>	September 17, 2025]]></description>
     </item>
   
 
@@ -142,94 +46,8 @@
       <title>Monthly release 2025.09.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025090</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025090</guid>
-      <pubDate>Sat, 08 Nov 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#user-api-projections">User API Projections</a></td>
-<td>September 10, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#org2org-oidc-sign-on-mode-is-ga-in-preview">Org2Org OIDC Sign-on mode is GA in Preview</a></td>
-<td>June 17, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#anything-as-a-source-for-groups-and-group-memberships-api-is-ea">Anything-as-a-Source for groups and group memberships API is EA</a></td>
-<td>September 10, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-system-log-events-for-bulk-groups-and-bulk-group-memberships-changes">New System Log events for bulk groups and bulk group memberships changes</a></td>
-<td>September 10, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#breached-credentials-protection-is-ga-in-production">Breached Credentials Protection is GA in Production</a></td>
-<td>May 15, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#group-push-mappings-is-ga-in-production">Group Push Mappings is GA in Production</a></td>
-<td>August 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#default-app-sign-in-policy-for-api-service-apps">Default app sign-in policy for API service apps</a></td>
-<td>September 10, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-validation-rule-for-integration-variables-in-the-oin-wizard">New validation rule for integration variables in the OIN Wizard</a></td>
-<td>September 10, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#clear-user-factors-for-all-devices-is-ga-in-production">Clear user factors for all devices is GA in Production</a></td>
-<td>August 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-user-authenticator-enrollments-api-is-ga-in-production">New User Authenticator Enrollments API is GA in Production</a></td>
-<td>July 9, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#myaccount-webauthn-api-is-ga-in-production">MyAccount WebAuthn API is GA in Production</a></td>
-<td>July 16, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#response-body-updates-for-the-myaccount-authenticators-api">Response body updates for the MyAccount Authenticators API</a></td>
-<td>June 17, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#secure-identity-integrations-filters-in-the-oin-catalog">Secure Identity Integrations filters in the OIN catalog</a></td>
-<td>September 10, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#okta-integration-idp-type-is-ga-in-preview">Okta Integration IdP type is GA in Preview</a></td>
-<td>June 25, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#send-app-context-to-external-idps-is-ga-in-production">Send app context to external IdPs is GA in Production</a></td>
-<td>May 21, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-claims-supported-for-identity-verification-idv-vendor-integration-is-self-service-ea-in-preview">New claims supported for identity verification (IDV) vendor integration is self-service EA in Preview</a></td>
-<td>August 13, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#passkey-and-security-key-subdomain-support-is-self-service-ea-in-preview">Passkey and security key subdomain support is self-service EA in Preview</a></td>
-<td>September 4, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#user-status-in-okta-expression-language-is-ga-in-preview">User status in Okta Expression Language is GA in Preview</a></td>
-<td>September 10, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-update-in-2025-09-0">Developer documentation update in 2025.09.0</a></td>
-<td>September 10, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Sat, 08 Nov 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#user-api-projections">User API Projections</a>	September 10, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#org2org-oidc-sign-on-mode-is-ga-in-preview">Org2Org OIDC Sign-on mode is GA in Preview</a>	June 17, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#anything-as-a-source-for-groups-and-group-memberships-api-is-ea">Anything-as-a-Source for groups and group memberships API is EA</a>	September 10, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-system-log-events-for-bulk-groups-and-bulk-group-memberships-changes">New System Log events for bulk groups and bulk group memberships changes</a>	September 10, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#breached-credentials-protection-is-ga-in-production">Breached Credentials Protection is GA in Production</a>	May 15, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#group-push-mappings-is-ga-in-production">Group Push Mappings is GA in Production</a>	August 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#default-app-sign-in-policy-for-api-service-apps">Default app sign-in policy for API service apps</a>	September 10, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-validation-rule-for-integration-variables-in-the-oin-wizard">New validation rule for integration variables in the OIN Wizard</a>	September 10, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#clear-user-factors-for-all-devices-is-ga-in-production">Clear user factors for all devices is GA in Production</a>	August 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-user-authenticator-enrollments-api-is-ga-in-production">New User Authenticator Enrollments API is GA in Production</a>	July 9, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#myaccount-webauthn-api-is-ga-in-production">MyAccount WebAuthn API is GA in Production</a>	July 16, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#response-body-updates-for-the-myaccount-authenticators-api">Response body updates for the MyAccount Authenticators API</a>	June 17, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#secure-identity-integrations-filters-in-the-oin-catalog">Secure Identity Integrations filters in the OIN catalog</a>	September 10, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#okta-integration-idp-type-is-ga-in-preview">Okta Integration IdP type is GA in Preview</a>	June 25, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#send-app-context-to-external-idps-is-ga-in-production">Send app context to external IdPs is GA in Production</a>	May 21, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-claims-supported-for-identity-verification-idv-vendor-integration-is-self-service-ea-in-preview">New claims supported for identity verification (IDV) vendor integration is self-service EA in Preview</a>	August 13, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#passkey-and-security-key-subdomain-support-is-self-service-ea-in-preview">Passkey and security key subdomain support is self-service EA in Preview</a>	September 4, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#user-status-in-okta-expression-language-is-ga-in-preview">User status in Okta Expression Language is GA in Preview</a>	September 10, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-update-in-2025-09-0">Developer documentation update in 2025.09.0</a>	September 10, 2025]]></description>
     </item>
   
 
@@ -237,22 +55,8 @@
       <title>Weekly release 2025.08.4</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025084</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025084</guid>
-      <pubDate>Fri, 07 Nov 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-08-4">Bugs fixed in 2025.08.4</a></td>
-<td>September 4, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Fri, 07 Nov 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-08-4">Bugs fixed in 2025.08.4</a>	September 4, 2025]]></description>
     </item>
   
 
@@ -260,22 +64,8 @@
       <title>Weekly release 2025.08.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025083</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025083</guid>
-      <pubDate>Thu, 06 Nov 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bug-fixed-in-2025-08-3">Bug fixed in 2025.08.3</a></td>
-<td>August 27, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Thu, 06 Nov 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bug-fixed-in-2025-08-3">Bug fixed in 2025.08.3</a>	August 27, 2025]]></description>
     </item>
   
 
@@ -283,22 +73,8 @@
       <title>Weekly release 2025.08.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025082</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025082</guid>
-      <pubDate>Wed, 05 Nov 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-08-2">Bugs fixed in 2025.08.2</a></td>
-<td>August 20, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Wed, 05 Nov 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-08-2">Bugs fixed in 2025.08.2</a>	August 20, 2025]]></description>
     </item>
   
 
@@ -306,130 +82,8 @@
       <title>Monthly release 2025.08.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025080</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025080</guid>
-      <pubDate>Tue, 04 Nov 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#associated-domain-customizations-api-is-self-service-ea-in-preview">Associated Domain Customizations API is self-service EA in Preview</a></td>
-<td>July 16, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#automate-scim-integration-for-oin-apps-with-express-configuration">Automate SCIM Integration for OIN Apps with Express Configuration</a></td>
-<td>August 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#breached-credentials-protection-is-ga-in-preview">Breached Credentials Protection is GA in Preview</a></td>
-<td>May 15, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#clear-user-factors-for-all-devices-is-ga-in-preview">Clear user factors for all devices is GA in Preview</a></td>
-<td>August 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#cross-app-access-is-self-service-ea-in-preview">Cross App Access is self-service EA in Preview</a></td>
-<td>August 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#custom-fido2-aaguid-is-self-service-ea-in-preview">Custom FIDO2 AAGUID is self-service EA in Preview</a></td>
-<td>July 16, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#device-signal-collection-policy-is-self-service-ea-in-preview">Device signal collection policy is self-service EA in Preview</a></td>
-<td>August 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#encryption-of-id-tokens-and-access-tokens-is-ea">Encryption of ID tokens and access tokens is EA</a></td>
-<td>August 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#expanded-use-of-user-getgroups-function-in-okta-expression-language-is-ga-in-production">Expanded use of user.getGroups() function in Okta Expression Language is GA in Production</a></td>
-<td>June 4, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#granular-configuration-for-keep-me-signed-in-is-ga-in-production">Granular configuration for Keep Me Signed In is GA in Production</a></td>
-<td>January 8, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#group-push-mappings-is-ga-in-preview">Group Push Mappings is GA in Preview</a></td>
-<td>August 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#myaccount-password-api-is-ga-in-production">MyAccount Password API is GA in Production</a></td>
-<td>May 24, 2023</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#myaccount-webauthn-api-is-ea-in-production-and-ga-in-preview">MyAccount WebAuthn API is EA in Production and GA in Preview</a></td>
-<td>July 16, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#multiple-active-idp-signing-certificates-is-ea">Multiple active IdP signing certificates is EA</a></td>
-<td>August 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-user-authenticator-enrollments-api-is-ga-in-preview">New User Authenticator Enrollments API is GA in Preview</a></td>
-<td>July 9, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-user-profile-permission">New user profile permission</a></td>
-<td>August 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#oauth-2-0-provisioning-for-org2org-with-autorotation-is-ga-in-production">OAuth 2.0 provisioning for Org2Org with Autorotation is GA in Production</a></td>
-<td>July 2, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#passkeys-from-android-devices-is-self-service-ea-in-preview">Passkeys from Android devices is self-service EA in Preview</a></td>
-<td>July 16, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#send-app-context-to-external-idps-is-ga-in-preview">Send app context to external IdPs is GA in Preview</a></td>
-<td>May 21, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#service-accounts-api-is-ea">Service Accounts API is EA</a></td>
-<td>August 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#system-log-event-for-identity-assertion-authorization-grant-id-jag-issuance-is-ea-in-preview">System Log event for Identity Assertion Authorization Grant (ID-JAG) issuance is EA in Preview</a></td>
-<td>August 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#system-log-updates-for-id-verification-events">System Log updates for ID verification events</a></td>
-<td>August 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#temporary-access-code-authenticator-is-self-service-ea-in-preview">Temporary Access Code authenticator is self-service EA in Preview</a></td>
-<td>July 16, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#unified-claims-generation-for-custom-apps-is-self-service-ea-in-preview">Unified claims generation for custom apps is self-service EA in preview</a></td>
-<td>July 30, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#universal-logout-in-the-oin-wizard">Universal Logout in the OIN Wizard</a></td>
-<td>August 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#web-app-integrations-now-mandate-the-use-of-the-authorization-code-flow">Web app integrations now mandate the use of the Authorization Code flow</a></td>
-<td>August 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-updates-in-2025-08-0">Developer documentation updates in 2025.08.0</a></td>
-<td>August 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bug-fixed-in-2025-08-0">Bug fixed in 2025.08.0</a></td>
-<td>August 7, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Tue, 04 Nov 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#associated-domain-customizations-api-is-self-service-ea-in-preview">Associated Domain Customizations API is self-service EA in Preview</a>	July 16, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#automate-scim-integration-for-oin-apps-with-express-configuration">Automate SCIM Integration for OIN Apps with Express Configuration</a>	August 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#breached-credentials-protection-is-ga-in-preview">Breached Credentials Protection is GA in Preview</a>	May 15, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#clear-user-factors-for-all-devices-is-ga-in-preview">Clear user factors for all devices is GA in Preview</a>	August 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#cross-app-access-is-self-service-ea-in-preview">Cross App Access is self-service EA in Preview</a>	August 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#custom-fido2-aaguid-is-self-service-ea-in-preview">Custom FIDO2 AAGUID is self-service EA in Preview</a>	July 16, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#device-signal-collection-policy-is-self-service-ea-in-preview">Device signal collection policy is self-service EA in Preview</a>	August 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#encryption-of-id-tokens-and-access-tokens-is-ea">Encryption of ID tokens and access tokens is EA</a>	August 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#expanded-use-of-user-getgroups-function-in-okta-expression-language-is-ga-in-production">Expanded use of user.getGroups() function in Okta Expression Language is GA in Production</a>	June 4, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#granular-configuration-for-keep-me-signed-in-is-ga-in-production">Granular configuration for Keep Me Signed In is GA in Production</a>	January 8, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#group-push-mappings-is-ga-in-preview">Group Push Mappings is GA in Preview</a>	August 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#myaccount-password-api-is-ga-in-production">MyAccount Password API is GA in Production</a>	May 24, 2023<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#myaccount-webauthn-api-is-ea-in-production-and-ga-in-preview">MyAccount WebAuthn API is EA in Production and GA in Preview</a>	July 16, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#multiple-active-idp-signing-certificates-is-ea">Multiple active IdP signing certificates is EA</a>	August 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-user-authenticator-enrollments-api-is-ga-in-preview">New User Authenticator Enrollments API is GA in Preview</a>	July 9, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-user-profile-permission">New user profile permission</a>	August 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#oauth-2-0-provisioning-for-org2org-with-autorotation-is-ga-in-production">OAuth 2.0 provisioning for Org2Org with Autorotation is GA in Production</a>	July 2, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#passkeys-from-android-devices-is-self-service-ea-in-preview">Passkeys from Android devices is self-service EA in Preview</a>	July 16, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#send-app-context-to-external-idps-is-ga-in-preview">Send app context to external IdPs is GA in Preview</a>	May 21, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#service-accounts-api-is-ea">Service Accounts API is EA</a>	August 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#system-log-event-for-identity-assertion-authorization-grant-id-jag-issuance-is-ea-in-preview">System Log event for Identity Assertion Authorization Grant (ID-JAG) issuance is EA in Preview</a>	August 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#system-log-updates-for-id-verification-events">System Log updates for ID verification events</a>	August 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#temporary-access-code-authenticator-is-self-service-ea-in-preview">Temporary Access Code authenticator is self-service EA in Preview</a>	July 16, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#unified-claims-generation-for-custom-apps-is-self-service-ea-in-preview">Unified claims generation for custom apps is self-service EA in preview</a>	July 30, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#universal-logout-in-the-oin-wizard">Universal Logout in the OIN Wizard</a>	August 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#web-app-integrations-now-mandate-the-use-of-the-authorization-code-flow">Web app integrations now mandate the use of the Authorization Code flow</a>	August 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-updates-in-2025-08-0">Developer documentation updates in 2025.08.0</a>	August 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bug-fixed-in-2025-08-0">Bug fixed in 2025.08.0</a>	August 7, 2025]]></description>
     </item>
   
 
@@ -437,22 +91,8 @@
       <title>Weekly release 2025.07.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025073</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025073</guid>
-      <pubDate>Mon, 03 Nov 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-07-3">Bugs fixed in 2025.07.3</a></td>
-<td>July 30, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Mon, 03 Nov 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-07-3">Bugs fixed in 2025.07.3</a>	July 30, 2025]]></description>
     </item>
   
 
@@ -460,22 +100,8 @@
       <title>Weekly release 2025.07.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025072</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025072</guid>
-      <pubDate>Sun, 02 Nov 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-07-2">Bugs fixed in 2025.07.2</a></td>
-<td>July 16, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Sun, 02 Nov 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-07-2">Bugs fixed in 2025.07.2</a>	July 16, 2025]]></description>
     </item>
   
 
@@ -483,22 +109,8 @@
       <title>Weekly release 2025.07.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025071</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025071</guid>
-      <pubDate>Sat, 01 Nov 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-07-1">Bugs fixed in 2025.07.1</a></td>
-<td>July 9, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Sat, 01 Nov 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-07-1">Bugs fixed in 2025.07.1</a>	July 9, 2025]]></description>
     </item>
   
 
@@ -506,62 +118,8 @@
       <title>Monthly release 2025.07.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025070</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025070</guid>
-      <pubDate>Fri, 31 Oct 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#oauth-2-0-provisioning-for-org2org-with-key-auto-rotation-is-ga-in-preview">OAuth 2.0 provisioning for Org2Org with key auto-rotation is GA in Preview</a></td>
-<td>July 2, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#myaccount-password-api-is-ga-in-preview">MyAccount Password API is GA in Preview</a></td>
-<td>May 24, 2023</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-okta-expression-language-component-is-self-service-ea-in-preview">New Okta Expression Language component is self-service EA in Preview</a></td>
-<td>July 2, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#system-log-event-for-monitoring-ldap-agent-config-file-changes-is-ea">System Log event for monitoring LDAP Agent config file changes is EA</a></td>
-<td>July 2, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#integrate-okta-with-device-posture-provider">Integrate Okta with Device Posture Provider</a></td>
-<td>July 2, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-validation-rule-for-user-profile-attributes-in-oin-wizard">New validation rule for user profile attributes in OIN Wizard</a></td>
-<td>July 2, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#conditions-for-create-user-permission-is-ga-in-production">Conditions for create user permission is GA in Production</a></td>
-<td>June 9, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#clear-verified-and-incode-as-third-party-identity-verification-providers-is-ga-in-production">CLEAR Verified and Incode as third-party identity verification providers is GA in Production</a></td>
-<td>July 2, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#changes-to-okta-app-api-responses">Changes to Okta app API responses</a></td>
-<td>July 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#restrict-access-to-the-admin-console-is-ga-in-production">Restrict access to the Admin Console is GA in Production</a></td>
-<td>December 11, 2024</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-updates-in-2025-07-0">Developer documentation updates in 2025.07.0</a></td>
-<td>July 2, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Fri, 31 Oct 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#oauth-2-0-provisioning-for-org2org-with-key-auto-rotation-is-ga-in-preview">OAuth 2.0 provisioning for Org2Org with key auto-rotation is GA in Preview</a>	July 2, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#myaccount-password-api-is-ga-in-preview">MyAccount Password API is GA in Preview</a>	May 24, 2023<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-okta-expression-language-component-is-self-service-ea-in-preview">New Okta Expression Language component is self-service EA in Preview</a>	July 2, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#system-log-event-for-monitoring-ldap-agent-config-file-changes-is-ea">System Log event for monitoring LDAP Agent config file changes is EA</a>	July 2, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#integrate-okta-with-device-posture-provider">Integrate Okta with Device Posture Provider</a>	July 2, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-validation-rule-for-user-profile-attributes-in-oin-wizard">New validation rule for user profile attributes in OIN Wizard</a>	July 2, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#conditions-for-create-user-permission-is-ga-in-production">Conditions for create user permission is GA in Production</a>	June 9, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#clear-verified-and-incode-as-third-party-identity-verification-providers-is-ga-in-production">CLEAR Verified and Incode as third-party identity verification providers is GA in Production</a>	July 2, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#changes-to-okta-app-api-responses">Changes to Okta app API responses</a>	July 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#restrict-access-to-the-admin-console-is-ga-in-production">Restrict access to the Admin Console is GA in Production</a>	December 11, 2024<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-updates-in-2025-07-0">Developer documentation updates in 2025.07.0</a>	July 2, 2025]]></description>
     </item>
   
 
@@ -569,34 +127,8 @@
       <title>Weekly release 2025.06.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025062</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025062</guid>
-      <pubDate>Thu, 30 Oct 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#network-zone-restrictions-for-clients-is-self-service-ea-in-preview">Network zone restrictions for clients is self-service EA in Preview</a></td>
-<td>Jun 25, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#org2org-oidc-sign-on-mode-is-self-service-ea-in-preview">Org2Org OIDC Sign-on mode is self-service EA in Preview</a></td>
-<td>Jun 17, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#okta-integration-idp-type-is-self-service-ea-in-preview">Okta Integration IdP type is self-service EA in Preview</a></td>
-<td>Jun 25, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-06-2">Bugs fixed in 2025.06.2</a></td>
-<td>Jun 25, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Thu, 30 Oct 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#network-zone-restrictions-for-clients-is-self-service-ea-in-preview">Network zone restrictions for clients is self-service EA in Preview</a>	Jun 25, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#org2org-oidc-sign-on-mode-is-self-service-ea-in-preview">Org2Org OIDC Sign-on mode is self-service EA in Preview</a>	Jun 17, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#okta-integration-idp-type-is-self-service-ea-in-preview">Okta Integration IdP type is self-service EA in Preview</a>	Jun 25, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-06-2">Bugs fixed in 2025.06.2</a>	Jun 25, 2025]]></description>
     </item>
   
 
@@ -604,30 +136,8 @@
       <title>Weekly release 2025.06.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025061</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025061</guid>
-      <pubDate>Wed, 29 Oct 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#frame-ancestors-rollout-for-content-security-policy">Frame-ancestors rollout for Content Security Policy</a></td>
-<td>Jun 17, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#response-body-updates-for-the-myaccount-authenticators-api">Response body updates for the MyAccount Authenticators API</a></td>
-<td>Jun 17, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-06-1">Bugs fixed in 2025.06.1</a></td>
-<td>Jun 17, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Wed, 29 Oct 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#frame-ancestors-rollout-for-content-security-policy">Frame-ancestors rollout for Content Security Policy</a>	Jun 17, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#response-body-updates-for-the-myaccount-authenticators-api">Response body updates for the MyAccount Authenticators API</a>	Jun 17, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-06-1">Bugs fixed in 2025.06.1</a>	Jun 17, 2025]]></description>
     </item>
   
 
@@ -635,74 +145,8 @@
       <title>Monthly release 2025.06.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025060</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025060</guid>
-      <pubDate>Tue, 28 Oct 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#admins-prevented-from-deleting-published-app-instances">Admins prevented from deleting published app instances</a></td>
-<td>June 4, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#authentication-claims-sharing-between-okta-orgs-is-ga-in-production">Authentication claims sharing between Okta orgs is GA in Production</a></td>
-<td>June 4, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#claims-sharing-between-third-party-idps-and-okta-is-ga-in-production">Claims sharing between third-party IdPs and Okta is GA in Production</a></td>
-<td>April 9, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#conditions-for-create-user-permission">Conditions for create user permission</a></td>
-<td>June 9, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#define-default-values-for-custom-user-attributes-is-ga-in-production">Define default values for custom user attributes is GA in Production</a></td>
-<td>May 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#domain-restrictions-on-realms-is-ga-in-production">Domain restrictions on Realms is GA in Production</a></td>
-<td>April 23, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-password-complexity-property-is-self-service-ea-in-preview">New password complexity property is self-service EA in Preview</a></td>
-<td>June 4, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#number-matching-challenge-with-the-factors-api-is-ga-in-production">Number matching challenge with the Factors API is GA in Production</a></td>
-<td>April 9, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#restrict-access-to-the-admin-console-is-ga-in-preview">Restrict access to the Admin Console is GA in Preview</a></td>
-<td>December 11, 2024</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#shared-signal-transmitters-is-ga-in-production">Shared signal transmitters is GA in Production</a></td>
-<td>May 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#single-logout-for-idps-is-ea-in-preview">Single Logout for IdPs is EA in Preview</a></td>
-<td>June 4, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#expanded-use-of-user-getgroups-function-in-okta-expression-language-is-ga-in-preview">Expanded use of user.getGroups() function in Okta Expression Language is GA in Preview</a></td>
-<td>June 4, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-updates-in-2025-06-0">Developer documentation updates in 2025.06.0</a></td>
-<td>June 4, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-06-0">Bugs fixed in 2025.06.0</a></td>
-<td>June 4, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Tue, 28 Oct 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#admins-prevented-from-deleting-published-app-instances">Admins prevented from deleting published app instances</a>	June 4, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#authentication-claims-sharing-between-okta-orgs-is-ga-in-production">Authentication claims sharing between Okta orgs is GA in Production</a>	June 4, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#claims-sharing-between-third-party-idps-and-okta-is-ga-in-production">Claims sharing between third-party IdPs and Okta is GA in Production</a>	April 9, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#conditions-for-create-user-permission">Conditions for create user permission</a>	June 9, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#define-default-values-for-custom-user-attributes-is-ga-in-production">Define default values for custom user attributes is GA in Production</a>	May 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#domain-restrictions-on-realms-is-ga-in-production">Domain restrictions on Realms is GA in Production</a>	April 23, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-password-complexity-property-is-self-service-ea-in-preview">New password complexity property is self-service EA in Preview</a>	June 4, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#number-matching-challenge-with-the-factors-api-is-ga-in-production">Number matching challenge with the Factors API is GA in Production</a>	April 9, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#restrict-access-to-the-admin-console-is-ga-in-preview">Restrict access to the Admin Console is GA in Preview</a>	December 11, 2024<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#shared-signal-transmitters-is-ga-in-production">Shared signal transmitters is GA in Production</a>	May 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#single-logout-for-idps-is-ea-in-preview">Single Logout for IdPs is EA in Preview</a>	June 4, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#expanded-use-of-user-getgroups-function-in-okta-expression-language-is-ga-in-preview">Expanded use of user.getGroups() function in Okta Expression Language is GA in Preview</a>	June 4, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-updates-in-2025-06-0">Developer documentation updates in 2025.06.0</a>	June 4, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-06-0">Bugs fixed in 2025.06.0</a>	June 4, 2025]]></description>
     </item>
   
 
@@ -710,26 +154,8 @@
       <title>Weekly release 2025.05.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025053</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025053</guid>
-      <pubDate>Mon, 27 Oct 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#integrator-free-plan-org-now-available">Integrator Free Plan org now available</a></td>
-<td>May 22, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-05-3">Bugs fixed in 2025.05.3</a></td>
-<td>May 29, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Mon, 27 Oct 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#integrator-free-plan-org-now-available">Integrator Free Plan org now available</a>	May 22, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-05-3">Bugs fixed in 2025.05.3</a>	May 29, 2025]]></description>
     </item>
   
 
@@ -737,26 +163,8 @@
       <title>Weekly release 2025.05.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025052</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025052</guid>
-      <pubDate>Sun, 26 Oct 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#enrollment-grace-periods-is-ea-in-preview">Enrollment grace periods is EA in Preview</a></td>
-<td>May 21, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#send-app-context-to-external-idps-is-ea-in-preview">Send app context to external IdPs is EA in Preview</a></td>
-<td>May 21, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Sun, 26 Oct 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#enrollment-grace-periods-is-ea-in-preview">Enrollment grace periods is EA in Preview</a>	May 21, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#send-app-context-to-external-idps-is-ea-in-preview">Send app context to external IdPs is EA in Preview</a>	May 21, 2025]]></description>
     </item>
   
 
@@ -764,22 +172,8 @@
       <title>Weekly release 2025.05.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025051</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025051</guid>
-      <pubDate>Sat, 25 Oct 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-05-1">Bugs fixed in 2025.05.1</a></td>
-<td>May 14, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Sat, 25 Oct 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-05-1">Bugs fixed in 2025.05.1</a>	May 14, 2025]]></description>
     </item>
   
 
@@ -787,82 +181,8 @@
       <title>Monthly release 2025.05.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025050</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025050</guid>
-      <pubDate>Fri, 24 Oct 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#breached-credentials-protection-is-ea-in-preview">Breached Credentials Protection is EA in Preview</a></td>
-<td>May 15, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#custom-admin-roles-for-itp">Custom admin roles for ITP</a></td>
-<td>May 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-user-role-targets-api-endpoint">New User Role Targets API endpoint</a></td>
-<td>May 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#define-default-values-for-custom-user-attributes">Define default values for custom user attributes</a></td>
-<td>May 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#directories-integration-api-is-ga-in-preview-and-production">Directories integration API is GA in Preview and Production</a></td>
-<td>May 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#number-matching-challenge-with-the-factors-api-is-ga-in-preview">Number matching challenge with the Factors API is GA in Preview</a></td>
-<td>May 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#claims-sharing-between-third-party-idps-and-okta-is-ga-in-preview">Claims sharing between third-party IdPs and Okta is GA in Preview</a></td>
-<td>May 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#express-configuration-for-oin-apps">Express Configuration for OIN apps</a></td>
-<td>May 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-end-user-enrollments-api-is-ga-in-production">New End-user Enrollments API is GA in Production</a></td>
-<td>March 5, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-system-log-for-super-admin-privilege-grant">New System Log for super admin privilege grant</a></td>
-<td>May 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#entitlement-claims-is-ga-in-production">Entitlement claims is GA in Production</a></td>
-<td>January 2, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#post-requests-to-authorize-endpoint-is-ga-in-production">POST requests to authorize endpoint is GA in Production</a></td>
-<td>January 8, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#authentication-claims-sharing-between-okta-orgs-is-ga-in-preview">Authentication claims sharing between Okta orgs is GA in Preview</a></td>
-<td>May 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#shared-signal-transmitters-is-ga-in-preview">Shared signal transmitters is GA in Preview</a></td>
-<td>May 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-update-in-2025-05-0">Developer documentation update in 2025.05.0</a></td>
-<td>May 7, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-05-0">Bugs fixed in 2025.05.0</a></td>
-<td>May 7, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Fri, 24 Oct 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#breached-credentials-protection-is-ea-in-preview">Breached Credentials Protection is EA in Preview</a>	May 15, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#custom-admin-roles-for-itp">Custom admin roles for ITP</a>	May 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-user-role-targets-api-endpoint">New User Role Targets API endpoint</a>	May 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#define-default-values-for-custom-user-attributes">Define default values for custom user attributes</a>	May 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#directories-integration-api-is-ga-in-preview-and-production">Directories integration API is GA in Preview and Production</a>	May 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#number-matching-challenge-with-the-factors-api-is-ga-in-preview">Number matching challenge with the Factors API is GA in Preview</a>	May 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#claims-sharing-between-third-party-idps-and-okta-is-ga-in-preview">Claims sharing between third-party IdPs and Okta is GA in Preview</a>	May 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#express-configuration-for-oin-apps">Express Configuration for OIN apps</a>	May 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-end-user-enrollments-api-is-ga-in-production">New End-user Enrollments API is GA in Production</a>	March 5, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-system-log-for-super-admin-privilege-grant">New System Log for super admin privilege grant</a>	May 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#entitlement-claims-is-ga-in-production">Entitlement claims is GA in Production</a>	January 2, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#post-requests-to-authorize-endpoint-is-ga-in-production">POST requests to authorize endpoint is GA in Production</a>	January 8, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#authentication-claims-sharing-between-okta-orgs-is-ga-in-preview">Authentication claims sharing between Okta orgs is GA in Preview</a>	May 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#shared-signal-transmitters-is-ga-in-preview">Shared signal transmitters is GA in Preview</a>	May 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-update-in-2025-05-0">Developer documentation update in 2025.05.0</a>	May 7, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-05-0">Bugs fixed in 2025.05.0</a>	May 7, 2025]]></description>
     </item>
   
 
@@ -870,22 +190,8 @@
       <title>Weekly release 2025.04.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025043</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025043</guid>
-      <pubDate>Thu, 23 Oct 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-04-3">Bugs fixed in 2025.04.3</a></td>
-<td>April 30, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Thu, 23 Oct 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-04-3">Bugs fixed in 2025.04.3</a>	April 30, 2025]]></description>
     </item>
   
 
@@ -893,26 +199,8 @@
       <title>Weekly release 2025.04.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025042</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025042</guid>
-      <pubDate>Wed, 22 Oct 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#subscriptions-api-no-longer-supports-okta-issue">Subscriptions API no longer supports OKTA_ISSUE</a></td>
-<td>April 9, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-04-2">Bugs fixed in 2025.04.2</a></td>
-<td>April 16, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Wed, 22 Oct 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#subscriptions-api-no-longer-supports-okta-issue">Subscriptions API no longer supports OKTA_ISSUE</a>	April 9, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-04-2">Bugs fixed in 2025.04.2</a>	April 16, 2025]]></description>
     </item>
   
 
@@ -920,38 +208,8 @@
       <title>Weekly release 2025.04.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025041</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025041</guid>
-      <pubDate>Tue, 21 Oct 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#advanced-device-posture-checks">Advanced device posture checks</a></td>
-<td>April 9, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#claims-sharing-between-third-party-idps-and-okta-is-self-service-ea-in-preview">Claims sharing between third-party IdPs and Okta is self-service EA in Preview</a></td>
-<td>April 9, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#number-matching-challenge-with-the-factors-api-is-self-service-ea-in-preview">Number matching challenge with the Factors API is self-service EA in Preview</a></td>
-<td>April 9, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#oauth-2-0-provisioning-for-org2org-with-auto-rotation-is-self-service-ea-in-preview">OAuth 2.0 provisioning for Org2Org with Auto-Rotation is self-service EA in Preview</a></td>
-<td>April 2, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-04-1">Bugs fixed in 2025.04.1</a></td>
-<td>April 9, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Tue, 21 Oct 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#advanced-device-posture-checks">Advanced device posture checks</a>	April 9, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#claims-sharing-between-third-party-idps-and-okta-is-self-service-ea-in-preview">Claims sharing between third-party IdPs and Okta is self-service EA in Preview</a>	April 9, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#number-matching-challenge-with-the-factors-api-is-self-service-ea-in-preview">Number matching challenge with the Factors API is self-service EA in Preview</a>	April 9, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#oauth-2-0-provisioning-for-org2org-with-auto-rotation-is-self-service-ea-in-preview">OAuth 2.0 provisioning for Org2Org with Auto-Rotation is self-service EA in Preview</a>	April 2, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-04-1">Bugs fixed in 2025.04.1</a>	April 9, 2025]]></description>
     </item>
   
 
@@ -959,74 +217,8 @@
       <title>Monthly release 2025.04.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025040</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025040</guid>
-      <pubDate>Mon, 20 Oct 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#domain-restrictions-on-realms">Domain restrictions on Realms</a></td>
-<td>April 23, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#oauth-2-0-provisioning-for-org2org-with-auto-rotation-is-ea-in-preview">OAuth 2.0 provisioning for Org2Org with Auto-Rotation is EA in Preview</a></td>
-<td>April 2, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#retrieve-the-ssf-stream-status-is-ea-in-preview">Retrieve the SSF Stream status is EA in Preview</a></td>
-<td>April 2, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#oin-test-account-information-deleted-after-30-days">OIN test account information deleted after 30 days</a></td>
-<td>April 2, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#risk-provider-and-risk-events-apis-are-deprecated">Risk Provider and Risk Events APIs are deprecated</a></td>
-<td>April 2, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#post-requests-to-authorize-endpoint-is-ga-preview">POST requests to authorize endpoint is GA Preview</a></td>
-<td>January 8, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#integration-variable-limit-increase-in-oin-submission">Integration variable limit increase in OIN Submission</a></td>
-<td>April 2, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#conditional-requests-and-entity-tags-are-ga-in-production">Conditional requests and entity tags are GA in Production</a></td>
-<td>January 16, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-rate-limit-event-type">New rate limit event type</a></td>
-<td>April 2, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#create-dynamic-resource-sets-with-conditions-is-ga-in-preview">Create dynamic resource sets with conditions is GA in Preview</a></td>
-<td>November 7, 2024</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#okta-account-management-policy-is-ga-in-production">Okta account management policy is GA in Production</a></td>
-<td>December 11, 2024</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#okta-sign-in-widget-custom-template-updates">Okta Sign-In Widget custom template updates</a></td>
-<td>April 2, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-update-in-2025-04-0">Developer documentation update in 2025.04.0</a></td>
-<td>April 2, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-04-0">Bugs fixed in 2025.04.0</a></td>
-<td>April 2, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Mon, 20 Oct 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#domain-restrictions-on-realms">Domain restrictions on Realms</a>	April 23, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#oauth-2-0-provisioning-for-org2org-with-auto-rotation-is-ea-in-preview">OAuth 2.0 provisioning for Org2Org with Auto-Rotation is EA in Preview</a>	April 2, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#retrieve-the-ssf-stream-status-is-ea-in-preview">Retrieve the SSF Stream status is EA in Preview</a>	April 2, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#oin-test-account-information-deleted-after-30-days">OIN test account information deleted after 30 days</a>	April 2, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#risk-provider-and-risk-events-apis-are-deprecated">Risk Provider and Risk Events APIs are deprecated</a>	April 2, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#post-requests-to-authorize-endpoint-is-ga-preview">POST requests to authorize endpoint is GA Preview</a>	January 8, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#integration-variable-limit-increase-in-oin-submission">Integration variable limit increase in OIN Submission</a>	April 2, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#conditional-requests-and-entity-tags-are-ga-in-production">Conditional requests and entity tags are GA in Production</a>	January 16, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-rate-limit-event-type">New rate limit event type</a>	April 2, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#create-dynamic-resource-sets-with-conditions-is-ga-in-preview">Create dynamic resource sets with conditions is GA in Preview</a>	November 7, 2024<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#okta-account-management-policy-is-ga-in-production">Okta account management policy is GA in Production</a>	December 11, 2024<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#okta-sign-in-widget-custom-template-updates">Okta Sign-In Widget custom template updates</a>	April 2, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-update-in-2025-04-0">Developer documentation update in 2025.04.0</a>	April 2, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-04-0">Bugs fixed in 2025.04.0</a>	April 2, 2025]]></description>
     </item>
   
 
@@ -1034,26 +226,8 @@
       <title>Weekly release 2025.03.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025033</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025033</guid>
-      <pubDate>Sun, 19 Oct 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#advanced-search-using-conditioned-profile-attributes">Advanced search using conditioned profile attributes</a></td>
-<td>March 26, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-03-3">Bugs fixed in 2025.03.3</a></td>
-<td>March 26, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Sun, 19 Oct 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#advanced-search-using-conditioned-profile-attributes">Advanced search using conditioned profile attributes</a>	March 26, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-03-3">Bugs fixed in 2025.03.3</a>	March 26, 2025]]></description>
     </item>
   
 
@@ -1061,22 +235,8 @@
       <title>Weekly release 2025.03.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025031</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025031</guid>
-      <pubDate>Sat, 18 Oct 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-03-1">Bugs fixed in 2025.03.1</a></td>
-<td>March 12, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Sat, 18 Oct 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-03-1">Bugs fixed in 2025.03.1</a>	March 12, 2025]]></description>
     </item>
   
 
@@ -1084,78 +244,8 @@
       <title>Monthly release 2025.03.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025030</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025030</guid>
-      <pubDate>Fri, 17 Oct 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#global-token-revocation-for-wizard-saml-and-oidc-apps-is-ga-in-production">Global token revocation for wizard SAML and OIDC apps is GA in Production</a></td>
-<td>September 11, 2024</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#oidc-idps-now-support-group-sync-is-ga-in-production">OIDC IdPs now support group sync is GA in Production</a></td>
-<td>October 23, 2024</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#granular-account-linking-for-certain-identity-providers-is-ga-in-production">Granular account linking for certain Identity Providers is GA in Production</a></td>
-<td>December 11, 2024</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#realms-for-workforce-is-ga-in-production">Realms for Workforce is GA in Production</a></td>
-<td>February 13, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#improved-group-search-functionality-is-ga-in-production">Improved group search functionality is GA in Production</a></td>
-<td>February 12, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#improved-user-search-functionality-is-ga-in-production">Improved user search functionality is GA in Production</a></td>
-<td>February 12, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#improved-realms-and-device-search-functionality-is-ga-in-production">Improved realms and device search functionality is GA in Production</a></td>
-<td>February 12, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-end-user-enrollments-api-is-ga-in-preview">New End-user Enrollments API is GA in Preview</a></td>
-<td>March 5, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#clear-verified-as-a-third-party-identity-verification-provider-is-ea-in-preview">CLEAR Verified as a third-party identity verification provider is EA in Preview</a></td>
-<td>March 5, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#verify-an-ssf-stream-is-ea-in-preview">Verify an SSF Stream is EA in Preview</a></td>
-<td>March 5, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#myaccount-password-api-updates">MyAccount Password API updates</a></td>
-<td>March 5, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#identity-security-posture-management-functionality-in-the-oin-catalog">Identity Security Posture Management functionality in the OIN catalog</a></td>
-<td>March 5, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#default-global-session-policy-rule-update">Default global session policy rule update</a></td>
-<td>March 5, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-updates-in-2025-03-0">Developer documentation updates in 2025.03.0</a></td>
-<td>March 5, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-03-0">Bugs fixed in 2025.03.0</a></td>
-<td>March 5, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Fri, 17 Oct 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#global-token-revocation-for-wizard-saml-and-oidc-apps-is-ga-in-production">Global token revocation for wizard SAML and OIDC apps is GA in Production</a>	September 11, 2024<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#oidc-idps-now-support-group-sync-is-ga-in-production">OIDC IdPs now support group sync is GA in Production</a>	October 23, 2024<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#granular-account-linking-for-certain-identity-providers-is-ga-in-production">Granular account linking for certain Identity Providers is GA in Production</a>	December 11, 2024<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#realms-for-workforce-is-ga-in-production">Realms for Workforce is GA in Production</a>	February 13, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#improved-group-search-functionality-is-ga-in-production">Improved group search functionality is GA in Production</a>	February 12, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#improved-user-search-functionality-is-ga-in-production">Improved user search functionality is GA in Production</a>	February 12, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#improved-realms-and-device-search-functionality-is-ga-in-production">Improved realms and device search functionality is GA in Production</a>	February 12, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-end-user-enrollments-api-is-ga-in-preview">New End-user Enrollments API is GA in Preview</a>	March 5, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#clear-verified-as-a-third-party-identity-verification-provider-is-ea-in-preview">CLEAR Verified as a third-party identity verification provider is EA in Preview</a>	March 5, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#verify-an-ssf-stream-is-ea-in-preview">Verify an SSF Stream is EA in Preview</a>	March 5, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#myaccount-password-api-updates">MyAccount Password API updates</a>	March 5, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#identity-security-posture-management-functionality-in-the-oin-catalog">Identity Security Posture Management functionality in the OIN catalog</a>	March 5, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#default-global-session-policy-rule-update">Default global session policy rule update</a>	March 5, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-updates-in-2025-03-0">Developer documentation updates in 2025.03.0</a>	March 5, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-03-0">Bugs fixed in 2025.03.0</a>	March 5, 2025]]></description>
     </item>
   
 
@@ -1163,26 +253,8 @@
       <title>Weekly release 2025.02.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025022</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025022</guid>
-      <pubDate>Thu, 16 Oct 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#incode-as-a-third-party-identity-verification-provider-is-ea-in-preview">Incode as a third-party identity verification provider is EA in Preview</a></td>
-<td>February 20, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-02-2">Bugs fixed in 2025.02.2</a></td>
-<td>February 20, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Thu, 16 Oct 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#incode-as-a-third-party-identity-verification-provider-is-ea-in-preview">Incode as a third-party identity verification provider is EA in Preview</a>	February 20, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-02-2">Bugs fixed in 2025.02.2</a>	February 20, 2025]]></description>
     </item>
   
 
@@ -1190,22 +262,8 @@
       <title>Weekly release 2025.02.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025021</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025021</guid>
-      <pubDate>Wed, 15 Oct 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-02-1">Bugs fixed in 2025.02.1</a></td>
-<td>February 13, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Wed, 15 Oct 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-02-1">Bugs fixed in 2025.02.1</a>	February 13, 2025]]></description>
     </item>
   
 
@@ -1213,58 +271,8 @@
       <title>Monthly release 2025.02.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025020</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025020</guid>
-      <pubDate>Tue, 14 Oct 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#ip-exempt-zone-is-ga-in-preview">IP Exempt Zone is GA in Preview</a></td>
-<td>October 23, 2024</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#global-token-revocation-for-wizard-saml-and-oidc-apps-is-ga-in-preview">Global token revocation for wizard SAML and OIDC apps is GA in Preview</a></td>
-<td>September 11, 2024</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#oidc-idps-now-support-group-sync-is-ga-in-preview">OIDC IdPs now support group sync is GA in Preview</a></td>
-<td>October 23, 2024</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#granular-account-linking-for-certain-identity-providers-is-ga">Granular account linking for certain identity providers is GA</a></td>
-<td>December 11, 2024</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#realms-for-workforce-is-ga-in-preview">Realms for Workforce is GA in Preview</a></td>
-<td>February 13, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#improved-group-search-functionality-is-ga-in-preview">Improved group search functionality is GA in Preview</a></td>
-<td>February 12, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#improved-user-search-functionality-is-ga-in-preview">Improved user search functionality is GA in Preview</a></td>
-<td>February 12, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#support-for-importing-active-directory-group-descriptions-is-ga-in-production">Support for importing Active Directory group descriptions is GA in Production</a></td>
-<td>February 6, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-updates-in-2025-02-0">Developer documentation updates in 2025.02.0</a></td>
-<td>February 6, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-02-0">Bugs fixed in 2025.02.0</a></td>
-<td>February 6, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Tue, 14 Oct 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#ip-exempt-zone-is-ga-in-preview">IP Exempt Zone is GA in Preview</a>	October 23, 2024<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#global-token-revocation-for-wizard-saml-and-oidc-apps-is-ga-in-preview">Global token revocation for wizard SAML and OIDC apps is GA in Preview</a>	September 11, 2024<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#oidc-idps-now-support-group-sync-is-ga-in-preview">OIDC IdPs now support group sync is GA in Preview</a>	October 23, 2024<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#granular-account-linking-for-certain-identity-providers-is-ga">Granular account linking for certain identity providers is GA</a>	December 11, 2024<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#realms-for-workforce-is-ga-in-preview">Realms for Workforce is GA in Preview</a>	February 13, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#improved-group-search-functionality-is-ga-in-preview">Improved group search functionality is GA in Preview</a>	February 12, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#improved-user-search-functionality-is-ga-in-preview">Improved user search functionality is GA in Preview</a>	February 12, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#support-for-importing-active-directory-group-descriptions-is-ga-in-production">Support for importing Active Directory group descriptions is GA in Production</a>	February 6, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#developer-documentation-updates-in-2025-02-0">Developer documentation updates in 2025.02.0</a>	February 6, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-02-0">Bugs fixed in 2025.02.0</a>	February 6, 2025]]></description>
     </item>
   
 
@@ -1272,26 +280,8 @@
       <title>Weekly release 2025.01.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025012</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025012</guid>
-      <pubDate>Mon, 13 Oct 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#authentication-claims-sharing-between-okta-orgs-is-ea-in-preview">Authentication claims sharing between Okta orgs is EA in Preview</a></td>
-<td>January 29, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-01-2">Bugs fixed in 2025.01.2</a></td>
-<td>January 29, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Mon, 13 Oct 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#authentication-claims-sharing-between-okta-orgs-is-ea-in-preview">Authentication claims sharing between Okta orgs is EA in Preview</a>	January 29, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-01-2">Bugs fixed in 2025.01.2</a>	January 29, 2025]]></description>
     </item>
   
 
@@ -1299,22 +289,8 @@
       <title>Weekly release 2025.01.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025011</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Weeklyrelease2025011</guid>
-      <pubDate>Sun, 12 Oct 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-01-1">Bugs fixed in 2025.01.1</a></td>
-<td>January 15, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Sun, 12 Oct 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bugs-fixed-in-2025-01-1">Bugs fixed in 2025.01.1</a>	January 15, 2025]]></description>
     </item>
   
 
@@ -1322,50 +298,8 @@
       <title>Monthly release 2025.01.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025010</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#Monthlyrelease2025010</guid>
-      <pubDate>Sat, 11 Oct 2025 20:19:01 GMT</pubDate>
-      <description><![CDATA[<table>
-<thead>
-<tr>
-<th>Change</th>
-<th>Expected in Preview Orgs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#additional-use-case-selection-in-the-oin-wizard">Additional use case selection in the OIN Wizard</a></td>
-<td>January 8, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#configure-identity-verification-with-third-party-identity-verification-providers-is-ga-production">Configure Identity Verification with third-party Identity Verification providers is GA Production</a></td>
-<td>October 2, 2024</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#deprecated-api-endpoints-extend-grant-and-revoke-okta-support-access">Deprecated API endpoints: Extend, Grant, and Revoke Okta Support access</a></td>
-<td>January 8, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#granular-configuration-for-keep-me-signed-in-is-ea-in-preview">Granular configuration for Keep Me Signed In is EA in Preview</a></td>
-<td>January 8, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#multiple-identifiers-is-ga-in-preview">Multiple Identifiers is GA in Preview</a></td>
-<td>November 7, 2024</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-group-source-id-key-for-group-functions-in-expression-language">New group.source.id key for group functions in Expression Language</a></td>
-<td>January 2, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#post-requests-to-the-authorize-endpoint-is-self-service-ea">POST requests to the authorize endpoint is self-service EA</a></td>
-<td>January 8, 2025</td>
-</tr>
-<tr>
-<td><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bug-fixed-in-2025-01-0">Bug fixed in 2025.01.0</a></td>
-<td>January 8, 2025</td>
-</tr>
-</tbody>
-</table>
-]]></description>
+      <pubDate>Sat, 11 Oct 2025 22:04:15 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#additional-use-case-selection-in-the-oin-wizard">Additional use case selection in the OIN Wizard</a>	January 8, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#configure-identity-verification-with-third-party-identity-verification-providers-is-ga-production">Configure Identity Verification with third-party Identity Verification providers is GA Production</a>	October 2, 2024<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#deprecated-api-endpoints-extend-grant-and-revoke-okta-support-access">Deprecated API endpoints: Extend, Grant, and Revoke Okta Support access</a>	January 8, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#granular-configuration-for-keep-me-signed-in-is-ea-in-preview">Granular configuration for Keep Me Signed In is EA in Preview</a>	January 8, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#multiple-identifiers-is-ga-in-preview">Multiple Identifiers is GA in Preview</a>	November 7, 2024<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#new-group-source-id-key-for-group-functions-in-expression-language">New group.source.id key for group functions in Expression Language</a>	January 2, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#post-requests-to-the-authorize-endpoint-is-self-service-ea">POST requests to the authorize endpoint is self-service EA</a>	January 8, 2025<br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/#bug-fixed-in-2025-01-0">Bug fixed in 2025.01.0</a>	January 8, 2025]]></description>
     </item>
   
 </channel>
