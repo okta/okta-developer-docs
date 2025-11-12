@@ -11,7 +11,7 @@ Okta Privileged Access (OPA) is available for both Okta Classic and Identity Eng
 ### Weekly release 2025.11.1
 
 | Change | Expected in Preview |
-|--------|--------------------------|-----------------------------|
+|--------|--------------------------|
 | [User access methods in AD account listing](#user-access-methods-in-ad-account-listing) | November 12, 2025 |
 
 #### User access methods in AD account listing
