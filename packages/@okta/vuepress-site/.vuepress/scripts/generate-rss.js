@@ -55,17 +55,17 @@ function removeTableHeaders(tableMarkdown) {
   return tableMarkdown;
 }
 
-// Helper to format table rows as plain text with tab separation and HTML line breaks
-function formatRowsAsPlainTextWithBr(tableRows) {
+// Helper to format table rows as plain text with only the first column and HTML line breaks
+function formatRowsFirstColumnOnlyWithBr(tableRows) {
   // Each row is a line like: | data | date |
-  // We'll split by pipes, trim, and join with a tab and <br>
+  // We'll split by pipes, trim, and only use the first cell
   return tableRows
     .split('\n')
     .map(row => {
       const cells = row.split('|').map(cell => cell.trim()).filter(Boolean);
-      // Only format rows with at least 2 cells
-      if (cells.length >= 2) {
-        return `${cells[0]}\t${cells[1]}`;
+      // Only format rows with at least 1 cell
+      if (cells.length >= 1) {
+        return `${cells[0]}`;
       }
       return '';
     })
@@ -91,12 +91,12 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
     // Only process table content
     let cleanedBody = stripMarkdownComments(bodyLines.join('\n').trim());
     let tablesOnly = extractTables(cleanedBody);
-    // Remove table headers from each table and format as plain text with tab separation and <br>
+    // Remove table headers from each table and format as plain text with only the first column and <br>
     tablesOnly = tablesOnly
       .split('\n\n')
       .map(table => {
         const rows = removeTableHeaders(table).trim();
-        return formatRowsAsPlainTextWithBr(rows);
+        return formatRowsFirstColumnOnlyWithBr(rows);
       })
       .join('<br>');
     tablesOnly = convertSubheadingLinksToHtml(tablesOnly, siteUrl);
