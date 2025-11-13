@@ -172,3 +172,16 @@ This is important when you want to SAML-enable all users in your app. Sometimes,
 ### SAML FAQs
 
 [Okta SAML frequently asked questions](/docs/concepts/saml/faqs/)
+
+### Use SAML toolkits
+
+To quickly build your SSO integration, use an open source or paid tool kit to implement SAML 2.0. Use these different language kits to create the Service Provider WebSSO profile:
+
+- .NET framework 4.5 or later: [Sustainsys.Saml2](https://github.com/Sustainsys/Saml2) (Kentor authentication services)
+- .NET framework 4.0 or earlier: [ComponentSpace SAML 2.0 for ASP.NET and ASP.NET Core](https://www.componentspace.com/) (paid software)
+- Java: [OpenSAML](https://wiki.shibboleth.net/confluence/display/OS30/Home) (part of the [Shibboleth Development Project](https://www.shibboleth.net/))
+- Java: [Spring Security SAML](/code/java/spring_security_saml)
+- Python: [PySAML2](/code/python/pysaml2)
+- Ruby: [Ruby-SAML](https://github.com/onelogin/ruby-saml)
+
+>**Note:** Okta doesn't own or maintain these toolkits.
