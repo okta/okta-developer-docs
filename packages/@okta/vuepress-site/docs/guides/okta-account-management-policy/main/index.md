@@ -358,6 +358,8 @@ This request is similar to the request to [add a rule for password recovery and 
 * Set the `elCondition` with an expression that requires a registered device for password recovery.
 * Your user doesn't need to sign in from a network zone.
 
+> **Note:** You can also configure device conditions without using an EL expression. Remove the `elCondition` object from your request.
+
 If you want to add this rule using the Admin Console, see [Add a rule for authenticator enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-oamp-enroll-pr-auth).
 
 ### Example device condition request
@@ -416,8 +418,6 @@ curl --location --request POST 'https://{yourOktaDomain}/api/v1/policies/{policy
     }
 }'
 ```
-
-
 
 ### User experience
 
