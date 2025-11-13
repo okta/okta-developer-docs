@@ -355,6 +355,7 @@ This request is similar to the request to [add a rule for password recovery and 
 * Use the same value for `policyId`.
 * Set the value of `priority` above the catch-all rule but below the first [phishing-resistant authenticator](#add-a-rule-for-your-first-phishing-resistant-authenticator) (if you added it). Make sure that the first phishing-resistant authenticator rule stays at priority 1.
 * Set the `device.registered` property to `true`.
+* Set the `elCondition` with an expression that requires a registered device for password recovery.
 * Your user doesn't need to sign in from a network zone.
 
 If you want to add this rule using the Admin Console, see [Add a rule for authenticator enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-oamp-enroll-pr-auth).
@@ -362,56 +363,61 @@ If you want to add this rule using the Admin Console, see [Add a rule for authen
 ### Example device condition request
 
 ```bash
-curl --location --request POST '{yourSubdomain}/api/v1/policies/{policyId}/rules' \
+curl --location --request POST 'https://{yourOktaDomain}/api/v1/policies/{policyId}/rules' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: SSWS {apiToken}' \
 --data '{
-    "name": "Require registered device for password reset",
+    "name": "Require registered device for password recovery",
     "priority": 1,
-    "status": "ACTIVE",
+    "type": "ACCESS_POLICY",
+    "system": false,
     "conditions": {
         "people": {
-            "users": {
-                "exclude": []
+            "groups": {
+                "include": []
             }
         },
         "network": {
             "connection": "ANYWHERE"
         },
+        "riskScore": {
+            "level": "ANY"
+        },
+        "elCondition": {
+            "condition": "accessRequest.authenticator.key == '\''okta_password'\'' && accessRequest.operation == '\''recover'\''"
+        },
         "device": {
             "registered": true,
-            "managed": false,
+            "managed": true,
             "assurance": {
                 "include": []
-      }
-    },
-   "actions": {
-        "passwordChange": {
-            "access": "ALLOW"
-        },
-        "selfServicePasswordReset": {
-            "access": "ALLOW",
-            "requirement": {
-                "primary": {
-                    "methods": [
-                        "email"
-                    ]
-                },
-                "stepUp": {
-                    "required": false
-                },
-                "accessControl": "AUTH_POLICY"
             }
         },
-        "selfServiceUnlock": {
-            "access": "ALLOW"
+        "actions": {
+            "appSignOn": {
+                "access": "ALLOW",
+                "verificationMethod": {
+                    "factorMode": "2FA",
+                    "type": "ASSURANCE",
+                    "reauthenticateIn": "PT1H",
+                    "constraints": [
+                        {
+                            "possession": {
+                                "required": true,
+                                "phishingResistant": "REQUIRED",
+                                "userPresence": "OPTIONAL"
+                            }
+                        }
+                    ]
+                }
+            }
         }
-    },
-    "system": false,
-    "type": "PASSWORD"
+    }
 }'
 ```
+
+
 
 ### User experience
 
