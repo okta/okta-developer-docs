@@ -65,7 +65,7 @@ The available custom attributes, however, are determined by the app. You can man
 
 ### Group profile type
 
-Okta groups simplify management of multiple users of the same type. See [About groups](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups). The group profile itself consists of attributes, and can be defined and managed with the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/). The responses and schemas show examples of a `group` object and its attributes.
+Okta groups simplify management of multiple users of the same type. See [About groups](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups). The group profile itself consists of attributes, and you can define and manage them with the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/). The responses and schemas show examples of a `group` object and its attributes.
 
 ## Universal Directory schemas
 
