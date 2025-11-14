@@ -58,7 +58,7 @@ Use the standard sign-in form hosted at your unique Okta URL for a no-code imple
    * Define a primary and secondary color palette
    * Change the labels and text for various elements in the Sign-In Widget, such as headings, labels, and links. This includes customizing the **Username** field to specify what identifiers users can use, or adding a custom help link.
 
-The standard sign-in form also allows you to customize the sign-in experience for each app or website. For example, if you have multiple brands with distinct websites and domain names under a parent company or you need a different sign-in experience for various apps, you can use distinct branding for each. See [Branding](https://help.okta.com/oie/en-us/content/topics/settings/branding.htm).
+The standard sign-in form also allows you to customize the sign-in experience for each app or website. For example, if you have multiple brands with distinct websites and domain names under a parent company or you need a different sign-in experience for various apps, you can use distinct branding for each. See [Branding](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding).
 
 #### Advanced
 If you've configured a custom domain and need more control over the Sign-In Widget's appearance, use the built-in code editor. You can make more advanced changes to the HTML, CSS, and JavaScript of the sign-in form.
