@@ -37,7 +37,7 @@ You can manage the Universal Directory mappings between profiles using the Admin
 
 ## Profile types
 
-Okta has two basic profile types that define a user in the Universal Directory: Okta user profile type and app user profile type. The Okta user profile type can also have a custom profile type. Universal Directory also has group profiles that defines groups, which manage multiple users of the same type.
+Okta has two basic profile types that define a user in the Universal Directory: Okta user profile type and app user profile type. The Okta user profile type can also have a custom profile type. Universal Directory also has group profiles that define groups, which manage multiple users of the same type.
 
 See [About profile types](https://help.okta.com/okta_help.htm?id=ext-usgp-about-profiles) and [About custom user types in Universal Directory](https://help.okta.com/okta_help.htm?id=ext-custom-user-types).
 
