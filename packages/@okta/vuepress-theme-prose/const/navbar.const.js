@@ -649,8 +649,12 @@ export const guides = [
             guideName: "custom-url-domain",
           },
           {
-            title: "Customize associated domains",
+            title: "Associated domains",
             guideName: "custom-well-known-uri",
+          },
+          {
+            title: "Passkeys and custom domains",
+            guideName: "custom-passkeys",
           },
           {
             title: "Sign-in page",

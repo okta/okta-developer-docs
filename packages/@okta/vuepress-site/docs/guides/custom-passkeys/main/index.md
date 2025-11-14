@@ -1,147 +1,181 @@
 ---
-title: Customize passkeys
+title: Passkeys and custom domains
 excerpt: Learn how to customize passkeys with custom domains.
 layout: Guides
 ---
 
-This guide explains how to create associations between your custom domains and three well-known URI endpoints.
+This guide explains how to configure the FIDO2 (WebAuthn) authenticator to allow a single passkey to be used across multiple domains.
 
 ---
 
 #### Learning outcomes
 
-Learn how to create well-known URI files.
+Learn how to configure passkeys with multiple domains.
 
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
-* A [custom domain](/docs/guides/custom-url-domain)
-* The WebAuthn authenticator (passkey) enabled for your org
+* A valid and certified [custom domain](/docs/guides/custom-url-domain)
+* The [WebAuthn authenticator](https://help.okta.com/oie/en-us/content/topics/identity-engine/authenticators/configure-webauthn.htm) enabled for users in your org
 
 ---
 
-## About associated domains
+## Passkeys and custom domains
 
-Associated domains create a secure link between your custom domain and native apps.
+Passkeys are based on the [FIDO2 Web Authentication (WebAuthn) standard](https://fidoalliance.org/fido2-2/fido2-web-authentication-webauthn/). WebAuthn credentials can exist on multiple devices, such as phones, tablets, or laptops, and across multiple operating system platforms. Passkeys enable WebAuthn credentials to be backed up and synchronized across devices.
 
-This guide describes how to configure three important well-known URI endpoints that are used by iOS, Android, and WebAuthn. You can use these endpoints to establish a trusted relationship between your app, authorized referring domains, and the web credentials of users for those domains.
+Passkey credentials are cryptographically bound to a specific domain, known as the [Relying Party ID (RP ID)](https://www.w3.org/TR/webauthn/#relying-party-identifier).
 
-For example, when you host the `/.well-known/apple-app-site-association` file in your custom domain, you can allow [universal links and app links](https://developer.apple.com/documentation/xcode/allowing-apps-and-websites-to-link-to-your-content/).
+> **Note:** You can use passkeys in your org through the [WebAuthn authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn).
 
-### Three well-known URIs
+### Why use passkeys
 
-* `/.well-known/apple-app-site-association`: The iOS well-known URI file that establishes a secure link between a website and a native iOS or macOS app.
-* `/.well-known/assetlinks.json`: The Android well-known URI file that establishes a secure link between a website and a native Android app.
-* `/.well-known/webauthn`: The WebAuthn well-known URI file that allows you to specify other web origins that are allowed to share and use the same WebAuthn credentials (passkeys).
+For orgs that operate multiple brands or have different subdomains for their apps, passkeys can provide a streamlined sign-in experience for end users. For example, your users can access various apps with a passkey when they set up a passkey with the `example.com` domain. However, if a user needs to access another app associated with a subdomain, `app1.example.com`, for example, that same passkey won't work by default. The original passkey is only valid for the domain where it was created.
 
-The iOS and Android well-known URIs have similar functions that enable secure associations between your custom domain and native mobile apps. While you can use the WebAuthn well-known URI to improve the sign-in experience of your users.
+To create a seamless experience where one passkey works across multiple domains, you can set up your org to use a single, unified RP ID and, for different custom domains, establish a trust relationship between them.
 
-## Use associated domains in Okta
+You can enable passkey sharing by [configuring an RP ID](#use-an-rp-id-for-subdomains) or by using [associated domains](#use-associated-domains-for-different-root-domains).
 
-In your org, you can view, create, and customize these files by using the [Associated Domain Customizations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/) or in the [Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=configure-associated-domains).
+## Use an RP ID for subdomains
 
-> **Note:** The maximum file size for each well-known URI file is 100 KB.
+This method allows you to share passkeys between subdomains. For example, you can use an RP ID to support passkeys for the `app1.example.com` and `app2.example.com` domains.
 
-There are various ways to configure these well-known URIs with your org. Review the following documentation resources to learn more about configuring each well-known URI.
+Configure your WebAuthn authenticator to use your root domain (`example.com`) as its RP ID. When a user registers a passkey on any subdomain, the passkey is stamped with the `example.com` RP ID.
 
-* [Supporting associated domains (Apple)](https://developer.apple.com/documentation/xcode/supporting-associated-domains)
-* [Verify Android App Links (Android)](https://developer.android.com/training/app-links/verify-android-applinks)
-* [Related Origin Requests (WebAuthn)](https://passkeys.dev/docs/advanced/related-origins/)
+Before you create an RP ID, retrieve the `authenticatorId` of the WebAuthn authenticator with the [List all authenticators](hhttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticators) endpoint. Ensure that you also have the domain that you want to use as your RP ID set up as a [custom domain](/docs/guides/custom-url-domain).
 
-### Create an apple-app-site-association customization
+Then, use the [Replace an authenticator method endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod) to create an RP ID for the WebAuthn authenticator.
 
-Before you create a customization, retrieve your `brandId` with the [List all brands](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/#tag/Brands/operation/listBrands) endpoint.
+1. Use the following request example as a template.
+1. In the path parameters, set the following values:
+   * Use the WebAuthn `authenticatorId`.
+   * Set `webauthn` as the `methodType`.
+1. Set your domain name as the `rpId.domain.name`. For example, `example.com`.
+1. Send the request.
 
-Then, use the [Replace the customized well-known URI endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/#tag/AssociatedDomainCustomizations/operation/replaceBrandWellKnownURI) to create a custom well-known URI for `/.well-known/apple-app-site-association`.
-
-> **Note:** You must format the `apple-app-site-association` well-known URI as a JSON object.
-
-1. Create your own PUT request.
-1. In the path parameters, use your `brandId`.
-1. Set `apple-app-site-association` as the `path`.
-1. Use the following request body template and enter your own parameters and values.
-1. After you've set your request body parameters, send the `PUT /api/v1/brands/{brandId}/well-known-uris/{path}/customized` request.
-
-```json
-  {
-    "representation": {
-      "key1": "value1",
-      "key2": "value2",
-      "key3": {
-        "key3.1": "value3.1"
-      }
-    }
+```bash
+curl -i -X PUT \
+  'https://subdomain.okta.com/api/v1/authenticators/{authenticatorId}/methods/{methodType}' \
+  -H 'Authorization: YOUR_AUTH_INFO_HERE' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "status": "ACTIVE",
+  "type": "webauthn",
+  "settings": {
+    "userVerification": "DISCOURAGED",
+    "attachment": "ANY",
+    "rpId": {
+      "domain": {
+        "name": "example.com"
+      },
+      "enabled": false
+    },
+    "enableAutofillUI": false
   }
+}'
 ```
 
-> **Note:** The `apple-app-site-association` well-known URI file can't include an `authsrv` parameter. The custom well-known URI content is merged with hardcoded `authsrv` information that enables Okta Verify.
+### User experience
 
-When creating your own URI file, review this [example](https://developer.apple.com/documentation/xcode/supporting-associated-domains#Add-the-associated-domain-file-to-your-website) of an `apple-app-site-association` URI file.
+When a user registers a passkey on any subdomain (`app1.example.com`, for example), the passkey is created with the RP ID of `example.com`. When that user signs in to another subdomain (`app2.example.com`, for example), the browser sees that the passkey's RP ID (`example.com`) matches the root domain of the subdomain (`app2.example.com`). The browser allows the authentication to proceed.
 
-### Create an assetLinks.json customization
+## Use associated domains for different root domains
 
-Retrieve your `brandId` with the [List all brands](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/#tag/Brands/operation/listBrands) endpoint.
+This method lets you share passkeys between different root domains, such as `example.com`, `examplegames.com`, or your org domain (`example.okta.com`).
 
-Use the [Replace the customized well-known URI endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/#tag/AssociatedDomainCustomizations/operation/replaceBrandWellKnownURI) to create a custom well-known URI for `/.well-known/assetlinks.json`.
+Configure your primary brand to trust additional domains using the [Associated Domain Customizations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/). When a user attempts to authenticate on a secondary domain, the browser checks the `/.well-known/webauthn` file on your primary domain. If the secondary domain is listed, the authentication continues.
 
-> **Note:** You must format the `assetLinks.json` well-known URI as a JSON array.
+Before you begin, make sure you have the `brandId` for your primary brand. Ensure that all domains you want to associate are valid.
 
-1. Create your own PUT request.
-1. In the path parameters, use your `brandId`.
-1. Set `assetlinks.json` as the `path`.
-1. Use the following request body template and enter your own parameters and values.
-1. After you've set your request body parameters, send the `PUT /api/v1/brands/{brandId}/well-known-uris/{path}/customized` request.
+Then, use the Associated Domain Customizations API to add trusted domains.
+
+1. Use the following request as a template.
+2. In the path parameters, set the value of `brandId` for your primary domain.
+3. Add all trusted domains to the `origins` array.
+4. Send the request.
+
+```bash
+curl -i -X PUT \
+  'https://your-org.okta.com/api/v1/brands/{brandId}/well-known-uris/webauthn/customized' \
+  -H 'Authorization: YOUR_AUTH_INFO_HERE' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "representation": {
+    "origins": [
+      "https://examplegames.com",
+      "https://example.okta.com"
+    ]
+  }
+}'
+```
+
+### User experience
+
+When a user presents a passkey from `example.com` on `examplegames.com`, the browser checks the `/.well-known/webauthn` file on `example.com`. If `examplegames.com` is listed, then the user is able to sign in.
+
+## Use cases for associated domains and RP IDs
+
+Follow the scenario that matches your organization's needs:
+
+* [Share passkeys between multiple subdomains](#share-passkeys-between-multiple-subdomains): This use case lets you share passkeys between subdomains of a single root domain.
+* [Share passkeys between different root domains](#share-passkeys-between-different-root-domains): This use case lets you share passkeys between different root domains, such as `example.com` and `examplegames.com`.
+* [Share passkeys across Okta and custom domains](#share-passkeys-across-okta-and-custom-domains): This use case lets you share passkeys across all domains, including custom domains and Okta's default domains.
+
+### Share passkeys between multiple subdomains
+
+In this scenario, you want a passkey to work for both `app1.example.com` and `app2.example.com`. You only need to set the Custom RP ID to your root domain.
+
+> **Note:** Changing the RP ID `domain` invalidates all existing passkeys for all users. You must notify your users that they will need to re-enroll their passkeys.
+
+### Share passkeys between different root domains
+
+In this scenario, you want a passkey to work for both `atko.com` and `atkogames.com`.
+
+This requires using Associated Domains. This guide assumes `atko.com` is your primary brand and login domain.
+
+1. First, complete all steps from **Scenario 1** to set `atko.com` as your primary RP ID.
+1. Find the `brandId` associated with your primary domain (`atko.com`).
+1. Send a `PUT` request to the Associated Domain Customizations API, listing your other root domain in the `origins` array.
 
 ```json
 {
-  "representation": [
-    {
-      "key1": "value1",
-      "key2": "value2",
-      "key3": {
-        "key3.1": "value3.1"
-      }
-    }
-  ]
+  "representation": {
+    "origins": [
+      "https://atkogames.com"
+    ]
+  }
 }
 ```
 
-When creating your own URI file, review this [example](https://developer.android.com/training/app-links/verify-android-applinks#web-assoc) of an `assetLinks.json` URI file.
+Now, when a user on `atkogames.com` tries to authenticate, your app will request a passkey for `rpId: "atko.com"`. The browser will check `https.://atko.com/.well-known/webauthn`, see `atkogames.com` in the `origins` list, and allow the authentication.
 
-### Create a webauthn customization
+### Share passkeys across Okta and custom domains
 
-Retrieve your `brandId` with the [List all brands](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/#tag/Brands/operation/listBrands) endpoint.
+In this scenario, you want a single passkey to work for `atko.com` (root), `app1.atko.com` (subdomain), `atkogames.com` (different root), and `atko.okta.com` (your org domain).
 
-Use the [Replace the customized well-known URI endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/#tag/AssociatedDomainCustomizations/operation/replaceBrandWellKnownURI) to create a custom well-known URI for `/.well-known/webauthn`.
+This is a comprehensive solution that combines the previous two scenarios.
 
-> **Note:** You must format the `webauthn` well-known URI as a JSON object and the `origins` parameter as an array of strings.
-
-1. Create your own PUT request.
-1. In the path parameters, use your `brandId`.
-1. Set `webauthn` as the `path`.
-1. Use the following request body example.
-1. After you've set your request body parameters, send the `PUT /api/v1/brands/{brandId}/well-known-uris/{path}/customized` request.
-
-In the following request body example, the well-known URI file declares that the domains listed in the `origins` parameter are part of a single, trusted entity. The `origins` parameter contains an array of URLs and it instructs web browsers to allow a single WebAuthn credential, such as a passkey, to be used in the listed domains.
+1. First, complete all steps from **Scenario 1** to set `atko.com` as your primary RP ID. This step automatically covers `atko.com` and all its subdomains (like `app1.atko.com`).
+1. Find the `brandId` associated with your primary domain (`atko.com`).
+1. Send a `PUT` request to the Associated Domain Customizations API, listing all other domains that are *not* subdomains of your primary RP ID.
 
 ```json
-  {
-    "representation": {
-      "origins": [
-        "https://www.example.com",
-        "https://store.example.com"
-      ]
-    }
+{
+  "representation": {
+    "origins": [
+      "https://atkogames.com",
+      "https://atko.okta.com"
+    ]
   }
+}
 ```
 
-## Review the System Log
+> **Note:** While you can explicitly add subdomains like `https://app1.atko.com` to the `origins` list, it's not required. The browser's native subdomain policy (from Step 1) already covers them.
 
-After you create associations for your custom domains, you can verify that they're created by referring to the `system.well_known_uri.update` event type. See [Event Types](/docs/reference/api/event-types/).
+With this configuration, a single passkey registered with the `atko.com` RP ID is now trusted and can be used across your entire brand ecosystem.
 
-The `system.well_known_uri.update` event type includes the following information about your association.
+## See also
 
-* Your custom brand ID
-* The path of the well-known URI that you created an association with
-* The previous content of the well-known URI association and its updated content
-* The date and time when you created it
+* [Associated Domain Customizations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/)
+* [Authenticator API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/)
+* [Configure a custom domain](https://developer.okta.com/docs/guides/custom-url-domain/main/)
