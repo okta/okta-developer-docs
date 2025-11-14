@@ -23,9 +23,9 @@ Also, Universal Directory holds app user profiles that define the attributes tha
 
 Universal Directory has a single Okta user profile for every user and an app user profile for each app. The user profile is the primary place to store all user information, and the app user profile is where app-specific information is stored.
 
-You can manage the User profiles in Universal Directory from the Admin Console or use the [User API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/).
+You can manage the user profiles in Universal Directory from the Admin Console or use the [User API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/).
 
-You can manage the Apps user profiles in Universal Directory from the Admin Console or use the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application).
+You can manage the apps user profiles in Universal Directory from the Admin Console or use the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application).
 
 ### User mappings
 
@@ -65,7 +65,7 @@ The available custom attributes, however, are determined by the app. You can man
 
 ### Group profile type
 
-Okta groups simplify management of multiple users of the same type. See [About groups](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups). The Group profile itself consists of attributes, and can be defined and managed with the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/). The responses and schemas show examples of a `group` object and its attributes.
+Okta groups simplify management of multiple users of the same type. See [About groups](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups). The group profile itself consists of attributes, and can be defined and managed with the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/). The responses and schemas show examples of a `group` object and its attributes.
 
 ## Universal Directory schemas
 
