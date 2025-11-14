@@ -61,6 +61,7 @@ guides:
  - keep-me-signed-in
  - key-management
  - manage-orgs-okta-aerial
+ - terraform-oig-resources
  - mfa
  - migrate-to-okta-prerequisites
  - migrate-to-okta-bulk

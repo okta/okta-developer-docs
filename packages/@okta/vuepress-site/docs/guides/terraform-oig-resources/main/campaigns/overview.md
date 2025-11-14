@@ -1,0 +1,1 @@
+Okta Access Certification campaign is a core Okta Identity Governance feature that allows stakeholders to conduct scheduled reviews of user access to apps and resources. Based on the reviews, Okta can then modify resource access so that the users are provided with only have the access they need. See Campaigns and Campaigns API.

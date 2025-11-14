@@ -940,6 +940,10 @@ export const guides = [
             ],
           },
           {
+            title: "Manage OIG resources",
+            guideName: "terraform-oig-resources",
+          },
+          {
             title: "Optimize your configuration",
             subLinks: [
               {
