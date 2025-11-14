@@ -215,7 +215,9 @@ The error response for an unsuccessful `POST /oauth2/par` request uses this [str
 
 ### IDV vendor responds with request_uri
 
-A successful `POST /oauth2/par` request generates a `request_uri` that's sent back to Okta as a response. The `request_uri` encodes the identity verification attributes of the `POST /oauth2/par` request as a reference to the now established verification session.
+A successful `POST /oauth2/par` request generates a `request_uri` that's sent back to Okta as an HTTP 201 Created response. The `request_uri` encodes the identity verification attributes of the `POST /oauth2/par` request as a reference to the now established verification session. For information about the successful response structure, see the [Successful Response](https://www.rfc-editor.org/rfc/rfc9126.html#name-successful-response) from the IETF PAR specification.
+
+A successful response uses the format outlined in the following example and must have the HTTP 201 Created status.
 
 #### POST /oauth2/par response example
 
@@ -304,7 +306,7 @@ The error response for an unsuccessful `POST /token` request uses this [structur
 
 ### IDV vendor responds with id_token
 
-When the `POST /token` request succeeds, the IDV vendor sends an `id_token` in a JSON Web Token (JWT) encoded format back to Okta in response. The `id_token` includes the `verified_claims` object. This object contains the results of the identity verification for the user. Vendors can choose to pass the `verification_process` and `time` attributes in the [`verification`](https://openid.net/specs/openid-ida-verified-claims-1_0.html#name-verification-element) response object. They aren't required.
+When the `POST /token` request succeeds, the IDV vendor sends an `id_token` in a JSON Web Token (JWT) encoded format back to Okta in response. The `id_token` includes the `verified_claims` object. This object contains the results of the identity verification for the user. Vendors can choose to pass the `verification_process` and `time` attributes in the [`verification`](https://openid.net/specs/openid-ida-verified-claims-1_0.html#name-verification-element) response object. They aren't required. For information about the structure of the `id_token` response, see [ID Token](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) from the OIDC specification.
 
 Note the following the ways to format the `claims` object for the `id_token` response:
 
@@ -316,16 +318,27 @@ Note the following the ways to format the `claims` object for the `id_token` res
 
 > **Note:** If an IDV vendor passes an empty `claims` object, then the `user.identity_verification` event marks all claims as verified or failed. Whether the claims are failed or verified depends on the `assurance_level` value that's passed.
 
-#### IDV vendor id_token response example
+#### IDV vendor id_token response example in encoded JWT format
 
 ```json
-HTTP/1.1 200 OK
-Content-Type: application/json
-Cache-Control: no-cache, no-store
-
 {
-  "id_token": {
-    "verified_claims": [
+  "id_token": "eyJhbGciOiJSUzI1NiIs...",
+  "token_type": "Bearer",
+  "expires_in": 3600
+}
+```
+
+#### Decoded IDV vendor id_token response example
+
+```json
+{
+  "iss": "https://idv-vendor.com",
+  "aud": "0oaa7jqrhYIOAWsJ5a",
+  "sub": "01oabcdefgklgjq",
+  "exp": 1715034683,
+  "iat": 1715031083,
+  "verified_claims": [
+    {
       "verification": {
         "trust_framework": "IDV-DELEGATED",
         "assurance_level": "VERIFIED",
@@ -335,11 +348,22 @@ Cache-Control: no-cache, no-store
       "claims": {
         "given_name": {
           "fuzzy": "Dan"
+        },
+        "family_name": "Jones",
+        "middle_name": "Patrick",
+        "email": "dan@example.com",
+        "birthdate": "2000-01-10",
+        "phone_number": "+15111111111",
+        "address": {
+          "street_address": "123 Main St",
+          "locality": "SanTrafael",
+          "region": "CC",
+          "postal_code": "90001",
+          "country": "USA"
         }
-        "family_name": "Jones"
       }
-    ]
-  }
+    }
+  ]
 }
 ```
 
