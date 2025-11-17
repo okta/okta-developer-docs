@@ -19,7 +19,7 @@ Configure and run a brand customization synchronization from a test or preview e
 
 ## Prerequisites and tool setup
 
-This guide assumes you have already registered and verified separate custom domains for your test and production environments (for example, `uat.example.com` and `portal.example.com`). Okta also assumes your Terraform or CLI tools are fully authenticated and configured.
+This guide assumes you have already registered and verified separate custom domains for your test and production environments (for example, `test.example.com` and `portal.example.com`). Okta also assumes your Terraform or CLI tools are fully authenticated and configured.
 
 >**New to these tools?** If you have not configured authentication or installed the necessary SDKs (Terraform Provider, PowerShell Module, Okta Go CLI), refer to the introductory guides on the respective GitHub repositories before proceeding.
 
@@ -29,12 +29,12 @@ Define environment variables that control the target organization and API key. S
 
 ```hcl
 # Set variables for UAT environment execution
-export OKTA_ORG_URL="[https://uat.example.com](https://uat.example.com)"
-export OKTA_API_TOKEN="uat_api_token"
-export UAT_DOMAIN_NAME="uat.example.com"
+export OKTA_ORG_URL="[https://test.example.com](https://test.example.com)"
+export OKTA_API_TOKEN="test_api_token"
+export UAT_DOMAIN_NAME="test.example.com"
 
 # To target PRODUCTION, change these variables:
-# export OKTA_ORG_URL="[https://portal.acme.com](https://portal.acme.com)"
+# export OKTA_ORG_URL="[https://portal.example.com](https://portal.example.com)"
 
 # export OKTA_API_TOKEN="prod_api_token"
 # export PROD_DOMAIN_NAME="portal.example.com"
@@ -54,7 +54,7 @@ Your API token is managed by `okta configure`. You need to switch the `ORG_URL` 
 
 ```go
 # Set variables for UAT environment execution
-ORG_URL="[https://uat.example.com](https://uat.example.com)"
+ORG_URL="[https://test.example.com](https://test.example.com)"
 
 # To target PRODUCTION, change this:
 # ORG_URL="[https://portal.example.com](https://portal.example.com)"
