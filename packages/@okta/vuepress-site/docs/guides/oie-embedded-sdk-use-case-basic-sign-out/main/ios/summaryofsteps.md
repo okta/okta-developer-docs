@@ -1,6 +1,6 @@
-You can sign a user out of your app by revoking their tokens or deleting their credentials. See [Implement token cleanup]().
+You can sign a user out of your app by revoking their tokens or deleting their credentials. See [Implement token cleanup](#implement-token-cleanup).
 
-Also, if you have an active Okta browser session, you need to end the session. See [End the Okta browser session]().
+Also, if you have an active Okta browser session, you need to end the session. See [End the Okta browser session](#end-the-okta-browser-session-optional).
 
 ### Best practices and considerations
 
