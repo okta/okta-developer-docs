@@ -87,6 +87,8 @@ The request contains standard pushed authorization request (PAR) [parameters](ht
 
 When Okta sends the request, a unique verification session is established.
 
+The following example shows a `POST /oauth2/par` request with the `fuzzy` extension enabled for all claims.
+
 #### POST /oauth2/par request example
 
 ```bash
@@ -172,6 +174,53 @@ curl -L -X POST "https://idv-vendor.com/oauth2/par" \
 }'
 ```
 
+#### POST /oauth2/par request without fuzzy extension example
+
+This example shows a `POST /oauth2/par` request without the `fuzzy` extension enabled for all claims.
+
+```bash
+curl -L -X POST "https://idv-vendor.com/oauth2/par" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "response_type": "code",
+  "client_id": "{client_id}",
+  "client_secret": "{client_secret}",
+  "code_challenge": "{code_challenge}",
+  "code_challenge_method": "{code_challenge_method}",
+  "scope": "openid profile identity_assurance idv_flow_{idv_flow_id}",
+  "nonce": "{nonceValue}",
+  "claims": {
+    "id_token": {
+      "verified_claims": [
+        {
+          "verification": {
+            "trust_framework": {
+              "value": "IDV-DELEGATED",
+              "essential": true
+            },
+            "assurance_level": {
+              "value": "VERIFIED",
+              "essential": true
+            }
+          },
+          "claims": {
+            "given_name": "{ud_mapped_first_name}"
+            },
+            "family_name": {ud_mapped_last_name}",
+            },
+            "middle_name": "{ud_mapped_middle_name}",
+            },
+            [...]
+        ]
+      }
+    }
+  },
+  "state": "{external_state_token_id}",
+  "login_hint": "{user_id}",
+  "redirect_uri": "https://{yourOktadomain}/idp/identity-verification/callback"
+}'
+```
+
 #### POST /oauth2/par error response
 
 The error response for an unsuccessful `POST /oauth2/par` request uses this [structure](https://www.rfc-editor.org/rfc/rfc9126.html#name-error-response).
@@ -202,13 +251,13 @@ The error response for an unsuccessful `POST /oauth2/par` request uses this [str
 | profile               | Requests access to the end user's default profile claims.                                                      | String     | String   |
 | identity_assurance    | Requests access to the `verified_claims` object.                                                               | String     | String   |
 | idv_flow_{idv_flow_id} | Identifies a specific IDV flow from the IDV vendor. Replace `{idv_flow_id}` with the identifier of the flow. You can leave it out of the request if the `client_id` and `client_secret` are configured to represent a specific flow from the IDV vendor. | String     | String   |
-| verified_claims       | Contains the `verification` and `claims` objects.                                                              | Object     | Object   |
+| verified_claims       | Contains the `verification` and `claims` objects.                                                              | Object     | Array   |
 | nonce                 | A unique, random string that’s used to associate a client session with an ID token. Okta generates this value. | String     | String   |
 | verification          | Specifies the parameters and requirements for verifying the claims. Okta uses both the `trust_framework` and `assurance_level` properties. See the OIDC definition of the [verification](https://openid.bitbucket.io/ekyc/openid-ida-verified-claims.html#name-verification-element) property. | Object     | Object   |
 | trust_framework       | Identifies the trust framework that provides assurance about the verified attributes. Okta sets `IDV_DELEGATED` as the default value. This value delegates identity verification and the assurance policy to the IDV vendor. The IDV vendor is then responsible for verifying user identities and sends the results back to Okta. <br></br>`IDV_DELEGATED` is currently the only supported trust framework. See the OIDC definition of the [trust_framework](https://openid.net/specs/openid-ida-verified-claims-1_0.html#section-5.4.2-5) property. | String     | String   |
 | assurance_level       | Identifies the assurance level that's required for the identity claims of the user. The IDV vendor must map their verification results to the possible assurance levels, `VERIFIED` or `FAILED`. <br></br>For a successful verification, the IDV vendor must pass  `VERIFIED` as the `assurance_level`. For a failed verification, the IDV vendor must pass `FAILED` or a `null` value. See the OIDC definition of the [assurance_level](https://openid.net/specs/openid-ida-verified-claims-1_0.html#section-5.4.2-6.1.1) property. | String     | String   |
 | claims                | Contains user-specific attributes. Okta supports these [OIDC claims](#supported-oidc-claims). For more information, see the OIDC definition of the [claims](https://openid.net/specs/openid-ida-verified-claims-1_0.html#name-claims-element) property. | Object     | Object   |
-| fuzzy                 | An extension that adds fuzzy logic to a specified claim to assist with matching the claim value. IDV vendors can choose whether to add this extension to any `claims` attribute. <br></br>The `fuzzy` extension is set as `true` for all claims by default. | String     | String   |
+| fuzzy                 | An extension that adds fuzzy logic to a specified claim to assist with matching the claim value. IDV vendors can choose whether to add this extension to any `claims` attribute. <br></br>The `fuzzy` extension is set as `true` for all claims by default. When the `fuzzy` extension is true, the `value` of the claim is treated as an attribute itself. | String     | String   |
 | state                 | A unique string that maintains a connection between the request and the callback.                              | String     | String   |
 | redirect_uri          | The URI where the response is sent after the user completes the IDV flow.                                      | String     | String   |
 | login_hint            | Identifier that associates an Okta user within the IDV vendor's app.                                           | String     | String   |
@@ -340,27 +389,52 @@ Note the following the ways to format the `claims` object for the `id_token` res
   "verified_claims": [
     {
       "verification": {
-        "trust_framework": "IDV-DELEGATED",
         "assurance_level": "VERIFIED",
-        "verification_process": "DSf33219LcP-729",
-        "time": "2024-10-07T10:00:00Z"
+        "time": "2025-07-16T19:26:10",
+        "trust_framework": "IDV-DELEGATED"
       },
       "claims": {
-        "given_name": {
-          "fuzzy": "Dan"
+        "birthdate": {
+          "fuzzy": true,
+          "value": "2000-01-01"
         },
-        "family_name": "Jones",
-        "middle_name": "Patrick",
-        "email": "dan@example.com",
-        "birthdate": "2000-01-10",
-        "phone_number": "+15111111111",
+        "family_name": {
+          "fuzzy": true,
+          "value": "Jones"
+        },
+        "given_name": {
+          "fuzzy": true,
+          "value": "Patrick"
+        },
+        "phone_number": {
+          "fuzzy": true,
+          "value": "+15111111111"
+        },
+        "email": {
+          "fuzzy": true,
+          "value": "dan@example.com"
+        },
         "address": {
-          "street_address": "123 Main St",
-          "locality": "SanTrafael",
-          "region": "CC",
-          "postal_code": "90001",
-          "country": "USA"
-        }
+          "street_address": {
+            "fuzzy": true,
+            "value": "123 Main St"
+          },
+          "locality": {
+            "fuzzy": true,
+            "value": "Austin"
+          },
+          "region": {
+            "fuzzy": true,
+            "value": "TX"
+          },
+          "postal_code": {
+            "fuzzy": true,
+            "value": "78701"
+          },
+          "country": {
+            "fuzzy": true,
+            "value": "US"
+          }
       }
     }
   ]
@@ -380,24 +454,32 @@ If either of the `trust_framework` or `assurance_level` attributes aren't includ
 For example, a user completes an IDV flow but provides a name that doesn't match the `given_name` value. The `assurance_level` value is sent back as `FAILED` in the `id_token` response. And the `given_name` value is returned as `null`.
 
 ```json
-HTTP/1.1 200 OK
-Content-Type: application/json
-Cache-Control: no-cache, no-store
-
 {
-  "id_token": {
-    "verified_claims": [
+  "iss": "https://idv-vendor.com",
+  "aud": "0oaa7jqrhYIOAWsJ5a",
+  "sub": "01oabcdefgklgjq",
+  "exp": 1715034683,
+  "iat": 1715031083,
+  "nonce": "wc4IPgjuKWspqw-c",
+  "verified_claims": [
+    {
       "verification": {
-        "trust_framework": "IDV-DELEGATED",
         "assurance_level": "FAILED",
-        "time": "2024-10-07T10:00:00Z"
+        "time": "2024-10-07T10:00:00Z",
+        "trust_framework": "IDV-DELEGATED"
       },
       "claims": {
-        "given_name": null,
-        "family_name": "Jones"
+        "given_name": {
+          "fuzzy": true,
+          "value": null
+        },
+        "family_name": {
+          "fuzzy": true,
+          "value": "Jones"
+        }
       }
-    ]
-  }
+    }
+  ]
 }
 ```
 
