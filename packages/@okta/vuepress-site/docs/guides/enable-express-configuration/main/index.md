@@ -8,7 +8,7 @@ layout: Guides
 
 <ApiLifecycle access="ie" />
 
-## Enable Express Configuration  instructions moved to the Auth0 portal
+## Enable Express Configuration instructions moved to the Auth0 portal
 
 > **Note:** The configuration instructions previously available here have been moved to the Auth0 documentation portal.
 
