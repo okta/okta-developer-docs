@@ -12,4 +12,4 @@ layout: Guides
 
 > **Note:** The configuration instructions previously available here have been moved to the Auth0 documentation portal.
 
-You can now enable the Express Configuration feature for your Auth0-enabled app through Auth0 UI. For detailed setup and configuration instructions are available in the [Auth0 documentation](https://auth0.com/docs/).
+You can now enable the Express Configuration feature for your Auth0-enabled app through Auth0 UI. For detailed setup and configuration instructions are available in the [Auth0 documentation](https://auth0.com/docs/authenticate/identity-providers/enterprise-identity-providers/okta/express-configuration).
