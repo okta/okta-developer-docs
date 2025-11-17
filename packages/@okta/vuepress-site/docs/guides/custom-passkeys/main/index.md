@@ -8,7 +8,7 @@ This guide explains different methods for configuring the FIDO2 (WebAuthn) authe
 
 ---
 
-#### Learning outcomes
+#### Learning outcome
 
 Learn how to configure passkeys with multiple domains.
 
@@ -55,9 +55,9 @@ In this scenario, you want to enable users to sign in to `login.globex.com` and 
 
 > **Note:** Changing the RP ID `domain` invalidates all existing passkeys for all users. You must notify your users that they need to re-enroll their passkeys if you replace an existing RP ID.
 
-Before you create an RP ID, retrieve the `authenticatorId` of the WebAuthn authenticator with the List all authenticators [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticators). Ensure that you also have the domain that you want to use as your RP ID set up as a [custom domain](/docs/guides/custom-url-domain).
+Before you create an RP ID, retrieve the `authenticatorId` of the WebAuthn authenticator with the [List all authenticators endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticators). Ensure that you also have the domain that you want to use as your RP ID set up as a [custom domain](/docs/guides/custom-url-domain).
 
-Then, use the Replace an authenticator method [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod) to create an RP ID for the WebAuthn authenticator.
+Then, use the [Replace an authenticator method endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod) to create an RP ID for the WebAuthn authenticator.
 
 1. Use the following request example as a template.
 1. In the path parameters, set the following values:
@@ -136,13 +136,13 @@ Before you begin, ensure that you've done the following:
 * [Set `globex.com` as your primary RP ID](#use-an-rp-id-to-share-passkeys-between-multiple-subdomains). Setting `globex.com` as your primary RP ID automatically covers `globex.com` and all its subdomains, like `login.globex.com`, for example.
 * Ensure that you have the `brandId` for your primary brand and that all domains you want to associate are valid.
 
-Then, use the [Associated Domain Customizations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/) to trust the other root domains.
+Then, use the [Associated Domain Customizations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/) to add `globex.okta.com` as a trusted root domain.
 
 1. Use the following request as a template.
 1. In the path parameters, set the following values:
    * Set the value of `brandId` for your primary domain.
    * Set the value of `path` to `webauthn`.
-1. Add `https://globex-okta.com` to the `origins` array.
+1. Add `https://globex.okta.com` to the `origins` array.
 1. Send the request.
 
 ```bash
@@ -170,5 +170,6 @@ With this configuration, a single passkey registered with the `globex.com` RP ID
 ## See also
 
 * [Associated Domain Customizations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/)
+* [About associated domains](/docs/guides/custom-well-known-uri/main/#about-associated-domains)
 * [Authenticator API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/)
 * [Configure a custom domain](https://developer.okta.com/docs/guides/custom-url-domain/main/)
