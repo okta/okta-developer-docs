@@ -55,9 +55,9 @@ In this scenario, you want to enable users to sign in to `login.globex.com` and 
 
 > **Note:** Changing the RP ID `domain` invalidates all existing passkeys for all users. You must notify your users that they need to re-enroll their passkeys if you replace an existing RP ID.
 
-Before you create an RP ID, retrieve the `authenticatorId` of the WebAuthn authenticator with the [List all authenticators](hhttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticators) endpoint. Ensure that you also have the domain that you want to use as your RP ID set up as a [custom domain](/docs/guides/custom-url-domain).
+Before you create an RP ID, retrieve the `authenticatorId` of the WebAuthn authenticator with the List all authenticators [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticators). Ensure that you also have the domain that you want to use as your RP ID set up as a [custom domain](/docs/guides/custom-url-domain).
 
-Then, use the [Replace an authenticator method endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod) to create an RP ID for the WebAuthn authenticator.
+Then, use the Replace an authenticator method [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod) to create an RP ID for the WebAuthn authenticator.
 
 1. Use the following request example as a template.
 1. In the path parameters, set the following values:
@@ -159,7 +159,7 @@ curl -i -X PUT \
 }'
 ```
 
-> **Note:** While you can explicitly add subdomains like `https://login.globex.com` to the `origins` list, it's not required. The browser's subdomain policy already covers them.
+> **Note:** While you can explicitly add subdomains like `https://login.globex.com` to the `origins` list, it's not required. The browser's subdomain policy accepts those subdomains already because of the RP ID.
 
 #### User experience
 
