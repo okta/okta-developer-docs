@@ -1,1 +1,0 @@
-You can implement the user sign-out action by revoking the session tokens. See [Integration steps](#integration-steps) for two different methods to revoke tokens.
