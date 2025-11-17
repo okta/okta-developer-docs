@@ -317,6 +317,3 @@ After the content is defined in the script or configuration file:
 1. Run against the test environment: Execute your chosen tool (Terraform `apply`, PowerShell script, or cURL commands) using the test environment variables or context.
 1. Verify: Manually test the customization on your test custom domain (https://test.example.com/login/default).
 1. Run against production: Change your environment variables (or tool configuration) to target production and re-run the exact same script or configuration. The code is designed to be idempotent and creates the brand in production using the production domain ID.
-
-
-
