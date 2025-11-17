@@ -24,7 +24,8 @@ This guide provides instructions for developers on how to use the <StackSnippet 
 
 Configure the Okta Terraform provider in your Terraform configuration files. This configuration involves setting up credentials (for example, API token) with relevant permissions to manage entitlements within your Okta org.
 
-    ```bash
+```bash
+
     terraform {
       required_providers {
         okta = {
@@ -47,7 +48,7 @@ Configure the Okta Terraform provider in your Terraform configuration files. Thi
       type        = string
       sensitive   = true
     }
-    ```
+```
 
 ### Overview
 
@@ -76,6 +77,53 @@ Before creating an entitlement, you must enable Identity Governance on the targe
 
 <StackSnippet snippet="arguments" inline/>
 
-### Manage resource
+### Create a <StackSnippet snippet="resource-name" inline/> resource
 
-<StackSnippet snippet="manage" inline/>
+Create a resource block in your Terraform configuration file. For example, this sample defines an access review <StackSnippet snippet="resource-name" inline/> for a specific app.
+
+<StackSnippet snippet="create" inline/>
+
+
+2. Run the `plan` command. The output of the command provides a preview of the changes Terraform makes to your infrastructure.
+
+```bash
+terraform plan
+```
+
+3. Run the `apply` command. This command provisions the entitlement resource.
+
+```bash
+terraform apply
+```
+
+> **Note**: To apply only a new resource, run a targeted apply command. For example, `terraform apply -target <resource_name>`
+
+4. Type `yes` when prompted to complete the resource creation.
+
+
+#### Import existing objects to Terraform
+
+You can import existing <StackSnippet snippet="resource-name" inline/> objects to Terraform using the import function. For more information on importing objects into Terraform, see Import existing Okta objects into Terraform.
+
+**Note**: Ensure you have the <StackSnippet snippet="resource-name" inline/> ID that you want to import.
+
+
+1. Create a resource block to host the object you’re importing. The configuration must match the object in Okta.
+
+2. Run the following command to import your existing <StackSnippet snippet="resource-name" inline/> object into your Terraform state.
+
+<StackSnippet snippet="import" inline/>
+
+3. Save the file, run `terraform plan`, and then run `terraform apply`.
+
+
+#### Retrieve existing <StackSnippet snippet="resource-name" inline/> 
+
+To view a <StackSnippet snippet="resource-name" inline/>  that is already managed by Terraform, or any <StackSnippet snippet="resource-name" inline/>  in your org, you can use a data source.
+
+<StackSnippet snippet="retrieve" inline/>
+
+#### Modify existing <StackSnippet snippet="resource-name" inline/> 
+
+To modify a <StackSnippet snippet="resource-name" inline/>  that is already managed by Terraform, update the code in your configuration file. Terraform detects the change and applies it on the next run.
+Save the file, run `terraform plan`, and then run `terraform apply` to apply the change to your <StackSnippet snippet="resource-name" inline/> in Okta.

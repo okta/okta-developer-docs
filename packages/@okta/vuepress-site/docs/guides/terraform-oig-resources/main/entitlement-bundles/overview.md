@@ -1,0 +1,1 @@
+Entitlement Management lets you ensure that users in your org have the right permissions for each resource. An entitlement is a permission, privilege, or access level that allows users to take specific actions within a third-party app.
