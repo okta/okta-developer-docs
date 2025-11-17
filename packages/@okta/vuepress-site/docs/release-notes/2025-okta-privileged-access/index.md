@@ -10,9 +10,9 @@ Okta Privileged Access (OPA) is available for both Okta Classic and Identity Eng
 
 ### Weekly release 2025.11.1
 
-| Change | Expected in Preview |
-|--------|--------------------------|
-| [User access methods in AD account listing](#user-access-methods-in-ad-account-listing) | November 12, 2025 |
+| Change | Expected in Preview | Expected in Production |
+|--------|--------------------------|-----------------------------|
+| [User access methods in AD account listing](#user-access-methods-in-ad-account-listing) | November 12, 2025 | November 17, 2025 |
 
 #### User access methods in AD account listing
 
@@ -25,7 +25,7 @@ You can now retrieve user access methods when you list all discovered Active Dir
 
 | Change | Expected in Preview | Expected in Production |
 |--------|--------------------------|-----------------------------|
-| [More account details for end users](#more-account-details-for-end-users) | October 9, 2025 |  |
+| [More account details for end users](#more-account-details-for-end-users) | October 9, 2025 | October 16, 2025 |
 | [Random password generator for unmanaged SaaS accounts is GA](#random-password-generator-for-unmanaged-saas-accounts-is-ga) | September 18, 2025 | September 29, 2025 |
 
 #### More account details for end users
