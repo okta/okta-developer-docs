@@ -36,7 +36,7 @@ Production orgs are always a stable release, covered by our software license agr
 
 Okta offers two free org types for feature review, development, and testing:
 
-* Free trial orgs: Intended for admin users, these orgs have a 30-day limit and require a business email. You can sign up at [Free Trial](https://www.okta.com/free-trial/workforce-identity/). For details on limits and configurations, see [Okta free trial](https://help.okta.com/oie/en-us/content/topics/miscellaneous/okta-free-trial.htm).
+* Free trial orgs: Intended for admin users, these orgs have a 30-day limit and require a business email. You can sign up at [Free Trial](https://www.okta.com/free-trial/workforce-identity/). For details on limits and configurations, see [Okta free trial](https://help.okta.com/okta_help.htm?type=oie&id=okta-free-trial).
 
 * Integrator free plan orgs: Designed for developers and integrators building authentication and authorization solutions with Okta. These orgs also require a business email and are available at [Okta Integrator Free Plan](https://developer.okta.com/signup/). For more information on limits and configurations, see [Okta Integrator Free Plan org configurations](/docs/reference/org-defaults/).
 
