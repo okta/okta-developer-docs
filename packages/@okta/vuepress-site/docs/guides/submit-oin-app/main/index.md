@@ -58,7 +58,7 @@ This guide covers submissions that use the following protocols and integrations:
 
 > **Notes:**
     > * Universal Logout integrations are only supported for SAML 2.0 and OIDC protocols. If you want to submit a Universal Logout integration with SCIM provisioning, you must also submit an SSO integration with either SAML 2.0 or OIDC.
-    > * Entitlement Management is only supported for SCIM.
+    > * Entitlement Management is only supported for SCIM and it is currently an early access feature.
     > * SWA app integrations are no longer accepted for publication in the OIN catalog. However, the OIN team still maintains existing SWA apps.
     > * There are protocol-specific limitations on integrations in the OIN. See [OIN limitations](/docs/guides/submit-app-prereq/main/#oin-limitations).
 
@@ -599,7 +599,25 @@ When you're satisfied with your Runscope CRUD test results, enter them in the **
 
     This Entitlement Management test file is built for the BlazeMeter Runscope API monitoring tool. If you don't have a Runscope account, you can sign up with a [free trial to Runscope](https://www.runscope.com/okta) for Okta developers.
 
-1. Follow the instructions from step [2](https://developer.okta.com/docs/guides/submit-oin-app/scim/main/#runscope-crud-tests:~:text=for%20Okta%20developers.-,From%20Runscope%2C,-click%20Import%20Test) in the [Runscope CRUD tests](#runscope-crud-tests) section.
+1. From Runscope, click **Import Test**.
+1. Select **API Monitoring Tests** as the import format.
+1. Click **Choose File** and select the **Okta SCIM 2.0 Entitlements Test** file.
+1. Click **Import API Test**. In this new test bucket, click **Editor** from the left-navigation menu.
+1. Click **Test Settings** and then click **Initial Variables**.
+1. Add the following variables with values that match your SCIM integration:
+    * `SCIMBaseURL`: The base URL of the SCIM service. For example: `https://example.com/scim/v2`
+    * `EntitlementEndpoint`: The endpoint of the resource type. For example, `/Roles`.
+    * `auth`: The authorization token used to access your SCIM API. You can use the same authorization token you used to **Enable API integration** from [Generate an instance for <StackSnippet snippet="protocol-name" inline/>](#generate-an-instance-for).
+
+      The following is an example of the Entitlement variable values:
+
+    <div class="three-quarter border">
+
+    ![Sample values for Entitlement test variables. Runscope initial variables](/img/oin/scim_entitlement-variables-d.png)
+
+    </div>
+
+1. Click **Save & Run**.
 
 #### Manual Okta SCIM integration tests
 
