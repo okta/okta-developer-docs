@@ -3,12 +3,10 @@ const path = require('path');
 const MarkdownIt = require('markdown-it');
 const mdParser = new MarkdownIt({ html: true });
 
-// Helper to remove markdown comments <!-- ... -->
 function stripMarkdownComments(text) {
   return text.replace(/<!--[\s\S]*?-->/g, '');
 }
 
-// Helper to convert markdown links to headings into proper HTML links with absolute URLs
 function convertSubheadingLinksToHtml(text, siteUrl) {
   return text.replace(/\[([^\]]+)\]\(#([^)]+)\)/g, (match, linkText, anchor) => {
     const htmlAnchor = anchor
@@ -20,7 +18,6 @@ function convertSubheadingLinksToHtml(text, siteUrl) {
   });
 }
 
-// Helper to extract all markdown tables, including those at the start of the content
 function extractTables(markdown) {
   const lines = markdown.split('\n');
   const tables = [];
@@ -41,7 +38,6 @@ function extractTables(markdown) {
   return tables.join('\n\n');
 }
 
-// Helper to remove table headers from markdown tables
 function removeTableHeaders(tableMarkdown) {
   const lines = tableMarkdown.split('\n');
   if (lines.length > 2 && lines[0].trim().startsWith('|') && lines[1].trim().startsWith('|')) {
@@ -50,7 +46,6 @@ function removeTableHeaders(tableMarkdown) {
   return tableMarkdown;
 }
 
-// Helper to format table rows as plain text with only the first column and HTML line breaks
 function formatRowsFirstColumnOnlyWithBr(tableRows) {
   return tableRows
     .split('\n')
@@ -65,7 +60,6 @@ function formatRowsFirstColumnOnlyWithBr(tableRows) {
     .join('<br>');
 }
 
-// Helper to extract "Published on:" date from a section only
 function extractPublishedDate(section) {
   const match = section.match(/Published on:\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})/);
   if (match && match[1]) {
@@ -77,7 +71,6 @@ function extractPublishedDate(section) {
   return null;
 }
 
-// Helper to find the oldest "Published on:" date in all sections
 function findOldestPublishedDate(sections) {
   let oldest = null;
   for (const section of sections) {
@@ -89,42 +82,19 @@ function findOldestPublishedDate(sections) {
   return oldest;
 }
 
-// Helper to generate RSS XML from markdown
 function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutputPath) {
   if (!fs.existsSync(mdPath)) {
     console.error(`Markdown file not found: ${mdPath}`);
     return;
   }
   const mdContent = fs.readFileSync(mdPath, 'utf8');
-  // Split by '### ' for releases, fallback to '## ' if not found
   const sections = mdContent.includes('### ') ? mdContent.split('\n### ') : mdContent.split('\n## ');
 
-  const now = new Date();
-
-  // Find the oldest published date in all sections
-  const fallbackStartDate = (() => {
-    const oldestDate = findOldestPublishedDate(sections.slice(1));
-    if (oldestDate) {
-      return new Date(oldestDate.getTime() - 7 * 24 * 60 * 60 * 1000);
-    }
-    // If no published date at all, fallback to now minus a week
-    return new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-  })();
-
-  let fallbackDateCounter = 0;
-
-  // Process sections in order as in markdown (top section first)
-  const releases = sections.slice(1).map((section, idx) => {
+  // Prepare releases array with parsed dates and markdown order
+  const releasesRaw = sections.slice(1).map((section, idx) => {
     const [titleLine, ...bodyLines] = section.split('\n');
     const title = titleLine.trim();
-
-    // Use "Published on:" date if available, else fallback to incremented weekly date
-    let pubDate = extractPublishedDate(section);
-    if (!pubDate) {
-      pubDate = new Date(fallbackStartDate.getTime() + fallbackDateCounter * 7 * 24 * 60 * 60 * 1000);
-      fallbackDateCounter++;
-    }
-
+    const pubDate = extractPublishedDate(section);
     let cleanedBody = stripMarkdownComments(bodyLines.join('\n').trim());
     let tablesOnly = extractTables(cleanedBody);
     tablesOnly = tablesOnly
@@ -137,8 +107,34 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
     tablesOnly = convertSubheadingLinksToHtml(tablesOnly, siteUrl);
     const description = tablesOnly;
     const itemLink = `${siteUrl}#${title.replace(/[^a-zA-Z0-9]/g, '')}`;
-    return { title, pubDate, description, itemLink };
+    return { title, pubDate, description, itemLink, idx };
   });
+
+  // Find oldest published date
+  const publishedDates = releasesRaw
+    .map(r => r.pubDate)
+    .filter(d => d)
+    .sort((a, b) => a - b);
+  const oldestDate = publishedDates.length > 0 ? publishedDates[0] : new Date();
+
+  // Assign fallback dates for items without a published date
+  // Start from oldestDate minus one week, increment by one week for each fallback (bottom-most fallback gets oldest date)
+  const fallbackItems = releasesRaw.filter(r => !r.pubDate);
+
+  // Assign dates in markdown order (bottom to top)
+  fallbackItems
+    .slice()
+    .reverse()
+    .forEach((item, i) => {
+      // Assign: oldestDate - (number of fallbackItems - 1 - i) * 7 days - 7 days
+      const fallbackDate = new Date(
+        oldestDate.getTime() - (i + 1) * 7 * 24 * 60 * 60 * 1000
+      );
+      item.pubDate = fallbackDate;
+    });
+
+  // Sort releases by their original order in markdown
+  const releases = releasesRaw.sort((a, b) => a.idx - b.idx);
 
   const rssItems = releases.map(rel => `
     <item>
@@ -150,6 +146,7 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
     </item>
   `).join('\n');
 
+  const now = new Date();
   const rss = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
