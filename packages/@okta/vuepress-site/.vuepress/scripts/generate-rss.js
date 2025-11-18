@@ -65,12 +65,9 @@ function formatRowsFirstColumnOnlyWithBr(tableRows) {
     .join('<br>');
 }
 
-// Helper to extract "Published on:" date from a section or fallback to the whole file
-function extractPublishedDate(section, fallbackContent) {
-  let match = section.match(/Published on:\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})/);
-  if (!match && fallbackContent) {
-    match = fallbackContent.match(/Published on:\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})/);
-  }
+// Helper to extract "Published on:" date from a section only
+function extractPublishedDate(section) {
+  const match = section.match(/Published on:\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})/);
   if (match && match[1]) {
     const date = new Date(match[1]);
     if (!isNaN(date.getTime())) {
@@ -81,10 +78,10 @@ function extractPublishedDate(section, fallbackContent) {
 }
 
 // Helper to find the oldest "Published on:" date in all sections
-function findOldestPublishedDate(sections, fallbackContent) {
+function findOldestPublishedDate(sections) {
   let oldest = null;
   for (const section of sections) {
-    const date = extractPublishedDate(section, fallbackContent);
+    const date = extractPublishedDate(section);
     if (date && (!oldest || date < oldest)) {
       oldest = date;
     }
@@ -106,7 +103,7 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
 
   // Find the oldest published date in all sections
   const fallbackStartDate = (() => {
-    const oldestDate = findOldestPublishedDate(sections.slice(1), mdContent);
+    const oldestDate = findOldestPublishedDate(sections.slice(1));
     if (oldestDate) {
       return new Date(oldestDate.getTime() - 7 * 24 * 60 * 60 * 1000);
     }
@@ -122,7 +119,7 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
     const title = titleLine.trim();
 
     // Use "Published on:" date if available, else fallback to incremented weekly date
-    let pubDate = extractPublishedDate(section, mdContent);
+    let pubDate = extractPublishedDate(section);
     let usedFallbackDate = false;
     if (!pubDate) {
       pubDate = new Date(fallbackStartDate.getTime() + fallbackDateCounter * 7 * 24 * 60 * 60 * 1000);
