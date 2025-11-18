@@ -174,53 +174,6 @@ curl -L -X POST "https://idv-vendor.com/oauth2/par" \
 }'
 ```
 
-#### POST /oauth2/par request without fuzzy extension example
-
-This example shows a `POST /oauth2/par` request without the `fuzzy` extension enabled for all claims.
-
-```bash
-curl -L -X POST "https://idv-vendor.com/oauth2/par" \
-  -H "Content-Type: application/json" \
-  -d '{
-  "response_type": "code",
-  "client_id": "{client_id}",
-  "client_secret": "{client_secret}",
-  "code_challenge": "{code_challenge}",
-  "code_challenge_method": "{code_challenge_method}",
-  "scope": "openid profile identity_assurance idv_flow_{idv_flow_id}",
-  "nonce": "{nonceValue}",
-  "claims": {
-    "id_token": {
-      "verified_claims": [
-        {
-          "verification": {
-            "trust_framework": {
-              "value": "IDV-DELEGATED",
-              "essential": true
-            },
-            "assurance_level": {
-              "value": "VERIFIED",
-              "essential": true
-            }
-          },
-          "claims": {
-            "given_name": "{ud_mapped_first_name}"
-            },
-            "family_name": {ud_mapped_last_name}",
-            },
-            "middle_name": "{ud_mapped_middle_name}",
-            },
-            [...]
-        ]
-      }
-    }
-  },
-  "state": "{external_state_token_id}",
-  "login_hint": "{user_id}",
-  "redirect_uri": "https://{yourOktadomain}/idp/identity-verification/callback"
-}'
-```
-
 #### POST /oauth2/par error response
 
 The error response for an unsuccessful `POST /oauth2/par` request uses this [structure](https://www.rfc-editor.org/rfc/rfc9126.html#name-error-response).
@@ -257,7 +210,7 @@ The error response for an unsuccessful `POST /oauth2/par` request uses this [str
 | trust_framework       | Identifies the trust framework that provides assurance about the verified attributes. Okta sets `IDV_DELEGATED` as the default value. This value delegates identity verification and the assurance policy to the IDV vendor. The IDV vendor is then responsible for verifying user identities and sends the results back to Okta. <br></br>`IDV_DELEGATED` is currently the only supported trust framework. See the OIDC definition of the [trust_framework](https://openid.net/specs/openid-ida-verified-claims-1_0.html#section-5.4.2-5) property. | String     | String   |
 | assurance_level       | Identifies the assurance level that's required for the identity claims of the user. The IDV vendor must map their verification results to the possible assurance levels, `VERIFIED` or `FAILED`. <br></br>For a successful verification, the IDV vendor must pass  `VERIFIED` as the `assurance_level`. For a failed verification, the IDV vendor must pass `FAILED` or a `null` value. See the OIDC definition of the [assurance_level](https://openid.net/specs/openid-ida-verified-claims-1_0.html#section-5.4.2-6.1.1) property. | String     | String   |
 | claims                | Contains user-specific attributes. Okta supports these [OIDC claims](#supported-oidc-claims). For more information, see the OIDC definition of the [claims](https://openid.net/specs/openid-ida-verified-claims-1_0.html#name-claims-element) property. | Object     | Object   |
-| fuzzy                 | An extension that adds fuzzy logic to a specified claim to assist with matching the claim value. IDV vendors can choose whether to add this extension to any `claims` attribute. <br></br>The `fuzzy` extension is set as `true` for all claims by default. When the `fuzzy` extension is true, the `value` of the claim is treated as an attribute itself. | String     | String   |
+| fuzzy                 | An extension that adds fuzzy logic to a specified claim to assist with matching the claim value. <br></br>The `fuzzy` extension is set as `true` for all claims by default and can't be set to `false`. When the `fuzzy` extension is true, the `value` of the claim is treated as an attribute itself. | String     | String   |
 | state                 | A unique string that maintains a connection between the request and the callback.                              | String     | String   |
 | redirect_uri          | The URI where the response is sent after the user completes the IDV flow.                                      | String     | String   |
 | login_hint            | Identifier that associates an Okta user within the IDV vendor's app.                                           | String     | String   |
