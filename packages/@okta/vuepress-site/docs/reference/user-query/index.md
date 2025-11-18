@@ -7,7 +7,7 @@ meta:
 
 # User query options
 
-**Note:** The content on this page has been moved to the appropriate parameters on the [List all users endpoint in the Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers).
+**Note:** The content on this page has been moved to the appropriate parameters of the [List all users endpoint in the Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers).
 
 
 - [`search` parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=search&t=request): Returns one or more users matched against a search expression and user object properties
