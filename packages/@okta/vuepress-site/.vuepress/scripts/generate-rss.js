@@ -126,7 +126,6 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
   const rssItems = releases.map(rel => `
     <item>
       <title>${rel.title}</title>
-      <link>${rel.itemLink}</link>
       <guid>${rel.itemLink}</guid>
       <pubDate>${rel.pubDate.toUTCString()}</pubDate>
       <description><![CDATA[${rel.description}]]></description>
