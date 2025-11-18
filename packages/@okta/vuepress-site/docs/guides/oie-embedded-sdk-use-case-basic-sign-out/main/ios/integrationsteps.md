@@ -2,7 +2,7 @@ The following code examples show you how to set up the user sign-out flow.
 
 ### Implement token cleanup
 
-The new SDK provides several methods to sign a user out of your app, depending on your use case:
+The new SDK provides several methods to clean up tokens, depending on your use case:
 
 * `Credential.remove()`: Clears the in-memory reference to the token and removes it from storage. The credential can no longer be used.
   * Doesn’t revoke the token from the authorization server
@@ -30,7 +30,7 @@ func signOutLocally() async {
     guard let credential = Credential.default else { return }
 
     do {
-        // Revoke refresh/access tokens server-side (safer than only deleting)
+        // Revoke access tokens server-side (safer than only deleting)
         try await credential.revoke()
     } catch {
         // Log but continue; you should still clear local state
@@ -39,9 +39,9 @@ func signOutLocally() async {
     // Remove tokens and user state from local secure storage
     do {
         try await credential.remove()
-        // Navigate to signed-out page
+        // Navigate to sign-out page
     } catch {
-        // Handle/remove fallback if needed
+        // Handle or remove fallback if needed
     }
 }
 ```
@@ -65,13 +65,13 @@ func signOutFromBrowser() async throws {
 
     // Ends Okta browser session (opens auth session and returns to your logout_redirect_uri)
     do {
-        // This revokes tokens AND removes the Okta browser session
+        // This revokes tokens and ends the Okta browser session
         try await BrowserSignin.shared?.signOut(token: credential.token)
     } catch {
         // If there's no browser session or a callback mismatch, log and continue
     }
 
-    // Note: This revokes the token but does not remove it from storage. You still need to delete the credential.
+    // Note: This revokes the token but does not remove it from storage. You still need to delete the credentials.
     try? credential.remove()
 }
 ```
