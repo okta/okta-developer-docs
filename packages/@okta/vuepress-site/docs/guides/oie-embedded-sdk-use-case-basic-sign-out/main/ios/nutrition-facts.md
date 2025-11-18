@@ -1,7 +1,7 @@
 #### Learning outcomes
 
-* Implement a reliable, user-initiated sign out flow.
-* End the Okta browser session (SSO cookies) if your app uses a browser-based sign in flow.
+* Implement a reliable, user-initiated sign-out flow.
+* End the Okta browser session (SSO cookies) if your app uses a browser-based sign-in flow.
 
 #### What you need
 
