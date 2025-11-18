@@ -71,6 +71,21 @@ function extractPublishedDate(section) {
   return null;
 }
 
+// Helper to create anchor with hyphens for spaces and numbers, and lowercase first letter
+function createAnchor(title) {
+  let anchor = title
+    .trim()
+    .replace(/[^\w\s.-]/g, '') // remove non-word except dot and dash
+    .replace(/\s+/g, '-')      // spaces to hyphens
+    .replace(/(\d{4})\.(\d{2})\.(\d{1,2})/g, '$1-$2-$3') // 2025.10.0 -> 2025-10-0
+    .replace(/\./g, '-')       // dots to hyphens
+    .replace(/-+/g, '-');      // collapse multiple hyphens
+
+  // Lowercase the first character
+  anchor = anchor.charAt(0).toLowerCase() + anchor.slice(1);
+  return anchor;
+}
+
 function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutputPath) {
   if (!fs.existsSync(mdPath)) {
     console.error(`Markdown file not found: ${mdPath}`);
@@ -94,9 +109,9 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
       })
       .join('<br>');
     tablesOnly = convertSubheadingLinksToHtml(tablesOnly, siteUrl);
-    const description = tablesOnly;
-    const itemLink = `${siteUrl}#${title.replace(/[^a-zA-Z0-9]/g, '')}`;
-    return { title, pubDate, description, itemLink, idx };
+    const anchor = createAnchor(title);
+    const itemLink = `${siteUrl}#${anchor}`;
+    return { title, pubDate, description: tablesOnly, itemLink, idx };
   });
 
   // Find oldest published date
@@ -107,13 +122,8 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
   const oldestDate = publishedDates.length > 0 ? publishedDates[0] : new Date();
 
   // Assign fallback dates for items without a published date
-  // Start from oldestDate minus one week, decrement by one week for each fallback (top-most fallback gets newest date)
   const fallbackItems = releasesRaw.filter(r => !r.pubDate);
-
-  // Assign dates in markdown order (top to bottom)
   fallbackItems.forEach((item, i) => {
-    // The first fallback item gets oldestDate - 7 days
-    // The second gets oldestDate - 14 days, etc.
     const fallbackDate = new Date(
       oldestDate.getTime() - (i + 1) * 7 * 24 * 60 * 60 * 1000
     );
