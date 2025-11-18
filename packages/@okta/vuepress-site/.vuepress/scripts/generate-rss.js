@@ -107,20 +107,18 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
   const oldestDate = publishedDates.length > 0 ? publishedDates[0] : new Date();
 
   // Assign fallback dates for items without a published date
-  // Start from oldestDate minus one week, increment by one week for each fallback (bottom-most fallback gets oldest date)
+  // Start from oldestDate minus one week, decrement by one week for each fallback (top-most fallback gets newest date)
   const fallbackItems = releasesRaw.filter(r => !r.pubDate);
 
-  // Assign dates in markdown order (bottom to top)
-  fallbackItems
-    .slice()
-    .reverse()
-    .forEach((item, i) => {
-      // Assign: oldestDate - (number of fallbackItems - 1 - i) * 7 days - 7 days
-      const fallbackDate = new Date(
-        oldestDate.getTime() - (i + 1) * 7 * 24 * 60 * 60 * 1000
-      );
-      item.pubDate = fallbackDate;
-    });
+  // Assign dates in markdown order (top to bottom)
+  fallbackItems.forEach((item, i) => {
+    // The first fallback item gets oldestDate - 7 days
+    // The second gets oldestDate - 14 days, etc.
+    const fallbackDate = new Date(
+      oldestDate.getTime() - (i + 1) * 7 * 24 * 60 * 60 * 1000
+    );
+    item.pubDate = fallbackDate;
+  });
 
   // Sort releases by their original order in markdown
   const releases = releasesRaw.sort((a, b) => a.idx - b.idx);
