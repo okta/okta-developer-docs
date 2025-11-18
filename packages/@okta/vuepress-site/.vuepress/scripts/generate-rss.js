@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const MarkdownIt = require('markdown-it');
-// Enable HTML in markdown-it so <a> tags are not escaped
 const mdParser = new MarkdownIt({ html: true });
 
 // Helper to remove markdown comments <!-- ... -->
@@ -11,20 +10,18 @@ function stripMarkdownComments(text) {
 
 // Helper to convert markdown links to headings into proper HTML links with absolute URLs
 function convertSubheadingLinksToHtml(text, siteUrl) {
-  // Replace [text](#subheading) with <a href="siteUrl#subheading">text</a>
   return text.replace(/\[([^\]]+)\]\(#([^)]+)\)/g, (match, linkText, anchor) => {
     const htmlAnchor = anchor
       .trim()
       .toLowerCase()
-      .replace(/[^\w\s-]/g, '') // remove non-word, non-space, non-dash
-      .replace(/\s+/g, '-');    // spaces to dashes
+      .replace(/[^\w\s-]/g, '')
+      .replace(/\s+/g, '-');
     return `<a href="${siteUrl}#${htmlAnchor}">${linkText}</a>`;
   });
 }
 
 // Helper to extract all markdown tables, including those at the start of the content
 function extractTables(markdown) {
-  // Match blocks of consecutive lines that start with '|'
   const lines = markdown.split('\n');
   const tables = [];
   let currentTable = [];
@@ -38,7 +35,6 @@ function extractTables(markdown) {
       }
     }
   }
-  // Add the last table if the file ends with a table
   if (currentTable.length > 0) {
     tables.push(currentTable.join('\n'));
   }
@@ -48,7 +44,6 @@ function extractTables(markdown) {
 // Helper to remove table headers from markdown tables
 function removeTableHeaders(tableMarkdown) {
   const lines = tableMarkdown.split('\n');
-  // Remove the first two lines: header and separator
   if (lines.length > 2 && lines[0].trim().startsWith('|') && lines[1].trim().startsWith('|')) {
     return lines.slice(2).join('\n');
   }
@@ -57,13 +52,10 @@ function removeTableHeaders(tableMarkdown) {
 
 // Helper to format table rows as plain text with only the first column and HTML line breaks
 function formatRowsFirstColumnOnlyWithBr(tableRows) {
-  // Each row is a line like: | data | date |
-  // We'll split by pipes, trim, and only use the first cell
   return tableRows
     .split('\n')
     .map(row => {
       const cells = row.split('|').map(cell => cell.trim()).filter(Boolean);
-      // Only format rows with at least 1 cell
       if (cells.length >= 1) {
         return `${cells[0]}`;
       }
@@ -75,10 +67,8 @@ function formatRowsFirstColumnOnlyWithBr(tableRows) {
 
 // Improved helper to extract "Published on:" date from a section or fallback to the whole file
 function extractPublishedDate(section, fallbackContent) {
-  // Try to find "Published on:" in the section first
   let match = section.match(/Published on:\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})/);
   if (!match && fallbackContent) {
-    // If not found, try the whole file
     match = fallbackContent.match(/Published on:\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})/);
   }
   if (match && match[1]) {
@@ -97,22 +87,25 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
     return;
   }
   const mdContent = fs.readFileSync(mdPath, 'utf8');
-  // Split by '### ' for weekly/monthly releases, fallback to '## ' if not found
+  // Split by '### ' for releases, fallback to '## ' if not found
   const sections = mdContent.includes('### ') ? mdContent.split('\n### ') : mdContent.split('\n## ');
+
   const now = new Date();
+  // Process sections in order as in markdown (top section first)
   const releases = sections.slice(1).map((section, idx) => {
     const [titleLine, ...bodyLines] = section.split('\n');
     const title = titleLine.trim();
 
     // Use "Published on:" date if available, else fallback to GUID date
     let pubDate = extractPublishedDate(section, mdContent);
+    let usedFallbackDate = false;
     if (!pubDate) {
       pubDate = new Date(now.getTime() - idx * 24 * 60 * 60 * 1000);
+      usedFallbackDate = true;
     }
 
     let cleanedBody = stripMarkdownComments(bodyLines.join('\n').trim());
     let tablesOnly = extractTables(cleanedBody);
-    // Remove table headers from each table and format as plain text with only the first column and <br>
     tablesOnly = tablesOnly
       .split('\n\n')
       .map(table => {
@@ -121,10 +114,9 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
       })
       .join('<br>');
     tablesOnly = convertSubheadingLinksToHtml(tablesOnly, siteUrl);
-    // Output as plain text with <br> for line breaks in RSS readers
     const description = tablesOnly;
     const itemLink = `${siteUrl}#${title.replace(/[^a-zA-Z0-9]/g, '')}`;
-    return { title, pubDate, description, itemLink };
+    return { title, pubDate, description, itemLink, usedFallbackDate };
   });
 
   const rssItems = releases.map(rel => `
@@ -132,7 +124,7 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
       <title>${rel.title}</title>
       <link>${rel.itemLink}</link>
       <guid>${rel.itemLink}</guid>
-      <pubDate>${rel.pubDate.toUTCString()}</pubDate>
+      ${!rel.usedFallbackDate ? `<pubDate>${rel.pubDate.toUTCString()}</pubDate>` : ''}
       <description><![CDATA[${rel.description}]]></description>
     </item>
   `).join('\n');
@@ -149,7 +141,6 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
 </rss>
 `;
 
-  // Ensure output directory exists
   fs.mkdirSync(path.dirname(rssOutputPath), { recursive: true });
   fs.writeFileSync(rssOutputPath, rss, 'utf8');
   console.log('RSS feed generated at', rssOutputPath);
