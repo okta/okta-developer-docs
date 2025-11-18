@@ -8,4 +8,4 @@
 * An app that uses the [Okta Mobile Swift SDK](https://github.com/okta/okta-mobile-swift)
 * One of the following combinations:
   * Redirect sign-in flow: [AuthFoundation](https://okta.github.io/okta-mobile-swift/development/documentation/authfoundation/) and [BrowserSignin](https://okta.github.io/okta-mobile-swift/development/documentation/browsersignin/)
-  * Direct password-in-app sign-in flow: [AuthFoundation](https://okta.github.io/okta-mobile-swift/development/documentation/authfoundation/) and [OktaDirectAuth](https://okta.github.io/okta-mobile-swift/development/documentation/oktadirectauth/)
+  * Direct password in-app sign-in flow: [AuthFoundation](https://okta.github.io/okta-mobile-swift/development/documentation/authfoundation/) and [OktaDirectAuth](https://okta.github.io/okta-mobile-swift/development/documentation/oktadirectauth/)
