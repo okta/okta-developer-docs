@@ -1,5 +1,5 @@
 ---
-title: User sign out (local app)
+title: User sign out flow (local app)
 ---
 
 <ApiLifecycle access="ie" />

@@ -308,7 +308,7 @@ export const guides = [
                     guideName: "oie-embedded-sdk-use-case-sign-in-pwd-phone",
                   },
                   {
-                    title: "User sign out (local app)",
+                    title: "User sign out flow (local app)",
                     guideName: "oie-embedded-sdk-use-case-basic-sign-out",
                   },
                 ],
