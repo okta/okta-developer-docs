@@ -120,10 +120,8 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
 
     // Use "Published on:" date if available, else fallback to incremented weekly date
     let pubDate = extractPublishedDate(section);
-    let usedFallbackDate = false;
     if (!pubDate) {
       pubDate = new Date(fallbackStartDate.getTime() + fallbackDateCounter * 7 * 24 * 60 * 60 * 1000);
-      usedFallbackDate = true;
       fallbackDateCounter++;
     }
 
@@ -139,7 +137,7 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
     tablesOnly = convertSubheadingLinksToHtml(tablesOnly, siteUrl);
     const description = tablesOnly;
     const itemLink = `${siteUrl}#${title.replace(/[^a-zA-Z0-9]/g, '')}`;
-    return { title, pubDate, description, itemLink, usedFallbackDate };
+    return { title, pubDate, description, itemLink };
   });
 
   const rssItems = releases.map(rel => `
@@ -147,7 +145,7 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
       <title>${rel.title}</title>
       <link>${rel.itemLink}</link>
       <guid>${rel.itemLink}</guid>
-      ${!rel.usedFallbackDate ? `<pubDate>${rel.pubDate.toUTCString()}</pubDate>` : ''}
+      <pubDate>${rel.pubDate.toUTCString()}</pubDate>
       <description><![CDATA[${rel.description}]]></description>
     </item>
   `).join('\n');
