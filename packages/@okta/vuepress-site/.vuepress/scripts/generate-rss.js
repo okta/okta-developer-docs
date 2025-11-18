@@ -73,6 +73,20 @@ function formatRowsFirstColumnOnlyWithBr(tableRows) {
     .join('<br>');
 }
 
+// Helper to extract "Published on:" date from a section
+function extractPublishedDate(section) {
+  // Look for a line like: Published on: November 18, 2025
+  const match = section.match(/Published on:\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})/);
+  if (match && match[1]) {
+    // Parse the date string to a Date object
+    const date = new Date(match[1]);
+    if (!isNaN(date.getTime())) {
+      return date;
+    }
+  }
+  return null;
+}
+
 // Helper to generate RSS XML from markdown
 function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutputPath) {
   if (!fs.existsSync(mdPath)) {
@@ -86,9 +100,13 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
   const releases = sections.slice(1).map((section, idx) => {
     const [titleLine, ...bodyLines] = section.split('\n');
     const title = titleLine.trim();
-    // Subtract idx days from now for each item
-    const pubDate = new Date(now.getTime() - idx * 24 * 60 * 60 * 1000);
-    // Only process table content
+
+    // Use "Published on:" date if available, else fallback to GUID date
+    let pubDate = extractPublishedDate(section);
+    if (!pubDate) {
+      pubDate = new Date(now.getTime() - idx * 24 * 60 * 60 * 1000);
+    }
+
     let cleanedBody = stripMarkdownComments(bodyLines.join('\n').trim());
     let tablesOnly = extractTables(cleanedBody);
     // Remove table headers from each table and format as plain text with only the first column and <br>
