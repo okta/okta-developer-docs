@@ -65,7 +65,7 @@ function formatRowsFirstColumnOnlyWithBr(tableRows) {
     .join('<br>');
 }
 
-// Improved helper to extract "Published on:" date from a section or fallback to the whole file
+// Helper to extract "Published on:" date from a section or fallback to the whole file
 function extractPublishedDate(section, fallbackContent) {
   let match = section.match(/Published on:\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})/);
   if (!match && fallbackContent) {
@@ -80,6 +80,18 @@ function extractPublishedDate(section, fallbackContent) {
   return null;
 }
 
+// Helper to find the oldest "Published on:" date in all sections
+function findOldestPublishedDate(sections, fallbackContent) {
+  let oldest = null;
+  for (const section of sections) {
+    const date = extractPublishedDate(section, fallbackContent);
+    if (date && (!oldest || date < oldest)) {
+      oldest = date;
+    }
+  }
+  return oldest;
+}
+
 // Helper to generate RSS XML from markdown
 function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutputPath) {
   if (!fs.existsSync(mdPath)) {
@@ -91,17 +103,31 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
   const sections = mdContent.includes('### ') ? mdContent.split('\n### ') : mdContent.split('\n## ');
 
   const now = new Date();
+
+  // Find the oldest published date in all sections
+  const fallbackStartDate = (() => {
+    const oldestDate = findOldestPublishedDate(sections.slice(1), mdContent);
+    if (oldestDate) {
+      return new Date(oldestDate.getTime() - 7 * 24 * 60 * 60 * 1000);
+    }
+    // If no published date at all, fallback to now minus a week
+    return new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+  })();
+
+  let fallbackDateCounter = 0;
+
   // Process sections in order as in markdown (top section first)
   const releases = sections.slice(1).map((section, idx) => {
     const [titleLine, ...bodyLines] = section.split('\n');
     const title = titleLine.trim();
 
-    // Use "Published on:" date if available, else fallback to GUID date
+    // Use "Published on:" date if available, else fallback to incremented weekly date
     let pubDate = extractPublishedDate(section, mdContent);
     let usedFallbackDate = false;
     if (!pubDate) {
-      pubDate = new Date(now.getTime() - idx * 24 * 60 * 60 * 1000);
+      pubDate = new Date(fallbackStartDate.getTime() + fallbackDateCounter * 7 * 24 * 60 * 60 * 1000);
       usedFallbackDate = true;
+      fallbackDateCounter++;
     }
 
     let cleanedBody = stripMarkdownComments(bodyLines.join('\n').trim());
