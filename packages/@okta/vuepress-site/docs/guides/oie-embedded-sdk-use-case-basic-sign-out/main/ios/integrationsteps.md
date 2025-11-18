@@ -5,18 +5,17 @@ The following code examples show you how to set up the user sign-out flow.
 The new SDK provides several methods to sign a user out of your app, depending on your use case:
 
 * `Credential.remove()`: Clears the in-memory reference to the token and removes it from storage. The credential can no longer be used.
-  > **Note:** Doesn’t revoke the token from the authorization server.
+  * Doesn’t revoke the token from the authorization server
 * `Credential.revoke()`: Revokes all available tokens from the Authorization Server.
-  > **Note:** Doesn’t remove the token from memory or storage.
+  * Doesn’t remove the token from memory or storage
 * `Credential.revoke(type:)`: Revokes a specific token type (access token, refresh token, or device secret) from the Authorization Server.
-  > **Notes:**
-  > * Doesn’t remove the token from memory or storage.
-  > * If you revoke an access token, the associated refresh token or device secret isn’t revoked.
-  > * If you revoke a refresh token, the associated access token is revoked.
+  * Doesn’t remove the token from memory or storage
+  * If you revoke an access token, the associated refresh token or device secret isn’t revoked.
+  * If you revoke a refresh token, the associated access token is revoked.
 
 When implementing your code, keep in mind the following:
 
-* **Revoke before remove:** Always attempt `revoke()` before `remove()`. If the revoke fails, you should still still remove the token to ensure that sign out occurs.
+* **Revoke before remove:** Always attempt `revoke()` before `remove()`. If the revoke fails, you should still remove the token to ensure that the sign out occurs.
 * **Multiple accounts:** If your app supports multiple profiles/tenants, iterate over all credentials during sign-out.
 
 #### Example token cleanup code
@@ -80,4 +79,4 @@ func signOutFromBrowser() async throws {
 
 ## See also
 
-* [Validate SSO federation](/docs/guides/validate-federation/main/).
+[Validate SSO federation](/docs/guides/validate-federation/main/).
