@@ -73,12 +73,15 @@ function formatRowsFirstColumnOnlyWithBr(tableRows) {
     .join('<br>');
 }
 
-// Helper to extract "Published on:" date from a section
-function extractPublishedDate(section) {
-  // Look for a line like: Published on: November 18, 2025
-  const match = section.match(/Published on:\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})/);
+// Improved helper to extract "Published on:" date from a section or fallback to the whole file
+function extractPublishedDate(section, fallbackContent) {
+  // Try to find "Published on:" in the section first
+  let match = section.match(/Published on:\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})/);
+  if (!match && fallbackContent) {
+    // If not found, try the whole file
+    match = fallbackContent.match(/Published on:\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})/);
+  }
   if (match && match[1]) {
-    // Parse the date string to a Date object
     const date = new Date(match[1]);
     if (!isNaN(date.getTime())) {
       return date;
@@ -102,7 +105,7 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
     const title = titleLine.trim();
 
     // Use "Published on:" date if available, else fallback to GUID date
-    let pubDate = extractPublishedDate(section);
+    let pubDate = extractPublishedDate(section, mdContent);
     if (!pubDate) {
       pubDate = new Date(now.getTime() - idx * 24 * 60 * 60 * 1000);
     }

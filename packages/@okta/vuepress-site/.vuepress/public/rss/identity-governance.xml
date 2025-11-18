@@ -4,13 +4,13 @@
   <title>Okta Identity Governance API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/</link>
   <description>Recent release notes for Okta Identity Governance API</description>
-  <pubDate>Thu, 13 Nov 2025 19:28:06 GMT</pubDate>
+  <pubDate>Tue, 18 Nov 2025 16:47:06 GMT</pubDate>
   
     <item>
       <title>Weekly release 2025.10.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025101</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025101</guid>
-      <pubDate>Thu, 13 Nov 2025 19:28:06 GMT</pubDate>
+      <pubDate>Tue, 18 Nov 2025 16:47:06 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#bug-fixed-in-2025-10-1">Bug fixed in 2025.10.1</a>]]></description>
     </item>
   
@@ -19,7 +19,7 @@
       <title>Monthly release 2025.10.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025100</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025100</guid>
-      <pubDate>Wed, 12 Nov 2025 19:28:06 GMT</pubDate>
+      <pubDate>Mon, 17 Nov 2025 16:47:06 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#entitlement-history-is-beta">Entitlement history is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#new-governance-setting-system-log-event">New governance setting System Log event</a>]]></description>
     </item>
   
@@ -28,7 +28,7 @@
       <title>Weekly release 2025.09.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025091</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025091</guid>
-      <pubDate>Tue, 11 Nov 2025 19:28:06 GMT</pubDate>
+      <pubDate>Sun, 16 Nov 2025 16:47:06 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#bugs-fixed-in-2025-09-1">Bugs fixed in 2025.09.1</a>]]></description>
     </item>
   
@@ -37,7 +37,7 @@
       <title>Monthly release 2025.09.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025090</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025090</guid>
-      <pubDate>Mon, 10 Nov 2025 19:28:06 GMT</pubDate>
+      <pubDate>Sat, 15 Nov 2025 16:47:06 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#auditor-reporting-package-is-self-service-ea">Auditor reporting package is self-service EA</a><br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#entitlement-bundle-documented-response-updates">Entitlement bundle documented response updates</a><br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#resource-owners-api-is-beta">Resource Owners API is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#governance-labels-api-is-beta">Governance Labels API is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#orn-property-included-in-collections">ORN property included in collections</a><br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#orn-property-included-in-entitlement-bundles-and-values">ORN property included in entitlement bundles and values</a><br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#org-governance-settings-api-is-beta">Org Governance Settings API is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#security-access-reviews-api-is-ea">Security Access Reviews API is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#developer-documentation-updates-in-2025-09-0">Developer documentation updates in 2025.09.0</a>]]></description>
     </item>
   
@@ -46,7 +46,7 @@
       <title>Weekly release 2025.08.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025082</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025082</guid>
-      <pubDate>Sun, 09 Nov 2025 19:28:06 GMT</pubDate>
+      <pubDate>Fri, 14 Nov 2025 16:47:06 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#bug-fixed-in-2025-08-2">Bug fixed in 2025.08.2</a>]]></description>
     </item>
   
@@ -55,7 +55,7 @@
       <title>Monthly release 2025.08.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025080</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025080</guid>
-      <pubDate>Sat, 08 Nov 2025 19:28:06 GMT</pubDate>
+      <pubDate>Thu, 13 Nov 2025 16:47:06 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#governance-delegates-apis-are-beta">Governance delegates APIs are Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#list-all-access-request-catalog-entries-for-a-user-is-ga">List all access request catalog entries for a user is GA</a><br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#unified-requester-experience-is-ea">Unified requester experience is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#developer-documentation-updates-in-2025-08-0">Developer documentation updates in 2025.08.0</a><br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#bug-fixed-in-2025-08-0">Bug fixed in 2025.08.0 </a>]]></description>
     </item>
   
@@ -64,7 +64,7 @@
       <title>Weekly release 2025.07.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025072</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025072</guid>
-      <pubDate>Fri, 07 Nov 2025 19:28:06 GMT</pubDate>
+      <pubDate>Wed, 12 Nov 2025 16:47:06 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#related-entity-link-updates-for-catalog-entry-responses">Related entity link updates for catalog entry responses</a><br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#bug-fixed-in-2025-07-2">Bug fixed in 2025.07.2</a>]]></description>
     </item>
   
@@ -73,7 +73,7 @@
       <title>Monthly release 2025.07.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025070</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025070</guid>
-      <pubDate>Thu, 06 Nov 2025 19:28:06 GMT</pubDate>
+      <pubDate>Tue, 11 Nov 2025 16:47:06 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#changes-to-okta-app-api-responses">Changes to Okta app API responses</a>]]></description>
     </item>
   
@@ -82,7 +82,7 @@
       <title>Weekly release 2025.06.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025061</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025061</guid>
-      <pubDate>Wed, 05 Nov 2025 19:28:06 GMT</pubDate>
+      <pubDate>Mon, 10 Nov 2025 16:47:06 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#list-all-access-request-catalog-entries-for-a-user-is-beta">List all access request catalog entries for a user is Beta</a>]]></description>
     </item>
   
@@ -91,7 +91,7 @@
       <title>Weekly release 2025.05.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025053</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025053</guid>
-      <pubDate>Tue, 04 Nov 2025 19:28:06 GMT</pubDate>
+      <pubDate>Sun, 09 Nov 2025 16:47:06 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#request-condition-name-length-increase">Request condition name length increase</a>]]></description>
     </item>
   
@@ -100,7 +100,7 @@
       <title>Weekly release 2025.05.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025051</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025051</guid>
-      <pubDate>Mon, 03 Nov 2025 19:28:06 GMT</pubDate>
+      <pubDate>Sat, 08 Nov 2025 16:47:06 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#new-variable-for-access-certification-campaign-emails">New variable for Access Certification campaign emails</a><br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#generate-a-risk-assessment-is-beta">Generate a risk assessment is Beta</a>]]></description>
     </item>
   
@@ -109,7 +109,7 @@
       <title>Monthly release 2025.04.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025040</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025040</guid>
-      <pubDate>Sun, 02 Nov 2025 19:28:06 GMT</pubDate>
+      <pubDate>Fri, 07 Nov 2025 16:47:06 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#risk-rules-api-is-beta">Risk Rules API is Beta</a>]]></description>
     </item>
   
@@ -118,7 +118,7 @@
       <title>Weekly release 2025.03.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025032</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025032</guid>
-      <pubDate>Sat, 01 Nov 2025 19:28:06 GMT</pubDate>
+      <pubDate>Thu, 06 Nov 2025 16:47:06 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#collections-api-is-beta">Collections API is Beta</a>]]></description>
     </item>
   
@@ -127,7 +127,7 @@
       <title>Weekly release 2025.03.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025031</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025031</guid>
-      <pubDate>Fri, 31 Oct 2025 19:28:06 GMT</pubDate>
+      <pubDate>Wed, 05 Nov 2025 16:47:06 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#bug-fixed-in-2025-03-1">Bug fixed in 2025.03.1</a>]]></description>
     </item>
   
@@ -136,7 +136,7 @@
       <title>Monthly release 2025.03.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025030</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025030</guid>
-      <pubDate>Thu, 30 Oct 2025 19:28:06 GMT</pubDate>
+      <pubDate>Tue, 04 Nov 2025 16:47:06 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#entitlements-and-entitlement-bundles-apis-are-ga">Entitlements and Entitlement Bundles APIs are GA</a><br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#new-access-certifications-campaign">New Access Certifications campaign</a><br><a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#bug-fixed-in-2025-03-0">Bug fixed in 2025.03.0</a>]]></description>
     </item>
   
@@ -145,7 +145,7 @@
       <title>Weekly release 2025.02.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025021</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025021</guid>
-      <pubDate>Wed, 29 Oct 2025 19:28:06 GMT</pubDate>
+      <pubDate>Mon, 03 Nov 2025 16:47:06 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#list-all-entitlements-api-response-update">List all entitlements API response update</a>]]></description>
     </item>
   
@@ -154,7 +154,7 @@
       <title>Monthly release 2025.02.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025020</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025020</guid>
-      <pubDate>Tue, 28 Oct 2025 19:28:06 GMT</pubDate>
+      <pubDate>Sun, 02 Nov 2025 16:47:06 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#new-system-log-event">New System Log event</a>]]></description>
     </item>
   
@@ -163,7 +163,7 @@
       <title>Weekly release 2025.01.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025012</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Weeklyrelease2025012</guid>
-      <pubDate>Mon, 27 Oct 2025 19:28:06 GMT</pubDate>
+      <pubDate>Sat, 01 Nov 2025 16:47:06 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#bug-fixed-in-2025-01-2">Bug fixed in 2025.01.2</a>]]></description>
     </item>
   
@@ -172,7 +172,7 @@
       <title>Monthly release 2025.01.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025010</link>
       <guid>https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#Monthlyrelease2025010</guid>
-      <pubDate>Sun, 26 Oct 2025 19:28:06 GMT</pubDate>
+      <pubDate>Fri, 31 Oct 2025 16:47:06 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/#selected-okta-identity-governance-apis-are-now-ga">Selected Okta Identity Governance APIs are now GA</a>]]></description>
     </item>
   
