@@ -214,6 +214,8 @@ The OIN Wizard journey includes the **Test integration** experience page to help
         1. Configure provisioning and update the operations that are supported by your SCIM server.
         1. Verify that the resource types or entitlements that are supported by your SCIM server are listed on the **Governance** tab.
 
+            >**Note**  After successful provisioning, it might take some time for entitlements to load.
+
         1. Map user profile attributes on the test instance.
         1. Assign the entitlements to the users manually for testing or automatically through a policy. For more information, see [Assign entitlements to users](https://help.okta.com/oie/en-us/content/topics/identity-governance/em/assign-entitlements-users.htm).
 
