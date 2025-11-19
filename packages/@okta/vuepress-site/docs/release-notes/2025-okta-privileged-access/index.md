@@ -12,7 +12,7 @@ Okta Privileged Access (OPA) is available for both Okta Classic and Identity Eng
 
 | Change | Expected in Preview | Expected in Production |
 |--------|--------------------------|-----------------------------|
-| [Bug fixed in 2025.11.2](#bugs-fixed-in-2025-11-2)| November 19, 2025 |
+| [Bug fixed in 2025.11.2](#bug-fixed-in-2025-11-2)| November 19, 2025 |
 
 #### Bug fixed in 2025.11.2
 
