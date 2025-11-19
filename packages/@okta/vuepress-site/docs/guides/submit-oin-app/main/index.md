@@ -602,18 +602,18 @@ When you're satisfied with your Runscope CRUD test results, enter them in the **
 1. From Runscope, click **Import Test**.
 1. Select **API Monitoring Tests** as the import format.
 1. Click **Choose File** and select the **Okta SCIM 2.0 Entitlements Test** file.
-1. Click **Import API Test**. In this new test bucket, click **Editor** from the left-navigation menu.
-1. Click **Test Settings** and then click **Initial Variables**.
+1. Click **Import API Test**. In the test bucket, click **Editor** from the left navigation menu.
+1. Click **Test Settings**, and then click **Initial Variables**.
 1. Add the following variables with values that match your SCIM integration:
-    * `SCIMBaseURL`: The base URL of the SCIM service. For example: `https://example.com/scim/v2`
+    * `SCIMBaseURL`: The base URL of the SCIM service. For example: `https://example.com/scim/v2`.
     * `EntitlementEndpoint`: The endpoint of the resource type. For example, `/Roles`.
-    * `auth`: The authorization token used to access your SCIM API. You can use the same authorization token you used to **Enable API integration** from [Generate an instance for <StackSnippet snippet="protocol-name" inline/>](#generate-an-instance-for).
+    * `auth`: The authorization token that's used to access your SCIM API. You can use the same authorization token that you used to enable the API integration in[Generate an instance for <StackSnippet snippet="protocol-name" inline/>](#generate-an-instance-for).
 
-      The following is an example of the Entitlement variable values:
+      The following is an example of the entitlement variable values:
 
     <div class="three-quarter border">
 
-    ![Sample values for Entitlement test variables. Runscope initial variables](/img/oin/scim_entitlement-variables-d.png)
+    ![Sample values for entitlement test variables. Runscope initial variables](/img/oin/scim_entitlement-variables-d.png)
 
     </div>
 
