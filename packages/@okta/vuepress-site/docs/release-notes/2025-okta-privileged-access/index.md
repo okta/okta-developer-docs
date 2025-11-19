@@ -8,6 +8,17 @@ Okta Privileged Access (OPA) is available for both Okta Classic and Identity Eng
 
 ## November
 
+### Weekly release 2025.11.2
+
+| Change | Expected in Preview | Expected in Production |
+|--------|--------------------------|-----------------------------|
+| [title-tbd](#title-tbd) | November xx, 2025 | November 19, 2025 |
+
+#### title-tbd
+
+The OPA role required to list, retrieve, create, update, and delete attribute options (`GET|PUT|DEL /v1/teams/{team_name}/attributes/options/) was `resource_admin` instead of `security_admin`.
+<!-- OKTA-985489, OKTA-963704 -->
+
 ### Weekly release 2025.11.1
 
 | Change | Expected in Preview | Expected in Production |
