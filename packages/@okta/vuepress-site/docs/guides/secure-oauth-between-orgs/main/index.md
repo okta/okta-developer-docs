@@ -193,7 +193,7 @@ curl -v -X POST \
 
 #### Create an OIDC Okta Integration IdP
 
-Use the following request body parameters to define your OIDC Okta Integration IdP in the hub org. See [Create an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) for information on all request parameters.
+Use the following request body parameters to define your OIDC Okta Integration IdP in the hub org. See also [Create an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider).
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
@@ -215,7 +215,7 @@ curl -v -X POST \
 -d '{
     "type": "OKTA_INTEGRATION",
     "status": "ACTIVE",
-    "name": "Brian API November OIDC IdP 2",
+    "name": "Example API Okta Integration IdP",
     "protocol": {
         "type": "SAML2",
         "credentials": {
@@ -224,7 +224,7 @@ curl -v -X POST \
                 "client_id": "Edit this"
             }
         },
-        "oktaIdpOrgUrl": "https://brian-spoke-org.oktapreview.com"
+        "oktaIdpOrgUrl": "https://{your-spoke-org}.com"
     },
     "policy": {
         "accountLink": {
