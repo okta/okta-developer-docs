@@ -61,7 +61,7 @@ The following diagram shows the standardized process for how IDV vendors integra
 1. Okta redirects the `request_uri` to the user's browser. The user's browser sends the GET request to the IDV vendor's authorization endpoint to start the IDV flow. The GET request contains the `request_uri` parameter.
 1. The user then completes the IDV flow, and the IDV vendor creates an `authorization_code` and returns it to Okta in a response.
 1. Okta creates and sends a `POST /token` request to the IDV vendor that contains information from the redirect response.
-1. The IDV vendor sends an `id_token` containing the results of the flow back to Okta.
+1. The IDV vendor sends an ID token containing the results of the flow back to Okta.
 1. Okta evaluates the results and completes the policy evaluation. The policy evaluation is marked as `VERIFIED` or `FAILED`.
 
 ## Summary of steps
@@ -308,7 +308,11 @@ The error response for an unsuccessful `POST /token` request uses this [structur
 
 ### IDV vendor responds with id_token
 
-When the `POST /token` request succeeds, the IDV vendor sends an `id_token` in a JSON Web Token (JWT) encoded format back to Okta in response. The `id_token` includes the `verified_claims` object. This object contains the results of the identity verification for the user. Vendors can choose to pass the `verification_process` and `time` attributes in the [`verification`](https://openid.net/specs/openid-ida-verified-claims-1_0.html#name-verification-element) response object. They aren't required. For information about the structure of the `id_token` response, see [ID Token](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) from the OIDC specification.
+When the `POST /token` request succeeds, the IDV vendor sends an ID token in a JSON Web Token (JWT) encoded format back to Okta in response. IDV vendors must include the `id_token` JWT and the `expires_in` parameter in the `POST /token` response. The `expires_in` parameter indicates the lifetime in seconds of the `id_token`. See the [example](#idv-vendor-id-token-response-example-in-encoded-jwt-format) below.
+
+#### How to structure the id_token response
+
+IDV vendors must structure the parameters in the payload of the `id_token` JWT according to the structure in the [example](#decoded-idv-vendor-id-token-response-example). For information about the structure of the `id_token` response, see [ID Token](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) from the OIDC specification.
 
 Note the following the ways to format the `claims` object for the `id_token` response:
 
@@ -319,6 +323,27 @@ Note the following the ways to format the `claims` object for the `id_token` res
 * IDV vendors can choose to not pass any `claims` values. They can pass `claims` as an empty object. See [Minimum conformant](https://openid.bitbucket.io/ekyc/openid-ida-verified-claims.html#name-minimum-conformant).
 
 > **Note:** If an IDV vendor passes an empty `claims` object, then the `user.identity_verification` event marks all claims as verified or failed. Whether the claims are failed or verified depends on the `assurance_level` value that's passed.
+
+#### The id_token payload
+
+The `id_token` payload includes the `verified_claims` object. This object contains the results of the identity verification for the user. Okta requires some parameters in the [payload](#required-id-token-payload-parameters) of the `id_token` JWT which are otherwise optional according to the OIDC specification. IDV vendors must include **Required** parameters in their `id_token` response. See the following table for a list of the required parameters in the ID token payload.
+
+| Parameter        | Description                                                                                                     | Param Type | DataType | Required or optional |
+|------------------|-----------------------------------------------------------------------------------------------------------------|------------|----------|----------------------|
+| iss              | The issuer identifier for the IDV vendor. This value must be a URL with a scheme of `https`.                                              | String     | String   | Required                  |
+| aud              | The audience that the `id_token` is intended for. This value must be the `client_id` of the Okta app that's configured with the IDV vendor. | String     | String   | Required                  |
+| sub              | The subject identifier that's unique to the user.       | String     | String   | Required                  |
+| exp              | The expiration time after which the `id_token` must not be accepted for processing. This value must be in the future. | Integer    | Number   | Required                  |
+| iat              | The time when the `id_token` was issued. This value must be in the past.                                       | Integer    | Number   | Required                  |
+| nonce            | The unique, random string that was sent in the `POST /oauth2/par` request.                                      | String     | String   | Required                  |
+| verified_claims  | Contains the results of the identity verification process. <br></br>This array includes the `verification` and `claims` objects. | Object     | Array   | Required                  |
+| [verification](https://openid.net/specs/openid-ida-verified-claims-1_0.html#name-verification-element)    | Contains information about the verification process. <br></br>This object includes the `trust_framework`, `assurance_level`, `time`, and `verification_process` properties. | Object     | Object   | Required                  |
+| trust_framework  | Identifies the trust framework that was used for the identity verification. This value must be `IDV-DELEGATED`. | String     | String   | Required                  |
+| assurance_level | Identifies the assurance level that was achieved for the identity claims of the user. This value must be either `VERIFIED` or `FAILED`. | String     | String   | Required                  |
+| time            | The time when the identity verification was completed. This value must be in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. | String     | String   | Required                  |
+| verification_process | Unique reference to the identity verification process.   | String     | String   | Optional                  |
+| claims          | Contains the identity claims of the user. This object includes the OIDC claims that were requested in the `POST /oauth2/par` request. | Object     | Object   | Required                  |
+| fuzzy           | An extension that adds fuzzy logic to a specified claim to assist with matching the claim value. If a claim is passed in the [PAR request](#post-oauth2-par-request-example) with the `fuzzy` extension, then the `fuzzy` extension must be passed with that claim in the ID token response too. <br></br>The `fuzzy` extension is set as `true` for all claims by default and can't be set to `false`. When the `fuzzy` extension is true, the `value` of the claim is treated as an attribute itself. | String     | String   | Required                  |
 
 #### IDV vendor id_token response example in encoded JWT format
 
@@ -339,12 +364,14 @@ Note the following the ways to format the `claims` object for the `id_token` res
   "sub": "01oabcdefgklgjq",
   "exp": 1715034683,
   "iat": 1715031083,
+  "nonce": "wc4IPgjuKWspqw-c",
   "verified_claims": [
     {
       "verification": {
         "assurance_level": "VERIFIED",
         "time": "2025-07-16T19:26:10",
-        "trust_framework": "IDV-DELEGATED"
+        "trust_framework": "IDV-DELEGATED",
+        "verification_process": "session-1234567890"
       },
       "claims": {
         "birthdate": {
@@ -396,7 +423,7 @@ Note the following the ways to format the `claims` object for the `id_token` res
 
 ### Okta completes the policy evaluation
 
-After the `id_token` is returned in the response from the `POST /token` request, Okta completes the policy evaluation.
+After the ID token is returned in the response from the `POST /token` request, Okta completes the policy evaluation.
 
 Okta inspects `id_token` object. The policy evaluation is successful if the `trust_framework` and `assurance_level` values match the values that were passed in the `POST /oauth2/par` [request](#post-oauth2-par-request-to-idv-vendor), `IDV-DELEGATED` and `VERIFIED`.
 
