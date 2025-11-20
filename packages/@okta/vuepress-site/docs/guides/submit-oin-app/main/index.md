@@ -609,7 +609,7 @@ When you're satisfied with your Runscope CRUD test results, enter them in the **
 1. Add the following variables with values that match your SCIM integration:
     * `SCIMBaseURL`: The base URL of the SCIM service. For example: `https://example.com/scim/v2`.
     * `EntitlementEndpoint`: The endpoint of the resource type. For example, `/Roles`.
-    * `auth`: The authorization token that's used to access your SCIM API. You can use the same authorization token that you used to enable the API integration in[Generate an instance for <StackSnippet snippet="protocol-name" inline/>](#generate-an-instance-for).
+    * `auth`: The authorization token that's used to access your SCIM API. You can use the same authorization token that you used to enable the API integration in [Generate an instance for <StackSnippet snippet="protocol-name" inline/>](#generate-an-instance-for).
 
       The following is an example of the entitlement variable values:
 
