@@ -1131,7 +1131,7 @@ export const reference = [
           },
           {
             title: "Burst rate limits",
-            path: "/docs/reference/rl2-burst",
+            path: "/docs/reference/rl2-burst/",
           },
           {
             title: "Client-based rate limits",
@@ -1147,7 +1147,7 @@ export const reference = [
           },
           {
             title: "Additional Rate limits",
-            path: "/docs/reference/rl2-limits",
+            path: "/docs/reference/rl2-limits/",
           }
         ]
       },
