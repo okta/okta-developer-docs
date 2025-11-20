@@ -1,5 +1,5 @@
 ``` bash
-resource "okta_review" "test"
+resource "okta_review" "test" 
 {
   campaign_id = "icizigd86iM9sOcbN1d6"
   reviewer_id = "00unli90kor62oF5Z1d7"

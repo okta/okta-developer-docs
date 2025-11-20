@@ -1,1 +1,2 @@
-Entitlement Management lets you ensure that users in your org have the right permissions for each resource. An entitlement is a permission, privilege, or access level that allows users to take specific actions within a third-party app.
+Entitlement bundles allow you to grant multiple entitlements simultaneously to your users. Use Access Requests to allow your users to request entitlement bundles in a self-service manner.
+For more information, see [Entitlement bundles](https://help.okta.com/oie/en-us/content/topics/identity-governance/em/entitlement-bundles.htm) and [Entitlement Bundles API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlement-Bundles/).

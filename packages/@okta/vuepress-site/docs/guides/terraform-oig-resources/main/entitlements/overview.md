@@ -1,1 +1,2 @@
 Entitlement Management lets you ensure that users in your org have the right permissions for each resource. An entitlement is a permission, privilege, or access level that allows users to take specific actions within a third-party app.
+For more information, see [Entitlement](https://help.okta.com/oie/en-us/content/topics/identity-governance/em/entitlements.htm) and [Entitlement API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlements/).
