@@ -326,7 +326,7 @@ Note the following the ways to format the `claims` object for the `id_token` res
 
 #### The id_token payload
 
-The `id_token` payload includes the `verified_claims` object. This object contains the results of the identity verification for the user. Okta requires some parameters in the [payload](#required-id-token-payload-parameters) of the `id_token` JWT which are otherwise optional according to the OIDC specification. IDV vendors must include **Required** parameters in their `id_token` response. See the following table for a list of the required parameters in the ID token payload.
+The `id_token` payload includes the `verified_claims` object. This object contains the results of the identity verification for the user. Okta requires some parameters in the payload of the `id_token` JWT which are otherwise optional according to the OIDC specification. IDV vendors must include **Required** parameters in their `id_token` response. See the following table for a list of the required parameters in the ID token payload.
 
 | Parameter        | Description                                                                                                     | Param Type | DataType | Required or optional |
 |------------------|-----------------------------------------------------------------------------------------------------------------|------------|----------|----------------------|
