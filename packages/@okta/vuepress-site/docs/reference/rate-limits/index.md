@@ -6,84 +6,98 @@ excerpt: >-
 
 # Rate limits overview
 
-To protect the service for all customers, Okta APIs are subject to rate limits. These limits mitigate denial-of-service attacks and abusive actions such as rapidly updating configurations, aggressive polling and concurrency, or excessive API calls.
+Rate limits are essential for maintaining both service continuity and effective security control. By acting as guardrails, rate limiting ensures systems remain stable and protected against sudden traffic spikes or malicious attacks.
 
-The Okta API rate limits are divided into the following categories: authentication/end user and management. Each category has APIs with rate limits that are enforced individually. The rate limits vary by [service subscription](https://developer.okta.com/pricing/).
+Fundamentally, rate limits define how many requests can be made to an API endpoint within a specific time window. They help protect the reliability and performance of the platform by preventing excessive traffic that could degrade service or introduce security risks, such as Distributed Denial of Service (DDoS) attacks. Rate limits also promote fairness by ensuring all users have equitable access to the service.
 
-If any org-wide rate limit is exceeded, an HTTP 429 status code is returned. You can anticipate hitting the rate limit by checking the [Okta rate limiting headers](/docs/reference/rl-best-practices/#check-your-rate-limits-with-okta-s-rate-limit-headers). Also, you’re sent an email notification when your org approaches its rate limit.
+Okta implements rate limits using buckets. A rate limiting bucket is a collection of one or more API endpoints that share a defined quota of a specific number of calls per unit of time. This quota is consumed by a set of clients associated with the bucket---this association is known as the scope of the bucket. The most general scope for a bucket is the entire organization. This bucket is shared by every client in the organization that uses the associated APIs. Additional more specific buckets can be nested beneath a broader bucket and may be applicable to a subset of APIs for a subset of clients.
 
-> **Notes:**
->
-> * In addition to the rate limit per API, Okta implements limits on concurrent requests, Okta-generated email messages, end user requests, and home page endpoints. These limits are described on the [Additional limits](/docs/reference/rl-additional-limits/) page.
-> * [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/) apply to various endpoints across different APIs for customers that purchased this add-on. (The DynamicScale add-on service is only available to Customer Identity Solutions (CIS) customers.)
-> * Rate limits may be changed to protect customers. Okta provides warning of changes when possible.
-> * The type of cell your Okta org resides in (Preview or Production) doesn't affect the rate limit values. If you purchased dynamic scale or other rate limit increases for your org, these updates only apply to production orgs unless otherwise specified.
-> * You can expand the Okta rate limits upon request. To learn how, see [Request exceptions](/docs/reference/rl-best-practices/#request-rate-limit-exceptions) and [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/).
-> * Review the [Rate limit best practices](/docs/reference/rl-best-practices/) for further information on monitoring and managing your rate limits.
->
+For example, there may be a bucket for `/api/v1/authorize` with a quota of 1200 requests per minute for the entire organization. Nested beneath it, there could be a bucket for `/api/v1/authorize` with a quota of 600 requests per minute assigned to a specific client application `APP_123`. When `APP_123` calls `/api/v1/authorize`, the remaining quota status will be 1,199 for that minute for the organization, and 599 remaining for `APP_123`.
 
-## API rate limits by API token or OAuth 2.0 app
+<div >
 
-By default, Okta API tokens and OAuth 2.0 apps are configured to use 50% of an API endpoint's rate limit when they're created through the Admin Console. This configuration prevents a single API token or OAuth 2.0 app from exceeding the endpoint's rate limit in an org with multiple API tokens or apps.
-
-To adjust the default rate limit capacity for API tokens or OAuth 2.0 apps from 50%, you can edit the percentage value in the Admin Console. See [Set token rate limits](https://help.okta.com/okta_help.htm?type=oie&id=ext_API) for API tokens and [Set the app rate limits](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_App_Integration_Wizard-oidc) for OAuth 2.0 apps. You can also use the [Principal Rate Limits API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PrincipalRateLimit/#tag/PrincipalRateLimit) to configure your API token or OAuth 2.0 app. Reducing the capacity percentage helps prevent a single API token or OAuth 2.0 app from consuming the entire endpoint rate, assists with investigating rate-limit violations, and reduces the likelihood of future violations.
-
-## Rate limit monitoring widget
-
-The Admin Console tracks any rate-limit warnings or violations directly in a rate limit monitoring widget. By default, only the last hour of warnings or violations appear. You can also check for events within the last 24 hours or the last seven days from the dropdown menu. Selecting **View** at the top of the widget takes you to the [Rate Limits dashboard](/docs/reference/rl-dashboard/) for further investigation. If individual rate-limit violations appear in the widget, you can access affected API usage in the rate limits Dashboard by clicking the API link in the widget.
-
-<div class="half">
-
-![The image displays the rate limit monitoring widget on the Admin Dashboard to show rate limit warnings, bursts, or violations.](/img/rate-limits/rl-monitoring-widget.png)
+![This image displays the rate limit by bucket for an organization.](/img/rate-limits/rate-limit-by-bucket.png)
 
 </div>
 
-## Burst rate limits
+There are two additional types of scopes that can apply to a bucket:
 
-Okta provides rate limits for orgs based on their expected traffic. If your org experiences higher traffic than what is expected, this unplanned usage may have an impact on end users.
+* Authenticated users: applies to users taking action on the Admin or End-User dashboard
 
-To help minimize this impact, Okta uses burst rate limits, which offer 5x the capacity of the base rate limit. With burst rate limits, Okta doesn't suspend use that's above the established rate, specifically for authentication and authorization flows (except in rare scenarios of reduced resources). However, if there’s a sustained use above the purchased rate limit, Okta requires you to purchase an applicable offering that matches your use. With burst rate limits, Okta provides peace of mind by ensuring that, in most cases, an unplanned spike doesn't detrimentally affect the end user's experience.
+* Non-authenticated users: applies to endpoints that take username and password
 
->**Note:** Burst rate limits don't apply when the concurrency rate limit threshold has been reached or exceeded for an org. While rare, burst rate limits may also not apply due to resource constraints at the time of the request.
+Buckets scoped to authenticated users are independent and not nested under any other bucket. That is, requests made by authenticated users to APIs covered by these buckets don't count under any other bucket. For example, there exists a bucket with org-wide scope for `/api/v1/users/*` with a quota of 1000 requests per minute and a separate bucket for `/api/v1/users/m`e scoped to authenticated users with a quota of 40 requests per 10 seconds. A request to `/api/v1/users/me` by an authenticated user would decrement the authenticated user bucket to 39 remaining calls, while leaving the `/api/v1/users/* bucket untouched`.
 
-In a scenario where orgs exceed a default rate limit, they receive a System Log warning event, a burst event, and then a violation event. For example, an org has a rate limit of 600 requests per minute on the `/api/v1/authn` endpoint. That org would receive a warning at 360 requests per minute (60% of 600). That org would get a burst notification when the endpoint hits 600 requests per minute. And then the violation event when it hits 3000 requests all in the same minute.
+A bucket’s quota can vary based on several factors, including---but not limited to---the type of service subscription (For example, OWI versus OCI), the HTTP method used (for example, GET versus POST), the number of licenses purchased, and any applicable add-ons, such as DynamicScale. If the quota is exceeded within the defined time window, additional requests are rejected with an HTTP 429 Too Many Requests response until the quota resets. Okta notifies all Super Administrators through e-mail and other means when an org-wide rate limit is nearing its threshold and again when it has been exceeded.
 
-Also, burst rate limits typically apply on top of any rate limit increase that an org may have, such as [DynamicScale](/docs/reference/rl-dynamic-scale/). For example, the default limit on `/api/v1/authn` is 600 requests per minute. If an org is expecting traffic to require 6000 requests per minute, the org would purchase DynamicScale 10x. The burst rate limit in this scenario provides 5x coverage on top of the 6000 and ensures peace of mind for any unplanned spike in use.
+You can monitor rate limit usage through the Rate Limit Dashboard, System Log, or by inspecting the rate limiting headers included in API responses.
 
-On the rate limit dashboard, the trendline can now exceed 100% of the org's default rate limit (up to 5x the default with the buffer zone) as shown in the following example.
+## How rate limiting works
 
-<div class="three-quarter">
+The logic behind the Okta implementation of rate limits can be summarized in the following steps:
 
-![This image displays the rate limits dashboard to show the trendline with burst rate limits.](/img/rate-limits/rl_usage_over_time.png)
+1. Okta identifies the resource that the request is attempting to access
+1. Okta determines the identity and appropriate scope of the request. Is it a user, application, or token making the request?
+1. Determines what features are associated with the request (for example, does the requestor have DynamicScale or are they part of an Integrator free plan org?)
+1. Matches the request against the configured rate limit bucket(s)
+1. Updates the counters and notifies
+
+<div >
+
+![This image displays the rate limit flow and options.](/img/rate-limits/rate-limit-flow.png)
 
 </div>
 
-When a burst rate limit event occurs, the `system.org.rate_limit.burst` System Log event is triggered and an email notification is generated.
+### Matching requests
 
-<div class="half">
+When a request is made, Okta’s algorithms attempt to match the HTTP method (GET, POST, and so on) request with a configured rate limit bucket. There are two commonly used matches:
 
-![Displays the email to notify the admin of a burst rate limit event.](/img/rate-limits/BRLemail.png)
+* Exact match: the endpoint requested matches exactly to the configured rate limit bucket
+
+* Longest match: the endpoint requested matches the prefix URL of multiple configured rate limit buckets. In this case, the longest match is used.
+
+For example:
+
+* `/oauth2/{authorizationServerId}/v1` for longest match type for all HTTP operations
+
+* `/oauth2/{authorizationServerID}/v1/authorize` for exact match type for all HTTP operations
+
+If a request is made, and it matches the second bucket, both buckets technically match the path but because there is an exact match for the second bucket, and it is also the longer match, this request counts against the second bucket.
+
+After a request has been matched, the counters for the impacted buckets are updated. If the counter is nearing the quota for that bucket, a System Log event is generated and an e-mail notification is sent to Super Admins of that organization. Okta allows you to configure this warning threshold in **Admin Dashboard** > **Reports** > **Rate Limits** > **Settings** section. If the counter exceeds the quota for that bucket, then a violation event is written to the System Log and an e-mail notification is also sent. Additional requests are rejected with an HTTP 429 Too Many Requests response until the counter resets.
+
+>**Note:** Okta only sends a warning notification once per day and per hour for violation events.
+
+## Token and OAuth application rate limits
+
+To protect your organization from a single rogue script or misbehaving integration, Okta provides a mechanism to set a specific rate limit capacity for individual API tokens and OAuth 2.0 applications. This ensures that one client can't consume the entire org-wide rate limit for a given endpoint, which prevents it from causing a widespread outage for your other critical integrations.
+
+By default, any API token and OAuth 2.0 application you create is configured to consume no more than 50% of an API endpoint's total rate limit capacity. This does not guarantee a minimum rate limit for a token or app, but does provide a ceiling. For example, if your org-wide limit for the `/api/v1/logs` endpoint is 120 requests per minute, a single API token can only make 60 requests per minute to that endpoint before being rate-limited. This default behavior acts as a crucial safeguard in environments with multiple integrations.
+
+The rate limit capacity allocation can be changed in the Admin Console settings for the respective API token and OAuth2.0 application or through the [principal rate limits](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PrincipalRateLimit/#tag/PrincipalRateLimit) API.
+
+Configuring rate limits by token in the Admin Console:
+
+![This image displays the location in the Admin Console that configures rate limits by token using a slide-bar percentage.](/img/rate-limits/rate-limit-token.png)
 
 </div>
 
-The email is sent to the same admin who received the `system.org.warning` and `system.org.violation` event emails.
+Configuring rate limits by OAuth 2.0 app in the Admin Console:
 
-## Other applicable rate limit content
+![This image displays the location in the Admin Console that configures rate limits by OAuth 2.0 app using a slide-bar percentage.](/img/rate-limits/rate-limit-apps.png)
 
-* [Rate limit dashboard](/docs/reference/rl-dashboard/): The rate limit dashboard helps you understand the rate limit and current use of an API. The dashboard provides you with the ability to track the API's use and to notify you with alerts when the API is about to hit or has hit the rate limit. You can also use the multiple views of data use on the dashboard to investigate high usage or rate limit violations.
+</div>
 
-* [Rate limit best practices](/docs/reference/rl-best-practices/) for further information on best practices to monitor and manage your rate limits.
+### Understanding capacity allocation
 
-* [Concurrent rate limits](/docs/reference/rl-additional-limits/#concurrent-rate-limits): To protect the service for all customers, Okta enforces concurrent rate limits, which is a limit on the number of simultaneous transactions. Concurrent rate limits are distinct from the org-wide, per-minute API rate limits, which measure the total number of transactions per minute. Transactions are typically short-lived. Even large bulk loads rarely use more than 10 simultaneous transactions at a time.
+The sum of the capacity percentages for all your tokens and applications does not need to equal 100%. This provides flexibility in how you manage your total rate limit pool.
 
-* [Client-based rate limits](/docs/reference/rl-clientbased/): To provide granular isolation, client-based rate limiting uses a combination of the client ID/IP address/device identifier for requests made to the OAuth 2.0 `/authorize` endpoint or the IP address/device identifier for requests made to the `/login/login.htm` endpoint. This framework isolates OAuth 2.0 clients that are generating unexpected traffic. It ensures that valid users and apps don't run into rate limit violations.
+* If the sum is over 100%: This creates a first-come, first-serve model for the shared portion of the rate limit. For example, if two tokens each have a 75% capacity for an endpoint with a 100 request per minute limit, the first token to make 75 requests succeeds. However, the second token will then only have access to the remaining 25 requests from the org-wide pool for that minute, even though its individual capacity is 75.
 
-* [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/): If your needs exceed the default rate limits for the base product subscriptions (One App or Enterprise), the DynamicScale add-on service grants you higher limits for various endpoints across different APIs.
+* If the sum is under 100%: This effectively creates a reserved buffer. For example, if two tokens each have a 40% capacity, the remaining 20% of the org-wide limit is held in reserve and can't be consumed by these specific clients. This can be a useful strategy for ensuring there is always capacity for unassigned tokens or unanticipated traffic.
 
-* [End user rate limits](/docs/reference/rl-additional-limits/#end-user-rate-limits): Okta limits the number of requests from the Admin Console and End-User Dashboard to 40 requests per user per 10 seconds per endpoint. This rate limit protects users from each other and from other API requests in the system.
+### Monitoring and notifications
 
-* [Home page endpoints and per-minute limits](/docs/reference/rl-additional-limits/#okta-home-page-endpoints-and-per-minute-limits): These endpoints are used by the Okta home page for authentication and user sign-in and have org-wide rate limits.
+It's important to understand that alerts (email and dashboard notifications) are triggered based on the consumption of the overall quota assigned to an org-scoped bucket, not the allocated capacity of an individual API token or application.
 
-* [Okta API endpoints and per-user limits](/docs/reference/rl-additional-limits/#okta-api-endpoints-and-per-user-limits): API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/) and the [OAuth 2.0 Resource Owner Password flow](/docs/guides/implement-grant-type/ropassword/main/), have a per-username rate limit to prevent brute force attacks with the user's password. [SMS and Call factor endpoints](/docs/reference/rl-additional-limits/#sms-and-call-rate-limits) also have a per-username rate limit.
-
-* [Okta-generated email rate limits](/docs/reference/rl-additional-limits/#okta-generated-email-rate-limits): These rate limits vary by email type, for example, user password resets. Okta enforces rate limits on the number of Okta-generated email messages that are sent to customers and customer users.
+These violation events are, however, recorded in the Okta System Log. You should monitor the System Log for events related to rate limit violations to identify if a specific token or application is frequently hitting its configured capacity.

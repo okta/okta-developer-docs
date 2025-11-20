@@ -1122,47 +1122,8 @@ export const reference = [
         path: "/docs/reference/org-defaults/",
       },
       {
-        title: "Rate Limits (original",
-        path: "/docs/reference/rate-limits/",
-        subLinks: [
-          {
-            title: "Rate limit dashboard",
-            path: "/docs/reference/rl-dashboard/",
-          },
-          {
-            title: "Authentication and end-user rate limits",
-            path: "/docs/reference/rl-global-enduser/",
-          },
-          {
-            title: "Management rate limits",
-            path: "/docs/reference/rl-global-mgmt/",
-          },
-
-          {
-            title: "Additional limits",
-            path: "/docs/reference/rl-additional-limits/",
-          },
-          {
-            title: "Rate limit best practices",
-            path: "/docs/reference/rl-best-practices/",
-          },
-          {
-            title: "Client-based rate limits",
-            path: "/docs/reference/rl-clientbased/",
-          },
-          {
-            title: "DynamicScale",
-            path: "/docs/reference/rl-dynamic-scale/",
-          },
-          {
-            title: "System Log events for rate limits",
-            path: "/docs/reference/rl-system-log-events/"
-          },
-        ]
-      },
-      {
         title: "Rate Limits",
-        path: "/docs/reference/rate-limits-new/",
+        path: "/docs/reference/rate-limits/",
         subLinks: [
           {
             title: "Concurrency rate limits",
