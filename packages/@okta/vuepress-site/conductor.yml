@@ -5677,6 +5677,38 @@ redirects:
     to: https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#supported-resources
   - from: /docs/concepts/role-assignment/#supported-resources
     to: https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#supported-resources
+  - from: /docs/reference/rl-dashboard/index.html
+    to: /docs/reference/rl2-monitor/#rate-limit-dashboard
+  - from: /docs/reference/rl-dashboard
+    to: /docs/reference/rl2-monitor/#rate-limit-dashboard
+  - from: /docs/reference/rl-global-enduser/index.html
+    to: /docs/reference/rl2-limits/#authentication-and-management-rate-limits
+  - from: /docs/reference/rl-global-enduser
+    to: /docs/reference/rl2-limits/#authentication-and-management-rate-limits
+  - from: /docs/reference/rl-global-mgmt/index.html
+    to: /docs/reference/rl2-limits/#authentication-and-management-rate-limits
+  - from: /docs/reference/rl-global-mgmt
+    to: /docs/reference/rl2-limits/#authentication-and-management-rate-limits
+  - from: /docs/reference/rl-additional-limits/index.html
+    to: /docs/reference/rl2-limits/
+  - from: /docs/reference/rl-additional-limits
+    to: /docs/reference/rl2-limits/
+  - from: /docs/reference/rl-best-practices/index.html
+    to: /docs/reference/rl2-monitor/#rate-limit-dashboard
+  - from: /docs/reference/rl-best-practices
+    to: /docs/reference/rl2-monitor/#rate-limit-dashboard
+  - from: /docs/reference/rl-clientbased/index.html
+    to: /docs/reference/rl2-client-based/
+  - from: /docs/reference/rl-clientbased
+    to: /docs/reference/rl2-client-based/
+  - from: /docs/reference/rl-dynamic-scale/index.html
+    to: /docs/reference/rl2-increase/#for-okta-customer-identity-purchase-dynamicscale
+  - from: /docs/reference/rl-dynamic-scale
+    to: /docs/reference/rl2-increase/#for-okta-customer-identity-purchase-dynamicscale
+  - from: /docs/reference/rl-system-log-events/index.html
+    to: /docs/reference/rl2-monitor/#investigate-the-system-log-to-correlate-events-with-users-jobs-or-integrations
+  - from: /docs/reference/rl-system-log-events
+    to: /docs/reference/rl2-monitor/#investigate-the-system-log-to-correlate-events-with-users-jobs-or-integrations
   - from: /docs/guides/spring_security_saml.html
     to: /code/java/spring_security_saml/
   - from: /docs/reference/api/admin-notifications/index.html
