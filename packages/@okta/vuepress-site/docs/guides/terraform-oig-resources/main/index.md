@@ -95,7 +95,7 @@ Before creating an entitlement, you must enable Identity Governance on the app i
 
 #### Import existing objects to Terraform
 
-You can import existing <StackSnippet snippet="resource-name" inline/> objects to Terraform using the import function. For more information on importing objects into Terraform, see Import existing Okta objects into Terraform.
+You can import existing <StackSnippet snippet="resource-name" inline/> objects to Terraform using the import function. For more information on importing objects into Terraform, see [Import existing Okta objects into Terraform](docs/guides/terraform-import-existing-resources/main/).
 
 **Note**: Ensure that you have the <StackSnippet snippet="resource-name" inline/> ID that you want to import.
 
