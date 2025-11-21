@@ -354,6 +354,14 @@ To fix this, update your authorization server to use your custom domain:
 
 1. Make another request to `./well-known/openid-configuration`. Your custom domain is returned.
 
+## Set up a Web Application Firewall (WAF)
+
+To enhance the security of your custom domain, you can use a [Web Application Firewall (WAF)](https://www.okta.com/identity-101/waf/) with your custom domain to redirect web traffic. Configuring a WAF is optional when you create a custom domain.
+
+A WAF can help protect your apps by filtering, monitoring, and blocking HTTP traffic to and from your web apps based on a set of security rules. WAFs typically allow you to create "allow" and "deny" lists based on IP addresses, HTTP headers, and other request attributes.
+
+How you configure a WAF is dependent on your security needs and the WAF provider you choose. However, when you set up a WAF for your custom domain, ensure that you update your DNS settings to point your custom domain to the WAF instead of directly to Okta. Point your CNAME record to the WAF's endpoint.
+
 ## About custom email addresses
 
 A custom email address allows you to present a branded experience to your end users. Emails that Okta sends to your end users appear to come from your custom email address instead of `noreply@okta.com`. You can switch to a different custom email address or revert to the default Okta domain, but you can use only one email domain at a time, per brand.
