@@ -3,25 +3,25 @@ title: Monitoring and troubleshooting rate limits
 category: rate limits
 ---
 
-# Monitoring and troubleshooting rate limits
+# Monitor and troubleshoot rate limits
 
 Use the following sections to monitor and troubleshoot rate limits.
 
 ## Alerts and notifications
 
-Okta’s alerting and notification features help you detect, investigate, and respond to critical system and API events. Alerts appear in your Admin Console, Rate Limit Dashboard, System Log, and email---and in many cases, Okta also includes helpful context in HTTP response headers.
+Okta’s alerting and notification features help you detect, investigate, and respond to critical system and API events. Alerts appear in your Admin Console, rate limit dashboard, System Log, and email---and often, Okta also includes helpful context in HTTP response headers.
 
->**Note:** Alerts (email and rate limit dashboard) are triggered by the consumption of the overall quota assigned to an org-scoped bucket, rather than an individual API token's or application's allocated capacity.
+>**Note:** Alerts (email and rate limit dashboard) are triggered by overall org bucket quota usage, not by individual API token or app capacity, in email and the rate limit dashboard.
 
-| Alert Type | What it Means                                               | Triggers                                                                 | Frequency of Email Alerts    | Visibility                                                        |
+| Alert type | What it means                                               | Triggers                                                                 | Frequency of Email alerts    | Visibility                                                        |
 |------------|-------------------------------------------------------------|-------------------------------------------------------------------------|-----------------------------|-------------------------------------------------------------------|
-| Warning    | API usage approaching default rate limit.                   | Custom threshold % defined in Rate Limit dashboard settings.             | Once per day per bucket     | Admin Console Dashboard, Rate Limit Dashboard, System Log, Email  |
-| Burst      | Short-lived increase in the rate limit threshold for supported endpoints. | Default rate limit for a bucket is exceeded (authentication and authorization endpoints only). | Once per day per bucket     | Admin Console Dashboard, Rate Limit Dashboard, System Log, Email  |
-| Violation  | Default rate limit exceeded and requests were denied with 429 response code. | The default rate limit for a bucket is exceeded.                         | Once per hour per bucket    | Admin Console Dashboard, Rate Limit Dashboard, System Log, Email  |
+| Warning    | API usage approaching the default rate limit.                   | Custom threshold % defined in the rate limit dashboard settings.             | Once per day per bucket     | Admin Console dashboard, rate limit dashboard, System Log, Email  |
+| Burst      | Short-lived increase in the rate limit threshold for supported endpoints. | The default rate limit for a bucket is exceeded (authentication and authorization endpoints only). | Once per day per bucket     | Admin Console dashboard, rate limit dashboard, System Log, Email  |
+| Violation  | The default rate limit exceeded and requests were denied with 429 response code. | The default rate limit for a bucket is exceeded.                         | Once per hour per bucket    | Admin Console dashboard, rate limit dashboard, System Log, Email  |
 
 ## Rate limit dashboard
 
-The Rate Limit dashboard helps you monitor, troubleshoot, and optimize API traffic across your Okta organization. It’s built to give real-time insight into rate limit usage so you can prevent disruptions and resolve incidents quickly.
+The rate limit dashboard helps you monitor, troubleshoot, and optimize API traffic across your Okta organization. It’s built to give real-time insight into rate limit usage so you can prevent disruptions and resolve incidents quickly.
 
 What you can do here:
 
@@ -33,20 +33,20 @@ What you can do here:
 
 * Enable per-client rate limiting
 
-* Identify traffic patterns by IP, API token, or OAuth2 applications
+* Identify traffic patterns by IP, API token, or OAuth2 apps
 
 ### Common use-cases
 
-| Use-Case                        | What to Do                                                                                   |
+| Use-case                        | What to do                                                                                   |
 |----------------------------------|---------------------------------------------------------------------------------------------|
 | Preparing for a high-traffic event | Check current traffic patterns, plan for expected loads, and/or adjust limits or thresholds  |
-| Just received a violation alert   | Jump into the dashboard to inspect which endpoint, IP or client caused it                   |
-| Monitoring proactively            | Use event graphs and tables to catch rising trends and respond before violations happens    |
+| Just received a violation alert   | Jump into the dashboard to inspect which endpoint, IP, or client caused it                   |
+| Monitoring proactively            | Use event graphs and tables to catch rising trends and respond before violations happen    |
 | Tuning warning notifications      | Adjust thresholds to avoid alert fatigue or late detection                                  |
 
 Who has access:
 
-The Rate Limit dashboard can be accessed through the Admin console: **Reports** > **Rate Limits**. Only the following administrative roles can access this dashboard:
+The rate limit dashboard can be accessed through the Admin Console: **Reports** > **Rate Limits**. Only the following administrative roles can access this dashboard:
 
 * App Admin (`APP_ADMIN`)
 * Mobile Admin (`MOBILE_ADMIN`)
@@ -80,7 +80,7 @@ The event count graph plots the number of violations, bursts, and warnings over 
 
 <div class="three-quarter">
 
-![This image displays the events (violations, bursts, and warnings) over a time period graph and the top five endpoint events bar graph.](/img/rate-limits/rl_dashboard7.png)
+![This image displays the events (violations, bursts, and warnings) over a time period graph and the bar graph with the top five endpoint events.](/img/rate-limits/rl_dashboard7.png)
 
 </div>
 
@@ -116,7 +116,7 @@ Customize your org’s client rate limit behavior and warning thresholds in this
 
 #### Client-based rate limiting
 
-Client-based rate limiting provides granular, targeted protection for the unauthenticated endpoints used during an application's access flow By default, per-client rate limiting is enabled. Each client is allocated 60 requests per minute. See [Client-based rate limits](/docs/reference/rl2-client-based/#configuration-and-monitoring) for more details.
+Client-based rate limiting provides granular, targeted protection for the unauthenticated endpoints used during an app's access flow. By default, per-client rate limiting is enabled. Each client is allocated 60 requests per minute. See [Client-based rate limits](/docs/reference/rl2-client-based/#configuration-and-monitoring) for more details.
 
 #### Warning thresholds
 
@@ -124,9 +124,9 @@ Set the percentage of your limit at which you want to be notified. You can fine-
 
 For example, you may want to customize the rate limit threshold when an API normally has high traffic. In such a case, the threshold if set too low at 60% would generate too many warning notifications.
 
-### Investigating API usage
+### Investigate API usage
 
-Clicking an API in the API table takes you to a deep-dive dashboard. Any alerts provided by Okta will also provide a link to the deep-dive dashboard for the impacted endpoint.
+Clicking an API in the API table takes you to a deep-dive dashboard. Any alerts provided by Okta also provide a link to the deep-dive dashboard for the impacted endpoint.
 
 <div class="three-quarter">
 
@@ -136,7 +136,7 @@ Clicking an API in the API table takes you to a deep-dive dashboard. Any alerts 
 
 **Overview Pane:**
 
-* Rate limit: The rate limit for this API per minute for your org. If the traffic hits the rate limit for your org, the system triggers a rate limit violation. Hovering over the information icon will also display multipliers applied or purchased.
+* Rate limit: The rate limit for this API per minute for your org. If the traffic hits the rate limit for your org, the system triggers a rate limit violation. Hovering over the information icon displays multipliers applied or purchased.
 
 * Latest usage: this is the current percentage of the rate limit consumed for this API (this includes all endpoints for a given bucket).
 
@@ -146,13 +146,13 @@ Clicking an API in the API table takes you to a deep-dive dashboard. Any alerts 
 
 **Rate Limit Usage over Time Pane:**
 
-* Line Graph: shows the total number of requests within a one-minute window and the number of unique IPs over the past hour for the API if the Total Requests and # of Unique IPs toggle buttons are enabled. If an IP address is selected in the bar graph, the line graph also shows the traffic from that IP address. Hovering over the line graph will show you the number of requests and the number of unique IPs in the past hour.
+* Line graph: shows the total number of requests within a one-minute window and the number of unique IPs over the past hour for the API if the Total Requests and # of Unique IPs toggle buttons are enabled. If an IP address is selected in the bar graph, the line graph also shows the traffic from that IP address. Hovering over the line graph shows you the number of requests and the number of unique IPs in the past hour.
 
-* Timeline Graph: allows you to compare traffic for the same endpoint across multiple days to spot recurring spikes. Defaults to “Today” but can go back 7 days.
+* Timeline graph: It allows you to compare traffic for the same endpoint across multiple days to spot recurring spikes. Defaults to “Today” but can go back 7 days.
 
-* Bar Graph: shows the top 10 IP addresses, API tokens, or OAuth 2.0 applications that consume the most traffic for that API.
+* Bar graph: shows the top 10 IP addresses, API tokens, or OAuth 2.0 apps that consume the most traffic for that API.
 
-## Troubleshooting rate limits
+## Troubleshoot your rate limits
 
 Okta provides several tools to give you real-time visibility into your API usage so that you can prevent disruptions and resolve incidents quickly. The troubleshooting process can be simplified into four steps:
 
@@ -163,12 +163,12 @@ Okta provides several tools to give you real-time visibility into your API usage
 
 ### Confirm you’re hitting a rate limit
 
-* Check for HTTP 429 responses in your application logs or API client
-* Alerts in the Rate Limit Dashboard or notifications in your email inbox
+* Check for HTTP 429 responses in your app logs or API client
+* Alerts in the rate limit dashboard or notifications in your email inbox
 * Check the System Log for rate limit violation events
 * Look at the response headers Okta provides to view both concurrent and org-wide rate limits.
   * `X-Rate-Limit-Limit`: the rate limit ceiling that’s applicable for the current request.
-  * `X-Rate-Limit-Remaining`: the amount of requests left for the current rate-limit window.
+  * `X-Rate-Limit-Remaining`: the number of requests left for the current rate-limit window.
   * `X-Rate-Limit-Reset`: the time at which the rate limit resets, specified in UTC epoch time (in seconds).
 
 #### Example rate limit header with org-scoped rate limit
@@ -221,12 +221,12 @@ Each event includes the endpoint (`requestURI`), the actor, thresholds, and actu
 
 ### Action
 
-After you have confirmed 429s and understand the root cause, you can employ a few strategies.
+After you have confirmed 429 errors and understand the root cause, you can employ a few strategies.
 
-| Root Cause                        | Description                                                                                                                                                                                                 | Strategies to Fix                                                                                                                                                                                                                                                                                                                                                                 |
+| Root cause                        | Description                                                                                                                                                                                                 | Strategies to fix                                                                                                                                                                                                                                                                                                                                                                 |
 |------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Valid High Usage                   | A planned business event, such as an e-commerce product launch or a workforce application rollout, generates a legitimate, high-volume surge of user traffic that exceeds default limits                      | Implement throttle logic and retries with backoff. The Okta SDK has a configuration library available for this use case.<br>Purchase DynamicScale to permanently increase rate limits.<br>Request a rate limit increase.                                                                                                                  |
-| Authentication Spikes              | A large number of customers or employees attempt to log in simultaneously in response to a time-based event, such as a flash sale starting at noon or a company-wide all-hands meeting.                     | Purchase DynamicScale to permanently increase rate limits.<br>Request a rate limit increase.                                                                                                                                                                                                                                              |
-| Rogue Automation                   | An inefficient or misconfigured script—such as a customer data sync process, an IT management tool, or a testing suite—makes excessive and repetitive API calls in a tight loop without proper error handling or delays. | Implement throttle logic, 429 error handling and retries with backoff.<br>Adjust the token or application rate limit.<br>Avoid aggressive, unnecessary polling to Okta. Use event hooks if available and suitable for your use case.<br>Retrieve only necessary data to avoid repeatable calls.<br>Consider peak usage and batch jobs across time, if possible.                    |
-| Individual Client Flooding an Endpoint | A single client application, such as a public-facing mobile app or an internal web portal, floods a specific unauthenticated endpoint like /authorize due to a bug or batch test, triggering client-based limits designed to isolate the misbehaving actor. | Enable per-client limits and logging.<br>Request a per-client rate limit adjustment (default 60).                                                                                                                                                                                                                                         |
-| Importing Data to Okta             | A migration from a workforce HR system sync attempts to create or update thousands of users at once without proper throttling, quickly consuming management API rate limits.                                 | Request a rate limit increase in advance of the rollout.<br>Leverage Just-In-Time (JIT) provisioning.<br>Increase AD agent thread count to 10.<br>Avoid last minute imports and load your data well ahead of the go-live.                                                                                                                 |
+| Valid high usage                   | A planned business event, such as an e-commerce product launch or a workforce app rollout, generates a legitimate, high-volume surge of user traffic that exceeds default limits                      | Implement throttle logic and retries with backoff. The Okta SDK has a configuration library available for this use case.<br>Purchase DynamicScale to permanently increase rate limits.<br>Request a rate limit increase.                                                                                                                  |
+| Authentication spikes              | Many customers or employees attempt to log in simultaneously in response to a time-based event, such as a flash sale starting at noon or a company-wide all-hands meeting.                     | Purchase DynamicScale to permanently increase rate limits.<br>Request a rate limit increase.                                                                                                                                                                                                                                              |
+| Rogue automation                   | An inefficient or misconfigured script &mdash;such as a customer data sync process, an IT management tool, or a testing suite &mdash;makes excessive and repetitive API calls in a tight loop without proper error handling or delays. | Implement throttle logic, 429 error handling, and retries with backoff.<br>Adjust the token or app rate limit.<br>Avoid aggressive, unnecessary polling to Okta. Use event hooks if available and suitable for your use case.<br>Retrieve only the necessary data to avoid repeatable calls.<br>Consider peak usage and batch jobs across time, if possible.                    |
+| Individual client flooding an endpoint | A single client app, such as a public-facing mobile app or an internal web portal, floods a specific unauthenticated endpoint like /authorize due to a bug or batch test, triggering client-based limits designed to isolate the misbehaving actor. | Enable per-client limits and logging.<br>Request a per-client rate limit adjustment (default 60).                                                                                                                                                                                                                                         |
+| Importing data to Okta             | A migration from a workforce HR system sync attempts to create or update thousands of users at once without proper throttling, quickly consuming management API rate limits.                                 | Request a rate limit increase before the rollout.<br>Use Just-In-Time (JIT) provisioning.<br>Increase AD agent thread count to 10.<br>Avoid last-minute imports and load your data ahead of the go-live.                                                                                                                 |
