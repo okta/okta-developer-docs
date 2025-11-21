@@ -1,0 +1,1 @@
+This guide covers the use case to sign a user out, and provides a flow diagram and a sequence of integration steps.
