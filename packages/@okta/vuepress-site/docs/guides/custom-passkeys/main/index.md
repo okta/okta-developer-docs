@@ -34,7 +34,7 @@ To create a seamless experience where one passkey can work across multiple domai
 
 When you're configuring passkeys, there are two types of domains to consider:
 
-* **Root domains**: A root domain is the highest level of a domain name without any subdomain prefix. In the context of passkeys and WebAuthn, root domains serve as the RP ID, which is the domain that passkey credentials are cryptographically tied to. Your org's root domain is `okta.com` by default.
+* **Root domains**: A root domain is a registrable domain name that's used with a public suffix. For example, in `okta.com`, `okta` is the root domain and `.com` is the suffix. In the context of passkeys and WebAuthn, root domains serve as the RP ID, which is the domain that passkey credentials are cryptographically tied to. Your org's root domain is `okta.com` by default.
 * **Subdomains**: Subdomains are domains that exist as a subset under a root domain. `okta.com` is your org's root domain, and your org subdomain typically follows this format: `companyname.okta.com`.
 
 If a user creates a passkey when their browser is on `okta.com`, that passkey is only valid for `okta.com`, by default.
@@ -53,7 +53,14 @@ You can enable passkeys to work with multiple domains by using the following met
 
 In this scenario, you want to enable users to sign in to `login.globex.com` and `support.globex.com` domains with a passkey. Create a new RP ID for the WebAuthn authenticator that uses your root domain (`globex.com`). This RP ID works for all subdomains of `globex.com`.
 
+There are two steps for creating an RP ID for your WebAuthn authenticator:
+
+1. Use the [Replace an authenticator method endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod) to set your root domain (`globex.com`) as the RP ID for the WebAuthn authenticator.
+2. Then, verify the domain ownership by using the [Verify RP ID domain endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/verifyRpIdDomain).
+
 > **Note:** Changing the RP ID `domain` invalidates all existing passkeys for all users. You must notify your users that they need to re-enroll their passkeys if you replace an existing RP ID.
+
+#### Update the RP ID for the WebAuthn authenticator
 
 Before you create an RP ID, retrieve the `authenticatorId` of the WebAuthn authenticator with the [List all authenticators endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticators). Ensure that you also have the domain that you want to use as your RP ID set up as a [custom domain](/docs/guides/custom-url-domain).
 
@@ -88,7 +95,7 @@ curl -i -X PUT \
 }'
 ```
 
-#### User experience
+##### User experience
 
 When a user signs in to `login.globex.com` and registers a passkey, the passkey is created with the RP ID of `globex.com`. When that user signs in to `support.globex.com`, for example, the browser sees that the passkey's RP ID (`globex.com`) matches the root domain of the subdomain (`support.globex.com`). The browser allows the authentication to proceed.
 
