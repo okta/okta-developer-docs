@@ -1,1 +1,0 @@
-> **Note**: Ensure that you use the same client that you use for managing the Express Configuration OIDC integration. See [Create a client](https://developer.okta.com/docs/guides/enable-express-configuration/main/#create-a-client).
