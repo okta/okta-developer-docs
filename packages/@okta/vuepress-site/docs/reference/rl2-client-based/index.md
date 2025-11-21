@@ -5,21 +5,21 @@ category: rate limits
 
 # Client-based rate limits
 
-Client-based rate limiting provides granular, targeted protection for the unauthenticated endpoints used during an application's access flow. It helps isolate noisy neighbors&mdash;such as a misconfigured app, a runaway script, or a bad actor&mdash;preventing them from consuming your entire org-wide rate limit and impacting other users and applications.
+Client-based rate limiting provides granular, targeted protection for the unauthenticated endpoints used during an app's access flow. It helps isolate noisy neighbors&mdash;such as a misconfigured app, a runaway script, or a bad actor&mdash;preventing them from consuming your entire org-wide rate limit and impacting other users and apps.
 
 This framework applies to:
 
-* OAuth 2.0 applications, using a combination of client ID, IP address, and device identifier to enforce a limit. This applies to the `/authorize` endpoint for both the Okta org authorization server and any custom authorization servers.
+* OAuth 2.0 apps, using a combination of client ID, IP address, and device identifier to enforce a limit. This applies to the `/authorize` endpoint for both the Okta org authorization server and any custom authorization servers.
 
-* Non-OAuth 2.0 applications (for example, those using the `/login/login.htm` endpoint in Classic Engine), which use the IP address and device identifier for limiting.
+* Non-OAuth 2.0 apps (for example, those using the `/login/login.htm` endpoint in Classic Engine), which use the IP address and device identifier for limiting.
 
 * Okta Identity Engine, which uses this framework for multiple API entry points that implement the Interaction Code grant type.
 
 ## Benefits of client-based rate limits
 
-This feature is particularly helpful in a few key scenarios:
+This feature is helpful in a few key scenarios:
 
-* Isolating rogue applications: If you have multiple OAuth 2.0 applications managed by different teams, it ensures that one malfunctioning app can't cause rate limit violations for all the others.
+* Isolating rogue apps: If you have multiple OAuth 2.0 apps managed by different teams, it ensures that one malfunctioning app can't cause rate limit violations for all the others.
 
 * Enforcing best practices: It encourages development teams to implement proper error handling and avoid issues like redirect loops.
 
@@ -33,14 +33,14 @@ The best way to understand the impact is through examples. By default, each uniq
 
 Imagine Bob and Alice are working from home with distinct IP addresses. They both access the same company portal (`clientID`: `portal123`).
 
-* Bob's Limit: Based on (IP1 + portal123 + DeviceID1)
-* Alice's Limit: Based on (IP2 + portal123 + DeviceID2)
+* Bob's limit: Based on (IP1 + portal123 + DeviceID1)
+* Alice's limit: Based on (IP2 + portal123 + DeviceID2)
 
 If the org-wide limit for the `/authorize` endpoint is 2,000 requests per minute and Bob runs a script that makes 2,000 requests, the following happens:
 
-* Without client-based limits: Bob consumes the entire org-wide limit. Both he and Alice are blocked with HTTP 429 errors, and the application becomes inaccessible to everyone.
+* Without client-based limits: Bob consumes the entire org-wide limit. Both he and Alice are blocked with HTTP 429 errors, and the app becomes inaccessible to everyone.
 
-* With client-based limits enabled: After Bob exceeds his individual 60-request limit, only requests from his specific client combination are blocked. Alice can continue to access the application without any issues.
+* With client-based limits enabled: After Bob exceeds his individual 60-request limit, only requests from his specific client combination are blocked. Alice can continue to access the app without any issues.
 
 ### Scenario 2: Users behind a corporate firewall (NAT)
 
@@ -54,7 +54,7 @@ This ensures that even when sharing an IP address, one user's activity won't imp
 
 >**Note:** The device identifier is derived from a cookie (`dt` cookie) that Okta sets in the browser. For non-browser clients where this cookie isn't present, requests from the same NAT IP and client ID will share a common quota where the device identifier is null (NAT IP + portal123 + null).
 
-### Handling proxies
+### Handle proxies
 
 If requests are made from behind a proxy, it's important to configure those IPs as trusted proxies in Okta. This allows the rate-limiting framework to correctly identify the true client IP address from the request headers.
 
@@ -65,8 +65,8 @@ The client-based rate limit framework can operate in one of three configuration 
 | Mode                        | Description                                                                                                                                         |
 |-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | Enforce and log per client  | (Recommended) This is the default setting. The rate limit is based on client-specific values, and violation information is logged as System Log events. |
-| Log per client              | The rate limit is based on the org-wide values, but client-specific violation information is still logged. This allows you to analyze potential impact without actively blocking requests. |
-| Do nothing                  | (Not Recommended) Rate limits aren't enforced at the client-specific level; only org-wide limits apply. No client-specific events are logged.         |
+| Log per client              | The rate limit is based on the org-wide values, but client-specific violation information is still logged. This allows you to analyze the potential impact without actively blocking requests. |
+| Do nothing                  | (Not recommended) Rate limits aren't enforced at the client-specific level; only org-wide limits apply. No client-specific events are logged.         |
 
 This setting can be changed by going to the Admin Console:
 
@@ -74,7 +74,7 @@ This setting can be changed by going to the Admin Console:
 1. Select the **Settings** tab.
 1. Under the **Client-based rate limiting** section, choose the desired mode.
 
-### Monitoring and taking action
+### Monitor and take action
 
 When enforcement is active, you monitor the System Log for the following events:
 
@@ -82,15 +82,15 @@ When enforcement is active, you monitor the System Log for the following events:
 
 * `system.client.concurrency_rate_limit.violation`
 
-If you see sporadic events from a few users, it may indicate scripted or automated activity that you can choose to investigate. If you see widespread events from many users, it could point to a broader application issue that needs to be addressed.
+If you see sporadic events from a few users, it may indicate scripted or automated activity that you can choose to investigate. If you see widespread events from many users, it could point to a broader app issue that needs to be addressed.
 
-#### Checking limits with API headers
+#### Check limits with API headers
 
 When client-based rate limiting is in enforce mode, the API response headers reflect the client-specific limit, not the org-wide limit. However, the org-wide rate limit still applies. When the cumulative total request or maximum concurrent requests from every unique client exceeds the org-wide rate limits, your Okta org experiences org-wide rate limit errors.
 
 * `X-Rate-Limit-Limit`: The 60 requests/minute ceiling for the specific client.
 
-* `X-Rate-Limit-Remaining`: The number of requests left for that specific client.
+* `X-Rate-Limit-Remaining`: The amount of requests left for that specific client.
 
-* `X-Rate-Limit-Reset`: The UTC epoch time when the client's limit will reset.
+* `X-Rate-Limit-Reset`: The UTC epoch time when the client's limit resets.
 
