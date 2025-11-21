@@ -1,0 +1,3 @@
+Okta Access Requests automate the process of requesting access to resources managed by access request conditions.
+
+Access request conditions define the resource to access, who can request access, length of access, and the approval sequence. For more information see [Access Requests ](https://help.okta.com/oie/en-us/content/topics/identity-governance/access-requests/ar-overview.htm) and [Requests API](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Requests/#tag/Requests).
