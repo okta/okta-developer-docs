@@ -107,6 +107,7 @@ You can import existing <StackSnippet snippet="resource-name" inline/> objects t
 <StackSnippet snippet="import" inline/>
 
 3. Save the file, run `terraform plan`, and then run `terraform apply`.
+4. Verify that the `terraform.tfstate` file is created on your Terraform working directory. This ensures that the Terraform resource creation was completed successfully. This file records the mapping between the resources defined in your configuration files and the objects in your Okta org.
 
 #### Retrieve existing <StackSnippet snippet="resource-name" inline/>
 

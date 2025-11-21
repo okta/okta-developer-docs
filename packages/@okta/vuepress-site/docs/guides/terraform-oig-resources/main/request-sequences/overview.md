@@ -1,0 +1,2 @@
+Request sequences define a series of steps (questions, approval tasks, and custom tasks) that must be completed for a requester to gain access.
+Request sequences can be re-used across many request conditions. See [Request Sequences](https://help.okta.com/oie/en-us/content/topics/identity-governance/access-requests/rcar-approval-seq-edit.htm) and [Request Sequences API](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Sequences/).
