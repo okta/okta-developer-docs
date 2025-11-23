@@ -43,7 +43,7 @@ The Integrator Free Plan org has the following limitations:
 | Number of workflows                           | 5                                                                    |
 | Email templates                               | Unavailable for editing                                              |
 | Email automation                              | Not available                                            |
-| Rate limits                                   | Limited per-minute rate limits. See [Management rate limits](/docs/reference/rl-global-mgmt/).                                             |
+| Rate limits                                   | Limited per-minute rate limits. See [Management rate limits](/docs/reference/rl2-limits/#authentication-and-management-rate-limits).                                             |
 | Sign-up email                                 | An Integrator free plan organization requires a unique business sign-up email. You can't use the same sign-up email for multiple organizations.<br><br> **Note:** Some email addresses can't be used to sign up for the Integrator Free Plan orgs based on user location and other security considerations. Contact Okta Support for more information.     |
 | Support                                       | No access to Okta Support                                            |
 
