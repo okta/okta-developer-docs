@@ -49,7 +49,7 @@ In this architecture, your SPA or mobile app shouldn’t manage tokens directly.
 
 > **Notes:**
 > * Ensure that you select **Web Application** as the OIDC app type when you create your app integration in your Okta org.
-> * Native and mobile app integrations aren't accepted as OIDC app integrations in the OIN unless they use server-side authentication patterns. Set up your app to use an authentication flow that allows your client app to talk to your SaaS backend. Your SaaS backend can then securely communicate with Okta through trusted back-channel connections. See [Implement Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/) to implement the OAuth 2.0 flow
+> * Native and mobile app integrations aren't accepted as OIDC app integrations in the OIN unless they use server-side authentication patterns. Set up your app to use an authentication flow that allows your client app to talk to your SaaS backend. Your SaaS backend can then securely communicate with Okta through trusted back-channel connections. See [Implement the authorization code flow](/docs/guides/implement-grant-type/authcode/main/) to implement the OAuth 2.0 flow
 
 When you follow these guides, be aware of the authorization server used. Most of the examples show you how to make an `/authorize` or `/token` request using a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server). To support the potentially large number of Okta orgs accessing it through the OIN, an OIDC integration can't use a custom authorization server (this includes the `default` server). Therefore, for OIN OIDC apps, you can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
