@@ -2,7 +2,7 @@ If you haven't built the OIDC service in your app yet, review the [OAuth 2.0 and
 
 For OIDC integrations that you want to publish in the OIN catalog, review the following implementation topics:
 
-1. Use the Authorization Code flow with client secrets for your app. In Okta, you select the Web Application OIDC type.
+1. Use the Authorization Code flow with client secrets for your app. Select **Web Application** as the OIDC app type when you create your app integration in your Okta org.
 1. [Determine the scopes](#scopes) that you require for your OIDC client (your app).
 1. Consider how your app stores [customer client credentials](#oidc-customer-org-credentials).
 1. Understand how to [validate tokens](#token-validation) in your OIDC client.
@@ -49,11 +49,7 @@ Select the OAuth 2.0 flow to use based on your app:
 
 > **Notes:**
 > * Ensure that you select **Web Application** as the OIDC app type when you create your app integration in your Okta org.
-> * Native and mobile app integrations aren't accepted as OIDC app integrations in the OIN unless they use server side authentication patterns. Set up your app to use an authentication flow that allows your client app to talk to your SaaS backend. Your SaaS backend can then securely communicate with Okta through trusted back-channel connections.
-
-Follow this guide to implement the OAuth 2.0 flow:
-
-* [Implement Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
+> * Native and mobile app integrations aren't accepted as OIDC app integrations in the OIN unless they use server-side authentication patterns. Set up your app to use an authentication flow that allows your client app to talk to your SaaS backend. Your SaaS backend can then securely communicate with Okta through trusted back-channel connections. See [Implement Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/) to implement the OAuth 2.0 flow
 
 When you follow these guides, be aware of the authorization server used. Most of the examples show you how to make an `/authorize` or `/token` request using a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server). To support the potentially large number of Okta orgs accessing it through the OIN, an OIDC integration can't use a custom authorization server (this includes the `default` server). Therefore, for OIN OIDC apps, you can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
