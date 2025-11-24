@@ -39,7 +39,7 @@ The iOS and Android well-known URIs have similar functions that enable secure as
 
 The [Okta Client SDK for Swift](https://github.com/okta/okta-mobile-swift) supports both custom URIs and HTTPS redirect URLs on supporting platforms and versions. The use of an `https://` redirect URI is recommended, but this requires that your app is configured to use associated domains. See [Apple Developer documentation - Supporting associated domains](https://developer.apple.com/documentation/Xcode/supporting-associated-domains).
 
-Ensure that you do the following:
+Ensure that you complete the following items:
 
 * Include the domain of the redirect URI as a `webcredential` in your app's [associated domains capability](https://developer.apple.com/documentation/xcode/configuring-an-associated-domain).
 * Verify that the app identifier (that is, the `<TEAM_ID>.<BUNDLE_ID>`) is included in the `webcredentials` list on that domain's `/.well-known/apple-app-site-association` well-known URI. See [Create an apple-app-site-association customization](#create-an-apple-app-site-association-customization).
