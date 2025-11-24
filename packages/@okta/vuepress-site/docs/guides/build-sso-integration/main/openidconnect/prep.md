@@ -45,16 +45,14 @@ Select the OAuth 2.0 flow to use based on your app:
 
    Okta recommends the [Authorization Code flow with a Proof Key for Code Exchange (PKCE)](/docs/concepts/oauth-openid/#authorization-code-flow-with-pkce) to control access between your SPA app and a resource server.
 
-> **Note:** Native and mobile app integrations aren't accepted as OIDC app integrations in the OIN. Set up your app to use an authentication flow that allows your client app to talk to your SaaS backend. Your SaaS backend can then securely communicate with Okta through trusted back-channel connections.
+> **Notes:** 
 
-Follow these guides to implement the OAuth 2.0 flows:
+* Ensure that you select **Web Application** as the OIDC app type when you create your app integration in your Okta org. See [Create an app integration](docs/guides/create-an-app-integration/openidconnect/main/).
+* Native and mobile app integrations aren't accepted as OIDC app integrations in the OIN unless they use serverside authentication patterns. Set up your app to use an authentication flow that allows your client app to talk to your SaaS backend. Your SaaS backend can then securely communicate with Okta through trusted back-channel connections.
+
+Follow this guide to implement the OAuth 2.0 flow:
 
 * [Implement Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
-* [Implement Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
-
-> **Note:** You can also review these sample integration quickstarts:
-> * [Sign in to SPA](/docs/guides/sign-into-spa-redirect/)
-> * [Sign in to web application](/docs/guides/sign-into-web-app-redirect/)
 
 When you follow these guides, be aware of the authorization server used. Most of the examples show you how to make an `/authorize` or `/token` request using a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server). To support the potentially large number of Okta orgs accessing it through the OIN, an OIDC integration can't use a custom authorization server (this includes the `default` server). Therefore, for OIN OIDC apps, you can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
