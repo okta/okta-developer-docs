@@ -45,7 +45,7 @@ Select the OAuth 2.0 flow to use based on your app:
 
    The OIN doesn’t support direct authentication from SPAs or native mobile apps. Instead, your backend systems must handle authentication.
 
-   In this architecture, your SPA or mobile app shouldn’t manage tokens directly. Instead, use an intermediary system, such as an API gateway or a backend-for-frontend service, to facilitate communication between your client app and the resource server. Okta recommends implementing the Authorization Code flow for secure authentication and token exchange.
+In this architecture, your SPA or mobile app shouldn’t manage tokens directly. Instead, use an intermediary system, such as an API gateway or a backend-for-frontend service, to facilitate communication between your client app and the resource server. Okta recommends implementing the authorization code flow for secure authentication and token exchange.
 
 > **Notes:**
 > * Ensure that you select **Web Application** as the OIDC app type when you create your app integration in your Okta org.
