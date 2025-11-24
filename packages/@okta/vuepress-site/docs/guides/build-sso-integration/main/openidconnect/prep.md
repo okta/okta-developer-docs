@@ -2,7 +2,7 @@ If you haven't built the OIDC service in your app yet, review the [OAuth 2.0 and
 
 For OIDC integrations that you want to publish in the OIN catalog, review the following implementation topics:
 
-1. Use Authorization Code flow with client secrets for your app. In Okta, you'll select the Web Application OIDC type.
+1. Use the Authorization Code flow with client secrets for your app. In Okta, you select the Web Application OIDC type.
 1. [Determine the scopes](#scopes) that you require for your OIDC client (your app).
 1. Consider how your app stores [customer client credentials](#oidc-customer-org-credentials).
 1. Understand how to [validate tokens](#token-validation) in your OIDC client.
@@ -43,12 +43,13 @@ Select the OAuth 2.0 flow to use based on your app:
 
 * For single-page apps (SPA) and mobile apps:
 
-   Okta recommends the [Authorization Code flow with a Proof Key for Code Exchange (PKCE)](/docs/concepts/oauth-openid/#authorization-code-flow-with-pkce) to control access between your SPA app and a resource server.
+   The OIN doesn’t support direct authentication from SPAs or native mobile apps. Instead, authentication must be handled by your backend systems.
 
-> **Notes:** 
+   In this architecture, your SPA or mobile app shouldn’t manage tokens directly. Instead, use an intermediary system, such as an API gateway or a backend-for-frontend service, to facilitate communication between your client app and the resource server. Okta recommends implementing the Authorization Code flow for secure authentication and token exchange.
 
-* Ensure that you select **Web Application** as the OIDC app type when you create your app integration in your Okta org. See [Create an app integration](docs/guides/create-an-app-integration/openidconnect/main/).
-* Native and mobile app integrations aren't accepted as OIDC app integrations in the OIN unless they use serverside authentication patterns. Set up your app to use an authentication flow that allows your client app to talk to your SaaS backend. Your SaaS backend can then securely communicate with Okta through trusted back-channel connections.
+> **Notes:**
+> * Ensure that you select **Web Application** as the OIDC app type when you create your app integration in your Okta org.
+> * Native and mobile app integrations aren't accepted as OIDC app integrations in the OIN unless they use server side authentication patterns. Set up your app to use an authentication flow that allows your client app to talk to your SaaS backend. Your SaaS backend can then securely communicate with Okta through trusted back-channel connections.
 
 Follow this guide to implement the OAuth 2.0 flow:
 
