@@ -2,11 +2,11 @@
 title: Migrate your brand customizations with automation
 meta:
   - name: description
-    content: Migrate your brand customizations from a test to production org using Terrafrom, PowerShell, or Go automation.
+    content: Migrate your brand customizations from a test to production org using Terraform, PowerShell, or Go automation.
 layout: Guides
 ---
 
-This guide details how to automate the process of copying custom branding settings &mdash;including CSS, email content, and error page HTML &mdash;from an Okta test environment to a live production environment.
+ This guide details how to automate the process of copying custom branding settings &mdash;including CSS, email content, and error page HTML &mdash;from an Okta test environment to a live production environment.
 
 #### Learning outcomes
 
