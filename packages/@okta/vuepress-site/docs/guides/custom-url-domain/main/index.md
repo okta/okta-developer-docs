@@ -358,9 +358,9 @@ To fix this, update your authorization server to use your custom domain:
 
 To enhance the security of your custom domain, you can use a [Web Application Firewall (WAF)](https://www.okta.com/identity-101/waf/) with your custom domain to redirect web traffic. Configuring a WAF is optional when you create a custom domain.
 
-A WAF can help protect your apps by filtering, monitoring, and blocking HTTP traffic to and from your web apps based on a set of security rules. WAFs typically allow you to create "allow" and "deny" lists based on IP addresses, HTTP headers, and other request attributes.
+A WAF can help protect your apps by filtering, monitoring, and blocking HTTP and HTTPS traffic to your web apps based on a set of security rules. WAFs typically allow you to create "allow" and "deny" lists based on IP addresses, HTTP headers, and other request attributes.
 
-How you configure a WAF is dependent on your security needs and the WAF provider you choose. However, when you set up a WAF for your custom domain, ensure that you update your DNS settings to point your custom domain to the WAF instead of directly to Okta. Point your CNAME record to the WAF's endpoint.
+How you configure a WAF depends on your security needs and the WAF provider you choose. However, when you set up a WAF for your custom domain, ensure that you update your DNS settings to point your custom domain to the WAF instead of directly to Okta. Point your CNAME record to the WAF's endpoint, and then configure the WAF to forward traffic to your custom domain.
 
 ## About custom email addresses
 
