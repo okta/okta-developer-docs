@@ -6007,3 +6007,7 @@ redirects:
     to: /code/#archived-sdks
   - from: /docs/guides/oie-embedded-common-download-setup-app/go/main/index.html
     to: /code/#archived-sdks
+  - from: /docs/guides/enable-express-configuration/openidconnect/main/
+    to: /docs/guides/enable-express-configuration/main/
+  - from: /docs/guides/enable-express-configuration/scim/main/
+    to: /docs/guides/enable-express-configuration/main/
