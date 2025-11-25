@@ -214,10 +214,9 @@ curl -v -X POST \
 -H "Authorization: Bearer {yourHubAccessToken}" \
 -d '{
     "type": "OKTA_INTEGRATION",
-    "status": "ACTIVE",
     "name": "Example API Okta Integration IdP",
     "protocol": {
-        "type": "SAML2",
+        "type": "OIDC",
         "credentials": {
             "client": {
                 "token_endpoint_auth_method": "private_key_jwt",
