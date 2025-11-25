@@ -117,9 +117,12 @@ curl -i -X PUT \
 
 ##### Use the response to create a TXT record
 
-See the following response example. The response includes a `dnsRecord` object. That object contains the fqdn and verificationValue properties that you can use to create a TXT record in your DNS provider.
+See the following response example. The response includes a `dnsRecord` object. That object contains the `fqdn` and `verificationValue` properties that you can use to create a TXT record in your DNS provider.
 
-Use the `fqdn` (fully qualified domain name) value as the name or "Host" for the TXT record. Use the `verificationValue` as the value or data for the TXT record.
+Go to your DNS provider and create a TXT record:
+
+1. Use the `fqdn` (fully qualified domain name) value as the name or "Host" for the TXT record.
+1. Use the `verificationValue` as the value or data for the TXT record.
 
 After you set the TXT record in your DNS provider, wait for DNS propagation to complete before you [verify the RP ID domain](#verify-the-rp-id-domain). Typically, this takes one to five minutes (but it may take longer).
 
