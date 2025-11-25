@@ -54,7 +54,7 @@ Your custom domain is typically a subdomain of your root domain. For example, if
 
 When you want to use that root domain (`globex.com`) as the RP ID for passkeys, you need to verify that you own the root domain as well. The process for verifying the root domain is different from verifying a custom domain.
 
-Verifying the root domain, to use it as an RP ID, doesn't require a CNAME record. Instead, you verify the RP ID domain with a TXT record and by using the [Verify a Relying Party ID domain endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/verifyRpIdDomain). The TXT record indicates that you own the root domain and allows you to use it as the RP ID for passkeys.
+Verifying the root domain, to use it as an RP ID, doesn't require a CNAME record. Instead, you verify the RP ID domain with a TXT record and by using the [Verify a Relying Party ID domain endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/verifyRpIdDomain). The TXT record is returned in the response when you [set the RP ID domain](#update-the-rp-id-for-the-webauthn-authenticator). The TXT record indicates that you own the root domain and allows you to use it as the RP ID for passkeys.
 
 > **Note:** You can use your custom domain (`login.globex.com`, for example) as the RP ID for passkeys. If you use a verified custom domain as the RP ID, it's not necessary to verify it with the [Verify a Relying Party ID domain endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/verifyRpIdDomain).
 
@@ -85,7 +85,7 @@ Before you create an RP ID, review these steps:
 1. Retrieve the `authenticatorId` of the WebAuthn authenticator with the [List all authenticators endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticators).
 1. Ensure that you've [set up a custom domain](/docs/guides/custom-url-domain/) that has a valid root domain to use as your RP ID.
 
-Then, use the [Replace an authenticator method endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod) to create an RP ID for the WebAuthn authenticator.
+Then, use the [Replace an authenticator method endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod) to create an RP ID for the WebAuthn authenticator. The response includes the TXT record value that you need to add to your DNS provider to verify ownership of the root domain.
 
 1. Use the following request example as a template.
 1. In the path parameters, set the following values:
@@ -100,20 +100,71 @@ curl -i -X PUT \
   -H 'Authorization: YOUR_AUTH_INFO_HERE' \
   -H 'Content-Type: application/json' \
   -d '{
-  "status": "ACTIVE",
+    "status": "ACTIVE",
+    "type": "webauthn",
+    "settings": {
+        "userVerification": "DISCOURAGED",
+        "attachment": "ANY",
+        "rpId": {
+            "domain": {
+                "name": "globex.com"
+            },
+            "enabled": false
+        }
+    }
+}'
+```
+
+##### Use the response to create a TXT record
+
+See the following response example. The response includes a `dnsRecord` object. That object contains the fqdn and verificationValue properties that you can use to create a TXT record in your DNS provider.
+
+Use the `fqdn` (fully qualified domain name) value as the name or "Host" for the TXT record. Use the `verificationValue` as the value or data for the TXT record.
+
+After you set the TXT record in your DNS provider, wait for DNS propagation to complete before you [verify the RP ID domain](#verify-the-rp-id-domain). Typically, this takes one to five minutes (but it may take longer).
+
+> **Note:** It may take up to 24 hours for your DNS changes to propagate. If your changes don't appear within 24 hours, return to this step and confirm your settings. Use a tool like [Dig](https://toolbox.googleapps.com/apps/dig/) to check your DNS records.
+
+```json
+{
   "type": "webauthn",
+  "status": "ACTIVE",
   "settings": {
     "userVerification": "DISCOURAGED",
     "attachment": "ANY",
     "rpId": {
+      "enabled": false,
       "domain": {
-        "name": "globex.com"
-      },
-      "enabled": false
+        "name": "globex.com",
+        "validationStatus": "NOT_STARTED",
+        "dnsRecord": {
+          "recordType": "TXT",
+          "fqdn": "_oktaverification.globex.com",
+          "verificationValue": "5e2dc662c8ce4f4aa4cd1cd292490d35"
+        }
+      }
+    }
+  },
+  "_links": {
+    "self": {
+      "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/methods/webauthn",
+      "hints": {
+        "allow": [
+          "GET",
+          "PUT"
+        ]
+      }
     },
-    "enableAutofillUI": false
+    "verify-rp-id-domain": {
+      "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/methods/webauthn/verify-rp-id-domain",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    }
   }
-}'
+}
 ```
 
 #### Verify the RP ID domain
@@ -148,23 +199,22 @@ After the RP ID domain is verified, use the [Replace an authenticator method end
 
 ```bash
 curl -i -X PUT \
-  'https://subdomain.okta.com/api/v1/authenticators/{authenticatorId}/methods/{webAuthnMethodType}' \
+  'https://subdomain.okta.com/api/v1/authenticators/{authenticatorId}/methods/{methodType}' \
   -H 'Authorization: YOUR_AUTH_INFO_HERE' \
   -H 'Content-Type: application/json' \
   -d '{
-  "status": "ACTIVE",
-  "type": "webauthn",
-  "settings": {
-    "userVerification": "DISCOURAGED",
-    "attachment": "ANY",
-    "rpId": {
-      "domain": {
-        "name": "globex.com"
-      },
-      "enabled": true
-    },
-    "enableAutofillUI": false
-  }
+    "status": "ACTIVE",
+    "type": "webauthn",
+    "settings": {
+        "userVerification": "DISCOURAGED",
+        "attachment": "ANY",
+        "rpId": {
+            "domain": {
+                "name": "globex.com"
+            },
+            "enabled": true
+        }
+    }
 }'
 ```
 
@@ -211,7 +261,7 @@ In this scenario, you want a single passkey to work for `globex.com` (custom roo
 
 Before you begin, ensure that you've done the following:
 
-* [Set `globex.com` as your primary RP ID](#use-an-rp-id-to-share-passkeys-between-multiple-subdomains). Setting `globex.com` as your primary RP ID automatically covers `globex.com` and all its subdomains, like `login.globex.com`, for example.
+* [Set `globex.com` as your primary RP ID](#use-an-rp-id-to-share-passkeys-between-multiple-subdomains). Setting `globex.com` as your primary RP ID enables passkeys to work for all its subdomains (`login.globex.com`, for example).
 * Ensure that you have the `brandId` for your primary brand and that all domains you want to associate are valid.
 
 Then, use the [Associated Domain Customizations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/) to add `globex.okta.com` as a trusted root domain.
@@ -247,7 +297,7 @@ With this configuration, a single passkey registered with the `globex.com` RP ID
 
 ## See also
 
-* [Associated Domain Customizations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/)
 * [About associated domains](/docs/guides/custom-well-known-uri/main/#about-associated-domains)
+* [Customize domain and email address](/docs/guides/custom-url-domain/main/)
+* [Associated Domain Customizations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/)
 * [Authenticator API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/)
-* [Configure a custom domain](https://developer.okta.com/docs/guides/custom-url-domain/main/)
