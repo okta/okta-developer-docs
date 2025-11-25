@@ -16,7 +16,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### Enroll and verify the email authenticator
+### Enrolling and verifying the email authenticator
 
 After being shown the list of available authenticators, the customer continues the self-registration flow by selecting the email authenticator.
 
@@ -32,7 +32,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### Skip the optional remaining authenticators
+### Skipping the optional remaining authenticators
 
 After the password and email authenticators are verified, the user has the option to skip the phone authenticator.
 
@@ -48,7 +48,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### Enroll and verify the phone (SMS) authenticator
+### Enrolling and verifying the phone (SMS) authenticator
 
 After the password and email authenticators are verified, the user has the option to enroll the phone authenticator.
 
