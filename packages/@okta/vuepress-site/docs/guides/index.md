@@ -62,6 +62,7 @@ guides:
  - key-management
  - manage-orgs-okta-aerial
  - mfa
+ - migrate-customizations
  - migrate-to-okta-prerequisites
  - migrate-to-okta-bulk
  - migrate-to-okta-password-hooks
