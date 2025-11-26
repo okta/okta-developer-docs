@@ -16,7 +16,7 @@ Integrator Free Plan orgs are great for developers who want to build and test wi
 1. Go to Okta [Sign up](https://developer.okta.com/signup), and in the Okta Workforce Identity tile, select **Sign up for Integrator Free Plan**.
 1. Enter your name, location, and a business email address to create a free Integrator Free Plan org.
 
-You receive a verification email with your org domain name after sign up. Also included is a link to activate your account and set up your password and other authenticators.
+You receive a verification email with your org domain name after submission. Also included is a link to activate your account and set up your password and other authenticators.
 
 ## Integrator Free Plan org features
 
@@ -40,7 +40,7 @@ The Integrator Free Plan org has the following limitations:
 | Availability                                  | Integrator free plan orgs don't expire. However, orgs deactivate after 180 days of inactivity unless you submit an app to the OIN  |
 | Number of active users                        | 10                                                                   |
 | Okta Org2Org app integration                  | Not available                                                        |
-| Number of workflows                           | 5                                                                    |
+| Number of Workflows                           | 5                                                                    |
 | Email templates                               | Unavailable for editing                                              |
 | Email automation                              | Not available                                            |
 | Rate limits                                   | Limited per-minute rate limits. See [Management rate limits](/docs/reference/rl2-limits/#authentication-and-management-rate-limits).                                             |

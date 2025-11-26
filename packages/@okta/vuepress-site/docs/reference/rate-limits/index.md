@@ -8,9 +8,9 @@ excerpt: >-
 
 Rate limits are essential for maintaining both service continuity and effective security control. By acting as guardrails, rate limiting ensures that systems remain stable and protected against sudden traffic spikes or malicious attacks.
 
-Fundamentally, rate limits define how many requests can be made to an API endpoint within a specific time window. They help protect the reliability and performance of the platform by preventing excessive traffic that could degrade service or introduce security risks, such as distributed denial of service (DDoS) attacks. Rate limits also promote fairness by ensuring all users have equitable access to the service.
+Fundamentally, rate limits define how many requests can be made to an endpoint within a specific time window. They help protect platform reliability and performance by preventing excessive traffic that could degrade service or introduce security risks like DDoS attacks. Rate limits also promote fairness by ensuring all users have equitable access to the service.
 
-Okta implements rate limits using buckets. A rate limiting bucket is a collection of one or more API endpoints that share a defined quota of a specific number of calls per unit of time. This quota is consumed by a set of clients associated with the bucket---this association is known as the scope of the bucket. The most general scope for a bucket is the entire organization. This bucket is shared by every client in the organization that uses the associated APIs. Other more specific buckets can be nested beneath a broader bucket and may be applicable to a subset of APIs for a subset of clients.
+Okta implements rate limits using buckets. A rate limiting bucket is a collection of one or more endpoints that share a defined quota of a specific number of calls per unit of time. This quota is consumed by a set of clients associated with the bucket---this association is known as the scope of the bucket. The most general scope for a bucket is the entire organization. This bucket is shared by every client in the organization that uses the associated APIs. Other more specific buckets can be nested beneath a broader bucket and may be applicable to a subset of APIs for a subset of clients.
 
 For example, there may be a bucket for `/api/v1/authorize` with a quota of 1200 requests per minute for the entire organization. Nested beneath it, there could be a bucket for `/api/v1/authorize` with a quota of 600 requests per minute assigned to a specific client app `APP_123`. When `APP_123` calls `/api/v1/authorize`, the remaining quota status is 1,199 for that minute for the organization, and 599 remaining for `APP_123`.
 
@@ -22,13 +22,13 @@ For example, there may be a bucket for `/api/v1/authorize` with a quota of 1200 
 
 There are two other types of scopes that can apply to a bucket:
 
-* Authenticated users: applies to users acting on the Admin or End-User Dashboard, and are not nested under any other bucket
+* Authenticated users: applies to users acting on the Admin or End-User Dashboard, and aren’t nested under any other bucket
 
 * Non-authenticated users: applies to endpoints that take a username and password, and are always nested under a bucket
 
 Buckets scoped to authenticated users are independent and not nested under any other bucket. That is, requests made by authenticated users to APIs covered by these buckets don't count under any other bucket. For example, there exists a bucket with org-wide scope for `/api/v1/users/*` with a quota of 1000 requests per minute and a separate bucket for `/api/v1/users/m`e scoped to authenticated users with a quota of 40 requests per 10 seconds. A request to `/api/v1/users/me` by an authenticated user would decrement the authenticated user bucket to 39 remaining calls, while leaving the `/api/v1/users/* bucket untouched`.
 
-A bucket’s quota can vary based on several factors, including---but not limited to---the type of service subscription (for example, OWI versus OCI), the HTTP method used (for example, GET versus POST), the number of licenses purchased, and any applicable add-ons, such as DynamicScale. If the quota is exceeded within the defined time window, additional requests are rejected with an HTTP 429 Too Many Requests response until the quota resets. Okta notifies all super administrators through email and other means when an org-wide rate limit is nearing its threshold and again when it has been exceeded.
+A bucket’s quota can vary based on several factors, including---but not limited to---the type of service subscription (for example, OWI versus OCI), the HTTP method used (for example, GET versus POST), the number of licenses purchased, and any applicable add-ons, such as DynamicScale. If the quota is exceeded within the defined time window, additional requests are rejected with an HTTP 429 Too Many Requests response until the quota resets. Okta notifies all super administrators through email and other means when an org-wide rate limit is nearing its threshold. Another notification is sent when it has been exceeded.
 
 You can monitor rate limit usage through the rate limit dashboard, System Log, or by inspecting the rate limiting headers included in API responses.
 
@@ -52,7 +52,7 @@ The logic behind the Okta implementation of rate limits can be summarized in the
 
 When a request is made, Okta’s algorithms attempt to match the HTTP method (GET, POST, and so on) request with a configured rate limit bucket. There are two commonly used matches:
 
-* Exact match: the endpoint requested matches exactly to the configured rate limit bucket. The matching algorithm processes all exact match endpoints first.
+* Exact match: the endpoint requested matches exactly to the configured rate limit bucket. The matching algorithm processes all exact-match endpoints first.
 
 * Longest match: If no exact match is found, the endpoint requested matches the prefix URL of multiple configured rate limit buckets. In this case, the longest match is used.
 
@@ -62,17 +62,17 @@ When a request is made, Okta’s algorithms attempt to match the HTTP method (GE
 
   * `/oauth2/{authorizationServerID}/v1/authorize` for exact match type for all HTTP operations
 
-After a request has been matched, the counters for the impacted buckets are updated. If the counter is nearing the quota for that bucket, a System Log event is generated and an email notification is sent to Super Admins of that organization. Okta allows you to configure this warning threshold in the **Admin Dashboard** > **Reports** > **Rate Limits** > **Settings** section. If the counter exceeds the quota for that bucket, then a violation event is written to the System Log and an email notification is also sent. Additional requests are rejected with an HTTP 429 Too Many Requests response until the counter resets.
+After a request has been matched, the counters for the impacted buckets are updated. If the counter nears the quota for that bucket, a System Log event is generated and an email notification is sent to Super Admins. Okta allows you to configure this warning threshold in the **Admin Dashboard** > **Reports** > **Rate Limits** > **Settings** section. If the counter exceeds the bucket's quota, then a violation event is written to the System Log and an email notification is also sent. Additional requests are rejected with an HTTP 429 Too Many Requests response until the counter resets.
 
 >**Note:** Okta only sends a warning notification once per day and per hour for violation events.
 
 ## Token and OAuth app rate limits
 
-To protect your organization from a single rogue script or misbehaving integration, Okta provides a mechanism to set a specific rate limit capacity for individual API tokens and OAuth 2.0 apps. This ensures that one client can't consume the entire org-wide rate limit for a given endpoint, which prevents it from causing a widespread outage for your other critical integrations.
+Okta lets you set specific rate limits for individual API tokens and OAuth 2.0 apps to prevent one client from consuming all org-wide capacity.. This prevents one client from using the entire org-wide rate limit for an endpoint and causing outages for other critical integrations.
 
-By default, any API token and OAuth 2.0 app you create is configured to consume no more than 50% of an API endpoint's total rate limit capacity. This doesn’t guarantee a minimum rate limit for a token or app, but does provide a ceiling. For example, if your org-wide limit for the `/api/v1/logs` endpoint is 120 requests per minute, a single API token can only make 60 requests per minute to that endpoint before being rate-limited. This default behavior acts as a crucial safeguard in environments with multiple integrations.
+By default, each API token or OAuth 2.0 app can use up to 50% of an API endpoint’s total rate limit. This doesn’t guarantee a minimum rate limit for a token or app, but does provide a ceiling. For example, if your org-wide limit for the `/api/v1/logs` endpoint is 120 requests per minute, a single API token can only make 60 requests per minute to that endpoint before being rate-limited. This default behavior acts as a crucial safeguard in environments with multiple integrations.
 
-The rate limit capacity allocation can be changed in the Admin Console settings for the respective API token and OAuth 2.0 app or through the [principal rate limits](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PrincipalRateLimit/#tag/PrincipalRateLimit) API.
+You can change how much rate limit each API token or OAuth 2.0 app can use in the Admin Console or with the [principal rate limits](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PrincipalRateLimit/#tag/PrincipalRateLimit) API.
 
 Configuring rate limits by token in the Admin Console:
 
@@ -98,4 +98,4 @@ The sum of the capacity percentages for all your tokens and apps doesn’t need 
 
 It's important to understand that alerts (email and dashboard notifications) are triggered based on the consumption of the overall quota assigned to an org-scoped bucket, not the allocated capacity of an individual API token or app.
 
-These violation events are, however, recorded in the Okta System Log. You should monitor the System Log for events related to rate limit violations to identify if a specific token or app is frequently hitting its configured capacity.
+These violation events are, however, recorded in the Okta System Log. Monitor the System Log for rate limit violations to identify if a specific token or app frequently hits its configured capacity.
