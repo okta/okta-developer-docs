@@ -505,7 +505,7 @@ See [Customize associated domains](/docs/guides/custom-well-known-uri/main/). <!
 
 #### Automate SCIM Integration for OIN Apps with Express Configuration
 
-Express Configuration is a feature designed to automate the setup of SSO and SCIM for instances of OIN SaaS integrations by enterprise customers with minimal manual effort. It allows enterprise customers to securely configure OIDC and SCIM integrations without copying and pasting configuration values between Okta and Auth0-enabled apps. See [Express Configuration](/docs/guides/enable-express-configuration/scim/main/). <!-- EXPRESS_CONFIGURATION_SCIM_FOR_AUTH0_APPS OKTA-977761 -->
+Express Configuration is a feature designed to automate the setup of SSO and SCIM for instances of OIN SaaS integrations by enterprise customers with minimal manual effort. It allows enterprise customers to securely configure OIDC and SCIM integrations without copying and pasting configuration values between Okta and Auth0-enabled apps. See [Express Configuration](/docs/guides/enable-express-configuration/main/). <!-- EXPRESS_CONFIGURATION_SCIM_FOR_AUTH0_APPS OKTA-977761 -->
 
 #### Breached Credentials Protection is GA in Preview
 
