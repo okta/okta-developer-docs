@@ -1,0 +1,3 @@
+``` bash
+terraform import okta_review.example <review_id>
+```
