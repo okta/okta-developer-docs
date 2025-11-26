@@ -12,7 +12,7 @@ sections:
 
 # Apply your brand to the Okta user experience
 
-Design and apply a custom look and feel to the Okta-hosted Sign-In Widget that matches your brand.
+Design and apply a custom look and feel that matches your brand to the Okta-hosted Sign-In Widget.
 
 ## Introduction
 
