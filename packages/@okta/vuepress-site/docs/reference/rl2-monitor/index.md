@@ -108,7 +108,9 @@ You can also use the search box to look up specific endpoints. For example, you'
 
 </div>
 
-Unless the endpoint is called out in the dashboard, API endpoints that end with an asterisk (for example, `/api/v1/users*`) refer to calls that use that base schema and count towards that call's limit. It's also important to note the HTTP operation involved with each call, as the same call with different operations can count towards different limits.
+API endpoints that end with an asterisk (for example, `/api/v1/users*`) refer to calls that are not direct matches and use that URL prefix's bucket.
+
+It's also important to note the HTTP operation (`READ`, `WRITE`, `ALL`) involved with each call, as the same call with different operations can count towards different limits.
 
 ### Dashboard settings tab
 
@@ -166,7 +168,7 @@ Okta provides several tools to give you real-time visibility into your API usage
 * Check for HTTP 429 responses in your app logs or API client
 * Alerts in the rate limit dashboard or notifications in your email inbox
 * Check the System Log for rate limit violation events
-* Look at the response headers Okta provides to view both concurrent and org-wide rate limits.
+* Inspect the response headers Okta provides for information about org-wide rate limits and concurrency limit violations.
   * `X-Rate-Limit-Limit`: the rate limit ceiling that’s applicable for the current request.
   * `X-Rate-Limit-Remaining`: the number of requests left for the current rate-limit window.
   * `X-Rate-Limit-Reset`: the time at which the rate limit resets, specified in UTC epoch time (in seconds).

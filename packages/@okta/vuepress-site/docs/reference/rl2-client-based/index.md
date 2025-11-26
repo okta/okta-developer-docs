@@ -5,7 +5,7 @@ category: rate limits
 
 # Client-based rate limits
 
-Client-based rate limiting provides granular, targeted protection for the unauthenticated endpoints used during an app's access flow. It helps isolate noisy neighbors&mdash;such as a misconfigured app, a runaway script, or a bad actor&mdash;preventing them from consuming your entire org-wide rate limit and impacting other users and apps.
+Client-based rate limiting provides granular, targeted protection for browser-based unauthenticated endpoints used during an app's access flow. It helps isolate noisy neighbors&mdash;such as a misconfigured app, a runaway script, or a bad actor&mdash;preventing them from consuming your entire org-wide rate limit and impacting other users and apps.
 
 This framework applies to:
 
@@ -38,9 +38,9 @@ Imagine Bob and Alice are working from home with distinct IP addresses. They bot
 
 If the org-wide limit for the `/authorize` endpoint is 2,000 requests per minute and Bob runs a script that makes 2,000 requests, the following happens:
 
-* Without client-based limits: Bob consumes the entire org-wide limit. Both he and Alice are blocked with HTTP 429 errors, and the app becomes inaccessible to everyone.
+* Without client-based limits: Bob consumes the entire org-wide limit. Both he and Alice are blocked with HTTP 429 errors, and all clients seeking to access the application are disrupted.
 
-* With client-based limits enabled: After Bob exceeds his individual 60-request limit, only requests from his specific client combination are blocked. Alice can continue to access the app without any issues.
+* With client-based limits enabled: After Bob exceeds his individual 60-request limit, only requests from his specific client combination are blocked. Alice and any other clients can continue to access the app without any issues.
 
 ### Scenario 2: Users behind a corporate firewall (NAT)
 
@@ -86,7 +86,7 @@ If you see sporadic events from a few users, it may indicate scripted or automat
 
 #### Check limits with API headers
 
-When client-based rate limiting is in enforce mode, the API response headers reflect the client-specific limit, not the org-wide limit. However, the org-wide rate limit still applies. When the cumulative total request or maximum concurrent requests from every unique client exceeds the org-wide rate limits, your Okta org experiences org-wide rate limit errors.
+When client-based rate limiting is in enforce mode, the API response headers reflect the client-specific limit, not the org-wide limit. However, the org-wide rate limit still applies. When the cumulative total request or maximum concurrent requests from every unique client exceeds the org-wide rate limits, your Okta org experiences org-wide rate limit violations.
 
 * `X-Rate-Limit-Limit`: The 60 requests/minute ceiling for the specific client.
 

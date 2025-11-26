@@ -22,9 +22,9 @@ For example, there may be a bucket for `/api/v1/authorize` with a quota of 1200 
 
 There are two other types of scopes that can apply to a bucket:
 
-* Authenticated users: applies to users acting on the Admin or End-User Dashboard
+* Authenticated users: applies to users acting on the Admin or End-User Dashboard, and are not nested under any other bucket
 
-* Non-authenticated users: applies to endpoints that take a username and password
+* Non-authenticated users: applies to endpoints that take a username and password, and are always nested under a bucket
 
 Buckets scoped to authenticated users are independent and not nested under any other bucket. That is, requests made by authenticated users to APIs covered by these buckets don't count under any other bucket. For example, there exists a bucket with org-wide scope for `/api/v1/users/*` with a quota of 1000 requests per minute and a separate bucket for `/api/v1/users/m`e scoped to authenticated users with a quota of 40 requests per 10 seconds. A request to `/api/v1/users/me` by an authenticated user would decrement the authenticated user bucket to 39 remaining calls, while leaving the `/api/v1/users/* bucket untouched`.
 
@@ -52,17 +52,15 @@ The logic behind the Okta implementation of rate limits can be summarized in the
 
 When a request is made, Okta’s algorithms attempt to match the HTTP method (GET, POST, and so on) request with a configured rate limit bucket. There are two commonly used matches:
 
-* Exact match: the endpoint requested matches exactly to the configured rate limit bucket
+* Exact match: the endpoint requested matches exactly to the configured rate limit bucket. The matching algorithm processes all exact match endpoints first.
 
-* Longest match: the endpoint requested matches the prefix URL of multiple configured rate limit buckets. In this case, the longest match is used.
+* Longest match: If no exact match is found, the endpoint requested matches the prefix URL of multiple configured rate limit buckets. In this case, the longest match is used.
 
-For example:
+  For example:
 
-* `/oauth2/{authorizationServerId}/v1` for longest match type for all HTTP operations
+  * `/oauth2/{authorizationServerId}/v1/*` for longest match type for all HTTP operations. (In the Admin Console, endpoints that end with an asterisk, for example, `/api/v1/users*`, refer to calls that use that base schema and count towards that bucket.)
 
-* `/oauth2/{authorizationServerID}/v1/authorize` for exact match type for all HTTP operations
-
-If a request is made, and it matches the second bucket, both buckets technically match the path but because there’s an exact match for the second bucket, and it’s also the longer match, this request counts against the second bucket.
+  * `/oauth2/{authorizationServerID}/v1/authorize` for exact match type for all HTTP operations
 
 After a request has been matched, the counters for the impacted buckets are updated. If the counter is nearing the quota for that bucket, a System Log event is generated and an email notification is sent to Super Admins of that organization. Okta allows you to configure this warning threshold in the **Admin Dashboard** > **Reports** > **Rate Limits** > **Settings** section. If the counter exceeds the quota for that bucket, then a violation event is written to the System Log and an email notification is also sent. Additional requests are rejected with an HTTP 429 Too Many Requests response until the counter resets.
 
