@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
- This guide details how to automate the process of copying custom branding settings &mdash;including CSS, email content, and error page HTML &mdash;from an Okta test environment to a live production environment.
+ This guide details how to automate copying custom branding settings&mdash;including CSS, email content, and error page HTML&mdash;from an Okta test environment to a live production environment.
 
 #### Learning outcomes
 
@@ -15,13 +15,17 @@ Configure and run a brand customization synchronization from a test or preview e
 #### What you need
 
 * A branded Okta test or preview org and a production Okta org
-* Automated tooling (Terraform Provider, PowerShell Module, or Okta Go CLI)
+* Automated tooling (Terraform provider, PowerShell module, or Okta Go CLI)
 
 ## Prerequisites and tool setup
 
-This guide assumes you have already registered and verified separate custom domains for your test and production environments (for example, `test.example.com` and `portal.example.com`). Okta also assumes your Terraform or CLI tools are fully authenticated and configured.
+This guide assumes that you have already registered and verified separate custom domains for your test and production environments (for example, `test.example.com` and `portal.example.com`). Okta also assumes that your Terraform or CLI tools are fully authenticated and configured.
 
->**New to these tools?** If you have not configured authentication or installed the necessary SDKs (Terraform Provider, PowerShell Module, Okta Go CLI), refer to the introductory guides on the respective GitHub repositories before proceeding.
+>**New to these tools?** If you haven’t configured authentication or installed the necessary SDKs (Terraform provider, PowerShell module, Okta Go CLI), refer to the introductory guides on the respective GitHub repositories before proceeding.
+
+### Limitations
+
+The Okta Management API doesn't provide endpoints to customize the generic, system-generated SMS messages (such as those used for MFA codes). This functionality remains limited to the Admin Console interface. This step can't be automated by the following tools and processes.
 
 ### Terraform environment setup
 
@@ -50,7 +54,7 @@ Invoke-OktaEstablishAccessToken
 
 ### Go CLI and API authentication
 
-Your API token is managed by `okta configure`. You need to switch the `ORG_URL` environment variable for synchronization.
+Your API token is managed by `okta configure`. Switch the `ORG_URL` environment variable for synchronization.
 
 ```go
 # Set variables for UAT environment execution
@@ -60,7 +64,7 @@ ORG_URL="[https://test.example.com](https://test.example.com)"
 # ORG_URL="[https://portal.example.com](https://portal.example.com)"
 ```
 
-## Define resuable branding content
+## Define reusable branding content
 
 All customization logic is centralized into reusable blocks (content strings) that are applied identically across both environments.
 
@@ -132,7 +136,7 @@ $CustomErrorPageHTML = @'
 
 ## Synchronize branding metadata
 
-This step ensures the core brand object exists and is correctly linked to the custom domain of the target environment (test or production).
+This step ensures that the core brand object exists and is correctly linked to the custom domain of the target environment (test or production).
 
 ### Terraform
 
@@ -140,7 +144,7 @@ The `terraform apply` command handles both environments by fetching the appropri
 
 ```terraform
 # Use a variable to define the target domain name for this run
-variable "target_domain_name" { type = string } 
+variable "target_domain_name" { type = string }
 
 data "okta_custom_domain" "portal" {
   name = var.target_domain_name
@@ -148,10 +152,10 @@ data "okta_custom_domain" "portal" {
 
 resource "okta_brand" "custom_app_brand" {
   name             = "Acme Co. User Portal Brand"
-  is_default       = false 
+  is_default       = false
   # Links to the domain found in the 'data' block (UAT or PROD domain)
-  custom_domain_id = data.okta_custom_domain.portal.id 
-  theme_id         = "primary" 
+  custom_domain_id = data.okta_custom_domain.portal.id
+  theme_id         = "primary"
 }
 ```
 
@@ -176,25 +180,25 @@ Write-Host "Brand ID for target environment: $BrandId"
 
 ### Go CLI or API
 
-Requires manual identification of the brand ID or creating it through a direct API call.
+This step requires manual identification of the brand ID or creating it through a direct API call.
 
 ```go
-# --- 1. Find the Domain ID (Manual or via okta domains list) ---
+# --- 1. Find the Domain ID (Manual or through Okta domains list) ---
 DOMAIN_ID="<Target_Domain_ID>"
 
-# --- 2. Create the Brand (if it doesn't exist) and set BRAND_ID ---
+# --- 2. Create the Brand (if it does not exist) and set BRAND_ID ---
 # Use the ORG_URL environment variable to target UAT or PROD
 curl -v -X POST "${ORG_URL}/api/v1/brands" \
 -H "Authorization: SSWS ${API_TOKEN}" \
 -H "Content-Type: application/json" \
--d '{ "name": "Example User Portal Brand", "customDomainId": "'"${DOMAIN_ID}"'" }'
+-d "{ "name": "Example User Portal Brand", "customDomainId": "'"${DOMAIN_ID}"'" }"
 # Manually set the ID after creation:
 # BRAND_ID="<Created_Brand_ID>"
 ```
 
-## Apply Sign-in Widget customization
+## Apply Sign-In Widget customization
 
-Applies the custom CSS (defined in section [Define resuable branding content](#define-resuable-branding-content)) to the Brand's theme in the target environment.
+Applies the custom CSS (defined in section [Define reusable branding content](#define-resuable-branding-content)) to the Brand's theme in the target environment.
 
 ### Terraform
 
@@ -222,12 +226,12 @@ THEME_ID=$(curl -s -X GET "${ORG_URL}/api/v1/brands/${BRAND_ID}/themes" \
 curl -v -X PUT "${ORG_URL}/api/v1/brands/${BRAND_ID}/themes/${THEME_ID}" \
 -H "Authorization: SSWS ${API_TOKEN}" \
 -H "Content-Type: application/json" \
--d '{ "extraCss": "'"$(echo $CUSTOM_CSS | tr -d '\n')"'" }'
+-d "{ "extraCss": "'"$(echo $CUSTOM_CSS | tr -d '\n')"'" }"
 ```
 
 ## Apply email template customization
 
-Synchronizes the email content (defined in section [Define resuable branding content](#define-resuable-branding-content)) for key templates.
+Synchronizes the email content (defined in section [Define reusable branding content](#define-resuable-branding-content)) for key templates.
 
 ### Terraform
 
@@ -264,12 +268,12 @@ Write-Host "User Activation email template synchronized."
 curl -v -X POST "${ORG_URL}/api/v1/brands/${BRAND_ID}/templates/email/UserActivation/customizations" \
 -H "Authorization: SSWS ${API_TOKEN}" \
 -H "Content-Type: application/json" \
--d '{
+-d "{
     "subject": "Your Example Co. Account is Ready!",
     "body": "<html>...</html>",
     "language": "en",
     "isDefault": true
-}'
+}"
 ```
 
 ## Apply error page customization
