@@ -26,7 +26,7 @@ There are three key elements to the theming of the Okta out-of-the-box user expe
 * The [Okta Expression Language](/docs/reference/okta-expression-language/) is used to customize our email and SMS messages.
 * Okta [Brands](https://developer.okta.com/docs/concepts/brands/) allows you to manage multiple brands in one Okta org.
 
-See the [repository of example style sheets for the Sign-In Widget](LINK_HERE) for examples of the types of updates that you can make.
+<!-- See the [repository of example style sheets for the Sign-In Widget](https://github.com/oktadev/okta-js-siw-customzation-example) for examples of the types of updates that you can make.-->
 
 > Note: This document is only for Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
@@ -49,8 +49,8 @@ To apply your brand to the Okta-hosted Sign-In Widget, consider an upgrade to th
 
 Consider using the third generation Sign-In Widget for the best customization options:
 
-* [Understand the differences between the second and third-generation widget](https://help.okta.com/oie/en-us/content/topics/reference/siw-compare-generations.htm?cshid=ext-compare-siw)
-* [Learn how to upgrade to the third-generation widget](/docs/guides/custom-widget-migration-gen3/main/)
+* [Understand the differences between the second and third-generation widget](https://help.okta.com/oie/en-us/content/topics/reference/siw-compare-generations.htm?cshid=ext-compare-siw).
+* [Learn how to upgrade to the third-generation widget](/docs/guides/custom-widget-migration-gen3/main/).
 
 ### Register a vanity domain with your org
 
@@ -60,7 +60,7 @@ All customizations are tied to the custom domain that you must first attach to y
 
 Create a stylesheet and any required JavaScript for custom behaviors and attach it to your custom domain in the Admin Console:
 
-* Use [our samples repo](LINK_HERE) to build the correct CSS to match your design.
+<!-- * Use [our samples repo](https://github.com/oktadev/okta-js-siw-customzation-example) to build the correct CSS to match your design. -->
 * Add your style sheets and scripts. You can do this using either the [second](/docs/guides/custom-widget/main/#style-for-redirect-authentication) or [third-generation](/docs/guides/custom-widget-gen3/main/) widget.
 * [Use design tokens](/docs/guides/custom-widget-gen3/main/). You can do this using the third-generation widget.
 
@@ -69,7 +69,7 @@ Create a stylesheet and any required JavaScript for custom behaviors and attach 
 Customize the text of emails, SMS messages, and error pages delivered by Okta for a custom domain and also localize it to match your messaging:
 
 * [Customize your email templates](/docs/guides/custom-email/main/)
-  * [Add app-level context logic](/docs/guides/custom-email/main/)
+  * [Add app-level context logic](/docs/guides/custom-email/main/#app-name)
 * [Customize your SMS messages](/docs/guides/custom-sms-messaging/main/)
 * [Customize your error pages](/docs/guides/custom-error-pages/main/)
 
