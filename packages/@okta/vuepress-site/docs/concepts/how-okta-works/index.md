@@ -7,7 +7,7 @@ Okta is a customizable, secure, and drop-in solution to add authentication and a
 
 You can connect any application in any language or on any stack to Okta and define how you want your users to sign in. Each time a user tries to authenticate, Okta will verify their identity and send the required information back to your app.
 
-Use our SDKs or API to connect your apps, add users, configure rules, customize your sign-in page, and then monitor your services from our built-in reports.
+Use our SDKs or APIs to connect your apps, add users, configure rules, customize your sign-in page, and then monitor your services from our built-in reports.
 
 ## What you can do with Okta
 
