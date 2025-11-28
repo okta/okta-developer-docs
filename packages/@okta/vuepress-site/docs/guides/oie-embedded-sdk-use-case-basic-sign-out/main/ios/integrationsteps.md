@@ -65,36 +65,23 @@ func signOutLocally() async {
 The following code example shows you how to switch between user accounts:
 
 ```swift
-/// A simple structure to represent the concept of a stored account identifier.
-struct AccountIdentifier {
-    let username: String
-    let credentialId: String // The ID used to retrieve the stored credential
-}
+func switchDefaultAccount(to userEmail: String) throws {
+    // Retrieve the credential object for the target account using its email address.
 
-func switchDefaultAccount(to account: AccountIdentifier) async throws {
-    // Retrieve the credential object for the target account using its ID.
-    // The SDK provides a mechanism (often via a CredentialStore) to fetch
-    // a specific stored credential instance.
-    guard let newCredential = try await Credential.retrieve(withID: account.credentialId) else {
+    guard let newCredential = try Credential.find(where: { meta in
+        meta.preferredUsername == userEmail
+    }) else {
         throw AccountError.credentialNotFound(account.username)
     }
 
-    // Set the retrieved credential as the new default. This immediately makes this account the active user (Credential.default).
+    // Set the retrieved credential as the new default.
+    // This immediately makes this account the active user (Credential.default).
     Credential.default = newCredential
 
-    print("Switched active user to: \(newCredential.username ?? "Unknown User")")
+    print("Switched active user to: \(newCredential.preferredUsername ?? "Unknown User")")
 
-    // The app can now refresh the UI based on the new active user's tokens/state.
+    // The app can now update to use the new default credential, or may be automatically updated in response to the Notification.Name.defaultCredentialChanged notification..
 }
-
-// Example usage assuming you have a list of stored account identifiers:
-// let storedAccounts: [AccountIdentifier] = [
-//     AccountIdentifier(username: "userA@okta.com", credentialId: "id-for-user-A"),
-//     AccountIdentifier(username: "userB@okta.com", credentialId: "id-for-user-B")
-// ]
-
-// try await switchDefaultAccount(to: storedAccounts[1])
-
 ```
 
 ### End the Okta browser session (optional)
