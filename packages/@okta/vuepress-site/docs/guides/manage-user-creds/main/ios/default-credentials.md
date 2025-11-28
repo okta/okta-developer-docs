@@ -5,7 +5,7 @@ If you have a single-user app, the use of "default" credentials simplifies the d
 * Use the `default` type property to access the default credential, for example, to check if a user is already signed in when the app starts.
 * The `Credential` class sends an event (for example, `Notification.Name` type) whenever the default credential is set or removed. You can listen for this event to dynamically update your UI, such as transitioning from a sign-in screen to a logged-in view.
 
-Swift example: Checking for a default user on app load
+### Swift example: Checking for a default user on app load
 
 ```swift
 // On app launch, check for a default credential
