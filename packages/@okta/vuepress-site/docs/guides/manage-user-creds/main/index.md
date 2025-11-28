@@ -34,7 +34,7 @@ After the user (or other identity) is authenticated within an app, you must mana
 * Ensure that it's correctly refreshed as required
 * Remove it after reaching expiration or a direct deletion request
 
-The Okta Client SDK provides a robust token management system designed to handle complex scenarios, such as multi-threaded access and data race conditions. This allows you to focus on your app's features rather than building a complex token management system from scratch.
+The Okta Client SDK provides a robust token management system that's designed to handle complex scenarios, such as multi-threaded access and data race conditions. This allows you to focus on your app's features rather than building a complex token management system from scratch.
 
 ### Core components of the token management system
 
