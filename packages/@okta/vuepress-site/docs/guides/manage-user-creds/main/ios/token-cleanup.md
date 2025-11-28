@@ -18,6 +18,8 @@ When implementing your code, consider the following items:
   * **Default credentials:** The `Credential.default` property can be used to determine which account is active. Switch the active user by assigning a different stored credential to the `Credential.default` property.
   * **Sign-out scope:** When a user signs out, you typically only want to sign out the active user. If you want to remove all stored sessions, you need to iterate over all stored credentials and revoke or remove each one.
 
+See [User sign-out flow (local app)](/docs/guides/oie-embedded-sdk-use-case-basic-sign-out/ios/main/).
+
 ### Swift example: Secure sign-out flow
 
 ```swift
