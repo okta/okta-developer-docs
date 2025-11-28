@@ -580,6 +580,10 @@ export const guides = [
             guideName: "configure-native-sso",
           },
           {
+            title: "Manage credentials using the Okta Client SDK",
+            guideName: "manage-user-creds",
+          },
+          {
             title: "Request user consent",
             guideName: "request-user-consent"
           },
