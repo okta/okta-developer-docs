@@ -20,7 +20,7 @@ When implementing your code, consider the following items:
 
 See [User sign-out flow (local app)](/docs/guides/oie-embedded-sdk-use-case-basic-sign-out/ios/main/).
 
-### Swift example: Secure sign-out flow
+### Swift example: Secure your sign-out flow
 
 ```swift
 func signOutLocally() async {

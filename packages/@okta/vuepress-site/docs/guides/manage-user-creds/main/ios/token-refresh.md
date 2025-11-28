@@ -4,7 +4,7 @@ Access tokens are short-lived for security reasons. The Swift Client SDK simplif
 * `refreshIfNeeded()`: A smarter function that only refreshes the token if it's expired or is about to expire within a defined grace interval.
 * `authorize(request:)`: Authorizes an outgoing network request, refreshing the token if needed. Automatically attaches the appropriate HTTP Authorization headers to the outgoing request. This is the recommended approach to manage token expiration before making an API call.
 
-### Swift example: Refreshing a token
+### Swift example: Refresh a token
 
 ```swift
 func makeAuthenticatedApiRequest(credential: Credential, url: URL, data: [String: Any]) async -> Any {
