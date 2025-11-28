@@ -19,7 +19,7 @@ When implementing your code, consider the following items:
 * **Multiple accounts:** If your app allows users to switch between multiple accounts or tenants, keep the following items in mind:
   * **Credential storage:** The SDK can store multiple user credentials securely. Assigning a new default credential doesn’t automatically remove previously stored credentials.
   * **Default credentials:** The `Credential.default` property points to the active user account. You can switch the active user by assigning a different stored credential to this property.
-  * **Sign-out scope:** When a user signs out, you typically only want to sign out the active user. If you want to remove all stored sessions, you need to iterate over all stored credentials and revoke or remove each one.
+  * **Sign-out scope:** When a user signs out of Okta, you typically only want to sign out the active user. If you want to remove all stored sessions, you need to iterate over all stored credentials and revoke or remove each one.
 
 #### Example token cleanup code
 
