@@ -580,7 +580,7 @@ export const guides = [
             guideName: "configure-native-sso",
           },
           {
-            title: "Credential management using the Okta Client SDK",
+            title: "Manage credentials using the Okta Client SDK",
             guideName: "manage-user-creds",
           },
           {
