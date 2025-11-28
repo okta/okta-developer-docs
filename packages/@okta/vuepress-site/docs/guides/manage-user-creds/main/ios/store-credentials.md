@@ -1,4 +1,4 @@
-After a user successfully signs in, you receive a `Token` object. The first step is to securely store it:
+After a user successfully signs in to your app, you receive a `Token` object. The first step is to securely store it:
 
 * **How it works:** Use the static `Credential.store()` function. This saves the token to secure storage and returns a `Credential` object for you to work with.
 * **Developer-assigned tags:** You can add optional tags (metadata) during storage. These tags are useful for querying and managing multiple credentials later. For example, you could tag tokens based on user roles or the service they are for.
