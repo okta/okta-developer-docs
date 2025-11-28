@@ -9,7 +9,7 @@ The new SDK provides several methods to clean up tokens, depending on your use c
 * `Credential.revoke(type:)`: Revokes a specific token type (access token, refresh token, or device secret) from the Authorization Server. See [Revoke Tokens](https://developer.okta.com/docs/guides/revoke-tokens/main/).
   * If you revoke an access token, the associated refresh token or device secret isn’t revoked.
   * If you revoke a refresh token, the associated access token is revoked.
-  * Keeps the token in storage so that you can refresh it to get a new access token. However, if the token is no longer usable, the SDK removes the token from storage. For example, if you revoke a refresh token and the associated access token is revoked.
+  * Keeps the token in storage so that you can refresh it to get a new access token. However, if the token is no longer usable, the SDK removes it from storage. For example, if you revoke a refresh token and the associated access token is revoked.
 * `Credential.remove()`: Clears the in-memory reference to the token and removes it from storage. The credential can no longer be used.
   * Doesn’t revoke the token from the authorization server
 
