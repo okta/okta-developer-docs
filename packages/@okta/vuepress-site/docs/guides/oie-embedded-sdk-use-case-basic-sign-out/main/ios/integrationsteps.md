@@ -4,19 +4,22 @@ The following code examples show you how to set up the user sign-out flow.
 
 The new SDK provides several methods to clean up tokens, depending on your use case:
 
-* `Credential.remove()`: Clears the in-memory reference to the token and removes it from storage. The credential can no longer be used.
-  * Doesn’t revoke the token from the authorization server
 * `Credential.revoke()`: Revokes all available tokens from the Authorization Server.
   * Doesn’t remove the token from memory or storage
-* `Credential.revoke(type:)`: Revokes a specific token type (access token, refresh token, or device secret) from the Authorization Server.
-  * Doesn’t remove the token from memory or storage
+* `Credential.revoke(type:)`: Revokes a specific token type (access token, refresh token, or device secret) from the Authorization Server. See [Revoke Tokens](https://developer.okta.com/docs/guides/revoke-tokens/main/).
   * If you revoke an access token, the associated refresh token or device secret isn’t revoked.
   * If you revoke a refresh token, the associated access token is revoked.
+  * Keeps the token in storage so that you can refresh it to get a new access token. However, if the token is no longer usable, the SDK removes it from storage. For example, if you revoke a refresh token and the associated access token is revoked.
+* `Credential.remove()`: Clears the in-memory reference to the token and removes it from storage. The credential can no longer be used.
+  * Doesn’t revoke the token from the authorization server
 
-When implementing your code, keep in mind the following:
+When implementing your code, consider the following items:
 
 * **Revoke before remove:** Always attempt `revoke()` before `remove()`. If the revoke fails, you should still remove the token to ensure that the sign out occurs.
-* **Multiple accounts:** If your app supports multiple profiles/tenants, iterate over all credentials during sign-out.
+* **Multiple accounts:** If your app allows users to switch between multiple accounts or tenants, keep the following items in mind:
+  * **Credential storage:** The SDK can store multiple user credentials securely. Assigning a new default credential doesn’t automatically remove previously stored credentials.
+  * **Default credentials:** The `Credential.default` property points to the active user account. You can switch the active user by assigning a different stored credential to this property.
+  * **Sign-out scope:** When a user signs out of Okta, you typically only want to sign out the active user. If you want to remove all stored sessions, you need to iterate over all stored credentials and revoke or remove each one.
 
 #### Example token cleanup code
 
@@ -30,19 +33,54 @@ func signOutLocally() async {
     guard let credential = Credential.default else { return }
 
     do {
-        // Revoke access tokens server-side (safer than only deleting)
+        // Revoke refresh/access tokens server-side (the safest approach).
+        // The SDK's 'revoke' typically also removes the tokens from local storage upon success.
         try await credential.revoke()
+
+        // If 'revoke()' succeeds, we're done. Navigate to the signed-out page.
+
     } catch {
-        // Log but continue; you should still clear local state
+        // If 'revoke()' fails (for example, due to a temporary network issue or invalid token).
+        // Log the server-side revocation error but always continue to clear local state.
+        // Log the error: print("Server-side revocation failed: \(error)")
+
+        do {
+            // Remove tokens and user state from local secure storage. This is essential for a proper sign-out, even if the server-side call failed.
+            try await credential.remove()
+
+            // Local removal succeeded. Navigate to signed-out page.
+
+        } catch {
+            // Handle/log if local storage removal also fails. This is rare but possible.
+            // Handle/remove fallback, if needed.
+            // Log the error: print("Local removal failed: \(error)")
+        }
+    }
+}
+
+```
+
+#### Example switch between user accounts code
+
+The following code example shows you how to switch between user accounts:
+
+```swift
+func switchDefaultAccount(to userEmail: String) throws {
+    // Retrieve the credential object for the target account using its email address.
+
+    guard let newCredential = try Credential.find(where: { meta in
+        meta.preferredUsername == userEmail
+    }) else {
+        throw AccountError.credentialNotFound(account.username)
     }
 
-    // Remove tokens and user state from local secure storage
-    do {
-        try await credential.remove()
-        // Navigate to sign-out page
-    } catch {
-        // Handle or remove fallback if needed
-    }
+    // Set the retrieved credential as the new default.
+    // This immediately makes this account the active user (Credential.default).
+    Credential.default = newCredential
+
+    print("Switched active user to: \(newCredential.preferredUsername ?? "Unknown User")")
+
+    // The app can now update to use the new default credential, or may be automatically updated in response to the Notification.Name.defaultCredentialChanged notification..
 }
 ```
 
