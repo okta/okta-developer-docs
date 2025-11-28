@@ -5,8 +5,6 @@ meta:
     content: Learn about how to securely manage user credentials using the Okta Client SDK.
 ---
 
-<ApiLifecycle access="ie" />
-
 <StackSnippet snippet="intro" />
 
 ---
