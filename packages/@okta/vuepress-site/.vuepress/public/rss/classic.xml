@@ -4,8 +4,17 @@
   <title>Okta Classic Engine API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2025/</link>
   <description>Recent release notes for Okta Classic Engine API</description>
-  <pubDate>Wed, 19 Nov 2025 18:10:31 GMT</pubDate>
+  <pubDate>Mon, 01 Dec 2025 16:12:36 GMT</pubDate>
   
+    <item>
+      <title>Test Monthly release 2025.11.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025/#test-Monthly-release-2025-11-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025/#test-Monthly-release-2025-11-0</guid>
+      <pubDate>Thu, 27 Nov 2025 05:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#bug-fixed-in-2025-10-2">Test feature</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#bug-fixed-in-2025-10-2">Test Bug fixed in 2025.10.3</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Test Weekly release 2025.10.4</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#test-Weekly-release-2025-10-4</link>

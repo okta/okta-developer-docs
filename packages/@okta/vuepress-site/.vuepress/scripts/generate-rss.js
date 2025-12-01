@@ -61,7 +61,7 @@ function formatRowsFirstColumnOnlyWithBr(tableRows) {
 }
 
 function extractPublishedDate(section) {
-  const match = section.match(/Published on:\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})/);
+  const match = section.match(/<!--\s*Published on:\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})\s*-->/);
   if (match && match[1]) {
     const date = new Date(match[1]);
     if (!isNaN(date.getTime())) {
