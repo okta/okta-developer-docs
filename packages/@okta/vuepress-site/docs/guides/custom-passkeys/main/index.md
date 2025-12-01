@@ -62,11 +62,11 @@ Verifying the root domain, to use it as an RP ID, doesn't require a CNAME record
 
 You can enable passkeys to work with multiple domains by using the following methods:
 
-* [Configure an RP ID](#use-an-rp-id-to-share-passkeys-between-multiple-subdomains): This enables end users to sign in with passkeys across subdomains of a single root domain.
+* [Configure an RP ID](#configure-an-rp-id): This enables end users to sign in with passkeys across subdomains of a single root domain.
 * [Configure associated domains](#use-associated-domains-to-share-passkeys-between-root-domains): This enables end users to sign in with passkeys across different root domains.
 * [Use a combination of both methods](#share-passkeys-across-okta-and-custom-domains): This enables end users to sign in with passkeys across all domains, including custom domains and Okta's default domains.
 
-### Use an RP ID to share passkeys between multiple subdomains
+### Configure an RP ID
 
 In this scenario, you want to enable users to sign in to `login.globex.com` and `support.globex.com` domains with a passkey. Create a new RP ID for the WebAuthn authenticator that uses your root domain (`globex.com`). This RP ID works for all subdomains of `globex.com`.
 
