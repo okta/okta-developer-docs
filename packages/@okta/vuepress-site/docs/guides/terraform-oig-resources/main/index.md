@@ -1,25 +1,28 @@
 ---
-title: Manage Terraform Okta Identity Governance resources
+title: Manage Okta Identity Governance resources using Terraform
 meta:
   - name: description
-    content: Use this guide to manage Okta Identity Governance resources using Terraform.
+    content: Learn how to create, import, and modify Okta Identity Governance resources using Terraform automation.
 layout: Guides
 ---
-This guide provides instructions for developers on how to use the <StackSnippet snippet="resource-name" inline/> Terraform resource to manage entitlements within your Okta org.
+Learn how to create, import, and modify Okta Identity Governance resources using Terraform automation.
 
 #### Learning outcomes
 
-- Define and create an entitlement resource using Terraform.
-- Modify an existing entitlement managed by Terraform.
-- Import an entitlement from Okta into your Terraform state.
+- Define and create an <StackSnippet snippet="resource-name" inline/> resource using Terraform.
+- Modify an existing <StackSnippet snippet="resource-name" inline/> resource managed by Terraform.
+- Import <StackSnippet snippet="resource-name" inline/> resource from Okta into your Terraform state.
 
 #### What you need
 - Familiarity with the Terraform terms, such as configuration, resources, state, and commands.
 - An Okta org with the OIG SKU enabled.
-- A Terraform configuration that can access your Okta org. See [Okta provider configuration]
+- A Terraform configuration that can access your Okta org. See [Okta provider configuration](#okta-provider-configuration).
 - An Okta user account with the super administrator role.
 - Terraform 1.8.5 or later.
 - Okta Terraform provider 6.0.0 or later.
+
+> **Note:** The instructions on this page are for the **<StackSnippet snippet="resource-name" inline/>** protocol. <br>
+> If you want to change the protocol instructions on this page, select the protocol you want from the **Instructions for** dropdown list on the right.
 
 ### Overview
 
@@ -27,15 +30,15 @@ This guide provides instructions for developers on how to use the <StackSnippet 
 
 ### Set up your Terraform files
 
-For guidance on organizing your files, see setting up a typical Okta Terraform configuration. Consider organizing your Terraform code in a way that groups related resources together. For example, you could create a Terraform file called brands.tf that contains custom domains, brands, and themes.
+For guidance on organizing your files, see [setting up a typical Okta Terraform configuration](/docs/guides/terraform-organize-configuration/main/#configure-a-basic-okta-terraform-configuration). Consider organizing your Terraform code in a way that groups related resources together. For example, you could create a Terraform file called `brands.tf` that contains custom domains, brands, and themes.
 
 #### Add or confirm the API scopes
 
 Your Terraform integration requires the appropriate scopes that depend on what you're managing:
 
-<StackSnippet snippet="scope" inline/>
+<StackSnippet snippet="scope"/></br>
 
-To grant scopes in the Admin Console and to include them in your Terraform code, see the articles on enabling your API service app for Terraform access and create a basic Okta Terraform provider configuration.
+To grant scopes in the Admin Console and to include them in your Terraform code, see the guides on [enabling your API service app for Terraform access](/docs/guides/terraform-enable-org-access/) and [setting up a typical Okta Terraform configuration](/docs/guides/terraform-organize-configuration/).
 
 ### Okta provider configuration
 
@@ -47,8 +50,7 @@ Configure the Okta Terraform provider in your Terraform configuration files. Thi
       required_providers {
         okta = {
           source  = "okta/okta"
-          version = "~> 4.0" # Use a recent, compatible version
-        }
+          version = ">= 6.0.0"
       }
     }
     provider "okta" {
@@ -73,6 +75,9 @@ Before creating an entitlement, you must enable Identity Governance on the app i
 1. In the **General** tab, locate Identity Governance and select **Edit**.
 1. Select **Enable** from the **Governance Engine** dropdown menu.
 1. Select **Save**.
+
+> **Note:** The instructions on this page are for the **<StackSnippet snippet="resource-name" inline/>** protocol. <br>
+> If you want to change the protocol instructions on this page, select the protocol you want from the **Instructions for** dropdown list on the right.
 
 ### Resource arguments
 
