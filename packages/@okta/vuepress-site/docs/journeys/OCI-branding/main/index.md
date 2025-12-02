@@ -27,8 +27,7 @@ There are three key elements to the theming of the Okta out-of-the-box user expe
 * Okta [Brands](https://developer.okta.com/docs/concepts/brands/) allows you to manage multiple brands in one Okta org.
 
 <!-- See the [repository of example style sheets for the Sign-In Widget](https://github.com/oktadev/okta-js-siw-customzation-example) for examples of the types of updates that you can make.-->
-
-> Note: This document is only for Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+> **Note**: This document is only for Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 ## Plan
 
@@ -80,7 +79,7 @@ The Okta default UI spans user registration, enrollment, verification, and accou
 * Test that your new branding is consistent for your users across all four actions.
 * Test that your error pages work as expected.
 * Test that your text works in different languages as expected.
-* [Copy/Synchronize your settings from UAT to Production (using the Admin Console or Terraform)](LINK_HERE)
+* [Copy/Synchronize your settings from UAT to Production (using the Admin Console or Terraform)](/docs/guides/migrate-customizations/).
 
 ## Related topics
 
