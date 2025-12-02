@@ -4,7 +4,7 @@ The following code examples show you how to set up the user sign-out flow.
 
 The new SDK provides several methods to clean up tokens, depending on your use case:
 
-* `Credential.revoke()`: Revokes all available tokens from the Authorization Server. It works like the `revoke(type:)` method but with a default type of `.all`. As a result, it loops through all tokens calling `revoke()` on each of them in parallel.
+* `Credential.revoke()`: Revokes all available tokens from the authorization server. It works like the `revoke(type:)` method but with a default type of `.all`. As a result, it loops through all tokens calling `revoke()` on each of them in parallel.
   * **Note:** The SDK keeps the token in storage so that you can refresh it to get a new access token. However, if the token is no longer usable, the SDK removes the token from storage. For example, if you revoke a refresh token and the associated access token is revoked.
 * `Credential.revoke(type:)`: Revokes a specific token type (access token, refresh token, or device secret) from the Authorization Server. See [Revoke tokens](https://developer.okta.com/docs/guides/revoke-tokens/main/).
   * **Notes:**
