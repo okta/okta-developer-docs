@@ -1,0 +1,65 @@
+---
+title: Multibrand architecture
+meta:
+  - name: description
+    content: An overview of the concepts needed to set up a multibrand environment.
+---
+
+# Multibrand architecture
+
+This document reviews core concepts and options available to set up the architecture for multiple brands in your environment.
+
+**Note:** This document applies to the customization of Gen3 of the Sign-In Widget. For information about Gen2, see []
+
+## Domain strategy decision flow
+
+The right multibrand architecture requires that you answer the following questions:
+
+* Do you need Single Sign-On (SSO)?
+* How complex are your brand's visual needs?
+
+The following diagram shows the decision flow you should follow when setting up your architectural approach:
+
+
+
+
+
+## Do you need SSO across brands?
+
+The first architectural decision determines whether you will use domain-level or app-level branding.
+
+### No SSO required
+
+If your brands operate independently and don’t require users to log in once to access all brand-specific apps, you can use domain-level branding within a single Okta org.
+
+In this scenario, all brands share the same underlying Okta login experience (that is, a single Okta domain), and customizations are applied at the domain level.
+
+This approach simplifies management by centralizing user identity and policy enforcement. However, the degree of visual customization across brands is limited to what the core Okta sign-in widget allows.
+
+End-users would have a “Same Login Experience", with the ability to have the same user name, password, email, phone, even OTPs.
+
+**Note:** If you plan to use passkeys, this approach limits you to five associated domains. 
+
+
+### SSO required
+
+
+
+
+
+
+
+### Context controls
+
+Okta provides many different controls that you can use to set up multibranding in your environment.
+
+#### Okta context (responsible party)
+
+The following table lists controls that Okta is responsible for:
+
+
+
+
+#### External context (responsible party)
+
+The following table lists controls that you control externally:
