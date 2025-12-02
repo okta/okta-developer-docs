@@ -37,8 +37,7 @@ The Sign-In Widget is a JavaScript library that you can integrate in several way
 
    You can customize the sign-in form's appearance using the code editor to seamlessly integrate with your brand. Customization options include your company logo, color schemes, favicon, the text for various labels and links, and the ability to add or modify supported languages.
 
-   > **Note**: See the Okta GitHub repo that contains [Sign-In Widget customization examples](https://github.com/oktadev/okta-js-siw-customization-example) for different examples of how to customize the Okta-hosted Sign-In Widget for your brand.
-
+   <!-- >> **Note**: See the Okta GitHub repo that contains [Sign-In Widget customization examples](https://github.com/oktadev/okta-js-siw-customization-example) for different examples of how to customize the Okta-hosted Sign-In Widget for your brand.-->
    You don't need to run a code deployment when you enforce security policies (password complexity, session duration, and MFA requirements) through the Admin Console. The changes are instantly reflected in the Sign-In Widget.
 
    You can let Okta host the Sign-In Widget or you can embed it in your code base.
@@ -85,8 +84,7 @@ See [Embedded Okta Sign-In Widget fundamentals](https://developer.okta.com/docs/
 
 ## Related topics
 
-* [Okta Sign-In Widget GitHub repo](https://github.com/okta/okta-signin-widget)
-
 * [Okta deployment models - redirect vs. embedded](/docs/concepts/redirect-vs-embedded/)
 
 * [Sign users in overview](/docs/guides/sign-in-overview/main/)
+<!--* [Okta Sign-In Widget GitHub repo](https://github.com/okta/okta-signin-widget)-->
