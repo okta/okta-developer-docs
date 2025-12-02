@@ -1,7 +1,7 @@
 The SDK for Swift provides several methods to sign a user out of your app, depending on your use case:
 
 * `Credential.revoke()`: Revokes all available tokens from the Authorization Server. It works like the `revoke(type:)` method but with a default type of `.all`. As a result, it loops through all tokens calling `revoke()` on each of them in parallel.
-  * **Note:** Keeps the token in storage so that you can refresh it to get a new access token. However, if the token is no longer usable, the SDK removes the token from storage. For example, if you revoke a refresh token and the associated access token is revoked.
+  * **Note:** The SDK keeps the token in storage so that you can refresh it to get a new access token. However, if the token is no longer usable, the SDK removes the token from storage. For example, if you revoke a refresh token and the associated access token is revoked.
 * `Credential.revoke(type:)`: Revokes a specific token type (access token, refresh token, or device secret) from the Authorization Server. See [Revoke tokens](https://developer.okta.com/docs/guides/revoke-tokens/main/).
   * **Notes:**
     * If you revoke an access token, the associated refresh token or device secret isn’t revoked.
