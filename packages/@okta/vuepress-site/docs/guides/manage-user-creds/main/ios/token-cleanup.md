@@ -8,7 +8,7 @@ The SDK for Swift provides several methods to sign a user out of your app, depen
     * If you revoke a refresh token, the associated access token is revoked.
     * Keeps the token in storage so that you can refresh it to get a new access token. However, if the token is no longer usable, the SDK removes the token from storage. For example, if you revoke a refresh token and the associated access token is revoked.
 * `Credential.remove()`: Clears the in-memory reference to the token and removes it from storage.
-  * **Note:** Doesn’t revoke the token from the authorization server, so it can still be used.
+  * **Note:** The SDK doesn’t revoke the token from the authorization server, so it can still be used.
 
 When implementing your code, consider the following items:
 
