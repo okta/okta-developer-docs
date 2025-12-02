@@ -32,7 +32,7 @@ if let credential = try Credential.find(where: { $0.tags["service"] == "purchase
 
 ### Swift example: Find credentials by ID Token claims
 
-If a token contains a valid [idToken](https://okta.github.io/okta-mobile-swift/development/documentation/authfoundation/token/idtoken), the claims it represents are available within the [find(where:prompt:authenticationContext:)](https://okta.github.io/okta-mobile-swift/development/documentation/authfoundation/credential/find(where:prompt:authenticationcontext:)) expression. Both the SDK's JWT type, and the find function, support the access of ID token claims. See [HasClaims](https://okta.github.io/okta-mobile-swift/development/documentation/authfoundation/hasclaims).
+If a token contains a valid [idToken](https://okta.github.io/okta-mobile-swift/development/documentation/authfoundation/token/idtoken), the claims it represents are available within the [find(where:prompt:authenticationContext:)](https://okta.github.io/okta-mobile-swift/development/documentation/authfoundation/credential/find(where:prompt:authenticationcontext:)) expression. Both the SDK's JWT type and the find function support the access of ID token claims. See [HasClaims](https://okta.github.io/okta-mobile-swift/development/documentation/authfoundation/hasclaims).
 
 ```swift
 let userCredentials = try Credential.find { metadata in
