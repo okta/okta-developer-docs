@@ -12,7 +12,7 @@ At the Microsoft identity platform, set up a tenant and register the client app 
 
 3. Copy the **Application (client) ID** value so that you can add it to the Okta configuration in the next section.
 
-4. Under **Certificates & secrets**, click **New client secret** to generate a client secret for your app. Copy the value so that you can add it to the Okta configuration in the next section. This is the secret that corresponds to your Azure application ID.
+4. Under **Certificates & secrets**, click **New client secret** to generate a client secret for your app. Copy the value so that you can add it to the Okta configuration in the next section.
 
     > **Note:** There may be more settings for the app that you can configure. The steps in this guide address the quickest route to setting up Microsoft Entra ID as an IdP with Okta. See the [Microsoft Entra ID documentation](https://learn.microsoft.com/en-us/entra/identity/) for more information on additional configuration settings.
 
