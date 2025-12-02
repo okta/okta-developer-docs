@@ -1,0 +1,216 @@
+---
+title: Configure OAuth 2.0 Demonstrating Proof-of-Possession
+excerpt: Learn what Native to Web SSO is and how to use it.
+layout: Guides
+---
+
+Learn what Native to Web SSO is, why it matters, and how it actually connects your OpenID Connect (OIDC) apps to your web-based services.
+
+---
+
+#### Learning outcomes
+
+* Understand the native to web SSO flow.
+* Set up your allowlist for token exchange.
+* Manage your allowlist.
+
+#### What you need
+
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
+* An OIDC app that you want to use as the origin app. Okta supports web, SPA, and native OIDC apps.
+* An OIDC or SAML app that you want to use as the target web app
+
+---
+
+## Overview
+
+Native to Web SSO creates a seamless, unified authentication experience when a user transitions from an OIDC origin app (like a native or web app) to a web app (either OIDC or SAML). It’s a one-way trust from the origin app to the target.
+
+Native to Web SSO achieves this by using standard, web-based federation protocols like SAML and OpenID Connect. These protocols help bridge the gap between two different application environments, using a single-use, one-way interclient SSO token. This eliminates repeated sign-in prompts and simplifies development by reducing authentication complexity.
+
+### Handle different assurance levels and remediation
+
+Sometimes the target web app has stricter security needs than the requesting app. For instance, the original app may have only required a username and password, but the target web app requires a second factor, like a one-time passcode (OTP).
+
+Okta handles that during the transition by prompting the user to satisfy the missing requirement. The user sees a single prompt for the complimentary factor (OTP), not a full authentication restart.
+
+### Common use cases
+
+* **Incorporating SaaS**: You have an app, and you want to seamlessly incorporate a third-party SaaS app into it.
+* **The application dashboard**: Your app acts as an "application dashboard" with links to multiple web apps.
+* **Modernization**: You are going through a large modernization project. This pattern lets your legacy apps continue to operate "as-is" while you update the new parts of the system. This is especially helpful when you want to move towards a modern native app and incorporate the legacy web (hybrid native/web) app.
+* **Integration limitations**: It’s critical when you can’t modify the target app integration to accommodate a special connection. The target source code isn’t accessible, but it already supports federation.
+
+In all these cases, the Identity and Access Management (IAM) platform becomes the secure fabric that seamlessly weaves all of your apps together into one low-friction experience.
+
+## Native to Web SSO flow
+
+
+
+The flow steps:
+
+1. The user signs in to an OpenID Connect (OIDC) app.
+2. The app obtains tokens through a request to the `/token` endpoint using the password or [direct authentication grant type](/docs/guides/configure-direct-auth-grants/aotp/main/). The request includes the `interclient_access` and `offline_access` (optional) scopes.
+3. Okta checks that the app is an admin-configured trusted app that’s allowed to use this flow. Then, it creates a special backend-only session. This session tracks the user’s authentication level and security assurances, such as, "This user verified their identity with a strong factor on a trusted device".
+4. Okta sends back the access token, the session-bound ID token, and a refresh token if `offline_access` was requested.
+5. The user requests access to a resource from the target web app (client app).
+6. The OIDC origin app now needs to launch the other app. It makes a request to [refresh the access token](/docs/guides/refresh-tokens/main/#use-a-refresh-token), if necessary.
+7. Okta sends back the new access token, a new ID token, and the refresh token.
+8. The app then makes a request to the `/token` endpoint to exchange the access and ID tokens for a single-use `interclient_token`. This token is requested using the `requested_token_type` (`urn:okta:params:oauth:token-type:interclient_token`) and the Token Exchange grant type (`urn:ietf:params:oauth:grant-type:token-exchange`).
+9. Okta validates the trust relationship and user assignment of the target web app, and returns the single-use `interclient_token` that’s bound to the assurance of the `id_token` and target app. This single use token is the user’s ticket to the target web app.
+10. The OIDC app launches the authorization server URI with intent for the target web app, securely passing the `interclient_token` to it.
+11. The web app receives the token and sends it to Okta in an authentication request (`/authorize` or `/sso/saml`).
+12. Okta validates the `interclient_token`, `audience`, target app ID, issuer, and so on.
+
+    * **Look up context**: Okta looks up the associated backend session.
+    * **Loads the state**: Okta then reconstructs the user’s state. This tells Okta who the user is and what security assurances (MFA, Device Trust, and so on) were already satisfied when they signed in to the OIDC app.
+    * **Bootstraps the state token to the flow**: Rather than making the user start from a blank sign-in page, Okta uses this loaded context to bootstrap a new state token for the web app's policy evaluation.
+
+13. Okta checks if the user has satisfied all of the target web app’s policy requirements. If all checks pass, the user is immediately signed in, otherwise the user is prompted to satisfy all policy requirements.
+
+    > **Note**: The user isn’t allowed to cancel and switch users.
+
+## Configure the app
+
+The OIDC origin app exchanges access and ID tokens for a single-use interclient token from the target web app. To do this, use the Token Exchange grant type in the exchange request.
+
+To update the app that you want to request single-use interclient tokens, use the [Replace an app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication!path=4/settings/oauthClient&t=request) API.
+
+In the `oauthClient` object of your PUT request, add the `urn:ietf:params:oauth:grant-type:token-exchange` value to the `grant_types` array.
+
+**Example** (truncated for brevity)
+
+```JSON
+{
+   "oauthClient": {
+      . . .
+    "grant_types": [
+         "authorization_code,"
+         “urn:ietf:params:oauth:grant-type:token-exchange”
+         ],
+    . . .
+    }
+}
+```
+
+## Configure the trust map
+
+Define a list of apps that are allowed to request the single-use interclient token on the target web app. This allowlist is a trust map between the apps and the target web app. It ensures that the SSO flow only happens between apps that you explicitly trust. You can define up to five apps per target web app.
+
+Okta checks this trusted relationship at two critical points in the flow:
+
+**During authentication**: The OIDC app can only request the special `interclient_access` scope if it has a trust relationship set up.
+**During token exchange**: When the OIDC origin app asks for the `interclient_token`, Okta explicitly checks to ensure that the app is on the target app's allowed list. If it's not there, the token exchange is denied.
+
+To create an allowlist of apps, use the [Create an allowed app mapping for a target app]() API (`POST /api/v1/apps/{appInstanceId}/interclient-allowed-apps`). The `appInstanceID` is the target app’s ID.
+
+> **Note**: You can also use the [Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=apps-native-to-web) to configure the trust mapping.
+
+In the body of the request, include the client ID of the app that you want to add to the allowlist for the target app:
+
+```JSON
+{
+    "id": "{client_id}"
+}
+```
+
+Response example
+
+```JSON
+[
+    {
+        "id": "itm8vef5ul1nLwiJe0g7",
+        "orgId": "00o47ijbqfgnq5gj00g7",
+        "appInstanceId": "{targetwebappID}",
+        "trustedAppInstanceId": "{OIDCappID}",
+        "created": "2025-11-12T23:17:09.000Z",
+        "lastUpdated": "2025-11-12T23:17:09.000Z",
+        "lastUpdatedBy": "00u47ijy7sRLaeSdC0g7"
+    }
+]
+```
+
+See the following new Apps Interclient Trust API endpoints to perform other Native to Web SSO tasks:
+
+To get a list of allowed requesting apps for a target web app, use the [blah blah]() Apps API endpoint (`GET https://{yourOktaDomain}/api/v1/apps/{appInstanceId}/interclient-allowed-apps`). The appInstanceId is the ID of the Target Web App (the one allowing the SSO).
+To get a list of target apps that allow an app to SSO, use the [blah blah]() Apps API endpoint (GET https://{yourOktaDomain}/api/v1/apps/{trustedAppInstanceId}/interclient-target-apps). The trustedAppInstanceId is the ID of the requesting OIDC app (the one allowed to request the SSO).
+To delete an allowed app, use the [blah blah]() Apps API endpoint.
+Scopes
+There are two new OAuth 2.0 scopes available for the interclient endpoints:
+
+okta.apps.interclientTrust.manage: used to create a resource, manage a resource, or delete a resource
+okta.apps.interclientTrust.read: used to read information about a resource
+Flow specifics
+The following section outlines the requests required to perform Native to Web SSO. These requests use a native app as the request app.
+Request for initial tokens
+Before you can begin this flow, collect the username and the OTP from the user in a manner of your choosing. Then, make a single API call to the Okta authorization server /token endpoint. Your request should look something like this example:
+
+curl --request POST \
+  --url https://{yourOktaDomain}/oauth2/v1/token \
+  --header 'accept: application/json' \
+  --header 'authorization: Basic MG9hYn...' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --data 'grant_type=password
+&client_id={client_id}
+&username=testuser1%40example.com
+&password=%7CmCovrlnU9oZU4qWGrhQSM%3Dyd
+&scope=openid%20offline_access%20interclient_access'
+
+
+Note the parameters that are passed:
+
+client_id: Matches the client ID of the OIDC app. You can find it at the top of your app's General tab
+scope: Must be openid, interclient_access, and optionally refresh_token
+grant_type: password, which indicates that you're using the Resource Owner Password grant type. 
+username: The username of a user registered with Okta.
+password: The password of a user registered with Okta.
+
+> Note: For more information on these parameters, see the /token [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token).
+
+Response
+If the credentials are valid, Okta responds with the required tokens. This example response is truncated for brevity.
+
+{
+    "token_type": "Bearer",
+    "expires_in": 3600,
+    "access_token": "eyJraWQiOiItbkk . . . aIRQ",
+    "scope": "openid offline_access interclient_access",
+    "refresh_token": "DnZ77s5coFFJsj7CBO5NJU_wlZs0SZ0euCeiKXrN8T4",
+    "id_token": "eyJraWQi . . . AHlwNmdw"
+}
+Request to initialize native to web SSO
+When the user requests access to a resource from the target web app using any direct authentication grant flow, the native app needs to launch a trusted target web app. It makes a request to refresh the access token, if necessary, and gets back refreshed tokens from Okta. Then, the OIDC app needs to exchange the tokens for a single use interclient token. Your request should look something like this example. The tokens are truncated for brevity.
+
+curl --request POST
+   --url https://{yourOktaDomain}/oauth2/v1/token \
+   --header 'content-type: application/x-www-form-urlencoded' \
+    --header ‘accept: application/json’ \
+    --data  'client_id={client_id}
+   &actor_token=eyJra. . . tSXL-HCA
+   &actor_token_type=urn:ietf:params:oauth:token-type:access_token
+   &subject_token=eyJr. . .cbYGw
+   &subject_token_type=urn:ietf:params:oauth:token-type:id_token
+   &requested_token_type=urn:okta:params:oauth:token-type:interclient_token
+   &audience=urn:okta:apps:0oa8vcy7h1eyj7wLL0g7
+   &grant_type=urn:ietf:params:oauth:grant-type:token-exchange’
+
+Note the parameters that are passed:
+
+client_id: Matches the client ID of the OIDC app. You can find it at the top of your app's General tab
+actor_token: The value of the access token that you obtained in the last request
+actor_token_type: urn:ietf:params:oauth:token-type:access_token
+subject_token: A security token that represents the identity of the party on behalf of whom the request is being made, which is the value of the ID token that you obtained in the last request.
+subject_token_type: urn:ietf:params:oauth:token-type:id_token
+requested_token_type: The type of token that you’re requesting in exchange for the actor_token and subject_token. (urn:okta:params:oauth:token-type:interclient_token)
+audience: The target audience for the requested token bound to the target app using the IdP/Okta Application/Client ID (urn:okta:apps:{target web app client_id})
+grant_type: urn:ietf:params:oauth:grant-type:token-exchange
+
+Response
+This example response is truncated for brevity.
+
+{
+    "token_type": "N_A",
+    "expires_in": 300,
+    "access_token": "eyJraWQiOiJNTG. . .GubhhEsg",
+    "issued_token_type": "urn:okta:params:oauth:token-type:interclient_token"
+}
