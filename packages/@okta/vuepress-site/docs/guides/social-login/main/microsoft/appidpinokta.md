@@ -1,5 +1,5 @@
 * **Name**: Enter a name for the Identity Provider configuration.
-* **Client Id**: Paste the app ID or client ID that you obtained from the Identity Provider in the previous section.
+* **Client ID**: Paste the app ID or client ID that you obtained from the Identity Provider in the previous section.
 * **Client Secret**: Paste the secret that you obtained from the Identity Provider in the previous section.
 * **Scopes**: Leave the defaults.
 

@@ -12,7 +12,7 @@ Not sure what an identity provider is? See [External Identity Providers](/docs/c
 ## Enterprise identity providers
 
 <Cards>
-  <Card href="/docs/guides/add-an-external-idp/azure/main/" headerImage="/img/idp-logos/azure.svg">Azure AD</Card>
+  <Card href="/docs/guides/add-an-external-idp/entra/main/" headerImage="/img/idp-logos/entraID.svg">Microsoft Entra ID</Card>
   <Card href="/docs/guides/add-an-external-idp/oktatookta/main/" headerImage="/img/idp-logos/okta.svg">Okta to Okta</Card>
   <Card href="/docs/guides/add-an-external-idp/openidconnect/main/" headerImage="/img/idp-logos/oidc.png">OpenID Connect</Card>
    <Card href="/docs/guides/add-an-external-idp/saml2/main/" headerImage="/img/idp-logos/saml.png">SAML 2.0</Card>
