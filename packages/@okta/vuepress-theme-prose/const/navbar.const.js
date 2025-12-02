@@ -935,6 +935,10 @@ export const guides = [
                 title: "Import existing resources",
                 guideName: "terraform-import-existing-resources"
               },
+              {
+                title: "Manage OIG resources",
+                guideName: "terraform-oig-resources",
+              },
             ],
           },
           {

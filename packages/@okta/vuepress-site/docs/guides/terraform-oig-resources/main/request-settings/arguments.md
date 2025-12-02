@@ -1,0 +1,1 @@
+See configurable schema for the [Request Settings resource](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/request_setting_resource#schema). You can use this schema to create and update campaigns using the Terraform `okta_request_setting` resource.
