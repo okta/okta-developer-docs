@@ -1148,7 +1148,7 @@ export const reference = [
           {
             title: "Additional Rate limits",
             path: "/docs/reference/rl2-limits/",
-          }
+          },
           {
             title: "System Log events for rate limits",
             path: "/docs/reference/rl-system-log-events/",
