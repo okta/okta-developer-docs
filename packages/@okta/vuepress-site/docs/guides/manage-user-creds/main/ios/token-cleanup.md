@@ -1,20 +1,20 @@
 The SDK for Swift provides several methods to sign a user out of your app, depending on your use case:
 
-* `Credential.revoke()`: Revokes all available tokens from the Authorization Server.
-  * **Note:** Doesn’t remove the token from memory or storage.
+* `Credential.revoke()`: Revokes all available tokens from the Authorization Server. It works like the `revoke(type:)` method but with a default type of `.all`. As a result, it loops through all tokens calling `revoke()` on each of them in parallel.
+  * **Note:** Keeps the token in storage so that you can refresh it to get a new access token. However, if the token is no longer usable, the SDK removes the token from storage. For example, if you revoke a refresh token and the associated access token is revoked.
 * `Credential.revoke(type:)`: Revokes a specific token type (access token, refresh token, or device secret) from the Authorization Server. See [Revoke tokens](https://developer.okta.com/docs/guides/revoke-tokens/main/).
   * **Notes:**
     * If you revoke an access token, the associated refresh token or device secret isn’t revoked.
     * If you revoke a refresh token, the associated access token is revoked.
     * Keeps the token in storage so that you can refresh it to get a new access token. However, if the token is no longer usable, the SDK removes the token from storage. For example, if you revoke a refresh token and the associated access token is revoked.
-* `Credential.remove()`: Clears the in-memory reference to the token and removes it from storage. The credential can no longer be used.
-  * **Note:** Doesn’t revoke the token from the authorization server.
+* `Credential.remove()`: Clears the in-memory reference to the token and removes it from storage.
+  * **Note:** Doesn’t revoke the token from the authorization server, so it can still be used.
 
 When implementing your code, consider the following items:
 
-* **Revoke before remove:** Always attempt `revoke()` before `remove()`. If the revoke fails, you should still remove the token to ensure that the sign-out flow occurs.
+* **Always revoke all tokens:** It’s always best to revoke all tokens. If the revoke fails, investigate the cause of the failure instead of removing the tokens from storage. For example, the failure could be due to a temporary network issue. In that case, it's better to try to revoke again to avoid a potential credential leak.
 * **Multiple accounts:** If your app allows users to switch between multiple accounts or tenants, keep the following items in mind:
-  * **Credential storage:** The SDK can store multiple user credentials securely. Assigning a new default credential doesn’t automatically remove previously stored credentials.
+  * **Credential storage:** The SDK can store multiple user credentials securely. If the credential that the `default` property points to is removed, `default` is set to `nil`. As a result, assigning the `default` property, even to `nil`, doesn't remove a credential from storage.
   * **Default credentials:** The `Credential.default` property can be used to determine which account is active. Switch the active user by assigning a different stored credential to the `Credential.default` property.
   * **Sign-out scope:** When a user signs out, you typically only want to sign out the active user. If you want to remove all stored sessions, you need to iterate over all stored credentials and revoke or remove each one.
 
