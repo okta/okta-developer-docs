@@ -38,12 +38,44 @@ This approach simplifies management by centralizing user identity and policy enf
 
 End-users would have a “Same Login Experience", with the ability to have the same user name, password, email, phone, even OTPs.
 
-**Note:** If you plan to use passkeys, this approach limits you to five associated domains. 
+**Note:** If you plan to use passkeys, this approach limits you to five associated domains.
 
 
 ### SSO required
 
+If users need a seamless experience&mdash;logging in once and gaining access to multiple distinct brands&mdash;you must implement cross-brand SSO. Cross-brand SSO requires app-level branding.
 
+In this model, customization is applied at the app level (Client ID) rather than the entire Okta domain. The common sign-in session enables SSO across all configured apps, no matter the branding of each app.
+
+
+## Assess brand complexity
+
+If you choose Cross-Brand SSO, the next step is to evaluate the visual complexity of your multibrand ecosystem.
+
+### Low complexity
+
+Low complexity applies when branding requirements are basic and involve minimal code modification. For example, a single logo per brand, basic color shifts, and standard layout reuse.
+
+You can often handle the branding using built-in theme editors, profile customizations, or minimal configuration within the app itself.
+
+This approach is highly scalable and can theoretically support an infinite number of different brands. The complexity overhead remains low for each addition.
+
+Using the function `OktaUtil.getRequestContext();` returns an object like the following example:
+
+```javascript
+app:{
+  type: "object"
+  value:{
+    id: "0oa1wzp8ilsi2M9pk1d8"
+    label: "Blue Application|brand_xyz"
+    name: "oidc_client"
+```
+
+
+
+
+
+### High complexity
 
 
 
