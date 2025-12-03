@@ -15,7 +15,7 @@ title: Okta Classic Engine API release notes 2025
 
 #### Bugs fixed in 2025.11.3
 
-* The Create a group push mapping (`POST /api/v1/apps/{appId}/group-push/mappings`) didn't return validation errors when requests included null attributes or incompatible Active Directory configurations. (OKTA-1061899)
+* The Create a group push mapping endpoint (`POST /api/v1/apps/{appId}/group-push/mappings`) didn't return validation errors when requests included null attributes or incompatible Active Directory configurations. (OKTA-1061899)
 
 * Users who were members of a large number of groups couldn't authenticate into WS-Federation apps. (OKTA-839661)
 
