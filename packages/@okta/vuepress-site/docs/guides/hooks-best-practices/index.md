@@ -17,10 +17,10 @@ You can also grant granular hook management permissions to custom admin roles. C
 
 | Hook type   | Permission type      | Permission link                                                                                                                      |
 |-------------|---------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Event hook  | Manage              | [okta.eventHooks.manage](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#oktaeventhooksmanage)       |
-| Event hook  | Read                | [okta.eventHooks.read](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#oktaeventhooksread)           |
-| Inline hook | Manage              | [okta.inlineHooks.manage](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#oktainlinehooksmanage)     |
-| Inline hook | Read                | [okta.inlineHooks.read](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#oktainlinehooksread)         |
+| Event hook  | Manage              | [okta.eventhooks.manage](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#oktaeventhooksmanage)       |
+| Event hook  | Read                | [okta.eventhooks.read](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#oktaeventhooksread)           |
+| Inline hook | Manage              | [okta.inlinehooks.manage](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#oktainlinehooksmanage)     |
+| Inline hook | Read                | [okta.inlinehooks.read](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#oktainlinehooksread)         |
 
 For more information on custom roles, see [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#roles-in-okta) and [Custom admin roles](https://help.okta.com/oie/en-us/content/topics/security/custom-admin-role/custom-admin-roles.htm).
 
