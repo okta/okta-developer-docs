@@ -173,8 +173,8 @@ See [Authenticator enrollment policy](https://help.okta.com/okta_help.htm?type=o
 
 Grace periods let you designate an amount of time for a user to enroll in a required authenticator. They're configured on a per-authenticator basis so you can minimize sign-in friction and streamline the onboarding process. There are two ways to designate the amount of time for a grace period:
 
-* **Date and time**: The grace period is defined by a specific date and time.
-* **Number of skips**: The grace period is defined by the number of times that a user can skip enrolling the relevant authenticator.
+* **By a due date**: The grace period is defined by a specific date and time.
+* **After a number of skips**: The grace period is defined by the number of times that a user can skip enrolling the relevant authenticator.
 
 For example, you can configure an app sign-in policy that lets an end user defer enrollment for 10 days. Or you can let an end user defer enrollment until they've reached the maximum number of skips defined by the grace period. The end user can onboard immediately without the friction of an additional authenticator. However, the end user still needs to enroll before the end of the grace period.
 
