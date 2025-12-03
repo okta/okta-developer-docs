@@ -19,7 +19,7 @@ title: Okta Identity Engine API release notes 2025
 
 * The Create Group Push Mapping endpoint (`POST /api/v1/apps/{appId}/group-push/mappings`) didn't return validation errors when requests included null attributes or incompatible Active Directory configurations. (OKTA-1061899)
 
-* When a user selected the SCIM 2.0 integration type in the OIN wizard, they could submit the app without configuring the SCIM provisioning properties.  (OKTA-1047409)
+* When a user selected the SCIM 2.0 integration type in the OIN wizard, they could submit the app without configuring the SCIM provisioning properties. (OKTA-1047409)
 
 * Scopes that were skipped when an app required consent were still skipped after consent was no longer required. (OKTA-1045708)
 
