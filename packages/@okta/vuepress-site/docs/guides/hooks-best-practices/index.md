@@ -9,6 +9,19 @@ Event hooks and inline hooks are outbound calls from Okta to an external service
 
 The following sections review best practices to implement and secure Okta event hooks or inline hooks.
 
+## Hook admin roles
+
+By default, all Super Admins can create and manage hooks for an org.
+
+You can also grant granular hook management permissions to custom admin roles. Create a dedicated hook admin role, or add hook permissions to other custom roles.
+
+For event hook permissions, see [okta.eventHooks.manage](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#oktaeventhooksmanage) and [okta.eventHooks.read](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#oktaeventhooksread).
+For inline hook permissions, see [okta.inlineHooks.manage](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#oktainlinehooksmanage) and [okta.inlineHooks.read](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#oktainlinehooksread).
+
+For more information on custom roles and permissions, see [Permissions](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions) and [Custom admin roles](https://help.okta.com/oie/en-us/content/topics/security/custom-admin-role/custom-admin-roles.htm).
+
+>**Note:** Custom admin roles for hooks are a [self-service Early Access (EA)](/docs/concepts/feature-lifecycle-management/#self-service-features) feature. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable.
+
 ## Secure your hook endpoint
 
 To prevent a malicious actor from making requests to the endpoint where your Okta hooks are sent, use the following best practices:
