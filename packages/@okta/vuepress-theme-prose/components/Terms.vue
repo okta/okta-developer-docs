@@ -19,7 +19,7 @@
               v-if="section.heading"
               class="terms--section-title"
             >
-              <span v-html="section.heading"></span>
+              <span v-html="section.heading" />
             </component>
             <template v-for="(paragraph, paragraphIdx) in section.paragraphs">
               <ul
