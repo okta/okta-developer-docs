@@ -112,6 +112,7 @@ The policy allows for the following specific expressions:
 | `accessRequest.{operation}`| `accessRequest` references the access context of the request. `operation` references the account management operation: `enroll`, `unenroll`, `recover`, or `unlockAccount`. | String |
 | `accessRequest.authenticator.{id}` | `accessRequest` references the access context of the request. `authenticator.id` references an optional authenticator `id`, for example, the `id` of a custom authenticator. | String |
 | `accessRequest.authenticator.{key}` | `accessRequest` references the access context of the request. `authenticator.key` references the [authenticator key](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod/0/constraints&t=request). | String |
+| <ApiLifecycle access="ea" />`device.profile.{property}` | `device` references the device context of the request. `profile` references the device profile. `property` references device properties such as `registered` or `managed`. <br></br> For information about expressions related to device context, see [Expression Language attributes for devices](https://help.okta.com/okta_help.htm?type=oie&id=csh-fp-policy-custom-expression). | String |
 
 ### Condition Object example
 
@@ -286,7 +287,7 @@ curl --location --request PUT '{yourSubdomain}/api/v1/policies/{policyId}/rules/
 --data '{
     "id": "{ruleId}",
     "name": "sdfsd",
-    "priority": 1,
+    "priority": ,
     "status": "ACTIVE",
     "conditions": {
         "people": {
@@ -340,6 +341,87 @@ There are no changes to the user experience when you move password recovery and 
 - [Stay signed in](https://help.okta.com/okta_help.htm?type=oie&id=ext-stay-signed-in): Works with the account management policy if you configure the authentication frequency correctly. The **Prompt for authentication** setting must be more frequent than the equivalent setting in your Okta Dashboard app sign-in policy. Setting **Prompt for authentication** in your Okta account management policy to every time ensures that users don't have to wait to reset a password.
 - [User enumeration prevention](https://help.okta.com/okta_help.htm?type=oie&id=ext_Security_General): Isn't supported in recovery scenarios with the Okta account management policy.
 If a user doesn't meet the requirements of your Okta account management policy, they can't update their profile settings. All fields are read-only, including the Reset, Update, and Remove options for their existing security methods. Also, the authenticators that they haven't enrolled are hidden.
+
+## Add a rule for device conditions
+
+<ApiLifecycle access="ea" />
+
+You can add device conditions to your Okta account management policy rules. Device conditions let you enforce rules based on whether a device is registered or managed. You can also associate a [device assurance policy](/docs/guides/device-assurance-policies/main/) with a rule.
+
+For example, you can create a rule where users can reset their password only when they are using a registered device. Registered devices are devices that are enrolled in Okta Verify.
+
+This request is similar to the request to [add a rule for password recovery and account unlock](#add-a-rule-for-password-recovery-and-account-unlock). However, keep in mind the following:
+
+* Use the same value for `policyId`.
+* Set the value of `priority` above the catch-all rule but below the first [phishing-resistant authenticator](#add-a-rule-for-your-first-phishing-resistant-authenticator) (if you added it). Make sure that the first phishing-resistant authenticator rule stays at priority 1.
+* Set the `device.registered` property to `true`.
+* Set the `elCondition` with an expression that requires a registered device for password recovery.
+* Your user doesn't need to sign in from a network zone.
+
+> **Note:** You can also configure device conditions without using an EL expression. Remove the `elCondition` object from your request.
+
+If you want to add this rule using the Admin Console, see [Add a rule for authenticator enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-oamp-enroll-pr-auth).
+
+### Example device condition request
+
+```bash
+curl --location --request POST 'https://{yourOktaDomain}/api/v1/policies/{policyId}/rules' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: SSWS {apiToken}' \
+--data '{
+    "name": "Require registered device for password recovery",
+    "priority": 1,
+    "type": "ACCESS_POLICY",
+    "system": false,
+    "conditions": {
+        "people": {
+            "groups": {
+                "include": []
+            }
+        },
+        "network": {
+            "connection": "ANYWHERE"
+        },
+        "riskScore": {
+            "level": "ANY"
+        },
+        "elCondition": {
+            "condition": "accessRequest.authenticator.key == '\''okta_password'\'' && accessRequest.operation == '\''recover'\''"
+        },
+        "device": {
+            "registered": true,
+            "managed": true,
+            "assurance": {
+                "include": []
+            }
+        },
+        "actions": {
+            "appSignOn": {
+                "access": "ALLOW",
+                "verificationMethod": {
+                    "factorMode": "2FA",
+                    "type": "ASSURANCE",
+                    "reauthenticateIn": "PT1H",
+                    "constraints": [
+                        {
+                            "possession": {
+                                "required": true,
+                                "phishingResistant": "REQUIRED",
+                                "userPresence": "OPTIONAL"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}'
+```
+
+### User experience
+
+When a user attempts to reset their password or unlock their account, they must use a registered device to authenticate first.
 
 ## Use the legacy option
 
