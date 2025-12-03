@@ -20,7 +20,7 @@ This guide explains how to customize and style the default Okta email notificati
 
 #### Sample code
 
-[Customization example](#customization-example)
+[Customization examples](#customization-examples)
 
 ---
 
@@ -28,9 +28,9 @@ This guide explains how to customize and style the default Okta email notificati
 
 You can customize and style the default email notifications that Okta sends to end users. Okta sends email notifications for various reasons, such as:
 
-- User activation
-- Forgotten password
-- Unknown device notification
+* User activation
+* Forgotten password
+* Unknown device notification
 
 Okta bases email notifications on templates that Okta generates automatically. The templates are available in each Okta-supported language. You can use the default email templates or edit them to send custom messages to end users. End users receive the emails based on your settings.
 
@@ -40,13 +40,13 @@ Okta bases email notifications on templates that Okta generates automatically. T
 
 If you want to use the Admin Console to send a branded email, consider the following:
 
-- If your org has two or more custom brands, domains, and email addresses:
-	- You can't send branded emails from the Admin Console. Okta uses the request host in the URL to determine which brand and email address to use. The Admin Console only works with the Okta subdomain.
-	- Use an Okta API to trigger the email. To send a user activation email, send a request to the [Activate a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserLifecycle/#tag/UserLifecycle/operation/activateUser) endpoint. Remember to change the domain of your request to the custom domain that's associated with the brand. For example, change `subdomain.okta.com` to `custom.domain.one`.
-- If your org has one custom brand, domain, and email address:
-	- Okta doesn't use your custom email address. The Okta subdomain appears in the *From* line.
-	- Your theming appears in the content of the email (logo, palette, images). With a single custom brand or domain, the Admin Console assumes that you want to send themed content.
-- If your org doesn't have a custom brand, domain, and email address, you can only trigger Okta-branded emails from the Admin Console.
+* If your org has two or more custom brands, domains, and email addresses:
+  * You can't send branded emails from the Admin Console. Okta uses the request host in the URL to determine which brand and email address to use. The Admin Console only works with the Okta subdomain.
+  * Use an Okta API to trigger the email. To send a user activation email, send a request to the [Activate a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserLifecycle/#tag/UserLifecycle/operation/activateUser) endpoint. Remember to change the domain of your request to the custom domain that's associated with the brand. For example, change `subdomain.okta.com` to `custom.domain.one`.
+* If your org has one custom brand, domain, and email address:
+  * Okta doesn't use your custom email address. The Okta subdomain appears in the *From* line.
+  * Your theming appears in the content of the email (logo, palette, images). With a single custom brand or domain, the Admin Console assumes that you want to send themed content.
+* If your org doesn't have a custom brand, domain, and email address, you can only trigger Okta-branded emails from the Admin Console.
 
 See [Brands](/docs/concepts/brands/).
 
@@ -54,10 +54,10 @@ See [Brands](/docs/concepts/brands/).
 
 The [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/) allows you to customize the look and feel of pages and templates, including:
 
-- The custom sign-in page
-- Error pages
-- Email templates
-- The Okta End-User Dashboard
+* The custom sign-in page
+* Error pages
+* Email templates
+* The Okta End-User Dashboard
 
 You can brand these pages and templates without setting up a customized Okta URL domain.
 
@@ -67,13 +67,10 @@ See [Custom Email Templates](https://developer.okta.com/docs/api/openapi/okta-ma
 
 ### Caveats
 
-- Email templates must be under 64 KB. This is approximately 65,000 single-byte characters for all text, HTML, and CSS characters in the template. UTF-8 characters can be as large as 4 bytes each, so Okta accepts fewer characters.
-
-- Okta supports only inline CSS.
-
-- The **Subject** can't exceed 128 characters.
-
-- If you customize an email template, you need to manually create a translation for each additional language that you support in your org.
+* Email templates must be under 64 KB. This is approximately 65,000 single-byte characters for all text, HTML, and CSS characters in the template. UTF-8 characters can be as large as 4 bytes each, so Okta accepts fewer characters.
+* Okta supports only inline CSS.
+* The **Subject** can't exceed 128 characters.
+* If you customize an email template, you need to manually create a translation for each additional language that you support in your org.
 
 ## Edit a default email template
 
@@ -83,17 +80,17 @@ Use these steps to add or edit a template in one of the Okta-supported languages
 
 1. In the Admin Console, go to **Customizations** > **Brands**, and then select the brand you want.
 1. On the **Emails** tab, click an email template name:
-   - The code editor is in preview mode.
-   - **Audience**: Select the email audience: **All users**, **Admin only**, or **Disabled for all**.
-   - **Translations**: Customize email template translations. See [Add translations](#add-translations).
-   - **Language**: Select the default language for the email template. See [Add translations](#add-translations).
-   - **Subject**: The subject line for the template in the default language. You can edit the subject line when the template is in read/write mode.
-   - In the preview window, to see a translation of a customized template, select a language from the dropdown menu. See [Add translations](#add-translations).
+   * The code editor is in preview mode.
+   * **Audience**: Select the email audience: **All users**, **Admin only**, or **Disabled for all**.
+   * **Translations**: Customize email template translations. See [Add translations](#add-translations).
+   * **Language**: Select the default language for the email template. See [Add translations](#add-translations).
+   * **Subject**: The subject line for the template in the default language. You can edit the subject line when the template is in read/write mode.
+   * In the preview window, to see a translation of a customized template, select a language from the dropdown menu. See [Add translations](#add-translations).
 1. Click **Edit** to put the editor in read/write mode.
 1. Make changes directly in the editor. If you type `$`, `#`, or `{`, the editor provides a list of available variables that you can use. See [Use Velocity Templating Language (VTL)](#use-velocity-templating-language).
-   - Click the code editor to full-page mode.
-   - Click **Save changes**, then click **Preview** to see your changes before you publish.
-   - Click **Reset template** to remove your customizations and restore the default HTML/CSS.
+   1. Click the code editor to full-page mode.
+   1. Click **Save changes**, then click **Preview** to see your changes before you publish.
+   1. Click **Reset template** to remove your customizations and restore the default HTML/CSS.
 1. Click **Save changes**. The default language version of your edited message appears in the **Email Templates** table.
 
 Remember that Okta doesn't automatically translate the changes you make in one template to the other language templates. To add translations for this customization, proceed to step 3 in [Add translations](#add-translations).
@@ -102,10 +99,10 @@ Remember that Okta doesn't automatically translate the changes you make in one t
 
 The following table provides a list of all available email templates in an Okta org, including:
 
-- The default subject line for the email template
-- The corresponding API object reference (`{templateName}`) for the email template. See [Custom email templates](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTemplates/).
-- The required validation fields for templates created using the API
-- A description of the template
+* The default subject line for the email template
+* The corresponding API object reference (`{templateName}`) for the email template. See [Custom email templates](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTemplates/).
+* The required validation fields for templates created using the API
+* A description of the template
 
 > **Note:** If you use the embedded Okta Sign-In Widget for authentication, don't use `{emailAuthenticationLink}` as the required validation field. It takes you to the Okta-hosted Sign-In Widget. Instead, use [Custom password recovery](/docs/guides/oie-embedded-sdk-use-case-custom-pwd-recovery-mfa/nodeexpress/main/).
 
@@ -188,7 +185,7 @@ You can edit the templates through the pencil icon. See [Edit a default email te
 
 If you restore an email to default settings, you delete any customizations made to the email whether the customization is for the default language.
 
-After you customize a template in one language, you need to customize templates for other languages if you want to include them. If you reset all customized translations, then Okta uses the 27 default translations.
+> **Note:** After you customize a template in one language, you need to customize templates for other languages if you want to include them. Okta doesn't automatically translate changes that you make in one template to the other language templates. If you reset all customized translations, then Okta uses the 27 default translations.
 
 The following settings determine the language for emails sent from Okta to a user, if the user hasn't selected a specific display language:
 
@@ -238,10 +235,10 @@ You can only create customizations using these other languages by calling the Br
 
 Include `null` in the subject or body of the email customization. Okta replaces `null` with a default value based on the following order of priority:
 
-- An existing default email customization, if one exists
-- Okta-provided translated content for the specified language, if one exists
-- Okta-provided translated content for the brand locale, if it's set
-- Okta-provided content in English
+* An existing default email customization, if one exists
+* Okta-provided translated content for the specified language, if one exists
+* Okta-provided translated content for the brand locale, if it's set
+* Okta-provided content in English
 
 If you use functions while adding more locales, use the `getTimeDiffHoursNow` function instead of the `formatTimeDiffHoursNowInUserLocale` function. `getTimeDiffHoursNow` returns only the time value in the specified unit. See [Use functions for email templates](#use-functions-for-email-templates).
 
@@ -264,41 +261,101 @@ If you use functions while adding more locales, use the `getTimeDiffHoursNow` fu
 
 To delete all custom translations and revert to the Okta template, click **Reset to Default**.
 
-## Use Velocity Templating Language
+## Velocity Template Language (VTL)
 
-[Velocity Templating Language (VTL)](https://velocity.apache.org/engine/2.3/user-guide.html) allows you to customize your org's email templates so that you can use the following:
+Velocity Template Language (VTL) allows you to customize your org's email templates so that you can use the following:
 
-- Enhanced conditional logic
-- All attributes in the Okta [User Profile object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!path=profile&t=request)
-- Some of the org attributes in the VTL variables
+* Enhanced conditional logic
+* All attributes in the Okta [User Profile object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!path=profile&t=request)
+* Some of the org attributes in the VTL variables
 
 Email templates use both common and unique VTL variables. When you interpolate variables in the template, precede them with a dollar sign. Use dot notation to reference subobjects. For example, reference the first name of a user with `${user.profile.firstName}`.
 
-See [Use VTL variables](#use-vtl-variables) for available email template variables.
+See [VTL variables](#vtl-variables).
 
-### Use conditional logic
+In your email templates, you can use any conditional logic that VTL supports, such as `if`, `elseif`, or `else` constructs and `foreach` loops. See the [Velocity User Guide](https://velocity.apache.org/engine/2.3/user-guide.html).
 
-In your email templates, you can use any conditional logic that VTL supports, such as `if`, `elseif`, or `else` constructs and `foreach` loops. See the [Velocity documentation](https://velocity.apache.org/engine/2.3/user-guide.html).
+### VTL and Java methods
 
-### Customization example
+VTL is a Java-based template engine. See [What is Velocity](https://velocity.apache.org/engine/1.7/user-guide.html#what-is-velocity).
 
-The following example uses the `${app.name}` variable, which is only available in Identity Engine.
+As a result, you can use Java methods to customize Okta email templates. Consult the following Java methods:
+
+* [List-based method references](https://docs.oracle.com/javase/8/docs/api/java/util/List.html)
+* [String-based method references](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)
+
+See [user.groups.names](#usergroupsnames) for a customization example that uses the `contains` method.
+
+### VTL and Expression Language (EL)
+
+Velocity Template Language differs from [Expression Language (EL)](/docs/reference/okta-expression-language/) syntax in the following ways:
+
+* You can leave off the curly brackets for variable names. Shorthand notation is acceptable in most languages. For example, you can use `$variable` instead of `${variable}`.
+* The format is simplified. Add a dollar sign before the variable that you want to add to a template, and use dot notation for sub-objects.
+* Most Velocity variables can be used anywhere, but some are limited to specific templates. Refer to the [Template availability column](#vtl-variables) for details.
+
+### Customization examples
+
+Add the logic in the following examples to the `<head>` of each email template that you want to customize.
+
+#### app.name
+
+The following example uses the `${app.name}` variable, which you can apply to all email notification templates. However, it’s only available in [Identity Engine](/docs/concepts/oie-intro/).
+
+It customizes an email using the following logic:
+
+* If the end user is registered to an app with the name “Toys R’ Fun”, the “Toys R’ Fun” logo appears in the email.
+* If the end user is registered to an app with the name “Fidget Spinners Unlimited”, the “Fidget Spinners Unlimited” logo appears in the email.
+* If the end user is registered to any other app within your Okta domain or subdomain, the default logo appears in the email.
 
 ```html
-#if(${app.name} == "Toys R' Fun")
-<img src="https://cdn.toysrfun.com/logo" height="37">
-<a id="support-link" href="https://support.toysrfun.com/help/?language=en_US" style="text-decoration: none;"> Contact Toy Support </a>
-#elseif(${app.name} == "Fidget Spinners Unlimited")
-<img src="https://cdn.fidgetsu.com/logo" height="37">
-<a id="support-link" href="https://support.fidgetsu.com/help/?language=en_US" style="text-decoration: none;"> Contact Fidget SU Support </a>
-#else
-<img src="${parentLogoUrl}" height="37">
-#end
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   #if(${app.name} == "Toys R' Fun")
+      <img src="https://cdn.toysrfun.com/logo" height="37">
+      <a id="support-link" href="https://support.toysrfun.com/help/?language=en_US" style="text-decoration: none;"> Contact Toy Support </a>
+   #elseif(${app.name} == "Fidget Spinners Unlimited")
+      <img src="https://cdn.fidgetsu.com/logo" height="37">
+      <a id="support-link" href="https://support.fidgetsu.com/help/?language=en_US" style="text-decoration: none;"> Contact Fidget SU Support </a>
+   #else
+      <img src="${parentLogoUrl}" height="37">
+   #end
+</head>
 ```
 
-### Use VTL variables
+#### user.groups.names
 
-You can reference any Okta User Profile attribute in your email templates.
+The following example uses the `${user.groups.names}` variable with the `contains` Java method to limit the array to the specified group (users that are members of the “ToysRFun” group). See [contains](https://docs.oracle.com/javase/8/docs/api/java/util/List.html#contains-java.lang.Object-).
+
+You can use `${user.groups.names}` in both Classic Engine and [Identity Engine](/docs/concepts/oie-intro/). You can also apply it to all email notification templates. This example customizes the User Activation template in particular. See the [list of available templates](/docs/guides/custom-email/main/#use-customizable-email-templates).
+
+The org for this example uses the default brand with a custom email domain. As a result, you can apply different brands to your email templates without creating multiple custom domains.
+
+The example code uses the following logic:
+
+* If the end user is a member of the "ToysRFun" group in your org:
+  * The default activation link in the email template is replaced with the URL associated with ToysRFun.
+  * The default logo in the email template is replaced with the ToysRFun logo.
+* If the end user is a member of any other group in your org:
+  * The default activation link in the email template is replaced with the URL associated with Fidget Spinners Unlimited.
+  * The default logo in the email template is replaced with the Fidget Spinners Unlimited logo.
+
+```html
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   #if( $user.groups.names.contains("ToysRFun") )
+      #set( $customActivationLink = $activationLink.replace("default.oktapreview.com", "activation.toysrfun.com"))
+      #set( $customBrandThemeLogo = "https://cdn.toysrfun.com/logo" )
+   #else
+      #set( $customActivationLink = $activationLink.replace("default.oktapreview.com", "activation.fidgetsu.com"))
+      #set( $customBrandThemeLogo = "https://cdn.fidgetsu.com/logo" )
+   #end
+</head>
+```
+
+### VTL variables
+
+You can reference any [Okta User Profile attribute](/docs/concepts/user-profiles/) in your email templates.
 
 > **Note:** Some attributes are only available in Identity Engine (see Identity Engine notes in the following table). You can use any other variable in both the Identity Engine and the Classic Engine.
 
@@ -435,7 +492,7 @@ You can send yourself a test email to see how a custom email template looks and 
 1. Click the email icon to the right of the email template that you’ve customized. A list shows the sender and receiver of the email.
 2. Click **Send test email**.
 
-> **Note:** Super admins can view customized email templates when they're signed in as an admin and send a test email. However, when custom email templates are sent to super admins as part of actual email notification flows, the customizations are not applied. Instead, the default email template is used. This only applies to super admins.
+> **Note:** Super admins can view customized email templates when they're signed in as an admin and send a test email. However, when custom email templates are sent to super admins as part of actual email notification flows, the customizations aren’t applied. Instead, the default email template is used. This only applies to super admins.
 
 ## Known Issues
 

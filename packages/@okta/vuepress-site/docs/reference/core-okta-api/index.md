@@ -14,14 +14,14 @@ The Core Okta API is the primary way that apps and services interact with Okta. 
 API endpoints to authenticate your users, challenge for factors, recover passwords, and more. For example:
 
 - The [Authentication API](/docs/reference/api/authn) controls user access to Okta.
-- The [OpenID Connect & OAuth 2.0 API](/docs/concepts/oauth-openid) controls users access to your applications.
+- The [OpenID Connect & OAuth 2.0 API](/docs/concepts/oauth-openid) controls users access to your apps.
 
 ## Manage Okta objects
 
 REST endpoints to configure objects whenever you need. For example:
 
-- The [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/) is used to manage Apps and their association with Users and Groups.
-- The [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/) is used for CRUD operations on Users.
+- The [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/) is used to manage apps and their association with users and groups.
+- The [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/) is used for CRUD operations on users.
 - The [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/) creates and manages user's authentication sessions.
 - The [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy) creates and manages settings such as a user's session lifetime.
 - The [User Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/) is used to enroll, manage, and verify factors for Multifactor Authentication (MFA).
@@ -31,13 +31,13 @@ REST endpoints to configure objects whenever you need. For example:
 
 ### URL namespace
 
-All URLs listed in the documentation should be preceded with your organization's subdomain (tenant) or configured custom domain.
+All URLs listed in the documentation should be preceded with your org's subdomain (tenant) or configured custom domain.
 
 > **Note:** All API requests must use the HTTPS scheme.
 
 ### Versioning
 
-The Okta API is a versioned API. Okta reserves the right to add new parameters, properties, or objects to the API without advance notice. These updates are considered non-breaking and the compatibility rules below should be followed to ensure your application does not break. Breaking changes such as removing or renaming a property will be released as a new version of the API. Okta will provide a migration path for new versions of APIs and will communicate timelines for end-of-life when deprecating APIs.
+The Okta API is a versioned API. Okta reserves the right to add new parameters, properties, or objects to the API without advance notice. These updates are considered non-breaking and the compatibility rules below should be followed to ensure your app doesn't break. Breaking changes such as removing or renaming a property will be released as a new version of the API. Okta will provide a migration path for new versions of APIs and will communicate timelines for end-of-life when deprecating APIs.
 
 The API version is included in the path. For example, the Users API is currently at version `v1`:
 
@@ -45,21 +45,21 @@ The API version is included in the path. For example, the Users API is currently
 https://${yourOktaDomain}/api/v1/users
 ```
 
-Do not consume any Okta API unless it is documented on this site. All undocumented endpoints should be considered private, subject to change without notice, and not covered by any agreements.
+Don't consume any Okta API unless it's documented on this site. All undocumented endpoints should be considered private, subject to change without notice, and not covered by any agreements.
 
 ### Compatibility rules for input parameters
 
 - Requests are compatible irrespective of the order in which the query parameters appear.
 - Requests are compatible irrespective of the order in which the properties of the JSON parameters appear.
 - New query parameters may be added to future versions of requests.
-- Existing query parameters cannot be removed from future versions of requests.
-- Existing properties cannot be removed from the JSON parameters in future versions of requests.
+- Existing query parameters can’t be removed from future versions of requests.
+- Existing properties can’t be removed from the JSON parameters in future versions of requests.
 
 ### Compatibility rules for JSON responses
 
 - Responses are compatible irrespective of the order in which the properties appear.
 - New properties may be added to future versions of the response.
-- Existing properties cannot be removed from future versions of the response.
+- Existing properties can’t be removed from future versions of the response.
 - Properties with null values may be omitted by responses.
 
 ### Media types
@@ -107,13 +107,13 @@ Used for deleting objects
 
 ### Client request context
 
-Okta derives the client request context directly from the HTTP request headers and client TCP socket. The request context is used to evaluate policies such as global session policy and to provide client information for [troubleshooting and auditing](/docs/reference/api/system-log/#client-object) purposes.
+Okta derives the client request context directly from the HTTP request headers and client TCP socket. The request context is used to evaluate policies such as global session policy and to provide client information for [troubleshooting and auditing](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=client&t=response) purposes.
 
 ### User Agent
 
-Okta supports the standard `User-Agent` HTTP header to identify the user's browser or application. Always send a `User-Agent` string to uniquely identify your client application and version, for example: `Oktaprise/1.1`.
+Okta supports the standard `User-Agent` HTTP header to identify the user's browser or app. Always send a `User-Agent` string to uniquely identify your client app and version, for example: `Oktaprise/1.1`.
 
-> **Note:** If your application is acting as a gateway or proxy, you should forward the `User-Agent` of the originating client with your API requests.
+> **Note:** If your app is acting as a gateway or proxy, you should forward the `User-Agent` of the originating client with your API requests.
 
 #### Format a User-Agent string
 
@@ -125,7 +125,7 @@ We recommend that you use a template like the following to format the `User-Agen
 
 `User-Agent: Mozilla/5.0 (<system-information>) <platform> (<platform-details>) <extensions>`
 
-Okta recommends making test [authentication requests](/docs/reference/api/authn/#primary-authentication) and then checking for the related entries in the [System Log](/docs/reference/api/system-log/#useragent-object). Testing helps you ensure that Okta can parse both the `OS` and `Browser` fields from the `User-Agent` header that is passed by your application.
+Okta recommends making test [authentication requests](/docs/reference/api/authn/#primary-authentication) and then checking for the related entries in the [System Log](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=client/userAgent&t=response). Testing helps you ensure that Okta can parse both the `OS` and `Browser` fields from the `User-Agent` header that is passed by your app.
 
 If the `OS` and/or `Browser` fields come back as `Unknown` in the System Log, ensure that certain string values (see below) are present in the `User-Agent` string so that the OS and browser are detected.
 
@@ -141,13 +141,13 @@ Add browser information such as `chrome` or `safari` to the `User-Agent` string.
 
 ### IP address
 
-The public IP address of your application is automatically used as the client IP address for your request. Okta supports the standard `X-Forwarded-For` HTTP header to forward the originating client's IP address if your application is behind a proxy server or acting as a sign-in portal or gateway.
+The public IP address of your app is automatically used as the client IP address for your request. Okta supports the standard `X-Forwarded-For` HTTP header to forward the originating client's IP address if your app is behind a proxy server or acting as a sign-in portal or gateway.
 
-> **Note:** The public IP address of your trusted web application must be a part of the allowlist in your [org's network security settings](https://help.okta.com/okta_help.htm?id=ext_Security_Network) as a trusted proxy to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+> **Note:** The public IP address of your trusted web app must be a part of the allowlist in your [org's network security settings](https://help.okta.com/okta_help.htm?id=ext_Security_Network) as a trusted proxy to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ### Accept Language
 
-The `Accept-Language` HTTP header advertises which languages the client is able to understand, for example `Accept-Language: en-US`. Include the header if it is available.
+The `Accept-Language` HTTP header advertises which languages the client is able to understand, for example `Accept-Language: en-US`. Include the header if it’s available.
 
 ### Device Fingerprint
 
@@ -157,7 +157,7 @@ The `X-Device-Fingerprint` HTTP header supplies the device fingerprint used in a
 
 > **Note:** JSON responses, including errors, may contain user input. To help prevent potential cross-site scripting attacks, ensure to properly escape all values before use in a browser or any HTML context.
 
-All successful requests return a 200 status if there is content to return or a 204 status if there is no content to return.
+All successful requests return a 200 status if there’s content to return or a 204 status if there’s no content to return.
 
 All requests that result in an error return the appropriate 4xx or 5xx error code with a custom JSON error object:
 
@@ -245,7 +245,7 @@ The possible `rel` values are:
 | `self`             | Specifies the URL of the current page of results         |
 | `next`             | Specifies the URL of the immediate next page of results |
 
-When you first make an API call and get a cursor-paged list of objects, the end of the list is the point where you don't receive another `next` link value with the response. This holds true for all cases, except for the [System Log API](/docs/reference/api/system-log/) where the `next` link always exists in [System Log](/docs/reference/api/system-log/#list-events) polling queries. A polling query is defined as an `ASCENDING` query with an empty or absent `until` parameter, providing a stream of data.
+When you first make an API call and get a cursor-paged list of objects, the end of the list is the point where you don't receive another `next` link value with the response. This holds true for all cases, except for the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog) where the `next` link always exists in [System Log](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents) polling queries. A polling query is defined as an `ASCENDING` query with an empty or absent `until` parameter, providing a stream of data.
 
 ### Filter
 
@@ -283,7 +283,7 @@ Most of the operators listed in the [SCIM Protocol Specification](https://www.rf
 > * Some objects don't support all the listed operators.
 > * The `ne` (not equal) operator isn't supported for some objects, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all user agents except for "iOS", use `(client.userAgent.os lt "iOS" or client.userAgent.os gt "iOS")`.
 > * All `Date` values use the ISO 8601 format `YYYY-MM-DDTHH:mm:ss.SSSZ`.
-> * The [System Log API](/docs/reference/api/system-log/#filtering-results) supports the contains (`co`) and ends with (`ew`) operators.
+> * The [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/) supports the contains (`co`) and ends with (`ew`) operators.
 
 #### Attribute operators
 
@@ -349,7 +349,7 @@ Search and list operations are intended to find matching resources and their ide
 
 ### Request debugging
 
-The request ID is always present in every API response and can be used for debugging. You can use this value to correlate events from the [System Log](/docs/reference/api/system-log/) events.
+The request ID is always present in every API response and can be used for debugging. You can use this value to correlate events from the [System Log](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/) events.
 
 The following header is set in each response:
 
@@ -372,7 +372,7 @@ Every website origin must be explicitly permitted through the Admin Console for 
 
 ### API support
 
-The Okta API supports CORS on an API by API basis. If you're building an application that needs CORS, check that the specific operation supports CORS for your use case. APIs that support CORS are marked with the following icon: <SupportsCors />.
+The Okta API supports CORS on an API by API basis. If you're building an app that needs CORS, check that the specific operation supports CORS for your use case. APIs that support CORS are marked with the following icon: <SupportsCors />.
 
 ### Additional help
 

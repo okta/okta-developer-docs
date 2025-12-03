@@ -18,7 +18,7 @@ Understand how to override text strings with Okta Identity Engine i18n strings s
 
 #### Sample code
 
-[Sample i18n code for Identity Engine](#sample-i18n-code-for-the-identity-engine)
+[Sample i18n code for Identity Engine](https://github.com/okta/okta-signin-widget?tab=readme-ov-file#i18n)
 
 ---
 

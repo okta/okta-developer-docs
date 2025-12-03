@@ -72,7 +72,7 @@ Create a second test account.
 1. Clear the **User must change password on first login** checkbox.
 1. Select **Save and Add Another**.
 
-For more information about creating users, see [Add users manually](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-add-users.htm).
+For more information about creating users, see [Add users manually](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users).
 
 ### Activate the accounts
 
@@ -162,7 +162,6 @@ Native apps are desktop or mobile apps that are designed for a specific platform
 Server-side apps are used in scenarios where authentication and tokens are handled on the server.
 
 * [ASP.NET](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#create-an-application)
-* [Go](/docs/guides/oie-embedded-common-org-setup/go/main/#create-an-application)
 * [Java](/docs/guides/oie-embedded-common-org-setup/java/main/#create-an-application)
 * [Node.js](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-an-application)
 

@@ -15,11 +15,11 @@ title: Okta API Products Release Notes 2018
 
 #### Bugs Fixed in 2018.12.2
 
-* An error would be returned if the `/apps/${applicationId}` [endpoint](/docs/reference/api/apps/#update-application) was called to update an app that did not not have a configurable `signOnMode` property. <!--OKTA-201187-->
+* An error would be returned if the `/apps/${applicationId}` endpoint was called to update an app that did not not have a configurable `signOnMode` property. <!--OKTA-201187-->
 
-* The [Identity Providers API](/docs/reference/api/idps/) endpoints `GET /idps/${idpId}/users`, `GET /idps/${idpId}/users/{userId}`, and `DELETE /idps/${idpId}/users/${userId}` previously required the social authentication feature, even for users related to a non-social IdP. Additionally, non-Social IdPs were not included in the results returned by `GET /users/${userId}/idps`. <!--OKTA-199631-->
+* The Identity Providers API endpoints `GET /idps/${idpId}/users`, `GET /idps/${idpId}/users/{userId}`, and `DELETE /idps/${idpId}/users/${userId}` previously required the social authentication feature, even for users related to a non-social IdP. Additionally, non-Social IdPs were not included in the results returned by `GET /users/${userId}/idps`. <!--OKTA-199631-->
 
-* Instead of providing specific reasons for failure, [Identity Providers](/docs/reference/api/idps/) operations failed with generic `error_description` values when the Social Auth provider required user attributes in the user's profile but the attributes were missing or invalid. <!--OKTA-120115-->
+* Instead of providing specific reasons for failure, Identity Providers operations failed with generic `error_description` values when the Social Auth provider required user attributes in the user's profile but the attributes were missing or invalid. <!--OKTA-120115-->
 
 * The `/users/${userId}/factors/catalog` [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/listSupportedFactors) returned `email` as a supported factor type even when Email Authentication was not enabled for the org in MFA settings. <!--OKTA-201633-->
 
@@ -97,11 +97,11 @@ The following features have already been released as Early Access. To enable the
 
 #### System Log API Returns Threat Insight Attribute
 
-The `debugContext` object returned by the [System Log API](/docs/reference/api/system-log/) can now include an `okta_threat_insight` attribute to indicate that an event has been identified as a security risk. <!--OKTA-198102-->
+The `debugContext` object returned by the System Log API can now include an `okta_threat_insight` attribute to indicate that an event has been identified as a security risk. <!--OKTA-198102-->
 
 #### Bugs Fixed in 2018.48
 
-* Some customers could access log data outside of their allowed retention range through the [System Log API](/docs/reference/api/system-log/). <!--OKTA-196313-->
+* Some customers could access log data outside of their allowed retention range through the System Log API. <!--OKTA-196313-->
 
 * Responses from the `/oauth2/${authServerId}/.well-known/oauth-authorization-server` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/getWellKnownOAuthConfigurationCustomAS) did not include supported OpenID Connect response types in the content of the `response_types_supported` property. <!--OKTA-114737-->
 
@@ -129,7 +129,7 @@ The following features have already been released as Early Access. To enable the
 
 #### Linked Objects API is Generally Available (GA)
 
-The [Linked Objects API](/docs/reference/api/linked-objects/) is now available to all orgs. <!--OKTA-195560-->
+The Linked Objects API is now available to all orgs. <!--OKTA-195560-->
 
 #### Bugs Fixed in 2018.45
 
@@ -160,8 +160,8 @@ The following features have already been released as Early Access. To enable the
 
 #### Bugs Fixed in 2018.44
 
-* Temporary passwords returned by the `/users/${userId}/lifecycle/expire_password` [endpoint](/docs/reference/api/users/#expire-password) sometimes included hard-to-distinguish characters.
-* Queries to the `/logs` [endpoint](/docs/reference/api/system-log/#list-events) with `since` and `until` values that were both earlier than the customer's data retention period would return an HTTP 500 error.
+* Temporary passwords returned by the `/users/${userId}/lifecycle/expire_password` endpoint sometimes included hard-to-distinguish characters.
+* Queries to the `/logs` endpoint with `since` and `until` values that were both earlier than the customer's data retention period would return an HTTP 500 error.
 
 #### Previously Released Early Access Features 2018.44 Update
 
@@ -223,11 +223,11 @@ Client-initiated [logout](https://developer.okta.com/docs/api/openapi/okta-oauth
 
 #### Change to User Link Editing Permissions
 
-Editing the [link](/docs/reference/api/users/#links-object) between users now requires edit permissions for all users involved. <!--OKTA-186702-->
+Editing the link between users now requires edit permissions for all users involved. <!--OKTA-186702-->
 
 #### Bugs Fixed in 2018.41
 
-* Queries to the `/logs` [endpoint](/docs/reference/api/system-log/#list-events) with values for `since` and `until` that did not specify the time to milliseconds would sometimes return events outside of the specified time range. (OKTA-191533)
+* Queries to the `/logs` endpoint with values for `since` and `until` that did not specify the time to milliseconds would sometimes return events outside of the specified time range. (OKTA-191533)
 * Responses from the `/events` endpoint would sometimes omit milliseconds from the `published` field. (OKTA-192568)
 
 #### Previously Released Early Access Features 2018.41 Update
@@ -254,7 +254,7 @@ The following features have already been released as Early Access. To enable the
 #### Bugs Fixed in 2018.40
 
 * Responses from the `/zones` [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) included a duplicate of the `type` field. (OKTA-188605)
-* The `/idps/credentials/keys` [endpoint](/docs/reference/api/idps/#add-x509-certificate-public-key) was requiring requests to include extra parameters. (OKTA-189780)
+* The `/idps/credentials/keys` endpoint was requiring requests to include extra parameters. (OKTA-189780)
 
 #### Previously Released Early Access Features 2018.40 Update
 
@@ -283,7 +283,7 @@ The following features have already been released as Early Access. To enable the
 
 * Requests to the `/authorize` endpoint would incorrectly prioritize values from the URI query parameter, rather than the request JWT. For more information, see the [documentation for that endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS). (OKTA-187642)
 * When multiple attempts were simultaneously made to update a user's phone number for the SMS or Call [Factor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor), an HTTP 500 error was sometimes returned. (OKTA-188112)
-* In some situations SHA-256 [password imports](/docs/reference/api/users/#hashed-password-object) would not work. SHA-256 password import now requires the salt to be base64-encoded.
+* In some situations SHA-256 password imports would not work. SHA-256 password import now requires the salt to be base64-encoded.
 
 #### Previously Released Early Access Features 2018.39 Update
 
@@ -310,11 +310,11 @@ The following features have already been released as Early Access. To enable the
 
 #### User Sessions Deleted after Password Reset
 
-We now delete all sessions for a user after a successful password reset as part of the [forgot password](/docs/reference/api/authn/#forgot-password) flow. <!--OKTA-187076-->
+We now delete all sessions for a user after a successful password reset as part of the forgot password flow. <!--OKTA-187076-->
 
 #### Bugs Fixed in 2018.38
 
-* An HTTP 500 error would occur if the JSON body sent to create a user contained a non-string value for the following [user profile](/docs/reference/api/users/#profile-object) properties: `firstName`, `lastName`, `email`, `login`, `mobilePhone`, and `secondEmail`. Any non-string values for these properties will now be converted into strings after they are sent. (OKTA-170711)
+* An HTTP 500 error would occur if the JSON body sent to create a user contained a non-string value for the following user profile properties: `firstName`, `lastName`, `email`, `login`, `mobilePhone`, and `secondEmail`. Any non-string values for these properties will now be converted into strings after they are sent. (OKTA-170711)
 
 #### Previously Released Early Access Features 2018.38 Update
 
@@ -355,9 +355,9 @@ Okta is introducing new rate limits for emails that are sent to users. This will
 
 User deletion and deactivation requests now have an optional `sendEmail` parameter. For more information see the documentation for those endpoints:
 
-* [DELETE /api/v1/apps/${applicationId}/users/${userId}](/docs/reference/api/apps/#remove-user-from-application)
-* [DELETE /api/v1/users/${userId}](/docs/reference/api/users/#delete-user)
-* [POST /api/v1/users/${userId}/lifecycle/deactivate](/docs/reference/api/users/#deactivate-user)
+* DELETE /api/v1/apps/${applicationId}/users/${userId}
+* DELETE /api/v1/users/${userId}
+* POST /api/v1/users/${userId}/lifecycle/deactivate
 
 <!--OKTA-185729-->
 
@@ -398,7 +398,7 @@ The following features have already been released as Early Access. To enable the
 
 #### Bugs Fixed in 2018.35
 
-* Search queries to the [/user endpoint](/docs/reference/api/users/#list-users-with-search) with an invalid `after` parameter would return an HTTP 500 error. (OKTA-185186)
+* Search queries to the /user endpoint with an invalid `after` parameter would return an HTTP 500 error. (OKTA-185186)
 
 #### Previously Released Early Access Features 2018.35 Update
 
@@ -456,12 +456,12 @@ You can now disable the Okta loading animation that appears during a login redir
 
 #### New System Log Event Type for Denied Events
 
-The [System Log](/docs/reference/api/system-log/#security-events) now reports when requests are denied due to a blocklist rule (such as a IP network zone or location rule). These events are logged with the event type `security.request.blocked`. (OKTA-178982)
+The System Log now reports when requests are denied due to a blocklist rule (such as a IP network zone or location rule). These events are logged with the event type `security.request.blocked`. (OKTA-178982)
 
 #### Bugs Fixed in 2018.32
 
 * Fixed a bug that affected delegated authentication users: in rare cases, the user appeared to be active when locked out, or vice versa. (OKTA-180932)
-* The Apps API now [returns an error](/docs/reference/api/apps/#response-example-self-service-application-assignment-not-available) if changing the Application's self-service assignment settings could result in an insecure state. (OKTA-182497)
+* The Apps API now returns an error if changing the Application's self-service assignment settings could result in an insecure state. (OKTA-182497)
 
 #### Previously Released Early Access Features 2018.32 Update
 
@@ -492,9 +492,9 @@ The following features have already been released as Early Access. To enable the
 
 * Removed System Logs entries for [granting refresh tokens](/docs/guides/refresh-tokens/) in token requests with the `refresh_token` grant type (since this grant type simply returns the original refresh token). This fix applies to both [custom Authorization Servers](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS) and the Okta [Org Authorization Server](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS). (OKTA-178335)
 
-* Fixed issues with the [User-Consent Grant Management API](/docs/reference/api/users/#user-consent-grant-operations): added missing value to `issuer`, removed `issuerId`, removed HAL links for issuer and revoke, and added hints for self GET and DELETE.  (OKTA-175296)
+* Fixed issues with the User-Consent Grant Management API: added missing value to `issuer`, removed `issuerId`, removed HAL links for issuer and revoke, and added hints for self GET and DELETE.  (OKTA-175296)
 
-* Fixed a bug where SAML apps [created using the API](/docs/reference/api/apps/#add-custom-saml-application) could not enable `honorForceAuthn`. (OKTA-166146)
+* Fixed a bug where SAML apps created using the API could not enable `honorForceAuthn`. (OKTA-166146)
 
 * Fixed an issue where `login_hint` was ignored when using OAuth consent with a custom Authorization Server. (OKTA-164836)
 
@@ -512,7 +512,6 @@ The following features have already been released as Early Access. To enable the
 | [Token Management API](#token-management-api-is-in-early-access-ea) |
 | [User Consent for OAuth 2.0 and OpenID Connect Flows](#user-consent-for-oauth-20-and-openid-connect-flows-in-early-availability-ea) |
 
-
 ## July
 
 ### Weekly Release 2018.29
@@ -525,8 +524,8 @@ The following features have already been released as Early Access. To enable the
 
 #### Bugs Fixed in 2018.29
 
-* Using the [Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) to modify an existing zone that is blocked, removed the zone from the blocklist and converted it to a normal IP Zone. (OKTA-176610)
-* Using the [Applications API](/docs/reference/api/apps/) to create an OAuth client caused an error if the `credentials.oauthClient` property was not provided, even though it is not required. (OKTA-179275)
+* Using the Zones API to modify an existing zone that is blocked, removed the zone from the blocklist and converted it to a normal IP Zone. (OKTA-176610)
+* Using the Applications API to create an OAuth client caused an error if the `credentials.oauthClient` property was not provided, even though it is not required. (OKTA-179275)
 * The System Log CSV report did not contain a value for `AuthenticationContext.issuer` for the event type `user.authentication.authenticate`. (OKTA-147165)
 
 
@@ -558,9 +557,9 @@ The MFA [call factor](https://developer.okta.com/docs/api/openapi/okta-managemen
 
 #### Bugs Fixed in 2018.28
 
-* Users received an incorrect error message when using the [System Log API](/docs/reference/api/system-log/) and specifying a sort order with an unbounded `until` statement. (OKTA-175411)
+* Users received an incorrect error message when using the System Log API and specifying a sort order with an unbounded `until` statement. (OKTA-175411)
 
- * Under certain circumstances, the [System Log API](/docs/reference/api/system-log/) did not return events on the first query, but did on subsequent queries. (OKTA-174660)
+ * Under certain circumstances, the System Log API did not return events on the first query, but did on subsequent queries. (OKTA-174660)
 
 #### Previously Released Early Access Features 2018.28 Update
 
@@ -586,7 +585,7 @@ The following features have already been released as Early Access. To enable the
 
 #### System Log API is Generally Available (GA)
 
-The [System Log API](/docs/reference/api/system-log/) is now Generally Available. Developers of new projects are strongly recommended to use this in lieu of the Events API.
+The System Log API is now Generally Available. Developers of new projects are strongly recommended to use this in lieu of the Events API.
 
 #### Bugs Fixed in 2018.27
 
@@ -658,7 +657,7 @@ The following features have already been released as Early Access. To enable the
 
 #### User Login Pattern Validation
 
-A user's `login` no longer needs to be in the form of an email address.  Instead, the login is validated against a `pattern` property stored in the User Schema, which can be set to certain Regular Expressions. If no pattern is set, the default validation requires email addresses. More information can be found in the [User](/docs/reference/api/users) and [Schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/) API references. <!-- OKTA-166157 -->
+A user's `login` no longer needs to be in the form of an email address.  Instead, the login is validated against a `pattern` property stored in the User Schema, which can be set to certain Regular Expressions. If no pattern is set, the default validation requires email addresses. More information can be found in the User and Schema API references. <!-- OKTA-166157 -->
 
 #### Bugs Fixed in 2018.24
 
@@ -680,7 +679,6 @@ The following features have already been released as Early Access. To enable the
 | [System Log API](#system-log-api-is-in-early-access-ea) |
 | [User Consent for OAuth 2.0 and OpenID Connect Flows](#user-consent-for-oauth-20-and-openid-connect-flows-in-early-availability-ea) |
 
-
 ### Weekly Release 2018.23
 
 | Change                                                                                                               | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
@@ -696,7 +694,7 @@ Enrollment, activation, and verification of U2F factors are now supported in the
 
 #### Network Selection Modes Deprecated
 
-Two deprecated network selection modes (`ON_NETWORK `and `OFF_NETWORK`) have been removed from the [Network Condition Object](/docs/reference/api/policy/#NetworkConditionObject). They have been replaced by the `ZONE` type. <!-- OKTA-172947 -->
+Two deprecated network selection modes (`ON_NETWORK `and `OFF_NETWORK`) have been removed from the Network Condition Object. They have been replaced by the `ZONE` type. <!-- OKTA-172947 -->
 
 #### Better Signing Key Errors
 
@@ -843,7 +841,7 @@ The following features have already been released as Early Access. To enable the
 
 #### Authentication Object for Step-up Authentication Is in Early Access
 
-During [SP-initiated](/docs/reference/api/authn/#sp-initiated-step-up-authentication) or [IdP-initiated](/docs/reference/api/authn/#idp-initiated-step-up-authentication) authentication, use the [Authentication Object](/docs/reference/api/authn/#authentication-object) to represent details that the target resource is using.
+During [SP-initiated](/docs/reference/api/authn/#sp-initiated-step-up-authentication) or IdP-initiated authentication, use the [Authentication Object](/docs/reference/api/authn/#authentication-object) to represent details that the target resource is using.
 
 The Authentication Object is an [Early Access feature](/docs/reference/releases-at-okta/).
 
@@ -934,7 +932,7 @@ You can add an app instance target to an `APP_ADMIN` role assignment via the API
 
 When you assign an app instance target to this role assignment, the scope of the role assignment changes from all app targets to just the specified target. Thus you can use this feature to create different `APP_ADMIN` role assignments for different apps in your org.
 
-For details, visit the [Roles API documentation](/docs/reference/api/roles/#add-app-target-to-app-administrator-role). <!-- OKTA-164900 -->
+For details, visit the Roles API documentation. <!-- OKTA-164900 -->
 
 #### Bug Fixed in 2018.15
 
@@ -962,7 +960,7 @@ The following features have already been released as Early Access. To enable the
 
 #### Linked Objects API in Early Access (EA)
 
-Users have relationships to each other, like manager and subordinate or customer and sales representative. You can create users with relationships by using the [Linked Objects API](/docs/reference/api/linked-objects/).
+Users have relationships to each other, like manager and subordinate or customer and sales representative. You can create users with relationships by using the Linked Objects API.
 
 Okta allows you to create up to 200 linked object definitions. These definitions are one-to-many:
 
@@ -976,7 +974,7 @@ You can assign the `associated` relationship for a single `primary` user to as m
 
 For more details:
 
-* [Linked Objects API documentation](/docs/reference/api/linked-objects/) <!-- OKTA-161674 -->
+* Linked Objects API documentation <!-- OKTA-161674 -->
 
 #### Client SDKs Version 1.0
 
@@ -1022,7 +1020,7 @@ When creating multiple instances of the same app, each instance of the app has a
 
 #### Token Management API Is in Early Access (EA)
 
-Use the Token Management API to view and revoke OAuth 2.0 and OpenID Connect refresh tokens by [end user](/docs/reference/api/users/#user-oauth-20-token-management-operations), [Custom Authorization Server](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerClients/), or [client app](/docs/reference/api/apps/#application-oauth-20-token-operations). <!-- OKTA-145525 -->
+Use the Token Management API to view and revoke OAuth 2.0 and OpenID Connect refresh tokens by end user, Custom Authorization Server, or client app. <!-- OKTA-145525 -->
 
 #### Bug Fixed for 2018.12
 
@@ -1061,7 +1059,7 @@ Version 2.7.0 of the Okta Sign-in Widget provides new features, notable changes,
 
 * An incorrect error message was returned when a blank password was specified in a password reset request. (OKTA-144982)
 * If administrators in an org with the Admin Console enabled used the Classic user interface instead, and had no apps assigned, they couldn't access their own user home page. (OKTA-152324)
-* For [the System Log API](/docs/reference/api/system-log/), the `displayName` in the Target object was set to `Unknown` if the `eventType` was `user.authentication.sso` and if the value didn't exist in the profile editor.
+* For the System Log API, the `displayName` in the Target object was set to `Unknown` if the `eventType` was `user.authentication.sso` and if the value didn't exist in the profile editor.
 This behavior matches the behavior in `/events`. (OKTA-156484)
 
 
@@ -1094,16 +1092,16 @@ Often the terms "event" and "log event" are used interchangeably. In the context
 
 Notes:
 
-* The System Log API contains much more [structured data](/docs/reference/api/system-log/#logevent-object) than the Events API.
-* The System Log API supports [additional SCIM filters](/docs/reference/api/system-log/#request-parameters) and the `q` query parameter, because of the presence of more structured data than the Events API. <!-- OKTA-160902 OKTA-160880 -->
+* The System Log API contains much more structured data than the Events API.
+* The System Log API supports additional SCIM filters and the `q` query parameter, because of the presence of more structured data than the Events API. <!-- OKTA-160902 OKTA-160880 -->
 
 #### Password Imports with Salted SHA-256 Algorithm is in Early Access (EA)
 
-You can use the salted SHA-256 hash type when [importing passwords](/docs/reference/api/users/#create-user-with-imported-hashed-password). <!-- OKTA-160288 -->
+You can use the salted SHA-256 hash type when importing passwords. <!-- OKTA-160288 -->
 
 #### New Parameter for Authentication with Okta Verify with Auto-Push
 
-We have added [an optional URL parameter, `autoPush` ](/docs/reference/api/authn/#request-parameters-for-verify-push-factor) that allows Okta to store the user's Auto-Push preference when verifying Okta Verify with Auto-Push. This parameter is only necessary when implementing custom login flows that do not use the Okta Sign-In Widget. <!-- OKTA-155563 -->
+We have added [an optional URL parameter, `autoPush`](/docs/reference/api/authn/#request-parameters-for-verify-push-factor) that allows Okta to store the user's Auto-Push preference when verifying Okta Verify with Auto-Push. This parameter is only necessary when implementing custom login flows that do not use the Okta Sign-In Widget. <!-- OKTA-155563 -->
 
 #### System Log Changes for 2018.10
 
@@ -1117,7 +1115,7 @@ We have added [an optional URL parameter, `autoPush` ](/docs/reference/api/authn
 
 * GET requests to list 200 or more apps were taking a long time to complete. (OKTA-158391)
 * Invalid IP addresses in the `X-Forwarded-For` header caused a null pointer exception (HTTP 500 `NullPointerException`) during primary authentication. (OKTA-159414)
-* [List User with Search requests](/docs/reference/api/users/#list-users-with-search) in preview orgs failed to return pagination links. (OKTA-160424)
+* List User with Search requests in preview orgs failed to return pagination links. (OKTA-160424)
 
 
 ## February
@@ -1145,11 +1143,11 @@ Consent grants are different from tokens because a consent can outlast a token, 
 To configure an authorization or authentication flow to include a user consent page:
 
 1. Verify that you have the API Access Management feature enabled, and request that User Consent also be enabled.
-2. Create an app via the Apps API with the appropriate values for `tos_uri`, `policy_uri`, and `consent_method`. ([Details](/docs/reference/api/apps/#settings-7))
+2. Create an app via the Apps API with the appropriate values for `tos_uri`, `policy_uri`, and `consent_method`.
 
     Note: You can also configure an existing app in the administrator UI: **Applications > [Application Name] > General > User Consent**.
 
-3. Ensure that your authentication or authorization flow is configured properly. The combination of `prompt` in the `/authorize` request, `consent_method` set on the app in the previous step, and `consent`, a property set on scopes, controls whether a user consent window is displayed during the authentication flow. [Details](/docs/reference/api/apps/#settings-7)
+3. Ensure that your authentication or authorization flow is configured properly. The combination of `prompt` in the `/authorize` request, `consent_method` set on the app in the previous step, and `consent`, a property set on scopes, controls whether a user consent window is displayed during the authentication flow. 
 
 <!-- OKTA-158107 -->
 
@@ -1245,9 +1243,9 @@ If you don't want these changes, contact [Support](https://support.okta.com/help
 
 #### Improved System Log Behavior for Date Queries
 
-1. For `/logs`, the request parameters [`since` and `until`](/docs/reference/api/system-log/#request-parameters) require [the RFC 3339 Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). This allows queries to more accurately target date ranges. <!-- OKTA-149837 -->
+1. For `/logs`, the request parameters `since` and `until` require [the RFC 3339 Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). This allows queries to more accurately target date ranges. <!-- OKTA-149837 -->
 
-2. For /`logs`, [the maximum page size](/docs/reference/api/system-log/#request-parameters) is 1,000 messages (`limit=1000`). The default remains at 100. <!-- OKTA-154711, OKTA-157865 -->
+2. For /`logs`, the maximum page size is 1,000 messages (`limit=1000`). The default remains at 100. <!-- OKTA-154711, OKTA-157865 -->
 
 #### System Log Message Changes Related to Authorization Servers
 
@@ -1332,13 +1330,13 @@ The following feature enhancement is expected in preview orgs February 14, 2018,
 
 #### Keystore Rollover Events Now Logged
 
-OAuth key store rollover events are now included in both the Events and [System Log](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/) APIs.<!-- OKTA-129535 -->
+OAuth key store rollover events are now included in both the Events and System Log APIs.<!-- OKTA-129535 -->
 
 #### Bug Fixed
 
 The following bug has been fixed and is expected in preview orgs February 14, 2018 and production orgs starting February 27, 2018.
 
-* The error message "Exception while persisting IdpAppUser" wasn't available in the [System Log API](/docs/reference/api/system-log/). (OKTA-153604)
+* The error message "Exception while persisting IdpAppUser" wasn't available in the System Log API. (OKTA-153604)
 
 
 ### Weekly Release 2018.06
@@ -1365,7 +1363,7 @@ If you have API Access Management enabled, you can use a dedicated administrator
 * Create and edit  OAuth 2.0 and OpenID Connect client apps
 * Assign users and groups to OAuth 2.0 and OpenID Connect client apps
 
-To change the role assigned to a user, use [the Administrator Roles API](/docs/reference/api/roles/) or visit **Security > Administrators** in the administrator UI. <!--OKTA-107617-->
+To change the role assigned to a user, use the Administrator Roles API or visit **Security > Administrators** in the administrator UI. <!--OKTA-107617-->
 
 #### New and Changed Messages for the System Log
 
@@ -1380,7 +1378,6 @@ The following bug has been fixed and is expected in preview orgs February 7, 201
 
 * A spurious `next` link from the response headers was returned by a policy get operation (`GET {url}
 /api/v1/policies`). (OKTA-152522)
-
 
 ## January
 

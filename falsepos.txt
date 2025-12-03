@@ -59,6 +59,21 @@ https://reactjs.org/docs/hooks-intro.html
 https://trust.okta.com/compliance/
 https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1/
 https://admin.google.com/
-
-
+https://docs.withpersona.com/docs/getting-started/
+https://search.maven.org/artifact/com.okta.android/okta-oidc-android/
+https://search.maven.org/search?q=a:okta-jwt-verifier/
+https://www.npmjs.com/
+https://www.npmjs.com/package/cors/
+https://www.npmjs.com/package/dotenv/
+https://www.npmjs.com/package/@okta/jwt-verifier/
+https://www.npmjs.com/package/@okta/okta-auth-js#getting-started/
+https://www.npmjs.com/package/@okta/okta-auth-js#tokenmanagergettokens/
+https://www.npmjs.com/package/@okta/okta-signin-widget/
+https://www.npmjs.com/search?q=@okta/
+https://www.npmjs.com/search?q=%40okta/
+https://devforum.okta.com/
+https://devforum.okta.com/search?q=saml/
+https://devforum.okta.com/c/questions/oin-submissions/19/
+https://medium.com/@dkw5877/flow-coordinators-333ed64f3dd/
+https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/VariableReference.html
 

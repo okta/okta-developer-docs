@@ -7,7 +7,7 @@ meta:
 
 # User profiles
 
-A user profile in Okta is the data record where user information is stored. A typical user profile contains information, or attributes, such as a user’s first name, last name, username, and email address. Users can be employees, customers, partners, or end users of apps.
+A user profile in Okta is the data record where user information is stored. A typical user profile contains information, or attributes, such as a user's first name, last name, username, and email address. Users can be employees, customers, partners, or end users of apps.
 
 The default Okta user profile has [31 user attributes](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!path=profile&t=request), which you can customize based on client requirements. You can add other custom attributes to the user profile to support most client user needs. Custom profile attribute types enable you to customize the user experience even more, based on your org and app needs.
 
@@ -19,35 +19,31 @@ See also [Users, Groups, and Profiles](https://help.okta.com/okta_help.htm?id=ex
 
 The Okta Universal Directory is the service that stores all the information on your users (user profiles) for your organization. Depending on the setup for your org, Universal Directory can serve as the "single-source-of-truth" for your users.
 
-Also, Universal Directory holds app user profiles that define the attributes that apps require from individual users. For example, one app might only need to know the user’s name as one string (for example, "John Doe"). Another app might require that the user’s first and last names be separate (for example, "John" and "Doe"). Furthermore, some apps might store sensitive information, like a user’s address, while other apps don’t. If you share the same user profile with each app, both apps can access data they don't need or aren't authorized to view. With Universal Directory, you can be sure that each app only gets the data it needs.
+Also, Universal Directory holds app user profiles that define the attributes that apps require from individual users. For example, one app might only need to know the user's name as one string (for example, "John Doe"). Another app might require a user's first and last names be separate (for example, "John" and "Doe"). Furthermore, some apps might store sensitive information, like a user's address, while other apps don't. If you share the same user profile with each app, both apps can access data they don't need or aren't authorized to view. With Universal Directory, you can be sure that each app only gets the data it needs.
 
 Universal Directory has a single Okta user profile for every user and an app user profile for each app. The user profile is the primary place to store all user information, and the app user profile is where app-specific information is stored.
 
-You can manage the User profiles in Universal Directory from the Admin Console or use the [User API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/).
+You can manage the user profiles in Universal Directory from the Admin Console or use the [User API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/).
 
-You can manage the Apps user profiles in Universal Directory from the Admin Console or use the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application).
+You can manage the apps user profiles in Universal Directory from the Admin Console or use the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application).
 
 ### User mappings
 
-In addition to storing user profiles and app user profiles, Universal Directory maps data from one profile to another. This keeps data synchronized between all of your apps. For example, you can store a user’s first and last name in the user profile and map that data to an app user profile. A single change to a field in a User Profile is reflected in all the apps that map to that field.
+In addition to storing user profiles and app user profiles, Universal Directory maps data from one profile to another. This keeps data synchronized between all of your apps. For example, you can store a user's first and last name in the user profile and map that data to an app user profile. A single change to a field in a User Profile is reflected in all the apps that map to that field.
 
 See also [About attribute mappings](https://help.okta.com/okta_help.htm?id=ext-usgp-about-attribute-mappings).
 
 You can manage the Universal Directory mappings between profiles using the Admin Console or the [Profile Mappings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProfileMapping/).
 
-## User Profile types
+## Profile types
 
-Okta has two basic user profile types that define a user in the Universal Directory: Okta user profile type and app user profile type. The Okta user profile type is further composed of Group profile types and Custom profile types.
+Okta has two basic profile types that define a user in the Universal Directory: Okta user profile type and app user profile type. The Okta user profile type can also have a custom profile type. Universal Directory also has group profiles that define groups, which manage multiple users of the same type.
 
 See [About profile types](https://help.okta.com/okta_help.htm?id=ext-usgp-about-profiles) and [About custom user types in Universal Directory](https://help.okta.com/okta_help.htm?id=ext-custom-user-types).
 
 ### Okta user profile type
 
 The Okta user profile type defines the default user record used in the Universal Directory. The default user profile contains 31 attributes in accordance with the [RFC System for Cross-domain Identity Management: Core Schema](https://datatracker.ietf.org/doc/html/rfc7643#section-4.1) and can also be extended with custom attributes. To manage the default user profile, use the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/), and review the [Profile object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!path=profile&t=request) and the [User object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser!c=200&path=activated&t=response) for further information.
-
-#### Group profile type
-
-Okta groups simplify management of multiple users of the same type. See [About groups](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups). The Group profile itself consists of attributes, and can be defined and managed with the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/). The responses and schemas show examples of a Group object and its attributes.
 
 #### Custom profile type
 
@@ -59,13 +55,17 @@ The [User Types API](https://developer.okta.com/docs/api/openapi/okta-management
 
 User profiles can only belong to one user profile type. The User object property [`type`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!path=type&t=request) defines the custom user profile (or default profile) that the user is associated with.
 
->**Note:** The default profile object property [`userType`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser!c=200&path=profile/userType&t=response) is a user profile attribute and isn’t a reference to the default or custom profile type.
+>**Note:** The default profile object property [`userType`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser!c=200&path=profile/userType&t=response) is a user profile attribute and isn't a reference to the default or custom profile type.
 
 ### App user profile type
 
 The app user profile type defines the attributes available for a user of that app in the Universal Directory. The app user profile attributes are mapped to the user profile and determine the data that you can send to or import from an app. Similar to user profiles, the app user profile has base attributes and custom attributes.
 
 The available custom attributes, however, are determined by the app. You can manage the app user profile type with the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/). Review the [app user profile](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/#tag/ApplicationUsers/operation/getApplicationUser!c=200&path=profile&t=response) object and the [app user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/) object for further details.
+
+### Group profile type
+
+Okta groups simplify management of multiple users of the same type. See [About groups](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups). The group profile itself consists of attributes, and you can define and manage them with the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/). The responses and schemas show examples of a `group` object and its attributes.
 
 ## Universal Directory schemas
 
@@ -76,7 +76,7 @@ You can store many different types of data in a user profile such as strings, nu
 * **Variable name:** The machine-readable identifier for the attribute
 * **Description:** A more in-depth description of what the attribute is for
 * **Enum:** If the attribute value comes from a fixed list of choices
-* **Attribute Length:** How long the value can be, as appropriate for the attribute’s data type
-* **Attribute required:** If an attribute is required, Okta gives an error if the attribute isn’t included.
+* **Attribute Length:** How long the value can be, as appropriate for the attribute's data type
+* **Attribute required:** If an attribute is required, Okta gives an error if the attribute isn't included.
 
 Schemas define every user profile type: Okta default user profile, custom user profiles, group user profiles, and app user profiles. The [Schemas API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/) manages operations for all user profiles. See [User Schema object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getUserSchema!c=200&path=$schema&t=response), [App User Schema object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getApplicationUserSchema!c=200&path=$schema&t=response), and [Group Schema object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getGroupSchema!c=200&path=$schema&t=response).

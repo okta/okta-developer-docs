@@ -6,7 +6,65 @@ title: Okta Identity Governance API release notes 2025
 
 Okta Identity Governance is available for both Okta Classic and Identity Engine.
 
+## November
+
+### Monthly release 2025.11.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Entitlement history is GA in Production](#entitlement-history-is-ga-in-production) | September 10, 2025 |
+| [Security access reviews API is GA in Preview](#security-access-reviews-api-is-ga-in-preview) | September 10, 2025 |
+| [Security access review manual remediation](#security-access-review-manual-remediation) | November 5, 2025 |
+| [Security access review updates](#security-access-review-updates) | November 5, 2025 |
+| [Org Governance Settings API updates](#org-governance-settings-api-updates) | November 5, 2025 |
+| [Enrollment change is Beta](#enrollment-change-is-beta) | November 5, 2025 |
+
+#### Entitlement history is GA in Production
+
+Admins can now access a user's entitlement history. This feature improves auditing and compliance tasks and enhances visibility for troubleshooting access issues. See [Retrieve an entitlement history](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Principal-Entitlements/#tag/Principal-Entitlements/operation/getPrincipalEntitlementsHistory) in the Principal Entitlements API.
+
+You can also access this feature from the Admin Console. See [View user entitlements](https://help.okta.com/okta_help.htm?type=oie&id=view-user-entitlements) in the product documentation. <!-- OKTA-992288 OKTA-992282 IGA_ENTITLEMENTS_HISTORY Preview-date: Sept 10, 2025 (as Beta) -->
+
+#### Security access review manual remediation
+
+For access and sub-access items where the access revocation or restoration can’t be automated in a security access review, you can flag them for manual remediation. This is typically due to an access assignment through a group rule, an entitlement policy, a collection, or an unsupported resource.
+When you flag the access item for manual remediation, Okta fires an `access.review.action` System Log event.
+
+See [`supportedActions`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/executeSecurityAccessReviewAccessesAction!path=type&t=request), [`manualRemediationTypes`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/listSecurityAccessReviewAccesses!c=200&path=data/manualRemediationTypes&t=response), and [`remediationStatus`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/listSecurityAccessReviewAccesses!c=200&path=data/remediationStatus&t=response). <!--OKTA-1001463 IGA_SECURITY_ACCESS_REVIEW Preview date: Nov 5, 2025 -->
+
+#### Security access reviews API is GA in Preview
+
+Security access reviews are a new, security-focused type of access review that can be automatically triggered by events. These reviews provide a unified view of a user's access and contextual information about their access history. Also included is an AI-generated access summary, allowing you to investigate and take immediate remediation actions like revoking access.
+
+See [Security Access Reviews](https://help.okta.com/okta_help.htm?type=oie&id=csh-sar) in the product documentation. See the [Security Access Reviews](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/) API and [Launch a security access review](/docs/guides/iga-security-access-review/main/) guide for details on how to trigger security access reviews through the API.
+<!-- OKTA-1002587 IGA_SECURITY_ACCESS_REVIEW Preview date: Sept 10, 2025 -->
+
+#### Security access review updates
+
+You can now update the reviewers and extend the review's end date on a security access review. See [Update a security access review](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/updateSecurityAccessReview).
+<!-- OKTA-1007825 OKTA-1007827 IGA_SECURITY_ACCESS_REVIEW Preview date: Nov 5, 2025 -->
+
+#### Org Governance Settings API updates
+
+* To access the Org Governance Settings API, admins now need to have the super admin (`SUPER_ADMIN`) role.
+
+* The Org Governance Settings API now includes a security access review setting that allows users to generate AI summaries. When this setting is enabled, all security access reviewers in the org can generate AI-powered summaries for user access insights. See [`governanceAI`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Org-Governance-Settings/#tag/Org-Governance-Settings/operation/updateOrgSettings!path=governanceAI&t=request) in [Update the org settings](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Org-Governance-Settings/#tag/Org-Governance-Settings/operation/updateOrgSettings) operation. <!-- OKTA-1028575, OKTA-1024002, Preview date: Nov 5, 2025 -->
+
+#### Enrollment change is Beta
+
+Admins can now access a user's entitlement changes for a resource. This feature enhances visibility for troubleshooting access issues. See [Retrieve the principal entitlement changes](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Principal-Entitlements/#tag/Principal-Entitlements/operation/getPrincipalEntitlementsChanges) in the Principal Entitlements API. <!-- OKTA-1045028 Preview date: Nov 5, 2025 -->
+
 ## October
+
+### Weekly release 2025.10.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bug fixed in 2025.10.2](#bug-fixed-in-2025-10-2)| October 29, 2025 |
+
+#### Bug fixed in 2025.10.2
+
+The [Access Request - V2](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Requests/) APIs didn’t support the client credentials authentication flow. (OKTA-1044065)
 
 ### Weekly release 2025.10.1
 
@@ -24,6 +82,7 @@ The client credential flow for API service apps didn’t work for some governanc
 |--------|--------------------------|
 | [Entitlement history is Beta](#entitlement-history-is-beta)| September 10, 2025 |
 | [New governance setting System Log event](#new-governance-setting-system-log-event)| October 8, 2025 |
+| [Auditor reporting package is GA](#auditor-reporting-package-is-ga)| August 13, 2025 |
 
 #### Entitlement history is Beta
 
@@ -36,6 +95,13 @@ You can also access this feature from the Admin Console. See [View user entitlem
 
 The [`governance.settings.update`](https://developer.okta.com/docs/reference/api/event-types/?q=governance.settings.update) System Log event is triggered when super admins update the delegate settings to allow or block users from assigning their own delegate.
 <!-- OKTA-1005733 Preview date: Oct 8, 2025 -->
+
+#### Auditor reporting package is GA
+
+You can now generate access certification campaign reports that are tailored to meet auditor requirements. These reports make preparing for compliance audits faster and easier by reducing the time and manual effort required for assembling and exporting campaign and user access data.
+
+Access certification campaign reports are generated from the auditor reporting package, which is triggered post-campaign completion when the `createReportingPackageEnabled` parameter is true. See [`reportingSettings.createReportingPackageEnabled`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign!path=reportingSettings&t=request) in the [Create a campaign](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign) resource.
+<!--OKTA-982353 IGA_ACCESS_CERT_AUDITOR_REPORTING Preview date: August 13, 2025 -->
 
 ## September
 

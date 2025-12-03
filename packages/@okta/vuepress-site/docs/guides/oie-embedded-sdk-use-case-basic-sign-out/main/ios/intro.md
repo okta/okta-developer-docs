@@ -1,0 +1,3 @@
+This guide describes how to sign a user out using the [Okta Mobile Swift SDK](https://github.com/okta/okta-mobile-swift?tab=readme-ov-file#okta-client-sdk-for-swift).
+
+> **Note:** If you’re using the Okta IDX Swift SDK, it's deprecated. Okta recommends the Okta Mobile Swift SDK. See [Okta IDX Swift SDK: For existing users](https://github.com/okta/okta-idx-swift?tab=readme-ov-file#for-existing-users).

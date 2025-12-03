@@ -1,0 +1,82 @@
+{
+  "version": "1.0",
+  "exported_at": 1763448041,
+  "test_usage_90_days": 0,
+  "test_usage_billing_period": 0,
+  "name": "Okta SCIM 2.0 Entitlements Test",
+  "description": "Basic tests to see if your SCIM server's entitlement endpoints work with Okta.",
+  "trigger_url": "https://api.runscope.com/radar/20a66fda-1902-44ca-8c50-9245c152f4e2/trigger",
+  "is_skipped_at_bucket_level": false,
+  "steps": [
+    {
+      "step_type": "request",
+      "skipped": false,
+      "note": "Duplicate the request for multiple Entitlement Endpoints",
+      "method": "GET",
+      "args": {},
+      "data": "",
+      "headers": {
+        "Accept-Charset": [
+          "utf-8"
+        ],
+        "Content-Type": [
+          "application/scim+json; charset=utf-8"
+        ],
+        "Accept": [
+          "application/scim+json"
+        ],
+        "Authorization": [
+          "{{auth}}"
+        ],
+        "User-Agent": [
+          "OKTA SCIM Integration"
+        ]
+      },
+      "multipart_form": [],
+      "auth": {},
+      "url": "{{SCIMBaseURL}}{{EntitlementEndpoint}}?count=1&startIndex=1",
+      "assertions": [
+        {
+          "comparison": "equal_number",
+          "source": "response_status",
+          "value": 200
+        },
+        {
+          "comparison": "not_empty",
+          "source": "response_json",
+          "value": null,
+          "property": "Resources"
+        },
+        {
+          "comparison": "has_value",
+          "source": "response_json",
+          "value": "urn:ietf:params:scim:api:messages:2.0:ListResponse",
+          "property": "schemas"
+        },
+        {
+          "comparison": "is_a_number",
+          "source": "response_json",
+          "value": null,
+          "property": "startIndex"
+        },
+        {
+          "comparison": "equal_number",
+          "source": "response_json",
+          "value": "1",
+          "property": "itemsPerPage"
+        },
+        {
+          "comparison": "is_a_number",
+          "source": "response_json",
+          "value": null,
+          "property": "totalResults"
+        }
+      ],
+      "variables": [],
+      "scripts": [],
+      "before_scripts": []
+    }
+  ],
+  "last_run_created_at": null,
+  "step_count": 1
+}

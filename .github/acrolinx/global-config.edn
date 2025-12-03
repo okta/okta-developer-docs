@@ -9,6 +9,7 @@
  :acrolinx-check-type "batch"
  :ignored-filetypes ["XML" "YAML" "HTML" "TEXT" "JAVA" "CPP" "PROPERTIES" "JSON" "MS_OFFICE" "PDF"]
  :allowed-filename-matches ["(?i)^(?!packages\\/@okta\\/vuepress-site\\/(3rd_party_notices|archive|books|code|copyright|docs\\/reference\\/api|docs\\/release-notes)).*$"]
+
  :targets ; This requires ":use-gh-statuses" to be enabled
    {
      :counts {

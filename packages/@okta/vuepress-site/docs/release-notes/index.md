@@ -11,21 +11,17 @@ Each month, Okta releases API-specific features, enhancements, bug fixes, and Ok
 
 You can identify your product type and release version from the Admin Console. The page footer contains the cell number for your org, your org type (Preview or Production), your product type (C - Classic Engine, E - Identity Engine), and the release version.
 
-[Identity Engine 2025](/docs/release-notes/2025-okta-identity-engine/)
+Learn about features and fixes deployed to the following Okta products:
 
-Learn about features and fixes deployed to Okta Identity Engine.
+* [Identity Engine 2025](/docs/release-notes/2025-okta-identity-engine/)
 
-[Classic Engine 2025](/docs/release-notes/2025/)
+* [Classic Engine 2025](/docs/release-notes/2025/)
 
-Learn about features and fixes deployed to Okta Classic Engine.
+* [Okta Identity Governance 2025](/docs/release-notes/2025-okta-identity-governance/)
 
-[Okta Identity Governance 2025](/docs/release-notes/2025-okta-identity-governance/)
+* [Okta Privileged Access 2025](/docs/release-notes/2025-okta-privileged-access/)
 
-Learn about features and fixes deployed to Okta Identity Governance.
-
-[Okta Privileged Access 2025](/docs/release-notes/2025-okta-privileged-access/)
-
-Learn about features and fixes deployed to Okta Privileged Access.
+* [Okta Access Gateway 2025](/docs/release-notes/2025-okta-access-gateway/)
 
 You can find older release notes in the [Archive](/docs/release-notes/archive) section.
 

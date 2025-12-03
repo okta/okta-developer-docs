@@ -271,13 +271,13 @@ The test account allows the OIN team to verify that your integration flow works 
 
 * For a lifecycle management integration, ensure that your admin test account has HR admin privileges to onboard, change roles, or offboard employees on your app.
 * For an SSO or SCIM integration, ensure that your admin test account has privileges to configure SSO and SCIM. The OIN team needs to verify whether users and/or groups were created by SCIM provisioning or by SAML/OIDC (JiT) in your app.
-* For SCIM integrations, provide the test SCIM server base URL and credentials. If possible, provide instructions on how to obtain the SCIM server credentials (API token or OAuth 2.0 properties) for the Okta QA process.
+* For SCIM integrations, provide the SCIM server base URL and credentials. If possible, provide instructions on how to obtain the SCIM server credentials (API token or OAuth 2.0 properties) for the Okta QA process.
 * For an API service integration, ensure that your admin test account has privileges to configure an API integration and trigger API requests in your app.
 
 > **Note:** Okta recommends that you:
 > * Use sample (non-production) data for testing.
 > * Use `isvtest@okta.com` as the test account username in your app. You can use an alternative username with a different domain, provided that you own or have a license to use the domain and don't infringe upon any rights of any third parties.
-> * Ensure that the test account doesn't have access to your production environment.
+> * Ensure that you provide production test account credentials and the URL for your production instance to test the sign-in flow.
 > * Be aware that Okta automatically deletes test account credentials 30 days after your app is published in the OIN Wizard. To resubmit your app after this period, create a new test account and provide the required information.
 
 ## Customer configuration document guidelines

@@ -308,7 +308,7 @@ export const guides = [
                     guideName: "oie-embedded-sdk-use-case-sign-in-pwd-phone",
                   },
                   {
-                    title: "User sign out (local app)",
+                    title: "User sign out flow (local app)",
                     guideName: "oie-embedded-sdk-use-case-basic-sign-out",
                   },
                 ],
@@ -832,13 +832,11 @@ export const guides = [
         ],
       },
       {
-        title: "Manage orgs",
-        hidden: true,
+        title: "Multi-org management",
         subLinks: [
           {
             title: "Manage orgs with Okta Aerial",
             guideName: "manage-orgs-okta-aerial",
-            hidden: true
           }
         ],
       },
@@ -1193,6 +1191,14 @@ export const releaseNotes = [
       {
         title: "2025 - Privileged Access",
         path: "/docs/release-notes/2025-okta-privileged-access/",
+      },
+      {
+        title: "2025 - Access Gateway",
+        path: "/docs/release-notes/2025-okta-access-gateway/",
+      },
+      {
+        title: "2025 - Aerial",
+        path: "/docs/release-notes/2025-okta-aerial/",
       },
       {
         title: "Archive",

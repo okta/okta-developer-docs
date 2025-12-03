@@ -43,7 +43,7 @@ To get started with API Access Management, visit [API Access Management](/docs/c
 ### Feature Enhancement: Delete User Endpoint
 
 The endpoint to delete users changed from the Beta endpoint `POST /api/v1/users/{id}/lifecycle/delete`
-to the more intuitive [`DELETE /api/v1/users/{id}`](/docs/reference/api/users/#delete-user) for EA.
+to the more intuitive `DELETE /api/v1/users/{id}` for EA.
 The Beta endpoint has been removed. <!-- (OKTA-108195) -->
 
 ### Platform Bugs Fixed
@@ -57,7 +57,7 @@ The Beta endpoint has been removed. <!-- (OKTA-108195) -->
 
 #### Delete User API in EA
 
-API access to [delete users](/docs/reference/api/users/#delete-user) is now in EA. To request the feature, contact [Support](https://support.okta.com/help/open_case).
+API access to delete users is now in EA. To request the feature, contact [Support](https://support.okta.com/help/open_case).
 <!-- OKTA-109291 -->
 
 #### System Query Log Change
@@ -230,7 +230,7 @@ Just as you can in the Apps API, you can perform key store operations in the Ide
 * Generate an X.509 certificate public key
 * Retrieve and list public keys
 
-For more information, see [Identity Provider Signing Key Store Operations](/docs/reference/api/idps/#identity-provider-signing-key-store-operations).
+For more information, see Identity Provider Signing Key Store Operations.
 <!-- OKTA-91498 -->
 
 #### New Function for Replacing Strings
@@ -400,7 +400,7 @@ For SAML IdPs, you can now match transformed IdP usernames using more attributes
 To match on an attribute other than username, email, or either, specify the attribute name in the property `matchAttribute`,
 and specify the value `CUSTOM_ATTRIBUTE` in `matchType`.
 
-For more information, see [Identity Providers](/docs/reference/api/idps/#subject-policy-object).
+For more information, see Identity Providers.
 
 > Contact [Support](https://support.okta.com/help/open_case) to enable this Early Access feature.
 
@@ -631,7 +631,7 @@ Added on June 29:
 Version 1.3.3 of the Okta Sign-In Widget, and version 1.0.2 of okta-auth-js are available for Preview orgs. For more information, see Okta Sign-In Widget.
 
 #### Policy API
-The Links object, `_links`, is available in the Policy object. For more information, see [Links Object](/docs/reference/api/users/#links-object).
+The Links object, `_links`, is available in the Policy object. For more information, see Links Object.
 
 #### Improved Error Descriptions
 The error descriptions related to OAuth provide more helpful information about invalid clients for OpenID Connect flows.

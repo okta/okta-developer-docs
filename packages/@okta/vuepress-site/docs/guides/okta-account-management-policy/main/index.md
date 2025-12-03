@@ -118,7 +118,7 @@ The policy allows for the following specific expressions:
 
 ```bash
 "elCondition": {
-    "condition": "accessRequest.operation == \'enroll\' || accessRequest.operation == \'unenroll\' && ( accessRequest.authenticator.key == \'okta_verify\' || accessRequest.authenticator.key == \'webauthn\' || accessRequest.authenticator.key == \'smart_card_idp\' || accessRequest.authenticator.key == \'yubikey_token\' ) || device.profile.platform == MACOS"
+    "condition": "accessRequest.operation == \'enroll\' || accessRequest.operation == \'unenroll\' && ( accessRequest.authenticator.key == \'okta_verify\' || accessRequest.authenticator.key == \'webauthn\' || accessRequest.authenticator.key == \'smart_card_idp\' || accessRequest.authenticator.key == \'yubikey_token\' )"
 },
 ```
 
@@ -179,7 +179,7 @@ curl --location --globoff 'https://{yourOktaDomain}/api/v1/policies/{policyId/ru
             "level": "LOW"
         },
         "elCondition": {
-            "condition": "accessRequest.operation == \'enroll\' && ( accessRequest.authenticator.key == \'okta_verify\' || accessRequest.authenticator.key == \'webauthn\' || accessRequest.authenticator.key == \'smart_card_idp\' || accessRequest.authenticator.key == \'yubikey_token\' )"
+            "condition": "accessRequest.operation == \'enroll\' || accessRequest.operation == \'unenroll\' && ( accessRequest.authenticator.key == \'okta_verify\' || accessRequest.authenticator.key == \'webauthn\' || accessRequest.authenticator.key == \'smart_card_idp\' || accessRequest.authenticator.key == \'yubikey_token\' )"
         },
         "platform": {
             "include": []

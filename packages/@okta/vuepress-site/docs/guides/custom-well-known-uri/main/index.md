@@ -4,8 +4,6 @@ excerpt: Learn how to customize associated domains.
 layout: Guides
 ---
 
-<ApiLifecycle access="ea" />
-
 This guide explains how to create associations between your custom domains and three well-known URI endpoints.
 
 ---
@@ -18,7 +16,6 @@ Learn how to create well-known URI files.
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * A [custom domain](/docs/guides/custom-url-domain)
-* The Associated Domains Customizations feature enabled for your org
 
 ---
 
@@ -37,6 +34,18 @@ For example, when you host the `/.well-known/apple-app-site-association` file in
 * `/.well-known/webauthn`: The WebAuthn well-known URI file that allows you to specify other web origins that are allowed to share and use the same WebAuthn credentials (passkeys).
 
 The iOS and Android well-known URIs have similar functions that enable secure associations between your custom domain and native mobile apps. While you can use the WebAuthn well-known URI to improve the sign-in experience of your users.
+
+### Redirect URI support in the Okta Client SDK for Swift
+
+The [Okta Client SDK for Swift](https://github.com/okta/okta-mobile-swift) supports both custom URIs and HTTPS redirect URLs on supporting platforms and versions. The use of an `https://` redirect URI is recommended, but this requires that your app is configured to use associated domains. See [Apple Developer documentation - Supporting associated domains](https://developer.apple.com/documentation/Xcode/supporting-associated-domains).
+
+Ensure that you complete the following items:
+
+* Include the domain of the redirect URI as a `webcredential` in your app's [associated domains capability](https://developer.apple.com/documentation/xcode/configuring-an-associated-domain).
+* Verify that the app identifier (that is, the `<TEAM_ID>.<BUNDLE_ID>`) is included in the `webcredentials` list on that domain's `/.well-known/apple-app-site-association` well-known URI. See [Create an apple-app-site-association customization](#create-an-apple-app-site-association-customization).
+* Change the `redirect_uri` value used in your client configuration to the `https` URL configured within your OAuth2 client configuration.
+
+> **Note:** The use of HTTPS addresses within the redirect callback URI is limited by the availability of support within `ASWebAuthenticationSession`. The session requires a minimum of iOS v17.4, macOS v14.4, watchOS v10.4, tvOS v17.4, or visionOS v1.1.
 
 ## Use associated domains in Okta
 

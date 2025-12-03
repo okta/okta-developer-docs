@@ -1,6 +1,6 @@
 {
-  "release" : "2025.10.1",
-  "build" : "2025.10.1-begin-109-ga745d53f813b",
+  "release" : "2025.11.1",
+  "build" : "2025.11.1-begin-137-gba09a5120574",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -812,14 +812,7 @@
     "statusReasonPhrase" : "Unauthorized",
     "internalErrorCode" : "token_encryption_invalid_encryption_key_client",
     "errorCode" : "invalid_client",
-    "errorDescription" : "Invalid encryption for client with kid=en."
-  }, {
-    "title" : "Token encryption invalid encryption key authorization server",
-    "statusCode" : 401,
-    "statusReasonPhrase" : "Unauthorized",
-    "internalErrorCode" : "token_encryption_invalid_encryption_key_auth_server",
-    "errorCode" : "invalid_client",
-    "errorDescription" : "Invalid encryption for authorization server with kid=en."
+    "errorDescription" : "Invalid encryption key for client with kid=en."
   }, {
     "title" : "Request object invalid issuer",
     "statusCode" : 401,
@@ -1261,6 +1254,69 @@
     "internalErrorCode" : "jwt_bearer_grant_replayed",
     "errorCode" : "invalid_grant",
     "errorDescription" : "The jti of the JWT Bearer Grant was already used."
+  }, {
+    "title" : "ID jag client mismatch",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "id_jag_client_mismatch",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The 'client_id' in the JWT Bearer Grant must match the 'client_id' used to authenticate the client."
+  }, {
+    "title" : "ID jag untrusted issuer",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "id_jag_untrusted_issuer",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The issuer of the id-jag is not a trusted authorization server."
+  }, {
+    "title" : "ID jag expired",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "id_jag_expired",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The id-jag is expired."
+  }, {
+    "title" : "ID jag issued in future",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "id_jag_issued_in_future",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The id-jag is issued in the future."
+  }, {
+    "title" : "ID jag lifetime too long",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "id_jag_lifetime_too_long",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The lifetime of the id-jag must not exceed 5 minutes."
+  }, {
+    "title" : "ID jag invalid signature",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "id_jag_invalid_signature",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The signature of the id-jag is invalid."
+  }, {
+    "title" : "ID jag replayed",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "id_jag_replayed",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The id-jag was already used."
+  }, {
+    "title" : "ID jag invalid subject",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "id_jag_invalid_subject",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The 'sub' claim in the id-jag is invalid."
+  }, {
+    "title" : "ID jag lacking scopes",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "id_jag_lacking_scopes",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The id-jag must include at least one scope."
   }, {
     "title" : "Direct auth invalid otp",
     "statusCode" : 400,
@@ -1779,6 +1835,20 @@
     "internalErrorCode" : "jwks_uri_error_auth_server",
     "errorCode" : "invalid_request",
     "errorDescription" : "Error retrieving the authorization server JWKSet from jwks_uri."
+  }, {
+    "title" : "Token encryption invalid encryption key authorization server",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "token_encryption_invalid_encryption_key_auth_server",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid encryption key for authorization server with kid=en."
+  }, {
+    "title" : "ID jag scopes in request",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "id_jag_scopes_in_request",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The id-jag request must not include a 'scope' parameter."
   }, {
     "title" : "Authorize request object and request URI provided",
     "statusCode" : 400,

@@ -1,6 +1,6 @@
 {
-  "release" : "2025.10.1",
-  "build" : "2025.10.1-begin-134-g95ec1798a9ad",
+  "release" : "2025.11.1",
+  "build" : "2025.11.1-begin-137-gba09a5120574",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -229,6 +229,9 @@
   }, {
     "id" : "okta-personal",
     "name" : "Okta Personal"
+  }, {
+    "id" : "onprem-agents",
+    "name" : "On-Prem Agents"
   }, {
     "id" : "outbound-federation",
     "name" : "Outbound Federation"
@@ -1846,7 +1849,7 @@
         "created" : "2025-06-24",
         "release" : "2025.10.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "ad-app" ],
       "mappings" : [ ],
@@ -1864,7 +1867,7 @@
         "created" : "2025-06-24",
         "release" : "2025.10.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "ad-app" ],
       "mappings" : [ ],
@@ -1882,7 +1885,7 @@
         "created" : "2025-06-24",
         "release" : "2025.10.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "ad-app" ],
       "mappings" : [ ],
@@ -1900,7 +1903,7 @@
         "created" : "2025-06-24",
         "release" : "2025.10.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "ad-app" ],
       "mappings" : [ ],
@@ -1918,7 +1921,7 @@
         "created" : "2025-06-24",
         "release" : "2025.10.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "ad-app" ],
       "mappings" : [ ],
@@ -1936,7 +1939,7 @@
         "created" : "2025-06-24",
         "release" : "2025.10.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "ad-app" ],
       "mappings" : [ ],
@@ -1954,7 +1957,7 @@
         "created" : "2025-06-24",
         "release" : "2025.10.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "ad-app" ],
       "mappings" : [ ],
@@ -1972,9 +1975,9 @@
         "created" : "2025-06-24",
         "release" : "2025.10.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
-      "tags" : [ "ad-app" ],
+      "tags" : [ "ad-app", "event-hook-eligible" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -1990,7 +1993,7 @@
         "created" : "2025-06-24",
         "release" : "2025.10.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "ad-app" ],
       "mappings" : [ ],
@@ -5746,7 +5749,7 @@
       }
     }, {
       "id" : "application.configuration.read_client_secret",
-      "category" : "resource-management-platform",
+      "category" : "onprem-agents",
       "description" : "A client secret in an MFA-only app has been read. Verify that a client secret in an MFA-only app has been read. This events indicates that a client secret in an MFA-only app has been read.",
       "info" : {
         "created" : "2024-03-20",
@@ -12707,7 +12710,7 @@
       "schema" : {
         "debugData" : "UserAuthenticationDebugData",
         "actor" : null,
-        "targets" : [ "UserAuthenticationResourceDetails", "DeviceSignalPolicyResourceDetails" ],
+        "targets" : [ "UserAuthenticationResourceDetails", "DeviceSignalPolicyResourceDetails", "RuleSetBranchResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -15463,6 +15466,96 @@
         "actor" : null,
         "targets" : null,
         "changeDetails" : null
+      }
+    }, {
+      "id" : "system.custom_email_server.lifecycle.activate",
+      "category" : "workforce-authenticators",
+      "description" : "Enable a custom email server. Audit the enablement of a custom email server.",
+      "info" : {
+        "created" : "2025-09-29",
+        "release" : "2025.10.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "CustomEmailServerDebugData",
+        "actor" : null,
+        "targets" : [ "CustomEmailServerTargetDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "system.custom_email_server.lifecycle.create",
+      "category" : "workforce-authenticators",
+      "description" : "Create a custom email server. Audit the creation of a custom email server.",
+      "info" : {
+        "created" : "2025-09-29",
+        "release" : "2025.10.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "CustomEmailServerDebugData",
+        "actor" : null,
+        "targets" : [ "CustomEmailServerTargetDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "system.custom_email_server.lifecycle.deactivate",
+      "category" : "workforce-authenticators",
+      "description" : "Disable a custom email server. Audit the disablement of a custom email server.",
+      "info" : {
+        "created" : "2025-09-29",
+        "release" : "2025.10.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "CustomEmailServerDebugData",
+        "actor" : null,
+        "targets" : [ "CustomEmailServerTargetDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "system.custom_email_server.lifecycle.delete",
+      "category" : "workforce-authenticators",
+      "description" : "Delete a custom email server. Audit the deletion of a custom email server.",
+      "info" : {
+        "created" : "2025-09-29",
+        "release" : "2025.10.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "CustomEmailServerDebugData",
+        "actor" : null,
+        "targets" : [ "CustomEmailServerTargetDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "system.custom_email_server.lifecycle.update",
+      "category" : "workforce-authenticators",
+      "description" : "Update a custom email server. Audit an update to the configuration of a custom email server.",
+      "info" : {
+        "created" : "2025-09-29",
+        "release" : "2025.10.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "CustomEmailServerDebugData",
+        "actor" : null,
+        "targets" : [ "CustomEmailServerTargetDetails" ],
+        "changeDetails" : [ "CustomEmailServerUpdateChangeDetailsEntry" ]
       }
     }, {
       "id" : "system.custom_error.delete",
@@ -27584,6 +27677,75 @@
           }
         }
       },
+      "CustomEmailServerDebugData" : {
+        "name" : "CustomEmailServerDebugData",
+        "properties" : {
+          "custom_email_server_username" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "custom_email_server_protocol" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "TLS", "STARTTLS" ]
+          },
+          "custom_email_server_port" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "587", "465" ]
+          },
+          "custom_email_server_error_response" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "custom_email_server_auth_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "BASIC_SMTP_AUTH", "OAUTH2_CLIENT_CREDENTIALS", "OAUTH2_JWT_BEARER_GRANT" ]
+          },
+          "user_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "00u2lov5idSvw50p65d7", "00u2pdv5idSvw50p25k9" ]
+          },
+          "custom_email_server_host" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "smtp.example.com" ]
+          },
+          "custom_email_server_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "ces3ul6v5PpxDSJxF806" ]
+          }
+        }
+      },
       "CustomPushNotificationDebugData" : {
         "name" : "CustomPushNotificationDebugData",
         "properties" : {
@@ -29440,6 +29602,22 @@
       "EmailDeliveryDebugData" : {
         "name" : "EmailDeliveryDebugData",
         "properties" : {
+          "byo_email_server_error_response" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "byo_email_server_auth_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "BASIC_SMTP_AUTH", "OAUTH2_CLIENT_CREDENTIALS", "OAUTH2_JWT_BEARER_GRANT" ]
+          },
           "category" : {
             "type" : "String",
             "sensitive" : false,
@@ -35779,6 +35957,22 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "token_encryption_key" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "encryptionKey1", "824541c2-36c9-43ca-b143-e191ea77e825" ]
+          },
+          "token_encrypted_response_alg" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "RSA-OAEP-256", "RSA-OAEP-384", "RSA-OAEP-512" ]
           },
           "microsoft_user_id" : {
             "type" : "String",
@@ -47991,6 +48185,19 @@
           }
         }
       },
+      "CustomEmailServerTargetDetails" : {
+        "name" : "CustomEmailServerTargetDetails",
+        "properties" : {
+          "email_server_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "ces3ul6v5PpxDSJxF806" ]
+          }
+        }
+      },
       "CustomPageResourceDetails" : {
         "name" : "CustomPageResourceDetails",
         "properties" : {
@@ -49605,6 +49812,59 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "TERMINATE_SESSION", "TERMINATE_ALL_SESSIONS", "RUN_WORKFLOW" ]
+          }
+        }
+      },
+      "RuleSetBranchResourceDetails" : {
+        "name" : "RuleSetBranchResourceDetails",
+        "properties" : {
+          "policy_branch_rule_challenge_authenticators_list" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{Okta Verify : totp}, {Phone : sms}, {Okta Verify : signed_nonce}]" ]
+          },
+          "policy_branch_rule_factor_mode" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "1FA", "2FA" ]
+          },
+          "policy_branch_rule_assurance_result" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "AUTHENTICATED", "CHALLENGE", "REDIRECT", "REAUTHENTICATE_DEVICE_ASSURANCE" ]
+          },
+          "policy_branch_rule_priority" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "0", "1", "99" ]
+          },
+          "policy_branch_rule_action" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "ALLOW", "DENY" ]
+          },
+          "policy_branch_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "rsb3reaTOgst82eO30g4", "rsb4j71vgjbAQXuCy0g4" ]
           }
         }
       },
@@ -51337,6 +51597,14 @@
       "AttackProtectionSettingChangeDetailsEntry" : {
         "name" : "AttackProtectionSettingChangeDetailsEntry",
         "properties" : {
+          "user_enumeration_prevention_authenticators" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[]", "[Password, Phone-SMS, Custom App Authenticator-Push-my custom app, Okta Verify-TOTP]" ]
+          },
           "user_enumeration_prevention_enabled_flows" : {
             "type" : "String",
             "sensitive" : false,
@@ -51397,6 +51665,19 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "LOW", "MEDIUM", "HIGH" ]
+          }
+        }
+      },
+      "CustomEmailServerUpdateChangeDetailsEntry" : {
+        "name" : "CustomEmailServerUpdateChangeDetailsEntry",
+        "properties" : {
+          "configuration_settings" : {
+            "type" : "CustomEmailConfigurationSettings",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "json",
+            "examples" : [ "{\"host\":\"smtp.example.com\",\"port\":587\"}" ]
           }
         }
       },

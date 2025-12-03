@@ -70,7 +70,7 @@ The following sections are an example flow for setting up and using entitlements
 
 1. Go to **Applications** > **Applications** and select the app that you want to define entitlements for.
 1. On the **General** tab, scroll down to the **Identity Governance** section and click **Edit**.
-1. Select **Enabled** to enable the Governance Engine, and then click **Save**. The **Governance** tab should appear within a few seconds. If it doesn't, refresh the page.
+1. Select **Enabled** to enable entitlement management, and then click **Save**. The **Governance** tab should appear within a few seconds. If it doesn't, refresh the page.
 
 ## Define entitlements for the app
 

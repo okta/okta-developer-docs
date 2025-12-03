@@ -171,7 +171,7 @@ First, create a service app integration where you can define your scope-based ac
 
 After you obtain the JWKS from your Okta service app, create a JSON Web Token (JWT) for your access token request.
 
-Use the JWK key ID as the `kid` header parameter and use the following [token claims](/docs/reference/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt) as the JWT payload:
+Use the JWK key ID as the `kid` header parameter and use the following [token claims](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt) as the JWT payload:
 
 * `aud`: Set this value to `https://{yourOktaDomain}/oauth2/v1/token`.
 * `exp`: The expiration time of the token, in seconds since January 1, 1970 UTC (current UNIX timestamp). Set this value to a maximum of only an hour in the future.
@@ -260,7 +260,7 @@ Request an OAuth 2.0 access token with a call to your Okta [org authorization se
 In Postman, the initial `/authorize` request is included in the **Authorization** tab > **OAuth 2.0** type > **Configure New Token** section.
 
 > **Notes:**
-> * See [Token lifetime](/docs/reference/api/oidc/#token-lifetime).
+> * See [Token lifetime](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#token-lifetime).
 > * Okta recommends that you always use the Authorization Code with PKCE grant flow. See [Implement the Authorization Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/) for details on this grant type.
 
 1. Select the request that you want to make from Postman, such as a `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
