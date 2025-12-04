@@ -20,8 +20,9 @@ The right multibrand architecture requires that you answer the following questio
 
 The following diagram shows the decision flow that you should follow when setting up your architectural approach:
 
-<div class="half wireframe-border">
-  ![A decision flow diagram to help you set up your multibrand architecture. It's based on whether you need SSO and the complexity of your branding use case.](/img/concepts/multibrand-architecture.png)
+<div class="three-quarter">
+
+![A decision flow diagram to help you set up your multibrand architecture](/img/concepts/multibrand-architecture.png)
 
   <!--
     Source image: https://www.figma.com/design/z1MlMg2HBdJtgtvW9cxjZf/Dev-Docs-Diagrams?node-id=6-8&t=ViaDcJGs6y3TaPuE-0
@@ -30,7 +31,7 @@ The following diagram shows the decision flow that you should follow when settin
 
 ## Context controls
 
-Use controls to customize the branding of the Sign-In Widget.
+Okta provides many controls that you can use to customize the branding of the Sign-In Widget.
 
 
 
