@@ -45,7 +45,7 @@ The Integrator Free Plan org has the following limitations:
 | Email automation                              | Not available                                            |
 | Rate limits                                   | Limited per-minute rate limits. See [Management rate limits](/docs/reference/rl-global-mgmt/).                                             |
 | Sign-up email                                 | An Integrator free plan organization requires a unique business sign-up email. You can't use the same sign-up email for multiple organizations.<br><br> **Note:** Some email addresses can't be used to sign up for the Integrator Free Plan orgs based on user location and other security considerations. For further information, review the [Okta Support Center](https://support.okta.com/help/s/?language=en_US).     |
-| Support                                       | No access to Okta Support                                            |
+| Support                                       | No access to Okta paid support. See community [developer forums](https://devforum.okta.com/) and the [Okta Support Center](https://support.okta.com) knowledge base.                                            |
 
 ## Okta Developer Edition org updates
 
