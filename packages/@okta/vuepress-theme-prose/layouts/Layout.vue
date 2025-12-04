@@ -162,21 +162,24 @@ export default {
     };
   },
   computed: {
-shouldShowTimedTopBanner() {
-  // Start Time: Today, December 4, 2025, at the beginning of the day (e.g., 00:00:00 EST)
-  // Note: Using the current date/time to ensure it's active immediately.
-  const bannerStartTime = new Date('2025-12-04T00:00:00-05:00'); 
-  const bannerStartTimeEpoch = Math.floor(bannerStartTime.getTime() / 1000);
+    showBanner() {
+      return this.shouldShowTimedTopBanner;
+    },
+    shouldShowTimedTopBanner() {
+      // Start Time: Today, December 4, 2025, at the beginning of the day (e.g., 00:00:00 EST)
+      // Note: Using the current date/time to ensure it's active immediately.
+      const bannerStartTime = new Date('2025-12-04T00:00:00-05:00'); 
+      const bannerStartTimeEpoch = Math.floor(bannerStartTime.getTime() / 1000);
 
-  // End Time: One week from today, December 11, 2025, at the end of the day (23:59:59 EST)
-  const bannerEndTime = new Date('2025-12-11T23:59:59-05:00'); 
-  const bannerEndTimeEpoch = Math.floor(bannerEndTime.getTime() / 1000);
+      // End Time: One week from today, December 11, 2025, at the end of the day (23:59:59 EST)
+      const bannerEndTime = new Date('2025-12-11T23:59:59-05:00'); 
+      const bannerEndTimeEpoch = Math.floor(bannerEndTime.getTime() / 1000);
 
-  const currentTimeEpoch = Math.floor(Date.now() / 1000);
+      const currentTimeEpoch = Math.floor(Date.now() / 1000);
 
-  // Return true if the current time is between the start and end epochs (inclusive)
-  return currentTimeEpoch >= bannerStartTimeEpoch && currentTimeEpoch <= bannerEndTimeEpoch;
-},
+      // Return true if the current time is between the start and end epochs (inclusive)
+      return currentTimeEpoch >= bannerStartTimeEpoch && currentTimeEpoch <= bannerEndTimeEpoch;
+    },
     editLink() {
       if (this.$page.frontmatter.editLink === false) {
         return;
