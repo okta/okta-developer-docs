@@ -1130,38 +1130,33 @@ export const reference = [
         path: "/docs/reference/rate-limits/",
         subLinks: [
           {
-            title: "Rate limit dashboard",
-            path: "/docs/reference/rl-dashboard/",
+            title: "Concurrency rate limits",
+            path: "/docs/reference/rl2-concurrency/",
           },
           {
-            title: "Authentication and end-user rate limits",
-            path: "/docs/reference/rl-global-enduser/",
-          },
-          {
-            title: "Management rate limits",
-            path: "/docs/reference/rl-global-mgmt/",
-          },
-
-          {
-            title: "Additional limits",
-            path: "/docs/reference/rl-additional-limits/",
-          },
-          {
-            title: "Rate limit best practices",
-            path: "/docs/reference/rl-best-practices/",
+            title: "Burst rate limits",
+            path: "/docs/reference/rl2-burst/",
           },
           {
             title: "Client-based rate limits",
-            path: "/docs/reference/rl-clientbased/",
+            path: "/docs/reference/rl2-client-based/",
           },
           {
-            title: "DynamicScale",
-            path: "/docs/reference/rl-dynamic-scale/",
+            title: "Monitoring and troubleshooting rate limits",
+            path: "/docs/reference/rl2-monitor/",
+          },
+          {
+            title: "Increasing rate limits",
+            path: "/docs/reference/rl2-increase/",
+          },
+          {
+            title: "Additional Rate limits",
+            path: "/docs/reference/rl2-limits/",
           },
           {
             title: "System Log events for rate limits",
-            path: "/docs/reference/rl-system-log-events/"
-          },
+            path: "/docs/reference/rl-system-log-events/",
+          }
         ]
       },
       { title: "SSF Transmitter SET payload structures", path: "/docs/reference/ssf-transmitter-sets/" },
