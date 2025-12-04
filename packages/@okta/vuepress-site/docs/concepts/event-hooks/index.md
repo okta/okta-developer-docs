@@ -274,4 +274,10 @@ The following is an example of a JSON payload of a request from Okta to your ext
     },
     "eventTime": "2023-03-28T17:03:37.093Z",
     "contentType": "application/json"
-}```
+}
+```
+
+## See also
+
+- [Event hooks management APIs](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/#tag/EventHook)
+- [Hooks best practices](/docs/guides/hooks-best-practices/)
