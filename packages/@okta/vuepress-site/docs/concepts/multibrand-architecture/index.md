@@ -89,9 +89,20 @@ Okta provides many different controls that you can use to set up multibranding i
 
 The following table lists controls that Okta is responsible for:
 
-
-
+| Control | Type | Description |
+|---------|------|-------------|
+| Tenant (Org) | Fixed (Origin) | Okta default/Built-in. Binding is determined by the origin application based on the federation model. Note: May be necessary for data residency (e.g., GDPR). |
+| Domain             | Fixed (Origin)              | Okta default/Out-of-the-Box admin control. Binding is determined by the origin application based on the federation model.                           |
+| Application ID     | Code Based + Context        | Okta provides the unique App ID (app.value.id). Use client-side code (JS/HTML) on page load to switch branding. Function: OktaUtil.getRequestContext(). |
+| Application Label  | Code Based + Context        | Okta provides the unique App Label (app.value.label). Use client-side code (JS/HTML) on page load to parse the label and switch branding. Function: OktaUtil.getRequestContext(). |
+| Browser Telemetry  | Code Based + Browser Agent  | The browser provides language settings (navigator.language or navigator.languages). Use client-side code (JS/HTML) on page load to switch branding. |
+| Self-Declaration   | Code Based + End-User/Local | Prompt the end user to select preferences and store the selection in a cookie or local storage. Warning: Will not persist across different browser sessions. |
 
 #### External context (responsible party)
 
 The following table lists controls that you control externally:
+
+| Control | Type | Description |
+|--------|-------|-------------|
+| Cookie or Local Storage | Origin App + Code Based | Store the branding selection in a cookie or local storage before navigating to the Okta Identity Provider. Warning: Does not persist across sessions and has domain/HTTP restrictions. |
+| QueryString | Origin App + Code Based | A custom implementation can append parameters to the URL to invoke branding logic. Warning: Parameters may conflict or be dropped as they are outside federation specifications. Some use state or nonce to transfer context. |
