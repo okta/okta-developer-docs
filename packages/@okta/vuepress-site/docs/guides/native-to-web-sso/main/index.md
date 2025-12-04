@@ -1,8 +1,10 @@
 ---
 title: Configure Native to Web SSO
-excerpt: Learn what Native to Web SSO is and how to use it.
+excerpt: Learn what Native to Web SSO is and how to use it
 layout: Guides
 ---
+
+<ApiLifecycle access="ea" />
 
 Learn what Native to Web SSO is, why it matters, and how it actually connects your OpenID Connect (OIDC) apps to your web-based services.
 
@@ -38,19 +40,22 @@ Okta handles that during the transition by prompting the user to satisfy the mis
 
 * **Incorporating SaaS**: You have an app, and you want to seamlessly incorporate a third-party SaaS app into it.
 * **The application dashboard**: Your app acts as an "application dashboard" with links to multiple web apps.
-* **Modernization**: You are going through a large modernization project. This pattern lets your legacy apps continue to operate "as-is" while you update the new parts of the system. This is especially helpful when you want to move towards a modern native app and incorporate the legacy web (hybrid native/web) app.
+* **Modernization**: You’re going through a large modernization project. This pattern lets your legacy apps continue to operate "as-is" while you update the new parts of the system. This is especially helpful when you want to move towards a modern native app and incorporate the legacy web (hybrid native/web) app.
 * **Integration limitations**: It’s critical when you can’t modify the target app integration to accommodate a special connection. The target source code isn’t accessible, but it already supports federation.
 
 In all these cases, the Identity and Access Management (IAM) platform becomes the secure fabric that seamlessly weaves all of your apps together into one low-friction experience.
 
 ## Native to Web SSO flow
 
-<div class="full">
+<div class="three-quarter">
 
    ![Sequence diagram that displays the interaction between the user, OIDC origin app, authorization server, and target web app for Native to Web SSO](/img/native-to-web-sso.png)
+
 </div>
 
-<!--@startuml
+<!-- Generated using http://www.plantuml.com/plantuml/uml/
+
+@startuml
 skinparam monochrome true
 actor "User" as user
 participant "Origin OIDC App" as oidcapp
@@ -71,7 +76,9 @@ oidcapp -> webapp: Redirects to web app
 webapp -> okta: Receives token, sends authentication request
 okta -> okta: Validates, loads the state, bootstraps state token, evaluates target app policy
 okta -> webapp: Policy conditions are met, user is signed in
-@enduml  -->
+@enduml
+
+-->
 
 The flow steps:
 
@@ -107,16 +114,16 @@ In the `oauthClient` object of your PUT request, add the `urn:ietf:params:oauth:
 **Example** (truncated for brevity)
 
 ```JSON
-    {
-        "oauthClient": {
-         . . .
-            "grant_types": [
-                "authorization_code,"
-                “urn:ietf:params:oauth:grant-type:token-exchange”
-            ],
-         . . .
-        }
+{
+    "oauthClient": {
+    . . .
+        "grant_types": [
+            "authorization_code,"
+            “urn:ietf:params:oauth:grant-type:token-exchange”
+        ],
+    . . .
     }
+}
 ```
 
 ## Configure the trust map
@@ -178,16 +185,16 @@ The following section outlines the requests required to perform Native to Web SS
 Before you can begin this flow, collect the username and the OTP from the user in a manner of your choosing. Then, make a single API call to the Okta authorization server `/token` endpoint. Your request should look something like this example:
 
 ```BASH
-    curl --request POST \
-      --url https://{yourOktaDomain}/oauth2/v1/token \
-      --header 'accept: application/json' \
-      --header 'authorization: Basic MG9hYn...' \
-      --header 'content-type: application/x-www-form-urlencoded' \
-      --data 'grant_type=password
-    &client_id={client_id}
-    &username=testuser1%40example.com
-    &password=%7CmCovrlnU9oZU4qWGrhQSM%3Dyd
-    &scope=openid%20offline_access%20interclient_access'
+curl --request POST \
+    --url https://{yourOktaDomain}/oauth2/v1/token \
+    --header 'accept: application/json' \
+    --header 'authorization: Basic MG9hYn...' \
+    --header 'content-type: application/x-www-form-urlencoded' \
+    --data 'grant_type=password
+  &client_id={client_id}
+  &username=testuser1%40example.com
+  &password=%7CmCovrlnU9oZU4qWGrhQSM%3Dyd
+  &scope=openid%20offline_access%20interclient_access'
 ```
 
 Note the parameters that are passed:
@@ -220,18 +227,18 @@ If the credentials are valid, Okta responds with the required tokens. This examp
 When the user requests access to a resource from the target web app using any direct authentication flow, the native app needs to launch a trusted target web app. It makes a request to refresh the access token, if necessary, and gets back refreshed tokens from Okta. Then, the OIDC origin app needs to exchange the tokens for a single-use interclient token. Your request should look something like this example. The tokens are truncated for brevity.
 
 ```BASH
-    curl --request POST
-      --url https://{yourOktaDomain}/oauth2/v1/token \
-      --header 'content-type: application/x-www-form-urlencoded' \
-      --header ‘accept: application/json’ \
-      --data 'client_id={client_id}
-    &actor_token=eyJra. . . tSXL-HCA
-    &actor_token_type=urn:ietf:params:oauth:token-type:access_token
-    &subject_token=eyJr. . .cbYGw
-    &subject_token_type=urn:ietf:params:oauth:token-type:id_token
-    &requested_token_type=urn:okta:params:oauth:token-type:interclient_token
-    &audience=urn:okta:apps:0oa8vcy7h1eyj7wLL0g7
-    &grant_type=urn:ietf:params:oauth:grant-type:token-exchange’
+curl --request POST
+    --url https://{yourOktaDomain}/oauth2/v1/token \
+    --header 'content-type: application/x-www-form-urlencoded' \
+    --header 'accept: application/json' \
+    --data 'grant_type=urn:ietf:params:oauth:grant-type:token-exchange
+  &client_id={client_id}
+  &actor_token=eyJra. . . tSXL-HCA
+  &actor_token_type=urn:ietf:params:oauth:token-type:access_token
+  &subject_token=eyJr. . .cbYGw
+  &subject_token_type=urn:ietf:params:oauth:token-type:id_token
+  &requested_token_type=urn:okta:params:oauth:token-type:interclient_token
+  &audience=urn:okta:apps:0oa8vcy7h1eyj7wLL0g7'
 ```
 
 Note the parameters that are passed:
