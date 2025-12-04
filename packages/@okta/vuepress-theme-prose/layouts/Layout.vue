@@ -9,8 +9,8 @@
         banner-id="v2"
         @updateHeight="updateHeaderHeight"
       >
-       <p v-if="shouldShowTimedTopBanner">
-          Action Required: React Server Components Critical Vulnerability
+      <p v-if="shouldShowTimedTopBanner">
+        Action Required: React Server Components Critical Vulnerability
           <a
             href="https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components"
             target="_blank"
