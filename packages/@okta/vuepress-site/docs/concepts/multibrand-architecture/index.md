@@ -20,11 +20,23 @@ The right multibrand architecture requires that you answer the following questio
 
 The following diagram shows the decision flow that you should follow when setting up your architectural approach:
 
+<div class="half wireframe-border">
+  ![A decision flow diagram to help you set up your multibrand architecture. It's based on whether you need SSO and the complexity of your branding use case.](/img/concepts/multibrand-architecture.png)
+
+  <!--
+    Source image: https://www.figma.com/design/z1MlMg2HBdJtgtvW9cxjZf/Dev-Docs-Diagrams?node-id=6-8&t=ViaDcJGs6y3TaPuE-0
+  -->
+</div>
+
+## Context controls
+
+Use controls to customize the branding of the Sign-In Widget.
 
 
 
 
-## Do you need SSO across brands?
+
+## SSO requirements across brands
 
 The first architectural decision determines whether you need to use domain-level or app-level branding.
 
@@ -36,7 +48,7 @@ In this scenario, all brands share underlying Okta login experience (that is, a 
 
 This approach simplifies management by centralizing user identity and policy enforcement. However, the degree of visual customization across brands is limited to what the core Okta sign-in widget allows.
 
-End-users would have a “Same Login Experience", with the ability to have the same user name, password, email, phone, even OTPs.
+End-users have a “same login experience", and can have the same username, password, email, phone, and even one-time passwords (OTPs).
 
 **Note:** If you plan to use passkeys, this approach limits you to five associated domains.
 
@@ -45,8 +57,7 @@ End-users would have a “Same Login Experience", with the ability to have the s
 
 If users need a seamless experience&mdash;logging in once and gaining access to multiple distinct brands&mdash;you must implement cross-brand SSO. Cross-brand SSO requires app-level branding.
 
-In this model, customization is applied at the app level (Client ID) rather than the entire Okta domain. The common sign-in session enables SSO across all configured apps, no matter the branding of each app.
-
+In this model, you apply customization at the app level (`clientId`) rather than to the entire Okta domain. The common sign-in session enables SSO across all configured apps. It doesn't matter how you brand each app.
 
 ## Assess brand complexity
 
@@ -91,7 +102,7 @@ The following table lists the controls that Okta is responsible for:
 
 | Control | Type | Description |
 |---------|------|-------------|
-| Tenant (Org) | Fixed (origin) | Okta default/built-in. Binding is determined by the origin app based on the federation model. Note: Could be necessary for data residency (for example, GDPR). |
+| Tenant (Org) | Fixed (origin) | Okta default/built-in. The origin app determines the binding based on the federation model. Note: Tenant control could be necessary for data residency (for example, GDPR). |
 | Domain             | Fixed (origin)              | Okta default/out-of-the-box admin control. The origin app determines the binding based on the federation model. |
 | App ID     | Code-based + context        | Okta provides the unique app ID (`app.value.id`). Use client-side code (JS/HTML) at page load to switch branding. Function: `OktaUtil.getRequestContext()`. |
 | App label  | Code-based + context        | Okta provides the unique app label (`app.value.label`). Use client-side code (JS/HTML) on the page load to parse the label and switch branding. Function: `OktaUtil`.getRequestContext(). |
