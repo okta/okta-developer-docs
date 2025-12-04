@@ -158,7 +158,7 @@ export default {
       stackSelectorData: {
         to: '',
         from: ''
-      },
+      }
     };
   },
   computed: {
@@ -166,13 +166,12 @@ export default {
       return this.shouldShowTimedTopBanner;
     },
     shouldShowTimedTopBanner() {
-      // Start Time: Today, December 4, 2025, at the beginning of the day (e.g., 00:00:00 EST)
-      // Note: Using the current date/time to ensure it's active immediately.
-      const bannerStartTime = new Date('2025-12-04T00:00:00-05:00'); 
+      // Start Time: December 4, 2025, 00:00:00 EST
+      const bannerStartTime = new Date('2025-12-04T00:00:00-05:00');
       const bannerStartTimeEpoch = Math.floor(bannerStartTime.getTime() / 1000);
 
-      // End Time: One week from today, December 11, 2025, at the end of the day (23:59:59 EST)
-      const bannerEndTime = new Date('2025-12-11T23:59:59-05:00'); 
+      // End Time: December 11, 2025, 23:59:59 EST
+      const bannerEndTime = new Date('2025-12-11T23:59:59-05:00');
       const bannerEndTimeEpoch = Math.floor(bannerEndTime.getTime() / 1000);
 
       const currentTimeEpoch = Math.floor(Date.now() / 1000);
@@ -207,9 +206,9 @@ export default {
     currentCustomLanding() {
       const { frontmatter, title } = this.$page;
       if (title && frontmatter.customLandingPage) {
-        return title.replace(/\s/g, '')
+        return title.replace(/\s/g, '');
       }
-      return ''
+      return '';
     }
   },
   watch: {
