@@ -1,5 +1,5 @@
 ---
-title: Configure OAuth 2.0 Demonstrating Proof-of-Possession
+title: Configure Native to Web SSO
 excerpt: Learn what Native to Web SSO is and how to use it.
 layout: Guides
 ---
@@ -45,7 +45,33 @@ In all these cases, the Identity and Access Management (IAM) platform becomes th
 
 ## Native to Web SSO flow
 
+<div class="full">
 
+   ![Sequence diagram that displays the interaction between the user, OIDC origin app, authorization server, and target web app for Native to Web SSO](/img/native-to-web-sso.png)
+</div>
+
+<!--@startuml
+skinparam monochrome true
+actor "User" as user
+participant "Origin OIDC App" as oidcapp
+participant "Authorization Server (Okta)" as okta
+participant "Target Web App" as webapp
+
+autonumber "<b>#."
+user -> oidcapp: Signs in to OIDC app
+oidcapp -> okta: Sends direct auth request for tokens with interclient_access scope
+okta -> okta: Creates backend-only session
+okta -> oidcapp: Returns tokens
+user -> oidcapp: Requests to access resource from target app
+oidcapp -> okta: Requests access token refresh
+okta -> oidcapp: Sends new tokens back
+oidcapp -> okta: Sends request to exchange access/ID tokens for interclient token
+okta -> oidcapp: Validates trust relationship, user assigned to app, returns interclient token
+oidcapp -> webapp: Redirects to web app
+webapp -> okta: Receives token, sends authentication request
+okta -> okta: Validates, loads the state, bootstraps state token, evaluates target app policy
+okta -> webapp: Policy conditions are met, user is signed in
+@enduml  -->
 
 The flow steps:
 
@@ -81,16 +107,16 @@ In the `oauthClient` object of your PUT request, add the `urn:ietf:params:oauth:
 **Example** (truncated for brevity)
 
 ```JSON
-{
-   "oauthClient": {
-      . . .
-    "grant_types": [
-         "authorization_code,"
-         “urn:ietf:params:oauth:grant-type:token-exchange”
-         ],
-    . . .
+    {
+        "oauthClient": {
+         . . .
+            "grant_types": [
+                "authorization_code,"
+                “urn:ietf:params:oauth:grant-type:token-exchange”
+            ],
+         . . .
+        }
     }
-}
 ```
 
 ## Configure the trust map
@@ -210,21 +236,24 @@ When the user requests access to a resource from the target web app using any di
 
 Note the parameters that are passed:
 
-* `client_id`: Matches the client ID of the OIDC app. You can find it at the top of your app's General tab
+* `client_id`: Matches the client ID of the OIDC origin app. You can find it at the top of your app's **General** tab
 * `actor_token`: The value of the access token that you obtained in the last request
-* `actor_token_type`: urn:ietf:params:oauth:token-type:access_token
-* subject_token: A security token that represents the identity of the party on behalf of whom the request is being made, which is the value of the ID token that you obtained in the last request.
-* subject_token_type: urn:ietf:params:oauth:token-type:id_token
-* requested_token_type: The type of token that you’re requesting in exchange for the actor_token and subject_token. (urn:okta:params:oauth:token-type:interclient_token)
-* audience: The target audience for the requested token bound to the target app using the IdP/Okta Application/Client ID (urn:okta:apps:{target web app client_id})
-* grant_type: urn:ietf:params:oauth:grant-type:token-exchange
+* `actor_token_type`: `urn:ietf:params:oauth:token-type:access_token`
+* `subject_token`: A security token that represents the identity of the party on behalf of whom the request is being made, which is the value of the ID token that you obtained in the last request.
+* `subject_token_type`: `urn:ietf:params:oauth:token-type:id_token`
+* `requested_token_type`: The type of token that you’re requesting in exchange for the `actor_token` and `subject_token`. (`urn:okta:params:oauth:token-type:interclient_token`)
+* `audience`: The target audience for the requested token bound to the target app using the IdP/Okta application/client ID (`urn:okta:apps:{target web app client_id}`)
+* `grant_type`: `urn:ietf:params:oauth:grant-type:token-exchange`
 
 Response
+
 This example response is truncated for brevity.
 
+```JSON
 {
     "token_type": "N_A",
     "expires_in": 300,
     "access_token": "eyJraWQiOiJNTG. . .GubhhEsg",
     "issued_token_type": "urn:okta:params:oauth:token-type:interclient_token"
 }
+```
