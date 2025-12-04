@@ -1126,16 +1126,20 @@ export const reference = [
         path: "/docs/reference/rate-limits/",
         subLinks: [
           {
-            title: "Concurrency rate limits",
-            path: "/docs/reference/rl2-concurrency/",
+            title: "Token and OAuth 2.0 app rate limits",
+            path: "/docs/reference/rl2-token-oauth/",
+          },
+          {
+            title: "Client-based rate limits",
+            path: "/docs/reference/rl2-client-based/",
           },
           {
             title: "Burst rate limits",
             path: "/docs/reference/rl2-burst/",
           },
           {
-            title: "Client-based rate limits",
-            path: "/docs/reference/rl2-client-based/",
+            title: "Concurrency rate limits",
+            path: "/docs/reference/rl2-concurrency/",
           },
           {
             title: "Monitoring and troubleshooting rate limits",
