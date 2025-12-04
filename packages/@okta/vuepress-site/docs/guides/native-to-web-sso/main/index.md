@@ -121,7 +121,7 @@ This example request is truncated for brevity.
     . . .
         "grant_types": [
             "authorization_code,"
-            “urn:ietf:params:oauth:grant-type:token-exchange”
+            "urn:ietf:params:oauth:grant-type:token-exchange"
         ],
     . . .
     }
@@ -134,8 +134,9 @@ Define a list of apps that are allowed to request the single-use interclient tok
 
 Okta checks this trusted relationship at two critical points in the flow:
 
-**During authentication**: The OIDC origin app can only request the special `interclient_access` scope if it has a trust relationship set up.
-**During token exchange**: When the OIDC origin app asks for the `interclient_token`, Okta explicitly checks to ensure that the app is on the target app's allowed list. If it's not there, the token exchange is denied.
+* **During authentication**: The OIDC origin app can only request the special `interclient_access` scope if it has a trust relationship set up.
+
+* **During token exchange**: When the OIDC origin app asks for the `interclient_token`, Okta explicitly checks to ensure that the app is on the target app's allowed list. If it's not there, the token exchange is denied.
 
 To create an allowlist of apps, use the [Create an allowed app mapping for a target app](http://localhost:3000/openapi/okta-management/management/tag/ApplicationInterclientTrustMappings/#tag/ApplicationInterclientTrustMappings/operation/createInterclientTrustMapping) method (`POST /api/v1/apps/{appId}/interclient-allowed-apps`). The `appID` is the target app’s ID.
 
