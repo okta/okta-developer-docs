@@ -9,13 +9,20 @@
         banner-id="v2"
         @updateHeight="updateHeaderHeight"
       >
-        <p>
-          All Developer Edition Orgs will be deactivated starting on July 18, 2025. Sign up for the new Integrator Free Plan to continue building and integrating. Learn more on the <a
-            href="https://developer.okta.com/blog/2025/05/13/okta-developer-edition-changes"
+       <p v-if="shouldShowTimedTopBanner">
+          Action Required: React Server Components Critical Vulnerability
+          <a
+            href="https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components"
             target="_blank"
           >
-
-            Okta Developer Blog</a>
+            (CVE-2025-55182)
+          </a>
+          <a
+            href="https://support.okta.com/help/s/article/Developer-Statement-React-Server-Components-Critical-Vulnerability-CVE-2025-55182-Action-Required-Okta?language=en_US"
+            target="_blank"
+          >
+            Read more.
+          </a>
         </p>
       </HeaderBanner>
       <Header />
@@ -155,17 +162,21 @@ export default {
     };
   },
   computed: {
-    showBanner() {
-      const bannerStartTime = new Date('2025-06-29T09:00:00-07:00'); // 9:00 AM PT
-      const bannerEndTime = new Date('2025-09-28T17:00:00-07:00'); // 5:00 PM PT
+shouldShowTimedTopBanner() {
+  // Start Time: Today, December 4, 2025, at the beginning of the day (e.g., 00:00:00 EST)
+  // Note: Using the current date/time to ensure it's active immediately.
+  const bannerStartTime = new Date('2025-12-04T00:00:00-05:00'); 
+  const bannerStartTimeEpoch = Math.floor(bannerStartTime.getTime() / 1000);
 
-      const bannerStartEpochSeconds = Math.floor(bannerStartTime.getTime() / 1000);
-      const bannerEndEpochSeconds = Math.floor(bannerEndTime.getTime() / 1000);
+  // End Time: One week from today, December 11, 2025, at the end of the day (23:59:59 EST)
+  const bannerEndTime = new Date('2025-12-11T23:59:59-05:00'); 
+  const bannerEndTimeEpoch = Math.floor(bannerEndTime.getTime() / 1000);
 
-      const currentTimeEpochSeconds = Math.floor(Date.now() / 1000);
+  const currentTimeEpoch = Math.floor(Date.now() / 1000);
 
-      return currentTimeEpochSeconds >= bannerStartEpochSeconds && currentTimeEpochSeconds <= bannerEndEpochSeconds;
-    },
+  // Return true if the current time is between the start and end epochs (inclusive)
+  return currentTimeEpoch >= bannerStartTimeEpoch && currentTimeEpoch <= bannerEndTimeEpoch;
+},
     editLink() {
       if (this.$page.frontmatter.editLink === false) {
         return;
