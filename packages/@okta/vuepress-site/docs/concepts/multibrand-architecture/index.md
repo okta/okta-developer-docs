@@ -7,7 +7,7 @@ meta:
 
 # Multibrand architecture
 
-This document reviews core concepts and options available to set up the architecture for multiple brands in your environment.
+This document reviews the core concepts and options available to set up the architecture for multiple brands in your environment.
 
 **Note:** This document applies to the customization of Gen3 of the Sign-In Widget. For information about Gen2, see []
 
@@ -18,7 +18,7 @@ The right multibrand architecture requires that you answer the following questio
 * Do you need Single Sign-On (SSO)?
 * How complex are your brand's visual needs?
 
-The following diagram shows the decision flow you should follow when setting up your architectural approach:
+The following diagram shows the decision flow that you should follow when setting up your architectural approach:
 
 
 
@@ -26,13 +26,13 @@ The following diagram shows the decision flow you should follow when setting up 
 
 ## Do you need SSO across brands?
 
-The first architectural decision determines whether you will use domain-level or app-level branding.
+The first architectural decision determines whether you need to use domain-level or app-level branding.
 
 ### No SSO required
 
-If your brands operate independently and don’t require users to log in once to access all brand-specific apps, you can use domain-level branding within a single Okta org.
+Your brands operate independently and don’t require users to log in once to access all brand-specific apps. In that case, you can use domain-level branding within a single Okta org.
 
-In this scenario, all brands share the same underlying Okta login experience (that is, a single Okta domain), and customizations are applied at the domain level.
+In this scenario, all brands share underlying Okta login experience (that is, a single Okta domain), and customizations are applied at the domain level.
 
 This approach simplifies management by centralizing user identity and policy enforcement. However, the degree of visual customization across brands is limited to what the core Okta sign-in widget allows.
 
@@ -83,20 +83,20 @@ app:{
 
 ### Context controls
 
-Okta provides many different controls that you can use to set up multibranding in your environment.
+Okta provides many different controls that you can use to set up multiple brands in your environment.
 
 #### Okta context (responsible party)
 
-The following table lists controls that Okta is responsible for:
+The following table lists the controls that Okta is responsible for:
 
 | Control | Type | Description |
 |---------|------|-------------|
-| Tenant (Org) | Fixed (Origin) | Okta default/Built-in. Binding is determined by the origin application based on the federation model. Note: May be necessary for data residency (e.g., GDPR). |
-| Domain             | Fixed (Origin)              | Okta default/Out-of-the-Box admin control. Binding is determined by the origin application based on the federation model.                           |
-| Application ID     | Code Based + Context        | Okta provides the unique App ID (app.value.id). Use client-side code (JS/HTML) on page load to switch branding. Function: OktaUtil.getRequestContext(). |
-| Application Label  | Code Based + Context        | Okta provides the unique App Label (app.value.label). Use client-side code (JS/HTML) on page load to parse the label and switch branding. Function: OktaUtil.getRequestContext(). |
-| Browser Telemetry  | Code Based + Browser Agent  | The browser provides language settings (navigator.language or navigator.languages). Use client-side code (JS/HTML) on page load to switch branding. |
-| Self-Declaration   | Code Based + End-User/Local | Prompt the end user to select preferences and store the selection in a cookie or local storage. Warning: Will not persist across different browser sessions. |
+| Tenant (Org) | Fixed (origin) | Okta default/built-in. Binding is determined by the origin app based on the federation model. Note: Could be necessary for data residency (for example, GDPR). |
+| Domain             | Fixed (origin)              | Okta default/out-of-the-box admin control. The origin app determines the binding based on the federation model. |
+| App ID     | Code-based + context        | Okta provides the unique app ID (`app.value.id`). Use client-side code (JS/HTML) at page load to switch branding. Function: `OktaUtil.getRequestContext()`. |
+| App label  | Code-based + context        | Okta provides the unique app label (`app.value.label`). Use client-side code (JS/HTML) on the page load to parse the label and switch branding. Function: `OktaUtil`.getRequestContext(). |
+| Browser telemetry  | Code-based + browser agent  | The browser provides language settings (`navigator.language` or `navigator.languages`). Use client-side code (JS/HTML) at page load to switch branding. |
+| Self-declaration   | Code-based + end-user/local | Prompt the end user to select preferences and store the selection in a cookie or local storage. Warning: Doesn't persist across different browser sessions. |
 
 #### External context (responsible party)
 
@@ -104,5 +104,5 @@ The following table lists controls that you control externally:
 
 | Control | Type | Description |
 |--------|-------|-------------|
-| Cookie or Local Storage | Origin App + Code Based | Store the branding selection in a cookie or local storage before navigating to the Okta Identity Provider. Warning: Does not persist across sessions and has domain/HTTP restrictions. |
-| QueryString | Origin App + Code Based | A custom implementation can append parameters to the URL to invoke branding logic. Warning: Parameters may conflict or be dropped as they are outside federation specifications. Some use state or nonce to transfer context. |
+| Cookie or local storage | Origin app + code-based | Store the branding selection in a cookie or local storage before going to the Okta Identity Provider. Warning: Doesn't persist across sessions and has domain/HTTP restrictions. |
+| QueryString | Origin app + code-based | A custom implementation can append parameters to the URL to invoke the branding logic. Warning: Parameters could conflict or be dropped as they’re outside federation specifications. Some use state or nonce to transfer context. |
