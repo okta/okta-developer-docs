@@ -26,7 +26,7 @@ App integrations in Okta connect your Okta org to external apps and services. Th
 
 With app integrations, you can:
 
-* Provide users with secure, seamless [Single Sign-On (SSO)](https://help.okta.com/oie/en-us/content/topics/apps/apps-about-sso.htm) access to their apps.
+* Provide users with secure, seamless [Single Sign-On (SSO)](https://help.okta.com/okta_help.htm?type=oie&id=ext-apps-about-sso) access to their apps.
 * Automate user provisioning and deprovisioning using protocols like [System for Cross-domain Identity Management (SCIM)](https://developer.okta.com/docs/concepts/scim/).
 * Centralize access management and enforce security policies across all connected apps.
 * Monitor and report on app usage and user activity.
@@ -35,7 +35,7 @@ App integrations can be:
 
 * Prebuilt: These are existing integrations available in the [Okta Integration Network (OIN)](https://www.okta.com/integrations/), these integrations are tested and validated by Okta.
 * Custom: Created by admins or developers for internal or specialized use cases. Custom integrations can be built using the App Integration Wizard (AIW), templates, or bookmarks.
-* [API Service](https://help.okta.com/oie/en-us/content/topics/apiservice/api-service-integrations.htm): These integrations allow third-party apps to access the [Core Okta API](https://developer.okta.com/docs/reference/core-okta-api/) using OAuth 2.0.
+* [API Service](https://help.okta.com/okta_help.htm?type=oie&id=ext-api-service-integrations): These integrations allow third-party apps to access the [Core Okta API](https://developer.okta.com/docs/reference/core-okta-api/) using OAuth 2.0.
 
 The following table summarizes the key differences:
 
@@ -54,9 +54,9 @@ Okta app integrations support standard protocols for both [SSO](https://develope
 
 * [OpenID Connect (OIDC)](https://developer.okta.com/docs/concepts/oauth-openid/): Authentication protocol based on OAuth 2.0, which enables secure SSO and supports advanced security features.
 * [Security Assertion Markup Language (SAML)](https://developer.okta.com/docs/concepts/saml/): An XML-based protocol for exchanging authentication and authorization data between Okta and external apps.
-* [Secure Web Authentication (SWA)](https://help.okta.com/en-us/content/topics/apps/apps-about-swa.htm): A form-based authentication method that allows Okta to securely store and submit user credentials for apps that don’t support federated SSO.
-* [Web Services Federation (WS-Fed)](https://help.okta.com/en-us/content/topics/apps/apps-about-wsfed.htm): A protocol primarily used by Microsoft apps for federated identity and SSO.
-* [SCIM](https://help.okta.com/en-us/content/topics/apps/apps-about-scim.htm): A standard protocol for automating the exchange of user identity information, enabling automated user provisioning and deprovisioning between Okta and external apps.
+* [Secure Web Authentication (SWA)](https://help.okta.com/okta_help.htm?id=ext-apps-about-swa): A form-based authentication method that allows Okta to securely store and submit user credentials for apps that don’t support federated SSO.
+* [Web Services Federation (WS-Fed)](https://help.okta.com/okta_help.htm?id=ext-apps-about-wsfed): A protocol primarily used by Microsoft apps for federated identity and SSO.
+* [SCIM](https://help.okta.com/okta_help.htm?id=ext-apps-about-scim): A standard protocol for automating the exchange of user identity information, enabling automated user provisioning and deprovisioning between Okta and external apps.
 
 These protocols allow you to provide secure, seamless access and automated user management for a wide range of apps and services.
 
@@ -77,15 +77,15 @@ You can add either a prebuilt app integration from the OIN or create a custom ap
 5. Determine if this is the correct app integration for your needs. The details page provides a detailed description of the app integration, its use case, and supported functionality.
 6. Select the app from the catalog and click **Add Integration**.
 7. Enter the required information under **General Settings**, and then click **Next**.
-8. Select one of the sign-on methods on the **Sign-On Options** page. The sign-on options available depend on the access protocols supported by the app integration. See [Configure SSO options](https://help.okta.com/oie/en-us/content/topics/apps/apps_overview_of_managing_apps_and_sso.htm).
+8. Select one of the sign-on methods on the **Sign-On Options** page. The sign-on options available depend on the access protocols supported by the app integration. See [Configure SSO options](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_Overview_of_Managing_Apps_and_SSO).
     > **Note**: For SWA app integrations, you can't configure the sign-on options when **Sync Password** is configured as a provisioning option.
 9. Select a username format in the **Application username format** dropdown. This format is the default username value when assigning the app integration to users.
     > **Note**: If you select None and the app integration has password or profile push provisioning features, then Okta prompts you to enter the username manually when you assign the app integration.
 10. Select a setting from the **Update application username on** dropdown list. This setting controls how you want the app integration to handle any updates to the user's Okta username.
-11. Select **Password reveal** if you want your end users to see the password used to connect to the external app. See [Reveal the password of an app integration](https://help.okta.com/oie/en-us/content/topics/apps/apps_revealing_the_password.htm).
+11. Select **Password reveal** if you want your end users to see the password used to connect to the external app. See [Reveal the password of an app integration](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_Revealing_the_Password).
 12. Click **Done**.
 
-Okta adds an instance of the app integration to your org, and you can now assign it to your end users. See [Assign app integrations](https://help.okta.com/oie/en-us/content/topics/apps/apps-assign-applications.htm). If you need to update the settings for your app integration, including changing sign-in options, see [Configure settings for app integrations](https://help.okta.com/oie/en-us/content/topics/apps/apps-configure-settings.htm).
+Okta adds an instance of the app integration to your org, and you can now assign it to your end users. See [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_Apps_Page-assign). If you need to update the settings for your app integration, including changing sign-in options, see [Configure settings for app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-apps-configure-settings).
 
 ### Create a custom app integration
 
