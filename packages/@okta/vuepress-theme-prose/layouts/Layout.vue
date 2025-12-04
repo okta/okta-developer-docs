@@ -12,14 +12,14 @@
         <p>
           Action required: React server components critical vulnerability
           <a
-            href="https://developer.okta.com/docs/guides/react-server-components-vulnerability/"
+            href="https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components"
             target="_blank"
           >
             (CVE-2025-55182).
           </a>
           If you use Okta's React SDKs or samples,
           <a
-            href="https://developer.okta.com/docs/guides/react-server-components-vulnerability/"
+            href="https://support.okta.com/help/s/article/Developer-Statement-React-Server-Components-Critical-Vulnerability-CVE-2025-55182-Action-Required-Okta?language=en_US"
             target="_blank"
           >
             take action now.
