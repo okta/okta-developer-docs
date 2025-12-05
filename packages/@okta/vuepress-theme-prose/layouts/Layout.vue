@@ -16,16 +16,14 @@
             target="_blank"
           >
             (CVE-2025-55182)
-          </a>
-          .
+          </a>.
           If you use Okta's React SDKs or samples,
           <a
             href="https://support.okta.com/help/s/article/Developer-Statement-React-Server-Components-Critical-Vulnerability-CVE-2025-55182-Action-Required-Okta?language=en_US"
             target="_blank"
           >
             take action now
-          </a>
-          .
+          </a>.
         </p>
       </HeaderBanner>
       <Header />
