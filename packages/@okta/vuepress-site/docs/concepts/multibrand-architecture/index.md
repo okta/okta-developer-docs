@@ -119,7 +119,49 @@ See [Okta context (responsible party)](#okta-context-responsible-party).
 
 ### Five brands or more
 
+If you have a large and growing number of highly customized brands, externalize your branding resources. It’s essential for performance, maintainability, and scalability.
 
+Use a JavaScript snippet within the Okta widget to pass the `appId` (`clientId`) to an external API or Content Delivery Network (CDN) service. This service is responsible for determining the specific brand and swapping out the necessary assets (for example, load tokens, layout definitions, CSS) dynamically. This keeps the Okta-hosted code clean and separates brand-specific assets into a scalable, dedicated service. See [Okta context (responsible party)](#okta-context-responsible-party).
+
+The following example shows how an external service can respond to a `clientId` lookup. That is, you need to perform this API call before you render the Sign-In Widget or sign-in page. The call returns all necessary branding tokens and resources needed to customize the Okta sign-in experience:
+
+```json
+GET /api/public/clientid2brand/{clientId}
+
+HTTP 200 application/json
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "help_url": {
+          "type": "string"
+        },
+        "logo": {
+          "type": "string"
+        },
+        "design_tokens": {
+          "type": "string"
+        },
+        "additional_css": {
+          "type": "string"
+        },
+        "additional_html": {
+          "type": "string"
+        },
+        "showWorkforceIdp": {
+          "type": "boolean",
+          "description": "Toggle on workforce identity provider option"
+        }
+      }
+    }
+  }
+}
+```
 
 ## Common multibrand use cases
 
@@ -133,9 +175,9 @@ Since consuming users or customers could have access across different product li
 
 Consider the following controls:
 
-* **App label:** Parsing a custom string within the label. Optimal for dynamic and managed branding. You can easily manage the label within Okta. You can also carry branding metadata parsed by the client app.
+* **App label:** Parse a custom string within the label. Optimal for dynamic and managed branding. You can easily manage the label within Okta. You can also carry branding metadata parsed by the client app.
 
-* **App ID:** Used with an external lookup service. Supports the greatest variation. Useful when a brand requires significant customization or when a single application is used by multiple brands. The ID serves as a key for a service that retrieves the specific brand assets.
+* **App ID:** Use with an external lookup service. Supports the greatest variation. Useful when a brand requires significant customization or when a single application is used by multiple brands. The ID serves as a key for a service that retrieves the specific brand assets.
 
 See [Okta context (responsible party)](#okta-context-responsible-party).
 
@@ -147,7 +189,10 @@ In these scenarios, you cannot solely rely on the user's browser language or bas
 
 Consider the following controls:
 
-
+* **App label:** Parse a custom string within the label. Optimal for dynamic and managed branding. Similar to brand families, this control allows you to inject regional or regulatory metadata to adjust the experience.
+* **App ID:** Use with an external lookup service. Supports the greatest variation. Best for when a market requires unique, application-wide brand and experience changes that necessitate a high degree of variation.
+* **Domain:** Carries branding across the entire experience. Use this control if a specific domain is synonymous with a specific market or brand.
+  > **Caution:** If apps are shared across markets, the use of a different domain per market breaks SSO, and forces users to re-authenticate when transitioning between brands.
 
 ### Context controls
 
@@ -174,6 +219,16 @@ The following table lists controls that you control externally:
 |--------|-------|-------------|
 | Cookie or local storage | Origin app + code-based | Store the branding selection in a cookie or local storage before going to the Okta Identity Provider. <br> **Warning:** Doesn't persist across sessions and has domain/HTTP restrictions. |
 | QueryString | Origin app + code-based | A custom implementation can append parameters to the URL to invoke the branding logic. <br> **Warning:** Parameters could conflict or be dropped as they’re outside federation specifications. Some use state or nonce to transfer context. |
+
+## Multi-org or multi-tenant solutions and multiple brands
+
+The use of separate Okta orgs or tenants solely for branding or market segmentation is generally not recommended for the following reasons:
+
+* **Breaks Single Sign-On (SSO):** Users must re-authenticate when moving between apps hosted on different orgs.
+* **Forces Directory Segmentation:** Creates multiple separate user directories, which increases management overhead.
+* **Splits the user population:** User data is segmented across tenants, complicating global reporting and user management.
+
+**Note:** There is an exception: only use a multi-org/multi-tenant solution when data residency requirements explicitly mandate keeping user data physically separated by region or market.
 
 ## See also
 
