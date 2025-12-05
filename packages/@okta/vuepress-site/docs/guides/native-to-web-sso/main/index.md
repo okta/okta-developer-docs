@@ -40,7 +40,7 @@ Okta handles that during the transition by prompting the user to satisfy the mis
 
 * **Incorporating SaaS**: You have an app, and you want to seamlessly incorporate a third-party SaaS app into it.
 * **The application dashboard**: Your app acts as an "application dashboard" with links to multiple web apps.
-* **Modernization**: You’re going through a large modernization project. This pattern lets your legacy apps continue to operate "as-is" while you update the new parts of the system. This is especially helpful when you want to move towards a modern native app and incorporate the legacy web (hybrid native/web) app.
+* **Modernization**: You’re going through a large modernization project. This pattern lets your legacy apps continue to operate unmodified while you update the new parts of the system. This is especially helpful when you want to move towards a modern native app and incorporate the legacy web (hybrid native/web) app.
 * **Integration limitations**: It’s critical when you can’t modify the target app integration to accommodate a special connection. The target source code isn’t accessible, but it already supports federation.
 
 In all these cases, the Identity and Access Management (IAM) platform becomes the secure fabric that seamlessly weaves all of your apps together into one low-friction experience.
@@ -84,7 +84,7 @@ The flow steps:
 
 1. The user signs in to an OpenID Connect (OIDC) origin app.
 2. The app obtains tokens through a request to the `/token` endpoint. The request includes the `interclient_access` and `offline_access` (optional) scopes.
-3. Okta checks that the app is an admin-configured trusted app that’s allowed to use this flow. Then, it creates a special backend-only session. This session tracks the user’s authentication level and security assurances, such as, "This user verified their identity with a strong factor on a trusted device".
+3. Okta checks that the app is an admin-configured trusted app that’s allowed to use this flow. Then, it creates a special backend-only session. This session tracks the user’s authentication level and security assurances, such as, "This user verified their identity with a strong factor on a trusted device."
 4. Okta sends back the access token, the session-bound ID token, and a refresh token if `offline_access` was requested.
 5. The user requests access to a resource from the target web app (client app).
 6. The OIDC origin app now needs to launch the other app. It makes a request to [refresh the access token](/docs/guides/refresh-tokens/main/#use-a-refresh-token), if necessary.
