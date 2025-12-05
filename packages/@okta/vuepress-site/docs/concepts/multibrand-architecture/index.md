@@ -82,10 +82,10 @@ Use the pipe character (`|`) as a delimiter to parse the `label` string. This re
 
 High complexity applies when your brands are visually diverse and need extensive code customization. The following are examples of complex branding:
 
-* Significant custom CSS
-* Unique layout requirements
-* Complex responsive design rules
-* Customized user flows that go beyond basic widget configuration
+* Significant custom CSS.
+* Unique layout requirements.
+* Complex responsive design rules.
+* Customized user flows that go beyond basic widget configuration.
 
 ## Number of brands
 
@@ -171,7 +171,7 @@ This section details common branding requirements and the recommended controls f
 
 For bigger deployments, you might group a bunch of apps (like a product line or SKU) into a single brand family. This way, all the apps in that family share a similar look and feel.
 
-Since consuming users or customers could have access across different product lines, a domain-centric approach is often not sufficient. It could break your single sign-on (SSO) authentication flow.
+Since consuming users or customers could have access across different product lines, a domain-centric approach is often not sufficient. It could break your SSO authentication flow.
 
 Consider the following controls:
 
@@ -185,7 +185,7 @@ See [Okta context (responsible party)](#okta-context-responsible-party).
 
 Some brand requirements extend beyond standard app and domain boundaries, often intersecting with localization, data residency, or regional regulatory frameworks.
 
-In these scenarios, you can’t rely on the user's browser language or basic geolocation. For example, a specific regulatory framework might require unique regional authenticators or Identity Providers (IdPs) for a particular market, such as APAC. These requirements may not apply to the global audience.
+In these situations, you can’t rely on someone’s browser language or where they’re logging in from. Sometimes, you run into rules that need special regional authenticators or Identity Providers (IdPs) for a market like APAC. But those rules might not matter for everyone else.
 
 Consider the following controls:
 
@@ -218,7 +218,7 @@ The following table lists controls that you control externally:
 | Control | Type | Description |
 |--------|-------|-------------|
 | Cookie or local storage | Origin app + code-based | Store the branding selection in a cookie or local storage before going to the Okta Identity Provider. <br> **Warning:** Doesn't persist across sessions and has domain/HTTP restrictions. |
-| QueryString | Origin app + code-based | A custom implementation can append parameters to the URL to invoke the branding logic. <br> **Warning:** Parameters could conflict or be dropped as they’re outside federation specifications. Some use state or nonce to transfer context. |
+| QueryString | Origin app + code-based | A custom implementation can append parameters to the URL to invoke the branding logic. <br> **Warning:** Parameters could conflict or be dropped if they're outside federation specifications. You could use `state` or `nonce` to transfer context. |
 
 ## Multi-org or multi-tenant solutions and multiple brands
 
