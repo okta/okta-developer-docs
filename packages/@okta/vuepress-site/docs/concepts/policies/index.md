@@ -203,7 +203,6 @@ The client update policy allows administrators to manage the delivery and accept
 
 Use this policy to define rules that control how the end user gets updates across different device platforms. For example, you can define rules for the following use cases:
 
-* Create staggered deployment groups
 * Enforce immediate updates to address critical security vulnerabilities
 * Defer non-critical updates for a specified period to align with internal change management processes
 
