@@ -20,7 +20,7 @@ The right multibrand architecture requires that you answer the following questio
 
 The following diagram shows the decision flow that you should follow when setting up your architectural approach:
 
-<div class="three-quarter">
+<div class="half">
 
 ![A decision flow diagram to help you set up your multibrand architecture](/img/concepts/multibrand-architecture.png)
 
@@ -28,14 +28,6 @@ The following diagram shows the decision flow that you should follow when settin
     Source image: https://www.figma.com/design/z1MlMg2HBdJtgtvW9cxjZf/Dev-Docs-Diagrams?node-id=6-8&t=ViaDcJGs6y3TaPuE-0
   -->
 </div>
-
-## Context controls
-
-Okta provides many controls that you can use to customize the branding of the Sign-In Widget.
-
-
-
-
 
 ## SSO requirements across brands
 
@@ -51,8 +43,9 @@ This approach simplifies management by centralizing user identity and policy enf
 
 End-users have a “same login experience", and can have the same username, password, email, phone, and even one-time passwords (OTPs).
 
-**Note:** If you plan to use passkeys, this approach limits you to five associated domains.
+See [About Okta domain customization](/docs/guides/custom-url-domain/main/#about-okta-domain-customization).
 
+**Note:** If you plan to use passkeys, this approach limits you to five associated domains. See [Passkeys and custom domains](/docs/guides/custom-passkeys/main/).
 
 ### SSO required
 
@@ -83,13 +76,48 @@ app:{
     name: "oidc_client"
 ```
 
-
-
-
+Use the pipe character (`|`) as a delimiter to parse the `label` string. This retrieves the second value, such as "brand_xyz", which you can use to select the appropriate look and feel.
 
 ### High complexity
 
+High complexity applies when your brands are visually diverse and need extensive code customization. The following are examples of complex branding:
 
+* Significant custom CSS
+* Unique layout requirements
+* Complex responsive design rules
+* Highly customized user flows that go beyond basic widget configuration
+
+## Fewer than five brands
+
+
+
+
+
+## Common multibrand use cases
+
+This section details common branding requirements and the recommended controls for implementing them within a multi-brand architecture. These patterns leverage the controls discussed in [Context controls](#context-controls).
+
+### Brand families (product lines)
+
+For enterprise-scale deployments, you may group multiple apps (for example, a product line or SKU) into a distinct brand family. This grouping often requires a consistent look and feel for all apps within that family.
+
+Since consuming users or customers could have access across different product lines, a domain-centric approach is often not sufficient. It could break single sign-on (SSO).
+
+Consider the following controls:
+
+* **App label:** Parsing a custom string within the label. Optimal for dynamic and managed branding. You can easily manage the label within Okta. You can also carry branding metadata parsed by the client app.
+
+* **App ID:** Used with an external lookup service. Supports the greatest variation. Useful when a brand requires significant customization or when a single application is used by multiple brands. The ID serves as a key for a service that retrieves the specific brand assets.
+
+See [Okta context (responsible party)](#okta-context-responsible-party).
+
+### Market-aware branding (regional or regulatory requirements)
+
+Some brand requirements extend beyond standard application and domain boundaries, often intersecting with localization, data residency, or regional regulatory frameworks.
+
+In these scenarios, you cannot solely rely on the user's browser language or basic geolocation. For example, a specific regulatory framework might mandate the use of unique Regional Authenticators/Identity Providers (IdPs) that are applicable only to a specific market, such as APAC, but not to the global audience.
+
+Consider the following controls:
 
 
 
@@ -108,7 +136,7 @@ The following table lists the controls that Okta is responsible for:
 | App ID     | Code-based + context        | Okta provides the unique app ID (`app.value.id`). Use client-side code (JS/HTML) at page load to switch branding. Function: `OktaUtil.getRequestContext()`. |
 | App label  | Code-based + context        | Okta provides the unique app label (`app.value.label`). Use client-side code (JS/HTML) on the page load to parse the label and switch branding. Function: `OktaUtil`.getRequestContext(). |
 | Browser telemetry  | Code-based + browser agent  | The browser provides language settings (`navigator.language` or `navigator.languages`). Use client-side code (JS/HTML) at page load to switch branding. |
-| Self-declaration   | Code-based + end-user/local | Prompt the end user to select preferences and store the selection in a cookie or local storage. Warning: Doesn't persist across different browser sessions. |
+| Self-declaration   | Code-based + end-user/local | Prompt the end user to select preferences and store the selection in a cookie or local storage. <br> **Warning:** Doesn't persist across different browser sessions. |
 
 #### External context (responsible party)
 
@@ -116,5 +144,8 @@ The following table lists controls that you control externally:
 
 | Control | Type | Description |
 |--------|-------|-------------|
-| Cookie or local storage | Origin app + code-based | Store the branding selection in a cookie or local storage before going to the Okta Identity Provider. Warning: Doesn't persist across sessions and has domain/HTTP restrictions. |
-| QueryString | Origin app + code-based | A custom implementation can append parameters to the URL to invoke the branding logic. Warning: Parameters could conflict or be dropped as they’re outside federation specifications. Some use state or nonce to transfer context. |
+| Cookie or local storage | Origin app + code-based | Store the branding selection in a cookie or local storage before going to the Okta Identity Provider. <br> **Warning:** Doesn't persist across sessions and has domain/HTTP restrictions. |
+| QueryString | Origin app + code-based | A custom implementation can append parameters to the URL to invoke the branding logic. <br> **Warning:** Parameters could conflict or be dropped as they’re outside federation specifications. Some use state or nonce to transfer context. |
+
+## See also
+
