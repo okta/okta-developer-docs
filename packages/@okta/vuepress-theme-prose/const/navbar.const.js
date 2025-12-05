@@ -680,6 +680,10 @@ export const guides = [
             title: "Email notifications",
             guideName: "custom-email",
           },
+          {
+            title: "Migrate brand customizations",
+            guideName: "migrate-customizations",
+          }
         ],
       },
       {

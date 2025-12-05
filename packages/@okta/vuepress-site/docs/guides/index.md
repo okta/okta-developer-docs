@@ -63,6 +63,7 @@ guides:
  - manage-orgs-okta-aerial
  - manage-user-creds
  - mfa
+ - migrate-customizations
  - migrate-to-okta-prerequisites
  - migrate-to-okta-bulk
  - migrate-to-okta-password-hooks
