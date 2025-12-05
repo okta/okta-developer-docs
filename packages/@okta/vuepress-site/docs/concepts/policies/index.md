@@ -197,6 +197,20 @@ Identity Threat Protection with Okta AI is an identity threat solution that comb
 
 * [Session protection policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy): session protection policy monitors user sessions on your org to identify changes in session context. For Admin Console tasks and further information, see [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
 
+### Client update policies
+
+The Client update policy type allows administrators to manage the delivery and acceptance of updates for specific client applications, such as Okta Verify.
+
+Use this policy to define rules that control the end-user update experience across different device platforms. For example, you can define rules for the following use cases:
+
+* Create staggered deployment groups
+* Enforce immediate updates to address critical security vulnerabilities
+* Defer non-critical updates for a specified period to align with internal change management processes
+
+To learn more about implementing and managing this feature in the Admin Console, see our [Product Docs Site Link Text].
+
+For details on the object model and configuring rules programmatically, see [API Reference Docs Link Text].
+
 ### API access policies
 
 An [OAuth Authorization Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerPolicies/) manages authorization between clients and Okta. The access policy is specific to a particular client app. The rules it contains define particular token lifetimes for a given combination of grant type, user, and scope.
