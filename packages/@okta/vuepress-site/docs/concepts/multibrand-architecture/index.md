@@ -7,7 +7,7 @@ meta:
 
 # Multibrand architecture
 
-This document reviews the core concepts and options available to set up the architecture for multiple brands in your environment.
+If you're responsible for multiple brands, you need to understand a few core concepts and the options available to set up your brand architecture.
 
 **Note:** This document applies to the customization of Gen3 of the Sign-In Widget. For information about Gen2, see [Style the sign-in page](/docs/guides/custom-widget/main/).
 
@@ -15,7 +15,7 @@ This document reviews the core concepts and options available to set up the arch
 
 The right multibrand architecture requires that you answer the following questions:
 
-* Do you need Single Sign-On (SSO)?
+* Do you need Single Sign-On (SSO) authentication?
 * How complex are your brand's visual needs?
 
 The following diagram shows the decision flow that you should follow when setting up your architectural approach:
@@ -35,13 +35,13 @@ The first architectural decision determines whether you need to use domain-level
 
 ### No SSO required
 
-Your brands operate independently and don’t require users to log in once to access all brand-specific apps. In that case, you can use domain-level branding within a single Okta org.
+Your brands operate independently and don’t require end users to log in once to access all brand-specific apps. In that case, you can use domain-level branding within a single Okta org.
 
-In this scenario, all brands share underlying Okta login experience (that is, a single Okta domain), and customizations are applied at the domain level.
+In this scenario, all brands share an underlying Okta login experience (that is, a single Okta domain), and customizations are applied at the domain level.
 
-This approach simplifies management by centralizing user identity and policy enforcement. However, the degree of visual customization across brands is limited to what the core Okta sign-in widget allows.
+This approach simplifies management by centralizing user identity and policy enforcement. However, the degree of visual customization across brands is limited to what the core Okta Sign-In Widget allows.
 
-End-users have a “same login experience", and can have the same username, password, email, phone, and even one-time passwords (OTPs).
+End users have a “same login experience", and can have the same username, password, email, phone, and even one-time passcodes (OTPs).
 
 See [About Okta domain customization](/docs/guides/custom-url-domain/main/#about-okta-domain-customization).
 
@@ -85,7 +85,7 @@ High complexity applies when your brands are visually diverse and need extensive
 * Significant custom CSS
 * Unique layout requirements
 * Complex responsive design rules
-* Highly customized user flows that go beyond basic widget configuration
+* Customized user flows that go beyond basic widget configuration
 
 ## Number of brands
 
@@ -165,34 +165,34 @@ HTTP 200 application/json
 
 ## Common multibrand use cases
 
-This section details common branding requirements and the recommended controls for implementing them within a multi-brand architecture. These patterns leverage the controls discussed in [Context controls](#context-controls).
+This section details common branding requirements and the recommended controls for implementing them within a multi-brand architecture. These patterns use the controls discussed in [Context controls](#context-controls).
 
 ### Brand families (product lines)
 
-For enterprise-scale deployments, you may group multiple apps (for example, a product line or SKU) into a distinct brand family. This grouping often requires a consistent look and feel for all apps within that family.
+For bigger deployments, you might group a bunch of apps (like a product line or SKU) into a single brand family. This way, all the apps in that family share a similar look and feel.
 
-Since consuming users or customers could have access across different product lines, a domain-centric approach is often not sufficient. It could break single sign-on (SSO).
+Since consuming users or customers could have access across different product lines, a domain-centric approach is often not sufficient. It could break your single sign-on (SSO) authentication flow.
 
 Consider the following controls:
 
 * **App label:** Parse a custom string within the label. Optimal for dynamic and managed branding. You can easily manage the label within Okta. You can also carry branding metadata parsed by the client app.
 
-* **App ID:** Use with an external lookup service. Supports the greatest variation. Useful when a brand requires significant customization or when a single application is used by multiple brands. The ID serves as a key for a service that retrieves the specific brand assets.
+* **App ID:** Use with an external lookup service. Supports the greatest variation. Useful when a brand requires significant customization or when a single app is used by multiple brands. The ID serves as a key for a service that retrieves the specific brand assets.
 
 See [Okta context (responsible party)](#okta-context-responsible-party).
 
 ### Market-aware branding (regional or regulatory requirements)
 
-Some brand requirements extend beyond standard application and domain boundaries, often intersecting with localization, data residency, or regional regulatory frameworks.
+Some brand requirements extend beyond standard app and domain boundaries, often intersecting with localization, data residency, or regional regulatory frameworks.
 
-In these scenarios, you cannot solely rely on the user's browser language or basic geolocation. For example, a specific regulatory framework might mandate the use of unique Regional Authenticators/Identity Providers (IdPs) that are applicable only to a specific market, such as APAC, but not to the global audience.
+In these scenarios, you can’t rely on the user's browser language or basic geolocation. For example, a specific regulatory framework might require unique regional authenticators or Identity Providers (IdPs) for a particular market, such as APAC. These requirements may not apply to the global audience.
 
 Consider the following controls:
 
 * **App label:** Parse a custom string within the label. Optimal for dynamic and managed branding. Similar to brand families, this control allows you to inject regional or regulatory metadata to adjust the experience.
-* **App ID:** Use with an external lookup service. Supports the greatest variation. Best for when a market requires unique, application-wide brand and experience changes that necessitate a high degree of variation.
+* **App ID:** Use with an external lookup service. Supports the greatest variation. Best for when a market requires unique, app-wide brand and experience changes that need a high degree of variation.
 * **Domain:** Carries branding across the entire experience. Use this control if a specific domain is synonymous with a specific market or brand.
-  > **Caution:** If apps are shared across markets, the use of a different domain per market breaks SSO, and forces users to re-authenticate when transitioning between brands.
+  > **Caution:** If apps are shared across markets, the use of a different domain per market breaks SSO, and forces users to reauthenticate when transitioning between brands.
 
 ### Context controls
 
@@ -209,7 +209,7 @@ The following table lists the controls that Okta is responsible for:
 | App ID     | Code-based + context        | Okta provides the unique app ID (`app.value.id`). Use client-side code (JS/HTML) at page load to switch branding. Function: `OktaUtil.getRequestContext()`. |
 | App label  | Code-based + context        | Okta provides the unique app label (`app.value.label`). Use client-side code (JS/HTML) on the page load to parse the label and switch branding. Function: `OktaUtil`.getRequestContext(). |
 | Browser telemetry  | Code-based + browser agent  | The browser provides language settings (`navigator.language` or `navigator.languages`). Use client-side code (JS/HTML) at page load to switch branding. |
-| Self-declaration   | Code-based + end-user/local | Prompt the end user to select preferences and store the selection in a cookie or local storage. <br> **Warning:** Doesn't persist across different browser sessions. |
+| Self-declaration   | Code-based + end user/local | Prompt the end user to select preferences and store the selection in a cookie or local storage. <br> **Warning:** Doesn't persist across different browser sessions. |
 
 #### External context (responsible party)
 
@@ -222,13 +222,13 @@ The following table lists controls that you control externally:
 
 ## Multi-org or multi-tenant solutions and multiple brands
 
-The use of separate Okta orgs or tenants solely for branding or market segmentation is generally not recommended for the following reasons:
+The use of separate Okta orgs or tenants solely for branding or market segmentation isn’t recommended for the following reasons:
 
-* **Breaks Single Sign-On (SSO):** Users must re-authenticate when moving between apps hosted on different orgs.
-* **Forces Directory Segmentation:** Creates multiple separate user directories, which increases management overhead.
-* **Splits the user population:** User data is segmented across tenants, complicating global reporting and user management.
+* **Breaks SSO:** Users must reauthenticate when moving between apps hosted on different orgs.
+* **Forces Directory Segmentation:** Multi-org solutions create multiple separate user directories, which increases management overhead.
+* **Splits the user population:** User data is segmented across tenants, and complicates global reporting and user management.
 
-**Note:** There is an exception: only use a multi-org/multi-tenant solution when data residency requirements explicitly mandate keeping user data physically separated by region or market.
+**Note:** There’s an exception: only use a multi-org/multi-tenant solution when data residency requirements explicitly mandate keeping user data physically separated by region or market.
 
 ## See also
 
