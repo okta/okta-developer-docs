@@ -28,7 +28,7 @@ Learn what Native to Web SSO is, why it matters, and how it actually connects yo
 
 Native to Web SSO creates a seamless, unified authentication experience when a user transitions from an OIDC origin app (like a native app) to a web app (either OIDC or SAML). It’s a one-way trust from the origin app to the target.
 
-Native to Web SSO achieves this by exchanging a token with the `interclient_access` scope for a one-time token. Use this token to bootstrap an authentication into the target OIDC or SAML app using authentication information such as previous factor verifications from a session created when obtaining the original token. This eliminates repeated sign-in prompts and simplifies development by reducing authentication complexity.
+Native to Web SSO achieves this by exchanging a token with the `interclient_access` scope for a one-time token. This token is used to bootstrap an authentication into the target OIDC or SAML app using authentication information such as previous factor verifications from a session created when obtaining the original token. This eliminates repeated sign-in prompts and simplifies development by reducing authentication complexity.
 
 ### Handle different assurance levels and remediation
 
@@ -130,7 +130,7 @@ This example request is truncated for brevity.
 
 ## Configure the trust map
 
-Define a list of apps that are allowed to request the single-use interclient token on the target web app. This allowlist is a trust map between the origin app and the target web app. It ensures that the SSO flow only happens between apps that you explicitly trust. You can define up to five apps per target web app.
+Define a list of apps that are allowed to request the single-use interclient token on the target web app. This allowlist is a trust map between the origin app and the target web app. It ensures that the SSO flow only happens between apps that you explicitly trust. You can define up to five trusted apps per target web app.
 
 Okta checks this trusted relationship at two critical points in the flow:
 
