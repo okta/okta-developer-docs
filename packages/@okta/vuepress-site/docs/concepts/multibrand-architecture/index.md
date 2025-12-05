@@ -9,7 +9,7 @@ meta:
 
 This document reviews the core concepts and options available to set up the architecture for multiple brands in your environment.
 
-**Note:** This document applies to the customization of Gen3 of the Sign-In Widget. For information about Gen2, see []
+**Note:** This document applies to the customization of Gen3 of the Sign-In Widget. For information about Gen2, see [Style the sign-in page](/docs/guides/custom-widget/main/).
 
 ## Domain strategy decision flow
 
@@ -20,7 +20,7 @@ The right multibrand architecture requires that you answer the following questio
 
 The following diagram shows the decision flow that you should follow when setting up your architectural approach:
 
-<div class="half">
+<div class="three-quarter">
 
 ![A decision flow diagram to help you set up your multibrand architecture](/img/concepts/multibrand-architecture.png)
 
@@ -87,9 +87,37 @@ High complexity applies when your brands are visually diverse and need extensive
 * Complex responsive design rules
 * Highly customized user flows that go beyond basic widget configuration
 
-## Fewer than five brands
+## Number of brands
 
+If your brand customizations are complex, the next step is to assess the number of brands you want to include in your architecture.
 
+### Fewer than five brands
+
+If you have a small, manageable number of highly customized brands (fewer than five), you can use internal, inline code for implementation.
+
+The branding logic resides directly within the Okta Sign-In Widget's customizable code blocks.
+
+A JavaScript `switch` statement, or a series of `if/else` checks within the sign-in code, determines the active brand. The active brand is based on the unique app ID (app ID or client ID) passed to the Sign-In Widget. Inject the corresponding custom CSS or HTML inline.
+
+The following example shows how to use app ID as a control:
+
+```javascript
+//console.log(oktaData);
+function getApp() {
+    if (!OktaUtil) return undefined;
+
+    var requestContext = OktaUtil.getRequestContext();
+    if (requestContext && requestContext.app && requestContext.app.value) {
+        return requestContext.app.value;
+    }else{
+        return "unknown"
+    }
+}
+```
+
+See [Okta context (responsible party)](#okta-context-responsible-party).
+
+### Five brands or more
 
 
 
