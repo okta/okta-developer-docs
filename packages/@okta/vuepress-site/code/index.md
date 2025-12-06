@@ -133,7 +133,7 @@ The Okta Devices SDK allows you to embed push notifications and biometrics direc
 | ![Android](/img/sdks/android.png) | Android | [Okta Devices SDK for Kotlin](https://github.com/okta/okta-devices-kotlin/tree/master) | [Sample App](https://github.com/okta/okta-devices-kotlin/tree/master/push-sample-app) | [Guide](/docs/guides/authenticators-custom-authenticator/android/main/) |
 | ![iOS](/img/sdks/ios.png) | iOS | [Okta Devices SDK for Swift](https://github.com/okta/okta-devices-swift/tree/master) | [Sample App](https://github.com/okta/okta-devices-swift/tree/master/Examples/PushSampleApp) | [Guide](/docs/guides/authenticators-custom-authenticator/ios/main/) |
 
-## Manage your users, groups, and apps
+## Automate and manage your Okta org
 
 The [Okta Core Management APIs](/docs/reference/core-okta-api/) allow you to manage your Okta objects: users, apps, sessions, policies, factors, devices, and more. Use the Okta Management SDK for your language to make interaction with the APIs easier.
 
