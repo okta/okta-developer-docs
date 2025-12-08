@@ -205,7 +205,7 @@ See [Okta context (responsible party)](#okta-context-responsible-party).
 
 Some brand requirements extend beyond standard app and domain boundaries, often intersecting with localization, data residency, or regional regulatory frameworks.
 
-In these situations, you can’t rely on someone’s browser language or where they’re logging in from. Sometimes, you run into rules that need special regional authenticators or Identity Providers (IdPs) for a market like APAC. But those rules might not matter for everyone else.
+In these situations, you can’t rely on someone’s browser language or where they’re signing in from. Sometimes, you run into rules that need special regional authenticators or Identity Providers (IdPs) for a market like APAC. But those rules might not matter for everyone else.
 
 Consider the following controls:
 
