@@ -4,63 +4,6 @@ title: Okta Classic Engine API release notes 2025
 
 # Okta Classic Engine API release notes (2025)
 
-## November
-
-### Test Monthly release 2025.11.0
-
-<!-- Published on: November 27, 2025 -->
-
-| Change | Expected in Preview Orgs |
-|--------|--------------------------|
-| [Test feature](#bug-fixed-in-2025-10-2)| October 22, 2025 |
-| [Test Bug fixed in 2025.10.3](#bug-fixed-in-2025-10-2)| October 22, 2025 |
-
-#### Test feature
-
-Update, update, update. Does this new update appear in the feed? (OKTA-1035340)
-
-#### Bug fixed in 2025.10.3
-
-Update, update, update. Does this new update appear in the feed? (OKTA-1035340)
-
-## October
-
-### Test Weekly release 2025.10.4
-
-<!-- Published on: November 18, 2025 -->
-
-| Change | Expected in Preview Orgs |
-|--------|--------------------------|
-| [Test Bugs in 2025.10.4](#bug-fixed-in-2025-10-2)| October 22, 2025 |
-
-#### Bug fixed in 2025.10.4
-
-Update, update, update. Does this new update appear in the feed? (OKTA-1035340)
-
-### Test Weekly release 2025.10.3
-
-<!-- Published on: November 11, 2025 -->
-
-| Change | Expected in Preview Orgs |
-|--------|--------------------------|
-| [Test Bug fixed in 2025.10.3](#bug-fixed-in-2025-10-2)| October 22, 2025 |
-
-#### Bug fixed in 2025.10.3
-
-Update, update, update. Does this new update appear in the feed? (OKTA-1035340)
-
-### Weekly release 2025.10.2
-
-<!-- Published on: November 4, 2025 -->
-
-| Change | Expected in Preview Orgs |
-|--------|--------------------------|
-| [Bug fixed in 2025.10.2](#bug-fixed-in-2025-10-2)| October 22, 2025 |
-
-#### Bug fixed in 2025.10.2
-
-Update, update, update. Does this new update appear in the feed? (OKTA-1035340)
-
 ### Weekly release 2025.10.1
 
 | Change | Expected in Preview Orgs |
