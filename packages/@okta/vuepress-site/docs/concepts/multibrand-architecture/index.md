@@ -61,7 +61,7 @@ In this scenario, all brands share an underlying Okta sign-in experience (that i
 
 This approach simplifies management by centralizing user identity and policy enforcement. However, the degree of visual customization across brands is limited to what the core Okta Sign-In Widget allows.
 
-End users have a “same login experience", and can have the same username, password, email, phone, and even one-time passcodes (OTPs).
+End users have a “same sign-in experience", and can have the same username, password, email, phone, and even one-time passcodes (OTPs).
 
 See [About Okta domain customization](/docs/guides/custom-url-domain/main/#about-okta-domain-customization).
 
