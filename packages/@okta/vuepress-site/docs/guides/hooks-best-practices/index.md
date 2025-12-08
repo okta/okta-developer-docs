@@ -24,7 +24,7 @@ You can also grant granular hook management permissions to custom admin roles. C
 
 For more information on custom roles, see [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#roles-in-okta) and [Custom admin roles](https://help.okta.com/oie/en-us/content/topics/security/custom-admin-role/custom-admin-roles.htm).
 
->**Note:** Custom permissions for hooks are a [self-service Early Access (EA)](/docs/concepts/feature-lifecycle-management/#self-service-features) feature. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable.
+>**Note:** Custom permissions for hooks are a [self-service Early Access (EA)](/docs/concepts/feature-lifecycle-management/#self-service-features) feature. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable it.
 
 ## Secure your hook endpoint
 
