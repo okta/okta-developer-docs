@@ -11,6 +11,26 @@ If you're responsible for multiple brands, there are a few key concepts you shou
 
 **Note:** This document applies to the customization of Gen3 of the Sign-In Widget. For information about Gen2, see the [Style the sign-in page guide](/docs/guides/custom-widget/main/).
 
+## Multibrand context controls
+
+Context controls are essential for dynamically determining which visual presentation (branding) an end-user should see during the authentication flow. These controls act as contextual signals that the identity provider (Okta) or the client-side application can read to execute branding logic.
+
+### Okta context
+
+Okta context controls often leverage fixed attributes of the environment or identity models:
+
+* **Fixed Controls:** The org and domain are inherent, fixed properties of the Okta environment that can establish a baseline context, often tied to data residency or initial federation models. See [No SSO required](#no-sso-required).
+* **Code-Based Context:** Attributes like the unique app ID or app label are provided by Okta and read by client-side code (for example, JavaScript) at page load to trigger a brand switch. See [High complexity](#high-complexity) and [Fewer than five brands](#fewer-than-five-brands).
+
+### External Context
+
+External context controls are managed and supplied by the originating app or the user's local environment before or during the request to Okta. They are typically implemented via custom code:
+
+* **Client-Side Storage:** Using a cookie or local storage allows the origin app to store a branding preference locally. However, this method is transient and subject to browser restrictions.
+* **URL Parameters:** Appending data to the URL via a QueryString is another code-based approach, often using federation-compliant fields like state or nonce to safely transfer the desired context/branding flag.
+
+See [Context controls reference](#context-controls-reference) for a full list of available controls.
+
 ## Domain strategy decision flow
 
 The right multibrand architecture requires that you answer the following questions:
@@ -165,7 +185,7 @@ HTTP 200 application/json
 
 ## Common multibrand use cases
 
-This section details common branding requirements and the recommended controls for implementing them within a multi-brand architecture. These patterns use the controls discussed in [Context controls](#context-controls).
+This section details common branding requirements and the recommended controls for implementing them within a multi-brand architecture. These patterns use the controls discussed in [Context controls reference](#context-controls-reference).
 
 ### Brand families (product lines)
 
@@ -194,7 +214,7 @@ Consider the following controls:
 * **Domain:** Carries branding across the entire experience. Use this control if a specific domain is synonymous with a specific market or brand.
   > **Caution:** If apps are shared across markets, the use of a different domain per market breaks SSO, and forces users to reauthenticate when transitioning between brands.
 
-### Context controls
+### Context controls reference
 
 Okta provides many different controls that you can use to set up multiple brands in your environment.
 
