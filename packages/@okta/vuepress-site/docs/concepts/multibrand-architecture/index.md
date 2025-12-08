@@ -13,21 +13,21 @@ If you're responsible for multiple brands, there are a few key concepts you shou
 
 ## Multibrand context controls
 
-Context controls are essential for dynamically determining which visual presentation (branding) an end-user should see during the authentication flow. These controls act as contextual signals that the identity provider (Okta) or the client-side application can read to execute branding logic.
+Context controls help you decide which branding an end user should see during sign-in. They work as signals that Okta or your app can use to pick the right look and feel for each user.
 
 ### Okta context
 
-Okta context controls often leverage fixed attributes of the environment or identity models:
+Okta context controls often use fixed attributes of the environment or identity models:
 
-* **Fixed Controls:** The org and domain are inherent, fixed properties of the Okta environment that can establish a baseline context, often tied to data residency or initial federation models. See [No SSO required](#no-sso-required).
-* **Code-Based Context:** Attributes like the unique app ID or app label are provided by Okta and read by client-side code (for example, JavaScript) at page load to trigger a brand switch. See [High complexity](#high-complexity) and [Fewer than five brands](#fewer-than-five-brands).
+* **Fixed Controls:** The org and domain are fixed properties of the Okta environment. They establish a baseline context, often tied to data residency or initial federation models. See [No SSO required](#no-sso-required).
+* **Code-Based Context:** Attributes like the unique app ID or app label are provided by Okta. Client-side code (such as JavaScript) reads these at page load to trigger a brand switch. See [High complexity](#high-complexity) and [Fewer than five brands](#fewer-than-five-brands).
 
 ### External Context
 
-External context controls are managed and supplied by the originating app or the user's local environment before or during the request to Okta. They are typically implemented via custom code:
+External context controls are managed and supplied by the originating app or the user's local environment before or during the request to Okta. They’re typically implemented through custom code:
 
-* **Client-Side Storage:** Using a cookie or local storage allows the origin app to store a branding preference locally. However, this method is transient and subject to browser restrictions. Client-side storage isn't consistent aross devices or browsers.
-* **URL Parameters:** Appending data to the URL via a QueryString is another code-based approach, often using federation-compliant fields like state or nonce to safely transfer the desired context/branding flag.
+* **Client-Side Storage:** Using a cookie or local storage allows the origin app to store a branding preference locally. However, this method is transient and subject to browser restrictions. Client-side storage isn't consistent across devices or browsers.
+* **URL Parameters:** Appending data to the URL with a QueryString is another code-based approach. You can use federation-compliant fields like `state` or `nonce` to safely transfer the desired context or branding flag.
 
 See [Context controls reference](#context-controls-reference) for a full list of available controls.
 
@@ -102,10 +102,10 @@ Use the pipe character (`|`) as a delimiter to parse the `label` string. This re
 
 High complexity applies when your brands are visually diverse and need extensive code customization. The following are examples of complex branding:
 
-* Significant custom CSS.
-* Unique layout requirements.
-* Complex responsive design rules.
-* Customized user flows that go beyond basic widget configuration.
+* Significant custom CSS
+* Unique layout requirements
+* Complex responsive design rules
+* Customized user flows that go beyond basic widget configuration
 
 ## Number of brands
 
