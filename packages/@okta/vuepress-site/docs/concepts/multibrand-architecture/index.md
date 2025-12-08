@@ -65,7 +65,7 @@ End users have a “same login experience", and can have the same username, pass
 
 See [About Okta domain customization](/docs/guides/custom-url-domain/main/#about-okta-domain-customization).
 
-**Note:** If you plan to use passkeys, this approach limits you to five associated domains. See [Passkeys and custom domains](/docs/guides/custom-passkeys/main/).
+**Note:** If you plan to use passkeys, this approach limits you to five associated domains.
 
 ### SSO required
 
