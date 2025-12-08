@@ -11,7 +11,7 @@ The following sections review best practices to implement and secure Okta event 
 
 ## Hook admin roles
 
-By default, the Super Admin role can create and manage hooks for an org.
+By default, super admins can create and manage hooks for an org.
 
 You can also grant granular hook management permissions to custom admin roles. Create a dedicated hook admin role, or add hook permissions to other custom roles. For information on using permissions, see [Permissions](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/) and the following references:
 
