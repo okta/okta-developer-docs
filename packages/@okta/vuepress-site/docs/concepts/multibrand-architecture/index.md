@@ -249,6 +249,3 @@ The use of separate Okta orgs or tenants solely for branding or market segmentat
 * **Splits the user population:** User data is segmented across tenants, and complicates global reporting and user management.
 
 **Note:** There’s an exception: only use a multi-org/multi-tenant solution when data residency requirements explicitly mandate keeping user data physically separated by region or market.
-
-## See also
-
