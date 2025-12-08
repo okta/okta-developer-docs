@@ -4,6 +4,8 @@ title: Okta Classic Engine API release notes 2025
 
 # Okta Classic Engine API release notes (2025)
 
+## October
+
 ### Weekly release 2025.10.1
 
 | Change | Expected in Preview Orgs |
