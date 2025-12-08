@@ -36,7 +36,7 @@ To get the most from the Okta branding options:
 * Purchase a custom domain for your org to associate with the brand.
 * Identify your brand-matching design for the Sign-In Widget.
 * Identify how messages and error pages from Okta should be worded to reflect your brand.
-* Decide if you want to use [one domain for all brands or separate domains](LINK_HERE).
+* Decide if you want to use [one domain for all brands or separate domains](/docs/concepts/multibrand-architecture/).
 
 Users that make branding changes in the Admin Console must have a super admin or org admin role, or have [a role with customization permissions](https://help.okta.com/okta_help.htm?type=oie&id=csh-create-role).
 
@@ -79,7 +79,7 @@ The Okta default UI spans user registration, enrollment, verification, and accou
 * Test that your new branding is consistent for your users across all four actions.
 * Test that your error pages work as expected.
 * Test that your text works in different languages as expected.
-* [Copy/Synchronize your settings from UAT to Production (using the Admin Console or Terraform)](/docs/guides/migrate-customizations/).
+<!-- * [Copy/Synchronize your settings from UAT to Production (using the Admin Console or Terraform)](/docs/guides/migrate-customizations/). -->
 
 ## Related topics
 
