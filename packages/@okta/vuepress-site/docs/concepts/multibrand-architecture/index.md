@@ -55,7 +55,7 @@ The first architectural decision determines whether you need to use domain-level
 
 ### No SSO required
 
-Your brands operate independently and don’t require end users to log in once to access all brand-specific apps. In that case, you can use domain-level branding within a single Okta org.
+Your brands operate independently and don’t require end users to sign in once to access all brand-specific apps. In that case, you can use domain-level branding within a single Okta org.
 
 In this scenario, all brands share an underlying Okta login experience (that is, a single Okta domain), and customizations are applied at the domain level.
 
