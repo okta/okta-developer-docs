@@ -69,7 +69,7 @@ See [About Okta domain customization](/docs/guides/custom-url-domain/main/#about
 
 ### SSO required
 
-If users need a seamless experience&mdash;logging in once and gaining access to multiple distinct brands&mdash;you must implement cross-brand SSO. Cross-brand SSO requires app-level branding.
+If users need a seamless experience&mdash;signing in once and gaining access to multiple distinct brands&mdash;you must implement cross-brand SSO. Cross-brand SSO requires app-level branding.
 
 In this model, you apply customization at the app level (`clientId`) rather than to the entire Okta domain. The common sign-in session enables SSO across all configured apps. It doesn't matter how you brand each app.
 
