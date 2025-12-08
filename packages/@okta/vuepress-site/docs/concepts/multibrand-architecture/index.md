@@ -26,7 +26,7 @@ Okta context controls often leverage fixed attributes of the environment or iden
 
 External context controls are managed and supplied by the originating app or the user's local environment before or during the request to Okta. They are typically implemented via custom code:
 
-* **Client-Side Storage:** Using a cookie or local storage allows the origin app to store a branding preference locally. However, this method is transient and subject to browser restrictions.
+* **Client-Side Storage:** Using a cookie or local storage allows the origin app to store a branding preference locally. However, this method is transient and subject to browser restrictions. Client-side storage isn't consistent aross devices or browsers.
 * **URL Parameters:** Appending data to the URL via a QueryString is another code-based approach, often using federation-compliant fields like state or nonce to safely transfer the desired context/branding flag.
 
 See [Context controls reference](#context-controls-reference) for a full list of available controls.
@@ -214,11 +214,11 @@ Consider the following controls:
 * **Domain:** Carries branding across the entire experience. Use this control if a specific domain is synonymous with a specific market or brand.
   > **Caution:** If apps are shared across markets, the use of a different domain per market breaks SSO, and forces users to reauthenticate when transitioning between brands.
 
-### Context controls reference
+## Context controls reference
 
 Okta provides many different controls that you can use to set up multiple brands in your environment.
 
-#### Okta context (responsible party)
+### Okta context (responsible party)
 
 The following table lists the controls that Okta is responsible for:
 
@@ -231,7 +231,7 @@ The following table lists the controls that Okta is responsible for:
 | Browser telemetry  | Code-based + browser agent  | The browser provides language settings (`navigator.language` or `navigator.languages`). Use client-side code (JS/HTML) at page load to switch branding. |
 | Self-declaration   | Code-based + end user/local | Prompt the end user to select preferences and store the selection in a cookie or local storage. <br> **Warning:** Doesn't persist across different browser sessions. |
 
-#### External context (responsible party)
+### External context (responsible party)
 
 The following table lists controls that you control externally:
 
