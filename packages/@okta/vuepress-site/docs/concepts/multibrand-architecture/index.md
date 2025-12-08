@@ -40,7 +40,7 @@ The right multibrand architecture requires that you answer the following questio
 
 The following diagram shows the decision flow that you should follow when setting up your architectural approach:
 
-<div class="two-thirds">
+<div class="half">
 
 ![A decision flow diagram to help you set up your multibrand architecture](/img/concepts/multibrand-architecture.png)
 
