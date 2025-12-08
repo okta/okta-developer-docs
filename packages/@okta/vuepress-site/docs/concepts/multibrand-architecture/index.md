@@ -57,7 +57,7 @@ The first architectural decision determines whether you need to use domain-level
 
 Your brands operate independently and don’t require end users to sign in once to access all brand-specific apps. In that case, you can use domain-level branding within a single Okta org.
 
-In this scenario, all brands share an underlying Okta login experience (that is, a single Okta domain), and customizations are applied at the domain level.
+In this scenario, all brands share an underlying Okta sign-in experience (that is, a single Okta domain), and customizations are applied at the domain level.
 
 This approach simplifies management by centralizing user identity and policy enforcement. However, the degree of visual customization across brands is limited to what the core Okta Sign-In Widget allows.
 
