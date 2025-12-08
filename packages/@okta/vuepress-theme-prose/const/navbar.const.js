@@ -60,6 +60,10 @@ export const concepts = [
         path: "/docs/concepts/monitor/",
       },
       {
+        title: "Multibrand architecture",
+        path: "/docs/concepts/multibrand-architecture/",
+      },
+      {
         title: "Multi-tenant solutions",
         path: "/docs/concepts/multi-tenancy/",
       },
