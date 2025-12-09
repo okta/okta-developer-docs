@@ -61,6 +61,7 @@ guides:
  - keep-me-signed-in
  - key-management
  - manage-orgs-okta-aerial
+ - manage-user-creds
  - mfa
  - migrate-to-okta-prerequisites
  - migrate-to-okta-bulk
@@ -182,6 +183,7 @@ guides:
  - authenticators-tac-authenticator
  - custom-well-known-uri
  - validate-federation
+ - custom-passkeys
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

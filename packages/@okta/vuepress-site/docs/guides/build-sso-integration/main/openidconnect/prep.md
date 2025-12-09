@@ -2,7 +2,7 @@ If you haven't built the OIDC service in your app yet, review the [OAuth 2.0 and
 
 For OIDC integrations that you want to publish in the OIN catalog, review the following implementation topics:
 
-1. [Determine a suitable OAuth 2.0 flow](#determine-the-oauth-2-0-flow-to-use) to use based on your app type.
+1. Use the Authorization Code flow with client secrets for your app. Select **Web Application** as the OIDC app type when you create your app integration in your Okta org.
 1. [Determine the scopes](#scopes) that you require for your OIDC client (your app).
 1. Consider how your app stores [customer client credentials](#oidc-customer-org-credentials).
 1. Understand how to [validate tokens](#token-validation) in your OIDC client.
@@ -41,20 +41,15 @@ Select the OAuth 2.0 flow to use based on your app:
    Okta mandates the [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/). This flow is used for apps with a dedicated server-side backend capable of securely storing a client secret. The app integration can also exchange information with an authorization server through trusted back-channel connections.
    > **Note:** The implicit flow is extremely challenging to implement securely. Therefore, Okta doesn’t recommend its use for token exchange in web apps. If your use case requires the use of an implicit flow for token exchange, contact [Okta Support](https://support.okta.com).
 
-* For single-page apps (SPA):
+* For single-page apps (SPA) and mobile apps:
 
-   Okta recommends the [Authorization Code flow with a Proof Key for Code Exchange (PKCE)](/docs/concepts/oauth-openid/#authorization-code-flow-with-pkce) to control access between your SPA app and a resource server.
+   The OIN doesn’t support direct authentication from SPAs or native mobile apps. Instead, your backend systems must handle authentication.
 
-> **Note:** Native and mobile app integrations aren't accepted as OIDC app integrations in the OIN. Set up your app to use an authentication flow that allows your client app to talk to your SaaS backend. Your SaaS backend can then securely communicate with Okta through trusted back-channel connections.
+In this architecture, your SPA or mobile app shouldn’t manage tokens directly. Instead, use an intermediary system, such as an API gateway or a backend-for-frontend service, to facilitate communication between your client app and the resource server. Okta recommends implementing the authorization code flow for secure authentication and token exchange.
 
-Follow these guides to implement the OAuth 2.0 flows:
-
-* [Implement Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
-* [Implement Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
-
-> **Note:** You can also review these sample integration quickstarts:
-> * [Sign in to SPA](/docs/guides/sign-into-spa-redirect/)
-> * [Sign in to web application](/docs/guides/sign-into-web-app-redirect/)
+> **Notes:**
+> * Ensure that you select **Web Application** as the OIDC app type when you create your app integration in your Okta org.
+> * Native and mobile app integrations aren't accepted as OIDC app integrations in the OIN unless they use server-side authentication patterns. Set up your app to use an authentication flow that allows your client app to talk to your SaaS backend. Your SaaS backend can then securely communicate with Okta through trusted back-channel connections. See [Implement the authorization code flow](/docs/guides/implement-grant-type/authcode/main/) to implement the OAuth 2.0 flow
 
 When you follow these guides, be aware of the authorization server used. Most of the examples show you how to make an `/authorize` or `/token` request using a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server). To support the potentially large number of Okta orgs accessing it through the OIN, an OIDC integration can't use a custom authorization server (this includes the `default` server). Therefore, for OIN OIDC apps, you can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 

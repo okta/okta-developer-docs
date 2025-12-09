@@ -60,6 +60,10 @@ export const concepts = [
         path: "/docs/concepts/monitor/",
       },
       {
+        title: "Multibrand architecture",
+        path: "/docs/concepts/multibrand-architecture/",
+      },
+      {
         title: "Multi-tenant solutions",
         path: "/docs/concepts/multi-tenancy/",
       },
@@ -308,7 +312,7 @@ export const guides = [
                     guideName: "oie-embedded-sdk-use-case-sign-in-pwd-phone",
                   },
                   {
-                    title: "User sign out (local app)",
+                    title: "User sign out flow (local app)",
                     guideName: "oie-embedded-sdk-use-case-basic-sign-out",
                   },
                 ],
@@ -580,6 +584,10 @@ export const guides = [
             guideName: "configure-native-sso",
           },
           {
+            title: "Manage credentials using the Okta Client SDK",
+            guideName: "manage-user-creds",
+          },
+          {
             title: "Request user consent",
             guideName: "request-user-consent"
           },
@@ -649,8 +657,12 @@ export const guides = [
             guideName: "custom-url-domain",
           },
           {
-            title: "Customize associated domains",
+            title: "Associated domains",
             guideName: "custom-well-known-uri",
+          },
+          {
+            title: "Passkeys and custom domains",
+            guideName: "custom-passkeys",
           },
           {
             title: "Sign-in page",
@@ -1075,6 +1087,9 @@ export const journeys = [
             },
             { title: "Sign users in through your web app",
               journeyName: "OCI-web-sign-in"
+            },
+            { title: "Apply your brand to the Okta user experience",
+              journeyName: "OCI-branding"
             },
           ]
         },

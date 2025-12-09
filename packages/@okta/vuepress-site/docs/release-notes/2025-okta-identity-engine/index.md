@@ -8,6 +8,27 @@ title: Okta Identity Engine API release notes 2025
 
 ## November
 
+### Weekly release 2025.11.3
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.11.3](#bugs-fixed-in-2025-11-3)| December 3, 2025 |
+
+
+#### Bugs fixed in 2025.11.3
+
+* The Create a group push mapping endpoint (`POST /api/v1/apps/{appId}/group-push/mappings`) didn't return validation errors when requests included null attributes or incompatible Active Directory configurations. (OKTA-1061899)
+
+* When a user selected the SCIM 2.0 integration type in the OIN wizard, they could submit the app without configuring the SCIM provisioning properties. (OKTA-1047409)
+
+* Scopes that were skipped when an app required consent were still skipped after consent was no longer required. (OKTA-1045708)
+
+* The User Factors API incorrectly allowed secondary email addresses to be enrolled as email factors. (OKTA-1045693)
+
+* The Identity Engine session was the only session that was deleted when a `DELETE /sessions/{externalSessionId}` request was made and the Classic Engine and Identity Engine session had the same external ID. (OKTA-1004539)
+
+* Users who were members of a large number of groups couldn't authenticate into WS-Federation apps. (OKTA-839661)
+
 ### Weekly release 2025.11.1
 
 | Change | Expected in Preview Orgs |
@@ -505,7 +526,7 @@ See [Customize associated domains](/docs/guides/custom-well-known-uri/main/). <!
 
 #### Automate SCIM Integration for OIN Apps with Express Configuration
 
-Express Configuration is a feature designed to automate the setup of SSO and SCIM for instances of OIN SaaS integrations by enterprise customers with minimal manual effort. It allows enterprise customers to securely configure OIDC and SCIM integrations without copying and pasting configuration values between Okta and Auth0-enabled apps. See [Express Configuration](/docs/guides/enable-express-configuration/scim/main/). <!-- EXPRESS_CONFIGURATION_SCIM_FOR_AUTH0_APPS OKTA-977761 -->
+Express Configuration is a feature designed to automate the setup of SSO and SCIM for instances of OIN SaaS integrations by enterprise customers with minimal manual effort. It allows enterprise customers to securely configure OIDC and SCIM integrations without copying and pasting configuration values between Okta and Auth0-enabled apps. See [Express Configuration](/docs/guides/enable-express-configuration/main/). <!-- EXPRESS_CONFIGURATION_SCIM_FOR_AUTH0_APPS OKTA-977761 -->
 
 #### Breached Credentials Protection is GA in Preview
 
