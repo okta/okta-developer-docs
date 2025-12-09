@@ -1142,11 +1142,11 @@ export const reference = [
             path: "/docs/reference/rl2-concurrency/",
           },
           {
-            title: "Monitoring and troubleshooting rate limits",
+            title: "Monitor and troubleshoot rate limits",
             path: "/docs/reference/rl2-monitor/",
           },
           {
-            title: "Increasing rate limits",
+            title: "Increase your rate limits",
             path: "/docs/reference/rl2-increase/",
           },
           {

@@ -102,7 +102,7 @@ This sortable, filterable table shows each API endpoint showing:
 
 You can also use the search box to look up specific endpoints. For example, you're calling Okta with an example `requestURI` and you want to know the rate limit that's applied to calls that are made against that `requestURI`.
 
-<div class="half">
+<div class="three-quarters">
 
 ![Displays the APIs table with corresponding rate limits for each API.](/img/rate-limits/rl_dashboard9.png)
 
