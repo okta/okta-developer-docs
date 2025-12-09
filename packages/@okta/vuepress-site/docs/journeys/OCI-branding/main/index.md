@@ -4,7 +4,7 @@ meta:
   - name: description
     content: Change the look and feel of the Okta default user experience to match your brand.
     date-updated: December 9, 2025
-    target persona: Administrator, Designer
+    target persona: Admin, Designer
     level: Intermediate
 sections:
 - main
@@ -16,14 +16,14 @@ Design and apply a custom look and feel that matches your brand to the Okta-host
 
 ## Introduction
 
-You have a customer-facing app that uses the Okta-hosted Sign-In Widget and messaging services. Design and apply your own look and feel to these elements, which keeps your customers engaged. And, when you deliver a seamless, branded experience, you build trust with your users.
+You have a customer-facing app that uses the Okta-hosted Sign-In Widget and messaging services. Design and apply your own look and feel to these elements, which keeps your customers engaged. When you deliver a seamless, branded experience, you build trust with your users.
 
 ## Learn
 
-There are three key elements to the theming of the Okta out-of-the-box user experience:
+There are three key elements to the theming of the Okta default user experience:
 
 * The [Sign-In Widget](/docs/concepts/sign-in-widget/) is the default Okta UI for registration, enrollment, verification, and account recovery. You can customize it to match your brand.
-* The [Okta Expression Language](/docs/reference/okta-expression-language/) is used to customize our email and SMS messages.
+* The [Okta Expression Language](/docs/reference/okta-expression-language/) is used to customize email and SMS messages.
 * Okta [Brands](https://developer.okta.com/docs/concepts/brands/) allows you to manage multiple brands in one Okta org.
 
 <!-- See the [repository of example style sheets for the Sign-In Widget](https://github.com/oktadev/okta-js-siw-customzation-example) for examples of the types of updates that you can make.-->
@@ -35,10 +35,10 @@ To get the most from the Okta branding options:
 
 * Purchase a custom domain for your org to associate with the brand.
 * Identify your brand-matching design for the Sign-In Widget.
-* Identify how messages and error pages from Okta should be worded to reflect your brand.
+* Identify how messages and error pages from Okta are worded to reflect your brand.
 * Decide if you want to use [one domain for all brands or separate domains](/docs/concepts/multibrand-architecture/).
 
-Users that make branding changes in the Admin Console must have a super admin or org admin role, or have [a role with customization permissions](https://help.okta.com/okta_help.htm?type=oie&id=csh-create-role).
+To make branding changes in the Admin Console, you need a super admin or org admin role, or have [a role with customization permissions](https://help.okta.com/okta_help.htm?type=oie&id=csh-create-role).
 
 ## Build
 
@@ -68,7 +68,7 @@ Create a stylesheet and any required JavaScript for custom behaviors and attach 
 Customize the text of emails, SMS messages, and error pages delivered by Okta for a custom domain and also localize it to match your messaging:
 
 * [Customize your email templates](/docs/guides/custom-email/main/)
-  * [Add app-level context logic](/docs/guides/custom-email/main/#app-name)
+    * [Add app-level context logic](/docs/guides/custom-email/main/#app-name)
 * [Customize your SMS messages](/docs/guides/custom-sms-messaging/main/)
 * [Customize your error pages](/docs/guides/custom-error-pages/main/)
 
