@@ -16,6 +16,7 @@ Okta Identity Governance is available for both Okta Classic and Identity Engine.
 | [Entitlement Settings API is Beta](#entitlement-settings-api-is-beta) | December 10, 2025 |
 | [Entitlement-value ORN property in principal access for a resource is Beta](#entitlement-value-orn-property-in-principal-access-for-a-resource-is-beta) | December 10, 2025 |
 | [Access Requests escalation settings is Beta](#access-requests-escalation-settings-is-beta) | December 10, 2025 |
+| [AD group support in Access Requests is GA in Preview](#ad-group-support-in-access-requests-is-ga-in-preview) | December 10, 2025 |
 | [Collections support in Resource Owners API is Beta](#collections-support-in-resource-owners-api-is-beta) | December 10, 2025 |
 | [Certify service accounts is EA](#certify-service-accounts-is-ea) | December 10, 2025 |
 
@@ -52,6 +53,15 @@ See the `escalations` settings in the [Org Governance Settings](https://develope
 
 Also see [Escalate task](https://help.okta.com/okta_help.htm?type=oie&id=csh-escl-task) and [Allow requesters to escalate tasks](https://help.okta.com/okta_help.htm?type=oie&id=csh-req-escl-task) in the product documentation.
 <!-- OKTA-1062448, OKTA-1051948 ATSPOKE_ESCALATIONS Preview date: Dec 10, 2025 -->
+
+#### AD group support in Access Requests is GA in Preview
+
+Users can now request access to Active Directory (AD)-sourced groups directly within Access Requests. This enhancement enables seamless governance and automatically fulfills and revokes (if time-bound) access in AD, strengthening your security posture and eliminating the need for duplicate groups or custom Workflows.
+
+You must have [Bidirectional Group Management with Active Directory](https://help.okta.com/okta_help.htm?type=oie&id=ad-bidirectional-group-mgmt) configured in your org to have governance AD group support. See [Access governance for AD groups](https://help.okta.com/okta_help.htm?type=oie&id=ad-bidirectional-group-mgt-configure).
+
+For users to request access to AD groups, admins must first create a request condition with an AD-sourced group access scope. Use the [Create a request condition](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/#tag/Request-Conditions/operation/createResourceRequestConditionV2) request and set `accessScopeSettings.type` to `GROUP`. In the `accessScopeSettings.group` list, specify your AD-sourced group IDs that are requestable.
+<!-- OKTA-1059727, OKTA-1036354 ACCESS_REQUEST_AD_GROUPS Preview date: Dec 10, 2025 -->
 
 #### Collections support in Resource Owners API is Beta
 
