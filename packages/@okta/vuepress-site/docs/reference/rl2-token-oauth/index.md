@@ -5,11 +5,11 @@ category: rate limits
 
 # Token and OAuth 2.0 Application Rate Limits
 
-Okta lets you set specific rate limits for individual API tokens and OAuth 2.0 apps to prevent one client from consuming all org-wide capacity. This prevents one client from using the entire org-wide rate limit for an endpoint and causing outages for other critical integrations.
+Okta lets you set specific rate limits for individual API tokens and OAuth 2.0 apps to prevent one client from consuming all org-wide capacity. This prevents one client from using the entire org-wide rate limit for an endpoint and causing widespread disruptions for other critical integrations.
 
-By default, each API token or OAuth 2.0 app can use up to 50% of an API endpoint’s total rate limit. This doesn’t guarantee a minimum rate limit for a token or app, but does provide a ceiling. For example, if your org-wide limit for the `/api/v1/logs` bucket is 120 requests per minute, a single API token can only make 60 requests per minute to that endpoint before being rate-limited. This default behavior acts as a crucial safeguard in environments with multiple integrations.
+By default, each API token or OAuth 2.0 app can use up to 50% of a bucket's total rate limit. This doesn’t guarantee a minimum rate limit for a token or app, but does provide a ceiling. For example, if your org-wide limit for the `/api/v1/logs` bucket is 120 requests per minute, a single API token can only make 60 requests per minute to that endpoint before being rate-limited. This default behavior acts as a crucial safeguard in environments with multiple integrations.
 
-You can change how much rate limit each API token or OAuth 2.0 app can use in the Admin Console or with the [principal rate limits](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PrincipalRateLimit/#tag/PrincipalRateLimit) API.
+You can change how much rate limit each API token or OAuth 2.0 app can use in the Admin Console or with the [principal rate limits API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PrincipalRateLimit/#tag/PrincipalRateLimit).
 
 Configuring rate limits by token in the Admin Console:
 
@@ -31,7 +31,7 @@ Configuring rate limits by OAuth 2.0 app in the Admin Console:
 
 The sum of the capacity percentages for all your tokens and apps doesn’t need to equal 100%. This provides flexibility in how you manage your total rate limit pool.
 
-* If the sum is over 100%: This creates a first-come, first-serve model for the shared portion of the rate limit. For example, if two tokens each have a 75% capacity for a bucket with a 100 request per-minute limit, the first token to make 75 requests succeeds. However, the second token will then only have access to the remaining 25 requests from the org-wide pool for that minute, even though its individual capacity is 75.
+* If the sum is over 100%: This creates a first-come, first-serve model for the shared portion of the rate limit. For example, if two tokens each have a 75% ceiling for a bucket with a 100 requests per minute limit, the total pool for both is still capped at 100. If one token uses 75 requests in a minute, it consumes its full allocation, leaving only 25 requests available for the second token, even though that token’s individual capacity is also 75.
 
 * If the sum is under 100%: This effectively creates a reserved buffer. For example, if two tokens each have a 40% capacity, the remaining 20% of the org-wide limit is held in reserve and can't be consumed by these specific clients. This can be a useful strategy for ensuring there’s always capacity for unassigned tokens or unanticipated traffic.
 

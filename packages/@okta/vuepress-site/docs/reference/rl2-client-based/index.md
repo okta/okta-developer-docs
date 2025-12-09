@@ -15,11 +15,13 @@ This framework applies to:
 
 * Okta Identity Engine, which uses this framework for multiple API entry points that implement the Interaction Code grant type.
 
+>**Note:** The endpoints to which this feature applies all have browser-based interaction patterns.
+
 ## Benefits of client-based rate limits
 
 This feature is helpful in a few key scenarios:
 
-* Isolating rogue apps: If you have multiple OAuth 2.0 apps managed by different teams, it ensures that one malfunctioning app can't cause rate limit violations for all the others.
+* Isolating runaway apps: If you have multiple OAuth 2.0 apps managed by different teams, it ensures that one malfunctioning app can't cause rate limit violations for all the others.
 
 * Enforcing best practices: It encourages development teams to implement proper error handling and avoid issues like redirect loops.
 
@@ -31,10 +33,16 @@ The best way to understand the impact is through examples. By default, each uniq
 
 ### Scenario 1: Users on different networks
 
+<div class="half">
+
+![This image displays scenario 1 of users on different networks accessing the same portal](/img/rate-limits/scenario1-diff-networks.png)
+
+</div>
+
 Imagine Bob and Alice are working from home with distinct IP addresses. They both access the same company portal (`clientID`: `portal123`).
 
-* Bob's limit: Based on (IP1 + portal123 + DeviceID1)
-* Alice's limit: Based on (IP2 + portal123 + DeviceID2)
+* Bob's limit: Based on (IP1 + portal123 + Device1 ID)
+* Alice's limit: Based on (IP2 + portal123 + Device2 ID)
 
 If the org-wide limit for the `/authorize` endpoint is 2,000 requests per minute and Bob runs a script that makes 2,000 requests, the following happens:
 
@@ -42,13 +50,13 @@ If the org-wide limit for the `/authorize` endpoint is 2,000 requests per minute
 
 * With client-based limits enabled: After Bob exceeds his individual 60-request limit, only requests from his specific client combination are blocked. Alice and any other clients can continue to access the app without any issues.
 
+### Scenario 2: Users behind a corporate firewall (NAT)
+
 <div class="half">
 
-![This image displays scenario 1 of users on different networks accessing the same portal](/img/rate-limits/scenario1-diff-networks.png)
+![This image displays scenario 2 of users on different networks accessing the same portal through a corporate fire wall](/img/rate-limits/scenario2-firewall.png)
 
 </div>
-
-### Scenario 2: Users behind a corporate firewall (NAT)
 
 Now imagine Alice, Bob, and Lisa are in the same office, sharing a single Network Address Translation (NAT) IP address. Because the device identifier is unique to each user's browser, Okta can still provide individual rate limit buckets.
 
@@ -58,17 +66,11 @@ Now imagine Alice, Bob, and Lisa are in the same office, sharing a single Networ
 
 This ensures that even when sharing an IP address, one user's activity won't impact the others.
 
->**Note:** The device identifier is derived from a cookie (`dt` cookie) that Okta sets in the browser. For non-browser clients where this cookie isn't present, requests from the same NAT IP and client ID will share a common quota where the device identifier is null (NAT IP + portal123 + null).
-
-<div class="half">
-
-![This image displays scenario 2 of users on different networks accessing the same portal through a corporate fire wall](/img/rate-limits/scenario2-firewall.png)
-
-</div>
+>**Note:** The device identifier is derived from a cookie (`dt` cookie) that Okta sets in the browser. Client rate limiting only applies to APIs where the client is expected to be using a browser. If any non-browser client calls the feature client rate limits will still apply but the device identifier portion of the client’s profile will be blank.
 
 ### Handle proxies
 
-If requests are made from behind a proxy, it's important to configure those IPs as trusted proxies in Okta. This allows the rate-limiting framework to correctly identify the true client IP address from the request headers.
+If requests are made from behind a proxy, it's important to configure those IPs as [trusted proxies](https://support.okta.com/help/s/article/okta-security-knowledge-trusted-proxy-and-network-zones?language=en_US) in Okta. This allows the rate-limiting framework to correctly identify the true client IP address from the request headers.
 
 ### Configuration and monitoring
 
@@ -98,7 +100,7 @@ If you see sporadic events from a few users, it may indicate scripted or automat
 
 #### Check limits with API headers
 
-When client-based rate limiting is in enforce mode, the API response headers reflect the client-specific limit, not the org-wide limit. However, the org-wide rate limit still applies. When the cumulative total request or maximum concurrent requests from every unique client exceeds the org-wide rate limits, your Okta org experiences org-wide rate limit violations.
+When client-based rate limiting is in enforce mode, the API response headers reflect the client-specific limit, not the org-scoped bucket rate limit. However, the org-scoped bucket rate limit still applies. When the cumulative total request or maximum concurrent requests from every unique client exceeds the org-scoped bucket rate limit, your Okta org experiences org-wide rate limit violations.
 
 * `X-Rate-Limit-Limit`: The 60 requests/minute ceiling for the specific client.
 

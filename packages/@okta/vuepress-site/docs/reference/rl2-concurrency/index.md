@@ -7,7 +7,7 @@ category: rate limits
 
 Concurrency limits control how many requests your organization can have processing at the same time&mdash;not over time, and not per second or minute. Unlike per-minute rate limits, which measure the total number of requests over a time window, concurrency limits are enforced in real-time to ensure system stability. Okta processes most requests in a matter of milliseconds so that you can sustain thousands of requests per minute without ever exceeding concurrency limits.
 
-Concurrency is tracked across three separate areas: agent traffic, Microsoft Office 365 traffic, and all other traffic (including API requests). Each area has a default limit of 75 simultaneous transactions for Okta Workforce and Customer Identity orgs. We’ve selected these default concurrency limits to align with the expected volume of traffic for a given org. Concurrency limits are increased for any tenant with an active rate limit multiplier (DynamicScale or Workforce).
+Concurrency is tracked separately between Microsoft Office 365 traffic and all other traffic (including API requests). Both have a default limit of 75 simultaneous transactions for Okta Workforce and Customer Identity orgs. Okta has selected these default concurrency limits to align with the expected volume of traffic for a given org. Concurrency limits for non-Microsoft 365 traffic are increased for any tenant with an active rate limit multiplier (DynamicScale or Workforce).
 
 | Integrator Free plan | Okta Customer Identity | Okta Workforce Identity |
 | :------------------: | :--------------------: | :---------------------: |
@@ -15,7 +15,7 @@ Concurrency is tracked across three separate areas: agent traffic, Microsoft Off
 
 While typical user-driven traffic rarely hits these limits, they become a critical consideration in two key scenarios:
 
-* During an Okta service incident: In rare cases, a degradation API performance may cause you to see `core.concurrency.org.limit.violation` events in your System Log. This is for your awareness only. These events typically resolve quickly as our systems recover.
+* During an Okta service incident: In rare cases, a degradation in Okta's API performance may cause you to see `core.concurrency.org.limit.violation` events in your System Log. This is for your awareness only. These events typically resolve quickly as our systems recover.
 
 * When designing and running automation: If you're running high-volume scripts or integrations (like bulk user imports, sync jobs, Terraform plans, and so on), the concurrency limit is an important design parameter. By designing your automation to honor the available concurrency, you can ensure smooth and predictable performance for your bulk operations. Configurable token and OAuth 2.0 app rate limits can also be used to limit the number of concurrent threads consumed by any given token or app.
 
