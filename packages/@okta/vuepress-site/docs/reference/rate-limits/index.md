@@ -53,7 +53,7 @@ When a request is made, Okta’s algorithm attempts to match the HTTP method (GE
 
 * Exact match: the endpoint requested matches exactly to the configured rate limit bucket. The matching algorithm processes all exact match endpoints first.
 
-* Longest Match: If no exact match is found, the endpoint requested matches the prefix URL of one or more configured rate limit buckets. In this case, the longest match is used.
+* Longest Match: If no exact match is found, the endpoint requested matches the prefix URL of one or more configured rate limit buckets. In this case, the Longest Match is used.
 
   For example, consider the following two buckets:
 
