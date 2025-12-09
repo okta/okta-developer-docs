@@ -39,7 +39,7 @@ The logic behind the Okta implementation of rate limits can be summarized in the
 1. Okta determines the identity and appropriate scope of the request. Is it a user, app, or token making the request?
 1. Determines what features are associated with the request (for example, does the requestor have DynamicScale or are they part of an Integrator Free Plan org?)
 1. Matches the request against the configured rate limit bucket or buckets.
-1. Updates the counters and notify, reject, or allow the request. Most counters allow N requests per minute. Counters typically reset every 60 seconds, though they aren’t necessarily synchronized with wall clock minutes (for example, a period may run from `12:00:20` to `12:01:19`).
+1. The request updates the counters, is either allowed or rejected, and triggers notifications if required. Most counters allow N requests per minute. Counters typically reset every 60 seconds, though they aren’t necessarily synchronized with wall clock minutes (for example, a period may run from `12:00:20` to `12:01:19`).
 
 <div >
 
@@ -59,7 +59,7 @@ When a request is made, Okta’s algorithm attempts to match the HTTP method (GE
 
   * `/oauth2/{authorizationServerId}/v1/*` for Exact Match type for all HTTP operations
 
-  * `/oauth2/{authorizationServerID}/v1/authorize` for Longest Match type for all HTTP operations. (In the rate limit bucket table, buckets that end with an asterisk, for example, `/api/v1/users*`, denote a bucket set up for Longest Match).
+  * `/oauth2/{authorizationServerID}/v1/authorize` for Longest Match type for all HTTP operations. (In the rate limit bucket table, buckets that end with an asterisk, for example, `/api/v1/users*`, denote a bucket set up for longest match).
 
 After a request has been matched, the counters for the impacted buckets are updated. If the counter nears the quota for that bucket, a warning event is generated in the System Log and an email notification is sent to super admins. Okta allows you to configure this warning threshold in the **Admin Dashboard** > **Reports** > **Rate Limits** > **Settings** section. If the counter exceeds the bucket's quota, then a violation event is written to the System Log and an email notification is also sent. Additional requests are rejected with an HTTP 429 Too Many Requests response until the counter resets.
 

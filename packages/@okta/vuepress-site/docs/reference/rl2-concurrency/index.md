@@ -35,7 +35,7 @@ You can estimate your own needs using the following formula:
 Concurrency = (RPM / 60) * (avgRequestDurationMillis / 1000)
 ```
 
-or
+Or
 
 ```sh
 Concurrency = (RPM * avgRequestDurationMillis) / 60,000
@@ -45,4 +45,4 @@ Concurrency = (RPM * avgRequestDurationMillis) / 60,000
 
 To minimize customer impact, Okta has a built-in resiliency mechanism. For many endpoints, when an HTTP 429 error occurs due to a concurrency limit, Okta automatically retries it on separate app services before returning an error to your client. This is a fallback mechanism for graceful degradation that often resolves temporary spikes in a few seconds or minutes without any perceived impact.
 
-If a 429 error is received due to a concurrency limit, the System Log will show a `core.concurrency.org.limit.violation` event. More information is available in [Monitoring and Troubleshooting](/docs/reference/rl2-monitor/).
+If a 429 error is received due to a concurrency limit, the System Log shows a `core.concurrency.org.limit.violation` event. More information is available in [Monitoring and Troubleshooting](/docs/reference/rl2-monitor/).
