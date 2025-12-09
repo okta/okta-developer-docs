@@ -28,7 +28,7 @@ There are two other types of scopes that can apply to a bucket:
 
 Buckets scoped to authenticated users are independent and not nested under any other bucket. That is, requests made by authenticated users to APIs covered by these buckets don't count under any other bucket. For example, there exists a bucket with org-wide scope for `/api/v1/users/*` with a quota of 1000 requests per minute and a separate bucket for `/api/v1/users/me` scoped to authenticated users with a quota of 40 requests per 10 seconds. A request to `/api/v1/users/me` by an authenticated user would decrement the authenticated user bucket to 39 remaining calls, while leaving the `/api/v1/users/*` bucket untouched. This ensures that authenticated users are able to call these APIs regardless of activity by other clients.
 
-A bucket’s quota can vary based on several factors, including---but not limited to---the type of service subscription (for example, Workforce versus Customer Identity), the HTTP method used (for example, GET versus POST), the number of licenses purchased, and any applicable add-ons, such as DynamicScale. If the quota is exceeded within the defined time window, additional requests are rejected with an HTTP 429 Too Many Requests response until the quota resets.
+A bucket’s quota can vary based on several factors, including---but not limited to---the type of service subscription (for example, Workforce versus Customer Identity), the HTTP method used (for example, GET versus POST), the number of licenses purchased, and any applicable add-ons, such as DynamicScale. If the quota is exceeded within the defined time window, further requests are rejected with an HTTP 429 Too Many Requests response until the quota resets.
 You can monitor rate limit usage through the rate limit dashboard, System Log, or by inspecting the rate limiting headers included in API responses. See [Monitor and troubleshoot rate limits](/docs/reference/rl2-monitor/).
 
 ## How rate limiting works
@@ -39,7 +39,7 @@ The logic behind the Okta implementation of rate limits can be summarized in the
 1. Okta determines the identity and appropriate scope of the request. Is it a user, app, or token making the request?
 1. Determines what features are associated with the request (for example, does the requestor have DynamicScale or are they part of an Integrator Free Plan org?)
 1. Matches the request against the configured rate limit bucket or buckets.
-1. Updates the counters and notify, reject, or allow the request. Most counters allow N requests per minute. Counters typically reset every 60 seconds, though they are not necessarily synchronized with wall clock minutes (for example, a period may run from 12:00:20 to 12:01:19)
+1. Updates the counters and notify, reject, or allow the request. Most counters allow N requests per minute. Counters typically reset every 60 seconds, though they aren’t necessarily synchronized with wall clock minutes (for example, a period may run from `12:00:20` to `12:01:19`).
 
 <div >
 
