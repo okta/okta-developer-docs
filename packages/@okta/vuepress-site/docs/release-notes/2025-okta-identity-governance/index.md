@@ -15,7 +15,7 @@ Okta Identity Governance is available for both Okta Classic and Identity Engine.
 | [Revoke a principal's access is Beta](#revoke-a-principal-s-access-is-beta) | December 10, 2025 |
 | [Entitlement Settings API is Beta](#entitlement-settings-api-is-beta) | December 10, 2025 |
 | [Entitlement-value ORN property in principal access for a resource is Beta](#entitlement-value-orn-property-in-principal-access-for-a-resource-is-beta) | December 10, 2025 |
-| [Access Requests escalation settings is BETA](#access-requests-escalation-settings-is-beta) | December 10, 2025 |
+| [Access Requests escalation settings is Beta](#access-requests-escalation-settings-is-beta) | December 10, 2025 |
 | [Collections support in Resource Owners API is Beta](#collections-support-in-resource-owners-api-is-beta) | December 10, 2025 |
 | [Certify service accounts is EA](#certify-service-accounts-is-ea) | December 10, 2025 |
 
