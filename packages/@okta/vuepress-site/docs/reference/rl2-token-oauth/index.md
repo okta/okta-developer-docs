@@ -13,11 +13,15 @@ You can change how much rate limit each API token or OAuth 2.0 app can use in th
 
 Configuring rate limits by token in the Admin Console:
 
+<div class="half">
+
 ![This image displays the location in the Admin Console that configures rate limits by token using a slide-bar percentage.](/img/rate-limits/rate-limit-token.png)
 
 </div>
 
 Configuring rate limits by OAuth 2.0 app in the Admin Console:
+
+<div class="half">
 
 ![This image displays the location in the Admin Console that configures rate limits by the OAuth 2.0 app using a slide-bar percentage.](/img/rate-limits/rate-limit-apps.png)
 

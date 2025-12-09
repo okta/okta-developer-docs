@@ -42,6 +42,10 @@ If the org-wide limit for the `/authorize` endpoint is 2,000 requests per minute
 
 * With client-based limits enabled: After Bob exceeds his individual 60-request limit, only requests from his specific client combination are blocked. Alice and any other clients can continue to access the app without any issues.
 
+<div class="half">
+![This image displays scenario 1 of users on different networks accessing the same portal](/img/rate-limits/scenario1-diff-networks.png)
+</div>
+
 ### Scenario 2: Users behind a corporate firewall (NAT)
 
 Now imagine Alice, Bob, and Lisa are in the same office, sharing a single Network Address Translation (NAT) IP address. Because the device identifier is unique to each user's browser, Okta can still provide individual rate limit buckets.
@@ -53,6 +57,10 @@ Now imagine Alice, Bob, and Lisa are in the same office, sharing a single Networ
 This ensures that even when sharing an IP address, one user's activity won't impact the others.
 
 >**Note:** The device identifier is derived from a cookie (`dt` cookie) that Okta sets in the browser. For non-browser clients where this cookie isn't present, requests from the same NAT IP and client ID will share a common quota where the device identifier is null (NAT IP + portal123 + null).
+
+<div class="half">
+![This image displays scenario 2 of users on different networks accessing the same portal through a corporate fire wall](/img/rate-limits/scenario2-firewall.png)
+</div>
 
 ### Handle proxies
 

@@ -68,7 +68,7 @@ The **Overview** tab is your monitoring hub. Use it to scan for issues or drill 
 
 You can hover to reveal detailed data points, click an API to see deeper metrics and historical usage, or filter by time period, multiplier status, or event type.
 
-<div >
+<div class="half">
 
 ![This image displays the rate limit dashboard to monitor and browse rate limit usage.](/img/rate-limits/rl_dashboard6.png)
 
@@ -78,7 +78,7 @@ You can hover to reveal detailed data points, click an API to see deeper metrics
 
 The event count graph plots the number of violations, bursts, and warnings over the selected time period, which can be the last 24 hours, the last seven days, last month, or the last three months. The events by API bar graph shows the top five number of events by API over the same time period.
 
-<div class="three-quarter">
+<div class="half">
 
 ![This image displays the events (violations, bursts, and warnings) over a time period graph and the bar graph with the top five endpoint events.](/img/rate-limits/rl_dashboard7.png)
 
@@ -88,7 +88,7 @@ You can hover over the line graph or bar graph to get more details. The details 
 
 <div class="half">
 
-![Displays details on the violations graph.](/img/rate-limits/rl_dashboard8.png)
+![This image displays details on the violations graph.](/img/rate-limits/rl_dashboard8.png)
 
 </div>
 
@@ -102,7 +102,7 @@ This sortable, filterable table shows each API endpoint showing:
 
 You can also use the search box to look up specific endpoints. For example, you're calling Okta with an example `requestURI` and you want to know the rate limit that's applied to calls that are made against that `requestURI`.
 
-<div class="three-quarter">
+<div class="half">
 
 ![Displays the APIs table with corresponding rate limits for each API.](/img/rate-limits/rl_dashboard9.png)
 
