@@ -5,7 +5,7 @@ category: rate limits
 
 # Burst rate limits
 
-To minimize impact on end users, Okta typically allows usage above the rate limits for any buckets containing authentication or authorization endpoints with burst rate limits. This ensures that any unplanned spike in usage does not detrimentally affect the end-user experience. Burst rate limits are conditional on overall system capacity, meaning that they are applied only when the system has sufficient available resources to absorb the temporary increase in traffic.
+To minimize impact on end users, Okta typically allows usage above the rate limits for any buckets containing authentication or authorization endpoints with burst rate limits. This ensures that any unplanned spike in usage doesn’t detrimentally affect the end-user experience. Burst rate limits are conditional on overall system capacity, meaning that they’re applied only when the system has sufficient available resources to absorb the temporary increase in traffic.
 
 By default, burst rate limits are:
 
@@ -18,4 +18,3 @@ By default, burst rate limits are:
 Burst rate limits can also be viewed on the APIs table on the [Rate limit dashboard](/docs/reference/rl2-monitor/#rate-limit-dashboard). Review the rate limit usage for each bucket on this view.
 
 >**Note**: Email notifications are sent only on initially reaching the defined warning, burst, or violation limit and not for every endpoint call that exceeds these limits.
-
