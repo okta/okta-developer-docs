@@ -6,6 +6,22 @@ title: Okta Privileged Access API release notes 2025
 
 Okta Privileged Access (OPA) is available for both Okta Classic and Identity Engine.
 
+## December
+
+<!-- December 10, 2025 -->
+
+### Monthly release 2025.12.0
+
+| Change | Expected in Preview |
+|--------|--------------------------|
+| [Enhanced Filtering for Security Policies API is GA in preview](#enhanced-filtering-for-security-policies-api-is-ga-in-preview)| December 10, 2025 |
+
+#### Enhanced filtering for security policies API is GA in preview
+
+Admins can now filter the [List all security policies](https://developer.okta.com/docs/api/openapi/opa/opa/tag/security-policy/#tag/security-policy/operation/ListSecurityPolicies) operation using the new parameter `contains`. This parameter filters and limits the results to policies where the name or description matches the provided search string.
+
+<!-- OKTA-1056656 Backend policy search for policy UI improvements -->
+
 ## November
 
 ### Weekly release 2025.11.2
