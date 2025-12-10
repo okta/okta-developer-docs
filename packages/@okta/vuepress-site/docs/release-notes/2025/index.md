@@ -5,7 +5,7 @@ title: Okta Classic Engine API release notes 2025
 # Okta Classic Engine API release notes (2025)
 
 ## December
-
+<!-- December 10, 2025 -->
 ### Monthly release 2025.12.0
 
 | Change | Expected in Preview Orgs |
@@ -20,7 +20,7 @@ title: Okta Classic Engine API release notes 2025
 | [Encryption of ID tokens and access tokens is GA in Preview](#encryption-of-id-tokens-and-access-tokens-is-ga-in-preview) | August 7, 2025 |
 | [Unified claims generation for custom apps is GA in Preview](#unified-claims-generation-for-custom-apps-is-ga-in-preview) | July 30, 2025|
 | [Developer documentation updates in 2025.12.0](#developer-documentation-updates-in-2025-12-0) | December 10, 2025 |
-| [Bugs fixed in 2025.12.0](#bugs-fixed-in-2025-12-0)| December 10, 2025  |
+| [Bug fixed in 2025.12.0](#bug-fixed-in-2025-12-0)| December 10, 2025  |
 
 #### SHA-256 digest algorithm support is EA
 
@@ -92,9 +92,9 @@ Unified claims generation is a new streamlined interface for managing claims (OI
 
 * The new [Manage credentials using the Okta Client SDK guide](/docs/guides/manage-user-creds/ios/main/) explains how to store, retrieve, refresh, and remove credentials using the [Client SDK for Swift](https://github.com/okta/okta-mobile-swift).
 
-#### Bugs fixed in 2025.12.0
+#### Bug fixed in 2025.12.0
 
-* WSFed-related apps experienced security issues. (OKTA-1069106)
+WSFed-related apps experienced security issues. (OKTA-1069106)
 
 ## November
 

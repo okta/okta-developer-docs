@@ -7,13 +7,13 @@ title: Okta Identity Engine API release notes 2025
 # Okta Identity Engine API release notes (2025)
 
 ## December
-
+<!-- December 10, 2025 -->
 ### Monthly release 2025.12.0
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [SHA-256 digest algorithm support is EA](#sha-256-digest-algorithm-support-is-ea) | December 10, 2025 |
-| [Device conditions in the Okta account management policy is self-service is EA](#device-conditions-in-the-okta-account-management-policy-is-self-service-is-ea) | November 26, 2025|
+| [Device conditions in the Okta account management policy is self-service EA in Preview](#device-conditions-in-the-okta-account-management-policy-is-self-service-ea-in-preview) | November 26, 2025|
 | [Native to Web SSO is EA](#native-to-web-sso-is-ea) | December 10, 2025 |
 | [Enable custom admin permissions for inline and event hooks is self-service EA in Preview](#enable-custom-admin-permissions-for-inline-and-event-hooks-is-self-service-ea-in-preview) | December 10, 2025 |
 | [Detection settings in session protection is EA](#detection-settings-in-session-protection-is-ea) | December 10, 2025|
@@ -21,7 +21,7 @@ title: Okta Identity Engine API release notes 2025
 | [Allow profile updates for deactivated users](#allow-profile-updates-for-deactivated-users) | December 10, 2025 |
 | [Lightweight Directory Access Protocol Bidirectional Group Management is GA in Preview](#lightweight-directory-access-protocol-bidirectional-group-management-is-ga-in-preview) | December 10, 2025 |
 | [Additional Anything-as-a-Source API endpoints is GA in Preview](#additional-anything-as-a-source-api-endpoints-is-ga-in-preview) | December 10, 2025|
-| [New field in `user.identity_verification` event type is GA in Preview](#new-field-in-user-identity-verification-event-type-is-ga-in-preview) | December 10, 2025 |
+| [New field in user.identity_verification event type is GA in Preview](#new-field-in-user-identity-verification-event-type-is-ga-in-preview) | December 10, 2025 |
 | [OIN contact updates](#oin-contact-updates) | December 10, 2025 |
 | [Anything-as-a-Source for groups and group memberships API is GA in Preview](#anything-as-a-source-for-groups-and-group-memberships-api-is-ga-in-preview) | September 10, 2025  |
 | [Passkey and security key subdomain support is GA in Production](#passkey-and-security-key-subdomain-support-is-ga-in-production) | September 4, 2025 |
@@ -33,14 +33,14 @@ title: Okta Identity Engine API release notes 2025
 | [Maximum consecutive characters setting for passwords is GA in Preview](#maximum-consecutive-characters-setting-for-passwords-is-ga-in-preview) | December 10, 2025 |
 | [Okta account management policy protection for password expiry flows is GA in Preview](#okta-account-management-policy-protection-for-password-expiry-flows-is-ga-in-preview) | July 2, 2025  |
 | [Developer documentation updates in 2025.12.0](#developer-documentation-updates-in-2025-12-0) | December 10, 2025 |
-| [Bugs fixed in 2025.12.0](#bugs-fixed-in-2025-12-0)| December 10, 2025|
+| [Bug fixed in 2025.12.0](#bug-fixed-in-2025-12-0)| December 10, 2025|
 
 #### SHA-256 digest algorithm support is EA
 
 Okta now supports the SHA-256 digest algorithm when hashing SAML AuthnRequests that are sent to external IdPs.
 <!-- IDP_SHA256_DIGEST_ALGORITHM_SUPPORT OKTA-1061375 -->
 
-#### Device conditions in the Okta account management policy is self-service is EA
+#### Device conditions in the Okta account management policy is self-service is EA in Preview
 
 With this feature, admins can now restrict account management activities such as self-service password resets or new authenticator enrollments with device conditions. Admins can configure Okta account management policy rules with registered and managed devices, or require devices to meet the requirements of a device assurance policy. See [Add a rule for device conditions](/docs/guides/okta-account-management-policy/main/#add-a-rule-for-device-conditions).
 
@@ -88,7 +88,7 @@ Anything-as-a-Source (XaaS) capabilities allow customers to use a custom identit
 
 <!-- OKTA-1063549 IDENTITY_SOURCE_MANAGE_INDIVIDUAL_ENTITIES -->
 
-#### New field in `user.identity_verification` event type is GA in Preview
+#### New field in user.identity_verification event type is GA in Preview
 
 The System Log now displays a `reasonForFailure` field in `user.identity_verification` events when a reason for failure of the IDV flow is known. This additional information helps IDV vendors integrating with Okta troubleshoot their software. See [Event Types](/docs/reference/api/event-types/).
 
@@ -176,9 +176,9 @@ You can now use the [`metadata`](/docs/reference/okta-expression-language-in-ide
 
 * The new [Manage credentials using the Okta Client SDK](/docs/guides/manage-user-creds/ios/main/) guide explains how to store, retrieve, refresh, and remove credentials using the [Client SDK for Swift](https://github.com/okta/okta-mobile-swift).
 
-#### Bugs fixed in 2025.12.0
+#### Bug fixed in 2025.12.0
 
-* WSFed-related apps experienced security issues. (OKTA-1069106)
+WSFed-related apps experienced security issues. (OKTA-1069106)
 
 ## November
 
