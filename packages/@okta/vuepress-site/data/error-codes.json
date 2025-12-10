@@ -1,6 +1,6 @@
 {
-  "release" : "2025.11.1",
-  "build" : "2025.11.1-begin-137-gba09a5120574",
+  "release" : "2025.12.1",
+  "build" : "2025.12.1-begin-363-g0c38ff666b0f",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
