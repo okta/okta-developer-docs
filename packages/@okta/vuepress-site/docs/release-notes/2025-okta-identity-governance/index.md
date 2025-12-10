@@ -6,6 +6,81 @@ title: Okta Identity Governance API release notes 2025
 
 Okta Identity Governance is available for both Okta Classic and Identity Engine.
 
+## December
+
+### Monthly release 2025.12.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Revoke a principal's access is Beta](#revoke-a-principal-s-access-is-beta) | December 10, 2025 |
+| [Entitlement Settings API is Beta](#entitlement-settings-api-is-beta) | December 10, 2025 |
+| [Entitlement-value ORN property in principal access for a resource is Beta](#entitlement-value-orn-property-in-principal-access-for-a-resource-is-beta) | December 10, 2025 |
+| [Access Requests escalation settings is Beta](#access-requests-escalation-settings-is-beta) | December 10, 2025 |
+| [AD group support in Access Requests is GA in Preview](#ad-group-support-in-access-requests-is-ga-in-preview) | December 10, 2025 |
+| [Collections support in Resource Owners API is Beta](#collections-support-in-resource-owners-api-is-beta) | December 10, 2025 |
+| [Certify service accounts is EA](#certify-service-accounts-is-ea) | December 10, 2025 |
+
+#### Revoke a principal's access is Beta
+
+<ApiLifecycle access="beta" />
+
+Admins can now revoke a principal user's access to specific resources. Admins can revoke a user’s access to entitlements values, entitlement bundles, or apps. This new functionality gives admins more granular control over user access grants. See [Revoke a principal’s access](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Principal-Access-V2/#tag/Principal-Access-V2/operation/revokePrincipalAccess) in the Principal Access - V2 API.
+<!-- OKTA-1063937 Beta Preview: Dec 10, 2025 -->
+
+#### Entitlement Settings API is Beta
+
+<ApiLifecycle access="beta" />
+
+Admins can now opt in (enable) or opt out of (disable) entitlement management for resources in Okta. This feature allows you to manage third-party app entitlements in Okta.
+See the [Entitlement Settings](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlement-Settings/) API.
+
+You can also access this feature from the Admin Console. See [Enable Entitlement management](https://help.okta.com/okta_help.htm?type=oie&id=csh-enable-ge).
+<!-- OKTA-1063936 Beta Preview date: Dec 10, 2025 -->
+
+#### Entitlement-value ORN property in principal access for a resource is Beta
+
+<ApiLifecycle access="beta" />
+
+The entitlement-value resource, in Okta resource name (ORN) format, is now returned in the [Retrieve the principal access for a resource](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Principal-Access/#tag/Principal-Access/operation/getPrincipalAccess) response for both `base` and `additional` grants. See the `orn` property in the `base` [entitlement-value grants list](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Principal-Access/#tag/Principal-Access/operation/getPrincipalAccess!c=200&path=base/entitlements/values/orn&t=response) and in the `additional` [entitlement-value grants list](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Principal-Access/#tag/Principal-Access/operation/getPrincipalAccess!c=200&path=additional/entitlements/values/orn&t=response) of the response payload.
+<!-- OKTA-1063871, Preview date: Dec 10, 2025 -->
+
+#### Access Requests escalation settings is Beta
+
+<ApiLifecycle access="beta" />
+
+Requesters can now quickly unblock themselves when a task assignee (such as a task approver) is unavailable by self-escalating the task to an additional assignee (the original approver's manager). This secure and auditable feature prevents bottlenecks, ensuring timely access to critical resources.
+See the `escalations` settings in the [Org Governance Settings](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Org-Governance-Settings/) API.
+
+Also see [Escalate task](https://help.okta.com/okta_help.htm?type=oie&id=csh-escl-task) and [Allow requesters to escalate tasks](https://help.okta.com/okta_help.htm?type=oie&id=csh-req-escl-task) in the product documentation.
+<!-- OKTA-1062448, OKTA-1051948 ATSPOKE_ESCALATIONS Preview date: Dec 10, 2025 -->
+
+#### AD group support in Access Requests is GA in Preview
+
+Users can now request access to Active Directory (AD)-sourced groups directly within Access Requests. This enhancement enables seamless governance and automatically fulfills and revokes (if time-bound) access in AD, strengthening your security posture and eliminating the need for duplicate groups or custom Workflows.
+
+You must have [Bidirectional Group Management with Active Directory](https://help.okta.com/okta_help.htm?type=oie&id=ad-bidirectional-group-mgmt) configured in your org to have governance AD group support. See [Access governance for AD groups](https://help.okta.com/okta_help.htm?type=oie&id=ad-bidirectional-group-mgt-configure).
+
+For users to request access to AD groups, admins must first create a request condition with an AD-sourced group access scope. Use the [Create a request condition](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/#tag/Request-Conditions/operation/createResourceRequestConditionV2) request and set `accessScopeSettings.type` to `GROUP`. In the `accessScopeSettings.group` list, specify your AD-sourced group IDs that are requestable.
+<!-- OKTA-1059727, OKTA-1036354 ACCESS_REQUEST_AD_GROUPS Preview date: Dec 10, 2025 -->
+
+#### Collections support in Resource Owners API is Beta
+
+<ApiLifecycle access="beta" />
+
+Admins can now set owners for collection resources with the [Resource Owners](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Resource-Owners/) API. Specify the collection resources by their Okta Resource Names (ORNs) in the `resourceOrns` parameter. See [Configure the resource owners](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Resource-Owners/#tag/Resource-Owners/operation/configureResourceOwners) request.
+<!-- OKTA-1051993 Beta Preview date: Dec 10, 2025 -->
+
+#### Certify service accounts is EA
+
+You can now create resource campaigns to review and certify access for both SaaS application and Okta service accounts. This feature extends your governance strategy to non-human identities, ensuring you maintain visibility and control over critical service account access. See [Okta Privilege Access with Access Certification](https://help.okta.com/okta_help.htm?type=oie&id=csh-certify-service-accounts).
+
+The following API updates have been made to support service account campaigns:
+* New `OKTA_SERVICE_ACCOUNT` and `APP_SERVICE_ACCOUNT` options in the [resourceSettings.type](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign!path=resourceSettings&t=request) property of a campaign.
+* New [`resourceSettings.includeAllOktaServiceAccounts`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign!path=resourceSettings/includeAllOktaServiceAccounts&t=request) property for `resourceSettings.type` of `OKTA_SERVICE_ACCOUNT` in a campaign.
+* New [`resourceSettings.targetResources.includeAllAppServiceAccounts`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign!path=resourceSettings/targetResources/includeAllAppServiceAccounts&t=request) property for `resourceSettings.type` of `APP_SERVICE_ACCOUNT` in a campaign.
+* Reviews can be filtered by service account ID (`appServiceAccountId` or `oktaServiceAccountId`) in [List all reviews](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Reviews/#tag/Reviews/operation/listReviews).
+<!-- OKTA-1047480 IGA_ACCESS_CERT_SERVICE_ACCOUNTS Preview: Dec 10, 2025 -->
+
 ## November
 
 ### Monthly release 2025.11.0
@@ -52,6 +127,8 @@ You can now update the reviewers and extend the review's end date on a security 
 
 #### Enrollment change is Beta
 
+<ApiLifecycle access="beta" />
+
 Admins can now access a user's entitlement changes for a resource. This feature enhances visibility for troubleshooting access issues. See [Retrieve the principal entitlement changes](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Principal-Entitlements/#tag/Principal-Entitlements/operation/getPrincipalEntitlementsChanges) in the Principal Entitlements API. <!-- OKTA-1045028 Preview date: Nov 5, 2025 -->
 
 ## October
@@ -85,6 +162,8 @@ The client credential flow for API service apps didn’t work for some governanc
 | [Auditor reporting package is GA](#auditor-reporting-package-is-ga)| August 13, 2025 |
 
 #### Entitlement history is Beta
+
+<ApiLifecycle access="beta" />
 
 Admins can now access a user's entitlement history. This feature improves auditing and compliance tasks and enhances visibility for troubleshooting access issues. See [Retrieve an entitlement history](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Principal-Entitlements/#tag/Principal-Entitlements/operation/getPrincipalEntitlementsHistory) in the Principal Entitlements API.
 
@@ -144,10 +223,14 @@ The documented response for [List all entitlement bundles](https://developer.okt
 
 #### Resource Owners API is Beta
 
+<ApiLifecycle access="beta" />
+
 Drive automation and simplify Okta Identity Governance (OIG) configuration by assigning owners to resources, such as apps, groups, and entitlements. You can automatically assign reviewers for access certifications that are scoped with specific owner-assigned resources. See the [Resource Owners](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Resource-Owners/) API to manage assigning owners to resources in your OIG org.
 <!-- OKTA-998871 IGA_RESOURCE_OWNERS Preview date: Sept 10, 2025 -->
 
 #### Governance Labels API is Beta
+
+<ApiLifecycle access="beta" />
 
 The Labels API enables you to categorize and organize resources, such as apps, groups, entitlements, and collections. You can create, update, and assign key-value labels to resources to support automation, streamline configuration, and simplify the management of access reviews and requests. See the [Labels](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/) API and [Manage governance labels](/docs/guides/iga-labels/).
 <!-- OKTA-998873 IGA_RESOURCE_LABELS Preview date: Sept 10, 2025 -->
@@ -163,6 +246,8 @@ The entitlement bundle and value resources now include their [Okta resource name
 <!-- OKTA-986269 Preview date: Sept 10, 2025 -->
 
 #### Org Governance Settings API is Beta
+
+<ApiLifecycle access="beta" />
 
 To complement the [Governance delegates](#governance-delegates-apis-are-beta) feature, admins can now configure whether end users can set their own delegates with the Org Governance Settings API. See [delegates.enduser.permissions](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Org-Governance-Settings/#tag/Org-Governance-Settings/operation/updateOrgSettings!path=delegates/enduser/permissions&t=request) in the [Update the org settings](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Org-Governance-Settings/#tag/Org-Governance-Settings/operation/updateOrgSettings) API.
 
