@@ -15,7 +15,7 @@ title: Okta Identity Engine API release notes 2025
 | [SHA-256 digest algorithm support is EA](#sha-256-digest-algorithm-support-is-ea) | December 10, 2025 |
 | [Device conditions in the Okta account management policy is self-service is EA](#device-conditions-in-the-okta-account-management-policy-is-self-service-is-ea) | November 26, 2025|
 | [Native to Web SSO is EA](#native-to-web-sso-is-ea) | December 10, 2025 |
-| [Enable custom admin roles for inline and event hooks is self-service EA in Preview](#enable-custom-admin-roles-for-inline-and-event-hooks-is-self-service-ea-in-preview) | December 10, 2025 |
+| [Enable custom admin permissions for inline and event hooks is self-service EA in Preview](#enable-custom-admin-permissions-for-inline-and-event-hooks-is-self-service-ea-in-preview) | December 10, 2025 |
 | [Detection settings in session protection is EA](#detection-settings-in-session-protection-is-ea) | December 10, 2025|
 | [Improvements to the global session policy MFA requirements is GA in Preview](#improvements-to-the-global-session-policy-mfa-requirements-is-ga-in-preview) | December 10, 2025 |
 | [Allow profile updates for deactivated users](#allow-profile-updates-for-deactivated-users) | December 10, 2025 |
@@ -51,7 +51,7 @@ With this feature, admins can now restrict account management activities such as
 
 Native to Web SSO creates a seamless, unified authentication experience when a user transitions from an OIDC app (like a native or web app) to a web app (either OIDC or SAML). This feature uses standard, web-based federation protocols like SAML and OpenID Connect that help bridge the gap between two different application environments, using a single-use, one-way interclient trust SSO token. This eliminates repeating already provided sign-on assurances, and simplifies development by reducing authentication complexity. <!-- NATIVE_TO_WEB_ONE_TIME_TOKEN_EXCHANGE OKTA-1065285 -->
 
-#### Enable custom admin roles for inline and event hooks is self-service EA in Preview
+#### Enable custom admin permissions for inline and event hooks is self-service EA in Preview
 
 The inline hook and event hook framework now supports read and write permissions for custom admin roles. This enhancement gives fine-grained access to manage inline and event hooks that previously required the super admin role. See [Hooks admin roles](/docs/guides/hooks-best-practices/).
 

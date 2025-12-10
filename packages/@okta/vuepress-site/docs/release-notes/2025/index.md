@@ -11,7 +11,7 @@ title: Okta Classic Engine API release notes 2025
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [SHA-256 digest algorithm support is EA](#sha-256-digest-algorithm-support-is-ea) | December 10, 2025 |
-| [Enable custom admin roles for inline and event hooks is self-service EA in Preview](#enable-custom-admin-roles-for-inline-and-event-hooks-is-self-service-ea-in-preview) | December 10, 2025 |
+| [Enable custom admin permissions for inline and event hooks is self-service EA in Preview](#enable-custom-admin-permissions-for-inline-and-event-hooks-is-self-service-ea-in-preview) | December 10, 2025 |
 | [Allow profile updates for deactivated users](#allow-profile-updates-for-deactivated-users) | December 10, 2025 |
 | [Lightweight Directory Access Protocol Bidirectional Group Management is GA in Preview](#lightweight-directory-access-protocol-bidirectional-group-management-is-ga-in-preview) | December 10, 2025|
 | [Additional Anything-as-a-Source API endpoints is GA in Preview](#additional-anything-as-a-source-api-endpoints-is-ga-in-preview) | December 10, 2025 |
@@ -29,7 +29,7 @@ Okta now supports the SHA-256 digest algorithm when hashing SAML AuthnRequests t
 
 <!-- IDP_SHA256_DIGEST_ALGORITHM_SUPPORT OKTA-1061375 -->
 
-#### Enable custom admin roles for inline and event hooks is self-service EA in Preview
+#### Enable custom admin permissions for inline and event hooks is self-service EA in Preview
 
 The inline hook and event hook framework now supports read and write permissions for custom admin roles. This enhancement gives fine-grained access to manage inline and event hooks that previously required the super admin role. See [Hooks admin roles](/docs/guides/hooks-best-practices/).
 
