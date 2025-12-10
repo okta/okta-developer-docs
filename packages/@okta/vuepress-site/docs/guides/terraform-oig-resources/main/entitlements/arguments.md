@@ -1,1 +1,0 @@
-See configurable schema for the [Entitlement resource](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/entitlement#schema). You can use this schema to create and update campaigns using the Terraform `okta_entitlement` resource.

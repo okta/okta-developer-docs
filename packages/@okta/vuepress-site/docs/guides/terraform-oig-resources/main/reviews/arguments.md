@@ -1,1 +1,0 @@
-See configurable schema for the [Review resource](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/review#schema). You can use this schema to create and update campaigns using the Terraform `okta_review` resource.

@@ -1,48 +1,50 @@
 ---
-title: Manage Okta Identity Governance resources using Terraform
+title: Manage Okta Identity Governance Resources using Terraform
 meta:
   - name: description
-    content: Learn how to create, import, and modify Okta Identity Governance resources using Terraform automation.
+    content: Learn how to create, import, and modify Okta Identity Governance (OIG) resources using Terraform automation.
 layout: Guides
 ---
-Learn how to create, import, and modify Okta Identity Governance resources using Terraform automation.
+Learn how to create, import, and modify Okta Identity Governance (OIG) resources using Terraform automation.
 
 #### Learning outcomes
 
-- Define and create an <StackSnippet snippet="resource-name" inline/> resource using Terraform.
-- Modify an existing <StackSnippet snippet="resource-name" inline/> resource managed by Terraform.
-- Import <StackSnippet snippet="resource-name" inline/> resource from Okta into your Terraform state.
+- Define and create OIG resources using Terraform.
+- Modify existing OIG resources managed by Terraform.
+- Import existing OIG resources from Okta into your Terraform state.
+
 
 #### What you need
 - Familiarity with the Terraform terms, such as configuration, resources, state, and commands.
 - An Okta org with the OIG SKU enabled.
 - A Terraform configuration that can access your Okta org. See [Okta provider configuration](#okta-provider-configuration).
-- An Okta user account with the super administrator role.
+- An Okta user account with the **Super Administrator** role.
 - Terraform 1.8.5 or later.
-- Okta Terraform provider 6.0.0 or later.
-
-> **Note:** The instructions on this page are for the **<StackSnippet snippet="resource-name" inline/>** protocol. <br>
-> If you want to change the protocol instructions on this page, select the protocol you want from the **Instructions for** dropdown list on the right.
+- Okta Terraform provider 6.2.0 or later.
 
 ### Overview
 
-<StackSnippet snippet="overview" inline/>
+Okta Identity Governance (OIG) allows stakeholders to manage user access resources such as apps and groups through features such as Access Requests, Certifications campaigns, Entitlements. Using Terraform, you can automate the lifecycle of these resources to ensure that users have the relevant access they need, when they need it. 
+
+**Note**: You can only manage Generally Available (GA) OIG resources using Terraform. Beta and Early Access (EA) resources aren’t currently supported.
 
 ### Set up your Terraform files
 
-For guidance on organizing your files, see [setting up a typical Okta Terraform configuration](/docs/guides/terraform-organize-configuration/main/#configure-a-basic-okta-terraform-configuration). Consider organizing your Terraform code in a way that groups related resources together. For example, you could create a Terraform file called `brands.tf` that contains custom domains, brands, and themes.
+For guidance on organizing your files, see [setting up a typical Okta Terraform configuration](/docs/guides/terraform-organize-configuration/main/#configure-a-basic-okta-terraform-configuration). Consider organizing your Terraform code in a way that groups related resources together. For example, you could create a Terraform file called `governance.tf` that contains your campaigns, bundles, or entitlement definitions.
 
 #### Add or confirm the API scopes
 
-Your Terraform integration requires the appropriate scopes that depend on what you're managing:
+Your Terraform integration requires the appropriate OAuth scopes that depend on the specific resource you’re managing. The specific scopes required for each resource are listed in the Okta [Identity Governance API documentation](https://developer.okta.com/docs/api/iga/).
 
-<StackSnippet snippet="scope"/></br>
+In this sample, the scopes required for managing campaigns include:
+- okta.governance.accessCertifications.manage
+- okta.governance.accessCertifications.read
 
-To grant scopes in the Admin Console and to include them in your Terraform code, see the guides on [enabling your API service app for Terraform access](/docs/guides/terraform-enable-org-access/) and [setting up a typical Okta Terraform configuration](/docs/guides/terraform-organize-configuration/).
+**Note**: To grant scopes in the Admin Console and to include them in your Terraform code, see the guides on [enabling your API service app for Terraform access](/docs/guides/terraform-enable-org-access/) and [setting up a typical Okta Terraform configuration](/docs/guides/terraform-organize-configuration/).
 
 ### Okta provider configuration
 
-Configure the Okta Terraform provider in your Terraform configuration files. This configuration involves setting up credentials (for example, API token) with relevant permissions to manage entitlements within your Okta org.
+Configure the Okta Terraform provider in your Terraform configuration files. This configuration involves setting up credentials with relevant permissions to manage entitlements within your Okta org.
 
 ```bash
 
@@ -55,8 +57,6 @@ Configure the Okta Terraform provider in your Terraform configuration files. Thi
     }
     provider "okta" {
       org_name  = var.okta_org_name
-      api_token = var.okta_api_token
-    }
     variable "okta_org_name" {
       description = "Your Okta org name (e.g., 'trial-12345678.okta.com')."
       type        = string
@@ -69,58 +69,106 @@ Configure the Okta Terraform provider in your Terraform configuration files. Thi
     }
 ```
 
-#### Configure Identity Governance on your Okta org
-Before creating an entitlement, you must enable Identity Governance on the app in your Okta org.
-1. In the Admin Console, go to your OIDC web app.
-1. In the **General** tab, locate Identity Governance and select **Edit**.
-1. Select **Enable** from the **Governance Engine** dropdown menu.
-1. Select **Save**.
+### Prepare your Okta Org
+**Note**: This section is applicable only if you’re managing app-specific resources, such as entitlements.
 
-> **Note:** The instructions on this page are for the **<StackSnippet snippet="resource-name" inline/>** protocol. <br>
-> If you want to change the protocol instructions on this page, select the protocol you want from the **Instructions for** dropdown list on the right.
+Before creating app-specific resources, you must enable **Entitlement Management** on the target app in your Okta org:
 
-### Resource arguments
+1. In the Admin Console, go to your apps list.
+2. Select the relevant app.
+3. In the **General** tab, locate **Identity Governance** and select **Edit**.
+4. Select **Enable** from the **Entitlement Management** dropdown menu.
+5. Select **Save**.
 
-<StackSnippet snippet="arguments" inline/>
 
-### Create a <StackSnippet snippet="resource-name" inline/> resource
+### Manage Resources
 
-1. Create a resource block in your Terraform configuration file. For example, this sample defines an access review <StackSnippet snippet="resource-name" inline/> for a specific app.
+#### Resource arguments
 
-<StackSnippet snippet="create" inline/>
+Use the relevant resource schema, in this sample, the [Campaigns schema](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/campaign#schema), to create and update relevant resources. See the Schema section of the relevant resources in the Okta Terraform Provider Registry documentation.
 
-2. Run the ` terraform plan` command. The output of the command provides a preview of the changes Terraform makes to your infrastructure.
+#### Create a resource
 
-3. Run the `terraform apply` command. This command provisions the entitlement resource.
+Create a resource block in your Terraform configuration file. The following sample defines an access review campaign for a specific app.
 
-> **Note**: To apply only a new resource, run a targeted apply command. For example, `terraform apply -target <resource_name>`
+```bash
+resource "okta_campaign" "example" {
+  name          = "Monthly access review of sales team"
+  description   = "Multi app campaign"
+  campaign_type = "RESOURCE"
 
-4. Type `yes` when prompted to complete the resource creation.
+  schedule_settings {
+    type             = "ONE_OFF"
+    start_date       = "2025-10-04T13:43:40.000Z"
+    duration_in_days = 21
+    time_zone        = "America/Vancouver"
+  }
 
+  resource_settings {
+    type                                    = "APPLICATION"
+    include_entitlements                    = true
+    individually_assigned_apps_only         = false
+    individually_assigned_groups_only       = false
+    only_include_out_of_policy_entitlements = false
+    target_resources {
+      resource_id                          = "0oao01ardu8r8qUP91d7"
+      resource_type                        = "APPLICATION"
+      include_all_entitlements_and_bundles = true
+    }
+    target_resources {
+      resource_id                          = "0oanlpd3xkLkePi3W1d7"
+      resource_type                        = "APPLICATION"
+      include_all_entitlements_and_bundles = false
+    }
+  }
+
+  principal_scope_settings {
+    type                      = "USERS"
+    include_only_active_users = false
+  }
+
+  reviewer_settings {
+    type                   = "USER"
+    reviewer_id            = okta_user.test.id
+    self_review_disabled   = true
+    justification_required = true
+    bulk_decision_disabled = true
+  }
+
+  notification_settings {
+    notify_reviewer_when_review_assigned      = false
+    notify_reviewer_at_campaign_end           = false
+    notify_reviewer_when_overdue              = false
+    notify_reviewer_during_midpoint_of_review = false
+    notify_review_period_end                  = false
+  }
+
+  remediation_settings {
+    access_approved = "NO_ACTION"
+    access_revoked  = "NO_ACTION"
+    no_response     = "NO_ACTION"
+  }
+}
+```
+**Note**: For resource-specific examples, see the [Example Usage](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/campaign#example-usage) section of the relevant resources in the Okta Terraform Provider Registry documentation.
+1. Run the `terraform plan` command. The output provides a preview of the changes Terraform make to your infrastructure.
+2. Run the `terraform apply` command to provision the resource.
+3. Type `yes` when prompted to complete the creation.
 
 #### Import existing objects to Terraform
 
-You can import existing <StackSnippet snippet="resource-name" inline/> objects to Terraform using the import function. For more information on importing objects into Terraform, see [Import existing Okta objects into Terraform](docs/guides/terraform-import-existing-resources/main/).
+You can import existing OIG objects into Terraform using the import function. For more information on importing objects into Terraform, see [Import existing Okta objects into Terraform](https://developer.okta.com/docs/guides/terraform-import-existing-resources/main/).
 
-**Note**: Ensure that you have the <StackSnippet snippet="resource-name" inline/> ID that you want to import.
+**Note**: Ensure that you have the ID of the resource you want to import. You can retrieve this ID from the Admin Console or by using the [Okta Identity Governance API](https://developer.okta.com/docs/api/iga/).
+1. Create a resource block in your Terraform file to host the object you’re importing. The configuration must match the current state of the object in Okta.
+2. Run the command available in the Import section of the relevant resources in the Okta Terraform Provider Registry documentation. For example, the [Import Campaigns](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/campaign#import) resource.
+3. Run `terraform plan` to verify the import, and then `terraform apply` to update your state file.
 
+### Retrieve existing resources
+To view a resource that is already managed by Terraform, or any OIG resource in your org, you can use a data Source. In this example, to retrieve an existing campaign, see [Data Source: okta_campaign](https://registry.terraform.io/providers/okta/okta/latest/docs/data-sources/campaign) in the Okta Terraform Provider Registry documentation.
 
-1. Create a resource block to host the object you’re importing. The configuration must match the object in Okta.
-
-2. Run the following command to import your existing <StackSnippet snippet="resource-name" inline/> object into your Terraform state.
-
-<StackSnippet snippet="import" inline/>
-
-3. Save the file, run `terraform plan`, and then run `terraform apply`.
-4. Verify that the `terraform.tfstate` file is created on your Terraform working directory. This ensures that the Terraform resource creation was completed successfully. This file records the mapping between the resources defined in your configuration files and the objects in your Okta org.
-
-#### Retrieve existing <StackSnippet snippet="resource-name" inline/>
-
-To view a <StackSnippet snippet="resource-name" inline/>  that is already managed by Terraform, or any <StackSnippet snippet="resource-name" inline/>  in your org, you can use a data source.
-
-<StackSnippet snippet="retrieve" inline/>
-
-#### Modify existing <StackSnippet snippet="resource-name" inline/>
-
-To modify a <StackSnippet snippet="resource-name" inline/>  that is already managed by Terraform, update the code in your configuration file. Terraform detects the change and applies it on the next run.
-Save the file, run `terraform plan`, and then run `terraform apply` to apply the change to your <StackSnippet snippet="resource-name" inline/> in Okta.
+### Modify existing resources
+To modify a resource already managed by Terraform:
+1. Update the code in your `.tf` configuration file.
+2. Run `terraform plan` to view the detected changes.
+3. Run `terraform apply` to push the changes to your Okta org.
