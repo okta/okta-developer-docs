@@ -8,8 +8,6 @@ title: Okta Classic Engine API release notes 2025
 
 ### Monthly release 2025.12.0
 
-## November
-
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [SHA-256 digest algorithm support is EA](#sha-256-digest-algorithm-support-is-ea) | December 10, 2025 |
@@ -106,6 +104,8 @@ Unified claims generation is a new streamlined interface for managing claims (OI
 #### Bugs fixed in 2025.12.0
 
 * WSFed-related apps experienced security issues. (OKTA-1069106)
+
+## November
 
 ### Weekly release 2025.11.3
 
