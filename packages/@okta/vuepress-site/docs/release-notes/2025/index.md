@@ -37,7 +37,7 @@ The inline hook and event hook framework now supports read and write permissions
 
 #### Allow profile updates for deactivated users
 
-Super admins can now choose to allow updates to profile attribute values for deactivated users, ensuring their profiles remain current. You must turn the **Edit Deactivated User Profile Updates** option on in the Admin Console to see the behavior when using the [Update a user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/updateUser) endpoint. See [Edit deactivated user profiles](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-edit-deactivated-user.htm).
+Super admins can now choose to allow updates to profile attribute values for deactivated users, ensuring their profiles remain current. You must turn the **Edit Deactived User Profile Updates** option on in the Admin Console to see the behavior when using the [Update a user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/updateUser) endpoint. See [Edit deactivated user profiles](https://help.okta.com/okta_help.htm?type=oie&id=edit-deactivated-users).
 
 <!-- OKTA-1069794  Feature: Remove FF gate for block on editing the profile of deactivated users -->
 
