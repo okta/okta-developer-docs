@@ -21,7 +21,6 @@ title: Okta Identity Engine API release notes 2025
 | [Allow profile updates for deactivated users](#allow-profile-updates-for-deactivated-users) | December 10, 2025 |
 | [Lightweight Directory Access Protocol Bidirectional Group Management is GA in Preview](#lightweight-directory-access-protocol-bidirectional-group-management-is-ga-in-preview) | December 10, 2025 |
 | [Additional Anything-as-a-Source API endpoints is GA in Preview](#additional-anything-as-a-source-api-endpoints-is-ga-in-preview) | December 10, 2025|
-| [Access Requests escalation settings is Beta is GA in Preview](#access-requests-escalation-settings-is-beta-is-ga-in-preview) | December 10, 2025 |
 | [New field in `user.identity_verification` event type is GA in Preview](#new-field-in-user-identity-verification-event-type-is-ga-in-preview) | December 10, 2025 |
 | [OIN contact updates](#oin-contact-updates) | December 10, 2025 |
 | [Anything-as-a-Source for groups and group memberships API is GA in Preview](#anything-as-a-source-for-groups-and-group-memberships-api-is-ga-in-preview) | September 10, 2025  |
@@ -88,14 +87,6 @@ Okta can only manage group memberships for users and groups imported into Okta u
 Anything-as-a-Source (XaaS) capabilities allow customers to use a custom identity source with Okta. With XaaS, customers can source entities such as users into Okta's Universal Directory by connecting a custom HR app or a custom database. This release offers Anything-as-a-Source APIs for both individual operations and bulk operations on groups, group memberships, and users. Okta now enables creating and updating users, creating and updating groups, and managing group memberships into Okta’s Universal Directory from any identity source using the Identity Source APIs. See [Identity Sources](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/).
 
 <!-- OKTA-1063549 IDENTITY_SOURCE_MANAGE_INDIVIDUAL_ENTITIES -->
-
-#### Access Requests escalation settings is Beta is GA in Preview
-
-Requesters can now quickly unblock themselves when a task assignee (such as a task approver) is unavailable by self-escalating the task to an additional assignee (the original approver’s manager). This secure and auditable feature prevents bottlenecks, ensuring timely access to critical resources.
-See the `escalations` settings in the [Org Governance Settings](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Org-Governance-Settings/) API.
-
-Also see [Escalate task](https://help.okta.com/okta_help.htm?type=oie&id=csh-escl-task) and [Allow requesters to escalate tasks](https://help.okta.com/okta_help.htm?type=oie&id=csh-req-escl-task) in the product documentation.
-<!-- OKTA-1062448, OKTA-1051948 ATSPOKE_ESCALATIONS Preview date: Dec 10, 2025 -->
 
 #### New field in `user.identity_verification` event type is GA in Preview
 
