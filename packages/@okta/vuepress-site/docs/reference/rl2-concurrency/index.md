@@ -15,7 +15,7 @@ Concurrency is tracked separately between Microsoft Office 365 traffic and all o
 
 While typical user-driven traffic rarely hits these limits, they become a critical consideration in two key scenarios:
 
-* During an Okta service incident: In rare cases, a degradation in Okta's API performance may cause you to see `core.concurrency.org.limit.violation` events in your System Log. This is for your awareness only. These events typically resolve quickly as our systems recover.
+* During an Okta service incident: In rare cases, a degradation in Okta's API performance may cause you to see `core.concurrency.org.limit.violation` events in your System Log. This is for your awareness only. These events typically resolve quickly as Okta's systems recover.
 
 * When designing and running automation: If you're running high-volume scripts or integrations (like bulk user imports, sync jobs, Terraform plans, and so on), the concurrency limit is an important design parameter. By designing your automation to honor the available concurrency, you can ensure smooth and predictable performance for your bulk operations. Configurable token and OAuth 2.0 app rate limits can also be used to limit the number of concurrent threads consumed by any given token or app.
 
