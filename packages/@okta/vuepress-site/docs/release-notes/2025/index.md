@@ -4,7 +4,108 @@ title: Okta Classic Engine API release notes 2025
 
 # Okta Classic Engine API release notes (2025)
 
+## December
+
+### Monthly release 2025.12.0
+
 ## November
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [SHA-256 digest algorithm support is EA](#sha-256-digest-algorithm-support-is-ea) | December 10, 2025 |
+| [Enable custom admin roles for inline and event hooks is self-service EA in Preview](#enable-custom-admin-roles-for-inline-and-event-hooks-is-self-service-ea-in-preview) | December 10, 2025 |
+| [Allow profile updates for deactivated users](#allow-profile-updates-for-deactivated-users) | December 10, 2025 |
+| [Lightweight Directory Access Protocol Bidirectional Group Management is GA in Preview](#lightweight-directory-access-protocol-bidirectional-group-management-is-ga-in-preview) | December 10, 2025|
+| [Additional Anything-as-a-Source API endpoints is GA in Preview](#additional-anything-as-a-source-api-endpoints-is-ga-in-preview) | December 10, 2025 |
+| [Access Requests escalation settings is Beta is GA in Preview](#access-requests-escalation-settings-is-beta-is-ga-in-preview) | December 10, 2025 |
+| [OIN contact updates](#oin-contact-updates) | December 10, 2025 |
+| [Anything-as-a-Source for groups and group memberships API is GA in Preview](#anything-as-a-source-for-groups-and-group-memberships-api-is-ga-in-preview) | September 10, 2025 |
+| [Encryption of ID tokens and access tokens is GA in Preview](#encryption-of-id-tokens-and-access-tokens-is-ga-in-preview) | August 7, 2025 |
+| [Unified claims generation for custom apps is GA in Preview](#unified-claims-generation-for-custom-apps-is-ga-in-preview) | July 30, 2025|
+| [Developer documentation updates in 2025.12.0](#developer-documentation-updates-in-2025-12-0) | December 10, 2025 |
+| [Bugs fixed in 2025.12.0](#bugs-fixed-in-2025-12-0)| December 10, 2025  |
+
+#### SHA-256 digest algorithm support is EA
+
+Okta now supports the SHA-256 digest algorithm when hashing SAML AuthnRequests that are sent to external IdPs.
+
+<!-- IDP_SHA256_DIGEST_ALGORITHM_SUPPORT OKTA-1061375 -->
+
+#### Enable custom admin roles for inline and event hooks is self-service EA in Preview
+
+The inline hook and event hook framework now supports read and write permissions for custom admin roles. This enhancement gives fine-grained access to manage inline and event hooks that previously required the super admin role. See [Hooks admin roles](/docs/guides/hooks-best-practices/).
+
+<!-- OKTA-1061240 HOOKS_PUBLIC_PERMISSIONS -->
+
+#### Allow profile updates for deactivated users
+
+Super admins can now choose to allow updates to profile attribute values for deactivated users, ensuring their profiles remain current. You must turn the **Edit Deactivated User Profile Updates** option on in the Admin Console to see the behavior when using the [Update a user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/updateUser) endpoint. See [Edit deactivated user profiles](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-edit-deactivated-user.htm).
+
+<!-- OKTA-1069794  Feature: Remove FF gate for block on editing the profile of deactivated users -->
+
+#### Lightweight Directory Access Protocol Bidirectional Group Management is GA in Preview
+
+The [Bidirectional Group Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DirectoriesIntegration) has been expanded to allow you to manage Lightweight Directory Access Protocol (LDAP) groups from within Okta. You can add or remove users from groups based on their identity and access requirements. This ensures that changes made to user access in Okta are reflected in LDAP.
+
+Okta can only manage group memberships for users and groups imported into Okta using the LDAP or Active Directory (AD) integration. It isn't possible to manage users and groups that weren't imported through LDAP or AD integration or are outside the organizational unit's scope for the integration using this feature.
+
+<!-- OKTA-1064652 LDAP_BIDIRECTIONAL_GROUP_MANAGEMENT -->
+
+#### Additional Anything-as-a-Source API endpoints is GA in Preview
+
+Anything-as-a-Source (XaaS) capabilities allow customers to use a custom identity source with Okta. With XaaS, customers can source entities such as users into Okta's Universal Directory by connecting a custom HR app or a custom database. This release offers Anything-as-a-Source APIs for both individual operations and bulk operations on groups, group memberships, and users. Okta now enables creating and updating users, creating and updating groups, and managing group memberships into Okta’s Universal Directory from any identity source using the Identity Source APIs. See [Identity Sources](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/).
+
+<!-- OKTA-1063549 IDENTITY_SOURCE_MANAGE_INDIVIDUAL_ENTITIES -->
+
+#### Access Requests escalation settings is Beta is GA in Preview
+
+Requesters can now quickly unblock themselves when a task assignee (such as a task approver) is unavailable by self-escalating the task to an additional assignee (the original approver’s manager). This secure and auditable feature prevents bottlenecks, ensuring timely access to critical resources.
+See the `escalations` settings in the [Org Governance Settings](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Org-Governance-Settings/) API.
+
+Also see [Escalate task](https://help.okta.com/okta_help.htm?type=oie&id=csh-escl-task) and [Allow requesters to escalate tasks](https://help.okta.com/okta_help.htm?type=oie&id=csh-req-escl-task) in the product documentation.
+<!-- OKTA-1062448, OKTA-1051948 ATSPOKE_ESCALATIONS Preview date: Dec 10, 2025 -->
+
+#### OIN contact updates
+
+In the OIN Wizard, the **Configure your Integration** page now provides separate customer and internal support information. The **Public support contact** section allows ISVs to provide public contact information for customers. The **Support contact** field is now called **Support email**, and has been moved from the **Testing information for Okta Review** section to the **Support contact (for Okta use only)** section. This section allows ISVs to provide internal contact information for the Okta team. See [Customer support contact guidelines](https://developer.okta.com/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines).
+
+<!-- OKTA-1013940 UI/UX changes for updated contacts in OIN submission Preview date: Dec 10, 2025 -->
+
+#### Anything-as-a-Source for groups and group memberships API is GA in Preview
+
+Anything-as-a-Source (XaaS) capabilities allow customers to use a custom identity source with Okta. With XaaS, customers can source entities such as users into Okta's Universal Directory by connecting a custom HR app or a custom database. This release offers XaaS capabilities with groups and group memberships, allowing customers to start sourcing groups with XaaS. Okta now enables creating and updating users, creating and updating groups, and managing group memberships into Okta’s Universal Directory from any identity source using the Identity Source APIs. See [Identity Sources](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/).
+
+<!-- IDENTITY_SOURCE_APPS_GROUPS OKTA-1009858 Preview date September 10, 2025 -->
+
+#### Encryption of ID tokens and access tokens is GA in Preview
+
+You can now encrypt OIDC ID tokens for Okta-protected custom app integrations using JSON Web Encryption. You can also now encrypt access tokens minted by a custom authorization server. See [Key management](/docs/guides/key-management/main/). 
+
+<!-- OIDC_TOKEN_ENCRYPTION OKTA-978457 Preview date August 7, 2025 -->
+
+#### Unified claims generation for custom apps is GA in Preview
+
+Unified claims generation is a new streamlined interface for managing claims (OIDC) and attribute statements (SAML) for Okta-protected custom app integrations. In addition to group and user profile claims, the following new claim types are available: `entitlements` (required OIG), `device.profile`, `session.id`, and `session.amr`. See [Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/). 
+
+<!-- GENERIC_FEDERATED_CLAIM_LAYER OKTA-971830 Preview date July 30, 2025 -->
+
+#### Developer documentation updates in 2025.12.0
+
+* The new [Multibrand architecture](/docs/concepts/multibrand-architecture/) doc describes the key concepts that you should know to set up multiple brands. A decision flow diagram guides you through the process of designing your multibrand architecture.
+
+* The content on the **User query options** page has been moved to the appropriate parameters of the [List all users endpoint in the Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers) page. The **User query options** page will be removed in a future update.
+
+* The [Customize email notifications](https://developer.okta.com/docs/guides/custom-email/main/) guide now describes how to use [Velocity Template Language (VTL) with Java methods](https://developer.okta.com/docs/guides/custom-email/main/#vtl-and-java-methods), and includes examples that use the [app.name](https://developer.okta.com/docs/guides/custom-email/main/#app-name) and [user.groups.names](https://developer.okta.com/docs/guides/custom-email/main/#user-groups-names) variables.
+
+* The updated [User sign out flow (local app)](https://developer.okta.com/docs/guides/oie-embedded-sdk-use-case-basic-sign-out/ios/main/) guide for iOS now uses the [Okta Client SDK for Swift](https://github.com/okta/okta-mobile-swift?tab=readme-ov-file#okta-client-sdk-for-swift).
+
+* The [Customize associated domains](/docs/guides/custom-well-known-uri/main/) guide now includes details about [redirect URI support](/docs/guides/custom-well-known-uri/main/#redirect-uri-support-in-the-okta-client-sdk-for-swift) in the [Okta Client SDK for Swift](https://github.com/okta/okta-mobile-swift).
+
+* The new [Manage credentials using the Okta Client SDK guide](/docs/guides/manage-user-creds/ios/main/) explains how to store, retrieve, refresh, and remove credentials using the [Client SDK for Swift](https://github.com/okta/okta-mobile-swift).
+
+#### Bugs fixed in 2025.12.0
+
+* WSFed-related apps experienced security issues. (OKTA-1069106)
 
 ### Weekly release 2025.11.3
 
@@ -306,7 +407,7 @@ When you make a Revoke all user sessions `(/api/v1/users/{userId}/sessions)` req
 
 #### Encryption of ID tokens and access tokens is EA
 
-You can now encrypt OIDC ID tokens for Okta-protected custom app integrations using JSON Web Encryption. You can also now encrypt access tokens minted by a custom authorization server. See [Key management](/docs/guides/key-management/main/). <!-- OIDC_TOKEN_ENCRYPTION OKTA-978457 -->
+You can now encrypt OIDC ID tokens for Okta-protected custom app integrations using JSON Web Encryption. You can also now encrypt access tokens minted by a custom authorization server. See [Key management](/docs/guides/key-management/main/). <!-- OIDC_TOKEN_ENCRYPTION OKTA-978457  -->
 
 #### Expanded use of user.getGroups() function in Okta Expression Language is GA in Production
 
