@@ -17,7 +17,7 @@ The following org-based System Log events track activity in your organization an
 This event is sent when an endpoint is nearing its rate limit.
 
 * [`system.org.rate_limit.burst`](/docs/reference/api/event-types/?q=system.org.rate_limit.burst)<br>
-This event is sent when an API exceeds its default rate limit, and Okta applies an increase in the rate limit to minimize customer impact. See [Burst rate limits](/docs/reference/rate-limits/#burst-rate-limits).
+This event is sent when an API exceeds its default rate limit, and Okta applies an increase in the rate limit to minimize customer impact. See [Burst rate limits](/docs/reference/rl2-burst/).
 
 * [`system.org.rate_limit.violation`](/docs/reference/api/event-types/?q=system.org.rate_limit.violation)<br>
 This event is sent when an endpoint exceeds its rate limit.

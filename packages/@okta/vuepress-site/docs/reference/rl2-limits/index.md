@@ -9,7 +9,7 @@ This page details the rate limits that apply to various buckets, primarily scope
 
 ## Authentication and management rate limits
 
-Refer to the rate limits bucket API table, part of the [Rate Limit Dashboard](/docs/reference/rl2-monitor/#rate-limit-dashboard), for a live view of the rate limits available for a given bucket.
+Refer to the rate limits bucket (APIs) table, part of the [Rate Limit Dashboard](/docs/reference/rl2-monitor/#rate-limit-dashboard), for a live view of the rate limits available for a given bucket.
 
 ## Authenticated and non-authenticated users
 
@@ -29,7 +29,7 @@ API endpoints that take username and password credentials, including the [Authen
 | Action and Okta API endpoint                  | Per-user limits (all orgs) |
 |-----------------------------------------------|----------------------------|
 | Authenticate the same user:<br>`/api/v1/authn`  | 4 per second               |
-| Generate or refresh an OAuth 2.0 token:<br>/`oauth2/v1/token` | 4 per second               |
+| Generate or refresh an OAuth 2.0 token:<br>`/oauth2/v1/token` | 4 per second               |
 
 Per-username rate limit violations appear in the System Log as a `user_rate_limited` failure message.
 
