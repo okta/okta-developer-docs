@@ -36,8 +36,6 @@ With either method, you need to first define your HR source in your Okta org. Th
 
 This guide outlines the Identity Sources API flow, so you can develop your custom client for the XaaS integration. For XaaS integrations using [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf), see Okta connector action cards for bulk user import and identity-source session management.
 
-> **Note:** The Identity Sources API for groups and group memberships is currently in EA. <ApiLifecycle access="ea" />
-
 ## Identity Sources API concepts
 
 ### Identity source session
@@ -126,8 +124,6 @@ Use the following endpoints to bulk load users. Each endpoint also lists example
 
 #### Group data
 
-<ApiLifecycle access="ea" />
-
 To load bulk groups data, use `profiles`. The group `profiles` object is an array of pairs, with each pair listing the group's external ID and the group's `profile` that contain attributes about the group, but no membership data.
 
 Each group object in the `profiles` array can contain the following:
@@ -142,8 +138,6 @@ Use the following endpoints to bulk load groups. Each endpoint also lists exampl
 * [Upload the group external IDs to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupsDataForDelete)
 
 #### Group memberships data
-
-<ApiLifecycle access="ea" />
 
 To load bulk group membership information, use `memberships`. The group `memberships` object is an array of pairs, with each pair listing the group's external ID and an array of member IDs in that group.
 
@@ -213,7 +207,7 @@ After you create the identity source, you can load data to it, cancel it, or mon
 
 Use these steps to insert or update a set of user data profiles from your HR source to Okta.
 
-> **Note:** <ApiLifecycle access="ea" /> Use the same flow for uploading groups from your HR source, but with the groups endpoints instead. For groups, use the [Upload the group memberships to be upserted](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupMembershipsForUpsert) endpoint or the [Upload the group profiles without memberships to be upserted](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupsForUpsert) endpoint.
+> **Note:** Use the same flow for uploading groups from your HR source, but with the groups endpoints instead. For groups, use the [Upload the group memberships to be upserted](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupMembershipsForUpsert) endpoint or the [Upload the group profiles without memberships to be upserted](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupsForUpsert) endpoint.
 
 1. [Create an identity source session](#create-an-identity-source-session) if you don't already have one. If you have an existing active identity source session, [retrieve the active identity source session](#retrieve-active-identity-source-sessions) to get the session ID.
 
@@ -232,7 +226,7 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
 When users are deactivated or deleted from your HR source, you need to reflect that status in Okta. Okta doesn't delete user profile objects. It deactivates the users that are no longer active. Use these steps to deactivate a set of user data profiles from Okta.
 
-> **Note:** <ApiLifecycle access="ea" /> Use the same flow for deleting groups from your HR source, but with the groups endpoints instead. To delete group memberships, use the [Upload the group memberships to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupMembershipsForDelete) endpoint and list the `groupExternalId` and `memberExternalIds` in the request body. To delete groups without specific membership information, use the [Upload the group external IDs to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupsDataForDelete) endpoints and list the `externalIds` of groups to be deleted.
+> **Note:** Use the same flow for deleting groups from your HR source, but with the groups endpoints instead. To delete group memberships, use the [Upload the group memberships to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupMembershipsForDelete) endpoint and list the `groupExternalId` and `memberExternalIds` in the request body. To delete groups without specific membership information, use the [Upload the group external IDs to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupsDataForDelete) endpoints and list the `externalIds` of groups to be deleted.
 
 1. [Create an identity source session](#create-an-identity-source-session) if you don't already have one. If you have an existing active identity source session, [retrieve the active identity source session](#retrieve-active-identity-source-sessions) to get the `{sessionId}`.
 
