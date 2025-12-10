@@ -21,7 +21,7 @@ This framework applies to:
 
 This feature is helpful in a few key scenarios:
 
-* Isolating runaway apps: If you have multiple OAuth 2.0 apps managed by different teams, it ensures that one malfunctioning app can't cause rate limit violations for all the others.
+* Isolating runaway traffic: If you have multiple OAuth 2.0 apps managed by different teams, it ensures that one malfunctioning app can't cause rate limit violations for all the others.
 
 * Enforcing best practices: It encourages development teams to implement proper error handling and avoid issues like redirect loops.
 
@@ -46,7 +46,7 @@ Imagine Bob and Alice are working from home with distinct IP addresses. They bot
 
 If the org-wide limit for the `/authorize` endpoint is 2,000 requests per minute and Bob runs a script that makes 2,000 requests, the following happens:
 
-* Without client-based limits: Bob consumes the entire org-wide limit. Both he and Alice are blocked with HTTP 429 errors, and all clients seeking to access the application are disrupted.
+* Without client-based limits: Bob consumes the entire org-wide limit. Both he and Alice are blocked with HTTP 429 errors, and all clients seeking to access the app are disrupted.
 
 * With client-based limits enabled: After Bob exceeds his individual 60-request limit, only requests from his specific client combination are blocked. Alice and any other clients can continue to access the app without any issues.
 
@@ -107,4 +107,3 @@ When client-based rate limiting is in enforce mode, the API response headers ref
 * `X-Rate-Limit-Remaining`: The amount of requests left for that specific client.
 
 * `X-Rate-Limit-Reset`: The UTC epoch time when the client's limit resets.
-

@@ -27,12 +27,12 @@ Okta Workforce Identity customers get automatic rate limit increases for authent
     | 10,000–100,000     | 5x                   |
     | > 100,000            | 10x                  |
 
-* Applicable endpoints: This multiplier applies to common authentication, authorization, and single-entity read endpoints (like getting a single user or app). For the complete list of eligible endpoints, visit the Rate Limit Bucket table on the [Rate limit dashboard](/docs/reference/rl2-monitor/#dashboard-overview-tab) and filter by **Eligible or applied**.
+* Applicable endpoints: This multiplier applies to common authentication, authorization, and single-entity read endpoints (like getting a single user or app). For the complete list of eligible endpoints, visit the rate limit bucket (APIs) table on the [Rate limit dashboard](/docs/reference/rl2-monitor/#dashboard-overview-tab) and filter by **Eligible or applied**.
 * Need more? If this automatic multiplier is still insufficient for your needs, you can use the following manual request process.
 
 ## For all customers: Request a manual rate limit increase
 
-If you expect a high-traffic event or your organization’s baseline traffic has grown, you can request a rate limit increase:
+If you expect a high-traffic event or your org’s baseline traffic has grown, you can request a rate limit increase:
 
 * Temporary increases are available for events like app launches, large user migrations, or seasonal peaks.
 * Permanent increases can be requested if your baseline traffic has permanently grown.

@@ -5,7 +5,7 @@ category: rate limits
 
 # Concurrency limits
 
-Concurrency limits control how many requests your organization can have processing at the same time&mdash;not over time, and not per second or minute. Unlike per-minute rate limits, which measure the total number of requests over a time window, concurrency limits are enforced in real-time to ensure system stability. Okta processes most requests in a matter of milliseconds so that you can sustain thousands of requests per minute without ever exceeding concurrency limits.
+Concurrency limits control how many requests your org can have processing at the same time&mdash;not over time, and not per second or minute. Unlike per-minute rate limits, which measure the total number of requests over a time window, concurrency limits are enforced in real-time to ensure system stability. Okta processes most requests in a matter of milliseconds so that you can sustain thousands of requests per minute without ever exceeding concurrency limits.
 
 Concurrency is tracked separately between Microsoft Office 365 traffic and all other traffic (including API requests). Both have a default limit of 75 simultaneous transactions for Okta Workforce and Customer Identity orgs. Okta has selected these default concurrency limits to align with the expected volume of traffic for a given org. Concurrency limits for non-Microsoft 365 traffic are increased for any tenant with an active rate limit multiplier (DynamicScale or Workforce).
 
@@ -35,14 +35,8 @@ You can estimate your own needs using the following formula:
 Concurrency = (RPM / 60) * (avgRequestDurationMillis / 1000)
 ```
 
-Or
-
-```sh
-Concurrency = (RPM * avgRequestDurationMillis) / 60,000
-```
-
 ## Graceful degradation and retries
 
-To minimize customer impact, Okta has a built-in resiliency mechanism. For many endpoints, when an HTTP 429 error occurs due to a concurrency limit, Okta automatically retries it on separate app services before returning an error to your client. This is a fallback mechanism for graceful degradation that often resolves temporary spikes in a few seconds or minutes without any perceived impact.
+To minimize customer impact, Okta has a built-in resiliency mechanism. For many endpoints, when an HTTP 429 error occurs due to a concurrency limit, Okta automatically retries it internally before returning an error to your client. This is a fallback mechanism for graceful degradation that often resolves temporary spikes in a few seconds or minutes without any perceived impact.
 
 If a 429 error is received due to a concurrency limit, the System Log shows a `core.concurrency.org.limit.violation` event. More information is available in [Monitoring and Troubleshooting](/docs/reference/rl2-monitor/).

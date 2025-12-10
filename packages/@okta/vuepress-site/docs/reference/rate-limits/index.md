@@ -10,13 +10,13 @@ Rate limits are essential for maintaining both service continuity and effective 
 
 Fundamentally, rate limits define how many requests can be made to an endpoint within a specific time window. They help protect platform reliability and performance by preventing excessive traffic that could degrade service or introduce security risks like DDoS attacks. Rate limits also promote fairness by ensuring all users have equitable access to the service.
 
-Okta implements rate limits using buckets. A rate limiting bucket is a collection of one or more endpoints that share a defined quota of calls per unit of time. This quota is consumed by a set of clients associated with the bucket---this association is known as the scope of the bucket. The most general scope for a bucket is the entire organization. This bucket is shared by every client in the organization that uses the associated APIs. Other, more specific buckets can be nested beneath a broader bucket and may be applicable to a subset of APIs for a subset of clients.
+Okta implements rate limits using buckets. A rate limiting bucket is a collection of one or more endpoints that share a defined quota of calls per unit of time. This quota is consumed by a set of clients associated with the bucket---this association is known as the scope of the bucket. The most general scope for a bucket is the entire org. This bucket is shared by every client in the org that uses the associated APIs. Other, more specific buckets can be nested beneath a broader bucket and may be applicable to a subset of APIs for a subset of clients.
 
-For example, there may be a bucket for `/oauth2/api/v1/authorize` with a quota of 1200 requests per minute for the entire organization. Nested beneath it, there could be a bucket for `/oauth2/api/v1/authorize` with a quota of 600 requests per minute assigned to a specific client app `APP_123`. When `APP_123` calls `/oauth2/api/v1/authorize`, the remaining quota status is 1,199 for that minute for the organization, and 599 remaining for `APP_123`.
+For example, there may be a bucket for `/oauth2/api/v1/authorize` with a quota of 1200 requests per minute for the entire org. Nested beneath it, there could be a bucket for `/oauth2/api/v1/authorize` with a quota of 600 requests per minute assigned to a specific client app `APP_123`. When `APP_123` calls `/oauth2/api/v1/authorize`, the remaining quota status is 1,199 for that minute for the org, and 599 remaining for `APP_123`.
 
 <div >
 
-![This image displays the rate limit by bucket for an organization.](/img/rate-limits/rate-limit-by-bucket.png)
+![This image displays the rate limit by bucket for an org.](/img/rate-limits/rate-limit-by-bucket.png)
 
 </div>
 
@@ -59,7 +59,7 @@ When a request is made, Okta’s algorithm attempts to match the HTTP method (GE
 
   * `/oauth2/{authorizationServerId}/v1/*` for Exact Match type for all HTTP operations
 
-  * `/oauth2/{authorizationServerID}/v1/authorize` for Longest Match type for all HTTP operations. (In the rate limit bucket table, buckets that end with an asterisk, for example, `/api/v1/users*`, denote a bucket set up for longest match).
+  * `/oauth2/{authorizationServerID}/v1/authorize` for Longest Match type for all HTTP operations.
 
 After a request has been matched, the counters for the impacted buckets are updated. If the counter nears the quota for that bucket, a warning event is generated in the System Log and an email notification is sent to super admins. Okta allows you to configure this warning threshold in the **Admin Dashboard** > **Reports** > **Rate Limits** > **Settings** section. If the counter exceeds the bucket's quota, then a violation event is written to the System Log and an email notification is also sent. Additional requests are rejected with an HTTP 429 Too Many Requests response until the counter resets.
 

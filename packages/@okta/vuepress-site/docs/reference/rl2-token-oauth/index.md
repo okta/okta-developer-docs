@@ -3,7 +3,7 @@ title: Token and OAuth 2.0 Application Rate Limits
 category: rate limits
 ---
 
-# Token and OAuth 2.0 Application Rate Limits
+# Token and OAuth 2.0 app rate limits
 
 Okta lets you set specific rate limits for individual API tokens and OAuth 2.0 apps to prevent one client from consuming all org-wide capacity. This prevents one client from using the entire org-wide rate limit for an endpoint and causing widespread disruptions for other critical integrations.
 

@@ -21,11 +21,11 @@ Okta’s alerting and notification features help you detect, investigate, and re
 
 ## Rate limit dashboard
 
-The rate limit dashboard helps you monitor, troubleshoot, and optimize API traffic across your Okta organization. It’s built to give real-time insight into rate limit usage so you can prevent disruptions and resolve incidents quickly.
+The rate limit dashboard helps you monitor, troubleshoot, and optimize API traffic across your Okta org. It’s built to give real-time insight into rate limit usage so you can prevent disruptions and resolve incidents quickly.
 
 What you can do here:
 
-* Track usage and trends for each organization scoped bucket
+* Track usage and trends for each org-scoped bucket
 
 * Investigate rate limit warnings, bursts, and violations
 
@@ -35,9 +35,9 @@ What you can do here:
 
 * Identify traffic patterns by IP, API token, or OAuth2 apps
 
-### Common use-cases
+### Common use cases
 
-| Use-case                        | What to do                                                                                   |
+| Use case                        | What to do                                                                                   |
 |----------------------------------|---------------------------------------------------------------------------------------------|
 | Preparing for a high-traffic event | Check current traffic patterns, plan for expected loads, and/or adjust limits or thresholds  |
 | Just received a violation alert   | Jump into the dashboard to inspect which endpoint, IP, or client caused it                   |
@@ -64,9 +64,9 @@ The **Overview** tab is your monitoring hub. Use it to scan for issues or drill 
 
 * Event graphs: Visualize warnings, bursts, and violations over time
 * Top offenders: A bar graph shows the top five APIs with the most rate limit events
-* API table: Each bucket is listed with current rate limits (including overrides and multipliers), recent events, and a usage trend line for the last hour
+* Rate limit bucket (APIs) table: Each bucket is listed with current rate limits (including overrides and multipliers), recent events, and a usage trend line for the last hour
 
-You can hover to reveal detailed data points, click an API endpoint bucket to see deeper metrics and historical usage, or filter by time period, multiplier status, or event type.
+You can hover to reveal detailed data points, click on a rate limit bucket to see deeper metrics and historical usage, or filter by time period, multiplier status, or event type.
 
 <div class="half">
 
@@ -92,9 +92,9 @@ You can hover over the line graph or bar graph to get more details. The details 
 
 </div>
 
-### APIs Table
+### Rate limit bucket (APIs) table
 
-This sortable, filterable table shows each API endpoint showing:
+This sortable, filterable table shows the following for each rate limit bucket:
 
 * Effective rate limit (including multipliers and overrides)
 * Violations, bursts, and warnings for the last hour
@@ -104,11 +104,11 @@ You can also use the search box to look up specific endpoints. For example, you'
 
 <div class="three-quarters">
 
-![Displays the APIs table with corresponding rate limits for each API.](/img/rate-limits/rl_dashboard9.png)
+![Displays the rate limit bucket (APIs) table with corresponding rate limits for each API.](/img/rate-limits/rl_dashboard9.png)
 
 </div>
 
-Unless a bucket is specifically listed in the dashboard, buckets that end with an asterisk (for example, `/api/v1/users*`) capture calls where no exact match configuration exists. It's also important to note the HTTP operation involved with each request, as the same request with different operations can count towards different limits.
+Unless a bucket is specifically listed in the dashboard, buckets that end with an asterisk (for example, `/api/v1/users*`) denote a bucket set up for the longest match, that is, where no exact match configuration exists. For more information, see [Match Requests](/docs/reference/rate-limits/#match-requests). It's also important to note the HTTP operation involved with each request, as the same request with different operations can count towards different limits.
 
 ### Dashboard settings tab
 
@@ -126,7 +126,7 @@ For example, you may want to customize the rate limit threshold when an API norm
 
 ### Investigate API usage
 
-Clicking an API bucket in the API table takes you to a deep-dive dashboard. Any alerts provided by Okta also provide a link to the deep-dive dashboard for the impacted endpoint.
+Clicking a bucket in the rate limit bucket (APIs) table takes you to a deep-dive dashboard. Any alerts provided by Okta also provide a link to the deep-dive dashboard for the impacted endpoint.
 
 <div class="three-quarter">
 
@@ -200,7 +200,7 @@ Okta provides several tools to give you real-time visibility into your rate limi
 Check the rate limit dashboard for more information:
 
 1. Go to your Admin Console. Click **Reports** > **Rate Limits**
-1. On the **Overview** tab and the deep-dive dashboard for APIs, identify:
+1. On the **Overview** tab and the deep-dive dashboard for rate limit buckets (APIs), identify:
     1. Which buckets are exceeding limits
     [[style="list-style-type:lower-alpha"]]
     1. Any spikes in warnings, bursts, or violations

@@ -5,7 +5,7 @@ category: rate limits
 
 # Additional Rate limits
 
-This page details the rate limits that apply to various buckets, primarily scoped to organizations unless otherwise specified.
+This page details the rate limits that apply to various buckets, primarily scoped to orgs unless otherwise specified.
 
 ## Authentication and management rate limits
 
