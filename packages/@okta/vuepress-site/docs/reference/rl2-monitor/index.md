@@ -9,7 +9,7 @@ Use the following sections to monitor and troubleshoot rate limits.
 
 ## Alerts and notifications
 
-Okta’s alerting and notification features help you detect, investigate, and respond to critical system and API events. Alerts appear in your Admin Console, rate limit dashboard, System Log, and email---and often, Okta also includes helpful context in HTTP response headers.
+Okta’s alerting and notification features help you detect, investigate, and respond to critical system and API events. Alerts appear in your Admin Console, rate limit dashboard, System Log, and email&mdash;and often, Okta also includes helpful context in HTTP response headers.
 
 >**Note:** Alerts (email and rate limit dashboard) are triggered by overall usage against an org-scoped bucket, not by individual API token or app capacity. Email notifications are sent only on initially reaching the defined warning, burst, or violation limit and not for every endpoint call that exceeds these limits.
 
