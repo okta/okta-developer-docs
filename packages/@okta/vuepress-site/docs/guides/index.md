@@ -184,6 +184,7 @@ guides:
  - custom-well-known-uri
  - validate-federation
  - custom-passkeys
+ - custom-smtp
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
