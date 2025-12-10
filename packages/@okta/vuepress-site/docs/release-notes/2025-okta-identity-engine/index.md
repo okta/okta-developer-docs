@@ -173,7 +173,7 @@ You can now use the [`metadata`](/docs/reference/okta-expression-language-in-ide
 
 * The new [Passkeys and custom domains](/docs/guides/custom-passkeys/main/) guide describes different ways to configure passkeys (WebAuthn authenticator) and custom domains to allow a single passkey to be used across multiple domains.
 
-* The new Apply your brand to the Okta user experience journey helps you change the look and feel of the Okta default user experience to match your brand.
+* The new [Apply your brand to the Okta user experience](https://developer.okta.com/docs/journeys/OCI-branding/main/) journey helps you change the look and feel of the Okta default user experience to match your brand.
 
 * The content on the **User query options** page has been moved to the appropriate parameters of the [List all users endpoint in the Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers) page. The **User query options** page will be removed in a future update.
 
