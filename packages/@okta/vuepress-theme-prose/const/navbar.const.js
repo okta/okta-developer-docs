@@ -684,6 +684,10 @@ export const guides = [
             guideName: "custom-url-domain",
           },
           {
+            title: "Email providers",
+            guideName: "custom-smtp",
+          },
+          {
             title: "Associated domains",
             guideName: "custom-well-known-uri",
           },
