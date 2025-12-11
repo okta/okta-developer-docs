@@ -1,0 +1,9 @@
+# Metadata for all Bacon test suites. For options, see:
+# https://oktawiki.atlassian.net/wiki/spaces/ESS/pages/635280223/.Bacon.yaml
+test_suites:
+  - name: 'netlify_preview'
+    script_path: /root/okta/okta-developer-docs/scripts
+    script_name: test-new-token
+    sort_order: '0'
+    timeout: '50'
+    queue_name: small

@@ -2,7 +2,6 @@ version: 2.1
 
 orbs:
   platform-helpers-general: okta/general-platform-helpers@1.9.4
-  eng-services: atko-eng/eng-services-rps-universal@2
 
 parameters:
   preview:
