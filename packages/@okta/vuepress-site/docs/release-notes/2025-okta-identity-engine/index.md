@@ -14,7 +14,6 @@ title: Okta Identity Engine API release notes 2025
 |--------|--------------------------|
 | [SHA-256 digest algorithm support is EA](#sha-256-digest-algorithm-support-is-ea) | December 10, 2025 |
 | [Device conditions in the Okta account management policy is self-service EA in Preview](#device-conditions-in-the-okta-account-management-policy-is-self-service-ea-in-preview) | November 26, 2025|
-| [Native to Web SSO is EA](#native-to-web-sso-is-ea) | December 10, 2025 |
 | [Enable custom admin permissions for inline and event hooks is self-service EA in Preview](#enable-custom-admin-permissions-for-inline-and-event-hooks-is-self-service-ea-in-preview) | December 10, 2025 |
 | [Detection settings in session protection is EA](#detection-settings-in-session-protection-is-ea) | December 10, 2025|
 | [Improvements to the global session policy MFA requirements is GA in Preview](#improvements-to-the-global-session-policy-mfa-requirements-is-ga-in-preview) | December 10, 2025 |
@@ -45,10 +44,6 @@ Okta now supports the SHA-256 digest algorithm when hashing SAML AuthnRequests t
 With this feature, admins can now restrict account management activities such as self-service password resets or new authenticator enrollments with device conditions. Admins can configure Okta account management policy rules with registered and managed devices, or require devices to meet the requirements of a device assurance policy. See [Add a rule for device conditions](/docs/guides/okta-account-management-policy/main/#add-a-rule-for-device-conditions).
 
 <!-- OKTA-1060436 DEVICE_CONDITION_FOR_OAMP preview org date: Nov 26 -->
-
-#### Native to Web SSO is EA
-
-Native to Web SSO creates a seamless, unified authentication experience when a user transitions from an OIDC app (like a native or web app) to a web app (either OIDC or SAML). This feature uses standard, web-based federation protocols like SAML and OpenID Connect that help bridge the gap between two different application environments, using a single-use, one-way interclient trust SSO token. This eliminates repeating already provided sign-on assurances, and simplifies development by reducing authentication complexity. <!-- NATIVE_TO_WEB_ONE_TIME_TOKEN_EXCHANGE OKTA-1065285 -->
 
 #### Enable custom admin permissions for inline and event hooks is self-service EA in Preview
 
