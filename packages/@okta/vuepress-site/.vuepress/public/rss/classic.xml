@@ -4,13 +4,13 @@
   <title>Okta Classic Engine API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2025/</link>
   <description>Recent release notes for Okta Classic Engine API</description>
-  <pubDate>Thu, 11 Dec 2025 01:04:17 GMT</pubDate>
+  <pubDate>Thu, 11 Dec 2025 14:54:10 GMT</pubDate>
   
     <item>
       <title>Monthly release 2025.12.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-12-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-12-0</guid>
-      <pubDate>Thu, 04 Dec 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 04 Dec 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#sha-256-digest-algorithm-support-is-ea">SHA-256 digest algorithm support is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#enable-custom-admin-permissions-for-inline-and-event-hooks-is-self-service-ea-in-preview">Enable custom admin permissions for inline and event hooks is self-service EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#allow-profile-updates-for-deactivated-users">Allow profile updates for deactivated users</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#lightweight-directory-access-protocol-bidirectional-group-management-is-ga-in-preview">Lightweight Directory Access Protocol Bidirectional Group Management is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#additional-anything-as-a-source-api-endpoints-is-ga-in-preview">Additional Anything-as-a-Source API endpoints is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#oin-contact-updates">OIN contact updates</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#anything-as-a-source-for-groups-and-group-memberships-api-is-ga-in-preview">Anything-as-a-Source for groups and group memberships API is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#encryption-of-id-tokens-and-access-tokens-is-ga-in-preview">Encryption of ID tokens and access tokens is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#unified-claims-generation-for-custom-apps-is-ga-in-preview">Unified claims generation for custom apps is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#developer-documentation-updates-in-2025-12-0">Developer documentation updates in 2025.12.0</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#bug-fixed-in-2025-12-0">Bug fixed in 2025.12.0</a>]]></description>
     </item>
   
@@ -19,7 +19,7 @@
       <title>Weekly release 2025.11.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-11-3</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-11-3</guid>
-      <pubDate>Thu, 27 Nov 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 27 Nov 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-11-3">Bugs fixed in 2025.11.3</a>]]></description>
     </item>
   
@@ -28,7 +28,7 @@
       <title>Monthly release 2025.11.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-11-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-11-0</guid>
-      <pubDate>Thu, 20 Nov 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 20 Nov 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#network-zone-restrictions-for-clients-is-ga-in-production">Network zone restrictions for clients is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#behavior-detections-for-new-asn">Behavior Detections for new ASN</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#custom-domains-and-certificates">Custom domains and certificates</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#submit-entitlement-management-integrations">Submit entitlement management integrations</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#incognito-session-validation-in-oin-submission-tester">Incognito session validation in OIN Submission Tester</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#new-system-log-event-for-ad-agent-changes">New System Log event for AD agent changes</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#developer-documentation-updates-in-2025-11-0">Developer documentation updates in 2025.11.0</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-11-0">Bugs fixed in 2025.11.0</a>]]></description>
     </item>
   
@@ -37,7 +37,7 @@
       <title>Weekly release 2025.10.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-10-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-10-2</guid>
-      <pubDate>Thu, 13 Nov 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 13 Nov 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-10-2">Bugs fixed in 2025.10.2</a>]]></description>
     </item>
   
@@ -46,7 +46,7 @@
       <title>Weekly release 2025.10.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-10-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-10-1</guid>
-      <pubDate>Thu, 06 Nov 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 06 Nov 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#bug-fixed-in-2025-10-1">Bug fixed in 2025.10.1</a>]]></description>
     </item>
   
@@ -55,7 +55,7 @@
       <title>Monthly release 2025.10.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-10-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-10-0</guid>
-      <pubDate>Thu, 30 Oct 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 30 Oct 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#org2org-oidc-sign-on-mode-is-ga-in-production">Org2Org OIDC Sign-on mode is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#user-status-in-okta-expression-language-is-ga-in-preview">User status in Okta Expression Language is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#network-zone-restrictions-for-clients-is-ga-in-preview">Network zone restrictions for clients is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#okta-integration-idp-type-is-ga-in-production">Okta Integration IdP type is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#behavior-detections-for-new-asn">Behavior Detections for new ASN</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#developer-documentation-update-in-2025-10-0">Developer documentation update in 2025.10.0</a>]]></description>
     </item>
   
@@ -64,7 +64,7 @@
       <title>Weekly release 2025.09.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-09-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-09-2</guid>
-      <pubDate>Thu, 23 Oct 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 23 Oct 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-09-2">Bugs fixed in 2025.09.2</a>]]></description>
     </item>
   
@@ -73,7 +73,7 @@
       <title>Weekly release 2025.09.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-09-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-09-1</guid>
-      <pubDate>Thu, 16 Oct 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 16 Oct 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#new-functionality-filters-in-the-oin-catalog">New functionality filters in the OIN catalog</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-09-1">Bugs fixed in 2025.09.1</a>]]></description>
     </item>
   
@@ -82,7 +82,7 @@
       <title>Monthly release 2025.09.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-09-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-09-0</guid>
-      <pubDate>Thu, 09 Oct 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 09 Oct 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#user-api-projections">User API Projections</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#org2org-oidc-sign-on-mode-is-ga-in-preview">Org2Org OIDC Sign-on mode is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#anything-as-a-source-for-groups-and-group-memberships-api-is-ea-in-preview">Anything-as-a-Source for groups and group memberships API is EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#new-system-log-events-for-bulk-groups-and-bulk-group-memberships-changes">New System Log events for bulk groups and bulk group memberships changes</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#breached-credentials-protection-is-ga-in-production">Breached Credentials Protection is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#group-push-mappings-is-ga-in-production">Group Push Mappings is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#new-validation-rule-for-integration-variables-in-the-oin-wizard">New validation rule for integration variables in the OIN Wizard</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#clear-user-factors-for-all-devices-is-ga-in-production">Clear user factors for all devices is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#secure-identity-integrations-filters-in-the-oin-catalog">Secure Identity Integrations filters in the OIN catalog</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#okta-integration-idp-type-is-ga-in-preview">Okta Integration IdP type is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#user-status-in-okta-expression-language-is-ga-in-preview">User status in Okta Expression Language is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#developer-documentation-update-in-2025-09-0">Developer documentation update in 2025.09.0</a>]]></description>
     </item>
   
@@ -91,7 +91,7 @@
       <title>Weekly release 2025.08.4</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-08-4</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-08-4</guid>
-      <pubDate>Thu, 02 Oct 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 02 Oct 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-08-4">Bugs fixed in 2025.08.4</a>]]></description>
     </item>
   
@@ -100,7 +100,7 @@
       <title>Weekly release 2025.08.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-08-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-08-2</guid>
-      <pubDate>Thu, 25 Sep 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 25 Sep 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-08-2">Bugs fixed in 2025.08.2</a>]]></description>
     </item>
   
@@ -109,7 +109,7 @@
       <title>Monthly release 2025.08.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-08-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-08-0</guid>
-      <pubDate>Thu, 18 Sep 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 18 Sep 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#breached-credentials-protection-is-ga-in-preview">Breached Credentials Protection is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#clear-user-factors-for-all-devices-is-ga-in-preview">Clear user factors for all devices is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#encryption-of-id-tokens-and-access-tokens-is-ea">Encryption of ID tokens and access tokens is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#expanded-use-of-user-getgroups-function-in-okta-expression-language-is-ga-in-production">Expanded use of user.getGroups() function in Okta Expression Language is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#group-push-mappings-is-ga-in-preview">Group Push Mappings is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#multiple-active-idp-signing-certificates-is-ea">Multiple active IdP signing certificates is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#new-user-profile-permission">New user profile permission</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#oauth-2-0-provisioning-for-org2org-with-autorotation-is-ga-in-production">OAuth 2.0 provisioning for Org2Org with Autorotation is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#service-accounts-api-is-ea">Service Accounts API is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#unified-claims-generation-for-custom-apps-is-self-service-ea-in-preview">Unified claims generation for custom apps is self-service EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#web-app-integrations-now-mandate-the-use-of-the-authorization-code-flow">Web app integrations now mandate the use of the Authorization Code flow</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#developer-documentation-updates-in-2025-08-0">Developer documentation updates in 2025.08.0</a>]]></description>
     </item>
   
@@ -118,7 +118,7 @@
       <title>Weekly release 2025.07.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-07-3</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-07-3</guid>
-      <pubDate>Thu, 11 Sep 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 11 Sep 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-07-3">Bugs fixed in 2025.07.3</a>]]></description>
     </item>
   
@@ -127,7 +127,7 @@
       <title>Weekly release 2025.07.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-07-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-07-1</guid>
-      <pubDate>Thu, 04 Sep 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 04 Sep 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-07-1">Bugs fixed in 2025.07.1</a>]]></description>
     </item>
   
@@ -136,7 +136,7 @@
       <title>Monthly release 2025.07.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-07-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-07-0</guid>
-      <pubDate>Thu, 28 Aug 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 28 Aug 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#oauth-2-0-provisioning-for-org2org-with-key-auto-rotation-is-ga-in-preview">OAuth 2.0 provisioning for Org2Org with key auto-rotation is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#system-log-event-for-monitoring-ldap-agent-config-file-changes-is-ea">System Log event for monitoring LDAP Agent config file changes is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#new-validation-rule-for-user-profile-attributes-in-oin-wizard">New validation rule for user profile attributes in OIN Wizard</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#conditions-for-create-user-permission-is-ga-in-production">Conditions for create user permission is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#changes-to-okta-app-api-responses">Changes to Okta app API responses</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#restrict-access-to-the-admin-console-is-ga-in-production">Restrict access to the Admin Console is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#developer-documentation-updates-in-2025-07-0">Developer documentation updates in 2025.07.0</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#bug-fixed-in-2025-07-0">Bug fixed in 2025.07.0</a>]]></description>
     </item>
   
@@ -145,7 +145,7 @@
       <title>Weekly release 2025.06.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-06-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-06-2</guid>
-      <pubDate>Thu, 21 Aug 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 21 Aug 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#network-zone-restrictions-for-clients-is-self-service-ea-in-preview">Network zone restrictions for clients is self-service EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#org2org-oidc-sign-on-mode-is-self-service-ea-in-preview">Org2Org OIDC Sign-on mode is self-service EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#okta-integration-idp-type-is-self-service-ea-in-preview">Okta Integration IdP type is self-service EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-06-2">Bugs fixed in 2025.06.2</a>]]></description>
     </item>
   
@@ -154,7 +154,7 @@
       <title>Weekly release 2025.06.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-06-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-06-1</guid>
-      <pubDate>Thu, 14 Aug 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 14 Aug 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#frame-ancestors-rollout-for-content-security-policy">Frame-ancestors rollout for Content Security Policy</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-06-1">Bugs fixed in 2025.06.1</a>]]></description>
     </item>
   
@@ -163,7 +163,7 @@
       <title>Monthly release 2025.06.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-06-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-06-0</guid>
-      <pubDate>Thu, 07 Aug 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 07 Aug 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#admins-prevented-from-deleting-published-app-instances">Admins prevented from deleting published app instances</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#authentication-claims-sharing-between-okta-orgs-is-ga-in-production">Authentication claims sharing between Okta orgs is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#claims-sharing-between-third-party-idps-and-okta-is-ga-in-production">Claims sharing between third-party IdPs and Okta is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#conditions-for-create-user-permission">Conditions for create user permission</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#define-default-values-for-custom-user-attributes-is-ga-in-production">Define default values for custom user attributes is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#domain-restrictions-on-realms-is-ga-in-production">Domain restrictions on Realms is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#number-matching-challenge-with-the-factors-api-is-ga-in-production">Number matching challenge with the Factors API is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#restrict-access-to-the-admin-console-is-ga-in-preview">Restrict access to the Admin Console is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#expanded-use-of-user-getgroups-function-in-okta-expression-language-is-ga-in-preview">Expanded use of user.getGroups() function in Okta Expression Language is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#developer-documentation-updates-in-2025-06-0">Developer documentation updates in 2025.06.0</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#bug-fixed-in-2025-06-0">Bug fixed in 2025.06.0</a>]]></description>
     </item>
   
@@ -172,7 +172,7 @@
       <title>Weekly release 2025.05.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-05-3</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-05-3</guid>
-      <pubDate>Thu, 31 Jul 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 31 Jul 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#integrator-free-plan-org-now-available">Integrator Free Plan org now available</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-05-3">Bugs fixed in 2025.05.3</a>]]></description>
     </item>
   
@@ -181,7 +181,7 @@
       <title>Weekly release 2025.05.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-05-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-05-1</guid>
-      <pubDate>Thu, 24 Jul 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 24 Jul 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-05-1">Bugs fixed in 2025.05.1</a>]]></description>
     </item>
   
@@ -190,7 +190,7 @@
       <title>Monthly release 2025.05.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-05-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-05-0</guid>
-      <pubDate>Thu, 17 Jul 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 17 Jul 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#breached-credentials-protection-is-ea-in-preview">Breached Credentials Protection is EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#new-user-role-targets-api-endpoint">New User Role Targets API endpoint</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#define-default-values-for-custom-user-attributes">Define default values for custom user attributes</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#directories-integration-api-is-ga-in-preview-and-production">Directories integration API is GA in Preview and Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#number-matching-challenge-with-the-factors-api-is-ga-in-preview">Number matching challenge with the Factors API is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#claims-sharing-between-third-party-idps-and-okta-is-ga-in-preview">Claims sharing between third-party IdPs and Okta is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#entitlement-claims-is-ga-in-production">Entitlement claims is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#post-requests-to-authorize-endpoint-is-ga-in-production">POST requests to authorize endpoint is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#authentication-claims-sharing-between-okta-orgs-is-ga-in-preview">Authentication claims sharing between Okta orgs is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-05-0">Bugs fixed in 2025.05.0</a>]]></description>
     </item>
   
@@ -199,7 +199,7 @@
       <title>Weekly release 2025.04.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-04-3</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-04-3</guid>
-      <pubDate>Thu, 10 Jul 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 10 Jul 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-04-3">Bugs fixed in 2025.04.3</a>]]></description>
     </item>
   
@@ -208,7 +208,7 @@
       <title>Weekly release 2025.04.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-04-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-04-2</guid>
-      <pubDate>Thu, 03 Jul 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 03 Jul 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#subscriptions-api-no-longer-supports-okta-issue">Subscriptions API no longer supports OKTA_ISSUE</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-04-2">Bugs fixed in 2025.04.2</a>]]></description>
     </item>
   
@@ -217,7 +217,7 @@
       <title>Weekly release 2025.04.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-04-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-04-1</guid>
-      <pubDate>Thu, 26 Jun 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 26 Jun 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#claims-sharing-between-third-party-idps-and-okta-is-self-service-ea-in-preview">Claims sharing between third-party IdPs and Okta is self-service EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#number-matching-challenge-with-the-factors-api-is-self-service-ea-in-preview">Number matching challenge with the Factors API is self-service EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#oauth-2-0-provisioning-for-org2org-with-auto-rotation-is-self-service-ea-in-preview">OAuth 2.0 provisioning for Org2Org with Auto-Rotation is self-service EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-04-1">Bugs fixed in 2025.04.1</a>]]></description>
     </item>
   
@@ -226,7 +226,7 @@
       <title>Monthly release 2025.04.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-04-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-04-0</guid>
-      <pubDate>Thu, 19 Jun 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 19 Jun 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#domain-restrictions-on-realms">Domain restrictions on Realms</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#oauth-2-0-provisioning-for-org2org-with-auto-rotation-is-ea-in-preview">OAuth 2.0 provisioning for Org2Org with Auto-Rotation is EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#oin-test-account-information-deleted-after-30-days">OIN test account information deleted after 30 days</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#post-requests-to-authorize-endpoint-is-ga-preview">POST requests to authorize endpoint is GA Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#integration-variable-limit-increase-in-oin-submission">Integration variable limit increase in OIN Submission</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#conditional-requests-and-entity-tags-are-ga-in-production">Conditional requests and entity tags are GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#new-rate-limit-event-type">New rate limit event type</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#create-dynamic-resource-sets-with-conditions-is-ga-in-preview">Create dynamic resource sets with conditions is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#developer-documentation-update-in-2025-04-0">Developer documentation update in 2025.04.0</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-04-0">Bugs fixed in 2025.04.0</a>]]></description>
     </item>
   
@@ -235,7 +235,7 @@
       <title>Weekly release 2025.03.3</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-03-3</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-03-3</guid>
-      <pubDate>Thu, 12 Jun 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 12 Jun 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#advanced-search-using-conditioned-profile-attributes">Advanced search using conditioned profile attributes</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-03-3">Bugs fixed in 2025.03.3</a>]]></description>
     </item>
   
@@ -244,7 +244,7 @@
       <title>Weekly release 2025.03.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-03-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-03-2</guid>
-      <pubDate>Thu, 05 Jun 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 05 Jun 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#bug-fixed-in-2025-03-2">Bug fixed in 2025.03.2</a>]]></description>
     </item>
   
@@ -253,7 +253,7 @@
       <title>Weekly release 2025.03.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-03-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-03-1</guid>
-      <pubDate>Thu, 29 May 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 29 May 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-03-1">Bugs fixed in 2025.03.1</a>]]></description>
     </item>
   
@@ -262,7 +262,7 @@
       <title>Monthly release 2025.03.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-03-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-03-0</guid>
-      <pubDate>Thu, 22 May 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 22 May 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#oidc-idps-now-support-group-sync-is-ga-in-production">OIDC IdPs now support group sync is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#granular-account-linking-for-certain-identity-providers-is-ga-in-production">Granular account linking for certain Identity Providers is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#improved-group-search-functionality-is-ga-in-production">Improved group search functionality is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#improved-user-search-functionality-is-ga-in-production">Improved user search functionality is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#improved-realms-and-device-search-functionality-is-ga-in-production">Improved realms and device search functionality is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#realms-for-workforce-is-ga-in-production">Realms for Workforce is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#identity-security-posture-management-functionality-in-the-oin-catalog">Identity Security Posture Management functionality in the OIN catalog</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#default-global-session-policy-rule-update">Default global session policy rule update</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#developer-documentation-update-in-2025-03-0">Developer documentation update in 2025.03.0</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#bug-fixed-in-2025-03-0">Bug fixed in 2025.03.0</a>]]></description>
     </item>
   
@@ -271,7 +271,7 @@
       <title>Weekly release 2025.02.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-02-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-02-2</guid>
-      <pubDate>Thu, 15 May 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 15 May 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-02-2">Bugs fixed in 2025.02.2</a>]]></description>
     </item>
   
@@ -280,7 +280,7 @@
       <title>Weekly release 2025.02.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-02-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-02-1</guid>
-      <pubDate>Thu, 08 May 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 08 May 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-02-1">Bugs fixed in 2025.02.1</a>]]></description>
     </item>
   
@@ -289,7 +289,7 @@
       <title>Monthly release 2025.02.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-02-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-02-0</guid>
-      <pubDate>Thu, 01 May 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 01 May 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#ip-exempt-zone-is-ga-in-preview">IP Exempt Zone is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#oidc-idps-now-support-group-sync-is-ga-in-preview">OIDC IdPs now support group sync is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#granular-account-linking-for-certain-identity-providers-is-ga">Granular account linking for certain identity providers is GA</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#realms-for-workforce-is-ga-in-preview">Realms for Workforce is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#improved-group-search-functionality-is-ga-in-preview">Improved group search functionality is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#improved-user-search-functionality-is-ga-in-preview">Improved user search functionality is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#support-for-importing-active-directory-group-descriptions-is-ga-in-production">Support for importing Active Directory group descriptions is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#developer-documentation-updates-in-2025-02-0">Developer documentation updates in 2025.02.0</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-02-0">Bugs fixed in 2025.02.0</a>]]></description>
     </item>
   
@@ -298,7 +298,7 @@
       <title>Weekly release 2025.01.2</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-01-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-01-2</guid>
-      <pubDate>Thu, 24 Apr 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 24 Apr 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#authentication-claims-sharing-between-okta-orgs-is-ea-in-preview">Authentication claims sharing between Okta orgs is EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#bugs-fixed-in-2025-01-2">Bugs fixed in 2025.01.2</a>]]></description>
     </item>
   
@@ -307,7 +307,7 @@
       <title>Weekly release 2025.01.1</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-01-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#weekly-release-2025-01-1</guid>
-      <pubDate>Thu, 17 Apr 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 17 Apr 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#bug-fixed-in-2025-01-1">Bug fixed in 2025.01.1</a>]]></description>
     </item>
   
@@ -316,7 +316,7 @@
       <title>Monthly release 2025.01.0</title>
       <link>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-01-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2025/#monthly-release-2025-01-0</guid>
-      <pubDate>Thu, 10 Apr 2025 01:04:17 GMT</pubDate>
+      <pubDate>Thu, 10 Apr 2025 14:54:10 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025/#additional-use-case-selection-in-the-oin-wizard">Additional use case selection in the OIN Wizard</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#deprecated-api-endpoints-extend-grant-and-revoke-okta-support-access">Deprecated API endpoints: Extend, Grant, and Revoke Okta Support access</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#granular-configuration-for-keep-me-signed-in-is-ea-in-preview">Granular configuration for Keep Me Signed In is EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2025/#post-requests-to-the-authorize-endpoint-is-self-service-ea">POST requests to the authorize endpoint is self-service EA</a>]]></description>
     </item>
   
