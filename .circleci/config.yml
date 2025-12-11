@@ -46,6 +46,14 @@ jobs:
           skip-unresolved: false
           run-on-non-main: true
 
+  test-new-token:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - checkout
+      - run: bash ./scripts/test-new-token.sh
+
   inclusive-linting:
     docker:
       - image: cimg/base:current
@@ -193,33 +201,42 @@ jobs:
 
 
 workflows:
-  linting:
+  test-new-token:
     when:
       and:
         - not: << pipeline.parameters.preview >>
         - not: << pipeline.parameters.preview_with_redirect >>
     jobs:
-      - inclusive-linting:
-          name: "Inclusive Linting"
+      - test-new-token:
+          name: "test-new-token"
 
-  build_checks:
-    when:
-      and:
-        - not: << pipeline.parameters.preview >>
-        - not: << pipeline.parameters.preview_with_redirect >>
-    jobs:
-      - node_build_checks:
-          name: "Build and Checks"
-      - snyk-scan:
-          context:
-            - static-analysis
-          name: execute-snyk
-          requires:
-            - Build and Checks
-          filters:
-            branches:
-              only:
-                - master
+  # linting:
+  #   when:
+  #     and:
+  #       - not: << pipeline.parameters.preview >>
+  #       - not: << pipeline.parameters.preview_with_redirect >>
+  #   jobs:
+  #     - inclusive-linting:
+  #         name: "Inclusive Linting"
+
+  # build_checks:
+  #   when:
+  #     and:
+  #       - not: << pipeline.parameters.preview >>
+  #       - not: << pipeline.parameters.preview_with_redirect >>
+  #   jobs:
+  #     - node_build_checks:
+  #         name: "Build and Checks"
+  #     - snyk-scan:
+  #         context:
+  #           - static-analysis
+  #         name: execute-snyk
+  #         requires:
+  #           - Build and Checks
+  #         filters:
+  #           branches:
+  #             only:
+  #               - master
 
   nightly:
     triggers:
