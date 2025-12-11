@@ -31,7 +31,7 @@ Configuring rate limits by OAuth 2.0 app in the Admin Console:
 
 The sum of the capacity percentages for all your tokens and apps doesn’t need to equal 100%. This provides flexibility in how you manage your total rate limit pool.
 
-* If the sum is over 100%: This creates a first-come, first-serve model for the shared portion of the rate limit. For example, if two tokens each have a 75% ceiling for a bucket with a 100 requests per minute limit, the total pool for both is still capped at 100. If one token uses 75 requests in a minute, it consumes its full allocation, leaving only 25 requests available for the second token, even though that token’s individual capacity is also 75.
+* If the sum is over 100%: This creates a first-come, first-serve model for the shared portion of the rate limit. For example, if two tokens each have a 75% ceiling for a bucket with a 1000 requests per minute limit, the total pool for both is still capped at 1000. If one token uses 750 requests in a minute, it consumes its full allocation, leaving only 250 requests available for the second token, even though that token’s individual capacity is also 750.
 
 * If the sum is under 100%: This effectively creates a reserved buffer. For example, if two tokens each have a 40% capacity, the remaining 20% of the org-wide limit is held in reserve and can't be consumed by these specific clients. This can be a useful strategy for ensuring there’s always capacity for unassigned tokens or unanticipated traffic.
 
