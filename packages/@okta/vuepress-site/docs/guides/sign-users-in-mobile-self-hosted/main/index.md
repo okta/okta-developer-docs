@@ -1,53 +1,70 @@
-Implementing Self-Hosted Authentication in iOS with Okta DirectAuth
+---
+title: Sign users in to a mobile app with a self-hosted sign-in page
+excerpt: Learn how to sign users in to your mobile app using a self-hosted sign-in page and the Okta Client SDK.
+layout: Guides
+---
 
-Sign users in to your mobile app with a self-hosted sign-in page
+Add authentication to your mobile app using a self-hosted sign-in page and the Okta Client SDK.
 
+---
 
+#### Learning outcomes
 
+* Configure your Okta orga for password-based direct authentication.
+* Set up an iOS project with the necessary Okta SDKs.
+* Build a credential manager to handle authentication state.
+* Create a SwiftUI interface for username/password sign-in flows.
+* Implement token refresh and session management.
 
+#### What you need
 
-Building a streamlined authentication experience is essential for modern iOS applications. While multi-factor authentication provides enhanced security, many applications start with a simpler approach: username and password authentication. With Okta's DirectAuth SDK, you can implement a fully native, password-based sign-in flow that keeps users within your app while still leveraging Okta's robust identity platform.
-In this tutorial, you'll learn how to:
-Configure your Okta organization for password-based DirectAuth
-Set up an iOS project with the necessary Okta SDKs
-Build a credential manager to handle authentication state
-Create a SwiftUI interface for username/password sign-in
-Implement token refresh and session management
-Prerequisites: This guide assumes familiarity with Xcode, Swift, and basic iOS development concepts.
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
+* Familiarity with Xcode, Swift, and basic iOS development concepts
 
-Understanding Okta DirectAuth for Password Authentication
-DirectAuth enables your iOS app to authenticate users directly through Okta's APIs without browser-based flows. This means your app maintains complete control over the UI and user experience while Okta handles the security and token management behind the scenes.
+---
+
+## Overview
+
+Building a streamlined authentication experience is essential for modern iOS apps. While multifactor authentication provides enhanced security, many apps start with a simpler approach, such as username and password authentication. With the Okta ??DirectAuth SDK??, you can implement a fully native, password-based sign-in flow that keeps users within your app while still leveraging the Okta identity platform.
+
+## Understand Okta direct authentication for password authentication
+
+Direct authenication enables your iOS app to authenticate users directly through the Okta APIs without browser-based flows. This means your app maintains complete control over the UI and user experience while Okta handles the security and token management behind the scenes.
+
 For password-only authentication, the flow is straightforward:
-User enters credentials in your native UI
-Your app sends credentials to Okta via DirectAuth
-Okta validates the credentials and returns OAuth tokens
-Your app securely stores these tokens for API access
-This approach works well for internal applications, rapid prototyping, or scenarios where you want to add MFA capabilities later without restructuring your codebase.
 
-Configuring Your Okta Organization
-Before diving into code, you need to set up your Okta tenant to support DirectAuth with password authentication.
-Create Your Okta Developer Account
-If you don't have an Okta account yet, sign up for a free Okta Developer account. Once registered, log into your Admin Console.
+1. User enters credentials in your native UI.
+1. Your app sends credentials to Okta through direct authentication.
+1. Okta validates the credentials and returns OAuth 2.0 tokens.
+1. Your app securely stores these tokens for API access.
 
-Set Up a Native Application
-Navigate to Applications → Applications in your Admin Console and follow these steps:
-Click Create App Integration
-Select OIDC - OpenID Connect as the sign-in method
-Choose Native Application as the application type
-Click Next
-Configure your application settings:
-App integration name: iOS DirectAuth Password Demo
-Grant type: Ensure "Authorization Code" is checked
-Sign-in redirect URIs: com.okta.{yourOktaDomain}:/callback
-Sign-out redirect URIs: com.okta.{yourOktaDomain}:/
-Replace {yourOktaDomain} with your actual Okta domain (e.g., dev-123456.okta.com)
-In the Controlled access section, choose your preferred access control
-Click Save
-After saving, note your Client ID — you'll need this later.
+This approach works well for internal apps, rapid prototyping, or scenarios where you want to add MFA capabilities later without restructuring your codebase.
 
-Configure Your Authorization Server
+## Configure your Okta org
+
+Before diving into code, you need to set up your Okta tenant to support direct authentication with password authentication.
+
+### Set up a native app
+
+1. Go to **Applications** > **Applications** in your Admin Console.
+1. Click **Create App Integration**.
+1. Select **OIDC - OpenID Connect** as the sign-in method.
+1. Choose **Native Application** as the application type.
+1. Click **Next**.
+1. Configure your app settings:
+    * **App integration name**: iOS Password Mobile Self-Hosted
+    * **Grant type**: Ensure that **Authorization Code** is selected
+    * **Sign-in redirect URIs**: `com.okta.{yourOktaDomain}:/callback`
+    * **Sign-out redirect URIs**: `com.okta.{yourOktaDomain}:/`
+    > **Note**: Replace `{yourOktaDomain}` with your actual Okta domain, such as, `dev-123456.okta.com`.
+1. In the Controlled access section, choose your preferred access control
+1. Click **Save**, and note the Client ID, you need this later.
+
+### Configure your authorization server
+
 To enable password-based authentication:
-Navigate to Security → API → Authorization Servers
+
+1. Go to Security → API → Authorization Servers
 Select your authorization server (typically default)
 Click the Access Policies tab
 Verify or create an access policy:

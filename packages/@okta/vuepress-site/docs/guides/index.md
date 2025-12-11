@@ -108,6 +108,7 @@ guides:
  - sign-into-mobile-app-embedded
  - sign-into-spa-redirect
  - sign-into-web-app-redirect
+ - sign-users-in-mobile-self-hosted
  - sign-users-out
  - sign-your-own-saml-csr
  - social-login
