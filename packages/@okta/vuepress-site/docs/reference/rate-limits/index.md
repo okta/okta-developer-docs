@@ -57,9 +57,9 @@ When a request is made, Okta’s algorithm attempts to match the HTTP method (GE
 
   For example, consider the following two buckets:
 
-  * `/oauth2/{authorizationServerId}/v1/*` for Exact Match type for all HTTP operations
+  * `/oauth2/{authorizationServerId}/v1/authorize` for Exact Match type for all HTTP operations
 
-  * `/oauth2/{authorizationServerID}/v1/authorize` for Longest Match type for all HTTP operations.
+  * `/oauth2/{authorizationServerID}/v1/*` for Longest Match type for all HTTP operations.
 
 After a request has been matched, the counters for the impacted buckets are updated. If the counter nears the quota for that bucket, a warning event is generated in the System Log and an email notification is sent to super admins. Okta allows you to configure this warning threshold in the **Admin Dashboard** > **Reports** > **Rate Limits** > **Settings** section. If the counter exceeds the bucket's quota, then a violation event is written to the System Log and an email notification is also sent. Additional requests are rejected with an HTTP 429 Too Many Requests response until the counter resets.
 
