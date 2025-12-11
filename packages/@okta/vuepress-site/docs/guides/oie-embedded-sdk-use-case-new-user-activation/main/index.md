@@ -304,12 +304,17 @@ curl -v -X POST \
 
 ```json
 {
-  "activationUrl": "https://{yourOktaDomain}/welcome/XE6wE17zmphl3KqAPFxO",
+  "activationUrl": "https://{yourOktaDomain}/tokens/XE6wE17zmphl3KqAPFxO/verify",
   "activationToken": "XE6wE17zmphl3KqAPFxO"
 }
 ```
 
 The activation token is returned in the `activationToken` property.
+
+> **Note:** The `activationUrl` varies depending on if you are on a Classic or Identity Engine org.
+>
+> * For Identity Engine orgs, the activation link is in the format: `https://{yourOktaDomain}/tokens/{activationToken}/verify`
+> * For Classic orgs, the activation link is in the format: `https://{yourOktaDomain}/welcome/{activationToken}`
 
 #### Prove user ownership of the mail
 
