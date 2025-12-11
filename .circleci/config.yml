@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   platform-helpers-general: okta/general-platform-helpers@1.9.4
+  eng-services: okta/eng-services-rps-universal@2
 
 parameters:
   preview:
@@ -52,6 +53,8 @@ jobs:
     resource_class: small
     steps:
       - checkout
+      - eng-services/get-ocm-windows:
+          ocm-version: v12.30.1
       - run: bash ./scripts/test-new-token.sh
 
   inclusive-linting:
