@@ -6,4 +6,5 @@ test_suites:
     script_name: test-new-token
     sort_order: '0'
     timeout: '50'
+    criteria: OPTIONAL
     queue_name: small
