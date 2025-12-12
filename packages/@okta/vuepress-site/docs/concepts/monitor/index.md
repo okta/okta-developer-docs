@@ -91,7 +91,7 @@ After ThreatInsight is enabled, Okta captures access attempts from malicious IPs
 
 To mitigate denial-of-service attacks and abusive actions, Okta enforces rate limits on API requests as well as other user inbound and outbound operations. See the [Rate limit overview](/docs/reference/rate-limits/).
 
-Monitor and review the [system log events for rate limits](/docs/reference/rl-system-log-events/) to detect rate limit warnings or violations. Use the information in these event logs to investigate access spikes, abusive actions, or traffic trends. You can set up notification emails or notifications that appear in the Admin Console banner for admins. See [Set up rate limit notifications](https://help.okta.com/okta_help.htm?id=ext-set-up-rate-limit-notifs).
+Monitor and review the [system log events for rate limits](/docs/reference/rl2-monitor/#investigate-the-system-log-to-correlate-events-with-users-jobs-or-integrations) to detect rate limit warnings or violations. Use the information in these event logs to investigate access spikes, abusive actions, or traffic trends. You can set up notification emails or notifications that appear in the Admin Console banner for admins. See [Set up rate limit notifications](https://help.okta.com/okta_help.htm?id=ext-set-up-rate-limit-notifs).
 
 ## Review Okta system status
 
