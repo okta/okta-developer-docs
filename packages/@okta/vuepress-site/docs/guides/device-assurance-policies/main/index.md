@@ -89,7 +89,7 @@ In this example, you update the policy to enable and configure a grace period.
 
 ### About grace period and remediation
 
-Grace period for device assurance allows you to define a temporary window during which non-compliant devices can still access resources. This gives users time to remediate issues without being locked out, balancing productivity with security standards.
+[Grace period](/docs/concepts/policies/#grace-periods) for device assurance allows you to define a temporary window during which non-compliant devices can still access resources. This gives users time to remediate issues without being locked out, balancing productivity with security standards.
 
 You can use grace periods to hide or show remediation instructions in the Sign-In Widget:
 
