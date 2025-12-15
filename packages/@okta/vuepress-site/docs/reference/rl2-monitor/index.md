@@ -150,7 +150,7 @@ Clicking a bucket in the rate limit bucket (APIs) table takes you to a deep-dive
 
 * Timeline graph: Allows you to compare traffic for the same endpoint across multiple days to spot recurring spikes. Defaults to **Today** but can go back 7 days.
 
-* Bar graph: shows the top 10 IP addresses, API tokens, or OAuth 2.0 apps that consume the most traffic for that API.
+* Bar graph: Shows the top 10 IP addresses, API tokens, or OAuth 2.0 apps that consume the most traffic for that API.
 
 ## Troubleshoot your rate limits
 
