@@ -37,7 +37,7 @@ This event is fired when a specific client, IP address, or device identifier com
 * [`system.client.concurrency_rate_limit.violation`](/docs/reference/api/event-types/?q=system.client.concurrency_rate_limit.violation)<br>
 This event is fired when a specific client, IP address, or device identifier combination makes more than five concurrent requests. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
 
-If the framework is in **Log per client** mode, the following events will fire:
+If the framework is in **Log per client** mode, the following events fire:
 
 * [`system.client.rate_limit.notification`](/docs/reference/api/event-types/?q=system.client.rate_limit.notification)<br>
 This event is fired when a specific client, IP address, or device identifier combination exceeds the total limit of 60 requests per minute. However, the user doesn't see a rate limit violation. Okta fires only a `notification` System Log event. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
