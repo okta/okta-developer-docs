@@ -148,7 +148,7 @@ Clicking a bucket in the rate limit bucket (APIs) table takes you to a deep-dive
 
 * Line graph: shows the total number of requests within a one-minute window and the number of unique IPs over the past hour for the bucket if the Total Requests and # of Unique IPs toggle buttons are enabled. If an IP address is selected in the bar graph, the line graph also shows the traffic from that IP address. Hovering over the line graph shows you the number of requests and the number of unique IPs in the past hour.
 
-* Timeline graph: It allows you to compare traffic for the same endpoint across multiple days to spot recurring spikes. Defaults to **Today** but can go back 7 days.
+* Timeline graph: Allows you to compare traffic for the same endpoint across multiple days to spot recurring spikes. Defaults to **Today** but can go back 7 days.
 
 * Bar graph: shows the top 10 IP addresses, API tokens, or OAuth 2.0 apps that consume the most traffic for that API.
 
