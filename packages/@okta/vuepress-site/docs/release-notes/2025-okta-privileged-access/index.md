@@ -6,6 +6,17 @@ title: Okta Privileged Access API release notes 2025
 
 Okta Privileged Access (OPA) is available for both Okta Classic and Identity Engine.
 
+## December
+<!-- December 17, 2025 -->
+## Weekly release 2025.12.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.12.1](#bugs-fixed-in-2025-12-1)| December 17, 2025 |
+
+#### Bugs fixed in 2025.12.1
+
+
 ## November
 
 ### Weekly release 2025.11.2
