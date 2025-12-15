@@ -22,9 +22,9 @@ For example, there may be a bucket for `/oauth2/api/v1/authorize` with a quota o
 
 There are two other types of scopes that can apply to a bucket:
 
-* Authenticated users: applies to users acting on the Admin or End-User Dashboard, and aren’t nested under any other bucket
+* Authenticated users: Applies to users acting on the Admin or End-User Dashboard, and aren’t nested under any other bucket
 
-* Non-authenticated users: applies to endpoints that take a username and password, and are always nested under a bucket
+* Non-authenticated users: Applies to endpoints that take a username and password, and are always nested under a bucket
 
 Buckets scoped to authenticated users are independent and not nested under any other bucket. That is, requests made by authenticated users to APIs covered by these buckets don't count under any other bucket. For example, there exists a bucket with org-wide scope for `/api/v1/users/*` with a quota of 1000 requests per minute and a separate bucket for `/api/v1/users/me` scoped to authenticated users with a quota of 40 requests per 10 seconds. A request to `/api/v1/users/me` by an authenticated user would decrement the authenticated user bucket to 39 remaining calls, while leaving the `/api/v1/users/*` bucket untouched. This ensures that authenticated users are able to call these APIs regardless of activity by other clients.
 
