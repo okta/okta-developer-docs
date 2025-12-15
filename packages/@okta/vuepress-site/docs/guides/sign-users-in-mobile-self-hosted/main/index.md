@@ -25,7 +25,7 @@ Add authentication to your mobile app using a self-hosted sign-in page and the O
 
 ## Overview
 
-Building a streamlined authentication experience is essential for modern iOS apps. While multifactor authentication provides enhanced security, many apps start with a simpler approach, such as username and password authentication. With the Okta ??DirectAuth SDK??, you can implement a fully native, password-based sign-in flow that keeps users within your app while still leveraging the Okta identity platform.
+Building a streamlined authentication experience is essential for modern iOS apps. While multifactor authentication provides enhanced security, many apps start with a simpler approach, such as username and password authentication. With the Okta Client SDK, you can implement a fully native, password-based sign-in flow like direct authentication. This keeps users within your app while still leveraging the Okta identity platform.
 
 ## Understand Okta direct authentication for password authentication
 
@@ -57,63 +57,73 @@ Before diving into code, you need to set up your Okta tenant to support direct a
     * **Sign-in redirect URIs**: `com.okta.{yourOktaDomain}:/callback`
     * **Sign-out redirect URIs**: `com.okta.{yourOktaDomain}:/`
     > **Note**: Replace `{yourOktaDomain}` with your actual Okta domain, such as, `dev-123456.okta.com`.
-1. In the Controlled access section, choose your preferred access control
-1. Click **Save**, and note the Client ID, you need this later.
+1. In the **Assignments** > **Controlled access** section, choose your preferred access control.
+1. Click **Save** and note the Client ID, you need this later.
 
 ### Configure your authorization server
 
 To enable password-based authentication:
 
-1. Go to Security → API → Authorization Servers
-Select your authorization server (typically default)
-Click the Access Policies tab
-Verify or create an access policy:
-If no policies exist, click Add New Access Policy
-Name it Password Auth Policy
-Set Assign to → All clients
-Click Create Policy
-Add a rule to your policy:
-Click Add Rule
-Name: Password Grant Rule
-Grant type is: Select Resource Owner Password
-User is: Any user assigned the app
-Scopes requested: Any scopes
-Click Create Rule
-Next navigate to Applications -> iOS Direct Auth Password Demo
-Under Sign On scroll down to the bottom and find Authentication policy 
-Edit that per your needs, for the purpose of the demo we will use a Single Factor password.
-Important: The Resource Owner Password grant type must be enabled for DirectAuth password flows to work.
-Setting Up Your iOS Project
-Now that your Okta org is configured, let's create the iOS application.
-Create a New Xcode Project
-Open Xcode
-Select File → New → Project
-Choose iOS → App and click Next
-Configure your project:
-Product Name: OktaPasswordAuth
-Interface: SwiftUI
-Language: Swift
-Click Next and save your project
-Add Okta SDK Dependencies
-We'll use Swift Package Manager to add the Okta Mobile SDK:
-In Xcode, go to File → Add Package Dependencies
-Enter the repository URL: https://github.com/okta/okta-mobile-swift
-Click Add Package
-When prompted to choose products, select:
-OktaDirectAuth 
-AuthFoundation
-Ensure both are added to your app target
-Click Add Package
+1. Go to **Security** > **API**.
+1. Select the authorization server that you want to use for this sign-in flow.
+1. Click the **Access Policies** tab.
+1. Verify or create an access policy:
+    * If no policies exist, click **Add Policy**.
+    * Name the policy and give it a description.
+    * Assign the policy to **All clients**.
+    * Click **Create Policy**.
+1. Add a rule to your policy:
+    * Click **Add rule**.
+    * Name the policy rule.
+    * In the **IF Grant type is** section, click **Advanced** and select **Resource Owner Password**.
+    * Leave the **Any user assigned the app** default for **AND User is**.
+    * Leave the **Any scopes** default for **AND Scopes requested**.
+    * Click **Create rule**.
+1. Go to **Applications** > **Applications** and select the app you just created.
+1. Select the **Sign On** tab (or **Authentication**, depending on your org configuration) and scroll down to the **User authentication** section.
+1. For this example, select **Password only**.
 
+> **Caution:** You must enable the Resource Owner Password grant type for the direct authentication password flows to work.
 
-Create the Okta Configuration File
-Rather than hardcoding configuration values, we'll use a property list file:
-Right-click your project's root folder
-Select New File From Template
-Choose Property List and click Next
-Name it Okta.plist
-Click Create
-Right-click Okta.plist, select Open As → Source Code, and paste the following:
+## Setting up your iOS project
+
+Now that you have configured your Okta org, create the iOS app.
+
+### Create an Xcode project
+
+1. Open Xcode and select **File** > **New** > **Project**.
+1. Choose **iOS** > **App**, and then click **Next**.
+1. Configure your project:
+    * **Product Name**: `OktaPasswordAuth`
+    * **Interface**: `SwiftUI`
+    * **Language**: Swift
+1. Click **Next** and save your project.
+
+### Add Okta SDK Dependencies
+
+Use Swift Package Manager to add the Okta Mobile SDK:
+
+1. In Xcode, go to **File** > **Add Package Dependencies**.
+1. Enter the repository URL: `https://github.com/okta/okta-mobile-swift`.
+1. Click **Add Package**.
+1. When prompted to choose products, select the following dependencies:
+    * `OktaDirectAuth`
+    * `AuthFoundation`
+1. Ensure that both are added to your app target.
+1. Click **Add Package**.
+
+### Create the Okta Configuration File
+
+Rather than hardcoding configuration values, use a property list file:
+
+1. Right-click your project's root folder.
+1. Select **New File From Template**.
+1. Choose **Property List** and click **Next**.
+1. Name the property file **Okta.plist**.
+1. Click **Create**.
+1. Right-click **Okta.plist**, select **Open As** > **Source Code**, and paste the following xml:
+
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -130,17 +140,20 @@ Right-click Okta.plist, select Open As → Source Code, and paste the following:
     <string>com.okta.{yourOktaDomain}:/</string>
 </dict>
 </plist>
+```
 
-Replace {yourOktaDomain} and {yourClientID} with your actual values from the Okta Admin Console.
+1. Replace `{yourOktaDomain}` and `{yourClientID}` with the actual values from the app that you created in a previous step.
 
+## Building the authentication service
 
+With the setup complete, implement the core authentication logic and create a service layer that handles all interactions with the Okta DirectAuth API.
 
+### Understanding the AuthService architecture
 
-Building the Authentication Service
-With the setup complete, let's implement the core authentication logic. We'll create a service layer that handles all interactions with Okta's DirectAuth API.
-Understanding the AuthService Architecture
-The AuthService is the heart of our authentication system. It serves as a centralized layer that manages the entire authentication lifecycle, from initial sign-in to session maintenance. By encapsulating all authentication logic in a single service, we achieve several important goals:
-Separation of Concerns: The service isolates authentication logic from UI code, making both easier to test and maintain. Your SwiftUI views don't need to know how DirectAuth works—they simply call methods like authenticate() or logout().
+The `AuthService` is the heart of our authentication system. It serves as a centralized layer that manages the entire authentication lifecycle, from the initial sign-in flow to session maintenance. By encapsulating all authentication logic in a single service, we achieve several important goals:
+
+**Separation of concerns:** The service isolates authentication logic from UI code, making both easier to test and maintain. Your SwiftUI views don't need to know how DirectAuth works-they simply call methods like authenticate() or logout().
+
 State Management: The service maintains the current authentication state (idle, authenticating, authenticated, or error), allowing your UI to react appropriately. This state-driven approach makes it easy to show loading indicators, error messages, or authenticated content.
 Security Best Practices: All token handling and storage is managed through the service, ensuring credentials are stored securely in the iOS keychain via AuthFoundation. Your UI never directly touches sensitive data.
 Testability: By defining a protocol (AuthServicing), you can easily create mock implementations for unit testing your views without making actual network calls to Okta.
