@@ -51,7 +51,7 @@ The logic behind the Okta implementation of rate limits can be summarized in the
 
 When a request is made, Okta’s algorithm attempts to match the HTTP method (GET, POST, and so on.) request with a configured rate limit bucket. The most specific configuration always wins. There are two commonly used matches:
 
-* Exact match: the endpoint requested matches exactly to the configured rate limit bucket. The matching algorithm processes all exact match endpoints first.
+* Exact match: The endpoint requested matches exactly to the configured rate limit bucket. The matching algorithm processes all exact match endpoints first.
 
 * Longest Match: If no exact match is found, the endpoint requested matches the prefix URL of one or more configured rate limit buckets. In this case, the Longest Match is used.
 
