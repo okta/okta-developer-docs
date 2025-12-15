@@ -138,7 +138,7 @@ Clicking a bucket in the rate limit bucket (APIs) table takes you to a deep-dive
 
 * Rate limit: The rate limit for this bucket per minute for your org. If the traffic hits the rate limit for your org, the system triggers a rate limit violation. Hovering over the information icon displays multipliers applied or purchased.
 
-* Latest usage: this is the current percentage of the rate limit consumed for this bucket (this includes all endpoints for a given bucket).
+* Latest usage: This is the current percentage of the rate limit consumed for this bucket (this includes all endpoints for a given bucket).
 
 * Average usage: This is the percentage of the rate limit consumed for this API within the last 24 hours and the last hour.
 
