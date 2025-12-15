@@ -13,7 +13,7 @@ By default, burst rate limits are:
 * Extended a 5x multiplier
 * Conditional on excess capacity available
 
- When a bucket’s default rate limit is exceeded, Okta sends warning, burst, and violation events to the System Log and through email notification (one per hour). For example, if the default rate limit is 600 requests per minute for the org-scoped bucket `/api/v1/authn`. Then at 360 requests per minute, Okta would transmit a warning event (assuming the warning threshold is set at 60%), a burst event at 601 requests per minute, and a violation event at 3000 requests per minute, all in the same minute.
+ When a bucket’s default rate limit is exceeded, Okta sends warning, burst, and violation events to the System Log and through email notification (one per hour). For example, the default rate limit is 600 requests per minute for the org-scoped bucket `/api/v1/authn`. Then at 360 requests per minute, Okta would transmit a warning event (assuming the warning threshold is set at 60%), a burst event at 601 requests per minute, and a violation event at 3000 requests per minute, all in the same minute.
 
 Burst rate limits can also be viewed on the [Rate limit dashboard](/docs/reference/rl2-monitor/#rate-limit-dashboard). Review the rate limit usage for each bucket on this view.
 
