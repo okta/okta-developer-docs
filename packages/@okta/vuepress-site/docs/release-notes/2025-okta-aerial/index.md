@@ -12,6 +12,17 @@ These release notes list customer-visible changes to the Okta Aerial API. Okta A
 
 See also [Introduction to the Okta Aerial API](https://developer.okta.com/docs/api/openapi/aerial/guides/overview/).
 
+## December 2025
+<!-- December 17, 2025 -->
+### Okta Identity Engine and Okta Classic Engine 2025.12.1
+
+ Change | Expected in Aerial services preview | Expected in Aerial services production |
+|--------|-----------------------------| -----------------------------|
+| [Okta Aerial is GA](#okta-aerial-is-ga)| November 4, 2025 | November 10, 2025 |
+
+
+
+
 ## November 2025
 
 ### Monthly release

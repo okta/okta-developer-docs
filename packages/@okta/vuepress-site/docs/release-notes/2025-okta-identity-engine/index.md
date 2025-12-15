@@ -7,6 +7,16 @@ title: Okta Identity Engine API release notes 2025
 # Okta Identity Engine API release notes (2025)
 
 ## December
+<!-- December 17, 2025 -->
+## Weekly release 2025.12.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.12.1](#bugs-fixed-in-2025-12-1)| December 17, 2025 |
+
+#### Bugs fixed in 2025.12.1
+
+
 <!-- December 10, 2025 -->
 ### Monthly release 2025.12.0
 
