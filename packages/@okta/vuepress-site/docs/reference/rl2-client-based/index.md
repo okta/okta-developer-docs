@@ -90,7 +90,7 @@ This setting can be changed by going to the Admin Console:
 
 ### Monitor and take action
 
-When enforcement is active, you monitor the System Log for the following events:
+When enforcement is active, monitor the System Log for the following events:
 
 * `system.client.rate_limit.violation`
 
