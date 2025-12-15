@@ -63,7 +63,7 @@ See also: [Standard administrator roles and permissions](https://help.okta.com/o
 The **Overview** tab is your monitoring hub. Use it to scan for issues or drill into specifics.
 
 * Event graphs: Visualize warnings, bursts, and violations over time.
-* Top offenders: A bar graph shows the top five APIs with the most rate limit events
+* Top offenders: A bar graph shows the top five APIs with the most rate limit events.
 * Rate limit bucket (APIs) table: Each bucket is listed with current rate limits (including overrides and multipliers), recent events, and a usage trend line for the last hour
 
 You can hover to reveal detailed data points, click on a rate limit bucket to see deeper metrics and historical usage, or filter by time period, multiplier status, or event type.
