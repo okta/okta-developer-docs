@@ -46,7 +46,7 @@ What you can do here:
 
 Who has access:
 
-The rate limit dashboard can be accessed through the Admin Console: **Reports** > **Rate Limits**. Only the following administrative roles can access this dashboard:
+The rate limit dashboard can be accessed through the Admin Console: **Reports** > **Rate Limits**. Only the following administrator roles can access this dashboard:
 
 * App Admin (`APP_ADMIN`)
 * Mobile Admin (`MOBILE_ADMIN`)
