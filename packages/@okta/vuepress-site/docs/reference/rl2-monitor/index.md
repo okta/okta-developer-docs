@@ -140,7 +140,7 @@ Clicking a bucket in the rate limit bucket (APIs) table takes you to a deep-dive
 
 * Latest usage: this is the current percentage of the rate limit consumed for this bucket (this includes all endpoints for a given bucket).
 
-* Average usage: this is the percentage of the rate limit consumed for this API within the last 24 hours and the last hour.
+* Average usage: This is the percentage of the rate limit consumed for this API within the last 24 hours and the last hour.
 
 * Impact: The amount of time that the org is affected by a rate limit violation on this API. The impact time is the remainder of the one-minute interval after your org hits the rate limit. For example, if your org hits the rate limit 40 seconds into the one-minute interval, then the impact time is 20 seconds for that API.
 
