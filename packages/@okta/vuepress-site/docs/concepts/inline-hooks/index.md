@@ -171,7 +171,7 @@ When Okta calls an external service, it enforces a default timeout of three seco
 
 ### Inline hooks and concurrent rate limits
 
-The Okta process flow that triggered the inline hook remains in progress until a response from your external service is received. For process flows initiated by calls to Okta APIs, slow processing times by your external service can cause open API transactions to accumulate. That accumulation can potentially cause you to exceed [Concurrent Rate Limits](/docs/reference/rl-additional-limits/#concurrent-rate-limits).
+The Okta process flow that triggered the inline hook remains in progress until a response from your external service is received. For process flows initiated by calls to Okta APIs, slow processing times by your external service can cause open API transactions to accumulate. That accumulation can potentially cause you to exceed [Concurrent Rate Limits](/docs/reference/rl2-concurrency/).
 
 > **Note:** Concurrent inline hook rate limits are based on your Okta org type.
 

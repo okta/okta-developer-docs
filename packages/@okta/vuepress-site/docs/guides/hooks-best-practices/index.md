@@ -84,7 +84,7 @@ Your external service that processes hook requests must consider that the order 
 |            | Maximum number of event hooks per org | 25 | A maximum of 25 active event hooks can be configured per org. You can configure each event hook to deliver multiple event types. |
 | Inline hook | Timeout | 3 seconds | Inline hooks have a completion timeout of three seconds with a single retry. However, a request isn't retried if your endpoint returns a 4xx HTTP error code. Any 2xx code is considered successful, and the request isn’t retried. If the external service endpoint responds with a redirect, it isn't followed. |
 |             | Maximum number of inline hooks per org | 100 | The maximum number of inline hooks that you can configure per org is 100, which is a total for any combination of inline hook types. |
-|             | Concurrent rate limit | Variable | The maximum number of inline hooks that can be sent concurrently based on org type. See [Concurrent rate limits](/docs/reference/rl-additional-limits/#concurrent-rate-limits).|
+|             | Concurrent rate limit | Variable | The maximum number of inline hooks that can be sent concurrently based on org type. See [Concurrent rate limits](/docs/reference/rl2-concurrency/).|
 
 ## Troubleshoot your hook implementations
 

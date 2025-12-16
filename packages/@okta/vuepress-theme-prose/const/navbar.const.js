@@ -1141,38 +1141,37 @@ export const reference = [
         path: "/docs/reference/rate-limits/",
         subLinks: [
           {
-            title: "Rate limit dashboard",
-            path: "/docs/reference/rl-dashboard/",
-          },
-          {
-            title: "Authentication and end-user rate limits",
-            path: "/docs/reference/rl-global-enduser/",
-          },
-          {
-            title: "Management rate limits",
-            path: "/docs/reference/rl-global-mgmt/",
-          },
-
-          {
-            title: "Additional limits",
-            path: "/docs/reference/rl-additional-limits/",
-          },
-          {
-            title: "Rate limit best practices",
-            path: "/docs/reference/rl-best-practices/",
+            title: "Token and OAuth 2.0 app rate limits",
+            path: "/docs/reference/rl2-token-oauth/",
           },
           {
             title: "Client-based rate limits",
-            path: "/docs/reference/rl-clientbased/",
+            path: "/docs/reference/rl2-client-based/",
           },
           {
-            title: "DynamicScale",
-            path: "/docs/reference/rl-dynamic-scale/",
+            title: "Burst rate limits",
+            path: "/docs/reference/rl2-burst/",
+          },
+          {
+            title: "Concurrency rate limits",
+            path: "/docs/reference/rl2-concurrency/",
+          },
+          {
+            title: "Monitor and troubleshoot rate limits",
+            path: "/docs/reference/rl2-monitor/",
+          },
+          {
+            title: "Increase your rate limits",
+            path: "/docs/reference/rl2-increase/",
+          },
+          {
+            title: "Additional Rate limits",
+            path: "/docs/reference/rl2-limits/",
           },
           {
             title: "System Log events for rate limits",
-            path: "/docs/reference/rl-system-log-events/"
-          },
+            path: "/docs/reference/rl-system-log-events/",
+          }
         ]
       },
       { title: "SSF Transmitter SET payload structures", path: "/docs/reference/ssf-transmitter-sets/" },
