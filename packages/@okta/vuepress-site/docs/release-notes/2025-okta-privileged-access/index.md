@@ -8,14 +8,24 @@ Okta Privileged Access (OPA) is available for both Okta Classic and Identity Eng
 
 ## December
 <!-- December 17, 2025 -->
-## Weekly release 2025.12.1
+### Weekly release 2025.12.1
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Bugs fixed in 2025.12.1](#bugs-fixed-in-2025-12-1)| December 17, 2025 |
+| [New local group management options for AD accounts](#new-local-group-management-options-for-ad-accounts) | December 17, 2025 |
+| [Enhanced filtering for Security Policy API is GA in Preview](#enhanced-filtering-for-security-policy-api-is-ga-in-preview) | December 17, 2025 |
 
-#### Bugs fixed in 2025.12.1
+#### New local group management options for AD accounts
 
+The [Security Policy API](https://developer.okta.com/docs/api/openapi/opa/opa/tag/security-policy/#tag/security-policy) now supports coarse-grained control over the local group membership of Active Directory (AD) accounts on target hosts. The newly introduced parameters `admin_level_permissions` and `remote_access_permissions` can be used to configure policy rules to grant or omit specific local group memberships, aligning with the new coarse-grained controls available in the Okta Privileged Access dashboard.
+
+<!-- OKTA-907971 Preview date: December 17, 2025 -->
+
+#### Enhanced filtering for Security Policy API is GA in Preview
+
+Admins can now filter the [List all security policies](https://developer.okta.com/docs/api/openapi/opa/opa/tag/security-policy/#tag/security-policy/operation/ListSecurityPolicies) operation using the new parameter `contains`. This parameter filters and limits the results to policies where the name or description matches the provided search string.
+
+<!-- OKTA-1056656 Preview date: December 17, 2025 -->
 
 ## November
 
