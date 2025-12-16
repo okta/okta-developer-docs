@@ -6,7 +6,8 @@ meta:
 layout: Guides
 ---
 
-This guide details how to automate copying custom branding settings&mdash;including themes, email content, and error page HTML&mdash;from an Okta test environment to a live production environment.
+
+This guide details how to automate copying custom branding settings&mdash;including CSS, email content, and error page HTML&mdash;from an Okta test environment to a live production environment.
 
 #### Learning outcomes
 
@@ -15,6 +16,7 @@ Configure and run a brand customization synchronization from a test or preview e
 #### What you need
 
 * A branded Okta test or preview org and a production Okta org
+
 * Automated tooling (Terraform provider, PowerShell module, or Okta CLI client)
 * Okta Terraform provider 4.9.1 or later (for Terraform users)
 * PowerShell 7.0+ and Okta.PowerShell module v2.0.2+ (for PowerShell users)
@@ -31,6 +33,13 @@ This guide assumes that you have already registered and verified separate custom
 * The Okta Management API doesn't provide endpoints to customize the generic, system-generated SMS messages (such as those used for MFA codes). This functionality remains limited to the Admin Console interface.
 * Themes cannot be created or deleted programmatically - each brand automatically receives exactly one theme that can only be read and updated.
 * Custom error page HTML content cannot be modified when multibrand customization is enabled in your org.
+
+## Prerequisites and tool setup
+
+This guide assumes that you have already registered and verified separate custom domains for your test and production environments (for example, `test.example.com` and `portal.example.com`). Okta also assumes that your Terraform or CLI tools are fully authenticated and configured.
+
+**New to these tools?** If you haven’t configured authentication or installed the necessary SDKs (Terraform provider, PowerShell module, Okta Go CLI), refer to the introductory guides on the respective GitHub repositories before proceeding.
+
 
 ### Terraform environment setup
 
@@ -187,6 +196,7 @@ try {
 
 Your OAuth access token can be obtained using the client credentials flow with your service app credentials. Set environment variables to switch between test and production environments.
 
+
 ```bash
 # Set variables for test environment
 export OKTA_ORG_URL="https://dev-test.oktapreview.com"
@@ -294,7 +304,7 @@ $CustomErrorPageHTML = @'
 
 ## Synchronize branding metadata
 
-This section shows how to manage brands in each target environment. You can either work with the existing default brand or create new custom brands (if multibrand is enabled).
+This step ensures that the core brand object exists and is correctly linked to the custom domain of the target environment (test or production).
 
 ### Terraform: Option 1 - Customize existing default brand
 
@@ -544,7 +554,7 @@ echo "Theme updated successfully"
 
 ## Apply email template customization
 
-Synchronizes email template content across environments.
+Synchronizes the email content (defined in section [Define reusable branding content](#define-resuable-branding-content)) for key templates.
 
 ### Terraform
 
