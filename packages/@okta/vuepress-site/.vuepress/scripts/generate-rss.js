@@ -61,7 +61,7 @@ function formatRowsFirstColumnOnlyWithBr(tableRows) {
 }
 
 function extractPublishedDate(section) {
-  const match = section.match(/<!--\s*Published on:\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})\s*-->/);
+  const match = section.match(/<!--\s*Published on:\s*([0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z)\s*-->/);
   if (match && match[1]) {
     const date = new Date(match[1]);
     if (!isNaN(date.getTime())) {
@@ -70,7 +70,6 @@ function extractPublishedDate(section) {
   }
   return null;
 }
-
 // Helper to create anchor with hyphens for spaces and numbers, and lowercase first letter
 function createAnchor(title) {
   let anchor = title
@@ -133,6 +132,9 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
   // Sort releases by their original order in markdown
   const releases = releasesRaw.sort((a, b) => a.idx - b.idx);
 
+  // Get the pubDate of the first item (after sorting)
+  const firstItemDate = releases.length > 0 ? releases[0].pubDate : new Date();
+
   const rssItems = releases.map(rel => `
     <item>
       <title>${rel.title}</title>
@@ -143,14 +145,14 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
     </item>
   `).join('\n');
 
-  const now = new Date();
+  // Use the first item's pubDate for the channel pubDate
   const rss = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
   <title>${feedTitle}</title>
   <link>${siteUrl}</link>
   <description>${feedDesc}</description>
-  <pubDate>${now.toUTCString()}</pubDate>
+  <pubDate>${firstItemDate.toUTCString()}</pubDate>
   ${rssItems}
 </channel>
 </rss>
@@ -195,4 +197,22 @@ generateRssFromMarkdown(
   'Recent release notes for Okta Privileged Access API',
   'https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/',
   path.join(__dirname, '../public/rss/privileged-access.xml')
+);
+
+// Okta Access Gateway Release Notes
+generateRssFromMarkdown(
+  path.join(__dirname, '../../docs/release-notes/2025-okta-access-gateway/index.md'),
+  'Okta Access Gateway API release notes',
+  'Recent release notes for Okta Access Gateway',
+  'https://developer.okta.com/docs/release-notes/2025-okta-access-gateway/',
+  path.join(__dirname, '../public/rss/access-gateway.xml')
+);
+
+// Okta Aerial Release Notes
+generateRssFromMarkdown(
+  path.join(__dirname, '../../docs/release-notes/2025-okta-aerial/index.md'),
+  'Okta Aerial API release notes',
+  'Recent release notes for Okta Aerial',
+  'https://developer.okta.com/docs/release-notes/2025-okta-aerial/',
+  path.join(__dirname, '../public/rss/aerial.xml')
 );
