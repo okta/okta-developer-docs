@@ -223,7 +223,7 @@ git add <files>
 git commit -m "descriptive commit message for your changes"
 ```
 
-6. Publish your feature branch to the repo
+6. Publish your feature branch to the repo.
 
 a. Switch back to the `master` branch and ensure it's the latest:
 
