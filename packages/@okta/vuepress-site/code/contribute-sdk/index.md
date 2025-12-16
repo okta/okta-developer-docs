@@ -225,7 +225,7 @@ git commit -m "descriptive commit message for your changes"
 
 6. Publish your feature branch to the repo
 
-a. Switch back to the `master` branch and ensure it is the latest:
+a. Switch back to the `master` branch and ensure it's the latest:
 
 ```shell
 git checkout master # Switch to the master branch
