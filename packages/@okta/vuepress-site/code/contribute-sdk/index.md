@@ -262,7 +262,7 @@ c. Click **Create Pull Request**.
 
 ### Clean up (optional)
 
-After your PR is merged delete your local branch:
+After the pull request is merged, delete your local branch:
 
 ```shell
 git branch -D feature_x # local branch deletion
