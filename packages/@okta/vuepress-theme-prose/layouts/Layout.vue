@@ -5,7 +5,8 @@
       class="fixed-header"
     >
       <HeaderBanner
-        banner-id="v1"
+        v-if="showBanner"
+        banner-id="v2"
         :dismissible="false"
         @updateHeight="updateHeaderHeight"
       >
@@ -164,7 +165,7 @@ export default {
   },
   computed: {
     showBanner() {
-      const bannerStartTime = new Date(); // Start immediately
+      const bannerStartTime = new Date('2025-12-07T23:59:59-08:00'); // Start on December 7
       const bannerEndTime = new Date('2025-12-11T23:59:59-08:00'); // End on 11 December
 
       const bannerStartEpochSeconds = Math.floor(bannerStartTime.getTime() / 1000);
@@ -172,10 +173,7 @@ export default {
 
       const currentTimeEpochSeconds = Math.floor(Date.now() / 1000);
 
-      return (
-        currentTimeEpochSeconds >= bannerStartEpochSeconds &&
-        currentTimeEpochSeconds <= bannerEndEpochSeconds
-      );
+      return currentTimeEpochSeconds >= bannerStartEpochSeconds && currentTimeEpochSeconds <= bannerEndEpochSeconds;
     },
     editLink() {
       if (this.$page.frontmatter.editLink === false) {
