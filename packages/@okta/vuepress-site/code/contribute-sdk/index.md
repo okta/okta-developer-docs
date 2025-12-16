@@ -201,7 +201,7 @@ b. Change directory to openapi.
 cd openapi
 ```
 
-c. Run the build script to re-generate the Okta SDK Python package:
+c. Run the build script to regenerate the Okta SDK Python package:
 
 ```shell
 generate.sh
