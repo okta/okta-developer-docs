@@ -11,7 +11,7 @@ meta:
 
 ## Contributing to Python SDK 3.0
 
-Join the Okta open-source community to contribute to the next generation of the Python SDK, built on OpenAPI specification 3.0. The Python SDK 3.0 is  a modernized architecture powered by the OpenAPI generator, that replaces the legacy swagger-based system with a fully typed and auto-documented SDK. By integrating Pydantic, the SDK now features strongly-typed data models with runtime validation that ensures greater accuracy, reduced bugs, and improved code clarity.
+Join the Okta open-source community to contribute to the next generation of the Python SDK, built on OpenAPI specification 3.0. The Python SDK 3.0 is a modernized architecture powered by the OpenAPI generator that replaces the legacy Swagger-based system with a fully typed and auto-documented SDK. By integrating Pydantic, the SDK now features strongly-typed data models with runtime validation that ensures greater accuracy, reduced bugs, and improved code clarity.
 
 ## Key concepts
 
