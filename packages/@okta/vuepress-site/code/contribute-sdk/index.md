@@ -15,7 +15,7 @@ Join the Okta open-source community to contribute to the next generation of the 
 
 ## Key concepts
 
-* OAS 3.0 compliance: The SDK's foundation on OpenAPI 3.0 allows for auto-generation of client code, ensuring greater accuracy, and faster feature coverage.
+* OAS 3.0 compliance: The SDK's foundation on OpenAPI 3.0 auto-generates client code, ensuring greater accuracy and faster feature coverage.
 * Strongly-typed data models: By integrating Pydantic, all API models now offer robust data validation and type enforcement at runtime, reducing bugs, and improving code clarity.
 * Open source contribution: The SDK welcomes community contributions for bug fixes, feature enhancements, and documentation improvements.
 * Breaking change: Python SDK 3.0 has officially deprecated support for OpenAPI 2.0 (OAS 2.0). If you’re migrating from previous major versions, update your code to conform to the new OAS 3.0-compliant methods and structures.
