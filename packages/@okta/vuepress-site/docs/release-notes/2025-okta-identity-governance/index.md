@@ -7,9 +7,9 @@ title: Okta Identity Governance API release notes 2025
 Okta Identity Governance is available for both Okta Classic and Identity Engine.
 
 ## December
-<!-- December 10, 2025 -->
-### Monthly release 2025.12.0
 
+### Monthly release 2025.12.0
+<!-- Published on: 2025-12-10T00:00:00Z -->
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Revoke a principal's access is Beta](#revoke-a-principal-s-access-is-beta) | December 10, 2025 |
