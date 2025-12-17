@@ -70,7 +70,7 @@ Use this method if you cloned the official Python SDK repo and want to update a 
 pip3 install setuptools
 ```
 
-1. Install the SDK: Run the setup script to install your local packages to your user environment.
+2. Install the SDK: Run the setup script to install your local packages to your user environment.
 
 ```shell
 python setup.py install --user
@@ -248,6 +248,7 @@ git push origin feature_x # Make a Pull Request changes with your feature work
 7. Create a Pull Request(PR):
 
 a. Navigate to your forked repo (https://github.com/YOUR_ACCOUNT/okta-sdk-python) on GitHub and **Create a Pull Request**.
+
 b. In the **description**, add the test coverage report to ensure the required coverage for the newly added code.
 
 > **Note** To generate the report, use the following command:
