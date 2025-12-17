@@ -161,7 +161,7 @@ You can import existing OIG objects into Terraform using the import function. Fo
 
 **Note**: Ensure that you have the ID of the resource you want to import. You can retrieve this ID from the Admin Console or by using the [Okta Identity Governance API](https://developer.okta.com/docs/api/iga/).
 1. Create a resource block in your Terraform file to host the object you’re importing. The configuration must match the current state of the object in Okta.
-2. Run the command available in the **Import** section of the relevant resources in the [Okta Terraform Provider Registry documentation](https://registry.terraform.io/providers/okta/okta/latest). For example, the [Import Campaigns](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/campaign#import) resource.
+2. Open the **Example Usage** page for the resource (for example: [Import Campaigns](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/campaign#import)) and scroll to the **Import** section. Run the command line that it provides.
 3. Run `terraform plan` to verify the import, and then `terraform apply` to update your state file.
 
 ### Retrieve existing resources
