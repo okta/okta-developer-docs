@@ -26,7 +26,7 @@ Learn how to create, import, and modify Okta Identity Governance (OIG) resources
 
 Okta Identity Governance (OIG) allows stakeholders to manage user resources like apps and groups through features such as Access Requests, access certification campaigns, and entitlements. Using Terraform, you can automate the lifecycle of these resources to ensure that users have the right level of access when they need it. 
 
-**Note**: You can only manage Generally Available (GA) OIG resources using Terraform. Beta and Early Access (EA) resources aren’t currently supported.
+**Note**: You can only manage Generally Available (GA) OIG resources using Terraform. Beta and Early Access (EA) resources aren’t supported.
 
 ### Set up your Terraform files
 
