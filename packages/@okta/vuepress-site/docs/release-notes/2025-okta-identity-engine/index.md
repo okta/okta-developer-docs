@@ -15,7 +15,7 @@ title: Okta Identity Engine API release notes 2025
 | [Event hooks for app provisioning and imported changes events](#event-hooks-for-app-provisioning-and-imported-changes-events) | December 17, 2025 |
 | [Bugs fixed in 2025.12.1](#bugs-fixed-in-2025-12-1)| December 17, 2025 |
 
-#### Event hooks for app provisioning and imported changes events
+#### Events for app provisioning and import changes are now event hook eligible
 
 You can now use event hooks for the Okta events that provision app users and import changes from apps. The following events are now event hook eligible:
 
