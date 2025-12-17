@@ -7,7 +7,7 @@ meta:
 
 ## <StackSnippet snippet="idp" inline />
 
-This document explains how to configure <StackSnippet snippet="idp" inline /> as an [external Identity Provider](/docs/concepts/identity-providers/) for your application by creating an application at <StackSnippet snippet="idp" inline />, creating an Identity Provider (IdP) in Okta, testing the configuration, and creating a sign-in button.
+This document explains how to configure <StackSnippet snippet="idp" inline /> as an [external Identity Provider](/docs/concepts/identity-providers/) for your app by creating an app at <StackSnippet snippet="idp" inline />, creating an Identity Provider (IdP) in Okta, testing the configuration, and creating a sign-in button.
 
 ---
 
@@ -30,8 +30,6 @@ Okta manages the connection to the IdP for your app. The connection sits between
 > **Note:** Okta also supports other services such as directories and credential providers. See the [Okta Integration Network Catalog](https://www.okta.com/okta-integration-network/) to browse all integrations by use case.
 
 ## Create an app at the Identity Provider
-
-At the <StackSnippet snippet="idp" inline /> IdP, create the client application that you want to use for authenticating and authorizing your users.
 
 <StackSnippet snippet="appatidp" />
 
@@ -73,7 +71,7 @@ Alternatively, you can use the authorize URL to simulate the authorization flow.
 
 > **Note:** Use this step to test your authorization URL as an HTML link. For information on testing your authorization URL using the Sign-In Widget, Okta-hosted sign-in page, or AuthJS, see the [next section](#use-the-identity-provider-to-sign-in).
 >
-> If you're using Authorization Code with PKCE as the grant type, you must generate and store the PKCE. See [Implement authorization by grant type](/docs/guides/implement-grant-type/authcodepkce/main/#flow-specifics). Okta recommends that you use the [AuthJS SDK](https://github.com/okta/okta-auth-js#signinwithredirectoptions) with this grant type.
+> If you use the Authorization Code with PKCE grant type, you must generate and store the PKCE. See [Implement authorization by grant type](/docs/guides/implement-grant-type/authcodepkce/main/#flow-specifics). Okta recommends that you use the [AuthJS SDK](https://github.com/okta/okta-auth-js#signinwithredirectoptions) with this grant type.
 
 In the URL, replace `{yourOktaDomain}` with your org's base URL, and then replace the following values:
 

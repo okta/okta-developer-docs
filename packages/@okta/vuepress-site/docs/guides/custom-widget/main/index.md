@@ -539,16 +539,6 @@ Position:
 }
 ```
 
-### Video Tutorial
-
-For a more in-depth look at styling the sign-in page, you can watch this video:
-
-<div style="text-align: center">
-
-<iframe width="100%" class="video-tutorial" height="315" src="https://www.youtube.com/embed/Q__ugprsOWo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-</div>
-
 ### Modify strings
 
 To modify strings on the sign-in page, you can override any of the properties set in [login.properties](https://github.com/okta/okta-signin-widget/blob/master/packages/@okta/i18n/src/properties/login.properties). Override these properties by adding new values for them. Configure the `i18n` object in the `config` section of the sign-in page.

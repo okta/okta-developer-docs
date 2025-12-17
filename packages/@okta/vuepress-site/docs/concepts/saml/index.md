@@ -172,3 +172,7 @@ This is important when you want to SAML-enable all users in your app. Sometimes,
 ### SAML FAQs
 
 [Okta SAML frequently asked questions](/docs/concepts/saml/faqs/)
+
+### SAML toolkits
+
+- [Use SAML toolkits](https://developer.okta.com/docs/guides/build-sso-integration/saml2/main/#use-saml-toolkits)

@@ -35,6 +35,18 @@ For example, when you host the `/.well-known/apple-app-site-association` file in
 
 The iOS and Android well-known URIs have similar functions that enable secure associations between your custom domain and native mobile apps. While you can use the WebAuthn well-known URI to improve the sign-in experience of your users.
 
+### Redirect URI support in the Okta Client SDK for Swift
+
+The [Okta Client SDK for Swift](https://github.com/okta/okta-mobile-swift) supports both custom URIs and HTTPS redirect URLs on supporting platforms and versions. The use of an `https://` redirect URI is recommended, but this requires that your app is configured to use associated domains. See [Apple Developer documentation - Supporting associated domains](https://developer.apple.com/documentation/Xcode/supporting-associated-domains).
+
+Ensure that you complete the following items:
+
+* Include the domain of the redirect URI as a `webcredential` in your app's [associated domains capability](https://developer.apple.com/documentation/xcode/configuring-an-associated-domain).
+* Verify that the app identifier (that is, the `<TEAM_ID>.<BUNDLE_ID>`) is included in the `webcredentials` list on that domain's `/.well-known/apple-app-site-association` well-known URI. See [Create an apple-app-site-association customization](#create-an-apple-app-site-association-customization).
+* Change the `redirect_uri` value used in your client configuration to the `https` URL configured within your OAuth2 client configuration.
+
+> **Note:** The use of HTTPS addresses within the redirect callback URI is limited by the availability of support within `ASWebAuthenticationSession`. The session requires a minimum of iOS v17.4, macOS v14.4, watchOS v10.4, tvOS v17.4, or visionOS v1.1.
+
 ## Use associated domains in Okta
 
 In your org, you can view, create, and customize these files by using the [Associated Domain Customizations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/) or in the [Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=configure-associated-domains).

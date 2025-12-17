@@ -58,7 +58,7 @@ This guide covers submissions that use the following protocols and integrations:
 
 > **Notes:**
     > * Universal Logout integrations are only supported for SAML 2.0 and OIDC protocols. If you want to submit a Universal Logout integration with SCIM provisioning, you must also submit an SSO integration with either SAML 2.0 or OIDC.
-    > * Entitlement Management is only supported for SCIM.
+    > * Entitlement Management is only supported for SCIM and is available as an *Early Access* feature.
     > * SWA app integrations are no longer accepted for publication in the OIN catalog. However, the OIN team still maintains existing SWA apps.
     > * There are protocol-specific limitations on integrations in the OIN. See [OIN limitations](/docs/guides/submit-app-prereq/main/#oin-limitations).
 
@@ -187,7 +187,6 @@ In the **Testing information for Okta review** section, specify the following **
 | **Account URL** `*`  | A static URL to sign in to your app. An OIN analyst goes to this URL and uses the account credentials you provide in the subsequent fields to sign in to your app. |
 | **Username** `*`  | The username for your test admin account. The OIN analyst signs in with this username to execute test cases. The preferred account username is `isvtest@okta.com`. |
 | **Password** `*`  | The password for your test admin account |
-| **Support contact** `*`  | Provide an email for Okta to contact your company about your integration. This email isn't exposed in the OIN catalogs or to your customers. Okta uses this email to contact your company for integration status updates, issues during the QA testing phase, or for ongoing maintenance. See [Escalation support contact](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines) in the customer support-contact guidelines. |
 | **Testing instructions** | Include information that the OIN team needs to know about your integration for testing (such as the admin account or the testing configuration). You can also provide instructions on how to add test user accounts.<br>For a SCIM integration, specify how to access the SCIM server for testing. Provide the SCIM server base URL and credentials for the OIN team to conduct [QA testing](/docs/guides/submit-app-overview/#understand-the-submission-review-process). You can include instructions on obtaining SCIM credentials (API token or OAuth 2.0 properties) from your admin app. |
 
 `*` Required properties
@@ -213,6 +212,8 @@ The OIN Wizard journey includes the **Test integration** experience page to help
         [[style="list-style-type:lower-roman"]]
         1. Configure provisioning and update the operations that are supported by your SCIM server.
         1. Verify that the resource types or entitlements that are supported by your SCIM server are listed on the **Governance** tab.
+
+            >**Note:**  After successful provisioning, it might take some time for entitlements to load.
 
         1. Map user profile attributes on the test instance.
         1. Assign the entitlements to the users manually for testing or automatically through a policy. For more information, see [Assign entitlements to users](https://help.okta.com/oie/en-us/content/topics/identity-governance/em/assign-entitlements-users.htm).
@@ -599,7 +600,25 @@ When you're satisfied with your Runscope CRUD test results, enter them in the **
 
     This Entitlement Management test file is built for the BlazeMeter Runscope API monitoring tool. If you don't have a Runscope account, you can sign up with a [free trial to Runscope](https://www.runscope.com/okta) for Okta developers.
 
-1. Follow the instructions from step [2](https://developer.okta.com/docs/guides/submit-oin-app/scim/main/#runscope-crud-tests:~:text=for%20Okta%20developers.-,From%20Runscope%2C,-click%20Import%20Test) in the [Runscope CRUD tests](#runscope-crud-tests) section.
+1. From Runscope, click **Import Test**.
+1. Select **API Monitoring Tests** as the import format.
+1. Click **Choose File** and select the **Okta SCIM 2.0 Entitlements Test** file.
+1. Click **Import API Test**. In the test bucket, click **Editor** from the left navigation menu.
+1. Click **Test Settings**, and then click **Initial Variables**.
+1. Add the following variables with values that match your SCIM integration:
+    * `SCIMBaseURL`: The base URL of the SCIM service. For example: `https://example.com/scim/v2`.
+    * `EntitlementEndpoint`: The endpoint of the resource type. For example, `/Roles`.
+    * `auth`: The authorization token that's used to access your SCIM API. You can use the same authorization token that you used to enable the API integration in [Generate an instance for <StackSnippet snippet="protocol-name" inline/>](#generate-an-instance-for).
+
+      The following is an example of the entitlement variable values:
+
+    <div class="three-quarter border">
+
+    ![Sample values for entitlement test variables. Runscope initial variables](/img/oin/scim_entitlement-variables-d.png)
+
+    </div>
+
+1. Click **Save & Run**.
 
 #### Manual Okta SCIM integration tests
 

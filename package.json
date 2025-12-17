@@ -33,7 +33,8 @@
     "stylelint:scss": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.scss\"",
     "stylelint:vue": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
     "eslint": "eslint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
-    "lint-all": "yarn eslint --max-warnings=0 && yarn stylelint"
+    "lint-all": "yarn eslint --max-warnings=0 && yarn stylelint",
+    "rss": "node packages/@okta/vuepress-site/.vuepress/scripts/generate-rss.js"
   },
   "repository": "git@github.com:okta/okta-developer-docs",
   "author": "Brian Retterer <brian.retterer@okta.com>",

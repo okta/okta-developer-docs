@@ -135,7 +135,7 @@ Find the Okta user IDs for the following users:
 
    These are the security analysts or resource owners that assess the user access items and perform any remediation. Reviewers can be an Okta admin or an end user. After the review is created, reviewers are automatically assigned the **Okta Security Access Review** app to conduct the review.
 
-Use the [List all user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers) request with the `search` query parameter and user profile attributes to find the user IDs.
+Use the [List all users](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers) request with the `search` query parameter and user profile attributes to find the user IDs.
 
 > **Note:** This request requires the `okta.users.read` scope.
 
@@ -149,8 +149,6 @@ curl -v -X GET \
 ```
 
 Use the `id` property of the response payload for the user ID parameters in the [Create a security access review](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/createSecurityAccessReview) request.
-
-See [User query options](https://developer.okta.com/docs/reference/user-query/) for more query options.
 
 ### Create a security access review
 

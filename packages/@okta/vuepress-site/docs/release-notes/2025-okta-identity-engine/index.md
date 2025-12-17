@@ -6,7 +6,213 @@ title: Okta Identity Engine API release notes 2025
 
 # Okta Identity Engine API release notes (2025)
 
+## December
+<!-- December 10, 2025 -->
+### Monthly release 2025.12.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [SHA-256 digest algorithm support is EA](#sha-256-digest-algorithm-support-is-ea) | December 10, 2025 |
+| [Device conditions in the Okta account management policy is self-service EA in Preview](#device-conditions-in-the-okta-account-management-policy-is-self-service-ea-in-preview) | November 26, 2025|
+| [Enable custom admin permissions for inline and event hooks is self-service EA in Preview](#enable-custom-admin-permissions-for-inline-and-event-hooks-is-self-service-ea-in-preview) | December 10, 2025 |
+| [Detection settings in session protection is EA](#detection-settings-in-session-protection-is-ea) | December 10, 2025|
+| [Improvements to the global session policy MFA requirements is GA in Preview](#improvements-to-the-global-session-policy-mfa-requirements-is-ga-in-preview) | December 10, 2025 |
+| [Allow profile updates for deactivated users](#allow-profile-updates-for-deactivated-users) | December 10, 2025 |
+| [Lightweight Directory Access Protocol Bidirectional Group Management is GA in Preview](#lightweight-directory-access-protocol-bidirectional-group-management-is-ga-in-preview) | December 10, 2025 |
+| [Additional Anything-as-a-Source API endpoints is GA in Preview](#additional-anything-as-a-source-api-endpoints-is-ga-in-preview) | December 10, 2025|
+| [New field in user.identity_verification event type is GA in Preview](#new-field-in-user-identity-verification-event-type-is-ga-in-preview) | December 10, 2025 |
+| [OIN contact updates](#oin-contact-updates) | December 10, 2025 |
+| [Anything-as-a-Source for groups and group memberships API is GA in Preview](#anything-as-a-source-for-groups-and-group-memberships-api-is-ga-in-preview) | September 10, 2025  |
+| [Passkey and security key subdomain support is GA in Production](#passkey-and-security-key-subdomain-support-is-ga-in-production) | September 4, 2025 |
+| [Encryption of ID tokens and access tokens is GA in Preview](#encryption-of-id-tokens-and-access-tokens-is-ga-in-preview) | August 7, 2025 |
+| [Unified claims generation for custom apps is GA in Preview](#unified-claims-generation-for-custom-apps-is-ga-in-preview) | July 30, 2025 |
+| [Passkeys from Android devices is GA in Production](#passkeys-from-android-devices-is-ga-in-production) | July 16, 2025  |
+| [New claims supported for identity verification (IDV) vendor integration is GA in Production](#new-claims-supported-for-identity-verification-idv-vendor-integration-is-ga-in-production) | August 13, 2025 |
+| [Associated Domain Customizations API is GA in Preview](#associated-domain-customizations-api-is-ga-in-preview) | July 16, 2025 |
+| [Maximum consecutive characters setting for passwords is GA in Preview](#maximum-consecutive-characters-setting-for-passwords-is-ga-in-preview) | December 10, 2025 |
+| [Okta account management policy protection for password expiry flows is GA in Preview](#okta-account-management-policy-protection-for-password-expiry-flows-is-ga-in-preview) | July 2, 2025  |
+| [Developer documentation updates in 2025.12.0](#developer-documentation-updates-in-2025-12-0) | December 10, 2025 |
+| [Bug fixed in 2025.12.0](#bug-fixed-in-2025-12-0)| December 10, 2025|
+
+#### SHA-256 digest algorithm support is EA
+
+Okta now supports the SHA-256 digest algorithm when hashing SAML AuthnRequests that are sent to external IdPs.
+<!-- IDP_SHA256_DIGEST_ALGORITHM_SUPPORT OKTA-1061375 -->
+
+#### Device conditions in the Okta account management policy is self-service is EA in Preview
+
+With this feature, admins can now restrict account management activities such as self-service password resets or new authenticator enrollments with device conditions. Admins can configure Okta account management policy rules with registered and managed devices, or require devices to meet the requirements of a device assurance policy. See [Add a rule for device conditions](/docs/guides/okta-account-management-policy/main/#add-a-rule-for-device-conditions).
+
+<!-- OKTA-1060436 DEVICE_CONDITION_FOR_OAMP preview org date: Nov 26 -->
+
+#### Enable custom admin permissions for inline and event hooks is self-service EA in Preview
+
+The inline hook and event hook framework now supports read and write permissions for custom admin roles. This enhancement gives fine-grained access to manage inline and event hooks that previously required the super admin role. See [Hooks admin roles](/docs/guides/hooks-best-practices/).
+
+<!-- OKTA-1061240 HOOKS_PUBLIC_PERMISSIONS -->
+
+#### Detection settings in session protection is EA
+
+Tailor ITP to your org’s security priorities to gain control and balance security with a seamless user experience. With new detection settings, you can define which session context changes trigger policy re-evaluations, helping you focus only on what truly matters. See [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
+
+<!-- OKTA-1016513 SESSION_VIOLATION_DETECTION_CONFIGURATION -->
+
+#### Improvements to the global session policy MFA requirements is GA in Preview
+
+The Policy API now correctly enforces MFA requirements for every sign-in when **New Device** is included as a behavior and MFA is required in a global session policy. See the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=3/actions/signon/factorPromptMode&t=request).
+
+<!-- OKTA-1070041 DISALLOW_INVALID_BEHAVIOR_AND_FACTOR_MODE_COMBINATION_FOR_GSP, preview date: Dec 10, 2025 -->
+
+#### Allow profile updates for deactivated users
+
+Super admins can now choose to allow updates to profile attribute values for deactivated users, ensuring their profiles remain current. You must turn the **Edit Deactived User Profile Updates** option on in the Admin Console to see the behavior when using the [Update a user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/updateUser) endpoint. See [Edit deactivated user profiles](https://help.okta.com/okta_help.htm?type=oie&id=edit-deactivated-users).
+
+<!-- OKTA-1069794  Feature: Remove FF gate for block on editing the profile of deactivated users -->
+
+#### Lightweight Directory Access Protocol Bidirectional Group Management is GA in Preview
+
+The [Bidirectional Group Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DirectoriesIntegration) has been expanded to allow you to manage Lightweight Directory Access Protocol (LDAP) groups from within Okta. You can add or remove users from groups based on their identity and access requirements. This ensures that changes made to user access in Okta are reflected in LDAP.
+
+Okta can only manage group memberships for users and groups imported into Okta using the LDAP or Active Directory (AD) integration. It isn't possible to manage users and groups that weren't imported through LDAP or AD integration or are outside the organizational unit's scope for the integration using this feature.
+
+<!-- OKTA-1064652 LDAP_BIDIRECTIONAL_GROUP_MANAGEMENT -->
+
+#### Additional Anything-as-a-Source API endpoints is GA in Preview
+
+Anything-as-a-Source (XaaS) capabilities allow customers to use a custom identity source with Okta. With XaaS, customers can source entities such as users into Okta's Universal Directory by connecting a custom HR app or a custom database. This release offers Anything-as-a-Source APIs for both individual operations and bulk operations on groups, group memberships, and users. Okta now enables creating and updating users, creating and updating groups, and managing group memberships into Okta’s Universal Directory from any identity source using the Identity Source APIs. See [Identity Sources](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/).
+
+<!-- OKTA-1063549 IDENTITY_SOURCE_MANAGE_INDIVIDUAL_ENTITIES -->
+
+#### New field in user.identity_verification event type is GA in Preview
+
+The System Log now displays a `reasonForFailure` field in `user.identity_verification` events when a reason for failure of the IDV flow is known. This additional information helps IDV vendors integrating with Okta troubleshoot their software. See [Event Types](/docs/reference/api/event-types/).
+
+<!-- OKTA-1056546 Add debug info to IDV Flow Completion syslogs -->
+
+#### OIN contact updates
+
+In the OIN Wizard, the **Configure your Integration** page now provides separate customer and internal support information. The **Public support contact** section allows ISVs to provide public contact information for customers. The **Support contact** field is now called **Support email**, and has been moved from the **Testing information for Okta Review** section to the **Support contact (for Okta use only)** section. This section allows ISVs to provide internal contact information for the Okta team. See [Customer support contact guidelines](https://developer.okta.com/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines).
+
+<!-- OKTA-1013940 UI/UX changes for updated contacts in OIN submission Preview date: Dec 10, 2025 -->
+
+#### Anything-as-a-Source for groups and group memberships API is GA in Preview
+
+Anything-as-a-Source (XaaS) capabilities allow customers to use a custom identity source with Okta. With XaaS, customers can source entities such as users into Okta's Universal Directory by connecting a custom HR app or a custom database. This release offers XaaS capabilities with groups and group memberships, allowing customers to start sourcing groups with XaaS. Okta now enables creating and updating users, creating and updating groups, and managing group memberships into Okta’s Universal Directory from any identity source using the Identity Source APIs. See [Identity Sources](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/).
+
+<!-- IDENTITY_SOURCE_APPS_GROUPS OKTA-1009858 Preview date September 10, 2025 -->
+
+#### Passkey and security key subdomain support is GA in Production
+
+You can now set a custom relying party (RP) ID for the WebAuthn authenticator. When you set the domain of a custom RP ID, you can allow users to create a single passkey that’s valid for all of the subdomains of the RP ID. 
+
+Use the [Replace an authenticator method](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod) endpoint to update your WebAuthn authenticator, or set the custom RP ID in the Admin Console. See [Configure a relying party ID](https://help.okta.com/okta_help.htm?type=oie&id=customize-relying-party-id).
+
+<!-- OKTA-1008019 WEBAUTHN_CUSTOM_RP_ID preview org date: Sep 4, 2025 -->
+
+#### Encryption of ID tokens and access tokens is GA in Preview
+
+You can now encrypt OIDC ID tokens for Okta-protected custom app integrations using JSON Web Encryption. You can also now encrypt access tokens minted by a custom authorization server. See [Key management](/docs/guides/key-management/main/).
+
+<!-- OIDC_TOKEN_ENCRYPTION OKTA-978457 Preview date August 7, 2025 -->
+
+#### Unified claims generation for custom apps is GA in Preview
+
+Unified claims generation is a new streamlined interface for managing claims (OIDC) and attribute statements (SAML) for Okta-protected custom app integrations. In addition to group and user profile claims, the following new claim types are available: `entitlements` (required OIG), `device.profile`, `session.id`, and `session.amr`. See [Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/). <!-- GENERIC_FEDERATED_CLAIM_LAYER OKTA-971830 Preview date July 30, 2025-->
+
+#### Passkeys from Android devices is GA in Production
+
+Okta now accepts passkeys that are generated by Android devices. Okta associates these passkeys with trusted web domains to enable users to authenticate with them. This expands the number of device types that Okta supports for passkey use. 
+
+You can enable Android passkeys by customizing the `assetlinks.json` file. See [Customize associated domains](/docs/guides/custom-well-known-uri/main/) and [Add support for Digital Asset Links](https://developer.android.com/identity/sign-in/credential-manager#add-support-dal). <!-- OKTA-971399 ANDROID_PASSKEY_APP_HASH_ORIGIN_VALIDATION preview org date: July 16, 2025 -->
+
+#### New claims supported for identity verification (IDV) vendor integration is GA in Production
+
+IDV vendors can now use more OpenID Connect claims when they integrate their IDV service with Okta. And, all `claims` properties now support the fuzzy logic extension. See [Supported OIDC claims](/docs/guides/idv-integration/main/#supported-oidc-claims).
+
+<!-- OKTA-946302 IDV_BIOGRAPHIC_DATA_MATCHING  Preview org date: Aug 13, 2025 -->
+
+#### Associated Domain Customizations API is GA in Preview
+
+You can now use the [Associated Domain Customizations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/) to view and update the associated domains of your custom domain. Associated domains let you build a trust relationship among your app, the referring domain, the user's credentials that are associated with that domain, and your brand in Okta. This feature makes it easier to adopt phishing-resistant authenticators, like passkeys in the FIDO2 (WebAuthn) authenticator. See [Customize associated domains](/docs/guides/custom-well-known-uri/main/).
+
+<!-- ASSOCIATED_DOMAIN_CUSTOMIZATION OKTA-935558 preview org date: July 16, 2025 -->
+
+#### Maximum consecutive characters setting for passwords is GA in Preview
+
+You can now use the `maxConsecutiveCharacters` property to limit the number of consecutive repeating characters in passwords. This feature enhances security by allowing you to customize your password strength requirements. See the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=3/settings/password/complexity/maxConsecutiveCharacters&t=request).
+
+<!-- PASSWORD_POLICY_MAX_CONSECUTIVE_REPEATING_CHARACTERS OKTA-922058 preview org date: Dec 10, 2025 -->
+
+#### Okta account management policy protection for password expiry flows is GA in Preview
+
+This feature improves the security posture of customer orgs by protecting the password expiry flow with the Okta account management policy. Password expiry flows now require the assurance defined in an org's Okta account management policy.
+
+You can now use the [`metadata`](/docs/reference/okta-expression-language-in-identity-engine/#okta-account-management) component in an Expression Language condition for an Okta account management policy. You can only use `metadata` in an expression that’s related to password expiry. See [Enable password expiry](https://help.okta.com/okta_help.htm?type=oie&id=oamp-enable-password-expiry).
+
+<!-- OKTA-853468 AMP_FOR_PASSWORD_EXPIRY preview org: july 2, 2025 -->
+
+#### Developer documentation updates in 2025.12.0
+
+* The new [Multibrand architecture](/docs/concepts/multibrand-architecture/) doc describes the key concepts that you should know to set up multiple brands. A decision flow diagram guides you through the process of designing your multibrand architecture.
+
+* The [Enable Express Configuration](https://developer.okta.com/docs/guides/enable-express-configuration/main/) guide on [Home | Okta Developer](http://developer.okta.com/) is deprecated. The documentation page has been updated to redirect users to the corresponding [Auth0 documentation portal](https://auth0.com/docs/authenticate/identity-providers/enterprise-identity-providers/okta/express-configuration), which now houses the most up-to-date configuration instructions.
+
+* The new [Passkeys and custom domains](/docs/guides/custom-passkeys/main/) guide describes different ways to configure passkeys (WebAuthn authenticator) and custom domains to allow a single passkey to be used across multiple domains.
+
+* The new [Apply your brand to the Okta user experience](https://developer.okta.com/docs/journeys/OCI-branding/main/) journey helps you change the look and feel of the Okta default user experience to match your brand.
+
+* The content on the **User query options** page has been moved to the appropriate parameters of the [List all users endpoint in the Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers) page. The **User query options** page will be removed in a future update.
+
+* The [Customize email notifications](https://developer.okta.com/docs/guides/custom-email/main/) guide now describes how to use [Velocity Template Language (VTL) with Java methods](https://developer.okta.com/docs/guides/custom-email/main/#vtl-and-java-methods), and includes examples that use the [app.name](https://developer.okta.com/docs/guides/custom-email/main/#app-name) and [user.groups.names](https://developer.okta.com/docs/guides/custom-email/main/#user-groups-names) variables.
+
+* The updated [User sign out flow (local app)](https://developer.okta.com/docs/guides/oie-embedded-sdk-use-case-basic-sign-out/ios/main/) guide for iOS now uses the [Okta Client SDK for Swift](https://github.com/okta/okta-mobile-swift?tab=readme-ov-file#okta-client-sdk-for-swift).
+
+* The [Customize associated domains](/docs/guides/custom-well-known-uri/main/) guide now includes details about [redirect URI support](/docs/guides/custom-well-known-uri/main/#redirect-uri-support-in-the-okta-client-sdk-for-swift) in the [Okta Client SDK for Swift](https://github.com/okta/okta-mobile-swift).
+
+* The new [Manage credentials using the Okta Client SDK](/docs/guides/manage-user-creds/ios/main/) guide explains how to store, retrieve, refresh, and remove credentials using the [Client SDK for Swift](https://github.com/okta/okta-mobile-swift).
+
+#### Bug fixed in 2025.12.0
+
+WSFed-related apps experienced security issues. (OKTA-1069106)
+
 ## November
+
+### Weekly release 2025.11.3
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.11.3](#bugs-fixed-in-2025-11-3)| December 3, 2025 |
+
+
+#### Bugs fixed in 2025.11.3
+
+* The Create a group push mapping endpoint (`POST /api/v1/apps/{appId}/group-push/mappings`) didn't return validation errors when requests included null attributes or incompatible Active Directory configurations. (OKTA-1061899)
+
+* When a user selected the SCIM 2.0 integration type in the OIN wizard, they could submit the app without configuring the SCIM provisioning properties. (OKTA-1047409)
+
+* Scopes that were skipped when an app required consent were still skipped after consent was no longer required. (OKTA-1045708)
+
+* The User Factors API incorrectly allowed secondary email addresses to be enrolled as email factors. (OKTA-1045693)
+
+* The Identity Engine session was the only session that was deleted when a `DELETE /sessions/{externalSessionId}` request was made and the Classic Engine and Identity Engine session had the same external ID. (OKTA-1004539)
+
+* Users who were members of a large number of groups couldn't authenticate into WS-Federation apps. (OKTA-839661)
+
+### Weekly release 2025.11.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.11.1](#bugs-fixed-in-2025-11-1)| November 13, 2025 |
+
+#### Bugs fixed in 2025.11.1
+
+* When ISVs attempted to edit a submitted app in the OIN wizard where the `scim_base_url` App Instance Property (AIP) was specifically used as the SCIM base URL, the resubmission failed. (OKTA-1047355)
+
+* When you attempted to enroll some security keys using an AAGUID group, the enrollment failed because of an issue with trust certificate validation. (OKTA-963828)
+
+* A null pointer exception was returned when a `PUT /api/v1/meta/uischemas/{id}` request was sent with no value set for the `scope` parameter. (OKTA-1032202)
+
+<!-- #### Bugs fixed in 2025.11.1 -->
 
 ### Monthly release 2025.11.0
 
@@ -489,7 +695,7 @@ See [Customize associated domains](/docs/guides/custom-well-known-uri/main/). <!
 
 #### Automate SCIM Integration for OIN Apps with Express Configuration
 
-Express Configuration is a feature designed to automate the setup of SSO and SCIM for instances of OIN SaaS integrations by enterprise customers with minimal manual effort. It allows enterprise customers to securely configure OIDC and SCIM integrations without copying and pasting configuration values between Okta and Auth0-enabled apps. See [Express Configuration](/docs/guides/enable-express-configuration/scim/main/). <!-- EXPRESS_CONFIGURATION_SCIM_FOR_AUTH0_APPS OKTA-977761 -->
+Express Configuration is a feature designed to automate the setup of SSO and SCIM for instances of OIN SaaS integrations by enterprise customers with minimal manual effort. It allows enterprise customers to securely configure OIDC and SCIM integrations without copying and pasting configuration values between Okta and Auth0-enabled apps. See [Express Configuration](/docs/guides/enable-express-configuration/main/). <!-- EXPRESS_CONFIGURATION_SCIM_FOR_AUTH0_APPS OKTA-977761 -->
 
 #### Breached Credentials Protection is GA in Preview
 

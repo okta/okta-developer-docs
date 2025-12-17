@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  platform-helpers-general: okta/general-platform-helpers@1.9.4
+
 parameters:
   preview:
     type: string
@@ -30,6 +33,19 @@ commands:
             - ~/.cache/
 
 jobs:
+  snyk-scan:
+    docker:
+      - image: cimg/python:3.10
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - checkout
+      - platform-helpers-general/step-load-dependencies
+      - platform-helpers-general/step-run-snyk-monitor:
+          scan-all-projects: true
+          skip-unresolved: false
+          run-on-non-main: true
+
   inclusive-linting:
     docker:
       - image: cimg/base:current
@@ -60,6 +76,11 @@ jobs:
             path: test_results
         - store_artifacts:
             path: /tests/cypress/screenshots
+        - persist_to_workspace:
+            root: ~/project
+            paths:
+              - .
+              - .git
 
   nightly_link_checker:
     docker:
@@ -189,6 +210,16 @@ workflows:
     jobs:
       - node_build_checks:
           name: "Build and Checks"
+      - snyk-scan:
+          context:
+            - static-analysis
+          name: execute-snyk
+          requires:
+            - Build and Checks
+          filters:
+            branches:
+              only:
+                - master
 
   nightly:
     triggers:

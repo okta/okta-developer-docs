@@ -6,13 +6,36 @@ title: Okta Privileged Access API release notes 2025
 
 Okta Privileged Access (OPA) is available for both Okta Classic and Identity Engine.
 
+## November
+
+### Weekly release 2025.11.2
+
+| Change | Expected in Preview |
+|--------|--------------------------|
+| [Bug fixed in 2025.11.2](#bug-fixed-in-2025-11-2)| November 19, 2025 |
+
+#### Bug fixed in 2025.11.2
+
+The OPA role required to list, retrieve, create, update, and delete attribute options (`GET|PUT|DEL /v1/teams/{team_name}/attributes/options/`) was `resource_admin` instead of `security_admin`. (OKTA-985489, OKTA-963704)
+
+### Weekly release 2025.11.1
+
+| Change | Expected in Preview | Expected in Production |
+|--------|--------------------------|-----------------------------|
+| [User access methods in AD account listing](#user-access-methods-in-ad-account-listing) | November 12, 2025 | November 17, 2025 |
+
+#### User access methods in AD account listing
+
+You can now retrieve user access methods when you list all discovered Active Directory (AD) accounts. See [List all discovered Active Directory accounts](https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-accounts/#tag/active-directory-accounts/operation/listActiveDirectoryAccounts) and the new `include_user_access_methods` query parameter.
+<!-- OKTA-986523, OKTA-1053283, FF: pam_active_directory_list_page_uams, Preview date: Nov 12, 2025 -->
+
 ## October
 
 ### Monthly release 2025.10.0
 
 | Change | Expected in Preview | Expected in Production |
 |--------|--------------------------|-----------------------------|
-| [More account details for end users](#more-account-details-for-end-users) | October 9, 2025 |  |
+| [More account details for end users](#more-account-details-for-end-users) | October 9, 2025 | October 16, 2025 |
 | [Random password generator for unmanaged SaaS accounts is GA](#random-password-generator-for-unmanaged-saas-accounts-is-ga) | September 18, 2025 | September 29, 2025 |
 
 #### More account details for end users

@@ -60,6 +60,10 @@ export const concepts = [
         path: "/docs/concepts/monitor/",
       },
       {
+        title: "Multibrand architecture",
+        path: "/docs/concepts/multibrand-architecture/",
+      },
+      {
         title: "Multi-tenant solutions",
         path: "/docs/concepts/multi-tenancy/",
       },
@@ -308,7 +312,7 @@ export const guides = [
                     guideName: "oie-embedded-sdk-use-case-sign-in-pwd-phone",
                   },
                   {
-                    title: "User sign out (local app)",
+                    title: "User sign out flow (local app)",
                     guideName: "oie-embedded-sdk-use-case-basic-sign-out",
                   },
                 ],
@@ -580,6 +584,10 @@ export const guides = [
             guideName: "configure-native-sso",
           },
           {
+            title: "Manage credentials using the Okta Client SDK",
+            guideName: "manage-user-creds",
+          },
+          {
             title: "Request user consent",
             guideName: "request-user-consent"
           },
@@ -649,8 +657,12 @@ export const guides = [
             guideName: "custom-url-domain",
           },
           {
-            title: "Customize associated domains",
+            title: "Associated domains",
             guideName: "custom-well-known-uri",
+          },
+          {
+            title: "Passkeys and custom domains",
+            guideName: "custom-passkeys",
           },
           {
             title: "Sign-in page",
@@ -832,13 +844,11 @@ export const guides = [
         ],
       },
       {
-        title: "Manage orgs",
-        hidden: true,
+        title: "Multi-org management",
         subLinks: [
           {
             title: "Manage orgs with Okta Aerial",
             guideName: "manage-orgs-okta-aerial",
-            hidden: true
           }
         ],
       },
@@ -1082,6 +1092,9 @@ export const journeys = [
             { title: "Sign users in through your web app",
               journeyName: "OCI-web-sign-in"
             },
+            { title: "Apply your brand to the Okta user experience",
+              journeyName: "OCI-branding"
+            },
           ]
         },
       ],
@@ -1132,38 +1145,37 @@ export const reference = [
         path: "/docs/reference/rate-limits/",
         subLinks: [
           {
-            title: "Rate limit dashboard",
-            path: "/docs/reference/rl-dashboard/",
-          },
-          {
-            title: "Authentication and end-user rate limits",
-            path: "/docs/reference/rl-global-enduser/",
-          },
-          {
-            title: "Management rate limits",
-            path: "/docs/reference/rl-global-mgmt/",
-          },
-
-          {
-            title: "Additional limits",
-            path: "/docs/reference/rl-additional-limits/",
-          },
-          {
-            title: "Rate limit best practices",
-            path: "/docs/reference/rl-best-practices/",
+            title: "Token and OAuth 2.0 app rate limits",
+            path: "/docs/reference/rl2-token-oauth/",
           },
           {
             title: "Client-based rate limits",
-            path: "/docs/reference/rl-clientbased/",
+            path: "/docs/reference/rl2-client-based/",
           },
           {
-            title: "DynamicScale",
-            path: "/docs/reference/rl-dynamic-scale/",
+            title: "Burst rate limits",
+            path: "/docs/reference/rl2-burst/",
+          },
+          {
+            title: "Concurrency rate limits",
+            path: "/docs/reference/rl2-concurrency/",
+          },
+          {
+            title: "Monitor and troubleshoot rate limits",
+            path: "/docs/reference/rl2-monitor/",
+          },
+          {
+            title: "Increase your rate limits",
+            path: "/docs/reference/rl2-increase/",
+          },
+          {
+            title: "Additional Rate limits",
+            path: "/docs/reference/rl2-limits/",
           },
           {
             title: "System Log events for rate limits",
-            path: "/docs/reference/rl-system-log-events/"
-          },
+            path: "/docs/reference/rl-system-log-events/",
+          }
         ]
       },
       { title: "SSF Transmitter SET payload structures", path: "/docs/reference/ssf-transmitter-sets/" },
@@ -1201,6 +1213,10 @@ export const releaseNotes = [
       {
         title: "2025 - Access Gateway",
         path: "/docs/release-notes/2025-okta-access-gateway/",
+      },
+      {
+        title: "2025 - Aerial",
+        path: "/docs/release-notes/2025-okta-aerial/",
       },
       {
         title: "Archive",
