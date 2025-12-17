@@ -9,7 +9,7 @@ meta:
 
 If you're responsible for multiple brands, there are a few key concepts you should know. Setting up your brand architecture means understanding your options and how they fit together.
 
-**Note:** This document applies to the customization of Gen3 of the Sign-In Widget. For information about Gen2, see the [Style the sign-in page guide](/docs/guides/custom-widget/main/).
+> **Note:** This document applies to the customization of Gen3 of the Sign-In Widget. For information about Gen2, see the [Style the sign-in page guide](/docs/guides/custom-widget/main/).
 
 ## Multibrand context controls
 
