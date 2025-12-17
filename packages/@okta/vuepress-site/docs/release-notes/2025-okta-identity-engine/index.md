@@ -29,7 +29,7 @@ See [Event Types](/docs/reference/api/event-types/).
 
 #### Bugs fixed in 2025.12.1
 
-* When ISVs attempted to submit an app in the OIN wizard, the scim_base_url wasn't allowed in the submissions as an App Instance Property (AIP). (OKTA-1070530)
+* When ISVs attempted to submit an app in the OIN wizard, the `scim_base_url` wasn't allowed in the submissions as an integration variable. (OKTA-1070530)
 
 * Sometimes a Null Pointer Exception caused an HTTP 500 error when users initiated a Self-Service Registration. (OKTA-909226)
 

@@ -23,7 +23,7 @@ The [Security Policy API](https://developer.okta.com/docs/api/openapi/opa/opa/ta
 
 #### Enhanced filtering for Security Policy API is GA in Preview
 
-Admins can now filter the [List all security policies](https://developer.okta.com/docs/api/openapi/opa/opa/tag/security-policy/#tag/security-policy/operation/ListSecurityPolicies) operation using the new parameter `contains`. This parameter filters and limits the results to policies where the name or description matches the provided search string.
+Admins can now filter the [List all security policies](https://developer.okta.com/docs/api/openapi/opa/opa/tag/security-policy/#tag/security-policy/operation/ListSecurityPolicies) operation using the new `contains` parameter. This parameter filters and limits the results to policies where the name or description matches the provided search string.
 
 <!-- OKTA-1056656 Preview date: December 17, 2025 -->
 
