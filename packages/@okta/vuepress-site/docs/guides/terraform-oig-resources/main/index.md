@@ -10,7 +10,7 @@ Learn how to create, import, and modify Okta Identity Governance (OIG) resources
 #### Learning outcomes
 
 - Define and create OIG resources using Terraform.
-- Modify existing OIG resources managed by Terraform.
+- Modify existing OIG resources that are managed by Terraform.
 - Import existing OIG resources from Okta into your Terraform state.
 
 
