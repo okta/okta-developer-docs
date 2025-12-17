@@ -150,7 +150,7 @@ resource "okta_campaign" "example" {
   }
 }
 ```
-> **Note**: For resource-specific examples, see the [Example Usage](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/campaign#example-usage) section of the relevant resources in the [Okta Terraform Provider Registry documentation](https://registry.terraform.io/providers/okta/okta/latest).
+> **Note**: For resource-specific examples, see the [Example Usage](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/campaign#example-usage) page for the resource.
 2. Run the `terraform plan` command. The output provides a preview of the changes Terraform make to your infrastructure.
 3. Run the `terraform apply` command to provision the resource.
 4. Type `yes` when prompted to complete the creation.
