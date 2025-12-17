@@ -12,7 +12,7 @@ title: Okta Identity Engine API release notes 2025
 <!-- Published on: 2025-12-17T00:00:00Z -->
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Event hooks for app provisioning and imported changes events](#event-hooks-for-app-provisioning-and-imported-changes-events) | December 17, 2025 |
+| [Events for app provisioning and import changes are now event hook eligible](#events-for-app-provisioning-and-import-changes-are-now-event-hook-eligible) | December 17, 2025 |
 | [Bugs fixed in 2025.12.1](#bugs-fixed-in-2025-12-1)| December 17, 2025 |
 
 #### Events for app provisioning and import changes are now event hook eligible
