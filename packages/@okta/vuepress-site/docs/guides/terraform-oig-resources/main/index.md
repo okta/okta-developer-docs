@@ -165,7 +165,7 @@ You can import existing OIG objects into Terraform using the import function. Fo
 3. Run `terraform plan` to verify the import, and then `terraform apply` to update your state file.
 
 ### Retrieve existing resources
-To view a resource that is already managed by Terraform, or any OIG resource in your org, you can use a data Source. In this example, to retrieve an existing campaign, see [Data Source: okta_campaign](https://registry.terraform.io/providers/okta/okta/latest/docs/data-sources/campaign) in the [Okta Terraform Provider Registry documentation](https://registry.terraform.io/providers/okta/okta/latest).
+To view a resource that is already managed by Terraform, or any OIG resource in your org, you can use a data source. For example, you can retrieve a campaign using [Data Source: okta_campaign](https://registry.terraform.io/providers/okta/okta/latest/docs/data-sources/campaign) in the [Okta Terraform Provider Registry documentation](https://registry.terraform.io/providers/okta/okta/latest).
 
 ### Modify existing resources
 To modify a resource already managed by Terraform:
