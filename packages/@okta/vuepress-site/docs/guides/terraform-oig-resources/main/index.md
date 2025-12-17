@@ -16,7 +16,7 @@ Learn how to create, import, and modify Okta Identity Governance (OIG) resources
 
 #### What you need
 - Familiarity with the Terraform terms, such as configuration, resources, state, and commands.
-- An Okta org with the OIG SKU enabled.
+- An Okta org is subscribed to [Okta Identity Governance](https://www.okta.com/products/identity-governance/).
 - A Terraform configuration that can access your Okta org. See [Okta provider configuration](#okta-provider-configuration).
 - An Okta user account with the **Super Administrator** role.
 - Terraform 1.8.5 or later.
