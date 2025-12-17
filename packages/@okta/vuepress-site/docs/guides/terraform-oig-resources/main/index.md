@@ -30,7 +30,7 @@ Okta Identity Governance (OIG) allows stakeholders to manage user access resourc
 
 ### Set up your Terraform files
 
-For guidance on organizing your files, see [setting up a typical Okta Terraform configuration](/docs/guides/terraform-organize-configuration/main/#configure-a-basic-okta-terraform-configuration). Consider organizing your Terraform code in a way that groups related resources together. For example, you could create a Terraform file called `governance.tf` that contains your campaigns, bundles, or entitlement definitions.
+For guidance on organizing your files, see [setting up a typical Okta Terraform configuration](/docs/guides/terraform-organize-configuration/main/#configure-a-basic-okta-terraform-configuration). Consider organizing your Terraform code in a way that groups related resources together. For example, you could create a Terraform file called `governance.tf` that contains your apps, bundles, or entitlement definitions.
 
 #### Add or confirm the API scopes
 
@@ -85,11 +85,11 @@ Before creating app-specific resources, you must enable **Entitlement Management
 
 #### Resource arguments
 
-Use the relevant resource schema, in this sample, the [Campaigns schema](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/campaign#schema), to create and update relevant resources. See the Schema section of the relevant resources in the Okta Terraform Provider Registry documentation.
+Use the relevant resource schema, in this sample, the [Campaigns schema](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/campaign#schema), to create and update relevant resources. See the **Schema** section of the relevant resources in the [Okta Terraform Provider Registry documentation](https://registry.terraform.io/providers/okta/okta/latest).
 
 #### Create a resource
 
-Create a resource block in your Terraform configuration file. The following sample defines an access review campaign for a specific app.
+1. Create a resource block in your Terraform configuration file. The following sample defines an access review campaign for a specific app.
 
 ```bash
 resource "okta_campaign" "example" {
@@ -150,10 +150,10 @@ resource "okta_campaign" "example" {
   }
 }
 ```
-**Note**: For resource-specific examples, see the [Example Usage](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/campaign#example-usage) section of the relevant resources in the Okta Terraform Provider Registry documentation.
-1. Run the `terraform plan` command. The output provides a preview of the changes Terraform make to your infrastructure.
-2. Run the `terraform apply` command to provision the resource.
-3. Type `yes` when prompted to complete the creation.
+> **Note**: For resource-specific examples, see the [Example Usage](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/campaign#example-usage) section of the relevant resources in the [Okta Terraform Provider Registry documentation](https://registry.terraform.io/providers/okta/okta/latest).
+2. Run the `terraform plan` command. The output provides a preview of the changes Terraform make to your infrastructure.
+3. Run the `terraform apply` command to provision the resource.
+4. Type `yes` when prompted to complete the creation.
 
 #### Import existing objects to Terraform
 
@@ -161,11 +161,11 @@ You can import existing OIG objects into Terraform using the import function. Fo
 
 **Note**: Ensure that you have the ID of the resource you want to import. You can retrieve this ID from the Admin Console or by using the [Okta Identity Governance API](https://developer.okta.com/docs/api/iga/).
 1. Create a resource block in your Terraform file to host the object you’re importing. The configuration must match the current state of the object in Okta.
-2. Run the command available in the Import section of the relevant resources in the Okta Terraform Provider Registry documentation. For example, the [Import Campaigns](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/campaign#import) resource.
+2. Run the command available in the **Import** section of the relevant resources in the [Okta Terraform Provider Registry documentation](https://registry.terraform.io/providers/okta/okta/latest). For example, the [Import Campaigns](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/campaign#import) resource.
 3. Run `terraform plan` to verify the import, and then `terraform apply` to update your state file.
 
 ### Retrieve existing resources
-To view a resource that is already managed by Terraform, or any OIG resource in your org, you can use a data Source. In this example, to retrieve an existing campaign, see [Data Source: okta_campaign](https://registry.terraform.io/providers/okta/okta/latest/docs/data-sources/campaign) in the Okta Terraform Provider Registry documentation.
+To view a resource that is already managed by Terraform, or any OIG resource in your org, you can use a data Source. In this example, to retrieve an existing campaign, see [Data Source: okta_campaign](https://registry.terraform.io/providers/okta/okta/latest/docs/data-sources/campaign) in the [Okta Terraform Provider Registry documentation](https://registry.terraform.io/providers/okta/okta/latest).
 
 ### Modify existing resources
 To modify a resource already managed by Terraform:
