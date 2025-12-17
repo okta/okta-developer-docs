@@ -5,9 +5,9 @@ title: Okta Classic Engine API release notes 2025
 # Okta Classic Engine API release notes (2025)
 
 ## December
-<!-- December 17, 2025 -->
-### Weekly release 2025.12.1
 
+### Weekly release 2025.12.1
+<!-- Published on: 2025-12-17T00:00:00Z -->
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Event hooks for app provisioning and imported changes events](#event-hooks-for-app-provisioning-and-imported-changes-events) | December 17, 2025 |
@@ -24,9 +24,8 @@ You can now use event hooks for the Okta events that provision app users and imp
 
 See [Event Types](/docs/reference/api/event-types/).
 
-<!-- December 10, 2025 -->
 ### Monthly release 2025.12.0
-
+<!-- Published on: 2025-12-10T00:00:00Z -->
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [SHA-256 digest algorithm support is EA](#sha-256-digest-algorithm-support-is-ea) | December 10, 2025 |

@@ -7,9 +7,9 @@ title: Okta Identity Engine API release notes 2025
 # Okta Identity Engine API release notes (2025)
 
 ## December
-<!-- December 17, 2025 -->
-### Weekly release 2025.12.1
 
+### Weekly release 2025.12.1
+<!-- Published on: 2025-12-17T00:00:00Z -->
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Event hooks for app provisioning and imported changes events](#event-hooks-for-app-provisioning-and-imported-changes-events) | December 17, 2025 |
@@ -33,8 +33,8 @@ See [Event Types](/docs/reference/api/event-types/).
 
 * Sometimes a Null Pointer Exception caused an HTTP 500 error when users initiated a Self-Service Registration. (OKTA-909226)
 
-<!-- December 10, 2025 -->
 ### Monthly release 2025.12.0
+<!-- Published on: 2025-12-10T00:00:00Z -->
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
