@@ -1104,6 +1104,7 @@ export const languagesSdk = [
     subLinks: [
       { title: "Recommended SDKs", path: "/code/" },
       { title: "Alternate Sign-in SDKs", path: "/code/alternate-sign-in-sdks/" },
+      { title: "Contributing to Python SDK 3.0", path: "/code/contribute-sdk/" },
       { title: "Versioning", path: "/code/library-versions/" },
     ],
   },
