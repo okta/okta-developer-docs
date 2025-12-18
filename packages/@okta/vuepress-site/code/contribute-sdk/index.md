@@ -22,7 +22,7 @@ Join the Okta open-source community to contribute to the next generation of the 
 
 ## Contribution overview
 
-The Python SDK 3.0 is a community-driven project. You can use this SDK in your server-side code to interact with the Okta Admin Management API.
+The Python SDK 3.0 is a community-driven project. You can use this SDK in your server-side code to interact with the Okta admin management API.
 
 By contributing to Okta open source repos, you can help us maintain quality, fix bugs, and expand feature coverage for this release. Contributions typically fall into the following areas:
 
@@ -82,7 +82,7 @@ After you install the SDK, initialize the client to verify your setup. Ensure th
 
 1. Use the imported `OktaClient` to initialize the client with your configuration.
 
-> **Note**: After you initialize  a client, you can call methods to make requests from the Python SDK to the Okta management APIs.
+> **Note**: After you initialize  a client, you can call methods to make requests from the Python SDK to the Okta admin management APIs.
 
 The following example highlights how to initialize the client and create a new user.
 
