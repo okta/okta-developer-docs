@@ -1,6 +1,6 @@
 {
-  "release" : "2025.12.1",
-  "build" : "2025.12.1-begin-363-g0c38ff666b0f",
+  "release" : "2026.01.0",
+  "build" : "2026.01.0-begin-151-gd582b8e92fbf",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -181,6 +181,9 @@
   }, {
     "id" : "jellyfish",
     "name" : "Jellyfish"
+  }, {
+    "id" : "jobs",
+    "name" : "Job Framework - JEDI"
   }, {
     "id" : "lca",
     "name" : "Lifecycle Automation"
@@ -3639,7 +3642,7 @@
         "created" : "2025-12-01",
         "release" : "2026.01.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
       "mappings" : [ ],
@@ -3657,7 +3660,7 @@
         "created" : "2025-12-01",
         "release" : "2026.01.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
       "mappings" : [ ],
@@ -5729,7 +5732,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "app", "app-user-management" ],
+      "tags" : [ "app", "app-user-management", "event-hook-eligible" ],
       "mappings" : [ "app.user_management.user_group_import.upsert_success" ],
       "schema" : {
         "debugData" : "SystemImportDebugData",
@@ -6845,7 +6848,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "app-api" ],
+      "tags" : [ "app-api", "event-hook-eligible" ],
       "mappings" : [ "app.api.error.import_user_by_id", "app.api.error.import_user_profile", "app.bigmachines.api.error.import", "app.boxnet.api.error.import.user.profile", "app.confluence.api.error.convert.remote.user.to.app.user", "app.confluence.api.error.get.user", "app.confluence.api.error.get.user.groups", "app.confluence.api.error.import.user.profile", "app.cornerstone.api.error.api.import_profile", "app.crashplanpro.api.user_not_found", "app.docusign.api.error.import.inactive.user", "app.docusign.api.error.import.permission.profile", "app.dropbox.api.error.import.profile", "app.dropbox.api.error.query", "app.echosign.api.error.import.profile", "app.exacttarget.api.error.import_user_profile", "app.google.user_management.error.import_user_profile", "app.hipchat.api.error.import.profile", "app.jira.api.error.check.get.user", "app.jira.api.error.convert.remote.user.to.app.user", "app.jira.api.error.import.user.profile", "app.netsuite.api.error.import_user_profile", "app.rightscale.api.error.get.users", "app.sendwordnow.api.error.get_user", "app.sendwordnow.api.error.import_user_profile", "app.servicenow.api.error.import.user.profile", "app.servicenow_app2.api.error.import.manager.profile", "app.servicenow_app2.api.error.import.user.profile", "app.sugarcrm.api.error.import.user.profile", "app.veeva_vault.api.error.import.user.profile", "app.workday.api.error.get-worker-by-id", "app.yammer.api.error.import.profile" ],
       "schema" : {
         "debugData" : null,
@@ -6881,7 +6884,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "app-api" ],
+      "tags" : [ "app-api", "event-hook-eligible" ],
       "mappings" : [ "app.api.error.create_pending_user", "app.api.error.create_user", "app.api.error.user.not_found", "app.api.error.user.not_found_or_deleted", "app.bigmachines.api.error.create", "app.bloomfire.api.error.create_user", "app.boxnet.api.error.assign_folder_permissions", "app.boxnet.api.error.create_new_user", "app.boxnet.api.error.create_personal_folder", "app.boxnet.api.error.create_personal_folder.conflict", "app.boxnet.api.error.invalid_user_login", "app.boxnet.api.error.personal_folder_name", "app.boxnet.api.error.personal_folder_sync_state", "app.confluence.api.error.create.new.user", "app.cornerstone.api.error.api.create_user", "app.dropbox.api.error.create.user", "app.echosign.api.error.create", "app.evernote_business.api.error.create.user", "app.evernote_business.api.error.create.user.limit.reached", "app.exacttarget.api.error.create_user", "app.google.user_management.error.create_new_user", "app.google.user_management.error.invalid_manager", "app.google.user_management.error.invalid_orgunit_id", "app.gotomeeting.user_management.config.failure.user_provisioning", "app.gotomeeting_rest.user_management.config.failure.user_provisioning", "app.hipchat.api.error.create.user", "app.jira.api.error.create.new.user", "app.netsuite.api.error.create_user", "app.postini.user_management.config.failure.provisioning", "app.rightscale.api.error.create.user", "app.salesforce.user_management.failure.provisioning", "app.samanage.api.error.incorrect.attribute", "app.sendwordnow.api.error.create_user", "app.servicenow.api.error.create.new.user", "app.servicenow_app2.api.error.create.new.user", "app.sugarcrm.api.error.create.new.user", "app.user_management.push_new_user", "app.user_management.push_pending_user", "app.veeva_vault.api.error.create.new.user", "app.yammer.api.error.create.user", "app.yammer.api.warn.send.invite", "gooddata.api.error.incorrect.roles.count", "gooddata.api.error.project.assignment.failed", "gooddata.api.error.project.not.found" ],
       "schema" : {
         "debugData" : "UserProvisioningDebugData",
@@ -6935,7 +6938,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "app-api" ],
+      "tags" : [ "app-api", "event-hook-eligible" ],
       "mappings" : [ "app.api.error.manager.not_found_for_user", "app.api.error.push_profile_update", "app.bigmachines.api.error.profile.update", "app.boxnet.api.error.add.email.alias", "app.boxnet.api.error.push.profile.update", "app.boxnet.api.error.user.push.conflict_in_group", "app.confluence.api.error.convert.app.user.to.remote.user", "app.confluence.api.error.push.profile.update", "app.cornerstone.api.error.api.push_profile", "app.crashplanpro.api.user_has_invalid_fields", "app.docusign.api.error.update.inactive.user", "app.docusign.api.error.update.permission.profile", "app.dropbox.api.error.push.profile", "app.dropbox.api.error.set.user.permissions", "app.exacttarget.api.error.push_profile_update", "app.generic.user_management.error.add_manager_to_user", "app.google.api.error.InsufficientPermission", "app.google.license_management.error.assign_license", "app.google.license_management.error.remove_license", "app.google.role_management.error.assign_role", "app.google.role_management.error.remove_role", "app.google.user_management.error.push_profile_update", "app.google.user_management.error.reconcile_email_aliases", "app.hipchat.api.error.push.profile", "app.jira.api.error.convert.app.user.to.remote.user", "app.jira.api.error.push.profile.update", "app.netsuite.api.error.push_profile_update", "app.pagerduty.api.push.profile.update.unexpected.status", "app.rightscale.api.error.push.profile", "app.sendwordnow.api.error.update_user_profile", "app.servicenow.api.error.import.manager.profile", "app.servicenow.api.error.push.profile.update", "app.servicenow_app2.api.error.push.profile.update", "app.sugarcrm.api.error.push.profile.update", "app.user_management.provision_user.user_inactive", "app.user_management.push_profile_failure", "app.user_management.push_profile_success", "app.user_management.push_profile_update", "app.veeva_vault.api.error.push.profile.update", "app.workday.api.error.get-employee-personal-info", "app.workday.api.error.update-employee-personal-info", "app.workday.api.error.user-management-error-push-profile-update", "app.yammer.api.error.push.profile", "moveit_dmz.error.too.long.username.or.email" ],
       "schema" : {
         "debugData" : "UserProvisioningDebugData",
@@ -6953,7 +6956,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "app-api" ],
+      "tags" : [ "app-api", "event-hook-eligible" ],
       "mappings" : [ "app.api.error.reactivate_user", "app.bigmachines.api.error.activate", "app.boxnet.api.error.reactivate_user", "app.confluence.api.error.reactivate.user", "app.cornerstone.api.error.api.reactivate_user", "app.exacttarget.api.error.reactivate_user", "app.google.user_management.error.reactivate_user", "app.hipchat.api.error.reactivation", "app.netsuite.api.error.reactivate_user", "app.servicenow.api.error.reactivate.user", "app.servicenow_app2.api.error.reactivate.user", "app.sugarcrm.api.error.reactivate.user", "app.user_management.reactivate_user", "app.veeva_vault.api.error.reactivate.user", "roambi.api.error.reactivate_user.confirmation" ],
       "schema" : {
         "debugData" : "UserProvisioningDebugData",

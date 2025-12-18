@@ -7,8 +7,34 @@ title: Okta Identity Engine API release notes 2025
 # Okta Identity Engine API release notes (2025)
 
 ## December
-<!-- December 10, 2025 -->
+
+### Weekly release 2025.12.1
+<!-- Published on: 2025-12-17T00:00:00Z -->
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Events for app provisioning and import changes are now event hook eligible](#events-for-app-provisioning-and-import-changes-are-now-event-hook-eligible) | December 17, 2025 |
+| [Bugs fixed in 2025.12.1](#bugs-fixed-in-2025-12-1)| December 17, 2025 |
+
+#### Events for app provisioning and import changes are now event hook eligible
+
+You can now use event hooks for the Okta events that provision app users and import changes from apps. The following events are now event hook eligible:
+
+- `application.provision.user.push_profile`
+- `application.provision.user.push`
+- `application.provision.user.reactivate`
+- `application.provision.user.import_profile`
+- `app.user_management.user_group_import.upsert_success`
+
+See [Event Types](/docs/reference/api/event-types/).
+
+#### Bugs fixed in 2025.12.1
+
+* When ISVs attempted to submit an app in the OIN wizard, the `scim_base_url` wasn't allowed in the submissions as an integration variable. (OKTA-1070530)
+
+* Sometimes a Null Pointer Exception caused an HTTP 500 error when users initiated a Self-Service Registration. (OKTA-909226)
+
 ### Monthly release 2025.12.0
+<!-- Published on: 2025-12-10T00:00:00Z -->
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
