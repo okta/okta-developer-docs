@@ -12,6 +12,18 @@ These release notes list customer-visible changes to the Okta Aerial API. Okta A
 
 See also [Introduction to the Okta Aerial API](https://developer.okta.com/docs/api/openapi/aerial/guides/overview/).
 
+## December 2025
+
+### Weekly release
+<!-- Published on: 2025-12-17T00:00:00Z -->
+| Change | Expected in Aerial services preview | Expected in Aerial services production |
+|--------|-----------------------------| -----------------------------|
+| [Bug fixed](#bug-fixed)| December 17, 2025 | January 5, 2026 |
+
+#### Bug fixed
+
+The API call to update enabled products for an org failed to assign the Device Access product to an org that had both Single Sign-On (SSO) and multifactor (MFA) products enabled. (OKTA-1076624)
+
 ## November 2025
 
 ### Monthly release

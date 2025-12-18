@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>Okta Aerial API release notes</title>
+  <link>https://developer.okta.com/docs/release-notes/2025-okta-aerial/</link>
+  <description>Recent release notes for Okta Aerial</description>
+  <pubDate>Wed, 17 Dec 2025 00:00:00 GMT</pubDate>
+  
+    <item>
+      <title>Weekly release</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-aerial/#weekly-release</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-aerial/#weekly-release</guid>
+      <pubDate>Wed, 17 Dec 2025 00:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-aerial/#bug-fixed">Bug fixed</a>]]></description>
+    </item>
+  
+
+    <item>
+      <title>Monthly release</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-aerial/#monthly-release</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-aerial/#monthly-release</guid>
+      <pubDate>Wed, 10 Dec 2025 00:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-aerial/#okta-aerial-is-ga">Okta Aerial is GA</a>]]></description>
+    </item>
+  
+
+    <item>
+      <title>Okta Identity Engine and Okta Classic Engine 2025.10.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-aerial/#okta-Identity-Engine-and-Okta-Classic-Engine-2025-10-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-aerial/#okta-Identity-Engine-and-Okta-Classic-Engine-2025-10-0</guid>
+      <pubDate>Wed, 03 Dec 2025 00:00:00 GMT</pubDate>
+      <description><![CDATA[]]></description>
+    </item>
+  
+
+    <item>
+      <title>Okta Identity Engine and Okta Classic Engine 2025.07.3</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-aerial/#okta-Identity-Engine-and-Okta-Classic-Engine-2025-07-3</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-aerial/#okta-Identity-Engine-and-Okta-Classic-Engine-2025-07-3</guid>
+      <pubDate>Wed, 26 Nov 2025 00:00:00 GMT</pubDate>
+      <description><![CDATA[]]></description>
+    </item>
+  
+
+    <item>
+      <title>Okta Identity Engine and Okta Classic Engine 2025.03.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-aerial/#okta-Identity-Engine-and-Okta-Classic-Engine-2025-03-2</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-aerial/#okta-Identity-Engine-and-Okta-Classic-Engine-2025-03-2</guid>
+      <pubDate>Wed, 19 Nov 2025 00:00:00 GMT</pubDate>
+      <description><![CDATA[]]></description>
+    </item>
+  
+
+    <item>
+      <title>Okta Identity Engine and Okta Classic Engine 2025.03.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-aerial/#okta-Identity-Engine-and-Okta-Classic-Engine-2025-03-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-aerial/#okta-Identity-Engine-and-Okta-Classic-Engine-2025-03-0</guid>
+      <pubDate>Wed, 12 Nov 2025 00:00:00 GMT</pubDate>
+      <description><![CDATA[]]></description>
+    </item>
+  
+
+    <item>
+      <title>Okta Identity Engine and Okta Classic Engine 2025.02.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2025-okta-aerial/#okta-Identity-Engine-and-Okta-Classic-Engine-2025-02-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2025-okta-aerial/#okta-Identity-Engine-and-Okta-Classic-Engine-2025-02-0</guid>
+      <pubDate>Wed, 05 Nov 2025 00:00:00 GMT</pubDate>
+      <description><![CDATA[]]></description>
+    </item>
+  
+</channel>
+</rss>
