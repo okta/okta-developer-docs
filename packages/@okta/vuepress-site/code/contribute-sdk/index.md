@@ -64,13 +64,13 @@ pip3 install okta
 
 Use this method if you cloned the official Python SDK repo and want to update a package or test your changes locally before you create a pull request.
 
-1. Install prerequisites: First, install the `setuptools` library if it’s not already available.
+1. Install prerequisites: First, install the `setuptools` library if it’s not already available:
 
 ```shell
 pip3 install setuptools
 ```
 
-2. Install the SDK: Run the setup script to install your local packages to your user environment.
+2. Install the SDK: Run the setup script to install your local packages to your user environment:
 
 ```shell
 python setup.py install --user
@@ -84,7 +84,7 @@ After you install the SDK, initialize the client to verify your setup. Ensure th
 
 > **Note**: After you initialize  a client, you can call methods to make requests from the Python SDK to the Okta admin management APIs.
 
-The following example highlights how to initialize the client and create a new user.
+The following example highlights how to initialize the client and create a new user:
 
 ```python
 import asyncio
@@ -104,8 +104,8 @@ okta_client = OktaClient(config)
 2. Run the code: Use the above example to create a Python script (`test-pythonsdk3.py`) to initialize the client, create a new user, and run the script from your terminal.
 
 > **Notes**
-Replace 'orgUrl': 'https://{your_org}.okta.com' with your Okta org URL.
-Replace 'token': 'YOUR_API_TOKEN' with your generated API token.
+> Replace `'orgUrl': 'https://{your_org}.okta.com'` with your Okta org URL.
+> Replace `'token': 'YOUR_API_TOKEN'` with your generated API token.
 
 ```python
 import asyncio
@@ -189,13 +189,13 @@ git checkout -b feature_x
 
 3. [Optional] Make changes, generate models, and commit.
 
-Make your code, documentation, or fix changes in your feature branch.
+Develop your new code, update documentation, or implement bug fixes in your feature branch.
 
 > **Note**: If your changes are related to the mustache template files, run the below SDK generation process:
 
 a. Review the [prerequisites](#contribution-prerequisites) list to install the required OpenAPI package.
 
-b. Change directory to openapi.
+b. Change directory to `openapi`:
 
 ```shell
 cd openapi
@@ -207,9 +207,7 @@ c. Run the build script to regenerate the Okta SDK Python package:
 generate.sh
 ```
 
-4. Test and validate.
-
-a. Run tests using `pytest` to ensure your changes didn't introduce regressions:
+4. Test and validate: Run tests using `pytest` to ensure your changes didn't introduce regressions:
 
 ```shell
 pytest tests
@@ -245,19 +243,17 @@ c. Publish your feature branch to your fork:
 git push origin feature_x # Make a Pull Request changes with your feature work
 ```
 
-7. Create a Pull Request (PR):
+7. Create a Pull Request:
 
-a. Navigate to your forked repo (https://github.com/YOUR_ACCOUNT/okta-sdk-python) on GitHub and **Create a Pull Request**.
+a. Navigate to your forked repo `https://github.com/YOUR_ACCOUNT/okta-sdk-python` on GitHub and **Create a Pull Request**.
 
 b. In the **description**, add the test coverage report to ensure the required coverage for the newly added code.
 
 > **Note** To generate the report, use the following command:
-
-```shell
+> ```shell
 pytest --cov=okta/api --cov-report=html --continue-on-collection-errors --maxfail=0 tests/integration -v
 ```
-
-> After the command completes, navigate to the `htmlcov` folder and open `index.html` in your browser. This file displays the visual test results; attach this report while creating the PR.
+> After the command completes, navigate to the `htmlcov` folder and open `index.html` in your browser. This file displays the visual test results; attach this report while creating the Pull Request.
 
 c. Click **Create Pull Request**.
 
