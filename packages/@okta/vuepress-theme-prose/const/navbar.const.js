@@ -780,6 +780,10 @@ export const guides = [
                 title: "Enable Express Configuration",
                 guideName: "enable-express-configuration",
               },
+              {
+                title: "Customer configuration guide template",
+                guideName: "express-config-guide-template",
+              },
             ]
           },
         ],
