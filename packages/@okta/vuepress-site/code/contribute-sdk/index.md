@@ -27,7 +27,7 @@ The Python SDK 3.0 is a community-driven project. You can use this SDK in your s
 By contributing to Okta open source repos, you can help us maintain quality, fix bugs, and expand feature coverage for this release. Contributions typically fall into the following areas:
 
 * Bug fixes: Addressing [issues](https://github.com/okta/okta-sdk-python/issues) identified in the new OAS 3.0-generated code or client wrappers.
-* Documentation: Improve docstrings, READMEs, or provide better examples.
+* Documentation: Improve docstrings and READMEs, or provide better examples.
 * Testing and validation: Help validate the auto-generated code against new or specific Okta API scenarios.
 
 ## Contribution prerequisites
