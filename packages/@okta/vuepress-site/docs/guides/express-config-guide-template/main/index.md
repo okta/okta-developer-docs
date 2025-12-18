@@ -1,8 +1,8 @@
 ---
-title: Express Configuration user configuration guide template
+title: Express Configuration customer configuration guide template
 meta:
   - name: description
-    content: Provide user guide templates.
+    content: Express Configuration customer configuration guide template.
 layout: Guides
 ---
 

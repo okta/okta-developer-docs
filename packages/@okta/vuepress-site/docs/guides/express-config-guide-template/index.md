@@ -2,8 +2,7 @@
 title: Enable Express Configuration
 meta:
   - name: description
-    content: Express Configuration setup and enablement instructions are now available in the Auth0 documentation portal.
-layout: Guides
+    content: Use this template to create a standardized Express Configuration customer configuration guide for your Okta app integration.
 sections:
  - main
 ---
