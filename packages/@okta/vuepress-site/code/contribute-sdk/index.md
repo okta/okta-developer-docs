@@ -84,7 +84,7 @@ After you install the SDK, initialize the client to verify your setup. Ensure th
 
 > **Note**: After you initialize  a client, you can call methods to make requests from the Python SDK to the Okta management APIs.
 
-The following snippet highlights how to initialize the client and create a new user.
+The following example highlights how to initialize the client and create a new user.
 
 ```python
 import asyncio
