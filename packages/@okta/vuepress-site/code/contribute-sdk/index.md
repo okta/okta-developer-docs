@@ -22,7 +22,7 @@ Join the Okta open-source community to contribute to the next generation of the 
 
 ## Contribution overview
 
-The Python SDK 3.0 is a community-driven project. You can use this SDK in your server-side code to interact with the Okta management API.
+The Python SDK 3.0 is a community-driven project. You can use this SDK in your server-side code to interact with the Okta Admin Management API.
 
 By contributing to Okta open source repos, you can help us maintain quality, fix bugs, and expand feature coverage for this release. Contributions typically fall into the following areas:
 
