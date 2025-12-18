@@ -488,7 +488,7 @@ if let userInfo = Credential.default?.userInfo {
 
 After the first fetch, `AuthFoundation` caches the user info. This avoids unnecessary network calls for data that rarely changes.
 
-2️⃣ Fetch user info from the Okta /userinfo endpoint
+2️⃣ Fetch user info from the Okta `/userinfo` endpoint
 
 ```SWIFT
 guard let userInfo = try await Credential.default?.userInfo() else {
@@ -503,7 +503,7 @@ If not cached, this method calls the Okta `/userinfo` endpoint using the current
 * `email`: Email address
 * `preferred_username`: Username or email used for sign-in
 
-3️⃣ Return nil if fetch fails.
+3️⃣ Return `nil` if fetch fails.
 
 ```SWIFT
 catch {
@@ -1234,7 +1234,7 @@ Here's the flow of data through these components:
 
 1. The user enters credentials in the `LoginView` text fields.
 1. The text field values are bound to the `LoginViewModel` properties.
-1. THe user taps **Sign In**.
+1. The user taps **Sign In**.
 1. `LoginView` calls `viewModel.login()`.
 1. `LoginViewModel` calls `authService.authenticate()`.
 1. `AuthService` updates its state.
@@ -1260,21 +1260,21 @@ You're now ready to test the complete authentication flow:
 
 ## Handle common issues
 
-**Invalid credentials**
+**Invalid credentials**<br>
 If you see an authentication error, verify that:
 
 * The username and password are correct
 * The user is assigned to your app in Okta
 * The Resource Owner Password grant type is enabled in your authorization server
 
-**Configuration errors**
+**Configuration errors**<br>
 If the app crashes on launch:
 
 * Double-check your `Okta.plist` values.
 * Ensure that your client ID and issuer URL are correct.
 * Verify that the redirect URIs match exactly.
 
-**Token expiration**
+**Token expiration**<br>
 Access tokens typically expire after one hour. Use the **Refresh Token** button to get a new one without reauthenticating.
 
 ## Understand session persistence
@@ -1298,15 +1298,15 @@ The `AuthFoundation` library stores tokens securely in the iOS keychain, which p
 
 While this implementation provides a functional authentication system, keep these security points in mind:
 
-**Use only HTTPS**: Ensure that all API calls use secure connections. Okta enforces this by default.
+* **Use only HTTPS**: Ensure that all API calls use secure connections. Okta enforces this by default.
 
-**Consider adding MFA**: Password-only authentication is less secure than password + MFA. Consider adding support for more factors as your app matures.
+* **Consider adding MFA**: Password-only authentication is less secure than password + MFA. Consider adding support for more factors as your app matures.
 
-**Handle token expiration**: Always implement token refresh logic to maintain sessions without requiring the user to repeatedly sign in.
+* **Handle token expiration**: Always implement token refresh logic to maintain sessions without requiring the user to repeatedly sign in.
 
-**Secure storage**: Never store passwords locally. The `AuthFoundation` library handles secure token storage in the keychain automatically.
+* **Secure storage**: Never store passwords locally. The `AuthFoundation` library handles secure token storage in the keychain automatically.
 
-**Error handling**: Provide clear error messages without exposing sensitive security details.
+* **Error handling**: Provide clear error messages without exposing sensitive security details.
 
 ## Beyond username and password
 
