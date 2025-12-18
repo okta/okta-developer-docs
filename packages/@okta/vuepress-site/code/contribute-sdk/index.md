@@ -35,7 +35,7 @@ By contributing to Okta open source repos, you can help us maintain quality, fix
 Before you submit code, ensure that you meet the following requirements:
 
 * [Sign the CLA](https://developer.okta.com/cla/): Sign the Contributor License Agreement (CLA) before Okta can merge your pull request.
-* Use GitHub: Have a GitHub account to fork the repo and submit a Pull Request (PR).
+* Use GitHub: Have a GitHub account to fork the repo and submit a pull request.
 * Tools and environment:
   * Python: Version 3.9+ or higher.
   * OpenAPI Generator: `openapi-generator-cli` version 7.7.0.
