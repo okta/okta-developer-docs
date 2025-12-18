@@ -78,7 +78,7 @@ python setup.py install --user
 
 ## Client initialization and configuration
 
-After you install the SDK, initialize the client to verify your setup. Ensure that your configuration (Org URL and API token) is available through environment variables or an `okta.yaml` file.
+After you install the SDK, initialize the client to verify your setup. Ensure that your configuration (org URL and API token) is available through environment variables or an `okta.yaml` file.
 
 1. Use the imported `OktaClient` to initialize the client with your configuration.
 
