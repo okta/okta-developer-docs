@@ -245,7 +245,7 @@ c. Publish your feature branch to your fork:
 git push origin feature_x # Make a Pull Request changes with your feature work
 ```
 
-7. Create a Pull Request(PR):
+7. Create a Pull Request (PR):
 
 a. Navigate to your forked repo (https://github.com/YOUR_ACCOUNT/okta-sdk-python) on GitHub and **Create a Pull Request**.
 
