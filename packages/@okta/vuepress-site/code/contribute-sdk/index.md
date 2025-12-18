@@ -101,7 +101,7 @@ okta_client = OktaClient(config)
 
 > **Note**: For comprehensive configuration and advanced usage patterns, refer to the [Okta Python SDK](https://github.com/okta/okta-sdk-python) GitHub repo.
 
-2. Run the code: Use the above example snippet to create a python script (`test-pythonsdk3.py`) to initialize the client, create a new user, and run the script from your terminal.
+2. Run the code: Use the above example to create a Python script (`test-pythonsdk3.py`) to initialize the client, create a new user, and run the script from your terminal.
 
 > **Notes**
 Replace 'orgUrl': 'https://{your_org}.okta.com' with your Okta org URL.
