@@ -62,7 +62,7 @@ pip3 install okta
 
 ### Option 2: Local installation (from source)
 
-Use this method if you cloned the official Python SDK repo and want to update a package or test your changes locally before creating a pull request.
+Use this method if you cloned the official Python SDK repo and want to update a package or test your changes locally before you create a pull request.
 
 1. Install prerequisites: First, install the `setuptools` library if it’s not already available.
 
