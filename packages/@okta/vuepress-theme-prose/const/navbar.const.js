@@ -1153,12 +1153,16 @@ export const reference = [
             path: "/docs/reference/rl2-burst/",
           },
           {
-            title: "Concurrency rate limits",
+            title: "Concurrency limits",
             path: "/docs/reference/rl2-concurrency/",
           },
           {
             title: "Monitor and troubleshoot rate limits",
             path: "/docs/reference/rl2-monitor/",
+          },
+          {
+            title: "System Log events for rate limits",
+            path: "/docs/reference/rl-system-log-events/",
           },
           {
             title: "Increase your rate limits",
@@ -1167,10 +1171,6 @@ export const reference = [
           {
             title: "Additional Rate limits",
             path: "/docs/reference/rl2-limits/",
-          },
-          {
-            title: "System Log events for rate limits",
-            path: "/docs/reference/rl-system-log-events/",
           }
         ]
       },
