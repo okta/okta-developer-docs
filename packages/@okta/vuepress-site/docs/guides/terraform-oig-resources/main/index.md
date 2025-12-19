@@ -34,7 +34,7 @@ For guidance on organizing your files, see [setting up a typical Okta Terraform 
 
 #### Add or confirm the API scopes
 
-Your Terraform integration requires the appropriate OAuth scopes that depend on the specific resource you’re managing. The specific scopes required for each resource are listed in the Okta [Identity Governance API documentation](https://developer.okta.com/docs/api/iga/).
+Your Terraform integration requires the appropriate OAuth scopes for the resource that you’re managing. The scopes that are required for each resource are listed in the Okta [Identity Governance API documentation](https://developer.okta.com/docs/api/iga/).
 
 In this sample, the scopes required for managing campaigns include:
 - okta.governance.accessCertifications.manage
