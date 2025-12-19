@@ -947,6 +947,10 @@ export const guides = [
                 title: "Import existing resources",
                 guideName: "terraform-import-existing-resources"
               },
+              {
+                title: "Manage Okta Identity Governance resources",
+                guideName: "terraform-oig-resources",
+              },
             ],
           },
           {
