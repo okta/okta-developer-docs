@@ -157,7 +157,7 @@ resource "okta_campaign" "example" {
 
 #### Import existing objects to Terraform
 
-You can import existing OIG objects into Terraform using the import function. For more information on importing objects into Terraform, see [Import existing Okta objects into Terraform](https://developer.okta.com/docs/guides/terraform-import-existing-resources/main/).
+You can import OIG objects into Terraform using the import function. For more information, see [Import existing Okta objects into Terraform](https://developer.okta.com/docs/guides/terraform-import-existing-resources/main/).
 
 **Note**: Ensure that you have the ID of the resource you want to import. You can retrieve this ID from the Admin Console or by using the [Okta Identity Governance API](https://developer.okta.com/docs/api/iga/).
 1. Create a resource block in your Terraform file to host the object that you want to import. The configuration must match the state of the object in Okta.
