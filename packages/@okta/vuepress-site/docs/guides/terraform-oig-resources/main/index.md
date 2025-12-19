@@ -49,24 +49,30 @@ Configure the Okta Terraform provider in your Terraform configuration files. Thi
 ```bash
 
     terraform {
-      required_providers {
-        okta = {
-          source  = "okta/okta"
-          version = ">= 6.0.0"
-      }
+  required_providers {
+    okta = {
+      source  = "okta/okta"
+      version = "6.2.0"
     }
-    provider "okta" {
-      org_name  = var.okta_org_name
-    variable "okta_org_name" {
-      description = "Your Okta org name (e.g., 'trial-12345678.okta.com')."
-      type        = string
-      sensitive   = true
-    }
-    variable "okta_api_token" {
-      description = "Your Okta API token with relevant permissions."
-      type        = string
-      sensitive   = true
-    }
+  }
+}
+
+provider "okta" {
+  org_name = "your Okta org name (for example, trial-12345678)"
+  base_url = "base URL of your org (for example, example.com)"
+  api_token = "API token"
+  parallelism = 1
+}
+
+locals {
+  org_url = "Org URL (for example, https://trial-12345678.example.com)"
+}
+
+resource "okta_admin_role_custom" "test" {
+  label       = "testAcc_replace_with_uuid"
+  description = "description of resource details"
+  permissions = ["okta.apps.assignment.manage", "okta.users.manage", "okta.apps.manage"]
+}
 ```
 
 ### Prepare your Okta Org
