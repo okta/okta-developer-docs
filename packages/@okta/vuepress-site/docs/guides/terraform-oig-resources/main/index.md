@@ -40,7 +40,7 @@ In this sample, the scopes required for managing campaigns include:
 - okta.governance.accessCertifications.manage
 - okta.governance.accessCertifications.read
 
-**Note**: To grant scopes in the Admin Console and to include them in your Terraform code, see the guides on [enabling your API service app for Terraform access](/docs/guides/terraform-enable-org-access/) and [setting up a typical Okta Terraform configuration](/docs/guides/terraform-organize-configuration/).
+**Note**: To grant scopes in the Admin Console and include them in your Terraform code, see the guides on [enabling your API service app for Terraform access](/docs/guides/terraform-enable-org-access/) and [setting up a typical Okta Terraform configuration](/docs/guides/terraform-organize-configuration/).
 
 ### Okta provider configuration
 
