@@ -81,7 +81,7 @@ Before creating app-specific resources, you must enable **Entitlement Management
 5. Select **Save**.
 
 
-### Manage Resources
+### Manage resources
 
 #### Resource arguments
 
