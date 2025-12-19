@@ -75,7 +75,7 @@ Configure the Okta Terraform provider in your Terraform configuration files. Thi
 Before creating app-specific resources, you must enable **Entitlement Management** on the target app in your Okta org:
 
 1. In the Admin Console, go to **Applications** > **Applications**.
-2. Select the relevant app.
+2. Search for and select the app.
 3. In the **General** tab, locate **Identity Governance** and select **Edit**.
 4. Select **Enable** from the **Entitlement Management** dropdown menu.
 5. Select **Save**.
