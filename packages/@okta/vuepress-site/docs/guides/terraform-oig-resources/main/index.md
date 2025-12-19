@@ -85,7 +85,7 @@ Before creating app-specific resources, you must enable **Entitlement Management
 
 #### Resource arguments
 
-Use the relevant resource schema, in this sample, the [Campaigns schema](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/campaign#schema), to create and update relevant resources. See the **Schema** section of the relevant resources in the [Okta Terraform Provider Registry documentation](https://registry.terraform.io/providers/okta/okta/latest).
+Use the relevant resource schema to create and update relevant resources. This example uses the [Campaigns schema](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/campaign#schema).  See the **Schema** section for a resource in the [Okta Terraform Provider Registry documentation](https://registry.terraform.io/providers/okta/okta/latest).
 
 #### Create a resource
 
