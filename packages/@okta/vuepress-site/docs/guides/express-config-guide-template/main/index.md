@@ -2,7 +2,7 @@
 title: Express Configuration customer configuration guide template
 meta:
   - name: description
-    content: Express Configuration customer configuration guide template.
+    content: Use this template to create a standardized Express Configuration customer configuration guide for your Okta app integration.
 layout: Guides
 ---
 
@@ -65,10 +65,9 @@ Select the appropriate template for your integration.
 
       1. In the [app_name] app instance in your Okta org, click the **Authentication** tab.
       [[style="list-style-type:lower-alpha"]]
-      2. Click **Express Configure SSO** in the Express Configuration for [app_name] section.
-      3. Click **Authorize** in the Authorization window. You're being redirected to the [app_name] login page.
-      4. Sign in to the app using your admin credentials.
-      5. Review the **Authorize App** details on the consent page to grant Okta access to [app_name] and click **Accept**. You’re automatically redirected back to your Okta org. A success message indicates that SSO has been configured.
+      2. Click **Express Configure SSO** in the Express Configuration for [app_name] section. You're being redirected to the [app_name] login page.
+      3. Sign in to the app using your admin credentials.
+      4. Review the **Authorize App** details on the consent page to grant Okta access to [app_name] and click **Accept**. You’re automatically redirected back to your Okta org. A success message indicates that SSO has been configured.
 
 3. Verification:
 
@@ -109,6 +108,21 @@ Select the appropriate template for your integration.
    1. Click **Express Configure SSO** in the Express Configuration for [app name] section. You're redirected to the [app name] sign-in page.
    1. Sign in to the app using your admin credentials.
    1. Review the **Authorize App** details on the consent page to grant Okta access to [app name] and click **Accept**. You’re automatically redirected back to your Okta org. A success message indicates that SSO has been configured.
+
+3. Configure provisioning (Express Configuration):
+
+    1. In the app instance in your Okta org, go to the Provisioning tab.
+    [[style="list-style-type:lower-alpha"]]
+    1. Click **Express Configure SCIM** in the Express Configuration for [app_name] section. You're redirected to the [app_name] login page.
+    1. Sign in to the app using your admin credentials.
+    1. Review the **Authorize App** details on the consent page to grant Okta access to [app_name] and click **Accept**. You’re automatically redirected back to your Okta org. A success message indicates that SCIM has been configured.
+    1. Click **To App** within **Settings**, and then **Edit** to save the settings necessary for provisioning [app_name]. Once done, click **Save**.
+
+4. Verification
+
+    1. Verify provisioning: Assign the [app_name] app to a test user in Okta. Check your [app_name] user list to confirm the user was created.
+    [[style="list-style-type:lower-alpha"]]
+    1. Verify SSO: Sign in to [app_name] using the Okta dashboard.
 
 #### Template 4: SSO + Universal Logout + Provisioning (Express Configuration)
 
