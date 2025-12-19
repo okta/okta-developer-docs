@@ -44,7 +44,7 @@ In this sample, these scopes are required for managing campaigns:
 
 ### Okta provider configuration
 
-Configure the Okta Terraform provider in your Terraform configuration files. This configuration involves setting up credentials with relevant permissions to manage entitlements within your Okta org.
+Configure the Okta Terraform provider in your Terraform configuration files. This configuration involves setting up credentials with the permissions that are needed to manage entitlements in your Okta org.
 
 ```bash
 
