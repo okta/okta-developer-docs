@@ -76,7 +76,7 @@ Before creating app-specific resources, you must enable **Entitlement Management
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 2. Search for and select the app.
-3. In the **General** tab, locate **Identity Governance** and select **Edit**.
+3. On the **General** tab, go to the **Entitlement management** section and click **Edit**.
 4. Select **Enable** from the **Entitlement management** dropdown menu.
 5. Click **Save**.
 
