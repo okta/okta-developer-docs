@@ -24,7 +24,7 @@ Instructions for creating your Express Configuration customer configuration guid
 
     - [Template 3: SSO and provisioning (Express Configuration)](#configuration-steps)
 
-    - [Template 4: SSO and Universal Logout, and provisioning (Express Configuration)](#configuration-steps)
+    - [Template 4: SSO, Universal Logout, and provisioning (Express Configuration)](#configuration-steps)
 
 3. Replace all placeholder text in [brackets] with your specific app details. For example, [app_name].
 
@@ -67,7 +67,7 @@ Select the appropriate template for your integration.
 
 ``` markdown
 
-1. Add the [app_name] instance in your Okta org. See [Add the existing app integration.](https://developer.okta.com/docs/guides/create-an-app-integration/openidconnect/main/#how-to-create-an-app-integration)
+1. Add the [app_name] instance in your Okta org. See [Add the existing app integration](https://developer.okta.com/docs/guides/create-an-app-integration/openidconnect/main/#how-to-create-an-app-integration).
 
 2. Configure SSO:
 
@@ -149,7 +149,7 @@ Select the appropriate template for your integration.
 
 <details>
 
-<summary>Template 4: SSO and Universal Logout, and provisioning (Express Configuration) </summary>
+<summary>Template 4: SSO, Universal Logout, and provisioning (Express Configuration) </summary>
 
 ``` markdown
 
