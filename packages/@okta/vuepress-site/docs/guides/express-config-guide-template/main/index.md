@@ -102,7 +102,7 @@ Select the appropriate template for your integration.
 2. Configure SSO and Universal Logout:
 
     a. In the [app_name] app instance in your Okta org, click the **Authentication** tab.
-    b. Click **Express Configure SSO & UL** in the Express Configuration for [app_name] section. You're redirected to the [app_name] login page.
+    b. Click **Express Configure SSO & UL** in the Express Configuration for [app_name] section. You're redirected to the [app_name] sign-in page.
     c. Sign in to the app using your admin credentials.
     d. Review the **Authorize App** details on the consent page to grant Okta access to [app_name] and click **Accept**. You’re automatically redirected back to your Okta org. A success message indicates that SSO and Universal Logout have been configured.
 
