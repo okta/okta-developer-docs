@@ -10,7 +10,7 @@ layout: Guides
 
 ## Overview
 
-This guide provides a template for your Express Configuration customer configuration guide that helps your users (Okta administrators) set up your app from the OIN catalog. By using these standardized guide templates on your guide, you provide clear instructions that minimize configuration errors and accelerate app adoption. See [Customer configuration document guidelines](https://developer.okta.com/docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines).
+This guide provides a template for your Express Configuration customer configuration guide that helps your users (Okta admins) set up your app from the OIN catalog. By using these standardized guide templates on your guide, you provide clear instructions that minimize configuration errors and accelerate app adoption. See [Customer configuration document guidelines](https://developer.okta.com/docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines).
 
 Instructions for creating your Express Configuration customer configuration guide:
 
