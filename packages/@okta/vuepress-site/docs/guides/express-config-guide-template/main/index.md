@@ -55,7 +55,7 @@ In this section, specify any prerequisites required before your users to configu
 
   - [app_name] admin account. Include specific instructions on how an Okta admin can request/receive an Express Config/SaaS admin account for your service.
 
-  - Administrator access to your Okta tenant.
+  - Admin access to your Okta tenant.
 
 ### Configuration steps
 
