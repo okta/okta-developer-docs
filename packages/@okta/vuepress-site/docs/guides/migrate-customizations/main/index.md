@@ -1,8 +1,6 @@
 ---
 title: Migrate your brand customizations with automation
-meta:
-  - name: description
-    content: Migrate your brand customizations from a test to production org using Terraform, PowerShell, or Go automation.
+excerpt: Migrate your brand customizations from a test to production org using Terraform, PowerShell, or Go automation.
 layout: Guides
 ---
 
