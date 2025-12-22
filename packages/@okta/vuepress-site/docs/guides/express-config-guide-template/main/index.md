@@ -153,7 +153,7 @@ Select the appropriate template for your integration.
 
 ``` markdown
 
-1. Add the [app_name] instance in your Okta org. See [Add the existing app integration.](https://developer.okta.com/docs/guides/create-an-app-integration/openidconnect/main/#how-to-create-an-app-integration)
+1. Add the [app_name] instance in your Okta org. See [Add the existing app integration](https://developer.okta.com/docs/guides/create-an-app-integration/openidconnect/main/#how-to-create-an-app-integration).
 
 2. Configure SSO and Universal Logout:
 
