@@ -132,7 +132,7 @@ Select the appropriate template for your integration.
 
 3. Configure provisioning (Express Configuration):
 
-    a. In the app instance in your Okta org, go to the Provisioning tab.
+    a. In the app instance in your Okta org, go to the **Provisioning** tab.
     b. Click **Express Configure SCIM** in the Express Configuration for [app_name] section. You're redirected to the [app_name] sign-in page.
     c. Sign in to the app using your admin credentials.
     d. Review the **Authorize App** details on the consent page to grant Okta access to [app_name] and click **Accept**. You’re automatically redirected back to your Okta org. A success message indicates that SCIM has been configured.
@@ -164,7 +164,7 @@ Select the appropriate template for your integration.
 
 3. Configure provisioning (Express Configuration):
 
-    a. In the app instance in your Okta org, go to the Provisioning tab.
+    a. In the app instance in your Okta org, go to the **Provisioning** tab.
     b. Click **Express Configure SCIM** in the Express Configuration for [app_name] section. You're redirected to the [app_name] sign-in page.
     c. Sign in to the app using your admin credentials.
     d. Review the **Authorize App** details on the consent page to grant Okta access to [app_name] and click **Accept**. You’re automatically redirected back to your Okta org. A success message indicates that SCIM has been configured.
