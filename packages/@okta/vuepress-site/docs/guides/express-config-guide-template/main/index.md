@@ -8,9 +8,9 @@ layout: Guides
 
 <ApiLifecycle access="ie" />
 
-# Purpose
+## Overview
 
-This guide provides a template for your Express Configuration customer configuration guide that helps your users (Okta administrators) set up your app from the OIN catalog. By using these standardized guide templates on your guide, you provide clear instructions that minimize configuration errors and accelerate app adoption.
+This guide provides a template for your Express Configuration customer configuration guide that helps your users (Okta administrators) set up your app from the OIN catalog. By using these standardized guide templates on your guide, you provide clear instructions that minimize configuration errors and accelerate app adoption. See [Customer configuration document guidelines](https://developer.okta.com/docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines).
 
 Instructions for creating your Express Configuration customer configuration guide:
 
@@ -29,8 +29,6 @@ Instructions for creating your Express Configuration customer configuration guid
 3. Replace all placeholder text in [brackets] with your specific app details. For example, [app_name].
 
 4. Include any images that can assist the user with configuring your app integrations.
-
-> **Note**: For more information on the guidelines, see [Customer configuration document guidelines](https://developer.okta.com/docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines).
 
 ## Configuration guide template
 

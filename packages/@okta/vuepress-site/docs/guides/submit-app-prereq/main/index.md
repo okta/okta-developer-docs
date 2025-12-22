@@ -304,7 +304,9 @@ The following are topic suggestions for your configuration guide:
 * [SP-initiated SSO](#sp-initiated-sso)
 * [Troubleshoot](#troubleshoot)
 
-> **Note:** Each section contains examples for OIDC, SAML, or SCIM content. You can use the examples as an initial template. Copy and paste the example markdown text into your customer configuration document and customize the content for your integration.
+> **Notes:**
+>  - Each section contains examples for OIDC, SAML, or SCIM content. You can use the examples as an initial template. Copy and paste the example markdown text into your customer configuration document and customize the content for your integration.
+> - For guidelines on creating Express Configuration customer configuration guide, see [Express Configuration customer configuration guide template](/docs/guides/express-config-guide-template/main/).
 
 #### Prerequisites
 
