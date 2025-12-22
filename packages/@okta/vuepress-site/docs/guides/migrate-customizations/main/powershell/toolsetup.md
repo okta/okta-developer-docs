@@ -1,8 +1,8 @@
-The Okta.PowerShell module requires PowerShell 7.0+ and should use OAuth 2.0 device flow authentication for security best practices.
+The Okta.PowerShell module requires PowerShell 7.0+ and should use OAuth 2.0 device flow authentication as a security best practice.
 
 #### Configure an app for OAuth 2.0 Device flow authentication (recommended)
 
-Create an OIDC native application in your Admin Console:
+Create an OIDC native app in your Admin Console:
 
 1. Go to **Applications** > **Applications** > **Create App Integration**.
 2. Select **OIDC - OpenID Connect**.
@@ -25,7 +25,7 @@ Create an OIDC native application in your Admin Console:
   $Configuration.ClientId = 'your_client_id'
   $Configuration.Scope = "okta.brands.manage okta.brands.read okta.templates.manage"
 
-  # This will open a browser for authentication
+  # This opens a browser for authentication
   Invoke-OktaEstablishAccessToken
 
   # Verify connection

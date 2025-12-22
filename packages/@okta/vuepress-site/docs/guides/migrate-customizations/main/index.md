@@ -39,13 +39,15 @@ This guide assumes that you have already registered and verified separate custom
 
 ## Tool setup
 
+Setting up secure automation starts with choosing the right authentication method, whether you're using Terraform for infrastructure, PowerShell for scripting, or making direct API calls. This section provides the steps to configure OAuth 2.0 service apps and mobile integrations to ensure that your tools have the precise permissions they need without compromising security. By the end of this section, you'll know how to manage environment-specific variables and establish a secure connection to your Okta org using all three tools.
+
 <StackSnippet snippet="toolsetup" />
 
 ## Define reusable branding content
 
 All customization logic is centralized into reusable blocks (content strings) that are applied identically across both environments.
 
-<StackSnippet snippet="reuseable" />
+<StackSnippet snippet="reusable" />
 
 ## Synchronize branding metadata
 

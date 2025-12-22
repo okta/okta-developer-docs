@@ -25,8 +25,8 @@ Create a `locals.tf` file with reusable content strings:
       </html>
     EOT
 
-    # Note: Custom error page HTML can only be modified if multibrand
-    # customization is NOT enabled in your org
+    # Note: You can only modify custom error page HTML if multibrand
+    # customization isn't enabled in your org
     custom_error_page_html = <<EOT
       <div style="text-align: center; padding: 50px; font-family: sans-serif;">
         <h1 style="color: #0047AB;">Oops! Something Went Wrong.</h1>

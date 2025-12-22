@@ -1,5 +1,3 @@
-Setting up secure automation starts with choosing the right authentication method, whether you're using Terraform for infrastructure, PowerShell for scripting, or making direct API calls. This section provides the steps to configure OAuth 2.0 service apps and mobile integrations to ensure that your tools have the precise permissions they need without compromising security. By the end of this section, you'll know how to manage environment-specific variables and establish a secure connection to your Okta org across all three platforms.
-
 #### Provider configuration with OAuth 2.0
 
 Okta recommends using OAuth 2.0 with service apps for automation. First, create an OAuth 2.0 service app in your Admin Console:
@@ -16,9 +14,9 @@ Okta recommends using OAuth 2.0 with service apps for automation. First, create 
    openssl rsa -in original-key.pem -out rsa-key.pem -traditional
 ```
 
-1. **Grant OAuth Scopes:** Click the **Okta API Scopes** tab and grant: `okta.brands.manage`, `okta.brands.read`, `okta.templates.manage`, `okta.domains.manage` for your app.
-1. **Assign Admin Roles:** Click the **Admin roles** tab, and then click **Edit assignments**.
-1. Assign the appropriate admin role (for example, Super Administrator for testing or a custom role with brand management permissions). Note that both scopes and admin role assignment are required for authentication to succeed.
+8. Click the **Okta API Scopes** tab and grant: `okta.brands.manage`, `okta.brands.read`, `okta.templates.manage`, `okta.domains.manage` for your app.
+9. Click the **Admin roles** tab, and then click **Edit assignments**.
+10. Assign the appropriate admin role (for example, super admin for testing or a custom role with brand management permissions). Note that both scopes and admin role assignment are required for authentication to succeed.
 
 Create a Terraform configuration file with the Okta provider:
 

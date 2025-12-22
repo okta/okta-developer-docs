@@ -1,5 +1,5 @@
 ```powershell
-# Note: This only works if multibrand customization is NOT enabled
+# Note: This only works if multibrand customization isn't enabled
 try {
     $pagePayload = @{
         pageContent = $CustomErrorPageHTML

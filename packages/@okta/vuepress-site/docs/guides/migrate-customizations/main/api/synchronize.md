@@ -4,7 +4,7 @@ curl -X GET "${OKTA_ORG_URL}/api/v1/brands" \
   -H "Authorization: Bearer ${ACCESS_TOKEN}" \
   -H "Accept: application/json"
 
-# Most commonly, you'll work with your existing default brand (first in list)
+# Most commonly, you work with your existing default brand (first in the list)
 BRAND_ID=$(curl -s -X GET "${OKTA_ORG_URL}/api/v1/brands" \
   -H "Authorization: Bearer ${ACCESS_TOKEN}" \
   -H "Accept: application/json" | jq -r '.[0].id')
@@ -24,7 +24,7 @@ curl -X PUT "${OKTA_ORG_URL}/api/v1/brands/${BRAND_ID}" \
     "locale": "en"
   }'
 
-# To create a NEW custom brand (requires multibrand feature):
+# To create a NEW custom brand (requires the multibrand feature):
 # curl -X POST "${OKTA_ORG_URL}/api/v1/brands" \
 #   -H "Authorization: Bearer ${ACCESS_TOKEN}" \
 #   -H "Content-Type: application/json" \

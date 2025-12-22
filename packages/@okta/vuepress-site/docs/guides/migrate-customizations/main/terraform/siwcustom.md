@@ -4,7 +4,7 @@ data "okta_themes" "brand_themes" {
   brand_id = okta_brand.custom_app_brand.id
 }
 
-# Import the auto-generated theme (required step!)
+# Import the auto-generated theme (required step)
 import {
   to = okta_theme.custom_theme
   id = "${okta_brand.custom_app_brand.id}/${tolist(data.okta_themes.brand_themes.themes)[0].id}"

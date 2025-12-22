@@ -1,4 +1,6 @@
-### Customize existing default brand (Option 1)
+There are two options when you want to synchronize branding metadata with Terraform.
+
+### Customize the existing default brand
 
 Most orgs want to customize their existing default brand:
 
@@ -24,14 +26,14 @@ Most orgs want to customize their existing default brand:
   }
 ```
 
-### Terraform: Option 2 - Create new custom brand (requires multibrand)
+### Create a custom brand (requires multibrand)
 
-If your org has multibrand enabled and you want to create a new brand:
+If your org has multibrand enabled and you want to create a brand, use the following example:
 
 ```hcl
 # main.tf
 
-# Create a new custom brand (requires multibrand feature)
+# Create a new custom brand (requires the multibrand feature)
 resource "okta_brand" "custom_app_brand" {
   name                            = local.brand_name
   agree_to_custom_privacy_policy  = true
@@ -48,4 +50,4 @@ resource "okta_brand" "custom_app_brand" {
 # }
 ```
 
-> **Note:** Creating new brands requires the multibrand feature to be enabled in your Okta org. If you're unsure, start with Option 1 (customizing the default brand).
+> **Note:** To create brands, you need the multibrand feature enabled in your Okta org. If you're unsure, start with customizing the default brand.

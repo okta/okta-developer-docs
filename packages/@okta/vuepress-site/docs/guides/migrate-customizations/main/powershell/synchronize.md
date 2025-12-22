@@ -26,8 +26,8 @@ $updateParams = @{
 $targetBrand = Update-OktaBrand -BrandId $targetBrand.id -Brand $updateParams
 $BrandId = $targetBrand.id
 
-# Option 2: Create a new custom brand (requires multibrand feature)
-# Note: Brand creation via PowerShell requires using the API directly
+# Option 2: Create a custom brand (requires the multibrand feature)
+# Note: Brand creation through PowerShell requires using the API directly.
 # $brandPayload = @{
 #     name                          = $BrandName
 #     agreeToCustomPrivacyPolicy    = $true
@@ -35,7 +35,7 @@ $BrandId = $targetBrand.id
 #     removePoweredByOkta           = $true
 #     locale                        = "en"
 # } | ConvertTo-Json -Depth 10
-# 
+#
 # $newBrand = Invoke-OktaApi -Uri "api/v1/brands" -Method POST -Body $brandPayload
 # $BrandId = $newBrand.id
 

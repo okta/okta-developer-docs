@@ -2,7 +2,7 @@ You can obtain the OAuth 2.0 access token using the client credentials flow with
 
 ```bash
   # Set variables for test environment
-  export OKTA_ORG_URL="https://dev-test.oktapreview.com"
+  export OKTA_ORG_URL="https://dev-test.com"
   export OKTA_CLIENT_ID="0oa1234567890abcdef"
   export OKTA_PRIVATE_KEY_PATH="./keys/test-private-key.pem"
 
@@ -12,4 +12,4 @@ You can obtain the OAuth 2.0 access token using the client credentials flow with
   # export OKTA_PRIVATE_KEY_PATH="./keys/prod-private-key.pem"
 ```
 
-To obtain an access token, you need to create a JWT and exchange it for an OAuth 2.0 access token. This process is handled automatically by Terraform and PowerShell, but for direct API calls you can use a helper script or library to generate the JWT.
+To obtain an access token, you need to create a JWT and exchange it for an OAuth 2.0 access token. Terraform and PowerShell handle this process automatically. For direct API calls, you can use a helper script or library to generate the JWT.
