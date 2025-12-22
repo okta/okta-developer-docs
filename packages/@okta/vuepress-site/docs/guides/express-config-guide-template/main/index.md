@@ -174,7 +174,7 @@ Select the appropriate template for your integration.
 
     a. Verify provisioning: Assign the [app_name] app to a test user in Okta. Check your [app_name] user list to confirm the user was created.
     b. Verify SSO: Sign in to [app_name] using the Okta dashboard.
-    c. Verify logout: Sign out from [app_name]. Confirm that you’re redirected to the Okta login page, which indicates the Okta session has also been terminated.
+    c. Verify logout: Sign out from [app_name]. Confirm that you’re redirected to the Okta sign-in page, which indicates the Okta session has also been terminated.
 
 ```
 
