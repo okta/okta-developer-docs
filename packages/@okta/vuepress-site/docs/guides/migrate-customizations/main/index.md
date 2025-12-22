@@ -6,8 +6,7 @@ meta:
 layout: Guides
 ---
 
-
-This guide details how to automate copying custom branding settings from an Okta test environment to a live production environment. This migration includes CSS, email content, and error page HTML.
+This guide details how to automate copying custom brand settings from an Okta test environment to a live production environment. This migration includes CSS, email content, and error page HTML for Terraform, Powershell CLI, and the Okta APIs. Switch between these three using the dropdown list on the right.
 
 ---
 
@@ -30,7 +29,7 @@ Configure and run a brand customization synchronization from a test or preview e
 
 This guide assumes that you have already registered and verified separate custom domains for your test and production environments (for example, `test.example.com` and `portal.example.com`). Okta also assumes that your Terraform or CLI tools are fully authenticated and configured.
 
-> **Important**: Brands can be created programmatically, but **themes are automatically generated** when a brand is created. Import existing themes before you manage them with automation tools. This guide demonstrates the proper import workflow.
+> **Important**: You can create brands programmatically, but themes are automatically generated when a brand is created. Import existing themes before you manage them with automation tools. This guide demonstrates the proper import workflow.
 
 **New to these tools?** If you haven’t configured authentication or installed the necessary SDKs (Terraform provider, PowerShell module, Okta Go CLI), refer to the introductory guides on the respective GitHub repositories before proceeding.
 
@@ -58,19 +57,19 @@ This step ensures that the core brand object exists and is correctly linked to t
 
 ## Apply Sign-In Widget customization
 
-**Critical:** Themes are automatically created when a brand is created and cannot be created directly. You must import existing themes before managing them.
+**Important:** Themes are automatically created when a brand is created. Import existing themes before managing them.
 
 <StackSnippet snippet="siwcustom" />
 
 ## Apply email template customization
 
-Synchronizes the email content defined in section [Define reusable branding content](#define-resuable-branding-content) for key templates.
+Synchronizes the email content defined in the [Define reusable branding content](#define-resuable-branding-content) section for key templates.
 
 <StackSnippet snippet="emailcustom" />
 
 ## Apply error page customization
 
-**Important:** Custom error page HTML content cannot be modified if multibrand customization is enabled in your org. This section only applies to orgs without multibrand.
+**Important:** You can't modify custom error page HTML if multibrand customization is enabled in your org. This section only applies to orgs without multibrand.
 
 <StackSnippet snippet="errorcustom" />
 
@@ -79,5 +78,5 @@ Synchronizes the email content defined in section [Define reusable branding cont
 After the content is defined in the script or configuration file:
 
 1. Run against the test environment: Execute your chosen tool (Terraform `apply`, PowerShell script, or cURL commands) using the test environment variables or context.
-1. Verify: Manually test the customization on your test custom domain (https://test.example.com/login/default).
+1. Verify: Manually test the customization on your test custom domain (`https://test.example.com/login/default`).
 1. Run against production: Change your environment variables (or tool configuration) to target production and re-run the exact same script or configuration. The code is designed to be idempotent and creates the brand in production using the production domain ID.

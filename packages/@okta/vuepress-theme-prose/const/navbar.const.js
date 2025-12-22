@@ -679,7 +679,7 @@ export const guides = [
           {
             title: "Migrate brand customizations",
             guideName: "migrate-customizations",
-          }
+          },
         ],
       },
       {
