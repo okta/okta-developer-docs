@@ -51,7 +51,7 @@ This guide provides instructions to configure the [app_name] [SSO, Universal Log
 
 ### Prerequisites
 
-In this section, specify any prerequisites required before your users to configure your integration in Okta. Examples may include:
+In this section, specify any prerequisites required before your users to configure your integration in Okta. Examples may include the following:
 
   - [app_name] admin account. Include specific instructions on how an Okta admin can request/receive an Express Config/SaaS admin account for your service.
 
