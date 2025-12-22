@@ -109,7 +109,7 @@ Select the appropriate template for your integration.
 3. Verification:
 
     a. Verify SSO: Verify the SSO configuration based on the provider initiation. See the Verification step in [Template 1: SSO Only (Express Configuration)](#template-1-sso-only-express-configuration).
-    b. Verify logout: Sign out from [app_name]. Confirm that you’re redirected to the Okta login page, which indicates the Okta session has also been terminated.
+    b. Verify logout: Sign out from [app_name]. Confirm that you’re redirected to the Okta sign-in page, which indicates the Okta session has also been terminated.
 
 ```
 
