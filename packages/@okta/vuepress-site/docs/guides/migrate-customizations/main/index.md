@@ -4,7 +4,7 @@ excerpt: Migrate your brand customizations from a test to production org using T
 layout: Guides
 ---
 
-This guide details how to automate copying custom brand settings from an Okta test environment to a live production environment. This migration includes CSS, email content, and error page HTML for Terraform, Powershell CLI, and the Okta APIs. Switch between these three using the dropdown list on the right.
+This guide details how to automate copying custom brand settings from an Okta test environment to a live production environment. This migration includes CSS, email content, and error page HTML for Terraform, Powershell CLI, and the Okta APIs. Switch between these three tools using the dropdown list on the right.
 
 ---
 
@@ -39,7 +39,7 @@ This guide assumes that you have already registered and verified separate custom
 
 ## Tool setup
 
-Setting up secure automation starts with choosing the right authentication method, whether you're using Terraform for infrastructure, PowerShell for scripting, or making direct API calls. This section provides the steps to configure OAuth 2.0 service apps and mobile integrations to ensure that your tools have the precise permissions they need without compromising security. By the end of this section, you'll know how to manage environment-specific variables and establish a secure connection to your Okta org using all three tools.
+Setting up secure automation starts with choosing the right authentication method, whether you're using Terraform for infrastructure, PowerShell for scripting, or making direct API calls. This section provides the steps to configure OAuth 2.0 service apps and mobile integrations to ensure that your tools have the precise permissions they need without compromising security. By the end of this section, you'll know how to manage environment-specific variables and establish a secure connection to your Okta org.
 
 <StackSnippet snippet="toolsetup" />
 

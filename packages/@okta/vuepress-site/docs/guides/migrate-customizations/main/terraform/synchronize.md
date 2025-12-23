@@ -1,4 +1,7 @@
-There are two options when you want to synchronize branding metadata with Terraform.
+There are two options when you want to synchronize branding metadata with Terraform:
+
+1. [Customize the existing default brand](#customize-the-existing-default-brand)
+2. [Create a custom brand (requires multibrand)](#create-a-custom-brand-requires-multibrand)
 
 ### Customize the existing default brand
 
