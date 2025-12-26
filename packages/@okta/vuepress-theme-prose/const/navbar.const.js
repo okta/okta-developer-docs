@@ -407,6 +407,10 @@ export const guides = [
               {
                 title: "Sign in to your native mobile app",
                 guideName: "sign-into-mobile-app-embedded"
+              },
+              {
+                title: "Sign in mobile users with a self-hosted page",
+                guideName: "sign-users-in-mobile-self-hosted"
               }
             ]
           },
