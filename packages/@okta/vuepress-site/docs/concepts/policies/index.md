@@ -206,9 +206,9 @@ Use this policy to define rules that control how the end user gets updates acros
 * Enforce immediate updates to address critical security vulnerabilities
 * Defer non-critical updates for a specified period to align with internal change management processes
 
-To learn more about implementing and managing this feature in the Admin Console, see our [Product Docs Site Link Text].
+For details on the object model and configuring rules programmatically, see the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies).
 
-For details on the object model and configuring rules programmatically, see [API Reference Docs Link Text].
+To learn more about implementing and managing this feature in the Admin Console, see [Release controls policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-ov-release-controls).
 
 ### API access policies
 
