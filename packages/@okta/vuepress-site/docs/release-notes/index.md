@@ -13,15 +13,17 @@ You can identify your product type and release version from the Admin Console. T
 
 Learn about features and fixes deployed to the following Okta products:
 
-* [Identity Engine 2025](/docs/release-notes/2025-okta-identity-engine/)
+* [Identity Engine 2026](/docs/release-notes/2026-okta-identity-engine/)
 
-* [Classic Engine 2025](/docs/release-notes/2025/)
+* [Classic Engine 2026](/docs/release-notes/2026/)
 
-* [Okta Identity Governance 2025](/docs/release-notes/2025-okta-identity-governance/)
+* [Okta Identity Governance 2026](/docs/release-notes/2026-okta-identity-governance/)
 
-* [Okta Privileged Access 2025](/docs/release-notes/2025-okta-privileged-access/)
+* [Okta Privileged Access 2026](/docs/release-notes/2026-okta-privileged-access/)
 
-* [Okta Access Gateway 2025](/docs/release-notes/2025-okta-access-gateway/)
+* [Okta Access Gateway 2026](/docs/release-notes/2026-okta-access-gateway/)
+
+* [Okta Aerial 2026](/docs/release-notes/2026-okta-aerial)
 
 You can find older release notes in the [Archive](/docs/release-notes/archive) section.
 
