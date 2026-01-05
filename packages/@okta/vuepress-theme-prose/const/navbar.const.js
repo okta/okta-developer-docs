@@ -1242,18 +1242,18 @@ export const releaseNotes = [
             path: "/docs/release-notes/2025-okta-identity-engine/",
           },
           {
-            title: "2025 - Okta Identity Governance",
+            title: "2025 - Identity Governance",
             path: "/docs/release-notes/2025-okta-identity-governance/"
           },
           {
-            title: "2025 - Okta Privileged Access",
+            title: "2025 - Privileged Access",
             path: "/docs/release-notes/2025-okta-privileged-access/",
           },
           {
-            title: "2025 - Okta Access Gateway",
+            title: "2025 - Access Gateway",
             path: "/docs/release-notes/2025-okta-access-gateway/",
           },          {
-            title: "2025 - Okta Aerial",
+            title: "2025 - Aerial",
             path: "/docs/release-notes/2025-okta-aerial/",
           },
         ]
