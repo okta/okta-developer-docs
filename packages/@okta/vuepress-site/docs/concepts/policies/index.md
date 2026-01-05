@@ -199,7 +199,7 @@ Identity Threat Protection with Okta AI is an identity threat solution that comb
 
 ### Client update policies
 
-The client update policy allows administrators to manage the delivery and acceptance of updates for specific client apps, such as Okta Verify.
+The client update policy allows admins to manage the delivery and acceptance of updates for specific client apps, such as Okta Verify.
 
 Use this policy to define rules that control how the end user gets updates across different device platforms. For example, you can define rules for the following use cases:
 
