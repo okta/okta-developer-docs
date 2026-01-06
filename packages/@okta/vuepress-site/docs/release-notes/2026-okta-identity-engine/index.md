@@ -13,7 +13,7 @@ title: Okta Identity Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Bring your own telephony credentials is EA](#bring-your-own-telephony-credentials-is-ea) | ADD_DATE |
+| [Bring your own telephony credentials is EA](#bring-your-own-telephony-credentials-is-ea) | January 7, 2026 |
 | [Client update policy is EA in Preview](#client-update-policy-is-ea-in-preview) | January 7, 2026 |
 | [Encryption of ID tokens and access tokens is GA in Production](#encryption-of-id-tokens-and-access-tokens-is-ga-in-production) | August 7, 2025 |
 | [Unified claims generation for custom apps is GA in Production](#unified-claims-generation-for-custom-apps-is-ga-in-production) | July 30, 2025 |
