@@ -4,6 +4,11 @@ title: Okta Identity Governance API release notes 2026
 
 # Okta Identity Governance API release notes (2026)
 
+<a href="/rss/identity-governance.xml">
+  <img src="/img/icons/Feed-icon.svg" alt="RSS" width="20" height="20" />
+  Subscribe to RSS
+</a>
+
 Okta Identity Governance is available for both Okta Classic and Identity Engine.
 
 ## January
