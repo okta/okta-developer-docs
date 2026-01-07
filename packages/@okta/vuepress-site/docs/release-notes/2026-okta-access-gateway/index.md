@@ -13,3 +13,4 @@ title: Okta Access Gateway API release notes 2026
 Access Gateway is available for both Okta Classic and Identity Engine.
 
 [Okta Access Gateway API release notes (2025)](/docs/release-notes/2025-okta-access-gateway/)
+
