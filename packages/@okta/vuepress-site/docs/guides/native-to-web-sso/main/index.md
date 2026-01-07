@@ -138,7 +138,7 @@ Okta checks this trusted relationship at two critical points in the flow:
 
 * **During token exchange**: When the OIDC origin app asks for the `interclient_token`, Okta explicitly checks to ensure that the app is on the target app's allowed list. If it's not there, the token exchange is denied.
 
-To create an allowlist of apps, use the [Create an allowed app mapping for a target app](http://localhost:3000/openapi/okta-management/management/tag/ApplicationInterclientTrustMappings/#tag/ApplicationInterclientTrustMappings/operation/createInterclientTrustMapping) method (`POST /api/v1/apps/{appId}/interclient-allowed-apps`). The `appID` is the target app’s ID.
+To create an allowlist of apps, use the [Create an allowed app mapping for a target app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationInterclientTrustMappings/#tag/ApplicationInterclientTrustMappings/operation/createInterclientTrustMapping) method (`POST /api/v1/apps/{appId}/interclient-allowed-apps`). The `appID` is the target app’s ID.
 
 > **Note**: You can also use the [Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=apps-native-to-web) to configure the trust mapping.
 
