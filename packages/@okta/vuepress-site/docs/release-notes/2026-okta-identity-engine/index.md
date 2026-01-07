@@ -6,7 +6,7 @@ title: Okta Identity Engine API release notes 2026
 
 # Okta Identity Engine API release notes (2026)
 
-<a href="/rss/identity-governance.xml">
+<a href="/rss/identity-engine.xml">
   <img src="/img/icons/Feed-icon.svg" alt="RSS" width="20" height="20" />
   Subscribe to RSS
 </a>
