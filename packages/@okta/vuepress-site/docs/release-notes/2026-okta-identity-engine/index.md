@@ -24,7 +24,7 @@ title: Okta Identity Engine API release notes 2026
 | [Unified claims generation for custom apps is GA in Production](#unified-claims-generation-for-custom-apps-is-ga-in-production) | July 30, 2025 |
 | [Custom FIDO2 AAGUID is GA in Preview](#custom-fido2-aaguid-is-ga-in-preview) | July 16, 2025 |
 | [Improvements to the global session policy MFA requirements is GA in Production](#improvements-to-the-global-session-policy-mfa-requirements-is-ga-in-production) | December 10, 2025 |
-| [Additional Anything-as-a-Source API endpoints is GA in Production](#additional-anything-as-a-source-api-endpoints--is-ga-in-production) | December 10, 2025 |
+| [Additional Anything-as-a-Source API endpoints is GA in Production](#additional-anything-as-a-source-api-endpoints-is-ga-in-production) | December 10, 2025 |
 | [Anything-as-a-Source for groups and group memberships API is GA in Production](#anything-as-a-source-for-groups-and-group-memberships-api-is-ga-in-production) | December 10, 2025 |
 | [Okta account management policy protection for password expiry flows is GA in Production](#okta-account-management-policy-protection-for-password-expiry-flows-is-ga-in-production) | July 2, 2025 |
 | [New password complexity property is GA in Preview](#new-password-complexity-property-is-ga-in-preview) | June 4, 2025 |
@@ -64,7 +64,7 @@ The Policy API now correctly enforces MFA requirements for every sign-in when **
 
 <!-- OKTA-1070041 DISALLOW_INVALID_BEHAVIOR_AND_FACTOR_MODE_COMBINATION_FOR_GSP, preview date: Dec 10, 2025 -->
 
-#### Additional Anything-as-a-Source API endpoints  is GA in Production
+#### Additional Anything-as-a-Source API endpoints is GA in Production
 
 Anything-as-a-Source (XaaS) capabilities allow customers to use a custom identity source with Okta. With XaaS, customers can source entities such as users into Okta's Universal Directory by connecting a custom HR app or a custom database. This release offers Anything-as-a-Source APIs for both individual operations and bulk operations on groups, group memberships, and users. Okta now enables creating and updating users, creating and updating groups, and managing group memberships into Okta’s Universal Directory from any identity source using the Identity Source APIs. See [Identity Sources](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/).
 
