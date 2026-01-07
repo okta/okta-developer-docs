@@ -18,11 +18,11 @@ title: Okta Identity Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Bring your own telephony credentials is EA](#bring-your-own-telephony-credentials-is-ea) | January 7, 2026 |
+| [Bring your own telephony credentials is self-service EA in Preview](#bring-your-own-telephony-credentials-is-self-service-ea-in-preview) | January 7, 2026 |
 | [Client update policy is EA in Preview](#client-update-policy-is-ea-in-preview) | January 7, 2026 |
 | [Encryption of ID tokens and access tokens is GA in Production](#encryption-of-id-tokens-and-access-tokens-is-ga-in-production) | August 7, 2025 |
 | [Unified claims generation for custom apps is GA in Production](#unified-claims-generation-for-custom-apps-is-ga-in-production) | July 30, 2025 |
-| [Custom FIDO2 AAGUID is GA in Preview](#custom-fido2-aaguid-is-ga-in-preview) | January 7, 2026 |
+| [Custom FIDO2 AAGUID is GA in Preview](#custom-fido2-aaguid-is-ga-in-preview) | July 16, 2025 |
 | [Improvements to the global session policy MFA requirements is GA in Production](#improvements-to-the-global-session-policy-mfa-requirements-is-ga-in-production) | December 10, 2025 |
 | [Additional Anything-as-a-Source API endpoints is GA in Production](#additional-anything-as-a-source-api-endpoints--is-ga-in-production) | December 10, 2025 |
 | [Anything-as-a-Source for groups and group memberships API is GA in Production](#anything-as-a-source-for-groups-and-group-memberships-api-is-ga-in-production) | December 10, 2025 |
@@ -31,7 +31,7 @@ title: Okta Identity Engine API release notes 2026
 | [Developer documentation updates in 2026.01.0](#developer-documentation-updates-in-2026-01-0) | January 7, 2026 |
 | [Bugs fixed in 2026.01.0](#bugs-fixed-in-2026-01-0)| January 7, 2026 |
 
-#### Bring your own telephony credentials is EA
+#### Bring your own telephony credentials is self-service EA in Preview
 
 You can now connect your own telephony provider using a new simplified setup that doesn’t require you to use a telephony inline hook. You can handle usage billing directly with your provider. Okta currently supports Twilio and Telesign.
 

@@ -26,9 +26,8 @@ Okta Identity Governance is available for both Okta Classic and Identity Engine.
 
 #### Security access reviews API is GA in Production
 
-Security access reviews are a new, security-focused type of access review that can be automatically triggered by events. These reviews provide a unified view of a user's access and contextual information about their access history. Also included is an AI-generated access summary, allowing you to investigate and take immediate remediation act
-
-ions like revoking access. See [Security Access Reviews](https://help.okta.com/okta_help.htm?type=oie&id=csh-sar) in the product documentation.
+Security access reviews are a new, security-focused type of access review that can be automatically triggered by events. These reviews provide a unified view of a user's access and contextual information about their access history. Also included is an AI-generated access summary, allowing you to investigate and take immediate remediation actions, such as revoking access.
+See [Security Access Reviews](https://help.okta.com/okta_help.htm?type=oie&id=csh-sar) in the product documentation.
 
 See the [Security Access Reviews](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/) API and [Launch a security access review](/docs/guides/iga-security-access-review/main/) guide for details on how to trigger security access reviews through the API.
 
