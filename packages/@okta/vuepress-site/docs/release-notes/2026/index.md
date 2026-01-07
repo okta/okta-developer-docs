@@ -4,6 +4,11 @@ title: Okta Classic Engine API release notes 20256
 
 # Okta Classic Engine API release notes (2026)
 
+<a href="/rss/classic.xml">
+  <img src="/img/icons/Feed-icon.svg" alt="RSS" width="20" height="20" />
+  Subscribe to RSS
+</a>
+
 ## January
 
 ### Monthly release 2026.01.0
