@@ -27,4 +27,6 @@ Learn about features and fixes deployed to the following Okta products:
 
 You can find older release notes in the [Archive](/docs/release-notes/archive) section.
 
+The Okta API release notes also provide an RSS feed for each API release note category. Click the RSS icon to subscribe.
+
 > **Note:** Changes to Okta unrelated to API Products are published in the [Okta Release Notes](https://help.okta.com/okta_help.htm?id=ext_okta_relnotes) for admins. See [Okta Identity Engine Release Notes](https://help.okta.com/okta_help.htm?type=oie&id=csh-oie-rn) for changes to the Identity Engine that are unrelated to Identity Engine API Products.

@@ -22,7 +22,7 @@ Okta Identity Governance is available for both Okta Classic and Identity Engine.
 | [Permalink ID in V1 access request is Beta](#permalink-id-in-v1-access-request-is-beta) | January 8, 2026 |
 | [AD group support in Access Requests is GA in Production](#ad-group-support-in-access-requests-is-ga-in-production) | December 10, 2025 |
 | [My Access Certification Reviews API is Beta](#my-access-certification-reviews-api-is-beta) | January 8, 2026 |
-| [Developer documentation update in 2026.01.0](#developer-documentation-update-in-2026-01-0) | January 7, 2026 |
+| [Developer documentation updates in 2026.01.0](#developer-documentation-update-in-2026-01-0) | January 7, 2026 |
 
 #### Security access reviews API is GA in Production
 
@@ -56,6 +56,7 @@ For users to request access to AD groups, admins must first create a request con
 The [My Access Certification Reviews](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Access-Certification-Reviews/#tag/My-Access-Certification-Reviews) API enables end users to retrieve reviews and associated details assigned to them. The responses from this API are specifically for the authenticated user (the end user) making the request. See [List all managed connections for my review](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Access-Certification-Reviews/#tag/My-Access-Certification-Reviews/operation/listMyManagedConnections).
 <!-- OKTA-1057908 Preview date: Jan 8, 2026 -->
 
-#### Developer documentation update in 2026.01.0
+#### Developer documentation updates in 2026.01.0
 
-The new [Manage Okta Identity Governance resources using Terraform](/docs/guides/terraform-oig-resources/main/) guide explains how to manage Okta Identity Governance (OIG) resources with Terraform. It details how to create, import, and modify OIG resources using your Terraform configuration.
+* The new [Manage Okta Identity Governance resources using Terraform](/docs/guides/terraform-oig-resources/main/) guide explains how to manage Okta Identity Governance (OIG) resources with Terraform. It details how to create, import, and modify OIG resources using your Terraform configuration.
+* The Okta API release notes now provide an RSS feed for each API release note category: [Classic Engine](/docs/release-notes/2026/), [Identity Engine](/docs/release-notes/2026-okta-identity-engine/), [Identity Governance](/docs/release-notes/2026-okta-identity-governance/), [Privileged Access](/docs/release-notes/2026-okta-privileged-access/), [Access Gateway](/docs/release-notes/2026-okta-access-gateway/), and [Aerial](/docs/release-notes/2026-okta-aerial/). Click the RSS icon to subscribe.
