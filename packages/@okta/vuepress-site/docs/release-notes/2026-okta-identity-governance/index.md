@@ -9,7 +9,7 @@ title: Okta Identity Governance API release notes 2026
   Subscribe to RSS
 </a><br><br>
 
-Okta Identity Governance is available for both Okta Classic and Identity Engine.
+Okta Identity Governance is available for both Okta Classic Engine and Okta Identity Engine.
 
 ## January
 

@@ -9,7 +9,7 @@ title: Okta Privileged Access API release notes 2026
   Subscribe to RSS
 </a><br><br>
 
-Okta Privileged Access (OPA) is available for both Okta Classic and Identity Engine.
+Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta Identity Engine.
 
 ## January
 

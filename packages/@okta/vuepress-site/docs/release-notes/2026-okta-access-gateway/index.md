@@ -10,7 +10,7 @@ title: Okta Access Gateway API release notes 2026
   Subscribe to RSS
 </a><br><br>
 
-Access Gateway is available for both Okta Classic and Identity Engine.
+Access Gateway is available for both Okta Classic Engine and Okta Identity Engine.
 
 ## January
 
