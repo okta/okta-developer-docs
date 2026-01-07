@@ -7,7 +7,7 @@ title: Okta Aerial API release notes 2026
 <a href="/rss/aerial.xml">
   <img src="/img/icons/Feed-icon.svg" alt="RSS" width="20" height="20" />
   Subscribe to RSS
-</a>
+</a><br><br>
 
 These release notes list customer-visible changes to the Okta Aerial API. Okta Aerial aligns with the Okta Classic Engine and Okta Identity Engine release, but updates to the Aerial service deploy from outside their release dates.
 
