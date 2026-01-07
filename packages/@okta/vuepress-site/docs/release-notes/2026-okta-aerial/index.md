@@ -19,13 +19,17 @@ See also [Introduction to the Okta Aerial API](https://developer.okta.com/docs/a
 
 ## January
 
-### Monthly release 2026.01.0
+### Monthly release
 <!-- Published on: 2026-01-08T12:00:00Z -->
+| Change | Expected in Aerial services preview | Expected in Aerial services production |
+|--------|-----------------------------| -----------------------------|
+| [Okta Aerial supports Identity Threat Protection with Okta AI](#okta-aerial-supports-identity-threat-protection-with-okta-ai)| January 8, 2026 | January 14, 2026 |
+| [Developer documentation update](#developer-documentation-update)| January 8, 2026 | January 8, 2026 |
 
-| Change | Expected in Preview Orgs |
-|--------|--------------------------|
-| [Developer documentation update in 2026.01.0](#developer-documentation-update-in-2026-01-0) | January 7, 2026 |
+#### Okta Aerial supports Identity Threat Protection with Okta AI
 
-#### Developer documentation update in 2026.01.0
+Okta Aerial now supports the enablement of Identity Threat Protection with Okta AI for managed orgs (IT Products - Identity Threat Protection). Use the [Update enabled products for an org](https://developer.okta.com/docs/guides/manage-orgs-okta-aerial/main/#enable-products-in-the-org) endpoint with the product ID `P001113` to enable this product. See [Enable products in the org](https://developer.okta.com/docs/guides/manage-orgs-okta-aerial/main/#enable-products-in-the-org) and [Identity Threat Protection with Okta AI](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview).
+
+#### Developer documentation update
 
 The Okta API release notes now provide an RSS feed for each API release note category: [Classic Engine](/docs/release-notes/2026/), [Identity Engine](/docs/release-notes/2026-okta-identity-engine/), [Identity Governance](/docs/release-notes/2026-okta-identity-governance/), [Privileged Access](/docs/release-notes/2026-okta-privileged-access/), [Access Gateway](/docs/release-notes/2026-okta-access-gateway/), and [Aerial](/docs/release-notes/2026-okta-aerial/). Click the RSS icon to subscribe.
