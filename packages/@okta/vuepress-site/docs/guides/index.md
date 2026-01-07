@@ -71,7 +71,6 @@ guides:
  - mobile-idx-sdk-overview
  - multiple-identifiers
  - mobile-swift-configure-redirect
- - native-to-web-sso
  - scim-provisioning-integration-overview
  - scim-provisioning-integration-prepare
  - scim-provisioning-integration-connect

@@ -587,10 +587,6 @@ export const guides = [
             guideName: "configure-native-sso",
           },
           {
-            title: "Configure Native to Web SSO",
-            guideName: "native-to-web-sso",
-          },
-          {
             title: "Manage credentials using the Okta Client SDK",
             guideName: "manage-user-creds",
           },
