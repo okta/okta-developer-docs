@@ -76,7 +76,7 @@ function createAnchor(title) {
     .trim()
     .replace(/[^\w\s.-]/g, '') // remove non-word except dot and dash
     .replace(/\s+/g, '-')      // spaces to hyphens
-    .replace(/(\d{4})\.(\d{2})\.(\d{1,2})/g, '$1-$2-$3') // 2025.10.0 -> 2025-10-0
+    .replace(/(\d{4})\.(\d{2})\.(\d{1,2})/g, '$1-$2-$3') // 2026.10.0 -> 2026-10-0
     .replace(/\./g, '-')       // dots to hyphens
     .replace(/-+/g, '-');      // collapse multiple hyphens
 
@@ -165,54 +165,54 @@ function generateRssFromMarkdown(mdPath, feedTitle, feedDesc, siteUrl, rssOutput
 
 // Classic Engine Release Notes
 generateRssFromMarkdown(
-  path.join(__dirname, '../../docs/release-notes/2025/index.md'),
+  path.join(__dirname, '../../docs/release-notes/2026/index.md'),
   'Okta Classic Engine API release notes',
   'Recent release notes for Okta Classic Engine API',
-  'https://developer.okta.com/docs/release-notes/2025/',
+  'https://developer.okta.com/docs/release-notes/2026/',
   path.join(__dirname, '../public/rss/classic.xml')
 );
 
 // Identity Engine Release Notes
 generateRssFromMarkdown(
-  path.join(__dirname, '../../docs/release-notes/2025-okta-identity-engine/index.md'),
+  path.join(__dirname, '../../docs/release-notes/2026-okta-identity-engine/index.md'),
   'Okta Identity Engine API release notes',
   'Recent release notes for Okta Identity Engine API',
-  'https://developer.okta.com/docs/release-notes/2025-okta-identity-engine/',
+  'https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/',
   path.join(__dirname, '../public/rss/identity-engine.xml')
 );
 
 // Identity Governance Release Notes
 generateRssFromMarkdown(
-  path.join(__dirname, '../../docs/release-notes/2025-okta-identity-governance/index.md'),
+  path.join(__dirname, '../../docs/release-notes/2026-okta-identity-governance/index.md'),
   'Okta Identity Governance API release notes',
   'Recent release notes for Okta Identity Governance API',
-  'https://developer.okta.com/docs/release-notes/2025-okta-identity-governance/',
+  'https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/',
   path.join(__dirname, '../public/rss/identity-governance.xml')
 );
 
 // Privileged Access Release Notes
 generateRssFromMarkdown(
-  path.join(__dirname, '../../docs/release-notes/2025-okta-privileged-access/index.md'),
+  path.join(__dirname, '../../docs/release-notes/2026-okta-privileged-access/index.md'),
   'Okta Privileged Access API Release Notes',
   'Recent release notes for Okta Privileged Access API',
-  'https://developer.okta.com/docs/release-notes/2025-okta-privileged-access/',
+  'https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/',
   path.join(__dirname, '../public/rss/privileged-access.xml')
 );
 
 // Okta Access Gateway Release Notes
 generateRssFromMarkdown(
-  path.join(__dirname, '../../docs/release-notes/2025-okta-access-gateway/index.md'),
+  path.join(__dirname, '../../docs/release-notes/2026-okta-access-gateway/index.md'),
   'Okta Access Gateway API release notes',
   'Recent release notes for Okta Access Gateway',
-  'https://developer.okta.com/docs/release-notes/2025-okta-access-gateway/',
+  'https://developer.okta.com/docs/release-notes/2026-okta-access-gateway/',
   path.join(__dirname, '../public/rss/access-gateway.xml')
 );
 
 // Okta Aerial Release Notes
 generateRssFromMarkdown(
-  path.join(__dirname, '../../docs/release-notes/2025-okta-aerial/index.md'),
+  path.join(__dirname, '../../docs/release-notes/2026-okta-aerial/index.md'),
   'Okta Aerial API release notes',
   'Recent release notes for Okta Aerial',
-  'https://developer.okta.com/docs/release-notes/2025-okta-aerial/',
+  'https://developer.okta.com/docs/release-notes/2026-okta-aerial/',
   path.join(__dirname, '../public/rss/aerial.xml')
 );
