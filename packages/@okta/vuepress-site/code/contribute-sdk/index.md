@@ -250,9 +250,11 @@ a. Navigate to your forked repo `https://github.com/YOUR_ACCOUNT/okta-sdk-python
 b. In the **description**, add the test coverage report to ensure the required coverage for the newly added code.
 
 > **Note** To generate the report, use the following command:
-> ```shell
+
+```shell
 pytest --cov=okta/api --cov-report=html --continue-on-collection-errors --maxfail=0 tests/integration -v
 ```
+
 > After the command completes, navigate to the `htmlcov` folder and open `index.html` in your browser. This file displays the visual test results; attach this report while creating the Pull Request.
 
 c. Click **Create Pull Request**.
