@@ -11,7 +11,7 @@
       <div class="copyright--container">
         <div class="copyright--text">
           <p
-            v-for="(section, sectionIdx) in $page.frontmatter.sections"
+            v-for="(section, sectionIdx) in processedSections"
             :key="sectionIdx"
             class="copyright--section-paragraph"
             v-html="section"
@@ -27,6 +27,11 @@ export default {
   computed: {
     year () {
       return new Date().getFullYear();
+    },
+    processedSections () {
+      return this.$page.frontmatter.sections.map(section => 
+        section.replace(/\{\{\s*year\s*\}\}/g, this.year)
+      );
     }
   }
 }
