@@ -62,6 +62,7 @@ guides:
  - keep-me-signed-in
  - key-management
  - manage-orgs-okta-aerial
+ - manage-orgs-okta-edr
  - terraform-oig-resources
  - manage-user-creds
  - mfa
