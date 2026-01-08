@@ -21,7 +21,7 @@ This guide explains how to manage a failover and failback of your Okta orgs usin
 
 - An Okta preview org
 - The enhanced disaster recovery product enabled on your org
-- [Diaster recovery APIs](https://developer.okta.com/docs/api//openapi/okta-management/management/tag/DisasterRecovery/)
+- [Disaster recovery APIs](https://developer.okta.com/docs/api//openapi/okta-management/management/tag/DisasterRecovery/)
 
 ---
 
