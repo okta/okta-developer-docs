@@ -4,7 +4,7 @@ title: Manage org recovery with Okta Enhanced Disaster Recovery
 
 <ApiLifecycle access="ea" />
 
-This guide explains how to manage a failover and failback of your Okta orgs using Okta Enhanced Disaster Recovery.
+This guide explains how to manage a failover and failback of your Okta orgs using Okta Enhanced Disaster Recovery (EDR).
 
 > **Note:** You must purchase the Enhanced Disaster Recovery add-on to use the Disaster Recovery API. Contact your Okta account team to learn more about this feature.
 
@@ -20,7 +20,7 @@ This guide explains how to manage a failover and failback of your Okta orgs usin
 #### What you need
 
 - An Okta preview org
-- The enhanced disaster recovery product enabled on your org
+- The EDR product enabled on your org
 - [Disaster recovery APIs](https://developer.okta.com/docs/api//openapi/okta-management/management/tag/DisasterRecovery/)
 
 ---
@@ -29,18 +29,108 @@ This guide explains how to manage a failover and failback of your Okta orgs usin
 
 blah blah blah, link to Barbara's docs
 
+## Make secure API requests with OAuth 2.0
+
+To make secure Okta API requests to configure your Okta orgs, obtain OAuth 2.0 access tokens for the Authorization header in requests. The Okta setup to obtain access tokens depends on whether you want the token to have a user-based or a service-based context:
+
+- User-based access: The access token is tied to a specific admin user. For this access, you need to provide an Okta admin username and credentials. See [User-based API access setup](/docs/reference/rest/#user-based-api-access-setup). Grant the appropriate scopes for your endpoint and use-case. Use this access type for simple testing of the APIs.
+
+- Service-based access: If you have a service app or script that makes API requests to Okta without user context, see [Service-based API access setup](/docs/reference/rest/#service-based-api-access-setup). Grant the appropriate scopes for your endpoint and use-case.
+
+Okta EDR only supports API access through scoped OAuth 2.0 access tokens, and uses the following scopes: `okta.dr.manage` and `okta.dr.read`.
+
 ## Check the disaster recovery status of your org
 
-blah, blah, use OAuth 2.0 ... see Aerial blurb.
+Use the following disaster recovery API, [Retrieve the disaster recovery status for all domains for your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/getDRStatus)<!--Probably need to re-name this endpoint as per our standards to something like "List all domains with disaster recovery status"-->, to understand the current disaster recovery state for all domains associated with your Okta org.
+
+>**Note:** The base URL for the disaster recovery APIs is `https://{yourOktaDomain}-drapp.okta.com/`. Replace `{yourOktaDomain}` with your Okta subdomain.
+
+#### Request example
+
+```curl
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer {yourAccessToken}" \
+"https://{yourOktaDomain}-drapp.okta.com/api/v1/dr/status"
+```
+
+#### Response example
+
+```json
+{
+    "status": [
+        {
+            "domain": "yourOktaDomain.okta.com",
+            "isFailedOver": false
+        }
+    ]
+}
+```
 
 ## Initiate an org failover
 
-asdf
+Use the following disaster recovery API, [Start the failback of your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/startOrgFailback), to initiate the failover of your org. The request body is optional. You can specify a list of domains to failback, an empty object (`{}`), or no payload.
 
+#### Request example
+
+```curl
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer {yourAccessToken}" \
+-d "{
+        "domains": [
+            "{yourOktaDomain}.okta.com"
+        ]
+    }"
+"https://{yourOktaDomain}-drapp.okta.com/api/v1/dr/failover"
+```
+
+#### Response example
+
+```json
+{
+    "results": [
+        {
+        "domain": "yourOktaDomain.okta.com",
+        "message": "Failback was successful"
+        }
+    ]
+}
+```
 
 ## Initiate an org failback
 
-asdf
+Use the following disaster recovery API, [Start the failover of your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/startOrgFailover), to initiate the failback of your org. The request body is optional. You can specify a list of domains to failover, an empty object (`{}`), or no payload.
+
+#### Request example
+
+```curl
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer {yourAccessToken}" \
+-d "{
+        "domains": [
+            "{yourOktaDomain}.okta.com"
+        ]
+    }"
+"https://{yourOktaDomain}-drapp.okta.com/api/v1/dr/failback"
+```
+
+#### Response example
+
+```json
+{
+    "results": [
+        {
+        "domain": "yourOktaDomain.okta.com",
+        "message": "Failback was successful"
+        }
+    ]
+}
+```
 
 ## Review disaster recovery auditing data
 
