@@ -2,16 +2,16 @@
 <rss version="2.0">
 <channel>
   <title>Okta Access Gateway API release notes</title>
-  <link>https://developer.okta.com/docs/release-notes/2025-okta-access-gateway/</link>
+  <link>https://developer.okta.com/docs/release-notes/2026-okta-access-gateway/</link>
   <description>Recent release notes for Okta Access Gateway</description>
-  <pubDate>Thu, 23 Oct 2025 00:00:00 GMT</pubDate>
+  <pubDate>Thu, 08 Jan 2026 12:00:00 GMT</pubDate>
   
     <item>
-      <title>Monthly release 2025.10.0</title>
-      <link>https://developer.okta.com/docs/release-notes/2025-okta-access-gateway/#monthly-release-2025-10-0</link>
-      <guid>https://developer.okta.com/docs/release-notes/2025-okta-access-gateway/#monthly-release-2025-10-0</guid>
-      <pubDate>Thu, 23 Oct 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2025-okta-access-gateway/#okta-access-gateway-apis">Okta Access Gateway APIs</a>]]></description>
+      <title>Monthly release 2026.01.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-access-gateway/#monthly-release-2026-01-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-access-gateway/#monthly-release-2026-01-0</guid>
+      <pubDate>Thu, 08 Jan 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-access-gateway/#developer-documentation-update-in-2026-01-0">Developer documentation update in 2026.01.0</a>]]></description>
     </item>
   
 </channel>
