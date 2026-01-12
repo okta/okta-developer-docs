@@ -832,6 +832,11 @@ export const guides = [
             title: "Create an authorization server",
             guideName: "customize-authz-server",
           },
+          ,
+          {
+            title: "Manage org recovery with EDR",
+            guideName: "manage-orgs-okta-edr",
+          }
         ],
       },
       {
@@ -853,10 +858,6 @@ export const guides = [
           {
             title: "Manage orgs with Okta Aerial",
             guideName: "manage-orgs-okta-aerial",
-          },
-          {
-            title: "Manage org recovery with EDR",
-            guideName: "manage-orgs-okta-edr",
           }
         ],
       },
