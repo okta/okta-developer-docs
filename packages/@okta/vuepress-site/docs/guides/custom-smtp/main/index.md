@@ -235,15 +235,15 @@ Open the JSON file that you downloaded earlier and extract the following values:
 ```json
 {
   "type": "service_account",
-  "project_id": "sunny-sandbox-481317-e1",
+  "project_id": "{ProjectName}",
   "private_key_id": "XXXXXXXXXXXXXXXXX",
   "private_key": "-----BEGIN PRIVATE KEY-----\\nXXXXXXXXXXX==\n-----END PRIVATE KEY-----\n",
-  "client_email": "kenton-doc-example-service-acc@sunny-sandbox-481317-e1.iam.gserviceaccount.com",
-  "client_id": "112190984741629141733",
+  "client_email": "{username}@{project_id}.iam.gserviceaccount.com",
+  "client_id": "{ClientId}",
   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
   "token_uri": "https://oauth2.googleapis.com/token",
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/kenton-doc-example-service-acc%40sunny-sandbox-481317-e1.iam.gserviceaccount.com",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/{username}@{project_id}.iam.gserviceaccount.com",
   "universe_domain": "googleapis.com"
 }
 ```
