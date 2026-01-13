@@ -6,7 +6,7 @@ title: Manage org recovery with Okta Enhanced Disaster Recovery
 
 This guide explains how to manage a failover and failback of your Okta org using Okta Enhanced Disaster Recovery (EDR).
 
-> **Note:** You must purchase the Enhanced Disaster Recovery add-on to use the Disaster Recovery API. Contact your Okta account team to learn more about this feature.
+> **Note:** Enhanced Disaster Recovery is a [self-service Early Access (EA)](/docs/concepts/feature-lifecycle-management/#self-service-features) feature. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable.
 
 ---
 
@@ -28,6 +28,8 @@ This guide explains how to manage a failover and failback of your Okta org using
 ## About Okta Enhanced Disaster Recovery (EDR)
 
 Okta Enhanced Disaster Recovery (EDR) provides you with an option for shorter org recovery times in the event of a regional infrastructure-related outage. EDR improves on the standard disaster recovery mitigations available to all Okta orgs. It ensures service continuity during total regional outages, allowing users to remain signed in. Additionally, it features self-service failover, which grants admins manual control to initiate tenant migration and failback through APIs or a dedicated portal. See the following sections on how to manage EDR using the Okta APIs. For further information on EDR and using the EDR portal, see [Barbara's doc]().
+
+>**Note:** To manage EDR, you must be assigned the Super Administrator role.
 
 ## Make secure API requests with OAuth 2.0
 
@@ -86,6 +88,8 @@ curl -v -X POST \
     }"
 "https://{yourOktaDomain}-drapp.okta.com/api/v1/dr/failover"
 ```
+
+After a failover, all end users of that org are in read-only mode.
 
 #### Response example
 
