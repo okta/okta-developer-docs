@@ -72,6 +72,7 @@ guides:
  - multiple-identifiers
  - mobile-swift-configure-redirect
  - native-to-web-sso
+ - policy-rule-prioritization
  - scim-provisioning-integration-overview
  - scim-provisioning-integration-prepare
  - scim-provisioning-integration-connect
