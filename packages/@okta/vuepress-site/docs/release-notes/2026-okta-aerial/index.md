@@ -19,11 +19,11 @@ See also [Introduction to the Okta Aerial API](https://developer.okta.com/docs/a
 
 ## January
 
-### Monthly release
-<!-- Published on: 2026-01-08T12:00:00Z -->
+### Weekly release
+<!-- Published on: 2026-01-13T12:00:00Z -->
 | Change | Expected in Aerial services preview | Expected in Aerial services production |
 |--------|-----------------------------| -----------------------------|
-| [Okta Aerial supports Identity Threat Protection with Okta AI](#okta-aerial-supports-identity-threat-protection-with-okta-ai)| January 8, 2026 | January 14, 2026 |
+| [Okta Aerial supports Identity Threat Protection with Okta AI](#okta-aerial-supports-identity-threat-protection-with-okta-ai)| January 13, 2026 | January 20, 2026 |
 | [Developer documentation update](#developer-documentation-update)| January 8, 2026 | January 8, 2026 |
 
 #### Okta Aerial supports Identity Threat Protection with Okta AI
