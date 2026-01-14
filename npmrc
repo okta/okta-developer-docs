@@ -1,4 +1,0 @@
-email=emikhasyak
-always-auth=true
-@okta:registry=https://artifacts.aue1e.internal/artifactory/api/npm/npm-okta-master/
-registry=https://registry.yarnpkg.com/
