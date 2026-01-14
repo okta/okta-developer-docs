@@ -28,8 +28,8 @@ In Okta, policies and their associated rules are evaluated based on an assigned 
 ### Key concepts
 
 * **Automatic shifting**: When you create a policy or rule and assign a priority that’s already in use, Okta automatically shifts the existing rule down by one. Okta also shifts those below it down by one.
-* **The deletion gap**: When you delete a rule or policy, Okta doesn’t automatically shift the list. This leaves a gap in the priority sequence (for example, priorities 2, 3, and 4 exist, but 1 is empty).
-* **The Catch-all Rule**: Every policy includes a system-level Catch-all Rule (priority 99) that ensures an outcome if no other rules match.
+* **The deletion gap**: When you delete a rule or policy, Okta doesn’t automatically shift the list. This leaves a gap in the priority sequence (for example, priorities 2, 3, and 4 exist, but 1 is empty). This issue is specific to policies that are v2. See [the table](#differences-in-policy-priority-shifts) in the **Differences in policy priority shifts** section.
+* **The Catch-all Rule**: Every policy includes a system-level Catch-all Rule (priority 99) that ensures an outcome if no other rules match. This issue is specific to policies that are v2. See [the table](#differences-in-policy-priority-shifts) in the **Differences in policy priority shifts** section.
 
 ### Why top-down order matters
 
