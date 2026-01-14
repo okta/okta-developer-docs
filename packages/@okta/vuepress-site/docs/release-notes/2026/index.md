@@ -11,6 +11,18 @@ title: Okta Classic Engine API release notes 20256
 
 ## January
 
+### Weekly release 2026.01.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2026.01.1](#bugs-fixed-in-2026-01-1)| January 14, 2026 |
+
+#### Bugs fixed in 2026.01.1
+
+* The `agentType` parameter wasn't required in the `POST /api/v1/agentPools` endpoint and an exception didn't occur if that parameter was missing. (OKTA-1071106)
+
+* After provisioning a group from Active Directory or reactivating a user in an Okta group ([Reactivate a user API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserLifecycle/#tag/UserLifecycle/operation/reactivateUser)), Okta assigned an admin role to the user through group rules but didn't create a System Log event for the assignment. (OKTA-1071233)
+
 ### Monthly release 2026.01.0
 <!-- Published on: 2026-01-08T12:00:00Z -->
 
