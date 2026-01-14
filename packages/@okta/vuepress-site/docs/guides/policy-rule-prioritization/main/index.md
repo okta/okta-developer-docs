@@ -455,11 +455,11 @@ The priority of Rule Three remains the same at P3. There's now a gap between Rul
 | Rule   | Priority  |
 |--------|-----------|
 | Two    | 1         |
-| **gap**| 2         |
+| **Gap**| 2         |
 | Three  | 3         |
 | Four   | 4         |
-| **Gaps**| P5-P98     |
-| Catch-all Rule| P99 |
+| **Gaps**| 5-98     |
+| Catch-all Rule| 99 |
 
 You can verify this by performing a [List all policy rules](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyRules) operation to view the current priorities for the policy rules.
 
@@ -468,7 +468,7 @@ Update the priority for rules three and four by repeating the previous steps. Wh
 | Previous state | Current state |
 |----------------|---------------|
 | Rule Two: P1   | Rule Two: P1  |
-| **gap** P2     | Rule Three: P2|
+| **Gap** P2     | Rule Three: P2|
 | Rule Three: P3 | Rule Four: P3 |
 | Rule Four: P4  | **Gaps**: P4-P98|
 | **Gaps**: 5-98 | Catch-all Rule P99|
