@@ -27,19 +27,19 @@ In Okta, policies and their associated rules are evaluated based on an assigned 
 
 ### Key concepts
 
-* **Automatic shifting**: When you create a policy or a rule and assign a priority that’s already in use by another, Okta automatically shifts the existing rule (and those below it) down by one increment.
-* **The** deletion gap**: When you delete a rule or policy, Okta doesn’t automatically shift the list. This leaves a gap in the priority sequence (for example, priorities 2, 3, and 4 exist, but 1 is empty).
-* **The Catch-all Rule**: Every policy includes a system-level Catch-all Rule (priority 99) that ensures a final outcome if no other rules match.
+* **Automatic shifting**: When you create a policy or rule and assign a priority that’s already in use, Okta automatically shifts the existing rule down by one. Okta also shifts those below it down by one.
+* **The deletion gap**: When you delete a rule or policy, Okta doesn’t automatically shift the list. This leaves a gap in the priority sequence (for example, priorities 2, 3, and 4 exist, but 1 is empty).
+* **The Catch-all Rule**: Every policy includes a system-level Catch-all Rule (priority 99) that ensures an outcome if no other rules match.
 
 ### Why top-down order matters
 
-Performing reordering requests in a random or bottom-up sequence often leads to an undesired state. Because Okta shifts existing rules to accommodate new priority assignments, a middle-of-the-stack update can displace rules you haven't yet reordered, resulting in a fragmented and unpredictable security logic.
+Performing requests in a random sequence often leads to an undesired state. Because Okta shifts existing rules to accommodate new priority assignments, a random update can displace rules that you haven't yet reordered.
 
 ### Differences in policy priority shifts
 
-The priority order of some policies and rules and how they are reordered are addressed differently by Okta. The following table explains how Okta addresses the priority for each policy and its rules.
+Okta addresses the priority order of some policies and rules and how they’re reordered differently. The following table explains how Okta addresses the priority for each policy and its rules.
 
-> **Note**: How Okta handles the policies on the right side of the table is subject to change and may become more inlinewith the policies on the left (where priorities shift automatically) in the future.
+> **Note**: How Okta handles the policies on the right side of the table is subject to change.
 
 | Policies v1                                | Policies v2                                       |
 |--------------------------------------------|---------------------------------------------------|
@@ -47,11 +47,11 @@ The priority order of some policies and rules and how they are reordered are add
 | Priorities start at 1. | Priorities start at 0. |
 | Priorities are sequential. | Priorities are allowed to have gaps. |
 | Delete requests result in automatic shifts of priority order. | Delete requests don’t result in automatic shifts of priority order. |
-| Creates/Updates to priorities of existing values result in shifts of order between old and new. | Creates/Updates to priorities of existing vavlues result in shifts between old and new until a shift is no longer needed (since gaps are allowed).|
+| Creates/Updates to priorities of existing values result in shifts of order between old and new. | Creates/Updates to priorities of existing values result in shifts between old and new until a shift is no longer needed (since gaps are allowed).|
 
 ## Create the policy and rules
 
-In this section, you learn to create an app sign-in policy and then create four rules to learn how to successfully reorder rule priority after deleting a rule.
+In this section, you learn to create an app sign-in policy and four rules to learn how to reorder rule priority after deleting a rule.
 
 > **Note**: All API request and response examples are truncated for brevity.
 
@@ -97,26 +97,26 @@ In this example scenario, create four basic rules for the policy. You need the p
 
 After you create the first rule, use the same request and change the name to Rule Two and the `priority` parameter value to `2`. Then, repeat for rules three and four.
 
-> **Note**: If you don’t include a priority value, Okta assumes that you want the rule at the bottom of the rule list (excluding the Catch-all Rule).
+> **Note**: If you don’t include a priority value, Okta assumes that you want the rule at the bottom of the rules list. This excludes the Catch-all Rule.
 
 **Example request**
 
-```shell
+```JSON
   curl --request POST \
   --url https://{yourOktaDomain}/api/v1/policies/{policyId}/rules \
   --header 'accept: application/json' \
   --header 'content-type: application/json' \
   --header 'authorization: SSWS 00rtxyXw...' \
   --data '{
-  "system": false,
-  "type": "ACCESS_POLICY",
-  "name": "Rule 6",
-  "conditions": {
-     "riskScore": {
-      "level": "ANY"
-    },
-    "platform": {
-      "include": [
+    "system": false,
+    "type": "ACCESS_POLICY",
+    "name": "Rule 6",
+    "conditions": {
+      "riskScore": {
+        "level": "ANY"
+      },
+      "platform": {
+        "include": [
           {
             "type": "MOBILE",
             "os": {
@@ -128,30 +128,30 @@ After you create the first rule, use the same request and change the name to Rul
             "os": {
               "type": "ANDROID"
             }
-        }
-      ]
-    }
-  },
-  "actions": {
-    "appSignOn": {
-      "access": "ALLOW",
-      "verificationMethod": {
-        "factorMode": "1FA",
-        "reauthenticateIn": "PT2H",
-        "type": "ASSURANCE",
-        "constraints": [
-          {
-            "knowledge": {
-              "types": [
-                "password"
-              ]
-            }
           }
         ]
       }
+    },
+    "actions": {
+      "appSignOn": {
+        "access": "ALLOW",
+        "verificationMethod": {
+          "factorMode": "1FA",
+          "reauthenticateIn": "PT2H",
+          "type": "ASSURANCE",
+          "constraints": [
+            {
+              "knowledge": {
+                "types": [
+                  "password"
+                ]
+              }
+            }
+          ]
+        }
+      }
     }
-  }
-}
+  }'
 ```
 
 **Example response**
@@ -249,7 +249,7 @@ In this example scenario, delete Rule One. You need the rule `id` to delete it. 
     --header 'authorization: SSWS 00rtxyX...' \
 ```
 
-Now that Rule One is deleted, your expectation may be that the rule priorities automatically shift up with Rule Two as Priority 1, Rule Three as Priority 2, and Rule Four as Priority 3. However, application sign-in policy rules maintain their existing priority and leave a gap where Rule One was. The following is the current state of the rule priorites in your policy:
+Now that Rule One is deleted, you may expect that the rule priorities automatically shift up. However, app sign-in policy rules maintain their existing priority. This leaves a gap where Rule One was. The following is the current state of the rule priorities in your policy:
 
 No Priority 1 (gap)
 **Rule Two**: Priority 2
@@ -411,7 +411,7 @@ curl --request PUT
 }'
 ```
 
-The priority of Rule Three remains the same at priority 3. There is now a gap between Rule Two at priority 1 and Rule Three at priority 3. The following is the current state of the rule priorites in your policy:
+The priority of Rule Three remains the same at priority 3. There's now a gap between Rule Two at priority 1 and Rule Three at priority 3. The following is the current state of the rule priorities in your policy:
 
 **Rule Two**: Priority 1
 Gap
@@ -424,7 +424,7 @@ You can verify this by performing a [List all policy rules](https://developer.ok
 
 Update the priority for rules three and four by repeating the previous steps. When you finish, the following should be the current state of the rule priorities in your policy:
 
-**Rule Two**: Prority 1
+**Rule Two**: Priority 1
 **Rule Three**: Priority 2
 **Rule Four**: Priority 3
 Gaps
@@ -436,7 +436,7 @@ You can verify this by performing a [List all policy rules](https://developer.ok
 
 The following is an example of what happens when you don't reorder the rules from the top down. Reordering operations that are sent in a random order result in an undesired state due to priority shifts between requests.
 
-There are five rules for your app sign-in policy. The following is the current state of the rule priorites in your policy:
+There are five rules for your app sign-in policy. The following is the current state of the rule priorities in your policy:
 
 **Rule One**: Priority 1
 **Rule Two**: Priority 2
@@ -448,12 +448,13 @@ Gaps
 
 You want to reorder your rules to the following order:
 
-**Rule One** - Priority 2
-**Rule Two** - Priority 3
-**Rule Three** - Priority 1
+**Rule One**: Priority 2
+**Rule Two**: Priority 3
+**Rule Three**: Priority 1
+
 Rules Four and Five you want to remain where they are with priorities 4 and 5, and the Catch-all Rule at priority 99.
 
-You update the priority of rule 3 to 1 and update the priority rule 2 to 3. Then, you update the priority of rule 1 to 2. You leave rules 4 and 5 alone so that they remain at their current priority state. The following is the current state of the rule priorites in your policy:
+You update the priority of rule 3 to 1 and update the priority rule 2 to 3. Then, you update the priority of rule 1 to 2. You leave rules 4 and 5 alone so that they remain at their current priority state. The following is the current state of the rule priorities in your policy:
 
 **Rule Three**: Priority 1
 **Rule One**: Priority 2
@@ -464,10 +465,10 @@ Gap
 Gaps
 **Catch-all Rule**: Priority 99
 
-To avoid this cascading shift, always treat priority reordering as a top-down synchronization. By updating rules in order from priority 1 to priority N, you ensure that each subsequent request accounts for the current state of the list, preventing the drift seen in the example above.
+To avoid this cascading shift, always treat priority reordering as a top-down synchronization. By updating the rules in order from priority 1 to priority N, you ensure that each subsequent request accounts for the current state of the list. This prevents the drift seen in the example.
 
-> **Note**: The Okta Admin Console always shows P1 to PN priority values and doesn’t reflect shifts or gaps.
+> **Note**: The Admin Console always shows P1 to PN priority values and doesn’t reflect shifts or gaps.
 
 ## Conclusion
 
-Mastering the differences in rule prioritization for the Okta policies is fundamental to maintaining a predictable and secure identity environment. By following a top-down synchronization strategy, you ensure that your security logic remains consistent and free from the cascading shifts that occur during non-sequential API updates.
+Mastering the differences in rule prioritization for the Okta policies is fundamental to maintaining a predictable and secure identity environment. By following a top-down synchronization strategy, you ensure that your logic remains consistent and free from the cascading shifts that occur during non-sequential API updates.
