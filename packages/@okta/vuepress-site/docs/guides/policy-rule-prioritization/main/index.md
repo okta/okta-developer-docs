@@ -23,7 +23,7 @@ Learn how to reorder your policies and rules sequentially from the top down to a
 
 ## Overview
 
-In Okta, policies and their associated rules are evaluated based on an assigned priority. The rule with priority 1 is evaluated first. If its conditions aren't met, Okta moves to priority 2, and so on. When managing these priorities through the Okta Policies API, you need to perform any reordering in a sequential, top-down strategy (P1 -> PN).
+In Okta, policies and their associated rules are evaluated based on an assigned priority. The rule with priority 1 is evaluated first. If its conditions aren't met, Okta moves to priority 2, and so on. When managing these priorities through the Okta Policies API, you need to perform any reordering in a sequential, top-down strategy (P1 to PN).
 
 ### Key concepts
 
@@ -71,7 +71,7 @@ In this scenario, you have five rules and want to move Rule Three to the top whi
 |------|------------------------------|--------------------------------------------------|------------------------------------|
 | 1    | Update Rule Three to P1 | Rule 3 becomes P1. Rules One and Two shift down. | Rule Three<br>Rule One<br>Rule Two |
 | 2    | Update Rule Two to P3 | Rule Two is already at P3 due to the first shift. No change occurs. | Rule Three<br>Rule One<br> Rule Two |
-| 3    | Update Rule 1 to P2  | Rule One is already at P2. However, the update triggers a shift for everything below it. | Rule Three<br>Rule One<br>Gap<br>Rule Two<br>Rule Four<br>Rule Five|
+| 3    | Update Rule One to P2  | Rule One is already at P2. However, the update triggers a shift for everything below it. | Rule Three<br>Rule One<br>Gap<br>Rule Two<br>Rule Four<br>Rule Five|
 
 **Resulting undesired state:** Because the updates weren't top-down, Rule Two was pushed to P4, and Rules Four and Five were pushed to P5 and P6, respectively.
 
@@ -478,4 +478,4 @@ You can verify this by performing a [List all policy rules](https://developer.ok
 
 ## Conclusion
 
-Mastering the differences in rule prioritization for the Okta policies is fundamental to maintaining a predictable and secure identity environment. Follow a top-down synchronization strategy to ensure that your logic remains free from cascading shifts that occur during non-sequential API updates.
+Knowing the differences in rule prioritization for the Okta policies is fundamental to maintaining a predictable and secure identity environment. Follow a top-down synchronization strategy to ensure that your logic remains free from cascading shifts that occur during non-sequential API updates.
