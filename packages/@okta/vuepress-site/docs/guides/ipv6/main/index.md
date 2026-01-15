@@ -10,19 +10,15 @@ layout: Guides
 
 This guide introduces Okta's implementation of IPv6 and provides guidelines on configuring and testing of the latest version of this internet protocol.
 
----
-
-#### Learning outcomes
+## Learning outcomes
 
 * Understand Okta's implementation of IPv6 and the scope of the implementation.
 * Learn how to configure your org to test IPv6
 * Learn how to test your org on IPv6
 
-#### What you need
+## What you need
 
 * A preview Okta org. Only preview cells have IPv6 availability
-
----
 
 ## Overview
 
@@ -136,8 +132,6 @@ The System Log shows the IP seen by Okta, and it can be used to verify the IPv6 
 ![An image of the System Log in the Admin Console that displays an IPv6 IP address](/img/ipv6/ipv6-system-log.png)
 
 </div>
-
-### <!-- Anything else? -->
 
 ## Providing feedback
 
