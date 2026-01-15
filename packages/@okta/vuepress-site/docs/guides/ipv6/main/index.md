@@ -8,7 +8,7 @@ layout: Guides
 
 <ApiLifecycle access="beta" />
 
-This guide introduces Okta's implementation of IPv6 and provides guidelines on configuring and testing of the latest version of this internet protocol.
+This guide introduces Okta's implementation of IPv6 and provides guidelines on configuring and testing of this new internet protocol.
 
 ## Learning outcomes
 
@@ -28,9 +28,9 @@ The Okta IPv6 Beta allows communication with an Okta org in an Okta preview cell
 
 For the Beta, IPv6 will only be available in Preview cells.
 
->**Note:** You must contact Okta support to enabled IPv6 for your preview org.
+> **Note:** You must contact Okta support to enabled IPv6 for your preview org.
 
-<!-- Do we want to include the email and sentence about contacting okta through ipv6_beta@okta.com?-->
+<!-- Do we want to include the email and sentence about contacting okta through ipv6_beta@okta.com? -->
 
 ### Okta IPv6 scope
 
@@ -38,7 +38,7 @@ Only a subset of Okta functionality supports IPv6 during the Beta.
 
 | Status | Feature | Notes |
 |--------|---------|-------|
-| Supported | Ingress into the cell - Traffic entering | <org>.oktapreview.com<br><org>-admin.oktapreview.com |
+| Supported | Ingress into the cell - Traffic entering | `{yourOktaDomain}.oktapreview.com`<br>`{yourOktaDomain}-admin.oktapreview.com` |
 | Supported | Admin interface | |
 | Supported | End-user functionality - Sign-in | |
 | Supported | End-user functionality - Dashboard | |
@@ -64,7 +64,7 @@ Only a subset of Okta functionality supports IPv6 during the Beta.
 
 ### Service Level Agreement (SLA) and support
 
-During the Beta phase, any preview org with IPv6 enabled is not be subject to an SLA.
+During the Beta phase, any preview org with IPv6 enabled is not subject to an SLA.
 
 Support is also not available for IPv6 Beta orgs.
 
@@ -125,7 +125,7 @@ A readiness score of 10/10 confirms you have an IPv6 address and an IPv6 DNS ser
 
 ### Determine if your Org is using IPv6
 
-The System Log shows the IP seen by Okta, and it can be used to verify the IPv6 address shown is the one you expect. <!-- any particular query we can suggest or event type to review?-->
+The System Log shows the IP seen by Okta, and it can be used to verify the IPv6 address shown is the one you expect. <!-- any particular query we can suggest or event type to review? -->
 
 <div class="three-quarter">
 
