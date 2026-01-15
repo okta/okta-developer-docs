@@ -59,6 +59,7 @@ guides:
  - implement-oauth-for-okta
  - implement-oauth-for-okta-serviceapp
  - implement-grant-type
+ - ipv6
  - keep-me-signed-in
  - key-management
  - manage-orgs-okta-aerial
