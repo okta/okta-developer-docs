@@ -4,8 +4,17 @@
   <title>Okta Classic Engine API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026/</link>
   <description>Recent release notes for Okta Classic Engine API</description>
-  <pubDate>Thu, 08 Jan 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 14 Jan 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Weekly release 2026.01.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-01-1</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-01-1</guid>
+      <pubDate>Wed, 14 Jan 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/#bugs-fixed-in-2026-01-1">Bugs fixed in 2026.01.1</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Monthly release 2026.01.0</title>
       <link>https://developer.okta.com/docs/release-notes/2026/#monthly-release-2026-01-0</link>

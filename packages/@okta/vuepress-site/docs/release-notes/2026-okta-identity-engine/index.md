@@ -13,6 +13,16 @@ title: Okta Identity Engine API release notes 2026
 
 ## January
 
+### Weekly release 2026.01.1
+<!-- Published on: 2026-01-14T12:00:00Z -->
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bug fixed in 2026.01.1](#bug-fixed-in-2026-01-1)| January 14, 2026 |
+
+#### Bug fixed in 2026.01.1
+
+When an admin sent a GET request to the `/idp/myaccount/password/complexity-requirements` endpoint, the response body contained HTML-escaped characters. (OKTA-1080153)
+
 ### Monthly release 2026.01.0
 <!-- Published on: 2026-01-08T12:00:00Z -->
 
