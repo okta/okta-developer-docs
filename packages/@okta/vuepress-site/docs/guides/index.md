@@ -3,6 +3,7 @@ title: Guides overview
 guides:
  - add-an-external-idp
  - add-id-verification-idp
+ - ai-agent-token-exchange
  - app-provisioning-connection
  - archive-auth-js
  - archive-embedded-siw
