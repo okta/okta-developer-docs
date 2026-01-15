@@ -32,7 +32,9 @@ The Okta IPv6 Beta allows communication with an Okta org in an Okta preview cell
 
 For the Beta, IPv6 will only be available in Preview cells.
 
->**Note:** You must contact Okta support to enabled IPv6 for your preview org. <!-- Do we want to include the email and sentence about contacting okta through ipv6_beta@okta.com?-->
+>**Note:** You must contact Okta support to enabled IPv6 for your preview org.
+
+<!-- Do we want to include the email and sentence about contacting okta through ipv6_beta@okta.com?-->
 
 ### Okta IPv6 scope
 
@@ -107,21 +109,21 @@ Connecting to Okta using IPv6 requires an IPv6 address and IPv6 connectivity fro
 
 If you only have an IPv4 public IP, the following example output appears from the test URL:
 
- <div class="three-quarter">
+<div class="three-quarter">
 
-   ![An image of sample output from the test URL that shows IPv4 use](/img/ipv6/ipv4-test.png)
+![An image of sample output from the test URL that shows IPv4 use](/img/ipv6/ipv4-test.png)
 
-   </div>
+</div>
 
 #### IPv6 address example
 
 If you have an IPv4 public IP, the following example output appears from the test URL:
 
- <div class="three-quarter">
+<div class="three-quarter">
 
-   ![An image of sample output from the test URL that shows IPv6 use](/img/ipv6/ipv6-test.png)
+![An image of sample output from the test URL that shows IPv6 use](/img/ipv6/ipv6-test.png)
 
-   </div>
+</div>
 
 A readiness score of 10/10 confirms you have an IPv6 address and an IPv6 DNS server.
 
@@ -129,11 +131,11 @@ A readiness score of 10/10 confirms you have an IPv6 address and an IPv6 DNS ser
 
 The System Log shows the IP seen by Okta, and it can be used to verify the IPv6 address shown is the one you expect. <!-- any particular query we can suggest or event type to review?-->
 
- <div class="three-quarter">
+<div class="three-quarter">
 
-   ![An image of the System Log in the Admin Console that displays an IPv6 IP address](/img/ipv6/ipv6-system-log.png)
+![An image of the System Log in the Admin Console that displays an IPv6 IP address](/img/ipv6/ipv6-system-log.png)
 
-   </div>
+</div>
 
 ### <!-- Anything else? -->
 
@@ -147,5 +149,3 @@ For any testing performed, fill out this [template](https://docs.google.com/docu
 
 * A detailed list of what was tested
 * If any issues were encountered, provide details of the issues.
-
-
