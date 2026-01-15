@@ -4,7 +4,7 @@ excerpt: Learn how to sign users in to your mobile app using a self-hosted sign-
 layout: Guides
 ---
 
-Add authentication to your mobile app using a self-hosted sign-in page with the Okta Client SDK.
+Add authentication to your mobile app using a self-hosted sign-in page with the Okta Client SDK for Swift.
 
 ---
 
@@ -39,6 +39,44 @@ For password-only authentication, the flow is straightforward:
 1. Your app securely stores these tokens for API access.
 
 This approach works well for internal apps, rapid prototyping, or scenarios where you want to add MFA capabilities later without restructuring your codebase.
+
+## Security considerations
+
+While this implementation provides a functional authentication system, keep these security points in mind:
+
+* **Use only HTTPS**: Ensure that all API calls use secure connections. Okta enforces this by default.
+
+* **Consider adding MFA**: Password-only authentication is less secure than password + MFA. Consider adding support for more factors as your app matures.
+
+* **Handle token expiration**: Always implement token refresh logic to maintain sessions without requiring the user to repeatedly sign in.
+
+* **Secure storage**: Never store passwords locally. The `AuthFoundation` library handles secure token storage in the keychain automatically.
+
+* **Error handling**: Provide clear error messages without exposing sensitive security details.
+
+## Beyond username and password
+
+You've built a complete, mobile authentication system for iOS using Okta direct authentication with username and password. Your app now handles credential validation, secure token storage, session management, and token refresh all without leaving your mobile Swift UI.
+
+This foundation makes it easy to add more sophisticated authentication features later like biometric verification or passwordless, while maintaining the same clean architecture.
+
+SwiftUI's reactive UI framework and the Okta Client SDK provide a secure and user-friendly authentication experience that can scale with your app's needs.
+
+## How the components work together
+
+In this guide, you create the user interface using several components. The following displays the flow of data through the components:
+
+1. The user enters credentials in the `LoginView` text fields.
+1. The text field values are bound to the `LoginViewModel` properties.
+1. The user taps **Sign In**.
+1. `LoginView` calls `viewModel.login()`.
+1. `LoginViewModel` calls `authService.authenticate()`.
+1. `AuthService` updates its state.
+1. `LoginViewModel` observes the state change.
+1. `LoginView` automatically re-renders based on the new state.
+1. When authenticated, the user can go to `ProfileView` or `TokenDetailsView`.
+
+This architecture keeps concerns separated: the view handles presentation, the view model handles UI logic, and the service handles authentication business logic.
 
 ## Configure your Okta org
 
@@ -143,7 +181,7 @@ Rather than hardcoding configuration values, use a property list file:
 
 ## Build the authentication service
 
-With setup complete, implement the core authentication logic and create a service layer that handles all interactions with the Okta DirectAuth API.
+With setup complete, implement the core authentication logic and create a service layer that handles all interactions with the [Okta DirectAuth API](https://okta.github.io/okta-mobile-swift/development/documentation/oktadirectauth/).
 
 ### Understand the AuthService architecture
 
@@ -153,9 +191,9 @@ The `AuthService` is the heart of our authentication system. It serves as a cent
 
 **State management**: The service maintains the current authentication state (idle, authenticating, authenticated, or error), allowing your UI to respond appropriately. This state-driven approach makes it easy to show loading indicators, error messages, or authenticated content.
 
-**Security best practices**: All token handling and storage is managed through the service, ensuring that credentials are stored securely in the iOS keychain through `AuthFoundation`. Your UI never directly touches sensitive data.
+**Security best practices**: All token handling and storage is managed through the service, ensuring that credentials are stored securely in the iOS keychain through [`AuthFoundation`](https://okta.github.io/okta-mobile-swift/development/documentation/authfoundation/). Your UI never directly touches sensitive data.
 
-**Testability**: By defining a protocol (AuthServicing), you can easily create mock implementations for unit testing your views without making actual network calls to Okta.
+**Testability**: By defining a protocol (`AuthServicing`), you can easily create mock implementations for unit testing your views without making actual network calls to Okta.
 
 The service handles five key responsibilities:
 
@@ -275,39 +313,22 @@ The initializer does two important things:
 * **Configures direct authentication**: It attempts to load your Okta configuration from `Okta.plist`. If that fails, it falls back to a default configuration.
 * **Restores existing sessions**: It checks if a valid credential exists in the keychain. If it does, the user is automatically signed in without needing to re-enter their credentials.
 
-Now implement the authentication methods. Add the following code after the `init()` method:
+## Understand session persistence
+
+One of the key features of this implementation is automatic session restoration. When users close and reopen the app, they remain signed in because of the following lines in `AuthService`:
 
 ```SWIFT
-// MARK: - Authentication Methods
+.init() {
+    // ... initialization code ...
 
-    func authenticate(username: String, password: String) async throws {
-        // 1️⃣ Update state to show authentication is in progress
-        authenticationState = .authenticating
-
-        do {
-            // 2️⃣ Send credentials to Okta using DirectAuth
-            let response = try await directAuth.start(username, with: .password(password))
-
-            // 3️⃣ Process the authentication response
-            switch response {
-            case .success(let token):
-                // 4️⃣ Store credential securely in keychain
-                let credential = try Credential.store(token)
-                Credential.default = credential
-                authenticationState = .authenticated
-
-            default:
-                // 5️⃣ Handle unexpected response
-                authenticationState = .error("Authentication failed")
-            }
-
-        } catch {
-            // 6️⃣ Handle errors and update state
-            authenticationState = .error(error.localizedDescription)
-            throw error
-        }
+    // Check for existing credential
+    if Credential.default?.token != nil {
+        authenticationState = .authenticated
     }
+}
 ```
+
+The `AuthFoundation` library stores tokens securely in the iOS keychain, which persists across app launches. This creates a seamless experience while maintaining security.
 
 ### Understand the authentication flow
 
@@ -366,23 +387,6 @@ catch {
 
 Any network errors, invalid credentials, or other issues are caught here. Update the state so the UI can show an error message, and re-throw the error so calling code can also handle it if needed.
 
-Next, implement the log-out functionality. Add this method after `authenticate`:
-
-```SWIFT
-func logout() async throws {
-        // 1️⃣ Revoke tokens on the Okta server
-        if let credential = Credential.default {
-            try? await credential.revoke()
-        }
-
-        // 2️⃣ Clear local credential from the keychain
-        Credential.default = nil
-
-        // 3️⃣ Reset authentication state
-        authenticationState = .notAuthenticated
-    }
-```
-
 ### Understand the log-out process
 
 The `logout` method ensures a complete and secure log-out flow:
@@ -407,22 +411,6 @@ This removes the stored tokens from the device's keychain, ensuring that no sens
 `authenticationState = .notAuthenticated`
 
 This updates the UI to show the sign-in screen again.
-
-Now add token refresh capability. Add this method after `logout`:
-
-```SWIFT
-func refreshAccessToken() async throws {
-        // 1️⃣ Verify that a credential exists
-        guard let credential = Credential.default else {
-            throw NSError(domain: "AuthService",
-                         code: -1,
-                         userInfo: [NSLocalizedDescriptionKey: "No credential available"])
-        }
-
-        // 2️⃣ Exchange refresh token for new access token
-        try await credential.refresh()
-    }
-```
 
 ### Understand token refresh
 
@@ -451,28 +439,6 @@ This method automatically performs the following actions:
 * Updates the stored credential in the keychain
 
 All of these actions occur without requiring the user to re-enter their password.
-
-Finally, add user profile retrieval. Add this method after `refreshAccessToken`:
-
-```SWIFT
-func getCurrentUser() async throws -> UserInfo? {
-        // 1️⃣ Return cached user info if available
-        if let userInfo = Credential.default?.userInfo {
-            return userInfo
-        }
-
-        // 2️⃣ Fetch user info from the Okta /userinfo endpoint
-        do {
-            guard let userInfo = try await Credential.default?.userInfo() else {
-                return nil
-            }
-            return userInfo
-        } catch {
-            // 3️⃣ Return nil if fetch fails
-            return nil
-        }
-    }
-```
 
 ### Understand user profile retrieval
 
@@ -513,7 +479,98 @@ catch {
 
 If the network request fails or the token is invalid, return `nil` rather than crashing. The calling code can decide how to handle the missing data.
 
-### Complete AuthService code
+Finally, add user profile retrieval. Add this method after `refreshAccessToken`:
+
+```SWIFT
+func getCurrentUser() async throws -> UserInfo? {
+        // 1️⃣ Return cached user info if available
+        if let userInfo = Credential.default?.userInfo {
+            return userInfo
+        }
+
+        // 2️⃣ Fetch user info from the Okta /userinfo endpoint
+        do {
+            guard let userInfo = try await Credential.default?.userInfo() else {
+                return nil
+            }
+            return userInfo
+        } catch {
+            // 3️⃣ Return nil if fetch fails
+            return nil
+        }
+    }
+```
+
+Now add token refresh capability. Add this method after `logout`:
+
+```SWIFT
+func refreshAccessToken() async throws {
+        // 1️⃣ Verify that a credential exists
+        guard let credential = Credential.default else {
+            throw NSError(domain: "AuthService",
+                         code: -1,
+                         userInfo: [NSLocalizedDescriptionKey: "No credential available"])
+        }
+
+        // 2️⃣ Exchange refresh token for new access token
+        try await credential.refresh()
+    }
+```
+
+Next, implement the log-out functionality. Add this method after `authenticate`:
+
+```SWIFT
+func logout() async throws {
+        // 1️⃣ Revoke tokens on the Okta server
+        if let credential = Credential.default {
+            try? await credential.revoke()
+        }
+
+        // 2️⃣ Clear local credential from the keychain
+        Credential.default = nil
+
+        // 3️⃣ Reset authentication state
+        authenticationState = .notAuthenticated
+    }
+```
+
+Now implement the authentication methods. Add the following code after the `init()` method:
+
+```SWIFT
+// MARK: - Authentication Methods
+
+    func authenticate(username: String, password: String) async throws {
+        // 1️⃣ Update state to show authentication is in progress
+        authenticationState = .authenticating
+
+        do {
+            // 2️⃣ Send credentials to Okta using DirectAuth
+            let response = try await directAuth.start(username, with: .password(password))
+
+            // 3️⃣ Process the authentication response
+            switch response {
+            case .success(let token):
+                // 4️⃣ Store credential securely in keychain
+                let credential = try Credential.store(token)
+                Credential.default = credential
+                authenticationState = .authenticated
+
+            default:
+                // 5️⃣ Handle unexpected response
+                authenticationState = .error("Authentication failed")
+            }
+
+        } catch {
+            // 6️⃣ Handle errors and update state
+            authenticationState = .error(error.localizedDescription)
+            throw error
+        }
+    }
+```
+
+### The full AuthService code
+
+With the `AuthService` complete, you now have a robust authentication layer that handles the sign-in and sign-out flows, token management, and user profile retrieval. This service forms the foundation of your app's security, and because it's protocol-based, it's easy to test and maintain.
 
 Here's the complete `AuthService` implementation with all methods together for reference:
 
@@ -579,65 +636,65 @@ final class AuthService: AuthServicing {
     // MARK: - Authentication Methods
 
     func authenticate(username: String, password: String) async throws {
-        // 1️⃣ Update state to show authentication is in progress
+        // Update state to show authentication is in progress
         authenticationState = .authenticating
 
         do {
-            // 2️⃣ Send credentials to Okta through DirectAuth
+            // Send credentials to Okta through DirectAuth
             let response = try await directAuth.start(username, with: .password(password))
 
-            // 3️⃣ Process the authentication response
+            // Process the authentication response
             switch response {
             case .success(let token):
-                // 4️⃣ Store credential securely in keychain
+                // Store credential securely in keychain
                 let credential = try Credential.store(token)
                 Credential.default = credential
                 authenticationState = .authenticated
 
             default:
-                // 5️⃣ Handle unexpected response
+                // Handle unexpected response
                 authenticationState = .error("Authentication failed")
             }
 
         } catch {
-            // 6️⃣ Handle errors and update state
+            // Handle errors and update state
             authenticationState = .error(error.localizedDescription)
             throw error
         }
     }
 
     func logout() async throws {
-        // 1️⃣ Revoke tokens on Okta's server
+        // Revoke tokens on Okta's server
         if let credential = Credential.default {
             try? await credential.revoke()
         }
 
-        // 2️⃣ Clear local credential from keychain
+        // Clear local credential from keychain
         Credential.default = nil
 
-        // 3️⃣ Reset authentication state
+        // Reset authentication state
         authenticationState = .notAuthenticated
     }
 
     func refreshAccessToken() async throws {
-        // 1️⃣ Verify a credential exists
+        // Verify a credential exists
         guard let credential = Credential.default else {
             throw NSError(domain: "AuthService",
                          code: -1,
                          userInfo: [NSLocalizedDescriptionKey: "No credential available"])
         }
 
-        // 2️⃣ Exchange refresh token for new access token
+        // Exchange refresh token for new access token
         try await credential.refresh()
     }
 
     func getCurrentUser() async throws -> UserInfo? {
-        // 1️⃣ Return cached user info if available
+        // Return cached user info if available
         if let userInfo = Credential.default?.userInfo {
             return userInfo
         }
 
-        // 2️⃣ Fetch user info from Okta's UserInfo endpoint
+        // Fetch user info from Okta's UserInfo endpoint
         do {
             guard let userInfo = try await Credential.default?.userInfo() else {
                 return nil
@@ -650,8 +707,6 @@ final class AuthService: AuthServicing {
     }
 }
 ```
-
-With the `AuthService` complete, you now have a robust authentication layer that handles the sign-in and sign-out flows, token management, and user profile retrieval. This service forms the foundation of your app's security, and because it's protocol-based, it's easy to test and maintain.
 
 ## Build the SwiftUI interface
 
@@ -1228,35 +1283,19 @@ struct TokenDetailsView: View {
 }
 ```
 
-## How they work together
-
-Here's the flow of data through these components:
-
-1. The user enters credentials in the `LoginView` text fields.
-1. The text field values are bound to the `LoginViewModel` properties.
-1. The user taps **Sign In**.
-1. `LoginView` calls `viewModel.login()`.
-1. `LoginViewModel` calls `authService.authenticate()`.
-1. `AuthService` updates its state.
-1. `LoginViewModel` observes the state change.
-1. `LoginView` automatically re-renders based on the new state.
-1. When authenticated, the user can go to `ProfileView` or `TokenDetailsView`.
-
-This architecture keeps concerns separated: the view handles presentation, the view model handles UI logic, and the service handles authentication business logic.
-
 ## Test your implementation
 
 You're now ready to test the complete authentication flow:
 
 1. **Build and run**: Press `Cmd+R` to build and run your app in the simulator.
 1. **Enter credentials**: Use valid Okta user credentials from your org.
-1. **Sign in**: Tap **Sign In**.
+1. **Sign in**: Click **Sign In**.
 1. **View token**: After successful authentication, your access token appears.
 1. **Explore features**:
-    * Tap **View Profile** to see user information.
-    * Tap **Token Details** to inspect all tokens.
-    * Tap **Refresh Token** to get a new access token.
-    * Tap **Sign Out** to clear the session.
+    * Click **View Profile** to see user information.
+    * Click **Token Details** to inspect all tokens.
+    * Click **Refresh Token** to get a new access token.
+    * Click **Sign Out** to clear the session.
 
 ## Handle common issues
 
@@ -1276,42 +1315,3 @@ If the app crashes on launch:
 
 **Token expiration**<br>
 Access tokens typically expire after one hour. Use the **Refresh Token** button to get a new one without reauthenticating.
-
-## Understand session persistence
-
-One of the key features of this implementation is automatic session restoration. When users close and reopen the app, they remain signed in because of the following lines in `AuthService`:
-
-```SWIFT
-.init() {
-    // ... initialization code ...
-
-    // Check for existing credential
-    if Credential.default?.token != nil {
-        authenticationState = .authenticated
-    }
-}
-```
-
-The `AuthFoundation` library stores tokens securely in the iOS keychain, which persists across app launches. This creates a seamless experience while maintaining security.
-
-## Security considerations
-
-While this implementation provides a functional authentication system, keep these security points in mind:
-
-* **Use only HTTPS**: Ensure that all API calls use secure connections. Okta enforces this by default.
-
-* **Consider adding MFA**: Password-only authentication is less secure than password + MFA. Consider adding support for more factors as your app matures.
-
-* **Handle token expiration**: Always implement token refresh logic to maintain sessions without requiring the user to repeatedly sign in.
-
-* **Secure storage**: Never store passwords locally. The `AuthFoundation` library handles secure token storage in the keychain automatically.
-
-* **Error handling**: Provide clear error messages without exposing sensitive security details.
-
-## Beyond username and password
-
-You've built a complete, mobile authentication system for iOS using Okta direct authentication with username and password. Your app now handles credential validation, secure token storage, session management, and token refresh all without leaving your mobile Swift UI.
-
-This foundation makes it easy to add more sophisticated authentication features later like biometric verification or passwordless, while maintaining the same clean architecture.
-
-SwiftUI's reactive UI framework and the Okta Client SDK provide a secure and user-friendly authentication experience that can scale with your app's needs.
