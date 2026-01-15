@@ -1,8 +1,8 @@
 ---
-title: Manage governance labels
+title: Getting started with IPv6
 meta:
   - name: description
-    content: How to create and assign governance labels with the Okta Identity Governance APIs
+    content: An introduction to Okta's implementation of IPv6, the scope of the implementation, and how you can test this connectivity.
 layout: Guides
 sections:
  - main
