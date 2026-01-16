@@ -6,13 +6,13 @@ title: Manage org recovery with Okta Enhanced Disaster Recovery
 
 This guide explains how to manage a failover and failback of your Okta org using Okta Enhanced Disaster Recovery (EDR).
 
-> **Note:** Enhanced Disaster Recovery is a [self-service Early Access (EA)](/docs/concepts/feature-lifecycle-management/#self-service-features) feature. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable.
+> **Note:** EDR is a [self-service Early Access (EA)](/docs/concepts/feature-lifecycle-management/#self-service-features) feature. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable.
 
 ---
 
 #### Learning outcomes
 
-- Check the disaster recovery status for your org
+- Check the disaster recovery status for your org using the Okta API
 - Initiate an org failover using the Okta API
 - Initiate an org failback using the Okta API
 - Review the system log data and notifications for disaster recovery
@@ -27,9 +27,17 @@ This guide explains how to manage a failover and failback of your Okta org using
 
 ## About Okta Enhanced Disaster Recovery (EDR)
 
-Okta Enhanced Disaster Recovery (EDR) provides you with an option for shorter org recovery times in the event of a regional infrastructure-related outage. EDR improves on the standard disaster recovery mitigations available to all Okta orgs. It ensures service continuity during total regional outages, allowing users to remain signed in. Additionally, it features self-service failover, which grants admins manual control to initiate tenant migration and failback through APIs or a dedicated portal. See the following sections on how to manage EDR using the Okta APIs. For further information on EDR and using the EDR portal, see [Barbara's doc]().
+Okta Enhanced Disaster Recovery (EDR) provides you with an option for shorter org recovery times in the event of a regional infrastructure-related outage. EDR improves on the standard disaster recovery mitigations available to all Okta orgs. It ensures service continuity during total regional outages, allowing users to remain signed in. Additionally, it features self-service failover, which grants admins manual control to initiate tenant migration and failback through APIs or a dedicated portal. See the following sections on how to manage EDR using the Okta APIs. For further information on EDR and using the EDR portal, see [Enhanced Disaster Recovery](https://help.okta.com/okta_help.htm?type=oie&id=enhanced-disaster-recovery).
 
->**Note:** To manage EDR, you must be assigned the Super Administrator role.
+## User roles and permissions for EDR
+
+You can manage EDR by using the Super Administrator role or by creating a custom role.
+
+To create an EDR custom role, usse the Admin Console or the APIs. See [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#roles-in-okta) or [Use custom admin roles](https://help.okta.com/okta_help.htm?type=oie&id=csh-create-cstm-admin-role). The following permissions, resource, and resource type are required when creating the EDR custom role:
+
+- Permissions: Manage disaster recover (`okta.dr.manage`) or view disaster recovery (`okta.dr.read`)
+- Resource Type: Business continuity
+- Resource: Disaster recovery
 
 ## Make secure API requests with OAuth 2.0
 
@@ -43,9 +51,9 @@ To make secure Okta API requests to manage and configure your Okta orgs, obtain 
 
 ## Check the disaster recovery status of your org
 
-Use the following disaster recovery API, [Retrieve the disaster recovery status for all domains for your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/getDRStatus)<!--Probably need to re-name this endpoint as per our standards to something like "List all domains with disaster recovery status"-->, to understand the current disaster recovery state for all domains associated with your Okta org.
+Use the following disaster recovery API, [Retrieve the disaster recovery status for all domains for your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/getDRStatus), to understand the current disaster recovery state for all domains associated with your Okta org.
 
->**Note:** The base URL for the disaster recovery APIs is `https://{yourOktaDomain}-drapp.okta.com/`. Replace `{yourOktaDomain}` with your Okta subdomain.
+>**Note:** The base URL for the disaster recovery APIs is `https://drapp.{yourOktaDomain}/`. Replace `{yourOktaDomain}` with your Okta subdomain.
 
 #### Request example
 
@@ -54,7 +62,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer {yourAccessToken}" \
-"https://{yourOktaDomain}-drapp.okta.com/api/v1/dr/status"
+"https://drapp.{yourOktaDomain}/api/v1/dr/status"
 ```
 
 #### Response example
@@ -86,7 +94,7 @@ curl -v -X POST \
             "{yourOktaDomain}.okta.com"
         ]
     }"
-"https://{yourOktaDomain}-drapp.okta.com/api/v1/dr/failover"
+"https://drapp.{yourOktaDomain}/api/v1/dr/failover"
 ```
 
 After a failover, all end users of that org are in read-only mode.
@@ -120,7 +128,7 @@ curl -v -X POST \
             "{yourOktaDomain}.okta.com"
         ]
     }"
-"https://{yourOktaDomain}-drapp.okta.com/api/v1/dr/failback"
+"https://drapp.{yourOktaDomain}/api/v1/dr/failback"
 ```
 
 #### Response example
@@ -140,8 +148,6 @@ curl -v -X POST \
 
 Review the disaster recovery status through the System Log. Use the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog) or review through the Admin Console to confirm details on the org failover or failback. Search on the event types `system.dr.failover` or `system.dr.failback`.
 
-<!-- Is it the org URL? or the drapp URL https://{yourOktaDomain}/api/v1/logs?filter=eventType eq "system.dr.failover" or "system.dr.failback" with escapes-->
-
 #### Request example
 
 ```bash
@@ -149,14 +155,14 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer {yourAccessToken}" \
-"https://{yourOktaDomain}-drapp.okta.com/api/v1/logs?filter=eventType eq "system.dr.failover" or "system.dr.failback""
+"https://{yourOktaDomain}/api/v1/logs?filter=eventType eq "system.dr.failover" or "system.dr.failback""
 ```
 
 #### Response example
 
 ```json
 {
-   truncate probably
+   truncated example
 }
 ```
 
