@@ -38,7 +38,7 @@ Once the resource type is configured and the AI agent has the token or credentia
 
 ## Token Exchange flow
 
-<div class="half wireframe-border">
+<div class="full wireframe-border">
 
   ![Flow diagram illustrating the process of AI agent token exchange](/img/auth/ai-agent-token-exchange.png)
 
