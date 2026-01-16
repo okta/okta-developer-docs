@@ -100,6 +100,9 @@ const COMMON_NAME_TO_FANCY_NAME = {
   oktasaml: 'Okta SAML 2.0 IdP',
   thirdpartyoidc: 'Third-party OIDC IdP',
   thirdpartysaml: 'Third-party SAML 2.0 IdP',
+  authserver: 'Authorization server',
+  secret: 'Secret',
+  'service-account': 'Service account',
 };
 
 const COMMON_NAME_TO_ICON_NAME = {

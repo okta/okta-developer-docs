@@ -16,10 +16,9 @@ Understand how to set up the token exchange flow for an AI Agent.
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * An Okta user account with the super admin role.
-* [AI Agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register.htm) registered in your Okta org.
+* [Register an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register.htm) in your Okta org.
 * Managed Connections is configured for the AI agent, defining which resources it’s allowed to access. See [Secure an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure.htm).
 * An OIDC client app (for example, a web) is configured to authenticate users and obtain an ID token.
-
 
 ---
 
@@ -35,11 +34,13 @@ You can [connect an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai
 
 * Service account: Uses a static credential for an app that's specified in the Universal Directory. This resource is vaulted in Okta Privileged Access.
 
+Once the resource type is configured and the AI agent has the token or credentials, it can then perform tasks on the connected app.
+
 ## Token Exchange flow
 
-<div class="full">
+<div class="half wireframe-border">
 
-  ![Flow diagram that displays the communication between the client, resources, and the authorization server](/img/auth/ai-agent-token-exchange.png)
+  ![Flow diagram illustrating the process of AI agent token exchange](/img/auth/ai-agent-token-exchange.png)
 
 </div>
 
@@ -56,17 +57,21 @@ You can [connect an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai
 
 ## Flow specifics
 
+  > **Note:** The instructions on this page are for the **<StackSnippet snippet="resource-type" inline/>** resource type. If you want to change the resource type on this page, select the resource type you want from the **Instructions for** dropdown list on the right.<br>
+
 ### Authorization Code with PKCE request
 
 To initiate the token exchange flow, the client must first obtain an ID token from the Okta org authorization server.
 
-< **Note**: You must use the Okta org authorization server and not the Okta custom authorization server for this step.
+  > **Note**: You must use the Okta org authorization server and not the Okta custom authorization server for this step.
 
 Use the Authorization Code with PKCE flow to obtain an authorization code for the client. See [Implement authorization by grant type](/docs/guides/implement-grant-type/authcodepkce/main/).
 
 ### Exchange token ID for resource token
 
-In this step, tAI agent sends a POST request to the Okta org authorization server's `/token` endpoint to exchange the ID token for the resource token (ID-JAG, vaulted secret, or service account).
+  > **Note:** The instructions on this page are for the **<StackSnippet snippet="resource-type" inline/>** resource type. If you want to change the resource type on this page, select the resource type you want from the **Instructions for** dropdown list on the right.<br>
+
+In this step, the AI agent sends a POST request to the Okta org authorization server's `/token` endpoint to exchange the ID token for the resource token (ID-JAG, vaulted secret, or service account).
 
 <StackSnippet snippet="exchange-token-id-request" />
 
@@ -75,12 +80,3 @@ In this step, tAI agent sends a POST request to the Okta org authorization serve
 The response contains the requested resource token.
 
 <StackSnippet snippet="exchange-token-id-response" />
-
-
-
-
-
-
-
-
-[def]: /img/auth/ai-agent-token-exchange.png
