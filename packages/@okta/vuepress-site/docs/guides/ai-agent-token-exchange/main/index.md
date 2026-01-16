@@ -46,14 +46,11 @@ Once the resource type is configured and the AI agent has the token or credentia
 
 > **Note:** This flow assumes that user authentication and authorization are complete and the authorization server issued an access token and ID token.
 
-1. The user authenticates with the Okta org authorization server using a web app. The server returns an ID token to the client.
-
-1. The client (here, AI agent) sends the ID token to the Okta org authorization server, requesting an exchange for the resource token (ID-JAG, vaulted secret, or service account). The server validates the request against Managed Connections and returns the requested ID-JAG, vaulted secret, or service account.
-
-1. If the requested token was an ID-JAG, the client sends the ID-JAG to the resource authorization server/custom authorization server to exchange it for a usable access token.
-
-1. The client uses the access token to request access to the resource at the resource authorization server.
-
+1. The user authenticates with the Okta org authorization server using a web app. The server returns an ID token to the web app.
+1. The web app passes the ID token to the AI agent so that it can perform actions on the user's behalf.
+1. The AI agent sends the ID token to the Okta org authorization server and requests an exchange for the resource token (ID-JAG, vaulted secret, or service account). The server validates the request based on the configuration in the **Managed Connections** tab and returns the requested ID-JAG, vaulted secret, or service account.
+1. If the requested credential was an ID-JAG, the AI agent sends the ID-JAG to the Okta custom authorization server to exchange it for a usable access token.
+1. The AI agent uses the access token, secret, or service account credentials to request access to the resource at the Resource server.
 
 ## Flow specifics
 
@@ -69,7 +66,8 @@ Use the Authorization Code with PKCE flow to obtain an authorization code for th
 
 ### Exchange token ID for resource token
 
-  > **Note:** The instructions on this page are for the **<StackSnippet snippet="resource-type" inline/>** resource type. If you want to change the resource type on this page, select the resource type you want from the **Instructions for** dropdown list on the right.<br>
+  > **Note:** The instructions on this page are for the **<StackSnippet snippet="resource-type" inline/>** resource type.
+  If you want to change the resource type on this page, select the resource type you want from the **Instructions for** dropdown list on the right.<br>
 
 In this step, the AI agent sends a POST request to the Okta org authorization server's `/token` endpoint to exchange the ID token for the resource token (ID-JAG, vaulted secret, or service account).
 

@@ -1,5 +1,5 @@
 
-``` bash
+``` http
 
 POST /oauth2/v1/token HTTP/1.1
 Host: example.okta.com
@@ -17,10 +17,10 @@ grant_type=urn:ietf:params:oauth:grant-type:token-exchange
 
 | Parameter | Description and value |
 | --- | --- |
-| grant_type | Standard OAuth 2.0 Token Exchange grant. The value must be: urn:ietf:params:oauth:grant-type:token-exchange |
+| grant_type | Standard OAuth 2.0 token exchange grant. The value must be: urn:ietf:params:oauth:grant-type:token-exchange |
 | client_assertion_type | The value must be: urn:ietf:params:oauth:client-assertion-type:jwt-bearer. |
-| client_assertion | A signed JWT used for client authentication. For more information on building the JWT, see JWT with private key. |
-| subject_token_type | The value must be: urn:ietf:params:oauth:token-type:id_token |
-| subject_token | A valid ID token issued to the Agentic App associated with the Agent. |
-| requested_token_type | urn:okta:params:oauth:token-type:vaulted-secret |
-| resource | A resource identifier for the vaulted secret. This value must match the identifier configured on the Managed Connection. |
+| client_assertion | A signed JWT used for client authentication. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |
+| subject_token_type | The value must be `urn:ietf:params:oauth:token-type:id_token` |
+| subject_token | A valid ID token issued to the resource app associated with the AI agent. |
+| requested_token_type | The value must be `urn:okta:params:oauth:token-type:vaulted-secret` |
+| resource | A resource identifier for the vaulted secret. This value must match the identifier configured on the **Managed Connection** tab. |

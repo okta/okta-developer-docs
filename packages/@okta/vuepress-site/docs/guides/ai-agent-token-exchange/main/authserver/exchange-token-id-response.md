@@ -17,7 +17,7 @@ Pragma: no-cache
 
 ### Exchange ID-JAG for Access Token
 
-After receiving the ID-JAG, the AI agent sends a POST request to the resource authorization server's `/token` endpoint to exchange the ID-JAG for an access token.
+After receiving the ID-JAG, the AI agent sends a `POST` request to the resource authorization server's `/token` endpoint to exchange the ID-JAG for an access token.
 
 ``` http
 
@@ -34,7 +34,7 @@ assertion=eyJhbGciOiJIUzI1NiIsI...
 | Parameter | Description and value |
 | --- | --- |
 | grant_type | The value must be `urn:ietf:params:oauth:grant-type:jwt-bearer` |
-| assertion | The ID-JAG access_token received in the Exchange ID token for resource token step |
+| assertion | The ID-JAG received in the previous step. |
 
 #### Response
 
