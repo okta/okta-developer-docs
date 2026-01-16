@@ -12,10 +12,10 @@ This guide explains how to manage a failover and failback of your Okta org using
 
 #### Learning outcomes
 
-- Check the disaster recovery status for your org using the Okta API
-- Initiate an org failover using the Okta API
-- Initiate an org failback using the Okta API
-- Review the system log data and notifications for disaster recovery
+- Check the disaster recovery status for your org using the Okta API.
+- Initiate an org failover using the Okta API.
+- Initiate an org failback using the Okta API.
+- Review the System Log data and notifications for disaster recovery.
 
 #### What you need
 
@@ -27,13 +27,13 @@ This guide explains how to manage a failover and failback of your Okta org using
 
 ## About Okta Enhanced Disaster Recovery (EDR)
 
-Okta Enhanced Disaster Recovery (EDR) provides you with an option for shorter org recovery times in the event of a regional infrastructure-related outage. EDR improves on the standard disaster recovery mitigations available to all Okta orgs. It ensures service continuity during total regional outages, allowing users to remain signed in. Additionally, it features self-service failover, which grants admins manual control to initiate tenant migration and failback through APIs or a dedicated portal. See the following sections on how to manage EDR using the Okta APIs. For further information on EDR and using the EDR portal, see [Enhanced Disaster Recovery](https://help.okta.com/okta_help.htm?type=oie&id=enhanced-disaster-recovery).
+Okta Enhanced Disaster Recovery (EDR) provides you with an option for shorter org recovery times in the event of a regional infrastructure-related outage. EDR improves on the standard disaster recovery mitigations available to all Okta orgs. It ensures service continuity during total regional outages, allowing users to remain signed in. Also, it features a self-service failover, which grants admins manual control to initiate tenant migration and failback through APIs or a dedicated portal. See the following sections on how to manage EDR using the Okta APIs. For further information on EDR and using the EDR portal, see [Enhanced Disaster Recovery](https://help.okta.com/okta_help.htm?type=oie&id=enhanced-disaster-recovery).
 
 ## User roles and permissions for EDR
 
-You can manage EDR by using the Super Administrator role or by creating a custom role.
+You can manage EDR by using the super administrator role or by creating a custom role.
 
-To create an EDR custom role, usse the Admin Console or the APIs. See [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#roles-in-okta) or [Use custom admin roles](https://help.okta.com/okta_help.htm?type=oie&id=csh-create-cstm-admin-role). The following permissions, resource, and resource type are required when creating the EDR custom role:
+To create an EDR custom role, use the Admin Console or the APIs. See [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#roles-in-okta) or [Use custom admin roles](https://help.okta.com/okta_help.htm?type=oie&id=csh-create-cstm-admin-role). The following permissions, resource, and resource type are required when creating the EDR custom role:
 
 - Permissions: Manage disaster recover (`okta.dr.manage`) or view disaster recovery (`okta.dr.read`)
 - Resource Type: Business continuity
@@ -166,4 +166,4 @@ curl -v -X GET \
 }
 ```
 
-The System Admin accounts also receive email notifications during the failover and failback process.
+The super administrator accounts also receive email notifications during the failover and failback process.
