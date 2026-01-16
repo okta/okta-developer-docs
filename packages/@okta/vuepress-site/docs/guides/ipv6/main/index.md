@@ -12,23 +12,23 @@ This guide introduces Okta's implementation of IPv6 and provides guidelines on c
 
 ## Learning outcomes
 
-* Understand Okta's implementation of IPv6 and the scope of the implementation.
+* Understand Okta's implementation of IPv6 and the scope of the implementation
 * Learn how to configure your org to test IPv6
 * Learn how to test your org on IPv6
 
 ## What you need
 
-* A preview Okta org. Only preview cells have IPv6 availability
+* A preview of Okta org. Only preview cells have IPv6 availability.
 
 ## Overview
 
-Internet Protocol version 6 (IPv6) is the most recent version of the internet protocol and is designed to replace IPv4. IPv6 uses 128-bit addresses providing an order of magnitude more IP addresses. The new standard improves security, efficiency, and network auto configuration.
+Internet protocol version 6 (IPv6) is the most recent version of the internet protocol and is designed to replace IPv4. IPv6 uses 128-bit addresses providing an order of magnitude more IP addresses. The new standard improves security, efficiency, and network auto configuration.
 
-The Okta IPv6 Beta allows communication with an Okta org in an Okta preview cell using Internet Protocol version 6 (IPv6) and Internet Protocol version 4 (IPv4). IPv6 support is opt-in at the org level. It's not enabled cell-wide.
+The Okta IPv6 Beta allows communication with an Okta org in a preview cell using IPv6 and IPv4. IPv6 support is opt-in at the org level. It's not enabled cell-wide.
 
-For the Beta, IPv6 will only be available in Preview cells.
+For the Beta, IPv6 is only available in preview cells.
 
-> **Note:** You must contact Okta support to enabled IPv6 for your preview org.
+> **Note:** Contact Okta Support to enable IPv6 for your preview org.
 
 <!-- Do we want to include the email and sentence about contacting okta through ipv6_beta@okta.com? -->
 
@@ -45,12 +45,12 @@ Only a subset of Okta functionality supports IPv6 during the Beta.
 | Supported | End-user functionality - Settings | |
 | Supported | Okta Identity Engine | |
 | Supported | Okta Verify | |
-| Partial Support for Beta | Network Zones | Any ASN based rules will not work with IPv6 for the Beta |
-| Partial Support for Beta | Enhanced Dynamic Zones | Any ASN based rules will not work with IPv6 for the Beta |
+| Partial support for Beta | Network Zones | Any ASN-based rules won’t work with IPv6 for the Beta |
+| Partial support for Beta | Enhanced Dynamic Zones | Any ASN based rules won’t work with IPv6 for the Beta |
 | Unsupported | mTLS | |
 | Unsupported | PIV / CAC authentication | |
 | Unsupported | Custom domains | |
-| Unsupported | Any type of egress | Traffic from the cell will use IPv4. Any type of hook (Inline, Event, Web) will use IPv4 to connect |
+| Unsupported | Any type of egress | Traffic from the cell uses IPv4. Any type of hook (inline, event, web) will use IPv4 to connect |
 | Unsupported | Workflows | |
 | Unsupported | LDAP interface (LDAPi) | |
 | Unsupported | Okta Identity Governance (OIG) | |
@@ -64,21 +64,21 @@ Only a subset of Okta functionality supports IPv6 during the Beta.
 
 ### Service Level Agreement (SLA) and support
 
-During the Beta phase, any preview org with IPv6 enabled is not subject to an SLA.
+During the Beta phase, any preview org with IPv6 enabled isn’t subject to an SLA.
 
 Support is also not available for IPv6 Beta orgs.
 
 ## Configure your org for IPv6
 
-Ensure the following configurations are made to your preview org to test IPv6:
+Ensure that the following configurations are made to your preview org to test IPv6:
 
-* Allow listing: If you use allow list access to Okta, you need to update your allow list rules (firewalls, ACLs, and so on) to also allow IPv6 traffic to Okta.
+* Allow listing: If you use allowlist access to Okta, you need to update your allow list rules (firewalls, ACLs, and so on) to also allow IPv6 traffic to Okta.
 
 * Network zone configuration: It is your responsibility of to update any network zone configuration that assumes IPv4 is the only supported protocol.
 
   Some possible examples:
 
-  * If the network zone configuration allows only a certain range of IPv4 addresses. This needs to be updated adding a range of IPv6 addresses that should also be allowed.
+  * If the network zone configuration allows only a certain range of IPv4 addresses. This configuration needs updating to add a range of IPv6 addresses that are also allowed.
 
   * If you block certain IPv4 addresses, you need to update and block any IPv6 addresses.
 
@@ -86,18 +86,18 @@ Ensure the following configurations are made to your preview org to test IPv6:
 
 At minimum, you should test:
 
-* Any and all sign in scenarios applicable to your organization that fall within the scope of the Beta.
-* All processes your organization typically performed in the Admin Console.
+* All sign-in scenarios applicable to your org that fall within the scope of the Beta.
+* All processes in your org that are typically performed in the Admin Console.
 
-Be sure to verify any relevant System Log events and inline or event hooks have the expected IPv6 address in the payload.
+Be sure to verify that any relevant System Log events and inline or event hooks have the expected IPv6 address in the payload.
 
-## Testing your org with IPv6
+## Test your org with IPv6
 
-Use the following procedures to test you org with IPv6.
+Use the following procedures to test your org with IPv6.
 
 ### Check for IPv6 connectivity
 
-Connecting to Okta using IPv6 requires an IPv6 address and IPv6 connectivity from the browser  to Okta. Use the following site to test IPv6 connectivity:
+Connecting to Okta using IPv6 requires an IPv6 address and IPv6 connectivity from the browser to Okta. Use the following site to test IPv6 connectivity:
 
 * [https://test-ipv6.com](https://test-ipv6.com).
 
@@ -121,7 +121,7 @@ If you have an IPv4 public IP, the following example output appears from the tes
 
 </div>
 
-A readiness score of 10/10 confirms you have an IPv6 address and an IPv6 DNS server.
+A readiness score of 10/10 confirms that you have an IPv6 address and an IPv6 DNS server.
 
 ### Determine if your Org is using IPv6
 
@@ -133,7 +133,7 @@ The System Log shows the IP seen by Okta, and it can be used to verify the IPv6 
 
 </div>
 
-## Providing feedback
+## Provide feedback
 
 <!-- did we want to include this? Can external customers access this template? -->
 
