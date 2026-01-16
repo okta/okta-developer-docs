@@ -12,9 +12,9 @@ This guide introduces Okta's implementation of IPv6 and provides guidelines on c
 
 ## Learning outcomes
 
-* Understand Okta's implementation of IPv6 and the scope of the implementation
-* Learn how to configure your org to test IPv6
-* Learn how to test your org on IPv6
+* Understand Okta's implementation of IPv6 and the scope of the implementation.
+* Learn how to configure your org to test IPv6.
+* Learn how to test your org on IPv6.
 
 ## What you need
 
@@ -45,12 +45,12 @@ Only a subset of Okta functionality supports IPv6 during the Beta.
 | Supported | End-user functionality - Settings | |
 | Supported | Okta Identity Engine | |
 | Supported | Okta Verify | |
-| Partial support for Beta | Network Zones | Any ASN-based rules won’t work with IPv6 for the Beta |
-| Partial support for Beta | Enhanced Dynamic Zones | Any ASN based rules won’t work with IPv6 for the Beta |
+| Partial support for Beta | Network Zones | ASN-based rules don’t work with IPv6 for the Beta |
+| Partial support for Beta | Enhanced Dynamic Zones | ASN-based rules don’t work with IPv6 for the Beta |
 | Unsupported | mTLS | |
 | Unsupported | PIV / CAC authentication | |
 | Unsupported | Custom domains | |
-| Unsupported | Any type of egress | Traffic from the cell uses IPv4. Any type of hook (inline, event, web) will use IPv4 to connect |
+| Unsupported | Any type of egress | Traffic from the cell uses IPv4. Any type of hook (inline, event, web) use IPv4 to connect |
 | Unsupported | Workflows | |
 | Unsupported | LDAP interface (LDAPi) | |
 | Unsupported | Okta Identity Governance (OIG) | |
@@ -72,7 +72,7 @@ Support is also not available for IPv6 Beta orgs.
 
 Ensure that the following configurations are made to your preview org to test IPv6:
 
-* Allow listing: If you use allowlist access to Okta, you need to update your allow list rules (firewalls, ACLs, and so on) to also allow IPv6 traffic to Okta.
+* Allow listing: If you use allowlist access to Okta, you need to update your allowlist rules (firewalls, ACLs, and so on) to also allow IPv6 traffic to Okta.
 
 * Network zone configuration: It is your responsibility of to update any network zone configuration that assumes IPv4 is the only supported protocol.
 
@@ -86,7 +86,7 @@ Ensure that the following configurations are made to your preview org to test IP
 
 At minimum, you should test:
 
-* All sign-in scenarios applicable to your org that fall within the scope of the Beta.
+* All sign-in scenarios applicable to your org that falls within the scope of the Beta.
 * All processes in your org that are typically performed in the Admin Console.
 
 Be sure to verify that any relevant System Log events and inline or event hooks have the expected IPv6 address in the payload.
