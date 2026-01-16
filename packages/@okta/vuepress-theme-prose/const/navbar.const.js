@@ -426,6 +426,8 @@ export const guides = [
             title: "Global session and authn policies",
             guideName: "configure-signon-policy"
           },
+          { title: "Check for a session at startup",
+            guideName: "check-for-session" },
           {
             title: "Multiple identifiers",
             guideName: "multiple-identifiers"
