@@ -447,6 +447,10 @@ export const guides = [
             guideName: "policy-simulation"
           },
           {
+            title: "Policy and rule prioritization",
+            guideName: "policy-rule-prioritization",
+          },
+          {
             title: "Add an external identity provider",
             path: "/docs/guides/identity-providers/",
             subLinks: [
