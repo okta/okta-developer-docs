@@ -46,7 +46,7 @@ While this implementation provides a functional authentication system, keep thes
 
 * **Use only HTTPS**: Ensure that all API calls use secure connections. Okta enforces this by default.
 
-* **Consider adding MFA**: Password-only authentication is less secure than password + MFA. Consider adding support for more factors as your app matures.
+* **Consider adding MFA**: Password-only authentication is less secure than password + MFA. Consider adding support for more authenticators as your app matures.
 
 * **Handle token expiration**: Always implement token refresh logic to maintain sessions without requiring the user to repeatedly sign in.
 
@@ -185,9 +185,9 @@ With setup complete, implement the core authentication logic and create a servic
 
 ### Understand the AuthService architecture
 
-The `AuthService` is the heart of our authentication system. It serves as a centralized layer that manages the entire authentication lifecycle, from the initial sign-in flow to session maintenance. By encapsulating all authentication logic in a single service, Okta achieves several important goals:
+The `AuthService` is the heart of the Okta authentication system. It serves as a centralized layer that manages the entire authentication lifecycle, from the initial sign-in flow to session maintenance. By encapsulating all authentication logic in a single service, Okta achieves several important goals:
 
-**Separation of concerns**: The service isolates authentication logic from UI code, making it both easier to test and maintain. Your SwiftUI views don't need to know how direct authentication works, they simply call methods like `authenticate()` or `logout()`.
+**Separation of concerns**: The service isolates authentication logic from UI code, making it easier to both test and maintain. Your SwiftUI views don't need to know how direct authentication works, they simply call methods like `authenticate()` or `logout()`.
 
 **State management**: The service maintains the current authentication state (idle, authenticating, authenticated, or error), allowing your UI to respond appropriately. This state-driven approach makes it easy to show loading indicators, error messages, or authenticated content.
 
@@ -227,7 +227,7 @@ protocol AuthServicing {
 }
 ```
 
-This protocol defines the contract for our authentication service, making it easy to test and mock later.
+This protocol defines the contract for the Okta authentication service, making it easy to test and mock later.
 
 ### Implement the AuthService
 
@@ -1079,7 +1079,7 @@ private extension LoginView {
 
 `ProfileView`: Display user information
 
-After the user is authenticated, users want to see their profile information. The `ProfileView` performs the following actions:
+After the user is authenticated, they want to see their profile information. The `ProfileView` performs the following actions:
 
 * Fetch and display the user's profile data from Okta (name, email, username, user ID)
 * Show metadata like when the profile was last updated
@@ -1300,14 +1300,14 @@ You're now ready to test the complete authentication flow:
 ## Handle common issues
 
 **Invalid credentials**<br>
-If you see an authentication error, verify that:
+If you see an authentication error, verify the following:
 
 * The username and password are correct
 * The user is assigned to your app in Okta
 * The Resource Owner Password grant type is enabled in your authorization server
 
 **Configuration errors**<br>
-If the app crashes on launch:
+If the app crashes on launch, verify the following:
 
 * Double-check your `Okta.plist` values.
 * Ensure that your client ID and issuer URL are correct.
