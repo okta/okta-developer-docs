@@ -62,7 +62,7 @@ If you want to test or try the package locally, install the package directly fro
 
 ### Option 2: Local installation (from source)
 
-Use this method if you cloned the official Python management SDK repo and want to update a package or test your changes locally before you create a pull request.
+Use this method if you cloned the official Okta Python Management SDK repo and want to update a package or test your changes locally before you create a pull request.
 
 1. Install prerequisites: First, install the `setuptools` library if it’s not already available:
 
@@ -99,7 +99,7 @@ After you install the SDK, initialize the client to verify your setup. Ensure th
    # ... more code to make API calls ...
    ```
 
-   > **Note**: For comprehensive configuration and advanced usage patterns, refer to the [Okta Python SDK](https://github.com/okta/okta-sdk-python) GitHub repo.
+   > **Note**: For comprehensive configuration and advanced usage patterns, refer to the [Okta Python Management SDK](https://github.com/okta/okta-sdk-python) GitHub repo.
 
 2. Run the code: Use the above example to create a Python script (`test-pythonsdk3.py`) to initialize the client, create a new user, and run the script from your terminal.
 
