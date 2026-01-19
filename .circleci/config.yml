@@ -158,7 +158,7 @@ jobs:
           command: |
             if [ -n "$CIRCLE_PULL_REQUEST" ]; then
               PR_NUMBER="${CIRCLE_PULL_REQUEST##*/}"
-              echo "🔗 Preview link:"
+              echo "Preview link:"
               echo "https://preview-${PR_NUMBER}--reverent-murdock-829d24.netlify.app"
             else
               echo "No pull request detected. Preview link not available."
@@ -195,7 +195,7 @@ jobs:
           command: |
             if [ -n "$CIRCLE_PULL_REQUEST" ]; then
               PR_NUMBER="${CIRCLE_PULL_REQUEST##*/}"
-              echo "🔗 Preview link:"
+              echo "Preview link:"
               echo "https://preview-${PR_NUMBER}--reverent-murdock-829d24.netlify.app"
             else
               echo "No pull request detected. Preview link not available."
