@@ -154,10 +154,15 @@ jobs:
       #     command: |
       #       netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site
       - run:
-          name: Log preview link - ${CIRCLE_PULL_REQUEST##*/}
+          name: Log preview link
           command: |
-            chmod +x ./scripts/update-dev-docs-pr-cci.sh
-            ./scripts/update-dev-docs-pr-cci.sh
+            if [ -n "$CIRCLE_PULL_REQUEST" ]; then
+              PR_NUMBER="${CIRCLE_PULL_REQUEST##*/}"
+              echo "🔗 Preview link:"
+              echo "https://preview-${PR_NUMBER}--reverent-murdock-829d24.netlify.app"
+            else
+              echo "⚠️ No pull request detected. Preview link not available."
+            fi
 
   netlify_manual_with_redirects:
     docker:
