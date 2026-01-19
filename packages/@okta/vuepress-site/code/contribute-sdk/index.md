@@ -193,7 +193,7 @@ To contribute code, follow a standard open-source workflow that focuses on keepi
 
    Develop your new code, update documentation, or implement bug fixes in your feature branch.
 
-   > **Note**: If your changes are related to the mustache template files, run the below SDK generation process:
+   > **Note**: If your changes are related to the mustache template files, run the following SDK generation process:
 
    a. Review the [prerequisites](#contribution-prerequisites) list to install the required OpenAPI package.
 
