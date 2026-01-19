@@ -45,7 +45,7 @@ Before you submit code, ensure that you meet the following requirements:
 
 ## Installation and use
 
-This section demonstrates how to quickly install and configure the SDK. Okta recommends that you use a virtual environment to install the package. Depending on your development goals, there are two ways to install the Okta Python management SDK.
+This section demonstrates how to install and configure the SDK. Okta recommends that you use a virtual environment to install the package. Depending on your development goals, there are two ways to install the Okta Python Management SDK.
 
 ### Option 1: Standard installation (PyPI)
 
