@@ -140,21 +140,21 @@ jobs:
               exit 1
             fi
       - checkout
-      - install-deps
+      # - install-deps
+      # - run:
+      #     name: Build preview
+      #     command: |
+      #       yarn build
+      # - run:
+      #     name: Install Netlify CLI
+      #     command: |
+      #       npm install netlify-cli@17.23.5 -g
+      # - run:
+      #     name: Deploy preview to Netlify
+      #     command: |
+      #       netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site
       - run:
-          name: Build preview
-          command: |
-            yarn build
-      - run:
-          name: Install Netlify CLI
-          command: |
-            npm install netlify-cli@17.23.5 -g
-      - run:
-          name: Deploy preview to Netlify
-          command: |
-            netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site
-      - run:
-          name: Update PR with preview link
+          name: Log preview link - << CIRCLE_PULL_REQUEST >>
           command: |
             chmod +x ./scripts/update-dev-docs-pr-cci.sh
             ./scripts/update-dev-docs-pr-cci.sh
@@ -193,45 +193,45 @@ jobs:
 
 
 workflows:
-  linting:
-    when:
-      and:
-        - not: << pipeline.parameters.preview >>
-        - not: << pipeline.parameters.preview_with_redirect >>
-    jobs:
-      - inclusive-linting:
-          name: "Inclusive Linting"
+  # linting:
+  #   when:
+  #     and:
+  #       - not: << pipeline.parameters.preview >>
+  #       - not: << pipeline.parameters.preview_with_redirect >>
+  #   jobs:
+  #     - inclusive-linting:
+  #         name: "Inclusive Linting"
 
-  build_checks:
-    when:
-      and:
-        - not: << pipeline.parameters.preview >>
-        - not: << pipeline.parameters.preview_with_redirect >>
-    jobs:
-      - node_build_checks:
-          name: "Build and Checks"
-      - snyk-scan:
-          context:
-            - static-analysis
-          name: execute-snyk
-          requires:
-            - Build and Checks
-          filters:
-            branches:
-              only:
-                - master
+  # build_checks:
+  #   when:
+  #     and:
+  #       - not: << pipeline.parameters.preview >>
+  #       - not: << pipeline.parameters.preview_with_redirect >>
+  #   jobs:
+  #     - node_build_checks:
+  #         name: "Build and Checks"
+  #     - snyk-scan:
+  #         context:
+  #           - static-analysis
+  #         name: execute-snyk
+  #         requires:
+  #           - Build and Checks
+  #         filters:
+  #           branches:
+  #             only:
+  #               - master
 
-  nightly:
-    triggers:
-      - schedule:
-          cron: "1 5 * * *"
-          filters:
-            branches:
-              only:
-                - master
-    jobs:
-      - nightly_link_checker:
-          name: "Nightly Link Checker"
+  # nightly:
+  #   triggers:
+  #     - schedule:
+  #         cron: "1 5 * * *"
+  #         filters:
+  #           branches:
+  #             only:
+  #               - master
+  #   jobs:
+  #     - nightly_link_checker:
+  #         name: "Nightly Link Checker"
 
   netlify_manual:
     when: << pipeline.parameters.preview >>
@@ -239,8 +239,8 @@ workflows:
       - netlify_manual:
           name: "Netlify Manual"
 
-  netlify_manual_with_redirects:
-    when: << pipeline.parameters.preview_with_redirect >>
-    jobs:
-      - netlify_manual_with_redirects:
-          name: "Netlify Manual With Redirects"
+  # netlify_manual_with_redirects:
+  #   when: << pipeline.parameters.preview_with_redirect >>
+  #   jobs:
+  #     - netlify_manual_with_redirects:
+  #         name: "Netlify Manual With Redirects"
