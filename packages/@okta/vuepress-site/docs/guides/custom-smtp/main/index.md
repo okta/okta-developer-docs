@@ -3,7 +3,7 @@ title: Custom email providers with OAuth 2.0
 excerpt: Learn how to create custom SMTP email providers with OAuth 2.0 authentication.
 layout: Guides
 ---
-
+<ApiLifecycle access="ea" />
 This guide explains how to configure a custom email provider with OAuth 2.0 authentication and provides some example configurations for Google and Microsoft SMTP services.
 
 ---
@@ -16,6 +16,7 @@ This guide explains how to configure a custom email provider with OAuth 2.0 auth
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
+* The **OAuth 2.0 credentials** feature enabled in your org. See [Self-service features](/docs/concepts/feature-lifecycle-management/#self-service-features).
 * A valid and certified [custom domain](/docs/guides/custom-url-domain/main/) for sending emails
 * Access to your DNS provider to add TXT and CNAME records
 * For Google SMTP, you need a [Google Workspace](https://workspace.google.com/) account with admin privileges
@@ -35,31 +36,50 @@ For information about custom email providers, see [Use your own email provider](
 
 SMTP with OAuth 2.0 authentication provides a more secure way to connect your org to your email provider.
 
-[Google](https://support.google.com/a/answer/14114704?hl=en) and [Microsoft](https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online) are deprecating or have already deprecated Basic Authentication (username and password) for their SMTP servers due to security vulnerabilities. OAuth 2.0 authentication is the recommended authentication method for those SMTP services.
+[Google](https://support.google.com/a/answer/14114704?hl=en) and [Microsoft](https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online) are deprecating or have already deprecated Basic Authentication (username and password) for their SMTP servers due to limitations of password-based authentication. OAuth 2.0 authentication is the recommended authentication method for those SMTP services.
 
 > **Note:** Not all email providers support OAuth 2.0 authentication for SMTP. Check with your email provider to confirm that they support OAuth 2.0 for SMTP. This guide only applies to providers that support OAuth 2.0.
 
-For SMTP, OAuth 2.0 authentication means that Okta does not sign in as a specific user with a password. Instead, Okta authenticates as a secure app (a machine identity) that's authorized to send mail on behalf of your domain. Okta and your SMTP service exchange OAuth tokens to establish a secure connection.
+### How OAuth 2.0 works with SMTP
+
+For SMTP, OAuth 2.0 authentication means that Okta does not sign in as a specific user with a password. Instead, Okta authenticates as a secure OAuth 2.0 app (a machine identity) that's authorized to send mail on behalf of your domain.
+
+Okta obtains an OAuth 2.0 access token from your authorization server and uses that to connect and authenticate with the SMTP server. The authorization server and SMTP server are typically provided by the same company. For example, if you use Google Workspace as your email provider, Google's authorization server issues the OAuth 2.0 access tokens that Okta uses to authenticate with Google's SMTP server.
 
 In your org, there are two methods for configuring OAuth 2.0 authentication for email providers:
 
-* **OAuth 2.0 client credentials flow**: This flow uses a shared secret to authenticate the app that sends emails through your SMTP service.
-* **OAuth 2.0 JWT bearer token flow**: This flow uses asymmetric cryptography to sign JWTs to authenticate the app that sends emails through your SMTP service.
+* [OAuth 2.0 client credentials flow](#oauth-2-0-client-credentials-flow)
+* [OAuth 2.0 JWT bearer token flow](#oauth-2-0-jwt-bearer-token-flow)
 
-### Choose the right OAuth 2.0 method for your email provider
+### OAuth 2.0 client credentials flow
 
-Consider the following differences when choosing which OAuth 2.0 flow to use for your email provider.
+The **OAuth 2.0 client credentials flow** uses a shared secret to authenticate. Your Okta app identifies itself using a client ID and a client secret string. The app acts on its own behalf. It has "Application Permissions" to access specific mailboxes.
 
-| Category           | Client credentials flow  | JWT bearer token flow |
-|--------------------|--------------------------|-----------------------|
-| Security model     | Uses a shared secret. <br></br>The app uses a client secret string that functions like a password. If this string is intercepted, an attacker can authenticate as the app until you rotate the secret. | Uses asymmetric cryptography. <br></br>The app uses a private key to sign requests. The private key never leaves your secure environment because only the signed token is transmitted. |
-| Identity assertion | The app acts as itself. <br></br>The app authenticates as a standalone machine identity. It relies on app permissions granted by an admin to access the target mailbox. | The app impersonates a user. <br></br>The app generates a token that claims to be a specific user, using the `sub` field. This mechanism is sometimes referred to as "Domain-wide delegation". |
+When you use this flow, you create or configure the following settings:
+
+* You create an OAuth 2.0 app with your email provider that provides a client ID.
+* You create a client secret for the OAuth 2.0 app.
+* You designate a valid user account that the OAuth 2.0 app is authorized to send email from. This is typically the email address used in the "From" field of the email.
+* You assign a scope to your OAuth 2.0 app and account that grants them the authorization to send email.
+
+### OAuth 2.0 JWT bearer token flow
+
+The **OAuth 2.0 JWT bearer token flow** uses asymmetric cryptography to authenticate the OAuth 2.0 app without a shared secret. The Okta app uses a private key to sign a JSON Web Token (JWT) that asserts its identity. The provider verifies the signature using a public key.
+
+The OAuth 2.0 app creates a token that explicitly claims to be a specific user (the `sub` field). This is known as "impersonation" or "delegation."
+
+When you use this flow, you create or configure the following settings:
+
+* You create an OAuth 2.0 app with your email provider that provides a client ID.
+* You create a public/private key pair for the OAuth 2.0 app.
+* You assign a scope that authorizes your OAuth 2.0 app to send email.
+* You create or designate an account that the OAuth 2.0 app can impersonate to send email.
+
+The public/private key pair generates various properties, including a client ID and private key value.
 
 ## Set up your custom email provider for OAuth 2.0
 
-The following steps explain how to set up a custom email provider with OAuth 2.0 authentication. You must use an email provider that supports OAuth 2.0 for SMTP authentication to use these instructions.
-
-Before you connect your org to your email provider, complete the following setup steps.
+The following setup steps explain how to set up a custom email provider and custom domain before you connect your org to your email provider:
 
 1. [Create a custom email domain](#create-a-custom-email-domain)
 1. [Verify domain ownership](#verify-domain-ownership)
@@ -79,7 +99,7 @@ For example, if you have `login.mycompany.com` as a custom domain in your org, y
 
 Confirm that you can update records for the subdomain that you intend to use as the "From" address for your email provider (`notifications.mycompany.com`, for example).
 
-To configure a custom email provider, you must have admin access to your domain's DNS records. For example, if you're using Cloudflare or AWS Route53 you must have the necessary permissions to add and modify `TXT` and `CNAME` records.
+To configure a custom email provider, you must have admin access to your domain's DNS records. You must have the necessary permissions to add and modify `TXT` and `CNAME` records.
 
 DNS records authorize the email provider to deliver email on behalf of your domain. Improper DNS configuration can cause email delivery failures or emails to be marked as spam.
 
@@ -89,34 +109,32 @@ After you've created your custom email domain, configure it with your email prov
 
 The process for adding DNS records to your email provider can vary depending the provider. Refer to your provider's documentation for specific instructions.
 
+#### Configure SPF and DKIM
+
+If you send email using a default domain provided by your email provider (such as `mycompany.google.com`), the provider often manages these records automatically. However, when using a custom domain (such as `notifications.mycompany.com`), you must manually authorize the provider in your DNS settings.
+
+Update your DNS records to authorize your email provider:
+
+* **Sender Policy Framework (SPF):** An [SPF record](https://www.cloudflare.com/en-ca/learning/dns/dns-records/dns-spf-record/) lists the IP addresses and domains authorized to send mail for your domain. Update your existing SPF record to include your email provider. For example, if you're using Google Workspace, add `include:_spf.google.com` to your SPF record. If you don't have an existing SPF record, create a new `TXT` record with the appropriate SPF value for your provider.
+* **DomainKeys Identified Mail (DKIM):** [DKIM](https://www.cloudflare.com/en-ca/learning/dns/dns-records/dns-dkim-record/) adds a cryptographic signature to emails to verify that the message wasn't altered in transit. Generate DKIM keys with your email provider and add the resulting `TXT` records to your DNS configuration. For example, [Google Workspace provides DKIM keys](https://support.google.com/a/answer/174124) that you can add to your DNS records.
+
 ## Configure the OAuth 2.0 settings for your custom email provider
 
 At this point, you have created and verified a custom email domain. And you have configured your email provider to send email on behalf of that domain. Now, you can configure the OAuth 2.0 connection between your org and your email provider.
 
-The following examples ([Microsoft](#oauth-2-0-client-credentials-flow) and [Google](#oauth-2-0-jwt-bearer-token-flow)) are based on two common OAuth 2.0 flows for SMTP authentication. The steps are meant to provide a baseline for your configuration. Refer to your email provider's documentation for more detailed instructions and information.
+The following examples ([Microsoft](#microsoft-exchange-online-smtp-example) and [Google](#google-workspace-smtp-example)) are based on the two OAuth 2.0 flows for SMTP authentication. The steps are meant to provide a baseline for your configuration. Refer to your email provider's documentation for information about their specific OAuth 2.0 implementation.
 
 This table highlights common components of each flow and how they're used.
 
 | Component           | Client credentials flow                | JWT bearer token flow                        |
 |---------------------|----------------------------------------|----------------------------------------------|
-| Authentication type | Shared secret (symmetric)              | Asymmetric cryptography (private/public key) |
-| Email provider app  | Required (generates client ID)         | Required (generates client ID)               |
-| Credential          | Client secret (string)                 | Private key (JSON/certificate)               |
-| Permission          | Scope that grants permission to access email server | Scope that grants permission to access email server |
-| Sender identity     | Designated user account                | Impersonated user account, using the `sub` claim  |
+| Authentication type | This flow uses a shared secret   | This flow uses asymmetric cryptography (private/public key) |
+| Email provider app  | This flow requires an OAuth 2.0 client app that generates a client ID         | This flow requires an OAuth 2.0 client app that generates a client ID               |
+| Credential          | This flow uses a client secret as a credential              | This flow uses a private key (JSON/certificate) as a credential               |
+| Permission          | This flow uses a scope that grants permission to access email server | This flow uses a scope that grants permission to access email server |
+| Sender identity     | This flow uses a designated user account                | This flow uses an impersonated user account, using the `sub` claim  |
 
-### OAuth 2.0 client credentials flow
-
-The **OAuth 2.0 client credentials flow** uses a shared secret to authenticate. Your Okta app identifies itself using a client ID and a client secret string, similar to a username and password for the app itself. The app acts on its own behalf. It has "Application Permissions" to access specific mailboxes.
-
-When you use this flow, you create or configure the following settings:
-
-* You create an app with your email provider that provides a client ID.
-* You create a client secret for the app.
-* You designate a valid user account that the app is authorized to send email from. This is typically the email address used in the "From" field of the email.
-* You assign a scope to your app and account that grants them the authorization to send email.
-
-#### Microsoft Exchange Online SMTP example
+### Microsoft Exchange Online SMTP example
 
 This example uses the **OAuth 2.0 client credentials flow** to connect your org to Microsoft Exchange Online SMTP. The following steps summarize the required configuration and provide links to more detailed instructions and information when needed.
 
@@ -125,11 +143,11 @@ For more information about OAuth 2.0 for Microsoft SMTP, see:
 * [Authenticate an IMAP, POP or SMTP connection using OAuth](https://learn.microsoft.com/en-gb/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth)
 * [Register an application in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app)
 
-##### Create a client ID and client secret
+#### Create a client ID and client secret
 
-1. Go to [Microsoft Azure](https://portal.azure.com/) and create a new **App registration**.
+1. Go to [Microsoft Azure](https://portal.azure.com/) and create a new **App registration**. This is your OAuth 2.0 app.
 1. Name the app "Okta SMTP app" and set it as a "Single tenant". See [Register an application](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app#register-an-application).
-1. Create a client secret for the app. See [Add a credential to your application](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-credentials?tabs=client-secret#add-a-credential-to-your-application). Ensure that you follow the steps to create a client secret and not a certificate.
+1. Create a client secret for the OAuth 2.0 app. See [Add a credential to your application](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-credentials?tabs=client-secret#add-a-credential-to-your-application). Ensure that you follow the steps to create a client secret and not a certificate.
 1. Name the client secret and set an expiration date.
 1. Copy the **Application (client ID)** and the **Directory (tenant ID)** values from the app overview page.
 1. Copy the client secret value.
@@ -137,13 +155,13 @@ For more information about OAuth 2.0 for Microsoft SMTP, see:
 1. Find your newly created app and open it.
 1. Copy the **Object ID** to use it in a [later step](#connect-your-app-registration-to-microsoft-exchange-online).
 
-##### Grant an email sending scope
+#### Grant an email sending scope
 
-1. In your Microsoft app, add an API permission. See [Add the POP, IMAP, or SMTP permissions to your Microsoft Entra application](https://learn.microsoft.com/en-gb/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth#add-the-pop-imap-or-smtp-permissions-to-your-microsoft-entra-application).
-1. Check the **SMTP.SendAsApp** permission. This enables the app to send email as any user in the organization.
+1. In your Microsoft OAuth 2.0 app, add an API permission. See [Add the POP, IMAP, or SMTP permissions to your Microsoft Entra application](https://learn.microsoft.com/en-gb/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth#add-the-pop-imap-or-smtp-permissions-to-your-microsoft-entra-application).
+1. Check the **SMTP.SendAsApp** permission. This enables the OAuth 2.0 app to send email as any user in the organization.
 1. After you've confirmed the permission, ensure that you click **Grant admin consent for [your app]** to activate the permission.
 
-##### Enable your app to send email as a specific user
+#### Enable your app to send email as a specific user
 
 1. Go to `https://admin.microsoft.com/` and sign in with your admin account.
 1. Open **Users** > **Active users**.
@@ -151,7 +169,7 @@ For more information about OAuth 2.0 for Microsoft SMTP, see:
    * The **Username** is used as the "From" address in Okta system emails and is also used to authenticate the SMTP connection.
 1. In the user's **Mail** settings, enable SMTP authentication for the user. See [Use the Microsoft 365 admin center to enable or disable SMTP AUTH on specific mailboxes](https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission#use-the-microsoft-365-admin-center-to-enable-or-disable-smtp-auth-on-specific-mailboxes).
 
-##### Connect your app registration to Microsoft Exchange Online
+#### Connect your app registration to Microsoft Exchange Online
 
 1. [Install PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell?view=powershell-7.5).
 1. Open a PowerShell terminal and install the [Exchange Online Management module](https://learn.microsoft.com/en-us/powershell/exchange/exchange-online-powershell-v2?view=exchange-ps) with the following command:
@@ -185,9 +203,9 @@ For more information about OAuth 2.0 for Microsoft SMTP, see:
     Add-MailboxPermission -Identity $SenderEmail -User $EnterpriseObjectID -AccessRights FullAccess
    ```
 
-##### Configure your org's SMTP settings
+#### Configure your org's SMTP settings
 
-After you've created your app registration and granted the necessary permissions, you can connect your org to Microsoft Exchange Online SMTP.
+After you've created your OAuth 2.0 app registration and granted the necessary permissions, you can connect your org to Microsoft Exchange Online SMTP.
 
 See [Configure a custom email provider](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-provider-main#configure-a-custom-email-provider) and use the **OAuth 2.0 client credentials flow** settings.
 
@@ -195,27 +213,12 @@ See [Configure a custom email provider](https://help.okta.com/okta_help.htm?type
 * **Client secret:** The client secret value that you created for your app registration.
 * **Scope:** `https://outlook.office.com/.default`
 * **Token endpoint URL:** `https://login.microsoftonline.com/{TenantID}/oauth2/v2.0/token` and replace `{TenantID}` with your **Directory (tenant ID)** value.
-* **Token endpoint authentication method:** Either **CLIENT_SECRET_POST** or **CLIENT_SECRET_BASIC** is acceptable.
+* **Token endpoint authentication method:** Either **CLIENT_SECRET_POST** or **CLIENT_SECRET_BASIC** is acceptable for Microsoft Exchange Online SMTP configurations.
 * **Hostname:** `smtp.office365.com`
 * **Port:** `587`
 * **Username:** The email address of the user that you designated in the [previous step](#enable-your-app-to-send-email-as-a-specific-user).
 
-### OAuth 2.0 JWT bearer token flow
-
-The **OAuth 2.0 JWT bearer token flow** uses asymmetric cryptography to authenticate the app without a shared secret. The app (Okta) uses a private key to sign a JSON Web Token (JWT) that asserts its identity. The provider verifies the signature using a public key.
-
-The app creates a token that explicitly claims to be a specific user (the sub field). This is known as "impersonation" or "delegation."
-
-When you use this flow, you create or configure the following settings:
-
-* You create an app with your email provider that provides a client ID.
-* You create a public/private key pair for the app.
-* You assign a scope that authorizes your app to send email.
-* You create or designate an account that the app can impersonate to send email.
-
-The public/private key pair generates various properties, including a client ID and private key value.
-
-#### Google Workspace SMTP example
+### Google Workspace SMTP example
 
 This example uses the **OAuth 2.0 JWT bearer token flow** to connect your org to Google Workspace SMTP. The following steps summarize the required configuration and provide links to more detailed instructions and information when needed.
 
@@ -225,10 +228,10 @@ For more information about OAuth 2.0 for Google Workspace SMTP, see:
 * [Domain-wide delegation](https://support.google.com/a/answer/162106)
 * [Service accounts overview](https://docs.cloud.google.com/iam/docs/service-account-overview)
 
-##### Create service account and generate key pair
+#### Create service account and generate key pair
 
 1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
-1. Create a new project.
+1. Create a new project. This is your OAuth 2.0 app.
 1. Enable the **Gmail API** for your project. See [Enabling an API](https://docs.cloud.google.com/endpoints/docs/openapi/enable-api) and [Enable the Gmail API](https://developers.google.com/gmail/api/quickstart/js#enable_the_gmail_api).
 1. Go to **APIs & Services** > **Credentials**.
 1. Create a new **Service Account**. See [Creating and managing service accounts](https://cloud.google.com/iam/docs/creating-managing-service-accounts).
@@ -237,7 +240,7 @@ For more information about OAuth 2.0 for Google Workspace SMTP, see:
 1. Select **JSON** as the key type.
 1. Click **Create** to download the JSON key file. Keep this file secure, as it contains your private key.
 
-##### Grant email sending scope
+#### Grant email sending scope
 
 1. Sign in to the [Google Admin Console](https://admin.google.com/) with your admin account.
 1. Go to **Domain-wide Delegation**. See [Set up domain-wide delegation for a client](https://support.google.com/a/answer/162106?sjid=6859758194021594224-NA#zippy=%2Cset-up-domain-wide-delegation-for-a-client)
@@ -247,7 +250,7 @@ For more information about OAuth 2.0 for Google Workspace SMTP, see:
 
 You have now granted the service account permission to send email on behalf of users in your Google Workspace domain.
 
-##### Configure your org's SMTP settings
+#### Configure your org's SMTP settings
 
 After you've created your service account and granted the necessary permissions, you can connect your org to Google Workspace SMTP. Use the information in the private key in the JSON file to configure the SMTP settings in your org.
 
@@ -285,16 +288,15 @@ Use these values to configure the SMTP settings in your org. See [Configure a cu
 * **Port:** `587`
 * **Username:** The same email address used in the **Subject** field.
 
-### Configure SPF and DKIM
+## Next steps
 
-Ignore for now
+You've now configured your org to use a custom email provider with OAuth 2.0 authentication. Customize and then test your email templates to ensure that system-generated emails are sent correctly using your custom email provider. See [Customize email notifications](/docs/guides/custom-email/main/).
 
-Add this content to email or domains guide:
+## See also
 
-
-Recipient email servers perform checks to verify that an incoming email is legitimate. Update your DNS records to authorize your provider.
-
-* **Sender Policy Framework (SPF):** An SPF record lists the IP addresses and domains authorized to send mail for your domain. Update your existing SPF record to include your provider's mechanism.
-    * **Google:** `include:_spf.google.com`
-    * **Microsoft:** `include:spf.protection.outlook.com`
-* **DomainKeys Identified Mail (DKIM):** DKIM adds a cryptographic signature to emails, verifying that the message was not altered in transit. Generate DKIM keys in your email provider's admin console and add the resulting `TXT` records to your DNS configuration.
+* [Use your own email provider](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-provider-main)
+* [What is Sender Policy Framework (SPF)?](https://www.proofpoint.com/us/threat-reference/spf)
+* [Authenticate an IMAP, POP or SMTP connection using OAuth (Microsoft)](https://learn.microsoft.com/en-gb/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth)
+* [Set up SPF to identify valid email sources for your custom cloud domains (Microsoft)](https://learn.microsoft.com/en-us/defender-office-365/email-authentication-spf-configure)
+* [IMAP, POP, and SMTP (Google)](https://developers.google.com/workspace/gmail/imap/imap-smtp)
+* [Domain-wide delegation (Google)](https://support.google.com/a/answer/162106)
