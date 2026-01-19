@@ -156,10 +156,9 @@ jobs:
       - run:
           name: Log preview link
           command: |
-            if [ -n "$CIRCLE_PULL_REQUEST" ]; then
-              PR_NUMBER="${CIRCLE_PULL_REQUEST##*/}"
+            if [ -n "$CIRCLE_PR_NUMBER" ]; then
               echo "🔗 Preview link:"
-              echo "https://preview-${PR_NUMBER}--reverent-murdock-829d24.netlify.app"
+              echo "https://preview-${CIRCLE_PR_NUMBER}--reverent-murdock-829d24.netlify.app"
             else
               echo "⚠️ No pull request detected. Preview link not available."
             fi
