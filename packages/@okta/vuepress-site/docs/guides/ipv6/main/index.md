@@ -74,7 +74,7 @@ Ensure that the following configurations are made to your preview org to test IP
 
 * Allow listing: If you use allowlist access to Okta, you need to update your allowlist rules (firewalls, ACLs, and so on) to also allow IPv6 traffic to Okta.
 
-* Network zone configuration: It is your responsibility of to update any network zone configuration that assumes IPv4 is the only supported protocol.
+* Network zone configuration: It is your responsibility to update any network zone configuration that assumes IPv4 is the only supported protocol.
 
   Some possible examples:
 
