@@ -132,14 +132,3 @@ The System Log shows the IP seen by Okta, and it can be used to verify the IPv6 
 ![An image of the System Log in the Admin Console that displays an IPv6 IP address](/img/ipv6/ipv6-system-log.png)
 
 </div>
-
-## Provide feedback
-
-<!-- did we want to include this? Can external customers access this template? -->
-
-Feedback is critical for the overall success of the Okta IPv6 Beta.
-
-For any testing performed, fill out this [template](https://docs.google.com/document/d/1eIwItY-8AkMktvGSw5owGPyOGysKFIz7CYJOA2YbhOA/edit?tab=t.0) and send your feedback to `ipv6_beta@okta.com`. Include the following:
-
-* A detailed list of what was tested
-* If any issues were encountered, provide details of the issues.
