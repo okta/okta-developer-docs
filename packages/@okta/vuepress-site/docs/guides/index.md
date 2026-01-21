@@ -61,6 +61,7 @@ guides:
  - implement-oauth-for-okta-serviceapp
  - implement-grant-type
  - keep-me-signed-in
+ - keep-user-signed-in
  - key-management
  - manage-orgs-okta-aerial
  - terraform-oig-resources
