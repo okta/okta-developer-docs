@@ -202,12 +202,12 @@ Group functions return either an array of groups or **True** or **False**.
 | `isMemberOfGroupNameStartsWith` | Boolean     | String                                      | `isMemberOfGroupNameStartsWith("San Fr")`                       |
 | `isMemberOfGroupNameContains`   | Boolean     | String                                      | `isMemberOfGroupNameContains("admin")`                          |
 | `isMemberOfGroupNameRegex`      | Boolean     | Regular expression                          | `isMemberOfGroupNameRegex("/.*admin.*")`                        |
-| `user.getGroups`                | Array       | List of search criteria                    | See [Get groups for users](#get-groups-for-users)                |
+| `user.getGroups`                | Array       | List of search criteria                     | See [Get groups for users](#get-groups-for-users)               |
 
 > **Notes:**
 >
 > * When EL group functions (such as `isMemberOfGroup` or `isMemberOfGroupName`) are used for app assignments, the profile attributes of the app user aren't updated or reapplied when the user's group membership changes. Okta only updates app user profile attributes when an app is assigned to a user or when mappings are applied.
-> *
+> * The `isMemberOfGroupName` function returns all groups, regardless of source. For example, if you have separate groups called `Sales` in Salesforce, Workday, and Okta, then `isMemberOfGroupName("sales")` returns all three groups. If you want only the group in Workday returned, use `isMemberOfGroup` instead.
 
 For more information on using group functions for dynamic and static allowlists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
 
