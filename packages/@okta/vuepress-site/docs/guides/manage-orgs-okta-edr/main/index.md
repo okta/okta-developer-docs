@@ -148,21 +148,35 @@ curl -v -X POST \
 
 Review the disaster recovery status through the System Log. Use the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog) or review through the Admin Console to confirm details on the org failover or failback. Search on the event types `system.dr.failover` or `system.dr.failback`.
 
+> **Note:** Your OAuth 2.0 scoped token requires the `okta.logs.read` scope to call the System Log endpoint.
+
 #### Request example
+
+Filter on both EDR event types:
+
+`filter=eventType eq "system.dr.failback" or eventType eq "system.dr.failover"`
 
 ```bash
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer {yourAccessToken}" \
-"https://{yourOktaDomain}/api/v1/logs?filter=eventType eq "system.dr.failover" or "system.dr.failback""
+"https://{yourOktaDomain}/api/v1/logs?filter=eventType%20eq%20%22system.dr.failback%22%20or%20eventType%20eq%20%22system.dr.failover%22"
 ```
 
 #### Response example
 
+> **Note:** The response is truncated for clarity.
+
 ```json
-{
-   truncated example
+{ ...
+    "displayMessage": "The Enhanced Disaster Recovery (EDR) failover operation for the org domains was initiated",
+    "eventType": "system.dr.failover",
+    "outcome": {
+        "result": "SUCCESS",
+        "reason": null
+    },
+  ...
 }
 ```
 
