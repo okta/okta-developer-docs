@@ -1,3 +1,5 @@
+The process for creating an app with your IDV vendor varies depending on the vendor you choose. Regardless of the vendor configuration, you must complete the following steps:
+
 1. Go to your custom IDV vendor.
 1. Create a client app.
 1. Create a client ID and client secret for the app.
