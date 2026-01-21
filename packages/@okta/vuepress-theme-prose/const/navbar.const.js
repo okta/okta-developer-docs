@@ -426,6 +426,8 @@ export const guides = [
             title: "Global session and authn policies",
             guideName: "configure-signon-policy"
           },
+          { title: "Check for a session at startup",
+            guideName: "check-for-session" },
           {
             title: "Multiple identifiers",
             guideName: "multiple-identifiers"
@@ -1130,7 +1132,7 @@ export const languagesSdk = [
     subLinks: [
       { title: "Recommended SDKs", path: "/code/" },
       { title: "Alternate Sign-in SDKs", path: "/code/alternate-sign-in-sdks/" },
-      { title: "Contributing to Python SDK 3.0", path: "/code/contribute-sdk/" },
+      { title: "Contributing to Python Management SDK 3.0", path: "/code/contribute-sdk/" },
       { title: "SDK, widget, sample apps", codeName: "oie-embedded-common-download-setup-app" },
       { title: "Versioning", path: "/code/library-versions/" },
     ],

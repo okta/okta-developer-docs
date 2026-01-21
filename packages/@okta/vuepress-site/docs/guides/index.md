@@ -15,6 +15,7 @@ guides:
  - archive-overview
  - build-custom-ui-mobile
  - build-self-signed-jwt
+ - check-for-session
  - client-secret-rotation-key
  - common-hook-set-up-steps
  - configure-access-policy
