@@ -7,8 +7,8 @@ The process for creating an app with your IDV vendor varies depending on the ven
    1. For example, if your Okta subdomain is called `company`, then the URL would be: `https://company.okta.com/idp/identity-verification/callback` If you’ve configured a custom domain in your Okta org, use that value to construct your redirect URI, such as `https://login.company.com/idp/identity-verification/callback`.
    [[style="list-style-type:lower-alpha"]]
 
-IDV vendors can learn about how to integrate with Okta by reviewing [Integrate Okta with identity verification vendors](/docs/guides/idv-integration/).
+IDV vendors can learn how to integrate with Okta by reviewing [Integrate Okta with identity verification vendors](/docs/guides/idv-integration/).
 
-After your IDV vendor provides this information, you can create the IdP integration in your org.
+After creating the app with your IDV vendor, you can create the IdP integration in your org.
 
 > **Note:** Your IDV vendor might have other configuration settings. Refer to their documentation for more information about other configuration settings.
