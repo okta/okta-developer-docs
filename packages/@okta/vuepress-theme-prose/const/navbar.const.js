@@ -1131,6 +1131,7 @@ export const languagesSdk = [
       { title: "Recommended SDKs", path: "/code/" },
       { title: "Alternate Sign-in SDKs", path: "/code/alternate-sign-in-sdks/" },
       { title: "Contributing to Python SDK 3.0", path: "/code/contribute-sdk/" },
+      { title: "SDK, widget, sample apps", codeName: "oie-embedded-common-download-setup-app" },
       { title: "Versioning", path: "/code/library-versions/" },
     ],
   },

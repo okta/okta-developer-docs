@@ -4,6 +4,8 @@ meta:
   - name: description
     content: Okta maintains the following recommended SDKs for developers.
 excerpt: Okta maintains the following recommended SDKs for developers.
+stackSelectorPagesInCode:
+ - oie-embedded-common-download-setup-app
 ---
 
 <style>
