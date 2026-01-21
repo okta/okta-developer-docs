@@ -16,9 +16,9 @@ When you create a custom IDV vendor integration in your org, the vendor must fir
 
 The custom IDV vendor must also enable you to add your org as a redirect URI.
 
-* The redirect URI is the location where the custom IDV vendor sends the verification response. The URI sent in the verification request from the client needs to match the redirect URI set at the IDV vendor. Ensure that the URI is located in a secure domain that you own.
-* For example, if your Okta subdomain is called `company`, then the URL would be: `company.okta.com.` If you’ve configured a custom domain in your Okta org, use that value to construct your redirect URI, such as `login.company.com.`
-* If your IDV vendor supports multiple redirect URIs, include all base domains (Okta domain and custom domain) that your users interact with as redirect URIs.
+The redirect URI is the location where the custom IDV vendor sends the verification response. The URI sent in the verification request from the client needs to match the redirect URI set at the IDV vendor. Ensure that the URI is located in a secure domain that you own. It's constructed using your Okta subdomain and then the callback endpoint.
+
+For example, if your Okta subdomain is called `company`, then the URL would be: `https://company.okta.com/idp/identity-verification/callback` If you’ve configured a custom domain in your Okta org, use that value to construct your redirect URI, such as `https://login.company.com/idp/identity-verification/callback`.
 
 For more information about these requirements, see [Integrate Okta with identity verification vendors](/docs/guides/idv-integration/).
 
