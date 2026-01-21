@@ -411,8 +411,16 @@ export const guides = [
               {
                 title: "Sign in mobile users with a self-hosted page",
                 guideName: "sign-users-in-mobile-self-hosted"
-              }
-            ]
+              },
+              {
+                title: "Check for a session at startup",
+                guideName: "check-for-session"
+              },
+              {
+                title: "Keep the user signed in",
+                guideName: "keep-user-signed-in"
+              },
+            ],
           },
           {
             title: "Set up your org",
@@ -426,8 +434,6 @@ export const guides = [
             title: "Global session and authn policies",
             guideName: "configure-signon-policy"
           },
-          { title: "Check for a session at startup",
-            guideName: "check-for-session" },
           {
             title: "Multiple identifiers",
             guideName: "multiple-identifiers"

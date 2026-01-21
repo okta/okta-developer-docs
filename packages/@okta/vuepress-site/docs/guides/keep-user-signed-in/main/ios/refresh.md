@@ -1,4 +1,4 @@
-You may refresh a token when you [check for an existing session]() at startup. But, in this case you may want to catch any errors that occur.
+You may refresh a token when you [check for an existing session](/docs/guides/check-for-session/android/main/) at startup. But, in this case you may want to catch any errors that occur.
 
 Update the `refreshToken` function in `ContentView.swift` with the following code:
 

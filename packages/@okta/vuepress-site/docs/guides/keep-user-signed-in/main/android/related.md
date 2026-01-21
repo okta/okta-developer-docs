@@ -1,0 +1,1 @@
+[Check for a session at startup](/docs/guides/sign-into-mobile-app-redirect/android/main/#check-for-a-session-at-startup)
