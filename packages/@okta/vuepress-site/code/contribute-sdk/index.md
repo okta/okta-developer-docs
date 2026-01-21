@@ -1,5 +1,5 @@
 ---
-title: Contributing to Python Management SDK 3.0
+title: Contributing to Python SDK 3.0
 meta:
   - name: description
     content: Okta maintains the following SDKs for developers who don't want to use the recommended sign-in experience in their apps, which is redirecting users to sign in using the Okta-hosted Sign-In Widget.
@@ -9,7 +9,7 @@ meta:
    td > img { vertical-align : middle;}
 </style>
 
-## Contributing to Python Management SDK 3.0
+## Contributing to Python SDK 3.0
 
 Join the Okta open-source community to contribute to the next generation of the Python SDK, built on OpenAPI specification 3.0. The Python SDK 3.0 is a modernized architecture powered by the OpenAPI generator that replaces the legacy Swagger-based system with a fully typed and auto-documented SDK. By integrating Pydantic, the SDK now features strongly-typed data models with runtime validation that ensures greater accuracy, reduced bugs, and improved code clarity.
 
@@ -45,7 +45,7 @@ Before you submit code, ensure that you meet the following requirements:
 
 ## Installation and use
 
-This section demonstrates how to install and configure the SDK. Okta recommends that you use a virtual environment to install the package. Depending on your development goals, there are two ways to install the Okta Python Management SDK.
+This section demonstrates how to quickly install and configure the SDK. Okta recommends that you use a virtual environment to install the package. Depending on your development goals, there are two ways to install the Okta Python SDK.
 
 ### Option 1: Standard installation (PyPI)
 
@@ -53,28 +53,28 @@ If you want to test or try the package locally, install the package directly fro
 
 1. Install the latest version using `pip`:
 
-   ```shell
-   pip install okta
+```shell
+pip install okta
 
-   # Or for environments using an alias:
-   pip3 install okta
-   ```
+# Or for environments using an alias:
+pip3 install okta
+```
 
 ### Option 2: Local installation (from source)
 
-Use this method if you cloned the official Okta Python Management SDK repo and want to update a package or test your changes locally before you create a pull request.
+Use this method if you cloned the official Python SDK repo and want to update a package or test your changes locally before you create a pull request.
 
 1. Install prerequisites: First, install the `setuptools` library if it’s not already available:
 
-   ```shell
-   pip3 install setuptools
-   ```
+```shell
+pip3 install setuptools
+```
 
 2. Install the SDK: Run the setup script to install your local packages to your user environment:
 
-   ```shell
-   python setup.py install --user
-   ```
+```shell
+python setup.py install --user
+```
 
 ## Client initialization and configuration
 
@@ -82,83 +82,81 @@ After you install the SDK, initialize the client to verify your setup. Ensure th
 
 1. Use the imported `OktaClient` to initialize the client with your configuration.
 
-   > **Note:** After you initialize  a client, you can call methods to make requests from the Python SDK to the Okta admin management APIs.
+> **Note**: After you initialize  a client, you can call methods to make requests from the Python SDK to the Okta admin management APIs.
 
-   The following example highlights how to initialize the client and create a new user:
+The following example highlights how to initialize the client and create a new user:
 
-   ```python
-   import asyncio
-   from okta.client import Client as OktaClient
+```python
+import asyncio
+from okta.client import Client as OktaClient
 
-   config = {
-       'orgUrl': 'https://{your_org}.okta.com',
-       'token': 'YOUR_API_TOKEN',
-   }
+config = {
+    'orgUrl': 'https://{your_org}.okta.com',
+    'token': 'YOUR_API_TOKEN',
+}
 
-   okta_client = OktaClient(config)
-   # ... more code to make API calls ...
-   ```
+okta_client = OktaClient(config)
+# ... more code to make API calls ...
+```
 
-   > **Note**: For comprehensive configuration and advanced usage patterns, refer to the [Okta Python Management SDK](https://github.com/okta/okta-sdk-python) GitHub repo.
+> **Note**: For comprehensive configuration and advanced usage patterns, refer to the [Okta Python SDK](https://github.com/okta/okta-sdk-python) GitHub repo.
 
 2. Run the code: Use the above example to create a Python script (`test-pythonsdk3.py`) to initialize the client, create a new user, and run the script from your terminal.
 
-   In your code, replace the following parameters:
+> **Notes**
+> Replace `'orgUrl': 'https://{your_org}.okta.com'` with your Okta org URL.
+> Replace `'token': 'YOUR_API_TOKEN'` with your generated API token.
 
-   * `'orgUrl': 'https://{your_org}.okta.com'` with your Okta org URL.
-   * `'token': 'YOUR_API_TOKEN'` with your generated API token.
+```python
+import asyncio
+from okta import UserProfile, PasswordCredential, CreateUserRequest, UserNextLogin, UserCredentials
+from okta.client import Client as OktaClient
+config = {
+   'orgUrl': 'https://{your_org}.okta.com',
+   'token': 'YOUR_API_TOKEN',
+}
 
-   The following code example shows a sample script:
 
-   ```python
-   import asyncio
-   from okta import UserProfile, PasswordCredential, CreateUserRequest, UserNextLogin, UserCredentials
-   from okta.client import Client as OktaClient
-   config = {
-      'orgUrl': 'https://{your_org}.okta.com',
-      'token': 'YOUR_API_TOKEN',
-   }
+okta_client = OktaClient(config)
+user_config = {
+   "firstName": "Sample",
+   "lastName": "Sample",
+   "email": "sample12.sample@example.com",
+   "login": "sample12.sample@example.com",
+   "mobilePhone": "555-415-1337"
+ }
+user_profile = UserProfile(**user_config)
+password_value = {
+   "value": "Knock*knock*neo*111"
+}
+password_credential = PasswordCredential(**password_value)
+user_credentials = {
+   "password": password_credential
+}
+user_credentials = UserCredentials(**user_credentials)
+create_user_request = {
+   "profile": user_profile,
+   "credentials": user_credentials,
+}
+user_request = CreateUserRequest(**create_user_request)
+async def users():
+   next_login = UserNextLogin(UserNextLogin.CHANGEPASSWORD)
+   user, resp, err = await okta_client.create_user(user_request, activate=True, provider=False, next_login=next_login)
+   print("The response of UserApi->create_user:\n")
+   print(user)
+   print(resp, err)
 
-   okta_client = OktaClient(config)
-   user_config = {
-      "firstName": "Sample",
-      "lastName": "Sample",
-      "email": "sample12.sample@example.com",
-      "login": "sample12.sample@example.com",
-      "mobilePhone": "555-415-1337"
-   }
 
-   user_profile = UserProfile(**user_config)
-
-   password_value = {
-         "value": "Knock*knock*neo*111"
-      }
-   password_credential =   PasswordCredential(**password_value)
-   user_credentials = {
-      "password": password_credential
-   }
-   user_credentials = UserCredentials(**user_credentials)
-   create_user_request = {
-      "profile": user_profile,
-      "credentials": user_credentials,
-   }
-   user_request = CreateUserRequest(**create_user_request)
-   async def users():
-      next_login =   UserNextLogin(UserNextLogin.CHANGEPASSWORD)
-      user, resp, err = await    okta_client.create_user(user_request, activate=True,  provider=False, next_login=next_login)
-      print("The response of UserApi->create_user:\n")
-      print(user)
-      print(resp, err)
-      users, resp, err = await okta_client.list_users()
-      for user in users:
-          print(user.profile.first_name,     user.profile.last_name)
-          try:
-              print(user.profile.customAttr)
-          except:
-              print('User has no customAttr')
-   loop = asyncio.get_event_loop()
-   loop.run_until_complete(users())
-   ```
+   users, resp, err = await okta_client.list_users()
+   for user in users:
+       print(user.profile.first_name, user.profile.last_name)
+       try:
+           print(user.profile.customAttr)
+       except:
+           print('User has no customAttr')
+loop = asyncio.get_event_loop()
+loop.run_until_complete(users())
+```
 
 ## Contribution workflow
 
@@ -166,99 +164,100 @@ To contribute code, follow a standard open-source workflow that focuses on keepi
 
 1. Fork and clone the repo.
 
-   a. Navigate to the [okta-sdk-python](https://github.com/okta/okta-sdk-python/tree/master) repo and fork it in your browser. Then clone your fork to your local machine:
+a. Navigate to the [Okta SDK Python](https://github.com/okta/okta-sdk-python/tree/master) repo and fork it in your browser. Then clone your fork to your local machine:
 
-      ```shell
-      git clone https://github.com/okta/okta-sdk-python.git
-      cd okta-sdk-python
-      ```
+```shell
+git clone https://github.com/okta/okta-sdk-python.git
+cd okta-sdk-python
+```
 
-2. Sync your cloned repo with the origin repo, and create a feature branch.
+2. Sync and create a feature branch.
 
-   a. Ensure your local `master` branch is up-to-date with `origin/master`:
+a. Ensure your local `master` branch is up-to-date with `origin/master`:
 
-      ```shell
-      git checkout master
-      git fetch
-      git pull
-      ```
+```shell
+git checkout master
+git fetch
+git pull
+```
 
-   b. Create a descriptive feature branch to make your edits:
+b. Create a descriptive feature branch for your changes:
 
-      ```shell
-      git checkout -b feature_x
-      ```
+```shell
+git checkout -b feature_x
+```
 
 3. [Optional] Make changes, generate models, and commit.
 
-   Develop your new code, update documentation, or implement bug fixes in your feature branch.
+Develop your new code, update documentation, or implement bug fixes in your feature branch.
 
-   > **Note**: If your changes are related to the mustache template files, run the following SDK generation process:
+> **Note**: If your changes are related to the mustache template files, run the below SDK generation process:
 
-   a. Review the [prerequisites](#contribution-prerequisites) list to install the required OpenAPI package.
+a. Review the [prerequisites](#contribution-prerequisites) list to install the required OpenAPI package.
 
-   b. Change directory to `openapi`:
+b. Change directory to `openapi`:
 
-      ```shell
-      cd openapi
-      ```
+```shell
+cd openapi
+```
 
-   c. Run the build script to regenerate the Okta SDK Python package:
+c. Run the build script to regenerate the Okta SDK Python package:
 
-      ```shell
-      generate.sh
-      ```
+```shell
+generate.sh
+```
 
 4. Test and validate: Run tests using `pytest` to ensure your changes didn't introduce regressions:
 
-   ```shell
-   pytest tests
-   ```
+```shell
+pytest tests
+```
 
 5. Add and commit your changes:
 
-   ```shell
-   git status
-   git add <files>
-   git commit -m "descriptive commit message for your changes"
-   ```
+```shell
+git status
+git add <files>
+git commit -m "descriptive commit message for your changes"
+```
 
 6. Publish your feature branch to the repo.
 
-   a. Switch back to the `master` branch and ensure it has the latest commits from the `origin` repo:
+a. Switch back to the `master` branch and ensure it's the latest:
 
-      ```shell
-      git checkout master # Switch to the master branch
-      git pull # Pull the latest changes on the master branch
-      ```
+```shell
+git checkout master # Switch to the master branch
+git pull # Pull the latest changes on the master branch
+```
 
-   b. Switch back to your feature branch and `rebase` it on `master`:
+b. Switch back to your feature branch and `rebase` it on `master`:
 
-      ```shell
-      git checkout feature_x # Switch to your feature branch
-      git rebase master # Rebase feature work on master branch
-      ```
+```shell
+git checkout feature_x # Switch to your feature branch
+git rebase master # Rebase feature work on master branch
+```
 
-   c. Publish your feature branch to your fork:
+c. Publish your feature branch to your fork:
 
-      ```shell
-      git push origin feature_x # Make a Pull Request changes with your feature work
-      ```
+```shell
+git push origin feature_x # Make a Pull Request changes with your feature work
+```
 
 7. Create a Pull Request:
 
-   a. Navigate to your forked repo `https://github.com/YOUR_ACCOUNT/okta-sdk-python` on GitHub and **Create a Pull Request**.
+a. Navigate to your forked repo `https://github.com/YOUR_ACCOUNT/okta-sdk-python` on GitHub and **Create a Pull Request**.
 
-   b. In the **description**, add the test coverage report to ensure the required coverage for the newly added code.
-To generate the report, use the following command:
+b. In the **description**, add the test coverage report to ensure the required coverage for the newly added code.
 
-      ```shell
-      pytest --cov=okta/api --cov-report=html --continue-on-collection-errors --maxfail=0 tests/integration -v
-      ```
+> **Note** To generate the report, use the following command:
 
-   c. After the command completes, navigate to the `htmlcov` folder and open `index.html` in your browser. This file displays the visual test results, attach this report while creating the Pull Request.
+```shell
+pytest --cov=okta/api --cov-report=html --continue-on-collection-errors --maxfail=0 tests/integration -v
+```
 
-   d. Click **Create Pull Request**.
+> After the command completes, navigate to the `htmlcov` folder and open `index.html` in your browser. This file displays the visual test results; attach this report while creating the Pull Request.
+
+c. Click **Create Pull Request**.
 
 ### Clean up (optional)
 
