@@ -14,6 +14,12 @@ When you create a custom IDV vendor integration in your org, the vendor must fir
 | Token URL       | The vendor must provide a URL that Okta uses to exchange the authorization code for an access token and an ID token. |
 | JWKS URL        | The vendor must provide a URL that Okta uses to retrieve JSON Web Key Set (JWKS) from the IDV vendor. |
 
+The custom IDV vendor must also enable you to add your org as a redirect URI.
+
+* The redirect URI is the location where the custom IDV vendor sends the verification response. The URI sent in the verification request from the client needs to match the redirect URI set at the IDV vendor. Ensure that the URI is located in a secure domain that you own.
+* For example, if your Okta subdomain is called `company`, then the URL would be: `company.okta.com.` If you’ve configured a custom domain in your Okta org, use that value to construct your redirect URI, such as `login.company.com.`
+* If your IDV vendor supports multiple redirect URIs, include all base domains (Okta domain and custom domain) that your users interact with as redirect URIs.
+
 For more information about these requirements, see [Integrate Okta with identity verification vendors](/docs/guides/idv-integration/).
 
 After your IDV vendor provides this information, you can create the IdP integration in your org.
