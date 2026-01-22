@@ -93,7 +93,7 @@ The following example shows a `POST /oauth2/par` request with the `fuzzy` extens
 
 ```bash
 curl -L -X POST "https://idv-vendor.com/oauth2/par" \
-  -H "Content-Type: application/json" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
   -d '{
   "response_type": "code",
   "client_id": "{client_id}",
@@ -212,7 +212,7 @@ The error response for an unsuccessful `POST /oauth2/par` request uses this [str
 | claims                | Contains user-specific attributes. Okta supports these [OIDC claims](#supported-oidc-claims). For more information, see the OIDC definition of the [claims](https://openid.net/specs/openid-ida-verified-claims-1_0.html#name-claims-element) property. | Object     | Object   |
 | fuzzy                 | An extension that adds fuzzy logic to a specified claim to assist with matching the claim value. <br></br>The `fuzzy` extension is set as `true` for all claims by default and can't be set to `false`. When the `fuzzy` extension is true, the `value` of the claim is treated as an attribute itself. | String     | String   |
 | state                 | A unique string that maintains a connection between the request and the callback.                              | String     | String   |
-| redirect_uri          | The URI where the response is sent after the user completes the IDV flow.                                      | String     | String   |
+| redirect_uri          | The URI where the response is sent after the user completes the IDV flow. <br></br> The redirect URI is the location where the custom IDV vendor sends the verification response. The URI sent in the verification request from the client needs to match the redirect URI set at the IDV vendor. This is the URL where the IdP returns the authentication response (the access token and the ID token). Ensure that the URI is located in a secure domain that you own. It's constructed using your Okta subdomain and then the callback endpoint. <br></br>For example, if your Okta subdomain is called `company`, then the URL would be: `https://company.okta.com/idp/identity-verification/callback` If you’ve configured a custom domain in your Okta org, use that value to construct your redirect URI, such as `https://login.company.com/idp/identity-verification/callback`. | String     | String   |
 | login_hint            | Identifier that associates an Okta user within the IDV vendor's app.                                           | String     | String   |
 
 ### IDV vendor responds with request_uri
