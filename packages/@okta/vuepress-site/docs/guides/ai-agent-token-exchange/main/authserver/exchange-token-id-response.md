@@ -34,7 +34,7 @@ assertion=eyJhbGciOiJIUzI1NiIsI...
 | Parameter | Description and value |
 | --- | --- |
 | grant_type | The value must be `urn:ietf:params:oauth:grant-type:jwt-bearer` |
-| assertion | The ID-JAG received in the previous step. |
+| assertion | The ID-JAG received in the Exchange token ID for resource token [response](/docs/guides/ai-agent-token-exchange/authserver/main/#response). |
 
 #### Response
 
