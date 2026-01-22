@@ -611,7 +611,7 @@ export const guides = [
             guideName: "set-up-token-exchange",
           },
           {
-            title: "AI Agent Token Exchange",
+            title: "Set up AI agent token exchange",
             guideName: "ai-agent-token-exchange",
           },
           {
