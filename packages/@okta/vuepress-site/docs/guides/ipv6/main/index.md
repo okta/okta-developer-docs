@@ -30,8 +30,6 @@ For the Beta, IPv6 is only available in preview cells.
 
 > **Note:** Contact Okta Support to enable IPv6 for your preview org.
 
-<!-- Do we want to include the email and sentence about contacting okta through ipv6_beta@okta.com? -->
-
 ### Okta IPv6 scope
 
 Only a subset of Okta functionality supports IPv6 during the Beta.
@@ -132,3 +130,7 @@ The System Log shows the IP seen by Okta, and it can be used to verify the IPv6 
 ![An image of the System Log in the Admin Console that displays an IPv6 IP address](/img/ipv6/ipv6-system-log.png)
 
 </div>
+
+### See also
+
+* See [Upcoming IPv6 Enablement for the Okta CDN](https://support.okta.com/help/s/article/upcoming-ipv6-enablement-for-the-okta-cdn?language=en_US)
