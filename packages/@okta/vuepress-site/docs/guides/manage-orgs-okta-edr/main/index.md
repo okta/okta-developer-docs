@@ -51,7 +51,7 @@ To make secure Okta API requests to manage and configure your Okta orgs, obtain 
 
 ## Check the disaster recovery status of your org
 
-Use the following disaster recovery API, [Retrieve the disaster recovery status for all domains for your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/getDRStatus), to understand the current disaster recovery state for all domains associated with your Okta org.
+Use the following disaster recovery API endpoint, [Retrieve the disaster recovery status for all domains for your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/getDRStatus), to understand the current disaster recovery state for all domains associated with your Okta org.
 
 >**Note:** The base URL for the disaster recovery APIs is `https://drapp.{yourOktaDomain}/`. Replace `{yourOktaDomain}` with your Okta subdomain.
 
@@ -89,11 +89,6 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer {yourAccessToken}" \
--d "{
-        "domains": [
-            "{yourOktaDomain}.okta.com"
-        ]
-    }"
 "https://drapp.{yourOktaDomain}/api/v1/dr/failover"
 ```
 
@@ -106,7 +101,7 @@ After a failover, all end users of that org are in read-only mode.
     "results": [
         {
         "domain": "yourOktaDomain.okta.com",
-        "message": "Failback was successful"
+        "message": "Failover was successful"
         }
     ]
 }
@@ -123,11 +118,6 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer {yourAccessToken}" \
--d "{
-        "domains": [
-            "{yourOktaDomain}.okta.com"
-        ]
-    }"
 "https://drapp.{yourOktaDomain}/api/v1/dr/failback"
 ```
 
