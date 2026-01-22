@@ -55,7 +55,7 @@ export const concepts = [
         title: "Manage user credentials",
         path: "/docs/concepts/manage-user-creds/",
       },
-            {
+      {
         title: "Monitor Okta",
         path: "/docs/concepts/monitor/",
       },
@@ -407,10 +407,23 @@ export const guides = [
               {
                 title: "Sign in to your native mobile app",
                 guideName: "sign-into-mobile-app-embedded"
-              }
-            ]
+              },
+              {
+                title: "Sign in mobile users with a self-hosted page",
+                guideName: "sign-users-in-mobile-self-hosted"
+              },
+              {
+                title: "Check for a session at startup",
+                guideName: "check-for-session"
+              },
+              {
+                title: "Keep the user signed in",
+                guideName: "keep-user-signed-in"
+              },
+            ],
           },
-          { title: "Set up your org",
+          {
+            title: "Set up your org",
             guideName: "set-up-org",
           },
           {
@@ -446,6 +459,10 @@ export const guides = [
             guideName: "policy-simulation"
           },
           {
+            title: "Policy and rule prioritization",
+            guideName: "policy-rule-prioritization",
+          },
+          {
             title: "Add an external identity provider",
             path: "/docs/guides/identity-providers/",
             subLinks: [
@@ -476,8 +493,10 @@ export const guides = [
           { title: "Sign users out", guideName: "oie-embedded-sdk-use-case-basic-sign-out" },
           { title: "Delete all Stay signed in sessions", guideName: "delete-all-stay-signed-in-sessions" },
           { title: "Single Logout", guideName: "single-logout" },
-          {title: "Validate SSO federation", 
-          guideName: "validate-federation"},
+          {
+            title: "Validate SSO federation",
+            guideName: "validate-federation"
+          },
           {
             title: "Basics",
             subLinks: [
@@ -582,6 +601,10 @@ export const guides = [
           {
             title: "Configure SSO for native apps",
             guideName: "configure-native-sso",
+          },
+          {
+            title: "Configure Native to Web SSO",
+            guideName: "native-to-web-sso",
           },
           {
             title: "Manage credentials using the Okta Client SDK",
@@ -1087,26 +1110,29 @@ export const guides = [
 ];
 
 export const journeys = [
-    {
-      title: "Journeys",
-      path: "/docs/journeys/",
-      subLinks: [
-        {
-          title: "Secure my customer portal",
-          subLinks: [
-            { title: "Secure your first web app",
-              journeyName: "OCI-secure-your-first-web-app"
-            },
-            { title: "Sign users in through your web app",
-              journeyName: "OCI-web-sign-in"
-            },
-            { title: "Apply your brand to the Okta user experience",
-              journeyName: "OCI-branding"
-            },
-          ]
-        },
-      ],
-    }
+  {
+    title: "Journeys",
+    path: "/docs/journeys/",
+    subLinks: [
+      {
+        title: "Secure my customer portal",
+        subLinks: [
+          {
+            title: "Secure your first web app",
+            journeyName: "OCI-secure-your-first-web-app"
+          },
+          {
+            title: "Sign users in through your web app",
+            journeyName: "OCI-web-sign-in"
+          },
+          {
+            title: "Apply your brand to the Okta user experience",
+            journeyName: "OCI-branding"
+          },
+        ]
+      },
+    ],
+  }
 ];
 
 export const languagesSdk = [
@@ -1116,7 +1142,7 @@ export const languagesSdk = [
     subLinks: [
       { title: "Recommended SDKs", path: "/code/" },
       { title: "Alternate Sign-in SDKs", path: "/code/alternate-sign-in-sdks/" },
-      { title: "Contributing to Python SDK 3.0", path: "/code/contribute-sdk/" },
+      { title: "Contributing to Python Management SDK 3.0", path: "/code/contribute-sdk/" },
       { title: "Versioning", path: "/code/library-versions/" },
     ],
   },
@@ -1204,48 +1230,55 @@ export const releaseNotes = [
     path: "/docs/release-notes/",
     subLinks: [
       {
-        title: "2025 - Classic Engine",
-        path: "/docs/release-notes/2025/"
+        title: "2026 - Classic Engine",
+        path: "/docs/release-notes/2026/"
       },
       {
-        title: "2025 - Identity Engine",
-        path: "/docs/release-notes/2025-okta-identity-engine/",
+        title: "2026 - Identity Engine",
+        path: "/docs/release-notes/2026-okta-identity-engine/",
       },
       {
-        title: "2025 - Identity Governance",
-        path: "/docs/release-notes/2025-okta-identity-governance/",
+        title: "2026 - Identity Governance",
+        path: "/docs/release-notes/2026-okta-identity-governance/",
       },
       {
-        title: "2025 - Privileged Access",
-        path: "/docs/release-notes/2025-okta-privileged-access/",
+        title: "2026 - Privileged Access",
+        path: "/docs/release-notes/2026-okta-privileged-access/",
       },
       {
-        title: "2025 - Access Gateway",
-        path: "/docs/release-notes/2025-okta-access-gateway/",
+        title: "2026 - Access Gateway",
+        path: "/docs/release-notes/2026-okta-access-gateway/",
       },
       {
-        title: "2025 - Aerial",
-        path: "/docs/release-notes/2025-okta-aerial/",
+        title: "2026 - Aerial",
+        path: "/docs/release-notes/2026-okta-aerial/",
       },
       {
         title: "Archive",
         path: "/docs/release-notes/archive",
         subLinks: [
           {
-            title: "2024 - Classic Engine",
-            path: "/docs/release-notes/2024/"
+            title: "2025 - Classic Engine",
+            path: "/docs/release-notes/2025/"
           },
           {
-            title: "2024 - Identity Engine",
-            path: "/docs/release-notes/2024-okta-identity-engine/",
+            title: "2025 - Identity Engine",
+            path: "/docs/release-notes/2025-okta-identity-engine/",
           },
           {
-            title: "2023 - Classic Engine",
-            path: "/docs/release-notes/2023/"
+            title: "2025 - Identity Governance",
+            path: "/docs/release-notes/2025-okta-identity-governance/"
           },
           {
-            title: "2023 - Identity Engine",
-            path: "/docs/release-notes/2023-okta-identity-engine/",
+            title: "2025 - Privileged Access",
+            path: "/docs/release-notes/2025-okta-privileged-access/",
+          },
+          {
+            title: "2025 - Access Gateway",
+            path: "/docs/release-notes/2025-okta-access-gateway/",
+          },          {
+            title: "2025 - Aerial",
+            path: "/docs/release-notes/2025-okta-aerial/",
           },
         ]
       },

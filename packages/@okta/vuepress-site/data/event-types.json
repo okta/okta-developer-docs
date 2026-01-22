@@ -1,6 +1,6 @@
 {
-  "release" : "2026.01.0",
-  "build" : "2026.01.0-begin-151-gd582b8e92fbf",
+  "release" : "2026.01.1",
+  "build" : "2026.01.1-begin-91-gb3781c3067c5",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -19183,7 +19183,7 @@
       "schema" : {
         "debugData" : "UserAccessDebugData",
         "actor" : null,
-        "targets" : [ "UserAccessResourceDetails" ],
+        "targets" : [ "UserAccessResourceDetails", "BotProtectionConfigurationResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -19975,7 +19975,7 @@
       "schema" : {
         "debugData" : "UserLifecycleDebugData",
         "actor" : null,
-        "targets" : [ "ResourceDetails" ],
+        "targets" : [ "BotProtectionConfigurationResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -20605,7 +20605,7 @@
       "schema" : {
         "debugData" : "UserAuthenticationDebugData",
         "actor" : "UserAuthenticationResourceDetails",
-        "targets" : [ "UserAuthenticationResourceDetails", "CaptchaVerifyResourceDetails", "UserIdentifierResourceDetails" ],
+        "targets" : [ "UserAuthenticationResourceDetails", "CaptchaVerifyResourceDetails", "UserIdentifierResourceDetails", "BotProtectionConfigurationResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -48821,6 +48821,35 @@
           }
         }
       },
+      "BotProtectionConfigurationResourceDetails" : {
+        "name" : "BotProtectionConfigurationResourceDetails",
+        "properties" : {
+          "enforcement_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "OKTA_CHALLENGE" ]
+          },
+          "mode_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "DISABLED", "LOG_ONLY", "ENFORCED" ]
+          },
+          "level" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "LOW", "MEDIUM", "HIGH", "ANY" ]
+          }
+        }
+      },
       "BrandResourceDetails" : {
         "name" : "BrandResourceDetails",
         "properties" : {
@@ -52625,7 +52654,7 @@
             "personal" : false,
             "customer" : false,
             "format" : "enum",
-            "examples" : [ "CAPTCHA" ]
+            "examples" : [ "OKTA_CHALLENGE" ]
           },
           "mode" : {
             "type" : "String",

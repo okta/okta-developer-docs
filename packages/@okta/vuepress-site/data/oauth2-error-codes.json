@@ -1,6 +1,6 @@
 {
-  "release" : "2025.12.1",
-  "build" : "2025.12.1-begin-363-g0c38ff666b0f",
+  "release" : "2026.01.1",
+  "build" : "2026.01.1-begin-91-gb3781c3067c5",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -141,6 +141,13 @@
     "internalErrorCode" : "access_denied_by_aerial",
     "errorCode" : "access_denied",
     "errorDescription" : "The Aerial service denied the request."
+  }, {
+    "title" : "Aerial admin access denied",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "aerial_admin_access_denied",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The authentication policy on your Aerial org must meet or exceed the authentication policy on the org you're accessing."
   }, {
     "title" : "Disallowed network zone",
     "statusCode" : 403,

@@ -15,6 +15,7 @@ guides:
  - archive-overview
  - build-custom-ui-mobile
  - build-self-signed-jwt
+ - check-for-session
  - client-secret-rotation-key
  - common-hook-set-up-steps
  - configure-access-policy
@@ -60,6 +61,7 @@ guides:
  - implement-oauth-for-okta-serviceapp
  - implement-grant-type
  - keep-me-signed-in
+ - keep-user-signed-in
  - key-management
  - manage-orgs-okta-aerial
  - manage-orgs-okta-edr
@@ -72,6 +74,8 @@ guides:
  - mobile-idx-sdk-overview
  - multiple-identifiers
  - mobile-swift-configure-redirect
+ - native-to-web-sso
+ - policy-rule-prioritization
  - scim-provisioning-integration-overview
  - scim-provisioning-integration-prepare
  - scim-provisioning-integration-connect
@@ -111,6 +115,7 @@ guides:
  - sign-into-mobile-app-embedded
  - sign-into-spa-redirect
  - sign-into-web-app-redirect
+ - sign-users-in-mobile-self-hosted
  - sign-users-out
  - sign-your-own-saml-csr
  - social-login
