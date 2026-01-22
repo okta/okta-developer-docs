@@ -124,11 +124,11 @@ Test your integration by signing in a user using your mobile app.
 
 <StackSnippet snippet="testapp" />
 
-## Manage Session Continuity
+## Manage session continuity
 
 To provide a seamless user experience, your mobile app must effectively manage user sessions across app launches and during active use. This involves verifying existing access tokens at startup to determine authentication status and implementing refresh tokens to maintain long-term access without requiring frequent re-authentication.
 
-See [Check for a session at startup](/docs/guides/check-for-session/android/main/) and [Keep the user signed in]().
+See [Check for a session at startup](/docs/guides/check-for-session/android/main/) and [Keep the user signed in](/docs/guides/keep-user-signed-in/android/main/).
 
 ## Use the access token
 
