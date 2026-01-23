@@ -1,33 +1,28 @@
 ---
-title: Set up Okta for API access
-meta:
-  - name: description
-    content: Learn how to set up Okta for OAuth 2.0 API access and send request with Postman
-layout: Guides
+title: Set up Okta for OAuth API access
+excerpt: Learn how to set up Okta for OAuth 2.0 API access and send requests with Postman
 ---
 
-This guide explains how to set up Okta to interact with Okta APIs using OAuth 2.0 authentication for user and service context. It combines content from both [Implement OAuth for Okta](/docs/guides/implement-oauth-for-okta/main/) and [Implement OAuth for Okta service app](/docs/guides/implement-oauth-for-okta-serviceapp/main/) in a step-by-step guide.
+This guide explains how to set up Okta to interact with Okta APIs using OAuth 2.0 authentication for user and service app context. It combines content from both [Implement OAuth for Okta](/docs/guides/implement-oauth-for-okta/main/) and [Implement OAuth for Okta service app](/docs/guides/implement-oauth-for-okta-serviceapp/main/) in a step-by-step guide.
 
 ---
 
 #### Learning outcomes
 
-* Create an OAuth 2.0 app in Okta
-* Assign admin roles to your service app or Okta user
-* Create and sign the JSON Web Token (JWT).
-* Define allowed scopes for your OAuth 2.0 app.
-* Get an access token to make an API request.
+* Create an OAuth 2.0 app in Okta for API authentication.
+* Assign admin roles to your service app or Okta user.
+* Get an OAuth 2.0 access token to make an API request using Postman.
 
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
-* [Postman client](https://www.getpostman.com/downloads/) to test requests with the access token. See [Get Started with the Okta APIs](https://developer.okta.com/docs/reference/rest/) for information on setting up Postman.
+* [Postman client](https://www.getpostman.com/downloads/) to test requests with the access token. See [Test the Okta REST APIs with Postman](https://developer.okta.com/docs/reference/rest/) for information on setting up Postman.
 
 ---
 
-## Set up Okta for API access
+## Overview
 
-To access Okta APIs from Postman, you need to authenticate with the Okta API resource server. Okta APIs support the OAuth 2.0 authentication scheme that uses access tokens. Access tokens enable the bearer to perform specific actions on specific Okta endpoints, defined by the scopes in the token.
+To access Okta APIs from your app or Postman, you need to authenticate with the Okta API resource server. Okta APIs support the OAuth 2.0 authentication scheme that uses access tokens. Access tokens enable the bearer to perform specific actions on specific Okta endpoints, defined by the scopes in the token.
 
 Scoped access tokens have several advantages:
 
@@ -38,16 +33,18 @@ Scoped access tokens have several advantages:
 > **Note:** Okta doesn't recommend using the Okta-propriety `SSWS` API token authentication scheme.
 > This API token scheme allows you to access a broad range of APIs because there's no scope associated with the token. Access to the APIs depends on the privileges of the user that [created the API token](/docs/guides/create-an-api-token/main/). The API token also has a fixed expiry date.
 
-You need to obtain an OAuth 2.0 access token to configure the authorization header of your Postman API requests to Okta. To obtain this access token, set up Okta for your use case:
+## Set up Okta for API access
+
+You need to obtain an OAuth 2.0 access token to configure the authorization header of your API requests to Okta. To obtain this access token, set up Okta for your use case:
 
 * [User-based API access setup](#user-based-api-access-setup): to obtain an access token that is scoped for specific resources and actions and tied to the permissions of an Okta user
 * [Service-based API access setup](#service-based-api-access-setup): to obtain an access token that is scoped for specific resources and actions, not associated with an Okta user
 
-### User-based API access setup
+## User-based API access setup
 
 If your use case requires you to access a limited number of Okta endpoints as a specific user, use the OAuth 2.0 Authorization Code grant flow with PKCE. See the following task to set up your Okta org for API access.
 
-#### Create an OIDC app in Okta
+### Create an OIDC app in Okta
 
 Create an OIDC app integration to define your scope-based access to Okta APIs with the Authorization Code grant flow with PKCE.
 
@@ -69,7 +66,7 @@ After you obtain your client ID and secret from your app integration, see [Get a
 
 > **Note:** For a detailed guide on OAuth 2.0 with the Authorization Code flow, see [Implement OAuth for Okta](/docs/guides/implement-oauth-for-okta/).
 
-### Service-based API access setup
+## Service-based API access setup
 
 If your use case requires access to a limited number of Okta endpoints as a service or daemon without user context, use the Client Credentials grant flow. The Client Credentials grant flow is the only grant flow supported with the OAuth 2.0 service app when you want to mint access tokens that contain Okta scopes.
 
@@ -77,7 +74,7 @@ If your use case requires access to a limited number of Okta endpoints as a serv
 
 See the following tasks to set up your Okta org for a service app API access.
 
-#### Create a service app in Okta
+### Create a service app in Okta
 
 First, create a service app integration where you can define your scope-based access to Okta APIs.
 
@@ -114,7 +111,7 @@ First, create a service app integration where you can define your scope-based ac
 
 > **Note:** If you need to add more JWKS, click **Add** from the **Client Credentials** section in non-edit mode.
 
-#### Create and sign the JWT
+### Create and sign the JWT
 
 After you obtain the JWKS from your Okta service app, create a JSON Web Token (JWT) for your access token request.
 
@@ -145,7 +142,7 @@ To generate a JWT for testing purposes, complete the following steps:
 1. Click **Generate JWT**. The signed JWT appears.
 1. Copy the JWT for use in the next task: [Get an access token from a signed JWT](#get-an-access-token-from-a-signed-jwt).
 
-#### Get an access token from a signed JWT
+### Get an access token from a signed JWT
 
 To request an access token using the Client Credentials grant flow, make a request to your Okta [org authorization server's](/docs/concepts/auth-servers) `/token` endpoint.
 
@@ -274,38 +271,7 @@ If you have an access token (such as the `access_token` value from the [Get an a
 
 1. Click **Send** for the API request. <br>The result pane displays the results of your request. In this `GET /api/v1/users` example, a list of users in your org appears.
 
-## Tips
-
-Use the following tips to work more efficiently with your collection.
-
-### Find IDs for Okta API requests
-
-Your imported collections contain URLs and JSON request bodies that have sample data with variables such as `{userId}`. You can replace the variables in the URL and body with the IDs of the resources that you want to specify.
-
-1. To get a user's ID, send a request to list the users in your org like you did in the previous section. Each user listed in the response has an ID:
-
-  <div class="three-quarter border">
-
-  ![Response example for a request that highlights the ID in the response](/img/postman/postman_response2.png)
-
-  </div>
-
-1. Copy the `id` of the resource for use in your next request. In this example, use the `id` for Tony Stark. You can add the `id` value in your Postman environment and use the corresponding variable in your request URL or body.
-
-### Retain the headers when you click links
-
-You can retain headers when you click HAL links in the responses.
-
-To retain the headers:
-
-1. Click the gear icon from the toolbar in the upper-right corner of the page.
-1. Select **Settings**.
-1. In the **Headers** section, enable **Retain headers when clicking on links**.
-
 ## Next steps
 
-Use Postman to learn more about the Okta APIs:
-
 * Review the [Okta API reference](https://developer.okta.com/docs/api/).
-* Import more API Postman Collections.
-* Try request examples in the collections to help you understand how the APIs behave.
+* Fork the Postman [Okta Public API Collection](https://www.postman.com/okta-eng/okta-public-api-collections/overview) and try request examples on your org.

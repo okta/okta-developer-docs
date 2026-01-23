@@ -847,6 +847,10 @@ export const guides = [
             guideName: "step-up-authentication"
           },
           {
+            title: "Set up Okta for API access",
+            guideName: "oauth-postman",
+          },
+          {
             title: "Create an API token",
             guideName: "create-an-api-token",
           },
