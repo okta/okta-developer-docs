@@ -131,6 +131,6 @@ The System Log shows the IP seen by Okta, and it can be used to verify the IPv6 
 
 </div>
 
-### See also
+## See also
 
 * See [Upcoming IPv6 Enablement for the Okta CDN](https://support.okta.com/help/s/article/upcoming-ipv6-enablement-for-the-okta-cdn?language=en_US)
