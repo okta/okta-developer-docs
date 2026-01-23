@@ -234,6 +234,16 @@ This resource contains detailed reference material on event types triggered with
 | **actor**                 |  The security events provider                | Object        |         |
 | type        | The type of actor object           | String     | SecurityEventProvider        |
 
+`security.session_protection.status.update`
+
+**Description**: This event is triggered when an admin changes the session protection status using a dropdown menu on the Session Protection page. The event contains change details that contain the status before and after the change.
+
+| Key event properties  | Description                                         | Data type      | Example values |
+| --------------------- | --------------------------------------------------- | -------------- | -------------- |
+| `security.session_protection.status.update` |                               |                |                |
+| Target.ChangeDetails  | **From** and **To** fields contain the **Status** values | key-value pairs | `"changeDetails": { "from": { "status": "ENFORCED" }, "to" : { "status": "MONITORING" } }`|
+| Actor                 | The user who made the update                        | Object         |                |
+
 ## user authentication universal_logout
 
 `user.authentication.universal_logout`
