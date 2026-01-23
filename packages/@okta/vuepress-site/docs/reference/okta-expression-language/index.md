@@ -193,18 +193,21 @@ See the [ISO 3166-1 online lookup tool](https://www.iso.org/obp/ui/#search/code/
 
 Group functions return either an array of groups or **True** or **False**.
 
-| Function                        | Return type | Example                                                         |
-| ---------                       | ----------- | -------                                                         |
-| `getFilteredGroups`             | Array       | `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40)` |
-| `isMemberOfGroupName`           | Boolean     | `isMemberOfGroupName("group1")`                                 |
-| `isMemberOfGroup`               | Boolean     | `isMemberOfGroup("groupId")`                                    |
-| `isMemberOfAnyGroup`            | Boolean     | `isMemberOfAnyGroup("groupId1", "groupId2", "groupId3")`        |
-| `isMemberOfGroupNameStartsWith` | Boolean     | `isMemberOfGroupNameStartsWith("San Fr")`                       |
-| `isMemberOfGroupNameContains`   | Boolean     | `isMemberOfGroupNameContains("admin")`                          |
-| `isMemberOfGroupNameRegex`      | Boolean     | `isMemberOfGroupNameRegex("/.*admin.*")`                        |
-| `user.getGroups`                | Array       | See [Get groups for users](#get-groups-for-users)               |
+| Function                        | Return type | Parameters                                  | Example                                                         |
+| ------------------------------- | ----------- | ------------------------------------------- | --------------------------------------------------------------- |
+| `getFilteredGroups`             | Array       | `{allow list}`, `group_expression`, `limit` | `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40)` (See also [Use group functions for static group allowlists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allowlists))|
+| `isMemberOfGroupName`           | Boolean     | String                                      | `isMemberOfGroupName("group1")`                                 |
+| `isMemberOfGroup`               | Boolean     | Group ID                                    | `isMemberOfGroup("groupId")`                                    |
+| `isMemberOfAnyGroup`            | Boolean     | List of group IDs                           | `isMemberOfAnyGroup("groupId1", "groupId2", "groupId3")`        |
+| `isMemberOfGroupNameStartsWith` | Boolean     | String                                      | `isMemberOfGroupNameStartsWith("San Fr")`                       |
+| `isMemberOfGroupNameContains`   | Boolean     | String                                      | `isMemberOfGroupNameContains("admin")`                          |
+| `isMemberOfGroupNameRegex`      | Boolean     | Regular expression                          | `isMemberOfGroupNameRegex("/.*admin.*")`                        |
+| `user.getGroups`                | Array       | List of search criteria                     | See [Get groups for users](#get-groups-for-users)               |
 
-> **Note:** When EL group functions (such as `isMemberOfGroup` or `isMemberOfGroupName`) are used for app assignments, the profile attributes of the app user aren't updated or reapplied when the user's group membership changes. Okta only updates app user profile attributes when an app is assigned to a user or when mappings are applied.
+> **Notes:**
+>
+> * When EL group functions (such as `isMemberOfGroup` or `isMemberOfGroupName`) are used for app assignments, the profile attributes of the app user aren't updated or reapplied when the user's group membership changes. Okta only updates app user profile attributes when an app is assigned to a user or when mappings are applied.
+> * The `isMemberOfGroupName` function returns all groups, regardless of source. For example, if you have separate groups called `sales` in Salesforce, Workday, and Okta, then `isMemberOfGroupName("sales")` returns all three groups. If you want only the group in Workday returned, pass the group ID to `isMemberOfGroup` instead.
 
 For more information on using group functions for dynamic and static allowlists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
 
