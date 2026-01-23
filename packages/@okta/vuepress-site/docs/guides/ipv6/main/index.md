@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-<ApiLifecycle access="beta" />
+<ApiLifecycle access="ie" /></br><ApiLifecycle access="beta" />
 
 This guide introduces Okta's implementation of IPv6 and provides guidelines on configuring and testing of this new internet protocol.
 
