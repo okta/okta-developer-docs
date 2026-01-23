@@ -12,12 +12,11 @@ This guide explains how to set up Okta to interact with Okta APIs using OAuth 2.
 
 #### Learning outcomes
 
-* Create a public/private key pair.
-* Assign admin roles to your service app.
+* Create an OAuth 2.0 app in Okta
+* Assign admin roles to your service app or Okta user
 * Create and sign the JSON Web Token (JWT).
-* Define allowed scopes for your service app.
+* Define allowed scopes for your OAuth 2.0 app.
 * Get an access token to make an API request.
-* Know what the available scopes and supported endpoints are.
 
 #### What you need
 
