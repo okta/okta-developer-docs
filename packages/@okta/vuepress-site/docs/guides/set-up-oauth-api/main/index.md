@@ -40,25 +40,27 @@ You need to obtain an OAuth 2.0 access token to configure the authorization head
 * [User-based API access setup](#user-based-api-access-setup): to obtain an access token that is scoped for specific resources and actions and tied to the permissions of an Okta user
 * [Service-based API access setup](#service-based-api-access-setup): to obtain an access token that is scoped for specific resources and actions, not associated with an Okta user
 
-## User-based API access setup
+### User-based API access setup
 
-If your use case requires you to access a limited number of Okta endpoints as a specific user, use the OAuth 2.0 Authorization Code grant flow with PKCE. See the following task to set up your Okta org for API access.
+If your use case requires you to access a limited number of Okta endpoints as a specific Okta user, use the OAuth 2.0 Authorization Code grant flow with PKCE. See the following task to set up your Okta org for API access.
 
-### Create an OIDC app in Okta
+> **Note:** An Okta user's ability to request specific API operations is governed by the privileges associated with their assigned Okta admin role, whether it is a standard or custom role.
+
+#### Create an OIDC app in Okta
 
 Create an OIDC app integration to define your scope-based access to Okta APIs with the Authorization Code grant flow with PKCE.
 
-1. [Sign in](https://developer.okta.com/login) to your Admin Console as a user with administrative privileges (super admin role).
+1. [Sign in](https://developer.okta.com/login) to your Admin Console as a user with administrative privileges to create an app (for example, an Okta user with the super admin role).
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
 1. On the **Create a new app integration** page, select **OIDC - OpenID Connect** as the **Sign-in method**. Choose **Web Application** for the **Application type**. Creating a web app is an easy way to test scope-based access to Okta APIs. Click **Next**.
 1. Enter a name for your app integration.
 1. For the **Grant type**, leave the default of **Authorization Code** grant flow.
 1. In the **Sign-in redirect URIs** box, specify the callback location where Okta returns a browser (along with the token) after the user finishes authenticating. You can use the default values for testing purposes.
-1. In the **Assignments** section, select **Limit access to selected groups** and add a group or **Skip group assignment for now**. It's good practice to create and use groups for testing purposes.
+1. In the **Assignments** section, select **Limit access to selected groups** and add a group or **Skip group assignment for now**. It's good practice to create and use groups for assigning users in production, but for testing purposes, you can skip group assignment.
 1. Click **Save**. The settings page for the app integration appears, showing the **General** tab. Make note of the **Client ID** and **Client secret** listed in the **Client Credentials** section. You need this information for the [Get an access token and make a request](#get-an-access-token-and-make-a-request) task.
 1. Click the **Assignments** tab and ensure that the right users are assigned to the app. If you skipped the assignment during the app integration creation, you must add one or more users. For instructions on how to assign the app integration to individual users and groups, see the [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign) topic in the Okta product documentation.
-1. Select the **Okta API Scopes** tab and then click **Grant** for each of the scopes that you want to add to the app grant collection. Ensure that you grant the scopes for the API access you require. See [Okta OAuth 2.0 scopes](https://developer.okta.com/docs/api/oauth2/).<br>For example, click **Grant** next to `okta.users.read`.
+1. Select the **Okta API Scopes** tab and then click **Grant** for each of the scopes that you want to add to the app grant collection. Ensure that you grant the scopes for the API access you require. See [Okta OAuth 2.0 scopes](https://developer.okta.com/docs/api/oauth2/).<br>For example, click **Grant** next to `okta.users.read` if you want to use the API to return a list of users.
 
    > **Note:** When an API request is sent to the org authorization server's `/authorize` endpoint, it validates the requested scopes in the request against the app's grants collection. The scope is granted if it exists in the app's grants collection.
 
@@ -66,7 +68,7 @@ After you obtain your client ID and secret from your app integration, see [Get a
 
 > **Note:** For a detailed guide on OAuth 2.0 with the Authorization Code flow, see [Implement OAuth for Okta](/docs/guides/implement-oauth-for-okta/).
 
-## Service-based API access setup
+### Service-based API access setup
 
 If your use case requires access to a limited number of Okta endpoints as a service or daemon without user context, use the Client Credentials grant flow. The Client Credentials grant flow is the only grant flow supported with the OAuth 2.0 service app when you want to mint access tokens that contain Okta scopes.
 
@@ -74,7 +76,7 @@ If your use case requires access to a limited number of Okta endpoints as a serv
 
 See the following tasks to set up your Okta org for a service app API access.
 
-### Create a service app in Okta
+#### Create a service app in Okta
 
 First, create a service app integration where you can define your scope-based access to Okta APIs.
 
@@ -94,7 +96,7 @@ First, create a service app integration where you can define your scope-based ac
 
    > **Note:** See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps).
 
-1. Select the **Okta API Scopes** tab and then click **Grant** for each of the scopes that you want to add to the app grant collection. Ensure that you grant the scopes for the API access you require. See [Okta OAuth 2.0 scopes](https://developer.okta.com/docs/api/oauth2/). <br>For example, click **Grant** next to `okta.users.read`.
+1. Select the **Okta API Scopes** tab and then click **Grant** for each of the scopes that you want to add to the app grant collection. Ensure that you grant the scopes for the API access you require. See [Okta OAuth 2.0 scopes](https://developer.okta.com/docs/api/oauth2/). <br>For example, click **Grant** next to `okta.users.read` if you want to make an API request to return a list of users.
 
    > **Notes:** When an API request is sent to the org authorization server's `/token` endpoint, it validates the requested scopes in the request against the app's grants collection. The scope is granted if it exists in the app's grants collection.
 
@@ -111,7 +113,7 @@ First, create a service app integration where you can define your scope-based ac
 
 > **Note:** If you need to add more JWKS, click **Add** from the **Client Credentials** section in non-edit mode.
 
-### Create and sign the JWT
+#### Create and sign the JWT
 
 After you obtain the JWKS from your Okta service app, create a JSON Web Token (JWT) for your access token request.
 
@@ -142,7 +144,7 @@ To generate a JWT for testing purposes, complete the following steps:
 1. Click **Generate JWT**. The signed JWT appears.
 1. Copy the JWT for use in the next task: [Get an access token from a signed JWT](#get-an-access-token-from-a-signed-jwt).
 
-### Get an access token from a signed JWT
+#### Get an access token from a signed JWT
 
 To request an access token using the Client Credentials grant flow, make a request to your Okta [org authorization server's](/docs/concepts/auth-servers) `/token` endpoint.
 
@@ -273,5 +275,5 @@ If you have an access token (such as the `access_token` value from the [Get an a
 
 ## Next steps
 
-* Review the [Okta API reference](https://developer.okta.com/docs/api/).
+* See the [Okta API reference](https://developer.okta.com/docs/api/) for a complete list of available Okta APIs.
 * Fork the Postman [Okta Public API Collection](https://www.postman.com/okta-eng/okta-public-api-collections/overview) and try request examples on your org.
