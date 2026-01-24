@@ -234,6 +234,8 @@ This resource contains detailed reference material on event types triggered with
 | **actor**                 |  The security events provider                | Object        |         |
 | type        | The type of actor object           | String     | SecurityEventProvider        |
 
+## security.session_protection.status.update
+
 `security.session_protection.status.update`
 
 **Description**: This event is triggered when an admin changes the session protection status using a dropdown menu on the Session Protection page. The event contains change details that contain the status before and after the change.
