@@ -5,7 +5,7 @@ meta:
     content: Connect LLMs to Okta with the Model Context Protocol (MCP).
 ---
 
-## Okta API management with MCP server
+# Okta API management with MCP server
 
 The Okta MCP server provides a secure abstraction layer enabling AI agents and LLMs to interact with Okta admin management APIs using natural language.
 
