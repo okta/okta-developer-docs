@@ -38,6 +38,8 @@ assertion=eyJhbGciOiJIUzI1NiIsI...
 
 #### Response
 
+The response contains the access token that the AI agent uses to access the resource server.
+
 ``` http
 {
     "token_type": "Bearer",
@@ -46,5 +48,3 @@ assertion=eyJhbGciOiJIUzI1NiIsI...
     "scope": "chat.read chat.history"
 }
 ```
-
-The response contains the access token that the AI agent uses to access the resource server.

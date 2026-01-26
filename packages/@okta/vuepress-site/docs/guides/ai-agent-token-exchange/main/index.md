@@ -45,12 +45,14 @@ Once the resource type is configured and the AI agent has the token or credentia
 
 </div>
 
-> **Note:** This flow assumes that user authentication and authorization are complete and the authorization server issued an access token and ID token.
+> **Note:** This flow assumes that user authentication and authorization are complete and the authorization server issued an access token and ID token associated with a successful login to the linked OIDC app.
 
-1. The user authenticates with the Okta org authorization server using a web app. The server returns an ID token to the web app.
+The token exchange flow for an AI agent involves the following steps:
+
+1. The user authenticates with the [Okta org authorization server](/docs/concepts/auth-servers/#org-authorization-server) using a web app. The server returns an ID token to the web app.
 1. The web app passes the ID token to the AI agent so that it can perform actions on the user's behalf.
-1. The AI agent sends the ID token to the Okta org authorization server and requests an exchange for the resource token/credentials  (ID-JAG, secret, or service account). The server validates the request based on the configuration in the **Managed Connections** tab and returns the requested ID-JAG, secret, or service account.
-1. If the requested credential was an ID-JAG, the AI agent sends the ID-JAG to the Okta custom authorization server to exchange it for a usable access token.
+1. The AI agent sends the ID token to the org authorization server and requests an exchange for the resource token/credentials  (ID-JAG, secret, or service account). The server validates the request based on the configuration in the **Managed Connections** tab and returns the requested ID-JAG, secret, or service account.
+1. If the requested credential was an ID-JAG, the AI agent sends the ID-JAG to the [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server) to exchange it for a usable access token.
 1. The AI agent uses the access token, secret, or service account credentials to request access to the resource.
 
 ## Flow specifics
@@ -59,9 +61,9 @@ Once the resource type is configured and the AI agent has the token or credentia
 
 ### Authorization Code with PKCE request
 
-To initiate the token exchange flow, the client must first obtain an ID token from the Okta org authorization server.
+To initiate the token exchange flow, the client must first obtain an ID token from the org authorization server.
 
-  > **Note**: You must use the Okta org authorization server and not the Okta custom authorization server for this step.
+  > **Note**: You must use the org authorization server and not the custom authorization server for this step.
 
 Use the Authorization Code with PKCE flow to obtain an authorization code for the client. See [Implement authorization by grant type](/docs/guides/implement-grant-type/authcodepkce/main/).
 
