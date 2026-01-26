@@ -195,6 +195,8 @@ Include the following parameters in your `/token` request:
 
 ## Send a request
 
+The following instructions are for sending a request using Postman.
+
 * If you have an access token, see [Make a request with an access token](#make-a-request-with-an-access-token) to test sending an API request in Postman.
 
 * If you don't have an access token, Postman incorporates getting an access token and sending a request with the **OAuth 2.0** authorization type option. See [Get an access token and make a request](#get-an-access-token-and-make-a-request).
