@@ -13,16 +13,6 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 ## January
 
-### Weekly release 2026.01.2
-
-| Change | Expected in Preview Orgs |
-|--------|--------------------------|
-| [Bugs fixed in 2026.01.2](#bugs-fixed-in-2026-01-2)| January 28, 2026 |
-
-#### Bugs fixed in 2026.01.2
-
-* 
-
 ### Monthly release 2026.01.0
 <!-- Published on: 2026-01-08T12:00:00Z -->
 
