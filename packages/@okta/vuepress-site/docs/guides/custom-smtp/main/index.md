@@ -3,12 +3,14 @@ title: Custom email providers with OAuth 2.0
 excerpt: Learn how to create custom SMTP email providers with OAuth 2.0 authentication.
 layout: Guides
 ---
-<ApiLifecycle access="ea" />
+
+<ApiLifecycle access="ie" /><ApiLifecycle access="ea" />
+
 This guide explains how to configure a custom email provider with OAuth 2.0 authentication and provides some example configurations for Google and Microsoft SMTP services.
 
 ---
 
-#### Learning outcome
+#### Learning outcomes
 
 * Learn how to configure custom email providers with OAuth 2.0.
 * Learn how to set up Google and Microsoft SMTP services as custom email providers.
@@ -16,7 +18,7 @@ This guide explains how to configure a custom email provider with OAuth 2.0 auth
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
-* The **OAuth 2.0 credentials** feature enabled in your org. See [Self-service features](/docs/concepts/feature-lifecycle-management/#self-service-features).
+* The **OAuth 2.0 support for custom email providers** feature enabled in your org. See [Self-service features](/docs/concepts/feature-lifecycle-management/#self-service-features).
 * A valid and certified [custom domain](/docs/guides/custom-url-domain/main/) for sending emails
 * Access to your DNS provider to add TXT and CNAME records
 * For Google SMTP, you need a [Google Workspace](https://workspace.google.com/) account with admin privileges
@@ -79,7 +81,7 @@ The public/private key pair generates various properties, including a client ID 
 
 ## Set up your custom email provider for OAuth 2.0
 
-The following setup steps explain how to set up a custom email provider and custom domain before you connect your org to your email provider:
+The following steps explain how to set up a custom email provider and custom domain before you connect your org to your email provider:
 
 1. [Create a custom email domain](#create-a-custom-email-domain).
 1. [Verify domain ownership](#verify-domain-ownership).
@@ -99,7 +101,7 @@ For example, if you have `login.mycompany.com` as a custom domain in your org, y
 
 Confirm that you can update records for the subdomain that you intend to use as the "From" address for your email provider (`notifications.mycompany.com`, for example).
 
-To configure a custom email provider, you must have admin access to your domain's DNS records. You must have the necessary permissions to add and modify `TXT` and `CNAME` records.
+To configure a custom email provider, you must have admin access to your domain's DNS records. You must have the necessary permissions to add and modify TXT and CNAME records.
 
 DNS records authorize the email provider to deliver email on behalf of your domain. Improper DNS configuration can cause email delivery failures or emails to be marked as spam.
 
@@ -107,7 +109,7 @@ DNS records authorize the email provider to deliver email on behalf of your doma
 
 After you've created your custom email domain, configure it with your email provider. This typically involves adding DNS records to authorize the provider to send email on behalf of your domain.
 
-The process for adding DNS records to your email provider can vary depending the provider. Refer to your provider's documentation for specific instructions.
+The process for adding DNS records to your email provider can vary depending on the provider. Refer to your provider's documentation for specific instructions.
 
 #### Configure SPF and DKIM
 
@@ -115,8 +117,8 @@ If you send email using a default domain provided by your email provider (such a
 
 Update your DNS records to authorize your email provider:
 
-* **Sender Policy Framework (SPF):** An [SPF record](https://www.cloudflare.com/en-ca/learning/dns/dns-records/dns-spf-record/) lists the IP addresses and domains authorized to send mail for your domain. Update your existing SPF record to include your email provider. For example, if you're using Google Workspace, add `include:_spf.google.com` to your SPF record. If you don't have an existing SPF record, create another `TXT` record with the appropriate SPF value for your provider.
-* **DomainKeys Identified Mail (DKIM):** [DKIM](https://www.cloudflare.com/en-ca/learning/dns/dns-records/dns-dkim-record/) adds a cryptographic signature to emails to verify that the message wasn't altered in transit. Generate DKIM keys with your email provider and add the resulting `TXT` records to your DNS configuration. For example, [Google Workspace provides DKIM keys](https://support.google.com/a/answer/174124) that you can add to your DNS records.
+* **Sender Policy Framework (SPF):** An [SPF record](https://www.cloudflare.com/en-ca/learning/dns/dns-records/dns-spf-record/) lists the IP addresses and domains authorized to send mail for your domain. Update your existing SPF record to include your email provider. For example, if you're using Google Workspace, add `include:_spf.google.com` to your SPF record. If you don't have an existing SPF record, create another TXT record with the appropriate SPF value for your provider.
+* **DomainKeys Identified Mail (DKIM):** [DKIM](https://www.cloudflare.com/en-ca/learning/dns/dns-records/dns-dkim-record/) adds a cryptographic signature to emails to verify that the message wasn't altered in transit. Generate DKIM keys with your email provider and add the resulting TXT records to your DNS configuration. For example, [Google Workspace provides DKIM keys](https://support.google.com/a/answer/174124) that you can add to your DNS records.
 
 ## Configure the OAuth 2.0 settings for your custom email provider
 
@@ -149,15 +151,20 @@ For more information about OAuth 2.0 for Microsoft SMTP, see:
 1. Name the app "Okta SMTP app" and set it as a "Single tenant". See [Register an application](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app#register-an-application).
 1. Create a client secret for the OAuth 2.0 app. See [Add a credential to your application](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-credentials?tabs=client-secret#add-a-credential-to-your-application). Ensure that you follow the steps to create a client secret and not a certificate.
 1. Name the client secret and set an expiration date.
-1. Copy the **Application (client ID)** and the **Directory (tenant ID)** values from the app overview page.
+1. Create the client secret.
 1. Copy the client secret value.
-1. In Microsoft Azure, go to **Enterprise applications**.
+1. Go to your app's overview page.
+1. Copy the **Application (client ID)** and the **Directory (tenant ID)** values from the app overview page.
+1. In [Microsoft Azure](https://portal.azure.com/), go to **Enterprise applications**.
 1. Find your newly created app and open it.
-1. Copy the **Object ID** to use it in a [later step](#connect-your-app-registration-to-microsoft-exchange-online).
+1. In the app's overview page, copy the **Object ID** to use it in a [later step](#connect-your-app-registration-to-microsoft-exchange-online).
 
 #### Grant an email sending scope
 
-1. In your Microsoft OAuth 2.0 app, add an API permission. See [Add the POP, IMAP, or SMTP permissions to your Microsoft Entra application](https://learn.microsoft.com/en-gb/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth#add-the-pop-imap-or-smtp-permissions-to-your-microsoft-entra-application).
+1. In your Microsoft OAuth 2.0 app, add an API permission.
+   1. Refer to the steps and the UI navigation in [Add the POP, IMAP, or SMTP permissions to your Microsoft Entra application](https://learn.microsoft.com/en-gb/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth#add-the-pop-imap-or-smtp-permissions-to-your-microsoft-entra-application).
+   1. You must navigate to **API Permissions** and then follow the steps to add the email sending permission.
+   [[style="list-style-type:lower-alpha"]]
 1. Check the **SMTP.SendAsApp** permission. This enables the OAuth 2.0 app to send email as any user in the organization.
 1. After you've confirmed the permission, ensure that you click **Grant admin consent for [your app]** to activate the permission.
 
@@ -165,17 +172,20 @@ For more information about OAuth 2.0 for Microsoft SMTP, see:
 
 1. Go to `https://admin.microsoft.com/` and sign in with your admin account.
 1. Open **Users** > **Active users**.
-1. Select the user that you want your app to send emails from.
-   * The **Username** is used as the "From" address in Okta system emails and is also used to authenticate the SMTP connection.
+1. Select the user that you want your app to send emails from. The **Username** is used as the "From" address in Okta system emails and is also used to authenticate the SMTP connection.
 1. In the user's **Mail** settings, enable SMTP authentication for the user. See [Use the Microsoft 365 admin center to enable or disable SMTP AUTH on specific mailboxes](https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission#use-the-microsoft-365-admin-center-to-enable-or-disable-smtp-auth-on-specific-mailboxes).
 
 #### Connect your app registration to Microsoft Exchange Online
 
+Creating the app in Microsoft Azure gives it an identity, but it doesn't automatically grant it access to your email system.
+
+Run these commands to connect the app to Exchange Online and explicitly grant it permission to access the specific mailbox you want to use. Without this step, the app exists but is locked out of the email account.
+
 1. [Install PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell?view=powershell-7.5).
-1. Open a PowerShell terminal and install the [Exchange Online Management module](https://learn.microsoft.com/en-us/powershell/exchange/exchange-online-powershell-v2?view=exchange-ps) with the following command:
+1. Open a PowerShell terminal and install the [Exchange Online Management module](https://learn.microsoft.com/en-us/powershell/exchange/exchange-online-powershell-v2?view=exchange-ps#install-and-maintain-the-exchange-online-powershell-module) with the following command:
 
    ```powershell
-   Import-Module ExchangeOnlineManagement
+   Install-Module -Name ExchangeOnlineManagement
    ```
 
 1. Then, run the following command to sign in to Microsoft.
@@ -192,9 +202,9 @@ For more information about OAuth 2.0 for Microsoft SMTP, see:
 * **App-Name:** The display name of your app in Exchange Online.
 
    ```powershell
-    $ClientID = "{YourClientID}"
-    $EnterpriseObjectID = "{YourEnterpriseObjectID}"
-    $SenderEmail = "sender@example.com"
+    # $ClientID = "{YourClientID}"
+    # $EnterpriseObjectID = "{YourEnterpriseObjectID}"
+    # $SenderEmail = "sender@example.com"
 
     # Register the app in Exchange Online
     New-ServicePrincipal -AppId $ClientID -ServiceId $EnterpriseObjectID -DisplayName "{App-Name}"
@@ -207,7 +217,7 @@ For more information about OAuth 2.0 for Microsoft SMTP, see:
 
 After you've created your OAuth 2.0 app registration and granted the necessary permissions, you can connect your org to Microsoft Exchange Online SMTP.
 
-See [Configure a custom email provider](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-provider-main#configure-a-custom-email-provider) and use the **OAuth 2.0 client credentials flow** settings.
+To connect your org in the Admin Console, follow the steps in [Configure a custom email provider](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-provider-main#configure-a-custom-email-provider) and use the **OAuth 2.0 client credentials flow** settings.
 
 * **Client ID:** The **Application (client ID)** value from your app registration.
 * **Client secret:** The client secret value that you created for your app registration.
@@ -272,7 +282,7 @@ Open the JSON file that you [downloaded previously](#create-service-account-and-
 }
 ```
 
-Use these values to configure the SMTP settings in your org. See [Configure a custom email provider](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-provider-main#configure-a-custom-email-provider) and use the **OAuth 2.0 JWT bearer token flow** settings.
+Use these values to connect your org in the Admin Console. Follow the steps in [Configure a custom email provider](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-provider-main#configure-a-custom-email-provider) and use the **OAuth 2.0 JWT bearer token flow** settings.
 
 * **Client ID:** The `client_id` value.
 * **Token endpoint URL:** The `token_uri` value.
