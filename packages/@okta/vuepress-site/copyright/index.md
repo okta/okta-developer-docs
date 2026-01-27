@@ -19,7 +19,7 @@ San Francisco<br>
 CA 94105<br>
 USA
 
-Okta and Auth0 are trademarks or registered trademarks of Okta, Inc., and/or its subsidiaries and/or affiliates in the United States and other countries. All other brand names, product names, or trademarks belong to their respective owners. © 2026 Okta, Inc. All rights reserved.
+Okta and Auth0 are trademarks or registered trademarks of Okta, Inc., and/or its subsidiaries and/or affiliates in the United States and other countries. All other brand names, product names, or trademarks belong to their respective owners. © {{ new Date().getFullYear() }} Okta, Inc. All rights reserved.
 
 See <a href="https://www.okta.com/terms-of-service/" target="_blank">Okta's Terms of Service</a> for its Intellectual Property.
 
