@@ -11,6 +11,17 @@ title: Okta Classic Engine API release notes 20256
 
 ## January
 
+### Weekly release 2026.01.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bug fixed in 2026.01.2](#bug-fixed-in-2026-01-2)| January 28, 2026 |
+
+#### Bug fixed in 2026.01.2
+
+When you call the List all Groups API ([`/api/v1/groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups)) with the `expand=stats` query parameter, the response returned inaccurate data for the `_embedded.stats.hasAdminPrivileges` field for groups with assigned custom roles. (OKTA-1094903)
+
+
 ### Weekly release 2026.01.1
 <!-- Published on: 2026-01-14T12:00:00Z -->
 | Change | Expected in Preview Orgs |
