@@ -4,9 +4,9 @@ title: Manage org recovery with Okta Enhanced Disaster Recovery
 
 <ApiLifecycle access="ea" />
 
-This guide explains how to manage a failover and failback of your Okta org using Okta Enhanced Disaster Recovery (EDR).
+This guide explains how to manage a failover and failback of your Okta org using Okta Enhanced Disaster Recovery (Enhanced DR).
 
-> **Note:** EDR is a [self-service Early Access (EA)](/docs/concepts/feature-lifecycle-management/#self-service-features) feature. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable.
+> **Note:** Enhanced DR is a [self-service Early Access (EA)](/docs/concepts/feature-lifecycle-management/#self-service-features) feature. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable.
 
 ---
 
@@ -19,21 +19,22 @@ This guide explains how to manage a failover and failback of your Okta org using
 
 #### What you need
 
-- An Okta preview org
-- The EDR product enabled on your org
-- [Disaster recovery APIs](https://developer.okta.com/docs/api//openapi/okta-management/management/tag/DisasterRecovery/)
+- An Okta production org
+- The Enhanced DR product enabled on your org
+- Super Administrator privileges or Enhanced DR privileges
+- [Enhanced Disaster recovery APIs](https://developer.okta.com/docs/api//openapi/okta-management/management/tag/DisasterRecovery/)
 
 ---
 
-## About Okta Enhanced Disaster Recovery (EDR)
+## About Okta Enhanced Disaster Recovery
 
-Okta Enhanced Disaster Recovery (EDR) provides you with an option for shorter org recovery times in the event of a regional infrastructure-related outage. EDR improves on the standard disaster recovery mitigations available to all Okta orgs. It ensures service continuity during total regional outages, allowing users to remain signed in. Also, it features a self-service failover, which grants admins manual control to initiate tenant migration and failback through APIs or a dedicated portal. See the following sections on how to manage EDR using the Okta APIs. For further information on EDR and using the EDR portal, see [Enhanced Disaster Recovery](https://help.okta.com/okta_help.htm?type=oie&id=enhanced-disaster-recovery).
+Okta Enhanced Disaster Recovery (Enhanced DR) reduces the recovery time objective (RTO) from one hour to five minutes (read-only access) in the event of a regional infrastructure-related outage. Enhanced DR improves on the standard disaster recovery RTO available to all Okta production orgs. It ensures service continuity during total regional outages, allowing users to continue authenticating into all their apps. Enhanced DR also supports self-service failover, which grants admins the ability to initiate an org failover and failback through APIs or a dedicated portal. See the following sections on how to manage Enhanced DR using the Okta APIs. For further information on Enhanced DR and using the Enhanced DR portal, see [Enhanced Disaster Recovery](https://help.okta.com/okta_help.htm?type=oie&id=enhanced-disaster-recovery).
 
-## User roles and permissions for EDR
+## User roles and permissions for Enhanced DR
 
-You can manage EDR by using the super administrator role or by creating a custom role.
+You can manage Enhanced DR by using the super administrator role or by creating a custom role.
 
-To create an EDR custom role, use the Admin Console or the APIs. See [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#roles-in-okta) or [Use custom admin roles](https://help.okta.com/okta_help.htm?type=oie&id=csh-create-cstm-admin-role). The following permissions, resource, and resource type are required when creating the EDR custom role:
+To create an Enhanced DR custom role, use the Admin Console or the APIs. See [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#roles-in-okta) or [Use custom admin roles](https://help.okta.com/okta_help.htm?type=oie&id=csh-create-cstm-admin-role). The following permissions, resource, and resource type are required when creating the Enhanced DR custom role:
 
 - Permissions: Manage disaster recover (`okta.dr.manage`) or view disaster recovery (`okta.dr.read`)
 - Resource Type: Business continuity
@@ -41,7 +42,7 @@ To create an EDR custom role, use the Admin Console or the APIs. See [Roles in O
 
 ## Make secure API requests with OAuth 2.0
 
-Okta EDR only supports API access through scoped OAuth 2.0 access tokens, and uses the following scopes: `okta.dr.manage` and `okta.dr.read`.
+Okta Enhanced DR only supports API access through scoped OAuth 2.0 access tokens, and uses the following scopes: `okta.dr.manage` and `okta.dr.read`.
 
 To make secure Okta API requests to manage and configure your Okta orgs, obtain OAuth 2.0 access tokens for the Authorization header in requests. The Okta setup to obtain access tokens depends on whether you want the token to have a user-based or a service-based context:
 
@@ -80,7 +81,7 @@ curl -v -X GET \
 
 ## Initiate an org failover
 
-Use the following disaster recovery API, [Start the failback of your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/startOrgFailback), to initiate the failover of your org. The request body is optional. You can specify a list of domains to failback, an empty object (`{}`), or no payload.
+Use the following disaster recovery API, [Start the failover of your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/startOrgFailover), to initiate the failover of your org. The request body is optional. You can specify a list of custom domains to failover, an empty object (`{}`), or no payload.
 
 #### Request example
 
@@ -92,7 +93,7 @@ curl -v -X POST \
 "https://drapp.{yourOktaDomain}/api/v1/dr/failover"
 ```
 
-After a failover, all end users of that org are in read-only mode.
+After a failover, all end users of that org are in [read-only mode](https://support.okta.com/help/s/article/What-is-Oktas-Readonly-Mode?language=en_US).
 
 #### Response example
 
@@ -109,7 +110,7 @@ After a failover, all end users of that org are in read-only mode.
 
 ## Initiate an org failback
 
-Use the following disaster recovery API, [Start the failover of your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/startOrgFailover), to initiate the failback of your org. The request body is optional. You can specify a list of domains to failover, an empty object (`{}`), or no payload.
+Use the following disaster recovery API, [Start the failback of your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/startOrgFailback), to initiate the failback of your org. The request body is optional. You can specify a list of domains to failback, an empty object (`{}`), or no payload.
 
 #### Request example
 
@@ -136,13 +137,13 @@ curl -v -X POST \
 
 ## Review disaster recovery auditing data
 
-Review the disaster recovery status through the System Log. Use the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog) or review through the Admin Console to confirm details on the org failover or failback. Search on the event types `system.dr.failover` or `system.dr.failback`.
+Review the Enhanced DR status through the System Log. Use the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog) or review through the Admin Console to confirm details on the org failover or failback. Search on the event types `system.dr.failover` or `system.dr.failback`.
 
 > **Note:** Your OAuth 2.0 scoped token requires the `okta.logs.read` scope to call the System Log endpoint.
 
 #### Request example
 
-Filter on both EDR event types:
+Filter on both Enhanced DR event types:
 
 `filter=eventType eq "system.dr.failback" or eventType eq "system.dr.failover"`
 
