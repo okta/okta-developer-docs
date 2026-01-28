@@ -18,7 +18,7 @@ This guide introduces Okta's implementation of IPv6 and provides guidelines on c
 
 ## What you need
 
-* A preview of Okta org. Only preview cells have IPv6 availability.
+* An Okta Preview org. Only Preview cells have IPv6 availability.
 
 ## Overview
 
