@@ -4,7 +4,7 @@ title: Manage org recovery with Okta Enhanced Disaster Recovery
 
 <ApiLifecycle access="ea" />
 
-This guide explains how to manage a failover and failback of your Okta org using Okta Enhanced Disaster Recovery (Enhanced DR).
+This guide explains how to manage a failover and failback of your Okta org using Okta Enhanced Disaster Recovery (DR).
 
 > **Note:** Enhanced DR is a [self-service Early Access (EA)](/docs/concepts/feature-lifecycle-management/#self-service-features) feature. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable.
 
@@ -28,7 +28,7 @@ This guide explains how to manage a failover and failback of your Okta org using
 
 ## About Okta Enhanced Disaster Recovery
 
-Okta Enhanced Disaster Recovery (Enhanced DR) reduces the recovery time objective (RTO) from one hour to five minutes (read-only access) in the event of a regional infrastructure-related outage. Enhanced DR improves on the standard disaster recovery RTO available to all Okta production orgs. It ensures service continuity during total regional outages, allowing users to continue authenticating into all their apps. Enhanced DR also supports self-service failover, which grants admins the ability to initiate an org failover and failback through APIs or a dedicated portal. See the following sections on how to manage Enhanced DR using the Okta APIs. For further information on Enhanced DR and using the Enhanced DR portal, see [Enhanced Disaster Recovery](https://help.okta.com/okta_help.htm?type=oie&id=enhanced-disaster-recovery).
+Okta Enhanced Disaster Recovery (DR) reduces the recovery time objective (RTO) from one hour to five minutes ([read-only access](https://support.okta.com/help/s/article/What-is-Oktas-Readonly-Mode?language=en_US)) in the event of a regional infrastructure-related outage. Enhanced DR improves on the standard disaster recovery RTO available to all Okta production orgs. It ensures service continuity during total regional outages, allowing users to continue authenticating into all their apps. Enhanced DR also supports self-service failover, which grants admins the ability to initiate an org failover and failback through APIs or the [Okta Disaster Recovery Admin app](https://help.okta.com/okta_help.htm?type=oie&id=enhanced-disaster-recovery). See the following sections on how to manage Enhanced DR using the Okta APIs.
 
 ## User roles and permissions for Enhanced DR
 
