@@ -130,11 +130,11 @@ This table highlights common components of each flow and how they're used.
 
 | Component           | Client credentials flow                | JWT bearer token flow                        |
 |---------------------|----------------------------------------|----------------------------------------------|
-| Authentication type | This flow uses a shared secret   | This flow uses asymmetric cryptography (private/public key) |
-| Email provider app  | This flow requires an OAuth 2.0 client app that generates a client ID         | This flow requires an OAuth 2.0 client app that generates a client ID               |
-| Credential          | This flow uses a client secret as a credential              | This flow uses a private key (JSON/certificate) as a credential               |
-| Permission          | This flow uses a scope that grants permission to access an email server | This flow uses a scope that grants permission to access an email server |
-| Sender identity     | This flow uses a designated user account                | This flow uses an impersonated user account, using the `sub` claim  |
+| Authentication type | This flow uses a shared secret.   | This flow uses asymmetric cryptography (private/public key). |
+| Email provider app  | This flow requires an OAuth 2.0 client app that generates a client ID .        | This flow requires an OAuth 2.0 client app that generates a client ID.               |
+| Credential          | This flow uses a client secret as a credential.              | This flow uses a private key (JSON/certificate) as a credential.               |
+| Permission          | This flow uses a scope that grants permission to access an email server. | This flow uses a scope that grants permission to access an email server. |
+| Sender identity     | This flow uses a designated user account.                | This flow uses an impersonated user account, using the `sub` claim.  |
 
 ### Microsoft Exchange Online SMTP example
 
@@ -149,10 +149,11 @@ For more information about OAuth 2.0 for Microsoft SMTP, see:
 
 1. Go to [Microsoft Azure](https://portal.azure.com/) and create an **App registration**. This is your OAuth 2.0 app.
 1. Name the app "Okta SMTP app" and set it as a "Single tenant". See [Register an application](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app#register-an-application).
-1. Create a client secret for the OAuth 2.0 app. See [Add a credential to your application](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-credentials?tabs=client-secret#add-a-credential-to-your-application). Ensure that you follow the steps to create a client secret and not a certificate.
+1. Create a client secret for the OAuth 2.0 app. See [Add a credential to your application](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-credentials?tabs=client-secret#add-a-credential-to-your-application).
+
+> **Note:** Ensure that you follow the steps to create a client secret and not a certificate.
 1. Name the client secret and set an expiration date.
-1. Create the client secret.
-1. Copy the client secret value.
+1. Create the client secret, and then copy the value.
 1. Go to your app's overview page.
 1. Copy the **Application (client ID)** and the **Directory (tenant ID)** values from the app overview page.
 1. In [Microsoft Azure](https://portal.azure.com/), go to **Enterprise applications**.
@@ -179,7 +180,7 @@ For more information about OAuth 2.0 for Microsoft SMTP, see:
 
 Creating the app in Microsoft Azure gives it an identity, but it doesn't automatically grant it access to your email system.
 
-Run these commands to connect the app to Exchange Online and explicitly grant it permission to access the specific mailbox you want to use. Without this step, the app exists but is locked out of the email account.
+Run these commands to connect the app to Exchange Online and explicitly grant it permission to access the specific mailbox that you want to use. Without this step, the app exists but is locked out of the email account.
 
 1. [Install PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell?view=powershell-7.5).
 1. Open a PowerShell terminal and install the [Exchange Online Management module](https://learn.microsoft.com/en-us/powershell/exchange/exchange-online-powershell-v2?view=exchange-ps#install-and-maintain-the-exchange-online-powershell-module) with the following command:
