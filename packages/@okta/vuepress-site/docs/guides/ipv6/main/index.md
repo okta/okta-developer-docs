@@ -24,7 +24,7 @@ This guide introduces Okta's implementation of IPv6 and provides guidelines on c
 
 Internet protocol version 6 (IPv6) is the most recent version of the internet protocol and is designed to replace IPv4. IPv6 uses 128-bit addresses, providing an order of magnitude more IP addresses. The new standard improves security, efficiency, and network auto-configuration.
 
-The Okta IPv6 Beta allows communication with an Okta org in a preview cell using IPv6 and IPv4. IPv6 support is opt-in at the org level. It's not enabled cell-wide.
+The Okta IPv6 Beta allows communication with an Okta org in a Preview cell using IPv6 and IPv4. IPv6 support is opt-in at the org level. It's not enabled cell-wide.
 
 For the Beta, IPv6 is only available in preview cells.
 
