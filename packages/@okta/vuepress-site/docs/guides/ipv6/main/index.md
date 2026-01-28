@@ -62,7 +62,7 @@ Only a subset of Okta functionality supports IPv6 during the Beta.
 
 ### Service Level Agreement (SLA) and support
 
-During the Beta phase, any preview org with IPv6 enabled isn’t subject to an SLA.
+During the Beta phase, any Preview org with IPv6 enabled isn’t subject to an SLA.
 
 Support is also not available for IPv6 Beta orgs.
 
