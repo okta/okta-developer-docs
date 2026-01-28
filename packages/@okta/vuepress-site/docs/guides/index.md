@@ -61,6 +61,7 @@ guides:
  - implement-oauth-for-okta
  - implement-oauth-for-okta-serviceapp
  - implement-grant-type
+ - ipv6
  - keep-me-signed-in
  - keep-user-signed-in
  - key-management
