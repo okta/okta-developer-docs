@@ -53,6 +53,8 @@ In your org, there are two methods for configuring OAuth 2.0 authentication for 
 * [OAuth 2.0 client credentials flow](#oauth-2-0-client-credentials-flow)
 * [OAuth 2.0 JWT bearer token flow](#oauth-2-0-jwt-bearer-token-flow)
 
+You can configure either method by using the [Email Servers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailServer/) or by using the [Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-provider-main).
+
 ### OAuth 2.0 client credentials flow
 
 The **OAuth 2.0 client credentials flow** uses a shared secret to authenticate. Your Okta app identifies itself using a client ID and a client secret string. The app acts on its own behalf. It has "Application Permissions" to access specific mailboxes.
