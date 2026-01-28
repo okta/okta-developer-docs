@@ -17,19 +17,19 @@ Understand how to set up the token exchange flow for an AI Agent.
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * An Okta user account with the super admin role.
-* [Register an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register.htm) in your Okta org.
-* **Managed Connections** is configured for the AI agent, defining which resources it’s allowed to access. See [Secure an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure.htm).
+* [Register an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register) in your Okta org.
+* **Managed Connections** is configured for the AI agent, defining which resources it’s allowed to access. See [Secure an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure).
 * An OIDC web app is configured to authenticate users and obtain an ID token.
 
 ---
 
 ## Overview
 
-After you [register an AI Agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register.htm) and define its access to third-party resources integrated with your Okta org using **Managed Connections**, the agent must obtain the actual tokens or credentials to perform tasks.
+After you [register an AI Agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register) and define its access to third-party resources integrated with your Okta org using **Managed Connections**, the agent must obtain the actual tokens or credentials to perform tasks.
 
-You can [connect an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure.htm) to the following resource types:
+You can [connect an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure) to the following resource types:
 
-* Authorization server: Grants the AI agent access to resources that are protected by an Okta custom authorization server. This resource type is supported by [Cross App Access](https://help.okta.com/okta_help.htm?type=oie&id=apps-cross-app-access.htm) (XAA), which uses ID-JAG (Identity Assertion JWT).
+* Authorization server: Grants the AI agent access to resources that are protected by an Okta custom authorization server. This resource type is supported by [Cross App Access](https://help.okta.com/okta_help.htm?type=oie&id=apps-cross-app-access) (XAA), which uses ID-JAG (Identity Assertion JWT).
 
 * Secret: Uses a static credential for a downstream resource that has been vaulted in Okta Privileged Access.
 
