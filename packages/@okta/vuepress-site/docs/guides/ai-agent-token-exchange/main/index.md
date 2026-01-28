@@ -25,7 +25,7 @@ Understand how to set up the token exchange flow for an AI Agent.
 
 ## Overview
 
-After you [register an AI Agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register) and define its access to third-party resources integrated with your Okta org using **Managed Connections**, the agent must obtain the actual tokens or credentials to perform tasks.
+You have [registered an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register). You have also defined it's access to third-party resources integrated with your Okta org using **Managed Connections**. Now, the agent must obtain the actual tokens or credentials to perform tasks.
 
 You can [connect an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure) to the following resource types:
 
