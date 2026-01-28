@@ -84,7 +84,7 @@ Ensure that the following configurations are made to your Preview org to test IP
 
 At minimum, you should test:
 
-* All sign-in scenarios applicable to your org that falls within the scope of the Beta.
+* All sign-in scenarios that are applicable to your org and that fall within the scope of the Beta.
 * All processes in your org that are typically performed in the Admin Console.
 
 Be sure to verify that any relevant System Log events and inline or event hooks have the expected IPv6 address in the payload.
