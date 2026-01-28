@@ -6,6 +6,11 @@ title: Web Authentication integration guide
 
 This guide shows you how to integrate Web Authentication (WebAuthn) into your app using the embedded SDK.
 
+> <ApiLifecycle access="ea" />
+> **Note:** When the **Passkeys Rebrand** self-service early access feature is enabled, the **FIDO2 (WebAuthn)** authenticator is called **Passkeys (FIDO2 WebAuthn)**, and there are new settings and updates to the authenticator page layout.
+>
+> For more information about the new settings and updates, see [Configure the FIDO2 (WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn). To enable the **Passkeys Rebrand** feature, see [Enable self-service features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
+
 ---
 #### Learning outcomes
 
@@ -32,6 +37,12 @@ To be resistant to phishing attacks, a local communication channel should exist 
 Besides being resistant to phishing attacks, WebAuthn can drastically reduce sign-in friction by allowing passwordless sign-ins during reauthentication use cases. For example, mobile banking apps use this type of sign-in. Some mobile banking apps allow iPhone users to sign in using only Face ID after the first sign-in with a password.
 
 > **Note**: For detailed information on the WebAuthn standard, including an up-to-date list of supported browsers, see [webauthn.me](https://a0.to/webauthnme-okta-docs).
+
+### Passkeys and WebAuthn
+
+Passkeys are a type of WebAuthn credential that use the [FIDO2 Web Authentication (WebAuthn) standard](https://fidoalliance.org/fido2-2/fido2-web-authentication-webauthn/). While all passkeys are built on WebAuthn, "Passkeys" specifically refer to discoverable WebAuthn credentials that can often be synced across devices with cloud services. Non-discoverable WebAuthn credentials, such as hardware-bound keys on a Yubikey, can't be backed up or synced and typically require a username to initiate authentication.
+
+See [Passkeys and Okta overview](/docs/guides/custom-passkeys/main/#passkeys-and-okta-overview) to learn more about passkeys, Relying Party IDs (RP IDs), and how to use them.
 
 ### Example authentication flow
 

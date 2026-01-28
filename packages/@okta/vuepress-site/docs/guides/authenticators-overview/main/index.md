@@ -24,13 +24,17 @@ Okta verifies the user's identity at the end of both flows.
 
 The following guides step through adding a type of authenticator to your app using the embedded SDK for your platform:
 
+> **Note:** See the [Password authenticator](https://help.okta.com/okta_help.htm?type=oie&id=ext-configure-password) page for information on configuring the Password authenticator for your org.
+
 * [Okta Email authenticator](/docs/guides/authenticators-okta-email/aspnet/main/)
 * [Okta Verify](/docs/guides/authenticators-okta-verify/aspnet/main/)
 * [Google Authenticator](/docs/guides/authenticators-google-authenticator/aspnet/main/)
 * [Temporary access code (TAC)](/docs/guides/authenticators-tac-authenticator/main/)
 * [FIDO2 (WebAuthn) authenticators](/docs/guides/authenticators-web-authn/aspnet/main/), such as a USB security key, fingerprint, FaceID, or Windows Hello
-
-> **Note:** See the [Password authenticator](https://help.okta.com/okta_help.htm?type=oie&id=ext-configure-password) page for information on configuring the Password authenticator for your org.
+   > <ApiLifecycle access="ea" />
+   > **Note:** When the **Passkeys Rebrand** self-service early access feature is enabled, the **FIDO2 (WebAuthn)** authenticator is called **Passkeys (FIDO2 WebAuthn)**, and there are new settings and updates to the authenticator page layout.
+   >
+   > For more information about the new settings and updates, see [Configure the FIDO2 (WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn). To enable the **Passkeys Rebrand** feature, see [Enable self-service features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 
 In each guide, you learn:
 

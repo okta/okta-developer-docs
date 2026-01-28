@@ -16,7 +16,12 @@ Learn how to configure passkeys with multiple domains.
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * A valid and certified [custom domain](#how-to-configure-your-custom-domain-as-an-rp-id)
-* The [WebAuthn authenticator](https://help.okta.com/oie/en-us/content/topics/identity-engine/authenticators/configure-webauthn.htm) enabled for users in your org and assigned to an [app sign-in policy](/docs/guides/configure-signon-policy/main/#app-sign-in-policies)
+* The [WebAuthn authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn) enabled for users in your org and assigned to an [app sign-in policy](/docs/guides/configure-signon-policy/main/#app-sign-in-policies)
+
+> <ApiLifecycle access="ea" />
+> **Note:** When the **Passkeys Rebrand** self-service early access feature is enabled, the **FIDO2 (WebAuthn)** authenticator is called **Passkeys (FIDO2 WebAuthn)**, and there are new settings and updates to the authenticator page layout.
+>
+> For more information about the new settings and updates, see [Configure the FIDO2 (WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn). To enable the **Passkeys Rebrand** feature, see [Enable self-service features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 
 ---
 
@@ -32,10 +37,11 @@ To create a seamless experience where one passkey can work across multiple domai
 
 ### Add the WebAuthn authenticator to your org policies
 
-Before configuring passkeys with the steps in this guide, ensure that the WebAuthn authenticator is added to your authenticator enrollment and app sign-in policies. Configuring the WebAuthn authenticator in your policies enables users to register and sign in with passkeys.
+Before configuring passkeys with the steps in this guide, ensure that the WebAuthn authenticator is available in your org and added to your authenticator enrollment and app sign-in policies. Configuring the WebAuthn authenticator in your policies enables users to register and sign in with passkeys.
 
-* Add the WebAuthn authenticator to an [authenticator enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-mfa-policy) to allow users to register passkeys.
-* Include the WebAuthn authenticator in an [app sign-in policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) to allow users to sign in with passkeys.
+1. [Add the FIDO2 (WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn) to your org.
+1. Add the WebAuthn authenticator to an [authenticator enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-mfa-policy) to allow users to register passkeys.
+1. Include the WebAuthn authenticator in an [app sign-in policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) to allow users to sign in with passkeys.
 
 ## Understand custom domains and passkeys
 
