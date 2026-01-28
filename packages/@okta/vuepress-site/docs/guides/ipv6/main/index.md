@@ -48,7 +48,7 @@ Only a subset of Okta functionality supports IPv6 during the Beta.
 | Unsupported | mTLS | |
 | Unsupported | PIV / CAC authentication | |
 | Unsupported | Custom domains | |
-| Unsupported | Any type of egress | Traffic from the cell uses IPv4. Any type of hook (inline, event, web) use IPv4 to connect |
+| Unsupported | Any type of egress | Traffic from the cell uses IPv4. Any type of hook (inline, event, web) that uses IPv4 to connect |
 | Unsupported | Workflows | |
 | Unsupported | LDAP interface (LDAPi) | |
 | Unsupported | Okta Identity Governance (OIG) | |
@@ -76,7 +76,7 @@ Ensure that the following configurations are made to your Preview org to test IP
 
   Some possible examples:
 
-  * If the network zone configuration allows only a certain range of IPv4 addresses. This configuration needs updating to add a range of IPv6 addresses that are also allowed.
+  * If the network zone configuration allows only a certain range of IPv4 addresses. In this case, the configuration needs updating to add a range of IPv6 addresses that are also allowed.
 
   * If you block certain IPv4 addresses, you need to update and block any IPv6 addresses.
 
