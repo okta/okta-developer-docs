@@ -25,7 +25,7 @@ title: Okta Identity Engine API release notes 2026
 
 * Upon activation (`POST /users/{id}/lifecycle/activate?sendEmail=true`), some users were enrolled in duplicate email authenticators for the same address. (OKTA-1046873)
 
-* When you call the List all Groups API ([`/api/v1/groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups)) with the `expand=stats` query parameter, the response returned inaccurate data for the `_embedded.stats.hasAdminPrivileges` field for groups with assigned custom roles. (OKTA-1094903)
+* When you call the List all Groups API ([`/api/v1/groups`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups)) with the `expand=stats` query parameter, the response returned inaccurate data for the `_embedded.stats.hasAdminPrivileges` field for groups with assigned custom roles. (OKTA-1094903)
 
 * The link to the API reference for **Native to Web SSO** on the **Features** page was broken. (OKTA-1094965)
 
