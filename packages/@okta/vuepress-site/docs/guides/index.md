@@ -192,6 +192,7 @@ guides:
  - custom-well-known-uri
  - validate-federation
  - custom-passkeys
+ - set-up-oauth-api
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
