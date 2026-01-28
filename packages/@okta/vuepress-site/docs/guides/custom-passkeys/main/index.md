@@ -19,7 +19,7 @@ Learn how to configure passkeys with multiple domains.
 * The [WebAuthn authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn) enabled for users in your org and assigned to an [app sign-in policy](/docs/guides/configure-signon-policy/main/#app-sign-in-policies)
 
 > <ApiLifecycle access="ea" />
-> **Note:** When the **Passkeys Rebrand** self-service early access feature is enabled, the **FIDO2 (WebAuthn)** authenticator is called **Passkeys (FIDO2 WebAuthn)**, and there are new settings and updates to the authenticator page layout.
+> **Note:** When the **Passkeys Rebrand** self-service Early Access feature is enabled, the **FIDO2 (WebAuthn)** authenticator is called **Passkeys (FIDO2 WebAuthn)**, and there are new settings and updates to the authenticator page layout.
 >
 > For more information about the new settings and updates, see [Configure the FIDO2 (WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn). To enable the **Passkeys Rebrand** feature, see [Enable self-service features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 
