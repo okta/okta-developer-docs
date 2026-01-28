@@ -68,7 +68,7 @@ Support is also not available for IPv6 Beta orgs.
 
 ## Configure your org for IPv6
 
-Ensure that the following configurations are made to your preview org to test IPv6:
+Ensure that the following configurations are made to your Preview org to test IPv6:
 
 * Allow listing: If you use allowlist access to Okta, you need to update your allowlist rules (firewalls, ACLs, and so on) to also allow IPv6 traffic to Okta.
 
