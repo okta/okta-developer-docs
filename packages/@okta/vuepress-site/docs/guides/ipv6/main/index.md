@@ -28,7 +28,7 @@ The Okta IPv6 Beta allows communication with an Okta org in a Preview cell using
 
 For the Beta, IPv6 is only available in Preview cells.
 
-> **Note:** Contact Okta Support to enable IPv6 for your preview org.
+> **Note:** Contact Okta Support to enable IPv6 for your Preview org.
 
 ### Okta IPv6 scope
 
