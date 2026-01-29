@@ -8,6 +8,10 @@ export const concepts = [
         path: "/docs/concepts/api-access-management/",
       },
       {
+        title: "Okta MCP Server",
+        path: "/docs/concepts/mcp-server/",
+      },
+      {
         title: "Authorization servers",
         path: "/docs/concepts/auth-servers/",
       },
