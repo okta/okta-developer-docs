@@ -1,4 +1,5 @@
 const guidesInfo = require('./scripts/build-guides-info');
+const codeInfo = require('./scripts/build-code-info');
 const overviewPages = require('./scripts/build-overview-pages');
 const findLatestWidgetVersion = require('./scripts/findLatestWidgetVersion');
 const convertReplacementStrings = require('./scripts/convert-replacement-strings');
@@ -385,6 +386,7 @@ module.exports = ctx => ({
 
   additionalPages: [
     ...guidesInfo.additionalPagesForGuides(),
+    ...codeInfo.additionalPagesForCode(),
     ...overviewPages()
   ],
 
@@ -402,6 +404,7 @@ module.exports = ctx => ({
 
     // add redir url for main guide pages
     let found = guidesInfo.guideInfo[path];
+    let foundCode = codeInfo.codeInfo[path];
 
     if (path.startsWith('/docs/reference/api/')) {
         frontmatter.sitemap = {
@@ -480,6 +483,17 @@ module.exports = ctx => ({
       };
     }
 
+    if(foundCode && foundCode.page && foundCode.sections) {
+      if(foundCode.mainFramework) {
+        $page.redir = `/code/${foundCode.page}/${foundCode.mainFramework}/${foundCode.sections[0]}/`
+      } else {
+        $page.redir = `/code/${foundCode.page}/${foundCode.sections[0]}/`
+      }
+      frontmatter.sitemap = {
+        exclude: true
+      };
+    }
+
     if(!frontmatter.canonicalUrl) {
       frontmatter.canonicalUrl = `https://developer.okta.com${path}`;
     }
@@ -507,6 +521,9 @@ module.exports = ctx => ({
     // mark all generated non-root stack-enabled pages(i.e. those containing stack name in the URL)
     // to display StackSelector for
     if(found && !found.guide && !found.sections && found.mainFramework) {
+      $page.hasStackContent = true
+    }
+    if(foundCode && !foundCode.page && !foundCode.sections && foundCode.mainFramework) {
       $page.hasStackContent = true
     }
   },
