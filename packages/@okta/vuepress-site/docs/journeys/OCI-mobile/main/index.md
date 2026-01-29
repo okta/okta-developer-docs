@@ -3,14 +3,14 @@ title: Add a sign-in form to your mobile app
 meta:
  - name: Add a sign-in form to your mobile app
    content: Connect your mobile app to Okta and sign your users in and out.
-   date-updated: January 23, 2026
+   date-updated: January 29, 2026
    target persona: Developer
    level: Beginner
 ---
 
 ## Introduction
 
-You've built a mobile app to access your customer portal and want to add identity-related functionality, such as an admin area, user profiles, and more. Use the Okta Client SDK for a complete, native user experience.
+You've built a mobile app to access your customer portal and want to add identity-related functionality like an admin area, user profiles, and more. Use the Okta Client SDK for a complete, native user experience.
 
 ## Learn
 
@@ -67,39 +67,35 @@ The alternative is to add a custom sign-in form in your portal. Then, use direct
 
 After a user has signed in, Identity Engine sends your app a set of tokens to identify the user, grant them access to their profile and other resources, and keep them signed in if they spend too long away from the app.
 
-Learn about tokens (the token lifecycle, and the different types of tokens) (info)
-Secure your tokens and user credentials with the Mobile SDK (info)
-Check for an existing session before asking a user to sign in (info)
-Keep the user signed in beyond the session's expiry time (info) - ask Alex
-Add a way for users to sign out
-How a user signs out of an application and what happens next is just as important as how they sign in. What happens when they click the sign-out button? What will they see when they return to an application after their session has timed out?
+* [Learn about tokens (the token lifecycle, and the different types of tokens)](/docs/concepts/token-lifecycles/)
+* [Secure your tokens and user credentials with the Mobile SDK](/docs/guides/manage-user-creds/ios/main/)
+* [Check for an existing session before asking a user to sign in](/docs/guides/check-for-session/android/main/)
+* [Keep the user signed in beyond the session's expiry time](/docs/guides/keep-user-signed-in/android/main/)
 
-Add a sign-out experience (info)
-Test your sign-in and sign-out flows work
-Remember to test your apps are sending the correct flows
+## Add a way for users to sign out
 
-Validate federation is working (info)
-<Related Topics Section>
-Congratulations—your mobile app now successfully signs users in and out. The basic functionality you have implemented so far can be expanded and customized in many ways.
+How a user signs out of an app and what happens next are just as important as how they sign in. What happens when they click the sign-out button? What do they see when they return to an app after their session has timed out? See the [Add a sign-out experience](/docs/guides/oie-embedded-sdk-use-case-basic-sign-out/android/main/) guide.
 
-Enable a user consent dialog for your app to access certain resources (info)
-Sign users in with Facebook or another social login (info)
-Change your existing IdP to Okta
-Secure your sign-in flow further with proof of possession (info)
-Secure authentication with a Push Notification to your iOS device (info)
-Require further authentication to access specific areas of your portal
-Use your mobile app as an authenticator for your web client app
+## Test your sign-in and sign-out flows
+
+Now that you have everything set up, test that your sign-in and sign-out flows. See [Validate SSO federation](/docs/guides/validate-federation/main/).
+
+## Related topics
+
+Congratulations, your mobile app now successfully signs users in and out. You can expand and customize the basic functionality that you have implemented in many ways.
+
+* [Enable a user consent dialog for your app to access certain resources](https://developer.okta.com/docs/guides/request-user-consent/main/)
+* [Sign users in with Facebook](/docs/guides/oie-embedded-sdk-use-case-sign-in-soc-idp/ios/main/)
+* [Secure your sign-in flow further with proof of possession](/docs/guides/dpop/nonoktaresourceserver/main/)
+* [Secure authentication with a push notification to your iOS device](https://developer.okta.com/blog/2025/11/18/okta-ios-directauth)
 
 Go deeper into the protocols underlying the sign-in processes
 
-Learn about OAuth and OIDC (info)
-Learn about Single Sign-on (info)
-Learn about Single Logout
+* [Learn about OAuth and OIDC](/docs/concepts/oauth-openid/)
+* [Learn about Single Sign-On](/docs/concepts/sso-overview/)
 
-This journey is part of the Secure your Portal pathway, which also contains:
+This journey is part of the Secure your portal pathway, which also contains the following journeys:
 
-Apply your brand to the Okta UX
-Migrate / import users into your org 
-Work with multiple brands in one org
-Upgrade your org to Okta Identity Engine
-
+* [Apply your brand to the Okta user experience](/docs/journeys/OCI-branding/main/)
+* [Sign users in through your web app](/docs/journeys/OCI-web-sign-in/main/)
+* [Secure your first web app](/docs/journeys/OCI-secure-your-first-web-app/main/)
