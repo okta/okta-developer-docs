@@ -6047,3 +6047,8 @@ redirects:
     to: /docs/guides/enable-express-configuration/main/
   - from: /docs/guides/enable-express-configuration/scim/main/
     to: /docs/guides/enable-express-configuration/main/
+  - from: /docs/reference/postman-collections
+    to: https://www.postman.com/okta-eng/okta-public-api-collections/overview
+  - from: /docs/reference/postman-collections/index.html
+    to: https://www.postman.com/okta-eng/okta-public-api-collections/overview
+
