@@ -3,7 +3,7 @@ To enable persistent SSO for iOS apps, you need to update the [`usePersistentCoo
 Before you begin, be sure to:
 
 - Create an [API token](/docs/guides/create-an-api-token/) for your Org.
-- Download the [Policy Postman collection](/docs/reference/postman-collections/).
+- Download the [Policy Postman collection](https://www.postman.com/okta-eng/okta-public-api-collections/folder/4920859-d9bc2528-d5e7-4eef-90db-3728fbdc15bc?action=share&source=copy-link&creator=27080442&ctx=documentation).
 
 1. In Postman, expand the **Policies (Okta API)** folder, and then the **Global Session Policy** folder.
 2. Click the **Get Global Session Policies** request to open it, and then click **Send** to run it.
