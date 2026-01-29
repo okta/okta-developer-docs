@@ -924,6 +924,15 @@ export const guides = [
         ],
       },
       {
+        title: "Get started with Okta MCP server",
+        subLinks: [
+          {
+            title: "Access admin management APIs with Okta MCP server",
+            path: "/docs/guides/mcp-server/main/",
+          }
+        ],
+      },
+      {
         title: "Automate org management with Terraform",
         subLinks: [
           {
