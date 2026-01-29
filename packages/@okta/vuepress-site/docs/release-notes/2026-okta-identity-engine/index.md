@@ -13,6 +13,22 @@ title: Okta Identity Engine API release notes 2026
 
 ## January
 
+### Weekly release 2026.01.2
+<!-- Published on: 2026-01-29T12:00:00Z -->
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2026.01.2](#bugs-fixed-in-2026-01-2)| January 28, 2026 |
+
+#### Bugs fixed in 2026.01.2
+
+* POST requests to the `/device-assurances` endpoint and PUT requests to the `/device-assurances/{deviceAssuranceId}` endpoint for `ANDROID` or `IOS` platforms permitted the inclusion of the Windows-specific `thirdPartySignalProviders.dtc` object. (OKTA-1045564)
+
+* Upon activation (`POST /users/{id}/lifecycle/activate?sendEmail=true`), some users were enrolled in duplicate email authenticators for the same address. (OKTA-1046873)
+
+* When you call the List all Groups API ([`/api/v1/groups`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups)) with the `expand=stats` query parameter, the response returned inaccurate data for the `_embedded.stats.hasAdminPrivileges` field for groups with assigned custom roles. (OKTA-1094903)
+
+* The link to the API reference for **Native to Web SSO** on the **Features** page was broken. (OKTA-1094965)
+
 ### Weekly release 2026.01.1
 <!-- Published on: 2026-01-14T12:00:00Z -->
 | Change | Expected in Preview Orgs |
