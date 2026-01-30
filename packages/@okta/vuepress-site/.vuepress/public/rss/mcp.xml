@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>Okta MCP Server API release notes</title>
+  <link>https://developer.okta.com/docs/release-notes/2026-okta-mcp-server/</link>
+  <description>Recent release notes for Okta MCP Server</description>
+  <pubDate>Mon, 09 Feb 2026 12:00:00 GMT</pubDate>
+
+    <item>
+      <title>Monthly release 2026.02.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-mcp-server/#monthly-release-2026-02-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-mcp-server/#monthly-release-2026-02-0</guid>
+      <pubDate>Mon, 09 Feb 2026 12:00:00 GMT</pubDate>
+      <description></description>
+    </item>
+
+</channel>
+</rss>
