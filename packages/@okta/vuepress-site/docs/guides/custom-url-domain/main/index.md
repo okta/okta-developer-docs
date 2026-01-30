@@ -404,7 +404,7 @@ These three records work together to create layers of security for your email do
 
 * DKIM records check: "Is the message authentic?"
 
-* DMARC records decide: "If either of those checks fail, here is what to do with the email."
+* DMARC records decide: "If either of those checks fail, here is how to handle the email."
 
 See:
 
