@@ -390,7 +390,21 @@ The [Email Domains API](https://developer.okta.com/docs/api/openapi/okta-managem
 
 7. After you've updated your DNS records through your domain provider, click **Verify**. Okta begins polling your DNS records until it detects your updates (this may take up to 24 hours). Your configuration is pending until the DNS updates are detected.
 
-> **Note:** If you use the default Okta email provider, [SPF and DKIM records](https://support.okta.com/help/s/article/spf-and-dkim-for-custom-email-senders?language=en_US) are automatically generated. If you use a custom email provider, you need to configure the SPF and DKIM. See [Use your own email provider](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-provider-main).
+### Set up additional DNS records
+
+If you use the default Okta email provider, [SPF and DKIM records](https://support.okta.com/help/s/article/spf-and-dkim-for-custom-email-senders?language=en_US) are automatically generated. If you use a custom email provider, you need to configure SPF and DKIM records. And, depending on which email provider you use, you may need to set up a [DMARC record](https://support.okta.com/help/s/article/Configuring-DMARC-for-custom-mail-domain?language=en_US) as well.
+
+* **Sender Policy Framework (SPF):** An [SPF record](https://www.cloudflare.com/en-ca/learning/dns/dns-records/dns-spf-record/) lists the IP addresses and domains authorized to send mail for your domain. Update your existing SPF record to include your email provider. For example, if you're using Google Workspace, add `include:_spf.google.com` to your SPF record. If you don't have an existing SPF record, create another TXT record with the appropriate SPF value for your provider.
+* **DomainKeys Identified Mail (DKIM):** [DKIM](https://www.cloudflare.com/en-ca/learning/dns/dns-records/dns-dkim-record/) adds a cryptographic signature to emails to verify that the message wasn't altered in transit. Generate DKIM keys with your email provider and add the resulting TXT records to your DNS configuration. For example, [Google Workspace provides DKIM keys](https://support.google.com/a/answer/174124) that you can add to your DNS records.
+* **Domain-based Message Authentication, Reporting and Conformance (DMARC) record:** [DMARC records](https://dmarc.org/overview/) are TXT records that function like policies for email providers. They instruct email providers on how to handle unauthenticated emails sent from your domain. Major email service providers such as Google and Yahoo require DMARC for bulk senders. Without a DMARC record, emails may be rejected, resulting in delivery failures.
+
+These three records work together to create layers of security for your email domain.
+
+* SPF records check: "Is this sender allowed?"
+
+* DKIM records check: "Is the message authentic?"
+
+* DMARC records decide: "If either of those checks fail, here is what to do with the email."
 
 ### Known Issues
 
