@@ -64,13 +64,7 @@ Go to the Okta [Postman Collections](https://www.postman.com/okta-eng/okta-publi
 
 To fork a collection from the Okta [Postman Collections](https://www.postman.com/okta-eng/okta-public-api-collections/overview) reference page, complete the following steps:
 
-1. Click **Run in Postman** next to the collection you want.
-
-   For example, click this **Run in Postman** action to import the Users API collection:
-   [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9daeb4b935a423c39009)
-   > **Note:** The **Run in Postman** option is also available on each [core API reference](/docs/reference/core-okta-api/) page on this site.
-
-1. On the **Okta Public API Collections**, click the **Collections** icon.
+1. Click the **Collections** icon from the **Okta Public API Collections** left-hand navigation panel.
 
 1. Click on the collection you want to fork, click the menu icon, and then select **Fork**.
 
