@@ -113,14 +113,19 @@ After you've created your custom email domain, configure it with your email prov
 
 The process for adding DNS records to your email provider can vary depending on the provider. Refer to your provider's documentation for specific instructions.
 
-#### Configure SPF and DKIM
+#### Set up DNS records for your email domain
 
 If you send email using a default domain provided by your email provider (such as `mycompany.google.com`), the provider often manages these records automatically. However, when using a custom domain (such as `notifications.mycompany.com`), you must manually authorize the provider in your DNS settings.
 
-Update your DNS records to authorize your email provider:
+Set up the following DNS records to authorize your email provider to send email on behalf of your custom email domain:
 
-* **Sender Policy Framework (SPF):** An [SPF record](https://www.cloudflare.com/en-ca/learning/dns/dns-records/dns-spf-record/) lists the IP addresses and domains authorized to send mail for your domain. Update your existing SPF record to include your email provider. For example, if you're using Google Workspace, add `include:_spf.google.com` to your SPF record. If you don't have an existing SPF record, create another TXT record with the appropriate SPF value for your provider.
-* **DomainKeys Identified Mail (DKIM):** [DKIM](https://www.cloudflare.com/en-ca/learning/dns/dns-records/dns-dkim-record/) adds a cryptographic signature to emails to verify that the message wasn't altered in transit. Generate DKIM keys with your email provider and add the resulting TXT records to your DNS configuration. For example, [Google Workspace provides DKIM keys](https://support.google.com/a/answer/174124) that you can add to your DNS records.
+* Sender Policy Framework (SPF)
+* DomainKeys Identified Mail (DKIM)
+* Domain-based Message Authentication, Reporting and Conformance (DMARC)
+
+> **Note:** Major email service providers such as Google and Yahoo require DMARC for bulk senders. Without a DMARC record, emails may be rejected and cause delivery failures.
+
+See [Set up additional DNS records](/docs/guides/custom-url-domain/main/#set-up-additional-dns-records).
 
 ## Configure the OAuth 2.0 settings for your custom email provider
 
