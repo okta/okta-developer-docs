@@ -27,7 +27,7 @@ The Okta MCP server addresses security, automation, and integration requirements
 
 ## Secure AI agent interactions
 
-The Okta MCP server implements AI agent identity security through three methods:
+The Okta MCP server implements AI agent identity security through the following methods:
 
 ### Principle of least privilege
 
@@ -44,14 +44,6 @@ The Okta MCP server maintains a detailed record of all agent interactions to sup
 - The server creates a complete audit trail of all AI agent activities.
 - The system integrates with Okta system logs for centralized monitoring and security investigations.
 - The server provides data to support compliance requirements and internal security audits.
-
-### Constrained access
-
-The Okta MCP server acts as a controlled gateway that limits the reach of AI agents within the environment.
-
-- The server translates natural language into validated, structured Okta admin management API calls.
-- The system enforces all actions through pre-defined tool definitions to prevent arbitrary execution.
-- The architecture prevents AI agents from accessing the Okta APIs directly.
 
 ## How the Okta MCP server works
 
