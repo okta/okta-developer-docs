@@ -60,23 +60,15 @@ You need an Okta Integrator Free Plan org to get started. Don't have one? [Creat
 
 ## Import a collection
 
-Go to the Okta [Postman Collections](https://developer.okta.com/docs/reference/postman-collections/) reference to import the collection that you want to test.
+Go to the Okta [Postman Collections](https://www.postman.com/okta-eng/okta-public-api-collections/overview) reference to fork the collection that you want to test.
 
-> **Note:** The Postman Collections reference is no longer maintained. For the latest version of the Postman collections, you can fork a collection from the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview).
+To fork a collection from the Okta [Postman Collections](https://www.postman.com/okta-eng/okta-public-api-collections/overview) reference page, complete the following steps:
 
-To import a collection from the Okta [Postman Collections](https://developer.okta.com/docs/reference/postman-collections/) reference page, complete the following steps:
+1. Click the **Collections** icon from the **Okta Public API Collections** left-hand navigation panel.
 
-1. Click **Run in Postman** next to the collection you want.
+1. Click on the collection you want to fork, click the menu icon, and then select **Fork**.
 
-   For example, click this **Run in Postman** action to import the Users API collection:
-   [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9daeb4b935a423c39009)
-   > **Note:** The **Run in Postman** option is also available on each [core API reference](/docs/reference/core-okta-api/) page on this site.
-
-1. On the **Run in** dialog, either select to import your collection to your local Postman app or to your web Postman account.
-
-   If you select the web option, you need to sign in to your online Postman account.
-
-1. Select the workspace to import your collection, and then click **Import**.
+1. Specify a name and workspace for your forked collection.
 
 ## Set up Okta for API access
 

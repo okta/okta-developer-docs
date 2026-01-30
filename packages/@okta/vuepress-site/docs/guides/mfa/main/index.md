@@ -21,7 +21,7 @@ This guide explains how to implement multifactor authentication (MFA) and provid
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * [Postman configured](/docs/reference/rest/) to make API requests to your Okta Integrator Free Plan org
-* The Users API and Factors API [Postman Collections](/docs/reference/postman-collections/)
+* The Users API and Factors API [Postman Collections](https://www.postman.com/okta-eng/okta-public-api-collections/folder/4920859-a7acca49-b8e2-471b-89ab-1bbe840a9b46?action=share&source=copy-link&creator=27080442&ctx=documentation)
 * [An API token](/docs/guides/create-an-api-token/) (created in your Okta org)
 
 ---
@@ -53,7 +53,7 @@ Next, make sure that your Postman setup is configured correctly:
 3. Scroll to the **List Users** folder and select the **List Users** request template. The request appears on the right.
 4. Click **Send**. A successful request results in an HTTP status code of `200` and a JSON payload response with the Users associated with your org.
 
-> **Note:** If you don't already have Postman set up, follow these instructions to [set up Postman](/docs/reference/rest/) to work with Okta. There’s also a dedicated page with all of our [Postman Collections](/docs/reference/postman-collections/).
+> **Note:** If you don't already have Postman set up, follow these instructions to [set up Postman](/docs/reference/rest/) to work with Okta. There’s also a dedicated page with all of our [Postman Collections](https://www.postman.com/okta-eng/okta-public-api-collections/overview).
 
 ## Create a test user
 
