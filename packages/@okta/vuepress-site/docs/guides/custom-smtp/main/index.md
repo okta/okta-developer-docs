@@ -123,7 +123,7 @@ Set up the following DNS records to authorize your email provider to send email 
 * DomainKeys Identified Mail (DKIM)
 * Domain-based Message Authentication, Reporting and Conformance (DMARC)
 
-> **Note:** Major email service providers such as Google and Yahoo require DMARC for bulk senders. Without a DMARC record, emails may be rejected and cause delivery failures.
+> **Note:** Major email service providers, such as Google and Yahoo, require DMARC for bulk senders. Without a DMARC record, emails may be rejected and cause delivery failures.
 
 See [Set up additional DNS records](/docs/guides/custom-url-domain/main/#set-up-additional-dns-records).
 
