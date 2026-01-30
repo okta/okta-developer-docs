@@ -120,8 +120,8 @@ export const concepts = [
         path: "/docs/concepts/sign-in-widget/",
       },
       {
-        title: "User profiles",
-        path: "/docs/concepts/user-profiles/",
+        title: "Universal Directory",
+        path: "/docs/concepts/universal-directory/",
       },
       {
         title: "Understanding IAM",
