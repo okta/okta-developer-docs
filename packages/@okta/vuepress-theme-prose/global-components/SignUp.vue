@@ -123,6 +123,7 @@
               </div>
             </div>
           </div>
+          <!-- Okta Integrator SignUp Form -->
           <div
             class="signup__popup"
             :class="formHidden ? 'active' : ''"
@@ -368,20 +369,20 @@
                     {{ error }}
                   </div>
                   <div
-                    v-show="displayConsent"
                     class="consent--section"
                   >
                     <div class="consent--section-text">
                       <p>
-                        By clicking "SIGN UP" I agree to the
+                        By clicking “Sign Up,” I agree to be bound by the 
                         <SmartLink :item="{ link: '/terms/', target: '_blank' }">
-                          Developer Edition Subscription Agreement
+                          Integrator Free Plan Agreement
                         </SmartLink>
                         and Okta’s
                         <SmartLink :item="{ link: 'https://www.okta.com/privacy-policy' }">
                           Privacy Policy
                         </SmartLink>
-                        during my use of the Okta Integrator Free Plan.
+                        . If I am acting on behalf of an employer or another entity, I represent and warrant that I have the legal authority to bind that entity and its users to these terms. 
+                        I acknowledge that my access to the Integrator Free Plan will automatically expire after 180 consecutive days of inactivity.
                       </p>
                       <p>
                         I agree that Okta may contact me with marketing communications.
@@ -451,6 +452,7 @@
               </form>
             </div>
           </div>
+          <!-- End Okta Integrator SignUp Form -->
         </div>
         <div class="signup__footer">
           <p>
@@ -508,7 +510,6 @@ export default {
       isShowTermsConditionsDialog: false,
       socialUrl: "",
       state: { label: "", list: [] },
-      displayConsent: false,
       displayAgree: false,
       form: {
         state: { value: "", isValid: true, errorList: [], hidden: true },
@@ -708,8 +709,6 @@ export default {
     },
 
     showConsentSection(country) {
-      // Show consent section while selecting country.
-      this.displayConsent = true;
       // Hide consent opt checkbox.
       this.displayAgree = false;
       this.form.consentAgree.hidden = true;
