@@ -74,6 +74,10 @@ You need an access token for API requests to each Okta org. After you have API a
 
 ---
 
+<CreateOAuth2Token/>
+
+---
+
 ### Create an IdP in the hub org
 
 In the hub org, create an IdP to configure federation between your spoke and hub orgs. Add an OIDC Okta Integration IdP by using the [Create an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) request with the following body parameters. This call creates the IdP in the hub org.
