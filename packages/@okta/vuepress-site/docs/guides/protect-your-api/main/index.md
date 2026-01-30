@@ -23,7 +23,7 @@ Add a layer of authorization to your web services with [Okta API Access Manageme
 
 #### Sample code
 
-<StackSnippet snippet="samplecode" />
+<StackSnippet snippet="samplecode" /><br>
 
 > **Note**: Several standalone tools can send requests to APIs and allow you to inspect the responses. Our documentation uses **Postman** and offers [Postman Collections](https://www.postman.com/okta-eng/okta-public-api-collections/overview) to test its APIs more efficiently with a GUI. It also includes HTTP requests as text for those who prefer to use a terminal utility such as [cURL](https://curl.se/download.html).
 
