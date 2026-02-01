@@ -928,12 +928,16 @@ export const guides = [
         ],
       },
       {
-        title: "Get started with Okta MCP server",
+        title: "Okta MCP server",
         subLinks: [
           {
-            title: "Access admin management APIs with Okta MCP server",
+            title: "Install and initialize",
             path: "/docs/guides/mcp-server/main/",
-          }
+          },
+          {
+            title: "Set up Okta app authentication",
+            path: "/docs/guides/configure-mcp-authentication/main/",
+          },
         ],
       },
       {

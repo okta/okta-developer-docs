@@ -1,5 +1,5 @@
 ---
-title: Access admin management APIs with Okta MCP server
+title: Install and initialize the Okta MCP server
 meta:
   - name: description
     content: mcp
@@ -14,7 +14,7 @@ Get started with the Okta Model Context Protocol (MCP) server setup and prerequi
 
 #### Learning outcomes
 
-* Verify the prerequisites and initialize your local MCP server project.
+* Verify the prerequisites and initialize your local Okta MCP server project.
 
 #### What you need
 
@@ -53,6 +53,8 @@ Install and configure the Okta MCP server project for integration with your chos
     uv sync
     ```
 
+---
+
 ## Next steps
 
-After the project environment is ready, continue to the guide to configure an Okta app integration and obtain authentication credentials.
+[Set up Okta app authentication](/docs/guides/configure-mcp-authentication/main/) for the Okta MCP server to create the required credentials and grant API scopes.
