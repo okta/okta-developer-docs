@@ -9,6 +9,10 @@ meta:
 
 Universal Directory (UD) is the foundational data layer for the entire Okta platform. While often associated with Single Sign-On (SSO), its primary function is to serve as a flexible, API-first, and centralized directory. It acts as the definitive source of truth for all identities, regardless of their origin, providing a unified data model for all other Okta services and custom apps.
 
+## Why Universal Directory matters for developers
+
+For developers, Universal Directory provides a unified, API-first user model. Instead of writing and maintaining custom connectors for Active Directory, LDAP, and various APIs, you can build your app once against the Okta APIs. Okta abstracts away the complexity of federating and sourcing upstream identities, presenting a clean and predictable JSON object for every user. This abstraction layer significantly reduces development time and future-proofs your app against future changes in the org's identity infrastructure.
+
 ## The core data layer for the Okta platform
 
 Universal Directory isn't a standalone feature but the underlying data store that enables all of Okta's services. Every interaction with an Okta service, from authentication to user provisioning, is an interaction with UD's data model.
@@ -26,7 +30,7 @@ Universal Directory further extends its capabilities beyond these core component
 
 Okta represents each user as a single user object. The profile object within this user object stores the user's attributes. Okta builds this profile on a base schema of 31 standard attributes (such as `firstName`, `lastName`, or `email`), following the [RFC System for Cross-domain Identity Management: Core Schema](https://datatracker.ietf.org/doc/html/rfc7643#section-4.1).
 
-The true power of UD lies in its schema extensibility. Using the **Profile Editor** or the Schema API, you can add custom attributes to the profile object to store any required organizational data. You must assign each custom attribute a specific data type (such as string, number, boolean, integer, or array). Configure attributes with end user permissions (read-only, read-write) and other constraints, such as being required or unique. This allows you to transform the Okta user profile into the definitive and trusted record for each user. See [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/) and [Schemas API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/).
+The true power of UD lies in its schema extensibility. Using the Profile Editor or the Schema API, you can add custom attributes to the profile object to store any required organizational data. You must assign each custom attribute a specific data type (such as string, number, Boolean, integer, or array). Configure attributes with end user permissions (read-only, read-write) and other constraints, such as being required or unique. This allows you to transform the Okta user profile into the definitive and trusted record for each user. See [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/) and [Schemas API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/).
 
 Okta supports importing users from several sources, primarily through directory services, CSV files, and connected apps. You can also import users through custom sources (see [Build an Anything-as-a-Source custom client integration](/docs/guides/anything-as-a-source/)). Importing users into UD enables you to automate, secure, and scale identity operations like the [mover-joiner-leaver](/docs/guides/oin-lifecycle-mgmt-overview/#example-of-a-workforce-lifecycle-journey-with-okta) lifecycle management process. See [Import Users](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-import-users-main.htm).
 
@@ -124,7 +128,7 @@ You can store many different types of data in a user profile such as strings, nu
 * **Attribute Length:** How long the value can be, as appropriate for the attribute's data type
 * **Attribute required:** If an attribute is required, Okta gives an error if the attribute isn't included.
 
-Schemas define every user profile type: Okta default user profile, custom user profiles, group profiles, and app user profiles. The [Schemas API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/) manages operations for all user profiles. See the [User Schema object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getUserSchema!c=200&path=$schema&t=response), [App User Schema object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getApplicationUserSchema!c=200&path=$schema&t=response), and [Group Schema object].
+Schemas define every user profile type: Okta default user profile, custom user profiles, group profiles, and app user profiles. The [Schemas API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/) manages operations for all user profiles. See the [User Schema object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getUserSchema!c=200&path=$schema&t=response), [App User Schema object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getApplicationUserSchema!c=200&path=$schema&t=response), and [Group Schema object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getGroupSchema!c=200&path=$schema&t=response).
 
 ## Advanced use cases
 
@@ -148,7 +152,7 @@ Key capabilities and benefits of realms include:
 * **Customized policies**: Realms allow you to apply unique password and authentication policies for the sign-in experience for each user population.
 * **Avoiding org sprawl**: Before realms, the primary solution for this level of isolation was to create and manage multiple, separate Okta orgs, which was costly and complex. Realms provide a more scalable solution within a single org.
 
-For developers, realms are fully manageable using the Realms API (/api/v1/realms). You can programmatically create realms, assign users, and configure realm-specific behaviors, enabling complex, multi-tenant use cases on a unified platform.
+For developers, realms are fully manageable using the Realms API (`/api/v1/realms`). You can programmatically create realms, assign users, and configure realm-specific behaviors, enabling complex, multi-tenant use cases on a unified platform.
 
 See the [Realms API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Realm/) and [Manage Realms](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/realms/realms.htm).
 
@@ -158,7 +162,3 @@ Custom attributes stored in UD serve as powerful inputs for the Okta policy engi
 
 * **Fine-grained authentication:** An Okta authentication policy can reference UD attributes to enforce step-up authentication. For example: if a user has `user.clearanceLevel \== "High"`, the policy can require a FIDO2 (WebAuthn) factor, even if they are on a trusted network.
 * **Fine-grained authorization:** An app sign-in policy can use UD attributes to grant or deny access. For example, for a finance tools app, the policy could allow access if `user.department \== "Finance"`, but deny all others, irrespective of group memberships.
-
-## Why Universal Directory matters for developers
-
-For developers, Universal Directory provides a unified, API-first user model. Instead of writing and maintaining custom connectors for Active Directory, LDAP, and various APIs, you can build your app once against the Okta APIs. Okta abstracts away the complexity of federating and sourcing upstream identities, presenting a clean and predictable JSON object for every user. This abstraction layer significantly reduces development time and future-proofs your app against future changes in the org's identity infrastructure.
