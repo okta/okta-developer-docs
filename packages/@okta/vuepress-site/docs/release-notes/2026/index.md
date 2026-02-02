@@ -22,9 +22,6 @@ title: Okta Classic Engine API release notes 2026
 | [Dynamic OS version compliance for device assurance is GA in Preview](#dynamic-os-version-compliance-for-device-assurance-is-ga-in-preview) | February 7, 2026 |
 | [Lightweight Directory Access Protocol Bidirectional Group Management](#lightweight-directory-access-protocol-bidirectional-group-management) | |
 | [Okta MCP server](#okta-mcp-server) | February 6 2026 |
-| [Detection settings in session protection](#detection-settings-in-session-protection) | |
-| [Passkeys Rebrand is self-service EA](#passkeys-rebrand-is-self-service-ea) | February 6, 2026 |
-| [Custom FIDO2 AAGUID](#custom-fido2-aaguid) | July 16, 2025 |
 | [Bugs fixed in 2026.02.0](#bugs-fixed-in-2026020)| |
 
 #### Linux as a platform condition
@@ -61,26 +58,6 @@ Okta can only manage group memberships for users and groups imported into Okta u
 ### Okta MCP server
 
 The Okta Model Context Protocol (MCP) server is a secure protocol abstraction layer that enables AI agents/Large Language Models (LLMs) to interact with Okta org. MCP clients can now communicate with Okta’s scoped management APIs in natural language. This simplifies building context-aware AI workflows while ensuring strict access control and least-privilege security.
-
-### Detection settings in session protection
-
-Tailor ITP to your org’s security priorities to gain control and balance security with a seamless user experience. With new detection settings, you can define which session context changes trigger policy re-evaluations, helping you focus only on what truly matters. See [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
-
-### Passkeys Rebrand is self-service EA
-
-The **FIDO2 (WebAuthn)** authenticator is being rebranded to **Passkeys (FIDO2 WebAuthn)** and Okta is introducing enhanced administrative controls and a streamlined user experience. This update centralizes passkey management through a consolidated settings page, allows for customized authenticator naming, and introduces a dedicated **Sign in with a passkey** button within the Sign-In Widget. These enhancements simplify the authentication journey and provide users with a more intuitive sign-in process with the **Sign in with a passkey** button.
-
-For more information about the new settings and updates, see [Configure the FIDO2 (WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn).
-
-<!-- OKTA-1012303 FF: PASSKEYS_REBRAND preview date: Feb 6, 2026 link: and [`settings`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod!path=8/settings&t=request) -->
-
-### Custom FIDO2 AAGUID
-
-You can now use the [Authenticators API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/) to create, view, and update custom Authenticator Attestation Global Unique Identifiers (AAGUIDs).
-
-Admins can add non-FIDO Metadata Service (MDS) security keys and other authenticators and have more granular control over them. This extends FIDO2 (WebAuthn) authenticator support to a wider range of security keys and other authenticators, which gives admins greater flexibility and control over the security in their environment.
-
-<!-- OKTA-971037 WEBAUTHN_CUSTOM_AAGUID preview date: July 16, 2025 -->
 
 ### Bugs fixed in 2026.02.0
 
