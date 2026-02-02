@@ -1,7 +1,8 @@
 1. Specify the following properties if you want to integrate Entitlement Management:
 
     > **Notes:**
-    > * Entitlement Management is an *Early Access* feature and it’s currently supported for integrations that manage entitlements through a SCIM server. To enable this feature in the OIN Admin Console, go to **Settings** > **Features** and turn on **Enable SCIM 2.0 Entitlement Management submission**.
+    > * Entitlement Management is an *Early Access* feature and it’s currently supported for integrations that manage entitlements through a SCIM server.
+    > * To enable Entitlement Management feature, go to **Settings** > **Features** in the Admin Console and turn on **Enable SCIM 2.0 Entitlement Management submission**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
     > * The **SCIM Entitlement Management properties** section only appears when you select **Entitlement Management** from the **Identity Lifecycle Management** section. This selection must be made along with the protocols that your integration supports.
 
     | Property | Description |
