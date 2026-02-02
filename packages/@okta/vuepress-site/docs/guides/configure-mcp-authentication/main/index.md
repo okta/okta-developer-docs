@@ -11,8 +11,8 @@ Create an Okta admin app integration and configure authentication credentials to
 
 #### Learning outcomes
 
-* Implement Device Authorization Grant or Private Key JWT to authorize the Okta MCP server.
-* Get the Client ID and security keys for server configuration.
+* Implement a device authorization grant or private key JWT to authorize the Okta MCP server.
+* Get the client ID and security keys for server configuration.
 
 #### What you need
 
@@ -41,10 +41,10 @@ To connect the Okta MCP server to an Okta org, create an Okta app integration an
 ### Create the native app integration
 
 1. Sign in to the [Okta Integrator Free Plan org](https://developer.okta.com/signup).
-1. In the Okta Admin Console, go to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect** as the sign-in method.
-1. Select **Native Application** as the application type.
+1. Select **Native Application** as the app type.
 1. Click **Next**.
 1. Enter an **App integration name**, such as "Okta MCP Server".
 1. In **Grant type**, select **Device Authorization**.
@@ -60,7 +60,7 @@ Now that you've configured the app integration, grant the required API scopes.
 
 After you create the app, follow these steps to grant the required API scopes:
 
-1. In the Okta Admin Console, go to **Applications** > **Applications** and locate the MCP server app.
+1. In the Admin Console, go to **Applications** > **Applications** and locate the MCP server app.
 1. Select the **Okta API Scopes** tab.
 1. Click **Grant** for the required API scopes based on requirements, such as `okta.users.read`, `okta.groups.manage`, or `okta.logs.read`.
 
@@ -89,11 +89,11 @@ The private key JWT flow allows the Okta MCP server to run without human interve
 ### Create an API service app integration
 
 1. Sign in to the [Okta Integrator Free Plan org](https://developer.okta.com/signup).
-1. In the Okta Admin Console, go to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
 1. Select **API Services** as the **Sign-in method**.
 1. Click **Next**.
-1. Enter an **App integration name**, such as, "Okta MCP server automation".
+1. Enter an **App integration name**, such as "Okta MCP server automation".
 1. Click **Save**.
 
 ### Configure client authentication
@@ -104,7 +104,7 @@ The private key JWT flow allows the Okta MCP server to run without human interve
 1. In **Public keys** > **Configuration**, select **Save keys in Okta**.
 1. Click **Add key**.
 1. In the **Public Keys** section, click **Add Key**.
-   The Add a public key pop-up window opens.
+   The **Add a public key** dialog opens.
 
 ### Generate or add a public key
 
@@ -128,7 +128,7 @@ You can either generate the key in Okta (recommended) and copy it in PEM format,
 
    </div>
 
-1. Under **General Settings**, click **Edit**.
+1. In **General Settings**, click **Edit**.
 1. Disable **Require Demonstrating Proof of Possession (DPoP) header in token requests**.
 1. Click **Save**.
 
@@ -159,7 +159,7 @@ You can either generate the key in Okta (recommended) and copy it in PEM format,
 
 ---
 
-You have created an Okta app integration, configured the authentication flow, and granted the required API scopes for your Okta MCP server.
+You've created an app integration, configured the authentication flow, and granted the required API scopes for your Okta MCP server.
 
 ## Next Steps
 
