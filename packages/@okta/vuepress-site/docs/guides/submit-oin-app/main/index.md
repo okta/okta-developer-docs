@@ -58,7 +58,8 @@ This guide covers submissions that use the following protocols and integrations:
 
 > **Notes:**
     > * Universal Logout integrations are only supported for SAML 2.0 and OIDC protocols. If you want to submit a Universal Logout integration with SCIM provisioning, you must also submit an SSO integration with either SAML 2.0 or OIDC.
-    > * Entitlement Management is only supported for SCIM and is available as an *Early Access* feature.
+    > * Entitlement Management is an *Early Access* feature and it’s currently supported for integrations that manage entitlements through a SCIM server.
+    > * To enable Entitlement Management feature, go to **Settings** > **Features** in the Admin Console and turn on **Enable SCIM 2.0 Entitlement Management submission**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
     > * SWA app integrations are no longer accepted for publication in the OIN catalog. However, the OIN team still maintains existing SWA apps.
     > * There are protocol-specific limitations on integrations in the OIN. See [OIN limitations](/docs/guides/submit-app-prereq/main/#oin-limitations).
 
