@@ -38,7 +38,7 @@ An access token is the credential that a client app uses to access protected res
 
 > **Note**: An "API token" is a broad term that refers to any credential used to authenticate to an API (including static API keys or bearer tokens). In the context of OAuth 2.0, the access token is the API token used for delegated authorization. Unlike static API keys, OAuth 2.0 access tokens have limited lifespans and are tied to a user's specific consent and the client's permissions, making them more secure for delegated access.
 >
-> See [Set up Okta for API access](/docs/reference/rest/#set-up-okta-for-api-access) to use access tokens for API authentication.
+> See [Set up Okta for OAuth API access](/docs/guides/set-up-oauth-api/main/) to use access tokens for API authentication.
 
 ### Refresh tokens
 

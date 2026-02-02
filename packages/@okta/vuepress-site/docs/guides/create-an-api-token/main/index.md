@@ -6,7 +6,7 @@ layout: Guides
 
 This guide explains what an API token is, why you need one, and how to create one.
 
-> **Note:** For enhanced security, Okta strongly recommends using OAuth 2.0 for authorization with Okta APIs rather than relying on API tokens. OAuth 2.0 improves security by employing short-lived access tokens that limit the scope of granted access. See [Set up Okta for OAuth API access](/docs/guides/set-up-oauth-api/main/).
+> **Note:** For enhanced security, Okta strongly recommends using the OAuth 2.0 authentication scheme with Okta APIs rather than relying on the Okta-propriety `SSWS` API token scheme. OAuth 2.0 improves security by employing short-lived access tokens that limit the scope of granted access. See [Set up Okta for OAuth API access](/docs/guides/set-up-oauth-api/main/).
 
 ---
 
