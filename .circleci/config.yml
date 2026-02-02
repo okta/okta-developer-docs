@@ -70,33 +70,17 @@ jobs:
             name: Build
             command: yarn build
         - run:
-            name: Run link checker
-            command: yarn broken-link-checker:external > output.txt 2>&1 || true
-        - run:
-            name: Extract URLs from log
-            command: |
-              grep -o 'Link: https\?://[^[:space:]]*' output.txt | sed 's/Link: //' > urls.txt
-            when: always
-        - run:
-            name: Remove False Positives
-            command: |
-              comm -23 <(sort urls.txt | uniq) <(sort falsepos.txt | uniq) > broken_external_urls.txt
-        - run:
-            name: Print urls to log
-            command: |
-              cat broken_external_urls.txt
-        # - run:
-        #     name: Run checks
-        #     command: ./scripts/yarn-checks-ci.sh
-        # - store_test_results:
-        #     path: test_results
-        # - store_artifacts:
-        #     path: /tests/cypress/screenshots
-        # - persist_to_workspace:
-        #     root: ~/project
-        #     paths:
-        #       - .
-              # - .git
+            name: Run checks
+            command: ./scripts/yarn-checks-ci.sh
+        - store_test_results:
+            path: test_results
+        - store_artifacts:
+            path: /tests/cypress/screenshots
+        - persist_to_workspace:
+            root: ~/project
+            paths:
+              - .
+              - .git
 
   nightly_link_checker:
     docker:
@@ -112,11 +96,12 @@ jobs:
           command: yarn build
       - run:
           name: Run link checker
-          command: yarn broken-link-checker:external > output.txt 2>&1 || true
+          command: yarn broken-link-checker:external 2>&1 | tee output.txt || true
       - run:
           name: Extract URLs from log
           command: |
             grep -o 'Link: https\?://[^[:space:]]*' output.txt | sed 's/Link: //' > urls.txt
+            cat urls.txt
           when: always
       - run:
           name: Remove False Positives
