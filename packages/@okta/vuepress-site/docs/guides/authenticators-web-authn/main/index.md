@@ -42,7 +42,7 @@ Besides being resistant to phishing attacks, WebAuthn can drastically reduce sig
 
 Passkeys are discoverable WebAuthn credentials that use the [FIDO2 Web Authentication (WebAuthn) standard](https://fidoalliance.org/fido2-2/fido2-web-authentication-webauthn/). They store the user identifier, which is the unique ID that associates the credential with a specific user, on the authenticator. Storing the user identifier on the authenticator enables "usernameless" sign-in flows, allowing users to initiate an authentication challenge without having to enter their username. Passkeys can be synced across devices by using cloud services (multi-device passkeys) or they can be hardware-bound to a specific authenticator (single-device passkeys), such as a security key or platform authenticator.
 
-Non-discoverable WebAuthn credentials are sometimes referred to as second-factor credentials and they're explicitly used after another factor during MFA flows. They don't store a user identifier. They require the user to provide a username first so the app can identify which credential to challenge. They can be hardware-bound or synced across devices.
+Non-discoverable WebAuthn credentials are sometimes referred to as second-factor credentials and they're explicitly used after another factor during MFA flows. They don't store a user identifier. They require the user to provide a username first so the app can identify which credential to challenge. They're typically hardware-bound, but some non-discoverable credentials can also be synced across devices.
 
 See [Passkeys and Okta overview](/docs/guides/custom-passkeys/main/#passkeys-and-okta-overview) to learn more about passkeys, Relying Party IDs (RP IDs), and how to use them.
 
