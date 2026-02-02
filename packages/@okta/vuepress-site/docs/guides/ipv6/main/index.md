@@ -70,6 +70,8 @@ Support is also not available for IPv6 Beta orgs.
 
 Ensure that the following configurations are made to your Preview org to test IPv6:
 
+* Enable IPv6 for your org by emailing your org ID, org subdomain, and org cell to Okta at: `ipv6_beta@okta.com`.
+
 * Allow listing: If you use allowlist access to Okta, you need to update your allowlist rules (firewalls, ACLs, and so on) to also allow IPv6 traffic to Okta.
 
 * Network zone configuration: It is your responsibility to update any network zone configuration that assumes IPv4 is the only supported protocol.
