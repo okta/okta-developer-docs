@@ -28,7 +28,7 @@ The Okta IPv6 Beta allows communication with an Okta org in a Preview cell using
 
 For the Beta, IPv6 is only available in Preview cells.
 
-> **Note:** Contact Okta Support to enable IPv6 for your Preview org.
+> **Note:** To enable IPv6 for your Preview org, email `ipv6_beta@okta.com` with your org ID, org subdomain, and org cell. See [How to Find the Okta OrgId](https://support.okta.com/help/s/article/how-to-find-the-okta-orgid?language=en_US).
 
 ### Okta IPv6 scope
 
@@ -70,7 +70,7 @@ Support is also not available for IPv6 Beta orgs.
 
 Ensure that the following configurations are made to your Preview org to test IPv6:
 
-* Enable IPv6 for your org by emailing your org ID, org subdomain, and org cell to Okta at: `ipv6_beta@okta.com`.
+* To request IPv6 be enabled for your org, email your org's ID, org subdomain and org's cell to Okta at: `ipv6_beta@okta.com`. See [How to Find the Okta OrgId](https://support.okta.com/help/s/article/how-to-find-the-okta-orgid?language=en_US).
 
 * Allow listing: If you use allowlist access to Okta, you need to update your allowlist rules (firewalls, ACLs, and so on) to also allow IPv6 traffic to Okta.
 
