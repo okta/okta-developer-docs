@@ -6,10 +6,10 @@
 
     <ul>
       <li>
-        User-based access: The access token is tied to a specific admin user. For this access, you need to provide an Okta admin username and credentials. See <a href="/docs/reference/rest/#user-based-api-access-setup">User-based API access setup</a>.  Grant the appropriate scopes for your endpoint and use-case. Use this access type for simple testing of the APIs.
+        User-based access: The access token is tied to a specific admin user. For this access, you need to provide an Okta admin username and credentials. See <a href="/docs/reference/rest/#user-based-api-access-setup">User-based API access setup</a>.  Grant the appropriate scopes for your endpoint and use case. Use this access type for simple testing of the APIs.
       </li>
       <li>
-        Service-based access: If you have a service app or script that makes API requests to Okta without user context, see <a href="/docs/reference/rest/#service-based-api-access-setup">Service-based API access setup</a>. Grant the appropriate scopes for your endpoint and use-case.
+        Service-based access: If you have a service app or script that makes API requests to Okta without user context, see <a href="/docs/reference/rest/#service-based-api-access-setup">Service-based API access setup</a>. Grant the appropriate scopes for your endpoint and use case.
       </li>
     </ul>
   </div>
