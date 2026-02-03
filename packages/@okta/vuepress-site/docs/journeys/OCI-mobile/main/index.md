@@ -26,7 +26,7 @@ There are three key elements to enabling a mobile sign-in form with the Okta pla
 
 ## Plan
 
-Consider how your users sign in when they access your portal before designing your sign-in form. Your Okta org includes three [preset authentication policies](https://help.okta.com/oie/en-us/content/topics/identity-engine/policies/about-preset-auth-policies.htm): password only, any one factor, and any two factors. Also, your org comes with four Basic authentication factors enabled: password, email, SMS, and voice.
+Consider how your users sign in when they access your portal before designing your sign-in form. Your Okta org includes three [preset authentication policies](https://help.okta.com/oie/en-us/content/topics/identity-engine/policies/about-preset-auth-policies.htm): password only, any one factor, and any two factors. Also, your org comes with four basic authentication factors enabled: password, email, SMS, and voice.
 
 When you need to [add an authentication factor](https://help.okta.com/oie/en-us/content/topics/identity-engine/authenticators/about-authenticators.htm) or build a custom one, you can do it all in the Admin Console, no coding necessary.
 
