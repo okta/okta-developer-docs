@@ -96,11 +96,12 @@ jobs:
           command: yarn build
       - run:
           name: Run link checker
-          command: yarn broken-link-checker:external > output.txt 2>&1 || true
+          command: yarn broken-link-checker:external 2>&1 | tee output.txt || true
       - run:
           name: Extract URLs from log
           command: |
             grep -o 'Link: https\?://[^[:space:]]*' output.txt | sed 's/Link: //' > urls.txt
+            cat urls.txt
           when: always
       - run:
           name: Remove False Positives
