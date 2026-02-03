@@ -120,7 +120,7 @@ Assign the user requesting the Labels APIs to your API access app. This is the a
 
 Use the [Labels](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/) API to manage governance labels.
 
-Examples in this section assume that you're making the request with an OAuth 2.0 access token. See [Get an access token and make a request](docs/guides/set-up-oauth-api/main/#get-an-access-token-and-make-a-request) for API requests from a user.
+Examples in this section assume that you're making the request with an OAuth 2.0 access token. See [Get an access token and make a request](/docs/guides/set-up-oauth-api/main/#get-an-access-token-and-make-a-request) for API requests from a user.
 
 ### Create a label
 
