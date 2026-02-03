@@ -1146,6 +1146,10 @@ export const journeys = [
             title: "Apply your brand to the Okta user experience",
             journeyName: "OCI-branding"
           },
+          {
+            title: "Add a sign-in form to your mobile app",
+            journeyName: "OCI-mobile"
+          },
         ]
       },
     ],
