@@ -8,6 +8,10 @@ meta:
    level: Beginner
 ---
 
+# Add a sign-in form to your mobile app
+
+Use the Okta Client SDK to build a secure and complete sign-in experience for your mobile app, giving your users seamless access while protecting their data.
+
 ## Introduction
 
 You've built a mobile app to access your customer portal and want to add identity-related functionality like an admin area, user profiles, and more. Use the Okta Client SDK for a complete, native user experience.
