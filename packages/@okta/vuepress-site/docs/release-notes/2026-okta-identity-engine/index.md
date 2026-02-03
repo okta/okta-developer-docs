@@ -18,22 +18,42 @@ title: Okta Identity Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Grace period for device assurance is GA in Preview](#grace-period-for-device-assurance-is-ga-in-preview) | Octorber 9, 2026 |
+| [Linux as a platform condition](#linux-as-a-platform-condition) | February 6, 2026 |
+| [Skip counts for authenticator enrollment grace periods](#skip-counts-for-authenticator-enrollment-grace-periods) | February 6, 2026 |
 | [Dynamic OS version compliance for device assurance is GA in Preview](#dynamic-os-version-compliance-for-device-assurance-is-ga-in-preview) | February 7, 2026 |
+| [Grace period for device assurance is GA in Preview](#grace-period-for-device-assurance-is-ga-in-preview) | Octorber 9, 2026 |
 | [Lightweight Directory Access Protocol Bidirectional Group Management](#lightweight-directory-access-protocol-bidirectional-group-management) | |
 | [Detection settings in session protection](#detection-settings-in-session-protection) | |
 | [Passkeys Rebrand is self-service EA](#passkeys-rebrand-is-self-service-ea) | February 6, 2026 |
 | [Custom FIDO2 AAGUID](#custom-fido2-aaguid) | July 16, 2025 |
 | [OAuth 2.0 support for custom email providers](#oauth-20-support-for-custom-email-providers) | February 6, 2026 |
+| [Okta as a fallback IdP is self-service EA in preview](#okta-as-a-fallback-idp-is-self-service-ea-in-preview) | January 28, 2026 |
 | [Bugs fixed in 2026.02.0](#bugs-fixed-in-2026020)| |
+
+#### Linux as a platform condition
+
+Okta now supports `LINUX` as a device platform condition in the following policy types and policy rules:
+
+* App sign-in policies (`ACCESS_POLICY` rules)
+* Okta account management policy rules (Rules for the Okta account management `ACCESS_POLICY`)
+* Identity provider routing rules (`IDP_DISCOVERY` rules)
+<!-- OKTA-1093354 LINUX_SUPPORT_FOR_POLICIES preview date: Feb 6, 2026 link: See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/conditions/platform/exclude/os/type&t=request). -->
+
+### Skip counts for authenticator enrollment grace periods
+
+This feature allows admins to define a number of skips end users can defer enrollment into an authenticator, as well as customizations to the prompt when end users see the grace period. See [Grace periods](/docs/concepts/policies/#grace-periods).
+
+<!-- OKTA-1044803 FF: ENROLLMENT_POLICY_GRACE_PERIOD_V2 preview date: Feb 6, 2026 -->
+
+### Dynamic OS version compliance for device assurance is GA in Preview
+
+You can configure OS version compliance by using device assurance. However, you have to manually update the policies every time a new OS version or patch is released. With **Dynamic OS version compliance**, Okta updates device assurance policies with the latest OS versions and patches, eliminating the need for manual updates. With this feature you can ensure OS version compliance in your org without tracking OS releases. See [Dynamic OS version compliance](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-assurance-add) and [Device Assurance Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/createDeviceAssurancePolicy!path=1/osVersion&t=request). <!-- DEVICE_ASSURANCE_DYNAMIC_OS_SUPPORT OKTA-651282 Preview date: February 7, 2024 -->
 
 ### Grace period for device assurance is GA in Preview
 
 Occasionally, users’ devices might fall out of compliance with security policies due to temporary conditions such as missed software updates or unapproved network connections. Without a grace period, they would be immediately blocked from accessing critical resources, which disrupts productivity and causes frustration. The grace period for device assurance feature allows you to define a temporary window during which non-compliant devices can still access resources. This gives users time to remediate issues without being locked out, balancing productivity with security standards.
 
-### Dynamic OS version compliance for device assurance is GA in Preview
-
-You can configure OS version compliance by using device assurance. However, you have to manually update the policies every time a new OS version or patch is released. With **Dynamic OS version compliance**, Okta updates device assurance policies with the latest OS versions and patches, eliminating the need for manual updates. With this feature you can ensure OS version compliance in your org without tracking OS releases. See [Dynamic OS version compliance](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-assurance-add) and [Device Assurance Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/createDeviceAssurancePolicy!path=1/osVersion&t=request). <!-- DEVICE_ASSURANCE_DYNAMIC_OS_SUPPORT OKTA-651282 Preview date: February 7, 2024 -->
+See [Device Assurance Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/createDeviceAssurancePolicy!path=0/gracePeriod&t=request) and the [Add a device assurance policy guide](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-assurance-add). <!-- DEVICE_ASSURANCE_GRACE_PERIOD OKTA-803140 Preview date: October 9, 2024 -->
 
 ### Lightweight Directory Access Protocol Bidirectional Group Management
 
@@ -69,6 +89,10 @@ You can now configure custom email providers with OAuth 2.0 authentication. You 
 * See the [Email Providers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailServer/) to configure them with APIs.
 
 <!-- OKTA-1100448 FF: OAUTH_FOR_CUSTOM_SMTP_SERVER, preview date: Feb 6, 2026 -->
+
+### Okta as a fallback IdP is self-service EA in preview
+
+This feature redirects users to Okta to authenticate if the primary identity provider can't establish their identity. This can happen because of explicit rejections, like invalid credentials and MFA failures, or if an existing user session can't be silently verified, such as during a `prompt=none` OIDC request or `IsPassive=true` SAML request. See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyRules!c=200&path=4/actions&t=response). <!-- OKTA-1091224 ALLOW_IDENTITY_PROVIDER_CHAINING Preview org date: January 28, 2026 -->
 
 ### Bugs fixed in 2026.02.0
 
