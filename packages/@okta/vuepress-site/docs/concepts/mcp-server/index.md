@@ -88,4 +88,4 @@ This browser-less flow is recommended for automation, CI/CD pipelines, and headl
 
 ## Next steps
 
-To connect an LLM to an org, follow the Okta MCP server implementation guide for setup instructions.
+To connect an LLM to an org, follow the [Okta MCP server implementation guide](/docs/guides/mcp-server/main/) for setup instructions.
