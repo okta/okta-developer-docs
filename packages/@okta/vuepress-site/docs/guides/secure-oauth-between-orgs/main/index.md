@@ -63,20 +63,13 @@ You can set up federation and push user and group information from a spoke org t
 
 ### Make secure API requests with OAuth 2.0
 
-To make secure Okta API requests to configure your Okta orgs, obtain OAuth 2.0 access tokens for the `Authorization` header in requests. The Okta setup to obtain access tokens depends on whether you want the token to have a user-based or a service-based context:
+<CreateOAuth2Token/><br>
 
-* **User-based access**: The access token is tied to a specific admin user. For this access, you need to provide an Okta admin username and credentials. See [User-based API access setup](/docs/reference/rest/#user-based-api-access-setup). Grant `okta.apps.manage`, `okta.clients.manage`, `okta.clients.register`, `okta.roles.manage`, `okta.users.manage`, `okta.appGrants.manage`, and `okta.groups.manage` to the OIDC app during the setup. <!-- What are the scopes required for all requests for the access token? Ask Richard Chan -->
+For user-based access, grant the following scopes during the OIDC app setup: `okta.apps.manage`, `okta.clients.manage`, `okta.clients.register`, `okta.roles.manage`, `okta.users.manage`, `okta.appGrants.manage`, and `okta.groups.manage`.
 
-* **Service-based access**: If you have a service app or script that makes API requests to Okta without user context, see [Service-based API access setup](/docs/reference/rest/#service-based-api-access-setup). Grant `okta.apps.manage`, `okta.clients.manage`, `okta.clients.register`, `okta.roles.manage`, `okta.appGrants.manage`, `okta.users.manage`, and `okta.groups.manage` to the service app during the setup.
-<!-- Ask Thanh-Ha and Richard if we want to add service-based access as an option? If so, we need the scopes for the access token. -->
+For server-based access, grant the following scopes during the service app setup: `okta.apps.manage`, `okta.clients.manage`, `okta.clients.register`, `okta.roles.manage`, `okta.appGrants.manage`, `okta.users.manage`, and `okta.groups.manage`.
 
 You need an access token for API requests to each Okta org. After you have API access to your orgs, execute the steps in the following sections for the [Hub and spoke connection configuration with OAuth 2.0](#hub-and-spoke-connection-configuration-with-oauth-2-0).
-
----
-
-<CreateOAuth2Token/>
-
----
 
 ### Create an IdP in the hub org
 
