@@ -65,9 +65,7 @@ You can set up federation and push user and group information from a spoke org t
 
 <CreateOAuth2Token/><br>
 
-For user-based access, grant the following scopes during the OIDC app setup: `okta.apps.manage`, `okta.clients.manage`, `okta.clients.register`, `okta.roles.manage`, `okta.users.manage`, `okta.appGrants.manage`, and `okta.groups.manage`.
-
-For server-based access, grant the following scopes during the service app setup: `okta.apps.manage`, `okta.clients.manage`, `okta.clients.register`, `okta.roles.manage`, `okta.appGrants.manage`, `okta.users.manage`, and `okta.groups.manage`.
+Grant the following scopes during the OIDC app or service app setup: `okta.apps.manage`, `okta.clients.manage`, `okta.clients.register`, `okta.roles.manage`, `okta.users.manage`, `okta.appGrants.manage`, and `okta.groups.manage`.
 
 You need an access token for API requests to each Okta org. After you have API access to your orgs, execute the steps in the following sections for the [Hub and spoke connection configuration with OAuth 2.0](#hub-and-spoke-connection-configuration-with-oauth-2-0).
 
