@@ -6047,5 +6047,7 @@ redirects:
     to: /docs/guides/enable-express-configuration/main/
   - from: /docs/guides/enable-express-configuration/scim/main/
     to: /docs/guides/enable-express-configuration/main/
-  - from: /docs/concepts/user-profiles/
+  - from: /docs/concepts/user-profiles
+    to: /docs/concepts/universal-directory/
+  - from: /docs/concepts/user-profiles/index.html
     to: /docs/concepts/universal-directory/
