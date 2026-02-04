@@ -4723,10 +4723,6 @@ redirects:
     to: /docs/guides/sign-in-overview/
   - from: /docs/concepts/authentication/index.html
     to: /docs/guides/sign-in-overview/
-  - from: /docs/concepts/user-profiles/
-    to: /docs/concepts/redirect-vs-embedded/
-  - from: /docs/concepts/user-profiles/index.html
-    to: /docs/concepts/redirect-vs-embedded/
   - from: /docs/concepts/hosted-vs-embedded/
     to: /docs/concepts/redirect-vs-embedded/
   - from: /docs/concepts/hosted-vs-embedded/index.html
@@ -6055,3 +6051,7 @@ redirects:
     to: /docs/guides/enable-express-configuration/main/
   - from: /docs/guides/enable-express-configuration/scim/main/
     to: /docs/guides/enable-express-configuration/main/
+  - from: /docs/concepts/user-profiles
+    to: /docs/concepts/universal-directory/
+  - from: /docs/concepts/user-profiles/index.html
+    to: /docs/concepts/universal-directory/
