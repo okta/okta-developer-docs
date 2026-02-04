@@ -20,6 +20,7 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 | ------ | ------------------------ |
 | [Enhanced filtering for Active Directory domains API is EA](#enhanced-filtering-for-active-directory-domains-api-is-ea) | February 4, 2026 |
 | [Enhanced filtering for Active Directory accounts API is EA](#enhanced-filtering-for-active-directory-accounts-api-is-ea) | February 4, 2026 |
+| [Developer documentation updates in 2026.02.0](#developer-documentation-updates-in-2026-02-0) | February 4, 2026 |
 
 #### Enhanced filtering for Active Directory domains API is EA
 
@@ -28,6 +29,10 @@ You can now filter the [List all Active Directory domains](https://developer.okt
 #### Enhanced filtering for Active Directory accounts API is EA
 
 You can now filter the [List all discovered Active Directory accounts](https://developer.okta.com/docs/api/openapi/opa/opa/tag/active-directory-accounts/#tag/active-directory-accounts/operation/listActiveDirectoryAccounts) operation using the new `contains_account_name_or_assigned_opa_user` parameter. This parameter filters and limits the results to AD accounts where the User Principal Name (UPN), Security Account Manager (SAM) name, or assigned user name that matches the provided search string. <!-- OKTA-977735, FF: pam_active_directory_account_search-->
+
+#### Developer documentation updates in 2026.02.0
+
+The Okta developer portal search results now include the API references.
 
 ## January
 

@@ -21,6 +21,7 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 | [Permalink ID in V2 access request](#permalink-id-in-v2-access-request) | February 4, 2026 |
 | [Certify resource collections - Resource collections is EA](#certify-resource-collections---resource-collections-is-ea) | January 28, 2026 |
 | [Additive entitlements is Beta](#additive-entitlements-is-beta) | February 4, 2026 |
+| [Developer documentation updates in 2026.02.0](#developer-documentation-updates-in-2026-02-0) | February 4, 2026 |
 
 #### Permalink ID in V2 access request
 
@@ -54,6 +55,10 @@ The following API updates have been made to support individual entitlements:
 -->
 
 <!-- OKTA-1098916 IGA_ADDITIVE_ENTITLEMENTS  Preview date: February 4, 2026 -->
+
+#### Developer documentation updates in 2026.02.0
+
+The Okta developer portal search results now include the API references.
 
 ## January
 

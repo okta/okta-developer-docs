@@ -28,6 +28,7 @@ title: Okta Identity Engine API release notes 2026
 | [Custom FIDO2 AAGUID is GA in Production](#custom-fido2-aaguid-is-ga-in-production) | July 16, 2025 |
 | [OAuth 2.0 support for custom email providers is EA](#oauth-20-support-for-custom-email-providers) | February 4, 2026 |
 | [Okta as a fallback IdP is self-service EA in Preview](#okta-as-a-fallback-idp-is-self-service-ea-in-preview) | January 28, 2026 |
+| [Developer documentation updates in 2026.02.0](#developer-documentation-updates-in-2026-02-0) | February 4, 2026 |
 | [Bugs fixed in 2026.02.0](#bugs-fixed-in-2026020)| |
 
 #### Linux as a platform condition is GA in Preview
@@ -39,33 +40,33 @@ Okta now supports `LINUX` as a device platform condition in the following policy
 * Identity provider routing rules (`IDP_DISCOVERY` rules)
 <!-- OKTA-1093354 LINUX_SUPPORT_FOR_POLICIES preview date: Feb 4, 2026 link: See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/conditions/platform/exclude/os/type&t=request). -->
 
-### Skip counts for authenticator enrollment grace periods is EA
+#### Skip counts for authenticator enrollment grace periods is EA
 
 This feature allows admins to define a number of skips that end users can defer enrollment into an authenticator, as well as customizations to the prompt when end users see the grace period. See [Grace periods](/docs/concepts/policies/#grace-periods).
 
 <!-- OKTA-1044803 FF: ENROLLMENT_POLICY_GRACE_PERIOD_V2 preview date: Feb 4, 2026 -->
 
-### Dynamic OS version compliance for device assurance is GA in Preview
+#### Dynamic OS version compliance for device assurance is GA in Preview
 
 You can configure OS version compliance by using device assurance. However, you have to manually update the policies every time a new OS version or patch is released. With **Dynamic OS version compliance**, Okta updates device assurance policies with the latest OS versions and patches, eliminating the need for manual updates. With this feature you can ensure OS version compliance in your org without tracking OS releases. See [Dynamic OS version compliance](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-assurance-add) and [Device Assurance Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/createDeviceAssurancePolicy!path=1/osVersion&t=request). <!-- DEVICE_ASSURANCE_DYNAMIC_OS_SUPPORT OKTA-651282 Preview date: February 6, 2024 -->
 
-### Grace period for device assurance is GA in Preview
+#### Grace period for device assurance is GA in Preview
 
 Occasionally, users’ devices might fall out of compliance with security policies due to temporary conditions such as missed software updates or unapproved network connections. Without a grace period, they would be immediately blocked from accessing critical resources, which disrupts productivity and causes frustration. The grace period for device assurance feature allows you to define a temporary window during which non-compliant devices can still access resources. This gives users time to remediate issues without being locked out, balancing productivity with security standards.
 
 See [Device Assurance Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/createDeviceAssurancePolicy!path=0/gracePeriod&t=request) and the [Add a device assurance policy guide](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-assurance-add). <!-- DEVICE_ASSURANCE_GRACE_PERIOD OKTA-803140 Preview date: October 9, 2024 -->
 
-### Lightweight Directory Access Protocol Bidirectional Group Management is GA in Production
+#### Lightweight Directory Access Protocol Bidirectional Group Management is GA in Production
 
 The [Bidirectional Group Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DirectoriesIntegration) has been expanded to allow you to manage Lightweight Directory Access Protocol (LDAP) groups from within Okta. You can add or remove users from groups based on their identity and access requirements. This ensures that changes made to user access in Okta are reflected in LDAP.
 
 Okta can only manage group memberships for users and groups imported into Okta using the LDAP or Active Directory (AD) integration. It isn't possible to manage users and groups that weren't imported through LDAP or AD integration or are outside the organizational unit's scope for the integration using this feature.
 
-### Detection settings in session protection is GA in Preview
+#### Detection settings in session protection is GA in Preview
 
 Tailor ITP to your org’s security priorities to gain control and balance security with a seamless user experience. With new detection settings, you can define which session context changes trigger policy re-evaluations, helping you focus only on what truly matters. See [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
 
-### Passkeys rebrand is self-service EA
+#### Passkeys rebrand is self-service EA
 
 The **FIDO2 (WebAuthn)** authenticator is being rebranded to **Passkeys (FIDO2 WebAuthn)**. The **FIDO2 (WebAuthn)** authenticator is being rebranded to **Passkeys (FIDO2 WebAuthn)** and Okta is introducing enhanced administrative controls and a streamlined user experience. This update centralizes passkey management through a consolidated settings page, allows for customized authenticator naming, and introduces a dedicated **Sign in with a passkey** button within the Sign-In Widget. These enhancements simplify the authentication journey and provide users with a more intuitive sign-in process with the **Sign in with a passkey** button.
 
@@ -73,7 +74,7 @@ For more information about the new settings and updates, see [Configure the FIDO
 
 <!-- OKTA-1012303 FF: PASSKEYS_REBRAND preview date: Feb 4, 2026 link:  and [`settings`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod!path=8/settings&t=request) -->
 
-### Custom FIDO2 AAGUID is GA in Production
+#### Custom FIDO2 AAGUID is GA in Production
 
 You can now use the [Authenticators API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/) to create, view, and update custom Authenticator Attestation Global Unique Identifiers (AAGUIDs).
 
@@ -81,7 +82,7 @@ Admins can add non-FIDO Metadata Service (MDS) security keys and other authentic
 
 <!-- OKTA-971037 WEBAUTHN_CUSTOM_AAGUID preview date: July 16, 2025 -->
 
-### OAuth 2.0 support for custom email providers
+#### OAuth 2.0 support for custom email providers
 
 You can now configure custom email providers with OAuth 2.0 authentication. You can choose between two OAuth 2.0 client configurations to fetch access tokens and use those access tokens to authenticate with your email provider’s SMTP server. See [Custom email providers with OAuth 2.0](/docs/guides/custom-smtp/main/) to understand the new OAuth 2.0 methods.
 
@@ -89,11 +90,21 @@ See [Use your own email provider](https://help.okta.com/okta_help.htm?type=oie&i
 
 <!-- OKTA-1100448 FF: OAUTH_FOR_CUSTOM_SMTP_SERVER, preview date: Feb 4, 2026 link: * See the [Email Providers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailServer/) to configure them with APIs. -->
 
-### Okta as a fallback IdP is self-service EA in preview
+#### Okta as a fallback IdP is self-service EA in preview
 
 This feature redirects users to Okta to authenticate if the primary identity provider can't establish their identity. This can happen because of explicit rejections, like invalid credentials and MFA failures, or if an existing user session can't be silently verified, such as during a `prompt=none` OIDC request or `IsPassive=true` SAML request. See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyRules!c=200&path=4/actions&t=response). <!-- OKTA-1091224 ALLOW_IDENTITY_PROVIDER_CHAINING Preview org date: January 28, 2026 -->
 
-### Bugs fixed in 2026.02.0
+#### Developer documentation updates in 2026.02.0
+
+* All references to deprecated API Postman collections are now removed from [Home | Okta Developer](https://developer.okta.com/) and replaced with references to the [Okta Public API Collections](https://www.postman.com/okta-eng/okta-public-api-collections/overview) workspace.
+* The new [Add a sign-in form to your mobile app](https://developer.okta.com/docs/journeys/OCI-mobile/main/) journey helps you build a secure and complete sign-in experience for your mobile app, giving your users seamless access while protecting their data.
+* The new [Universal Directory](/docs/concepts/universal-directory/) concept provides a comprehensive overview of Okta’s Universal Directory (UD). UD is the centralized data layer that serves as the foundation for the entire Okta platform. This new doc replaces the previous User Profiles concept and goes into more depth on its components and advantages.
+* The Okta developer portal search results now include the API references.
+* The new [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/authserver/main/) guide explains how to configure token exchange for AI agents. This feature enables you to securely request and use credentials such as Identity Assertion JWTs (ID-JAGs), secrets, or service accounts to access resources on behalf of authenticated users.
+* The `[/token](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token)` endpoint now supports token exchange flows for AI agents through the standard OAuth 2.0 Token Exchange grant type.
+* The Okta Model Context Protocol (MCP) server is a secure protocol abstraction layer that enables AI agents/Large Language Models (LLMs) to interact with an Okta org. MCP clients can now communicate with the Okta scoped management APIs in natural language. This simplifies building context-aware AI workflows while ensuring strict access control and least-privilege security. To learn more and start your implementation, see the [Okta MCP server concept](/docs/concepts/mcp-server/) and [guide](/docs/guides/mcp-server/main/). Also, MCP now has its own dedicated [Release Notes](/docs/release-notes/2026-okta-mcp-server) section. In the future, refer to this page for all MCP server announcements.
+
+#### Bugs fixed in 2026.02.0
 
 * When users requested metadata for a non-existent identity provider, the system attempted to trigger an undefined error code. This caused a secondary exception in the Splunk logs. (OKTA-504955)
 * When no-cache, no-store headers from `/oauth2/<authorizationServerId>/v1/keys` were returned, it caused an unnecessarily high number of requests to `/oauth2/<authorizationServerId>/v1/keys`. (OKTA-1099636)
