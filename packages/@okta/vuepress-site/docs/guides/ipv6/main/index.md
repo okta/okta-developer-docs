@@ -137,7 +137,7 @@ The System Log shows the IP seen by Okta, and it can be used to verify the IPv6 
 
 ### Provide feedback on the IPv6 Beta
 
-If you encounter an issue or bug during testing, enter the details using this form: [IPv6 Beta Bug And Issue Report](ttps://forms.gle/9qHENM2ntPRWKVDj9). Submit as many forms as you need.
+If you encounter an issue or bug during testing, enter the details using this form: [IPv6 Beta Bug And Issue Report](https://forms.gle/9qHENM2ntPRWKVDj9). Submit as many forms as you need.
 
 Okta appreciates all feedback on the IPv6 Beta. After you've completed your testing, fill out the [IPv6 Beta Feedback](https://forms.gle/PAqbEbeuJ6iw5nMg9) form.
 
