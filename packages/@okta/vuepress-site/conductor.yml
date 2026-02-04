@@ -6043,6 +6043,10 @@ redirects:
     to: /code/#archived-sdks
   - from: /docs/guides/oie-embedded-common-download-setup-app/go/main/index.html
     to: /code/#archived-sdks
+  - from: /docs/concepts/user-profiles
+    to: /docs/concepts/universal-directory/
+  - from: /docs/concepts/user-profiles/index.html
+    to: /docs/concepts/universal-directory/
   - from: /docs/reference/postman-collections
     to: https://www.postman.com/okta-eng/okta-public-api-collections/overview
   - from: /docs/reference/postman-collections/index.html
@@ -6051,7 +6055,3 @@ redirects:
     to: /docs/guides/enable-express-configuration/main/
   - from: /docs/guides/enable-express-configuration/scim/main/
     to: /docs/guides/enable-express-configuration/main/
-  - from: /docs/concepts/user-profiles/
-    to: /docs/concepts/universal-directory/
-  - from: /docs/concepts/user-profiles/index.html
-    to: /docs/concepts/universal-directory/

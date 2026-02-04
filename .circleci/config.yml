@@ -184,6 +184,10 @@ jobs:
           command: |
             yarn build-with-redirect
       - run:
+          name: Log redirect file
+          command: |
+            cat ./packages/@okta/vuepress-site/dist/_redirects
+      - run:
           name: Install Netlify CLI
           command: |
             npm install netlify-cli@17.23.5 -g
