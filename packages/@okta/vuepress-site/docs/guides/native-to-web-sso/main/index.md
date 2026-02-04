@@ -92,7 +92,7 @@ The flow steps:
 8. The app then makes a request to the `/token` endpoint to exchange the access and ID tokens for a single-use `interclient_token`. This token is requested using the `requested_token_type` (`urn:okta:params:oauth:token-type:interclient_token`) and the Token Exchange grant type (`urn:ietf:params:oauth:grant-type:token-exchange`).
 9. Okta validates the trust relationship and user assignment of the target web app, and returns the single-use `interclient_token` that’s bound to the assurance of the `id_token` and target app. This single-use token is the user’s ticket to the target web app.
 10. The OIDC app launches the authorization server URI with intent for the target web app, securely passing the `interclient_token` to it.
-11. The web app receives the token and sends it to Okta in an authentication request (`/authorize` or `/sso/saml`).
+11. The web app receives the token and sends it to Okta in an authorize request (`/authorize` or `/sso/saml`).
 12. Okta validates the `interclient_token`, `audience`, target app ID, issuer, and so on.
 
     * **Look up context**: Okta looks up the associated backend session.
@@ -107,7 +107,7 @@ The flow steps:
 
 The OIDC origin app exchanges access and ID tokens for a single-use interclient token from the target web app. To do this, use the Token Exchange grant type in the exchange request.
 
-To update the app that you want to request single-use interclient tokens, use the [Replace an app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication!path=4/settings/oauthClient&t=request) method.
+> **Note**: To update the OIDC origin app using the Okta APIs, use the [Replace an app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication!path=4/settings/oauthClient&t=request) method.
 
 In the `oauthClient` object of your PUT request, add the `urn:ietf:params:oauth:grant-type:token-exchange` value to the `grant_types` array.
 
