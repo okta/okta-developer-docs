@@ -19,7 +19,7 @@ Get started with the Okta Model Context Protocol (MCP) server setup and prerequi
 #### What you need
 
 * An [Okta Integrator Free Plan org](https://developer.okta.com/signup) with admin permissions.
-* [Super admin permissions](https://help.okta.com/okta_help.htm?id=ext_superadmin) in your Okta org.
+* Select an admin role. See [Learn about administrators](https://help.okta.com/oie/en-us/content/topics/security/administrators-learn-about-admins.htm)
 * The [uv](https://docs.astral.sh/uv/getting-started/installation/) package manager.
 * [Python 3.8](https://python.org/downloads) or higher.
 
@@ -27,7 +27,7 @@ Get started with the Okta Model Context Protocol (MCP) server setup and prerequi
 
 ## Overview
 
-This guide explains how to initialize the Okta MCP server project and install required dependencies. To learn about the Okta MCP server architecture, see the introductory page on the Okta MCP server.
+This guide explains how to initialize the Okta MCP server project and install the required dependencies. To learn about the Okta MCP server architecture, see the introductory page on the Okta MCP server.
 
 ---
 

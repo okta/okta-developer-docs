@@ -938,6 +938,10 @@ export const guides = [
             title: "Set up Okta app authentication",
             path: "/docs/guides/configure-mcp-authentication/main/",
           },
+          {
+            title: "Configure, start, and test",
+            path: "/docs/guides/start-mcp-server/main/",
+          },
         ],
       },
       {
