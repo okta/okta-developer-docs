@@ -23,7 +23,7 @@ title: Okta Identity Engine API release notes 2026
 | [Dynamic OS version compliance for device assurance is GA in Preview](#dynamic-os-version-compliance-for-device-assurance-is-ga-in-preview) | February 7, 2024 |
 | [Grace period for device assurance is GA in Preview](#grace-period-for-device-assurance-is-ga-in-preview) | Octorber 9, 2024 |
 | [Lightweight Directory Access Protocol Bidirectional Group Management](#lightweight-directory-access-protocol-bidirectional-group-management) | [December 5, 2025] |
-| [Detection settings in session protection](#detection-settings-in-session-protection) | [need a date] |
+| [Detection settings in session protection](#detection-settings-in-session-protection) | [February 4, 2026] |
 | [Passkeys Rebrand is self-service EA](#passkeys-rebrand-is-self-service-ea) | February 6, 2026 |
 | [Custom FIDO2 AAGUID](#custom-fido2-aaguid) | July 16, 2025 |
 | [OAuth 2.0 support for custom email providers](#oauth-20-support-for-custom-email-providers) | February 6, 2026 |
