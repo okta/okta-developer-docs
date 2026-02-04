@@ -17,7 +17,7 @@ Create an Okta admin app integration and configure authentication credentials to
 #### What you need
 
 * An [Okta Integrator Free Plan org](https://developer.okta.com/signup) with admin permissions.
-* An Okta admin role with the appropriate permissions (see [about administrators role](https://help.okta.com/oie/en-us/content/topics/security/administrators-learn-about-admins.htm)).
+* An Okta admin role with the appropriate permissions. See [Learn about administrators](https://help.okta.com/oie/en-us/content/topics/security/administrators-learn-about-admins.htm).
 
 ---
 
