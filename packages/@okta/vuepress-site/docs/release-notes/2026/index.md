@@ -27,7 +27,9 @@ Okta can only manage group memberships for users and groups imported into Okta u
 
 ### Bugs fixed in 2026.02.0
 
-When users requested metadata for a non-existent identity provider, the system attempted to trigger an undefined error code. This caused a secondary exception in the Splunk logs. (OKTA-504955)
+* When users requested metadata for a non-existent identity provider, the system attempted to trigger an undefined error code. This caused a secondary exception in the Splunk logs. (OKTA-504955)
+* When no-cache, no-store headers from `/oauth2/<authorizationServerId>/v1/keys` were returned, it caused an unnecessarily high number of requests to `/oauth2/<authorizationServerId>/v1/keys`. (OKTA-1099636)
+* Scopes that were skipped during granular consent were still included in the access token after grants were created. (OKTA-1045702)
 
 ## January
 
