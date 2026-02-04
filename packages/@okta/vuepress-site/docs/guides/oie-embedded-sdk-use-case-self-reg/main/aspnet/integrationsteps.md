@@ -94,12 +94,12 @@ return View(viewModel);
 When the user selects the password authenticator and clicks **Next**, create an `EnrollAuthenticatorOptions` object and assign its `AuthenticatorId` property to the password authenticator ID. Pass this object as a parameter to `IdxClient.EnrollAuthenticatorAsync()`.
 
 ```csharp
-var enrollAuthenticatorOptions = new EnrollAuthenticatorOptions
+var enrollAuthenticatorOptions = new SelectEnrollAuthenticatorOptions
 {
      AuthenticatorId = model.AuthenticatorId,
 };
 
-var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(
+var enrollResponse = await idxAuthClient.SelectEnrollAuthenticatorAsync(
       enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
@@ -187,12 +187,12 @@ switch (authnResponse.AuthenticationStatus)
 If the user chooses and submits the email authenticator, create an `EnrollAuthenticatorOptions` object and assign its `AuthenticatorId` property to the email authenticator ID. Pass this object as a parameter to `IdxClient.EnrollAuthenticatorAsync()`.
 
 ```csharp
-var enrollAuthenticatorOptions = new EnrollAuthenticatorOptions
+var enrollAuthenticatorOptions = new SelectEnrollAuthenticatorOptions
 {
    AuthenticatorId = model.AuthenticatorId,
 };
 
-var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(
+var enrollResponse = await idxAuthClient.SelectEnrollAuthenticatorAsync(
    enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
@@ -278,12 +278,12 @@ The user can either enroll in or skip the phone factor. Your code should handle 
 If the user selects the phone authenticator, create an `EnrollAuthenticatorOptions` object and assign its `AuthenticatorId` property to the phone authenticator ID. Pass this object as a parameter to `IdxClient.EnrollAuthenticatorAsync()`.
 
 ```csharp
-var enrollAuthenticatorOptions = new EnrollAuthenticatorOptions
+var enrollAuthenticatorOptions = new SelectEnrollAuthenticatorOptions
 {
    AuthenticatorId = model.AuthenticatorId,
 };
 
-var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(
+var enrollResponse = await idxAuthClient.SelectEnrollAuthenticatorAsync(
    enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
