@@ -95,7 +95,7 @@ Be sure to verify that any relevant System Log events and inline or event hooks 
 
 Use the following procedures to test your org with IPv6.
 
-> **Note:** If you encounter an issue or bug during testing, enter the details using this form: [IPv6 Beta Bug and Issue Report](https://docs.google.com/forms/d/1ez3NOExvY5Q4x_fA4dWUfzrAsijWRnZg-YEH1rhohhA/preview?edit_requested=true#settings).
+> **Note:** If you encounter an issue or bug during testing, enter the details using this form: [IPv6 Beta Bug And Issue Report](https://forms.gle/9qHENM2ntPRWKVDj9).
 
 ### Check for IPv6 connectivity
 
@@ -137,9 +137,9 @@ The System Log shows the IP seen by Okta, and it can be used to verify the IPv6 
 
 ### Provide feedback on the IPv6 Beta
 
-Okta appreciates all feedback on the IPv6 Beta. For any testing performed, fill out the [IPv6 Beta Feedback](https://docs.google.com/document/d/1eIwItY-8AkMktvGSw5owGPyOGysKFIz7CYJOA2YbhOA/edit?tab=t.0) template and email to `ipv6_beta@okta.com`, including a detailed list of what was tested and any issues that were encountered.
+If you encounter an issue or bug during testing, enter the details using this form: [IPv6 Beta Bug And Issue Report](ttps://forms.gle/9qHENM2ntPRWKVDj9). Submit as many forms as you need.
 
-If you encounter an issue or bug during testing, enter the details using this form: [IPv6 Beta Bug and Issue Report](https://docs.google.com/forms/d/1ez3NOExvY5Q4x_fA4dWUfzrAsijWRnZg-YEH1rhohhA/preview?edit_requested=true#settings)
+Okta appreciates all feedback on the IPv6 Beta. After you've completed your testing, fill out the [IPv6 Beta Feedback](https://forms.gle/PAqbEbeuJ6iw5nMg9) form.
 
 ## See also
 
