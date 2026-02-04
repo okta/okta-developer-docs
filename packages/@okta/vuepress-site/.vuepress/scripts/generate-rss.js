@@ -216,3 +216,12 @@ generateRssFromMarkdown(
   'https://developer.okta.com/docs/release-notes/2026-okta-aerial/',
   path.join(__dirname, '../public/rss/aerial.xml')
 );
+
+// Okta MCP Server Release Notes
+generateRssFromMarkdown(
+  path.join(__dirname, '../../docs/release-notes/2026-okta-mcp-server/index.md'),
+  'Okta MCP Server API release notes',
+  'Recent release notes for Okta MCP Server',
+  'https://developer.okta.com/docs/release-notes/2026-okta-mcp-server/',
+  path.join(__dirname, '../public/rss/mcp.xml')
+);
