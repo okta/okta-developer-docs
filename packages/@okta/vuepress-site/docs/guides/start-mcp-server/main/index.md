@@ -243,4 +243,4 @@ Now that your Okta MCP server is running, explore advanced use cases to manage y
 * Audit security logs: Query system logs to identify unusual sign-in activity or configuration changes.
 * Policy automation: Manage authentication policies and MFA requirements programmatically.
 
-For a complete list of supported operations and tools, see the [Okta MCP server repo](/docs/guides/okta-mcp-server/main/).
+For a complete list of supported operations and tools, see the [Okta MCP server repo](https://github.com/okta/okta-mcp-server).
