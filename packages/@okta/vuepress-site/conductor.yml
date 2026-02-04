@@ -4731,8 +4731,6 @@ redirects:
     to: /docs/concepts/redirect-vs-embedded/
   - from: /docs/concepts/okta-hosted-flows/index.html
     to: /docs/concepts/redirect-vs-embedded/
-  - from: /docs/concepts/user-profiles/
-    to: /docs/concepts/universal-directory/
   - from: /docs/concepts/user-profiles/index.html
     to: /docs/concepts/universal-directory/
   - from: /docs/guides/sign-into-web-app/
