@@ -76,7 +76,7 @@ You only have to set up your Okta org for OIG Labels API access once. Okta recom
 
 Users can access OIG APIs by authenticating with an [OAuth 2.0 access token](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/#oauth-20-access-token). To obtain an OAuth 2.0 access token for API authentication, you need to have an app in Okta for API access:
 
-* If you don't have an app for API access, see [User-based API access setup](https://developer.okta.com/docs/reference/rest/#user-based-api-access-setup) to create an OIDC app. Grant the [scopes required for labels](#scopes-required-for-labels) to the OIDC app (in addition to any other scopes you may need).
+* If you don't have an app for API access, see [User-based API access setup](/docs/guides/set-up-oauth-api/main/#user-based-api-access-setup) to create an OIDC app. Grant the [scopes required for labels](#scopes-required-for-labels) to the OIDC app (in addition to any other scopes you may need).
 
 * If you already have an OIDC app for API access, ensure that your app is granted with the [scopes required for labels](#scopes-required-for-labels).
 
@@ -120,7 +120,7 @@ Assign the user requesting the Labels APIs to your API access app. This is the a
 
 Use the [Labels](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/) API to manage governance labels.
 
-Examples in this section assume that you're making the request with an OAuth 2.0 access token. See [Get an access token and make a request](https://developer.okta.com/docs/reference/rest/#get-an-access-token-and-make-a-request) for API requests from a user.
+Examples in this section assume that you're making the request with an OAuth 2.0 access token. See [Get an access token and make a request](/docs/guides/set-up-oauth-api/main/#get-an-access-token-and-make-a-request) for API requests from a user.
 
 ### Create a label
 
