@@ -16,7 +16,7 @@ const lines = redirectBlocks.map(block => {
   const toMatch   = block.match(/to:\s*(\S+)/);
 
   if (fromMatch && toMatch) {
-    return `${fromMatch[1]} ${toMatch[1]}`;
+    return `${fromMatch[1]} ${toMatch[1]} 200!`;
   }
 }).filter(Boolean); // remove nulls
 
