@@ -17,7 +17,7 @@ Create an Okta admin app integration and configure authentication credentials to
 #### What you need
 
 * An [Okta Integrator Free Plan org](https://developer.okta.com/signup) with admin permissions.
-* Appropriate admin role access to your Okta org (see [Standard administrator roles and permissions](https://help.okta.com/en-us/content/topics/security/administrators-admin-comparison.htm)).
+* An Okta admin role with the appropriate permissions (see [about administrators role](https://help.okta.com/oie/en-us/content/topics/security/administrators-learn-about-admins.htm)).
 
 ---
 
@@ -154,7 +154,7 @@ You can either generate the key in Okta (recommended) and copy it in PEM format,
 
 1. Go to the **Grant API scopes** tab and grant the required API scopes.
 1. Go to the **Admin roles** tab, and click **Edit assignments**.
-1. Select the appropriate admin access role (see [Standard administrator roles and permissions](https://help.okta.com/en-us/content/topics/security/administrators-admin-comparison.htm)) and click **Save changes**.
+1. Select an admin role (see [about administrators role](https://help.okta.com/oie/en-us/content/topics/security/administrators-learn-about-admins.htm)) and click **Save changes**.
 1. Go to the **General** tab and copy the **Client ID**.
 
 ---

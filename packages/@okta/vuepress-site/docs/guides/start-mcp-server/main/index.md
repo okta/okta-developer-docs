@@ -2,10 +2,10 @@
 title: Configure, start, and test the Okta MCP server
 meta:
   - name: description
-    content: Set up your local environment variables and start the Okta Model Context Protocol (MCP) server to connect your AI agent to your Okta org.
+    content: Set up your local environment variables and start the Okta Model Context Protocol (MCP) server to connect your AI agent to your org.
 ---
 
-Set up your local environment variables and start the Okta Model Context Protocol (MCP) server to connect your AI agent to your Okta org.
+Set up your local environment variables and start the Okta Model Context Protocol (MCP) server to connect your AI agent to your org.
 
 ---
 
@@ -13,21 +13,21 @@ Set up your local environment variables and start the Okta Model Context Protoco
 
 * Map your Okta app credentials to MCP environment variables.
 * Start the Okta MCP server.
-* Verify the connection between the Okta MCP server and your Okta org.
-* Use natural language commands to perform admin tasks (such as, user, group, application, and policy management).
+* Verify the connection between the Okta MCP server and your org.
+* Use natural language commands to perform admin tasks (such as managing users, groups, apps, and policies).
 
 #### What you need
 
 * The [uv](https://docs.astral.sh/uv/getting-started/installation/) package manager.
 * [Python 3.8](https://python.org/downloads) or higher.
-* A local copy of the Okta MCP server project (see, [Install, and initialize the Okta MCP server](https://github.com/okta/okta-mcp-server) guide).
+* A local copy of the Okta MCP server project. See [Install, and initialize the Okta MCP server](https://github.com/okta/okta-mcp-server).
 * The credentials from the [app authentication for Okta MCP server](/docs/guides/configure-mcp-authentication/main/) guide:
 
-  * Okta domain (`OKTA_ORG_URL`): Your Okta org URL (see [Find your Okta domain](/docs/guides/find-your-domain/main/)).
+  * Okta domain (`OKTA_ORG_URL`): Your Okta org URL. See [Find your Okta domain](/docs/guides/find-your-domain/main/).
   * Client ID (`OKTA_CLIENT_ID`): The unique identifier for your app integration.
-  * API scopes (`OKTA_SCOPES`): The space-separated list of scopes you granted (for example, `okta.users.read okta.groups.read`).
-  * Private key (`OKTA_PRIVATE_KEY`): The PEM-formatted key (Required for private key JWT).
-  * Key ID (`OKTA_KEY_ID`): The identifier for your public key (Required for private key JWT).
+  * API scopes (`OKTA_SCOPES`): The space-separated list of scopes that you granted (for example, `okta.users.read okta.groups.read`).
+  * Private key (`OKTA_PRIVATE_KEY`): The PEM-formatted key (required for private key JWT).
+  * Key ID (`OKTA_KEY_ID`): The identifier for your public key (required for private key JWT).
 
 * An MCP-compatible client, such as [Claude Desktop](https://claude.ai/download), VS Code with GitHub Copilot, or any other [MCP Client](https://modelcontextprotocol.io/clients).
 
@@ -35,21 +35,21 @@ Set up your local environment variables and start the Okta Model Context Protoco
 
 ## Overview
 
-This guide explains how to configure your local environment. It uses the credentials you obtained from the [Okta MCP server app authentication guide](/docs/guides/configure-mcp-authentication/main/). It describes how to start the Okta MCP server and verify the server connects to your org.
+This guide explains how to configure your local environment. It uses the credentials that you obtained from the [Okta MCP server app authentication guide](/docs/guides/configure-mcp-authentication/main/). It describes how to start the Okta MCP server and verify that the server connects to your org.
 
 ---
 
 ## Configure the MCP client
 
-The Okta MCP server works with any MCP-compatible client. While this guide focuses on specific configurations for VS Code with GitHub Copilot and Claude Desktop, you can apply these environment variables to other clients, such as Amazon Bedrock, by following similar steps.
+The Okta MCP server works with any MCP-compatible client. While this guide focuses on specific configurations for VS Code with GitHub Copilot and Claude Desktop, you can apply these environment variables to other clients, such as Amazon Bedrock.
 
 ### Configure the VS Code (GitHub Copilot)
 
 1. Install the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot).
 1. Open the **Copilot chat** view in VS Code.
-1. Enable Agent mode by following the steps in the [VS Code documentation](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode#_enable-agent-mode-in-vs-code).
+1. Enable agent mode by following the steps in the [VS Code documentation](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode#_enable-agent-mode-in-vs-code).
 1. Update your VS Code settings to include the Okta MCP server configuration:
-   * Press `Command + Shift + P` (MacOS) or `Ctrl + Shift + P` (Windows) open the **command palette**.
+   * Press `Command + Shift + P` (MacOS) or `Ctrl + Shift + P` (Windows) open the command palette.
    * Type "Preferences: Open User Settings (JSON)" and press **Enter**.
 1. Define the connection parameters for the Okta MCP server:
    * Create a folder named `.vscode` in your project directory.
@@ -115,7 +115,7 @@ The Okta MCP server works with any MCP-compatible client. While this guide focus
 ### Configure Claude Desktop
 
 1. Open your Claude Desktop configuration file.
-1. Update the settings file with the following configuration and replace the placeholder values with your actual Okta credentials:
+1. Update the settings file with the following configuration and replace the placeholder values with your Okta credentials:
 
    ```json
    {
@@ -153,22 +153,22 @@ The steps to start the server vary by client. To start the Okta MCP server in VS
 ### VS Code
 
 1. Open **GitHub Copilot Chat** in VS Code.
-1. At the bottom right of the Copilot chat panel, click the **Tools** icon.
-1. In the tools dialog at the top, search for **MCP Server: okta-mcp-server**.
-1. Click the **settings** icon to open the MCP server configuration (`mcp.json`) file.
-1. In the **servers** section, locate **okta-mcp-server** and click **Start** to activate the server.
-1. Follow the prompts to authorize your device by entering the user code in your browser and sign in with your Okta credentials to complete the activation.
-1. The server prompts you to enter the following configuration variables during the first run:
+1. Click the **Tools** icon at the bottom-right of the Copilot chat panel.
+1. In the **Tools** list, search for **MCP Server: okta-mcp-server**.
+1. Click the settings icon to open the MCP server configuration (`mcp.json`) file.
+1. In the **Servers** section, locate **okta-mcp-server** and click **Start** to activate it.
+1. Follow the prompts to authorize your device by entering the user code in your browser. Then sign in with your Okta credentials to complete the activation.
+1. The server prompts you to enter the following configuration variables when you activate it:
 
    | Variable | Description | Required |
    | :--- | :--- | :--- |
-   | `OKTA_ORG_URL` | Your Okta tenant org URL (example: `https://integrator-1234567.okta.com`). | Yes |
+   | `OKTA_ORG_URL` | Your Okta tenant org URL (for example, `https://integrator-1234567.okta.com`). | Yes |
    | `OKTA_CLIENT_ID` | The client ID copied from your Okta app. | Yes |
-   | `OKTA_SCOPES` | Space-separated list of API scopes you granted to the app (example: `okta.users.read okta.groups.read`). **Note:** Only include scopes that you granted for your app. | Yes |
+   | `OKTA_SCOPES` | A space-separated list of API scopes you granted to the app (example: `okta.users.read okta.groups.read`). **Note:** Don't include scopes that you haven't granted to the app. | Yes |
    | `OKTA_PRIVATE_KEY` | Your private key in PEM format (starts with `-----BEGIN PRIVATE KEY-----`). | Private key JWT only |
-   | `OKTA_KEY_ID` | The key ID (KID) for your private key. | private key JWT only |
+   | `OKTA_KEY_ID` | The key ID (KID) for your private key. | Private key JWT only |
 
-   > **Note**: If using the device authorization grant, press **Enter** to skip the `OKTA_PRIVATE_KEY` and `OKTA_KEY_ID` prompts.
+   > **Note**: If you use the device authorization grant, press **Enter** to skip the `OKTA_PRIVATE_KEY` and `OKTA_KEY_ID` prompts.
 
 1. [Optional]: To use the Okta MCP server with other MCP clients, manually add the following configuration to your client’s configuration file and restart the app for the changes to take effect:
 
@@ -219,14 +219,14 @@ Use the following conversational prompts to interact with your Okta org:
 1. Create users and groups:
    * Create a user Jane Doe with email `jane.doe@company.com` and add her to the marketing group.
    * Create a group called the sales team and add three users to it.
-1. Manage applications:
-   * Show me all active applications in my org.
+1. Manage apps:
+   * Show me all active apps in my org.
 1. Security and auditing:
-   * Show me all failed login attempts from the last 24 hours.
+   * Show me all failed sign-in attempts from the last 24 hours.
    * Generate a security audit report for the last 30 days. Highlight all changes to user and group memberships.
 1. Policy management:
    * Create a password policy that requires 12 characters with special characters for the engineering group.
-   * Give me a list of all active users in the 'Finance' group who are assigned to 'Salesforce' but haven't logged into Okta in the last 60 days.
+   * Show me a list of all active users in the **Finance** group with the Salesforce app who haven't signed in to Okta in the last 60 days.
    * Evaluate the policy's logic and compare it to the user's context (such as, their device, and OS) from the log.
 
 ---
@@ -239,7 +239,7 @@ You configured your environment variables, started the Okta MCP server, and veri
 
 Now that your Okta MCP server is running, explore advanced use cases to manage your Okta org:
 
-* User onboarding automation: Create workflows that provision users, assign groups, and grant application access with a single command.
+* User onboarding automation: Create workflows that provision users, assign groups, and grant app access with a single command.
 * Audit security logs: Query system logs to identify unusual sign-in activity or configuration changes.
 * Policy automation: Manage authentication policies and MFA requirements programmatically.
 
