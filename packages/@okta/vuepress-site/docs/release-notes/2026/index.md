@@ -16,7 +16,7 @@ title: Okta Classic Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Lightweight Directory Access Protocol Bidirectional Group Management](#lightweight-directory-access-protocol-bidirectional-group-management) | December 5, 2025 |
+| [Lightweight Directory Access Protocol Bidirectional Group Management is GA in Production](#lightweight-directory-access-protocol-bidirectional-group-management) | December 5, 2025 |
 | [Bugs fixed in 2026.02.0](#bugs-fixed-in-2026020)| |
 
 ### Lightweight Directory Access Protocol Bidirectional Group Management

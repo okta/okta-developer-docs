@@ -18,19 +18,19 @@ title: Okta Identity Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Linux as a platform condition](#linux-as-a-platform-condition) | February 6, 2026 |
-| [Skip counts for authenticator enrollment grace periods](#skip-counts-for-authenticator-enrollment-grace-periods) | February 6, 2026 |
+| [Linux as a platform condition is GA in Preview](#linux-as-a-platform-condition-is-ga-in-preview) | February 6, 2026 |
+| [Skip counts for authenticator enrollment grace periods is EA](#skip-counts-for-authenticator-enrollment-grace-periods-is-ea) | February 6, 2026 |
 | [Dynamic OS version compliance for device assurance is GA in Preview](#dynamic-os-version-compliance-for-device-assurance-is-ga-in-preview) | February 7, 2024 |
 | [Grace period for device assurance is GA in Preview](#grace-period-for-device-assurance-is-ga-in-preview) | Octorber 9, 2024 |
-| [Lightweight Directory Access Protocol Bidirectional Group Management](#lightweight-directory-access-protocol-bidirectional-group-management) | [December 5, 2025] |
-| [Detection settings in session protection](#detection-settings-in-session-protection) | [February 4, 2026] |
+| [Lightweight Directory Access Protocol Bidirectional Group Management is GA in Production](#lightweight-directory-access-protocol-bidirectional-group-management-is-ga-in-production) | December 5, 2025 |
+| [Detection settings in session protection is GA in Preview](#detection-settings-in-session-protection-is-ga-in-preview) | February 4, 2026 |
 | [Passkeys Rebrand is self-service EA](#passkeys-rebrand-is-self-service-ea) | February 6, 2026 |
-| [Custom FIDO2 AAGUID](#custom-fido2-aaguid) | July 16, 2025 |
-| [OAuth 2.0 support for custom email providers](#oauth-20-support-for-custom-email-providers) | February 6, 2026 |
-| [Okta as a fallback IdP is self-service EA in preview](#okta-as-a-fallback-idp-is-self-service-ea-in-preview) | January 28, 2026 |
+| [Custom FIDO2 AAGUID is GA in Production](#custom-fido2-aaguid-is-ga-in-production) | July 16, 2025 |
+| [OAuth 2.0 support for custom email providers is EA](#oauth-20-support-for-custom-email-providers) | February 6, 2026 |
+| [Okta as a fallback IdP is self-service EA in Preview](#okta-as-a-fallback-idp-is-self-service-ea-in-preview) | January 28, 2026 |
 | [Bugs fixed in 2026.02.0](#bugs-fixed-in-2026020)| |
 
-#### Linux as a platform condition
+#### Linux as a platform condition is GA in preview
 
 Okta now supports `LINUX` as a device platform condition in the following policy types and policy rules:
 
@@ -39,7 +39,7 @@ Okta now supports `LINUX` as a device platform condition in the following policy
 * Identity provider routing rules (`IDP_DISCOVERY` rules)
 <!-- OKTA-1093354 LINUX_SUPPORT_FOR_POLICIES preview date: Feb 6, 2026 link: See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/conditions/platform/exclude/os/type&t=request). -->
 
-### Skip counts for authenticator enrollment grace periods
+### Skip counts for authenticator enrollment grace periods is EA
 
 This feature allows admins to define a number of skips end users can defer enrollment into an authenticator, as well as customizations to the prompt when end users see the grace period. See [Grace periods](/docs/concepts/policies/#grace-periods).
 
@@ -53,15 +53,15 @@ You can configure OS version compliance by using device assurance. However, you 
 
 Occasionally, users’ devices might fall out of compliance with security policies due to temporary conditions such as missed software updates or unapproved network connections. Without a grace period, they would be immediately blocked from accessing critical resources, which disrupts productivity and causes frustration. The grace period for device assurance feature allows you to define a temporary window during which non-compliant devices can still access resources. This gives users time to remediate issues without being locked out, balancing productivity with security standards.
 
-See [Device Assurance Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/createDeviceAssurancePolicy!path=0/gracePeriod&t=request) and the [Add a device assurance policy guide](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-assurance-add). <!-- DEVICE_ASSURANCE_GRACE_PERIOD OKTA-803140 Preview date: October 9, 2024 -- >
+See [Device Assurance Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/createDeviceAssurancePolicy!path=0/gracePeriod&t=request) and the [Add a device assurance policy guide](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-assurance-add). <!-- DEVICE_ASSURANCE_GRACE_PERIOD OKTA-803140 Preview date: October 9, 2024 -->
 
-### Lightweight Directory Access Protocol Bidirectional Group Management
+### Lightweight Directory Access Protocol Bidirectional Group Management is GA in Production
 
 The [Bidirectional Group Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DirectoriesIntegration) has been expanded to allow you to manage Lightweight Directory Access Protocol (LDAP) groups from within Okta. You can add or remove users from groups based on their identity and access requirements. This ensures that changes made to user access in Okta are reflected in LDAP.
 
 Okta can only manage group memberships for users and groups imported into Okta using the LDAP or Active Directory (AD) integration. It isn't possible to manage users and groups that weren't imported through LDAP or AD integration or are outside the organizational unit's scope for the integration using this feature.
 
-### Detection settings in session protection
+### Detection settings in session protection is GA in Preview
 
 Tailor ITP to your org’s security priorities to gain control and balance security with a seamless user experience. With new detection settings, you can define which session context changes trigger policy re-evaluations, helping you focus only on what truly matters. See [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
 
@@ -73,7 +73,7 @@ For more information about the new settings and updates, see [Configure the FIDO
 
 <!-- OKTA-1012303 FF: PASSKEYS_REBRAND preview date: Feb 6, 2026 link:  and [`settings`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod!path=8/settings&t=request) -->
 
-### Custom FIDO2 AAGUID
+### Custom FIDO2 AAGUID is GA in Production
 
 You can now use the [Authenticators API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/) to create, view, and update custom Authenticator Attestation Global Unique Identifiers (AAGUIDs). 
 
