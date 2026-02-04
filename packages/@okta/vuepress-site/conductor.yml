@@ -4723,6 +4723,10 @@ redirects:
     to: /docs/guides/sign-in-overview/
   - from: /docs/concepts/authentication/index.html
     to: /docs/guides/sign-in-overview/
+  - from: /docs/concepts/user-profiles/
+    to: /docs/concepts/redirect-vs-embedded/
+  - from: /docs/concepts/user-profiles/index.html
+    to: /docs/concepts/redirect-vs-embedded/
   - from: /docs/concepts/hosted-vs-embedded/
     to: /docs/concepts/redirect-vs-embedded/
   - from: /docs/concepts/hosted-vs-embedded/index.html
@@ -4731,8 +4735,6 @@ redirects:
     to: /docs/concepts/redirect-vs-embedded/
   - from: /docs/concepts/okta-hosted-flows/index.html
     to: /docs/concepts/redirect-vs-embedded/
-  - from: /docs/concepts/user-profiles/index.html
-    to: /docs/concepts/universal-directory/
   - from: /docs/guides/sign-into-web-app/
     to: /docs/guides/sign-into-web-app-redirect/
   - from: /docs/guides/sign-into-web-app/-/main/#understand-the-callback-route
