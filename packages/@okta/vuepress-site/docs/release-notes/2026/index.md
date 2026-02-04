@@ -1,5 +1,5 @@
 ---
-title: Okta Classic Engine API release notes 20256
+title: Okta Classic Engine API release notes 2026
 ---
 
 # Okta Classic Engine API release notes (2026)
@@ -8,6 +8,28 @@ title: Okta Classic Engine API release notes 20256
   <img src="/img/icons/Feed-icon.svg" alt="RSS" width="20" height="20" />
   Subscribe to RSS
 </a>
+
+## February
+
+### Monthly release 2026.02.0
+<!-- Published on: 2026-02-05T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Lightweight Directory Access Protocol Bidirectional Group Management](#lightweight-directory-access-protocol-bidirectional-group-management) | December 5, 2025 |
+| [Bugs fixed in 2026.02.0](#bugs-fixed-in-2026020)| |
+
+### Lightweight Directory Access Protocol Bidirectional Group Management
+
+The [Bidirectional Group Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DirectoriesIntegration) has been expanded to allow you to manage Lightweight Directory Access Protocol (LDAP) groups from within Okta. You can add or remove users from groups based on their identity and access requirements. This ensures that changes made to user access in Okta are reflected in LDAP.
+
+Okta can only manage group memberships for users and groups imported into Okta using the LDAP or Active Directory (AD) integration. It isn't possible to manage users and groups that weren't imported through LDAP or AD integration or are outside the organizational unit's scope for the integration using this feature.
+
+### Bugs fixed in 2026.02.0
+
+* When users requested metadata for a non-existent identity provider, the system attempted to trigger an undefined error code. This caused a secondary exception in the Splunk logs. (OKTA-504955)
+* When no-cache, no-store headers from `/oauth2/<authorizationServerId>/v1/keys` were returned, it caused an unnecessarily high number of requests to `/oauth2/<authorizationServerId>/v1/keys`. (OKTA-1099636)
+* Scopes that were skipped during granular consent were still included in the access token after grants were created. (OKTA-1045702)
 
 ## January
 
