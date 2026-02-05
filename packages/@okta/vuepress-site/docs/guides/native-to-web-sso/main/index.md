@@ -276,4 +276,4 @@ Okta validates the `interclient_token`, `audience`, target app ID, issuer, and s
 ## Related topics
 
 * [Implement authorization by grant type](/docs/guides/implement-grant-type/authcode/main/)
-* [Application Interclient Trust Mappings API](/docs/api/openapi/okta-management/management/tag/ApplicationInterclientTrustMappings/)
+* [Application Interclient Trust Mappings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationInterclientTrustMappings/)
