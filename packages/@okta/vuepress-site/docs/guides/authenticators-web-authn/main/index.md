@@ -6,6 +6,11 @@ title: Web Authentication integration guide
 
 This guide shows you how to integrate Web Authentication (WebAuthn) into your app using the embedded SDK.
 
+> <ApiLifecycle access="ea" />
+> **Note:** When the **Passkeys Rebrand** self-service Early Access feature is enabled, the FIDO2 (WebAuthn) authenticator is called Passkeys (FIDO2 WebAuthn), and there are new settings and updates to the authenticator page layout.
+>
+> See [Configure the FIDO2 (WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn) and [`settings`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod!path=8/settings&t=request). To enable the **Passkeys Rebrand** feature, see [Enable self-service features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
+
 ---
 #### Learning outcomes
 
@@ -32,6 +37,14 @@ To be resistant to phishing attacks, a local communication channel should exist 
 Besides being resistant to phishing attacks, WebAuthn can drastically reduce sign-in friction by allowing passwordless sign-ins during reauthentication use cases. For example, mobile banking apps use this type of sign-in. Some mobile banking apps allow iPhone users to sign in using only Face ID after the first sign-in with a password.
 
 > **Note**: For detailed information on the WebAuthn standard, including an up-to-date list of supported browsers, see [webauthn.me](https://a0.to/webauthnme-okta-docs).
+
+### Passkeys and WebAuthn
+
+Passkeys are discoverable WebAuthn credentials that use the [FIDO2 Web Authentication (WebAuthn) standard](https://fidoalliance.org/fido2-2/fido2-web-authentication-webauthn/). They store the user identifier, which is the unique ID that associates the credential with a specific user, on the authenticator. Storing the user identifier on the authenticator enables "usernameless" sign-in flows, allowing users to initiate an authentication challenge without having to enter their username. Passkeys can be synced across devices by using cloud services (multi-device passkeys) or they can be hardware-bound to a specific authenticator (single-device passkeys), such as a security key or platform authenticator.
+
+Non-discoverable WebAuthn credentials are sometimes referred to as second-factor credentials and they're explicitly used after another factor during MFA flows. They don't store a user identifier. They require the user to provide a username first so the app can identify which credential to challenge. They're typically hardware-bound, but some non-discoverable credentials can also be synced across devices.
+
+See [Passkeys and Okta overview](/docs/guides/custom-passkeys/main/#passkeys-and-okta-overview) to learn more about passkeys, Relying Party IDs (RP IDs), and how to use them.
 
 ### Example authentication flow
 

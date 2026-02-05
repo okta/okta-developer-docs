@@ -1,6 +1,6 @@
 {
-  "release" : "2026.01.1",
-  "build" : "2026.01.1-begin-91-gb3781c3067c5",
+  "release" : "2026.02.1",
+  "build" : "2026.02.1-begin-195-g2ea8b7157f44",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1976,6 +1976,14 @@
     "statusReasonPhrase" : "Conflict",
     "errorCode" : "E0000265",
     "errorSummary" : "Device registration is already in progress for this device.",
+    "errorDescription" : null
+  }, {
+    "title" : "Email server failed to get access token exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000266",
+    "errorSummary" : "Failed to get access token for SMTP server configuration. Failure details: {0}.",
     "errorDescription" : null
   } ]
 }

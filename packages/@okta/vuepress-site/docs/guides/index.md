@@ -194,6 +194,7 @@ guides:
  - validate-federation
  - custom-passkeys
  - set-up-oauth-api
+ - custom-smtp
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

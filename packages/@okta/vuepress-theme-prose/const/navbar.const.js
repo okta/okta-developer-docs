@@ -688,6 +688,10 @@ export const guides = [
             guideName: "custom-url-domain",
           },
           {
+            title: "Email providers with OAuth 2.0",
+            guideName: "custom-smtp",
+          },
+          {
             title: "Associated domains",
             guideName: "custom-well-known-uri",
           },
@@ -1281,6 +1285,10 @@ export const releaseNotes = [
       {
         title: "2026 - Aerial",
         path: "/docs/release-notes/2026-okta-aerial/",
+      },
+      {
+        title: "2026 - Okta MCP Server",
+        path: "/docs/release-notes/2026-okta-mcp-server/",
       },
       {
         title: "Archive",
