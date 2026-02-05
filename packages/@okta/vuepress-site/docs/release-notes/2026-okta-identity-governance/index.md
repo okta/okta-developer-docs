@@ -33,7 +33,7 @@ See [`requestApprovals.permalinkId`] (https://developer.okta.com/docs/api/iga/op
 
 <!-- OKTA-1089085 Preview date: Feb. 4, 2026-->
 
-#### Certify resource collections is EA
+#### Certify resource collections - Resource campaigns is EA
 
 Use access certification resource campaigns to certify user access to resource collections. Rather than reviewing individual apps, entitlements, or bundles separately, running resource campaigns for resource collections helps you reduce the volume of review items for reviewers and provide them with the necessary context to make informed decisions.
 
