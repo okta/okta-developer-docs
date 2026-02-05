@@ -193,7 +193,7 @@ guides:
  - custom-well-known-uri
  - validate-federation
  - custom-passkeys
-- set-up-oauth-api
+ - set-up-oauth-api
  - custom-smtp
 ---
 

@@ -56,7 +56,7 @@ To connect the Okta MCP server to an Okta org, create an Okta app integration an
 
 Now that you've configured the app integration, grant the required API scopes.
 
-### Grant API scopes for native app
+### Grant Okta API scopes for native app
 
 After you create the app, follow these steps to grant the required API scopes:
 
@@ -150,9 +150,9 @@ You can either generate the key in Okta (recommended) and copy it in PEM format,
 1. Click **Save**.
 1. Copy the **Key ID (KID)** displayed for the added key.
 
-### Grant API scopes and admin role
+### Okta API scopes and admin role
 
-1. Go to the **Grant API scopes** tab and grant the required API scopes.
+1. Go to the **Okta API Scopes** tab and grant the required API scopes.
 1. Go to the **Admin roles** tab, and click **Edit assignments**.
 1. Select an admin role (see [Learn about administators](https://help.okta.com/oie/en-us/content/topics/security/administrators-learn-about-admins.htm)) and click **Save changes**.
 1. Go to the **General** tab and copy the **Client ID**.
