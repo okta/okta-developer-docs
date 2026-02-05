@@ -78,13 +78,13 @@ The Okta MCP server enables AI agents to perform the following actions through n
 
 The Okta MCP server supports two authentications flows for different use cases:
 
-### OAuth 2.0 Device Authorization Grant (Browser-based)
+### OAuth 2.0 Device Authorization Grant (browser-based)
 
 This browser-based flow is recommended for interactive use and local development. The Okta MCP server initiates a flow where the user signs in through a browser. Upon successful authentication, the Okta MCP server exchanges the authorization for a secure access token.
 
-### Private Key JWT (Browser-less)
+### Private Key JWT (browserless)
 
-This browser-less flow is recommended for automation, CI/CD pipelines, and headless environments. The Okta MCP server authenticates using a cryptographic key pair, which enables authentication without user intervention.
+This browserless flow is recommended for automation, CI/CD pipelines, and headless environments. The Okta MCP server authenticates using a cryptographic key pair, which enables authentication without user intervention.
 
 ## Next steps
 
