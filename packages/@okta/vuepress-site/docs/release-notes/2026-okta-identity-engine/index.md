@@ -26,10 +26,10 @@ title: Okta Identity Engine API release notes 2026
 | [Detection settings in session protection is GA in Preview](#detection-settings-in-session-protection-is-ga-in-preview) | February 4, 2026 |
 | [Passkeys Rebrand is self-service EA](#passkeys-rebrand-is-self-service-ea) | February 4, 2026 |
 | [Custom FIDO2 AAGUID is GA in Production](#custom-fido2-aaguid-is-ga-in-production) | July 16, 2025 |
-| [OAuth 2.0 support for custom email providers is EA](#oauth-20-support-for-custom-email-providers) | February 4, 2026 |
+| [OAuth 2.0 support for custom email providers is EA](#oauth-2-0-support-for-custom-email-providers-is-ea) | February 4, 2026 |
 | [Okta as a fallback IdP is self-service EA in Preview](#okta-as-a-fallback-idp-is-self-service-ea-in-preview) | January 28, 2026 |
 | [Developer documentation updates in 2026.02.0](#developer-documentation-updates-in-2026-02-0) | February 4, 2026 |
-| [Bugs fixed in 2026.02.0](#bugs-fixed-in-2026020)| |
+| [Bugs fixed in 2026.02.0](#bugs-fixed-in-2026-02-0)| |
 
 #### Linux as a platform condition is GA in Preview
 
@@ -56,7 +56,7 @@ Occasionally, users’ devices might fall out of compliance with security polici
 
 See [Device Assurance Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/createDeviceAssurancePolicy!path=0/gracePeriod&t=request) and the [Add a device assurance policy guide](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-assurance-add). <!-- DEVICE_ASSURANCE_GRACE_PERIOD OKTA-803140 Preview date: October 9, 2024 -->
 
-#### Lightweight Directory Access Protocol Bidirectional Group Management is GA in Production
+#### Lightweight directory access protocol bidirectional group management is GA in Production
 
 The [Bidirectional Group Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DirectoriesIntegration) has been expanded to allow you to manage Lightweight Directory Access Protocol (LDAP) groups from within Okta. You can add or remove users from groups based on their identity and access requirements. This ensures that changes made to user access in Okta are reflected in LDAP.
 
@@ -82,7 +82,7 @@ Admins can add non-FIDO Metadata Service (MDS) security keys and other authentic
 
 <!-- OKTA-971037 WEBAUTHN_CUSTOM_AAGUID preview date: July 16, 2025 -->
 
-#### OAuth 2.0 support for custom email providers
+#### OAuth 2.0 support for custom email providers is EA
 
 You can now configure custom email providers with OAuth 2.0 authentication. You can choose between two OAuth 2.0 client configurations to fetch access tokens and use those access tokens to authenticate with your email provider’s SMTP server. See [Custom email providers with OAuth 2.0](/docs/guides/custom-smtp/main/) to understand the new OAuth 2.0 methods.
 
