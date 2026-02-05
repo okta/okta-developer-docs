@@ -95,6 +95,8 @@ Be sure to verify that any relevant System Log events and inline or event hooks 
 
 Use the following procedures to test your org with IPv6.
 
+> **Note:** If you encounter an issue or bug during testing, enter the details using this form: [IPv6 Beta Bug And Issue Report](https://forms.gle/9qHENM2ntPRWKVDj9).
+
 ### Check for IPv6 connectivity
 
 Connecting to Okta using IPv6 requires an IPv6 address and IPv6 connectivity from the browser to Okta. Use the following site to test IPv6 connectivity:
@@ -132,6 +134,12 @@ The System Log shows the IP seen by Okta, and it can be used to verify the IPv6 
 ![An image of the System Log in the Admin Console that displays an IPv6 IP address](/img/ipv6/ipv6-system-log.png)
 
 </div>
+
+### Provide feedback on the IPv6 Beta
+
+If you encounter an issue or bug during testing, enter the details using this form: [IPv6 Beta Bug And Issue Report](https://forms.gle/9qHENM2ntPRWKVDj9). Submit as many forms as you need.
+
+Okta appreciates all feedback on the IPv6 Beta. After you've completed your testing, fill out the [IPv6 Beta Feedback](https://forms.gle/PAqbEbeuJ6iw5nMg9) form.
 
 ## See also
 
