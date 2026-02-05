@@ -24,7 +24,7 @@ title: Okta Identity Engine API release notes 2026
 | [Grace period for device assurance is GA in Preview](#grace-period-for-device-assurance-is-ga-in-preview) | October 9, 2024 |
 | [Lightweight Directory Access Protocol Bidirectional Group Management is GA in Production](#lightweight-directory-access-protocol-bidirectional-group-management-is-ga-in-production) | December 5, 2025 |
 | [Detection settings in session protection is GA in Preview](#detection-settings-in-session-protection-is-ga-in-preview) | February 4, 2026 |
-| [Passkeys Rebrand is self-service EA](#passkeys-rebrand-is-self-service-ea) | February 4, 2026 |
+| [Passkeys Rebrand is self-service EA in Preview](#passkeys-rebrand-is-self-service-ea-in-preview) | February 4, 2026 |
 | [Custom FIDO2 AAGUID is GA in Production](#custom-fido2-aaguid-is-ga-in-production) | July 16, 2025 |
 | [OAuth 2.0 support for custom email providers is self-service EA in Preview](#oauth-2-0-support-for-custom-email-providers-is-self-service-ea-in-preview) | February 4, 2026 |
 | [Okta as a fallback IdP is self-service EA in Preview](#okta-as-a-fallback-idp-is-self-service-ea-in-preview) | January 28, 2026 |
