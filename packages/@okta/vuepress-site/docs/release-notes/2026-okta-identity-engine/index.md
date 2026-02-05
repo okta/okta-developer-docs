@@ -19,7 +19,7 @@ title: Okta Identity Engine API release notes 2026
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Linux as a platform condition is GA in Preview](#linux-as-a-platform-condition-is-ga-in-preview) | February 4, 2026 |
-| [Skip counts for authenticator enrollment grace periods is EA](#skip-counts-for-authenticator-enrollment-grace-periods-is-ea) | February 4, 2026 |
+| [Skip counts for authenticator enrollment grace periods is self-service EA in Preview](#skip-counts-for-authenticator-enrollment-grace-periods-is-self-service-ea-in-preview) | February 4, 2026 |
 | [Dynamic OS version compliance for device assurance is GA in Preview](#dynamic-os-version-compliance-for-device-assurance-is-ga-in-preview) | February 4, 2024 |
 | [Grace period for device assurance is GA in Preview](#grace-period-for-device-assurance-is-ga-in-preview) | October 9, 2024 |
 | [Lightweight Directory Access Protocol Bidirectional Group Management is GA in Production](#lightweight-directory-access-protocol-bidirectional-group-management-is-ga-in-production) | December 5, 2025 |
