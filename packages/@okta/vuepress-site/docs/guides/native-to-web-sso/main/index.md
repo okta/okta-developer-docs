@@ -264,19 +264,24 @@ curl --request POST
   &audience=urn:okta:apps:0oa8vcy7h1eyj7wLL0g7'
 ```
 
-http://oie.okta1.com:1802/oauth2/v1/authorize?
-client_id=0oa1elyw9EAkUNUrW0g5
-&response_type=code
-&scope=openid
-&redirect_uri=http://localhost:8080/authorization-code/callback
-&state=1234
-&interclient_token=eyJraWQiO. . . 1Mhclugg
+```BASH
+curl --request POST
+    --url http://oie.okta1.com:1802/oauth2/v1/authorize \
+    --header 'content-type: application/x-www-form-urlencoded' \
+    --header 'accept: application/json' \
+    --data 'client_id={client_id}
+  &response_type=code
+  &scope=openid
+  &redirect_uri=http://localhost:8080/authorization-code/callback
+  &state=1234
+  &interclient_token=eyJraWQiO. . . 1Mhclugg
+```
 
 Note the parameters that are being passed:
 
 * `client_id`: The client ID of the app integration that you created earlier. Find it in the Admin Console on your app integration's **General** tab.
-* `response_type`: The value is `code`, which indicates that you're using the Authorization Code grant type.
+* `response_type`: The value is `code`, which indicates that the target app is configured for the Authorization Code grant type. Okta sends the authorization code, which is then used by the app in the request to the `/token` endpoint.
 * `scope`: The value is `openid`, which means that the `/token` endpoint returns an ID token.
 * `redirect_uri`: The callback location where the user agent is directed to along with the `code`. This URI must match one of the **Sign-in redirect URIs** in the target app.
 * `state`: An arbitrary alphanumeric string that the authorization server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
-* `interclient_token`: 
+* `interclient_token`:
