@@ -51,7 +51,7 @@ The following API updates have been made to support individual entitlements:
 * Admins can grant individual entitlements to a user, which can be time-boxed. See [Create a grant](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Grants/#tag/Grants/operation/createGrant) and the `ENTITLEMENT` option in `grantType`.
 * The granted individual entitlements can be revoked by an admin or expire if they’re time-boxed. See [Revoke a principal’s access](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Principal-Access-V2/).
 * Admins can generate risk assessments for multiple entitlements. See [Generate a risk assessment](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Risk-Rules/#tag/Risk-Rules/operation/generatePotentialRiskAssessments) and use the `resourceOrnList` parameter.
-* In access certification reviews, the `assignmentType` property is set to `ENTITLEMENT` if the entitlement resource was assigned through an individual entitlement grant.
+* In security access review items, the `assignmentType` property is set to `ENTITLEMENT` if the entitlement resource was assigned through an individual entitlement grant.
 -->
 
 <!-- OKTA-1098916 IGA_ADDITIVE_ENTITLEMENTS  Preview date: February 4, 2026 -->
