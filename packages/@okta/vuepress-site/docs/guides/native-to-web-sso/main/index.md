@@ -239,34 +239,13 @@ This example response is truncated for brevity.
 }
 ```
 
-The OIDC app launches the authorization server URI with intent for the target web app, securely passing the `interclient_token` to it.
-11. The web app receives the token and sends it to Okta in an authorize request (`/authorize` or `/sso/saml`).
-12. Okta validates the `interclient_token`, `audience`, target app ID, issuer, and so on.
+### Authorize request by target app
 
-    * **Look up context**: Okta looks up the associated backend session.
-    * **Loads the state**: Okta then reconstructs the user’s state. This tells Okta who the user is and what security assurances (MFA, Device Trust, and so on) were already satisfied when they signed in to the OIDC origin app.
-    * **Bootstraps the state token to the flow**: Rather than making the user start from a blank sign-in page, Okta uses this loaded context to bootstrap a new state token for the web app's policy evaluation.
-
-13. Okta checks if the user has satisfied all of the target web app’s policy requirements. If all checks pass, the user is immediately signed in, otherwise the user is prompted to satisfy all policy requirements.
-
+The OIDC app launches the authorization server URI with intent for the target web app, securely passing the `interclient_token` to it. The web app receives the token and sends it to Okta in an authorize request (`/authorize` or `/sso/saml`). The OIDC request looks something like the following example. The example is truncated for brevity.
 
 ```BASH
 curl --request POST
-    --url https://{yourOktaDomain}/oauth2/v1/authorize \
-    --header 'content-type: application/x-www-form-urlencoded' \
-    --header 'accept: application/json' \
-    --data 'client_id={client_id}
-  &actor_token=eyJra. . . tSXL-HCA
-  &actor_token_type=urn:ietf:params:oauth:token-type:access_token
-  &subject_token=eyJr. . .cbYGw
-  &subject_token_type=urn:ietf:params:oauth:token-type:id_token
-  &requested_token_type=urn:okta:params:oauth:token-type:interclient_token
-  &audience=urn:okta:apps:0oa8vcy7h1eyj7wLL0g7'
-```
-
-```BASH
-curl --request POST
-    --url http://oie.okta1.com:1802/oauth2/v1/authorize \
+    --url http://{yourOktaDomain}/oauth2/v1/authorize \
     --header 'content-type: application/x-www-form-urlencoded' \
     --header 'accept: application/json' \
     --data 'client_id={client_id}
@@ -274,14 +253,27 @@ curl --request POST
   &scope=openid
   &redirect_uri=http://localhost:8080/authorization-code/callback
   &state=1234
-  &interclient_token=eyJraWQiO. . . 1Mhclugg
+  &interclient_token=eyJraWQiOiJNTG. . .GubhhEsg
 ```
 
 Note the parameters that are being passed:
 
 * `client_id`: The client ID of the app integration that you created earlier. Find it in the Admin Console on your app integration's **General** tab.
-* `response_type`: The value is `code`, which indicates that the target app is configured for the Authorization Code grant type. Okta sends the authorization code, which is then used by the app in the request to the `/token` endpoint.
+* `response_type`: The value is `code`, which indicates that the target app is configured for the Authorization Code grant type. Okta returns the authorization code, which is then used by the app in the request to the `/token` endpoint. See [Implement authorization by grant type](https://developer.okta.com/docs/guides/implement-grant-type/authcode/main/#exchange-the-code-for-tokens) for specifics on the authorization code flow.
 * `scope`: The value is `openid`, which means that the `/token` endpoint returns an ID token.
 * `redirect_uri`: The callback location where the user agent is directed to along with the `code`. This URI must match one of the **Sign-in redirect URIs** in the target app.
 * `state`: An arbitrary alphanumeric string that the authorization server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
-* `interclient_token`:
+* `interclient_token`: The token that bootstraps an authentication into the target app using authentication information such as previous factor verifications from a session created when obtaining the original token.
+
+> **Note**: A SAML request would look similar to the following request:<br>
+<br>
+`http://{yourOktaDomain}/app/oie_saml1_1/exk8ghekYoSBWEl4H0g5/sso/saml?interclient_token=eyJraWQi. . .w2H0OYlw`<br>
+
+### Final checks by Okta
+
+Okta validates the `interclient_token`, `audience`, target app ID, issuer, and so on. Okta then checks if the user has satisfied all of the target web app’s policy requirements. If all checks pass, the user is immediately signed in, otherwise the user is prompted to satisfy all policy requirements.
+
+## Related topics
+
+* [Implement authorization by grant type](/docs/guides/implement-grant-type/authcode/main/)
+* [Application Interclient Trust Mappings API](/docs/api/openapi/okta-management/management/tag/ApplicationInterclientTrustMappings/)
