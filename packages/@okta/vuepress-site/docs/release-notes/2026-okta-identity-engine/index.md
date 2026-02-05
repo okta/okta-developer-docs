@@ -66,7 +66,7 @@ Okta can only manage group memberships for users and groups imported into Okta u
 
 Tailor ITP to your org’s security priorities to gain control and balance security with a seamless user experience. With new detection settings, you can define which session context changes trigger policy re-evaluations, helping you focus only on what truly matters. See [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
 
-#### Passkeys rebrand is self-service EA
+#### Passkeys rebrand is self-service EA in Preview
 
 The **FIDO2 (WebAuthn)** authenticator is being rebranded to **Passkeys (FIDO2 WebAuthn)**. The **FIDO2 (WebAuthn)** authenticator is being rebranded to **Passkeys (FIDO2 WebAuthn)** and Okta is introducing enhanced administrative controls and a streamlined user experience. This update centralizes passkey management through a consolidated settings page, allows for customized authenticator naming, and introduces a dedicated **Sign in with a passkey** button within the Sign-In Widget. These enhancements simplify the authentication journey and provide users with a more intuitive sign-in process with the **Sign in with a passkey** button.
 
