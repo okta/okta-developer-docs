@@ -6,6 +6,7 @@ layout: Guides
 
 Learn how to configure token exchange for AI agents so you can securely request and use credentials (ID-JAG, secrets, or service accounts) to access protected resources on behalf of authenticated users.
 
+> **Note:** <ApiLifecycle access="ea" /> Okta for AI Agents is in Early Access.
 ---
 
 #### Learning outcomes
