@@ -82,7 +82,7 @@ Admins can add non-FIDO Metadata Service (MDS) security keys and other authentic
 
 <!-- OKTA-971037 WEBAUTHN_CUSTOM_AAGUID preview date: July 16, 2025 -->
 
-#### OAuth 2.0 support for custom email providers is EA
+#### OAuth 2.0 support for custom email providers is self-service EA in Preview
 
 You can now configure custom email providers with OAuth 2.0 authentication. You can choose between two OAuth 2.0 client configurations to fetch access tokens and use those access tokens to authenticate with your email provider’s SMTP server. See [Custom email providers with OAuth 2.0](/docs/guides/custom-smtp/main/) to understand the new OAuth 2.0 methods.
 
