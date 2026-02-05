@@ -173,7 +173,7 @@ Single-page web apps run in the browser where the client receives tokens.
 
 ## Set up your app to use the Okta APIs
 
-This step is optional. However, you can use your web app to interact with Okta APIs. Follow the steps in [Set up Okta for API access](/docs/reference/rest/#set-up-okta-for-api-access) and use the app that you created in the [previous section](#create-an-app).
+This step is optional. However, you can use your web app to interact with Okta APIs. Follow the steps in [Set up Okta for OAuth API access](/docs/guides/set-up-oauth-api/main/) and use the app that you created in the [previous section](#create-an-app).
 
 ## Set up your Okta org for your use cases
 

@@ -851,6 +851,10 @@ export const guides = [
             guideName: "step-up-authentication"
           },
           {
+            title: "Set up Okta for OAuth API access",
+            guideName: "set-up-oauth-api",
+          },
+          {
             title: "Create an API token",
             guideName: "create-an-api-token",
           },
@@ -941,6 +945,10 @@ export const guides = [
           {
             title: "Set up Okta app authentication",
             path: "/docs/guides/configure-mcp-authentication/main/",
+          },
+          {
+            title: "Configure, start, and test",
+            path: "/docs/guides/start-mcp-server/main/",
           },
         ],
       },
@@ -1149,6 +1157,10 @@ export const journeys = [
           {
             title: "Apply your brand to the Okta user experience",
             journeyName: "OCI-branding"
+          },
+          {
+            title: "Add a sign-in form to your mobile app",
+            journeyName: "OCI-mobile"
           },
         ]
       },

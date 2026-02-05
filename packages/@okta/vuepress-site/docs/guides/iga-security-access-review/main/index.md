@@ -90,7 +90,7 @@ If you don't have an app for API access:
 
 * Create an **OIDC-OpenID Connect** sign-in method app for API access if you're making API requests as an Okta user.
 
-  See [User-based API access setup](https://developer.okta.com/docs/reference/rest/#user-based-api-access-setup) to create an OIDC app. Grant the required `okta.governance.securityAccessReviews.admin.manage` and `okta.users.read` scopes to the OIDC app (in addition to any other scopes you may need).
+  See [User-based API access setup](/docs/guides/set-up-oauth-api/main/#user-based-api-access-setup) to create an OIDC app. Grant the required `okta.governance.securityAccessReviews.admin.manage` and `okta.users.read` scopes to the OIDC app (in addition to any other scopes you may need).
 
   Assign the API users to the OIDC app. Ensure that the API users are assigned to the super admin role or to a custom role that is granted the following permissions:
 
@@ -99,7 +99,7 @@ If you don't have an app for API access:
 
 * Create an **API Services** sign-in method app for API access if you're making API requests from a service or daemon without user context.
 
-  See [Service-based API access setup](https://developer.okta.com/docs/reference/rest/#service-based-api-access-setup) to create a service app. Grant the required `okta.governance.securityAccessReviews.admin.manage` and `okta.users.read` scopes, and assign the required admin role (super admin or your custom role) to the service app.
+  See [Service-based API access setup](/docs/guides/set-up-oauth-api/main/#service-based-api-access-setup) to create a service app. Grant the required `okta.governance.securityAccessReviews.admin.manage` and `okta.users.read` scopes, and assign the required admin role (super admin or your custom role) to the service app.
 
 ## Launch a security access review
 
@@ -115,9 +115,9 @@ You can use Okta authentication SDKs or code your own sequence to get an access 
 
 > **Note:** See `getToken` methods from [Okta authentication SDKs](https://developer.okta.com/code/). For example, use [tokenManager.getTokens()](https://www.npmjs.com/package/@okta/okta-auth-js#tokenmanagergettokens) in [Okta Auth JavaScript SDK](https://github.com/okta/okta-auth-js/#okta-auth-javascript-sdk).
 
-* For API requests from a user, see [Get an access token and make a request](https://developer.okta.com/docs/reference/rest/#get-an-access-token-and-make-a-request).
+* For API requests from a user, see [Get an access token and make a request](/docs/guides/set-up-oauth-api/main/#get-an-access-token-and-make-a-request).
 
-* For API requests from a service app, see [Get an access token from a signed JWT](https://developer.okta.com/docs/reference/rest/#get-an-access-token-from-a-signed-jwt).
+* For API requests from a service app, see [Get an access token from a signed JWT](/docs/guides/set-up-oauth-api/main/#get-an-access-token-from-a-signed-jwt).
 
 Use the obtained OAuth 2.0 access token as bearer tokens in the authentication header of your API requests.
 

@@ -17,7 +17,7 @@ Create an Okta admin app integration and configure authentication credentials to
 #### What you need
 
 * An [Okta Integrator Free Plan org](https://developer.okta.com/signup) with admin permissions.
-* [Super admin permissions](https://help.okta.com/okta_help.htm?id=ext_superadmin) in your Okta org.
+* An Okta admin role with the appropriate permissions. See [Learn about administrators](https://help.okta.com/oie/en-us/content/topics/security/administrators-learn-about-admins.htm).
 
 ---
 
@@ -154,7 +154,7 @@ You can either generate the key in Okta (recommended) and copy it in PEM format,
 
 1. Go to the **Grant API scopes** tab and grant the required API scopes.
 1. Go to the **Admin roles** tab, and click **Edit assignments**.
-1. Select **Super Administrator** role and click **Save changes**.
+1. Select an admin role (see [Learn about administators](https://help.okta.com/oie/en-us/content/topics/security/administrators-learn-about-admins.htm)) and click **Save changes**.
 1. Go to the **General** tab and copy the **Client ID**.
 
 ---
@@ -163,4 +163,4 @@ You've created an app integration, configured the authentication flow, and grant
 
 ## Next Steps
 
-Configure, start, and test the Okta MCP server to connect your local environment to your org.
+[Configure, start, and test](/docs/guides/start-mcp-server/main/) the Okta MCP server to connect the local environment to your org.
