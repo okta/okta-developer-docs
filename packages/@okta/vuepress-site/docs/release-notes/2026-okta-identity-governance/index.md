@@ -19,7 +19,7 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Permalink ID in V2 access request](#permalink-id-in-v2-access-request) | February 4, 2026 |
-| [Certify resource collections - Resource collections is EA](#certify-resource-collections-resource-collections-is-ea) | January 28, 2026 |
+| [Certify resource collections is EA](#certify-resource-collections-is-ea) | January 28, 2026 |
 | [Additive entitlements is Beta](#additive-entitlements-is-beta) | February 4, 2026 |
 | [Developer documentation updates in 2026.02.0](#developer-documentation-updates-in-2026-02-0) | February 4, 2026 |
 
@@ -33,7 +33,7 @@ See [`requestApprovals.permalinkId`] (https://developer.okta.com/docs/api/iga/op
 
 <!-- OKTA-1089085 Preview date: Feb. 4, 2026-->
 
-#### Certify resource collections - Resource collections is EA
+#### Certify resource collections is EA
 
 Use access certification resource campaigns to certify user access to resource collections. Rather than reviewing individual apps, entitlements, or bundles separately, running resource campaigns for resource collections helps you reduce the volume of review items for reviewers and provide them with the necessary context to make informed decisions.
 
