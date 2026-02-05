@@ -19,7 +19,7 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Permalink ID in V2 access request](#permalink-id-in-v2-access-request) | February 4, 2026 |
-| [Certify resource collections - Resource campaigns is EA](#certify-resource-collections-resource campaigns-is-ea) | January 28, 2026 |
+| [Certify resource collections - Resource campaigns is EA](#certify-resource-collections-resource-campaigns-is-ea) | January 28, 2026 |
 | [Additive entitlements is Beta](#additive-entitlements-is-beta) | February 4, 2026 |
 | [Developer documentation updates in 2026.02.0](#developer-documentation-updates-in-2026-02-0) | February 4, 2026 |
 
