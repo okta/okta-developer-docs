@@ -2,13 +2,13 @@ The following sections outline the requests required to implement the out-of-ban
 
 ### Request for out-of-band authentication
 
-Before you can begin this flow, collect the username from the user in a manner of your choosing. Then, make an API call to the Okta [authorization server](/docs/concepts/auth-servers/) `/oob-authenticate` endpoint. Use this endpoint to initiate an authentication flow with an out-of-band factor as the primary factor. Your request should look something like this:
+Before you can begin this flow, collect the username from the user in a manner of your choosing. Then, make an API call to the Okta [authorization server](/docs/concepts/auth-servers/) `/primary-authenticate` endpoint. Use this endpoint to initiate an authentication flow with an out-of-band factor as the primary factor. Your request should look something like this:
 
-> **Note:** The `/oob-authenticate` endpoint doesn't support multifactor authentication.
+> **Note:** The `/primary-authenticate` endpoint doesn't support multifactor authentication.
 
 ```bash
 curl --request POST \
-  --url https://{yourOktaDomain}/oauth2/v1/oob-authenticate \
+  --url https://{yourOktaDomain}/oauth2/v1/primary-authenticate \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data 'client_id={client_id}&login_hint={testuser%40example.com}&channel_hint=push'
@@ -20,7 +20,7 @@ Note the parameters that are passed:
 - `login_hint`: The email username of a registerd Okta user
 - `channel_hint`: The out-of-band channel used by the client. For Okta Verify, use `push`.
 
-For more information on these parameters, see the `/oob-authenticate` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/oob-authenticate).
+For more information on these parameters, see the `/primary-authenticate` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/primary-authenticate).
 
 ### OOB response example for Okta Verify Push
 

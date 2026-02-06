@@ -2,15 +2,15 @@ The following sections outline the requests required to implement the out-of-ban
 
 ### Request for out-of-band authentication
 
-Before you can begin this flow, collect the username from the user in a manner of your choosing. Then, make an API call to the Okta [authorization server](/docs/concepts/auth-servers/) `/oob-authenticate` endpoint. Use this endpoint to initiate an authentication flow with an out-of-band factor (such as SMS or Voice) as the primary factor.
+Before you can begin this flow, collect the username from the user in a manner of your choosing. Then, make an API call to the Okta [authorization server](/docs/concepts/auth-servers/) `/primary-authenticate` endpoint. Use this endpoint to initiate an authentication flow with an out-of-band factor (such as SMS or Voice) as the primary factor.
 
-> **Note:** The `/oob-authenticate` endpoint doesn't support multifactor authentication.
+> **Note:** The `/primary-authenticate` endpoint doesn't support multifactor authentication.
 
 Your request should look something like this:
 
 ```bash
 curl --request POST \
-  --url https://{yourOktaDomain}/oauth2/v1/oob-authenticate \
+  --url https://{yourOktaDomain}/oauth2/v1/primary-authenticate \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data 'client_id={client_id}&login_hint={testuser%40example.com}&channel_hint={sms or voice}'
@@ -22,7 +22,7 @@ Note the parameters that are passed:
 - `login_hint`: The email username of a registered Okta user
 - `channel_hint`: The out-of-band channel that the client wants to use. For Phone, use `sms` or `voice`.
 
-For more information on these parameters, see the `/oob-authenticate` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/oob-authenticate).
+For more information on these parameters, see the `/primary-authenticate` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/primary-authenticate).
 
 ### OOB response example
 
