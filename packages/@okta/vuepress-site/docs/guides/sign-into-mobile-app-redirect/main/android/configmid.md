@@ -1,3 +1,10 @@
+The app uses information from the Okta integration that you created earlier to communicate with the API:
+
+* Redirect URI
+* Post logout redirect URI
+* Client ID
+* Issuer
+
 1. Create a file called `okta.properties` in the root directory of your project:
 
 1. Add the configuration values that your app uses to interact with the Okta org. Replace the placeholders in the following code with the values from the Okta app that you created in [Create an Okta integration for your app](#create-an-okta-integration-for-your-app).
@@ -40,3 +47,12 @@
     ```
 
 1. Update Android Studio with the changes by performing a Gradle sync. For more information on performing a Gradle sync, see the [Android Studio Documentation](https://developer.android.com/studio/build#sync-files).
+
+#### Find your config values
+
+If you don't have your configuration values handy, you can find them in the Admin Console. Go to **Applications** > **Applications** and find the app integration that you created earlier:
+
+* **Sign-in redirect URI**: Found on the **General** tab in the **Login** section.
+* **Sign-out redirect URI**: Found on the **General** tab in the **Login** section.
+* **Client ID**: Found on the **General** tab in the **Client Credentials** section.
+* **Issuer**: Found in the **Issuer URI** field for the authorization server that appears by selecting **Security** > **API** from the left navigation pane.

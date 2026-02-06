@@ -8,7 +8,7 @@ Add the latest Okta OIDC package to your project:
 1. Select the package products that appear in the dialog: **AuthFoundation**, **OktaOAuth2**, and **BrowserSignin**, click **Add to target**, and select your project.
 1. Click **Add Package**.
 
-Open `ContentView.swift` and update the `import` statements to use the authorization foundation and WebAuthn UI libraries:
+Open `ContentView.swift` and update the `import` statements to use the [AuthFoundation](https://okta.github.io/okta-mobile-swift/development/documentation/authfoundation/) libraries:
 
 ```swift
 import SwiftUI
