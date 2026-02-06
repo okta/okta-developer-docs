@@ -54,7 +54,7 @@
 </template>
 
 <script>
-  import { getGuidesInfo, guideFromPath } from '../util/guides';
+  import { getGuidesInfo, guideFromPath, getCodeInfo, codeFromPath } from '../util/guides';
   export default {
     name: 'StackSelector',
     inject: ['stackSelectorData'],
@@ -80,18 +80,28 @@
     },
     computed: {
       guideName() {
-        // console.log( this.$route.path , ' this.$route.path ')
-        return guideFromPath( this.$route.path ).guideName;
+        if (this.$route.path.startsWith('/code/')) {
+          const code = codeFromPath(this.$route.path).pageName;
+          return code;
+        }
+        return guideFromPath(this.$route.path).guideName;
       },
       framework() {
-        // Default to first available framework
-        return guideFromPath( this.$route.path ).framework || this.options[0].name;
+        if (this.$route.path.startsWith('/code/')) {
+          return codeFromPath(this.$route.path).framework || this.options[0].name;
+        }
+        return guideFromPath(this.$route.path).framework || this.options[0].name;
       },
       sectionName() {
-        return guideFromPath( this.$route.path ).sectionName;
+        if (this.$route.path.startsWith('/code/')) {
+          return codeFromPath(this.$route.path).sectionName;
+        }
+        return guideFromPath(this.$route.path).sectionName;
       },
       guide() {
-        // console.log(getGuidesInfo({pages: this.$site.pages}), 'getGuidesInfo');
+        if (this.$route.path.startsWith('/code/')) {
+          return getCodeInfo({pages: this.$site.pages}).byName[this.guideName];
+        }
         return getGuidesInfo({pages: this.$site.pages}).byName[this.guideName];
       },
       section() {
