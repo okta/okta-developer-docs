@@ -16,7 +16,7 @@ participant "Authorization Server (Okta) " as okta
 autonumber "<b>#."
 client -> user: Prompts user for username
 user -> client: Enters username
-client -> okta: Sends OOB authentication request to `/oob-authenticate`
+client -> okta: Sends OOB authentication request to `/primary-authenticate`
 okta -> client: Sends `oob_code`, `interval`, other parameters required by authenticator
 okta -> user: Sends push notification
 user <-> client: Per configured authenticator options, more interaction may occur
@@ -33,7 +33,7 @@ At a high level, this flow has the following steps:
 
 1. Your client app prompts the user for their username in the app interface.
 1. The user enters their username.
-1. Your app sends the username as a `login_hint` and `channel_hint=push` to the Okta authorization server `/oob-authenticate` endpoint.
+1. Your app sends the username as a `login_hint` and `channel_hint=push` to the Okta authorization server `/primary-authenticate` endpoint.
 
     Register your app so that Okta can accept the authorization request. See [Set up your app](#set-up-your-app) to register and configure your app with Okta. After registration, your app can make an authorization request to Okta. See [Request for tokens](#request-for-tokens).
 
