@@ -373,7 +373,7 @@
                   >
                     <div class="consent--section-text">
                       <p>
-                        By clicking “Sign Up,” I agree to be bound by the 
+                        By clicking “Sign up,” I agree to be bound by the 
                         <SmartLink :item="{ link: '/terms/', target: '_blank' }">
                           Integrator Free Plan Agreement
                         </SmartLink>
