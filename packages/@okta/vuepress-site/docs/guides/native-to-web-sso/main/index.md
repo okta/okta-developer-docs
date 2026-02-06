@@ -260,14 +260,14 @@ Note the parameters that are being passed:
 
 * `client_id`: The client ID of the app integration that you created earlier. Find it in the Admin Console on your app integration's **General** tab.
 * `response_type`: The value is `code`, which indicates that the target app is configured for the Authorization Code grant type. Okta returns the authorization code, which is then used by the app in the request to the `/token` endpoint. See [Implement authorization by grant type](https://developer.okta.com/docs/guides/implement-grant-type/authcode/main/#exchange-the-code-for-tokens) for specifics on the authorization code flow.
-* `scope`: The value is `openid`, which means that the `/token` endpoint returns an ID token.
+* `scope`: The value is `openid`, which means that the `/token` endpoint returns an ID token. **Note**: The `interclient_access` scope isn't allowed in the request when the `interclient_token` parameter is used.
 * `redirect_uri`: The callback location where the user agent is directed to along with the `code`. This URI must match one of the **Sign-in redirect URIs** in the target app.
 * `state`: An arbitrary alphanumeric string that the authorization server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
 * `interclient_token`: The token that bootstraps an authentication into the target app using authentication information such as previous factor verifications from a session created when obtaining the original token.
 
 > **Note**: A SAML request would look similar to the following request:<br>
 <br>
-`http://{yourOktaDomain}/app/oie_saml1_1/exk8ghekYoSBWEl4H0g5/sso/saml?interclient_token=eyJraWQi. . .w2H0OYlw`<br>
+`http://{yourOktaDomain}/app/{instanceName}/{externalKey}/sso/saml?interclient_token=eyJraWQi. . .w2H0OYlw`<br>
 
 ### Final checks by Okta
 
