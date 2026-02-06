@@ -1,6 +1,6 @@
 ---
-title: Sign users in to your mobile app using the redirect model
-excerpt: Configure your Okta org and your mobile app to use Okta’s redirect sign-in flow.
+title: Configure the Client SDK in your app to user an Okta-hosted sign-in form
+excerpt: Configure the Client SDK in your app to use an Okta-hosted sign-in form.
 layout: Guides
 sections:
  - main

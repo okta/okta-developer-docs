@@ -1,6 +1,6 @@
 ---
-title: Sign in to your mobile app
-excerpt: Configure your Okta org and your mobile app to use Okta's redirect sign-in flow.
+title: Configure the Client SDK in your app to user an Okta-hosted sign-in form
+excerpt: Configure the Client SDK in your app to use an Okta-hosted sign-in form.
 layout: Guides
 ---
 
@@ -71,23 +71,7 @@ Add the required dependencies for using the Okta SDK with your app.
 
 ### Configure your app
 
-The app uses information from the Okta integration that you created earlier to communicate with the API:
-
-* Redirect URI
-* Post logout redirect URI
-* Client ID
-* Issuer
-
 <StackSnippet snippet="configmid" />
-
-#### Find your config values
-
-If you don't have your configuration values handy, you can find them in the Admin Console. Go to **Applications** > **Applications** and find the app integration that you created earlier:
-
-* **Sign-in redirect URI**: Found on the **General** tab in the **Login** section.
-* **Sign-out redirect URI**: Found on the **General** tab in the **Login** section.
-* **Client ID**: Found on the **General** tab in the **Client Credentials** section.
-* **Issuer**: Found in the **Issuer URI** field for the authorization server that appears by selecting **Security** > **API** from the left navigation pane.
 
 ### Define a callback route
 
