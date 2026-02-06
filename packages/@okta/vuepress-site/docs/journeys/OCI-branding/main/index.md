@@ -18,6 +18,8 @@ Design and apply a custom look and feel that matches your brand to the Okta-host
 
 You have a customer-facing app that uses the Okta-hosted Sign-In Widget and messaging services. Design and apply your own look and feel to these elements, which keeps your customers engaged. When you deliver a seamless, branded experience, you build trust with your users.
 
+> **Note**: This document is only for Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+
 ## Learn
 
 There are three key elements to the theming of the Okta default user experience:
@@ -26,8 +28,7 @@ There are three key elements to the theming of the Okta default user experience:
 * The [Okta Expression Language](/docs/reference/okta-expression-language/) is used to customize email and SMS messages.
 * Okta [Brands](https://developer.okta.com/docs/concepts/brands/) allows you to manage multiple brands in one Okta org.
 
-<!-- See the [repository of example style sheets for the Sign-In Widget](https://github.com/oktadev/okta-js-siw-customzation-example) for examples of the types of updates that you can make.-->
-> **Note**: This document is only for Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+> **Note**: See the [repository of example style sheets for the Sign-In Widget](https://github.com/oktadev/okta-js-siw-customzation-example) for examples of the types of updates that you can make.
 
 ## Plan
 
@@ -59,7 +60,7 @@ All customizations are tied to the custom domain that you must first attach to y
 
 Create a stylesheet and any required JavaScript for custom behaviors and attach it to your custom domain in the Admin Console:
 
-<!-- * Use [our samples repo](https://github.com/oktadev/okta-js-siw-customzation-example) to build the correct CSS to match your design. -->
+* Use [our samples repo](https://github.com/oktadev/okta-js-siw-customzation-example) to build the correct CSS to match your design.
 * Add your style sheets and scripts. You can do this using either the [second](/docs/guides/custom-widget/main/#style-for-redirect-authentication) or [third-generation](/docs/guides/custom-widget-gen3/main/) widget.
 * [Use design tokens](/docs/guides/custom-widget-gen3/main/). You can do this using the third-generation widget.
 
@@ -95,3 +96,4 @@ This journey is part of the Secure your portal pathway, which also contains:
 
 * [Secure your first web app](/docs/journeys/OCI-secure-your-first-web-app/main/)
 * [Sign users in through your web app](/docs/journeys/OCI-web-sign-in/main/)
+* [Add a sign-in form to your mobile app](/docs/journeys/OCI-mobile/main/)
