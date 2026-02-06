@@ -38,13 +38,15 @@ Okta now supports `LINUX` as a device platform condition in the following policy
 * App sign-in policies (`ACCESS_POLICY` rules)
 * Okta account management policy rules (Rules for the Okta account management `ACCESS_POLICY`)
 * Identity provider routing rules (`IDP_DISCOVERY` rules)
-<!-- OKTA-1093354 LINUX_SUPPORT_FOR_POLICIES preview date: Feb 4, 2026 link: See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/conditions/platform/exclude/os/type&t=request). -->
+
+See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/conditions/platform/exclude/os/type&t=request).
+<!-- OKTA-1093354 LINUX_SUPPORT_FOR_POLICIES preview date: Feb 4, 2026 -->
 
 #### Skip counts for authenticator enrollment grace periods is EA
 
-This feature allows admins to define a number of skips that end users can defer enrollment into an authenticator, as well as customizations to the prompt when end users see the grace period. See [Grace periods](/docs/concepts/policies/#grace-periods).
+This feature allows admins to define a number of skips that end users can defer enrollment into an authenticator, as well as customizations to the prompt when end users see the grace period. See [Grace periods](/docs/concepts/policies/#grace-periods) and [type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=1/settings/authenticators/enroll/gracePeriod/0/type&t=request).
 
-<!-- OKTA-1044803 FF: ENROLLMENT_POLICY_GRACE_PERIOD_V2 preview date: Feb 4, 2026 link: [type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=1/settings/authenticators/enroll/gracePeriod/0/type&t=request) -->
+<!-- OKTA-1044803 FF: ENROLLMENT_POLICY_GRACE_PERIOD_V2 preview date: Feb 4, 2026 -->
 
 #### Dynamic OS version compliance for device assurance is GA in Preview
 
@@ -68,11 +70,11 @@ Tailor ITP to your org’s security priorities to gain control and balance secur
 
 #### Passkeys rebrand is self-service EA in Preview
 
-The **FIDO2 (WebAuthn)** authenticator is being rebranded to **Passkeys (FIDO2 WebAuthn)**. The **FIDO2 (WebAuthn)** authenticator is being rebranded to **Passkeys (FIDO2 WebAuthn)** and Okta is introducing enhanced administrative controls and a streamlined user experience. This update centralizes passkey management through a consolidated settings page, allows for customized authenticator naming, and introduces a dedicated **Sign in with a passkey** button within the Sign-In Widget. These enhancements simplify the authentication journey and provide users with a more intuitive sign-in process with the **Sign in with a passkey** button.
+The FIDO2 (WebAuthn) authenticator is being rebranded to Passkeys (FIDO2 WebAuthn). The FIDO2 (WebAuthn) authenticator is being rebranded to Passkeys (FIDO2 WebAuthn) and Okta is introducing enhanced administrative controls and a streamlined user experience. This update centralizes passkey management through a consolidated settings page, allows for customized authenticator naming, and introduces a dedicated **Sign in with a passkey** button within the Sign-In Widget. These enhancements simplify the authentication journey and provide users with a more intuitive sign-in process with the **Sign in with a passkey** button.
 
-For more information about the new settings and updates, see [Configure the FIDO2 (WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn).
+For more information about the new settings and updates, see [Configure the FIDO2 (WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn) and [`settings`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod!path=8/settings&t=request).
 
-<!-- OKTA-1012303 FF: PASSKEYS_REBRAND preview date: Feb 4, 2026 link:  and [`settings`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod!path=8/settings&t=request) -->
+<!-- OKTA-1012303 FF: PASSKEYS_REBRAND preview date: Feb 4, 2026 -->
 
 #### Custom FIDO2 AAGUID is GA in Production
 
@@ -86,9 +88,10 @@ Admins can add non-FIDO Metadata Service (MDS) security keys and other authentic
 
 You can now configure custom email providers with OAuth 2.0 authentication. You can choose between two OAuth 2.0 client configurations to fetch access tokens and use those access tokens to authenticate with your email provider’s SMTP server. See [Custom email providers with OAuth 2.0](/docs/guides/custom-smtp/main/) to understand the new OAuth 2.0 methods.
 
-See [Use your own email provider](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-provider-main) to configure them in the Admin Console.
+* See [Use your own email provider](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-provider-main) to configure them in the Admin Console.
+* See the [Email Providers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailServer/) to configure them with APIs.
 
-<!-- OKTA-1100448 FF: OAUTH_FOR_CUSTOM_SMTP_SERVER, preview date: Feb 4, 2026 link: * See the [Email Providers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailServer/) to configure them with APIs. -->
+<!-- OKTA-1100448 FF: OAUTH_FOR_CUSTOM_SMTP_SERVER, preview date: Feb 4, 2026 -->
 
 #### Okta as a fallback IdP is self-service EA in Preview
 
