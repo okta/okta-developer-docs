@@ -14,7 +14,7 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 ## February
 
 ### Monthly release 2026.02.0
-<!-- Published on: 2026-02-04T12:00:00Z -->
+<!-- Published on: 2026-02-06T12:00:00Z -->
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
@@ -27,10 +27,7 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 A new `permalinkId` property is returned in [V2 access request](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Requests/#tag/Requests/operation/getRequestV2) responses. This property is a user-friendly, immutable identifier that resolves to the request. The identifier (in the form of a permalink) helps users navigate back to the request on the web page.
 
-<!--
-See [`requestApprovals.permalinkId`] (https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Requests/#tag/Requests/operation/getRequestV2!c=200&path=requestApproval/permalinkId&t=response).
--->
-
+See [`requestApprovals.permalinkId`](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Requests/#tag/Requests/operation/getRequestV2!c=200&path=requestApproval/permalinkId&t=response).
 <!-- OKTA-1089085 Preview date: Feb. 4, 2026-->
 
 #### Certify resource collections - Resource campaigns is EA
@@ -46,13 +43,11 @@ A new `COLLECTION` resource option in the campaign [`resourceSettings.type`](htt
 
 Admins can now grant specific, time-bound entitlements to individual users without creating entitlement bundles for requests. These individual entitlement grants are additive in nature to the existing policy or custom grants. Admins can revoke an individual entitlement, which is removed across custom and entitlement grants. They can also perform risk assessments on multiple entitlements for the user.
 
-<!--
 The following API updates have been made to support individual entitlements:
 * Admins can grant individual entitlements to a user, which can be time-boxed. See [Create a grant](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Grants/#tag/Grants/operation/createGrant) and the `ENTITLEMENT` option in `grantType`.
-* The granted individual entitlements can be revoked by an admin or expire if they’re time-boxed. See [Revoke a principal’s access](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Principal-Access-V2/).
+* The granted individual entitlements can be revoked by an admin or expire if they're time-boxed. See [Revoke a principal's access](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Principal-Access-V2/).
 * Admins can generate risk assessments for multiple entitlements. See [Generate a risk assessment](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Risk-Rules/#tag/Risk-Rules/operation/generatePotentialRiskAssessments) and use the `resourceOrnList` parameter.
 * In security access review items, the `assignmentType` property is set to `ENTITLEMENT` if the entitlement resource was assigned through an individual entitlement grant.
--->
 
 <!-- OKTA-1098916 IGA_ADDITIVE_ENTITLEMENTS  Preview date: February 4, 2026 -->
 
