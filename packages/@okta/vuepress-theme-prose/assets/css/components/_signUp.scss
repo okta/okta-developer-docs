@@ -56,7 +56,7 @@
 
   display: block;
   margin: 0 32px;
-  
+
   overflow: hidden;
 
   border-radius: 12px;
@@ -574,7 +574,7 @@ select.signup__form__input:required:invalid {
   margin-top: 20px;
   padding: 12px;
   width: 100%;
-  
+
   height: 48px;
 
   border: 1px solid var(--c-gray-950);
@@ -798,7 +798,7 @@ select.signup__form__input:required:invalid {
     grid-column: 7 / 13;
     padding-bottom: 30px;
   }
-  @include media(">signup") { 
+  @include media(">signup") {
     grid-column: 1 / 13;
     margin-left: 0;
     padding-bottom: 0;
@@ -1327,4 +1327,17 @@ select.signup__form__input:required:invalid {
 
 .consent--section-agree input {
   margin: 0;
+}
+
+.consent--section-text {
+  font-size: 14px;
+  line-height: 1.25rem;
+  color: var(--c-text-base);
+
+  a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+
+    transition: color 0.1s ease-out;
+  }
 }

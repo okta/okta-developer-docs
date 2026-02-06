@@ -249,7 +249,7 @@ module.exports = ctx => ({
         items: [
           { text: 'Contact our team', link: 'https://www.okta.com/contact/', target: '_self' },
           { text: 'Contact sales', link: 'https://www.okta.com/contact-sales/', target: '_self' },
-          { text: 'Developer Service terms', link: '/terms/' },
+          { text: 'Integrator Free Plan terms', link: '/terms/' },
           { text: 'Site terms', link: 'https://www.okta.com/terms-of-service/' },
 			 { text: 'Privacy policy', link: 'https://www.okta.com/privacy-policy/', target: '_self' },
 			 { text: 'Copyright & trademarks', link: '/copyright/' },
