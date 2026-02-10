@@ -137,9 +137,11 @@ See [Device assurance](https://help.okta.com/okta_help.htm?type=oie&id=ext-devic
 
 Identity Threat Protection with Okta AI is an identity threat solution that combines current security practices with continuous real-time risk assessment. See [Identity Threat Protection with Okta AI](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview). Identity Threat Protection uses the entity risk policy and session protection policy for these threat evaluations.
 
-* [Entity risk policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy): The entity risk policy monitors your org for entity risk changes related to identity-based threats. For Admin Console tasks and further information, see [Entity risk policy](https://help.okta.com/okta_help.htm?type=oie&id=csh-entity-risk-policy).
+* [Entity risk policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy): This policy monitors your org for entity risk changes that are related to identity-based threats. For Admin Console tasks and further information, see [Entity risk policy](https://help.okta.com/okta_help.htm?type=oie&id=csh-entity-risk-policy).
 
-* [Session protection policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy): session protection policy monitors user sessions on your org to identify changes in session context. For Admin Console tasks and further information, see [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
+* [Session violation detection policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) (`SESSION_VIOLATION_DETECTION`): This policy defines the logic for when Okta re-evaluates the global session policy and the app sign-on policies. For Admin Console tasks and further information, see [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
+
+* [Session violation enforcement policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) (`POST_AUTH_SESSION`): This policy defines the enforcement actions that Okta takes after it detects a session violation. For Admin Console tasks and further information, see [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
 
 #### Device signal collection policies
 
@@ -169,11 +171,15 @@ Enable factors in your Okta org by creating a policy with one or more authentica
 
 See [Authenticator enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies) for additional information on MFA authentication, enrollment policies, and rules.
 
-**Grace periods**
+##### Grace periods
 
-Grace periods let you designate an amount of time for a user to enroll in a required authenticator. They're configured on a per-authenticator basis so you can minimize sign-in friction and streamline the onboarding process.
+Grace periods let you designate an amount of time for a user to enroll in a required authenticator. They're configured on a per-authenticator basis so you can minimize sign-in friction and streamline the onboarding process. There are two ways to designate the amount of time for a grace period:
 
-For example, you can configure an app sign-in policy that lets an end user defer enrollment for 10 days. The end user can onboard immediately without the friction of an additional authenticator. However, the end user still needs to enroll before the end of the grace period.
+* **By a due date**: The grace period is defined by a specific date and time.
+* **After a number of skips**: The grace period is defined by the number of times that a user can skip enrolling the relevant authenticator. <ApiLifecycle access="ea" />
+  * Enable the **Authenticator Enrollment Grace Period V2 (skip-count grace periods + message customization)** feature to use this option. See [Enable self-service features](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#early-access-ea).
+
+For example, you can configure an app sign-in policy that lets an end user defer enrollment for 10 days. Or you can let an end user defer enrollment until they've reached the maximum number of skips defined by the grace period. The end user can onboard immediately without the friction of an additional authenticator. However, the end user still needs to enroll before the end of the grace period.
 
 For details about setting grace periods for app sign-in policies in the Admin Console, see [Authenticator enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies).
 
@@ -195,7 +201,22 @@ Identity Threat Protection with Okta AI is an identity threat solution that comb
 
 * [Entity risk policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy): The entity risk policy monitors your org for entity risk changes related to identity-based threats. For Admin Console tasks and further information, see [Entity risk policy](https://help.okta.com/okta_help.htm?type=oie&id=csh-entity-risk-policy).
 
-* [Session protection policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy): session protection policy monitors user sessions on your org to identify changes in session context. For Admin Console tasks and further information, see [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
+* [Session violation detection policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) (`SESSION_VIOLATION_DETECTION`): This policy defines the logic for when Okta re-evaluates the global session policy and the app sign-on policies. For Admin Console tasks and further information, see [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
+
+* [Session violation enforcement policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) (`POST_AUTH_SESSION`): This policy defines the enforcement actions that Okta takes after it detects a session violation. For Admin Console tasks and further information, see [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
+
+### Client update policies
+
+The client update policy allows admins to manage the delivery and acceptance of updates for specific client apps, such as Okta Verify.
+
+Use this policy to define rules that control how the end user gets updates across different device platforms. For example, you can define rules for the following use cases:
+
+* Enforce immediate updates to address critical security vulnerabilities
+* Defer non-critical updates for a specified period to align with internal change management processes
+
+For details on the object model and configuring rules programmatically, see the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies).
+
+To learn more about implementing and managing this feature in the Admin Console, see [Release controls policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-ov-release-controls).
 
 ### API access policies
 

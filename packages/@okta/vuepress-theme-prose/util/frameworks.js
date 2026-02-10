@@ -11,7 +11,7 @@ const FRAMEWORK_TO_COMMON_NAME = {
 
 const COMMON_NAME_TO_FANCY_NAME = {
   apple: 'Apple',
-  azure: 'Azure AD',
+  entra: 'Microsoft Entra ID',
   javascript: 'JS',
   angular: 'Angular',
   amazon: 'Amazon',
@@ -100,9 +100,9 @@ const COMMON_NAME_TO_FANCY_NAME = {
   oktasaml: 'Okta SAML 2.0 IdP',
   thirdpartyoidc: 'Third-party OIDC IdP',
   thirdpartysaml: 'Third-party SAML 2.0 IdP',
-  terraform: 'Terraform',
-  powershell: 'Powershell CLI',
-  api: 'Okta APIs',
+  authserver: 'Authorization server',
+  secret: 'Secret',
+  'service-account': 'Service account',
 };
 
 const COMMON_NAME_TO_ICON_NAME = {

@@ -9,6 +9,23 @@ Event hooks and inline hooks are outbound calls from Okta to an external service
 
 The following sections review best practices to implement and secure Okta event hooks or inline hooks.
 
+## Hook admin roles
+
+By default, super admins can create and manage hooks for an org.
+
+You can also grant granular hook management permissions to custom admin roles. Create a dedicated hook admin role, or add hook permissions to other custom roles. For information on using permissions, see [Permissions](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/) and the following references:
+
+| Hook type   | Permission type      | Permission link                                                                                                                      |
+|-------------|---------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| Event hook  | Manage              | [okta.eventhooks.manage](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#oktaeventhooksmanage)       |
+| Event hook  | Read                | [okta.eventhooks.read](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#oktaeventhooksread)           |
+| Inline hook | Manage              | [okta.inlinehooks.manage](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#oktainlinehooksmanage)     |
+| Inline hook | Read                | [okta.inlinehooks.read](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#oktainlinehooksread)         |
+
+For more information on custom roles, see [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#roles-in-okta) and [Custom admin roles](https://help.okta.com/oie/en-us/content/topics/security/custom-admin-role/custom-admin-roles.htm).
+
+>**Note:** Custom permissions for hooks are a [self-service Early Access (EA)](/docs/concepts/feature-lifecycle-management/#self-service-features) feature. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable it.
+
 ## Secure your hook endpoint
 
 To prevent a malicious actor from making requests to the endpoint where your Okta hooks are sent, use the following best practices:
@@ -67,7 +84,7 @@ Your external service that processes hook requests must consider that the order 
 |            | Maximum number of event hooks per org | 25 | A maximum of 25 active event hooks can be configured per org. You can configure each event hook to deliver multiple event types. |
 | Inline hook | Timeout | 3 seconds | Inline hooks have a completion timeout of three seconds with a single retry. However, a request isn't retried if your endpoint returns a 4xx HTTP error code. Any 2xx code is considered successful, and the request isn’t retried. If the external service endpoint responds with a redirect, it isn't followed. |
 |             | Maximum number of inline hooks per org | 100 | The maximum number of inline hooks that you can configure per org is 100, which is a total for any combination of inline hook types. |
-|             | Concurrent rate limit | Variable | The maximum number of inline hooks that can be sent concurrently based on org type. See [Concurrent rate limits](/docs/reference/rl-additional-limits/#concurrent-rate-limits).|
+|             | Concurrent rate limit | Variable | The maximum number of inline hooks that can be sent concurrently based on org type. See [Concurrent rate limits](/docs/reference/rl2-concurrency/).|
 
 ## Troubleshoot your hook implementations
 

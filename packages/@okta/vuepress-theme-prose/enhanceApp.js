@@ -32,11 +32,12 @@ export default ({ Vue, options, router, siteData }) => {
   });
 
   router.options.scrollBehavior = (to, from, savedPosition) => {
-    if(savedPosition) {
+    if (savedPosition) {
       return savedPosition;
     }
     if (to.hash) {
       return scrollToAnchor(to);
     }
+    return { x: 0, y: 0 };
   };
 };

@@ -171,7 +171,7 @@ When Okta calls an external service, it enforces a default timeout of three seco
 
 ### Inline hooks and concurrent rate limits
 
-The Okta process flow that triggered the inline hook remains in progress until a response from your external service is received. For process flows initiated by calls to Okta APIs, slow processing times by your external service can cause open API transactions to accumulate. That accumulation can potentially cause you to exceed [Concurrent Rate Limits](/docs/reference/rl-additional-limits/#concurrent-rate-limits).
+The Okta process flow that triggered the inline hook remains in progress until a response from your external service is received. For process flows initiated by calls to Okta APIs, slow processing times by your external service can cause open API transactions to accumulate. That accumulation can potentially cause you to exceed [Concurrent Rate Limits](/docs/reference/rl2-concurrency/).
 
 > **Note:** Concurrent inline hook rate limits are based on your Okta org type.
 
@@ -211,3 +211,8 @@ A hook preview feature is available for the following hooks: SAML, telephony, to
 The [Okta System Log](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/) also captures events related to inline hook setup and execution that you can use to troubleshoot your implementation. You can see descriptions of the relevant event types by querying the event types catalog with the `inline_hook` query parameter. See [Event Types](/docs/reference/api/event-types/).
 
 > **Note:** You can see errors from the error object in the external service response, errors when Okta can't apply an inline hook response, and errors related to communication with the external service, such as network-related failures and responses with HTTP status codes other than `200`.
+
+## See also
+
+* [Inline hooks management APIs](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook)
+* [Hooks best practices](/docs/guides/hooks-best-practices/)

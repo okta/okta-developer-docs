@@ -19,7 +19,7 @@ If you're using the org authorization server, configure and perform key rollover
 
 * Okta always publishes keys to the `jwks_uri`.
 
-* To save the network round trip, cache the `jwks_uri` response locally following the directives in the [standard HTTP Cache-Control headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control). The cache-control directives are relative to the time of the request. If you make a request as the safe cache period ends, Okta returns the `no-cache` directive to ensure that you don't cache keys that are soon to expire.
+* To save the network round trip, cache the `jwks_uri` response locally following the directives in the [standard HTTP Cache-Control headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control). The cache-control directives are relative to the time of the request. If you make a request as the safe cache period ends, Okta returns a short cache time so the client attempts to pick up changes to the keys at a reasonable rate.
 
 * Switch the key rotation mode for the authorization server by updating the authorization server's `rotationMode` property. For more information, see the API Reference: [Authorization Server Credentials Signing Object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerKeys/#tag/AuthorizationServerKeys/operation/rotateAuthorizationServerKeys).
 

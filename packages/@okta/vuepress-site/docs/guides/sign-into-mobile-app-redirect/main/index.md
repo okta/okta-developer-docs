@@ -124,26 +124,11 @@ Test your integration by signing in a user using your mobile app.
 
 <StackSnippet snippet="testapp" />
 
-## Check for a session at startup
+## Manage session continuity
 
-Okta issues an access token when the user signs in. This token allows the user to access the services for a set amount of time. Check for an existing unexpired token when the app launches to find out if the user is still signed in.
+To provide a seamless user experience, your mobile app must effectively manage user sessions across app launches and during active use. This involves verifying existing access tokens at startup to determine authentication status and implementing refresh tokens to maintain long-term access without requiring frequent re-authentication.
 
-<StackSnippet snippet="checkfortoken" />
-
-## Keep the user signed in
-
-Access tokens are short-lived. Yet, for some types of apps users expect to remain signed in for a long time. Granting a refresh token in your app integration enables the client to request an updated access token.
-
-Enable a refresh token in your app integration by following these steps:
-
-1. Launch the Admin Console for your Okta org.
-1. Choose **Applications > Applications** to show the app integrations.
-1. Click the name of your integration to open the configuration manager.
-1. Click **Edit** in the **General Settings** section.
-1. Select **Refresh Token** as the grant type.
-1. Click **Save** at the bottom of the **General Settings** section.
-
-<StackSnippet snippet="refresh" />
+See [Check for a session at startup](/docs/guides/check-for-session/android/main/) and [Keep the user signed in](/docs/guides/keep-user-signed-in/android/main/).
 
 ## Use the access token
 

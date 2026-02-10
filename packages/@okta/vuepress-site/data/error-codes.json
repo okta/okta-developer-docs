@@ -1,6 +1,6 @@
 {
-  "release" : "2025.11.1",
-  "build" : "2025.11.1-begin-137-gba09a5120574",
+  "release" : "2026.02.1",
+  "build" : "2026.02.1-begin-195-g2ea8b7157f44",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1960,6 +1960,30 @@
     "statusReasonPhrase" : "Conflict",
     "errorCode" : "E0000263",
     "errorSummary" : "Attempted to assign a duplicate standard role assignment to an admin",
+    "errorDescription" : null
+  }, {
+    "title" : "Required active custom telephony provider credential for phone authenticator exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000264",
+    "errorSummary" : "You must have an active telephony inline hook or at least one active custom telephony provider credential to activate and use the Phone authenticator.",
+    "errorDescription" : null
+  }, {
+    "title" : "Device registration already in progress exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000265",
+    "errorSummary" : "Device registration is already in progress for this device.",
+    "errorDescription" : null
+  }, {
+    "title" : "Email server failed to get access token exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000266",
+    "errorSummary" : "Failed to get access token for SMTP server configuration. Failure details: {0}.",
     "errorDescription" : null
   } ]
 }

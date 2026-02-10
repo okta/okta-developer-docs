@@ -54,12 +54,12 @@ The difference between persistent SSO and session SSO is that you can maintain p
 
 ### Enable the parameter
 
-To enable persistent SSO for **Stay signed in**, you need to update the [`usePersistentCookie`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=4/actions/signon/session/usePersistentCookie&t=request) parameter in the appropriate global session policy. These steps use the Okta [Policy Postman collection](/docs/reference/postman-collections/) to enable the parameter.
+To enable persistent SSO for **Stay signed in**, you need to update the [`usePersistentCookie`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=4/actions/signon/session/usePersistentCookie&t=request) parameter in the appropriate global session policy. These steps use the Okta [Policy Postman collection](https://www.postman.com/okta-eng/okta-public-api-collections/folder/4920859-d9bc2528-d5e7-4eef-90db-3728fbdc15bc?action=share&source=copy-link&creator=27080442&ctx=documentation) to enable the parameter.
 
 Before you begin, complete the following steps:
 
 - Create an [API token](/docs/guides/create-an-api-token/) for your Org.
-- Download the [Policy Postman collection](/docs/reference/postman-collections/).
+- Fork the [Policy Postman collection](https://www.postman.com/okta-eng/okta-public-api-collections/folder/4920859-d9bc2528-d5e7-4eef-90db-3728fbdc15bc?action=share&source=copy-link&creator=27080442&ctx=documentation).
 
 1. In Postman, expand the **Policies (Okta API)** folder, and then the **Global Session Policy** folder.
 2. Click the **Get Global Session Policies** request to open it, and then click **Send** to run it.

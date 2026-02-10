@@ -3,6 +3,7 @@ title: Guides overview
 guides:
  - add-an-external-idp
  - add-id-verification-idp
+ - ai-agent-token-exchange
  - app-provisioning-connection
  - archive-auth-js
  - archive-embedded-siw
@@ -15,6 +16,7 @@ guides:
  - archive-overview
  - build-custom-ui-mobile
  - build-self-signed-jwt
+ - check-for-session
  - client-secret-rotation-key
  - common-hook-set-up-steps
  - configure-access-policy
@@ -49,6 +51,7 @@ guides:
  - event-hook-implementation
  - event-hook-ngrok
  - express-configuration
+ - express-config-guide-template
  - federated-claims
  - find-your-app-credentials
  - find-your-domain
@@ -58,9 +61,13 @@ guides:
  - implement-oauth-for-okta
  - implement-oauth-for-okta-serviceapp
  - implement-grant-type
+ - ipv6
  - keep-me-signed-in
+ - keep-user-signed-in
  - key-management
  - manage-orgs-okta-aerial
+ - terraform-oig-resources
+ - manage-user-creds
  - mfa
  - migrate-customizations
  - migrate-to-okta-prerequisites
@@ -69,6 +76,8 @@ guides:
  - mobile-idx-sdk-overview
  - multiple-identifiers
  - mobile-swift-configure-redirect
+ - native-to-web-sso
+ - policy-rule-prioritization
  - scim-provisioning-integration-overview
  - scim-provisioning-integration-prepare
  - scim-provisioning-integration-connect
@@ -108,6 +117,7 @@ guides:
  - sign-into-mobile-app-embedded
  - sign-into-spa-redirect
  - sign-into-web-app-redirect
+ - sign-users-in-mobile-self-hosted
  - sign-users-out
  - sign-your-own-saml-csr
  - social-login
@@ -183,6 +193,9 @@ guides:
  - authenticators-tac-authenticator
  - custom-well-known-uri
  - validate-federation
+ - custom-passkeys
+ - set-up-oauth-api
+ - custom-smtp
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>Okta Classic Engine API release notes</title>
+  <link>https://developer.okta.com/docs/release-notes/2026/</link>
+  <description>Recent release notes for Okta Classic Engine API</description>
+  <pubDate>Thu, 05 Feb 2026 12:00:00 GMT</pubDate>
+  
+    <item>
+      <title>Monthly release 2026.02.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2026/#monthly-release-2026-02-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026/#monthly-release-2026-02-0</guid>
+      <pubDate>Thu, 05 Feb 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/#lightweight-directory-access-protocol-bidirectional-group-management">Lightweight Directory Access Protocol Bidirectional Group Management is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#developer-documentation-updates-in-2026-02-0">Developer documentation updates in 2026.02.0</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#bugs-fixed-in-2026-02-0">Bugs fixed in 2026.02.0</a>]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2026.01.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-01-2</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-01-2</guid>
+      <pubDate>Thu, 29 Jan 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/#bug-fixed-in-2026-01-2">Bug fixed in 2026.01.2</a>]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2026.01.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-01-1</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-01-1</guid>
+      <pubDate>Wed, 14 Jan 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/#bugs-fixed-in-2026-01-1">Bugs fixed in 2026.01.1</a>]]></description>
+    </item>
+  
+
+    <item>
+      <title>Monthly release 2026.01.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2026/#monthly-release-2026-01-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026/#monthly-release-2026-01-0</guid>
+      <pubDate>Thu, 08 Jan 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/#encryption-of-id-tokens-and-access-tokens-is-ga-in-production">Encryption of ID tokens and access tokens is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#unified-claims-generation-for-custom-apps-is-ga-in-production">Unified claims generation for custom apps is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#additional-anything-as-a-source-api-endpoints-is-ga-in-production">Additional Anything-as-a-Source API endpoints is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#anything-as-a-source-for-groups-and-group-memberships-api-is-ga-in-production">Anything-as-a-Source for groups and group memberships API is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#developer-documentation-updates-in-2026-01-0">Developer documentation updates in 2026.01.0</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#bugs-fixed-in-2026-01-0">Bugs fixed in 2026.01.0</a>]]></description>
+    </item>
+  
+</channel>
+</rss>

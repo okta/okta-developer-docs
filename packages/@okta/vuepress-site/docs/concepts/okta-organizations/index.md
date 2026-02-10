@@ -10,7 +10,7 @@ Within every org, there are users and apps. These are the only mandatory items t
 
 ## Org URLs
 
-Okta orgs are hosted on subdomains and each org is assigned a URL. The typical org URL is the tenant name (the subdomain), and then the domain name.
+Okta orgs are hosted on subdomains and each org is provided a URL. The typical org URL is the tenant name (the subdomain), and then the domain name.
 
 Example domain: `companyname.okta.com`
 
@@ -36,7 +36,7 @@ Production orgs are always a stable release, covered by our software license agr
 
 Okta offers two free org types for feature review, development, and testing:
 
-* Free trial orgs: Intended for admin users, these orgs have a 30-day limit and require a business email. You can sign up at [Free Trial](https://www.okta.com/free-trial/workforce-identity/). For details on limits and configurations, see [Okta free trial](https://help.okta.com/oie/en-us/content/topics/miscellaneous/okta-free-trial.htm).
+* Free trial orgs: Intended for admin users, these orgs have a 30-day limit and require a business email. You can sign up at [Free Trial](https://www.okta.com/free-trial/workforce-identity/). For details on limits and configurations, see [Okta free trial](https://help.okta.com/okta_help.htm?type=oie&id=okta-free-trial).
 
 * Integrator free plan orgs: Designed for developers and integrators building authentication and authorization solutions with Okta. These orgs also require a business email and are available at [Okta Integrator Free Plan](https://developer.okta.com/signup/). For more information on limits and configurations, see [Okta Integrator Free Plan org configurations](/docs/reference/org-defaults/).
 
@@ -70,11 +70,25 @@ However, in more complex situations, you might need multiple orgs. For example, 
 
 Multiple orgs allow for the complete segregation of internal and external users. In addition, apps and changes made to the internal or external org have no impact on one another. However, multiple orgs add complexity in terms of the number of environments to manage. See [Multi-tenant solutions](/docs/concepts/multi-tenancy/).
 
+## Multiple-org management with Okta Aerial
+
+Okta Aerial is an administration service that enables multi-org management from a single, centralized account. It introduces an account layer that allows admins to view and manage all their Okta orgs, including both Production and Preview environments. Okta Aerial resolves administrative challenges that are faced by many orgs, such as achieving multi-org visibility and securing admin access to orgs through access requests. Okta Aerial also simplifies how you manage subscribed Okta products, helping you and partners reduce the total cost of managing Okta.
+
+See [Manage orgs with Okta Aerial](/docs/guides/manage-orgs-okta-aerial) and [Okta Aerial](https://help.okta.com/okta_help.htm?type=aerial&id=overview).
+
+## Org creator
+
+The Org creator allows you to create Okta orgs from an existing parent org. It's accessible through the [Org Creator API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgCreator/). This product allows orgs that use multi-org deployment architectures, such as managed service providers (MSP), to create  designated child orgs that have the same configurations as the parent org.
+
+> **Note:** You need to have the **Platform - Multi-org Deployment** product to enable the **Org Creator API** feature. Contact your Okta account team to purchase this product and to enable the Org Creator API feature.
+
+For details, see [Org Creator](/docs/concepts/org-creator/).
+
 ## Org features
 
 Okta orgs have different features depending on your contract.
 
-A generally available (GA) feature is new or enhanced functionality that is enabled by default for all customers based on your purchase agreement. Features in GA are supported by Okta Customer Support, and issues are addressed according to your Customer Agreement with Okta.
+A Generally Available (GA) feature is new or enhanced functionality that's enabled by default for all customers based on your purchase agreement. Features in GA are supported by Okta customer support, and issues are addressed according to your customer agreement with Okta.
 
 Early Access (EA) features are opt-in features that you can try out in your org by asking Okta Support to enable them. Also, the **Features** page in the Admin Console (**Settings** > **Features**) allows Super Admins to enable and disable some self-service EA features themselves (assuming your org is eligible for the feature).
 
@@ -86,4 +100,4 @@ Rate limiting controls the number of API requests that can be sent to an organiz
 
 It’s used to protect resources from accidental overuse and intentional attacks. For example, accidental overuse might be where a client's script heavily calls our APIs. An intentional or malicious attack might be trying thousands of password combinations for a user or sending millions of requests to an Okta org to prevent the users of that org from using Okta.
 
-See [Rate Limits](/docs/reference/rate-limits/) for more information on the endpoints and operations that are subject to rate limits and what the limits are for your Okta org.
+See [Rate Limits](/docs/reference/rate-limits/) for more information on the endpoints and operations that are subject to rate limits.

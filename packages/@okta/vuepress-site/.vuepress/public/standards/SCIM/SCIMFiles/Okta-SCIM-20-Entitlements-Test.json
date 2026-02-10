@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "exported_at": 1760073424,
+  "exported_at": 1763448041,
   "test_usage_90_days": 0,
   "test_usage_billing_period": 0,
   "name": "Okta SCIM 2.0 Entitlements Test",
@@ -15,7 +15,23 @@
       "method": "GET",
       "args": {},
       "data": "",
-      "headers": {},
+      "headers": {
+        "Accept-Charset": [
+          "utf-8"
+        ],
+        "Content-Type": [
+          "application/scim+json; charset=utf-8"
+        ],
+        "Accept": [
+          "application/scim+json"
+        ],
+        "Authorization": [
+          "{{auth}}"
+        ],
+        "User-Agent": [
+          "OKTA SCIM Integration"
+        ]
+      },
       "multipart_form": [],
       "auth": {},
       "url": "{{SCIMBaseURL}}{{EntitlementEndpoint}}?count=1&startIndex=1",

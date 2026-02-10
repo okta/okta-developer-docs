@@ -42,8 +42,8 @@ At [<StackSnippet snippet="idp" inline />](https://withpersona.com/), create the
 
 1. In **Allowed Domains**, add a redirect URI. The redirect URI is your org’s URL. `{yourOktadomain}.okta.com`
 
-   * The redirect URI is the location where <StackSnippet snippet="idp" inline /> sends the verification response (the inquiry ID of the completed inquiry). The URI sent in the verification request from the client needs to match the redirect URI set at the IDV. Ensure that the URI is located in a secure domain that you own.
-   * For example, if your Okta subdomain is called `company`, then the URL would be: `company.okta.com.` If you’ve configured a custom domain in your Okta org, use that value to construct your redirect URI, such as `login.company.com.`
+   * The redirect URI is the location where <StackSnippet snippet="idp" inline /> sends the verification response (the inquiry ID of the completed inquiry). The URI sent in the verification request from the client needs to match the redirect URI set at the IDV vendor. Ensure that the URI is located in a secure domain that you own.
+   * For example, if your Okta subdomain is called `company`, then the URL would be: `https://company.okta.com.` If you’ve configured a custom domain in your Okta org, use that value to construct your redirect URI, such as `https://login.company.com.`
    * Include all base domains (Okta domain and custom domain) that your users interact with in the allowed redirect URI list.
 
 1. Click **Add** after you finish.

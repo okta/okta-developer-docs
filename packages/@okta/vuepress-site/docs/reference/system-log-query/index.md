@@ -72,7 +72,7 @@ The following sections outline a representative sample of Event Types. See the [
 
 ### Rate limit events
 
-See [System Log events for rate limits](/docs/reference/rl-system-log-events/) for information on rate limit Event Types.
+See [System Log events for rate limits](/docs/reference/rl2-monitor/#investigate-the-system-log-to-correlate-events-with-users-jobs-or-integrations) for information on rate limit Event Types.
 
 Rate limit violations are sent when a rate limit is exceeded.
 

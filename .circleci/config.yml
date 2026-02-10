@@ -96,11 +96,12 @@ jobs:
           command: yarn build
       - run:
           name: Run link checker
-          command: yarn broken-link-checker:external > output.txt 2>&1 || true
+          command: yarn broken-link-checker:external 2>&1 | tee output.txt || true
       - run:
           name: Extract URLs from log
           command: |
             grep -o 'Link: https\?://[^[:space:]]*' output.txt | sed 's/Link: //' > urls.txt
+            cat urls.txt
           when: always
       - run:
           name: Remove False Positives
@@ -154,10 +155,15 @@ jobs:
           command: |
             netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site
       - run:
-          name: Update PR with preview link
+          name: Log preview link
           command: |
-            chmod +x ./scripts/update-dev-docs-pr-cci.sh
-            ./scripts/update-dev-docs-pr-cci.sh
+            if [ -n "$CIRCLE_PULL_REQUEST" ]; then
+              PR_NUMBER="${CIRCLE_PULL_REQUEST##*/}"
+              echo "Preview link:"
+              echo "https://preview-${PR_NUMBER}--reverent-murdock-829d24.netlify.app"
+            else
+              echo "No pull request detected. Preview link not available."
+            fi
 
   netlify_manual_with_redirects:
     docker:
@@ -186,10 +192,15 @@ jobs:
           command: |
             netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site
       - run:
-          name: Update PR with preview link
+          name: Log preview link
           command: |
-            chmod +x ./scripts/update-dev-docs-pr-cci.sh
-            ./scripts/update-dev-docs-pr-cci.sh
+            if [ -n "$CIRCLE_PULL_REQUEST" ]; then
+              PR_NUMBER="${CIRCLE_PULL_REQUEST##*/}"
+              echo "Preview link:"
+              echo "https://preview-${PR_NUMBER}--reverent-murdock-829d24.netlify.app"
+            else
+              echo "No pull request detected. Preview link not available."
+            fi
 
 
 workflows:

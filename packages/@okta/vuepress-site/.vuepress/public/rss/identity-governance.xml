@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>Okta Identity Governance API release notes</title>
+  <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/</link>
+  <description>Recent release notes for Okta Identity Governance API</description>
+  <pubDate>Wed, 04 Feb 2026 12:00:00 GMT</pubDate>
+  
+    <item>
+      <title>Monthly release 2026.02.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-02-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-02-0</guid>
+      <pubDate>Wed, 04 Feb 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#permalink-id-in-v2-access-request">Permalink ID in V2 access request</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#certify-resource-collections-resource-campaigns-is-ea">Certify resource collections - Resource campaigns is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#additive-entitlements-is-beta">Additive entitlements is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#developer-documentation-updates-in-2026-02-0">Developer documentation updates in 2026.02.0</a>]]></description>
+    </item>
+  
+
+    <item>
+      <title>Monthly release 2026.01.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-01-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-01-0</guid>
+      <pubDate>Thu, 08 Jan 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#security-access-reviews-api-is-ga-in-production">Security access reviews API is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#permalink-id-in-v1-access-request-is-beta">Permalink ID in V1 access request is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#ad-group-support-in-access-requests-is-ga-in-production">AD group support in Access Requests is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#my-access-certification-reviews-api-is-beta">My Access Certification Reviews API is Beta</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#developer-documentation-update-in-2026-01-0">Developer documentation updates in 2026.01.0</a>]]></description>
+    </item>
+  
+</channel>
+</rss>

@@ -1,6 +1,6 @@
 {
-  "release" : "2025.11.1",
-  "build" : "2025.11.1-begin-137-gba09a5120574",
+  "release" : "2026.02.1",
+  "build" : "2026.02.1-begin-195-g2ea8b7157f44",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -55,6 +55,9 @@
   }, {
     "id" : "cleavers",
     "name" : "Cleavers"
+  }, {
+    "id" : "cloud-tools-and-pipelines",
+    "name" : "CLOUD_TOOLS_AND_PIPELINES"
   }, {
     "id" : "cloudmaker",
     "name" : "CloudMaker"
@@ -158,6 +161,9 @@
     "id" : "id-fabric",
     "name" : "ID Fabric"
   }, {
+    "id" : "iga-core",
+    "name" : "IGA Core"
+  }, {
     "id" : "iga-access-certification",
     "name" : "IGA Access Certification"
   }, {
@@ -181,6 +187,9 @@
   }, {
     "id" : "jellyfish",
     "name" : "Jellyfish"
+  }, {
+    "id" : "jobs",
+    "name" : "Job Framework - JEDI"
   }, {
     "id" : "lca",
     "name" : "Lifecycle Automation"
@@ -707,6 +716,10 @@
     "description" : "",
     "tags" : [ ]
   }, {
+    "id" : "workload-principal",
+    "description" : "",
+    "tags" : [ ]
+  }, {
     "id" : "idp",
     "description" : "Identity provider.",
     "tags" : [ ]
@@ -773,6 +786,10 @@
   }, {
     "id" : "attestation",
     "description" : "Identity Attestation.",
+    "tags" : [ ]
+  }, {
+    "id" : "interclient-access",
+    "description" : "Interclient Access.",
     "tags" : [ ]
   }, {
     "id" : "oauth2-api-resource",
@@ -2220,6 +2237,60 @@
         "changeDetails" : null
       }
     }, {
+      "id" : "app.interclient_mapping.create",
+      "category" : "outbound-federation",
+      "description" : "Create interclient trust mapping. Audit the creation of a trust mapping between a target app and a requesting app via the interclient access API.",
+      "info" : {
+        "created" : "2025-11-04",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "interclient-access" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "app.interclient_mapping.delete",
+      "category" : "outbound-federation",
+      "description" : "Delete interclient trust mapping. Audit the deletion of a trust mapping between a target app and a requesting app via the interclient access API.",
+      "info" : {
+        "created" : "2025-11-04",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "interclient-access" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "app.interclient_mapping.delete_all",
+      "category" : "outbound-federation",
+      "description" : "Delete all interclient trust mappings for app. Identify the automatic cleanup of all trust mappings associated with a deleted application instance.",
+      "info" : {
+        "created" : "2025-11-04",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "interclient-access" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
       "id" : "app.kerberos_rich_client.account_not_found",
       "category" : "directories",
       "description" : "Kerberos based rich client authentication failed: Could not find Office 365 app user for the AD user with principal id.",
@@ -2976,6 +3047,24 @@
         "changeDetails" : null
       }
     }, {
+      "id" : "app.oauth2.as.token.grant.interclient_token",
+      "category" : "federation",
+      "description" : "Grant interclient token. Track the successful issuance of an Interclient token via OAuth token exchange. This event will contain the target audience the interclient token is issued for.",
+      "info" : {
+        "created" : "2025-11-04",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "OAuth2ResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
       "id" : "app.oauth2.as.token.grant.refresh_token",
       "category" : "federation",
       "description" : "OAuth2 refresh token is granted.",
@@ -3482,7 +3571,7 @@
     }, {
       "id" : "app.oauth2.token.grant.id_jag",
       "category" : "cloudmaker",
-      "description" : "OAuth 2.0 Identity Assertion Authorization Grant granted. This event is triggered when an app successfully completes an OAuth token exchange to generate an Identity Assertion Authorization Grant (ID-JAG) JWT. The Identity Assertion relies on a valid ID token obtained from a single sign-on (SSO) flow and the ID-JAG JWT is used in Cross App Access.",
+      "description" : "OAuth 2.0 Identity Assertion JWT Authorization Grant (ID-JAG) granted. This event is triggered when an app successfully completes an OAuth token exchange to generate an Identity Assertion JWT Authorization Grant. The Identity Assertion relies on a valid ID token obtained from a single sign-on (SSO) flow and the ID-JAG JWT is used in Cross App Access.",
       "info" : {
         "created" : "2025-07-01",
         "release" : "2025.07.3"
@@ -3516,6 +3605,24 @@
         "changeDetails" : [ ]
       }
     }, {
+      "id" : "app.oauth2.token.grant.interclient_token",
+      "category" : "federation",
+      "description" : "Grant interclient token. Track the successful issuance of an Interclient token via OAuth token exchange. This event will contain the target audience the interclient token is issued for.",
+      "info" : {
+        "created" : "2025-11-04",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "OAuth2ResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
       "id" : "app.oauth2.token.grant.refresh_token",
       "category" : "federation",
       "description" : "OIDC refresh token is granted.",
@@ -3527,6 +3634,42 @@
       "internal" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
       "mappings" : [ "app.oauth2.token.grant.refresh_token_success" ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "OAuth2ResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "app.oauth2.token.grant.service_account",
+      "category" : "workload-principal",
+      "description" : "Grant Okta Privileged Access service account credentials. Audit when an application successfully exchanges an OAuth token for credentials for a service account in Okta Privileged Access.",
+      "info" : {
+        "created" : "2025-12-01",
+        "release" : "2026.01.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "OAuth2ResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "app.oauth2.token.grant.vaulted_secret",
+      "category" : "workload-principal",
+      "description" : "Grant Okta Privileged Access vaulted secret. Audit when an application successfully exchanges an OAuth token for a vaulted secret in Okta Privileged Access.",
+      "info" : {
+        "created" : "2025-12-01",
+        "release" : "2026.01.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
+      "mappings" : [ ],
       "schema" : {
         "debugData" : "SystemDebugData",
         "actor" : null,
@@ -3930,24 +4073,6 @@
         "changeDetails" : [ ]
       }
     }, {
-      "id" : "app.office365.api.error.group.membership.update.assignment.failure",
-      "category" : "msft-apps",
-      "description" : "Could not update the Office 365 group membership because of an error assigning a user to the group, received error.",
-      "info" : {
-        "created" : "2017-01-23",
-        "release" : "2017.01"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "app", "office365-app" ],
-      "mappings" : [ "app.office365.api.error.group.membership.update.assignment.failure" ],
-      "schema" : {
-        "debugData" : "Office365DebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ],
-        "changeDetails" : [ ]
-      }
-    }, {
       "id" : "app.office365.api.error.group.membership.update.failure",
       "category" : "msft-apps",
       "description" : "Could not update the Office 365 group membership, received error.",
@@ -3977,24 +4102,6 @@
       "internal" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.group.membership.update.group.not.found.failure" ],
-      "schema" : {
-        "debugData" : "Office365DebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ],
-        "changeDetails" : [ ]
-      }
-    }, {
-      "id" : "app.office365.api.error.group.membership.update.removal.failure",
-      "category" : "msft-apps",
-      "description" : "Could not update the Office 365 group membership because of an error removing a user from the group, received error.",
-      "info" : {
-        "created" : "2017-01-23",
-        "release" : "2017.01"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "app", "office365-app" ],
-      "mappings" : [ "app.office365.api.error.group.membership.update.removal.failure" ],
       "schema" : {
         "debugData" : "Office365DebugData",
         "actor" : null,
@@ -4049,24 +4156,6 @@
       "internal" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.import.profile" ],
-      "schema" : {
-        "debugData" : "Office365DebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ],
-        "changeDetails" : [ ]
-      }
-    }, {
-      "id" : "app.office365.api.error.no.endpoints.found",
-      "category" : "msft-apps",
-      "description" : "No Office 365 endpoint found to send our request.",
-      "info" : {
-        "created" : "2017-01-23",
-        "release" : "2017.01"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "app", "office365-app" ],
-      "mappings" : [ "app.office365.api.error.no.endpoints.found" ],
       "schema" : {
         "debugData" : "Office365DebugData",
         "actor" : null,
@@ -4463,24 +4552,6 @@
       "internal" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.validate.creds" ],
-      "schema" : {
-        "debugData" : "Office365DebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ],
-        "changeDetails" : [ ]
-      }
-    }, {
-      "id" : "app.office365.api.error.validate.creds.unknown.exception",
-      "category" : "msft-apps",
-      "description" : "Could not communicate with Office 365 to validate your credentials, received error.",
-      "info" : {
-        "created" : "2017-01-23",
-        "release" : "2017.01"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "app", "office365-app" ],
-      "mappings" : [ "app.office365.api.error.validate.creds.unknown.exception" ],
       "schema" : {
         "debugData" : "Office365DebugData",
         "actor" : null,
@@ -5361,7 +5432,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "app-user-management" ],
+      "tags" : [ "app-user-management", "event-hook-eligible" ],
       "mappings" : [ "app.user_management.app_group_member_import.delete_failure", "app.user_management.app_group_member_import.delete_success", "app.user_management.app_group_member_import.insert_failure", "app.user_management.app_group_member_import.insert_success" ],
       "schema" : {
         "debugData" : null,
@@ -5595,7 +5666,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "app", "app-user-management" ],
+      "tags" : [ "app", "app-user-management", "event-hook-eligible" ],
       "mappings" : [ "app.user_management.user_group_import.upsert_success" ],
       "schema" : {
         "debugData" : "SystemImportDebugData",
@@ -6711,7 +6782,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "app-api" ],
+      "tags" : [ "app-api", "event-hook-eligible" ],
       "mappings" : [ "app.api.error.import_user_by_id", "app.api.error.import_user_profile", "app.bigmachines.api.error.import", "app.boxnet.api.error.import.user.profile", "app.confluence.api.error.convert.remote.user.to.app.user", "app.confluence.api.error.get.user", "app.confluence.api.error.get.user.groups", "app.confluence.api.error.import.user.profile", "app.cornerstone.api.error.api.import_profile", "app.crashplanpro.api.user_not_found", "app.docusign.api.error.import.inactive.user", "app.docusign.api.error.import.permission.profile", "app.dropbox.api.error.import.profile", "app.dropbox.api.error.query", "app.echosign.api.error.import.profile", "app.exacttarget.api.error.import_user_profile", "app.google.user_management.error.import_user_profile", "app.hipchat.api.error.import.profile", "app.jira.api.error.check.get.user", "app.jira.api.error.convert.remote.user.to.app.user", "app.jira.api.error.import.user.profile", "app.netsuite.api.error.import_user_profile", "app.rightscale.api.error.get.users", "app.sendwordnow.api.error.get_user", "app.sendwordnow.api.error.import_user_profile", "app.servicenow.api.error.import.user.profile", "app.servicenow_app2.api.error.import.manager.profile", "app.servicenow_app2.api.error.import.user.profile", "app.sugarcrm.api.error.import.user.profile", "app.veeva_vault.api.error.import.user.profile", "app.workday.api.error.get-worker-by-id", "app.yammer.api.error.import.profile" ],
       "schema" : {
         "debugData" : null,
@@ -6747,7 +6818,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "app-api" ],
+      "tags" : [ "app-api", "event-hook-eligible" ],
       "mappings" : [ "app.api.error.create_pending_user", "app.api.error.create_user", "app.api.error.user.not_found", "app.api.error.user.not_found_or_deleted", "app.bigmachines.api.error.create", "app.bloomfire.api.error.create_user", "app.boxnet.api.error.assign_folder_permissions", "app.boxnet.api.error.create_new_user", "app.boxnet.api.error.create_personal_folder", "app.boxnet.api.error.create_personal_folder.conflict", "app.boxnet.api.error.invalid_user_login", "app.boxnet.api.error.personal_folder_name", "app.boxnet.api.error.personal_folder_sync_state", "app.confluence.api.error.create.new.user", "app.cornerstone.api.error.api.create_user", "app.dropbox.api.error.create.user", "app.echosign.api.error.create", "app.evernote_business.api.error.create.user", "app.evernote_business.api.error.create.user.limit.reached", "app.exacttarget.api.error.create_user", "app.google.user_management.error.create_new_user", "app.google.user_management.error.invalid_manager", "app.google.user_management.error.invalid_orgunit_id", "app.gotomeeting.user_management.config.failure.user_provisioning", "app.gotomeeting_rest.user_management.config.failure.user_provisioning", "app.hipchat.api.error.create.user", "app.jira.api.error.create.new.user", "app.netsuite.api.error.create_user", "app.postini.user_management.config.failure.provisioning", "app.rightscale.api.error.create.user", "app.salesforce.user_management.failure.provisioning", "app.samanage.api.error.incorrect.attribute", "app.sendwordnow.api.error.create_user", "app.servicenow.api.error.create.new.user", "app.servicenow_app2.api.error.create.new.user", "app.sugarcrm.api.error.create.new.user", "app.user_management.push_new_user", "app.user_management.push_pending_user", "app.veeva_vault.api.error.create.new.user", "app.yammer.api.error.create.user", "app.yammer.api.warn.send.invite", "gooddata.api.error.incorrect.roles.count", "gooddata.api.error.project.assignment.failed", "gooddata.api.error.project.not.found" ],
       "schema" : {
         "debugData" : "UserProvisioningDebugData",
@@ -6801,7 +6872,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "app-api" ],
+      "tags" : [ "app-api", "event-hook-eligible" ],
       "mappings" : [ "app.api.error.manager.not_found_for_user", "app.api.error.push_profile_update", "app.bigmachines.api.error.profile.update", "app.boxnet.api.error.add.email.alias", "app.boxnet.api.error.push.profile.update", "app.boxnet.api.error.user.push.conflict_in_group", "app.confluence.api.error.convert.app.user.to.remote.user", "app.confluence.api.error.push.profile.update", "app.cornerstone.api.error.api.push_profile", "app.crashplanpro.api.user_has_invalid_fields", "app.docusign.api.error.update.inactive.user", "app.docusign.api.error.update.permission.profile", "app.dropbox.api.error.push.profile", "app.dropbox.api.error.set.user.permissions", "app.exacttarget.api.error.push_profile_update", "app.generic.user_management.error.add_manager_to_user", "app.google.api.error.InsufficientPermission", "app.google.license_management.error.assign_license", "app.google.license_management.error.remove_license", "app.google.role_management.error.assign_role", "app.google.role_management.error.remove_role", "app.google.user_management.error.push_profile_update", "app.google.user_management.error.reconcile_email_aliases", "app.hipchat.api.error.push.profile", "app.jira.api.error.convert.app.user.to.remote.user", "app.jira.api.error.push.profile.update", "app.netsuite.api.error.push_profile_update", "app.pagerduty.api.push.profile.update.unexpected.status", "app.rightscale.api.error.push.profile", "app.sendwordnow.api.error.update_user_profile", "app.servicenow.api.error.import.manager.profile", "app.servicenow.api.error.push.profile.update", "app.servicenow_app2.api.error.push.profile.update", "app.sugarcrm.api.error.push.profile.update", "app.user_management.provision_user.user_inactive", "app.user_management.push_profile_failure", "app.user_management.push_profile_success", "app.user_management.push_profile_update", "app.veeva_vault.api.error.push.profile.update", "app.workday.api.error.get-employee-personal-info", "app.workday.api.error.update-employee-personal-info", "app.workday.api.error.user-management-error-push-profile-update", "app.yammer.api.error.push.profile", "moveit_dmz.error.too.long.username.or.email" ],
       "schema" : {
         "debugData" : "UserProvisioningDebugData",
@@ -6819,7 +6890,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "app-api" ],
+      "tags" : [ "app-api", "event-hook-eligible" ],
       "mappings" : [ "app.api.error.reactivate_user", "app.bigmachines.api.error.activate", "app.boxnet.api.error.reactivate_user", "app.confluence.api.error.reactivate.user", "app.cornerstone.api.error.api.reactivate_user", "app.exacttarget.api.error.reactivate_user", "app.google.user_management.error.reactivate_user", "app.hipchat.api.error.reactivation", "app.netsuite.api.error.reactivate_user", "app.servicenow.api.error.reactivate.user", "app.servicenow_app2.api.error.reactivate.user", "app.sugarcrm.api.error.reactivate.user", "app.user_management.reactivate_user", "app.veeva_vault.api.error.reactivate.user", "roambi.api.error.reactivate_user.confirmation" ],
       "schema" : {
         "debugData" : "UserProvisioningDebugData",
@@ -8905,7 +8976,7 @@
         "created" : "2025-01-27",
         "release" : "2025.02.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "admin-role", "event-hook-eligible" ],
       "mappings" : [ ],
@@ -9193,7 +9264,7 @@
         "created" : "2024-08-26",
         "release" : "2024.09.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "event-hook-eligible", "subscriptions" ],
       "mappings" : [ ],
@@ -10290,6 +10361,24 @@
       "info" : {
         "created" : "2022-02-01",
         "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "pam.app.update",
+      "category" : "asa",
+      "description" : "Update the settings for an app connected to Okta Privileged Access. Use this event to track changes to the settings for an app connected to Okta Privileged Access. Changes to the app settings in Okta Privileged Access impact the management of credentials for connected app accounts. This event references the name of the related app and the actor user who performed the update.",
+      "info" : {
+        "created" : "2026-01-20",
+        "release" : "2026.01.2"
       },
       "beta" : false,
       "internal" : false,
@@ -12264,6 +12353,114 @@
         "changeDetails" : null
       }
     }, {
+      "id" : "pam.workload_connection.create",
+      "category" : "asa",
+      "description" : "Create a workload connection in Okta Privileged Access. Use this event to identify when a new Root of Trust is configured to validate requests from an external workload provider, such as a cloud service. A workload connection defines the external issuer and the method for validating its signature or claims, enabling the authentication of non-human identities.",
+      "info" : {
+        "created" : "2025-11-24",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "pam.workload_connection.delete",
+      "category" : "asa",
+      "description" : "Delete a workload connection from Okta Privileged Access. Use this event to identify when Okta can't validate requests from a specific external source anymore, revoking trust in that connection. Okta recommends monitoring workload connection deletions, as they can disrupt access for all workloads that were previously authenticated using that specific root of trust. This event references the name of the connection and the actor user who performed the deletion.",
+      "info" : {
+        "created" : "2025-11-24",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "pam.workload_connection.update",
+      "category" : "asa",
+      "description" : "Update a workload connection in Okta Privileged Access. Use this event to identify changes to the validation configuration, such as updates to a validation URL, a certificate, or an issuer claim. Changes to this entity are considered high-risk, as they directly impact which external non-human identities your platform trusts and validates. This event references the name of the related connection and the actor user who updated it.",
+      "info" : {
+        "created" : "2025-11-24",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "pam.workload_role.create",
+      "category" : "asa",
+      "description" : "Create a workload role in Okta Privileged Access. Use this event to identify the creation of an authorization group for non-human identities. This group maps specific claims to a workload role. A workload role specifies the required claim and its associated workload connection. Admins add a workload role to a policy to grant access for non-human entities.",
+      "info" : {
+        "created" : "2025-11-24",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "pam.workload_role.delete",
+      "category" : "asa",
+      "description" : "Delete a workload role from Okta Privileged Access. Use this event to identify the removal of an authorization pathway for non-human identities. Workload identities with a deleted role immediately lose access to protected secrets or accounts. This event references the name of the related role and the actor user who deleted it.",
+      "info" : {
+        "created" : "2025-11-24",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "pam.workload_role.update",
+      "category" : "asa",
+      "description" : "Update a workload role in Okta Privileged Access. Use this event to track changes to the authorization criteria of a role, such as edits to the required claim value or the associated workload connection. Changes to the workload role definition affect which non-human identities are eligible for access within the referencing policies. This event references the name of the related role and the actor user who performed the role update.",
+      "info" : {
+        "created" : "2025-11-24",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
       "id" : "personal.admin.configuration.update",
       "category" : "okta-personal",
       "description" : "Okta personal app migration flag is updated. Triggered when app migration is updated on an Org. This event is fired when admin toggle app migration in org.",
@@ -14071,7 +14268,7 @@
         "created" : "2024-04-17",
         "release" : "2024.04.3"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "security" ],
       "mappings" : [ ],
@@ -14089,7 +14286,7 @@
         "created" : "2024-04-17",
         "release" : "2024.04.3"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "security" ],
       "mappings" : [ ],
@@ -14118,24 +14315,6 @@
         "changeDetails" : null
       }
     }, {
-      "id" : "security.risk.signal.consume",
-      "category" : "adaptive",
-      "description" : "Fired when a 3rd party risk provider submits risk signals. The event can help Org Admins debug/monitor partner risk signal submissions. The event contains debug context data about the submitted risk signals and the configuration of the related risk provider.",
-      "info" : {
-        "created" : "2021-01-05",
-        "release" : "2021.01.2"
-      },
-      "beta" : true,
-      "internal" : false,
-      "tags" : [ ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : "RiskSignalDebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ],
-        "changeDetails" : [ ]
-      }
-    }, {
       "id" : "security.session.detect_client_roaming",
       "category" : "security",
       "description" : "Roaming session detected for user.",
@@ -14152,6 +14331,24 @@
         "actor" : null,
         "targets" : null,
         "changeDetails" : null
+      }
+    }, {
+      "id" : "security.session_protection.status.update",
+      "category" : "itp",
+      "description" : "Session Protection status was updated to monitoring or enforced. Indicates a change in the Session Protection status -  (monitoring or enforced).",
+      "info" : {
+        "created" : "2025-12-10",
+        "release" : "2026.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "security" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ "SessionProtectionStatusChangeEntry" ]
       }
     }, {
       "id" : "security.threat.configuration.update",
@@ -16384,6 +16581,150 @@
         "actor" : null,
         "targets" : null,
         "changeDetails" : null
+      }
+    }, {
+      "id" : "system.identity_sources.group.create",
+      "category" : "sync",
+      "description" : "Create an identity source group. Creates a new group in Okta from an identity source. This event tracks the creation of a group in Okta sourced from a custom identity source.",
+      "info" : {
+        "created" : "2025-11-25",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "identity-sources" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "system.identity_sources.group.delete",
+      "category" : "sync",
+      "description" : "Delete an identity source group. Deletes a group in Okta from an identity source. This event tracks the deletion of a group in Okta sourced from a custom identity source.",
+      "info" : {
+        "created" : "2025-11-25",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "identity-sources" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "system.identity_sources.group.update",
+      "category" : "sync",
+      "description" : "Update an identity source group. Updates a group in Okta from an identity source. This event tracks the update of a group profile in Okta sourced from a custom identity source. Payload must include changeDetails.",
+      "info" : {
+        "created" : "2025-11-25",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "identity-sources" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ "IdentitySourceGroupChangeDetailsEntry" ]
+      }
+    }, {
+      "id" : "system.identity_sources.group.user.assign",
+      "category" : "sync",
+      "description" : "Assign a user to an identity source group. Assigns a user to an identity source group in Okta. This event tracks the assignment of a user to a group in Okta sourced from a custom identity source.",
+      "info" : {
+        "created" : "2025-11-25",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "identity-sources" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "system.identity_sources.group.user.revoke",
+      "category" : "sync",
+      "description" : "Revoke a user from an identity source group. Revokes a user from an identity source group in Okta. This event tracks the removal of a user from a group in Okta sourced from a custom identity source.",
+      "info" : {
+        "created" : "2025-11-25",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "identity-sources" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "system.identity_sources.user.create",
+      "category" : "sync",
+      "description" : "Create an identity source user. Creates a new user in Okta from an identity source. This event tracks the creation of a user in Okta sourced from a custom identity source.",
+      "info" : {
+        "created" : "2025-11-25",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "identity-sources" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "system.identity_sources.user.delete",
+      "category" : "sync",
+      "description" : "Delete an identity source user. Deletes a user in Okta from an identity source. This event tracks the deletion of a user in Okta sourced from a custom identity source.",
+      "info" : {
+        "created" : "2025-11-25",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "identity-sources" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "system.identity_sources.user.update",
+      "category" : "sync",
+      "description" : "Update an identity source user. Updates a user in Okta from an identity source. This event tracks the update of a user profile in Okta sourced from a custom identity source. Payload must include changeDetails.",
+      "info" : {
+        "created" : "2025-11-25",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "identity-sources" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ "IdentitySourceUserChangeDetailsEntry" ]
       }
     }, {
       "id" : "system.idp.key.create",
@@ -18794,7 +19135,7 @@
       "schema" : {
         "debugData" : "UserAccessDebugData",
         "actor" : null,
-        "targets" : [ "UserAccessResourceDetails" ],
+        "targets" : [ "UserAccessResourceDetails", "BotProtectionConfigurationResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -18805,7 +19146,7 @@
         "created" : "2024-08-26",
         "release" : "2024.09.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "event-hook-eligible", "subscriptions" ],
       "mappings" : [ ],
@@ -19379,9 +19720,9 @@
       "description" : "User ended a device session. This event is fired when a user logs out or locks their desktop. This may be useful to audit when the lifecycle of a given device session has ended.",
       "info" : {
         "created" : "2025-09-24",
-        "release" : "2026.01.0"
+        "release" : "2026.01.1"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "device-access", "oie-only" ],
       "mappings" : [ ],
@@ -19397,9 +19738,9 @@
       "description" : "User established a device session. This event may be used to identify users which are using Device-Bound SSO. This may be useful to audit when a user established their device session, either at desktop logon or after a successful authentication in the browser. After the device session is established, the resultant deviceSessionId will appear in the authenticationContext of events fired where the device session was used.",
       "info" : {
         "created" : "2025-09-24",
-        "release" : "2026.01.0"
+        "release" : "2026.01.1"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "device-access", "oie-only" ],
       "mappings" : [ ],
@@ -19440,7 +19781,7 @@
       "tags" : [ "event-hook-eligible", "policy", "session", "user" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : "SystemDebugData",
+        "debugData" : "UserAuthenticationDebugData",
         "actor" : "UserAuthenticationResourceDetails",
         "targets" : [ "UserIdentityVerificationResourceDetails" ],
         "changeDetails" : [ ]
@@ -19458,7 +19799,7 @@
       "tags" : [ "event-hook-eligible", "policy", "session", "user" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : "SystemDebugData",
+        "debugData" : "UserAuthenticationDebugData",
         "actor" : "UserAuthenticationResourceDetails",
         "targets" : [ "UserIdentityVerificationResourceDetails" ],
         "changeDetails" : [ ]
@@ -19586,7 +19927,7 @@
       "schema" : {
         "debugData" : "UserLifecycleDebugData",
         "actor" : null,
-        "targets" : [ "ResourceDetails" ],
+        "targets" : [ "BotProtectionConfigurationResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -20216,7 +20557,7 @@
       "schema" : {
         "debugData" : "UserAuthenticationDebugData",
         "actor" : "UserAuthenticationResourceDetails",
-        "targets" : [ "UserAuthenticationResourceDetails", "CaptchaVerifyResourceDetails", "UserIdentifierResourceDetails" ],
+        "targets" : [ "UserAuthenticationResourceDetails", "CaptchaVerifyResourceDetails", "UserIdentifierResourceDetails", "BotProtectionConfigurationResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -20992,6 +21333,294 @@
         "actor" : null,
         "targets" : null,
         "changeDetails" : null
+      }
+    }, {
+      "id" : "workload_principal.activate",
+      "category" : "workload-principal",
+      "description" : "Workload principal has been activated. This event can be used to track the activation of workload principals within the organization, including details about the agent and the user who performed the activation. When fired, this event contains information about the workload principal, such as its configuration, and the user who activated it.",
+      "info" : {
+        "created" : "2025-11-04",
+        "release" : "2025.11.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workload_principal.ai_agent.credential.activate",
+      "category" : "workload-principal",
+      "description" : "Activate an AI agent credential. This event can be used to track the activation of credentials for AI agents within the organization, including details about the credential and the user who performed the activation.",
+      "info" : {
+        "created" : "2026-01-14",
+        "release" : "2026.01.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalCredentialDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workload_principal.ai_agent.credential.create",
+      "category" : "workload-principal",
+      "description" : "Create an AI agent credential. This event can be used to track the creation of credentials for AI agents within the organization, including details about the credential and the user who performed the creation.",
+      "info" : {
+        "created" : "2026-01-14",
+        "release" : "2026.01.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalCredentialDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workload_principal.ai_agent.credential.deactivate",
+      "category" : "workload-principal",
+      "description" : "Deactivate an AI agent credential. This event can be used to track the deactivation of credentials for AI agents within the organization, including details about the credential and the user who performed the deactivation.",
+      "info" : {
+        "created" : "2026-01-14",
+        "release" : "2026.01.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalCredentialDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workload_principal.ai_agent.credential.delete",
+      "category" : "workload-principal",
+      "description" : "Delete an AI agent credential. This event can be used to track the deletion of credentials for AI agents within the organization, including details about the credential and the user who performed the deletion.",
+      "info" : {
+        "created" : "2026-01-14",
+        "release" : "2026.01.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalCredentialDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workload_principal.deactivate",
+      "category" : "workload-principal",
+      "description" : "Workload principal has been deactivated. This event can be used to track the deactivation of workload principals within the organization, including details about the agent and the user who performed the deactivation. When fired, this event contains information about the workload principal, such as its configuration, and the user who deactivated it.",
+      "info" : {
+        "created" : "2025-11-04",
+        "release" : "2025.11.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workload_principal.delete",
+      "category" : "workload-principal",
+      "description" : "Workload principal has been deleted. This event can be used to track the deletion of workload principals within the organization, including details about the agent and the user who performed the deletion. When fired, this event contains information about the workload principal, such as its configuration, and the user who deleted it.",
+      "info" : {
+        "created" : "2025-11-04",
+        "release" : "2025.11.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workload_principal.managed_connection.activate",
+      "category" : "workload-principal",
+      "description" : "Workload principal managed connection activation. This event can be used to track the activation of managed connections for workload principals within the organization, including details about the connection and the user who made the activation. When fired, this event contains information about the workload principal, the managed connection activated, and the user who performed the activation.",
+      "info" : {
+        "created" : "2025-11-21",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalManagedConnectionDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workload_principal.managed_connection.create",
+      "category" : "workload-principal",
+      "description" : "Workload principal managed connection creation. This event can be used to track the creation of managed connections for workload principals within the organization, including details about the connection and the user who made the creation. When fired, this event contains information about the workload principal, the managed connection created, and the user who performed the creation.",
+      "info" : {
+        "created" : "2025-11-07",
+        "release" : "2025.11.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalManagedConnectionDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workload_principal.managed_connection.deactivate",
+      "category" : "workload-principal",
+      "description" : "Workload principal managed connection deactivation. This event can be used to track the deactivation of managed connections for workload principals within the organization, including details about the connection and the user who made the deactivation. When fired, this event contains information about the workload principal, the managed connection deactivated, and the user who performed the deactivation.",
+      "info" : {
+        "created" : "2025-11-21",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalManagedConnectionDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workload_principal.managed_connection.delete",
+      "category" : "workload-principal",
+      "description" : "Workload principal managed connection deletion. This event can be used to track the deletion of managed connections for workload principals within the organization, including details about the connection and the user who made the deletion. When fired, this event contains information about the workload principal, the managed connection deleted, and the user who performed the deletion.",
+      "info" : {
+        "created" : "2025-11-07",
+        "release" : "2025.11.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalManagedConnectionDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workload_principal.managed_connection.update",
+      "category" : "workload-principal",
+      "description" : "Workload principal managed connection update. This event can be used to track updates made to managed connections for workload principals within the organization, including details about the changes and the user who made them. When fired, this event contains information about the workload principal, the managed connection updated, the changes made, and the user who performed the update.",
+      "info" : {
+        "created" : "2025-11-07",
+        "release" : "2025.11.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalManagedConnectionDetails" ],
+        "changeDetails" : [ "WorkloadPrincipalManagedConnectionChangeDetailsEntry" ]
+      }
+    }, {
+      "id" : "workload_principal.register",
+      "category" : "workload-principal",
+      "description" : "Workload Principal has been registered. This event can be used to track the registration of workload principals within the organization, including details about the user who registered it. When fired, this event contains information about the workload principal, such as its type, configuration, and the user who registered it.",
+      "info" : {
+        "created" : "2025-11-04",
+        "release" : "2025.11.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workload_principal.sign_on_provider.add",
+      "category" : "workload-principal",
+      "description" : "Sign-on provider has been added to workload principal. This event can be used to track the addition of sign-on providers to workload principals within the organization, including details about the provider and the user who made the addition. When fired, this event contains information about the workload principal, the sign-on provider added, and the user who performed the addition.",
+      "info" : {
+        "created" : "2025-11-04",
+        "release" : "2025.11.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalSignOnProviderDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workload_principal.sign_on_provider.remove",
+      "category" : "workload-principal",
+      "description" : "Sign-on provider has been removed from workload principal. This event can be used to track the removal of sign-on providers from workload principals within the organization, including details about the provider and the user who made the removal. When fired, this event contains information about the workload principal, the sign-on provider removed, and the user who performed the removal.",
+      "info" : {
+        "created" : "2025-11-04",
+        "release" : "2025.11.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalSignOnProviderDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workload_principal.update",
+      "category" : "workload-principal",
+      "description" : "workload principal has been updated. This event can be used to track updates made to workload principals within the organization, including details about the changes and the user who made them. When fired, this event contains information about the workload principal, such as its configuration changes, and the user who updated it.",
+      "info" : {
+        "created" : "2025-11-04",
+        "release" : "2025.11.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalResourceDetails" ],
+        "changeDetails" : [ "WorkloadPrincipalChangeDetailsEntry" ]
       }
     }, {
       "id" : "zone.activate",
@@ -25312,6 +25941,14 @@
             "customer" : false,
             "format" : "iso8601",
             "examples" : [ "2023-11-05T09:30:41.000-05:00" ]
+          },
+          "passkey" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true" ]
           },
           "matched_authenticator_groups" : {
             "type" : "String",
@@ -30925,6 +31562,30 @@
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
           },
+          "grants_after_event" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "gra1q2MG1jbsEamBO0g3", "gra1q2MG1jbsEamBO0g0" ]
+          },
+          "grants_before_event" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "gra1q2MG1jbsEamBO0g3", "gra1q2MG1jbsEamBO0g0" ]
+          },
+          "entitlement_change_cause" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "POLICY", "API", "IMPORT" ]
+          },
           "principal_entitlements_changes_url" : {
             "type" : "String",
             "sensitive" : false,
@@ -36014,6 +36675,14 @@
             "format" : "text",
             "examples" : [ "api://default" ]
           },
+          "one_time_token_audience" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "urn:okta:apps:0oa1elyw9EAkUNUrW0g5" ]
+          },
           "authorization_server_audience" : {
             "type" : "String",
             "sensitive" : false,
@@ -36173,6 +36842,14 @@
             "customer" : false,
             "format" : "epochMillis",
             "examples" : [ "1596743593000", "1596587608000", "1596293244000" ]
+          },
+          "managed_connection_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "mcngsb63mGMdhG7Wz0w6", "mcngsb64irFFyatkX0w6", "mcngsbsacvhfHfYQo0w6" ]
           },
           "interaction_handle" : {
             "type" : "String",
@@ -41270,235 +41947,6 @@
           }
         }
       },
-      "RiskSignalDebugData" : {
-        "name" : "RiskSignalDebugData",
-        "properties" : {
-          "trace_id" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
-          },
-          "oag_app" : {
-            "type" : "Boolean",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "boolean",
-            "examples" : [ "true", "false" ]
-          },
-          "webhooks" : {
-            "type" : "List",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : true,
-            "format" : "text",
-            "examples" : [ ]
-          },
-          "risk_change" : {
-            "type" : "RiskChangeSecurityData",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "json",
-            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
-          },
-          "log_only_security_data" : {
-            "type" : "LogOnlySecurityData",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "json",
-            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
-          },
-          "threat_detections" : {
-            "type" : "ObjectNode",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "json",
-            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
-          },
-          "threat_suspected" : {
-            "type" : "Boolean",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "boolean",
-            "examples" : [ "true", "false" ]
-          },
-          "security_conditions" : {
-            "type" : "List",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
-          },
-          "associated_proxies" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
-          },
-          "tunnels" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "[{\"operator\":\"HOTSPOT_VPN\",\"type\":\"VPN\",\"anonymous\":true}]" ]
-          },
-          "anonymizer_status" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "enum",
-            "examples" : [ "private" ]
-          },
-          "proxy_type" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "enum",
-            "examples" : [ "tor", "service" ]
-          },
-          "behaviors" : {
-            "type" : "Map",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
-          },
-          "partner_risk" : {
-            "type" : "List",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
-          },
-          "risk" : {
-            "type" : "Map",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
-          },
-          "url" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "url",
-            "examples" : [ "/login/do-login?" ]
-          },
-          "request_uri" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "uri",
-            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
-          },
-          "request_id" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "id",
-            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
-          },
-          "redirect_uri" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "uri",
-            "examples" : [ "http://httpbin.org" ]
-          },
-          "original_principal" : {
-            "type" : "Resource",
-            "sensitive" : false,
-            "personal" : true,
-            "customer" : false,
-            "format" : "",
-            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
-          },
-          "device_fingerprint" : {
-            "type" : "String",
-            "sensitive" : true,
-            "personal" : false,
-            "customer" : false,
-            "format" : "id",
-            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
-          },
-          "dt_hash" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "id",
-            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
-          },
-          "authn_request_id" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "id",
-            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
-          },
-          "risk_signal_list" : {
-            "type" : "String",
-            "sensitive" : true,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "[{ip=1.2.3.4, riskLevel=HIGH}, {ip=2.2.3.4, riskLevel=MEDIUM}]" ]
-          },
-          "risk_signal_size" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "integer",
-            "examples" : [ "20" ]
-          },
-          "risk_signal_provider_action" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "NONE", "LOG_ONLY", "ENFORCE_AND_LOG" ]
-          },
-          "risk_signal_provider_name" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "Default Provider 1", "Default Provider 2" ]
-          },
-          "risk_signal_provider_id" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "rkpz02qYepUzxNKgi0g3" ]
-          }
-        }
-      },
       "ScheduledActionDebugData" : {
         "name" : "ScheduledActionDebugData",
         "properties" : {
@@ -44892,6 +45340,14 @@
             "format" : "text",
             "examples" : [ "1,2|3,4" ]
           },
+          "reason_for_failure" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "PAR response must have status code 201, instead received response with status=200" ]
+          },
           "result" : {
             "type" : "String",
             "sensitive" : false,
@@ -47258,6 +47714,203 @@
           }
         }
       },
+      "WorkloadPrincipalDebugData" : {
+        "name" : "WorkloadPrincipalDebugData",
+        "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
+          "tunnels" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{\"operator\":\"HOTSPOT_VPN\",\"type\":\"VPN\",\"anonymous\":true}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "error_message" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "with the following validation errors: For property '<propertyName>', string length of <propertyValue> is greater than configured maximum length <maxLength>.<br/>" ]
+          }
+        }
+      },
       "YubikeyDebugData" : {
         "name" : "YubikeyDebugData",
         "properties" : {
@@ -47960,6 +48613,35 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "ANOMALOUS_IP", "VELOCITY", "ANOMALOUS_LOCATION", "ANOMALOUS_DEVICE" ]
+          }
+        }
+      },
+      "BotProtectionConfigurationResourceDetails" : {
+        "name" : "BotProtectionConfigurationResourceDetails",
+        "properties" : {
+          "enforcement_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "OKTA_CHALLENGE" ]
+          },
+          "mode_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "DISABLED", "LOG_ONLY", "ENFORCED" ]
+          },
+          "level" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "LOW", "MEDIUM", "HIGH", "ANY" ]
           }
         }
       },
@@ -49038,6 +49720,14 @@
             "customer" : false,
             "format" : "okta:userId",
             "examples" : [ "00ura3zeedtL1tjut0h7", "00uds6wz8fak4zaTw0h7", "00ur4i37hcpzF4SaC0h7" ]
+          },
+          "scope" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "openid WMNowScope email profile", "full:access", "email profile openid offline_access" ]
           },
           "PublicClientApp" : {
             "type" : "String",
@@ -50628,6 +51318,138 @@
           }
         }
       },
+      "WorkloadPrincipalCredentialDetails" : {
+        "name" : "WorkloadPrincipalCredentialDetails",
+        "properties" : {
+          "workload_principal_credential_key_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "RSA", "EC" ]
+          },
+          "workload_principal_credential_key_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "e258845b1967a76bc9fdce776e9da145", "2Qr9f2g6U5RT7lqMOBIkLSta-n_ml2cDWhvumsC_oFk" ]
+          },
+          "workload_principal_credential_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "ACTIVE", "INACTIVE" ]
+          },
+          "workload_principal_credential_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "JWK" ]
+          }
+        }
+      },
+      "WorkloadPrincipalManagedConnectionDetails" : {
+        "name" : "WorkloadPrincipalManagedConnectionDetails",
+        "properties" : {
+          "workload_principal_managed_connection_protocol_metadata_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "pmd1234abcdEFGH5678" ]
+          },
+          "workload_principal_managed_connection_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "ACTIVE", "INACTIVE", "DELETED" ]
+          },
+          "workload_principal_managed_connection_resource_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "00a1234abcdEFGH5678" ]
+          },
+          "workload_principal_managed_connection_resource_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "APP_INSTANCE", "CUSTOM_AS_RESOURCE", "VAULTED_SECRET", "SERVICE_ACCOUNT" ]
+          },
+          "workload_principal_managed_connection_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "IDENTITY_ASSERTION", "STS" ]
+          }
+        }
+      },
+      "WorkloadPrincipalResourceDetails" : {
+        "name" : "WorkloadPrincipalResourceDetails",
+        "properties" : {
+          "workload_principal_description" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "An AI agent for customer support" ]
+          },
+          "workload_principal_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Customer Support AI" ]
+          },
+          "workload_principal_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "ACTIVE", "INACTIVE" ]
+          },
+          "workload_principal_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "wlpo1234abcdEFGH5678" ]
+          }
+        }
+      },
+      "WorkloadPrincipalSignOnProviderDetails" : {
+        "name" : "WorkloadPrincipalSignOnProviderDetails",
+        "properties" : {
+          "workload_principal_sign_on_provider_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "Ooa1234abcdEFGH5678" ]
+          }
+        }
+      },
       "X509IdpAppUserResourceDetails" : {
         "name" : "X509IdpAppUserResourceDetails",
         "properties" : {
@@ -51332,6 +52154,22 @@
       "AppInstanceUserMgmtGSChangeDetailsEntry" : {
         "name" : "AppInstanceUserMgmtGSChangeDetailsEntry",
         "properties" : {
+          "scheduled_import_interval" : {
+            "type" : "boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "import_interval" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "1", "2", "3" ]
+          },
           "import_schedule" : {
             "type" : "ImportSchedule",
             "sensitive" : false,
@@ -51648,7 +52486,7 @@
             "personal" : false,
             "customer" : false,
             "format" : "enum",
-            "examples" : [ "CAPTCHA" ]
+            "examples" : [ "OKTA_CHALLENGE" ]
           },
           "mode" : {
             "type" : "String",
@@ -51977,6 +52815,48 @@
             "customer" : false,
             "format" : "json",
             "examples" : [ "{'Exclude': {'okta:ORN':'orn:okta:idp:orgId:apps:appName'}}", "{'Exclude': {'okta:ORN':'orn:okta:idp:orgId:apps:appName:appInstanceId'}}" ]
+          }
+        }
+      },
+      "IdentitySourceGroupChangeDetailsEntry" : {
+        "name" : "IdentitySourceGroupChangeDetailsEntry",
+        "properties" : {
+          "profile" : {
+            "type" : "Profile",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : true,
+            "format" : "json",
+            "examples" : [ "{\"displayName\":\"My display name\",\"description\":\"My group description\"}" ]
+          },
+          "externalId" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "GROUPEXT-20251030B" ]
+          }
+        }
+      },
+      "IdentitySourceUserChangeDetailsEntry" : {
+        "name" : "IdentitySourceUserChangeDetailsEntry",
+        "properties" : {
+          "profile" : {
+            "type" : "Profile",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : true,
+            "format" : "json",
+            "examples" : [ "{\"userName\":\"johndoe\",\"firstName\":\"John\",\"lastName\":\"Doe\",\"email\":\"john.doe@example.com\",\"mobilePhone\":\"+1-555-123-4567\"}" ]
+          },
+          "externalId" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "c3f9a2b1-7d4e-4f6a-9b8c-2e1f5a7d9b34" ]
           }
         }
       },
@@ -52776,6 +53656,19 @@
           }
         }
       },
+      "SessionProtectionStatusChangeEntry" : {
+        "name" : "SessionProtectionStatusChangeEntry",
+        "properties" : {
+          "status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "MONITORING", "ENFORCED" ]
+          }
+        }
+      },
       "TrustedOriginChangeDetailsEntry" : {
         "name" : "TrustedOriginChangeDetailsEntry",
         "properties" : {
@@ -52823,6 +53716,56 @@
             "customer" : false,
             "format" : "json",
             "examples" : [ "some JSON value" ]
+          }
+        }
+      },
+      "WorkloadPrincipalChangeDetailsEntry" : {
+        "name" : "WorkloadPrincipalChangeDetailsEntry",
+        "properties" : {
+          "workload_principal_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "ACTIVE", "INACTIVE", "DELETED", "STAGED" ]
+          },
+          "workload_principal_description" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Customer support AI agent", "Sales assistant AI agent" ]
+          },
+          "workload_principal_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "AI Assistant", "AI Chatbot" ]
+          }
+        }
+      },
+      "WorkloadPrincipalManagedConnectionChangeDetailsEntry" : {
+        "name" : "WorkloadPrincipalManagedConnectionChangeDetailsEntry",
+        "properties" : {
+          "workload_principal_managed_connection_scopes_condition" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "ANY", "ALL" ]
+          },
+          "workload_principal_managed_connection_scopes" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "scope1 scope2 scope3" ]
           }
         }
       }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>Okta Identity Engine API release notes</title>
+  <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/</link>
+  <description>Recent release notes for Okta Identity Engine API</description>
+  <pubDate>Thu, 05 Feb 2026 12:00:00 GMT</pubDate>
+  
+    <item>
+      <title>Monthly release 2026.02.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#monthly-release-2026-02-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#monthly-release-2026-02-0</guid>
+      <pubDate>Thu, 05 Feb 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#linux-as-a-platform-condition-is-ga-in-preview">Linux as a platform condition is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#skip-counts-for-authenticator-enrollment-grace-periods-is-self-service-ea-in-preview">Skip counts for authenticator enrollment grace periods is self-service EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#dynamic-os-version-compliance-for-device-assurance-is-ga-in-preview">Dynamic OS version compliance for device assurance is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#grace-period-for-device-assurance-is-ga-in-preview">Grace period for device assurance is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#lightweight-directory-access-protocol-bidirectional-group-management-is-ga-in-production">Lightweight Directory Access Protocol Bidirectional Group Management is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#detection-settings-in-session-protection-is-ga-in-preview">Detection settings in session protection is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#passkeys-rebrand-is-self-service-ea-in-preview">Passkeys Rebrand is self-service EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#custom-fido2-aaguid-is-ga-in-production">Custom FIDO2 AAGUID is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#oauth-2-0-support-for-custom-email-providers-is-self-service-ea-in-preview">OAuth 2.0 support for custom email providers is self-service EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#okta-as-a-fallback-idp-is-self-service-ea-in-preview">Okta as a fallback IdP is self-service EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#developer-documentation-updates-in-2026-02-0">Developer documentation updates in 2026.02.0</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#bugs-fixed-in-2026-02-0">Bugs fixed in 2026.02.0</a>]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2026.01.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#weekly-release-2026-01-2</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#weekly-release-2026-01-2</guid>
+      <pubDate>Thu, 29 Jan 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#bugs-fixed-in-2026-01-2">Bugs fixed in 2026.01.2</a>]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2026.01.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#weekly-release-2026-01-1</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#weekly-release-2026-01-1</guid>
+      <pubDate>Wed, 14 Jan 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#bug-fixed-in-2026-01-1">Bug fixed in 2026.01.1</a>]]></description>
+    </item>
+  
+
+    <item>
+      <title>Monthly release 2026.01.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#monthly-release-2026-01-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#monthly-release-2026-01-0</guid>
+      <pubDate>Thu, 08 Jan 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#native-to-web-sso-is-self-service-ea-in-preview">Native to Web SSO is self-service EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#bring-your-own-telephony-credentials-is-self-service-ea-in-preview">Bring your own telephony credentials is self-service EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#client-update-policy-is-ea-in-preview">Client update policy is EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#encryption-of-id-tokens-and-access-tokens-is-ga-in-production">Encryption of ID tokens and access tokens is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#unified-claims-generation-for-custom-apps-is-ga-in-production">Unified claims generation for custom apps is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#custom-fido2-aaguid-is-ga-in-preview">Custom FIDO2 AAGUID is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#improvements-to-the-global-session-policy-mfa-requirements-is-ga-in-production">Improvements to the global session policy MFA requirements is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#additional-anything-as-a-source-api-endpoints-is-ga-in-production">Additional Anything-as-a-Source API endpoints is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#anything-as-a-source-for-groups-and-group-memberships-api-is-ga-in-production">Anything-as-a-Source for groups and group memberships API is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#okta-account-management-policy-protection-for-password-expiry-flows-is-ga-in-production">Okta account management policy protection for password expiry flows is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#new-password-complexity-property-is-ga-in-preview">New password complexity property is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#developer-documentation-updates-in-2026-01-0">Developer documentation updates in 2026.01.0</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#bugs-fixed-in-2026-01-0">Bugs fixed in 2026.01.0</a>]]></description>
+    </item>
+  
+</channel>
+</rss>

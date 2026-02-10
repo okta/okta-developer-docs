@@ -52,7 +52,7 @@ When you create an Okta expression, you can specify entitlements within the `app
 
 When you create an Okta expression, you can reference any property that exists in an Okta user profile in addition to some top-level user properties.
 
-> **Note:** You can't use the `user.status` expression with group rules. See [Group Rules operations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/) and [Create Group Rule](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-method-creategrouprule).
+> **Note:** You can't use the `user.status` expression directly with group rules. See [Group Rules operations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/) and [Create Group Rule](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-method-creategrouprule). Use the `user.getInternalProperty("status")` to get the user status instead. See [Okta user ID and status](/docs/reference/okta-expression-language/#okta-user-id-and-status).
 
 | Syntax                             | Definitions                                                                              | Examples                                                       |
 | --------                           | ----------                                                                               | ------------                                                   |

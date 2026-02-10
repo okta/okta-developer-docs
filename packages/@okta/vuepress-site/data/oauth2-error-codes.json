@@ -1,6 +1,6 @@
 {
-  "release" : "2025.11.1",
-  "build" : "2025.11.1-begin-137-gba09a5120574",
+  "release" : "2026.02.1",
+  "build" : "2026.02.1-begin-195-g2ea8b7157f44",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -142,12 +142,33 @@
     "errorCode" : "access_denied",
     "errorDescription" : "The Aerial service denied the request."
   }, {
+    "title" : "Aerial admin access denied",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "aerial_admin_access_denied",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The authentication policy on your Aerial org must meet or exceed the authentication policy on the org you're accessing."
+  }, {
     "title" : "Disallowed network zone",
     "statusCode" : 403,
     "statusReasonPhrase" : "Forbidden",
     "internalErrorCode" : "disallowed_network_zone",
     "errorCode" : "access_denied",
     "errorDescription" : "The request is made from outside the client's permitted network zones."
+  }, {
+    "title" : "Interclient token target not permitted",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "interclient_token_target_not_permitted",
+    "errorCode" : "access_denied",
+    "errorDescription" : "Only SAML and OIDC apps support the use of the 'interclient_token'."
+  }, {
+    "title" : "Interclient relationship not configured",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "interclient_relationship_not_configured",
+    "errorCode" : "access_denied",
+    "errorDescription" : "No trust relationship exists between the client app and the target app."
   }, {
     "title" : "Associated server not exists",
     "statusCode" : 403,
@@ -351,6 +372,13 @@
     "internalErrorCode" : "ciba_mfa_challenge_initiation_failure",
     "errorCode" : "access_denied",
     "errorDescription" : "Failed to initiate the MFA challenge for the Client-Initiated Backchannel Authentication flow."
+  }, {
+    "title" : "Interclient token user canceled request",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "interclient_token_user_canceled_request",
+    "errorCode" : "access_denied",
+    "errorDescription" : "User canceled the authentication."
   }, {
     "title" : "Online access authentication required",
     "statusCode" : 403,
@@ -1206,19 +1234,12 @@
     "errorCode" : "invalid_grant",
     "errorDescription" : "The target audience app must be configured to allow the client to request a 'web_sso_token'."
   }, {
-    "title" : "Interclient sso token exchange request requires scope",
+    "title" : "Interclient token exchange request requires scope",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "interclient_sso_token_exchange_request_requires_scope",
+    "internalErrorCode" : "interclient_token_exchange_request_requires_scope",
     "errorCode" : "invalid_grant",
-    "errorDescription" : "The 'actor_token' must have the 'interclient_access' scope to request a 'interclient_sso_token'."
-  }, {
-    "title" : "Interclient sso client not permitted",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "interclient_sso_client_not_permitted",
-    "errorCode" : "invalid_grant",
-    "errorDescription" : "The 'interclient_sso_token' is currently only supported for SAML and OIDC apps."
+    "errorDescription" : "The 'actor_token' must have the 'interclient_access' scope to request a 'interclient_token'."
   }, {
     "title" : "Client requires MFA native sso",
     "statusCode" : 400,
@@ -1394,13 +1415,6 @@
     "internalErrorCode" : "duplicate_oauth_params",
     "errorCode" : "invalid_request",
     "errorDescription" : "The request contained multiple parameters with the same name."
-  }, {
-    "title" : "Sensitive query parameters not allowed in token request",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "sensitive_query_parameters_not_allowed_in_token_requests",
-    "errorCode" : "invalid_request",
-    "errorDescription" : "You shouldn't include any sensitive query parameters (en) in token requests. Provide parameters as 'x-www-form-urlencoded' values."
   }, {
     "title" : "Unsupported response type with scope",
     "statusCode" : 400,
@@ -2417,6 +2431,13 @@
     "errorCode" : "invalid_target",
     "errorDescription" : "'resource' is invalid or not supported."
   }, {
+    "title" : "Token exchange incomplete resource configuration",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "token_exchange_incomplete_resource_configuration",
+    "errorCode" : "invalid_target",
+    "errorDescription" : "The resource app is not completely configured or user is not assigned to the app."
+  }, {
     "title" : "Invalid token",
     "statusCode" : 401,
     "statusReasonPhrase" : "Unauthorized",
@@ -2514,6 +2535,48 @@
     "internalErrorCode" : "web_sso_token_invalid_iss",
     "errorCode" : "invalid_token",
     "errorDescription" : "The 'web_sso_token' has an invalid issuer."
+  }, {
+    "title" : "One time sso token invalid",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "one_time_sso_token_invalid",
+    "errorCode" : "invalid_token",
+    "errorDescription" : "The 'en' is invalid."
+  }, {
+    "title" : "One time sso token invalid jti",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "one_time_sso_token_invalid_jti",
+    "errorCode" : "invalid_token",
+    "errorDescription" : "The 'en' contains an invalid 'jti'."
+  }, {
+    "title" : "One time sso token revoked",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "one_time_sso_token_revoked",
+    "errorCode" : "invalid_token",
+    "errorDescription" : "The 'en' was revoked."
+  }, {
+    "title" : "One time sso token invalid aud",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "one_time_sso_token_invalid_aud",
+    "errorCode" : "invalid_token",
+    "errorDescription" : "The 'en' has an invalid audience."
+  }, {
+    "title" : "One time sso token invalid iss",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "one_time_sso_token_invalid_iss",
+    "errorCode" : "invalid_token",
+    "errorDescription" : "The 'en' has an invalid issuer."
+  }, {
+    "title" : "Interclient token invalid tid",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "interclient_token_invalid_tid",
+    "errorCode" : "invalid_token",
+    "errorDescription" : "The 'interclient_token' has an invalid target ID."
   }, {
     "title" : "Access token not dpop bound",
     "statusCode" : 401,
@@ -2626,6 +2689,13 @@
     "internalErrorCode" : "missing_redirect_uri",
     "errorCode" : "missing_redirect_uri",
     "errorDescription" : "redirect_uri is missing."
+  }, {
+    "title" : "One time sso token replayed",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "one_time_sso_token_replayed",
+    "errorCode" : "one_time_sso_token_replayed",
+    "errorDescription" : "The 'en' was already consumed."
   }, {
     "title" : "Platform sso invalid password credentials",
     "statusCode" : 400,

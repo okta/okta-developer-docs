@@ -9,15 +9,12 @@
         </div>
       </div>
       <div class="copyright--container">
-        <div class="copyright--text">
-          <p
-            v-for="(section, sectionIdx) in $page.frontmatter.sections"
-            :key="sectionIdx"
-            class="copyright--section-paragraph"
-            v-html="section"
-          />
-        </div>
+        <Content class="copyright--text" />
       </div>
     </section>
   </div>
 </template>
+
+<script>
+export default {};
+</script>

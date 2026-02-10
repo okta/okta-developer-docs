@@ -1,5 +1,4 @@
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
-* [Glitch](https://glitch.com/) project or account
 * An [OAuth 2.0 client app](/docs/concepts/oauth-openid/#oauth-2-0) that has the **Require Demonstrating Proof of Possession (DPoP) header in token requests** checkbox enabled.<br>
   If you're using the API, add the [DPoP parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/oauthClient/dpop_bound_access_tokens&t=request) (`dpop_bound_access_tokens: true`) to `settings.oauthClient` to your app.
 * Be able to [build a request](/docs/guides/implement-grant-type/authcode/main/#flow-specifics) and obtain an access token for your app.

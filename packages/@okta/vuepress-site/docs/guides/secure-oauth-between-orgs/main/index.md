@@ -63,16 +63,11 @@ You can set up federation and push user and group information from a spoke org t
 
 ### Make secure API requests with OAuth 2.0
 
-To make secure Okta API requests to configure your Okta orgs, obtain OAuth 2.0 access tokens for the `Authorization` header in requests. The Okta setup to obtain access tokens depends on whether you want the token to have a user-based or a service-based context:
+<CreateOAuth2Token/><br>
 
-* **User-based access**: The access token is tied to a specific admin user. For this access, you need to provide an Okta admin username and credentials. See [User-based API access setup](/docs/reference/rest/#user-based-api-access-setup). Grant `okta.apps.manage`, `okta.clients.manage`, `okta.clients.register`, `okta.roles.manage`, `okta.users.manage`, `okta.appGrants.manage`, and `okta.groups.manage` to the OIDC app during the setup. <!-- What are the scopes required for all requests for the access token? Ask Richard Chan -->
-
-* **Service-based access**: If you have a service app or script that makes API requests to Okta without user context, see [Service-based API access setup](/docs/reference/rest/#service-based-api-access-setup). Grant `okta.apps.manage`, `okta.clients.manage`, `okta.clients.register`, `okta.roles.manage`, `okta.appGrants.manage`, `okta.users.manage`, and `okta.groups.manage` to the service app during the setup.
-<!-- Ask Thanh-Ha and Richard if we want to add service-based access as an option? If so, we need the scopes for the access token. -->
+Grant the following scopes during the OIDC app or service app setup: `okta.apps.manage`, `okta.clients.manage`, `okta.clients.register`, `okta.roles.manage`, `okta.users.manage`, `okta.appGrants.manage`, and `okta.groups.manage`.
 
 You need an access token for API requests to each Okta org. After you have API access to your orgs, execute the steps in the following sections for the [Hub and spoke connection configuration with OAuth 2.0](#hub-and-spoke-connection-configuration-with-oauth-2-0).
-
----
 
 ### Create an IdP in the hub org
 
@@ -193,7 +188,7 @@ curl -v -X POST \
 
 #### Create an OIDC Okta Integration IdP
 
-Use the following request body parameters to define your OIDC Okta Integration IdP in the hub org.
+Use the following request body parameters to define your OIDC Okta Integration IdP in the hub org. See also [Create an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider).
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
@@ -213,26 +208,50 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer {yourHubAccessToken}" \
 -d '{
-  "type": "OKTA_INTEGRATION",
-  "name": "Example API Okta Integration IdP",
-  "protocol": {
-    "oktaIdpOrgUrl": "https://{your-spoke-org}.com/",
-    "type": "SAML2",
-    "credentials": {
-        "client": {
-          "client_id": "EDIT_THIS",
-          "token_endpoint_auth_method": "private_key_jwt"
+    "type": "OKTA_INTEGRATION",
+    "name": "Example API Okta Integration IdP",
+    "protocol": {
+        "type": "OIDC",
+        "credentials": {
+            "client": {
+                "token_endpoint_auth_method": "private_key_jwt",
+                "client_id": "Edit this"
+            }
         },
-        "signing": {
-            "algorithm": "RS256"
-        }
+        "oktaIdpOrgUrl": "https://{your-spoke-org}.com"
     },
-    "scopes": [
-      "openid",
-      "profile",
-      "email"
-    ]
-  }
+    "policy": {
+        "accountLink": {
+            "action": "DISABLED",
+            "filter": null
+        },
+        "provisioning": {
+            "action": "AUTO",
+            "conditions": {
+                "userOffboarding": {
+                    "action": "NONE"
+                },
+                "deprovisioned": {
+                    "action": "NONE"
+                },
+                "suspended": {
+                    "action": "NONE"
+                }
+            },
+            "groups": {
+                "action": "NONE"
+            }
+        },
+        "maxClockSkew": 120000,
+        "subject": {
+            "userNameTemplate": {
+                "template": "idpuser.email"
+            },
+            "matchType": "USERNAME",
+            "matchAttribute": "",
+            "filter": ""
+        }
+    }
 }' "https://{yourHubOktaDomain}/api/v1/idps"
 ```
 

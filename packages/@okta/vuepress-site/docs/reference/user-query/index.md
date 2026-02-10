@@ -7,6 +7,17 @@ meta:
 
 # User query options
 
+**Note:** The content on this page has been moved to the appropriate parameters of the [List all users endpoint in the Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers).
+
+
+- [`search` parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=search&t=request): Returns one or more users matched against a search expression and user object properties
+- [`filter` parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=filter&t=request): Returns one or more users that match a filter expression checked against a subset of user object properties
+- [`q` (find) parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=q&t=request): Returns one or more users matched against the user profile properties of `firstName`, `lastName`, or `email`
+- [List all users](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers): Returns all users that don't have a `DEPROVISIONED` status
+
+<!-- 
+# User query options
+
 Searching for and returning Okta users is a standard Users API lifecycle operation. The Users API supports four options to return an individual, subset, or all users:
 
 - [`search` parameter](#search-users): Returns one or more users matched against a search expression and user object properties
@@ -755,3 +766,4 @@ curl -v -X GET \
 
 - [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/)
 - [User profiles](/docs/concepts/user-profiles/)
+ -->

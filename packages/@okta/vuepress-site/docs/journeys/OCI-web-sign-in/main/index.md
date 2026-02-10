@@ -99,4 +99,9 @@ See advanced secure mechanisms like [Demonstrating Proof of Possession (DPoP)](/
 Go deeper into the protocols underlying the sign-in process:
 
 * [Learn about OAuth and OIDC](/docs/concepts/oauth-openid/).
-* [Learn about Single Sign-On](/docs/concepts//).
+* [Learn about Single Sign-On](/docs/concepts/sso-overview/).
+
+This journey is part of the Secure your portal pathway, which also contains the following:
+
+* [Secure your first web app](/docs/journeys/OCI-secure-your-first-web-app/main/)
+* [Apply your brand to the Okta user experience](/docs/journeys/OCI-branding/main/)

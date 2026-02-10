@@ -256,12 +256,12 @@ Use the following description list to determine the appropriate use case categor
 
 There are two types of support contacts that you must provide for your integration:
 
-* **Support contacts**: These are public support contacts that are visible from your integration detail page in the OIN catalog. These contacts are for customers who need assistance with your integration. You can provide more than one of the following contact options:
-    * **URL**: A link to an FAQ or a troubleshooting guide (see an [OIN URL support contact example](https://www.okta.com/integrations/onfido/))
-    * **Email**: An email support contact, such as `support@your-app.com` (see an [OIN email support contact example](https://www.okta.com/integrations/careervillage/))
-    * **Phone Number**: A public phone number that customers can call for support
+* **Public support contact**: These are public support contacts that are visible from your integration detail page in the OIN catalog. These contacts are for customers who need assistance with your integration. You can provide more than one of the following contact options:
+    * **Support link**: A link to an FAQ or a troubleshooting guide (see an [OIN URL support contact example](https://www.okta.com/integrations/onfido/))
+    * **Support email**: An email support contact, such as `support@your-app.com` (see an [OIN email support contact example](https://www.okta.com/integrations/careervillage/))
+    * **Support phone number**: A public phone number that customers can call for support
 
-* **Escalation support contact**: This is a private support contact used by Okta to contact your organization. It isn't shared with customers. In an emergency, Okta may need to reach your company's escalation support team, so this email or phone number needs to be monitored. Don't use a general support contact that queues regular customer inquiries.
+* **Support contact (for Okta use only)**: This is a private support contact used by Okta to contact your organization during emergencies or escalations after the app is published. It isn't shared with customers. In an emergency, Okta may need to reach your company's escalation support team, so this email needs to be monitored. Don't use a general support contact that queues regular customer inquiries.
 
 ## Test account guidelines
 
@@ -304,7 +304,9 @@ The following are topic suggestions for your configuration guide:
 * [SP-initiated SSO](#sp-initiated-sso)
 * [Troubleshoot](#troubleshoot)
 
-> **Note:** Each section contains examples for OIDC, SAML, or SCIM content. You can use the examples as an initial template. Copy and paste the example markdown text into your customer configuration document and customize the content for your integration.
+> **Notes:**
+>  - Each section contains examples for OIDC, SAML, or SCIM content. You can use the examples as an initial template. Copy and paste the example markdown text into your customer configuration document and customize the content for your integration.
+> - For guidelines on creating Express Configuration customer configuration guide, see [Express Configuration customer configuration guide template](/docs/guides/express-config-guide-template/main/).
 
 #### Prerequisites
 
