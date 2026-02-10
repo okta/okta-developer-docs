@@ -6,7 +6,7 @@ To configure your app, the Swift Client SDK provides the following options (in o
 
 #### Find your config values
 
-You need one of more of your config values to set up these configurations.
+You need one or more of your config values to set up these configurations.
 
 If you don't have these values handy, you can find them in the Admin Console. Go to **Applications** > **Applications** and find the app integration that you created earlier:
 
@@ -28,7 +28,7 @@ The SDK loads the configuration values from a configuration file (`Okta.plist`) 
 
 Create the Okta configuration file and add the keys and values for your app integration:
 
-1. Create a property list file in your project named Okta.
+1. Create a property list file in your project named Okta. See [Okta.plist](https://github.com/okta/okta-mobile-swift/blob/5c710b0c982af6beec143cab2385d9755ed0d308/Samples/Shared/Okta.plist).
 1. Add the following `String` keys and their associated values to the dictionary:
 
    | Key | Value |
@@ -95,7 +95,7 @@ There may be circumstances where your app connects to multiple client configurat
 
 ##### Assign values at runtime
 
-Another approach can be to use an initializer that passes those configuration values at runtime, as opposed to constructing a static property list. <!-- The initializer accepts al the same -->
+Another approach can be to use an initializer that passes those configuration values at runtime, as opposed to constructing a static property list. <!-- The initializer accepts all the same -->
 
 > **Note:** The following example doesn't need the `try` keyword when initializing the session. The previous property list-based approaches could fail when reading the file.
 
@@ -141,7 +141,7 @@ func application(_ application: UIApplication,
 }
 ```
 
-##### Supply a custom URLsession
+##### Supply a custom URLSession
 
 If you need to have control over the `URLSession` instance that is used when authenticating a user, you can construct an `OAuth2Auth AuthorizationCodeFlow.Configuration` object and supply the custom session to the initializer.
 
@@ -157,7 +157,7 @@ let auth = BrowserSignin(configuration: config,
                              session: myURLSession)
 ```
 
-#### Use a pre-configured fOAuth2Client or a pre-configured context
+#### Use a pre-configured OAuth2Client or a pre-configured context
 
 If your app interacts with other OAuth2 API endpoints, and you want to use the same client instance for your browser-based sign-in, you can construct your own `AuthorizationCodeFlow` instance to supply it to the initializer.
 
