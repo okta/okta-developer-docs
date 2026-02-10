@@ -2,7 +2,7 @@ To configure your app, the Swift Client SDK provides the following options (in o
 
 * [Use the Okta.plist file](#use-the-oktaplist-file)
 * [Use one or more configuration files](#use-one-or-more-configuration-files)
-* [Use a pre-configured OAuth2Client or a pre-configured context](#use-a-pre-configured-foauth2client-or-a-pre-configured-context)
+* [Use a pre-configured OAuth2Client or a pre-configured context](#use-a-pre-configured-oauth2client-or-a-pre-configured-context)
 
 #### Find your config values
 
