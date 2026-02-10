@@ -67,6 +67,7 @@ The Okta-hosted sign-in form changes its behavior automatically to match your up
 You can restyle the Okta-hosted sign-in form to match your own brand's look and feel. Assign a custom domain URL to your org to enable these customization features.
 
 * Assign a [custom domain](/docs/guides/custom-url-domain/main/) to your org.
+* Use [the Okta samples repo](https://github.com/oktadev/okta-js-siw-customzation-example) to build the correct CSS to match your design.
 * [Style your Okta org with your brand](/docs/concepts/brands/).
 * [Style the Okta-hosted sign-in form](/docs/guides/custom-widget-gen3/main/).
 
