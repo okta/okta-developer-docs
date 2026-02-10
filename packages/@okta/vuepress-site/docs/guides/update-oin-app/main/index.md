@@ -6,13 +6,13 @@ meta:
 layout: Guides
 ---
 
-Learn how to submit an OIDC, SAML 2.0, SCIM 2.0, or Universal Logout integration to the Okta Integration Network (OIN) using the OIN Wizard.
+Learn how to submit an OIDC, SAML 2.0, SCIM 2.0, Universal Logout, or API service integration to the Okta Integration Network (OIN) using the OIN Wizard.
 
 ---
 
 #### What you need
 
-* A published OIDC, SAML 2.0, or SCIM integration in the OIN.
+* A published OIDC, SAML 2.0, SCIM integration , or API servicein the OIN.
 * The [Okta Integrator Free Plan org](https://developer.okta.com/signup/) from where you originally submitted your published integration. The OIN Wizard is only available in Integrator Free Plan orgs.
 * An admin user in the Integrator Free Plan org with either the super admin or the app and org admin roles.
 
@@ -20,7 +20,7 @@ Learn how to submit an OIDC, SAML 2.0, SCIM 2.0, or Universal Logout integration
 
 ## Overview
 
-If you have a published Single Sign-On (SSO) or lifecycle management integration in the [OIN catalog](https://www.okta.com/integrations/), you can update and resubmit it with the OIN Wizard.
+If you have a published Single Sign-On (SSO), lifecycle management, or API service integration in the [OIN catalog](https://www.okta.com/integrations/), you can update and resubmit it with the OIN Wizard.
 
 The OIN Wizard currently supports updates for integrations that use the following protocols:
 
@@ -33,8 +33,9 @@ The OIN Wizard currently supports updates for integrations that use the followin
 * [Universal Logout](https://developer.okta.com/docs/guides/oin-universal-logout-overview/)
 
 * [Entitlement Management](https://developer.okta.com/docs/guides/scim-with-entitlements/main/)
+* [API service integration](/docs/guides/oin-api-service-overview/)
 
-> **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, and SCIM 2.0 integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
+> **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, SCIM 2.0, and API service integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
 
 When you edit a published OIN integration, you need to test the flows for the updated version and the published version for backwards compatibility. The integration version that was previously installed in your customer's org isn't modified with the updated version from the OIN catalog. Testing the published version for backwards compatibility ensures that your integration still works for customers who have already installed it. See [Update integration considerations](#update-integration-considerations) before you edit your published integration.
 
