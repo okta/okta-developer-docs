@@ -74,7 +74,7 @@ Here are the configuration options:
 
 ##### Use a custom property list
 
-There may be circumstances where your app connects to multiple client configurations, particularly during development. In this case, you create a custom property list file that follows the same keys described in the previous section. Then, construct your authentication session using the `init(plist:)` initializer.
+There may be circumstances where your app connects to multiple client configurations, particularly during development. In this case, you create a custom property list file that follows the same keys described in [Use the Okta.plist file](#use-the-oktaplist-file). Then, construct your authentication session using the [init(plist:)](https://okta.github.io/okta-mobile-swift/development/documentation/browsersignin/browsersignin/init(plist:)) initializer.
 
 ```swift
 @IBAction func signIn(_ sender: Any) {
@@ -116,9 +116,9 @@ Another approach can be to use an initializer that passes those configuration va
 
 ##### Provide singleton access
 
-The shared singleton provides convenient access to your client’s authentication instance. By default this value uses the `Okta.plist` file to configure the client, if one is available.
+The [shared](https://okta.github.io/okta-mobile-swift/development/documentation/browsersignin/browsersignin/shared) singleton provides convenient access to your client’s authentication instance. By default this value uses the `Okta.plist` file to configure the client, if one is available.
 
-If your app constructs a `BrowserSignin` client using a custom property list, or another initializer, the shared properties retain the values.
+If your app constructs a [BrowserSignin](https://okta.github.io/okta-mobile-swift/development/documentation/browsersignin/browsersignin) client using a custom property list, or another initializer, the `shared` properties retain the values.
 
 For example:
 
