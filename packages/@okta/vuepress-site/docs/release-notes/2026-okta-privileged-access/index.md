@@ -14,12 +14,12 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 ## February
 
 ### Monthly release 2026.02.0
-<!-- Published on: 2026-02-09T12:00:00Z -->
+<!-- Published on: 2026-02-11T12:00:00Z -->
 
-| Change | Expected in Preview Orgs |
-| ------ | ------------------------ |
-| [Enhanced filtering for Active Directory domains API is EA](#enhanced-filtering-for-active-directory-domains-api-is-ea) | February 4, 2026 |
-| [Enhanced filtering for Active Directory accounts API is EA](#enhanced-filtering-for-active-directory-accounts-api-is-ea) | February 4, 2026 |
+| Change | Expected in Preview Orgs | Expected in Production |
+| ------ | ------------------------ | ---------------------- |
+| [Enhanced filtering for Active Directory domains API is EA](#enhanced-filtering-for-active-directory-domains-api-is-ea) | February 4, 2026 | February 11, 2026 |
+| [Enhanced filtering for Active Directory accounts API is EA](#enhanced-filtering-for-active-directory-accounts-api-is-ea) | February 4, 2026 | February 10, 2026 |
 | [New List Secret Templates endpoint is EA](#new-list-secret-templates-endpoint-is-ea) | February 5, 2026 |
 | [Developer documentation updates in 2026.02.0](#developer-documentation-updates-in-2026-02-0) | February 4, 2026 |
 
