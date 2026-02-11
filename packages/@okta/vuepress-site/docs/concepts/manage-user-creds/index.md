@@ -23,9 +23,9 @@ This section outlines the risk areas in token management and explains why a secu
 
 ### Risk areas
 
-* **Compromised user identity and data**: If unauthorized parties access tokens, a user's identity could be compromised. Without proper management, token leaks can pose a significant risk to user data. However, OAuth 2.0 tokens used for authorizing API requests are short-lived. You can configure them to expire after a specific duration, which reduces the window of opportunity for attackers to misuse them. In contrast, using passwords directly can remain valid indefinitely unless explicitly changed.
+* **Compromised user identity and data**: If unauthorized parties access tokens, a user's identity could be compromised. Without proper management, token leaks can pose a significant risk to user data. However, OAuth 2.0 tokens that are used for authorizing API requests are short-lived. You can configure them to expire after a specific duration, which reduces the window of opportunity for attackers to misuse them. In contrast, using passwords directly can remain valid indefinitely unless explicitly changed.
 * **Vulnerabilities in web environments**: Web browsers introduce unique security challenges, particularly from Cross-Site Scripting (XSS) and Cross-Site Request Forgery (CSRF) vulnerabilities.
-  * XSS attacks involve malicious scripts running inside your app. These scripts can execute any potential actions that your app can perform. Frequently, attackers use XSS to steal authentication tokens stored in the browser.
+  * XSS attacks involve malicious scripts running inside your app. These scripts can execute any potential actions that your app can perform. Frequently, attackers use XSS to steal authentication tokens that are stored in the browser.
   * CSRF allows attackers to trick an authenticated browser into making unintended requests.
 * **Concurrency issues**: Managing tokens involves storage, retrieval, and refresh operations. In complex apps, especially during initialization or with concurrent operations, multiple calls to token storage can lead to shared resource contention.
 * **Lack of granular control and scope restrictions**: If tokens aren't scoped appropriately, any security compromise can lead to broader unauthorized access to resources, increasing the potential damage. Defining granular and specific scopes within [authorization servers](/docs/concepts/auth-servers/) is a best practice.
@@ -42,7 +42,7 @@ A key strategy to limit the damage of a compromised token is to control its life
 
 * Okta [org authorization servers](/docs/concepts/auth-servers/#org-authorization-server) generate tokens with fixed lifetimes (for example, 60 minutes for access tokens).
 
-* [Custom authorization servers](/docs/concepts/auth-servers/#custom-authorization-server) offer more control, allowing you to configure access token lifetimes from 5 minutes to 24 hours.
+* [Custom authorization servers](/docs/concepts/auth-servers/#custom-authorization-server) offer more control, allowing you to configure access token lifetimes from five minutes to 24 hours.
 
 While shorter lifetimes enhance security, they require more frequent renewal. Use refresh tokens so your app can obtain new access tokens without re-prompting the user, balancing security with a seamless user experience.
 
@@ -76,7 +76,7 @@ In this model, the token lifecycle is as follows:
 
 1. **Authenticate**: The user enters their credentials (such as a username and password) or uses a social identity provider to sign in. The app uses a client-side library to interact with an identity provider (IdP) to get a security token.
 1. **Store tokens after sign-in**: After the user authenticates, the app receives an access token. You can store the token in browser storage (local storage or session storage) or in-memory (as a JavaScript variable).
-1. **Retrieve tokens for API requests**: The client retrieves the token from memory and attaches it as a Bearer token in the Authorization header for API requests.
+1. **Retrieve tokens for API requests**: The client retrieves the token from memory and attaches it as a bearer token in the Authorization header for API requests.
 1. **Handle token expiration and renewal**: When an access token expires, the client uses the refresh token to request a new access token from the authorization server. This happens transparently to the user, allowing for a continuous session.
 1. **Secure sign-out**: Clear both the client-side tokens and the server-side refresh token. The app must also call the `/revoke` endpoint to invalidate the refresh token on the server.
 
@@ -86,21 +86,21 @@ Storing tokens using in-memory storage or a secure data vault offers a higher de
 
 The [Backend for Frontend (BFF)](https://auth0.com/blog/the-backend-for-frontend-pattern-bff/#The-Backend-For-Frontend-Pattern) model is another approach to handle token storage and security, as it fundamentally changes where sensitive tokens are managed. Instead of storing tokens directly in the browser, the BFF pattern shifts responsibility to a dedicated server layer. This greatly simplifies the client's role.
 
-In the front-channel model, the client can talk directly to multiple client services. However, with BFF, the front-end client only talks to the BFF, a single, purpose-built backend service. The BFF then handles all communication with the other backend services, including the identity provider. This model centralizes all token management on a single, trusted server, which reduces the attack surface and makes the system more resilient to client-side attacks.
+In the front-channel model, the client can talk directly to multiple client services. However, with BFF, the front-end client only talks to the BFF, a single, purpose-built backend service. The BFF then handles all communication with the other backend services, including the IdP. This model centralizes all token management on a single, trusted server, which reduces the attack surface and makes the system more resilient to client-side attacks.
 
 Here's how this changes the flow for token storage:
 
 1. **Authentication**: The user authenticates with the BFF.
 1. **Server-side token management**: The BFF handles the entire token exchange.
 
-   * It receives the user's refresh token and access token from the identity provider.
+   * It receives the user's refresh token and access token from the IdP.
    * It stores the sensitive refresh token securely on the server, for example, in a database or a secure cache. It’s never sent to the client.
    * The BFF handles all token expiration and renewal logic. When a token expires, the BFF silently uses the refresh token to get a new one. The client is unaware of this process.
 
 1. **Client-side session**: Instead of giving the client a token, the BFF provides it with a secure session cookie. This cookie is used by the front end to authenticate with the BFF for subsequent requests.
 1. **API requests**: When the client makes an API call to the BFF, the BFF validates the session cookie.
 
-   * If the session is valid, the BFF retrieves the refresh token from its secure storage. If necessary, the BFF uses it to get a new access token from the identity provider.
+   * If the session is valid, the BFF retrieves the refresh token from its secure storage. If necessary, the BFF uses it to get a new access token from the IdP.
    * The BFF then uses this fresh access token to call the downstream service on behalf of the client.
 
 1. **Token expiration and renewal**: If the access token has expired, the BFF automatically uses the stored refresh token to get a new access token from the IdP. The BFF then uses this new access token for the downstream API call. The client app is unaware of the token expiration and renewal flow.
@@ -131,7 +131,7 @@ Here’s a simplified step-by-step breakdown of the process:
    * It sends the DPoP-bound access token.
    [[style="list-style-type:lower-alpha"]]
    * It bundles the HTTP request (including the request's URL and method) using its private key. This signature is sent in a DPoP header.
-1. **Verification**: When the resource server receives a request, it first verifies the access token's validity. Then, it uses the public key thumbprint from the token's payload to verify the signature in the DPoP header. If the signature is valid, it proves that the client is the legitimate possessor of the private key and, therefore, the token.
+1. **Verification**: When the resource server receives a request, it first verifies the access token's validity. Then it uses the public key thumbprint from the token's payload to verify the signature in the DPoP header. If the signature is valid, it proves that the client is the legitimate possessor of the private key and, therefore, the token.
 1. **Token expiration and renewal**: When the DPoP-bound access token expires, the client can use the refresh token to get a new access token using the DPoP header value from the initial token request.
 1. **Secure sign-out flow**: The client should clear the private key and the access token from memory, and clear the refresh token. It also calls the `/revoke` endpoint to revoke the tokens and mark them as invalid in the server database.
 
@@ -158,7 +158,7 @@ Okta recommends using a federation-based model like OIDC, where the browser is [
 
 ##### Benefits
 
-* This model supports the most common federated sign-in flows for OAuth 2.0 and OIDC and stays up to date with Okta features. It handles authentication policies (including MFA and identity provider routing) and supports all Okta [authenticators](/docs/guides/authenticators-overview/main/). It simplifies initial integration and provides built-in self-service registration and account recovery flows. This model also allows for the easy introduction of passwordless methods through Okta policy changes without requiring you to modify your app code.
+* This model supports the most common federated sign-in flows for OAuth 2.0 and OIDC and stays up to date with Okta features. It handles authentication policies (including MFA and IdP routing) and supports all Okta [authenticators](/docs/guides/authenticators-overview/main/). It simplifies initial integration and provides built-in self-service registration and account recovery flows. This model also allows for the easy introduction of passwordless methods through Okta policy changes without requiring you to modify your app code.
 * Registering a custom domain URL for use with your Okta org is highly recommended. This unlocks full branding capabilities for the Okta-hosted sign-in page and simplifies integration for recreating tokens without prompting. It also facilitates the transition to using Okta sessions for consistent sign-in flows across multiple apps.
 * Since this model is standards-based, it supports both web and native apps.
 
