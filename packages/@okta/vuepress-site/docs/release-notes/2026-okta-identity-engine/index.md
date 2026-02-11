@@ -19,7 +19,7 @@ title: Okta Identity Engine API release notes 2026
 |--------|--------------------------|
 | [Bug fixed in 2026.02.1](#bugs-fixed-in-2026-02-1)| February 11, 2026 |
 
-#### Bugs fixed in 2026.02.1
+#### Bug fixed in 2026.02.1
 
 SMS and Call factor rate limits were sometimes incorrectly reported by the direct authentication APIs. (OKTA-1107880)
 
