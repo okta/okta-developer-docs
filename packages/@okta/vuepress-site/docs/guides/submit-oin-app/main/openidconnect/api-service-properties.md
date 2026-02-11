@@ -9,7 +9,7 @@
     | Client authentication | |
     | Client secret | This is a confidential unique string used to prove your app’s identity during secure exchange. Selecting this option will generate a unique secret key for your application instance upon installation. Currently only client secret authentication is supported for API service integration. |
     | API service integration properties | |
-    | Scope | Scopes define the specific levels of access your application requires for the customer’s Okta organization. You can manually select the **scopes** from the provided list of [okta Oauth 2.0 scopes](/docs/api/oauth2/). You can also filter the selected and available scopes. |
+    | Scope | Scopes define the specific levels of access your application requires for the customer’s Okta organization. You can manually select the **scopes** from the provided list of [okta Oauth 2.0 scopes](https://developer.okta.com/docs/api/oauth2/). You can also filter the selected and available scopes. |
     | Tell us the reason to use scopes | Enter a quick note on how you'll use these scopes. |
     | *Link to configuration guide | Specify the URL link to your customer-facing instructions on how to use API service integrations. See [Customer configuration document guidelines](/docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines). |
 
