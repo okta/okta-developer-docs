@@ -92,7 +92,7 @@ You can hover over the line graph or bar graph to get more details. The details 
 
 </div>
 
-### Rate limit bucket (APIs) table
+### Rate Limit Buckets table
 
 This sortable, filterable table shows the following for each rate limit bucket:
 
