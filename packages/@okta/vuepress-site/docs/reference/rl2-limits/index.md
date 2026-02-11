@@ -9,7 +9,7 @@ This page details the rate limits that apply to various buckets, primarily scope
 
 ## Authentication and management rate limits
 
-Refer to the rate limits bucket (APIs) table, part of the [Rate Limit Dashboard](/docs/reference/rl2-monitor/#rate-limit-dashboard), for a live view of the rate limits available for a given bucket.
+Refer to the Rate Limit Buckets table, part of the [Rate Limit Dashboard](/docs/reference/rl2-monitor/#rate-limit-dashboard), for a live view of the rate limits available for a given bucket.
 
 ## Authenticated and non-authenticated users
 
