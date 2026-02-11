@@ -13,6 +13,16 @@ title: Okta Identity Engine API release notes 2026
 
 ## February
 
+### Weekly release 2026.02.1
+<!-- Published on: 2026-02-11T12:00:00Z -->
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bug fixed in 2026.02.1](#bugs-fixed-in-2026-02-1)| February 11, 2026 |
+
+#### Bugs fixed in 2026.02.1
+
+SMS and Call factor rate limits were sometimes incorrectly reported by the direct authentication APIs. (OKTA-1107880)
+
 ### Monthly release 2026.02.0
 <!-- Published on: 2026-02-05T12:00:00Z -->
 
