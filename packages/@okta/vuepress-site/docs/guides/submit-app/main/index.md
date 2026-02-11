@@ -169,7 +169,3 @@ If you want to remove an app integration that's already published in the OIN cat
 Removing an app integration from the OIN doesn't prohibit existing users from accessing it. The app integration isn't removed from End-User Dashboards until an admin for the customer's org removes the app integration from their org.
 
 Finally, if you intend to remove your back-end app support for your Okta integration, alert your customer admins about the change. Inform your customers if you're deploying a replacement solution.
-
-## See also
-
-<StackSnippet snippet="see-also" />

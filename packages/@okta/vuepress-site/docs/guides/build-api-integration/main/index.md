@@ -218,11 +218,11 @@ If the fields that you update affect the test integration instance in your Okta 
 
 To remove a test API service integration in your Okta org, click **Revoke** from the integration details page in your Admin Console. This action revokes the scope grants, client ID, and secret from the test integration installed previously.
 
-You can click **Generate instance** to generate another test integration instance in your Okta org. This action is useful when you update your submission in the OIN Manager (for example, modifying the scopes or name of the integration) and want to see the updates reflected in the test integration instance.
+You can click **Generate instance** to generate another test integration instance in your Okta org. This action is useful when you update your submission in the OIN Wizard (for example, modifying the scopes or name of the integration) and want to see the updates reflected in the test integration instance.
 
 ### Submit for review
 
-After you test your API service integration and specify all fields and artifacts in the OIN Manager, you can submit your integration to Okta. See, [Submit your integration section](/docs/guides/submit-oin-app/openidconnect/main/#submit-your-integration).
+After you test your API service integration and specify all fields and artifacts in the OIN Wizard, you can submit your integration to Okta. See, [Submit your integration section](/docs/guides/submit-oin-app/openidconnect/main/#submit-your-integration).
 
 
 ## Support

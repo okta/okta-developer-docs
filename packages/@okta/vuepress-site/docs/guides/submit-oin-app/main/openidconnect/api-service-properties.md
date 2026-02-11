@@ -1,6 +1,6 @@
 1. Specify the following properties if you want to integrate to API service:
 
-    > **Notes:**
+    > **Note:**
     > * The **Authentication properties** and **API service integration properties** section only displays when you select **API service** from the **Add integration capabilities** section.
 
     | Property | Description |
