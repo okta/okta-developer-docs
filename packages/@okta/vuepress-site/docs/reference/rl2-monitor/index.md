@@ -64,7 +64,7 @@ The **Overview** tab is your monitoring hub. Use it to scan for issues or drill 
 
 * Event graphs: Visualize warnings, bursts, and violations over time.
 * Top offenders: A bar graph shows the top five APIs with the most rate limit events.
-* Rate limit bucket (APIs) table: Each bucket is listed with current rate limits (including overrides and multipliers), recent events, and a usage trend line for the last hour.
+* Rate Limit Buckets table: Each bucket is listed with current rate limits (including overrides and multipliers), recent events, and a usage trend line for the last hour.
 
 You can hover to reveal detailed data points, click on a rate limit bucket to see deeper metrics and historical usage, or filter by time period, multiplier status, or event type.
 
@@ -92,7 +92,7 @@ You can hover over the line graph or bar graph to get more details. The details 
 
 </div>
 
-### Rate limit bucket (APIs) table
+### Rate Limit Buckets table
 
 This sortable, filterable table shows the following for each rate limit bucket:
 
@@ -104,7 +104,7 @@ You can also use the search box to look up specific endpoints. For example, you'
 
 <div class="three-quarters">
 
-![Displays the rate limit bucket (APIs) table with corresponding rate limits for each API.](/img/rate-limits/rl_dashboard9.png)
+![Displays the Rate Limit Bucket table with corresponding rate limits for each API.](/img/rate-limits/rl_dashboard9.png)
 
 </div>
 
@@ -126,7 +126,7 @@ For example, you may want to customize the rate limit threshold when an API norm
 
 ### Investigate API usage
 
-Clicking a bucket in the rate limit bucket (APIs) table takes you to a deep-dive dashboard. Any alerts provided by Okta also provide a link to the deep-dive dashboard for the impacted endpoint.
+Clicking a bucket in the Rate Limit Buckets table takes you to a deep-dive dashboard. Any alerts provided by Okta also provide a link to the deep-dive dashboard for the impacted endpoint.
 
 <div class="three-quarter">
 

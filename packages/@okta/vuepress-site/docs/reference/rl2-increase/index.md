@@ -11,7 +11,7 @@ If you’re building high-volume, user-facing apps, DynamicScale is the ideal so
 
 * Who it's for: Customer Identity customers only.
 * How it works: DynamicScale is a purchased add-on that applies a multiplier-from 5x to 1000 to the default rate limits for an individual tenant.
-* Applicable endpoints: This service is targeted specifically at authentication and authorization endpoints to ensure a seamless experience for your end users. DynamicScale doesn’t increase the base rate limits for management endpoints. For the complete list of eligible endpoints, visit the rate limit bucket (APIs) table on the [Rate limit dashboard](/docs/reference/rl2-monitor/#dashboard-overview-tab) and filter by **Eligible or applied**.
+* Applicable endpoints: This service is targeted specifically at authentication and authorization endpoints to ensure a seamless experience for your end users. DynamicScale doesn’t increase the base rate limits for management endpoints. For the complete list of eligible endpoints, visit the Rate Limit Buckets table on the [Rate limit dashboard](/docs/reference/rl2-monitor/#dashboard-overview-tab) and filter by **Eligible or applied**.
 * How to get it: DynamicScale can be purchased for a production or preview org. Contact your Okta sales representative for more details.
 
 ## For Okta Workforce Identity: Workforce license multiplier
@@ -27,7 +27,7 @@ Okta Workforce Identity customers get automatic rate limit increases for authent
     | 10,000–100,000     | 5x                   |
     | > 100,000            | 10x                  |
 
-* Applicable endpoints: This multiplier applies to common authentication, authorization, and single-entity read endpoints (like getting a single user or app). For the complete list of eligible endpoints, visit the rate limit bucket (APIs) table on the [Rate limit dashboard](/docs/reference/rl2-monitor/#dashboard-overview-tab) and filter by **Eligible or applied**.
+* Applicable endpoints: This multiplier applies to common authentication, authorization, and single-entity read endpoints (like getting a single user or app). For the complete list of eligible endpoints, visit the Rate Limit Buckets table on the [Rate limit dashboard](/docs/reference/rl2-monitor/#dashboard-overview-tab) and filter by **Eligible or applied**.
 * Need more? If this automatic multiplier is still insufficient for your needs, you can use the following manual request process.
 
 ## For all customers: Request a manual rate limit increase
