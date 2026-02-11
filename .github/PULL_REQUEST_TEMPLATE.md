@@ -8,6 +8,6 @@
 
 * [OKTA-XXXXXX](https://oktainc.atlassian.net/browse/OKTA-XXXXXX)
 
-### Preview:
+### Netlify Preview Link:
 
 <!-- Add preview link here -->
