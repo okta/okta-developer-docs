@@ -16,7 +16,7 @@ participant "Authorization Server (Okta) " as okta
 
 autonumber "<b>#."
 client <-> user: Prompts user for username, and user enters username
-client -> okta: Sends `/oob-authenticate` request with `channel_hint`
+client -> okta: Sends `/primary-authenticate` request with `channel_hint`
 okta -> client: Responds with `oob_code`, `channel`, `binding_method`
 okta -> user: Sends out-of-band challenge
 client -> user: Prompts user to enter OTP, and user enters OTP
@@ -29,7 +29,7 @@ At a high level, this flow has the following steps:
 
 1. Your client app prompts the user for their username in the app interface.
 1. The user enters their username.
-1. Your app sends the following parameters to the Okta authorization server `/oob-authenticate` endpoint:
+1. Your app sends the following parameters to the Okta authorization server `/primary-authenticate` endpoint:
     * `login_hint`
     * `channel_hint` with a value of `sms` or `voice`
 
