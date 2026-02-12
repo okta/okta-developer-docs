@@ -9,12 +9,30 @@
         </div>
       </div>
       <div class="copyright--container">
-        <Content class="copyright--text" />
+        <div class="copyright--text">
+          <p
+            v-for="(section, sectionIdx) in processedSections"
+            :key="sectionIdx"
+            class="copyright--section-paragraph"
+            v-html="section"
+          />
+        </div>
       </div>
     </section>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    year () {
+      return new Date().getFullYear();
+    },
+    processedSections () {
+      return this.$page.frontmatter.sections.map(section => 
+        section.replace(/\{\{\s*year\s*\}\}/g, this.year)
+      );
+    }
+  }
+}
 </script>
