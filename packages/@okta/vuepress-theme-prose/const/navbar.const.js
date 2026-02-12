@@ -872,7 +872,7 @@ export const guides = [
             guideName: "customize-authz-server",
           },
           {
-            title: "Manage org recovery with EDR",
+            title: "Manage org recovery with Enhanced DR",
             guideName: "manage-orgs-okta-edr",
           }
         ],

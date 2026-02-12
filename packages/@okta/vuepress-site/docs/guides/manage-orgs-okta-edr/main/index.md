@@ -46,7 +46,7 @@ To create an Enhanced DR custom role, use the Admin Console or the APIs. See [Ro
 
 Okta Enhanced DR only supports API access through scoped OAuth 2.0 access tokens, and uses the following scopes: `okta.dr.manage` and `okta.dr.read`.
 
-<CreateOAuth2Token/><br>
+<CreateOAuth2Token/>
 
 ## Check the disaster recovery status of your org
 
