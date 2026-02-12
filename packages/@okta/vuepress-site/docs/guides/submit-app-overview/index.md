@@ -71,8 +71,8 @@ Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 The following steps outline the submission process for API service integrations with the OIN Manager:
 
 1. Build the integration in your service app.
-1. Sign in to the OIN Manager with your Integrator Free Plan org credentials.
-   - Add integration details in the OIN Manager.
+1. Sign in to the Admin Console of your Integrator Free Plan org.
+   - Add integration details in the OIN Wizard.
    - Generate the app integration instance.
    - Test the integration.
    - Submit the integration.
@@ -177,6 +177,6 @@ Ready to make your integration public? Submit an integration with the following 
 
 <Card href="/docs/guides/submit-oin-app/scim/main/" headerImage="/img/icons/scim.svg" cardTitle="SCIM" :showFooter=false>Submit a SCIM integration</Card>
 
-<Card href="/docs/guides/submit-app/apiservice/main/" headerImage="/img/icons/odyssey/APIs.svg" cardTitle="API service" :showFooter=false>Submit an API service integration</Card>
+<Card href="/docs/guides/build-api-integration/main/" headerImage="/img/icons/odyssey/APIs.svg" cardTitle="API service" :showFooter=false>Submit an API service integration</Card>
 
 </Cards>

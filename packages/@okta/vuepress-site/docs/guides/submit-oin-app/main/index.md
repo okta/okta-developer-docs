@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-Learn how to submit an OIDC, SAML 2.0, SCIM 2.0, Universal Logout, or Entitlement Management integration to the Okta Integration Network (OIN) using the OIN Wizard.
+Learn how to submit an OIDC, SAML 2.0, SCIM 2.0, Universal Logout, Entitlement Management, or API service integration to the Okta Integration Network (OIN) using the OIN Wizard.
 
 ---
 
@@ -33,6 +33,7 @@ The OIN Wizard is a full-service tool in the Admin Console for you to do the fol
   * Test your SCIM integration with manual test cases and Runscope test suites.
   * Test your SCIM-based Entitlement Management manually.
   * Test your Universal Logout integration manually.
+  * Test your API service integration manually.
 
 * Submit your integration directly to the OIN team when you're satisfied with your test results.
 * Monitor the status of your submissions through the **Your OIN Integrations** dashboard.
@@ -56,9 +57,12 @@ This guide covers submissions that use the following protocols and integrations:
 
 * [Universal Logout](/docs/guides/oin-universal-logout-overview/)
 
+* [API service](/docs/guides/oin-api-service-overview/)
+
 > **Notes:**
     > * Universal Logout integrations are only supported for SAML 2.0 and OIDC protocols. If you want to submit a Universal Logout integration with SCIM provisioning, you must also submit an SSO integration with either SAML 2.0 or OIDC.
     > * Entitlement Management is an *Early Access* feature and it’s currently supported for integrations that manage entitlements through a SCIM server.
+    > * The API service integration is mutually exclusive. If you select the API service capability, you cannot select any other capability or protocol, such as SSO or Provisioning. Similarly, if you select another capability or protocol, the API service option is unavailable.
     > * To enable Entitlement Management feature, go to **Settings** > **Features** in the Admin Console and turn on **Enable SCIM 2.0 Entitlement Management submission**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
     > * SWA app integrations are no longer accepted for publication in the OIN catalog. However, the OIN team still maintains existing SWA apps.
     > * There are protocol-specific limitations on integrations in the OIN. See [OIN limitations](/docs/guides/submit-app-prereq/main/#oin-limitations).
@@ -153,6 +157,10 @@ Continue with the OIN Wizard and configure your protocol settings:
 
 1. Click **Get started with testing** to save your edits and move to the testing section, where you need to enter your integration test details.
 
+#### API service properties
+
+<StackSnippet snippet="api-service-properties"/>
+
 #### Dynamic properties with Okta Expression Language
 
  The OIN Wizard supports [Okta Expression Language](/docs/reference/okta-expression-language/#reference-user-attributes) to generate dynamic properties, such as URLs or URIs, based on your customer tenant. You can specify dynamic strings for your <StackSnippet snippet="protocol-name" inline/> properties in the OIN Wizard:
@@ -220,6 +228,7 @@ The OIN Wizard journey includes the **Test integration** experience page to help
         1. Assign the entitlements to the users manually for testing or automatically through a policy. For more information, see [Assign entitlements to users](https://help.okta.com/oie/en-us/content/topics/identity-governance/em/assign-entitlements-users.htm).
 
     * For the Universal Logout integration, assign the test user and enable the **Logout** option on the instance. You can use the same instance that you created for SSO integration testing.
+    * For API service integration, do the testing manually.
 
 2. Test your integration.
    * For an SSO integration, test the required flows in the [OIN Submission Tester](#oin-submission-tester) with your generated test instance. Fix any test failures from the OIN Submission Tester, then regenerate the test instance (if necessary) and retest.
@@ -519,6 +528,22 @@ If your integration supports Universal Logout, you need to test the logout flow 
 1. Select **Also include logout enabled apps and Okta API tokens** and click **Clear and revoke**.
 1. Go back to the app and ensure that the login session is terminated.
     > **Note**: For partial universal logout support, while clearing the user's session from Okta, the app only revokes the user's refresh tokens, which prevents the user from getting new access in the future. However, the existing user sessions aren't terminated until the user's existing access tokens expire or the user signs out of an app.
+
+### Test your API service integration
+
+You can test your API service integration in the OIN Wizard before you submit it. You can generate an instance of your service app to verify that API requests work as intended.
+
+1. Go to **Test integration** > **Generate instance**. Your browser redirects to the **Authorize integration** page.
+1. Click **Install & Authorize**.
+1. Copy the client secret from the dialog and store it securely.
+    > **Note**: You must copy the client secret now. For security, it is only displayed once and cannot be retrieved later. Only a masked value will be available after you close this dialog.
+1. Click **Done**.
+1. On the **General** tab, copy the **Okta domain** and **client ID** and securely store them for your integration test.
+1. Configure your app using the Okta domain, client ID, and client secret.
+1. Perform manual testing to verify your integration.
+1. Once the testing is complete, click **Continue to submission**. The **Test integration** page appears.
+1. Ensure that the checkboxes below **Test account requirements** and **API service requirements** are in *selected* status.
+1. Click **Submit integration**.
 
 ### Test your SCIM integration
 
