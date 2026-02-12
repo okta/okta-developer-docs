@@ -46,11 +46,7 @@ To create an Enhanced DR custom role, use the Admin Console or the APIs. See [Ro
 
 Okta Enhanced DR only supports API access through scoped OAuth 2.0 access tokens, and uses the following scopes: `okta.dr.manage` and `okta.dr.read`.
 
-To make secure Okta API requests to manage and configure your Okta orgs, obtain OAuth 2.0 access tokens for the Authorization header in requests. The Okta setup to obtain access tokens depends on whether you want the token to have a user-based or a service-based context:
-
-- User-based access: The access token is tied to a specific admin user. For this access, you need to provide an Okta admin username and credentials. See [User-based API access setup](/docs/reference/rest/#user-based-api-access-setup). Grant the appropriate scopes for your endpoint and use-case. Use this access type for simple testing of the APIs.
-
-- Service-based access: If you have a service app or script that makes API requests to Okta without user context, see [Service-based API access setup](/docs/reference/rest/#service-based-api-access-setup). Grant the appropriate scopes for your endpoint and use-case.
+<CreateOAuth2Token/><br>
 
 ## Check the disaster recovery status of your org
 
