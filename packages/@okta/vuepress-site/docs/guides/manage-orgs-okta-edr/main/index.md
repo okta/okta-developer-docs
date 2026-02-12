@@ -30,6 +30,8 @@ This guide explains how to manage a failover and failback of your Okta org using
 
 Okta Enhanced Disaster Recovery (DR) reduces the recovery time objective (RTO) from one hour to five minutes ([read-only access](https://support.okta.com/help/s/article/What-is-Oktas-Readonly-Mode?language=en_US)) in the event of a regional infrastructure-related outage. Enhanced DR improves on the standard disaster recovery RTO available to all Okta production orgs. It ensures service continuity during total regional outages, allowing users to continue authenticating into all their apps. Enhanced DR also supports self-service failover, which grants admins the ability to initiate an org failover and failback through APIs or the [Okta Disaster Recovery Admin app](https://help.okta.com/okta_help.htm?type=oie&id=enhanced-disaster-recovery). See the following sections on how to manage Enhanced DR using the Okta APIs.
 
+> **Note:** If your server or network policies restrict traffic to certain IPs, Okta recommends that you allow access to the Okta cell IPs. See [Allow access to Okta IP addresses](https://help.okta.com/okta_help.htm?type=oie&id=ext-ip-address-allow-listing).
+
 ## User roles and permissions for Enhanced DR
 
 You can manage Enhanced DR by using the super administrator role or by creating a custom role.
