@@ -1,6 +1,6 @@
 <script>
 import _ from "lodash";
-import { getGuidesInfo, guideFromPath } from "../util/guides";
+import { getGuidesInfo, guideFromPath, getCodeInfo, codeFromPath } from "../util/guides";
 import { getJourneyInfo, journeyFromPath } from "../util/journeys";
 import {
   concepts,
@@ -32,7 +32,7 @@ export default {
           isExternal: true
         },
         ..._.cloneDeep(reference),
-        ..._.cloneDeep(languagesSdk),
+        ...this.getCodePages(),
         ..._.cloneDeep(releaseNotes)
       ];
     },
@@ -51,6 +51,9 @@ export default {
       if (el.journeyName) {
         return el.journeyName;
       }
+      if (el.codeName) {
+        return el.codeName;
+      }
       return el.title.toLowerCase().replace(/ /ig, '-').replace(/\//ig, '-').replace(/[()]/g, '');
     },
 
@@ -62,7 +65,7 @@ export default {
         const isGuide = !link.guideName && !link.path.includes('docs/journeys');
         const isJourney = !link.journeyName && link.path.includes('docs/journeys');
 
-        if (isGuide || isJourney) {
+        if (isGuide || isJourney || link.path.includes('/code/')) {
           const parentTitle = this.sanitizeTitle(parent);
           const linkTitle = this.sanitizeTitle(link);
           const splittedPath = parent.path?.split('/');
@@ -70,7 +73,8 @@ export default {
 
           const isCorrectParent =
             (isGuide && parentTitle !== 'guides') ||
-            (isJourney && parentTitle !== 'journeys');
+            (isJourney && parentTitle !== 'journeys') ||
+            (link.path.includes('/code/') && parentTitle !== 'code');
 
           if (isCorrectParent && parent.path) {
             if (parent.path.includes(parentTitle)) {
@@ -208,7 +212,60 @@ export default {
 
       });
       return navs;
-    }
+    },
+
+    getCodePages() {
+      const pages = this.$site.pages;
+      const codeInfo = getCodeInfo({ pages });
+      // You may want to define a constant similar to guides for code navigation structure
+      // For now, build navigation from codeInfo.byName
+      let navs = _.cloneDeep(languagesSdk);
+      const framework = codeFromPath(this.$route.path).framework;
+      navs.forEach(nav => {
+
+      });
+      navs.forEach(nav => {
+        let queue = new Array();
+        queue.push(nav);
+        let current = queue.pop();
+        while (current) {
+          if (current?.subLinks) {
+            queue.push(...current.subLinks);
+          } else if (current?.codeName) {
+            // add sections
+            current.subLinks = [];
+            const code = codeInfo.byName[current.codeName];
+
+            if (Array.isArray(code?.sections)) {
+              const [firstSection] = code.sections;
+
+              // Special value for code that only has one section and should be
+              // linked at the parent
+              if (code.sections.length === 1 && firstSection.name === 'main') {
+                current.title = current.title; // firstSection.title;
+                current.path = firstSection.makeLink(code.frameworks.includes(framework) ? framework : code.mainFramework);
+                current.frameworks = code.frameworks;
+              } else {
+                code.sections.forEach(section => {
+                  current.subLinks.push({
+                    title: section.title,
+                    path: section.makeLink(
+                      code.frameworks.includes(framework)
+                        ? framework
+                        : code.mainFramework
+                    ),
+                    frameworks: code.frameworks
+                  });
+                });
+              }
+            }
+          }
+          current = queue.pop();
+        }
+
+      });
+      return navs;
+    },
   }
 }
 </script>
