@@ -193,18 +193,6 @@ With self-service registration flows, users register and activate their profiles
 
 With progressive enrollment flows, you can capture the minimum user information required to create a profile. Then, you can continually build out those user profiles during subsequent sign-in operations. You control what information is collected, validate those input values, and [trigger inline hooks](/docs/guides/registration-inline-hook/nodejs/main/).
 
-### Identity Threat Protection policies
-
-<ApiLifecycle access="ie" />
-
-Identity Threat Protection with Okta AI is an identity threat solution that combines current security practices with continuous real-time risk assessment. See [Identity Threat Protection with Okta AI](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview). Identity Threat Protection uses the entity risk policy and session protection policy for these threat evaluations.
-
-* [Entity risk policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy): The entity risk policy monitors your org for entity risk changes related to identity-based threats. For Admin Console tasks and further information, see [Entity risk policy](https://help.okta.com/okta_help.htm?type=oie&id=csh-entity-risk-policy).
-
-* [Session violation detection policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) (`SESSION_VIOLATION_DETECTION`): This policy defines the logic for when Okta re-evaluates the global session policy and the app sign-on policies. For Admin Console tasks and further information, see [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
-
-* [Session violation enforcement policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) (`POST_AUTH_SESSION`): This policy defines the enforcement actions that Okta takes after it detects a session violation. For Admin Console tasks and further information, see [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
-
 ### Client update policies
 
 The client update policy allows admins to manage the delivery and acceptance of updates for specific client apps, such as Okta Verify.
