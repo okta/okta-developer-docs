@@ -65,7 +65,7 @@
   },
   "resolutions": {
     "cypress/**/async": "3.2.4",
-    "cypress/**/qs": "6.11.0",
+    "qs": "6.11.0",
     "vuepress/**/css-what": "^6.1.0",
     "vuepress/**/glob-parent": "^6.0.2",
     "vuepress/**/got": "11.8.5",
