@@ -35,6 +35,8 @@ if ! yarn install --ignore-platform ; then
   exit ${FAILED_SETUP}
 fi
 
+exit ${FAILED_SETUP}
+
 # Revert the original change
 sed -i "s#${OKTA_REGISTRY}#${YARN_REGISTRY}#" yarn.lock
 
