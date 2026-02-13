@@ -1,0 +1,8 @@
+test_suites:
+  - name: 'publish-production'
+    script_path: /root/okta/okta-developer-docs/scripts
+    script_name: publish
+    sort_order: '0'
+    timeout: '50'
+    criteria: MAINLINE
+    queue_name: small
