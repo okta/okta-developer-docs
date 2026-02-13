@@ -2,4 +2,5 @@
 ;; PLEASE EDIT VERY CAREFULLY.
 ;; Syntax errors may cause loss of data.
 
-[["https://api.github.com/repos/okta/okta-developer-docs" nil]]
+[["https://api.github.com/repos/okta/okta-developer-docs" nil]
+ ["https://api.github.com/repos/atko-eng/info-dev" nil]]
