@@ -46,7 +46,7 @@ Okta supports authentication against SCIM APIs using any one of the following me
 
 - OAuth 2.0 [Authorization Code grant flow](https://tools.ietf.org/html/rfc6749#section-4.1)
 - [Basic Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#basic_authentication_scheme)
-- A custom HTTP header
+- HTTP Authorization header
 
 For OAuth 2.0, after you successfully authorize Okta to use your SCIM API, your app's authorization server redirects you back to Okta, with either an authorization code or an access token.
 
