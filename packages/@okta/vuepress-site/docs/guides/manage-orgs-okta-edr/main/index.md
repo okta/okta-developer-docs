@@ -28,7 +28,7 @@ This guide explains how to manage a failover and failback of your Okta org using
 
 ## About Okta Enhanced Disaster Recovery
 
-Okta Enhanced Disaster Recovery (DR) reduces the recovery time objective (RTO) from one hour to five minutes in the event of a regional infrastructure-related outage. Enhanced DR improves on the standard disaster recovery RTO available to all Okta production orgs. It ensures service continuity during total regional outages, allowing users to continue authenticating into all their apps. In Enhanced DR mode, your Okta org enters read-only access. See [Understanding Okta's "Read-only Mode"](https://support.okta.com/help/s/article/What-is-Oktas-Readonly-Mode?language=en_US).
+Okta Enhanced Disaster Recovery (DR) reduces the recovery time objective (RTO) from one hour to five minutes in the event of a regional infrastructure-related outage. Enhanced DR improves on the standard disaster recovery RTO available to all Okta production orgs. It ensures service continuity during total regional outages, allowing users to continue authenticating into all their apps. In Enhanced DR mode, your Okta org becomes read-only. See [Understanding Okta's "Read-only Mode"](https://support.okta.com/help/s/article/What-is-Oktas-Readonly-Mode?language=en_US).
 
 Enhanced DR also supports self-service failover, which grants admins the ability to initiate an org failover and failback. Admins can initiate failover and failback through APIs or the [Okta Disaster Recovery Admin app](https://help.okta.com/okta_help.htm?type=oie&id=enhanced-disaster-recovery). See the following sections on how to manage Enhanced DR using the Okta APIs.
 
