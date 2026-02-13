@@ -52,7 +52,7 @@ Okta Enhanced DR only supports API access through scoped OAuth 2.0 access tokens
 
 Use the following disaster recovery API Endpoint, [Retrieve the disaster recovery status for all domains for your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/getDRStatus), to understand the current disaster recovery state for all domains associated with your Okta org.
 
->**Note:** The base URL for the disaster recovery APIs is `https://drapp.{yourOktaDomain}/`. Replace `{yourOktaDomain}` with your Okta subdomain.
+>**Note:** The base URL for the disaster recovery APIs is `https://drapp.{yourOktaDomain}/`. Replace `{yourOktaDomain}` with your Okta domain. For example, if your Okta domain is `https://example.okta.com`, use `https://drapp.example.okta.com`.
 
 #### Request example
 
