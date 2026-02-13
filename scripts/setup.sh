@@ -35,9 +35,6 @@ if ! yarn install --frozen-lockfile --ignore-platform ; then
   exit ${FAILED_SETUP}
 fi
 
-echo "yarn is OK"
-exit ${FAILED_SETUP}
-
 # Revert the original change
 sed -i "s#${OKTA_REGISTRY}#${YARN_REGISTRY}#" yarn.lock
 
