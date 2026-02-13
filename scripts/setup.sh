@@ -30,11 +30,12 @@ export PATH="${PATH}:$(yarn global bin)"
 yarn global add @okta/ci-append-sha
 yarn global add @okta/ci-pkginfo
 
-if ! yarn install --ignore-platform ; then
+if ! yarn install --verbose --ignore-platform ; then
   echo "yarn install failed! Exiting..."
   exit ${FAILED_SETUP}
 fi
 
+echo "yarn is OK"
 exit ${FAILED_SETUP}
 
 # Revert the original change
