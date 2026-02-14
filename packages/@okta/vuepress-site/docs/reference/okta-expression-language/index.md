@@ -244,7 +244,7 @@ The `user.getGroups` function supports the `.![name]` collection projection for 
 |                          |             | `user.getGroups({'group.profile.name': 'East Coast.*'})`                                                        | A list of groups that start with the name `East Coast` | {}                                                                              |
 |                          |             | `user.getGroups({'group.type': {'OKTA_GROUP', 'APP_GROUP'}})`                                                   | A list of groups that are of the type `OKTA_GROUP` or `APP_GROUP` | A list of user groups that contains groups with IDs `00g1emaKYZTWRYYRRTSK`, `00garwpuyxHaWOkdV0g4`, `00gjitX9HqABSoqTB0g3`, and `00gnftmgQxC2L19j6I9c`  |
 |                          |             | `user.getGroups({'group.source.id': '0aae4be2456eb62f7c3d'} , {'group.profile.name': {'Engineering Users'}} )` | A filtered list of user groups that contains groups that start with the name `Engineering Users` and that has the source ID `0aae4be2456eb62f7c3d` | A list of user groups that contains groups with ID `00gjitX9HqABSoqTB0g3` |
-| `user.getGroups` with `.![name]` collection projection | Array |`user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![name]` | A list of group names | A list of groups that have a group profile name that starts with `Everyone` |
+| `user.getGroups` with `.![name]` collection projection | Array |`user.getGroups({"group.profile.name": "Everyone", "operator": "STARTS_WITH"}).![name]` | A list of group names | A list of groups that have a group profile name that starts with `Everyone` |
 
 #### Group-claims only functions
 
@@ -262,7 +262,7 @@ The following functions are designed to work only with group claims. You can't u
 >
 >Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )` (See the parameter examples section of [Use group functions for static group allowlists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allowlists).)
 >
->Example: `user.getGroups({\"group.profile.name\": \"Everyone\",\"operator\": \"STARTS_WITH\"}).![name]` (See [Get groups for users](#get-groups-for-users).)
+>Example: `user.getGroups({"group.profile.name": "Everyone", "operator": "STARTS_WITH"}).![name]` (See [Get groups for users](#get-groups-for-users).)
 >
 
 ### Linked object function
