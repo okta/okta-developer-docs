@@ -27,7 +27,7 @@ Get started with the Okta Model Context Protocol (MCP) server setup and prerequi
 
 ## Overview
 
-This guide explains how to initialize the Okta MCP server project and install the required dependencies. To learn about the Okta MCP server architecture, see the introductory page on the Okta MCP server.
+This guide explains how to initialize the Okta MCP server project and install the required dependencies. To learn about the Okta MCP server architecture, see the [introductory page](/docs/concepts/mcp-server/) on the Okta MCP server.
 
 ---
 
