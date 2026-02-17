@@ -111,7 +111,8 @@ To register your API service registration, see [Submit an integration with the O
 
 Use the test functionality in the OIN Wizard to obtain test integration credentials:
 
-1. From the OIN Wizard, click **Applications** > **Your OIN Integrations** and click **Edit** next to your API service integration submission.
+1. From the OIN Wizard, click **Applications** > **Your OIN Integrations** and click the **More actions ⋮** icon and click **Test integration**.
+1. Click **Generate instance**. Your browser redirects to the **Authorize integration** page.
 1. Go to **Test integration** > **Generate instance**. Your browser redirects to the Authorize integration page.
 1. Click **Install & Authorize**.
 1. Copy the client secret from the dialog and store it securely
@@ -122,6 +123,7 @@ Use the test functionality in the OIN Wizard to obtain test integration credenti
 1. Perform manual testing to verify your integration.
 1. Once the testing is complete, click **Continue to submission**. The **Test integration** page appears.
 1. Ensure that the checkboxes below **Test account requirements** and **API service requirements** are in selected status.
+1. Select the **I certify that I have successfully completed required tests** checkbox to confirm completion of required tests.
 1. Click **Submit integration**.
 
 For testing purposes, use the Okta domain, client ID, and client secret obtained from your test integration to make an access token request. Then, make an API request using the access token returned by the first request. See [Test your API service flow](#test-your-api-service-flow).
@@ -209,7 +211,8 @@ After you complete testing and are satisfied with your API service integration, 
 
 To edit your API service integration submission fields:
 
-1. From the OIN Wizard, click **Applications** > **Your OIN integrations** and click **Edit** next to your integration submission.
+1. From the OIN Wizard, click **Applications** > **Your OIN integrations**.
+1. Click the integration that you want to open from the list. Click **Edit** next to your integration submission.
 1. Edit the fields that you want to modify.
 
 If the fields that you update affect the test integration instance in your Okta org (such as integration name or scopes), then you must click **Generate instance** to create another test integration instance with the updated fields. The test integration instance is a static snapshot of your integration submission fields at the time that it was created. It doesn't get updated when you modify your submission. If you want to remove older test integration instances that aren't used, see [Remove your test integration instance](#remove-your-test-integration-instance).
