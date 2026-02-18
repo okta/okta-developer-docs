@@ -12,11 +12,15 @@ title: Okta Classic Engine API release notes 2026
 ## February
 
 ### Weekly release 2026.02.2
+<!-- Published on: 2026-02-19T12:00:00Z -->
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Bugs fixed in 2026.02.0](#bugs-fixed-in-2026-02-2)| |
+| [Bug fixed in 2026.02.0](#bug-fixed-in-2026-02-2)| February 19, 2026 |
 
+#### Bug fixed in 2026.02.2
+
+Invalid device enrollments sometimes caused the Firebase Cloud Messaging (FCM) push notification service to stop for all users. (OKTA-1013806)
 
 ### Monthly release 2026.02.0
 <!-- Published on: 2026-02-05T12:00:00Z -->
