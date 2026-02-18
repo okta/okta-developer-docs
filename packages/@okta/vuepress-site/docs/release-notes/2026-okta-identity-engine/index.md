@@ -13,6 +13,17 @@ title: Okta Identity Engine API release notes 2026
 
 ## February
 
+### Weekly release 2026.02.2
+<!-- Published on: 2026-02-19T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bug fixed in 2026.02.0](#bug-fixed-in-2026-02-2)| February 19, 2026 |
+
+#### Bug fixed in 2026.02.2
+
+In orgs with Device claims support for Okta-to-Okta Claims Sharing enabled, claims weren't sent in the SAML assertion if device signals weren't collected in the IdP org. (OKTA-1112627)
+
 ### Weekly release 2026.02.1
 <!-- Published on: 2026-02-11T12:00:00Z -->
 | Change | Expected in Preview Orgs |

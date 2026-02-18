@@ -13,6 +13,18 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 ## February
 
+### Weekly release 2026.02.2
+<!-- Published on: 2026-02-19T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [New List Secret Templates endpoint is GA](#new-list-secret-templates-endpoint-is-ga)| February 19, 2026 |
+
+#### New List Secret Templates endpoint is GA
+
+Okta Privileged Access now provides a new [List Secret Templates](https://developer.okta.com/docs/api/openapi/opa/opa/tag/secrets/#tag/secrets/operation/ListSecretTemplates) endpoint in the [Secrets](https://developer.okta.com/docs/api/openapi/opa/opa/tag/secrets/) API. This endpoint allows teams to list and discover available secret templates. <!-- OKTA-971893, FF: pam_secret_templates -->
+
+
 ### Monthly release 2026.02.0
 <!-- Published on: 2026-02-11T12:00:00Z -->
 
