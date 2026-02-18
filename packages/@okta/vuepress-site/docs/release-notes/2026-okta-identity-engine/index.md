@@ -18,7 +18,7 @@ title: Okta Identity Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Bug fixed in 2026.02.0](#bug-fixed-in-2026-02-2)| February 19, 2026 |
+| [Bug fixed in 2026.02.2](#bug-fixed-in-2026-02-2)| February 19, 2026 |
 
 #### Bug fixed in 2026.02.2
 

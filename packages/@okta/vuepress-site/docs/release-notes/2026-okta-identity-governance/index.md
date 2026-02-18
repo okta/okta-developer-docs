@@ -18,11 +18,11 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Bug fixed in 2026.02.0](#bugs-fixed-in-2026-02-2)| February 19, 2026 |
+| [Bug fixed in 2026.02.2](#bugs-fixed-in-2026-02-2)| February 19, 2026 |
 
 #### Bug fixed in 2026.02.2
 
-The Entitlements API responses didn’t include the `createdBy`, `created`, `lastUpdated`, and `lastUpdatedBy` properties, and weren’t sorted by `orderBy`. (OKTA-1095762)
+Entitlements API responses didn’t include the `createdBy`, `created`, `lastUpdated`, and `lastUpdatedBy` properties, and weren’t sorted by `orderBy`. (OKTA-1095762)
 
 ### Monthly release 2026.02.0
 <!-- Published on: 2026-02-04T12:00:00Z -->

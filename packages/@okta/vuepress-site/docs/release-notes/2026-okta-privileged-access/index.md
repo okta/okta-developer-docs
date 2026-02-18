@@ -16,9 +16,9 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 ### Weekly release 2026.02.2
 <!-- Published on: 2026-02-19T12:00:00Z -->
 
-| Change | Expected in Preview Orgs |
-|--------|--------------------------|
-| [New List Secret Templates endpoint is GA](#new-list-secret-templates-endpoint-is-ga)| February 19, 2026 |
+| Change | Expected in Preview Orgs | Expected in Production |
+|--------|--------------------------| -----------------------|
+| [New List Secret Templates endpoint is GA](#new-list-secret-templates-endpoint-is-ga)| February 11, 2026 | February 18, 2026 |
 
 #### New List Secret Templates endpoint is GA
 
