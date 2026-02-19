@@ -8,9 +8,14 @@ export REGISTRY="${ARTIFACTORY_URL}/api/npm/${REGISTRY_REPO}"
 export DEPLOY_ENV=""
 export MAIN_BRANCH="m""aster"
 
-declare -A branch_environment_map
-branch_environment_map[$MAIN_BRANCH]=vuepress-site-prod
-branch_environment_map[staging]=vuepress-site-preprod
+echo "Current branch is $BRANCH"
+
+if [[ "$BRANCH" != "master" ]]; then
+    echo "Current branch '$BRANCH' is not 'master'. Exiting with success."
+    exit ${SUCCESS}
+fi
+
+DEPLOY_ENVIRONMENT="vuepress-site-prod"
 
 # "${MAIN_BRANCH}" branch indecates that current deploy is for production.
 # In such case, PROD will take 'prod' value.
@@ -24,14 +29,6 @@ fi
 if ! yarn build; then
     echo "Error building site"
     exit ${BUILD_FAILURE}
-fi
-
-# Check if we are in one of our publish branches
-if [[ -z "${branch_environment_map[$BRANCH]+unset}" ]]; then
-    echo "Current branch is not a publish branch"
-    exit ${SUCCESS}
-else
-    DEPLOY_ENVIRONMENT=${branch_environment_map[$BRANCH]}
 fi
 
 if [[ $BRANCH == "${MAIN_BRANCH}" ]]; then
