@@ -11,7 +11,7 @@ curl --request POST \
   --url https://{yourOktaDomain}/oauth2/v1/primary-authenticate \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'client_id={client_id}&login_hint={testuser%40example.com}&channel_hint=push'
+  --data 'client_id={client_id}&login_hint={testuser%40example.com}&channel_hint=push$challenge_hint=urn:okta:params:oauth:grant-type:oob'
 ```
 
 Note the parameters that are passed:
@@ -19,6 +19,7 @@ Note the parameters that are passed:
 - `client_id`: Matches the client ID of the application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
 - `login_hint`: The email username of a registerd Okta user
 - `channel_hint`: The out-of-band channel used by the client. For Okta Verify, use `push`.
+- `challenge_hint`: Specifies that an out-of-band factor is being used as the primary authentication method
 
 For more information on these parameters, see the `/primary-authenticate` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/primary-authenticate).
 
