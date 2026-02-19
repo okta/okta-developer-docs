@@ -13,7 +13,7 @@ Learn about self-service registration (SSR) and three key aspects that you can c
 
 ## Overview of self-service registration
 
-Self-service registration allows users to create an account and sign in to an app on their own
+Self-service registration allows users to create an account and sign in to an app on their own.
 
 A combination of policies that you can set in the Admin Console lets you choose which data to collect during registration, the authenticators available for enrollment, and the authentication requirements for enrolling those authenticators. You can also use inline hooks and custom code for further customization.
 
@@ -22,14 +22,14 @@ For more information about SSR, see the following resources:
 * [Self-service registration overview](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-ssr)
 * Add a sign-up form to your web app
 
-**Note:** If you plan to use an Okta-hosted sign-in widget for your sign-up form, note that the flow follows the standard OpenID Connect (OIDC) protocol. Users are first redirected to an Okta-hosted page where they complete the registration form. After they register, Okta redirects them back to your app with an authorization code, which your app then exchanges for tokens to sign the user in.
+**Note:** If you plan to use an Okta-hosted Sign-In Widget for your sign-up form, note that the flow follows the standard OpenID Connect (OIDC) protocol. Users are first redirected to an Okta-hosted page where they complete the registration form. After they register, Okta redirects them back to your app with an authorization code, which your app then exchanges for tokens to sign the user in.
 
 ### Default SSR state
 
 Self-service registration is disabled by default. There are two main components that control SSR.
 
 * **User profile policies:** This policy type controls the attributes that are collected when users register and has a setting to enable self-service registration. The default user profile policy doesn't allow self-service registration.
-* **Authenticator enrollment policies:** This policy type controls which authenticators are available for users to enroll during registration. The default authenticator enrollment policy requires users to create a password. You can add other authenticators to the default policy or create a new authenticator enrollment policy.
+* **Authenticator enrollment policies:** This policy type controls which authenticators are available for users to enroll during registration. The default authenticator enrollment policy requires users to create a password. You can add other authenticators to the default policy or create an authenticator enrollment policy.
 
 You can enable a basic SSR flow by creating a new user profile policy. These are the default settings for a new user profile policy that allows self-service registration:
 
@@ -40,7 +40,7 @@ You can enable a basic SSR flow by creating a new user profile policy. These are
 * The registration form has default text and labels. You can customize the text and labels to match your brand and use case.
 * The user profile policy isn't assigned to any apps. You must assign the policy to an app for users to see the registration form when they try to sign in to that app.
 
-\<\!-- Insert diagram of default SSR state \--\>
+<!-- Insert diagram of default SSR state -->
 
 ## Ways to customize your SSR flow
 
@@ -76,7 +76,7 @@ For example, you can allow users to register a passkey by requiring them to auth
 
 #### SSR flow with policies
 
-\<\!-- Insert diagram of SSR flow with policies \--\>
+<!-- Insert diagram of SSR flow with policies -->
 
 ### Use an inline hook to customize the SSR flow
 
@@ -97,7 +97,7 @@ For implementation details, see:
 
 #### SSR flow with inline hooks
 
-\<\!-- Insert diagram of SSR flow with inline hooks \--\>
+<!-- Insert diagram of SSR flow with inline hooks -->
 
 ### Customize the widget with the code editor
 
@@ -141,7 +141,7 @@ You can also use custom scripts to build more interactive form elements. This in
 
 #### SSR flow with custom code
 
-\<\!-- Insert diagram of SSR flow with custom code →
+<!-- Insert diagram of SSR flow with custom code -->
 
 ## Summary
 
