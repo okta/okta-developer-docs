@@ -3,6 +3,7 @@ title: Set up AI agent token exchange
 excerpt: Learn how to configure token exchange for AI agents to securely access protected resources using ID-JAG, secrets, or service accounts.
 layout: Guides
 ---
+<ApiLifecycle access="ie" />
 
 Learn how to configure token exchange for AI agents so you can securely request and use credentials (ID-JAG, secrets, or service accounts) to access protected resources on behalf of authenticated users.
 
@@ -11,8 +12,7 @@ Learn how to configure token exchange for AI agents so you can securely request 
 
 #### Learning outcomes
 
-Understand the purpose of the OAuth 2.0 token exchange request for an AI Agent.
-Understand how to set up the token exchange flow for an AI Agent.
+- Understand how to set up the token exchange flow for an AI Agent.
 
 #### What you need
 
