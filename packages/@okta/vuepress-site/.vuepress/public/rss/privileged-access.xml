@@ -4,8 +4,17 @@
   <title>Okta Privileged Access API Release Notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/</link>
   <description>Recent release notes for Okta Privileged Access API</description>
-  <pubDate>Wed, 11 Feb 2026 12:00:00 GMT</pubDate>
+  <pubDate>Fri, 20 Feb 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Weekly release 2026.02.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-02-2</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-02-2</guid>
+      <pubDate>Fri, 20 Feb 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#enhanced-filtering-for-the-sudo-commands-api">Enhanced filtering for Sudo Commands API</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#new-list-secret-templates-endpoint-is-ga">New List Secret Templates endpoint is GA</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Monthly release 2026.02.0</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#monthly-release-2026-02-0</link>
