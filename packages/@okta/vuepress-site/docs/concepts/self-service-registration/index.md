@@ -159,7 +159,7 @@ Review the following resources to learn how to build and customize your SSR flow
 * Use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/) to manage policies programmatically.
 * Configure a [registration inline hook](/docs/guides/registration-inline-hook/nodejs/main/).
 * [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/main/).
-* Use custom CSS in the widget by [adding design tokens to your code](/docs/guides/custom-widget-migration-gen3/main/#add-design-tokens-to-your-code).git 
+* Use custom CSS in the widget by [adding design tokens to your code](/docs/guides/custom-widget-migration-gen3/main/#add-design-tokens-to-your-code).
 * [Use the code editor](/docs/guides/custom-widget/main/#use-the-code-editor) to add your own scripts and styles to the Okta-hosted page.
 
 ## See also
