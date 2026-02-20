@@ -489,7 +489,7 @@ Here are some examples:
 
 You can send yourself a test email to see how a custom email template looks and functions. A test email can help you validate attribute-based variables and translations in the customized template. You can see how the template renders in different email environments and avoid creating end-to-end workflows to test customizations. The primary email address of the admin that initiates the test receives the email.
 
-> **Note:** You can only send customized test emails if you have configured a custom email domain. You can't send customized test emails using the default Okta email domain.
+> **Note:** You can only send customized test emails if you've configured a custom email domain. If you don't have a custom email domain, test emails use the Okta default template and are sent from the Okta email domain.
 
 1. Click the email icon to the right of the email template that you’ve customized. A list shows the sender and receiver of the email.
 2. Click **Send test email**.
