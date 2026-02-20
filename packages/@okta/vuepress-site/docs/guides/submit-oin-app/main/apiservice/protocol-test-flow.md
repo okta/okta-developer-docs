@@ -1,0 +1,1 @@
+For API service integration, do the testing manually.

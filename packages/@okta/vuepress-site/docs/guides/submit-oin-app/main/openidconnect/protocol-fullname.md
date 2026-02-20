@@ -1,1 +1,1 @@
-OpenID Connect (OIDC)
+OpenID Connect (OIDC) protocol

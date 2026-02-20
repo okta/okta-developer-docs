@@ -1,1 +1,1 @@
-Security Assertion Markup Language (SAML)
+Security Assertion Markup Language (SAML) protocol
