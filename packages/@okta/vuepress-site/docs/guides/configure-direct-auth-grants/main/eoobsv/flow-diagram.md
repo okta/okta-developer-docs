@@ -2,7 +2,7 @@
 
 <div class="three-quarter">
 
-![Sequence diagram that displays the back and forth between the resource owner, client app, and authorization server for OOB flow"](/img/authorization/oauth-oob-phone-grant-flow.png)
+![Sequence diagram that displays the communication between the resource owner, client app, and authorization server for OOB flow"](/img/authorization/oauth-oob-phone-grant-flow.png)
 
 </div>
 
