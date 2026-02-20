@@ -199,6 +199,7 @@ guides:
  - custom-passkeys
  - set-up-oauth-api
  - custom-smtp
+ - oag-offline-mode
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
