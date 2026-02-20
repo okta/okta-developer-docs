@@ -16,8 +16,8 @@ curl --request POST \
 
 Note the parameters that are passed:
 
-- `client_id`: Matches the client ID of the application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
-- `login_hint`: The email username of a registerd Okta user
+- `client_id`: Matches the client ID of the app that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
+- `login_hint`: The email username of a registered Okta user
 - `channel_hint`: The out-of-band channel used by the client. For Okta Verify, use `push`.
 - `challenge_hint`: Specifies that an out-of-band factor is being used as the primary authentication method
 
@@ -52,7 +52,7 @@ In an HTTP 200 response, Okta returns the following parameters:
   }
 ```
 
-Note the parameters included:
+Parameters included:
 
 - `oob_code`: An identifier of a single out-of-band factor transaction. To respond to or check on the status of an out-of-band factor, use this code to identify the factor transaction.
 - `expires_in`: The time, in seconds, until the `oob_code` expires
@@ -73,7 +73,7 @@ curl --request POST \
   --data 'client_id={client_id}&scope=openid%20profile&grant_type=urn:okta:params:oauth:grant-type:oob&oob_code={oob_code}'
 ```
 
-Note the parameters that are passed:
+Parameters that are passed:
 
 - `client_id`: Matches the client ID of the app that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
 - `scope`: Must be at least `openid`. See the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
