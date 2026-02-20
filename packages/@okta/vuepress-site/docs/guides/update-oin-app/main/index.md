@@ -12,7 +12,7 @@ Learn how to submit an OIDC, SAML 2.0, SCIM 2.0, Universal Logout, or API servic
 
 #### What you need
 
-* A published OIDC, SAML 2.0, SCIM integration , or API servicein the OIN.
+* A published OIDC, SAML 2.0, SCIM, or API service integration in the OIN.
 * The [Okta Integrator Free Plan org](https://developer.okta.com/signup/) from where you originally submitted your published integration. The OIN Wizard is only available in Integrator Free Plan orgs.
 * An admin user in the Integrator Free Plan org with either the super admin or the app and org admin roles.
 
@@ -33,6 +33,7 @@ The OIN Wizard currently supports updates for integrations that use the followin
 * [Universal Logout](https://developer.okta.com/docs/guides/oin-universal-logout-overview/)
 
 * [Entitlement Management](https://developer.okta.com/docs/guides/scim-with-entitlements/main/)
+
 * [API service integration](/docs/guides/oin-api-service-overview/)
 
 > **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, SCIM 2.0, and API service integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).

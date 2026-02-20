@@ -86,8 +86,8 @@ Start your integration submission for OIN publication:
 1. Click **Build new OIN integration**. The OIN Wizard appears.
 1. Select the protocols that your integration supports from the **Select protocol** section.
 
-    > **Note:** The instructions on this page are for the **<StackSnippet snippet="protocol-fullname" inline/>** protocol. <br>
-    > If you want to change the protocol instructions on this page, select the protocol you want from the **Instructions for** dropdown list on the right.
+    > **Note:** The instructions on this page are for the **<StackSnippet snippet="protocol-fullname" inline/>**. <br>
+    > If you want to change the instructions on this page, select a different option that you want from the **Instructions for** dropdown list on the right.
 
 1. Click **Add integration details**.
 
@@ -136,8 +136,8 @@ Configure integration variables if your URLs are dynamic for each tenant. The va
 
 #### <StackSnippet snippet="protocol-name" inline/> properties
 
-> **Note:** The instructions on this page are for the **<StackSnippet snippet="protocol-fullname" inline/>** protocol. <br>
-> If you want to change the protocol instructions on this page, select the protocol from the **Instructions for** dropdown list on the right.
+> **Note:** The instructions on this page are for the **<StackSnippet snippet="protocol-fullname" inline/>** . <br>
+> If you want to change the instructions on this page, select the required option from the **Instructions for** dropdown list on the right.
 
 Continue with the OIN Wizard and configure your protocol settings:
 
@@ -151,15 +151,7 @@ Continue with the OIN Wizard and configure your protocol settings:
 
 #### Universal logout properties
 
-1. Specify the following properties if you want to integrate Universal Logout:
-
-    <StackSnippet snippet="universal-logout-properties"/>
-
-1. Click **Get started with testing** to save your edits and move to the testing section, where you need to enter your integration test details.
-
-#### API service properties
-
-<StackSnippet snippet="api-service-properties"/>
+<StackSnippet snippet="universal-logout-properties"/>
 
 #### Dynamic properties with Okta Expression Language
 
@@ -278,8 +270,8 @@ The Integrator Free Plan org has no limit on active instances. You can create as
 
 #### Generate an instance for <StackSnippet snippet="protocol-name" inline/>
 
-> **Note:** The steps in this section are for generating one instance to test the **<StackSnippet snippet="protocol-name" inline/>** protocol. <br>
-> If you want to change the generate instance instructions, select the protocol you want from the **Instructions for** dropdown list on the right.
+> **Note:** The steps in this section are for generating one instance to test the **<StackSnippet snippet="protocol-name" inline/>**. <br>
+> If you want to change the generate instance instructions, select the required option that you want from the **Instructions for** dropdown list on the right.
 
 1. From the **Test integration** page, click **Generate instance**.
 
@@ -528,22 +520,6 @@ If your integration supports Universal Logout, you need to test the logout flow 
 1. Select **Also include logout enabled apps and Okta API tokens** and click **Clear and revoke**.
 1. Go back to the app and ensure that the login session is terminated.
     > **Note**: For partial universal logout support, while clearing the user's session from Okta, the app only revokes the user's refresh tokens, which prevents the user from getting new access in the future. However, the existing user sessions aren't terminated until the user's existing access tokens expire or the user signs out of an app.
-
-### Test your API service integration
-
-You can test your API service integration in the OIN Wizard before you submit it. You can generate an instance of your service app to verify that API requests work as intended.
-
-1. Go to **Test integration** > **Generate instance**. Your browser redirects to the **Authorize integration** page.
-1. Click **Install & Authorize**.
-1. Copy the client secret from the dialog and store it securely.
-    > **Note**: You must copy the client secret now. For security, it is only displayed once and cannot be retrieved later. Only a masked value will be available after you close this dialog.
-1. Click **Done**.
-1. On the **General** tab, copy the **Okta domain** and **client ID** and securely store them for your integration test.
-1. Configure your app using the Okta domain, client ID, and client secret.
-1. Perform manual testing to verify your integration.
-1. Once the testing is complete, click **Continue to submission**. The **Test integration** page appears.
-1. Ensure that the checkboxes below **Test account requirements** and **API service requirements** are in *selected* status.
-1. Click **Submit integration**.
 
 ### Test your SCIM integration
 
