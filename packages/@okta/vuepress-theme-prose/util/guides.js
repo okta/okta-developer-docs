@@ -14,4 +14,18 @@ const { getInfo: getGuidesInfo, fromPath: guideFromPath } = createContentInfo({
   makePath: makeGuidePath,
 });
 
-export { getGuidesInfo, guideFromPath };
+const codeFragment = '/code/';
+const codeType = 'code';
+
+const makeCodePath = ({ codeName, framework, sectionName }) => {
+  return `${codeFragment}${codeName}/${framework ? framework + '/' : ''}${sectionName || ''}/`;
+};
+
+const { getInfo: getCodeInfo, fromPath: codeFromPath } = createContentInfo({
+  type: codeType,
+  fragment: codeFragment,
+  getOrderKey: page => page.frontmatter.stackSelectorPagesInCode,
+  makePath: makeCodePath,
+});
+
+export { getGuidesInfo, guideFromPath, getCodeInfo, codeFromPath };
