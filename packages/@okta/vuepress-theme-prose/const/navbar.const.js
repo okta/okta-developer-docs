@@ -871,6 +871,10 @@ export const guides = [
             title: "Create an authorization server",
             guideName: "customize-authz-server",
           },
+          {
+            title: "Manage org recovery with Enhanced DR",
+            guideName: "manage-orgs-okta-edr",
+          }
         ],
       },
       {
