@@ -33,6 +33,10 @@ API Endpoints that take username and password credentials, including the [Authen
 
 Per-username rate limit violations appear in the System Log as a `user_rate_limited` failure message.
 
+## Okta Aerial rate limits
+
+Each Okta Aerial account has a rate limit of 10 concurrent requests. See [Introduction to the Okta Aerial API](https://developer.okta.com/docs/api/openapi/aerial/guides/overview/).
+
 ## Email, SMS, and call rate limits
 
 Email limits are applied on a per-recipient basis and vary by email type. The limit for some email types is no more than 30 emails per recipient, per minute, while other email types are configured with higher limits. These limits protect your org against denial-of-service attacks and help ensure that adequate resources are available for all customers.
