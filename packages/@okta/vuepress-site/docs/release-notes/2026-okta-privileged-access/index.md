@@ -20,17 +20,17 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 |--------|--------------------------| -----------------------|
 | [Enhanced filtering for Sudo Commands API](#enhanced-filtering-for-the-sudo-commands-api) | February 12, 2026 | February 17, 2026 |
 | [New List Secret Templates endpoint is GA](#new-list-secret-templates-endpoint-is-ga)| February 11, 2026 | February 18, 2026 |
-| [Server Account reveal password configuration](#server-account-reveal-password-configuration) | February 19, 2026 |  |
+| [Server Account reveal password configuration is GA](#server-account-reveal-password-configuration-is-ga) | February 19, 2026 |  |
 
 #### Enhanced filtering for the Sudo Commands API
 
-You can now filter the [List all sudo command bundles](https://developer.okta.com/docs/api/openapi/opa/opa/tag/sudo-commands/#tag/sudo-commands/operation/ListSudoCommandBundles) operation using the new `contains` parameter. This parameter filters and limits the results to sudo command bundles where the name matches the provided search string. <!-- OKTA-953347 -->
+You can now filter the [List all sudo command bundles](https://developer.okta.com/docs/api/openapi/opa/opa/tag/sudo-commands/#tag/sudo-commands/operation/ListSudoCommandBundles) operation using the new `contains` parameter. This parameter filters and limits the results to sudo command bundles where the name matches the provided search string. <!-- OKTA-953347, FF: table_migration_sudo_commands -->
 
 #### New List Secret Templates endpoint is GA
 
 Okta Privileged Access now provides a new [List Secret Templates](https://developer.okta.com/docs/api/openapi/opa/opa/tag/secrets/#tag/secrets/operation/ListSecretTemplates) endpoint in the [Secrets](https://developer.okta.com/docs/api/openapi/opa/opa/tag/secrets/) API. This endpoint allows teams to list and discover available secret templates. <!-- OKTA-971893, FF: pam_secret_templates -->
 
-#### Server Account reveal password configuration
+#### Server Account reveal password configuration is GA
 
 Authorized end users can now retrieve managed server account passwords through the Server Accounts API. See the [Server Account API](https://developer.okta.com/docs/api/openapi/opa/opa/tag/server-accounts/#tag/server-accounts ). <!-- OKTA-963820 Server Accounts for Reveal preview date: Feb 19, 2025, FF: pam_server_account_reveal_password-->
 
