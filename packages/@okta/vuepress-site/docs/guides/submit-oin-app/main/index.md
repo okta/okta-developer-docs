@@ -147,11 +147,8 @@ Continue with the OIN Wizard and configure your protocol settings:
 
 #### Universal logout properties
 
-1. Specify the following properties if you want to integrate Universal Logout:
 
-    <StackSnippet snippet="universal-logout-properties"/>
-
-1. Click **Get started with testing** to save your edits and move to the testing section, where you need to enter your integration test details.
+<StackSnippet snippet="universal-logout-properties"/>
 
 #### Dynamic properties with Okta Expression Language
 
@@ -269,8 +266,8 @@ The Integrator Free Plan org has no limit on active instances. You can create as
 
 #### Generate an instance for <StackSnippet snippet="protocol-name" inline/>
 
-> **Note:** The steps in this section are for generating one instance to test the **<StackSnippet snippet="protocol-name" inline/>** protocol. <br>
-> If you want to change the generate instance instructions, select the protocol you want from the **Instructions for** dropdown list on the right.
+> **Note:** The steps in this section are for generating one instance to test the **<StackSnippet snippet="protocol-name" inline/>** protocol or integration. <br>
+> If you want to change the generate instance instructions, select the protocol or integration you want from the **Instructions for** dropdown list on the right.
 
 1. From the **Test integration** page, click **Generate instance**.
 
