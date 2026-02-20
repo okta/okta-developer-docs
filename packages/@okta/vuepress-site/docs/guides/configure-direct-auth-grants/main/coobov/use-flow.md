@@ -11,7 +11,7 @@ curl --request POST \
   --url https://{yourOktaDomain}/oauth2/v1/primary-authenticate \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'client_id={client_id}&login_hint={testuser%40example.com}&channel_hint=push$challenge_hint=urn:okta:params:oauth:grant-type:oob'
+  --data 'client_id={client_id}&login_hint={testuser%40example.com}&channel_hint=push&challenge_hint=urn:okta:params:oauth:grant-type:oob'
 ```
 
 Note the parameters that are passed:
