@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-Learn how to submit an OIDC, SAML 2.0, SCIM 2.0, Universal Logout, or Entitlement Management integration to the Okta Integration Network (OIN) using the OIN Wizard.
+Learn how to submit an OIDC, SAML 2.0, SCIM 2.0, Universal Logout, Entitlement Management, or API service integration to the Okta Integration Network (OIN) using the OIN Wizard.
 
 ---
 
@@ -33,6 +33,7 @@ The OIN Wizard is a full-service tool in the Admin Console for you to do the fol
   * Test your SCIM integration with manual test cases and Runscope test suites.
   * Test your SCIM-based Entitlement Management manually.
   * Test your Universal Logout integration manually.
+  * Test your API service integration manually.
 
 * Submit your integration directly to the OIN team when you're satisfied with your test results.
 * Monitor the status of your submissions through the **Your OIN Integrations** dashboard.
@@ -56,9 +57,12 @@ This guide covers submissions that use the following protocols and integrations:
 
 * [Universal Logout](/docs/guides/oin-universal-logout-overview/)
 
+* [API service](/docs/guides/oin-api-service-overview/)
+
 > **Notes:**
     > * Universal Logout integrations are only supported for SAML 2.0 and OIDC protocols. If you want to submit a Universal Logout integration with SCIM provisioning, you must also submit an SSO integration with either SAML 2.0 or OIDC.
     > * Entitlement Management is an *Early Access* feature and it’s currently supported for integrations that manage entitlements through a SCIM server.
+    > * The API service integration is mutually exclusive. If you select the API service capability, you cannot select any other capability or protocol, such as SSO or Provisioning. Similarly, if you select another capability or protocol, the API service option is unavailable.
     > * To enable Entitlement Management feature, go to **Settings** > **Features** in the Admin Console and turn on **Enable SCIM 2.0 Entitlement Management submission**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
     > * SWA app integrations are no longer accepted for publication in the OIN catalog. However, the OIN team still maintains existing SWA apps.
     > * There are protocol-specific limitations on integrations in the OIN. See [OIN limitations](/docs/guides/submit-app-prereq/main/#oin-limitations).
@@ -82,8 +86,8 @@ Start your integration submission for OIN publication:
 1. Click **Build new OIN integration**. The OIN Wizard appears.
 1. Select the protocols that your integration supports from the **Select protocol** section.
 
-    > **Note:** The instructions on this page are for the **<StackSnippet snippet="protocol-fullname" inline/>** protocol. <br>
-    > If you want to change the protocol instructions on this page, select the protocol you want from the **Instructions for** dropdown list on the right.
+    > **Note:** The instructions on this page are for the **<StackSnippet snippet="protocol-fullname" inline/>**. <br>
+    > If you want to change the instructions on this page, select a different option that you want from the **Instructions for** dropdown list on the right.
 
 1. Click **Add integration details**.
 
@@ -132,8 +136,8 @@ Configure integration variables if your URLs are dynamic for each tenant. The va
 
 #### <StackSnippet snippet="protocol-name" inline/> properties
 
-> **Note:** The instructions on this page are for the **<StackSnippet snippet="protocol-fullname" inline/>** protocol. <br>
-> If you want to change the protocol instructions on this page, select the protocol from the **Instructions for** dropdown list on the right.
+> **Note:** The instructions on this page are for the **<StackSnippet snippet="protocol-fullname" inline/>** . <br>
+> If you want to change the instructions on this page, select the required option from the **Instructions for** dropdown list on the right.
 
 Continue with the OIN Wizard and configure your protocol settings:
 
@@ -147,11 +151,7 @@ Continue with the OIN Wizard and configure your protocol settings:
 
 #### Universal logout properties
 
-1. Specify the following properties if you want to integrate Universal Logout:
-
-    <StackSnippet snippet="universal-logout-properties"/>
-
-1. Click **Get started with testing** to save your edits and move to the testing section, where you need to enter your integration test details.
+<StackSnippet snippet="universal-logout-properties"/>
 
 #### Dynamic properties with Okta Expression Language
 
@@ -220,6 +220,7 @@ The OIN Wizard journey includes the **Test integration** experience page to help
         1. Assign the entitlements to the users manually for testing or automatically through a policy. For more information, see [Assign entitlements to users](https://help.okta.com/oie/en-us/content/topics/identity-governance/em/assign-entitlements-users.htm).
 
     * For the Universal Logout integration, assign the test user and enable the **Logout** option on the instance. You can use the same instance that you created for SSO integration testing.
+    * For API service integration, do the testing manually.
 
 2. Test your integration.
    * For an SSO integration, test the required flows in the [OIN Submission Tester](#oin-submission-tester) with your generated test instance. Fix any test failures from the OIN Submission Tester, then regenerate the test instance (if necessary) and retest.
@@ -269,8 +270,8 @@ The Integrator Free Plan org has no limit on active instances. You can create as
 
 #### Generate an instance for <StackSnippet snippet="protocol-name" inline/>
 
-> **Note:** The steps in this section are for generating one instance to test the **<StackSnippet snippet="protocol-name" inline/>** protocol. <br>
-> If you want to change the generate instance instructions, select the protocol you want from the **Instructions for** dropdown list on the right.
+> **Note:** The steps in this section are for generating one instance to test the **<StackSnippet snippet="protocol-name" inline/>**. <br>
+> If you want to change the generate instance instructions, select the required option that you want from the **Instructions for** dropdown list on the right.
 
 1. From the **Test integration** page, click **Generate instance**.
 

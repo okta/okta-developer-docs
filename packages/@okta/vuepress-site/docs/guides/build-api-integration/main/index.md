@@ -60,7 +60,7 @@ app -> client: Response
 
 2. If the credentials in the token request are accurate, Okta responds with an access token.
 
-   You set the resource and action scopes allowed for the access token when you [register your API service integration](#register-your-api-service-integration) through the OIN Manager. The token request must contain allowed scopes for your API service integration. See [Scope selection](#scope-selection).
+   You set the resource and action scopes allowed for the access token when you [register your API service integration](#register-your-api-service-integration) through the OIN Wizard. The token request must contain allowed scopes for your API service integration. See [Scope selection](#scope-selection).
 
 3. Your customer's service app instance uses the access token to make authorized requests to their Okta org APIs (the resource server). See [Make Okta API requests](#make-okta-api-requests).
 
@@ -101,39 +101,30 @@ The [org authorization server](/docs/concepts/auth-servers/#org-authorization-se
 
 ### Register your API service integration
 
-The OIN Manager provides a mechanism to register and install your integration in your Okta org (similar to how your customer admins would install your integration) and obtain the credentials to test your Client Credentials flow. Your test integration is available only on your Okta org during the test.
+The OIN Wizard provides a mechanism to register and install your integration in your Okta org (similar to how your customer admins would install your integration) and obtain the credentials to test your Client Credentials flow. Your test integration is available only on your Okta org during the test.
 
-> **Note:** From the OIN Manager test option, the test install and authorize pages are the same pages that your customers experience when your service integration is in the OIN. After you publish your integration in the OIN catalog, it appears in the **Applications** > **API Service Integrations** page of your customer's Admin Console.
+> **Note:** From the OIN Wizard test option, the test install and authorize pages are the same pages that your customers experience when your service integration is in the OIN. After you publish your integration in the OIN catalog, it appears in the **Applications** > **API Service Integrations** page of your customer's Admin Console.
 
-To register your API service registration:
-
-1. Go to the [OIN Manager](https://oinmanager.okta.com/) and click **Start Submission Form**.
-1. Sign in with the credentials of the Okta org you used to build your integration (this is typically your Okta Integrator Free Plan org).
-1. Click **Add New Submission**.
-1. On the **General Settings** tab, specify values in the **App Information**, **Customer Support**, and **Test Account** sections. See [Configure general settings](/docs/guides/submit-app/apiservice/main/#configure-general-settings) for field descriptions.
-1. On the **API Service** tab, select **On** from the **API Service support** dropdown menu.
-
-   The **API Service Settings** appear, and the **Client Credentials** grant type is selected. This is the only supported grant type for OAuth 2.0 API service integrations.
-1. Under **Enable scopes**, click **+ Add Another** to specify a scope for your app integration.
-
-   * Enter the Okta API scope to grant access from your integration. See [Scope selection](#scope-selection).
-   * Click **+ Add Another** and specify more scopes you want to grant for your integration.
-
-1. Specify the URL to the configuration document for your integration under **Link to configuration guide**. See [Customer configuration document guidelines](/docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines).
+To register your API service registration, see [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/openidconnect/main/).
 
 ### Authorize a test integration
 
-Use the test functionality in the OIN Manager to obtain test integration credentials:
+Use the test functionality in the OIN Wizard to obtain test integration credentials:
 
-1. From the [OIN Manager](https://oinmanager.okta.com/), click **Edit** next to your API service integration submission.
-1. From the **API Service** tab, click **Test in Okta** at the bottom of your page.
-
-   Your browser redirects to the Authorize integration page in your Okta org.
-
-1. From the Authorize integration page, click **Install and Authorize**.
-1. Copy the client secret from the dialog and securely store it for your integration test.
-1. Click **Done** to dismiss the dialog.
-1. On the integration details page, copy the Okta domain and client ID and securely store them for your integration test.
+1. From the OIN Wizard, click **Applications** > **Your OIN Integrations** and click the **More actions ⋮** icon and click **Test integration**.
+1. Click **Generate instance**. Your browser redirects to the **Authorize integration** page.
+1. Go to **Test integration** > **Generate instance**. Your browser redirects to the Authorize integration page.
+1. Click **Install & Authorize**.
+1. Copy the client secret from the dialog and store it securely
+   >**Note**: You must copy the client secret now. For security, it is only displayed once and cannot be retrieved later. Only a masked value will be available after you close this dialog.
+1. Click **Done**.
+1. On the **General** tab, copy the **Okta domain** and **client ID** and securely store them for your integration test.
+1. Configure your app using the Okta domain, client ID, and client secret.
+1. Perform manual testing to verify your integration.
+1. Once the testing is complete, click **Continue to submission**. The **Test integration** page appears.
+1. Ensure that the checkboxes below **Test account requirements** and **API service requirements** are in selected status.
+1. Select the **I certify that I have successfully completed required tests** checkbox to confirm completion of required tests.
+1. Click **Submit integration**.
 
 For testing purposes, use the Okta domain, client ID, and client secret obtained from your test integration to make an access token request. Then, make an API request using the access token returned by the first request. See [Test your API service flow](#test-your-api-service-flow).
 
@@ -220,35 +211,22 @@ After you complete testing and are satisfied with your API service integration, 
 
 To edit your API service integration submission fields:
 
-1. From the [OIN Manager](https://oinmanager.okta.com/), click **Edit** next to your integration submission.
+1. From the OIN Wizard, click **Applications** > **Your OIN integrations**.
+1. Click the integration that you want to open from the list. Click **Edit** next to your integration submission.
 1. Edit the fields that you want to modify.
 
-The OIN Manager saves the values in the fields automatically.
-
-If the fields that you update affect the test integration instance in your Okta org (such as integration name or scopes), then you must click **Test in Okta** to create another test integration instance with the updated fields. The test integration instance is a static snapshot of your integration submission fields at the time that it was created. It doesn't get updated when you modify your submission. If you want to remove older test integration instances that aren't used, see [Remove your test integration instance](#remove-your-test-integration-instance).
+If the fields that you update affect the test integration instance in your Okta org (such as integration name or scopes), then you must click **Generate instance** to create another test integration instance with the updated fields. The test integration instance is a static snapshot of your integration submission fields at the time that it was created. It doesn't get updated when you modify your submission. If you want to remove older test integration instances that aren't used, see [Remove your test integration instance](#remove-your-test-integration-instance).
 
 ### Remove your test integration instance
 
 To remove a test API service integration in your Okta org, click **Revoke** from the integration details page in your Admin Console. This action revokes the scope grants, client ID, and secret from the test integration installed previously.
 
-You can click **Test in Okta** again from the OIN Manager to install another test integration instance in your Okta org. This action is useful when you update your submission in the OIN Manager (for example, modifying the scopes or name of the integration) and want to see the updates reflected in the test integration instance.
+You can click **Generate instance** to generate another test integration instance in your Okta org. This action is useful when you update your submission in the OIN Wizard (for example, modifying the scopes or name of the integration) and want to see the updates reflected in the test integration instance.
 
 ### Submit for review
 
-After you test your API service integration and specify all fields and artifacts in the OIN Manager, you can submit your integration to Okta.
+After you test your API service integration and specify all fields and artifacts in the OIN Wizard, you can submit your integration to Okta. See, [Submit your integration section](/docs/guides/submit-oin-app/openidconnect/main/#submit-your-integration).
 
-1. Sign in to [OIN Manager](https://oinmanager.okta.com/) and click **Edit** next to your API service integration submission.
-1. From the **API Service** tab, click **Submit for Review** on the right side of your page.
-
-   A dialog appears and displays the completed submission tabs.
-
-   > **Note:** The **Submit for Review** option isn't available if there are missing required fields in the submission.
-
-1. Click **Submit for Review** from the dialog to confirm the submission.
-
-The system notifies the Okta OIN team, and your submission goes through a series of testing and verification processes. The OIN team emails you for required updates and corrections. The OIN Manager also displays the latest status of your submission.
-
-When your integration reaches the Publish stage, your integration is available on the OIN catalog and your customers can see an option to install it from their Okta org.
 
 ## Support
 

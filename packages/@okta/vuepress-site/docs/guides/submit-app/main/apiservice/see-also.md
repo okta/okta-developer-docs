@@ -1,1 +1,0 @@
-* [Build an API service integration](https://developer.okta.com/docs/guides/build-api-integration/main/)
