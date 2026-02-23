@@ -6055,3 +6055,5 @@ redirects:
     to: /docs/concepts/universal-directory/
   - from: /docs/concepts/user-profiles/index.html
     to: /docs/concepts/universal-directory/
+  - from: /docs/guides/submit-app/apiservice/main/
+    to: /docs/guides/submit-oin-app/uapiservice/main/
