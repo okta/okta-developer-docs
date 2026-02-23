@@ -31,9 +31,9 @@
         > **Note:** Selecting this option doesn't automatically make your integration available in the [OIN](https://www.okta.com/integrations/). After you test your integration, [submit it](/docs/guides/submit-oin-app/saml2/main/) to the OIN team for verification and publication. See the OIN [submission process](/docs/guides/submit-app-overview/#submission-process) overview.
 1. Click **Finish**.
 
-> **Okta Identity Engine (OIE):** If your Okta Org is running on the **Identity Engine** (check for an 'E' in your admin footer), you cannot define Attribute Statements during the creation wizard.
+> **Okta Identity Engine (OIE):** If your Okta organization uses the **Identity Engine**, you cannot define Attribute Statements during the creation wizard. To check your version, look for an 'E' in your admin footer.
 > 
 > 1. Complete the wizard and click **Finish**.
-> 2. Navigate to the **Sign On** tab of the newly created application.
-> 3. Scroll down to the **Attributes Statements (SAML)** section.
-> 4. Click **Add expression** to define your custom claims (e.g., Name: `email`, Value: `user.profile.email`).
+> 2. Go to the **Sign On** tab of your new application.
+> 3. Scroll to the **Attributes Statements (SAML)** section.
+> 4. Click **Add expression** to define your custom claims. For example, enter `email` for the **Name** and `user.email` for the **Value**.
