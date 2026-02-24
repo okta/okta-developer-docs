@@ -19,7 +19,7 @@ This guide explains how to manage a failover and failback of your Okta org using
 
 #### What you need
 
-- An Okta production org
+- An Okta production org (Enhanced DR is not available for Okta Preview or Okta Integrator Free Plan orgs)
 - The Enhanced DR product enabled for your org
 - Super administrator privileges or Enhanced DR privileges
 - [Enhanced Disaster Recovery APIs](https://developer.okta.com/docs/api//openapi/okta-management/management/tag/DisasterRecovery/)
@@ -52,7 +52,7 @@ Okta Enhanced DR only supports API access through scoped OAuth 2.0 access tokens
 
 ## Check the disaster recovery status of your org
 
-Use the following disaster recovery API endpoint, [Retrieve the disaster recovery status for all domains for your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/getDRStatus), to understand the current disaster recovery state for all domains associated with your Okta org.
+Use the following disaster recovery API endpoint, Retrieve the disaster recovery status for all domains for your org<!-- [Retrieve the disaster recovery status for all domains for your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/getDRStatus)-->, to understand the current disaster recovery state for all domains associated with your Okta org.
 
 >**Note:** The base URL for the disaster recovery APIs is `https://drapp.{yourOktaDomain}/`. Replace `{yourOktaDomain}` with your Okta domain. For example, if your Okta domain is `https://example.okta.com`, use `https://drapp.example.okta.com`.
 
@@ -81,7 +81,7 @@ curl -v -X GET \
 
 ## Initiate an org failover
 
-Use the following disaster recovery API, [Start the failover of your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/startOrgFailover), to initiate your org failover. The request body is optional. You can specify a list of custom domains to failover, an empty object (`{}`), or no payload.
+Use the following disaster recovery API, Start the failover of your org<!--[Start the failover of your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/startOrgFailover)-->, to initiate your org failover. The request body is optional. You can specify a list of custom domains to failover, an empty object (`{}`), or no payload.
 
 #### Request example
 
@@ -110,7 +110,7 @@ After a failover, all end users in that org are in [read-only mode](https://supp
 
 ## Initiate an org failback
 
-Use the following disaster recovery API, [Start the failback of your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/startOrgFailback), to initiate your org failback. The request body is optional. You can specify a list of domains to failback, an empty object (`{}`), or no payload.
+Use the following disaster recovery API, Start the failback of your org<!--[Start the failback of your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/startOrgFailback)-->, to initiate your org failback. The request body is optional. You can specify a list of domains to failback, an empty object (`{}`), or no payload.
 
 #### Request example
 
