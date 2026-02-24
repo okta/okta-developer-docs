@@ -75,17 +75,23 @@ Start your integration submission for OIN publication:
 
     > **Note:** Submit your integration from an Okta account that has your company domain in the email address. You can't use an account with a personal email address. The OIN team doesn't review submissions from personal email accounts.
 
-1. Go to **Applications** > **Your OIN Integrations** in the Admin Console.
+1. In the **Home** page, do one of the following:
 
-   > **Note:** If you only want to test an existing submission, see [Navigate directly to test your integration](#navigate-directly-to-test-your-integration).
+    * Click **Create app** if you need to list a new app. <br><br>
+    **OR**<br>
+    * In case of existing integrations for an app click **Add integration** to add another integrations to it. The **Manage your app** page appears.
 
-1. Click **Build new OIN integration**. The OIN Wizard appears.
-1. Select the protocols that your integration supports from the **Select protocol** section.
+1. Select your integration capabilities and enter your app details (such as display name and description). See [Integration details](/docs/guides/submit-oin-app/openidconnect/main/#integration-details) section for more details.
+
+1. Click **Add Integration Details**. You are redirected to the **Integration Details** page.
+
+   > **Note:**
+   >Alternatively, you can go to **Applications** > **Your OIN Integrations** to build your integration and select your protocols.
+
+    If you only want to test an existing submission, see [Navigate directly to test your integration](#navigate-directly-to-test-your-integration).
 
     > **Note:** The instructions on this page are for the **<StackSnippet snippet="protocol-fullname" inline/>** protocol. <br>
     > If you want to change the protocol instructions on this page, select the protocol you want from the **Instructions for** dropdown list on the right.
-
-1. Click **Add integration details**.
 
 ### Integration details
 
@@ -237,7 +243,7 @@ You can navigate directly to the OIN Wizard **Test integration** page if you hav
 
 Follow these steps to bypass the configuration pages in the OIN Wizard:
 
-1. From the **Your OIN Integrations** dashboard, select the more icon (![three-dot more icon](/img/icons/odyssey/more.svg)) next to the integration submission that you want to test.
+1. From the left panel, select **Applications** > **Your OIN Integrations** dashboard, select the more icon (![three-dot more icon](/img/icons/odyssey/more.svg)) next to the integration submission that you want to test.
 1. Select **Test your integration** from the menu.
 
    The OIN Wizard **Test integration** page appears for you to generate an instance and test your integration.
