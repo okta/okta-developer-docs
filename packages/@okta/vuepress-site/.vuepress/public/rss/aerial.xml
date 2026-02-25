@@ -4,8 +4,17 @@
   <title>Okta Aerial API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-aerial/</link>
   <description>Recent release notes for Okta Aerial</description>
-  <pubDate>Wed, 04 Feb 2026 12:00:00 GMT</pubDate>
+  <pubDate>Tue, 24 Feb 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Weekly release</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-aerial/#weekly-release</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-aerial/#weekly-release</guid>
+      <pubDate>Tue, 24 Feb 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-aerial/#bug-fixed-in-2026023">Bug fixed in 2026.02.3</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Monthly release 2026.02.0</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-aerial/#monthly-release-2026-02-0</link>
