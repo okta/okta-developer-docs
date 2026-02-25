@@ -1,1 +1,1 @@
-SCIM
+SCIM protocol

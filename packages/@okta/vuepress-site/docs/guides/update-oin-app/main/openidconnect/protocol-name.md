@@ -1,1 +1,1 @@
-OpenID Connect
+OpenID Connect protocol

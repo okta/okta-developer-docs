@@ -46,8 +46,8 @@ After you successfully test the updated and published versions of your integrati
 
 For published integrations that were migrated from the OIN Manager, if you need to update configured properties that aren't available in the OIN Wizard, contact <oin@okta.com>.
 
-> **Note:** Some considerations on this page are specifically for the **<StackSnippet snippet="protocol-name" inline/>** protocol. <br>
-> If you want to change the protocol details on this page, select the protocol from the **Instructions for** dropdown list on the right.
+> **Note:** Some considerations on this page are specifically for the **<StackSnippet snippet="protocol-name" inline/>** . <br>
+> If you want to change the instructions on this page, select a different option from the **Instructions for** dropdown list on the right.
 
 <StackSnippet snippet="considerations" />
 
@@ -104,8 +104,8 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 
 See [Submit your updated integration](#submit-your-updates) after all required tests are successful.
 
-> **Note:** Test steps on this page are specifically for the **<StackSnippet snippet="protocol-name" inline/>** protocol. <br>
-> If you want to change the protocol details on this page, select the protocol from the **Instructions for** dropdown list on the right.
+> **Note:** Test steps on this page are specifically for the **<StackSnippet snippet="protocol-name" inline/>** . <br>
+> If you want to change the instructions on this page, select a different option from the **Instructions for** dropdown list on the right.
 
 ### Generate instances for testing
 
