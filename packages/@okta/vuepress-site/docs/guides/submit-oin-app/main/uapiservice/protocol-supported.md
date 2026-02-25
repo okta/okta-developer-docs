@@ -4,6 +4,6 @@ This guide covers submissions that use [API service](/docs/guides/oin-api-servic
 integration.
 
 > **Notes:**
-    > * The API service integration is mutually exclusive. If you select the API service capability, you cannot select any other capability or protocol, such as SSO or Provisioning. Similarly, if you select another capability or protocol, the API service option is unavailable.
+    > * The API service capability is mutually exclusive of other capabilities in a submission. If you select the API service capability, you can't select any other capability, such as SSO or Provisioning. Similarly, if you select another capability, the API service option is unavailable.
     > * SWA app integrations are no longer accepted for publication in the OIN catalog. However, the OIN team still maintains existing SWA apps.
     > * There are protocol-specific limitations on integrations in the OIN. See [OIN limitations](/docs/guides/submit-app-prereq/main/#oin-limitations).

@@ -116,7 +116,7 @@ Use the test functionality in the OIN Wizard to obtain test integration credenti
 1. Go to **Test integration** > **Generate instance**. Your browser redirects to the Authorize integration page.
 1. Click **Install & Authorize**.
 1. Copy the client secret from the dialog and store it securely
-   >**Note**: You must copy the client secret now. For security, it is only displayed once and cannot be retrieved later. Only a masked value will be available after you close this dialog.
+   >**Note**: You must copy the client secret from this dialog. For security purposes, it's only displayed once and can't be retrieved later.
 1. Click **Done**.
 1. On the **General** tab, copy the **Okta domain** and **client ID** and securely store them for your integration test.
 1. Configure your app using the Okta domain, client ID, and client secret.

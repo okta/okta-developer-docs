@@ -1,1 +1,1 @@
-For API service integration, do the testing manually.
+For an API service integration, test the integration manually.
