@@ -79,11 +79,11 @@ Start your integration submission for OIN publication:
 
     * Click **Create app** to list a new app. <br><br>
     **OR**<br>
-    * If there’s an existing integration for an app, click **Add integration** to add another integrations to it. The **Manage your app** page appears.
+    * If there’s an existing integration for an app, click **Add more integration** to add another integrations to it. The **Manage your app** page appears.
 
 1. Select your integration capabilities, and then enter a display name and description. See the [Integration details](/docs/guides/submit-oin-app/openidconnect/main/#integration-details) section for more details.
 
-1. Click **Add Integration Details**. The **Integration Details** page appears.
+1. Click **Add Integration Details**. The **Integration details** page appears.
 
    > **Note:**
    >Alternatively, you can go to **Applications** > **Your OIN Integrations** to build your integration and select your protocols.
