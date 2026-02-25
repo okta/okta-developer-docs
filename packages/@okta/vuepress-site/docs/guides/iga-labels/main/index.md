@@ -13,7 +13,7 @@ This guide shows you how to create labels and assign them to resources using the
 #### Learning outcomes
 
 * Learn how to set up Okta to access [Okta Identity Governance APIs](https://developer.okta.com/docs/api/iga/).
-* Learn how to create, update, delete, and assign labels using the [Okta Identity Governance](https://developer.okta.com/docs/api/iga/) > [Labels](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/) APIs.
+* Learn how to create, update, delete, and assign labels using the [Okta Identity Governance](https://developer.okta.com/docs/api/iga/) > [Labels](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/labels) APIs.
 
 #### What you need
 
@@ -34,7 +34,7 @@ Labels in OIG provide several key benefits:
 
 * Efficient searching and enhanced visibility: After you create governance labels and assign them to resources, they become filterable options in the Admin Console's resource search functionality. For example, go to the **Applications** or the **Groups** > **Advanced search** pages to view the **Governance Labels** search options.
 
-You can only manage labels with the [Labels API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/). However, you can use the labels in the Admin Console after they're created and assigned to resources through the API. See the [Resource labels](https://help.okta.com/okta_help.htm?type=oie&id=resource-labels) product documentation.
+You can only manage labels with the [Labels API](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/labels/). However, you can use the labels in the Admin Console after they're created and assigned to resources through the API. See the [Resource labels](https://help.okta.com/okta_help.htm?type=oie&id=resource-labels) product documentation.
 
 > **Note:** Only users with the super admin role (`SUPER_ADMIN`) or a custom role with the [label permissions](https://help.okta.com/okta_help.htm?type=oie&id=cstm-admin-role-labels-permissions) can manage labels. See [Assign roles to your API users](#assign-roles-to-your-api-users).
 
@@ -84,7 +84,7 @@ Users can access OIG APIs by authenticating with an [OAuth 2.0 access token](htt
 
 ### Scopes required for labels
 
-Your OAuth 2.0 access token must have the appropriate scopes for the [Labels API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/) request.
+Your OAuth 2.0 access token must have the appropriate scopes for the [Labels API](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/labels/) request.
 
 Ensure that the following scopes are granted to your app for API authentication:
 
@@ -100,7 +100,7 @@ In addition, grant any other scopes that you may need for other API requests, su
 
 ### Assign roles to your API users
 
-Assign a role to your API user (or non-user principal) with adequate permissions to manage the [Labels API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/).
+Assign a role to your API user (or non-user principal) with adequate permissions to manage the [Labels API](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/labels/).
 This is either a custom role with the label permissions or the super admin role (`SUPER_ADMIN`).
 
 You can create a custom role with the following permissions:
@@ -118,13 +118,13 @@ Assign the user requesting the Labels APIs to your API access app. This is the a
 
 ## Manage resource labels
 
-Use the [Labels](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/) API to manage governance labels.
+Use the [Labels](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/labels/) API to manage governance labels.
 
 Examples in this section assume that you're making the request with an OAuth 2.0 access token. See [Get an access token and make a request](/docs/guides/set-up-oauth-api/main/#get-an-access-token-and-make-a-request) for API requests from a user.
 
 ### Create a label
 
-Create a label with the [Create a label](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/#tag/Labels/operation/createLabel) request (`POST /governance/api/v1/labels`):
+Create a label with the [Create a label](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/labels/createlabel) request (`POST /governance/api/v1/labels`):
 
 * Specify the label key in the `name` parameter.
 * Specify the list of values in the `values` array.
@@ -204,9 +204,9 @@ After you create your labels, they appear as search options in the Admin Console
 
 ### Assign labels
 
-Assign labels to resources with the [Assign the labels to resources](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/#tag/Labels/operation/assignResourceLabels) request (`POST /governance/api/v1/resource-labels/assign`):
+Assign labels to resources with the [Assign the labels to resources](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/labels/assignresourcelabels) request (`POST /governance/api/v1/resource-labels/assign`):
 
-* Use the [List all labels](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/#tag/Labels/operation/listLabels) request to obtain label details. Specifically, retrieve the `labelValueId` of label values that you want to assign to resources.
+* Use the [List all labels](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/labels/listlabels) request to obtain label details. Specifically, retrieve the `labelValueId` of label values that you want to assign to resources.
 * Specify the resources in [ORN](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
 
 > **Note:** You need the `okta.governance.labels.manage` scope for this request in addition to the scopes required to manage the resource (for example, `okta.apps.manage` or `okta.governance.entitlements.manage`).
@@ -337,13 +337,13 @@ curl -i -X POST \
 }
 ```
 
-Resources have a maximum of ten label values. You can use the [Remove the labels from resources](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/#tag/Labels/operation/removeResourceLabels) request to unassign labels from resources. When resources are deleted, their labels are automatically unassigned.
+Resources have a maximum of ten label values. You can use the [Remove the labels from resources](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/labels/removeresourcelabels) request to unassign labels from resources. When resources are deleted, their labels are automatically unassigned.
 
-See [List all labeled resources](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/#tag/Labels/operation/listLabelResources) to search for resources with labels.
+See [List all labeled resources](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/labels/listlabelresources) to search for resources with labels.
 
 ### Update labels
 
-Update labels with the [Update the labels to resources](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/#tag/Labels/operation/updateLabel) request (`PATCH /governance/api/v1/labels/{labelId}`).
+Update labels with the [Update the labels to resources](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/labels/updatelabel) request (`PATCH /governance/api/v1/labels/{labelId}`).
 
 > **Note:** You need the `okta.governance.labels.manage` scope for this request.
 
@@ -432,7 +432,7 @@ curl -i -X PATCH \
 
 ### Delete a label
 
-Delete a label key and its associated values with the [Delete a label](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/#tag/Labels/operation/deleteLabel) request (`DEL /governance/api/v1/labels/{labelId}`).
+Delete a label key and its associated values with the [Delete a label](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/labels/deletelabel) request (`DEL /governance/api/v1/labels/{labelId}`).
 
 You can only delete a label key if there are no associated label values assigned to any resources.
 
