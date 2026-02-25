@@ -13,9 +13,11 @@ Learn how to submit an OIDC, SAML 2.0, SCIM 2.0, Universal Logout, Entitlement M
 #### What you need
 
 * An [Okta Integrator Free Plan org](https://developer.okta.com/signup/). The OIN Wizard is only available in Integrator Free Plan orgs.
+
 * An admin user in the Integrator Free Plan org with either the super admin or the app and org admin roles
-* A functional integration based on the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) or [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/main/) guide
-* Google Chrome browser with the Okta Browser Plugin installed (see [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements))
+
+<StackSnippet snippet="what-need"/>
+
 * The various items necessary for submission in accordance with the [OIN submission requirements](/docs/guides/submit-app-prereq/)
 
 ---
@@ -28,44 +30,16 @@ The OIN Wizard is a full-service tool in the Admin Console for you to do the fol
 
 * Provide all your integration submission details.
 * Generate an app instance in your org for testing:
-
-  * Test your SSO integration with the OIN Submission Tester.
-  * Test your SCIM integration with manual test cases and Runscope test suites.
-  * Test your SCIM-based Entitlement Management manually.
-  * Test your Universal Logout integration manually.
-  * Test your API service integration manually.
-
+<StackSnippet snippet="overview-generate"/>
 * Submit your integration directly to the OIN team when you're satisfied with your test results.
 * Monitor the status of your submissions through the **Your OIN Integrations** dashboard.
 * Edit published integrations and resubmit them to the OIN.
 
 The OIN team verifies your submitted integration before they publish it in the [OIN catalog](https://www.okta.com/integrations/).
 
-> **Note:** Traditional SPA and mobile apps integrate with Okta using an OIDC flow that authenticates by exchanging and storing tokens on the client. They rely on client-side authentication and can't be added to the OIN Wizard directly. However, SaaS app stacks with SPA or mobile components can be included in the OIN Wizard if a backend server handles the authentication. See the [Enterprise-Ready workshop](https://developer.okta.com/blog/2023/07/28/oidc_workshop) for more information on authenticating SaaS apps with OpenID Connect.
+<StackSnippet snippet="overview-note"/>
 
-### Protocols supported
-
-This guide covers submissions that use the following protocols and integrations:
-
-* [OpenID Connect (OIDC)](https://openid.net/connect/)
-
-* [Security Assertion Markup Language (SAML) 2.0](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html)
-
-* [System for Cross-domain Identity Management (SCIM) 2.0 Provisioning](https://scim.cloud)
-
-* [SCIM 2.0 Entitlement Management](https://datatracker.ietf.org/doc/html/rfc7644#section-3.3)
-
-* [Universal Logout](/docs/guides/oin-universal-logout-overview/)
-
-* [API service](/docs/guides/oin-api-service-overview/)
-
-> **Notes:**
-    > * Universal Logout integrations are only supported for SAML 2.0 and OIDC protocols. If you want to submit a Universal Logout integration with SCIM provisioning, you must also submit an SSO integration with either SAML 2.0 or OIDC.
-    > * Entitlement Management is an *Early Access* feature and it’s currently supported for integrations that manage entitlements through a SCIM server.
-    > * The API service integration is mutually exclusive. If you select the API service capability, you cannot select any other capability or protocol, such as SSO or Provisioning. Similarly, if you select another capability or protocol, the API service option is unavailable.
-    > * To enable Entitlement Management feature, go to **Settings** > **Features** in the Admin Console and turn on **Enable SCIM 2.0 Entitlement Management submission**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
-    > * SWA app integrations are no longer accepted for publication in the OIN catalog. However, the OIN team still maintains existing SWA apps.
-    > * There are protocol-specific limitations on integrations in the OIN. See [OIN limitations](/docs/guides/submit-app-prereq/main/#oin-limitations).
+<StackSnippet snippet="protocol-supported"/>
 
 ## Start a submission
 
@@ -145,11 +119,7 @@ Continue with the OIN Wizard and configure your protocol settings:
 
     <StackSnippet snippet="protocol-properties" />
 
-#### SCIM 2.0 entitlement management properties
-
 <StackSnippet snippet="entitlement-management-properties"/>
-
-#### Universal logout properties
 
 <StackSnippet snippet="universal-logout-properties"/>
 
@@ -173,7 +143,8 @@ A dedicated test admin account in your app is required for Okta integration test
 
 * Privileges to configure admin settings in your test app
 * Privileges to administer test users in your test app
-* Credentials to access the SCIM server for SCIM integrations
+
+<StackSnippet snippet="test-info-review" />
 
 After your integration is verified, Okta automatically deletes test account credentials 30 days after your app is published in the OIN Wizard. To resubmit your app after this period, create a new test account and provide the required information.
 
@@ -188,7 +159,9 @@ In the **Testing information for Okta review** section, specify the following **
 | **Account URL** `*`  | A static URL to sign in to your app. An OIN analyst goes to this URL and uses the account credentials you provide in the subsequent fields to sign in to your app. |
 | **Username** `*`  | The username for your test admin account. The OIN analyst signs in with this username to execute test cases. The preferred account username is `isvtest@okta.com`. |
 | **Password** `*`  | The password for your test admin account |
-| **Testing instructions** | Include information that the OIN team needs to know about your integration for testing (such as the admin account or the testing configuration). You can also provide instructions on how to add test user accounts.<br>For a SCIM integration, specify how to access the SCIM server for testing. Provide the SCIM server base URL and credentials for the OIN team to conduct [QA testing](/docs/guides/submit-app-overview/#understand-the-submission-review-process). You can include instructions on obtaining SCIM credentials (API token or OAuth 2.0 properties) from your admin app. |
+| **Testing instructions** | Include information that the OIN team needs to know about your integration for testing (such as the admin account or the testing configuration). You can also provide instructions on how to add test user accounts. |
+
+<StackSnippet snippet="test-instruction" />
 
 `*` Required properties
 
@@ -205,28 +178,11 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 
 1. [Generate instances for testing](#generate-instances-for-testing). You need to create an app integration instance to test each protocol that your integration supports.
 
-    * For an SSO integration, configure SSO and assign test users on the test instance.
-    * For a SCIM integration, configure provisioning and map user profile attributes on the test instance.
-    * For SCIM entitlement management integration, manually test this functionality as follows:
-
-        1. Verify that the **Entitlement management** feature is **Enabled**. To enable it, see [Entitlement Management](https://help.okta.com/oie/en-us/content/topics/identity-governance/em/entitlement-mgt.htm?cshid=ext-entitlement-mgt).
-        [[style="list-style-type:lower-roman"]]
-        1. Configure provisioning and update the operations that are supported by your SCIM server.
-        1. Verify that the resource types or entitlements that are supported by your SCIM server are listed on the **Governance** tab.
-
-            >**Note:**  After successful provisioning, it might take some time for entitlements to load.
-
-        1. Map user profile attributes on the test instance.
-        1. Assign the entitlements to the users manually for testing or automatically through a policy. For more information, see [Assign entitlements to users](https://help.okta.com/oie/en-us/content/topics/identity-governance/em/assign-entitlements-users.htm).
-
-    * For the Universal Logout integration, assign the test user and enable the **Logout** option on the instance. You can use the same instance that you created for SSO integration testing.
-    * For API service integration, do the testing manually.
+    <StackSnippet snippet="generate-ins-step1"/>
 
 2. Test your integration.
-   * For an SSO integration, test the required flows in the [OIN Submission Tester](#oin-submission-tester) with your generated test instance. Fix any test failures from the OIN Submission Tester, then regenerate the test instance (if necessary) and retest.
-   * For a SCIM integration, execute the [Runscope CRUD tests](#runscope-crud-tests) and the [Okta manual integration tests](#manual-okta-scim-integration-tests) with your generated test instance.
-   * For a SCIM entitlement management integration, execute the [Entitlement Management Runscope tests](#entitlement-management-runscope-tests) and the [Okta manual integration tests](#manual-okta-scim-integration-tests) with your generated test instance.
-   * For a Universal Logout integration, test the logout flow manually. See [Test your Universal Logout integration](#test-your-universal-logout-integration).
+
+    <StackSnippet snippet="generate-ins-step2"/>
 
 3. [Submit your integration](#submit-your-integration) after all required tests are successful.
 
@@ -254,17 +210,7 @@ Generate instances for testing in your Integrator Free Plan org directly from th
 > * Use the Integrator Free Plan org as part of your development and testing environment.
 > * Don't connect the generated app instance from the Integrator Free Plan org to your production environment. Connecting your development and testing environment with your production environment creates several potential risks, including unintentionally modifying data and misconfiguring your service. This could result in providing inadequate security or disrupting your service.
 
-Okta recommends that you generate an instance for testing each protocol supported by your integration:
-
-* You must generate separate instances for testing if you support two SSO protocols (one for OIDC and one for SAML). The OIN Submission Tester can only test one protocol at a time.
-* If your SSO integration supports both SCIM and SCIM entitlement management, create one instance specifically for SCIM protocol and SCIM entitlement management testing. You also need to create a separate instance for each supported SSO protocol testing.
-* For Universal Logout integration, you can use the same instance that you created for SSO protocol testing.
-
-There are certain conditions where you can test two protocols on one instance. You can create one instance for SSO and SCIM testing if your integration meets all of these conditions:
-
-* It supports SCIM and one SSO protocol
-* It doesn't support SSO JIT
-* The **Create User** SCIM operation is enabled
+<StackSnippet snippet="generate-instance-rec"/>
 
 The Integrator Free Plan org has no limit on active instances. You can create as many test instances as needed for your integration. To deactivate any instances you no longer need, see [Deactivate an app instance in your org](#deactivate-an-app-instance-in-your-org).
 
@@ -287,13 +233,7 @@ The Integrator Free Plan org has no limit on active instances. You can create as
 
 #### Assign test users to your integration instance
 
-For SSO-only flow tests, create your test users in Okta before you assign them to your integration. See [Add users manually](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) and [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign) topics in the Okta product documentation.
-
-For SSO flow tests without JIT provisioning, you need to create the same test user in your app. If your integration supports JIT provisioning, Okta provisions the test user on your app automatically.
-
-For SCIM provisioning, you can assign an imported user to your app. Alternatively, you can create a user in Okta that can be pushed to your app through SCIM before you assign the user to your app. See [About adding provisioned users](https://help.okta.com/okta_help.htm?type=oie&id=lcm-about-user-management).
-
-> **Note:** You need to have the org admin role assigned to you before you can create users in Okta.
+<StackSnippet snippet="assign-test" />
 
 To assign test users to your integration:
 
@@ -326,17 +266,7 @@ If you modify a published OIN integration, you must generate an instance based o
 
 > **Note:** The Integrator Free Plan org has no limit on active instances. You can create as many test instances as needed for your integration. To deactivate any instances you no longer need, see [Deactivate an app instance in your org](#deactivate-an-app-instance-in-your-org).
 
-#### Add to Tester
-
-> **Note:** The OIN Submission Tester only supports SSO integrations. The **Add to Tester** option isn't available for SCIM integrations.
-
-* Click **Add to Tester** next to the instance in the **Application instances for testing** list to include it for testing with the OIN Submission Tester. The **Add to Tester** option only appears for SSO instances that are active and eligible for testing.
-
-    The corresponding test cases are populated with the instance name and the **Run test** option is enabled in the OIN Submission Tester.
-
-* Click **Remove from Tester** to disable the test cases that are associated with the SSO instance.
-
-    The instance name and test results are removed for the corresponding test cases in the OIN Submission Tester. The **Run test** option is also disabled.
+<StackSnippet snippet="add-tester" />
 
 #### Deactivate an app instance in your org
 
@@ -370,265 +300,12 @@ To edit the app instance from the OIN Wizard, follow these steps:
 
 > **Note:** After you edit a test instance, any previous test results for that instance are invalid and removed from the OIN Submission Tester. Rerun all the required tests again with the new instance.
 
-### OIN Submission Tester
+<StackSnippet snippet="oin-sub-test"/>
 
-> **Note:** The OIN Submission Tester only supports SSO integrations.
 
-The **Test integration** page includes the integrated OIN Submission Tester, which is a plugin app that runs the minimal tests required to ensure that your sign-in flow works as expected. Ideally, you want to execute other variations of these test cases without the OIN Submission Tester, such as negative and edge test cases. You can't submit your integration in the OIN Wizard until all required tests in the OIN Submission Tester pass.
+<StackSnippet snippet="test-ul-int"/>
 
-Before you start testing with the OIN Submission Tester, see [OIN Wizard test requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-test-requirements).
-
-> **Notes:**
-> * Click **Initialize Tester** if you're using the OIN Submission Tester for the first time.
-> * Click **Refresh Tester session** for a new test session if the OIN Submission Tester session expired.
-> * See [Troubleshoot the OIN Submission Tester](/docs/guides/submit-app-prereq/main/#troubleshoot-the-oin-submission-tester) if you have issues loading the OIN Submission Tester.
-
-The OIN Submission Tester includes the mechanism to test the following flows:
-
-* IdP flow
-* SP flow
-* Just-In-Time (JIT) provisioning (with IdP flow)
-* Just-In-Time (JIT) provisioning (with SP flow)
-
-> **Note:** The **JIT provisioning (with SP flow)** test case appears in the OIN Submission Tester if your integration supports JIT and only the SP flow. If your integration supports JIT, IdP, and SP flows, then a successful **JIT provisioning (with IdP flow)** test is sufficient for submission.
-
-The test cases for these flows appear in the **Test integration using the OIN Submission Tester** section depending on your OIN Wizard [test information](#test-information-for-okta-review).
-
-> **Note:** See [Run test](#run-tests) for the steps on how to run each test case.
-
-Your test results in the OIN Submission Tester are valid for 48 hours after the test run. Rerun all your test cases in the OIN Submission Tester if they expired.
-
-[Submit your integration](#submit-your-integration) if all your tests have passed. If you have errors, see [Failed tests](#failed-tests) to resolve the errors.
-
-#### Run tests
-
-The **Run test** option is enabled for test cases with an eligible test instance.
-
-After you click **Run test**, the OIN Submission Tester opens a browser window in incognito mode. Use the incognito browser window to execute the test and verify it with the **Test in progress** dialog that appears in the upper-right corner.
-
-##### Run the IdP flow test
-
-To run the IdP flow test:
-
-1. Click **Run test** next to the **IdP flow** test case.
-
-   A new Chrome browser in incognito mode appears for you to sign in.
-
-1. Sign in to Okta as an end user that was assigned to your test app instance.
-
-    * Your app tile appears on the Okta End-User Dashboard.
-    * The Tester selects your app tile and you're signed in to your app.
-
-1. Verify that the test end user signed in to your app with the correct profile.
-1. Select **The user successfully signed in to your app** in the upper-right **Test in progress** dialog to confirm that the IdP flow test passed.
-1. Click **Continue** from the **Test in progress** dialog to sign out of your app.
-
-    The incognito browser closes and you're redirected back to the OIN Submission Tester. The OIN Submission Tester records the test run result and timestamp.
-
-1. Click the **IdP flow** expand icon (![chevron-down expand icon](/img/icons/odyssey/chevron-down.svg)) to view the test steps and network traffic details for the test run.
-
-    If your test run wasn't successful, this is a useful tool to troubleshoot the issues and correct your integration, instance, or submission details.
-
-##### Run the SP flow test
-
-To run the SP flow test:
-
-1. Click **Run test** next to the **SP flow** test case.
-
-    A new Chrome browser in incognito mode appears for you to sign in.
-
-1. Sign in to your app as the test end user that was assigned to your app instance.
-1. Verify that the test end user signed in to your app with the correct profile.
-1. Select **The user successfully signed in to your app** in the upper-right **Test in progress** dialog to confirm that the SP flow test passed.
-1. Click **Continue** from the **Test in progress** dialog to sign out of your app.
-
-    The incognito browser closes and you're redirected back to the OIN Submission Tester. The OIN Submission Tester records the test run result and timestamp.
-
-1. Click the **SP flow** expand icon (![chevron-down expand icon](/img/icons/odyssey/chevron-down.svg)) to view the test steps and network traffic details for the test run.
-
-##### Run the JIT provisioning with IdP flow test
-
-For the JIT provisioning test, the OIN Submission Tester creates a temporary Okta test user account for you to verify that JIT provisioning was successful. The Tester then removes the test user account from Okta to complete the test.
-
-> **Notes:**
-> * Ensure that your app integration supports JIT provisioning before you run the JIT provisioning test.
-> * For JIT provisioning testing, you must have either the super admin role or both the app admin and org admin roles assigned to you.
-> * The JIT provisioning test case appears only if you select **Supports Just-In-Time provisioning** in your submission.
-
-To run the JIT provisioning with IdP flow test:
-
-1. Click **Run test** next to the **JIT provisioning (w/ IdP flow)** test case.
-
-    The OIN Submission Tester executes the following steps for the JIT provisioning test case:
-    1. Creates a user in Okta and assigns them to the test app instance.
-    [[style="list-style-type:lower-alpha"]]
-    1. Open an incognito browser window to sign in to Okta.
-    1. Sign in to Okta as the new test user.
-    1. Select the app tile.
-    1. Wait for confirmation that the new test user signed in and was provisioned in your app (you're responsible to verify this step).
-
-1. Verify that the test user signed in to your app with the correct first name, last name, and email attributes.
-
-    > **Note:** You can go back to the OIN Submission Tester window and expand the test case to view network traffic details for this test run. The **NETWORK TRAFFIC** tab contains API calls to Okta with the test user details in the request payload.
-
-1. Select **The user successfully signed in to your app** in the upper-right **Test in progress** dialog to confirm that the JIT provisioning IdP flow test passed.
-1. Click **Continue** from the **Test in progress** dialog to sign out of your app.
-
-    The OIN Submission Tester executes the following steps after you click **Continue**:
-    1. Signs out of the app and closes the incognito browser window.
-    [[style="list-style-type:lower-alpha"]]
-    1. Unassigns the test user from the app instance in Okta.
-    1. Deletes the test user from Okta.
-    1. Records the test run result and timestamp in the OIN Submission Tester.
-    1. Redirects you back to the OIN Submission Tester.
-
-1. Click the **JIT provisioning (w/ IdP flow)** expand icon (![chevron-down expand icon](/img/icons/odyssey/chevron-down.svg)) to view the test steps and network traffic details for the test run.
-
-> **Note:** The test user account created in your app from JIT provisioning persists after the JIT provisioning test. The OIN Submission Tester only removes the temporary test user account from your Okta org. It's your responsibility to manage the JIT test user accounts in your app.
-
-##### Run the JIT provisioning with SP flow test
-
-You're only required to pass one JIT provisioning test case to submit your integration. The OIN Submission Tester includes the **JIT provisioning (w/ SP flow)** test case if you support JIT and only the SP flow. If your integration supports JIT, IdP, and SP flows, then a successful **JIT provisioning (w/ IdP flow)** test is sufficient for submission.
-
-Similar to the [JIT provisioning with IdP flow test](#run-the-jit-provisioning-with-idp-flow-test), the OIN Submission Tester creates a temporary Okta test user account for you to verify that JIT provisioning was successful. The Tester then removes the test user account from Okta to complete the test.
-
- Follow the same steps in [Run the JIT provisioning with IdP flow test](#run-the-jit-provisioning-with-idp-flow-test) to run the JIT provisioning with SP flow test. The only difference in the SP test is that the OIN Submission Tester opens an incognito browser window to sign in to your app first.
-
-#### Failed tests
-
-If any of your test cases fail, investigate and resolve the failure before you submit your integration. You can only submit integrations that have successfully passed all the required tests in the OIN Submission Tester.
-
-If you have to update SSO or test detail properties in your submission to resolve your failed test cases, then [generate a new app integration instance for testing](#generate-an-instance-for). [Assign test users to your new integration instance](#assign-test-users-to-your-integration-instance) before you execute all your SSO test cases again.
-
-> **Note:** You don't have to generate a new app instance for every failed test scenario. If you have an environment issue or if you forgot to assign a user, you can fix your configuration and run the tests again. Generate a new instance if you need to modify an SSO property, such as an integration variable, a redirect URI, or an ACS URL.
-
-It's good practice to deactivate your test instances that aren't in use. You can later delete the instance to clean your app integration list.
-
-If you have questions or need more support, email Okta developer support at <developers@okta.com> and include your test results. To obtain your test results:
-
-1. From the OIN Submission Tester, click **Export results** (upper-right corner) to download a JSON-formatted file of all your test results.
-
-All required tests in the OIN Submission Tester must have passed within 48 hours of submitting your integration.
-
-### Test your Universal Logout integration
-If your integration supports Universal Logout, you need to test the logout flow manually.
-
-1. Ensure you have an active login session on your app.
-1. From the Admin Console, go to **Directory** > **People**.
-1. Select the user that has the current login session on your app.
-1. Click **More Actions** > **Clear User Sessions**.
-1. Select **Also include logout enabled apps and Okta API tokens** and click **Clear and revoke**.
-1. Go back to the app and ensure that the login session is terminated.
-    > **Note**: For partial universal logout support, while clearing the user's session from Okta, the app only revokes the user's refresh tokens, which prevents the user from getting new access in the future. However, the existing user sessions aren't terminated until the user's existing access tokens expire or the user signs out of an app.
-
-### Test your SCIM integration
-
-You need to run three sets of tests for SCIM integrations:
-
-1. [SCIM API specification tests](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api)
-
-    You need to test your SCIM API service before you conduct Okta-SCIM integration tests. Okta provides you with a SCIM API specification test suite to execute in Runscope. See [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api) for instructions on how to run this test suite. Provide the test results URL in the **Link to Runscope spec test results** field when you submit your integration to the OIN.
-
-1. [Runscope create, read, update, and delete (CRUD) user profile tests](#runscope-crud-tests)
-
-    Enter the results URL from these tests in the **Link to Runscope CRUD test results** field when you submit your integration to the OIN.
-
-1. [Entitlement management Runscope tests](#entitlement-management-runscope-tests)
-
-    When you submit your integration to the OIN, enter the URL from the test results in the **Link to SCIM Entitlement Management Runscope test results** field.
-
-1. [Manual Okta SCIM integration tests](#manual-okta-scim-integration-tests)
-
-    You must certify that you've completed these tests when you submit your integration to the OIN.
-
-#### Runscope CRUD tests
-
-1. Download the [Okta SCIM 2.0 CRUD Test](/standards/SCIM/SCIMFiles/Okta-SCIM-20-CRUD-Test.json) file.
-
-   This CRUD test file is built for the [BlazeMeter Runscope](https://www.runscope.com/) API monitoring tool. If you don't have a Runscope account, you can sign up with a [free trial to Runscope](https://www.runscope.com/okta) for Okta developers.
-1. From Runscope, click **Import Test**.
-1. Select **API Monitoring Tests** as the import format.
-1. Click **Choose File** and select the **Okta SCIM 2.0 CRUD Test** file.
-1. Click **Import API Test**. In this new test bucket, click **Editor** from the left-navigation menu.
-1. Click **Test Settings** and then click **Initial Variables**.
-1. Add the following variables with values that match your SCIM integration:
-    * `oktaOrgUrl`: The base URL for your Okta org. Include the `https://` prefix.
-    * `oktaAppId`: The unique identifier that's assigned to your test app instance. You can see this value in the **App Embed Link** panel under the **General** tab for your instance.
-
-    <div class="three-quarter border">
-
-    ![The browser bar showing the oktaOrgUrl location.](/img/oin/scim_crud-test-identifiers.png)
-
-    </div>
-
-    * `oktaToken`: The Okta API token used by Runscope to connect to Okta APIs. You can generate an API token inside your org. See [Create an API token](/docs/guides/create-an-api-token/main/).
-    * `SCIMUrl`: The base URL of the SCIM service. For example: `https://example.com/scim/v2`
-    * `SCIMAuth`: The authorization token used to access your SCIM API. You can use the same authorization token you used to **Enable API integration** from [Generate an instance for <StackSnippet snippet="protocol-name" inline/>](#generate-an-instance-for).
-
-      The following is an example of the Runscope variable values:
-
-    <div class="three-quarter border">
-
-    ![Sample values for CRUD test variables. Runscope initial variables](/img/oin/scim_crud-variables-d.png)
-
-    </div>
-
-1. Click **Test Settings** and then click **Initial Script**.
-1. Copy the contents of the [Okta CRUD Initial Script](/standards/SCIM/SCIMFiles/Initial_Script_CRUD.txt) text file and paste into this Runscope console.
-1. Click **Save & Run**.
-
-##### Review Runscope test results
-
-On the left of your Runscope page, the test appears in the **Recent Test Runs** section.
-
-1. Click **View Progress** from the **Recent Test Runs** section.
-As the test suite runs, Runscope displays live updates of the test in progress. After the test suite completes, the main panel displays the results of your test.
-1. Click a test case to see its **Request**, **Response**, and **Connection** information.
-
-When you're satisfied with your Runscope CRUD test results, enter them in the **Link to Runscope CRUD test results** field:
-
-1. From your Runscope dashboard, open the test results that you want to share.
-2. At the top of the test result, set the **Private | Shareable** toggle to **Shareable**.
-3. Copy the URL for the test result. The test results can be viewed in detail, but the test can't be edited or rerun by people outside of your team.
-
-    Example of a test result URL:
-    `https://www.runscope.com/radar/abcdefghijkl/m01nopq2-3456-7r8s-9012-t34567uvw890/history/123ef4gh-i567-89j0-1k2l-3m4n5o678901`.
-
-1. Paste the test results URL into the **Link to Runscope CRUD test results** field in the OIN Wizard **Test integration** > **SCIM integration testing step** section.
-
-#### Entitlement management Runscope tests
-
-1. Download the [Okta SCIM 2.0 Entitlements Test](/standards/SCIM/SCIMFiles/Okta-SCIM-20-Entitlements-Test.json) file.
-
-    This Entitlement Management test file is built for the BlazeMeter Runscope API monitoring tool. If you don't have a Runscope account, you can sign up with a [free trial to Runscope](https://www.runscope.com/okta) for Okta developers.
-
-1. From Runscope, click **Import Test**.
-1. Select **API Monitoring Tests** as the import format.
-1. Click **Choose File** and select the **Okta SCIM 2.0 Entitlements Test** file.
-1. Click **Import API Test**. In the test bucket, click **Editor** from the left navigation menu.
-1. Click **Test Settings**, and then click **Initial Variables**.
-1. Add the following variables with values that match your SCIM integration:
-    * `SCIMBaseURL`: The base URL of the SCIM service. For example: `https://example.com/scim/v2`.
-    * `EntitlementEndpoint`: The endpoint of the resource type. For example, `/Roles`.
-    * `auth`: The authorization token that's used to access your SCIM API. You can use the same authorization token that you used to enable the API integration in [Generate an instance for <StackSnippet snippet="protocol-name" inline/>](#generate-an-instance-for).
-
-      The following is an example of the entitlement variable values:
-
-    <div class="three-quarter border">
-
-    ![Sample values for entitlement test variables. Runscope initial variables](/img/oin/scim_entitlement-variables-d.png)
-
-    </div>
-
-1. Click **Save & Run**.
-
-#### Manual Okta SCIM integration tests
-
-Execute the test cases in the [Okta SCIM Test Plan](/standards/SCIM/SCIMFiles/okta-scim-test-plan-v2.xlsx). Skip the test cases for the features that your integration doesn't support. All the other supported-feature test cases must pass before you can submit your integration to the OIN.
-
-Depending on your test scenario, you can import users from the **Import** tab (see [Import users](https://help.okta.com/okta_help.htm?id=ext_Importing_People)) or create users in Okta before assigning them to your test instance. See [About adding provisioned users](https://help.okta.com/okta_help.htm?type=oie&id=lcm-about-user-management) and [Assign test users to your integration instance](#assign-test-users-to-your-integration-instance).
-
-After you've successfully completed the manual integration tests, you can submit your integration.
+<StackSnippet snippet="test-scim"/>
 
 ## Submit your integration
 

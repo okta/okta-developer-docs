@@ -1,3 +1,4 @@
+#### SCIM 2.0 entitlement management properties
 > **Notes:**
 > * Entitlement Management is an *Early Access* feature and it’s currently supported for integrations that manage entitlements through a SCIM server.
 > * To enable Entitlement Management feature, go to **Settings** > **Features** in the Admin Console and turn on **Enable SCIM 2.0 Entitlement Management submission**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).

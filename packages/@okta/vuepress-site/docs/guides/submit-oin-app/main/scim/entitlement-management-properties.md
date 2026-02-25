@@ -1,3 +1,5 @@
+#### SCIM 2.0 entitlement management properties
+
 1. Specify the following properties if you want to integrate Entitlement Management:
 
     > **Notes:**
