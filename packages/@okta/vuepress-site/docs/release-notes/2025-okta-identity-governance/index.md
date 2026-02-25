@@ -41,9 +41,7 @@ You can also access this feature from the Admin Console. See [Enable Entitlement
 
 <ApiLifecycle access="beta" />
 
-The entitlement-value resource, in Okta resource name (ORN) format, is now returned in the [Retrieve the principal access for a resource](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/principal-access/getprincipalaccess) response for both `base` and `additional` grants. See the `orn` property in the `base` [entitlement-value grants list](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/principal-access/getprincipalaccess#principal-access/getprincipalaccess/t=response&c=200&path=base/entitlements/values/orn) and in the `additional` [entitlement-value grants list](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/principal-access/getprincipalaccess#principal-access/getprincipalaccess/t=response&c=200&path=additional/entitlements/values/orn)
-
-Principal-Access/#tag/Principal-Access/operation/getPrincipalAccess!c=200&path=additional/entitlements/values/orn&t=response) of the response payload.
+The entitlement-value resource, in Okta resource name (ORN) format, is now returned in the [Retrieve the principal access for a resource](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/principal-access/getprincipalaccess) response for both `base` and `additional` grants. See the `orn` property in the `base` [entitlement-value grants list](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/principal-access/getprincipalaccess#principal-access/getprincipalaccess/t=response&c=200&path=base/entitlements/values/orn) and in the `additional` [entitlement-value grants list](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/principal-access/getprincipalaccess#principal-access/getprincipalaccess/t=response&c=200&path=additional/entitlements/values/orn) of the response payload.
 <!-- OKTA-1063871, Preview date: Dec 10, 2025 -->
 
 #### Access Requests escalation settings is Beta
@@ -62,7 +60,7 @@ Users can now request access to Active Directory (AD)-sourced groups directly wi
 
 You must have [Bidirectional Group Management with Active Directory](https://help.okta.com/okta_help.htm?type=oie&id=ad-bidirectional-group-mgmt) configured in your org to have governance AD group support. See [Access governance for AD groups](https://help.okta.com/okta_help.htm?type=oie&id=ad-bidirectional-group-mgt-configure).
 
-For users to request access to AD groups, admins must first create a request condition with an AD-sourced group access scope. Use the [Create a request condition](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/#tag/Request-Conditions/operation/createResourceRequestConditionV2) request and set `accessScopeSettings.type` to `GROUP`. In the `accessScopeSettings.group` list, specify your AD-sourced group IDs that are requestable.
+For users to request access to AD groups, admins must first create a request condition with an AD-sourced group access scope. Use the [Create a request condition](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/request-conditions) request and set `accessScopeSettings.type` to `GROUP`. In the `accessScopeSettings.group` list, specify your AD-sourced group IDs that are requestable.
 <!-- OKTA-1059727, OKTA-1036354 ACCESS_REQUEST_AD_GROUPS Preview date: Dec 10, 2025 -->
 
 #### Collections support in Resource Owners API is Beta
@@ -79,8 +77,8 @@ You can now create resource campaigns to review and certify access for both SaaS
 The following API updates have been made to support service account campaigns:
 * New `OKTA_SERVICE_ACCOUNT` and `APP_SERVICE_ACCOUNT` options in the [resourceSettings.type](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/type) property of a campaign.
 * New [`resourceSettings.includeAllOktaServiceAccounts`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/includealloktaserviceaccounts) property for `resourceSettings.type` of `OKTA_SERVICE_ACCOUNT` in a campaign.
-* New [`resourceSettings.targetResources.includeAllAppServiceAccounts`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Campaigns/#tag/Campaigns/operation/createCampaign!path=resourceSettings/targetResources/includeAllAppServiceAccounts&t=request) property for `resourceSettings.type` of `APP_SERVICE_ACCOUNT` in a campaign.
-* Reviews can be filtered by service account ID (`appServiceAccountId` or `oktaServiceAccountId`) in [List all reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Reviews/#tag/Reviews/operation/listReviews).
+* New [`resourceSettings.targetResources.includeAllAppServiceAccounts`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/targetresources/includeallappserviceaccounts) property for `resourceSettings.type` of `APP_SERVICE_ACCOUNT` in a campaign.
+* Reviews can be filtered by service account ID (`appServiceAccountId` or `oktaServiceAccountId`) in [List all reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Reviews/listReviews).
 <!-- OKTA-1047480 IGA_ACCESS_CERT_SERVICE_ACCOUNTS Preview: Dec 10, 2025 -->
 
 ## November
@@ -107,7 +105,8 @@ You can also access this feature from the Admin Console. See [View user entitlem
 For access and sub-access items where the access revocation or restoration can’t be automated in a security access review, you can flag them for manual remediation. This is typically due to an access assignment through a group rule, an entitlement policy, a collection, or an unsupported resource.
 When you flag the access item for manual remediation, Okta fires an `access.review.action` System Log event.
 
-See [`supportedActions`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/executeSecurityAccessReviewAccessesAction!path=type&t=request), [`manualRemediationTypes`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/listSecurityAccessReviewAccesses!c=200&path=data/manualRemediationTypes&t=response), and [`remediationStatus`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/listSecurityAccessReviewAccesses!c=200&path=data/remediationStatus&t=response). <!--OKTA-1001463 IGA_SECURITY_ACCESS_REVIEW Preview date: Nov 5, 2025 -->
+See [`supportedActions`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/security-access-reviews/listsecurityaccessreviewaccesses#security-access-reviews/listsecurityaccessreviewaccesses/t=response&c=200&path=data/supportedactions), [`manualRemediationTypes`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/security-access-reviews/listsecurityaccessreviewaccesses#security-access-reviews/listsecurityaccessreviewaccesses/t=response&c=200&path=data/manualremediationtypes), and [`remediationStatus`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/security-access-reviews/listsecurityaccessreviewaccesses#security-access-reviews/listsecurityaccessreviewaccesses/t=response&c=200&path=data/remediationstatus).
+<!--OKTA-1001463 IGA_SECURITY_ACCESS_REVIEW Preview date: Nov 5, 2025 -->
 
 #### Security access reviews API is GA in Preview
 
@@ -143,7 +142,7 @@ Admins can now access a user's entitlement changes for a resource. This feature 
 
 #### Bug fixed in 2025.10.2
 
-The [Access Request - V2](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Requests/) APIs didn’t support the client credentials authentication flow. (OKTA-1044065)
+The [Access Request - V2](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/Requests/) APIs didn’t support the client credentials authentication flow. (OKTA-1044065)
 
 ### Weekly release 2025.10.1
 
@@ -253,7 +252,7 @@ The entitlement bundle and value resources now include their [Okta resource name
 
 To complement the [Governance delegates](#governance-delegates-apis-are-beta) feature, admins can now configure whether end users can set their own delegates with the Org Governance Settings API. See [delegates.enduser.permissions](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/updateorgsettings#org-governance-settings/updateorgsettings/t=request&path=delegates/enduser/permissions) in the [Update the org settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Org-Governance-Settings/updateOrgSettings) API.
 
-End users can also view their delegate permissions in the My Settings API. See [delegates.permissions](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/getMySettings!c=200&path=delegates/permissions&t=response) in the [Retrieve the settings](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/getMySettings) API.
+End users can also view their delegate permissions in the My Settings API. See [delegates.permissions](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-settings/getmysettings#my-settings/getmysettings/t=response&c=200&path=delegates/permissions) in the [Retrieve the settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/My-Settings/getMySettings) API.
 <!-- OKTA-982882 OKTA-987070 GOVERNANCE_DELEGATES FF Preview date: Sept 10, 2025 -->
 
 #### Security Access Reviews API is EA
@@ -299,16 +298,16 @@ Super admins and users can assign delegates to complete governance tasks. These 
 
 The following APIs support the governance delegates flow and are available as Beta:
 
-* Principal Settings API > [Update the principal settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Principal-Settings/#tag/Principal-Settings/operation/updatePrincipalSettings)
-* Delegates > [List all delegate appointments](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Delegates/#tag/Delegates/operation/listDelegateAppointments)
-* My Settings > [Retrieve the settings](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/getMySettings)
-* My Settings > [Update the settings](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/updateMySettings)
-* My Settings > [List the eligible delegate users](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/listMyDelegateUsers)
+* Principal Settings API > [Update the principal settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Principal-Settings/updatePrincipalSettings)
+* Delegates > [List all delegate appointments](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Delegates/listDelegateAppointments)
+* My Settings > [Retrieve the settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/My-Settings/getMySettings)
+* My Settings > [Update the settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/My-Settings/updateMySettings)
+* My Settings > [List the eligible delegate users](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/My-Settings/listMyDelegateUsers)
 <!-- OKTA-987070 GOVERNANCE_DELEGATES FF -->
 
 #### List all access request catalog entries for a user is GA
 
-The [List all access request catalog entries for a user](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultUserEntriesV2) (`GET /governance/api/v2/catalogs/default/user/{userId}/entries`) operation is now included in the **Access Requests - V2** > [Catalogs](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/) API. As an admin, use this operation to list access request catalog entries for a user. A filter expression query parameter is required to specify the set of entries in the response.
+The [List all access request catalog entries for a user](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/Catalogs/listAllDefaultUserEntriesV2) (`GET /governance/api/v2/catalogs/default/user/{userId}/entries`) operation is now included in the **Access Requests - V2** > [Catalogs](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/Catalogs/) API. As an admin, use this operation to list access request catalog entries for a user. A filter expression query parameter is required to specify the set of entries in the response.
 <!-- [OKTA-954146] [OKTA-915784] [OKTA-975991], used for (but not dependent on) ACCESS_REQUESTS_UNIFIED_CATALOG -->
 
 #### Unified requester experience is EA
@@ -324,10 +323,11 @@ This is an Early Access feature. See [Enable self-service features](https://deve
 
 The following Access Request API updates have been made to support the unified requester experience:
 
-* New `REQUEST_TYPE` option for [accessScopeType](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Requests/#tag/Requests/operation/listAllRequestsV2!c=200&path=data/requested/accessScopeType&t=response) in the [Requests](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Requests/) API
-* New [validRequestOnBehalfOfSettings](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Settings/#tag/Request-Settings/operation/getRequestSettingsV2!c=200&path=validRequestOnBehalfOfSettings&t=response) property for [Request Settings](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Settings/) API
+* New `REQUEST_TYPE` option for [accessScopeType](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests/listallrequestsv2#requests/listallrequestsv2/t=response&c=200&path=data/requested/accessscopetype) in the [Requests](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/Requests/) API
+* New [validRequestOnBehalfOfSettings](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/request-settings/getrequestsettingsv2#request-settings/getrequestsettingsv2/t=response&c=200&path=validrequestonbehalfofsettings) property for [Request Settings](
+https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/Request-Settings/) API
 * [Related entry link updates for catalog entry responses](#related-entity-link-updates-for-catalog-entry-responses)
-* [List all access request catalog entries for a user](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultUserEntriesV2) <!-- OKTA-968620 ACCESS_REQUESTS_UNIFIED_CATALOG EA Preview and Prod -->
+* [List all access request catalog entries for a user](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/Catalogs/listAllDefaultUserEntriesV2) <!-- OKTA-968620 ACCESS_REQUESTS_UNIFIED_CATALOG EA Preview and Prod -->
 
 #### Developer documentation updates in 2025.08.0
 
@@ -350,11 +350,11 @@ The filtered entitlement bundles request (`GET /governance/api/v1/entitlement-bu
 
 The `_links.relatedEntity` (or `data._links.relatedEntity`) property is now returned for parent catalog entries, in addition to child entries, for the following operations:
 
-* [List all entries for the default access request catalog](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultEntriesV2)
-* [Retrieve a catalog entry](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/getCatalogEntryV2)
-* [List all of my entries for the default access request catalog](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Catalogs/#tag/My-Catalogs/operation/listMyDefaultEntriesV2)
-* [Retrieve an entry from my catalog](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Catalogs/#tag/My-Catalogs/operation/getMyEntryV2)
-* [List all of my catalog entry users](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Catalogs/#tag/My-Catalogs/operation/listMyEntryUsersV2)
+* [List all entries for the default access request catalog](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/Catalogs/listAllDefaultEntriesV2)
+* [Retrieve a catalog entry](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/Catalogs/getCatalogEntryV2)
+* [List all of my entries for the default access request catalog](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/My-Catalogs/listMyDefaultEntriesV2)
+* [Retrieve an entry from my catalog](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/My-Catalogs/getMyEntryV2)
+* [List all of my catalog entry users](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/My-Catalogs/listMyEntryUsersV2)
 <!--OKTA-958888 -->
 
 #### Bug fixed in 2025.07.2
@@ -369,7 +369,7 @@ A null pointer exception occurred when a `PUT /governance/api/v1/collections/{co
 
 #### Changes to Okta app API responses
 
-The following Okta apps won't be returned in the API response for endpoints that list apps (such as the [List all applications](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications) `GET /api/vi/apps` endpoint):
+The following Okta apps won't be returned in the API response for endpoints that list apps (such as the [List all applications](https://developer.okta.com/docs/api/openapi/okta-management/management/application/listapplications) `GET /api/vi/apps` endpoint):
 
 * Okta Access Certifications (key name: `okta_iga`)
 * Okta Access Requests Admin (key name: `okta_access_requests_admin`)
@@ -390,7 +390,7 @@ In addition, a single app retrieval endpoint won't return these apps either. For
 
 <ApiLifecycle access="beta" />
 
-The [List all access request catalog entries for a user](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultUserEntriesV2) (`GET /governance/api/v2/catalogs/default/user/{userId}/entries`) operation is now included in the **Access Requests - V2** > [Catalogs](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/) API. As an admin, use this operation to list access request catalog entries for a particular user. A filter expression query parameter is required to specify the set of entries in the response.
+The [List all access request catalog entries for a user](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/Catalogs/listAllDefaultUserEntriesV2) (`GET /governance/api/v2/catalogs/default/user/{userId}/entries`) operation is now included in the **Access Requests - V2** > [Catalogs](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/Catalogs/) API. As an admin, use this operation to list access request catalog entries for a particular user. A filter expression query parameter is required to specify the set of entries in the response.
 <!-- OKTA-954146 OKTA-915784, used for (but not dependent on) ACCESS_REQUESTS_UNIFIED_CATALOG -->
 
 ## May
@@ -403,7 +403,7 @@ The [List all access request catalog entries for a user](https://developer.okta.
 
 #### Request condition name length increase
 
-The [Request Condition API](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/) has increased the length of the request condition `name` from 50 to 255 characters.
+The [Request Condition API](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/Request-Conditions/) has increased the length of the request condition `name` from 50 to 255 characters.
 <!-- OKTA-931650 -->
 
 ### Weekly release 2025.05.1
@@ -422,7 +422,7 @@ You can now include the campaign description in your customized Access Certifica
 
 <ApiLifecycle access="beta" />
 
-The [Generate a risk assessment](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Risk-Rules/#tag/Risk-Rules/operation/generatePotentialRiskAssessments) operation is now included in the [Risk Rules API](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Risk-Rules/). This operation requires the `okta.governance.riskRule.read` OAuth 2.0 scope. Use this resource to evaluate potential separation of duties (SOD) violations when a user requests entitlements.
+The [Generate a risk assessment](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Risk-Rules/generatePotentialRiskAssessments) operation is now included in the [Risk Rules API](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Risk-Rules/). This operation requires the `okta.governance.riskRule.read` OAuth 2.0 scope. Use this resource to evaluate potential separation of duties (SOD) violations when a user requests entitlements.
 <!-- IGA-SEPARATION-OF-DUTIES OKTA-899035 -->
 
 ## April
@@ -446,11 +446,11 @@ Use this API to define risk rules to support separation of duties (SOD) in Acces
 
 The following new properties were added to support the SOD feature in existing Identity Governance resources:
 
-* Campaigns resource: [`principalScopeSettings.onlyIncludeUsersWithSODConflicts`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Campaigns/#tag/Campaigns/operation/getCampaign!c=200&path=principalScopeSettings/onlyIncludeUsersWithSODConflicts&t=response)
+* Campaigns resource: [`principalScopeSettings.onlyIncludeUsersWithSODConflicts`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/getcampaign#campaigns/getcampaign/t=response&c=200&path=principalscopesettings/onlyincludeuserswithsodconflicts)
 
-* Reviews resource: [`riskRuleConflicts`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Reviews/#tag/Reviews/operation/getReview!c=200&path=riskRuleConflicts&t=response)
+* Reviews resource: [`riskRuleConflicts`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/getreview#reviews/getreview/t=response&c=200&path=riskruleconflicts)
 
-* Request Settings: [`validRiskSettings`](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Settings/#tag/Request-Settings/operation/getRequestSettingsV2!c=200&path=validRiskSettings&t=response) and [`riskSettings`]( https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Settings/#tag/Request-Settings/operation/getRequestSettingsV2!c=200&path=riskSettings&t=response)
+* Request Settings: [`validRiskSettings`](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/request-settings/getrequestsettingsv2#request-settings/getrequestsettingsv2/t=response&c=200&path=validrisksettings) and [`riskSettings`](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/request-settings/getrequestsettingsv2#request-settings/getrequestsettingsv2/t=response&c=200&path=risksettings)
 
 See [Separation of duties](https://help.okta.com/okta_help.htm?type=oie&id=separation-of-duties) in the product documentation. <!-- IGA_SEPARATION_OF_DUTIES, OKTA-896397-->
 
@@ -476,7 +476,7 @@ The [Collections API](https://developer.okta.com/docs/api/iga/openapi/governance
 
 #### Bug fixed in 2025.03.1
 
-The `requestOnBehalfOfSettings` property wasn’t validated for `DIRECT_REPORT` when a user calls the [Retrieve an entry’s request fields](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Catalogs/#tag/My-Catalogs/operation/getMyCatalogEntryRequestFieldsV2) (`GET /governance/api/v2/my/catalogs/default/entries/{entryId}/request-fields`). (OKTA-807528)
+The `requestOnBehalfOfSettings` property wasn’t validated for `DIRECT_REPORT` when a user calls the [Retrieve an entry’s request fields](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/My-Catalogs/getMyCatalogEntryRequestFieldsV2) (`GET /governance/api/v2/my/catalogs/default/entries/{entryId}/request-fields`). (OKTA-807528)
 
 ### Monthly release 2025.03.0
 
@@ -492,12 +492,12 @@ The following APIs have transitioned from Beta to GA:
 
 * [Entitlements](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Entitlements/)
 
-* [Entitlement Bundles](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Entitlement-Bundles/#tag/Entitlement-Bundles)
+* [Entitlement Bundles](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Entitlement-Bundles)
 <!-- OKTA-849932 -->
 
 #### New Access Certifications campaign
 
-A new property, `resourceSettings.includeAdminRoles`, has been added to the access certification campaign schema in the Campaigns API <!--(https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Campaigns/)-->. This property indicates that the user-centric access certification campaign includes users’ admin role assignments. <!-- OKTA-854037-->
+A new property, `resourceSettings.includeAdminRoles`, has been added to the access certification campaign schema in the [Campaigns API](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Campaigns). This property indicates that the user-centric access certification campaign includes users’ admin role assignments. <!-- OKTA-854037-->
 
 #### Bug fixed in 2025.03.0
 
@@ -515,7 +515,7 @@ The `remediationSettings.autoRemediationSettings` and `principalScopeSettings.pr
 
 <ApiLifecycle access="beta" />
 
-Breaking change: The [List all entitlement](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Entitlements/#tag/Entitlements/operation/listEntitlements) response no longer returns a `values` object. Previously, this response returned an empty array for this property after the following update in `2024.04.0`: List all entitlements will no longer return values. To fetch values for a given entitlement, use [List all values for an entitlement](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Entitlements/#tag/Entitlements/operation/listEntitlementValues) or [List all entitlement values](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Entitlements/#tag/Entitlements/operation/listAllEntitlementValues). <!-- OKTA-828247 -->
+Breaking change: The [List all entitlement](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Entitlements/listEntitlements) response no longer returns a `values` object. Previously, this response returned an empty array for this property after the following update in `2024.04.0`: List all entitlements will no longer return values. To fetch values for a given entitlement, use [List all values for an entitlement](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Entitlements/listEntitlementValues) or [List all entitlement values](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Entitlements/listAllEntitlementValues). <!-- OKTA-828247 -->
 
 ### Monthly release 2025.02.0
 
@@ -525,7 +525,7 @@ Breaking change: The [List all entitlement](https://developer.okta.com/docs/api/
 
 #### New system log event
 
-An `access.request.settings.update` System Log event now appears when a **Request of behalf of** setting is toggled on or off in the Admin Console, or when you set or change the `requestOnBehalfOfSettings` object for [Requests Settings](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Settings/#tag/Request-Settings). The event's `debugData` property includes the app for which the setting was updated and the `changeDetails` property includes the previous and new state of the setting. <!--OKTA-857992-->
+An `access.request.settings.update` System Log event now appears when a **Request of behalf of** setting is toggled on or off in the Admin Console, or when you set or change the `requestOnBehalfOfSettings` object for [Requests Settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/Request-Settings/). The event's `debugData` property includes the app for which the setting was updated and the `changeDetails` property includes the previous and new state of the setting. <!--OKTA-857992-->
 
 ## January
 
@@ -551,13 +551,13 @@ The following Okta Identity Governance APIs are GA:
 
 * [Campaigns](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Campaigns/)
 * [Reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Reviews/)
-* [Access Requests - V2](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/)
-* [My Catalogs](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Catalogs/)
-* [My Requests](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Requests/)
+* [Access Requests - V2](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/Request-Conditions/)
+* [My Catalogs](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/My-Catalogs/)
+* [My Requests](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/My-Requests/)
 
 The following Access Requests - V2 administrative APIs are now EA:
 
-* [List all entries for the default access request catalog](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultEntriesV2)
-* [Retrieve a catalog entry by an ID](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/getCatalogEntryV2)
+* [List all entries for the default access request catalog](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/catalogs/listalldefaultentriesv2)
+* [Retrieve a catalog entry by an ID](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/Catalogs/getCatalogEntryV2)
 
 For further information, see [Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) and [Okta Identity Governance API](https://developer.okta.com/docs/api/iga/).<!--OKTA-848466-->
