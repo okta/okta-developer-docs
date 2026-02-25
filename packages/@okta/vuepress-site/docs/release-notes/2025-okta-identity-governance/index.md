@@ -24,7 +24,7 @@ Okta Identity Governance is available for both Okta Classic and Identity Engine.
 
 <ApiLifecycle access="beta" />
 
-Admins can now revoke a principal user's access to specific resources. Admins can revoke a user’s access to entitlements values, entitlement bundles, or apps. This new functionality gives admins more granular control over user access grants. See [Revoke a principal’s access](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Principal-Access-V2/#tag/Principal-Access-V2/operation/revokePrincipalAccess) in the Principal Access - V2 API.
+Admins can now revoke a principal user's access to specific resources. Admins can revoke a user’s access to entitlements values, entitlement bundles, or apps. This new functionality gives admins more granular control over user access grants. See [Revoke a principal’s access](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/principal-access-v2/revokeprincipalaccess) in the Principal Access - V2 API.
 <!-- OKTA-1063937 Beta Preview: Dec 10, 2025 -->
 
 #### Entitlement Settings API is Beta
@@ -32,7 +32,7 @@ Admins can now revoke a principal user's access to specific resources. Admins ca
 <ApiLifecycle access="beta" />
 
 Admins can now opt in (enable) or opt out of (disable) entitlement management for resources in Okta. This feature allows you to manage third-party app entitlements in Okta.
-See the [Entitlement Settings](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlement-Settings/) API.
+See the [Entitlement Settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Entitlement-Settings/) API.
 
 You can also access this feature from the Admin Console. See [Enable Entitlement management](https://help.okta.com/okta_help.htm?type=oie&id=csh-enable-ge).
 <!-- OKTA-1063936 Beta Preview date: Dec 10, 2025 -->
@@ -41,7 +41,9 @@ You can also access this feature from the Admin Console. See [Enable Entitlement
 
 <ApiLifecycle access="beta" />
 
-The entitlement-value resource, in Okta resource name (ORN) format, is now returned in the [Retrieve the principal access for a resource](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Principal-Access/#tag/Principal-Access/operation/getPrincipalAccess) response for both `base` and `additional` grants. See the `orn` property in the `base` [entitlement-value grants list](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Principal-Access/#tag/Principal-Access/operation/getPrincipalAccess!c=200&path=base/entitlements/values/orn&t=response) and in the `additional` [entitlement-value grants list](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Principal-Access/#tag/Principal-Access/operation/getPrincipalAccess!c=200&path=additional/entitlements/values/orn&t=response) of the response payload.
+The entitlement-value resource, in Okta resource name (ORN) format, is now returned in the [Retrieve the principal access for a resource](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/principal-access/getprincipalaccess) response for both `base` and `additional` grants. See the `orn` property in the `base` [entitlement-value grants list](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/principal-access/getprincipalaccess#principal-access/getprincipalaccess/t=response&c=200&path=base/entitlements/values/orn) and in the `additional` [entitlement-value grants list](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/principal-access/getprincipalaccess#principal-access/getprincipalaccess/t=response&c=200&path=additional/entitlements/values/orn)
+
+Principal-Access/#tag/Principal-Access/operation/getPrincipalAccess!c=200&path=additional/entitlements/values/orn&t=response) of the response payload.
 <!-- OKTA-1063871, Preview date: Dec 10, 2025 -->
 
 #### Access Requests escalation settings is Beta
@@ -49,7 +51,7 @@ The entitlement-value resource, in Okta resource name (ORN) format, is now retur
 <ApiLifecycle access="beta" />
 
 Requesters can now quickly unblock themselves when a task assignee (such as a task approver) is unavailable by self-escalating the task to an additional assignee (the original approver's manager). This secure and auditable feature prevents bottlenecks, ensuring timely access to critical resources.
-See the `escalations` settings in the [Org Governance Settings](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Org-Governance-Settings/) API.
+See the `escalations` settings in the [Org Governance Settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Org-Governance-Settings/) API.
 
 Also see [Escalate task](https://help.okta.com/okta_help.htm?type=oie&id=csh-escl-task) and [Allow requesters to escalate tasks](https://help.okta.com/okta_help.htm?type=oie&id=csh-req-escl-task) in the product documentation.
 <!-- OKTA-1062448, OKTA-1051948 ATSPOKE_ESCALATIONS Preview date: Dec 10, 2025 -->
@@ -67,7 +69,7 @@ For users to request access to AD groups, admins must first create a request con
 
 <ApiLifecycle access="beta" />
 
-Admins can now set owners for collection resources with the [Resource Owners](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Resource-Owners/) API. Specify the collection resources by their Okta Resource Names (ORNs) in the `resourceOrns` parameter. See [Configure the resource owners](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Resource-Owners/#tag/Resource-Owners/operation/configureResourceOwners) request.
+Admins can now set owners for collection resources with the [Resource Owners](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Resource-Owners/) API. Specify the collection resources by their Okta Resource Names (ORNs) in the `resourceOrns` parameter. See [Configure the resource owners](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/resource-owners/configureresourceowners) request.
 <!-- OKTA-1051993 Beta Preview date: Dec 10, 2025 -->
 
 #### Certify service accounts is EA
@@ -75,10 +77,10 @@ Admins can now set owners for collection resources with the [Resource Owners](ht
 You can now create resource campaigns to review and certify access for both SaaS application and Okta service accounts. This feature extends your governance strategy to non-human identities, ensuring you maintain visibility and control over critical service account access. See [Okta Privilege Access with Access Certification](https://help.okta.com/okta_help.htm?type=oie&id=csh-certify-service-accounts).
 
 The following API updates have been made to support service account campaigns:
-* New `OKTA_SERVICE_ACCOUNT` and `APP_SERVICE_ACCOUNT` options in the [resourceSettings.type](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign!path=resourceSettings&t=request) property of a campaign.
-* New [`resourceSettings.includeAllOktaServiceAccounts`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign!path=resourceSettings/includeAllOktaServiceAccounts&t=request) property for `resourceSettings.type` of `OKTA_SERVICE_ACCOUNT` in a campaign.
-* New [`resourceSettings.targetResources.includeAllAppServiceAccounts`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign!path=resourceSettings/targetResources/includeAllAppServiceAccounts&t=request) property for `resourceSettings.type` of `APP_SERVICE_ACCOUNT` in a campaign.
-* Reviews can be filtered by service account ID (`appServiceAccountId` or `oktaServiceAccountId`) in [List all reviews](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Reviews/#tag/Reviews/operation/listReviews).
+* New `OKTA_SERVICE_ACCOUNT` and `APP_SERVICE_ACCOUNT` options in the [resourceSettings.type](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/type) property of a campaign.
+* New [`resourceSettings.includeAllOktaServiceAccounts`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/includealloktaserviceaccounts) property for `resourceSettings.type` of `OKTA_SERVICE_ACCOUNT` in a campaign.
+* New [`resourceSettings.targetResources.includeAllAppServiceAccounts`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Campaigns/#tag/Campaigns/operation/createCampaign!path=resourceSettings/targetResources/includeAllAppServiceAccounts&t=request) property for `resourceSettings.type` of `APP_SERVICE_ACCOUNT` in a campaign.
+* Reviews can be filtered by service account ID (`appServiceAccountId` or `oktaServiceAccountId`) in [List all reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Reviews/#tag/Reviews/operation/listReviews).
 <!-- OKTA-1047480 IGA_ACCESS_CERT_SERVICE_ACCOUNTS Preview: Dec 10, 2025 -->
 
 ## November
@@ -96,7 +98,7 @@ The following API updates have been made to support service account campaigns:
 
 #### Entitlement history is GA in Production
 
-Admins can now access a user's entitlement history. This feature improves auditing and compliance tasks and enhances visibility for troubleshooting access issues. See [Retrieve an entitlement history](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Principal-Entitlements/#tag/Principal-Entitlements/operation/getPrincipalEntitlementsHistory) in the Principal Entitlements API.
+Admins can now access a user's entitlement history. This feature improves auditing and compliance tasks and enhances visibility for troubleshooting access issues. See [Retrieve an entitlement history](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Principal-Entitlements/getPrincipalEntitlementsHistory) in the Principal Entitlements API.
 
 You can also access this feature from the Admin Console. See [View user entitlements](https://help.okta.com/okta_help.htm?type=oie&id=view-user-entitlements) in the product documentation. <!-- OKTA-992288 OKTA-992282 IGA_ENTITLEMENTS_HISTORY Preview-date: Sept 10, 2025 (as Beta) -->
 
@@ -105,31 +107,31 @@ You can also access this feature from the Admin Console. See [View user entitlem
 For access and sub-access items where the access revocation or restoration can’t be automated in a security access review, you can flag them for manual remediation. This is typically due to an access assignment through a group rule, an entitlement policy, a collection, or an unsupported resource.
 When you flag the access item for manual remediation, Okta fires an `access.review.action` System Log event.
 
-See [`supportedActions`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/executeSecurityAccessReviewAccessesAction!path=type&t=request), [`manualRemediationTypes`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/listSecurityAccessReviewAccesses!c=200&path=data/manualRemediationTypes&t=response), and [`remediationStatus`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/listSecurityAccessReviewAccesses!c=200&path=data/remediationStatus&t=response). <!--OKTA-1001463 IGA_SECURITY_ACCESS_REVIEW Preview date: Nov 5, 2025 -->
+See [`supportedActions`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/executeSecurityAccessReviewAccessesAction!path=type&t=request), [`manualRemediationTypes`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/listSecurityAccessReviewAccesses!c=200&path=data/manualRemediationTypes&t=response), and [`remediationStatus`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/listSecurityAccessReviewAccesses!c=200&path=data/remediationStatus&t=response). <!--OKTA-1001463 IGA_SECURITY_ACCESS_REVIEW Preview date: Nov 5, 2025 -->
 
 #### Security access reviews API is GA in Preview
 
 Security access reviews are a new, security-focused type of access review that can be automatically triggered by events. These reviews provide a unified view of a user's access and contextual information about their access history. Also included is an AI-generated access summary, allowing you to investigate and take immediate remediation actions like revoking access.
 
-See [Security Access Reviews](https://help.okta.com/okta_help.htm?type=oie&id=csh-sar) in the product documentation. See the [Security Access Reviews](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/) API and [Launch a security access review](/docs/guides/iga-security-access-review/main/) guide for details on how to trigger security access reviews through the API.
+See [Security Access Reviews](https://help.okta.com/okta_help.htm?type=oie&id=csh-sar) in the product documentation. See the [Security Access Reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Security-Access-Reviews/) API and [Launch a security access review](/docs/guides/iga-security-access-review/main/) guide for details on how to trigger security access reviews through the API.
 <!-- OKTA-1002587 IGA_SECURITY_ACCESS_REVIEW Preview date: Sept 10, 2025 -->
 
 #### Security access review updates
 
-You can now update the reviewers and extend the review's end date on a security access review. See [Update a security access review](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/updateSecurityAccessReview).
+You can now update the reviewers and extend the review's end date on a security access review. See [Update a security access review](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Security-Access-Reviews/updateSecurityAccessReview).
 <!-- OKTA-1007825 OKTA-1007827 IGA_SECURITY_ACCESS_REVIEW Preview date: Nov 5, 2025 -->
 
 #### Org Governance Settings API updates
 
 * To access the Org Governance Settings API, admins now need to have the super admin (`SUPER_ADMIN`) role.
 
-* The Org Governance Settings API now includes a security access review setting that allows users to generate AI summaries. When this setting is enabled, all security access reviewers in the org can generate AI-powered summaries for user access insights. See [`governanceAI`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Org-Governance-Settings/#tag/Org-Governance-Settings/operation/updateOrgSettings!path=governanceAI&t=request) in [Update the org settings](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Org-Governance-Settings/#tag/Org-Governance-Settings/operation/updateOrgSettings) operation. <!-- OKTA-1028575, OKTA-1024002, Preview date: Nov 5, 2025 -->
+* The Org Governance Settings API now includes a security access review setting that allows users to generate AI summaries. When this setting is enabled, all security access reviewers in the org can generate AI-powered summaries for user access insights. See [`governanceAI`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/updateorgsettings#org-governance-settings/updateorgsettings/t=request&path=governanceai) in [Update the org settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Org-Governance-Settings/updateOrgSettings) operation. <!-- OKTA-1028575, OKTA-1024002, Preview date: Nov 5, 2025 -->
 
 #### Enrollment change is Beta
 
 <ApiLifecycle access="beta" />
 
-Admins can now access a user's entitlement changes for a resource. This feature enhances visibility for troubleshooting access issues. See [Retrieve the principal entitlement changes](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Principal-Entitlements/#tag/Principal-Entitlements/operation/getPrincipalEntitlementsChanges) in the Principal Entitlements API. <!-- OKTA-1045028 Preview date: Nov 5, 2025 -->
+Admins can now access a user's entitlement changes for a resource. This feature enhances visibility for troubleshooting access issues. See [Retrieve the principal entitlement changes](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Principal-Entitlements/getPrincipalEntitlementsChanges) in the Principal Entitlements API. <!-- OKTA-1045028 Preview date: Nov 5, 2025 -->
 
 ## October
 
@@ -165,7 +167,7 @@ The client credential flow for API service apps didn’t work for some governanc
 
 <ApiLifecycle access="beta" />
 
-Admins can now access a user's entitlement history. This feature improves auditing and compliance tasks and enhances visibility for troubleshooting access issues. See [Retrieve an entitlement history](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Principal-Entitlements/#tag/Principal-Entitlements/operation/getPrincipalEntitlementsHistory) in the Principal Entitlements API.
+Admins can now access a user's entitlement history. This feature improves auditing and compliance tasks and enhances visibility for troubleshooting access issues. See [Retrieve an entitlement history](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Principal-Entitlements/getPrincipalEntitlementsHistory) in the Principal Entitlements API.
 
 You can also access this feature from the Admin Console. See [View user entitlements](https://help.okta.com/okta_help.htm?type=oie&id=view-user-entitlements) in the product documentation.
 <!-- OKTA-992288 OKTA-992282 IGA_ENTITLEMENTS_HISTORY Preview-date: Sept 10, 2025 (as Beta) -->
@@ -179,7 +181,7 @@ The [`governance.settings.update`](https://developer.okta.com/docs/reference/api
 
 You can now generate access certification campaign reports that are tailored to meet auditor requirements. These reports make preparing for compliance audits faster and easier by reducing the time and manual effort required for assembling and exporting campaign and user access data.
 
-Access certification campaign reports are generated from the auditor reporting package, which is triggered post-campaign completion when the `createReportingPackageEnabled` parameter is true. See [`reportingSettings.createReportingPackageEnabled`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign!path=reportingSettings&t=request) in the [Create a campaign](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign) resource.
+Access certification campaign reports are generated from the auditor reporting package, which is triggered post-campaign completion when the `createReportingPackageEnabled` parameter is true. See [`reportingSettings.createReportingPackageEnabled`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reportingsettings) in the [Create a campaign](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Campaigns/createCampaign) resource.
 <!--OKTA-982353 IGA_ACCESS_CERT_AUDITOR_REPORTING Preview date: August 13, 2025 -->
 
 ## September
@@ -213,43 +215,43 @@ Access certification campaign reports are generated from the auditor reporting p
 
 You can now generate access certification campaign reports that are tailored to meet auditor requirements. These reports make preparing for compliance audits faster and easier by reducing the time and manual effort required for assembling and exporting campaign and user access data.
 
-Access certification campaign reports are generated from the auditor reporting package, which is triggered post-campaign completion when the `createReportingPackageEnabled` parameter is true. See [`reportingSettings.createReportingPackageEnabled`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign!path=reportingSettings&t=request) in the [Create a campaign](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign) resource.
+Access certification campaign reports are generated from the auditor reporting package, which is triggered post-campaign completion when the `createReportingPackageEnabled` parameter is true. See [`reportingSettings.createReportingPackageEnabled`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reportingsettings/createreportingpackageenabled) in the [Create a campaign](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign) resource.
 <!--OKTA-982353 IGA_ACCESS_CERT_AUDITOR_REPORTING Preview date: August 13, 2025 -->
 
 #### Entitlement bundle documented response updates
 
-The documented response for [List all entitlement bundles](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlement-Bundles/#tag/Entitlement-Bundles/operation/listEntitlementBundles!c=200&path=data&t=response) and [Retrieve an entitlement bundle](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlement-Bundles/#tag/Entitlement-Bundles/operation/getEntitlementBundle!c=200&path=_links&t=response) has been updated to remove the **One of** (`oneOf`) payload structure. The documented response payload is now flattened to include properties for both `entitlement-bundles-list` and `entitlement-bundles-list-with-entitlements` schemas. This is backward-compatible because the expected returned response schema is the same as before.
+The documented response for [List all entitlement bundles](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/entitlement-bundles/listentitlementbundles#entitlement-bundles/listentitlementbundles/response&c=200/body) and [Retrieve an entitlement bundle](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/entitlement-bundles/getentitlementbundle#entitlement-bundles/getentitlementbundle/response&c=200/body) has been updated to remove the **One of** (`oneOf`) payload structure. The documented response payload is now flattened to include properties for both `entitlement-bundles-list` and `entitlement-bundles-list-with-entitlements` schemas. This is backward-compatible because the expected returned response schema is the same as before.
 <!-- OKTA-985836 Preview date: Sept 10, 2025 -->
 
 #### Resource Owners API is Beta
 
 <ApiLifecycle access="beta" />
 
-Drive automation and simplify Okta Identity Governance (OIG) configuration by assigning owners to resources, such as apps, groups, and entitlements. You can automatically assign reviewers for access certifications that are scoped with specific owner-assigned resources. See the [Resource Owners](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Resource-Owners/) API to manage assigning owners to resources in your OIG org.
+Drive automation and simplify Okta Identity Governance (OIG) configuration by assigning owners to resources, such as apps, groups, and entitlements. You can automatically assign reviewers for access certifications that are scoped with specific owner-assigned resources. See the [Resource Owners](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Resource-Owners/) API to manage assigning owners to resources in your OIG org.
 <!-- OKTA-998871 IGA_RESOURCE_OWNERS Preview date: Sept 10, 2025 -->
 
 #### Governance Labels API is Beta
 
 <ApiLifecycle access="beta" />
 
-The Labels API enables you to categorize and organize resources, such as apps, groups, entitlements, and collections. You can create, update, and assign key-value labels to resources to support automation, streamline configuration, and simplify the management of access reviews and requests. See the [Labels](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Labels/) API and [Manage governance labels](/docs/guides/iga-labels/).
+The Labels API enables you to categorize and organize resources, such as apps, groups, entitlements, and collections. You can create, update, and assign key-value labels to resources to support automation, streamline configuration, and simplify the management of access reviews and requests. See the [Labels](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Labels/) API and [Manage governance labels](/docs/guides/iga-labels/).
 <!-- OKTA-998873 IGA_RESOURCE_LABELS Preview date: Sept 10, 2025 -->
 
 #### ORN property included in collections
 
-Collection resources now include their [Okta resource name (ORN)](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) in the response payload. See the `orn` property in the [collection resource](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Collections/#tag/Collections/operation/getCollection!c=200&path=orn&t=response).
+Collection resources now include their [Okta resource name (ORN)](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) in the response payload. See the `orn` property in the [collection resource](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections/createcollection#collections/createcollection/t=response&c=201&path=orn).
 <!-- OKTA-986274 Preview date: Sept 10, 2025 -->
 
 #### ORN property included in entitlement bundles and values
 
-The entitlement bundle and value resources now include their [Okta resource name (ORN)](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) in the response payload. See the `orn` property in the [entitlement value response](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlements/#tag/Entitlements/operation/getEntitlementValue!c=200&path=orn&t=response) and in the [entitlement bundles response](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlement-Bundles/#tag/Entitlement-Bundles/operation/getEntitlementBundle!c=200&path=0/orn&t=response) payloads.
+The entitlement bundle and value resources now include their [Okta resource name (ORN)](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) in the response payload. See the `orn` property in the [entitlement value response]https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/entitlements/listentitlementvalues#entitlements/listentitlementvalues/t=response&c=200&path=data/orn) and in the [entitlement bundles response](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/entitlement-bundles/getentitlementbundle#entitlement-bundles/getentitlementbundle/t=response&c=200&path=orn) payloads.
 <!-- OKTA-986269 Preview date: Sept 10, 2025 -->
 
 #### Org Governance Settings API is Beta
 
 <ApiLifecycle access="beta" />
 
-To complement the [Governance delegates](#governance-delegates-apis-are-beta) feature, admins can now configure whether end users can set their own delegates with the Org Governance Settings API. See [delegates.enduser.permissions](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Org-Governance-Settings/#tag/Org-Governance-Settings/operation/updateOrgSettings!path=delegates/enduser/permissions&t=request) in the [Update the org settings](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Org-Governance-Settings/#tag/Org-Governance-Settings/operation/updateOrgSettings) API.
+To complement the [Governance delegates](#governance-delegates-apis-are-beta) feature, admins can now configure whether end users can set their own delegates with the Org Governance Settings API. See [delegates.enduser.permissions](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/updateorgsettings#org-governance-settings/updateorgsettings/t=request&path=delegates/enduser/permissions) in the [Update the org settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Org-Governance-Settings/updateOrgSettings) API.
 
 End users can also view their delegate permissions in the My Settings API. See [delegates.permissions](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/getMySettings!c=200&path=delegates/permissions&t=response) in the [Retrieve the settings](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/getMySettings) API.
 <!-- OKTA-982882 OKTA-987070 GOVERNANCE_DELEGATES FF Preview date: Sept 10, 2025 -->
@@ -258,7 +260,7 @@ End users can also view their delegate permissions in the My Settings API. See [
 
 Security Access Reviews are a new, security-focused type of access review that can be automatically triggered by events. These reviews provide a unified view of a user's access and contextual information about their access history. Also included is an AI-generated access summary, allowing you to investigate and take immediate remediation actions like revoking access. See [Security Access Reviews](https://help.okta.com/okta_help.htm?type=oie&id=csh-sar) in the product documentation.
 
-See the [Security Access Reviews](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/) API and [Launch a security access review](/docs/guides/iga-security-access-review/main/) guide for details on how to trigger security access reviews through the API.
+See the [Security Access Reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Security-Access-Reviews/) API and [Launch a security access review](/docs/guides/iga-security-access-review/main/) guide for details on how to trigger security access reviews through the API.
 <!-- OKTA-1002587 IGA_SECURITY_ACCESS_REVIEW Preview date: Sept 10, 2025 -->
 
 #### Developer documentation updates in 2025.09.0
@@ -297,8 +299,8 @@ Super admins and users can assign delegates to complete governance tasks. These 
 
 The following APIs support the governance delegates flow and are available as Beta:
 
-* Principal Settings API > [Update the principal settings](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Principal-Settings/#tag/Principal-Settings/operation/updatePrincipalSettings)
-* Delegates > [List all delegate appointments](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Delegates/#tag/Delegates/operation/listDelegateAppointments)
+* Principal Settings API > [Update the principal settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Principal-Settings/#tag/Principal-Settings/operation/updatePrincipalSettings)
+* Delegates > [List all delegate appointments](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Delegates/#tag/Delegates/operation/listDelegateAppointments)
 * My Settings > [Retrieve the settings](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/getMySettings)
 * My Settings > [Update the settings](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/updateMySettings)
 * My Settings > [List the eligible delegate users](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Settings/#tag/My-Settings/operation/listMyDelegateUsers)
@@ -420,7 +422,7 @@ You can now include the campaign description in your customized Access Certifica
 
 <ApiLifecycle access="beta" />
 
-The [Generate a risk assessment](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Risk-Rules/#tag/Risk-Rules/operation/generatePotentialRiskAssessments) operation is now included in the [Risk Rules API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Risk-Rules/). This operation requires the `okta.governance.riskRule.read` OAuth 2.0 scope. Use this resource to evaluate potential separation of duties (SOD) violations when a user requests entitlements.
+The [Generate a risk assessment](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Risk-Rules/#tag/Risk-Rules/operation/generatePotentialRiskAssessments) operation is now included in the [Risk Rules API](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Risk-Rules/). This operation requires the `okta.governance.riskRule.read` OAuth 2.0 scope. Use this resource to evaluate potential separation of duties (SOD) violations when a user requests entitlements.
 <!-- IGA-SEPARATION-OF-DUTIES OKTA-899035 -->
 
 ## April
@@ -435,7 +437,7 @@ The [Generate a risk assessment](https://developer.okta.com/docs/api/iga/openapi
 
 <ApiLifecycle access="beta" />
 
-The [Risk Rules API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Risk-Rules/) is now available in Beta and includes the following new scopes:
+The [Risk Rules API](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Risk-Rules/) is now available in Beta and includes the following new scopes:
 
 * `okta.governance.riskRule.manage`
 * `okta.governance.riskRule.read`
@@ -444,9 +446,9 @@ Use this API to define risk rules to support separation of duties (SOD) in Acces
 
 The following new properties were added to support the SOD feature in existing Identity Governance resources:
 
-* Campaigns resource: [`principalScopeSettings.onlyIncludeUsersWithSODConflicts`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/getCampaign!c=200&path=principalScopeSettings/onlyIncludeUsersWithSODConflicts&t=response)
+* Campaigns resource: [`principalScopeSettings.onlyIncludeUsersWithSODConflicts`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Campaigns/#tag/Campaigns/operation/getCampaign!c=200&path=principalScopeSettings/onlyIncludeUsersWithSODConflicts&t=response)
 
-* Reviews resource: [`riskRuleConflicts`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Reviews/#tag/Reviews/operation/getReview!c=200&path=riskRuleConflicts&t=response)
+* Reviews resource: [`riskRuleConflicts`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Reviews/#tag/Reviews/operation/getReview!c=200&path=riskRuleConflicts&t=response)
 
 * Request Settings: [`validRiskSettings`](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Settings/#tag/Request-Settings/operation/getRequestSettingsV2!c=200&path=validRiskSettings&t=response) and [`riskSettings`]( https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Settings/#tag/Request-Settings/operation/getRequestSettingsV2!c=200&path=riskSettings&t=response)
 
@@ -464,7 +466,7 @@ See [Separation of duties](https://help.okta.com/okta_help.htm?type=oie&id=separ
 
 <ApiLifecycle access="beta" />
 
-The [Collections API](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Collections/) is available in Beta. This API allows you to manage sets of apps and entitlements. See [Resource collections](https://help.okta.com/okta_help.htm?type=oie&id=csh-rc). <!-- OKTA-856259 -->
+The [Collections API](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Collections/) is available in Beta. This API allows you to manage sets of apps and entitlements. See [Resource collections](https://help.okta.com/okta_help.htm?type=oie&id=csh-rc). <!-- OKTA-856259 -->
 
 ### Weekly release 2025.03.1
 
@@ -488,14 +490,14 @@ The `requestOnBehalfOfSettings` property wasn’t validated for `DIRECT_REPORT` 
 
 The following APIs have transitioned from Beta to GA:
 
-* [Entitlements](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlements/)
+* [Entitlements](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Entitlements/)
 
-* [Entitlement Bundles](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlement-Bundles/#tag/Entitlement-Bundles)
+* [Entitlement Bundles](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Entitlement-Bundles/#tag/Entitlement-Bundles)
 <!-- OKTA-849932 -->
 
 #### New Access Certifications campaign
 
-A new property, `resourceSettings.includeAdminRoles`, has been added to the access certification campaign schema in the Campaigns API <!--(https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/)-->. This property indicates that the user-centric access certification campaign includes users’ admin role assignments. <!-- OKTA-854037-->
+A new property, `resourceSettings.includeAdminRoles`, has been added to the access certification campaign schema in the Campaigns API <!--(https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Campaigns/)-->. This property indicates that the user-centric access certification campaign includes users’ admin role assignments. <!-- OKTA-854037-->
 
 #### Bug fixed in 2025.03.0
 
@@ -513,7 +515,7 @@ The `remediationSettings.autoRemediationSettings` and `principalScopeSettings.pr
 
 <ApiLifecycle access="beta" />
 
-Breaking change: The [List all entitlement](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlements/#tag/Entitlements/operation/listEntitlements) response no longer returns a `values` object. Previously, this response returned an empty array for this property after the following update in `2024.04.0`: List all entitlements will no longer return values. To fetch values for a given entitlement, use [List all values for an entitlement](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlements/#tag/Entitlements/operation/listEntitlementValues) or [List all entitlement values](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlements/#tag/Entitlements/operation/listAllEntitlementValues). <!-- OKTA-828247 -->
+Breaking change: The [List all entitlement](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Entitlements/#tag/Entitlements/operation/listEntitlements) response no longer returns a `values` object. Previously, this response returned an empty array for this property after the following update in `2024.04.0`: List all entitlements will no longer return values. To fetch values for a given entitlement, use [List all values for an entitlement](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Entitlements/#tag/Entitlements/operation/listEntitlementValues) or [List all entitlement values](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Entitlements/#tag/Entitlements/operation/listAllEntitlementValues). <!-- OKTA-828247 -->
 
 ### Monthly release 2025.02.0
 
@@ -547,8 +549,8 @@ An `access.request.settings.update` System Log event now appears when a **Reques
 
 The following Okta Identity Governance APIs are GA:
 
-* [Campaigns](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/)
-* [Reviews](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Reviews/)
+* [Campaigns](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Campaigns/)
+* [Reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Reviews/)
 * [Access Requests - V2](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/)
 * [My Catalogs](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Catalogs/)
 * [My Requests](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Requests/)

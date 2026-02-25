@@ -13,7 +13,7 @@ This guide shows you how to launch a security access review using the Okta Ident
 #### Learning outcomes
 
 * Learn how to set up Okta to access [Okta Identity Governance APIs](https://developer.okta.com/docs/api/iga/).
-* Learn how to trigger a security access review using the [Okta Identity Governance](https://developer.okta.com/docs/api/iga/) > [Security Access Review](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/) APIs.
+* Learn how to trigger a security access review using the [Okta Identity Governance](https://developer.okta.com/docs/api/iga/) > [Security Access Review](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/security-access-reviews) APIs.
 
 #### What you need
 
@@ -103,7 +103,7 @@ If you don't have an app for API access:
 
 ## Launch a security access review
 
-The `POST /governance/api/v2/security-access-reviews` API method ([Create a security access review](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/createSecurityAccessReview)) is used to launch the security access review. A custom app or a delegated flow uses the API to launch the review following a security or policy evaluation event.
+The `POST /governance/api/v2/security-access-reviews` API method ([Create a security access review](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/security-access-reviews/createsecurityaccessreview)) is used to launch the security access review. A custom app or a delegated flow uses the API to launch the review following a security or policy evaluation event.
 
 > **Note:** Security admins can also launch security access reviews manually from the Admin Console, but this isn't the typical process flow. See [Create a security access review](https://help.okta.com/okta_help.htm?type=oie&id=csh-sar-launch) in the product documentation.
 
@@ -125,7 +125,7 @@ Use the obtained OAuth 2.0 access token as bearer tokens in the authentication h
 
 ### Get IDs for your users
 
-Use Okta user IDs as parameters to initiate a security access review using the `POST /governance/api/v2/security-access-reviews` method (see [Create a security access review](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/createSecurityAccessReview)).
+Use Okta user IDs as parameters to initiate a security access review using the `POST /governance/api/v2/security-access-reviews` method (see [Create a security access review](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/security-access-reviews/createSecurityAccessReview)).
 
 Find the Okta user IDs for the following users:
 
@@ -148,11 +148,11 @@ curl -v -X GET \
 
 ```
 
-Use the `id` property of the response payload for the user ID parameters in the [Create a security access review](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/createSecurityAccessReview) request.
+Use the `id` property of the response payload for the user ID parameters in the [Create a security access review](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/security-access-reviews/createSecurityAccessReview) request.
 
 ### Create a security access review
 
-Create a security access review with the [Create a security access review](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/#tag/Security-Access-Reviews/operation/createSecurityAccessReview) request (`POST /governance/api/v2/security-access-reviews`).
+Create a security access review with the [Create a security access review](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/security-access-reviews/createSecurityAccessReview) request (`POST /governance/api/v2/security-access-reviews`).
 
 > **Note:** The targeted user of the security access review can't be a reviewer. An API error is returned if you specify the same ID in `principalId` as one of the IDs in the `reviewerSettings.userSettings.includeUserIds` list.
 
@@ -219,6 +219,6 @@ For best practices, considerations, and limitations, see [Security Access Review
 
 Reviewing and managing security access reviews through the APIs aren't covered in this guide. Okta recommends that reviewers use the **Okta Security Access Review** app for these operations. See [Manage security access reviews](https://help.okta.com/okta_help.htm?type=oie&id=csh-manage-sar) and [Review access](https://help.okta.com/okta_help.htm?type=oie&id=csh-sar-access-review) in the product documentation.
 
-For a complete list of available security access review APIs, see [Security Access Reviews](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/) and [My Security Access Review](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Security-Access-Reviews/).
+For a complete list of available security access review APIs, see [Security Access Reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/security-access-reviews) and [My Security Access Review](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-security-access-reviews).
 
 > **Note:** You can customize security access review notification emails. See `securityAccessReviewReviewerNotification`, `securityAccessReviewClosingOneDayNotification`, and `securityAccessReviewEndNotification` templates in [Use customizable email templates](/docs/guides/custom-email/main/#use-customizable-email-templates). Also see `${securityAccessReview.*}` variables in [Use VTL variables](/docs/guides/custom-email/main/#use-vtl-variables).
