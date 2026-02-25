@@ -20,13 +20,13 @@ A combination of policies that you can set in the Admin Console or with the Poli
 For more information about SSR, see:
 
 * [Self-service registration overview](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-ssr)
-* [Add a sign-up form to your web app]()
+* [Add a sign-up form to your web app](SUSAN)
 
-> **Note:** If you plan to use an Okta-hosted Sign-In Widget for your sign-up form, note that the flow follows the standard OpenID Connect (OIDC) protocol. Users are first redirected to an Okta-hosted page where they complete the registration form. After they register, Okta redirects them back to your app with an authorization code, which your app exchanges for tokens to sign the user in.
+**Note:** If you plan to use an Okta-hosted Sign-In Widget for your sign-up form, note that the flow follows the standard OpenID Connect (OIDC) protocol. Users are first redirected to an Okta-hosted page where they complete the registration form. After they register, Okta redirects them back to your app with an authorization code, which your app exchanges for tokens to sign the user in.
 
 ### Default SSR state
 
-Self-service registration is disabled by default. There are two main components that control SSR.
+Self-service registration is disabled by default. There are two main policies that control SSR.
 
 * **User profile policies:** This policy type controls the attributes that are collected when users register and has a setting to enable self-service registration. The default user profile policy doesn't allow self-service registration.
 * **Authenticator enrollment policies:** This policy type controls which authenticators are available for users to enroll during registration. The default authenticator enrollment policy requires users to create a password. You can add other authenticators to the default policy or create an authenticator enrollment policy.
@@ -54,6 +54,11 @@ Policies allow you to change the registration logic directly in the Admin Consol
 * Authenticator enrollment policy
 * Okta account management policy
 
+There are two other policies that don't have the same direct impact on the SSR flow but still influence the overall registration experience:
+
+* [Password policy](/docs/concepts/policies/#password-policies): This policy determines the complexity requirements for passwords. If you require users to create a password during registration, then the password policy settings determine the requirements for that password. You can also control how users recover their passwords with the password policy, which can impact users immediately after they register if they forget their password.
+* [App sign-in policy](/docs/concepts/policies/#app-sign-in-policies): This policy controls the conditions that determine how and when users can sign in to your app. You can use this to block sign-ins from certain locations or devices, which can impact users immediately after they register.
+
 #### User profile policy
 
 The [user profile policy](/docs/concepts/policies/#user-profile-policies) controls the attributes collected during registration. You can use this to map specific data from your UD to the registration form.
@@ -61,6 +66,8 @@ The [user profile policy](/docs/concepts/policies/#user-profile-policies) contro
 For example, if your app requires a business-specific attribute, such as a department name or a specific organization ID, you can set it as a required field in the user profile policy to ensure it's captured when users register.
 
 > **Tip:** Use progressive enrollment to avoid overwhelming users with too many fields during registration. Start with the most essential attributes and then prompt for additional information during subsequent sign-ins. See [Progressive enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-pe-policies).
+>
+> Keep in mind that the user profile policy and progressive enrollment are applied at the app level. Users must sign in to the app that progressive enrollment is enabled for to see the additional fields when they sign in again.
 
 #### Authenticator enrollment policy
 
@@ -70,9 +77,11 @@ For example, you can configure the policy to allow or require users to enroll a 
 
 #### Okta account management policy
 
-The [Okta account management policy](http:///docs/concepts/policies/#okta-account-management-policy) controls the security requirements for enrolling authenticators. You can use this policy to require users to verify their email or phone number before they can enroll certain authenticators. Or you can require them to authenticate with an existing authenticator before enrolling a new one.
+The [Okta account management policy](/docs/concepts/policies/#okta-account-management-policy) controls the security requirements for enrolling authenticators. You can use this policy to require users to verify their email or phone number before they can enroll certain authenticators. Or you can require them to authenticate with an existing authenticator before enrolling a new one.
 
 For example, you can allow users to register a passkey by requiring them to authenticate with a password first.
+
+> **Note:** The Okta account management policy also controls how users unenroll authenticators, recover their passwords, and unlock their accounts.
 
 #### SSR flow with policies
 
@@ -87,7 +96,12 @@ The hook triggers after the user submits the registration form but before the us
 Consider the following examples for ways to customize your SSR flow using a registration inline hook:
 
 * **Domain validation:** You can validate the domain of a user trying to register and deny requests from unauthorized or public email providers. See [Set up for profile enrollment (SSR) scenario](/docs/guides/registration-inline-hook/nodejs/main/#set-up-for-profile-enrollment-ssr-scenario) for an example of how to do this.
-* **Input restrictions:** You can use an inline hook to restrict certain inputs in the registration form. For example, the code sample below checks the `login` attribute for forbidden characters (like emojis or specific symbols) and denies access if a user attempts to register with them.
+* **Input restrictions:** You can use an inline hook to restrict certain inputs in the registration form. For example, you can check the `login` attribute for forbidden characters (like emojis or specific symbols) and deny access if a user attempts to register with them.
+* **Verify user identity with an access key:** Check a user-supplied access key or code against an external system before allowing registration or access.
+* **Enrich a profile with customer ID from a CRM:** Retrieve and add a unique customer identifier from your CRM system to the user’s profile during the registration or update process.
+* **Trigger an approval flow:** Initiate a manager or administrator approval process before finalizing user provisioning or access.
+* **Trigger marketing content:** Add new users to an automated marketing sequence based on user attributes or certain events.
+* **Block known bad actors:** Integrate with a third-party threat intelligence service to block registration attempts from known malicious IP addresses or email domains.
 
 For implementation details, see:
 
@@ -115,6 +129,9 @@ Okta recommends the Okta-hosted model for most use cases because it balances sec
 See:
 
 * [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/main/)
+* [Unlock the Secrets of a Custom Sign-In Page with Tailwind and JavaScript](https://developer.okta.com/blog/2025/11/24/okta-custom-sign-in-page)
+* [Stretch Your Imagination and Build a Delightful Sign-In Experience](https://developer.okta.com/blog/2025/11/12/custom-signin)
+* [Multibrand architecture](/docs/concepts/multibrand-architecture)
 * [Add design tokens to your code](/docs/guides/custom-widget-migration-gen3/main/#add-design-tokens-to-your-code)
 
 #### How to insert custom code into the Okta-hosted widget
