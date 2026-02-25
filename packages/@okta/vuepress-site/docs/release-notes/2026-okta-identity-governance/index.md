@@ -36,16 +36,16 @@ Entitlements API responses didn’t include the `createdBy`, `created`, `lastUpd
 
 #### Permalink ID in V2 access request
 
-A new `permalinkId` property is returned in [V2 access request](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Requests/#tag/Requests/operation/getRequestV2) responses. This property is a user-friendly, immutable identifier that resolves to the request. The identifier (in the form of a permalink) helps users navigate back to the request on the web page.
+A new `permalinkId` property is returned in [V2 access request](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests/getrequestv2) responses. This property is a user-friendly, immutable identifier that resolves to the request. The identifier (in the form of a permalink) helps users navigate back to the request on the web page.
 
-See [`requestApprovals.permalinkId`](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Requests/#tag/Requests/operation/getRequestV2!c=200&path=requestApproval/permalinkId&t=response).
+See [`requestApprovals.permalinkId`](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/requests/getrequestv2#requests/getrequestv2/t=response&c=200&path=requestapproval/permalinkid).
 <!-- OKTA-1089085 Preview date: Feb. 4, 2026-->
 
 #### Certify resource collections - Resource campaigns is EA
 
 Use access certification resource campaigns to certify user access to resource collections. Rather than reviewing individual apps, entitlements, or bundles separately, running resource campaigns for resource collections helps you reduce the volume of review items for reviewers and provide them with the necessary context to make informed decisions.
 
-A new `COLLECTION` resource option in the campaign [`resourceSettings.type`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign!path=resourceSettings&t=request) property has been added to support resource collection campaigns.
+A new `COLLECTION` resource option in the campaign [`resourceSettings.type`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/type) property has been added to support resource collection campaigns.
 <!-- OKTA-1095098 IGA_ACCESS_CERT_CERTIFYING_COLLECTIONS Preview date: Jan 28, 2026 -->
 
 #### Additive entitlements is Beta
@@ -55,9 +55,9 @@ A new `COLLECTION` resource option in the campaign [`resourceSettings.type`](htt
 Admins can now grant specific, time-bound entitlements to individual users without creating entitlement bundles for requests. These individual entitlement grants are additive in nature to the existing policy or custom grants. Admins can revoke an individual entitlement, which is removed across custom and entitlement grants. They can also perform risk assessments on multiple entitlements for the user.
 
 The following API updates have been made to support individual entitlements:
-* Admins can grant individual entitlements to a user, which can be time-boxed. See [Create a grant](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Grants/#tag/Grants/operation/createGrant) and the `ENTITLEMENT` option in `grantType`.
-* The granted individual entitlements can be revoked by an admin or expire if they're time-boxed. See [Revoke a principal's access](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Principal-Access-V2/).
-* Admins can generate risk assessments for multiple entitlements. See [Generate a risk assessment](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Risk-Rules/#tag/Risk-Rules/operation/generatePotentialRiskAssessments) and use the `resourceOrnList` parameter.
+* Admins can grant individual entitlements to a user, which can be time-boxed. See [Create a grant](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/grants/creategrant) and the `ENTITLEMENT` option in `grantType`.
+* The granted individual entitlements can be revoked by an admin or expire if they're time-boxed. See [Revoke a principal's access](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/principal-access-v2/revokeprincipalaccess).
+* Admins can generate risk assessments for multiple entitlements. See [Generate a risk assessment](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Risk-Rules/generatePotentialRiskAssessments) and use the `resourceOrnList` parameter.
 * In security access review items, the `assignmentType` property is set to `ENTITLEMENT` if the entitlement resource was assigned through an individual entitlement grant.
 
 <!-- OKTA-1098916 IGA_ADDITIVE_ENTITLEMENTS  Preview date: February 4, 2026 -->
@@ -84,7 +84,7 @@ The Okta developer portal search results now include the API references.
 Security access reviews are a new, security-focused type of access review that can be automatically triggered by events. These reviews provide a unified view of a user's access and contextual information about their access history. Also included is an AI-generated access summary, allowing you to investigate and take immediate remediation actions, such as revoking access.
 See [Security Access Reviews](https://help.okta.com/okta_help.htm?type=oie&id=csh-sar) in the product documentation.
 
-See the [Security Access Reviews](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Security-Access-Reviews/) API and [Launch a security access review](/docs/guides/iga-security-access-review/main/) guide for details on how to trigger security access reviews through the API.
+See the [Security Access Reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference//tag/Security-Access-Reviews/) API and [Launch a security access review](/docs/guides/iga-security-access-review/main/) guide for details on how to trigger security access reviews through the API.
 
 <!-- OKTA-1002587 IGA_SECURITY_ACCESS_REVIEW Preview date: Sept 10, 2025 -->
 
@@ -92,7 +92,7 @@ See the [Security Access Reviews](https://developer.okta.com/docs/api/iga/openap
 
 <ApiLifecycle access="beta" />
 
-A new `permalinkId` property is returned in [V1 access request](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v1/tag/Requests/) responses. This property is a user-friendly, immutable identifier that resolves to the request. Users can use this identifier (in the form of a permalink) to navigate back to the request on the web page. See [`permalinkId`](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v1/tag/Requests/#tag/Requests/operation/getRequest!c=200&path=0/permalinkId&t=response).
+A new `permalinkId` property is returned in [V1 access request](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v1/tag/Requests/) responses. This property is a user-friendly, immutable identifier that resolves to the request. Users can use this identifier (in the form of a permalink) to navigate back to the request on the web page. See [`permalinkId`](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-requests/getmyrequestv2#my-requests/getmyrequestv2/t=response&c=200&path=requestapproval/permalinkid).
 <!-- OKTA-1060094 Preview date: Jan 8, 2026 -->
 
 #### AD group support in Access Requests is GA in Production
@@ -101,14 +101,14 @@ Users can now request access to Active Directory (AD)-sourced groups directly wi
 
 You must have [Bidirectional Group Management with Active Directory](https://help.okta.com/okta_help.htm?type=oie&id=ad-bidirectional-group-mgmt) configured in your org to have governance AD group support. See [Access governance for AD groups](https://help.okta.com/okta_help.htm?type=oie&id=ad-bidirectional-group-mgt-configure).
 
-For users to request access to AD groups, admins must first create a request condition with an AD-sourced group access scope. Use the [Create a request condition](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/#tag/Request-Conditions/operation/createResourceRequestConditionV2) request and set `accessScopeSettings.type` to `GROUP`. In the `accessScopeSettings.group` list, specify your AD-sourced group IDs that are requestable.
+For users to request access to AD groups, admins must first create a request condition with an AD-sourced group access scope. Use the [Create a request condition](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/request-conditions/createresourcerequestconditionv2) request and set `accessScopeSettings.type` to `GROUP`. In the `accessScopeSettings.group` list, specify your AD-sourced group IDs that are requestable.
 <!-- OKTA-1059727, OKTA-1036354 ACCESS_REQUEST_AD_GROUPS Preview date: Dec 10, 2025 -->
 
 #### My Access Certification Reviews API is Beta
 
 <ApiLifecycle access="beta" />
 
-The [My Access Certification Reviews](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Access-Certification-Reviews/#tag/My-Access-Certification-Reviews) API enables end users to retrieve reviews and associated details assigned to them. The responses from this API are specifically for the authenticated user (the end user) making the request. See [List all managed connections for my review](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Access-Certification-Reviews/#tag/My-Access-Certification-Reviews/operation/listMyManagedConnections).
+The [My Access Certification Reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews) API enables end users to retrieve reviews and associated details assigned to them. The responses from this API are specifically for the authenticated user (the end user) making the request. See [List all managed connections for my review](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews/listmymanagedconnections).
 <!-- OKTA-1057908 Preview date: Jan 8, 2026 -->
 
 #### Developer documentation updates in 2026.01.0
