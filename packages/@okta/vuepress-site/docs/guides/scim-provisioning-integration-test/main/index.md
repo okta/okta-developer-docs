@@ -50,9 +50,9 @@ To configure and run the SCIM CRUD tests:
     * If you're using SCIM 1.1, download: [Okta SCIM 1.1 CRUD test file](/standards/SCIM/SCIMFiles/Okta-SCIM-11-CRUD-Test.json)
 1. Click **Import Test** in Runscope.
 1. Select **API Monitoring Tests** as the import format.
-1. Click **Choose File** and select the Okta SCIM 2.0 CRUD JSON test file.
-1. Click **Import API Test**. In this new test bucket, click **Editor** from the left-navigation menu.
-1. Click **Test Settings** and then click **Initial Variables**.
+1. Click **Choose File**, and then select the Okta SCIM 2.0 CRUD JSON test file.
+1. Click **Import API Test**. In the new test bucket, click **Editor** from the left-navigation menu.
+1. Click **Test Settings**, and then click **Initial Variables**.
 1. Add the following variables with values that match your SCIM integration:
     * `oktaAppId`: The unique identifier that's randomly assigned to your Okta integration. You can see this value in the **App Embed Link** panel under the **General** tab for your Okta integration.
     * `oktaOrgUrl`: The base URL for your Okta org. Include the `https://` prefix.
@@ -79,7 +79,7 @@ To configure and run the SCIM CRUD tests:
 
     </div>
 
-1. Click **Test Settings** and then click **Initial Script**.
+1. Click **Test Settings**, and then click **Initial Script**.
 1. Copy the contents of the [Okta CRUD Initial Script](/standards/SCIM/SCIMFiles/Initial_Script_CRUD.txt) text file and paste into this Runscope console.
 1. Click **Save & Run**.
 

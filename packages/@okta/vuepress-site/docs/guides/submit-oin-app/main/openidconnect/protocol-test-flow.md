@@ -1,3 +1,5 @@
+#### <StackSnippet snippet="protocol-name" inline/> tests
+
 In the **OIDC tests** section, specify the following sign-in flow details:
 
 | <div style="width:150px">Property</div> | &nbsp; | Description  |
@@ -11,3 +13,7 @@ In the **OIDC tests** section, specify the following sign-in flow details:
 | **SP Initiate URL** | | Specify the URL for SP-initiated sign-in flows. This URL is required for the SP-initiated flow.<br>The maximum URL length is 512 characters. |
 
 `*` Required properties
+
+<br>
+
+Click **Test your integration** to save your test information and begin the integration testing phase.

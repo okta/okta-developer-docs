@@ -1,0 +1,1 @@
+1. Edit the app instance. You can [edit app instance settings](#generate-an-instance-for) or [assign users to your app instance](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_Apps_Page-assign).

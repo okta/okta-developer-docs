@@ -1,0 +1,1 @@
+4. Edit the app instance. You can [edit app instance settings](#generate-an-instance-for).

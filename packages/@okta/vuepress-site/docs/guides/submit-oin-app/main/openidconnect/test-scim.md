@@ -4,7 +4,7 @@ You need to run three sets of tests for SCIM integrations:
 
 1. [SCIM API specification tests](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api)
 
-    You need to test your SCIM API service before you conduct Okta-SCIM integration tests. Okta provides you with a SCIM API specification test suite to execute in Runscope. See [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api) for instructions on how to run this test suite. Provide the test results URL in the **Link to Runscope spec test results** field when you submit your integration to the OIN.
+    You need to test your SCIM API service before you conduct SCIM integration tests. Okta provides you with a SCIM API specification test suite to execute in Runscope. See [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api) for instructions on how to run this test suite. Provide the test results URL in the **Link to Runscope spec test results** field when you submit your integration to the OIN.
 
 1. [Runscope create, read, update, and delete (CRUD) user profile tests](#runscope-crud-tests)
 
@@ -23,11 +23,11 @@ You need to run three sets of tests for SCIM integrations:
 1. Download the [Okta SCIM 2.0 CRUD Test](/standards/SCIM/SCIMFiles/Okta-SCIM-20-CRUD-Test.json) file.
 
    This CRUD test file is built for the [BlazeMeter Runscope](https://www.runscope.com/) API monitoring tool. If you don't have a Runscope account, you can sign up with a [free trial to Runscope](https://www.runscope.com/okta) for Okta developers.
-1. From Runscope, click **Import Test**.
+1. In Runscope, click **Import Test**.
 1. Select **API Monitoring Tests** as the import format.
-1. Click **Choose File** and select the **Okta SCIM 2.0 CRUD Test** file.
-1. Click **Import API Test**. In this new test bucket, click **Editor** from the left-navigation menu.
-1. Click **Test Settings** and then click **Initial Variables**.
+1. Click **Choose File**, and then select the **Okta SCIM 2.0 CRUD Test** file.
+1. Click **Import API Test**. In the new test bucket, click **Editor** from the left-navigation menu.
+1. Click **Test Settings**, and then click **Initial Variables**.
 1. Add the following variables with values that match your SCIM integration:
     * `oktaOrgUrl`: The base URL for your Okta org. Include the `https://` prefix.
     * `oktaAppId`: The unique identifier that's assigned to your test app instance. You can see this value in the **App Embed Link** panel under the **General** tab for your instance.
@@ -38,9 +38,9 @@ You need to run three sets of tests for SCIM integrations:
 
     </div>
 
-    * `oktaToken`: The Okta API token used by Runscope to connect to Okta APIs. You can generate an API token inside your org. See [Create an API token](/docs/guides/create-an-api-token/main/).
+    * `oktaToken`: The Okta API token that's used by Runscope to connect to Okta APIs. You can generate an API token inside your org. See [Create an API token](/docs/guides/create-an-api-token/main/).
     * `SCIMUrl`: The base URL of the SCIM service. For example: `https://example.com/scim/v2`
-    * `SCIMAuth`: The authorization token used to access your SCIM API. You can use the same authorization token you used to **Enable API integration** from [Generate an instance for <StackSnippet snippet="protocol-name" inline/>](#generate-an-instance-for).
+    * `SCIMAuth`: The authorization token that's used to access your SCIM API. You can use the same authorization token you used to **Enable API integration** from [Generate an instance for <StackSnippet snippet="protocol-name" inline/>](#generate-an-instance-for).
 
       The following is an example of the Runscope variable values:
 
@@ -50,7 +50,7 @@ You need to run three sets of tests for SCIM integrations:
 
     </div>
 
-1. Click **Test Settings** and then click **Initial Script**.
+1. Click **Test Settings**, and then click **Initial Script**.
 1. Copy the contents of the [Okta CRUD Initial Script](/standards/SCIM/SCIMFiles/Initial_Script_CRUD.txt) text file and paste into this Runscope console.
 1. Click **Save & Run**.
 
@@ -64,7 +64,7 @@ As the test suite runs, Runscope displays live updates of the test in progress. 
 
 When you're satisfied with your Runscope CRUD test results, enter them in the **Link to Runscope CRUD test results** field:
 
-1. From your Runscope dashboard, open the test results that you want to share.
+1. In your Runscope dashboard, open the test results that you want to share.
 2. At the top of the test result, set the **Private | Shareable** toggle to **Shareable**.
 3. Copy the URL for the test result. The test results can be viewed in detail, but the test can't be edited or rerun by people outside of your team.
 
@@ -79,13 +79,13 @@ When you're satisfied with your Runscope CRUD test results, enter them in the **
 
     This Entitlement Management test file is built for the BlazeMeter Runscope API monitoring tool. If you don't have a Runscope account, you can sign up with a [free trial to Runscope](https://www.runscope.com/okta) for Okta developers.
 
-1. From Runscope, click **Import Test**.
+1. In Runscope, click **Import Test**.
 1. Select **API Monitoring Tests** as the import format.
-1. Click **Choose File** and select the **Okta SCIM 2.0 Entitlements Test** file.
+1. Click **Choose File**, and then select the **Okta SCIM 2.0 Entitlements Test** file.
 1. Click **Import API Test**. In the test bucket, click **Editor** from the left navigation menu.
 1. Click **Test Settings**, and then click **Initial Variables**.
 1. Add the following variables with values that match your SCIM integration:
-    * `SCIMBaseURL`: The base URL of the SCIM service. For example: `https://example.com/scim/v2`.
+    * `SCIMBaseURL`: The base URL of the SCIM service. For example,`https://example.com/scim/v2`.
     * `EntitlementEndpoint`: The endpoint of the resource type. For example, `/Roles`.
     * `auth`: The authorization token that's used to access your SCIM API. You can use the same authorization token that you used to enable the API integration in [Generate an instance for <StackSnippet snippet="protocol-name" inline/>](#generate-an-instance-for).
 

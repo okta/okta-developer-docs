@@ -19,7 +19,7 @@ Use this guide to understand the process of submitting Workflows connector to th
 
 #### What you need
 
-* A functional integration created and tested in accordance with the [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder)
+* A functional integration that's created and tested in accordance with the [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder)
 
 * The various items necessary for submission in accordance with the [OIN submission requirements](/docs/guides/submit-app-prereq/)
 

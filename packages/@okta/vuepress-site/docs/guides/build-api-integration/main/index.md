@@ -111,19 +111,20 @@ To register your API service registration, see [Submit an integration with the O
 
 Use the test functionality in the OIN Wizard to obtain test integration credentials:
 
-1. From the OIN Wizard, click **Applications** > **Your OIN Integrations** and click the **More actions ⋮** icon and click **Test integration**.
-1. Click **Generate instance**. Your browser redirects to the **Authorize integration** page.
-1. Go to **Test integration** > **Generate instance**. Your browser redirects to the Authorize integration page.
+1. In the OIN Wizard, click **Applications** > **Your OIN Integrations**.
+1. Cick the **More actions ⋮** icon and click **Test integration**.
+1. Click **Generate instance**. The **Authorize integration** page appears.
+1. Go to **Test integration** > **Generate instance**. The **Authorize integration** page appears.
 1. Click **Install & Authorize**.
-1. Copy the client secret from the dialog and store it securely
-   >**Note**: You must copy the client secret from this dialog. For security purposes, it's only displayed once and can't be retrieved later.
+1. Copy the client secret from the dialog and store it securely.
+   >**Note**: For security purposes, the client secret is only displayed once and can't be retrieved later.
 1. Click **Done**.
 1. On the **General** tab, copy the **Okta domain** and **client ID** and securely store them for your integration test.
 1. Configure your app using the Okta domain, client ID, and client secret.
 1. Perform manual testing to verify your integration.
 1. Once the testing is complete, click **Continue to submission**. The **Test integration** page appears.
-1. Ensure that the checkboxes below **Test account requirements** and **API service requirements** are in selected status.
-1. Select the **I certify that I have successfully completed required tests** checkbox to confirm completion of required tests.
+1. Enable the **Test account requirements** and **API service requirements** checkboxes.
+1. Select the **I certify that I have successfully completed required tests** checkbox to confirm that the required tests are complete.
 1. Click **Submit integration**.
 
 For testing purposes, use the Okta domain, client ID, and client secret obtained from your test integration to make an access token request. Then, make an API request using the access token returned by the first request. See [Test your API service flow](#test-your-api-service-flow).
@@ -211,17 +212,17 @@ After you complete testing and are satisfied with your API service integration, 
 
 To edit your API service integration submission fields:
 
-1. From the OIN Wizard, click **Applications** > **Your OIN integrations**.
-1. Click the integration that you want to open from the list. Click **Edit** next to your integration submission.
+1. In the OIN Wizard, click **Applications** > **Your OIN integrations**.
+1. Select an integration from the list. Click **Edit** next to your integration submission.
 1. Edit the fields that you want to modify.
 
-If the fields that you update affect the test integration instance in your Okta org (such as integration name or scopes), then you must click **Generate instance** to create another test integration instance with the updated fields. The test integration instance is a static snapshot of your integration submission fields at the time that it was created. It doesn't get updated when you modify your submission. If you want to remove older test integration instances that aren't used, see [Remove your test integration instance](#remove-your-test-integration-instance).
+f the fields that you update affect the test integration instance in your Okta org (such as integration name or scopes), click **Generate instance** to create another test integration instance with the updated fields. The test integration instance is a static snapshot of your integration submission fields at the time that it was created. It isn't updated when you modify your submission. If you want to remove older test integration instances that aren't used, see [Remove your test integration instance](#remove-your-test-integration-instance).
 
 ### Remove your test integration instance
 
 To remove a test API service integration in your Okta org, click **Revoke** from the integration details page in your Admin Console. This action revokes the scope grants, client ID, and secret from the test integration installed previously.
 
-You can click **Generate instance** to generate another test integration instance in your Okta org. This action is useful when you update your submission in the OIN Wizard (for example, modifying the scopes or name of the integration) and want to see the updates reflected in the test integration instance.
+Click **Generate instance** to generate another test integration instance in your Okta org. This action is useful when you update your submission in the OIN Wizard (for example, modifying the scopes or name of the integration) and want to see the updates reflected in the test integration instance.
 
 ### Submit for review
 
