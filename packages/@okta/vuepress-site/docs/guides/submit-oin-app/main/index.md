@@ -77,7 +77,7 @@ Start your integration submission for OIN publication:
 
 1. On the **Home** page, do one of the following:
 
-    * Click **Create app** to list a new app. <br><br>
+    * Click **Create app** to create a new app that you want to list in the Okta Integration Network. <br><br>
     **OR**<br>
     * If there’s an existing integration for an app, click **Add more integrations** to add another integrations to it. The **Manage your app** page appears.
 
