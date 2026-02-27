@@ -212,16 +212,6 @@ The Integrator Free Plan org has no limit on active instances. You can create as
 > **Note:** The steps in this section are for generating one instance to test the **<StackSnippet snippet="protocol-name" inline/>**. <br>
 > If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
 
-1. From the **Test integration** page, click **Generate instance**.
-
-    A page appears to add your instance details. See [Add existing app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app).
-
-    When your integration is published in the OIN catalog, the customer admin uses the Admin Console **Browse App Catalog** > [add an existing app integration](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) page to add your integration to their Okta org. The next few steps are exactly what your customer admins experience when they instantiate your integration with Okta. This enables you to assume the customer admin persona to verify that app labels and properties are appropriate for your integration.
-
-    If you need to change any labels or properties, go back to edit your submission.
-
-    > **Note:** The Integrator Free Plan has no limit on active app instances. You can create as many test instances as needed for your integration. To deactivate any instances that you no longer need, see [Deactivate an app instance in your org](#deactivate-an-app-instance-in-your-org).
-
 <StackSnippet snippet="test-instance" />
 
 <StackSnippet snippet="assign-test" />
@@ -257,28 +247,7 @@ To deactivate an instance from the OIN Wizard:
 
 Alternatively, to deactivate an app instance without the OIN Wizard, see [Deactivate app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-apps-deactivate).
 
-#### Update an app instance in your org
-
-To edit the app instance from the OIN Wizard, follow these steps:
-
-1. Go to **Test integration** > **Application instances for testing**.
-1. Click **Clear filters** to see all instances in your org if you don't see the instance that you want to edit.
-1. Select **Update instance details** from the more icon (![three-dot more icon](/img/icons/odyssey/more.svg)) next to the app instance you want to update. The instance details page appears.
-
-<StackSnippet snippet="update-step4"/>
-
-5. Return to the OIN Wizard:
-
-    * Click **Begin testing** (upper-right corner) for the current submission instance.
-
-        The **Test integration** page appears.
-
-    * Click **Go to integrations** (upper-right corner) for the backwards-compatible instance.
-
-        The **Your OIN Integrations** dashboard appears.
-        Go to your integration submission > **Configure your integration** > **Get started with testing** to continue with testing your integration.
-
-> **Note:** After you edit a test instance, any previous test results for that instance are invalid and removed from the OIN Submission Tester. Rerun all the required tests again with the new instance.
+<StackSnippet snippet="update-app-instance"/>
 
 <StackSnippet snippet="oin-sub-test"/>
 

@@ -112,7 +112,7 @@ To register your API service registration, see [Submit an integration with the O
 Use the test functionality in the OIN Wizard to obtain test integration credentials:
 
 1. In the OIN Wizard, click **Applications** > **Your OIN Integrations**.
-1. Cick the **More actions ⋮** icon and click **Test integration**.
+1. Cick the more icon (![three-dot more icon](/img/icons/odyssey/more.svg)) next to the integration submission that you want to test and click **Test integration**.
 1. Click **Generate instance**. The **Authorize integration** page appears.
 1. Go to **Test integration** > **Generate instance**. The **Authorize integration** page appears.
 1. Click **Install & Authorize**.

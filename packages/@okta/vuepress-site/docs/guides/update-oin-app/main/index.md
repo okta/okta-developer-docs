@@ -84,11 +84,13 @@ To update a previously published OIN integration:
 
 1. Click your published integration to update from the dashboard. Your published OIN submission appears in read-only mode.
 
-1. From the **This integration is read-only** information box, click **Edit integration**.
+1. From the **This integration is read-only** information box, click **Edit integration**. The **Add integration capabilities** page appears.
     > **Note:** You can skip this step if your submission is in draft status. The **Edit integration** option isn't available for submissions in draft status because it's not in read-only mode.
 
     <StackSnippet snippet="detect-old-instance" />
 
+1. Click **Add integration details**. The **OIN catalog properties** page appears.
+1. Update [OIN catalog properties](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties) as required for your integration.
 1. Click **Configure your integration** to proceed to update your integration as required in the following sections of the OIN Wizard:
 
    <StackSnippet snippet="edit-links" />
