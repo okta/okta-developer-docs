@@ -1,5 +1,5 @@
 
-#### <StackSnippet snippet="protocol-name" inline/> tests
+#### <StackSnippet snippet="protocol-name" inline/> Tests
 
 Before you test your Okta SCIM integration, confirm that your SCIM API service is operational. Okta provides a SCIM API specification test suite in Runscope. See [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
 
