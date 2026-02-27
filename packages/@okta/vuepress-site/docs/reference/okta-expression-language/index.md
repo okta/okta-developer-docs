@@ -14,6 +14,7 @@ This document details the features and syntax of the Okta Expression Language (E
 > * [App sign-in policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine
 > * [Access Certification campaigns](https://help.okta.com/okta_help.htm?id=ext-el-eg) with Okta Identity Governance
 > * [Entitlement Management policies](https://help.okta.com/okta_help.htm?id=csh-create-policy) for Okta Identity Governance
+> * [Federated claims](/docs/guides/federated-claims/main/) for Okta Identity Governance
 
 Okta Expression Language is based on [SpEL](https://docs.spring.io/spring-framework/reference/core/expressions.html) and uses a subset of the functionalities offered by SpEL.
 

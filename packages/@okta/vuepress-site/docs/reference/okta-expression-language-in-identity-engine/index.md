@@ -14,7 +14,7 @@ meta:
 This document details the features and syntax of Expression Language used for the following:
 
 * [App sign-in policies](/docs/guides/configure-signon-policy/main/) of Identity Engine
-* [Access Certification campaigns](https://help.okta.com/okta_help.htm?id=ext-el-eg), Entitlement Management policies, and [federated claims](/docs/guides/federated-claims/main/) for Okta Identity Governance
+* [Access Certification campaigns](https://help.okta.com/okta_help.htm?id=ext-el-eg), [Entitlement Management policies](https://help.okta.com/okta_help.htm?id=csh-create-policy), and [federated claims](/docs/guides/federated-claims/main/) for Okta Identity Governance
 
 Expressions used outside of these areas should continue using the features and syntax of [Expression Language](/docs/reference/okta-expression-language/). This document is updated as new capabilities are added to the language. Expression Language is based on a subset of [SpEL functionality](https://docs.spring.io/spring-framework/reference/core/expressions.html).
 
