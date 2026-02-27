@@ -4,6 +4,4 @@ Before you test your Okta SCIM integration, confirm that your SCIM API service i
 
 After you've successfully run the Okta SCIM API specification test suite in Runscope, save the URL of the test results. This Runscope test results URL is one of the requirements to submit your integration.
 
-<br>
-
 Click **Test your integration** to save your test information and begin the integration testing phase.
