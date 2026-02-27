@@ -61,10 +61,19 @@ To create an access token, use the [Access Tokens API](https://developer.okta.co
 
 To set up offline mode, you need to install the offline mode components on Access Gateway and enable the offline mode feature.
 
-1. Open your [Access Gateway Management console command line](https://help.okta.com/okta_help.htm?type=oag&id=command-line-reference).
+1. Open your [Management Console](https://help.okta.com/okta_help.htm?type=oag&id=command-line-reference).
 1. Go to the [System menu](https://help.okta.com/okta_help.htm?type=oag&id=system-menu).
 1. Enter `2` and install the `okta-accessgateway-offline-mode` package.
-1. Then, contact [Okta Support](https://support.okta.com) to enable the offline mode feature.
+
+After the package is installed, enable the offline mode feature in your Access Gateway environment.
+
+1. Open the Management Console.
+1. Launch the [Access Gateway Privileged Shell](https://help.okta.com/oag/en-us/content/topics/access-gateway/command-line-console-reference-system.htm#LaunchShell).
+1. Open the `/opt/oag/data/gui/specs/icsgw_spgw_features.json` file with `sudo` privileges using your text editor. For example, if you use the vi editor, use this command: `sudo vi /opt/oag/data/gui/specs/icsgw_spgw_features.json`.
+1. Search for `offlinemode`.
+1. Change `"show": false` to `"show": true`.
+1. Save the file. The `"show": false` field is read-only. When you save the file, ensure that you override the read-only attribute to save it. For example, when using vi, use this command: `:w!`.
+1. [Restart the Access Gateway Admin service](https://help.okta.com/oag/en-us/content/topics/access-gateway/command-line-console-reference-service.htm#Access) to apply your changes.
 
 > **Note:** Perform these steps on your admin node and any server nodes where you want the authentication service to run.
 
