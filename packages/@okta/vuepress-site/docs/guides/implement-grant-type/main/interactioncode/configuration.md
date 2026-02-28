@@ -4,7 +4,7 @@ Enable the Interaction Code grant type for your org, [authorization server](/doc
 
 ### Enable Interaction Code grant for your org
 
-The **Embedded widget sign-in support** setting in your Admin Console enables or disables the Interaction Code grant type for your org. Enable the setting to allow or deny apps the ability to use embedded sign-in flows across your entire org.
+The **Embedded widget sign-in support** setting in your Admin Console enables or disables the Interaction Code grant type for your org. Enable the setting to allow apps the ability to use embedded sign-in flows across your entire org.
 
 > **Note:** [Super Admin permissions](https://help.okta.com/okta_help.htm?id=ext_superadmin) are required. If you don’t have those permissions for your org, contact your administrator.
 
@@ -12,11 +12,11 @@ To access this setting:
 
 1. Open the [Admin Console](/docs/concepts/okta-organizations/#admin-console) for your org.
 1. Go to **Settings** > **Account** > **Embedded widget sign-in support**.
-1. Click **Edit**.
-1. Click **Advanced** in the **Grant type** section, and then select **Interaction Code**.
+1. Verify that the checkbox for **Interaction Code** is selected. If it is, move on to the next section. If it isn't, continue with these steps.
+1. Click **Edit** and select the checkbox.
 1. Click **Save**.
 
-If you enable the Interaction Code grant type, the number of applications and authorization servers that use the Interaction Code grant type appear.
+If you enable the Interaction Code grant type, the number of apps and authorization servers that use the Interaction Code grant type appear.
 
 If you disable the Interaction Code grant type:
 
