@@ -81,7 +81,7 @@ curl -v -X GET \
 
 ## Initiate an org failover
 
-Use the following disaster recovery API, `https://drapp.{yourOktaDomain}/api/v1/dr/failover`<!--[Start the failover of your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/startOrgFailover)-->, to initiate your org failover. The request body is optional. You can specify a domain to failover, an empty object (`{}`), or no payload.
+Use the following disaster recovery API to initiate your org failover: `https://drapp.{yourOktaDomain}/api/v1/dr/failover`<!--[Start the failover of your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/startOrgFailover)-->. The request body is optional. You can specify a domain to failover, an empty object (`{}`), or no payload.
 
 #### Request example
 
