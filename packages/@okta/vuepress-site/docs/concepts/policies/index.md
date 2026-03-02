@@ -187,11 +187,11 @@ To see the grace periods object in the API reference documentation, see the [Pol
 
 #### User profile policies
 
-The [User profile policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) collects the attributes required to validate users when they attempt to access your app. Use this policy for [self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/) or for [progressive enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-pe-policies).
+The [User profile policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) collects the attributes required to validate users when they attempt to access your app. Use this policy for [self-service registration](SUSAN), [progressive enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-pe-policies), or [multiple identifiers](https://help.okta.com/okta_help.htm?type=oie&id=ext-multiple-ids).
 
-With self-service registration flows, users register and activate their profiles by clicking a sign-up link in the Sign-In Widget or through a custom-embedded authentication solution.
-
-With progressive enrollment flows, you can capture the minimum user information required to create a profile. Then, you can continually build out those user profiles during subsequent sign-in operations. You control what information is collected, validate those input values, and [trigger inline hooks](/docs/guides/registration-inline-hook/nodejs/main/).
+* With self-service registration flows, users register and activate their profiles by clicking a sign-up link in the Sign-In Widget or through a custom-embedded authentication solution.
+* With progressive enrollment flows, you can capture the minimum user information required to create a profile. Then, you can continually build out those user profiles during subsequent sign-in operations. You control what information is collected, validate those input values, and [trigger inline hooks](/docs/guides/registration-inline-hook/nodejs/main/).
+* With multiple identifiers, you can map custom attributes to custom identifiers to enable users to sign in with those identifiers instead of their username and password. For example, you can create a custom attribute, `employeeNumber`, and then enable users to sign in with their `employeeNumber` by configuring it as an identifier in the user profile policy.
 
 ### Client update policies
 

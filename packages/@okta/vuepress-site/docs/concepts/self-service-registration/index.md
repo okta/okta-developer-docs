@@ -22,7 +22,7 @@ For more information about SSR, see:
 * [Self-service registration overview](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-ssr)
 * [Add a sign-up form to your web app](SUSAN)
 
-**Note:** If you plan to use an Okta-hosted Sign-In Widget for your sign-up form, note that the flow follows the standard OpenID Connect (OIDC) protocol. Users are first redirected to an Okta-hosted page where they complete the registration form. After they register, Okta redirects them back to your app with an authorization code, which your app exchanges for tokens to sign the user in.
+**Note:** If you plan to use an Okta-hosted Sign-In Widget for your sign-up form, note that the SSR flow follows the standard OpenID Connect (OIDC) protocol. Users are first redirected to an Okta-hosted page where they complete the registration form. After they register, Okta redirects them back to your app with an authorization code, which your app exchanges for tokens to sign the user in.
 
 ### Default SSR state
 
@@ -106,7 +106,7 @@ Consider the following examples for ways to customize your SSR flow using a regi
 For implementation details, see:
 
 * [Registration inline hook](/docs/guides/registration-inline-hook/nodejs/main/)
-* [API reference for a registration inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook)
+* [API reference for a registration inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/inlinehook/webhooks/create-registration-hook)
 * [Hooks in the Okta Sign-In Widget](https://github.com/okta/okta-signin-widget?tab=readme-ov-file#hooks)
 
 #### SSR flow with inline hooks
@@ -138,9 +138,7 @@ See:
 
 You must have a [custom domain](/docs/guides/custom-url-domain/main/#about-okta-domain-customization) configured to customize the Okta-hosted widget. After you configure a custom domain, you're able to insert your own scripts and styles into the registration page. And Okta continues to manage the core widget logic and security updates.
 
-[Use the code editor](/docs/guides/custom-widget/main/#use-the-code-editor) in the Admin Console to [add your own scripts](/docs/guides/custom-widget/main/#add-your-own-scripts) and styles to the page. You insert your custom logic by modifying the configuration before the widget renders.
-
-When using custom code, ensure your custom CSS and third-party scripts are loaded in the `<head>` of the code editor before the widget runs.
+[Use the code editor](/docs/guides/custom-widget/main/#use-the-code-editor) in the Admin Console to [add your own scripts](/docs/guides/custom-widget/main/#add-your-own-scripts) and styles to the page. You insert your custom logic by modifying the configuration before the widget renders. When using custom code, ensure your custom CSS and third-party scripts are loaded in the `<head>` of the code editor before the widget runs.
 
 Review the following examples for ideas on how to customize your SSR flow.
 
@@ -172,7 +170,7 @@ With inline hooks, you can insert a call to an external service during the SSR p
 
 Review the following resources to learn how to build and customize your SSR flow:
 
-* [Enable and configure the basic self-registration process](http://doclink).
+* [Enable and configure the basic self-registration process](/docs/guides/enable-configure-signupform/main/).
 * Use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/) to manage policies programmatically.
 * Configure a [registration inline hook](/docs/guides/registration-inline-hook/nodejs/main/).
 * [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/main/).
