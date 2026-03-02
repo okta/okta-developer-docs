@@ -22,7 +22,7 @@ For more information about SSR, see:
 * [Self-service registration overview](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-ssr)
 * [Add a sign-up form to your web app](SUSAN)
 
-**Note:** If you plan to use an Okta-hosted Sign-In Widget for your sign-up form, note that the SSR flow follows the standard OpenID Connect (OIDC) protocol. Users are first redirected to an Okta-hosted page where they complete the registration form. After they register, Okta redirects them back to your app with an authorization code, which your app exchanges for tokens to sign the user in.
+> **Note:** If you plan to use an Okta-hosted Sign-In Widget for your sign-up form, note that the SSR flow follows the standard OpenID Connect (OIDC) protocol. Users are first redirected to an Okta-hosted page where they complete the registration form. After they register, Okta redirects them back to your app with an authorization code, which your app exchanges for tokens to sign the user in.
 
 ### Default SSR state
 
