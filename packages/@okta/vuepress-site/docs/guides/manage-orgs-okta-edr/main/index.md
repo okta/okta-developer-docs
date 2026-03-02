@@ -110,7 +110,7 @@ After a failover, all end users in that org are in [read-only mode](https://supp
 
 ## Initiate an org failback
 
-Use the following disaster recovery API, `https://drapp.{yourOktaDomain}/api/v1/dr/failbackStart`<!--[Start the failback of your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/startOrgFailback)-->, to initiate your org failback. The request body is optional. You can specify a domain to failback, an empty object (`{}`), or no payload.
+Use the following disaster recovery API to initiate your org failback: `https://drapp.{yourOktaDomain}/api/v1/dr/failbackStart`<!--[Start the failback of your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/startOrgFailback)-->. The request body is optional. You can specify a domain to failback, an empty object (`{}`), or no payload.
 
 #### Request example
 
