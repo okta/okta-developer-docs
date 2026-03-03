@@ -10,7 +10,7 @@ layout: Guides
 
 This guide explains how to configure Temporary Offline Access (offline mode) for Access Gateway using Access Gateway APIs. Offline mode allows users to authenticate locally through Access Gateway and continue accessing protected on-premises apps, even when Access Gateway is unable to reach Okta.
 
-> **Note:** The Access Gateway APIs that are used for offline mode configuration are in Early Access (EA).
+> **Note:** The Access Gateway APIs that are used for offline mode configuration are in Limited Early Access (LEA).
 
 ---
 
@@ -72,7 +72,7 @@ After the package is installed, enable the offline mode feature in your Access G
 1. Open the `/opt/oag/data/gui/specs/icsgw_spgw_features.json` file with `sudo` privileges using your text editor. For example, if you use the vi editor, use this command: `sudo vi /opt/oag/data/gui/specs/icsgw_spgw_features.json`.
 1. Search for `offlinemode`.
 1. Change `"show": false` to `"show": true`.
-1. Save the file. The `"show": false` field is read-only. When you save the file, ensure that you override the read-only attribute to save it. For example, when using vi, use this command: `:w!`.
+1. Save the file. The file is read-only which means that when you save it, ensure that you override the read-only permission. For example, when using vi, use this command: `:w!`.
 1. [Restart the Access Gateway Admin service](https://help.okta.com/oag/en-us/content/topics/access-gateway/command-line-console-reference-service.htm#Access) to apply your changes.
 
 > **Note:** Perform these steps on your admin node and any server nodes where you want the authentication service to run.
