@@ -11,24 +11,47 @@ title: Okta Classic Engine API release notes 2026
 
 ## March
 
-### Monthly release 2026.02.0
-<!-- Published on: 2026-02-05T12:00:00Z -->
+### Monthly release 2026.03.0
+<!-- Published on: 2026-03-04T12:00:00Z -->
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
+| [Self-Service for Enhanced Disaster Recovery is EA]() | ADD_DATE |
+| [Submit API service integrations is GA in Production]() | ADD_DATE |
+| [Admin Console Home page is GA in Production]() | ADD_DATE |
+| [New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview]() | ADD_DATE |
+| [Enable custom admin permissions for inline and event hooks is GA in Preview]() | ADD_DATE |
+| [Developer documentation updates in 2026.03.0](#developer-documentation-updates-in-2026-03-0) | March 4, 2026 |
 
+#### Self-Service for Enhanced Disaster Recovery is EA
 
+When unexpected infrastructure-related outages occur, orgs need an immediate and reliable way to maintain business continuity. Okta's Standard Disaster Recovery, implemented by Okta's operations teams, provides failover and failback with a recovery time objective of one hour.
 
+Okta's Enhanced Disaster Recovery (Enhanced DR) gives admins the option to manage their org's recovery. This feature empowers admins by providing direct, self-service tools and APIs to manage, test, and automate the failover and restoration processes for their impacted orgs.
 
+With Enhanced DR, admins gain active control to initiate a failover and restore for impacted orgs directly from the Okta Disaster Recovery Admin portal or through APIs. Additionally, teams can validate their system's resilience by safely testing these failover and restoration capabilities at their convenience. Finally, Enhanced DR enables orgs to automate failover processes by using real-time monitoring to invoke failover APIs, significantly minimizing downtime during an actual event. See [Manage org recovery with Okta Enhanced Disaster Recovery](/docs/guides/manage-orgs-okta-edr/).
+
+#### Submit API service integrations is GA in Production
+
+Independent Software Vendors (ISVs) can now use the OIN Wizard to submit API service integrations to the Okta Integration Network (OIN). Previously, ISVs provided metadata in the OIN Manager. With this update, ISVs can create and configure API service apps directly within the OIN Wizard
+The OIN Wizard currently supports only client secret authentication for API service integrations. ISVs can also generate credentials and perform end-to-end testing independently. These improvements streamline the app submission process and ensure a faster, more secure review. See [Submit an integration with the OIN Wizard](/docs/guides/submit-oin-app/uapiservice/main/).
+
+#### Admin Console Home page is GA in Production
+
+The new Admin Console **Home** page for IFT orgs provides a faster way to start and manage your app submissions. Instead of navigating through the previous **Applications** > **Your OIN Integrations** path, you can now initiate submissions directly from the **Home** page. This guided experience helps you select integration types, understand requirements through a new **Quick Start guide**, and track your submission in real time from build to publication. It also includes a **Coming Soon** section to preview and register for upcoming integrations, making the entire process more centralized and efficient.
+
+#### New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview
+
+New API endpoints have been added to the Directories Integration (`POST /api/v1/directories/{appInstanceId}/group/{groupId}/query` and `GET /api/v1/directories/{appInstanceId}/group/{groupId}/query/{resultId}`), which allows for the real-time retrieval of any standard or custom attribute from Active Directory (AD) groups. You can now programmatically access attributes, like cost centers and department codes, without waiting for a full directory sync. This feature allows you to accelerate automation by using live AD group metadata, while simultaneously eliminating manual data management by creating a single, reliable bridge between your on-premises directory details and your cloud ecosystem. See [Directories Integrations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/directoriesintegration).
+
+#### Enable custom admin permissions for inline and event hooks is GA in preview is GA in Preview
+
+The inline hook and event hook framework now supports read and write permissions for custom admin roles. This enhancement gives fine-grained access to manage inline and event hooks that previously required the super admin role. See [Hooks admin roles](/docs/guides/hooks-best-practices/).
 
 #### Developer documentation updates in 2026.03.0
 
 * 
 
-#### Bugs fixed in 2026.03.0
-
-* 
-* 
 
 ## February
 
