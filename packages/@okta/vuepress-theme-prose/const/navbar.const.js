@@ -1169,6 +1169,10 @@ export const journeys = [
             title: "Add a sign-in form to your mobile app",
             journeyName: "OCI-mobile"
           },
+          {
+            title: "Add a sign-up form to your web app",
+            journeyName: "OCI-web-sign-up"
+          },
         ]
       },
     ],
