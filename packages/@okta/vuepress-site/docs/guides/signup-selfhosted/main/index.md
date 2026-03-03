@@ -20,7 +20,7 @@ Learn how to implement a self-hosted sign-up experience using the Okta Auth Java
 * An IDE of your choice, like JetBrains or VSCode, installed
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * Familiarity with the [Okta Auth JavaScript SDK](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#introduction)
-* The Interaction Code grant type [enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled) for your org.
+* The Interaction Code grant type [enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled) for your org
 
 ---
 
