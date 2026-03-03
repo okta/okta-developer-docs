@@ -191,7 +191,7 @@ The [User profile policy](https://developer.okta.com/docs/api/openapi/okta-manag
 
 * With self-service registration flows, users register and activate their profiles by clicking a sign-up link in the Sign-In Widget or through a custom-embedded authentication solution.
 * With progressive enrollment flows, you can capture the minimum user information required to create a profile. Then, you can continually build out those user profiles during subsequent sign-in operations. You control what information is collected, validate those input values, and [trigger inline hooks](/docs/guides/registration-inline-hook/nodejs/main/).
-* With multiple identifiers, you can map custom attributes to custom identifiers to enable users to sign in with those identifiers instead of their username and password. For example, you can create a custom attribute, `employeeNumber`, and then enable users to sign in with their `employeeNumber` by configuring it as an identifier in the user profile policy.
+* With multiple identifiers, you can map custom attributes to custom identifiers. Then, Okta can identify users by those identifiers, instead of by their username. The custom attributes must be unique, contain no sensitive information, and be either read-write or read-only. For example, you can create a custom attribute, `employeeNumber`, and then enable users to sign in with their `employeeNumber` by configuring it as an identifier in the user profile policy.
 
 ### Client update policies
 
