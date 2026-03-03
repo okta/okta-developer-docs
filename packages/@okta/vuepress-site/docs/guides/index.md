@@ -86,6 +86,7 @@ guides:
  - sign-in-overview
  - secure-oauth-between-orgs
  - single-logout
+ - signup-oktahosted
  - build-sso-integration
  - custom-sms-messaging
  - submit-app

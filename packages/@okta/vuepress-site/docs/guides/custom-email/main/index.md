@@ -59,7 +59,7 @@ The [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/man
 * Email templates
 * The Okta End-User Dashboard
 
-You can brand these pages and templates without setting up a customized Okta URL domain.
+You can brand these pages and templates without setting up a customized Okta URL domain. However, you must set up a custom email domain if you want your users to receive the branded email templates.
 
 > **Note:** If you change any email code using the [Admin Console](#edit-a-default-email-template), your customizations may override the values of the Theme objects. To get your Theme object values back, reset the code editors in the Admin Console to the default settings.
 
@@ -488,6 +488,8 @@ Here are some examples:
 ## Test your custom email templates
 
 You can send yourself a test email to see how a custom email template looks and functions. A test email can help you validate attribute-based variables and translations in the customized template. You can see how the template renders in different email environments and avoid creating end-to-end workflows to test customizations. The primary email address of the admin that initiates the test receives the email.
+
+> **Note:** You can only send customized test emails if you've configured a custom email domain. If you don't have a custom email domain, test emails use the Okta default template and are sent from the Okta email domain.
 
 1. Click the email icon to the right of the email template that you’ve customized. A list shows the sender and receiver of the email.
 2. Click **Send test email**.
