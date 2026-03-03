@@ -90,19 +90,19 @@ Set up a user profile policy to allow your users to perform Self-Service Registr
 To set up your Vue app, you need to first set up the [Vue](https://vuejs.org/guide/quick-start.html) project:
 
 1. Create a directory for your project, and then open it in your [IDE](#what-you-need).
-1. In your IDE's integrated terminal, run the Vue project creation script: `npm create vue@latest .`.
+2. In your IDE's integrated terminal, run the Vue project creation script: `npm create vue@latest .`.
    The `.` argument instructs the script to create the project in the current directory.
    > **Note**: Your IDE may create hidden configuration files, which can trigger a warning that the directory isn't empty. It's safe to continue.
-1. The script guides you through a series of prompts to configure the project. Use the following settings:
+3. The script guides you through a series of prompts to configure the project. Use the following settings:
 
-  | Prompt                                | Selection |
-  | ------------------------------------- | --------  |
-  | Project name                          | `vue-app` |
-  | Add `TypeScript`?                     |  Yes      |
-  | Add `Vue Router` for Single Page Application development? | Yes |
-  | Skip example code and start with a blank project? | Yes |
+   | Prompt                                | Selection |
+   | ------------------------------------- | --------  |
+   | Project name                          | `vue-app` |
+   | Add `TypeScript`?                     |  Yes      |
+   | Add `Vue Router` for Single Page Application development? | Yes |
+   | Skip example code and start with a blank project? | Yes |
 
-1. Decline any offers for other features like Pinia for state management or Vitest for testing. After the script finishes, your base Vue project is ready.
+4. Decline any offers for other features like Pinia for state management or Vitest for testing. After the script finishes, your base Vue project is ready.
 
 ## Integrate Okta and set up the app
 
@@ -118,29 +118,29 @@ Install the [Okta Auth JavaScript SDK library](https://github.com/okta/okta-auth
 
 ### Configure TypeScript
 
-To ensure compatibility with the Okta libraries, you need to enable `allowSyntheticDefaultImports` in your `TypeScript` configuration.
+To ensure compatibility with the Okta libraries, enable `allowSyntheticDefaultImports` in your `TypeScript` configuration.
 
 1. Open the `tsconfig.app.json` file in the project's root directory.
 1. Add the `allowSyntheticDefaultImports` property to the `compilerOptions` object:
 
-```json
-{
-  ...
-  "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    ...
-  }
-}
-```
+   ```json
+   {
+     ...
+     "compilerOptions": {
+       "allowSyntheticDefaultImports": true,
+       ...
+     }
+   }
+   ```
 
 1. Run `npm run dev` to start the development server at `http://localhost:5173`. This is the same base URL that you added during the [Vue app configuration](#create-the-app-integration-for-vue).
 1. Click the URL. A page similar to this example appears:
 
-<div class="three-quarter">
+   <div class="three-quarter">
 
-![Image of dev server running](/img/devserverimage.png)
+   ![Image of dev server running](/img/devserverimage.png)
 
-</div>
+   </div>
 
 1. Run `npm install -D sass-embedded` to install Syntactically Awesome Style Sheets (Sass). Sass is a superset of CSS that enhances CSS.
 
@@ -156,7 +156,6 @@ Create basic page components that serve as the destinations for your router.
 ```ts
   <script lang="ts">
   import { defineComponent } from 'vue'
-
 
   export default defineComponent({
    name: "Home"
@@ -214,27 +213,27 @@ export default defineComponent({
 
 ### Configure the Vue router
 
-Next, configure the Vue router to recognize the new page components and ensure it loads correctly before the app mounts.
+Next, configure the Vue router to recognize the new page components and ensure that it loads correctly before the app mounts.
 
 1. Go to `src/router/index.ts` and update it to import and use the new Vue components.
 
-```ts
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from "@/views/Home.vue";
-import About from "@/views/About.vue";
-import Contact from "@/views/Contact.vue";
+   ```ts
+   import { createRouter, createWebHistory } from 'vue-router'
+   import Home from "@/views/Home.vue";
+   import About from "@/views/About.vue";
+   import Contact from "@/views/Contact.vue";
 
-const router = createRouter({
- history: createWebHistory(import.meta.env.BASE_URL),
- routes: [
-  { path: "/", component: Home },
-  { path: "/about", component: About },
-  { path: "/contact", component: Contact },
- ],
-})
+   const router = createRouter({
+    history: createWebHistory(import.meta.env.BASE_URL),
+    routes: [
+     { path: "/", component: Home },
+     { path: "/about", component: About },
+     { path: "/contact", component: Contact },
+    ],
+   })
 
-export default router
-```
+   export default router
+   ```
 
    This is a simple router instance with all of your pages in the `routes[]` array.
 
@@ -275,95 +274,95 @@ To keep your authentication logic organized and reusable, create a dedicated hel
 1. Inside `srce/lib/okta`, create two files: `config.ts` and `index.ts`.
 1. Add the following configuration to `config.ts`. This file stores your app's specific Okta settings. Replace the placeholder values with your own. See the comments in the example for more details on the configuration.
 
-```ts
-export default {
-  // Your Okta org URL
- issuer: `https://${yourOktaDomain}/oauth2/default`,
- baseUrl: `https://${yourOktaDomain}`,
- // The Client ID of the Okta app that you created
- clientId: `${yourClientID}`,
- // The access scopes being requested
- scopes: ['openid','email', 'profile'],
- storage: 'sessionStorage',
- // The URL to redirect to after a user signs in
- redirectUri: 'http://localhost:5173',
- useInteractionCodeFlow: true,
- requireUserSession: 'true',
- authMethod: 'form',
- startService: false,
- useDynamicForm: false,
- uniq: Date.now() + Math.round(Math.random() * 1000), // to guarantee a unique state
-};
-```
+   ```ts
+   export default {
+     // Your Okta org URL
+    issuer: `https://${yourOktaDomain}/oauth2/default`,
+    baseUrl: `https://${yourOktaDomain}`,
+    // The Client ID of the Okta app that you created
+    clientId: `${yourClientID}`,
+    // The access scopes being requested
+    scopes: ['openid','email', 'profile'],
+    storage: 'sessionStorage',
+    // The URL to redirect to after a user signs in
+    redirectUri: 'http://localhost:5173',
+    useInteractionCodeFlow: true,
+    requireUserSession: 'true',
+    authMethod: 'form',
+    startService: false,
+    useDynamicForm: false,
+    uniq: Date.now() + Math.round(Math.random() * 1000), // to guarantee a unique state
+   };
+   ```
 
 1. Add the core authentication logic to `src/lib/okta/index.ts`. This file initializes the Okta SDK and exports functions for handling registration, user sessions, and user logout. See the comments in the example for more details on the core authentication logic.
 
-```ts
-import type { AccessToken, IDToken, TokenManagerInterface, UserClaims } from "@okta/okta-auth-js";
-import { OktaAuth } from "@okta/okta-auth-js";
-import config from "@/lib/okta/config.ts";
-import OktaSignIn from "@okta/okta-signin-widget";
+   ```ts
+   import type { AccessToken, IDToken, TokenManagerInterface, UserClaims } from "@okta/okta-auth-js";
+   import { OktaAuth } from "@okta/okta-auth-js";
+   import config from "@/lib/okta/config.ts";
+   import OktaSignIn from "@okta/okta-signin-widget";
 
-const oktaConfig = {
- url: config.baseUrl,
- issuer: config.issuer,
- clientId: config.clientId,
- redirectUri: config.redirectUri,
- scopes: config.scopes,
-} as Record<any, any>;
+   const oktaConfig = {
+    url: config.baseUrl,
+    issuer: config.issuer,
+    clientId: config.clientId,
+    redirectUri: config.redirectUri,
+    scopes: config.scopes,
+   } as Record<any, any>;
 
-// Initialize the core Okta authentication client & Okta Sign-In Widget
-const authClient = new OktaAuth(oktaConfig);
-const oktaSignIn = new OktaSignIn({
- ...oktaConfig,
- redirectUri: `${config.redirectUri}/login/callback`,
- flow: 'signup',
-});
+   // Initialize the core Okta authentication client & Okta Sign-In Widget
+   const authClient = new OktaAuth(oktaConfig);
+   const oktaSignIn = new OktaSignIn({
+    ...oktaConfig,
+    redirectUri: `${config.redirectUri}/login/callback`,
+    flow: 'signup',
+   });
 
-// Checks for and processes tokens in the URL after a redirect from Okta
-const handleCallback = async () => {
- if (!authClient.isLoginRedirect()) return;
- const { tokens } = await authClient.token.parseFromUrl();
- authClient.tokenManager.setTokens(tokens);
-}
+   // Checks for and processes tokens in the URL after a redirect from Okta
+   const handleCallback = async () => {
+    if (!authClient.isLoginRedirect()) return;
+    const { tokens } = await authClient.token.parseFromUrl();
+    authClient.tokenManager.setTokens(tokens);
+   }
 
-// Retrieves the current authenticated user's claims. Returns a promise that resolves to the user claims object or null if not authenticated.
-async function user(): Promise<null | UserClaims> {
- const tokenManager: TokenManagerInterface = authClient.tokenManager;
- const accessToken: AccessToken = await tokenManager.get('accessToken') as AccessToken;
+   // Retrieves the current authenticated user's claims. Returns a promise that resolves to the user claims object or null if not authenticated.
+   async function user(): Promise<null | UserClaims> {
+    const tokenManager: TokenManagerInterface = authClient.tokenManager;
+    const accessToken: AccessToken = await tokenManager.get('accessToken') as AccessToken;
 
- if (!accessToken) {
-  return null;
- }
+    if (!accessToken) {
+     return null;
+    }
 
- try {
-  const idToken: IDToken = await tokenManager.get('idToken') as IDToken;
-  return await authClient.token.getUserInfo(accessToken, idToken);
- } catch (e) {
-  // Unable to retrieve user info, likely due to an expired session
-  return null;
- }
-}
-//Signs the user out of their Okta session.
-const logout = async () => await authClient.signOut();
-// Renders the Okta Sign-In Widget for registration and handles the redirect.
-// The DOM element selector where the widget should be rendered.
-const register = async (el: string) => {
-  // The remove() call ensures that any existing widget instance is cleaned up before rendering a new one.
- oktaSignIn.remove();
- await oktaSignIn.showSignInAndRedirect({ el });
-}
+    try {
+     const idToken: IDToken = await tokenManager.get('idToken') as IDToken;
+     return await authClient.token.getUserInfo(accessToken, idToken);
+    } catch (e) {
+     // Unable to retrieve user info, likely due to an expired session
+     return null;
+    }
+   }
+   //Signs the user out of their Okta session.
+   const logout = async () => await authClient.signOut();
+   // Renders the Okta Sign-In Widget for registration and handles the redirect.
+   // The DOM element selector where the widget should be rendered.
+   const register = async (el: string) => {
+     // The remove() call ensures that any existing widget instance is cleaned up before rendering a new one.
+    oktaSignIn.remove();
+    await oktaSignIn.showSignInAndRedirect({ el });
+   }
 
-export default {
- user, logout, register, handleCallback
-}
-```
+   export default {
+    user, logout, register, handleCallback
+   }
+   ```
 
 ## Build the main app layout
 
 With the foundational routing in place, you can now build the main app component, `App.vue`. This component serves as the root layout that contains the primary navigation bar and the rendering area for your page views.
 
-1. Open the `src/App.vue` file and clear its contents. You build the file in three parts.
+Open the `src/App.vue` file and clear its contents. Then, you build the file in three parts: Component logic, HTML structure, and the styles.
 
 ### Add the Component logic
 
@@ -408,7 +407,7 @@ export default defineComponent({
 
 ### Define the HTML structure
 
-Next, add the <template> block below the script. This defines the visual structure of your app's layout. It includes the navigation bar that conditionally displays links based on the user's authentication status. It also includes the <RouterView> component that renders the current page. See the comments in the code example for more details.
+Next, add the `<template>` block below the script. This defines the visual structure of your app's layout. It includes the navigation bar that conditionally displays links based on the user's authentication status. It also includes the `<RouterView>` component that renders the current page. See the comments in the code example for more details.
 
 ```ts
 <template>
@@ -443,109 +442,106 @@ Finally, add the `<style>` block to provide the visual design for the layout. Th
 
 1. Add the following SCSS code:
 
-```scss
-<style lang="scss">
-* {
- font-family: 'Roboto', sans-serif;
-}
-
-.logo {
- margin: auto 5px;
- text-transform: uppercase;
- text-decoration: none;
- font-style: italic;
- font-size: 2rem;
- font-weight: bold;
- font-family: 'Montserrat', serif;
-}
-
-nav {
- display: flex;
- justify-content: space-evenly;
- width: 100vw;
- border-bottom: 1px solid #c7b8b8;
-
- ul {
-   display: flex;
-   list-style: none;
-
-
-   li {
-     margin: 10px;
-
-
-     a {
-       text-decoration: none;
-       color: #000;
-       text-transform: uppercase;
-
-
-       &:hover {
-         text-decoration: underline;
-       }
-     }
+   ```scss
+   <style lang="scss">
+   * {
+    font-family: 'Roboto', sans-serif;
    }
- }
-}
 
-.btn {
- cursor: pointer;
- color: #fff;
- background: #0d6efd;
- border: 1px solid transparent;
- text-decoration: none;
- font-weight: 400;
- line-height: 1.5;
- text-align: center;
- padding: 6px 12px;
- font-size: 16px;
- border-radius: .25rem;
- transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-
- &:hover {
-   background-color: #0b5ed7;
-   border-color: #0a58ca;
- }
-
- &-plain {
-   color: #0d6efd;
-   background: transparent;
-   border: 1px solid #0d6efd;
-
-   &:hover {
-     color: #fff;
-     background: #0d6efd;
+   .logo {
+    margin: auto 5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-style: italic;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Montserrat', serif;
    }
- }
 
- &-danger {
-   padding: 6px 12px;
-   color: #d70b0b;
-   border-color: #d70b0b;
-   margin: auto 10px;
- }
-}
+   nav {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100vw;
+    border-bottom: 1px solid #c7b8b8;
 
-.login-btn {
- display: block;
- margin-top: 10px;
-}
+    ul {
+      display: flex;
+      list-style: none;
 
-.user {
- display: flex;
- margin-top: 10px;
-}
-</style>
-```
+      li {
+        margin: 10px;
+
+        a {
+          text-decoration: none;
+          color: #000;
+          text-transform: uppercase;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+   }
+
+   .btn {
+    cursor: pointer;
+    color: #fff;
+    background: #0d6efd;
+    border: 1px solid transparent;
+    text-decoration: none;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    padding: 6px 12px;
+    font-size: 16px;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+    &:hover {
+      background-color: #0b5ed7;
+      border-color: #0a58ca;
+    }
+
+    &-plain {
+      color: #0d6efd;
+      background: transparent;
+      border: 1px solid #0d6efd;
+
+      &:hover {
+        color: #fff;
+        background: #0d6efd;
+      }
+    }
+
+    &-danger {
+      padding: 6px 12px;
+      color: #d70b0b;
+      border-color: #d70b0b;
+      margin: auto 10px;
+    }
+   }
+
+   .login-btn {
+    display: block;
+    margin-top: 10px;
+   }
+
+   .user {
+    display: flex;
+    margin-top: 10px;
+   }
+   </style>
+   ```
 
 1. After adding all three sections to `src/App.vue`, save the file. Your app running at `http://localhost:5173` now displays the fully styled layout, ready for the final registration flow implementation.
 1. Go to your page. It should look something like the following example:
 
-<div class="three-quarter">
+   <div class="three-quarter">
 
-![Image of the app with style applied](/img/appwithstyle.png)
+   ![Image of the app with style applied](/img/appwithstyle.png)
 
-</div>
+   </div>
 
 1. Click **Register**. A 401 (a Vue blank page) should appear, because you haven't created that page yet.
 
@@ -623,43 +619,43 @@ Finally, update the Vue router to include the new registration and callback view
 
 1. Open `src/router/index.ts` and add the new routes to the `routes` array.
 
-```ts
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from "@/views/Home.vue";
-import About from "@/views/About.vue";
-import Contact from "@/views/Contact.vue";
-import LoginCallback from "@/views/LoginCallback.vue";
-import Register from "@/views/Register.vue";
+   ```ts
+   import { createRouter, createWebHistory } from 'vue-router'
+   import Home from "@/views/Home.vue";
+   import About from "@/views/About.vue";
+   import Contact from "@/views/Contact.vue";
+   import LoginCallback from "@/views/LoginCallback.vue";
+   import Register from "@/views/Register.vue";
 
-const router = createRouter({
- history: createWebHistory(import.meta.env.BASE_URL),
- routes: [
-  { path: "/", component: Home },
-  { path: "/about", component: About },
-  { path: "/contact", component: Contact },
-  { path: "/login/callback", component: LoginCallback },
-  { path: "/register", component: Register },
- ],
-})
+   const router = createRouter({
+    history: createWebHistory(import.meta.env.BASE_URL),
+    routes: [
+     { path: "/", component: Home },
+     { path: "/about", component: About },
+     { path: "/contact", component: Contact },
+     { path: "/login/callback", component: LoginCallback },
+     { path: "/register", component: Register },
+    ],
+   })
 
-export default router
-```
+   export default router
+   ```
 
 1. Save the file. You can now test the full registration flow.
 1. Go to your Vue app home (`http://localhost:5173`).
 1. Click **Register**. The page should look similar to the following example:
 
-<div class="half">
+<div class="three-quarter">
 
 ![Image of the app with style applied](/img/registrationform.png)
 
 </div>
 
-You can customize this page with your logos, loaders, and backgrounds using [Sign-In Widget customizations](https://github.com/okta/okta-signin-widget?tab=readme-ov-file#brand), and in Vue.
+> **Note**: You can customize this page with your logos, loaders, and backgrounds using [Sign-In Widget customizations](https://github.com/okta/okta-signin-widget?tab=readme-ov-file#brand), and in Vue.
 
 After you register, you’re redirected to a page similar to this example:
 
-<div class="half">
+<div class="three-quarter">
 
 ![Image of the app with style applied](/img/registereduser.png)
 
