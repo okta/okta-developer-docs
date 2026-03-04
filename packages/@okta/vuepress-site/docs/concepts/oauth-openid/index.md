@@ -40,7 +40,7 @@ The OAuth 2.0 spec has four important roles:
 
 Other important terms:
 
-* **OAuth 2.0 grant**: The authorization given (or granted) to the client by the user. Examples of grants are **Authorization Code** and **Client Credentials**. Each OAuth grant has a corresponding flow. See [Choose an OAuth 2.0 flow](#choose-an-oauth-20-flow).
+* **OAuth 2.0 grant**: The authorization given (or granted) to the client by the user. Examples of grants are **Authorization Code** and **Client Credentials**. Each OAuth grant has a corresponding flow. See [Choose an OAuth 2.0 flow](#choose-an-oauth-2-0-flow).
 * **access token**: The token issued by the authorization server (Okta) in exchange for the grant.
 * **refresh token**: An optional token that is exchanged for a new access token if the access token has expired.
 
@@ -92,7 +92,7 @@ The following table shows you which OAuth 2.0 flow to use for the type of app th
 | Trusted                 | [Interaction Code](#interaction-code-flow)            | &#9989;          | &#9989;      |
 | Service                 | [Client Credentials](#client-credentials-flow)                  | &#9989;          | &#10060;     |
 
-> **Note**: There's also an OAuth 2.0 [SAML 2.0 Assertion flow](#saml-20-assertion-flow). This flow is intended for client apps that want to use an existing trust relationship without a direct user approval step at the authorization server. It supports access and ID tokens.
+> **Note**: There's also an OAuth 2.0 [SAML 2.0 Assertion flow](#saml-2-0-assertion-flow). This flow is intended for client apps that want to use an existing trust relationship without a direct user approval step at the authorization server. It supports access and ID tokens.
 
 ### What kind of client are you building?
 
@@ -118,7 +118,7 @@ Single-Page Applications (SPAs), mobile, and native apps are **public** apps whe
 
 [The redirect model](/docs/concepts/redirect-vs-embedded/#redirect-authentication)
 
-Use the [Authorization Code with PKCE](#authorization-code-flow-with-pkce) flow if your SPA or native app redirects authentication requests to an Okta-hosted sign-in page.
+Use the [Authorization Code with PKCE](#authorization-code-flow-with-pkce-flow) flow if your SPA or native app redirects authentication requests to an Okta-hosted sign-in page.
 
 [The embedded model](/docs/concepts/redirect-vs-embedded/#embedded-authentication)
 
@@ -130,7 +130,7 @@ A client app that runs on a server with no direct end user can be trusted to use
 
 #### Is your app high-trust?
 
-An app is **high-trust** if you own it and the resource that it accesses. Because you own both, you can trust the app to handle your end users' usernames and passwords. In this case, and _only if other flows aren't viable_, you can use the [Resource Owner Password flow](#resource-owner-password-flow). However, it isn't possible to use this flow with multifactor authentication, so consider alternatives such as the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) or [Interaction Code flow](#interaction-code-flow).
+An app is **high-trust** if you own it and the resource that it accesses. Because you own both, you can trust the app to handle your end users' usernames and passwords. In this case, and only if other flows aren't viable, you can use the [Resource Owner Password flow](#resource-owner-password-flow). However, it isn't possible to use this flow with multifactor authentication, so consider alternatives such as the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) or [Interaction Code flow](#interaction-code-flow).
 
 If your app isn't high-trust, or if you want to take advantage of multifactor authentication, you should use the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow.
 
@@ -342,7 +342,7 @@ The Implicit flow is intended for browser-based apps that don't support Cross-Or
 
 > **Note:** Because it was always intended for less-trusted clients, the Implicit flow doesn't support refresh tokens.
 
-> **Important:** For Single-Page apps (SPA) running in modern browsers that support Web Crypto for PKCE, Okta recommends using the [Authorization Code flow with PKCE](#authorization-code-flow-with-pkce). Use this flow instead of the Implicit flow for maximum security. If support for older browsers is required, the Implicit flow provides a functional solution.
+> **Important:** For Single-Page apps (SPA) running in modern browsers that support Web Crypto for PKCE, Okta recommends using the [Authorization Code flow with PKCE](#authorization-code-flow-with-pkce-flow). Use this flow instead of the Implicit flow for maximum security. If support for older browsers is required, the Implicit flow provides a functional solution.
 
 <div class="three-quarter">
 
