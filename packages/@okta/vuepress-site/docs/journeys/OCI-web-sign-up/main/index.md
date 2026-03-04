@@ -54,7 +54,7 @@ Configure any user groups in Universal Directory, then create the policies that 
   * Enable SSR with a user profile policy.
   * Define the information that a user must supply during the process, and whether email verification is required.
   * Set the authentication factors (for example, password, email, phone) that users must use to validate their identity with an authenticator enrollment policy.
-  * Set the custom types, groups, and attributes assigned to a new user with a profile enrollment form.
+  * Set the custom types, groups, and attributes that are assigned to a new user with a profile enrollment form.
 
 ### Add a way for users to register an account
 
@@ -78,7 +78,7 @@ Congratulations. Your app now allows users to create their own accounts. These a
 
 Go deeper into how Universal Directory handles users:
 
-* [User Profiles](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-about-profiles) contain all the data points of interest associated with a user.
+* [User Profiles](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-about-profiles) contain all the data points of interest that are associated with a user.
 * [User Groups](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-about-groups) allow admins to manage users as a group rather than individually.
 * [User Realms](https://help.okta.com/okta_help.htm?type=oie&id=ext-realms) enable admins to manage users and user groups within an org.
 
@@ -88,4 +88,4 @@ Go deeper into the policies that control the sign-in process:
 * Learn about [authenticator enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies).
 * Learn about [profile enrollment](https://help.okta.com/okta_help.htm?type=oie&id=csh-pe-policies).
 
-Okta recommends using an Okta-hosted Sign-In Widget for SSR. However, embedding the Sign-In Widget in your own page is also possible and allows for greater customization.
+Okta recommends using an Okta-hosted Sign-In Widget for SSR. However, [embedding the widget in your own page](/docs/guides/signup-selfhosted/main/) is also possible and allows for greater customization.
