@@ -34,7 +34,7 @@ Learn the basics that you need to lay the foundations for your work:
 Plan for and develop the best end user SSR experience:
 
 <!-- * [Consider refactoring your SSR flows from your many apps and brands into a single, dedicated registration app](). waiting on the video link -->
-[Understand the default SSR flow and how you can customize it](/docs/concepts/self-service-registration/index.md).
+[Understand the default SSR flow and how you can customize it](/docs/concepts/self-service-registration/).
 <!-- * [Design your sign-up flows for different types of users](). waiting on Brent to finish doc -->
 
 ## Build
