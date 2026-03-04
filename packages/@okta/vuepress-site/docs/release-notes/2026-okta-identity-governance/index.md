@@ -23,6 +23,7 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 | [Restrict delegates is GA in Preview]() | ADD_DATE |
 | [Operations API is Beta]() | ADD_DATE |
 | [Slack integration for Access Certifications and Access Requests is GA in Preview]() | ADD_DATE |
+| [Developer documentation update in 2026.03.0](#developer-documentation-update-in-2026-03-0) | February 4, 2026 |
 
 #### Resource Owners API is GA
 
@@ -69,6 +70,10 @@ The `integrations` property has been added to the following governance APIs to s
 * Access Request - V2 > Request Settings > Update the org request settings (`PATCH /governance/api/v2/request-settings`)
 * Org Governance Settings > Retrieve the org settings (`GET /governance/api/v1/settings`)
 <!-- OKTA-1111025 GOVERNANCE_SLACK_NOTIFICATIONS Preview date: Feb 18, 2026 -->
+
+#### Developer documentation update in 2026.03.0
+
+Our [API reference pages](https://developer.okta.com/docs/api/) are undergoing a migration, which started on February 24. While the look and feel may vary across pages during this time, all technical documentation remains accurate and up to date.
 
 ## February
 
