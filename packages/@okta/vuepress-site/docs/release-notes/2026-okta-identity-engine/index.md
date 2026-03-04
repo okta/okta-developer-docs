@@ -84,7 +84,7 @@ You can configure OS version compliance by using device assurance. However, you 
   * Validate system resilience by safely testing recovery capabilities.
   * Automate failover processes to minimize downtime during an outage.
 
-  See [Manage org recovery with Okta Enhanced Disaster Recovery](/docs/guides/manage-orgs-okta-edr/).
+  See [Manage org recovery with Okta Enhanced Disaster Recovery](/docs/guides/manage-orgs-okta-edr/main).
 * The new [Enable and configure a sign-up form](/docs/guides/enable-configure-signupform/main/) guide explains how to configure a Self-Service Registration flow to securely automate how you onboard new users. You learn how to build policies that go beyond a simple sign-up form by defining required user information, automating group assignments, and enforcing security measures like email verification and authenticator enrollment.
 * The new [Add a sign-up form to your web app](/docs/journeys/OCI-web-sign-up/main/) journey helps you implement a sign-up form for your web app, reducing onboarding friction and accelerating user acquisition.
 * The new [Sign users up with an Okta-hosted sign-up form](/docs/guides/signup-oktahosted/main/) guide illustrates how to implement a Self-Service Registration flow on page using the Okta-hosted Sign-In Widget. It also covers how to customize an out-of-the-box experience for your app using the Okta Auth JavaScript SDK.
