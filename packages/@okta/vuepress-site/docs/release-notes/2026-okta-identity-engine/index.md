@@ -25,7 +25,7 @@ title: Okta Identity Engine API release notes 2026
 | [Linux as a platform condition is GA in Production](#linux-as-a-platform-condition-is-ga-in-production) | Feb 4, 2026 |
 | [Grace period for device assurance is GA in Production is GA in Production](#grace-period-for-device-assurance-is-ga-in-production) | October 9, 2024 |
 | [Dynamic OS version compliance for device assurance is GA in Production](#dynamic-os-version-compliance-for-device-assurance-is-ga-in-production) | February 7, 2024 |
-| [Enable custom admin permissions for inline and event hooks is GA in Preview](#enable-custom-admin-permissions-for-inline-and-event-hooks-is-ga-in-preview) | March 4, 2026 |
+| [Enable custom admin permissions for inline and event hooks is GA in Preview](#enable-custom-admin-permissions-for-inline-and-event-hooks-is-ga-in-preview) | December 10, 2025 |
 | [Developer documentation updates in 2026.03.0](#developer-documentation-updates-in-2026-03-0) | March 4, 2026 |
 | [Bug fixed in 2026.03.0](#bug-fixed-in-2026-03-0)| March 4, 2026 |
 
@@ -78,7 +78,7 @@ You can configure OS version compliance by using device assurance. However, you 
 #### Enable custom admin permissions for inline and event hooks is GA in preview
 
 The inline hook and event hook framework now supports read and write permissions for custom admin roles. This enhancement gives fine-grained access to manage inline and event hooks that previously required the super admin role. See [Hooks admin roles](/docs/guides/hooks-best-practices/).
-<!-- OKTA-1113869 preview date: March 4, 2026  -->
+<!-- OKTA-1113869 preview date: December 10, 2025  -->
 
 #### Developer documentation updates in 2026.03.0
 
