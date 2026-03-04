@@ -166,9 +166,9 @@ See:
 
 #### How to insert custom code into the Okta-hosted widget
 
-You must have a [custom domain](/docs/guides/custom-url-domain/main/#about-okta-domain-customization) configured to customize the Okta-hosted widget. After you configure a custom domain, you're able to insert your own scripts and styles into the registration page. And Okta continues to manage the core widget logic and security updates.
+You must have a [custom domain](/docs/guides/custom-url-domain/main/#about-okta-domain-customization) configured to customize the Okta-hosted widget. After you configure a custom domain, you can insert your own scripts and styles into the registration page. Okta continues to manage the core Widget logic and security updates. After you configure a custom domain, you can insert your own scripts and styles into the registration page. Okta continues to manage the core widget logic and security updates.
 
-[Use the code editor](/docs/guides/custom-widget/main/#use-the-code-editor) in the Admin Console to [add your own scripts](/docs/guides/custom-widget/main/#add-your-own-scripts) and styles to the page. You insert your custom logic by modifying the configuration before the widget renders. When using custom code, ensure your custom CSS and third-party scripts are loaded in the `<head>` of the code editor before the widget runs.
+[Use the code editor](/docs/guides/custom-widget/main/#use-the-code-editor) in the Admin Console to [add your own scripts](/docs/guides/custom-widget/main/#add-your-own-scripts) and styles to the page. You insert your custom logic by modifying the configuration before the widget renders. When using custom code, ensure that your custom CSS and third-party scripts are loaded in the `<head>` of the code editor before the widget runs.
 
 Review the following examples for ideas on how to customize your SSR flow.
 
@@ -180,7 +180,7 @@ Custom code is ideal for injecting brand-specific content or legal requirements.
 
 You can also use custom scripts to build more interactive form elements. This includes implementing custom style pickers, type-ahead components for address lookups, or dynamic help text that updates as a user interacts with specific fields. These extensions help users complete the registration form accurately and reduce drop-off rates.
 
-* **Custom style pickers:** You can create a toggle for light and dark mode that allows users to select their preferred theme for the registration page. When a user selects a theme, your script can dynamically update the widget's CSS classes without requiring a page reload.
+* **Custom style pickers:** Create a toggle for light and dark mode that allows users to select their preferred theme for the registration page. When a user selects a theme, your script can dynamically update the widget's CSS classes without requiring a page reload.
 * **Type-ahead components:** Integrate with third-party APIs to provide real-time suggestions as users fill out fields, such as their address or company name. This enhances the user experience and improves data accuracy.
 * **Dynamic help text:** Listen for events on input fields and display contextual tips or validation messages that guide users through the registration process. This is helpful for fields that have strict formatting requirements.
 
