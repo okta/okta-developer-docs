@@ -25,6 +25,7 @@ title: Okta Identity Engine API release notes 2026
 | [Linux as a platform condition is GA in Production](#linux-as-a-platform-condition-is-ga-in-production) | Feb 4, 2026 |
 | [Grace period for device assurance is GA in Production is GA in Production](#grace-period-for-device-assurance-is-ga-in-production) | October 9, 2024 |
 | [Dynamic OS version compliance for device assurance is GA in Production](#dynamic-os-version-compliance-for-device-assurance-is-ga-in-production) | February 7, 2024 |
+| [Enable custom admin permissions for inline and event hooks is GA in Preview](#enable-custom-admin-permissions-for-inline-and-event-hooks-is-ga-in-preview) | March 4, 2026 |
 | [Developer documentation updates in 2026.03.0](#developer-documentation-updates-in-2026-03-0) | March 4, 2026 |
 | [Bug fixed in 2026.03.0](#bug-fixed-in-2026-03-0)| March 4, 2026 |
 
@@ -73,6 +74,11 @@ See [Device Assurance Policies API](https://developer.okta.com/docs/api/openapi/
 #### Dynamic OS version compliance for device assurance is GA in Production
 
 You can configure OS version compliance by using device assurance. However, you have to manually update the policies every time a new OS version or patch is released. With **Dynamic OS version compliance**, Okta updates device assurance policies with the latest OS versions and patches, eliminating the need for manual updates. With this feature you can ensure OS version compliance in your org without tracking OS releases. See [Dynamic OS version compliance](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-assurance-add) and [Device Assurance Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/createDeviceAssurancePolicy!path=1/osVersion&t=request). <!-- DEVICE_ASSURANCE_DYNAMIC_OS_SUPPORT OKTA-651282 Preview date: February 7, 2024 -->
+
+#### Enable custom admin permissions for inline and event hooks is GA in preview
+
+The inline hook and event hook framework now supports read and write permissions for custom admin roles. This enhancement gives fine-grained access to manage inline and event hooks that previously required the super admin role. See [Hooks admin roles](/docs/guides/hooks-best-practices/).
+<!-- OKTA-1113869 preview date: March 4, 2026  -->
 
 #### Developer documentation updates in 2026.03.0
 
