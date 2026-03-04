@@ -101,7 +101,7 @@ This diagram shows how the user profile policy, authenticator enrollment policy,
 
 <div class="three-quarter border">
 
-![A diagram that shows the default SSR flow](/img/ssr-flow-policies.png)
+![A diagram that shows an SSR flow with the user profile policy, authenticator enrollment policy, and Okta account management policy added to it.](/img/ssr-flow-policies.png)
 
 </div>
 
@@ -137,7 +137,7 @@ This diagram shows where the registration inline hook fits into the SSR flow. Th
 
 <div class="three-quarter border">
 
-![A diagram that shows the default SSR flow](/img/ssr-flow-inline-hook.png)
+![A diagram that shows the SSR flow with the registration inline hook added.](/img/ssr-flow-inline-hook.png)
 
 </div>
 
@@ -190,7 +190,7 @@ This diagram shows two different ways to insert custom code into the SSR flow. A
 
 <div class="three-quarter border">
 
-![A diagram that shows the default SSR flow](/img/ssr-flow-custom-code.png)
+![A diagram that shows the SSR flow with custom code added.](/img/ssr-flow-custom-code.png)
 
 </div>
 
