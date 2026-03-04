@@ -105,13 +105,13 @@ This diagram shows how the user profile policy, authenticator enrollment policy,
 
 </div>
 
-This diagram shows all of the policies added to the SSR flow. But, you can configure your policies in different ways to reduce the number of steps that users have to go through during registration.
-
-For example, you can add the password field to the registration form with the user profile policy and then not require users to verify their email before they enroll the password authenticator. This allows users to register and enroll an authenticator in fewer steps.
+> **Tip:** You can configure your policies in different ways to reduce the number of steps that users have to go through during registration.
+>
+> For example, you can add the password field to the registration form with the user profile policy and then not require users to verify their email before they enroll the password authenticator. This allows users to register and enroll an authenticator in fewer steps.
 
 ### Use an inline hook to customize the SSR flow
 
-The registration inline hook allows you to customize the SSR flow with your own business logic by inserting a call to an external service during the SSR flow. You must set up an external service to host your code and then configure the registration inline hook to call that service at the right point in the SSR flow. You can set up a registration inline hook in the Admin Console or with the Inline Hooks API.
+The registration inline hook allows you to customize the SSR flow with your own business logic by inserting a call to your external service during the SSR flow. You must set up an external service to host your code and then configure the registration inline hook to call that service at the right point in the SSR flow. You can set up a registration inline hook in the Admin Console or with the Inline Hooks API.
 
 The hook triggers after the user submits the registration form but before the user account is created in Okta.
 
@@ -135,13 +135,13 @@ For implementation details, see:
 
 This diagram shows where the registration inline hook fits into the SSR flow. The inline hook triggers when a user enters their email address, and the domain is checked by the external service.
 
+Review the examples in the previous section for ideas on how to use the registration inline hook.
+
 <div class="three-quarter border">
 
 ![A diagram that shows the SSR flow with the registration inline hook added.](/img/ssr-flow-inline-hook.png)
 
 </div>
-
-The registration inline hook is a flexible tool that allows you to customize the SSR flow in various ways. Review the examples in the previous section for ideas on how to use the registration inline hook.
 
 ### Customize the widget with the code editor
 
@@ -188,13 +188,13 @@ You can also use custom scripts to build more interactive form elements. This in
 
 This diagram shows two different ways to insert custom code into the SSR flow. A light and dark mode toggle is available and custom links are added to the footer of the widget after it renders.
 
+Using custom code in the SSR flow lets you enhance the user experience in different ways. For example, you can use JavaScript to add other interactive elements to the registration form.
+
 <div class="three-quarter border">
 
 ![A diagram that shows the SSR flow with custom code added.](/img/ssr-flow-custom-code.png)
 
 </div>
-
-Using custom code in the SSR flow lets you enhance the user experience in different ways. For example, you can use JavaScript to add other interactive elements to the registration form.
 
 ## Summary
 
