@@ -88,8 +88,8 @@ Use these steps to add or edit a template in one of the Okta-supported languages
    * In the preview window, to see a translation of a customized template, select a language from the dropdown menu. See [Add translations](#add-translations).
 1. Click **Edit** to put the editor in read/write mode.
 1. Make changes directly in the editor. If you type `$`, `#`, or `{`, the editor provides a list of available variables that you can use. See [Use Velocity Templating Language (VTL)](#use-velocity-templating-language).
-   [[style="list-style-type:lower-alpha"]]
    1. Click the code editor to full-page mode.
+   [[style="list-style-type:lower-alpha"]]
    1. Click **Save changes**, then click **Preview** to see your changes before you publish.
    1. Click **Reset template** to remove your customizations and restore the default HTML/CSS.
 1. Click **Save changes**. The default language version of your edited message appears in the **Email Templates** table.
