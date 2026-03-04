@@ -434,6 +434,10 @@ export const guides = [
             guideName: "set-up-org"
           },
           {
+            title: "Sign users up with an Okta-hosted sign-up form",
+            guideName: "signup-oktahosted"
+          },
+          {
             title: "Sign users up with a self-hosted sign-up form",
             guideName: "signup-selfhosted"
           },
