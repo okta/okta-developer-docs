@@ -1,6 +1,10 @@
+#### Universal logout properties
+
 > **Notes:** 
-> * Universal Logout integrations are only supported for SAML 2.0 and OIDC protocols. If you want to submit a Universal Logout integration with SCIM provisioning, you must also submit an SSO integration with either SAML 2.0 or OIDC. For more information, see [Universal Logout](https://developer.okta.com/docs/guides/oin-universal-logout-overview).
->* The **Universal logout properties** section only displays when you select **Universal Logout** along with the protocols that your integration supports from the **Select protocol** section.
+> * Universal Logout integrations are only supported for the SAML 2.0 and OIDC protocols. If you want to submit a Universal Logout integration with SCIM provisioning, you must also submit an SSO integration with either SAML 2.0 or OIDC. For more information, see [Universal Logout](https://developer.okta.com/docs/guides/oin-universal-logout-overview).
+>* The **Universal Logout properties** section only displays when you select **Universal Logout** along with the protocols that your integration supports from the **Select protocol** section.
+
+1. Specify the following properties if you want to integrate for Universal Logout:
 
 | <div style="width:150px">Property</div> | &nbsp; | Description  |
 | ----------------- | --: | ------------ |
@@ -12,3 +16,5 @@
 | **Partial support** | | Select if you only require partial universal logout support for your app. <br> **Note**: If you select this option, while clearing the user's session from Okta, the app only revokes the user's refresh tokens, which prevents the user from getting new access in the future. However, the existing user sessions aren't terminated until the user's existing access tokens expire or the user signs out of an app. </br>|
 
 `*` Required properties
+
+2. Click **Get started with testing** to save your edits and move to the testing section, where you need to enter your integration test details.

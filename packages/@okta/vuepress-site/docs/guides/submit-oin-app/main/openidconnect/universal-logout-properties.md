@@ -1,4 +1,8 @@
-> **Note:** The **Universal logout properties** section only displays when you select **Universal Logout** along with the protocols that your integration supports from the **Select protocol** section.
+#### Universal logout properties
+
+> **Note:** The **Universal Logout properties** section only displays when you select **Universal Logout** along with the protocols that your integration supports from the **Select protocol** section.
+
+1. Specify the following properties if you want to integrate for Universal Logout:
 
 | <div style="width:150px">Property</div> | &nbsp; | Description  |
 | ----------------- | --: | ------------ |
@@ -10,3 +14,5 @@
 | **Partial support** | | Select if you only require partial universal logout support for your app. <br> **Note**: If you select this option, while clearing the user's session from Okta, the app only revokes the user's refresh tokens, which prevents the user from getting new access in the future. However, the existing user sessions aren't terminated until the user's existing access tokens expire or the user signs out of an app. </br>|
 
 `*` Required properties
+
+2. Click **Get started with testing** to save your edits and move to the testing section, where you need to enter your integration test details.

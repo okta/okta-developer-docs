@@ -1,3 +1,5 @@
+#### <StackSnippet snippet="protocol-name" inline/> tests
+
 In the **SAML tests** section, specify the following sign-in flow details:
 
 | <div style="width:150px">Property</div> | &nbsp; | Description  |
@@ -12,3 +14,7 @@ In the **SAML tests** section, specify the following sign-in flow details:
 | **SP Initiate flow description** | | Provide instructions on how to sign in to your app using the SP-initiated flow.<br>The maximum description length is 2048 characters. This field is required for the SP flow.|
 
 `*` Required properties
+
+<br>
+
+Click **Test your integration** to save your test information and begin the integration testing phase.

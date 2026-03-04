@@ -86,6 +86,7 @@ const COMMON_NAME_TO_FANCY_NAME = {
   interactioncode: 'Interaction Code',
   wfconnector: 'Workflows connector',
   apiservice: 'API service',
+  uapiservice: 'API service',
   aotp: 'OTP (primary factor)',
   coobov: 'Okta Verify Push (primary factor)',
   eoobsv: 'Phone (primary factor)',
