@@ -56,6 +56,7 @@ The inline hook and event hook framework now supports read and write permissions
 #### Developer documentation updates in 2026.03.0
 
 * Our [API reference pages](https://developer.okta.com/docs/api/) are undergoing a migration, which started on February 24. While the look and feel may vary across pages during this time, all technical documentation remains accurate and up to date.
+* Instructions for submitting an API service integration have been removed from the [OIN Manager](/docs/guides/submit-app/wfconnector/main/) guide. You can no longer submit API service integrations through the OIN Manager. See [Submit an integration with the OIN Wizard](/docs/guides/submit-oin-app/uapiservice/main/) to submit an API service integration through the OIN Wizard.
 * 
 
 
