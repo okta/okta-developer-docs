@@ -28,7 +28,7 @@ title: Okta Identity Engine API release notes 2026
 | [Developer documentation updates in 2026.03.0](#developer-documentation-updates-in-2026-03-0) | March 4, 2026 |
 | [Bug fixed in 2026.03.0](#bug-fixed-in-2026-03-0)| March 4, 2026 |
 
-#### Self-Service for Enhanced Disaster Recovery is EA
+#### Self-Service for Enhanced Disaster Recovery is self-service EA in Preview
 
 When unexpected infrastructure-related outages occur, orgs need an immediate and reliable way to maintain business continuity. Okta's Standard Disaster Recovery, implemented by Okta's operations teams, provides failover and failback with a recovery time objective of one hour.
 
