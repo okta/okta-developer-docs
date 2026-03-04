@@ -116,6 +116,10 @@ export const concepts = [
         path: "/docs/concepts/sso-overview/",
       },
       {
+        title: "Self-service registration",
+        path: "/docs/concepts/self-service-registration/",
+      },
+      {
         title: "Session management",
         path: "/docs/concepts/session/",
       },
