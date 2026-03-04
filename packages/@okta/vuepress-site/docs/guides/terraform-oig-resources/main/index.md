@@ -58,10 +58,11 @@ Configure the Okta Terraform provider in your Terraform configuration files. Thi
 }
 
 provider "okta" {
-  org_name = "your Okta org name (for example, trial-12345678)"
-  base_url = "base URL of your org (for example, example.com)"
-  api_token = "API token"
-  parallelism = 1
+  org_name = "{org_name}"
+  base_url = "okta.com"
+  client_id   = "{client_id}"
+  private_key = var.private_key
+  scopes = ["okta.groups.manage", "okta.groups.read"]
 }
 
 locals {
