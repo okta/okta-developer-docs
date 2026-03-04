@@ -24,7 +24,7 @@ See also [Introduction to the Okta Aerial API](https://developer.okta.com/docs/a
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Developer documentation update](#developer-documentation-update)| March 4, 2026 |
+| [Developer documentation update](#developer-documentation-update-in-2026-03-0)| March 4, 2026 |
 
 #### Developer documentation update in 2026.03.0
 
