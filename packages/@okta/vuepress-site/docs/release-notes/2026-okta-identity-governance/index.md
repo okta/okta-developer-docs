@@ -40,17 +40,23 @@ The Labels API enables you to categorize and organize resources such as apps, gr
 
 #### Restrict delegates is Beta
 
+<ApiLifecycle access="beta" />
+
 Restrict who users can select as a delegate to ensure that tasks are assigned only to authorized individuals. Configure settings to limit delegate selection to a user's direct manager, their colleagues (peers with the same manager), or allow them to select anyone in the org. This helps you strengthen org security, improve compliance, and gives you more control over task delegation. See [Enable end users to assign delegates](https://help.okta.com/okta_help.htm?type=oie&id=csh-user-assign-delegate).
 
-The Org Governance Settings API has been updated to support restricting delegates for end users. See the `delegates.enduser.onlyFor` property in [Retrieve the org settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/getorgsettings) and [Update the org settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/updateorgsettings) requests. These API updates for restricting delegates are released as Beta.
+The Org Governance Settings API has been updated to support restricting delegates for end users. See the `delegates.enduser.onlyFor` property in [Retrieve the org settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/getorgsettings) and [Update the org settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/updateorgsettings) requests.
 <!-- OKTA-1116424 March 4, 2026 -->
 
 #### Operations API is Beta
+
+<ApiLifecycle access="beta" />
 
 Admins can now track the status of asynchronous tasks initiated by governance requests, such as enabling entitlement management on a resource. See the [Operations](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/operations ) API.
 <!-- OKTA-1114195 Preview date: March 4, 2026 -->
 
 #### Slack integration for Access Certifications and Access Requests is Beta
+
+<ApiLifecycle access="beta" />
 
 The Identity Governance - Slack notifications feature lets you send Access Certification campaign notifications to reviewers and admins through Slack. You can send notifications for new campaigns, reminders for campaigns closing soon, and reassigned review items, among others. Slack notifications for campaigns help reduce the need for additional manual follow-ups for campaign owners. It also helps increase the completion rate of reviews before the campaign's end date.
 
