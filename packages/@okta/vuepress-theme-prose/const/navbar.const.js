@@ -116,6 +116,10 @@ export const concepts = [
         path: "/docs/concepts/sso-overview/",
       },
       {
+        title: "Self-service registration",
+        path: "/docs/concepts/self-service-registration/",
+      },
+      {
         title: "Session management",
         path: "/docs/concepts/session/",
       },
@@ -1172,6 +1176,10 @@ export const journeys = [
           {
             title: "Add a sign-in form to your mobile app",
             journeyName: "OCI-mobile"
+          },
+          {
+            title: "Add a sign-up form to your web app",
+            journeyName: "OCI-web-sign-up"
           },
         ]
       },
