@@ -15,12 +15,12 @@ Learn about self-service registration (SSR) and three key aspects that you can c
 
 Self-service registration allows users to create an account and sign in to an app on their own.
 
-A combination of policies that you can set in the Admin Console or with the Policies API lets you choose which data to collect during registration, the authenticators available for enrollment, and the authentication requirements for enrolling those authenticators. You can also use inline hooks and custom code for further customization.
+A combination of policies that you can set in the Admin Console or with the Policies API lets you choose which data to collect during registration, the authenticators available for enrollment, and the authentication requirements for enrolling those authenticators. You can also use an inline hook and custom code for further customization.
 
 For more information about SSR, see:
 
 * [Self-service registration overview](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-ssr)
-* [Add a sign-up form to your web app](SUSAN)
+* [Add a sign-up form to your web app](/docs/journeys/OCI-web-sign-up/main/)
 
 > **Note:** If you plan to use an Okta-hosted Sign-In Widget for your sign-up form, note that the SSR flow follows the standard OpenID Connect (OIDC) protocol. Users are first redirected to an Okta-hosted page where they complete the registration form. After they register, Okta redirects them back to your app with an authorization code, which your app exchanges for tokens to sign the user in.
 
@@ -40,11 +40,19 @@ You can enable a basic SSR flow by creating a new user profile policy. These are
 * The registration form has default text and labels. You can customize the text and labels to match your brand and use case.
 * The user profile policy isn't assigned to any apps. You must assign the policy to an app for users to see the registration form when they try to sign in to that app.
 
-<!-- Insert diagram of default SSR state -->
+#### Default SSR flow diagram
+
+This diagram shows the default SSR flow when you enable self-service registration with a user profile policy.
+
+<div class="three-quarter border">
+
+![A diagram that shows the default SSR flow](/img/ssr-flow-default.png)
+
+</div>
 
 ## Ways to customize your SSR flow
 
-You can customize how Okta handles self-service registration through a combination of [policies](#use-policies-to-control-ssr-flows), [inline hooks](#use-an-inline-hook-to-customize-the-ssr-flow), and [widget customization](#customize-the-widget-with-the-code-editor).
+You can customize how Okta handles self-service registration through a combination of [policies](#use-policies-to-control-ssr-flows), an [inline hook](#use-an-inline-hook-to-customize-the-ssr-flow), and [widget customization](#customize-the-widget-with-the-code-editor).
 
 ### Use policies to control SSR flows
 
@@ -83,13 +91,27 @@ For example, you can allow users to register a passkey by requiring them to auth
 
 > **Note:** The Okta account management policy also controls how users unenroll authenticators, recover their passwords, and unlock their accounts.
 
-#### SSR flow with policies
+#### SSR flow diagram with policies
 
-<!-- Insert diagram of SSR flow with policies -->
+This diagram shows how the user profile policy, authenticator enrollment policy, and Okta account management policy work together to control the SSR flow.
+
+* The user profile policy adds the "Business Department" field to the registration form.
+* The authenticator enrollment policy makes the passkeys authenticator available during registration. You can make other authenticators available for enrollment by adding them to the relevant authenticator enrollment policy.
+* The Okta account management policy requires users to verify their identity before they enroll a passkey.
+
+<div class="three-quarter border">
+
+![A diagram that shows the default SSR flow](/img/ssr-flow-policies.png)
+
+</div>
+
+This diagram shows all of the policies added to the SSR flow. But, you can configure your policies in different ways to reduce the number of steps that users have to go through during registration.
+
+For example, you can add the password field to the registration form with the user profile policy and then not require users to verify their email before they enroll the password authenticator. This allows users to register and enroll an authenticator in fewer steps.
 
 ### Use an inline hook to customize the SSR flow
 
-Registration inline hooks allow you to customize the SSR flow with your own business logic by inserting a call to an external service during the SSR flow. You must set up an external service to host your code and then configure the registration inline hook to call that service at the right point in the SSR flow. You can set up a registration inline hook in the Admin Console or with the Inline Hooks API.
+The registration inline hook allows you to customize the SSR flow with your own business logic by inserting a call to an external service during the SSR flow. You must set up an external service to host your code and then configure the registration inline hook to call that service at the right point in the SSR flow. You can set up a registration inline hook in the Admin Console or with the Inline Hooks API.
 
 The hook triggers after the user submits the registration form but before the user account is created in Okta.
 
@@ -109,9 +131,17 @@ For implementation details, see:
 * [API reference for a registration inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/inlinehook/webhooks/create-registration-hook)
 * [Hooks in the Okta Sign-In Widget](https://github.com/okta/okta-signin-widget?tab=readme-ov-file#hooks)
 
-#### SSR flow with inline hooks
+#### SSR flow diagram with registration inline hook
 
-<!-- Insert diagram of SSR flow with inline hooks -->
+This diagram shows where the registration inline hook fits into the SSR flow. The inline hook triggers when a user enters their email address, and the domain is checked by the external service.
+
+<div class="three-quarter border">
+
+![A diagram that shows the default SSR flow](/img/ssr-flow-inline-hook.png)
+
+</div>
+
+The registration inline hook is a flexible tool that allows you to customize the SSR flow in various ways. Review the examples in the previous section for ideas on how to use the registration inline hook.
 
 ### Customize the widget with the code editor
 
@@ -154,9 +184,17 @@ You can also use custom scripts to build more interactive form elements. This in
 * **Type-ahead components:** You can integrate with third-party APIs to provide real-time suggestions as users fill out fields, such as their address or company name. This enhances the user experience and improves data accuracy.
 * **Dynamic help text:** You can listen for events on input fields and display contextual tips or validation messages that guide users through the registration process. This can be helpful for fields that have strict formatting requirements.
 
-#### SSR flow with custom code
+#### SSR flow diagram with custom code
 
-<!-- Insert diagram of SSR flow with custom code -->
+This diagram shows two different ways to insert custom code into the SSR flow. A light and dark mode toggle is available and custom links are added to the footer of the widget after it renders.
+
+<div class="three-quarter border">
+
+![A diagram that shows the default SSR flow](/img/ssr-flow-custom-code.png)
+
+</div>
+
+Using custom code in the SSR flow lets you enhance the user experience in different ways. For example, you can use JavaScript to add other interactive elements to the registration form.
 
 ## Summary
 
@@ -164,9 +202,9 @@ Self-service registration (SSR) allows users to register and sign in to your app
 
 User profile policies allow you to control which user attributes are collected during registration. In addition to the user profile policy, you can use the authenticator enrollment policy and Okta account management policy as no-code options to have greater control over the SSR flow.
 
-You can customize the SSR flow using policies, inline hooks, and custom code.
+You can customize the SSR flow using policies, an inline hook, and custom code.
 
-With inline hooks, you can insert a call to an external service during the SSR process to implement custom business logic. With custom code, you can customize the Okta-hosted Sign-In Widget with your own scripts and styles to enhance the UI and add functional elements that aren't part of the standard widget.
+With an inline hook, you can insert a call to an external service during the SSR process to implement custom business logic. With custom code, you can customize the Okta-hosted Sign-In Widget with your own scripts and styles to enhance the UI and add functional elements that aren't part of the standard widget.
 
 Review the following resources to learn how to build and customize your SSR flow:
 
