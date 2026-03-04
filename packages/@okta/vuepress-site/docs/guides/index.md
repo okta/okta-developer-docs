@@ -59,6 +59,7 @@ guides:
  - password-import-inline-hook
  - iga-security-access-review
  - iga-labels
+ - iga-delegates
  - implement-oauth-for-okta
  - implement-oauth-for-okta-serviceapp
  - implement-grant-type
@@ -305,6 +306,7 @@ Most Okta Identity Governance tasks are accomplished through the Admin Console f
   * [Launch a security access review](/docs/guides/iga-security-access-review)
 * User and resource management
   * [Manage governance labels](/docs/guides/iga-labels)
+  * [Manage delegates for governance](/docs/guides/iga-delegates)
 
 <!-- Categories for future guides
 * Access requests
