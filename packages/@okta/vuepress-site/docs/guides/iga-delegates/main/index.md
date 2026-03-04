@@ -194,14 +194,14 @@ Admins can view delegate details in a review. See the responses for [List all re
 
 If a delegated reviewer is assigned to an access certification review, the following properties are populated in the response:
 
-* [delegated]([https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/getreview\#reviews/getreview/t=response\&c=200\&path=delegated](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/getreview#reviews/getreview/t=response&c=200&path=delegated)) \- indicates that the review has been delegated to another user from the original reviewer.
-* \[delegatorProfile\]([https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/getreview\#reviews/getreview/t=response\&c=200\&path=delegatorprofile](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/getreview#reviews/getreview/t=response&c=200&path=delegatorprofile)) \- indicates the profile of the original reviewer who delegated the review to another user.
+* [`delegated`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/getreview#reviews/getreview/t=response&c=200&path=delegated): Indicates that the review has been delegated to another user from the original reviewer
+* [`delegatorProfile`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/getreview#reviews/getreview/t=response&c=200&path=delegatorprofile): Indicates the profile of the original reviewer who delegated the review to another user
 
-#### Response example
+##### Response example
 
-In this example, the review is an access review for “Jessie Smith”. The original reviewer is supposed to be “Alana Johnson”, but she wasn’t available, so she delegated the review to her manager, “Bob Manager”.
+In this example, the review is an access review for "Jessie Smith". The original reviewer is supposed to be "Alana Johnson", but she wasn't available, so she delegated the review to her manager, "Bob Manager".
 
-```
+```json
 {
   "campaignId": "icitdyhndQ6qstyvR8g5",
   "resourceId": "00gco5q3vQ20oPncs8g5",
@@ -251,34 +251,32 @@ In this example, the review is an access review for “Jessie Smith”. The orig
 }
 ```
 
----
+## End User Tasks
 
-## **End User Tasks**
+The following API requests allow users to manage their own delegate settings.
 
-These API requests allow users to manage their own delegate settings.
+### View my appointed delegates
 
-### **View my appointed delegates**
+See the delegates currently assigned to act on your behalf with the [Retrieve my settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-settings/getmysettings) request. This request retrieves the governance settings for the current authenticated user, including current delegate appointments.
 
-See the delegates currently assigned to act on your behalf with the \[Retrieve my settings\]([https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-settings/getmysettings](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-settings/getmysettings)) request. This request retrieves the governance settings for the current authenticated user, including current delegate appointments.
-
-* **API:** My Settings  
-* **Request URI:** `GET /governance/api/v1/my/settings`   
-* **Scopes required:** `okta.governance.principalSettings.read`  
+* **API:** My Settings
+* **Request URI:** `GET /governance/api/v1/my/settings`
+* **Scopes required:** `okta.governance.principalSettings.read`
 * **Admin roles required:** None (standard Okta user)
 
-#### Request example
+##### Request example
 
-```shell
+```bash
 curl -v -X GET \
-'https://${yourOktaDomain}/governance/api/v1/my/settings' \
--H "Content-Type: application/json" \
--H "Authorization: Bearer {yourOktaAccessToken}" \
+  'https://${yourOktaDomain}/governance/api/v1/my/settings' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer {yourOktaAccessToken}' \
 ```
 
-#### Response example:
+##### Response example
 
 ```json
-{
+{
   "delegates": {
     "appointments": [
       {
@@ -298,25 +296,25 @@ curl -v -X GET \
 }
 ```
 
-### **View my eligible delegates**
+### View my eligible delegates
 
-Retrieve a list of users eligible to serve as your delegate with the \[List my eligible delegates\]([https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-settings/listmydelegateusers](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-settings/listmydelegateusers)) request.
+Retrieve a list of users eligible to serve as your delegate with the [List my eligible delegates](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-settings/listmydelegateusers) request.
 
-* **API:** My Settings  
-* **Request URI:** `GET /governance/api/v1/my/settings/delegate/users`  
-* **Scopes required:** `okta.governance.principalSettings.read`  
+* **API:** My Settings
+* **Request URI:** `GET /governance/api/v1/my/settings/delegate/users`
+* **Scopes required:** `okta.governance.principalSettings.read`
 * **Admin roles required:** None (standard Okta user)
 
-#### Request example
+##### Request example
 
-```shell
+```bash
 curl -v -X GET \
-'https://${yourOktaDomain}/governance/api/v1/my/settings' \
--H "Content-Type: application/json" \
--H "Authorization: Bearer {yourOktaAccessToken}" \
+  'https://${yourOktaDomain}/governance/api/v1/my/settings' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer {yourOktaAccessToken}' \
 ```
 
-#### Response example
+##### Response example
 
 ```json
 {
@@ -348,22 +346,22 @@ curl -v -X GET \
 }
 ```
 
-### **Appoint delegates for myself**
+### Appoint delegates for myself
 
-Self-assign a delegate for access certifications or access requests with the \[Update my settings\]([https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-settings/updatemysettings](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-settings/updatemysettings)) request.
+Self-assign a delegate for access certifications or access requests with the [Update my settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-settings/updatemysettings) request.
 
-* **API:** My Settings  
-* **Request URI:** `PATCH /governance/api/v1/my/settings`  
-* **Required Scopes:** `okta.governance.principalSettings.manage`  
+* **API:** My Settings
+* **Request URI:** `PATCH /governance/api/v1/my/settings`
+* **Required Scopes:** `okta.governance.principalSettings.manage`
 * **Required Admin Roles:** None (standard Okta user)
 
-#### Request example
+##### Request example
 
-```shell
+```bash
 curl -v -X PATCH \
-'https://${yourOktaDomain}/governance/api/v1/my/settings' \
--H "Content-Type: application/json" \
--H "Authorization: Bearer {yourOktaAccessToken}" \
+  'https://${yourOktaDomain}/governance/api/v1/my/settings' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer {yourOktaAccessToken}' \
   -d '{
     "delegates": {
       "appointments": [
@@ -385,12 +383,10 @@ curl -v -X PATCH \
 
 The following lists functional behavior after a delegate is appointed for governance tasks by an Okta user:
 
-* New campaign review or access request tasks are automatically assigned to the delegate.  
-* Existing campaign review and access request tasks remain unchanged (users must reassign the reviews manually to their delegate).  
-* An email is sent to notify the delegates of their task assignment.  
-* Requesters can view the delegate assigned to their access request.  
-* Governance delegated tasks are not automatically transitive.  
-  For example, if user A assigns user B as their delegate, and user B assigns user C as their delegate (A \-\> B(delegate) \-\> C (delegate)).  In this case, tasks assigned to user A aren’t automatically assigned to user C. Governance tasks for user A are assigned to user B. Only an admin or the request assignee can reassign tasks to user C.  
-* Admins can monitor updates to user-delegate configurations with the  governance.principal.settings.update System Log event.
-
-
+* New campaign review or access request tasks are automatically assigned to the delegate.
+* Existing campaign review and access request tasks remain unchanged (users must reassign the reviews manually to their delegate).
+* An email is sent to notify the delegates of their task assignment.
+* Requesters can view the delegate assigned to their access request.
+* Governance delegated tasks are not automatically transitive.
+  For example, if user A assigns user B as their delegate, and user B assigns user C as their delegate (A \-\> B(delegate) \-\> C (delegate)).  In this case, tasks assigned to user A aren’t automatically assigned to user C. Governance tasks for user A are assigned to user B. Only an admin or the request assignee can reassign tasks to user C.
+* Admins can monitor updates to user-delegate configurations with the `governance.principal.settings.update` System Log event.
