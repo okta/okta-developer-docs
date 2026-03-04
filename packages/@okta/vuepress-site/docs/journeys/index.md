@@ -27,5 +27,4 @@ Journeys break down your development project into consumable steps:
 <br>
 <Cards>
   <Card href="/docs/journeys/OCI-mobile/main/" cardTitle="Add a sign-in form to your mobile app">Use the Okta Client SDK to build a secure and complete sign-in experience for your mobile app, giving your users seamless access while protecting their data.</Card>
-  <Card href="/docs/journeys/OCI-web-sign-up/main/" cardTitle="Add a sign-up form to your web app">Implement a sign-up form for your web app, reducing onboarding friction and accelerating user acquisition.</Card>
 </Cards>
