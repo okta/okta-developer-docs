@@ -94,7 +94,7 @@ Use the [Update the org settings](https://developer.okta.com/docs/api/iga/openap
 * **Scopes required:** `okta.governance.settings.manage`
 * **Admin role required**: super admin (`SUPER_ADMIN`)
 
-#### Request example
+##### Request example
 
 This request example configures the org settings to allow governance end users to set their own managers as delegates.
 
@@ -127,7 +127,7 @@ Use the [Update the principal settings](https://developer.okta.com/docs/api/iga/
 * **Scopes required:** `okta.governance.principalSettings.manage`
 * **Admin roles required**: Both the access certification admin (`ACCESS_CERTIFICATIONS_ADMIN`) and the request certification admin (`ACCESS_CERTIFICATION_ADMIN`), or the super admin (`SUPER_ADMIN`)
 
-##### Request Example
+##### Request example
 
 This request example sets `{targetPrincipalId}`'s delegate to another Okta user with the `00u2lxfQaw8WRlkQt0g4` ID.
 
@@ -158,44 +158,43 @@ Use the [List all delegate appointments](https://developer.okta.com/docs/api/iga
 
 * **Endpoint:** `GET /governance/api/v1/delegates`
 * **Required Scopes:** `okta.governance.delegates.read`
-* **Admin roles required**: Both the access certification admin (ACCESS\_CERTIFICATIONS\_ADMIN) and the request certification admin (ACCESS\_CERTIFICATION\_ADMIN), or the super admin (SUPER\_ADMIN)
+* **Admin roles required**: Both the access certification admin (`ACCESS_CERTIFICATIONS_ADMIN`) and the request certification admin (`ACCESS_CERTIFICATION_ADMIN`), or the super admin (`SUPER_ADMIN`)
 
-#### Request Examples
+##### Request examples
 
-This example lists all the delegate appointments for users in an org with a limit of 20 delegates per response page. If there are more than 20 delegate appointments in the org, the next page of response can be retrieved through the \`\_links.next.href \` URI.
+This example lists all the delegate appointments for users in an org with a limit of 20 delegates on each response page. If there are more than 20 delegate appointments in the org, you can retrieve the next response page through the `_links.next.href` URI.
 
-```json
+```bash
 curl -v -X GET \
-'https://${yourOktaDomain}/governance/api/v1/delegates?limit=20'
--H "Content-Type: application/json" \
--H "Authorization: Bearer {yourOktaAccessToken}" \
+  'https://${yourOktaDomain}/governance/api/v1/delegates?limit=20' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer {yourOktaAccessToken}' \
 ```
 
-This example returns the delegate appointment for a specific Okta user ID (00ub0oNGTSWTBKOLGLNR)  :
+This example returns the delegate appointment for a specific Okta user ID (`00ub0oNGTSWTBKOLGLNR`)  :
 
-```json
+```bash
 curl -v -X GET \
-'https://${yourOktaDomain}/governance/api/v1/delegates?
-filter=delegatorId%20eq%20%2200ub0oNGTSWTBKOLGLNR%22'
--H "Content-Type: application/json" \
--H "Authorization: Bearer {yourOktaAccessToken}" \
+  'https://${yourOktaDomain}/governance/api/v1/delegates?filter=delegatorId%20eq%20%2200ub0oNGTSWTBKOLGLNR%22' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {yourOktaAccessToken}' \
 ```
 
-### **Access certification reviews**
+### Access certification reviews
 
-Admins can view delegate details in a review. See the responses for \[List all reviews\]([https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/listreviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/listreviews)) and \[Retrieve a review\]([https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/getreview](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/getreview)).
+Admins can view delegate details in a review. See the responses for [List all reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/listreviews) and [Retrieve a review](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/getreview).
 
-* **Request URI:** `GET /governance/api/v1/reviews`  
-* **Required Scopes:** `okta.governance.accessCertifications.read`  
-* **Required Admin Roles:** `ACCESS_CERTIFICATIONS_ADMIN`, `SUPER_ADMIN`  
-    
-* **Request URI:** `GET /governance/api/v1/reviews/{reviewId}`  
-* **Required Scopes:** `okta.governance.accessCertifications.read`  
-* **Required Admin Roles:** `ACCESS_CERTIFICATIONS_ADMIN`, `SUPER_ADMIN`
+* **Request URI:** `GET /governance/api/v1/reviews`
+* **Required scopes:** `okta.governance.accessCertifications.read`
+* **Required admin roles:** `ACCESS_CERTIFICATIONS_ADMIN`, `SUPER_ADMIN`
+
+* **Request URI:** `GET /governance/api/v1/reviews/{reviewId}`
+* **Required scopes:** `okta.governance.accessCertifications.read`
+* **Required admin roles:** `ACCESS_CERTIFICATIONS_ADMIN`, `SUPER_ADMIN`
 
 If a delegated reviewer is assigned to an access certification review, the following properties are populated in the response:
 
-* \[delegated\]([https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/getreview\#reviews/getreview/t=response\&c=200\&path=delegated](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/getreview#reviews/getreview/t=response&c=200&path=delegated)) \- indicates that the review has been delegated to another user from the original reviewer.  
+* [delegated]([https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/getreview\#reviews/getreview/t=response\&c=200\&path=delegated](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/getreview#reviews/getreview/t=response&c=200&path=delegated)) \- indicates that the review has been delegated to another user from the original reviewer.
 * \[delegatorProfile\]([https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/getreview\#reviews/getreview/t=response\&c=200\&path=delegatorprofile](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/getreview#reviews/getreview/t=response&c=200&path=delegatorprofile)) \- indicates the profile of the original reviewer who delegated the review to another user.
 
 #### Response example
