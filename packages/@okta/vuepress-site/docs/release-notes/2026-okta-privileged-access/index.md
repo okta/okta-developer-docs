@@ -22,7 +22,7 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 #### Developer documentation update in 2026.03.0
 
-Our [API reference pages](https://developer.okta.com/docs/api/) are undergoing a migration, which started on February 24. While the look and feel may vary across pages during this time, all technical documentation remains accurate and up to date.
+Okta's [API reference pages](https://developer.okta.com/docs/api/) are undergoing a migration, which started on February 24. While the look and feel may vary across pages during this time, all technical documentation remains accurate and up to date.
 
 ## February
 
