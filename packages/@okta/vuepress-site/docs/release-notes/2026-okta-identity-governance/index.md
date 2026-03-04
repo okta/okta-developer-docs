@@ -11,6 +11,77 @@ title: Okta Identity Governance API release notes 2026
 
 Okta Identity Governance is available for both Okta Classic Engine and Okta Identity Engine.
 
+## March
+
+### Monthly release 2026.03.0
+<!-- Published on: 2026-03-4T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Resource Owners API is GA](#resource-owners-api-is-ga) | September 10, 2025 |
+| [Governance Labels API is GA](#governance-labels-api-is-ga) | September 10, 2025 |
+| [Restrict delegates is Beta](#restrict-delegates-is-beta) | March 4, 2026 |
+| [Operations API is Beta](#operations-api-is-beta) | March 4, 2026 |
+| [Slack integration for Access Certifications and Access Requests is Beta](#slack-integration-for-access-certifications-and-access-requests-is-beta) | February 18, 2026 |
+| [Developer documentation update in 2026.03.0](#developer-documentation-update-in-2026-03-0) | March 4, 2026 |
+
+#### Resource Owners API is GA
+
+Assign owners to groups, apps, entitlements, and entitlement bundles. This feature allows you to automatically route access request steps and access certification campaign reviews to the correct stakeholder, improving the efficiency and accuracy of your governance processes. It also helps ensure that the right stakeholder is always involved in access decisions without requiring manual updates to your configurations.
+
+* Access Requests: When configuring approval sequences in access request conditions, you can now assign approvals, tasks, or questions directly to resource owners. See [Configure an approval sequence](https://help.okta.com/okta_help.htm?type=oie&id=csh-rcar-approval-sequences).
+* Access Certifications: When creating certification campaigns, you can now select the **Resource Owner** as the designated reviewer. See [Certification campaign reviews](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-reviewing).
+
+See the [Resource Owners](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Resource-Owners/) API and [Resource Owners](https://help.okta.com/okta_help.htm?type=oie&id=resource-owners) in the product documentation to manage assigning owners to resources in your OIG org.
+<!-- OKTA-998871 IGA_RESOURCE_OWNERS Preview date: Sept 10, 2025 -->
+
+#### Governance Labels API is GA
+
+The Labels API enables you to categorize and organize resources such as apps, groups, entitlements, and collections. You can create, update, and assign key-value labels to resources to support automation, streamline configuration, and simplify the management of access reviews and requests. See the [Labels](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/labels) API and [Manage governance labels](https://developer.okta.com/docs/guides/iga-labels/main/).
+<!-- OKTA-998873 IGA_RESOURCE_LABELS Preview date: Sept 10, 2025 -->
+
+#### Restrict delegates is Beta
+
+<ApiLifecycle access="beta" />
+
+Restrict who users can select as a delegate to ensure that tasks are assigned only to authorized individuals. Configure settings to limit delegate selection to a user's direct manager, their colleagues (peers with the same manager), or allow them to select anyone in the org. This helps you strengthen org security, improve compliance, and gives you more control over task delegation. See [Enable end users to assign delegates](https://help.okta.com/okta_help.htm?type=oie&id=csh-user-assign-delegate).
+
+The Org Governance Settings API has been updated to support restricting delegates for end users. See the `delegates.enduser.onlyFor` property in [Retrieve the org settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/getorgsettings) and [Update the org settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/updateorgsettings) requests.
+<!-- OKTA-1116424 March 4, 2026 -->
+
+#### Operations API is Beta
+
+<ApiLifecycle access="beta" />
+
+Admins can now track the status of asynchronous tasks initiated by governance requests, such as enabling entitlement management on a resource. See the [Operations](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/operations ) API.
+<!-- OKTA-1114195 Preview date: March 4, 2026 -->
+
+#### Slack integration for Access Certifications and Access Requests is Beta
+
+<ApiLifecycle access="beta" />
+
+The Identity Governance - Slack notifications feature lets you send Access Certification campaign notifications to reviewers and admins through Slack. You can send notifications for new campaigns, reminders for campaigns closing soon, and reassigned review items, among others. Slack notifications for campaigns help reduce the need for additional manual follow-ups for campaign owners. It also helps increase the completion rate of reviews before the campaign's end date.
+
+Once enabled, super admins (`SUPER_ADMIN`) can integrate Slack with their Okta org. Access certifications admins (`ACCESS_CERTIFICATIONS_ADMIN`) can configure Slack notifications for Access Certifications, and access requests admins (`ACCESS_REQUESTS_ADMIN`) can configure Slack notifications for Access Requests.
+
+The following new APIs support governance Slack integration settings and are available as Beta:
+
+* Org Governance Settings > [List all org integrations](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/listorgintegrations) (`GET /governance/api/v1/settings/integrations`)
+* Org Governance Settings >  [Create an org integration](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/createorgintegration) (`POST /governance/api/v1/settings/integrations`)
+* Org Governance Settings > [Delete an org integration](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/deleteorgintegration) (`DELETE /governance/api/v1/settings/integrations`)
+* Org Governance Settings > [Retrieve the org certification settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/getorgcertificationsettings) (`GET /governance/api/v1/settings/certification`)
+* Org Governance Settings > [Update the org certification settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/updateorgcertificationsettings) (`PATCH /governance/api/v1/settings/certification`)
+
+The `integrations` property has been added to the following governance APIs to support Slack integration:
+* Access Request - V2 > Request Settings > [Retrieve the org request settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/request-settings/getorgrequestsettingsv2) (`GET /governance/api/v2/request-settings`)
+* Access Request - V2 > Request Settings > [Update the org request settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/request-settings/updateorgrequestsettingsv2) (`PATCH /governance/api/v2/request-settings`)
+* Org Governance Settings > [Retrieve the org settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/getorgsettings) (`GET /governance/api/v1/settings`)
+<!-- OKTA-1111025 GOVERNANCE_SLACK_NOTIFICATIONS Preview date: Feb 18, 2026 -->
+
+#### Developer documentation update in 2026.03.0
+
+Our [API reference pages](https://developer.okta.com/docs/api/) are undergoing a migration, which started on February 24. While the look and feel may vary across pages during this time, all technical documentation remains accurate and up to date.
+
 ## February
 
 ### Weekly release 2026.02.2
