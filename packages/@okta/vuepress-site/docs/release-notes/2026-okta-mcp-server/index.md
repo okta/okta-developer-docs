@@ -18,7 +18,7 @@ These release notes list customer-visible changes to the Okta MCP server.
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Human oversight for destructive actions]() | March 4, 2026 |
+| [Human oversight for destructive actions](#human-oversight-for-destructive-actions) | March 4, 2026 |
 | [Developer documentation update in 2026.03.0](#developer-documentation-update-in-2026-03-0) | March 4, 2026 |
 
 #### Human oversight for destructive actions

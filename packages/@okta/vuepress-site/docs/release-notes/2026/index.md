@@ -16,11 +16,11 @@ title: Okta Classic Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Self-Service for Enhanced Disaster Recovery is EA]() | ADD_DATE |
-| [Submit API service integrations is GA in Production]() | ADD_DATE |
-| [Admin Console Home page is GA in Production]() | ADD_DATE |
-| [New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview]() | ADD_DATE |
-| [Enable custom admin permissions for inline and event hooks is GA in Preview]() | ADD_DATE |
+| [Self-Service for Enhanced Disaster Recovery is EA](#self-service-for-enhanced-disaster-recovery-is-ea) | March 4, 2026 |
+| [Submit API service integrations is GA in Production](#submit-api-service-integrations-is-ga-in-production) | March 4, 2026 |
+| [Admin Console Home page is GA in Production](#admin-console-home-page-is-ga-in-production) | March 4, 2026 |
+| [New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview](#new-directories-integration-endpoints-to-view-extended-active-directory-group-attributes-is-ga-in-preview) | March 4, 2026 |
+| [Enable custom admin permissions for inline and event hooks is GA in Preview](#enable-custom-admin-permissions-for-inline-and-event-hooks-is-ga-in-preview) | March 4, 2026 |
 | [Developer documentation updates in 2026.03.0](#developer-documentation-updates-in-2026-03-0) | March 4, 2026 |
 
 #### Self-Service for Enhanced Disaster Recovery is EA
@@ -56,9 +56,13 @@ The inline hook and event hook framework now supports read and write permissions
 #### Developer documentation updates in 2026.03.0
 
 * Our [API reference pages](https://developer.okta.com/docs/api/) are undergoing a migration, which started on February 24. While the look and feel may vary across pages during this time, all technical documentation remains accurate and up to date.
-* Instructions for submitting an API service integration have been removed from the [OIN Manager](/docs/guides/submit-app/wfconnector/main/) guide. You can no longer submit API service integrations through the OIN Manager. See [Submit an integration with the OIN Wizard](/docs/guides/submit-oin-app/uapiservice/main/) to submit an API service integration through the OIN Wizard.
-* 
+* You can no longer submit API service integrations through the OIN Manager, so the instructions have been removed from the [OIN Manager](/docs/guides/submit-app/wfconnector/main/) guide. To submit an API service integration, use the [OIN Wizard] (/docs/guides/submit-oin-app/uapiservice/main/).
+* A new guide is available for Okta Enhanced Disaster Recovery, a feature that gives admins direct control over business continuity. Learn how to:
+  * Initiate failover and restoration (failback) using the self-service portal or APIs.
+  * Validate system resilience by safely testing recovery capabilities.
+  * Automate failover processes to minimize downtime during an outage.
 
+  See [Manage org recovery with Okta Enhanced Disaster Recovery](/docs/guides/manage-orgs-okta-edr/).
 
 ## February
 

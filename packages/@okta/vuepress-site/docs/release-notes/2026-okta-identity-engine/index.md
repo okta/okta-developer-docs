@@ -18,15 +18,15 @@ title: Okta Identity Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Self-Service for Enhanced Disaster Recovery is EA]() | ADD_DATE |
-| [Submit API service integrations is GA in Production]() | ADD_DATE |
-| [Admin Console Home page is GA in Production]() | ADD_DATE |
-| [New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview]() | ADD_DATE |
-| [Linux as a platform condition is GA in Production]() | ADD_DATE |
-| [Grace period for device assurance is GA in Production is GA in Production]() | ADD_DATE |
-| [Dynamic OS version compliance for device assurance is GA in Production is GA in Production]() | ADD_DATE |
+| [Self-Service for Enhanced Disaster Recovery is EA](#self-service-for-enhanced-disaster-recovery-is-ea) | March 4, 2026 |
+| [Submit API service integrations is GA in Production](#submit-api-service-integrations-is-ga-in-production) | March 4, 2026 |
+| [Admin Console Home page is GA in Production](#admin-console-home-page-is-ga-in-production) | March 4, 2026 |
+| [New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview](#new-directories-integration-endpoints-to-view-extended-active-directory-group-attributes-is-ga-in-preview) | March 4, 2026 |
+| [Linux as a platform condition is GA in Production](#linux-as-a-platform-condition-is-ga-in-production) | Feb 4, 2026 |
+| [Grace period for device assurance is GA in Production is GA in Production](#grace-period-for-device-assurance-is-ga-in-production) | October 9, 2024 |
+| [Dynamic OS version compliance for device assurance is GA in Production](#dynamic-os-version-compliance-for-device-assurance-is-ga-in-production) | February 7, 2024 |
 | [Developer documentation updates in 2026.03.0](#developer-documentation-updates-in-2026-03-0) | March 4, 2026 |
-| [Bug fixed in 2026.03.0]()| ADD_DATE |
+| [Bug fixed in 2026.03.0](#bug-fixed-in-2026-03-0)| March 4, 2026 |
 
 #### Self-Service for Enhanced Disaster Recovery is EA
 
@@ -64,21 +64,31 @@ See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-manageme
 
 <!-- OKTA-1093354 LINUX_SUPPORT_FOR_POLICIES preview date: Feb 4, 2026  -->
 
-#### Grace period for device assurance is GA in Production is GA in Production
+#### Grace period for device assurance is GA in Production
 
 Occasionally, users’ devices might fall out of compliance with security policies due to temporary conditions such as missed software updates or unapproved network connections. Without a grace period, they would be immediately blocked from accessing critical resources, which disrupts productivity and causes frustration. The grace period for device assurance feature allows you to define a temporary window during which non-compliant devices can still access resources. This gives users time to remediate issues without being locked out, balancing productivity with security standards.
 
 See [Device Assurance Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/createDeviceAssurancePolicy!path=0/gracePeriod&t=request) and the [Add a device assurance policy guide](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-assurance-add). <!-- DEVICE_ASSURANCE_GRACE_PERIOD OKTA-803140 Preview date: October 9, 2024 -->
 
-#### Dynamic OS version compliance for device assurance is GA in Production is GA in Production
+#### Dynamic OS version compliance for device assurance is GA in Production
 
 You can configure OS version compliance by using device assurance. However, you have to manually update the policies every time a new OS version or patch is released. With **Dynamic OS version compliance**, Okta updates device assurance policies with the latest OS versions and patches, eliminating the need for manual updates. With this feature you can ensure OS version compliance in your org without tracking OS releases. See [Dynamic OS version compliance](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-assurance-add) and [Device Assurance Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/createDeviceAssurancePolicy!path=1/osVersion&t=request). <!-- DEVICE_ASSURANCE_DYNAMIC_OS_SUPPORT OKTA-651282 Preview date: February 7, 2024 -->
 
 #### Developer documentation updates in 2026.03.0
 
 * Our [API reference pages](https://developer.okta.com/docs/api/) are undergoing a migration, which started on February 24. While the look and feel may vary across pages during this time, all technical documentation remains accurate and up to date.
-* Instructions for submitting an API service integration have been removed from the [OIN Manager](/docs/guides/submit-app/wfconnector/main/) guide. You can no longer submit API service integrations through the OIN Manager. See [Submit an integration with the OIN Wizard](/docs/guides/submit-oin-app/uapiservice/main/) to submit an API service integration through the OIN Wizard.
-* 
+* You can no longer submit API service integrations through the OIN Manager, so the instructions have been removed from the [OIN Manager](/docs/guides/submit-app/wfconnector/main/) guide. To submit an API service integration, use the [OIN Wizard] (/docs/guides/submit-oin-app/uapiservice/main/).
+* The new [Plan your self-service registration](/docs/concepts/self-service-registration/) doc explains the self-service registration (SSR) flow, how it works, its default state, and three different ways to customize and configure it.
+* A new guide is available for Okta Enhanced Disaster Recovery, a feature that gives admins direct control over business continuity. Learn how to:
+  * Initiate failover and restoration (failback) using the self-service portal or APIs.
+  * Validate system resilience by safely testing recovery capabilities.
+  * Automate failover processes to minimize downtime during an outage.
+
+  See [Manage org recovery with Okta Enhanced Disaster Recovery](/docs/guides/manage-orgs-okta-edr/).
+* The new [Enable and configure a sign-up form](/docs/guides/enable-configure-signupform/main/) guide explains how to configure a Self-Service Registration flow to securely automate how you onboard new users. You learn how to build policies that go beyond a simple sign-up form by defining required user information, automating group assignments, and enforcing security measures like email verification and authenticator enrollment.
+* The new [Add a sign-up form to your web app](/docs/journeys/OCI-web-sign-up/main/) journey helps you implement a sign-up form for your web app, reducing onboarding friction and accelerating user acquisition.
+* The new [Sign users up with an Okta-hosted sign-up form](/docs/guides/signup-oktahosted/main/) guide illustrates how to implement a Self-Service Registration flow on page using the Okta-hosted Sign-In Widget. It also covers how to customize an out-of-the-box experience for your app using the Okta Auth JavaScript SDK.
+* The new [Sign users up with a self-hosted sign-up form](/docs/guides/signup-selfhosted/main/) guide illustrates how to implement a self-hosted sign-up experience using the Okta Auth JavaScript SDK and the Okta embedded Sign-In Widget.
 
 #### Bug fixed in 2026.03.0
 
