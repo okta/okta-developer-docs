@@ -910,6 +910,10 @@ export const guides = [
             guideName: "iga-security-access-review"
           },
           {
+            title: "Manage delegates for governance",
+            guideName: "iga-delegates"
+          },
+          {
             title: "Manage governance labels",
             guideName: "iga-labels"
           },
