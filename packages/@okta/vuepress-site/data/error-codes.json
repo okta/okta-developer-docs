@@ -1,6 +1,6 @@
 {
-  "release" : "2026.02.1",
-  "build" : "2026.02.1-begin-195-g2ea8b7157f44",
+  "release" : "2026.03.1",
+  "build" : "2026.03.1-begin-163-g55170913d85d",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1984,6 +1984,14 @@
     "statusReasonPhrase" : "Bad Request",
     "errorCode" : "E0000266",
     "errorSummary" : "Failed to get access token for SMTP server configuration. Failure details: {0}.",
+    "errorDescription" : null
+  }, {
+    "title" : "Admin home page denied exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000267",
+    "errorSummary" : "Access to the Home Page is restricted and is not available for this organization.",
     "errorDescription" : null
   } ]
 }
