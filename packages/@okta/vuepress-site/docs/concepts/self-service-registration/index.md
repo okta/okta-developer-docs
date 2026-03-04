@@ -181,8 +181,8 @@ Custom code is ideal for injecting brand-specific content or legal requirements.
 You can also use custom scripts to build more interactive form elements. This includes implementing custom style pickers, type-ahead components for address lookups, or dynamic help text that updates as a user interacts with specific fields. These extensions help users complete the registration form accurately and reduce drop-off rates.
 
 * **Custom style pickers:** You can create a toggle for light and dark mode that allows users to select their preferred theme for the registration page. When a user selects a theme, your script can dynamically update the widget's CSS classes without requiring a page reload.
-* **Type-ahead components:** You can integrate with third-party APIs to provide real-time suggestions as users fill out fields, such as their address or company name. This enhances the user experience and improves data accuracy.
-* **Dynamic help text:** You can listen for events on input fields and display contextual tips or validation messages that guide users through the registration process. This can be helpful for fields that have strict formatting requirements.
+* **Type-ahead components:** Integrate with third-party APIs to provide real-time suggestions as users fill out fields, such as their address or company name. This enhances the user experience and improves data accuracy.
+* **Dynamic help text:** Listen for events on input fields and display contextual tips or validation messages that guide users through the registration process. This is helpful for fields that have strict formatting requirements.
 
 #### SSR flow diagram with custom code
 
@@ -198,7 +198,7 @@ Using custom code in the SSR flow lets you enhance the user experience in differ
 
 ## Summary
 
-Self-service registration (SSR) allows users to register and sign in to your app. SSR is disabled by default, but you can enable it with the user profile policy.
+SSR allows users to register and sign in to your app. SSR is disabled by default, but you can enable it with the user profile policy.
 
 User profile policies allow you to control which user attributes are collected during registration. In addition to the user profile policy, you can use the authenticator enrollment policy and Okta account management policy as no-code options to have greater control over the SSR flow.
 
