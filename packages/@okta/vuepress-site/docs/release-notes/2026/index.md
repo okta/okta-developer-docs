@@ -16,7 +16,7 @@ title: Okta Classic Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Self-Service for Enhanced Disaster Recovery is self-service EA in Preview](#self-service-for-enhanced-disaster-recovery-is-ea) | March 4, 2026 |
+| [Self-Service for Enhanced Disaster Recovery is self-service EA in Preview](#self-service-for-enhanced-disaster-recovery-is-self-service-ea-in-preview) | March 4, 2026 |
 | [Submit API service integrations is GA in Production](#submit-api-service-integrations-is-ga-in-production) | March 4, 2026 |
 | [Admin Console Home page is GA in Production](#admin-console-home-page-is-ga-in-production) | March 4, 2026 |
 | [New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview](#new-directories-integration-endpoints-to-view-extended-active-directory-group-attributes-is-ga-in-preview) | March 4, 2026 |
