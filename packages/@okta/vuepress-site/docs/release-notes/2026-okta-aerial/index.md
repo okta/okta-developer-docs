@@ -29,10 +29,10 @@ See also [Introduction to the Okta Aerial API](https://developer.okta.com/docs/a
 
 #### Aerial Org Groups and Request Condition Template APIs
 
-Previously, access request conditions for managed orgs could only be applied to all managed orgs using a template app or a single org from within its Admin Console. Now, you can create org groups and apply access request conditions to one or more managed orgs all from within the Aerial Console.
+Previously, access request conditions for managed orgs could only be applied to all managed orgs using a template app or a single org from within its Aerial org's Admin Console. Now, you can create org groups and apply access request conditions to one or more managed orgs all from within the Aerial Console.
 To support this new flexible grouping and governance experience, Okta introduces a new suite of APIs that allow developers to programmatically manage Org Groups and apply access request conditions across multiple orgs at scale. These APIs help you define precise rules for access, streamlining governance and improving usability.
 
-See the [Org Groups](https://developer.okta.com/docs/api/openapi/aerial/aerial/tag/Org-Groups/) and [Governance](https://developer.okta.com/docs/api/openapi/aerial/aerial/tag/Governance/) APIs. For more info on managing Org Groups in the Admin Console, see [Create org groups](https://help.okta.com/okta_help.htm?type=aerial&id=aerial-create-org-groups).
+See the [Org Groups](https://developer.okta.com/docs/api/openapi/aerial/aerial/tag/Org-Groups/) and [Governance](https://developer.okta.com/docs/api/openapi/aerial/aerial/tag/Governance/) APIs. For more info on managing Org Groups in the Aerial Console, see [Create org groups](https://help.okta.com/okta_help.htm?type=aerial&id=aerial-create-org-groups).
 
 #### Aerial member role available in EA
 
