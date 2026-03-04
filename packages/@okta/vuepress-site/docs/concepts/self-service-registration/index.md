@@ -7,7 +7,7 @@ meta:
 
 # Plan self-service registration flows
 
-Learn about self-service registration (SSR) and three key aspects that you can customize for your specific use-cases.
+Learn about self-service registration (SSR) and three key aspects that you can customize for your specific use cases.
 
 ---
 
@@ -15,7 +15,7 @@ Learn about self-service registration (SSR) and three key aspects that you can c
 
 Self-service registration allows users to create an account and sign in to an app on their own.
 
-A combination of policies that you can set in the Admin Console or with the Policies API lets you choose which data to collect during registration, the authenticators available for enrollment, and the authentication requirements for enrolling those authenticators. You can also use an inline hook and custom code for further customization.
+A combination of policies that you can set in the Admin Console or with the Policies API lets you choose which data to collect during registration. You also choose the authenticators available for enrollment and the authentication requirements for enrolling those authenticators. You can also use an inline hook and custom code for further customization.
 
 For more information about SSR, see:
 
@@ -26,9 +26,9 @@ For more information about SSR, see:
 
 ### Default SSR state
 
-Self-service registration is disabled by default. There are two main policies that control SSR.
+SSR is disabled by default. There are two main policies that control SSR.
 
-* **User profile policies:** This policy type controls the attributes that are collected when users register and has a setting to enable self-service registration. The default user profile policy doesn't allow self-service registration.
+* **User profile policies:** This policy type controls the attributes that are collected when users register and has a setting to enable SSR. The default user profile policy doesn't allow SSR
 * **Authenticator enrollment policies:** This policy type controls which authenticators are available for users to enroll during registration. The default authenticator enrollment policy requires users to create a password. You can add other authenticators to the default policy or create an authenticator enrollment policy.
 
 You can enable a basic SSR flow by creating a new user profile policy. These are the default settings for a new user profile policy that allows self-service registration:
@@ -42,7 +42,7 @@ You can enable a basic SSR flow by creating a new user profile policy. These are
 
 #### Default SSR flow diagram
 
-This diagram shows the default SSR flow when you enable self-service registration with a user profile policy.
+This diagram shows the default SSR flow when you enable SSR with a user profile policy.
 
 <div class="three-quarter border">
 
@@ -52,7 +52,7 @@ This diagram shows the default SSR flow when you enable self-service registratio
 
 ## Ways to customize your SSR flow
 
-You can customize how Okta handles self-service registration through a combination of [policies](#use-policies-to-control-ssr-flows), an [inline hook](#use-an-inline-hook-to-customize-the-ssr-flow), and [widget customization](#customize-the-widget-with-the-code-editor).
+You can customize how Okta handles SSR through a combination of [policies](#use-policies-to-control-ssr-flows), an [inline hook](#use-an-inline-hook-to-customize-the-ssr-flow), and [widget customization](#customize-the-widget-with-the-code-editor).
 
 ### Use policies to control SSR flows
 
@@ -73,7 +73,7 @@ The [user profile policy](/docs/concepts/policies/#user-profile-policies) contro
 
 For example, if your app requires a business-specific attribute, such as a department name or a specific organization ID, you can set it as a required field in the user profile policy to ensure it's captured when users register.
 
-> **Tip:** Use progressive enrollment to avoid overwhelming users with too many fields during registration. Start with the most essential attributes and then prompt for additional information during subsequent sign-ins. See [Progressive enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-pe-policies).
+> **Tip:** Use progressive enrollment to avoid overwhelming users with too many fields during registration. Start with the most essential attributes and then prompt for additional information when the user signs in again. See [Progressive enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-pe-policies).
 >
 > Keep in mind that the user profile policy and progressive enrollment are applied at the app level. Users must sign in to the app that progressive enrollment is enabled for to see the additional fields when they sign in again.
 
@@ -95,8 +95,8 @@ For example, you can allow users to register a passkey by requiring them to auth
 
 This diagram shows how the user profile policy, authenticator enrollment policy, and Okta account management policy work together to control the SSR flow.
 
-* The user profile policy adds the "Business Department" field to the registration form.
-* The authenticator enrollment policy makes the passkeys authenticator available during registration. You can make other authenticators available for enrollment by adding them to the relevant authenticator enrollment policy.
+* The user profile policy adds the **Business Department** field to the registration form.
+* The authenticator enrollment policy makes the passkeys authenticator available during registration. Make other authenticators available for enrollment by adding them to the relevant authenticator enrollment policy.
 * The Okta account management policy requires users to verify their identity before they enroll a passkey.
 
 <div class="three-quarter border">
@@ -107,18 +107,18 @@ This diagram shows how the user profile policy, authenticator enrollment policy,
 
 > **Tip:** You can configure your policies in different ways to reduce the number of steps that users have to go through during registration.
 >
-> For example, you can add the password field to the registration form with the user profile policy and then not require users to verify their email before they enroll the password authenticator. This allows users to register and enroll an authenticator in fewer steps.
+> For example, add the password field to the registration form with the user profile policy and then not require users to verify their email before they enroll the password authenticator. This allows users to register and enroll an authenticator in fewer steps.
 
 ### Use an inline hook to customize the SSR flow
 
-The registration inline hook allows you to customize the SSR flow with your own business logic by inserting a call to your external service during the SSR flow. You must set up an external service to host your code and then configure the registration inline hook to call that service at the right point in the SSR flow. You can set up a registration inline hook in the Admin Console or with the Inline Hooks API.
+The registration inline hook allows you to customize the SSR flow with your own business logic by inserting a call to your external service during the SSR flow. You must set up an external service to host your code. Then, configure the registration inline hook to call that service at the right point in the SSR flow. You can set up a registration inline hook in the Admin Console or with the Inline Hooks API.
 
 The hook triggers after the user submits the registration form but before the user account is created in Okta.
 
 Consider the following examples for ways to customize your SSR flow using a registration inline hook:
 
-* **Domain validation:** You can validate the domain of a user trying to register and deny requests from unauthorized or public email providers. See [Set up for profile enrollment (SSR) scenario](/docs/guides/registration-inline-hook/nodejs/main/#set-up-for-profile-enrollment-ssr-scenario) for an example of how to do this.
-* **Input restrictions:** You can use an inline hook to restrict certain inputs in the registration form. For example, you can check the `login` attribute for forbidden characters (like emojis or specific symbols) and deny access if a user attempts to register with them.
+* **Domain validation:** Validate the domain of a user trying to register and deny requests from unauthorized or public email providers. See [Set up for profile enrollment (SSR) scenario](/docs/guides/registration-inline-hook/nodejs/main/#set-up-for-profile-enrollment-ssr-scenario) for an example of how to do this.
+* **Input restrictions:** Use an inline hook to restrict certain inputs in the registration form. For example, you can check the `login` attribute for forbidden characters (like emojis or specific symbols) and deny access if a user attempts to register with them.
 * **Verify user identity with an access key:** Check a user-supplied access key or code against an external system before allowing registration or access.
 * **Enrich a profile with customer ID from a CRM:** Retrieve and add a unique customer identifier from your CRM system to the user’s profile during the registration or update process.
 * **Trigger an approval flow:** Initiate a manager or administrator approval process before finalizing user provisioning or access.
