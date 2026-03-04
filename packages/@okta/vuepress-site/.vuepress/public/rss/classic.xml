@@ -4,8 +4,17 @@
   <title>Okta Classic Engine API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026/</link>
   <description>Recent release notes for Okta Classic Engine API</description>
-  <pubDate>Fri, 20 Feb 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 04 Mar 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Monthly release 2026.03.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2026/#monthly-release-2026-03-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026/#monthly-release-2026-03-0</guid>
+      <pubDate>Wed, 04 Mar 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/#self-service-for-enhanced-disaster-recovery-is-self-service-ea-in-preview">Self-Service for Enhanced Disaster Recovery is self-service EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#submit-api-service-integrations-is-ga-in-production">Submit API service integrations is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#admin-console-home-page-is-ga-in-production">Admin Console Home page is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#new-directories-integration-endpoints-to-view-extended-active-directory-group-attributes-is-ga-in-preview">New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#enable-custom-admin-permissions-for-inline-and-event-hooks-is-ga-in-preview">Enable custom admin permissions for inline and event hooks is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#developer-documentation-updates-in-2026-03-0">Developer documentation updates in 2026.03.0</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Weekly release 2026.02.2</title>
       <link>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-02-2</link>
