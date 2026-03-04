@@ -6,6 +6,7 @@ journeys:
  - OCI-web-sign-in
  - OCI-branding
  - OCI-mobile
+ - OCI-web-sign-up
 ---
 
 # Journeys
