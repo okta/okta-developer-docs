@@ -29,7 +29,7 @@ Delegations allow users to appoint others to act on their behalf for tasks such 
 
 This guide describes how to manage delegate assignments and settings using the [Okta Identity Governance (OIG) APIs](https://developer.okta.com/docs/api/iga/). You can use delegated flows in [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf) or in your own custom app to make governance delegation API requests.
 
-## **Make secure API requests with OAuth 2.0**
+## Make secure API requests with OAuth 2.0
 
 <CreateOAuth2Token/><br>
 
@@ -41,7 +41,7 @@ For either user-based or service-based API access, grant the following scopes du
 
 In addition, you have to grant the service-based OAuth 2.0 client an admin role. Without user context, the service app acts as a principal and requires the `SUPER_ADMIN` role to perform all admin delegation tasks. You don't need to assign a role to the OIDC client, because Okta reviews the admin role assigned to the authenticated user to determine whether they have permission to perform the delegation tasks.
 
-## Admin Tasks
+## Admin tasks
 
 Use these API requests to manage delegation configuration in the org or for specific users.
 
@@ -49,9 +49,12 @@ Use these API requests to manage delegation configuration in the org or for spec
 
 Use the [Retrieve the org settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/getorgsettings) request to view governance settings for your org, including delegate settings.
 
-* **Request URI**: `GET /governance/api/v1/settings`
-* **Scopes required:** `okta.governance.settings.read`
-* **Admin role required**: super admin (`SUPER_ADMIN`)
+| **API** | Org governance settings |
+| ------- | ----------------------- |
+| **Request** | [Retrieve the org settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/getorgsettings) |
+| **Request URI** | `GET /governance/api/v1/settings` |
+| **Scopes required** | `okta.governance.settings.read` |
+| **Admin role required** | super admin (`SUPER_ADMIN`) |
 
 ##### Request example
 
@@ -90,9 +93,12 @@ This response example shows that users in the org can assign their own delegates
 
 Use the [Update the org settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/updateorgsettings) request to enable org users to assign their own delegates and to restrict delegate appointments.
 
-* **Request URI**: `PATCH /governance/api/v1/settings`
-* **Scopes required:** `okta.governance.settings.manage`
-* **Admin role required**: super admin (`SUPER_ADMIN`)
+| **API** | Org Governance settings |
+| ------- | ----------------------- |
+| **Request** | [Update the org settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/updateorgsettings) |
+| **Request URI** | `PATCH /governance/api/v1/settings` |
+| **Scopes required** | `okta.governance.settings.manage` |
+| **Admin role required** | super admin (`SUPER_ADMIN`) |
 
 ##### Request example
 
@@ -123,9 +129,12 @@ curl -i -X PATCH \
 
 Use the [Update the principal settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/principal-settings/updateprincipalsettings) request to assign a delegate for a specific user.
 
-* **Request URI:** `PATCH /governance/api/v1/principal-settings/{targetPrincipalId}`
-* **Scopes required:** `okta.governance.principalSettings.manage`
-* **Admin roles required**: Both the access certification admin (`ACCESS_CERTIFICATIONS_ADMIN`) and the request certification admin (`ACCESS_CERTIFICATION_ADMIN`), or the super admin (`SUPER_ADMIN`)
+| **API** | Principal settings |
+| ------- | ----------------------- |
+| **Request** | [Update the principal settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/principal-settings/updateprincipalsettings) |
+| **Request URI** | `PATCH /governance/api/v1/principal-settings/{targetPrincipalId}` |
+| **Scopes required** | `okta.governance.principalSettings.manage` |
+| **Admin roles required** | Both the access certification admin (`ACCESS_CERTIFICATIONS_ADMIN`) and the request certification admin (`ACCESS_CERTIFICATION_ADMIN`), or the super admin (`SUPER_ADMIN`) |
 
 ##### Request example
 
@@ -156,9 +165,12 @@ curl -i -X PATCH \
 
 Use the [List all delegate appointments](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/delegates/listdelegateappointments) request to retrieve a list of all delegate appointments within the org, or find delegate appointments for a specific user.
 
-* **Endpoint:** `GET /governance/api/v1/delegates`
-* **Required Scopes:** `okta.governance.delegates.read`
-* **Admin roles required**: Both the access certification admin (`ACCESS_CERTIFICATIONS_ADMIN`) and the request certification admin (`ACCESS_CERTIFICATION_ADMIN`), or the super admin (`SUPER_ADMIN`)
+| **API** | Delegates |
+| ------- | --------- |
+| **Request** | [List all delegate appointments](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/delegates/listdelegateappointments) |
+| **Endpoint** | `GET /governance/api/v1/delegates` |
+| **Required Scopes** | `okta.governance.delegates.read` |
+| **Admin roles required** | Both the access certification admin (`ACCESS_CERTIFICATIONS_ADMIN`) and the request certification admin (`ACCESS_CERTIFICATION_ADMIN`), or the super admin (`SUPER_ADMIN`) |
 
 ##### Request examples
 
@@ -171,7 +183,7 @@ curl -v -X GET \
   -H 'Authorization: Bearer {yourOktaAccessToken}' \
 ```
 
-This example returns the delegate appointment for a specific Okta user ID (`00ub0oNGTSWTBKOLGLNR`)  :
+The following example returns the delegate appointment for a specific Okta user ID (`00ub0oNGTSWTBKOLGLNR`).
 
 ```bash
 curl -v -X GET \
@@ -184,13 +196,19 @@ curl -v -X GET \
 
 Admins can view delegate details in a review. See the responses for [List all reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/listreviews) and [Retrieve a review](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/getreview).
 
-* **Request URI:** `GET /governance/api/v1/reviews`
-* **Required scopes:** `okta.governance.accessCertifications.read`
-* **Required admin roles:** `ACCESS_CERTIFICATIONS_ADMIN`, `SUPER_ADMIN`
+| **API** | Reviews |
+| ------- | ----------- |
+| **Request** | [List all reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/listreviews) |
+| **Request URI** | `GET /governance/api/v1/reviews` |
+| **Required scopes** | `okta.governance.accessCertifications.read` |
+| **Required admin roles** | `ACCESS_CERTIFICATIONS_ADMIN`, `SUPER_ADMIN` |
 
-* **Request URI:** `GET /governance/api/v1/reviews/{reviewId}`
-* **Required scopes:** `okta.governance.accessCertifications.read`
-* **Required admin roles:** `ACCESS_CERTIFICATIONS_ADMIN`, `SUPER_ADMIN`
+| **API** | Reviews |
+| ------- | ----------- |
+| **Request** | [Retrieve a review](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/getreview) |
+| **Request URI** | `GET /governance/api/v1/reviews/{reviewId}` |
+| **Required scopes** | `okta.governance.accessCertifications.read` |
+| **Required admin roles** | `ACCESS_CERTIFICATIONS_ADMIN`, `SUPER_ADMIN` |
 
 If a delegated reviewer is assigned to an access certification review, the following properties are populated in the response:
 
@@ -199,7 +217,7 @@ If a delegated reviewer is assigned to an access certification review, the follo
 
 ##### Response example
 
-In this example, the review is an access review for "Jessie Smith". The original reviewer is supposed to be "Alana Johnson", but she wasn't available, so she delegated the review to her manager, "Bob Manager".
+In this example, the review is an access review for Jessie Smith. The original reviewer is supposed to be Alana Johnson, but she wasn't available, so she delegated the review to her manager, Bob Manager.
 
 ```json
 {
@@ -251,7 +269,7 @@ In this example, the review is an access review for "Jessie Smith". The original
 }
 ```
 
-## End User Tasks
+## End user tasks
 
 The following API requests allow users to manage their own delegate settings.
 
@@ -259,10 +277,12 @@ The following API requests allow users to manage their own delegate settings.
 
 See the delegates currently assigned to act on your behalf with the [Retrieve my settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-settings/getmysettings) request. This request retrieves the governance settings for the current authenticated user, including current delegate appointments.
 
-* **API:** My Settings
-* **Request URI:** `GET /governance/api/v1/my/settings`
-* **Scopes required:** `okta.governance.principalSettings.read`
-* **Admin roles required:** None (standard Okta user)
+| **API** | My settings |
+| ------- | ----------- |
+| **Request** | [Retrieve my settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-settings/getmysettings) |
+| **Request URI** | `GET /governance/api/v1/my/settings` |
+| **Scopes required** | `okta.governance.principalSettings.read` |
+| **Admin roles required** | None (standard Okta user) |
 
 ##### Request example
 
@@ -300,10 +320,12 @@ curl -v -X GET \
 
 Retrieve a list of users eligible to serve as your delegate with the [List my eligible delegates](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-settings/listmydelegateusers) request.
 
-* **API:** My Settings
-* **Request URI:** `GET /governance/api/v1/my/settings/delegate/users`
-* **Scopes required:** `okta.governance.principalSettings.read`
-* **Admin roles required:** None (standard Okta user)
+| **API** | My settings |
+| ------- | ----------- |
+| **Request** | [List my eligible delegates](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-settings/listmydelegateusers) |
+| **Request URI** | `GET /governance/api/v1/my/settings/delegate/users` |
+| **Scopes required** | `okta.governance.principalSettings.read` |
+| **Admin roles required** | None (standard Okta user) |
 
 ##### Request example
 
@@ -350,10 +372,12 @@ curl -v -X GET \
 
 Self-assign a delegate for access certifications or access requests with the [Update my settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-settings/updatemysettings) request.
 
-* **API:** My Settings
-* **Request URI:** `PATCH /governance/api/v1/my/settings`
-* **Required Scopes:** `okta.governance.principalSettings.manage`
-* **Required Admin Roles:** None (standard Okta user)
+| **API** | My settings |
+| ------- | ----------- |
+| **Request** | [Update my settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-settings/updatemysettings) |
+| **Request URI** | `PATCH /governance/api/v1/my/settings` |
+| **Required Scopes** | `okta.governance.principalSettings.manage` |
+| **Required Admin Roles** | None (standard Okta user) |
 
 ##### Request example
 
@@ -387,6 +411,6 @@ The following lists functional behavior after a delegate is appointed for govern
 * Existing campaign review and access request tasks remain unchanged (users must reassign the reviews manually to their delegate).
 * An email is sent to notify the delegates of their task assignment.
 * Requesters can view the delegate assigned to their access request.
-* Governance delegated tasks are not automatically transitive.
-  For example, if user A assigns user B as their delegate, and user B assigns user C as their delegate (A \-\> B(delegate) \-\> C (delegate)).  In this case, tasks assigned to user A aren’t automatically assigned to user C. Governance tasks for user A are assigned to user B. Only an admin or the request assignee can reassign tasks to user C.
+* Governance delegated tasks aren't automatically transitive.
+  For example, if user A assigns user B as their delegate, and user B assigns user C as their delegate (A -> B(delegate) -> C (delegate)).  In this case, tasks assigned to user A aren't automatically assigned to user C. Governance tasks for user A are assigned to user B. Only an admin or the request assignee can reassign tasks to user C.
 * Admins can monitor updates to user-delegate configurations with the `governance.principal.settings.update` System Log event.
