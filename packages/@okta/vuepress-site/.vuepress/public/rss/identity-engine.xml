@@ -4,8 +4,17 @@
   <title>Okta Identity Engine API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/</link>
   <description>Recent release notes for Okta Identity Engine API</description>
-  <pubDate>Wed, 25 Feb 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 04 Mar 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Monthly release 2026.03.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#monthly-release-2026-03-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#monthly-release-2026-03-0</guid>
+      <pubDate>Wed, 04 Mar 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#self-service-for-enhanced-disaster-recovery-is-self-service-ea-in-preview">Self-Service for Enhanced Disaster Recovery is self-service EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#submit-api-service-integrations">Submit API service integrations</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#admin-console-home-page">Admin Console Home page</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#new-directories-integration-endpoints-to-view-extended-active-directory-group-attributes-is-ga-in-preview">New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#linux-as-a-platform-condition-is-ga-in-production">Linux as a platform condition is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#grace-period-for-device-assurance-is-ga-in-production">Grace period for device assurance is GA in Production is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#dynamic-os-version-compliance-for-device-assurance-is-ga-in-production">Dynamic OS version compliance for device assurance is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#enable-custom-admin-permissions-for-inline-and-event-hooks-is-ga-in-preview">Enable custom admin permissions for inline and event hooks is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#developer-documentation-updates-in-2026-03-0">Developer documentation updates in 2026.03.0</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#bug-fixed-in-2026-03-0">Bug fixed in 2026.03.0</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Weekly release 2026.02.3</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#weekly-release-2026-02-3</link>

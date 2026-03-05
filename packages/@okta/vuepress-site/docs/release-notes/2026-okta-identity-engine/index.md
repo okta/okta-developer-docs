@@ -11,6 +11,95 @@ title: Okta Identity Engine API release notes 2026
   Subscribe to RSS
 </a>
 
+## March
+
+### Monthly release 2026.03.0
+<!-- Published on: 2026-03-04T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Self-Service for Enhanced Disaster Recovery is self-service EA in Preview](#self-service-for-enhanced-disaster-recovery-is-self-service-ea-in-preview) | March 4, 2026 |
+| [Submit API service integrations](#submit-api-service-integrations) | March 4, 2026 |
+| [Admin Console Home page](#admin-console-home-page) | March 4, 2026 |
+| [New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview](#new-directories-integration-endpoints-to-view-extended-active-directory-group-attributes-is-ga-in-preview) | March 4, 2026 |
+| [Linux as a platform condition is GA in Production](#linux-as-a-platform-condition-is-ga-in-production) | Feb 4, 2026 |
+| [Grace period for device assurance is GA in Production is GA in Production](#grace-period-for-device-assurance-is-ga-in-production) | October 9, 2024 |
+| [Dynamic OS version compliance for device assurance is GA in Production](#dynamic-os-version-compliance-for-device-assurance-is-ga-in-production) | February 7, 2024 |
+| [Enable custom admin permissions for inline and event hooks is GA in Preview](#enable-custom-admin-permissions-for-inline-and-event-hooks-is-ga-in-preview) | December 10, 2025 |
+| [Developer documentation updates in 2026.03.0](#developer-documentation-updates-in-2026-03-0) | March 4, 2026 |
+| [Bug fixed in 2026.03.0](#bug-fixed-in-2026-03-0)| March 4, 2026 |
+
+#### Self-Service for Enhanced Disaster Recovery is self-service EA in Preview
+
+When unexpected infrastructure-related outages occur, orgs need an immediate and reliable way to maintain business continuity. Okta's Standard Disaster Recovery, implemented by Okta's operations teams, provides failover and failback with a recovery time objective of one hour.
+
+Okta's Enhanced Disaster Recovery (Enhanced DR) gives admins the option to manage their org's recovery. This feature empowers admins by providing direct, self-service tools and APIs to manage, test, and automate the failover and restoration processes for their impacted orgs.
+
+With Enhanced DR, admins gain active control to initiate a failover and restore for impacted orgs directly from the Okta Disaster Recovery Admin portal or through APIs. Additionally, teams can validate their system's resilience by safely testing these failover and restoration capabilities at their convenience. Finally, Enhanced DR enables orgs to automate failover processes by using real-time monitoring to invoke failover APIs, significantly minimizing downtime during an actual event. See [Manage org recovery with Okta Enhanced Disaster Recovery](/docs/guides/manage-orgs-okta-edr/).
+<!-- OKTA-663592 preview date: March 4, 2026  -->
+
+#### Submit API service integrations
+
+Independent Software Vendors (ISVs) can now use the OIN Wizard to submit API service integrations to the Okta Integration Network (OIN). Previously, ISVs provided metadata in the OIN Manager. With this update, ISVs can create and configure API service apps directly within the OIN Wizard
+The OIN Wizard currently supports only client secret authentication for API service integrations. ISVs can also generate credentials and perform end-to-end testing independently. These improvements streamline the app submission process and ensure a faster, more secure review. See [Submit an integration with the OIN Wizard](/docs/guides/submit-oin-app/uapiservice/main/).
+<!-- OKTA-1119846 API_SERVICE_SUBMISSION preview date: March 4, 2026  -->
+
+#### Admin Console Home page
+
+The new Admin Console **Home** page for IFT orgs provides a faster way to start and manage your app submissions. Instead of navigating through the previous **Applications** > **Your OIN Integrations** path, you can now initiate submissions directly from the **Home** page. This guided experience helps you select integration types, understand requirements through a new **Quick Start guide**, and track your submission in real time from build to publication. It also includes a **Coming Soon** section to preview and register for upcoming integrations, making the entire process more centralized and efficient.
+<!-- OKTA-1117696 IFT_GETTING_STARTED_EXPERIENCE preview date: March 4, 2026  -->
+
+#### New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview
+
+New API endpoints have been added to the Directories Integration (`POST /api/v1/directories/{appInstanceId}/group/{groupId}/query` and `GET /api/v1/directories/{appInstanceId}/group/{groupId}/query/{resultId}`), which allows for the real-time retrieval of any standard or custom attribute from Active Directory (AD) groups. You can now programmatically access attributes, like cost centers and department codes, without waiting for a full directory sync. This feature allows you to accelerate automation by using live AD group metadata, while simultaneously eliminating manual data management by creating a single, reliable bridge between your on-premises directory details and your cloud ecosystem. See [Directories Integrations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/directoriesintegration).
+<!-- OKTA-1117092 AD_GROUP_READ_ATTRIBUTES preview date: March 4, 2026  -->
+
+#### Linux as a platform condition is GA in Production
+
+Okta now supports `LINUX` as a device platform condition in the following policy types and policy rules:
+* App sign-in policies (`ACCESS_POLICY` rules)
+* Okta account management policy rules (Rules for the Okta account management `ACCESS_POLICY`)
+* Identity provider routing rules (`IDP_DISCOVERY` rules)
+
+See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/conditions/platform/exclude/os/type&t=request).
+
+<!-- OKTA-1093354 LINUX_SUPPORT_FOR_POLICIES preview date: Feb 4, 2026  -->
+
+#### Grace period for device assurance is GA in Production
+
+Occasionally, users’ devices might fall out of compliance with security policies due to temporary conditions such as missed software updates or unapproved network connections. Without a grace period, they would be immediately blocked from accessing critical resources, which disrupts productivity and causes frustration. The grace period for device assurance feature allows you to define a temporary window during which non-compliant devices can still access resources. This gives users time to remediate issues without being locked out, balancing productivity with security standards.
+
+See [Device Assurance Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/createDeviceAssurancePolicy!path=0/gracePeriod&t=request) and the [Add a device assurance policy guide](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-assurance-add). <!-- DEVICE_ASSURANCE_GRACE_PERIOD OKTA-803140 Preview date: October 9, 2024 -->
+
+#### Dynamic OS version compliance for device assurance is GA in Production
+
+You can configure OS version compliance by using device assurance. However, you have to manually update the policies every time a new OS version or patch is released. With **Dynamic OS version compliance**, Okta updates device assurance policies with the latest OS versions and patches, eliminating the need for manual updates. With this feature you can ensure OS version compliance in your org without tracking OS releases. See [Dynamic OS version compliance](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-assurance-add) and [Device Assurance Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/createDeviceAssurancePolicy!path=1/osVersion&t=request). <!-- DEVICE_ASSURANCE_DYNAMIC_OS_SUPPORT OKTA-651282 Preview date: February 7, 2024 -->
+
+#### Enable custom admin permissions for inline and event hooks is GA in preview
+
+The inline hook and event hook framework now supports read and write permissions for custom admin roles. This enhancement gives fine-grained access to manage inline and event hooks that previously required the super admin role. See [Hooks admin roles](/docs/guides/hooks-best-practices/).
+<!-- OKTA-1113869 preview date: December 10, 2025  -->
+
+#### Developer documentation updates in 2026.03.0
+
+* Okta's [API reference pages](https://developer.okta.com/docs/api/) are undergoing a migration, which started on February 24. While the look and feel may vary across pages during this time, all technical documentation remains accurate and up to date.
+* You can no longer submit API service integrations through the OIN Manager, so the instructions have been removed from the [OIN Manager](/docs/guides/submit-app/wfconnector/main/) guide. To submit an API service integration, use the [OIN Wizard](/docs/guides/submit-oin-app/uapiservice/main/).
+* The new [Plan your self-service registration](/docs/concepts/self-service-registration/) doc explains the self-service registration (SSR) flow, how it works, its default state, and three different ways to customize and configure it.
+* A new guide is available for Okta Enhanced Disaster Recovery, a feature that gives admins direct control over business continuity. Learn how to:
+  * Initiate failover and restoration (failback) using the self-service portal or APIs.
+  * Validate system resilience by safely testing recovery capabilities.
+  * Automate failover processes to minimize downtime during an outage.
+
+  See [Manage org recovery with Okta Enhanced Disaster Recovery](/docs/guides/manage-orgs-okta-edr/main).
+* The new [Enable and configure a sign-up form](/docs/guides/enable-configure-signupform/main/) guide explains how to configure a Self-Service Registration flow to securely automate how you onboard new users. You learn how to build policies that go beyond a simple sign-up form by defining required user information, automating group assignments, and enforcing security measures like email verification and authenticator enrollment.
+* The new [Add a sign-up form to your web app](/docs/journeys/OCI-web-sign-up/main/) journey helps you implement a sign-up form for your web app, reducing onboarding friction and accelerating user acquisition.
+* The new [Sign users up with an Okta-hosted sign-up form](/docs/guides/signup-oktahosted/main/) guide illustrates how to implement a Self-Service Registration flow on page using the Okta-hosted Sign-In Widget. It also covers how to customize an out-of-the-box experience for your app using the Okta Auth JavaScript SDK.
+* The new [Sign users up with a self-hosted sign-up form](/docs/guides/signup-selfhosted/main/) guide illustrates how to implement a self-hosted sign-up experience using the Okta Auth JavaScript SDK and the Okta embedded Sign-In Widget.
+
+#### Bug fixed in 2026.03.0
+
+Bot detection events were logged for standard Admin/Management API calls when the Sign-In Widget wasn’t involved. (OKTA-1113990)
+
 ## February
 
 ### Weekly release 2026.02.3

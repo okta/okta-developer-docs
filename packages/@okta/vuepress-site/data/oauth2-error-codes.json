@@ -1,6 +1,6 @@
 {
-  "release" : "2026.02.1",
-  "build" : "2026.02.1-begin-195-g2ea8b7157f44",
+  "release" : "2026.03.1",
+  "build" : "2026.03.1-begin-163-g55170913d85d",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -589,6 +589,13 @@
     "internalErrorCode" : "interaction_required",
     "errorCode" : "interaction_required",
     "errorDescription" : "Your client is configured to use the interaction code flow and user interaction is required to complete the request."
+  }, {
+    "title" : "Oauth2 sts interaction required",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "oauth_sts_interaction_required",
+    "errorCode" : "interaction_required",
+    "errorDescription" : "The user must authenticate with the authorization server for the request to proceed."
   }, {
     "title" : "Invalid authorization details",
     "statusCode" : 400,

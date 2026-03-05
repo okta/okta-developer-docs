@@ -1,6 +1,6 @@
 {
-  "release" : "2026.02.1",
-  "build" : "2026.02.1-begin-195-g2ea8b7157f44",
+  "release" : "2026.03.1",
+  "build" : "2026.03.1-begin-163-g55170913d85d",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -283,6 +283,9 @@
   }, {
     "id" : "resource-management-platform",
     "name" : "Resource Management Platform"
+  }, {
+    "id" : "secure-ai",
+    "name" : "Secure AI"
   }, {
     "id" : "security",
     "name" : "Security"
@@ -1445,6 +1448,96 @@
         "changeDetails" : [ ]
       }
     }, {
+      "id" : "account.aerial_template_condition.apply",
+      "category" : "account-services",
+      "description" : "Apply an Aerial template condition. Audit application of template conditions for Aerial accounts. This event is fired in the Aerial org when a template condition is applied to the org. Includes template condition details such as ID and name.",
+      "info" : {
+        "created" : "2026-02-03",
+        "release" : "2026.02.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "account-service" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "TemplateConditionResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "account.aerial_template_condition.create",
+      "category" : "account-services",
+      "description" : "Create an Aerial template condition. Audit creation of template conditions for Aerial accounts. This event is fired when a new template condition is created. Includes template condition details such as ID and name.",
+      "info" : {
+        "created" : "2026-02-03",
+        "release" : "2026.02.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "account-service" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "TemplateConditionResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "account.aerial_template_condition.delete",
+      "category" : "account-services",
+      "description" : "Delete an Aerial template condition. Audit deletion of template conditions for Aerial accounts. This event is fired when a template condition is deleted. Includes template condition details such as ID and name.",
+      "info" : {
+        "created" : "2026-02-03",
+        "release" : "2026.02.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "account-service" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "TemplateConditionResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "account.aerial_template_condition.remove",
+      "category" : "account-services",
+      "description" : "Remove an Aerial template condition. Audit removal of template conditions for Aerial accounts. This event is fired in the Aerial org when a template condition is removed from the org. Includes template condition details such as ID and name.",
+      "info" : {
+        "created" : "2026-02-03",
+        "release" : "2026.02.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "account-service" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "TemplateConditionResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "account.aerial_template_condition.update",
+      "category" : "account-services",
+      "description" : "Update an Aerial template condition. Audit updates to template conditions for Aerial accounts. This event is fired when a template condition is updated. Includes template condition details such as ID and name.",
+      "info" : {
+        "created" : "2026-02-03",
+        "release" : "2026.02.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "account-service" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "TemplateConditionResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
       "id" : "account.org.add",
       "category" : "account-services",
       "description" : "Org is added to an Aerial account. Triggered when an org is added to an Aerial account. This event is fired in both the Aerial org and the added target org.",
@@ -1569,6 +1662,96 @@
         "actor" : null,
         "targets" : [ "OrgResourceDetails" ],
         "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "account.org_group.create",
+      "category" : "account-services",
+      "description" : "Create an org group. Triggered when an org group is created in an Aerial account. This event is fired in the Aerial org when a new org group is created.",
+      "info" : {
+        "created" : "2026-01-27",
+        "release" : "2026.02.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "account-service" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "OrgGroupResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "account.org_group.delete",
+      "category" : "account-services",
+      "description" : "Delete an org group. Triggered when an org group is deleted from an Aerial account. This event is fired in the Aerial org when an org group is deleted.",
+      "info" : {
+        "created" : "2026-01-27",
+        "release" : "2026.02.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "account-service" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "OrgGroupResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "account.org_group.org.assign",
+      "category" : "account-services",
+      "description" : "Assign an org to an org group. Triggered when an org is assigned to an org group in an Aerial account. This event is fired in the Aerial org when an org is assigned to an org group. The target array contains the container (OrgGroup) followed by the member (Org).",
+      "info" : {
+        "created" : "2026-01-27",
+        "release" : "2026.02.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "account-service" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "OrgGroupResourceDetails", "OrgResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "account.org_group.org.revoke",
+      "category" : "account-services",
+      "description" : "Revoke an org from an org group. Triggered when an org is revoked from an org group in an Aerial account. This event is fired in the Aerial org when an org is revoked from an org group. The target array contains the container (OrgGroup) followed by the member (Org).",
+      "info" : {
+        "created" : "2026-01-27",
+        "release" : "2026.02.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "account-service" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "OrgGroupResourceDetails", "OrgResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "account.org_group.update",
+      "category" : "account-services",
+      "description" : "Update an org group. Triggered when an org group is updated in an Aerial account. This event is fired in the Aerial org when an org group is updated.",
+      "info" : {
+        "created" : "2026-01-27",
+        "release" : "2026.02.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "account-service" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "OrgGroupResourceDetails" ],
+        "changeDetails" : [ "OrgGroupChangeDetailsEntry" ]
       }
     }, {
       "id" : "account.user.classify",
@@ -2019,6 +2202,150 @@
         "actor" : null,
         "targets" : null,
         "changeDetails" : null
+      }
+    }, {
+      "id" : "app.ai_agent_provider.activate",
+      "category" : "workload-principal",
+      "description" : "Activate an AI agent provider. Track when an AI agent import provider is enabled for scheduled imports.",
+      "info" : {
+        "created" : "2026-02-09",
+        "release" : "2026.03.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalAiAgentProviderDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "app.ai_agent_provider.create",
+      "category" : "workload-principal",
+      "description" : "Create an AI agent provider. Track when a new connection to an external AI agent provider is established for importing agents.",
+      "info" : {
+        "created" : "2026-02-09",
+        "release" : "2026.03.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalAiAgentProviderDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "app.ai_agent_provider.credential.validate",
+      "category" : "workload-principal",
+      "description" : "Validate credentials for an AI agent import provider. Verify that credentials for an AI agent import provider are valid before activating the provider. Typically follows provider.credential.update and precedes provider.activate.",
+      "info" : {
+        "created" : "2026-02-09",
+        "release" : "2026.03.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalAiAgentProviderDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "app.ai_agent_provider.deactivate",
+      "category" : "workload-principal",
+      "description" : "Deactivate an AI agent provider. Track when an AI agent import provider is disabled.",
+      "info" : {
+        "created" : "2026-02-09",
+        "release" : "2026.03.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalAiAgentProviderDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "app.ai_agent_provider.delete",
+      "category" : "workload-principal",
+      "description" : "Delete an AI agent provider. Track when a connection to an external AI agent provider is removed.",
+      "info" : {
+        "created" : "2026-02-09",
+        "release" : "2026.03.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalAiAgentProviderDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "app.ai_agent_provider.import.complete",
+      "category" : "workload-principal",
+      "description" : "Complete a bulk import of AI agents from an external provider. Audit the outcome of AI agent imports, including the number of agents found, imported, and errored. Paired with app.ai_agent_provider.import.start. Import outcome details are in the targets.",
+      "info" : {
+        "created" : "2026-02-09",
+        "release" : "2026.03.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalAiAgentProviderDetails", "WorkloadPrincipalAiAgentImportDetails", "WorkloadPrincipalAiAgentImportOutcomeDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "app.ai_agent_provider.import.start",
+      "category" : "workload-principal",
+      "description" : "Start a bulk import of AI agents from an external provider. Audit when bulk imports of AI agents from external providers begin. A corresponding app.ai_agent_provider.import.complete event is fired when the import completes.",
+      "info" : {
+        "created" : "2026-02-09",
+        "release" : "2026.03.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalAiAgentProviderDetails", "WorkloadPrincipalAiAgentImportDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "app.ai_agent_provider.update",
+      "category" : "workload-principal",
+      "description" : "Update an AI agent provider. Track AI agent import provider changes, such as credential configuration, owner info, and schedule updates. This event refers to the OAuth2 credentials used to connect to an external AI agent provider. For AI agent workload identity credentials (JWK signing keys), see workload_principal.ai_agent.credential.* events.",
+      "info" : {
+        "created" : "2026-02-09",
+        "release" : "2026.03.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalAiAgentProviderDetails" ],
+        "changeDetails" : [ "WorkloadPrincipalAiAgentProviderChangeDetailsEntry" ]
       }
     }, {
       "id" : "app.app_instance.csr.generate",
@@ -11651,6 +11978,24 @@
         "changeDetails" : null
       }
     }, {
+      "id" : "pam.server_account.password.reveal",
+      "category" : "asa",
+      "description" : "Reveal password for a vaulted server account in Okta Privileged Access. Use this event to identify for which vaulted server account the Okta Privileged Access user revealed the password. Contains the details on the user access method the user used to reveal the password for the vaulted server account.",
+      "info" : {
+        "created" : "2026-01-28",
+        "release" : "2026.01.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
       "id" : "pam.server_account.password_change.initiated",
       "category" : "asa",
       "description" : "This event is triggered after a password rotation is requested for a local server account. Use this event to verify that the password settings are being correctly applied to your servers. This event contains the name of the local server account being modified and the associated server.",
@@ -14709,6 +15054,24 @@
         "actor" : null,
         "targets" : null,
         "changeDetails" : null
+      }
+    }, {
+      "id" : "system.agent.ad.dirsync.verify",
+      "category" : "directories",
+      "description" : "Verify AD agent compatibility for DirSync-based imports. Use this event to audit which AD agents meet DirSync requirements, set up alerts when agents need remediation before DirSync-based imports can run, and troubleshoot import failures related to agent version or configuration gaps. outcome.result = SUCCESS indicates the agent meets all DirSync requirements. FAILURE indicates the agent requires intervention, such as a version upgrade (minimum 3.20.0) or service account permission changes.",
+      "info" : {
+        "created" : "2026-02-17",
+        "release" : "2026.02.3"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "ad-agent" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "AdAgentGenericDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
       }
     }, {
       "id" : "system.agent.ad.import_ou",
@@ -48286,6 +48649,22 @@
       "UserAuthenticationResourceDetails" : {
         "name" : "UserAuthenticationResourceDetails",
         "properties" : {
+          "zone_id_match" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "nzoydyxl6YtTH7qkc0g4", "nzoyhddmvwY9TI30J0g4" ]
+          },
+          "zone_name_match" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Matched Network Zone", "Dynamic Network Zone" ]
+          },
           "policy_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -49697,6 +50076,14 @@
       "OAuth2ResourceDetails" : {
         "name" : "OAuth2ResourceDetails",
         "properties" : {
+          "externalSessionId" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "idx_opH2uUSRJSdAQRO8BbjBQ", "idx5mK3auf7QP6lCgay_E5fHQ", "102DqKXzcoMS0iPt4oLaGC5rg" ]
+          },
           "User" : {
             "type" : "String",
             "sensitive" : false,
@@ -49903,6 +50290,27 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "SSR, SSPR, SIGN_IN", "SSR, SSPR", "SSPR, SIGN_IN", "SSR" ]
+          }
+        }
+      },
+      "OrgGroupResourceDetails" : {
+        "name" : "OrgGroupResourceDetails",
+        "properties" : {
+          "org_group_description" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Group containing all production organizations", "Group for development and testing environments" ]
+          },
+          "org_group_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Production Orgs", "Development Orgs" ]
           }
         }
       },
@@ -50972,6 +51380,27 @@
           }
         }
       },
+      "TemplateConditionResourceDetails" : {
+        "name" : "TemplateConditionResourceDetails",
+        "properties" : {
+          "template_condition_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Production Environment Condition", "Test Environment Condition" ]
+          },
+          "template_condition_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "rcofb2ikrPQDqYF700g6", "rcofbn9qfDtoqrFmc0g6" ]
+          }
+        }
+      },
       "ThemeResourceDetails" : {
         "name" : "ThemeResourceDetails",
         "properties" : {
@@ -51315,6 +51744,125 @@
             "customer" : false,
             "format" : "okta:brandId",
             "examples" : [ "bnd118g5DODhVRiER0g4" ]
+          }
+        }
+      },
+      "WorkloadPrincipalAiAgentImportDetails" : {
+        "name" : "WorkloadPrincipalAiAgentImportDetails",
+        "properties" : {
+          "workload_principal_ai_agent_import_job_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "aiao1234abcdEFGH5678" ]
+          }
+        }
+      },
+      "WorkloadPrincipalAiAgentImportOutcomeDetails" : {
+        "name" : "WorkloadPrincipalAiAgentImportOutcomeDetails",
+        "properties" : {
+          "workload_principal_ai_agent_import_skipped_count" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "2" ]
+          },
+          "workload_principal_ai_agent_import_deleted_count" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "5" ]
+          },
+          "workload_principal_ai_agent_import_updated_count" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "5" ]
+          },
+          "workload_principal_ai_agent_import_created_count" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "30" ]
+          },
+          "workload_principal_ai_agent_import_total_agents_found" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "42" ]
+          },
+          "workload_principal_ai_agent_import_failure" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Authentication failed" ]
+          }
+        }
+      },
+      "WorkloadPrincipalAiAgentProviderDetails" : {
+        "name" : "WorkloadPrincipalAiAgentProviderDetails",
+        "properties" : {
+          "workload_principal_ai_agent_provider_schedule" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "json",
+            "examples" : [ "{\"cron\": \"0 0 * * *\",\"timezone\": \"America/Los_Angeles\"}" ]
+          },
+          "workload_principal_ai_agent_provider_owner_info" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "json",
+            "examples" : [ "{\"ownerIds\":[],\"groupId\":\"00g7eupoKCDWQGpvV0g5\"}" ]
+          },
+          "workload_principal_ai_agent_source_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "name",
+            "examples" : [ "Salesforce" ]
+          },
+          "workload_principal_ai_agent_source_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "APPS" ]
+          },
+          "workload_principal_ai_agent_source_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "00oo1234abcdEFGH5678" ]
+          },
+          "workload_principal_ai_agent_provider_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "aipo1234abcdEFGH5678" ]
           }
         }
       },
@@ -53458,6 +54006,27 @@
           }
         }
       },
+      "OrgGroupChangeDetailsEntry" : {
+        "name" : "OrgGroupChangeDetailsEntry",
+        "properties" : {
+          "org_group_description" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Group containing all production organizations", "Group for development and testing environments" ]
+          },
+          "org_group_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Production Orgs", "Development Orgs" ]
+          }
+        }
+      },
       "PolicyChangeDetailsEntry" : {
         "name" : "PolicyChangeDetailsEntry",
         "properties" : {
@@ -53716,6 +54285,35 @@
             "customer" : false,
             "format" : "json",
             "examples" : [ "some JSON value" ]
+          }
+        }
+      },
+      "WorkloadPrincipalAiAgentProviderChangeDetailsEntry" : {
+        "name" : "WorkloadPrincipalAiAgentProviderChangeDetailsEntry",
+        "properties" : {
+          "workload_principal_ai_agent_provider_schedule" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "json",
+            "examples" : [ "{\"cron\": \"0 0 * * *\",\"timezone\": \"America/Los_Angeles\"}" ]
+          },
+          "workload_principal_ai_agent_provider_owner_info" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "json",
+            "examples" : [ "{\"ownerIds\":[],\"groupId\":\"00g7eupoKCDWQGpvV0g5\"}" ]
+          },
+          "workload_principal_ai_agent_provider_configuration" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "json",
+            "examples" : [ "{\"clientId\":\"0oa7eupoKCDWQGpvV0g5\"}" ]
           }
         }
       },

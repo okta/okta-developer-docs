@@ -169,7 +169,7 @@ To get started using Runscope to test your SCIM API:
 1. If you're new to Runscope, your dashboard displays sample Runscope tutorials. Click **Skip Tutorial**. A page titled **API Tests** appears.
 1. In the lower left of your page, click **Import Test**. A new page appears, titled **Import Tests into &#x2026;**.
 1. Select **API Monitoring Tests** as the import format.
-1. Click **Choose File** and select the JSON file that you saved in step 1.
+1. Click **Choose File**, and then select the JSON file that you saved in step 1.
 1. Click **Import API Test**.
 1. After the import is finished, click **All Tests** on the left of your page.
 
@@ -253,7 +253,7 @@ Since this test is running in your own Runscope instance, you can modify the tes
 
 As you refine your SCIM implementation, you can share API test results with your teammates or with people outside of your organization:
 
-1. From your Runscope dashboard, open the test results that you want to share.
+1. In your Runscope dashboard, open the test results that you want to share.
 2. At the top of the test result, change the **Private | Shareable** toggle from **Private** to **Shareable**.
 3. Copy the URL for the test result, it looks something like this:
     `https://www.runscope.com/radar/abcdefghijkl/m01nopq2-3456-7r8s-9012-t34567uvw890/history/123ef4gh-i567-89j0-1k2l-3m4n5o678901`.

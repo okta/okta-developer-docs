@@ -6,13 +6,13 @@ meta:
 layout: Guides
 ---
 
-Learn how to submit an OIDC, SAML 2.0, SCIM 2.0, or Universal Logout integration to the Okta Integration Network (OIN) using the OIN Wizard.
+Learn how to submit an OIDC, SAML 2.0, SCIM 2.0, Universal Logout, or API service integration to the Okta Integration Network (OIN) using the OIN Wizard.
 
 ---
 
 #### What you need
 
-* A published OIDC, SAML 2.0, or SCIM integration in the OIN.
+* A published OIDC, SAML 2.0, SCIM, or API service integration in the OIN.
 * The [Okta Integrator Free Plan org](https://developer.okta.com/signup/) from where you originally submitted your published integration. The OIN Wizard is only available in Integrator Free Plan orgs.
 * An admin user in the Integrator Free Plan org with either the super admin or the app and org admin roles.
 
@@ -20,7 +20,7 @@ Learn how to submit an OIDC, SAML 2.0, SCIM 2.0, or Universal Logout integration
 
 ## Overview
 
-If you have a published Single Sign-On (SSO) or lifecycle management integration in the [OIN catalog](https://www.okta.com/integrations/), you can update and resubmit it with the OIN Wizard.
+If you have a published Single Sign-On (SSO), lifecycle management, or API service integration in the [OIN catalog](https://www.okta.com/integrations/), you can update and resubmit it with the OIN Wizard.
 
 The OIN Wizard currently supports updates for integrations that use the following protocols:
 
@@ -34,7 +34,9 @@ The OIN Wizard currently supports updates for integrations that use the followin
 
 * [Entitlement Management](https://developer.okta.com/docs/guides/scim-with-entitlements/main/)
 
-> **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, and SCIM 2.0 integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
+* [API service integration](/docs/guides/oin-api-service-overview/)
+
+> **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, SCIM 2.0, and API service integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
 
 When you edit a published OIN integration, you need to test the flows for the updated version and the published version for backwards compatibility. The integration version that was previously installed in your customer's org isn't modified with the updated version from the OIN catalog. Testing the published version for backwards compatibility ensures that your integration still works for customers who have already installed it. See [Update integration considerations](#update-integration-considerations) before you edit your published integration.
 
@@ -44,8 +46,8 @@ After you successfully test the updated and published versions of your integrati
 
 For published integrations that were migrated from the OIN Manager, if you need to update configured properties that aren't available in the OIN Wizard, contact <oin@okta.com>.
 
-> **Note:** Some considerations on this page are specifically for the **<StackSnippet snippet="protocol-name" inline/>** protocol. <br>
-> If you want to change the protocol details on this page, select the protocol from the **Instructions for** dropdown list on the right.
+> **Note:** Some considerations on this page are specifically for the **<StackSnippet snippet="protocol-name" inline/>** . <br>
+> If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
 
 <StackSnippet snippet="considerations" />
 
@@ -82,11 +84,13 @@ To update a previously published OIN integration:
 
 1. Click your published integration to update from the dashboard. Your published OIN submission appears in read-only mode.
 
-1. From the **This integration is read-only** information box, click **Edit integration**.
+1. From the **This integration is read-only** information box, click **Edit integration**. The **Add integration capabilities** page appears.
     > **Note:** You can skip this step if your submission is in draft status. The **Edit integration** option isn't available for submissions in draft status because it's not in read-only mode.
 
     <StackSnippet snippet="detect-old-instance" />
 
+1. Click **Add integration details**. The **OIN catalog properties** page appears.
+1. Update [OIN catalog properties](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties) as required for your integration.
 1. Click **Configure your integration** to proceed to update your integration as required in the following sections of the OIN Wizard:
 
    <StackSnippet snippet="edit-links" />
@@ -102,8 +106,8 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 
 See [Submit your updated integration](#submit-your-updates) after all required tests are successful.
 
-> **Note:** Test steps on this page are specifically for the **<StackSnippet snippet="protocol-name" inline/>** protocol. <br>
-> If you want to change the protocol details on this page, select the protocol from the **Instructions for** dropdown list on the right.
+> **Note:** Test steps on this page are specifically for the **<StackSnippet snippet="protocol-name" inline/>** . <br>
+> If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
 
 ### Generate instances for testing
 

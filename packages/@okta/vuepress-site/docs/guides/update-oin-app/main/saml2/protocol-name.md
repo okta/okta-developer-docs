@@ -1,1 +1,1 @@
-SAML 2.0
+SAML 2.0 protocol

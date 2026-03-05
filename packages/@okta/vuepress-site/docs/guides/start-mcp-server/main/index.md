@@ -229,6 +229,11 @@ Use the following conversational prompts to interact with your Okta org:
    * Show me a list of all active users in the **Finance** group with the Salesforce app who haven't signed in to Okta in the last 60 days.
    * Evaluate the policy's logic and compare it to the user's context (such as, their device, and OS) from the log.
 
+>**Note:** All destructive actions such as deleting groups, apps, policies, policy rules, or deactivating and deleting users require explicit confirmation using the [MCP Elicitation API](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation). The confirmation experience depends on the client:
+>
+>* Clients that support elicitation: The user sees a native chat UI dialog to accept, decline, or cancel the request.
+>* Clients that don’t support elicitation: The tool returns a JSON payload describing the pending action so the LLM can relay the confirmation request to the user.
+
 ---
 
 ## Summary

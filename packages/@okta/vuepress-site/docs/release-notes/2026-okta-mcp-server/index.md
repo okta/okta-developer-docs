@@ -11,6 +11,24 @@ title: Okta MCP Server API release notes 2026
 
 These release notes list customer-visible changes to the Okta MCP server.
 
+## March
+
+### Monthly release 2026.03.0
+<!-- Published on: 2026-03-04T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Human oversight for destructive actions](#human-oversight-for-destructive-actions) | March 4, 2026 |
+| [Developer documentation update in 2026.03.0](#developer-documentation-update-in-2026-03-0) | March 4, 2026 |
+
+#### Human oversight for destructive actions
+
+The Okta Model Context Protocol (MCP) server now integrates the MCP Elicitation API to enforce human oversight on destructive actions. Critical operations, such as deleting apps or deactivating users, now require explicit confirmation before execution. Supported MCP clients display a chat UI dialog for users to accept or decline the request. For clients that don't support elicitation, the server returns a JSON payload for the LLM to handle confirmation. <!-- OKTA-1117761 preview date: March 4, 2026 -->
+
+#### Developer documentation update in 2026.03.0
+
+Okta's [API reference pages](https://developer.okta.com/docs/api/) are undergoing a migration, which started on February 24. While the look and feel may vary across pages during this time, all technical documentation remains accurate and up to date.
+
 ## February
 
 ### Monthly release 2026.02.0
