@@ -22,6 +22,7 @@ title: Okta Classic Engine API release notes 2026
 | [New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview](#new-directories-integration-endpoints-to-view-extended-active-directory-group-attributes-is-ga-in-preview) | March 4, 2026 |
 | [Enable custom admin permissions for inline and event hooks is GA in Preview](#enable-custom-admin-permissions-for-inline-and-event-hooks-is-ga-in-preview) | December 10, 2025 |
 | [Developer documentation updates in 2026.03.0](#developer-documentation-updates-in-2026-03-0) | March 4, 2026 |
+| [Bug fixed in 2026.03.0](#bug-fixed-in-2026-03-0)| March 4, 2026 |
 
 #### Self-Service for Enhanced Disaster Recovery is self-service EA in Preview
 
@@ -63,6 +64,10 @@ The inline hook and event hook framework now supports read and write permissions
   * Automate failover processes to minimize downtime during an outage.
 
   See [Manage org recovery with Okta Enhanced Disaster Recovery](/docs/guides/manage-orgs-okta-edr/).
+
+#### Bug fixed in 2026.03.0
+
+In some orgs, password reset emails didn't allow users to reset their password. (OKTA-1120290)
 
 ## February
 
