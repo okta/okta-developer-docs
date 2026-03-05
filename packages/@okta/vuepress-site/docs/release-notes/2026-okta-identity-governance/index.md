@@ -32,7 +32,7 @@ Assign owners to groups, apps, entitlements, and entitlement bundles. This featu
 * Access Requests: When configuring approval sequences in access request conditions, you can now assign approvals, tasks, or questions directly to resource owners. See [Configure an approval sequence](https://help.okta.com/okta_help.htm?type=oie&id=csh-rcar-approval-sequences).
 * Access Certifications: When creating certification campaigns, you can now select the **Resource Owner** as the designated reviewer. See [Certification campaign reviews](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-reviewing).
 
-See the [Resource Owners](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Resource-Owners/) API and [Resource Owners](https://help.okta.com/okta_help.htm?type=oie&id=resource-owners) in the product documentation to manage assigning owners to resources in your OIG org.
+See the [Resource Owners](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/resource-owners) API and [Resource Owners](https://help.okta.com/okta_help.htm?type=oie&id=resource-owners) in the product documentation to manage assigning owners to resources in your OIG org.
 <!-- OKTA-998871 IGA_RESOURCE_OWNERS Preview date: Sept 10, 2025 -->
 
 #### Governance Labels API is GA
