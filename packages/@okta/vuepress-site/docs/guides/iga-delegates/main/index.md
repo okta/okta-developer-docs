@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-This guide describes how to manage delegate assignments and settings using the Okta Identity Governance (OIG) APIs.
+This guide describes how to manage governance delegate assignments and settings using the Okta Identity Governance (OIG) APIs.
 
 ---
 
