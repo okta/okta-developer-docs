@@ -39,7 +39,9 @@ For either user-based or service-based API access, grant the following scopes du
 * `okta.governance.delegates.read`
 * `okta.governance.settings.manage`
 
-In addition, you have to grant the service-based OAuth 2.0 client an admin role. Without user context, the service app acts as a principal and requires the `SUPER_ADMIN` role to perform all admin delegation tasks. You don't need to assign a role to the OIDC client, because Okta reviews the admin role assigned to the authenticated user to determine whether they have permission to perform the delegation tasks.
+In addition, you have to grant the service-based OAuth 2.0 client an admin role. Without user context, the service app acts as a principal and requires the `SUPER_ADMIN` role to perform all admin delegation tasks.
+
+If your workflow uses an OIDC client for user-based access, you don't need to assign a role to the OIDC client. For user-based access, Okta reviews the admin role assigned to the authenticated user to determine whether they have permission to perform the delegation tasks.
 
 ## Admin tasks
 
@@ -49,7 +51,7 @@ Use these API requests to manage delegation configuration in the org or for spec
 
 Use the [Retrieve the org settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/getorgsettings) request to view governance settings for your org, including delegate settings.
 
-| **API** | Org governance settings |
+| **API** | Org Governance settings |
 | ------- | ----------------------- |
 | **Request** | [Retrieve the org settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/getorgsettings) |
 | **Request URI** | `GET /governance/api/v1/settings` |
@@ -217,7 +219,7 @@ If a delegated reviewer is assigned to an access certification review, the follo
 
 ##### Response example
 
-In this example, the review is an access review for Jessie Smith. The original reviewer is supposed to be Alana Johnson, but she wasn't available, so she delegated the review to her manager, Bob Manager.
+This example shows an access review for Jessie Smith. The original reviewer was Alana Johnson, but she wasn't available, so she delegated the review to her manager, Bob Manager.
 
 ```json
 {
@@ -271,11 +273,11 @@ In this example, the review is an access review for Jessie Smith. The original r
 
 ## End user tasks
 
-The following API requests allow users to manage their own delegate settings.
+The following API requests allow users to manage their own governance delegate settings.
 
 ### View my appointed delegates
 
-See the delegates currently assigned to act on your behalf with the [Retrieve my settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-settings/getmysettings) request. This request retrieves the governance settings for the current authenticated user, including current delegate appointments.
+See the delegates currently assigned to act on your behalf with the [Retrieve my settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-settings/getmysettings) request. This request retrieves the governance settings for the current authenticated user, which includes delegate appointments.
 
 | **API** | My settings |
 | ------- | ----------- |
@@ -370,7 +372,7 @@ curl -v -X GET \
 
 ### Appoint delegates for myself
 
-Self-assign a delegate for access certifications or access requests with the [Update my settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-settings/updatemysettings) request.
+Assign a delegate for your access certification or access request tasks with the [Update my settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-settings/updatemysettings) request.
 
 | **API** | My settings |
 | ------- | ----------- |
@@ -405,12 +407,13 @@ curl -v -X PATCH \
 
 ## Appointed delegate behavior
 
-The following lists functional behavior after a delegate is appointed for governance tasks by an Okta user:
+The following lists functional behavior after a delegate is appointed for governance tasks:
 
 * New campaign review or access request tasks are automatically assigned to the delegate.
 * Existing campaign review and access request tasks remain unchanged (users must reassign the reviews manually to their delegate).
 * An email is sent to notify the delegates of their task assignment.
 * Requesters can view the delegate assigned to their access request.
 * Governance delegated tasks aren't automatically transitive.
-  For example, if user A assigns user B as their delegate, and user B assigns user C as their delegate (A -> B(delegate) -> C (delegate)).  In this case, tasks assigned to user A aren't automatically assigned to user C. Governance tasks for user A are assigned to user B. Only an admin or the request assignee can reassign tasks to user C.
+
+  For example, if user A assigns user B as their delegate, and user B assigns user C as their delegate (A -> B -> C).  In this case, tasks assigned to user A aren't automatically assigned to user C. Governance tasks for user A are assigned to user B. Only an admin or the request assignee can reassign tasks to user C.
 * Admins can monitor updates to user-delegate configurations with the `governance.principal.settings.update` System Log event.
