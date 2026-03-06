@@ -17,6 +17,10 @@ This framework applies to:
 
 >**Note:** The endpoints to which this feature applies all have browser-based interaction patterns.
 
+Client-based rate limits specifically target browser-based unauthenticated endpoints (such as `/authorize`) using a combination of client ID, IP address, and device identifier, with a default limit of 60 requests per minute per client. OAuth and Token Rate Limits, on the other hand, apply to individual API tokens and OAuth 2.0 apps across all endpoints. These rate limits default to 50% of an org's bucket rate limit to prevent a single client from consuming all org-wide capacity, see [Token and OAuth 2.0 app rate limits](/docs/reference/rl2-token-oauth/). This percentage is configurable, helping isolate different teams' applications.
+
+The key difference is scope: OAuth/token limits are broader (all endpoints, any client type) and capacity-based (percentage of org limit), while client-based limits are narrower (specific browser endpoints) and fixed per-client. Client-based limits isolate "noisy neighbors" such as misconfigured apps or runaway scripts during authentication flows, while OAuth or token limits prevent API abuse across the entire platform.
+
 ## Benefits of client-based rate limits
 
 This feature is helpful in a few key scenarios:
