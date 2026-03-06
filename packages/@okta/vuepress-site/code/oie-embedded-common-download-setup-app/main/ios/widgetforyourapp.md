@@ -1,0 +1,1 @@
+> **Note:** The embedded Sign-In Widget is not applicable for iOS.
