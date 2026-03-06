@@ -52,7 +52,7 @@ Okta Enhanced DR only supports API access through scoped OAuth 2.0 access tokens
 
 ## Check the disaster recovery status of your org
 
-Use the following disaster recovery API endpoint, `https://drapp.{yourOktaDomain}/api/v1/dr/status`<!-- [Retrieve the disaster recovery status for all domains for your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/getDRStatus)-->, to understand the current disaster recovery state for all domains associated with your Okta org.
+Use the following disaster recovery API endpoint, `https://drapp.{yourOktaDomain}/api/v1/dr/status` ([Retrieve the disaster recovery status for all domains for your org](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/disasterrecovery/other/getdrstatus)), to understand the current disaster recovery state for all domains associated with your Okta org.
 
 >**Note:** The base URL for the disaster recovery APIs is `https://drapp.{yourOktaDomain}/`. Replace `{yourOktaDomain}` with your Okta domain. For example, if your Okta domain is `https://example.okta.com`, use `https://drapp.example.okta.com`.
 
@@ -81,7 +81,7 @@ curl -v -X GET \
 
 ## Initiate an org failover
 
-Use the following disaster recovery API to initiate your org failover: `https://drapp.{yourOktaDomain}/api/v1/dr/failover`<!--[Start the failover of your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/startOrgFailover)-->. The request body is optional. You can specify a domain to failover, an empty object (`{}`), or no payload.
+Use the following disaster recovery API to initiate your org failover: `https://drapp.{yourOktaDomain}/api/v1/dr/failover` ([Start the failover of your org](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/disasterrecovery/other/startorgfailover)). The request body is optional. You can specify a domain to failover, an empty object (`{}`), or no payload.
 
 #### Request example
 
@@ -110,7 +110,7 @@ After a failover, all end users in that org are in [read-only mode](https://supp
 
 ## Initiate an org failback
 
-Use the following disaster recovery API to initiate your org failback: `https://drapp.{yourOktaDomain}/api/v1/dr/failbackStart`<!--[Start the failback of your org](/docs/api/openapi/okta-management/management/tag/DisasterRecovery/#tag/DisasterRecovery/operation/startOrgFailback)-->. The request body is optional. You can specify a domain to failback, an empty object (`{}`), or no payload.
+Use the following disaster recovery API to initiate your org failback: `https://drapp.{yourOktaDomain}/api/v1/dr/failbackStart` ([Start the failback of your org](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/disasterrecovery/other/startorgfailback)). The request body is optional. You can specify a domain to failback, an empty object (`{}`), or no payload.
 
 #### Request example
 
@@ -137,7 +137,7 @@ curl -v -X POST \
 
 ## Review disaster recovery auditing data
 
-Review the Enhanced DR status in the System Log. Use the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog) or review through the Admin Console to confirm details on the org failover or failback. Search on the event types `system.dr.failover` or `system.dr.failback`.
+Review the Enhanced DR status in the System Log. Use the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/systemlog/other/listlogevents) or review through the Admin Console to confirm details on the org failover or failback. Search on the event types `system.dr.failover` or `system.dr.failback`.
 
 > **Note:** Your OAuth 2.0 scoped token requires the `okta.logs.read` scope to call the System Log endpoint.
 
