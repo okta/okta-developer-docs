@@ -915,6 +915,15 @@ export const guides = [
         ],
       },
       {
+        title: "Access Gateway",
+        subLinks: [
+          {
+            title: "Configure offline mode",
+            guideName: "oag-offline-mode"
+          }
+        ]
+      },
+      {
         title: "Identity Governance",
         subLinks: [
           {
