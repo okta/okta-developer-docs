@@ -21,6 +21,7 @@ Learn how to configure Temporary Offline Access (offline mode) for Access Gatewa
 #### What you need
 
 * An Okta org that's subscribed to Access Gateway
+* The Offline mode feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this feature and then follow the steps in [Install and enable offline mode](#install-and-enable-offline-mode).
 * An [LDAP server](https://help.okta.com/okta_help.htm?type=oag&id=ext_oag_about_datastore) or an Active Directory (AD) server that's synced with your Okta tenant using either the [Okta LDAP agent](https://help.okta.com/okta_help.htm?type=oie&id=ext_LDAP_Provisioning) or the [Okta AD agent](https://help.okta.com/okta_help.htm?type=oie&id=ext-ad-agent-install)
 * A MySQL database
 * An app, such as a [generic app](https://help.okta.com/okta_help.htm?type=oag&id=ext_oag_app_gen_header)
@@ -30,7 +31,7 @@ Learn how to configure Temporary Offline Access (offline mode) for Access Gatewa
 
 ## Overview
 
-Offline mode is a feature of Access Gateway that allows it to continue functioning with modified capabilities when the connection to the identity provider (IdP) is lost. It enables your users to authenticate locally through Access Gateway and continue accessing protected on-premises apps.
+Offline mode is a feature of Access Gateway that allows it to function with modified capabilities when the connection to the IdP is lost. It enables your users to authenticate locally through Access Gateway and continue accessing protected on-premises apps.
 
 Configuring offline mode for Access Gateway is only possible by using Access Gateway APIs. This guide explains how to set up Access Gateway for API access and how to use Access Gateway APIs to configure offline mode.
 
@@ -45,7 +46,7 @@ Set up Access Gateway to authenticate to Access Gateway APIs and manage offline 
 
 To enable the Access Gateway API, follow the steps in [Enable the Access Gateway API](https://help.okta.com/okta_help.htm?type=oag&id=api-enable-disable).
 
-You must create a JWT token to authenticate your API requests. For instructions, see [Build a JWT for Client Authentication](/docs/guides/build-self-signed-jwt/java/main/) and [How to generate a JWT for Okta Access Gateway APIs](https://support.okta.com/help/s/article/how-to-generate-jwt-for-okta-access-gateway-apis).
+Create a JWT token to authenticate your API requests. For instructions, see [Build a JWT for Client Authentication](/docs/guides/build-self-signed-jwt/java/main/) and [How to generate a JWT for Okta Access Gateway APIs](https://support.okta.com/help/s/article/how-to-generate-jwt-for-okta-access-gateway-apis).
 
 ### Scopes required for offline mode
 
@@ -79,7 +80,7 @@ After the package is installed, enable the offline mode feature in your Access G
     ```
 
 1. Change `"show": false` to `"show": true`.
-1. Save the file. The file is read-only which means that when you save it, ensure that you override the read-only permission. For example, when using vi, use this command: `:w!`.
+1. Save the file. The file is read-only, which means that when you save it, ensure that you override the read-only permission. For example, when using vi, use this command: `:w!`.
 1. [Restart the Access Gateway Admin service](https://help.okta.com/okta_help.htm?type=oag&id=services-access-gateway-admin) to apply your changes.
 
 > **Note:** Perform these steps on your admin node and any server nodes where you want the authentication service to run.
@@ -94,7 +95,7 @@ The following sections explain which endpoints to use to configure offline mode 
 
 The authentication service is a component of Access Gateway that handles user authentication when in offline mode. You need to enable the authentication service and provide the necessary configuration details for it to function properly.
 
-This step is needed only if your authentication service isn't already configured. Enabling the authentication service provides Access Gateway with the necessary information to set up the service, including server nodes, database connection details, public domain, and certificate information.
+This step is needed only if your authentication service isn't already configured. Enabling the authentication service provides Access Gateway with the necessary information to set up the service.
 
 After the authentication service is enabled, Access Gateway can use it to authenticate users locally when in offline mode.
 
@@ -133,7 +134,7 @@ Users are directed to the public domain to authenticate when Access Gateway is i
 
 After you've configured offline mode, monitor the status of your authentication service.
 
-Monitor the health of your authentication service by using [Retrieve the authentication service health check](/docs/api/openapi/oag/oag/tags/settings-authentication-service/other/getauthenticationservicehealthcheck) endpoint.
+Monitor the health of your authentication service by using [Retrieve the authentication service health check](https://developer.okta.com/docs/api/openapi/oag/oag/tags/settings-authentication-service/other/getauthenticationservicehealthcheck) endpoint.
 
 #### Response example
 
@@ -219,7 +220,7 @@ If your connection settings are correct, you receive an HTTP 204 No Content resp
 
 Create an offline mode directory for your Okta IdP and configure the connection settings to your directory. The offline mode directory is a backup directory that Access Gateway uses for authentication when the connection to the online IdP is lost.
 
-You must define your directory connection and synchronization settings for authentication during offline mode. Refer to your directory credentials and structure and use those values in the request body parameters.
+Define your directory connection and synchronization settings for authentication during offline mode. Refer to your directory credentials and structure and use those values in the request body parameters.
 
 Use the [Create an offline mode directory](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-directory/other/createofflinemodedirectory) endpoint.
 
@@ -269,9 +270,31 @@ curl -i -X POST \
   -d '{
     "type": "ACTIVE_DIRECTORY",
     "connection": {
+      "connectionUrl": "ldap://ad.domain.com:389",
+      "bindDn": "cn=Administrator,cn=Users,DC=company,dc=com",
+      "bindCredential": "<bind-credential>"
+    },
+    "config": {
+      "usernameLDAPAttribute": "sAMAccountName",
+      "uniqueIdAttribute": "objectGUID",
+      "userSearchDn": "ou=CorpUsers,dc=company,dc=com",
+      "userObjectClasses": [
+        "user"
+      ],
+      "userObjectFilter": "(objectClass=user)",
+      "groupNameLDAPAttribute": "cn",
+      "groupSearchDn": "OU=CorpGroups,dc=company,dc=com",
+      "groupObjectClasses": [
+        "group"
+      ],
+      "memberAttribute": "member",
+      "memberUserAttribute": "uid",
+      "rdnLdapAttribute": "cn"
+    }
+  }'
 ```
 
-These settings indicate that the offline mode directory is an Active Directory (AD) directory with the specified connection details and configuration for user and group attributes. Access Gateway uses this information to connect to the AD directory and synchronize user and group information for authentication during offline mode.
+These settings indicate that the offline mode directory is an AD directory. Access Gateway uses this information to connect to the AD directory and synchronize user and group information for authentication during offline mode.
 
 ### Use a policy to assign groups to the app for offline mode
 
