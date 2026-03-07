@@ -11,9 +11,9 @@ The System for Cross-domain Identity Management (SCIM) is an industry-standard, 
 
 ## SCIM integration concepts
 
-Okta supports lifecycle provisioning for both [SCIM 2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/) and [SCIM 1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/). See [SCIM reference](https://developer.okta.com/docs/concepts/scim/faqs/#:~:text=SCIM%20Reference,opens%20new%20window\) to find guidance on what endpoints you need to implement for different versions of SCIM.
+Okta supports lifecycle provisioning for both [SCIM 2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/) and [SCIM 1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/). See [SCIM reference](https://developer.okta.com/docs/api/openapi/okta-scim/guides) to find guidance on what endpoints you need to implement for different versions of SCIM.
 
-## User lifecycle management
+### User lifecycle management
 
 SCIM integrations automate the CRUD (Create, Read, Update, Delete) operations for identity resources.
 
@@ -22,23 +22,23 @@ SCIM integrations automate the CRUD (Create, Read, Update, Delete) operations fo
 * **Update:** Okta pushes changes to your app when data is modified in Okta. If your app is the source of truth, Okta pulls updates into the Okta user profile.
 * **Deactivate:** Okta uses a soft delete model. Instead of sending a DELETE request, Okta updates the user resource with active=false. This revokes access while preserving data for future re-activation.
 
-### User import mechanics
+#### User import mechanics
 
 You can synchronize user data from your SCIM app to Okta using the following import methods:
 
 * **Manual imports:** Initiate a one-time, immediate import through the **Import** tab of your SCIM integration to pull user records into the Okta org.
-* **Scheduled imports:** Configure a regular synchronization schedule—hourly, daily, or weekly—within the **Provisioning** settings to ensure data consistency between systems.
+* **Scheduled imports:** Configure a regular synchronization schedule (hourly, daily, or weekly) within the **Provisioning** settings to ensure data consistency between systems.
 
 When you initiate an import, Okta attempts to match the incoming SCIM resources to existing Okta users. If a match isn't automatically found, Okta prompts an admin to manually review and confirm the user assignments.
 
-## Data sourcing and mapping
+### Data sourcing and mapping
 
 Okta provides two primary data flow directions based on which system acts as the source of truth:
 
 * **Okta-sourced:** Changes in Okta are pushed to the SCIM app.
 * **App-sourced (Profile sourcing):** Changes in the SCIM app are pulled into Okta through imports.
 
-## Attribute handling and reserved names
+### Attribute handling and reserved names
 
 Okta follows the RFC 7643 specification for system and reserved attributes. You must adhere to the following formatting requirements for SCIM attributes:
 
@@ -69,18 +69,6 @@ Your app must manage data validation by adhering to the following logic:
 * Document any specific data requirements in the configuration guide that you provide for your integration.
 
 When your app returns an error response, Okta surfaces the message to the admin through the **Tasks** and **Alerts** sections of the Admin Console. This allows admins to identify and correct data issues in the Okta org.
-
-### Unsupported SCIM features
-
-While Okta continually improves support for the SCIM protocol, the following components of the specification aren't currently used by the Okta provisioning service:
-
-* Search queries that use the `POST` method.
-* Bulk operations for multiple resource changes in a single request.
-* The `/Me` authenticated subject endpoint.
-* The `/ServiceProviderConfig` discovery endpoints.
-* Query filtering based on the `meta.lastModified` attribute.
-
-**Note:** The `/Schemas` and `/ResourceTypes` endpoints are only available with SCIM 2.0 with entitlements. See \[Build a SCIM 2.0 server with entitlements\](<https://developer.okta.com/docs/guides/scim-with-entitlements/main/>).
 
 ### Pagination
 
@@ -120,6 +108,18 @@ Update and synchronization mechanics must adhere to these standards:
 * Support the `PATCH` method for partial resource updates or the `PUT` method for full resource replacement.
 * Return multi-valued attributes, such as emails and phone numbers, as arrays.
 * Implement the `/Groups` endpoint if the app requires group management and memberships.
+
+## Unsupported SCIM features
+
+While Okta continually improves support for the SCIM protocol, the following components of the specification aren't currently used by the Okta provisioning service:
+
+* Search queries that use the `POST` method.
+* Bulk operations for multiple resource changes in a single request.
+* The `/Me` authenticated subject endpoint.
+* The `/ServiceProviderConfig` discovery endpoints.
+* Query filtering based on the `meta.lastModified` attribute.
+
+**Note:** The `/Schemas` and `/ResourceTypes` endpoints are only available with SCIM 2.0 with entitlements. See [Build a SCIM 2.0 server with entitlements](https://developer.okta.com/docs/guides/scim-with-entitlements/main/).
 
 ## **Next steps**
 
