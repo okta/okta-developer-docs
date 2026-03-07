@@ -173,7 +173,7 @@ export const concepts = [
         path: "/docs/concepts/scim/",
         subLinks: [
           {
-            title: "SCIM FAQ",
+            title: "SCIM integration concepts and requirements",
             path: "/docs/concepts/scim/faqs/",
           },
         ],
