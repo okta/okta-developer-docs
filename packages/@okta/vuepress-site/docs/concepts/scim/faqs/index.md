@@ -7,9 +7,11 @@ meta:
 
 # SCIM integration concepts and requirements
 
-The System for Cross-domain Identity Management (SCIM) is an industry-standard, REST-based protocol that automates the exchange of user identity information between Okta and your app. Okta acts as the SCIM client, sending requests to your SCIM server to manage the user and group lifecycle.
+The System for Cross-domain Identity Management (SCIM) is an industry-standard, REST-based protocol that automates the exchange of user identity information between Okta and your app. Okta acts as the SCIM client, sending requests to your SCIM server to manage the user and group lifecycle. See [Understanding SCIM](/docs/concepts/scim/).
 
-Okta supports lifecycle provisioning for both [SCIM 2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/) and [SCIM 1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/). See [SCIM reference](https://developer.okta.com/docs/concepts/scim/faqs/#:~:text=SCIM%20Reference,opens%20new%20window\)) to find guidance on what endpoints you need to implement for different versions of SCIM.
+## SCIM integration concepts
+
+Okta supports lifecycle provisioning for both [SCIM 2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/) and [SCIM 1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/). See [SCIM reference](https://developer.okta.com/docs/concepts/scim/faqs/#:~:text=SCIM%20Reference,opens%20new%20window\) to find guidance on what endpoints you need to implement for different versions of SCIM.
 
 ## User lifecycle management
 
@@ -27,7 +29,7 @@ You can synchronize user data from your SCIM app to Okta using the following imp
 * **Manual imports:** Initiate a one-time, immediate import through the **Import** tab of your SCIM integration to pull user records into the Okta org.
 * **Scheduled imports:** Configure a regular synchronization schedule—hourly, daily, or weekly—within the **Provisioning** settings to ensure data consistency between systems.
 
-When you initiate an import, Okta attempts to match the incoming SCIM resources to existing Okta users. If a match is not automatically found, Okta prompts an admin to manually review and confirm the user assignments.
+When you initiate an import, Okta attempts to match the incoming SCIM resources to existing Okta users. If a match isn't automatically found, Okta prompts an admin to manually review and confirm the user assignments.
 
 ## Data sourcing and mapping
 
@@ -50,7 +52,7 @@ Okta follows the RFC 7643 specification for system and reserved attributes. You 
 
 While the SCIM protocol allows for broad filtering, Okta uses a narrow filtering scope to ensure efficient resource matching and prevent duplicate accounts.
 
-Before Okta creates a new user or group, it determines if the resource already exists in your app by sending a `GET` request with an `eq` (equals) filter:
+Before Okta creates a user or group, it determines if the resource exists in your app by sending a `GET` request with an `eq` (equals) filter:
 
 `GET /Users?filter=userName eq "{userName}"`
 
@@ -58,7 +60,7 @@ Your SCIM server must support this specific filtering query parameter to provisi
 
 ### Data validation and error reporting
 
-The SCIM specification defines valid data formats for user profile attributes. To maintain flexibility across different app requirements, Okta does not enforce rigid validation on attribute values before they are sent.
+The SCIM specification defines valid data formats for user profile attributes. To maintain flexibility across different app requirements, Okta doesn't enforce rigid validation on attribute values before they're sent.
 
 Your app must manage data validation by adhering to the following logic:
 
@@ -66,11 +68,11 @@ Your app must manage data validation by adhering to the following logic:
 * Return clear, descriptive error messages in the SCIM response if an attribute fails validation.
 * Document any specific data requirements in the configuration guide that you provide for your integration.
 
-When your app returns an error response, Okta surfaces the message to the admin through the **Tasks** and **Alerts** sections of the Okta Admin Console. This allows admins to identify and correct data issues in the Okta org.
+When your app returns an error response, Okta surfaces the message to the admin through the **Tasks** and **Alerts** sections of the Admin Console. This allows admins to identify and correct data issues in the Okta org.
 
 ### Unsupported SCIM features
 
-While Okta continually improves support for the SCIM protocol, the following components of the specification are not currently utilized by the Okta provisioning service:
+While Okta continually improves support for the SCIM protocol, the following components of the specification aren't currently used by the Okta provisioning service:
 
 * Search queries that use the `POST` method.
 * Bulk operations for multiple resource changes in a single request.
