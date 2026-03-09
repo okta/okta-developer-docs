@@ -7,7 +7,6 @@ title: Home
 showBreadcrumb: False
 
 
-
 tiles:
   - name: Server-side web app
     link: /docs/guides/sign-into-web-app-redirect/
