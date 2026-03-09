@@ -49,96 +49,316 @@ The Okta MCP server works with any MCP-compatible client. While this guide focus
 1. Open the **Copilot chat** view in VS Code.
 1. Enable agent mode by following the steps in the [VS Code documentation](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode#_enable-agent-mode-in-vs-code).
 1. Update your VS Code settings to include the Okta MCP server configuration:
-   * Press `Command + Shift + P` (MacOS) or `Ctrl + Shift + P` (Windows) open the command palette.
+   * Press `Command + Shift + P` (macOS) or `Ctrl + Shift + P` (Windows) open the command palette.
    * Type "Preferences: Open User Settings (JSON)" and press **Enter**.
 1. Define the connection parameters for the Okta MCP server:
    * Create a folder named `.vscode` in your project directory.
    * Create a file named `mcp.json` in the `.vscode` folder.
+1. Add the required configuration to your `mcp.json` file by copying the appropriate JSON file and save it using one of the following options:
+   * [Option 1: Configure using docker](#option-1-configure-using-docker)
+   * [Option 2: Configure using uv](#option-2-configure-using-uv)
 1. Replace `/path/to/okta-mcp-server` in the following configuration with the actual path to your cloned repository.
 1. Add the following configuration to your `mcp.json` file and save it.
 
-   ```json
-   {
-      "mcp": {
-         "inputs": [
-            {
-               "type": "promptString",
-               "description": "Okta org URL (for example, https://dev-123456.okta.com)",
-               "id": "OKTA_ORG_URL"
-            },
-            {
-               "type": "promptString",
-               "description": "Okta client ID",
-               "id": "OKTA_CLIENT_ID",
-               "password": true
-            },
-            {
-               "type": "promptString",
-               "description": "Okta scopes (separated by whitespace, e.g., 'okta.users.read okta.groups.manage')",
-               "id": "OKTA_SCOPES"
-            },
-            {
-               "type": "promptString",
-               "description": "Okta private key. Required for 'browserless' auth.",
-               "id": "OKTA_PRIVATE_KEY",
-               "password": true
-            },
-            {
-               "type": "promptString",
-               "description": "Okta key ID (KID) for the private key. Required for 'browserless' auth.",
-               "id": "OKTA_KEY_ID",
-               "password": true
-            }
-         ],
-         "servers": {
-            "okta-mcp-server": {
-               "command": "uv",
-               "args": [
-                  "run",
-                  "--directory",
-                  "/path/to/okta-mcp-server",
-                  "okta-mcp-server"
-               ],
-               "env": {
-                  "OKTA_ORG_URL": "${input:OKTA_ORG_URL}",
-                  "OKTA_CLIENT_ID": "${input:OKTA_CLIENT_ID}",
-                  "OKTA_SCOPES": "${input:OKTA_SCOPES}",
-                  "OKTA_PRIVATE_KEY": "${input:OKTA_PRIVATE_KEY}",
-                  "OKTA_KEY_ID": "${input:OKTA_KEY_ID}"
-               }
+#### Option 1: Configure using docker
+
+Choose the authentication method that best fits your environment.
+
+**Private Key JWT:**
+```json
+{
+  "mcp": {
+    "inputs": [
+      {
+        "type": "promptString",
+        "description": "Okta Organization URL (e.g., https://dev-123456.okta.com)",
+        "id": "OKTA_ORG_URL"
+      },
+      {
+        "type": "promptString",
+        "description": "Okta Client ID",
+        "id": "OKTA_CLIENT_ID",
+        "password": true
+      },
+      {
+        "type": "promptString",
+        "description": "Okta Scopes (separated by whitespace)",
+        "id": "OKTA_SCOPES"
+      },
+      {
+        "type": "promptString",
+        "description": "Okta Private Key (for browserless auth)",
+        "id": "OKTA_PRIVATE_KEY",
+        "password": true
+      },
+      {
+        "type": "promptString",
+        "description": "Okta Key ID (for browserless auth)",
+        "id": "OKTA_KEY_ID",
+        "password": true
+      }
+    ],
+    "servers": {
+      "okta-mcp-server": {
+        "command": "docker",
+        "args": [
+          "run", "-i", "--rm",
+          "-e", "OKTA_ORG_URL=${input:OKTA_ORG_URL}",
+          "-e", "OKTA_CLIENT_ID=${input:OKTA_CLIENT_ID}",
+          "-e", "OKTA_SCOPES=${input:OKTA_SCOPES}",
+          "-e", "OKTA_PRIVATE_KEY=${input:OKTA_PRIVATE_KEY}",
+          "-e", "OKTA_KEY_ID=${input:OKTA_KEY_ID}",
+          "okta-mcp-server"
+        ]
+      }
+    }
+  }
+}
+```
+
+**Device Authorization Grant:**
+
+>**Note:** Device Authorization requires manual browser interaction. When the server starts, check the MCP output panel for the authentication URL, and then copy and paste it into your browser.
+
+```json
+{
+  "mcp": {
+    "inputs": [
+      {
+        "type": "promptString",
+        "description": "Okta Organization URL (e.g., https://dev-123456.okta.com)",
+        "id": "OKTA_ORG_URL"
+      },
+      {
+        "type": "promptString",
+        "description": "Okta Client ID",
+        "id": "OKTA_CLIENT_ID",
+        "password": true
+      },
+      {
+        "type": "promptString",
+        "description": "Okta Scopes (separated by whitespace)",
+        "id": "OKTA_SCOPES"
+      }
+    ],
+    "servers": {
+      "okta-mcp-server": {
+        "command": "docker",
+        "args": [
+          "run", "-i", "--rm",
+          "-v", "okta-keyring:/home/appuser/.local/share/python_keyring",
+          "-e", "OKTA_ORG_URL=${input:OKTA_ORG_URL}",
+          "-e", "OKTA_CLIENT_ID=${input:OKTA_CLIENT_ID}",
+          "-e", "OKTA_SCOPES=${input:OKTA_SCOPES}",
+          "-e", "PYTHON_KEYRING_BACKEND=keyrings.alt.file.PlaintextKeyring",
+          "okta-mcp-server"
+        ]
+      }
+    }
+  }
+}
+```
+
+**Alternatively, use docker-compose:**
+
+This method requires an `.env` file in your repository. Use the following configuration:
+
+``` json
+{
+  "mcp": {
+    "servers": {
+      "okta-mcp-server": {
+        "command": "docker-compose",
+        "args": [
+          "-f",
+          "/path/to/okta-mcp-server/docker-compose.yml",
+          "run",
+          "--rm",
+          "okta-mcp-server"
+        ]
+      }
+    }
+  }
+}
+```
+
+**Alternatively, build and run directly:**
+
+Build the image
+
+```
+docker build -t okta-mcp-server
+```
+
+Run the container
+
+```
+docker run -i --rm \
+  -e OKTA_ORG_URL="<OKTA_ORG_URL>" \
+  -e OKTA_CLIENT_ID="<OKTA_CLIENT_ID>" \
+  -e OKTA_SCOPES="<OKTA_SCOPES>" \
+  okta-mcp-server
+```
+
+#### Option 2: Configure using UV
+
+Ensure that you replace `/path/to/okta-mcp-server` with the absolute path to your cloned repository.
+
+```json
+{
+   "mcp": {
+      "inputs": [
+         {
+            "type": "promptString",
+            "description": "Okta org URL (for example, https://dev-123456.okta.com)",
+            "id": "OKTA_ORG_URL"
+         },
+         {
+            "type": "promptString",
+            "description": "Okta client ID",
+            "id": "OKTA_CLIENT_ID",
+            "password": true
+         },
+         {
+            "type": "promptString",
+            "description": "Okta scopes (separated by whitespace, e.g., 'okta.users.read okta.groups.manage')",
+            "id": "OKTA_SCOPES"
+         },
+         {
+            "type": "promptString",
+            "description": "Okta private key. Required for 'browserless' auth.",
+            "id": "OKTA_PRIVATE_KEY",
+            "password": true
+         },
+         {
+            "type": "promptString",
+            "description": "Okta key ID (KID) for the private key. Required for 'browserless' auth.",
+            "id": "OKTA_KEY_ID",
+            "password": true
+         }
+      ],
+      "servers": {
+         "okta-mcp-server": {
+            "command": "uv",
+            "args": [
+               "run",
+               "--directory",
+               "/path/to/okta-mcp-server",
+               "okta-mcp-server"
+            ],
+            "env": {
+               "OKTA_ORG_URL": "${input:OKTA_ORG_URL}",
+               "OKTA_CLIENT_ID": "${input:OKTA_CLIENT_ID}",
+               "OKTA_SCOPES": "${input:OKTA_SCOPES}",
+               "OKTA_PRIVATE_KEY": "${input:OKTA_PRIVATE_KEY}",
+               "OKTA_KEY_ID": "${input:OKTA_KEY_ID}"
             }
          }
       }
    }
-   ```
+}
+```
 
 ### Configure Claude Desktop
 
 1. Open your Claude Desktop configuration file.
-1. Update the settings file with the following configuration and replace the placeholder values with your Okta credentials:
+1. Update the settings file with the following configuration and replace the placeholder values with your Okta credentials. You can do this configuration settings update using one of the following options:
 
-   ```json
-   {
-     "mcpServers": {
-       "okta-mcp-server": {
-         "command": "uv",
-         "args": [
-           "run",
-           "--directory",
-           "/path/to/okta-mcp-server",
-           "okta-mcp-server"
-         ],
-         "env": {
-           "OKTA_ORG_URL": "https://your-org.okta.com",
-           "OKTA_CLIENT_ID": "your-client-id",
-           "OKTA_SCOPES": "okta.users.read okta.groups.read",
-           "OKTA_PRIVATE_KEY": "your-private-key-if-using-jwt",
-           "OKTA_KEY_ID": "your-key-id-if-using-jwt"
-         }
-       }
-     }
-   }
-   ```
+* [Option 1: Configure using docker](#option-1-configure-using-docker-2)
+* [Option 2: Configure using uv](#option-2-configure-using-uv-2)
+
+#### Option 1: Configure using docker
+
+Choose the authentication method that best fits your environment.
+
+**Private key JWT:**
+
+This method is ideal for containerized environments because it requires no browser interaction.
+
+```json
+{
+  "mcpServers": {
+    "okta-mcp-server": {
+      "command": "docker",
+      "args": [
+        "run", "-i", "--rm",
+        "-e", "OKTA_ORG_URL",
+        "-e", "OKTA_CLIENT_ID",
+        "-e", "OKTA_SCOPES",
+        "-e", "OKTA_PRIVATE_KEY",
+        "-e", "OKTA_KEY_ID",
+        "okta-mcp-server"
+      ],
+      "env": {
+        "OKTA_ORG_URL": "https://your-org.okta.com",
+        "OKTA_CLIENT_ID": "your-client-id",
+        "OKTA_SCOPES": "okta.users.read okta.groups.read",
+        "OKTA_PRIVATE_KEY": "-----BEGIN RSA PRIVATE KEY-----\nYour private key content here\n-----END RSA PRIVATE KEY-----",
+        "OKTA_KEY_ID": "your-key-id"
+      }
+    }
+  }
+}
+```
+
+**Device Authorization Grant:**
+
+Use this method if you prefer browser-based authentication. When the server starts, it displays an authentication URL in the logs. Copy and paste this URL into your browser to complete the authentication.
+
+>**Note:** Docker containers can’t open a browser on the host automatically. You must manually copy the URL from docker logs okta-mcp-server and paste it into your browser.
+
+```json
+{
+  "mcpServers": {
+    "okta-mcp-server": {
+      "command": "docker",
+      "args": [
+        "run", "-i", "--rm",
+        "-v", "okta-keyring:/home/appuser/.local/share/python_keyring",
+        "-e", "OKTA_ORG_URL",
+        "-e", "OKTA_CLIENT_ID",
+        "-e", "OKTA_SCOPES",
+        "-e", "PYTHON_KEYRING_BACKEND=keyrings.alt.file.PlaintextKeyring",
+        "okta-mcp-server"
+      ],
+      "env": {
+        "OKTA_ORG_URL": "https://your-org.okta.com",
+        "OKTA_CLIENT_ID": "your-client-id",
+        "OKTA_SCOPES": "okta.users.read okta.groups.read"
+      }
+    }
+  }
+}
+```
+
+The `-v okta-keyring:/home/appuser/.local/share/python_keyring` volume persists tokens between container restarts.
+
+#### Option 2: Configure using uv
+
+Use this configuration for local python-based execution. Replace `/path/to/okta-mcp-server` with the actual absolute path to your cloned repository.
+
+```json
+{
+  "mcpServers": {
+    "okta-mcp-server": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "/path/to/okta-mcp-server",
+        "okta-mcp-server"
+      ],
+      "env": {
+        "OKTA_ORG_URL": "https://your-org.okta.com",
+        "OKTA_CLIENT_ID": "your-client-id",
+        "OKTA_SCOPES": "okta.users.read okta.groups.read",
+        "OKTA_PRIVATE_KEY": "your-private-key-if-using-jwt",
+        "OKTA_KEY_ID": "your-key-id-if-using-jwt"
+      }
+    }
+  }
+}
+```
 
 ## Other MCP Clients
 
@@ -168,7 +388,7 @@ The steps to start the server vary by client. To start the Okta MCP server in VS
    | `OKTA_PRIVATE_KEY` | Your private key in PEM format (starts with `-----BEGIN PRIVATE KEY-----`). | Private key JWT only |
    | `OKTA_KEY_ID` | The key ID (KID) for your private key. | Private key JWT only |
 
-   > **Note**: If you use the device authorization grant, press **Enter** to skip the `OKTA_PRIVATE_KEY` and `OKTA_KEY_ID` prompts.
+   > **Note**: If you use the Device Authorization grant, press **Enter** to skip the `OKTA_PRIVATE_KEY` and `OKTA_KEY_ID` prompts.
 
 1. [Optional]: To use the Okta MCP server with other MCP clients, manually add the following configuration to your client’s configuration file and restart the app for the changes to take effect:
 
@@ -244,8 +464,8 @@ You configured your environment variables, started the Okta MCP server, and veri
 
 Now that your Okta MCP server is running, explore advanced use cases to manage your Okta org:
 
-* User onboarding automation: Create workflows that provision users, assign groups, and grant app access with a single command.
-* Audit security logs: Query system logs to identify unusual sign-in activity or configuration changes.
+* User onboarding automation: Create Workflows that provision users, assign groups, and grant app access with a single command.
+* Audit security logs: Query System Logs to identify unusual sign-in activity or configuration changes.
 * Policy automation: Manage authentication policies and MFA requirements programmatically.
 
 For a complete list of supported operations and tools, see the [Okta MCP server repo](https://github.com/okta/okta-mcp-server).

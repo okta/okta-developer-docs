@@ -31,11 +31,43 @@ This guide explains how to initialize the Okta MCP server project and install th
 
 ---
 
-## Install and configure the Okta MCP server
+## Install the Okta MCP server
 
-### Set up the project
+You can install the Okta MCP server using one of the following two methods:
 
-Install and configure the Okta MCP server project for integration with your chosen MCP client.
+* [Method 1: Using docker](#method-1-using-docker)
+* [Method 2: Using uv](#method-2-using-uv)
+
+### Method 1: Using docker
+
+Docker provides a consistent environment without needing to install Python or uv locally.
+
+1. Clone the repository:
+
+    ```shell
+    # Clone the Git repo
+    git clone https://github.com/okta/okta-mcp-server.git
+
+    # Change directory
+    cd okta-mcp-server
+    ```
+
+1. Configure environment variables as follows:
+
+    ```
+    cp .env.example .env
+    ```
+
+1. Edit .env and add your Okta credentials.
+
+1. Build and run with docker compose:
+    ```
+    docker-compose up -d
+    ```
+
+### Method 2: Using uv
+
+Use this method for local development or if you prefer a lightweight Python environment.
 
 1. Initialize the Okta MCP server project:
 
