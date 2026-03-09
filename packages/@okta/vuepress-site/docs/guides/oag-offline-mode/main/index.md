@@ -128,7 +128,7 @@ curl -i -X POST \
 
 These settings indicate that the authentication service is running on an Access Gateway server node at `worker-node1.test-oag.com`, using a MySQL database hosted at `db.domain.tld` with the specified credentials. The public domain for the authentication service is `offline-idp-service.domain.tld`, and it uses the certificate with the provided ID for secure communication.
 
-Users are directed to the public domain to authenticate when Access Gateway is in offline mode.
+Users are directed to the `publicDomain` to authenticate when Access Gateway is in offline mode.
 
 ### Monitor your authentication service status
 
@@ -164,16 +164,17 @@ curl -i -X POST \
   }'
 ```
 
-You have now enabled your Okta IdP to use automatic failover. This means that Access Gateway can switch to offline mode if the IdP becomes unavailable.
+You have now enabled your Okta IdP to use automatic failover. This means that Access Gateway automatically switches to offline mode when the connection to your IdP is lost.
 
 ### Configure the offline mode health policy
 
-Optional. You can configure the health policy settings for offline mode to control how Access Gateway monitors the health of the connection to your IdP and when offline mode is triggered. Configure the offline mode health policy at any time.
+Configure the health policy settings for offline mode to control how Access Gateway monitors the health of the connection to your IdP and when offline mode is triggered. Configure the offline mode health policy at any time.
 
 Access Gateway sets default values for all health policy parameters. Adjust these settings based on your environment and needs.
 
+1. Retrieve your `idpId` by using the [List all IdPs](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps/other/listidps) endpoint.
 1. Retrieve your current health policy settings using the [Retrieve an offline mode health policy](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-health-policy/other/getofflinemodehealthpolicy) endpoint.
-2. Use the [Replace an offline mode health policy](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-health-policy/other/replaceofflinemodehealthpolicy) endpoint to make any necessary changes.
+1. Use the [Replace an offline mode health policy](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-health-policy/other/replaceofflinemodehealthpolicy) endpoint to make any necessary changes.
 
 #### Request example
 
@@ -192,13 +193,14 @@ curl -i -X PUT \
   }'
 ```
 
-These health policy settings indicate that Access Gateway checks the health of the IdP connection every 3 minutes, with a timeout of 4 seconds. If there are 4 consecutive failures, Access Gateway enters offline mode. Access Gateway attempts to recover every three minutes. After three consecutive successful attempts, offline mode is exited after a cooldown period of 24 minutes.
+These health policy settings indicate that Access Gateway checks the health of the IdP connection every three minutes, with a timeout of four seconds. If there are four consecutive failures, Access Gateway enters offline mode. Access Gateway attempts to recover every three minutes. After three consecutive successful attempts, offline mode is exited after a cooldown period of 24 minutes.
 
 ### Test the directory connection
 
 Optional, but recommended. Verify that your offline directory connection is functional before creating your offline mode directory. The `/idps/{idpId}/offline-mode/test-directory-connection` endpoint tests whether the authentication service can reach your offline mode directory.
 
-Use the [Create a test directory connection](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-directory/other/createtestdirectoryconnection) endpoint.
+1. Retrieve your `idpId` by using the [List all IdPs](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps/other/listidps) endpoint.
+1. Then, use the [Create a test directory connection](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-directory/other/createtestdirectoryconnection) endpoint.
 
 #### Request example
 
@@ -222,7 +224,12 @@ Create an offline mode directory for your Okta IdP and configure the connection 
 
 Define your directory connection and synchronization settings for authentication during offline mode. Refer to your directory credentials and structure and use those values in the request body parameters.
 
-Use the [Create an offline mode directory](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-directory/other/createofflinemodedirectory) endpoint.
+> **Note:** When you create a directory, the users and groups from the LDAP or AD server are synchronized to the authentication service. After the initial creation, there's an automated sync that happens every hour between your directory's server and the authentication service.
+>
+> However, there's not an immediate sync when you modify a directory with a [PUT request](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-directory/other/replaceofflinemodedirectory). The changes aren't synchronized to the authentication service until the next automated sync runs. You might encounter a delay before your changes to the directory are synced with the authentication service, and are applicable for offline mode authentication.
+
+1. Retrieve your `idpId` by using the [List all IdPs](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps/other/listidps) endpoint.
+1. Then, use the [Create an offline mode directory](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-directory/other/createofflinemodedirectory) endpoint.
 
 #### Request example for an OpenLDAP directory
 
@@ -305,7 +312,7 @@ Before you assign groups to the app, ensure that the groups exist in your direct
 > **Note:** You can use the `Everyone` group in the payload to assign all users to the offline mode policy.
 
 1. Use the [List all apps](https://developer.okta.com/docs/api/openapi/oag/oag/tags/applications/other/listapplication) endpoint to retrieve your [app's ID](#what-you-need).
-1. Use the [Assign a group to the offline mode policy of an app](https://developer.okta.com/docs/api/openapi/oag/oag/tags/application-offline-mode/other/assignapplicationofflinemodegrouppolicy) endpoint.
+1. Then, use the [Assign a group to the offline mode policy of an app](https://developer.okta.com/docs/api/openapi/oag/oag/tags/application-offline-mode/other/assignapplicationofflinemodegrouppolicy) endpoint.
 
 #### Request example
 
