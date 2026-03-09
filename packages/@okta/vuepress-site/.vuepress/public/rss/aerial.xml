@@ -4,8 +4,17 @@
   <title>Okta Aerial API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-aerial/</link>
   <description>Recent release notes for Okta Aerial</description>
-  <pubDate>Tue, 24 Feb 2026 12:00:00 GMT</pubDate>
+  <pubDate>Thu, 05 Mar 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Monthly release</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-aerial/#monthly-release</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-aerial/#monthly-release</guid>
+      <pubDate>Thu, 05 Mar 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-aerial/#aerial-org-groups-and-request-condition-template-apis">Aerial Org Groups and Request Condition Template APIs</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-aerial/#aerial-member-role-available-in-ea">Aerial member role available in EA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-aerial/#developer-documentation-update-in-2026-03-0">Developer documentation update in 2026.03.0</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Weekly release</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-aerial/#weekly-release</link>
