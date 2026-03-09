@@ -152,6 +152,7 @@ jobs:
             npm install netlify-cli@17.23.5 -g
       - run:
           name: Deploy preview to Netlify
+          no_output_timeout: 30m
           command: |
             netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site
       - run:
