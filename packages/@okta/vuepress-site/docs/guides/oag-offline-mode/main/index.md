@@ -21,11 +21,12 @@ Learn how to configure Temporary Offline Access (offline mode) for Access Gatewa
 #### What you need
 
 * An Okta org that's subscribed to Access Gateway
-* The Offline mode feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this feature and then follow the steps in [Install and enable offline mode](#install-and-enable-offline-mode).
-* An [LDAP server](https://help.okta.com/okta_help.htm?type=oag&id=ext_oag_about_datastore) or an Active Directory (AD) server that's synced with your Okta tenant using either the [Okta LDAP agent](https://help.okta.com/okta_help.htm?type=oie&id=ext_LDAP_Provisioning) or the [Okta AD agent](https://help.okta.com/okta_help.htm?type=oie&id=ext-ad-agent-install)
-* A MySQL database
-* An app, such as a [generic app](https://help.okta.com/okta_help.htm?type=oag&id=ext_oag_app_gen_header)
+* Version `2026.03.0` of Access Gateway or later
+* The Offline mode feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this feature.
+* An LDAP server or an Active Directory (AD) server that's synced with your Okta tenant using either the [Okta LDAP agent](https://help.okta.com/okta_help.htm?type=oie&id=ext_LDAP_Provisioning) or the [Okta AD agent](https://help.okta.com/okta_help.htm?type=oie&id=ext-ad-agent-install)
+* A MySQL database and the configuration details for the database, such as the name, host, port, username, and password
 * An [Okta identity provider (IdP)](https://help.okta.com/okta_help.htm?type=oag&id=ext_oag_config_idp_okta)
+* An app, such as a [generic app](https://help.okta.com/okta_help.htm?type=oag&id=ext_oag_app_gen_header)
 
 ---
 
@@ -58,35 +59,6 @@ After you enabled the Access Gateway API, add the following scopes to an access 
 
 To create an access token, use the [Access Tokens API](https://developer.okta.com/docs/api/openapi/oag/oag/tags/accesstokens).
 
-## Install and enable offline mode
-
-To set up offline mode, you need to install the offline mode components on Access Gateway and enable the offline mode feature.
-
-1. Open your [Management Console](https://help.okta.com/okta_help.htm?type=oag&id=command-line-reference).
-1. Go to the [System menu](https://help.okta.com/okta_help.htm?type=oag&id=system-menu) (`5 - System`).
-1. Go to `2 - Install Package` and install the `okta-accessgateway-offline-mode` package.
-
-After the package is installed, enable the offline mode feature in your Access Gateway environment.
-
-1. Open the Management Console.
-1. Launch the [Access Gateway Privileged Shell](https://help.okta.com/okta_help.htm?type=oag&id=command-line-launch-shell).
-1. Open the `/opt/oag/data/gui/specs/icsgw_spgw_features.json` file with `sudo` privileges using your text editor. For example, if you use the vi editor, use this command: `sudo vi /opt/oag/data/gui/specs/icsgw_spgw_features.json`.
-1. Search for `offlinemode`.
-
-    ```json
-    "offlinemode": {
-    "show": false
-    }
-    ```
-
-1. Change `"show": false` to `"show": true`.
-1. Save the file. The file is read-only, which means that when you save it, ensure that you override the read-only permission. For example, when using vi, use this command: `:w!`.
-1. [Restart the Access Gateway Admin service](https://help.okta.com/okta_help.htm?type=oag&id=services-access-gateway-admin) to apply your changes.
-
-> **Note:** Perform these steps on your admin node and any server nodes where you want the authentication service to run.
-
-Now that offline mode is installed and enabled, configure the offline mode settings.
-
 ## Configure offline mode for Access Gateway
 
 The following sections explain which endpoints to use to configure offline mode for Access Gateway.
@@ -100,6 +72,7 @@ This step is needed only if your authentication service isn't already configured
 After the authentication service is enabled, Access Gateway can use it to authenticate users locally when in offline mode.
 
 1. Retrieve your `certificateId` by using the [List all certificates](https://developer.okta.com/docs/api/openapi/oag/oag/tags/certificates/other/listcertificates) endpoint.
+1. In the request body, include the details of your [MySQL database](#what-you-need).
 1. Then, use the [Enable the authentication service setting](https://developer.okta.com/docs/api/openapi/oag/oag/tags/settings-authentication-service/other/enableauthenticationservicesetting) endpoint.
 
 #### Request example
@@ -184,16 +157,16 @@ curl -i -X PUT \
   -H 'Authorization: Bearer <YOUR_JWT_HERE>' \
   -H 'Content-Type: application/json' \
   -d '{
-    "healthCheckInterval": 180,
-    "timeout": 4,
-    "maxRetries": 2,
-    "failureThreshold": 4,
-    "successThreshold": 3,
-    "recoveryCooldownInterval": 1440
-  }'
+    "healthCheckInterval": 60,
+    "timeout": 3,
+    "maxRetries": 3,
+    "failureThreshold": 3,
+    "successThreshold": 2,
+    "recoveryCooldownInterval": 360
+}'
 ```
 
-These health policy settings indicate that Access Gateway checks the health of the IdP connection every three minutes, with a timeout of four seconds. If there are four consecutive failures, Access Gateway enters offline mode. Access Gateway attempts to recover every three minutes. After three consecutive successful attempts, offline mode is exited after a cooldown period of 24 minutes.
+These health policy settings indicate that Access Gateway checks the health of the IdP connection every minute, with a timeout of three seconds. If there are three consecutive failures, Access Gateway enters offline mode. Access Gateway attempts to recover every 60 seconds. After two consecutive successful attempts, offline mode is exited after a cooldown period of six minutes.
 
 ### Test the directory connection
 
