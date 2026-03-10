@@ -133,9 +133,15 @@ jobs:
       - image: cimg/node:14.21.3-browsers
     resource_class: xlarge
     steps:
+      - node/install:
+          node-version: '18.20.0'
       - run:
           name: Has secrets?
           command: |
+            npm install netlify-cli@24.0.1  -g
+
+            exit 1
+
             NETLIFY_AUTH_TOKEN="$NETLIFY_AUTH_TOKEN_2"
             NETLIFY_SITE_ID="$NETLIFY_SITE_ID_2"
             if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
