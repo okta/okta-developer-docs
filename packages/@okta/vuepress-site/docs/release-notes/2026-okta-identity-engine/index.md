@@ -13,6 +13,21 @@ title: Okta Identity Engine API release notes 2026
 
 ## March
 
+### Weekly release 2026.03.1
+<!-- Published on: 2026-03-11T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2026.03.1](#bugs-fixed-in-2026-03-1)| March 11, 2026 |
+
+#### Bugs fixed in 2026.03.1
+
+* The Sign-In Widget didn’t load the bot protection enforcement challenge required on some endpoints, leading to an incorrect user redirect to a 403 page. (OKTA-1125106)
+
+* The mandatory SSO configuration check for testing information was incorrectly bypassed for all SSO submissions. (OKTA-1119127)
+
+* Some of the custom advanced sign-on settings for integrations created using the [Application API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/application/other/createapplication) weren't correctly reflected on the app instance page. (OKTA-1109692)
+
 ### Monthly release 2026.03.0
 <!-- Published on: 2026-03-04T12:00:00Z -->
 
