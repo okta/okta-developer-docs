@@ -213,17 +213,18 @@ jobs:
             else
               echo "No pull request detected. Preview link not available."
             fi
-    netlify_publish:
-      docker:
+
+  netlify_publish:
+    docker:
       - image: cimg/node:18.20.0-browsers
-      resource_class: xlarge
-      steps:
-        - attach_workspace:
-            at: packages/@okta/vuepress-site/dist
-        - run:
-            command: |
-              npm install netlify-cli@17.23.5 -g
-              netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site
+    resource_class: xlarge
+    steps:
+      - attach_workspace:
+          at: packages/@okta/vuepress-site/dist
+      - run:
+          command: |
+            npm install netlify-cli@17.23.5 -g
+            netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site
 
 workflows:
   linting:
