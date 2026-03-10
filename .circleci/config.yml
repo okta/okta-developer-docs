@@ -147,25 +147,33 @@ jobs:
       - run:
           name: Build preview
           command: |
-            yarn build
-      - run:
-          name: Install Netlify CLI
-          command: |
-            npm install netlify-cli@17.23.5 -g
-      - run:
-          name: Deploy preview to Netlify
-          command: |
-            netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --debug --filter @okta/vuepress-site
-      - run:
-          name: Log preview link
-          command: |
-            if [ -n "$CIRCLE_PULL_REQUEST" ]; then
-              PR_NUMBER="${CIRCLE_PULL_REQUEST##*/}"
-              echo "Preview link:"
-              echo "https://preview-${PR_NUMBER}--reverent-murdock-829d24.netlify.app"
-            else
-              echo "No pull request detected. Preview link not available."
-            fi
+            mkdir -p packages/@okta/vuepress-site/dist
+            pushd packages/@okta/vuepress-site/dist
+            echo hi>readme.md
+            popd
+            # yarn build
+      - persist_to_workspace:
+          root: packages/@okta/vuepress-site/dist
+          paths:
+            - .
+      # - run:
+      #     name: Install Netlify CLI
+      #     command: |
+      #       npm install netlify-cli@17.23.5 -g
+      # - run:
+      #     name: Deploy preview to Netlify
+      #     command: |
+      #       netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --debug --filter @okta/vuepress-site
+      # - run:
+      #     name: Log preview link
+      #     command: |
+      #       if [ -n "$CIRCLE_PULL_REQUEST" ]; then
+      #         PR_NUMBER="${CIRCLE_PULL_REQUEST##*/}"
+      #         echo "Preview link:"
+      #         echo "https://preview-${PR_NUMBER}--reverent-murdock-829d24.netlify.app"
+      #       else
+      #         echo "No pull request detected. Preview link not available."
+      #       fi
 
   netlify_manual_with_redirects:
     docker:
@@ -205,7 +213,17 @@ jobs:
             else
               echo "No pull request detected. Preview link not available."
             fi
-
+    netlify_publish:
+      docker:
+      - image: cimg/node:18.20.0-browsers
+      resource_class: xlarge
+      steps:
+        - attach_workspace:
+            at: packages/@okta/vuepress-site/dist
+        - run:
+            command: |
+              npm install netlify-cli@17.23.5 -g
+              netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site
 
 workflows:
   linting:
@@ -253,6 +271,10 @@ workflows:
     jobs:
       - netlify_manual:
           name: "Netlify Manual"
+      - netlify_publish:
+          name: "Netlify Publish"
+          requires:
+            - netlify_manual
 
   netlify_manual_with_redirects:
     when: << pipeline.parameters.preview_with_redirect >>
