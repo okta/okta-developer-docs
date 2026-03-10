@@ -21,7 +21,7 @@ Learn how to configure Temporary Offline Access (offline mode) for Access Gatewa
 #### What you need
 
 * An Okta org that's subscribed to Access Gateway
-* Version `2026.03.0` of Access Gateway or later
+* Version `2026.03.0` or later of Access Gateway
 * The Offline mode feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this feature.
 * An LDAP server or an Active Directory (AD) server that's synced with your Okta tenant using either the [Okta LDAP agent](https://help.okta.com/okta_help.htm?type=oie&id=ext_LDAP_Provisioning) or the [Okta AD agent](https://help.okta.com/okta_help.htm?type=oie&id=ext-ad-agent-install)
 * A MySQL database and the configuration details for the database, such as the name, host, port, username, and password
@@ -65,11 +65,9 @@ The following sections explain which endpoints to use to configure offline mode 
 
 ### Enable the authentication service
 
-The authentication service is a component of Access Gateway that handles user authentication when in offline mode. You need to enable the authentication service and provide the necessary configuration details for it to function properly.
+The authentication service is a component of Access Gateway that handles user authentication when in offline mode. Enable the authentication service and provide the necessary configuration details so that Access Gateway can use it to authenticate users locally when in offline mode.
 
-This step is needed only if your authentication service isn't already configured. Enabling the authentication service provides Access Gateway with the necessary information to set up the service.
-
-After the authentication service is enabled, Access Gateway can use it to authenticate users locally when in offline mode.
+This step is needed only if your authentication service isn't already configured.
 
 1. Retrieve your `certificateId` by using the [List all certificates](https://developer.okta.com/docs/api/openapi/oag/oag/tags/certificates/other/listcertificates) endpoint.
 1. In the request body, include the details of your [MySQL database](#what-you-need).
@@ -137,7 +135,7 @@ curl -i -X POST \
   }'
 ```
 
-You have now enabled your Okta IdP to use automatic failover. This means that Access Gateway automatically switches to offline mode when the connection to your IdP is lost.
+You've now enabled your Okta IdP to use automatic failover. This means that Access Gateway automatically switches to offline mode when the connection to your IdP is lost.
 
 ### Configure the offline mode health policy
 
@@ -173,7 +171,7 @@ These health policy settings indicate that Access Gateway checks the health of t
 Optional, but recommended. Verify that your offline directory connection is functional before creating your offline mode directory. The `/idps/{idpId}/offline-mode/test-directory-connection` endpoint tests whether the authentication service can reach your offline mode directory.
 
 1. Retrieve your `idpId` by using the [List all IdPs](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps/other/listidps) endpoint.
-1. Then, use the [Create a test directory connection](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-directory/other/createtestdirectoryconnection) endpoint.
+1. Then, use the [Test a directory connection](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-directory/other/createtestdirectoryconnection) endpoint.
 
 #### Request example
 
