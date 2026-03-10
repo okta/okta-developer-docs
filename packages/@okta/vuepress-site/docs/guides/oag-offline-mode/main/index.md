@@ -327,7 +327,7 @@ curl -i -X POST \
 
 ### Test offline access to the app
 
-Test that users can access the app when its state is `TEST`. Follow the steps in [Test example header application](https://help.okta.com/okta_help.htm?type=oag&id=integrate-app-header).
+Test that users can access the app when its state is `TEST`. Follow the steps in [Test example header application](https://help.okta.com/okta_help.htm?type=oag&id=app-header-test).
 
 ### Enable offline access for the app
 
