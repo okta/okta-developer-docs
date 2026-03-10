@@ -133,11 +133,11 @@ jobs:
       - image: cimg/node:14.21.3-browsers
     resource_class: xlarge
     steps:
-      - node/install:
-          node-version: '18.20.0'
       - run:
           name: Has secrets?
           command: |
+            nvm install 18.20.0
+            nvm use 118.20.0
             npm install netlify-cli@24.0.1  -g
 
 
