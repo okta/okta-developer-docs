@@ -52,11 +52,11 @@ jobs:
       - run:
           name: Build preview
           command: |
-            mkdir -p packages/@okta/vuepress-site/dist
-            pushd packages/@okta/vuepress-site/dist
-            echo hi>readme.md
-            popd
-            # yarn build
+            # mkdir -p packages/@okta/vuepress-site/dist
+            # pushd packages/@okta/vuepress-site/dist
+            # echo hi>readme.md
+            # popd
+            yarn build
       - persist_to_workspace:
           root: packages/@okta/vuepress-site/dist
           paths:
@@ -72,7 +72,7 @@ jobs:
       - run:
           command: |
             npm install --save-dev netlify-cli@24.0.1
-            npx netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site
+            npx netlify deploy --no-build --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site
 
 workflows:
   wf_netlify_manual:
