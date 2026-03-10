@@ -78,10 +78,8 @@ workflows:
   wf_netlify_manual:
     when: << pipeline.parameters.preview >>
     jobs:
-      - netlify_manual:
-          name: "Netlify Manual"
+      - netlify_manual
       - netlify_publish:
-          name: "Netlify Publish"
           requires:
             - netlify_manual
 
