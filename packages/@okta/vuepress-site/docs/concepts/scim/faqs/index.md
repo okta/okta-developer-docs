@@ -1,117 +1,128 @@
 ---
-title: SCIM - frequently asked questions
+title: SCIM integration concepts and requirements
 meta:
   - name: description
     content: Answers to your questions about how SCIM works with Okta.
 ---
 
-# SCIM technical questions
+# SCIM integration concepts and requirements
 
-**Q: My API is similar to SCIM, but isn't 100% compliant. Can I still integrate with Okta?**
+The System for Cross-domain Identity Management (SCIM) is an industry-standard, REST-based protocol that automates the exchange of user identity information between Okta and your app. Okta acts as the SCIM client, sending requests to your SCIM server to manage the user and group lifecycle. See [Understanding SCIM](/docs/concepts/scim/).
 
-You can find guidance on what endpoints you need to implement in our [SCIM Reference](https://developer.okta.com/docs/api/openapi/okta-scim/guides/) documentation for either SCIM [V2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/) or [V1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/) deployments.
+## SCIM integration concepts
 
-**Q: How should I be managing authentication to my SCIM API?**
+Okta supports lifecycle provisioning for both [SCIM 2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/) and [SCIM 1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/). See [SCIM reference](https://developer.okta.com/docs/api/openapi/okta-scim/guides) to find guidance on what endpoints you need to implement for different versions of SCIM.
 
-Okta recommends using the [OAuth 2.0 Authorization Code grant flow](/docs/guides/implement-grant-type/authcode/main/). Okta doesn't support the Client Credentials or Resource Owner Password Credentials Authorization grant flows for SCIM. The Authorization Code grant flow is more common in SaaS and cloud integrations and is also more secure.
+### User lifecycle management
 
-In addition to OAuth, Okta also supports connections with basic auth and header token auth options.
+SCIM integrations automate the CRUD (Create, Read, Update, Delete) operations for identity resources.
 
-**Q: I have a multi-tenant integration. How do I allow my customers to customize their specific tenant in Okta?**
+* **Create:** Okta creates users in your downstream app based on Okta user profile values and group assignments.
+* **Read:** Okta queries your app to match existing resources against Okta resources. If a resource doesn't exist, you can import it into the Okta org.
+* **Update:** Okta pushes changes to your app when data is modified in Okta. If your app is the source of truth, Okta pulls updates into the Okta user profile.
+* **Deactivate:** Okta uses a soft delete model. Instead of sending a DELETE request, Okta updates the user resource with active=false. This revokes access while preserving data for future re-activation.
 
-Use the OAuth 2.0 Authorization Code grant flow, so that you know exactly which token the customer is using.
+#### User import mechanics
 
-Another option is when the customer configures your Okta integration, Okta can prompt them to add their unique subdomain for your cloud app.
+You can synchronize user data from your SCIM app to Okta using the following import methods:
 
-Okta can use part of this URL in the SCIM endpoint for that customer, for example:
+* **Manual imports:** Initiate a one-time, immediate import through the **Import** tab of your SCIM integration to pull user records into the Okta org.
+* **Scheduled imports:** Configure a regular synchronization schedule (hourly, daily, or weekly) within the **Provisioning** settings to ensure data consistency between systems.
 
-* `http://www.company.com/{tenantA}/scim`
-* `http://www.company.com/{tenantB}/scim`
+When you initiate an import, Okta attempts to match the incoming SCIM resources to existing Okta users. If a match isn't automatically found, Okta prompts an admin to manually review and confirm the user assignments.
 
-This subdomain field can be configured in consultation with Okta after you submit your integration for review.
+### Data sourcing and mapping
 
-**Q: I only have one email/phone number/address in my user profile. Do I need to use an array for it?**
+Okta provides two primary data flow directions based on which system acts as the source of truth:
 
-Yes, you must return these fields in an array structure. This is a multi-valued attribute as outlined in [section 5](https://tools.ietf.org/html/rfc7159#section-5) of the SCIM specification.
+* **Okta-sourced:** Changes in Okta are pushed to the SCIM app.
+* **App-sourced (Profile sourcing):** Changes in the SCIM app are pulled into Okta through imports.
 
-**Q: What determines the primary value for email, phone numbers, or addresses?**
+### Attribute handling and reserved names
 
-The returned array must have a `primary=true` attribute for the value that Okta takes as the primary value for the user profile.
+Okta follows the RFC 7643 specification for system and reserved attributes. You must adhere to the following formatting requirements for SCIM attributes:
 
-**Q: When would I need to implement the `type` subattribute for emails, phone numbers, or addresses?**
+* Use an array structure for multi-valued attributes such as emails, phone numbers, and addresses.
+* Implement the `type` sub-attribute if you need to distinguish between canonical entries, such as work versus home emails.
+* Avoid using reserved names like `groups` for custom attributes because these are defined as part of the core user object. Creating a custom attribute with this name causes conflicts with the core schema of Okta.
 
-By default, Okta doesn't use the `type` subattribute, other than to read the type attribute of your primary value attribute. However, if your SCIM integration does need to distinguish between various canonical entries for an attribute (for example, differentiating between a home and work email address), then you can use the `type` subattribute in the returned array.
+## Architecture and mechanics
 
-If your integration doesn't need to distinguish between canonical entries, you can delete the `emailType` (or `addressType` or `primaryPhoneType`) attribute and mapping from your profile schema.
+### User search and matching
 
-* See [Section 2.4 of RFC 7643](https://tools.ietf.org/html/rfc7643#section-2.4) for more details on returning multi-valued attributes.
-* Don't return the same value and type combination more than once per attribute, as this complicates processing by the client.
-* In the schema definition, you can define a list of recommended canonical values for an attribute (see [RFC 7643 Section 7](https://tools.ietf.org/html/rfc7643#section-7)).
+While the SCIM protocol allows for broad filtering, Okta uses a narrow filtering scope to ensure efficient resource matching and prevent duplicate accounts.
 
-**Q: Why doesn't Okta support DELETE /Users?**
+Before Okta creates a user or group, it determines if the resource exists in your app by sending a `GET` request with an `eq` (equals) filter:
 
-In Okta, user profiles are marked as `deactivated`. This means that Okta never makes a DELETE request against a user resource through your SCIM API. Instead, Okta sends a request to set the `active` value to `false`. You need to support the concept of an "active" and "inactive" user within your app.
+`GET /Users?filter=userName eq "{userName}"`
 
-For a detailed explanation on deleting user profiles, see [Delete (Deprovision)](/docs/concepts/scim/#delete-deprovision).
+Your SCIM server must support this specific filtering query parameter to provision users successfully.
 
-**Q: What parts of the SCIM spec aren't included in Okta's SCIM implementation?**
+### Data validation and error reporting
 
-Okta continually strives to improve our support for components of the SCIM protocol specification. Currently, Okta doesn't use the following parts of the SCIM specification:
+The SCIM specification defines valid data formats for user profile attributes. To maintain flexibility across different app requirements, Okta doesn't enforce rigid validation on attribute values before they're sent.
 
-* Search queries using POST
-* Bulk operations
-* `/Me` endpoint
-* `/Schemas` endpoint
-* `/ServiceProviderConfig` endpoint
-* `/ResourceTypes` endpoint
-* Query filtering using `meta.lastModified`
+Your app must manage data validation by adhering to the following logic:
 
-**Q: How does data validation work with SCIM provisioning? For example, if my app requires the phone number in a specific format, how do I ensure that Okta passes the attribute in that format? If a data validation error issue occurs, how does error reporting work?**
+* Validate that incoming user profile data meets the specific requirements of your app, such as unique phone number formats or character limits.
+* Return clear, descriptive error messages in the SCIM response if an attribute fails validation.
+* Document any specific data requirements in the configuration guide that you provide for your integration.
 
-The SCIM specification identifies valid data formats for a given user profile attribute. However, to preserve flexibility, Okta doesn't rigorously validate that the customer has submitted values that meet those requirements.
+When your app returns an error response, Okta surfaces the message to the admin through the **Tasks** and **Alerts** sections of the Admin Console. This allows admins to identify and correct data issues in the Okta org.
 
-Therefore, your app should handle data validation. When Okta provisions a user profile to your server, your app should check that the data is valid according to any special requirements. Error messages sent in response from your app are surfaced to the Okta administrator through alerts and tasks in the Okta interface.
+### Pagination
 
-You should also specify your data requirements in the configuration document that you provide for using your integration.
+Okta processes large datasets in pages. Your SCIM implementation must support the following pagination references:
 
-**Q: How much support is required for filtering results?**
+* `startIndex`
+* `count`
+* `totalResults`
 
-The filtering capabilities in the SCIM protocol are broad, but the common filtering use case with Okta is narrow. Okta determines if a newly created user or group exists in your app based on a matching identifier. This means the `eq` (equals) operator is all you need to support.
+### PATCH versus PUT
 
-**Q: How do I import users?**
+Okta supports both `PATCH` and `PUT` methods for updating users and groups, but the default behavior depends on how you create the integration:
 
-You can initiate user imports through Okta, either manually or on a schedule.
+* **PATCH:** Use `PATCH` for partial resource updates in integrations created with OIN catalog templates. If your SCIM server doesn't support `PATCH`, contact your Okta account team or visit the Okta forum to request a change to `PUT`.
+* **PUT:** Use `PUT` for full resource replacement in integrations created with the App Integration Wizard (AIW). These integrations use `PUT` by default and you can't reconfigure them to use `PATCH`.
 
-To run an import for your SCIM users, do the following in the Admin Console:
+## SCIM implementation requirements
 
-1. Select your SCIM integration from the list of integrations in your Okta org.
-1. Under the **Import** tab, click **To Okta** and **Import Now** to do a one-time import.
-1. Okta prompts you to review and confirm assignments for any users that aren't automatically matched to existing Okta users.
+This section outlines the architectural requirements for a standard integration, categorized by connectivity, resource management, and synchronization mechanics.
 
-To set up a regular schedule for importing users, do the following in the Admin Console:
+The following items are required to establish connectivity and ensure secure communication:
 
-1. Select your SCIM integration from the list of integrations in your Okta org.
-1. Under the **Provisioning** tab, click **To Okta** and **Edit** in the General section.
-1. In the **Full Import Schedule** drop down, you can choose from hourly, daily, or weekly imports.
+* Confirm that the server supports at least one Okta-supported authentication method, such as OAuth 2.0, Basic Auth, or Header Token.
+* Provide a consistent base URL for SCIM endpoints, for example, `https://api.example.com/scim/v2`.
+* Install and configure the Okta Provisioning Agent if the app is located behind a firewall.
+* Ensure that your server responds within 60 seconds of a request to prevent Okta from closing the socket connection.
 
-See [Import users](https://help.okta.com/okta_help.htm?id=ext_Importing_People).
+Implement the following capabilities to ensure successful user resource management:
 
-**Q: How do I get my SCIM integration to use `PUT` requests instead of `PATCH` when updating users and groups?**
+* Support the `eq` operator for the `GET/Users` endpoint to enable user matching and prevent duplicate accounts.
+* Map core SCIM attributes, specifically `userName`, `name.givenName`, `name.familyName`, and `active`.
+* Configure the database to handle a boolean `active` attribute for soft-deactivation.
+* Implement `startIndex` and `count` parameters to support pagination for large user imports.
 
-SCIM integrations that are created using the templates from the OIN catalog have `PATCH` enabled by default. However, if your SCIM server doesn't support `PATCH`, you can contact your Okta account team and request that they change your integration to use `PUT` for updates, or ask on our [forum](https://devforum.okta.com/).
+Update and synchronization mechanics must adhere to these standards:
 
-SCIM integrations that are created using the Application Integration Wizard use `PUT` by default. They can't be reconfigured to use `PATCH` for updates.
+* Support the `PATCH` method for partial resource updates or the `PUT` method for full resource replacement.
+* Return multi-valued attributes, such as emails and phone numbers, as arrays.
+* Implement the `/Groups` endpoint if the app requires group management and memberships.
 
-**Q: How do I integrate a SCIM application residing inside my corporate firewall with Okta?**
+## Unsupported SCIM features
 
-Use the Okta agent-based provisioning solution. See [Provision on-premises applications](https://help.okta.com/okta_help.htm?id=ext_OPP_configure).
+While Okta continually improves support for the SCIM protocol, the following components of the specification aren't currently used by the Okta provisioning service:
 
-The [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview) instructions target cloud-based apps.
+* Search queries that use the `POST` method.
+* Bulk operations for multiple resource changes in a single request.
+* The `/Me` authenticated subject endpoint.
+* The `/ServiceProviderConfig` discovery endpoints.
+* Query filtering based on the `meta.lastModified` attribute.
 
-**Q: What is the timeout if Okta doesn't receive a response from my SCIM server?**
+**Note:** The `/Schemas` and `/ResourceTypes` endpoints are only available with SCIM 2.0 with entitlements. See [Build a SCIM 2.0 server with entitlements](https://developer.okta.com/docs/guides/scim-with-entitlements/main/).
 
-The timeout is 60 seconds if Okta doesn't receive anything from the socket after any SCIM request is made.
+## **Next steps**
 
-**Q: Are there reserved attributes that I can't use?**
-
-Okta follows the SCIM specifications as defined by [RFC 7642](https://datatracker.ietf.org/doc/html/rfc7642), [RFC 7643](https://datatracker.ietf.org/doc/html/rfc7643), and [RFC 7644](https://datatracker.ietf.org/doc/html/rfc7644), with exceptions listed in the reference guides. All system or reserved attributes follow these RFC documents. For example, `groups` is a reserved and used property on the `User` object defined as part of RFC 7643. Therefore, don't create a custom attribute called `groups` in your SCIM server.
+* **Build:** See the [SCIM 2.0 Protocol Reference](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/) for endpoint specifications.
+* **Test:** Use the Okta SCIM test suite in Runscope to validate your implementation.
+* **Publish:** Follow the [OIN submission process](https://developer.okta.com/docs/guides/submit-app-overview/), if you want to share your integration with other Okta customers.
