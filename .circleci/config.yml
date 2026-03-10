@@ -138,10 +138,6 @@ jobs:
           command: |
             NETLIFY_AUTH_TOKEN="$NETLIFY_AUTH_TOKEN_2"
             NETLIFY_SITE_ID="$NETLIFY_SITE_ID_2"
-
-            echo site: ${NETLIFY_SITE_ID_2:0:5}
-
-            exit 1
             if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
               echo "Missing required secrets."
               exit 1
@@ -159,7 +155,7 @@ jobs:
       - run:
           name: Deploy preview to Netlify
           command: |
-            netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site
+            netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --debug --filter @okta/vuepress-site
       - run:
           name: Log preview link
           command: |
