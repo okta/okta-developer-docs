@@ -51,7 +51,7 @@ Create a JWT token to authenticate your API requests. For instructions, see [Bui
 
 ### Scopes required for offline mode
 
-After you enabled the Access Gateway API, add the following scopes to an access token to manage offline mode configuration and policies:
+After you enable the Access Gateway API, add the following scopes to an access token to manage offline mode configuration and policies:
 
 * `okta.oag.app.manage`
 * `okta.oag.idp.manage`
