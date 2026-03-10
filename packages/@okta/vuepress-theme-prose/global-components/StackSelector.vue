@@ -83,6 +83,7 @@
         if (this.$route.path.startsWith('/code/')) {
           return codeFromPath(this.$route.path).codeName;
         }
+        
         return guideFromPath(this.$route.path).guideName;
       },
       framework() {
