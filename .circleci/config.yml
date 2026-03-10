@@ -136,12 +136,6 @@ jobs:
       - run:
           name: Has secrets?
           command: |
-            nvm install 18.20.0
-            nvm use 118.20.0
-            npm install netlify-cli@24.0.1  -g
-
-
-
             NETLIFY_AUTH_TOKEN="$NETLIFY_AUTH_TOKEN_2"
             NETLIFY_SITE_ID="$NETLIFY_SITE_ID_2"
 
