@@ -17,13 +17,13 @@ This framework applies to:
 
 >**Note:** The endpoints to which this feature applies all have browser-based interaction patterns.
 
-Client-based rate limits specifically target browser-based unauthenticated endpoints (such as `/authorize`) using a combination of client ID, IP address, and device identifier, with a default limit of 60 requests per minute, per client. OAuth and Token Rate Limits, on the other hand, apply to individual API tokens and OAuth 2.0 apps across all endpoints. These rate limits default to 50% of an org's bucket rate limit to prevent a single client from consuming all org-wide capacity. This percentage is configurable, helping isolate different teams' applications, see [Token and OAuth 2.0 app rate limits](/docs/reference/rl2-token-oauth/).
+Client-based rate limits specifically target browser-based unauthenticated endpoints (such as `/authorize`) using a combination of client ID, IP address, and device identifier, with a default limit of 60 requests per client per minute. OAuth 2.0 app and token rate limits, on the other hand, apply to individual API tokens and OAuth 2.0 apps across all endpoints. These rate limits default to 50% of an org's bucket rate limit to prevent a single client from consuming all org-wide capacity. This percentage is configurable, helping isolate different teams' apps. See [Token and OAuth 2.0 app rate limits](/docs/reference/rl2-token-oauth/).
 
 ## Benefits of client-based rate limits
 
 This feature is helpful in a few key scenarios:
 
-* Isolating runaway traffic: With multiple OAuth 2.0 apps managed by different teams, client-based rate limits isolate "noisy neighbors" such as misconfigured apps or runaway scripts during authentication flows, preventing one malfunctioning app from causing rate limit violations for all the others. By contrast, OAuth/token limits prevent API abuse across the entire platform.
+* Isolating runaway traffic: With multiple OAuth 2.0 apps managed by different teams, client-based rate limits isolate "noisy neighbors" such as misconfigured apps or runaway scripts during authentication flows. This prevents one malfunctioning app from causing rate limit violations for all the others. By contrast, OAuth 2.0 app and token limits prevent API abuse across the entire platform.
 
 * Enforcing best practices: It encourages development teams to implement proper error handling and avoid issues like redirect loops.
 
@@ -106,6 +106,6 @@ When client-based rate limiting is in enforce mode, the API response headers ref
 
 * `X-Rate-Limit-Limit`: The 60 requests/minute ceiling for the specific client.
 
-* `X-Rate-Limit-Remaining`: The amount of requests left for that specific client.
+* `X-Rate-Limit-Remaining`: The number of requests left for that specific client.
 
 * `X-Rate-Limit-Reset`: The UTC epoch time when the client's limit resets.
