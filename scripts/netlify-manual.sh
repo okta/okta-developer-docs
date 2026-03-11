@@ -62,7 +62,7 @@ nvm use 18
 # Install Netlify CLI
 ########################################
 echo "Installing Netlify CLI..."
-npm install -g netlify-cli@17.23.5
+npm install -g netlify-cli@17.23.5 --unsafe-perm
 
 ########################################
 # Deploy preview
