@@ -6,3 +6,10 @@ test_suites:
     timeout: '50'
     criteria: MAINLINE
     queue_name: small
+  - name: 'netlify-manual'
+    script_path: /root/okta/okta-developer-docs/scripts
+    script_name: netlify-manual
+    sort_order: '0'
+    timeout: '50'
+    criteria: MERGE
+    queue_name: small

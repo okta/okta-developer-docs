@@ -1,0 +1,41 @@
+#!/bin/bash
+set -e
+
+echo "Checking required secrets..."
+
+get_terminus_secret "/" NETLIFY_AUTH_TOKEN NETLIFY_AUTH_TOKEN
+get_terminus_secret "/" NETLIFY_SITE_ID NETLIFY_SITE_ID
+
+if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
+  echo "Missing required secrets."
+  exit 1
+fi
+
+echo "Installing dependencies..."
+yarn install
+
+echo "Building preview..."
+yarn build
+
+echo "Installing Netlify CLI..."
+npm install -g netlify-cli@17.23.5
+
+echo "Deploying preview to Netlify..."
+
+if [ -n "$CIRCLE_PULL_REQUEST" ]; then
+  PR_NUMBER="${CIRCLE_PULL_REQUEST##*/}"
+  netlify deploy --alias="preview-${PR_NUMBER}" --filter @okta/vuepress-site
+else
+  echo "No pull request detected. Deploying without PR alias."
+  netlify deploy --alias="preview-test-bacon" --filter @okta/vuepress-site
+fi
+
+echo "Logging preview link..."
+
+if [ -n "$CIRCLE_PULL_REQUEST" ]; then
+  PR_NUMBER="${CIRCLE_PULL_REQUEST##*/}"
+  echo "Preview link:"
+  echo "https://preview-${PR_NUMBER}--reverent-murdock-829d24.netlify.app"
+else
+  echo "No pull request detected. Preview link not available."
+fi
