@@ -42,10 +42,10 @@ yarn build
 echo "Deploying preview to Netlify..."
 
 if [ -n "$BRANCH" ]; then
-  npx netlify-cli@17.23.5 deploy --alias="preview-${BRANCH}" --filter @okta/vuepress-site --dir ../packages/@okta/vuepress-site/dist
+  npx netlify-cli@17.23.5 deploy --alias="${BRANCH}" --filter @okta/vuepress-site --dir ../packages/@okta/vuepress-site/dist
 
   echo "Preview link:"
-  echo "https://preview-${BRANCH}--dev-docs-preview.netlify.app"
+  echo "https://${BRANCH}--dev-docs-preview.netlify.app"
 
 else
   echo "No pull request detected. Not deploying to Netlify."
