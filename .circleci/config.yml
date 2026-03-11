@@ -142,14 +142,14 @@ jobs:
             fi
       - checkout
       - install-deps
-      - run:
-          name: Build preview
-          command: |
-            yarn build
+      # - run:
+      #     name: Build preview
+      #     command: |
+      #       yarn build
       - run:
           name: Install Netlify CLI
           command: |
-            npm install netlify-cli@17.23.5 -g
+            npm install netlify-cli@24.0.1 -g
       - run:
           name: Deploy preview to Netlify
           command: |
