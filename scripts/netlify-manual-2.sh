@@ -16,7 +16,7 @@ npm install -g yarn
 yarn install
 
 echo "Building preview..."
-# yarn build
+yarn build
 
 echo "Deploying preview to Netlify..."
 
