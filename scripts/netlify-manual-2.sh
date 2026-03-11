@@ -11,14 +11,42 @@ if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
   exit 1
 fi
 
+echo "Installing NVM..."
 
-echo "Installing dependencies..."
-curl -o- -L https://yarnpkg.com/install.sh | bash
-yarn -v
+export NVM_DIR="$HOME/.nvm"
+
+if [ ! -d "$NVM_DIR" ]; then
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+fi
+
+# Load nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+########################################
+# Install Node
+########################################
+echo "Installing Node 16..."
+nvm install 16
+nvm use 16
+
+echo "Node version:"
+node -v
+echo "NPM version:"
+npm -v
+
+########################################
+# Install Yarn
+########################################
+echo "Installing Yarn..."
+npm install -g yarn
+
+# echo "Installing dependencies..."
+# curl -o- -L https://yarnpkg.com/install.sh | bash
+# yarn -v
 yarn install --frozen-lockfile --ignore-platform
 
 echo "Building preview..."
-yarn build
+# yarn build
 
 echo "Deploying preview to Netlify..."
 
