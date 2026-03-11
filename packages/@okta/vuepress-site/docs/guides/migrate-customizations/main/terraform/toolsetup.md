@@ -1,9 +1,8 @@
 #### Provider configuration with OAuth 2.0
 
-Okta recommends using OAuth 2.0 with service apps for automation. First, create an OAuth 2.0 service app in your Admin Console:
+Okta recommends using OAuth 2.0 with service apps for automation. First, create an OAuth 2.0 service app:
 
-1. Sign in to your Admin Console.
-1. Go to **Applications** > **Applications**, and click **Create App Integration**.
+1. In the Admin Console, go to **Applications** > **Applications**, and click **Create App Integration**.
 1. Select **API Services** and click **Next**.
 1. Enter an app name like **Terraform Automation**, and click **Save**.
 1. Note the **Client ID**.
@@ -46,7 +45,7 @@ Create a Terraform configuration file with the Okta provider:
   # Variables for environment switching
   variable "okta_org_name" {
     type        = string
-    description = "Okta organization name (subdomain)"
+    description = "Okta org name (subdomain)"
   }
 
   variable "okta_base_url" {
@@ -102,9 +101,9 @@ Create separate `.tfvars` files for each environment:
 **Use:**
 
 ```bash
-  # For test environment
+  # For Test environment
   terraform apply -var-file="test.tfvars"
 
-  # For production environment
+  # For Production environment
   terraform apply -var-file="production.tfvars"
 ```

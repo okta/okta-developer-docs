@@ -2,9 +2,9 @@ The Okta.PowerShell module requires PowerShell 7.0+ and should use OAuth 2.0 dev
 
 #### Configure an app for OAuth 2.0 Device flow authentication (recommended)
 
-Create an OIDC native app in your Admin Console:
+Create a native OIDC app:
 
-1. Go to **Applications** > **Applications** > **Create App Integration**.
+1. In the Admin Console, go to **Applications** > **Applications** > **Create App Integration**.
 2. Select **OIDC - OpenID Connect**.
 3. Select **Native Application**.
 4. Enter a name like **PowerShell Brand Management**.

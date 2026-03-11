@@ -27,7 +27,7 @@ $targetBrand = Update-OktaBrand -BrandId $targetBrand.id -Brand $updateParams
 $BrandId = $targetBrand.id
 
 # Option 2: Create a custom brand (requires the multibrand feature)
-# Note: Brand creation through PowerShell requires using the API directly.
+# Note: PowerShell uses the API to create brands.
 # $brandPayload = @{
 #     name                          = $BrandName
 #     agreeToCustomPrivacyPolicy    = $true

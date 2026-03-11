@@ -33,7 +33,7 @@ Create a configuration script with reusable variables:
   # Error page (only if multibrand isn't enabled)
   $CustomErrorPageHTML = @'
   <div style="text-align: center; padding: 50px; font-family: sans-serif;">
-    <h1 style="color: #0047AB;">Oops! Something Went Wrong.</h1>
+    <h1 style="color: #0047AB;">Something went wrong.</h1>
     <p style="font-size: 1.2em;">We encountered an unexpected error.</p>
     <p>Please check the URL or try again later.</p>
     <a href="/" style="display: inline-block; margin-top: 20px; padding: 10px 20px;

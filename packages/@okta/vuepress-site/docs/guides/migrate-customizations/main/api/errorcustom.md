@@ -14,5 +14,5 @@ curl -X PUT "${OKTA_ORG_URL}/api/v1/brands/${BRAND_ID}/pages/sign-in/customized"
 
 # If you receive a 403 error, multibrand customization is enabled
 # and error page HTML customization isn't available.
-echo "Error page customization applied (if multibrand is not enabled)"
+echo "Error page customization applied (if multibrand isn't enabled)"
 ```

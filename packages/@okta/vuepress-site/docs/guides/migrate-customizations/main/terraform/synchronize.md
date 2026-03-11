@@ -5,12 +5,12 @@ There are two options when you want to synchronize branding metadata with Terraf
 
 ### Customize the existing default brand
 
-Most orgs want to customize their existing default brand:
+Most orgs want to customize their default brand:
 
 ```hcl
   # main.tf
 
-  # First, discover the existing default brand
+  # First, discover the default brand
   data "okta_brands" "test" {}
 
   # Import the default brand (first brand in the list)
@@ -36,7 +36,7 @@ If your org has multibrand enabled and you want to create a brand, use the follo
 ```hcl
 # main.tf
 
-# Create a new custom brand (requires the multibrand feature)
+# Create a custom brand (requires the multibrand feature)
 resource "okta_brand" "custom_app_brand" {
   name                            = local.brand_name
   agree_to_custom_privacy_policy  = true
