@@ -11,12 +11,27 @@ if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
   exit 1
 fi
 
-Xvfb :99 -screen 0 1366x768x16 &
-yum update -y
-yum -y install gtk2-2.24* xorg-x11-server-Xvfb libXtst* libXScrnSaver* GConf2* alsa-lib* gtk3
+echo "Installing NVM..."
 
-setup_service node v16.14.0
-setup_service yarn 1.22.22
+export NVM_DIR="$HOME/.nvm"
+
+if [ ! -d "$NVM_DIR" ]; then
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+fi
+
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+echo "Installing Node 16..."
+nvm install 16
+nvm use 16
+
+echo "Node version:"
+node -v
+echo "NPM version:"
+npm -v
+
+echo "Installing Yarn..."
+npm install -g yarn
 
 echo "Installing dependencies..."
 yarn install --frozen-lockfile --ignore-platform
