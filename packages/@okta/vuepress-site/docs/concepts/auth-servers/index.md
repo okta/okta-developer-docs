@@ -82,7 +82,7 @@ If you have an [Okta Integrator Free Plan org](https://developer.okta.com/signup
 
 The `default` custom authorization server doesn't include a basic access policy with the Okta Integrator Free Plan org. To add an access policy, see [Create access policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-access-policies). For simple use cases, this custom authorization server is usually all that you need. You can use it to test Okta sample apps or your custom apps. You can add scopes, claims, and access policies to it to support your use case. However, you can't delete the default custom authorization server. But, you can disable or rename it.
 
-> **Note**: In the Admin Console, a **Default** label appears just below the `default` custom authorization server name. If you rename this authorization server, the **Default** label still appears, which helps you identify it as the default authorization server that was pre-configured.
+> **Note**: In the Admin Console, a **Default** label appears just below the `default` custom authorization server name. If you rename this authorization server, the **Default** label still appears, which helps you identify it as the default authorization server that was pre-configured. In the Admin Console, go to **Security** > **API** to locate the authorization servers.
 
 #### Discovery endpoints - default custom authorization server
 
