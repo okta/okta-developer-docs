@@ -60,6 +60,7 @@ if [ -n "$CIRCLE_PULL_REQUEST" ]; then
   echo "Preview link:"
   echo "https://preview-${PR_NUMBER}--reverent-murdock-829d24.netlify.app"
 
+
 else
   echo "No pull request detected. Deploying without PR alias."
 
