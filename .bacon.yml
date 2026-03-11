@@ -6,16 +6,9 @@ test_suites:
     timeout: '50'
     criteria: MAINLINE
     queue_name: small
-  - name: 'netlify-manual'
+  - name: 'build-preview'
     script_path: /root/okta/okta-developer-docs/scripts
-    script_name: netlify-manual
-    sort_order: '0'
-    timeout: '50'
-    criteria: MERGE
-    queue_name: small
-  - name: 'netlify-manual-2'
-    script_path: /root/okta/okta-developer-docs/scripts
-    script_name: netlify-manual-2
+    script_name: build-preview
     sort_order: '0'
     timeout: '50'
     criteria: MERGE
