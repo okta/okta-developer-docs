@@ -12,8 +12,9 @@ if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
 fi
 
 echo "Installing dependencies..."
-npm install -g yarn
-yarn install
+curl -o- -L https://yarnpkg.com/install.sh | bash
+yarn -v
+yarn install --frozen-lockfile --ignore-platform
 
 echo "Building preview..."
 yarn build
