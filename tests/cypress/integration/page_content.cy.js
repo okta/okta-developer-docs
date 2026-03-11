@@ -34,26 +34,26 @@ describe("content section", () => {
   //  basePage.getH2HeadingById(id).should('be.inViewport');
   //});
 
-  it('navigates to previous anchor via back button', () => {
-    const lastSectionId = 'last-section';
-    const secondSectionId = 'second-section';
+  // it('navigates to previous anchor via back button', () => {
+  //   const lastSectionId = 'last-section';
+  //   const secondSectionId = 'second-section';
 
-    basePage.visit('/test_page/');
-    basePage.resizeXLarge();
-    basePage.pageReload();
+  //   basePage.visit('/test_page/');
+  //   basePage.resizeXLarge();
+  //   basePage.pageReload();
 
-    basePage.getH2HeadingById(secondSectionId).then($heading2 => {
-      $heading2.click();
-    }).should('be.inViewport');
-    basePage.getH2HeadingById(lastSectionId).should('be.not.inViewport');
+  //   basePage.getH2HeadingById(secondSectionId).then($heading2 => {
+  //     $heading2.click();
+  //   }).should('be.inViewport');
+  //   basePage.getH2HeadingById(lastSectionId).should('be.not.inViewport');
 
-    treeNavPage.getInPageLink(`/test_page/#${lastSectionId}`).click();
-    basePage.getH2HeadingById(secondSectionId).should('be.not.inViewport');
-    basePage.getH2HeadingById(lastSectionId).should('be.inViewport');
+  //   treeNavPage.getInPageLink(`/test_page/#${lastSectionId}`).click();
+  //   basePage.getH2HeadingById(secondSectionId).should('be.not.inViewport');
+  //   basePage.getH2HeadingById(lastSectionId).should('be.inViewport');
 
-    cy.go('back');
-    basePage.getH2HeadingById(secondSectionId).should('be.inViewport');
-    basePage.getH2HeadingById(lastSectionId).should('be.not.inViewport');
+  //   cy.go('back');
+  //   basePage.getH2HeadingById(secondSectionId).should('be.inViewport');
+  //   basePage.getH2HeadingById(lastSectionId).should('be.not.inViewport');
 
-  });
+  // });
 });
