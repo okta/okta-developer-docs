@@ -22,7 +22,6 @@ title: Okta Identity Engine API release notes 2026
 | [Submit API service integrations](#submit-api-service-integrations) | March 4, 2026 |
 | [Admin Console Home page](#admin-console-home-page) | March 4, 2026 |
 | [New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview](#new-directories-integration-endpoints-to-view-extended-active-directory-group-attributes-is-ga-in-preview) | March 4, 2026 |
-| [Linux as a platform condition is GA in Production](#linux-as-a-platform-condition-is-ga-in-production) | Feb 4, 2026 |
 | [Grace period for device assurance is GA in Production is GA in Production](#grace-period-for-device-assurance-is-ga-in-production) | October 9, 2024 |
 | [Dynamic OS version compliance for device assurance is GA in Production](#dynamic-os-version-compliance-for-device-assurance-is-ga-in-production) | February 7, 2024 |
 | [Enable custom admin permissions for inline and event hooks is GA in Preview](#enable-custom-admin-permissions-for-inline-and-event-hooks-is-ga-in-preview) | December 10, 2025 |
@@ -53,17 +52,6 @@ The new Admin Console **Home** page for IFT orgs provides a faster way to start 
 
 New API endpoints have been added to the Directories Integration (`POST /api/v1/directories/{appInstanceId}/group/{groupId}/query` and `GET /api/v1/directories/{appInstanceId}/group/{groupId}/query/{resultId}`), which allows for the real-time retrieval of any standard or custom attribute from Active Directory (AD) groups. You can now programmatically access attributes, like cost centers and department codes, without waiting for a full directory sync. This feature allows you to accelerate automation by using live AD group metadata, while simultaneously eliminating manual data management by creating a single, reliable bridge between your on-premises directory details and your cloud ecosystem. See [Directories Integrations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/directoriesintegration).
 <!-- OKTA-1117092 AD_GROUP_READ_ATTRIBUTES preview date: March 4, 2026  -->
-
-#### Linux as a platform condition is GA in Production
-
-Okta now supports `LINUX` as a device platform condition in the following policy types and policy rules:
-* App sign-in policies (`ACCESS_POLICY` rules)
-* Okta account management policy rules (Rules for the Okta account management `ACCESS_POLICY`)
-* Identity provider routing rules (`IDP_DISCOVERY` rules)
-
-See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/conditions/platform/exclude/os/type&t=request).
-
-<!-- OKTA-1093354 LINUX_SUPPORT_FOR_POLICIES preview date: Feb 4, 2026  -->
 
 #### Grace period for device assurance is GA in Production
 
