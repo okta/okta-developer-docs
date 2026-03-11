@@ -72,7 +72,7 @@ jobs:
       - run:
           command: |
             npm install --save-dev netlify-cli@24.0.1
-            npx netlify deploy --no-build --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site
+            npx netlify deploy --no-build --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site --dir=packages/@okta/vuepress-site/dist
 
 workflows:
   wf_netlify_manual:
