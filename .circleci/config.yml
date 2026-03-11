@@ -149,6 +149,9 @@ jobs:
       - run:
           name: Install Netlify CLI
           command: |
+            nvm install 18
+            nvm use 18
+            node -v
             npm install netlify-cli@24.0.1 -g
       - run:
           name: Deploy preview to Netlify
