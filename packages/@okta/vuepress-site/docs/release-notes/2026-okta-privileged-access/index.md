@@ -22,7 +22,7 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 #### Enhanced filtering for end-user resource APIs
 
-You can now use the contains query parameter to filter results by name when listing Universal Directory service accounts, SaaS app instances, and SaaS app service accounts. See [List all accessible Universal Directory service accounts](https://developer.okta.com/docs/api/openapi/opa/opa/okta-universal-directory-accounts/listoktaudserviceaccountsenduser), [List the end user SaaS app instances](https://developer.okta.com/docs/api/openapi/opa/opa/saas-app-accounts/listsaasapplicationsaccessiblebyuser), and [Lists all end user SaaS app service accounts](https://developer.okta.com/docs/api/openapi/opa/opa/saas-app-accounts/listsaasapplicationserviceaccountsenduser).
+You can now use the contains query parameter to filter results by name when listing Universal Directory service accounts, SaaS app instances, and SaaS app service accounts. See [List all accessible Universal Directory service accounts](https://developer.okta.com/docs/api/openapi/opa/opa/okta-universal-directory-accounts/listoktaudserviceaccountsenduser), [List the end user SaaS app instances](https://developer.okta.com/docs/api/openapi/opa/opa/saas-app-accounts/listsaasapplicationsaccessiblebyuser), and [List all end user SaaS app service accounts](https://developer.okta.com/docs/api/openapi/opa/opa/saas-app-accounts/listsaasapplicationserviceaccountsenduser).
 <!-- OKTA-953339, FF: pam_saas_app_enduser_contains_filter -->
 
 ### Monthly release 2026.03.0
