@@ -11,6 +11,7 @@ if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
   exit 1
 fi
 
+
 echo "Installing dependencies..."
 curl -o- -L https://yarnpkg.com/install.sh | bash
 yarn -v
