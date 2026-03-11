@@ -11,15 +11,59 @@ if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
   exit 1
 fi
 
-echo "Installing dependencies..."
-yarn install
+########################################
+# Install NVM
+########################################
+echo "Installing NVM..."
 
+export NVM_DIR="$HOME/.nvm"
+
+if [ ! -d "$NVM_DIR" ]; then
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+fi
+
+# Load nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+########################################
+# Install Node
+########################################
+echo "Installing Node 16..."
+nvm install 16
+nvm use 16
+
+echo "Node version:"
+node -v
+echo "NPM version:"
+npm -v
+
+########################################
+# Install Yarn
+########################################
+echo "Installing Yarn..."
+npm install -g yarn
+
+########################################
+# Install project dependencies
+########################################
+echo "Installing dependencies..."
+yarn install --frozen-lockfile --ignore-platform
+
+########################################
+# Build site
+########################################
 echo "Building preview..."
 yarn build
 
+########################################
+# Install Netlify CLI
+########################################
 echo "Installing Netlify CLI..."
 npm install -g netlify-cli@17.23.5
 
+########################################
+# Deploy preview
+########################################
 echo "Deploying preview to Netlify..."
 
 if [ -n "$CIRCLE_PULL_REQUEST" ]; then
@@ -27,11 +71,12 @@ if [ -n "$CIRCLE_PULL_REQUEST" ]; then
   netlify deploy --alias="preview-${PR_NUMBER}" --filter @okta/vuepress-site
 else
   echo "No pull request detected. Deploying without PR alias."
-  netlify deploy --alias="preview-test-bacon" --filter @okta/vuepress-site
+  netlify deploy --filter @okta/vuepress-site
 fi
 
-echo "Logging preview link..."
-
+########################################
+# Log preview link
+########################################
 if [ -n "$CIRCLE_PULL_REQUEST" ]; then
   PR_NUMBER="${CIRCLE_PULL_REQUEST##*/}"
   echo "Preview link:"
