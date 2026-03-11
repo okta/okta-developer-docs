@@ -13,3 +13,10 @@ test_suites:
     timeout: '50'
     criteria: MERGE
     queue_name: small
+  - name: 'netlify-manual-2'
+    script_path: /root/okta/okta-developer-docs/scripts
+    script_name: netlify-manual-2
+    sort_order: '0'
+    timeout: '50'
+    criteria: MERGE
+    queue_name: small
