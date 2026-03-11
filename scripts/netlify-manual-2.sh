@@ -63,5 +63,5 @@ if [ -n "$CIRCLE_PULL_REQUEST" ]; then
 else
   echo "No pull request detected. Deploying without PR alias."
 
-  npx netlify-cli@17.23.5 deploy --alias="preview-test-bacon" --filter @okta/vuepress-site
+  npx netlify-cli@17.23.5 deploy --alias="preview-test-bacon" --dir=packages/@okta/vuepress-site/dist
 fi
