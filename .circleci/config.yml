@@ -159,7 +159,7 @@ jobs:
             echo "Installing Netlify CLI globally with npm"
             npm install netlify-cli@24.0.1 -g 
             echo "Installing Netlify CLI globally with npm after"
-            netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site --no-build
+            netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site --no-build --debug
       # - run:
       #     name: Deploy preview to Netlify
       #     command: |
