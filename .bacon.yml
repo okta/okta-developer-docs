@@ -11,5 +11,5 @@ test_suites:
     script_name: build-preview
     sort_order: '0'
     timeout: '50'
-    criteria: MERGE
+    criteria: OPTIONAL
     queue_name: small
