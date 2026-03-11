@@ -150,10 +150,13 @@ jobs:
           name: Install Netlify CLI
           command: |
             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
             nvm install 18
             nvm use 18
             node -v
-            npm install netlify-cli@24.0.1 -g
+            npm install -g netlify-cli@24.0.1
       - run:
           name: Deploy preview to Netlify
           command: |
