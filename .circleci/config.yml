@@ -149,6 +149,7 @@ jobs:
       - run:
           name: Install Netlify CLI
           command: |
+            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
             nvm install 18
             nvm use 18
             node -v
