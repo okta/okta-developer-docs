@@ -190,7 +190,7 @@ jobs:
       - run:
           name: Deploy preview to Netlify
           command: |
-            netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site
+            netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site --debug --skip-functions-cache
       - run:
           name: Log preview link
           command: |
