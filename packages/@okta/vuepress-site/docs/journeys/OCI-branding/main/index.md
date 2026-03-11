@@ -80,7 +80,7 @@ The Okta default UI spans user registration, enrollment, verification, and accou
 * Test that your new branding is consistent for your users across all four actions.
 * Test that your error pages work as expected.
 * Test that your text works in different languages as expected.
-<!-- * [Copy/Synchronize your settings from UAT to Production (using the Admin Console or Terraform)](/docs/guides/migrate-customizations/). -->
+* [Copy/Synchronize your settings from UAT to Production](/docs/guides/migrate-customizations/).
 
 ## Related topics
 
