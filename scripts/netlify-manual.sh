@@ -53,7 +53,10 @@ yarn install --frozen-lockfile --ignore-platform
 # Build site
 ########################################
 echo "Building preview..."
-yarn build
+# yarn build
+
+nvm install 18
+nvm use 18
 
 ########################################
 # Install Netlify CLI
@@ -71,7 +74,7 @@ if [ -n "$CIRCLE_PULL_REQUEST" ]; then
   netlify deploy --alias="preview-${PR_NUMBER}" --filter @okta/vuepress-site
 else
   echo "No pull request detected. Deploying without PR alias."
-  netlify deploy --filter @okta/vuepress-site
+  netlify deploy --alias="preview-test-bacon" --filter @okta/vuepress-site
 fi
 
 ########################################
