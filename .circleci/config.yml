@@ -156,7 +156,9 @@ jobs:
             nvm install 20
             nvm use 20
             node -v
-            npm install -g netlify-cli@24.0.1
+            echo "Installing Netlify CLI globally with npm"
+            npm install netlify-cli@24.0.1 -g 
+            echo "Installing Netlify CLI globally with npm after"
       - run:
           name: Deploy preview to Netlify
           command: |
