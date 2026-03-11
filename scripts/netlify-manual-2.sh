@@ -46,7 +46,7 @@ npm install -g yarn
 yarn install --frozen-lockfile --ignore-platform
 
 echo "Building preview..."
-# yarn build
+yarn build
 
 echo "Deploying preview to Netlify..."
 
