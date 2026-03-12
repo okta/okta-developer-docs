@@ -57,7 +57,7 @@ You can set up federation and push user and group information from a spoke org t
 1. In the hub org, [create an IdP](#create-an-idp-in-the-hub-org) to configure federation between orgs. This configuration enables your spoke users to access resources on the hub. You can set up an OIDC IdP (Okta IdP) or a SAML 2.0 IdP.
 1. In each spoke org, [add an instance of the Org2Org app integration](#add-an-org2org-app-integration-in-a-spoke-org).
 1. In the hub org, [create an OAuth 2.0 service app](#create-an-oauth-2-0-service-app-in-the-hub-org) for each spoke org with the corresponding Org2Org app JWKS public key URL. For each hub-org service app (the OAuth 2.0 client), [assign admin roles](#assign-admin-roles-to-the-oauth-2-0-service-app) and [grant allowed scopes](#grant-allowed-scopes-to-the-oauth-2-0-client).
-1. For each hub-org service app (the OAuth 2.0 client), [enable demonstrating proof-of-possession (DPoP) for the OAuth 2.0 client](#enable-demonstrating-proof-of-possession-dpop-for-the-oauth-20-client). See also [Configure OAuth 2.0 Demonstrating Proof-of-Possession](/docs/guides/dpop/nonoktaresourceserver/main/).
+1. For each hub-org service app (the OAuth 2.0 client), [enable demonstrating proof-of-possession (DPoP) for the OAuth 2.0 client](#enable-demonstrating-proof-of-possession-dpop-for-the-oauth-2-0-client). See also [Configure OAuth 2.0 Demonstrating Proof-of-Possession](/docs/guides/dpop/nonoktaresourceserver/main/).
 1. In each spoke org, [set and activate provisioning in the Org2Org app](#enable-provisioning-in-the-org2org-app) from the Okta API.
 1. In each spoke org, [assign users and groups in the spoke Org2Org app](#assign-users-and-groups-in-the-org2org-app) to synchronize with the hub org.
 
@@ -71,7 +71,7 @@ You need an access token for API requests to each Okta org. After you have API a
 
 ### Create an IdP in the hub org
 
-In the hub org, create an IdP to configure federation between your spoke and hub orgs. Add an OIDC Okta Integration IdP by using the [Create an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) request with the following body parameters. This call creates the IdP in the hub org.
+In the hub org, create an IdP to configure federation between your spoke and hub orgs. Add an OIDC Okta Integration IdP by using the [Create an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) request with the following body parameters.
 
 From the response of the POST request, use the `id` property of the IdP instance in the next step for your `idpId`.
 
@@ -198,7 +198,7 @@ Use the following request body parameters to define your OIDC Okta Integration I
 | `protocol.credentials.client.token_endpoint_auth_method`  |  `private_key_jwt` |
 | `protocol.credentials.client.client_id`  |  Add a placeholder value for the Org2Org ID, which you create in the next step. Update this value using the procedure [Update the IdP in the hub org](#update-the-idp-in-the-hub-org). |
 
->**Note:** OIDC federation has a known limitation in Classic Okta orgs when using Org2Org applications. When a user logs into a Service Provider (SP) application or the Okta dashboard through an OIDC-based Org2Org app from the Identity Provider (IDP) org, the MFA challenge configured in the SP org is not enforced.
+>**Note:** OIDC federation has a known limitation in Classic Okta orgs when using Org2Org apps. When a user logs into a Service Provider (SP) app or the Okta dashboard through an OIDC-based Org2Org app from the Identity Provider (IDP) org, the MFA challenge configured in the SP org isn’t enforced.
 
 ##### Request example
 
@@ -261,15 +261,15 @@ You use the spoke org to push users and groups to the central hub org. In the sp
 
 > **Note:** You can't use an Integrator Free Plan org as a spoke org since the Okta Org2Org app integration isn't available. If you need to test this feature in your Integrator Free Plan org, contact your Okta account team.
 
-As an Okta admin, make a `POST /api/v1/apps` request to the spoke org with [Okta Org2Org request parameters](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/schema/Org2OrgApplication):
+Make a `POST /api/v1/apps` request to the spoke org with [Okta Org2Org request parameters](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/schema/Org2OrgApplication):
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
-| `name`  |  `okta_org2org` |
-| `label`  |  Specify a label for this Org2Org app integration |
+| `name`  |  The key name for the OIN app definition: `okta_org2org` |
+| `label`  |  Specify a user-defined name for this Org2Org app integration |
 | `baseUrl`  |  Specify the base URL of your hub org |
 | `idpId`  |  Specify the IdP ID of your hub org from the previous procedure |
-| `signOnMode`  |  You can set this parameter to any valid value. In this example, use `OPENID_CONNECT` for the signOnMode|
+| `signOnMode`  |  You can set this parameter to any valid value. In this example, set `signOnMode` to `OPENID_CONNECT`|
 
 ##### Request example
 
@@ -280,7 +280,7 @@ curl -v -X POST \
 -H "Authorization: Bearer {yourSpokeAccessToken}" \
 -d '{
   "name": "okta_org2org",
-  "label": "'{spokeOrg2OrgClientLabel}'",
+  "label": "{spokeOrg2OrgAppName}",
   "signOnMode": "OPENID_CONNECT",
   "settings": {
     "app": {
@@ -295,13 +295,13 @@ From the response of the POST request, use the `id` property of the Org2Org app 
 
 ### Update the IdP in the hub org
 
-In the hub org, update your IdP with the response values from the create an Org2Org app request from the previous procedure. Use the [Replace an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/replaceIdentityProvider) request with the following updated parameter:
+In the hub org, update your IdP with the response values from the Create an Org2Org app request from the previous procedure. Use the [Replace an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/replaceIdentityProvider) request with the following updated parameter:
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
 | `protocol.credentials.client.client_id`  |  The `client_id` of the Org2Org app |
 
-Use the `id` property from the IdP instance you created previously for the `{dpId}` in the endpoint.
+Use the `id` property from the IdP instance that you created previously for the `{idpId}` in the endpoint.
 
 ##### Request example
 
@@ -311,8 +311,8 @@ curl -v -X PUT \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer {yourHubAccessToken}" \
 -d '{
-  "type": "OIDC",
-  "name": "OIDC IdP via API",
+  "type": "OKTA_INTEGRATION",
+  "name": "Example API Okta Integration IdP",
   "protocol": {
     "oktaIdpOrgUrl": "https://{your-spoke-org}.com/",
     "type": "OIDC",
@@ -355,7 +355,7 @@ curl -X POST \
   -H "Authorization: Bearer {yourHubAccessToken}" \
   -H 'Content-Type: application/json' \
   -d '{
-    "client_name": "'{hubServiceClientLabel}'",
+    "client_name": "{hubServiceClientLabel}",
     "response_types": [
       "token"
     ],
@@ -374,12 +374,21 @@ curl -X POST \
 
 Assign admin roles for every OAuth 2.0 service app that you create in the hub org. Service apps with assigned admin roles are constrained to the permissions and resources that are included in the role. This improves security for an org since it ensures that service apps only have access to the resources that are needed to perform their tasks.
 
-You can assign a [standard admin role](https://help.okta.com/okta_help.htm?type=oie&id=ext-administrators-admin-comparison) or a [custom admin role](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-creating-custom-admin-roles) with permissions to specific resource sets.
+You can assign a [standard admin role](https://help.okta.com/okta_help.htm?type=oie&id=ext-administrators-admin-comparison) or a [custom admin role](https://help.okta.com/okta_help.htm?type=oie&id=csh-best-practice-cstm-admin-roles) with permissions to specific resource sets.
 
-For the OAuth 2.0 Org2Org provisioning connection, Okta recommends that you assign the following [standard admin roles](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles):
+For the basic OAuth 2.0 Org2Org provisioning connection, you can assign the following [standard admin roles](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles#standard-roles) to manage the provisioning of users:
 
 * `USER_ADMIN` (Group administrator)
 * `GROUP_MEMBERSHIP_ADMIN` (Group membership administrator)
+
+Or you can create a custom role to manage provisioning. For example, to create a custom role:
+
+* Create a resource set that includes the Users and Groups resources. See [Create a resource set](https://help.okta.com/okta_help.htm?type=oie&id=csh-create-resource-set).
+* Create the custom role including the appropriate permissions (for example, **Manage users** and **Manage groups**). See [Create a role](https://help.okta.com/okta_help.htm?type=oie&id=csh-create-role).
+
+See also [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles).
+
+> **Note:** If you want Org2Org to manage Group Push to the target org, ensure that your standard or custom role can create groups.
 
 You can use the Admin Console to assign an admin role to your service app. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps) and go to the **Admin roles** tab from your app integration details. Alternatively, you can assign the admin role to your service app with the [Assign a client role](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleAssignmentClient/#tag/RoleAssignmentClient/operation/assignRoleToClient) API:
 
@@ -388,7 +397,7 @@ Make a `POST /oauth2/v1/clients/{yourServiceAppId}/roles` request to the hub org
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
 | `yourServiceAppId`  |  Specify the `client_id` value from the previous response when the service app was created. In the following role assignment example, the `{yourServiceAppId}` variable name is used for the `client_id`.|
-| `type`  |  Specify the admin role to assign to the service app. Use the recommended standard admin roles (`USER_ADMIN`, `GROUP_MEMBERSHIP_ADMIN`)|
+| `type`  |  Specify the admin role to assign to the service app. Use the recommended standard admin roles (`USER_ADMIN`, `GROUP_MEMBERSHIP_ADMIN`) |
 
 > **Note:** Only Okta [super admins](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin) can assign roles.
 
@@ -404,7 +413,7 @@ Make a `POST /oauth2/v1/clients/{yourServiceAppId}/roles` request to the hub org
   }' "https://{yourHubOrgDomain}/oauth2/v1/clients/{yourServiceAppId}/roles"
  ```
 
-> **Note:** The admin roles determine which resources the admin can perform the actions on (such as a specific group of users or a specific set of apps). Scopes determine the action that the admin can perform (such as manage users, read apps). Therefore, the admin roles need to have enough permissions for the scopes provided.
+> **Note:** The admin roles determine which resources the admin can perform actions on (such as a specific group of users or a specific set of apps). Scopes determine the action that the admin can perform (such as manage users, read apps). Therefore, the admin roles need to have enough permissions for the scopes provided.
 
 ### Grant allowed scopes to the OAuth 2.0 client
 
@@ -421,7 +430,7 @@ curl -X POST \
   -H 'Content-Type: application/json' \
   -d ' {
     "scopeId": "okta.users.manage",
-    "issuer": "https://'{yourHubOrgDomain}'"
+    "issuer": "https://{yourHubOrgDomain}"
 }' "https://{yourHubOrgDomain}/api/v1/apps/{yourServiceAppId}/grants"
 ```
 
@@ -432,13 +441,15 @@ curl -X POST \
   -H 'Content-Type: application/json' \
   -d ' {
     "scopeId": "okta.groups.manage",
-    "issuer": "https://'{yourHubOrgDomain}'"
+    "issuer": "https://{yourHubOrgDomain}"
 }' "https://{yourHubOrgDomain}/api/v1/apps/{yourServiceAppId}/grants"
 ```
 
 ### Enable demonstrating proof-of-possession (DPoP) for the OAuth 2.0 client
 
-Enable demonstrating proof-of-possession for the hub org OAuth 2.0 client. Make a [PUT request](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication) to the hub org to set the `dpop_bound_access_token` parameter to `true`. For the body of the PUT call, make a GET request to retrieve the hub org app parameters. All system-assigned properties are ignored in the PUT call.
+Enable demonstrating proof-of-possession for the hub org OAuth 2.0 client. Make a GET request to retrieve the hub org app parameters and use the response body for the following PUT call. All system-assigned properties are ignored in the PUT call.
+
+Using the body from the previous GET call, make a [PUT request](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication) to the hub org setting the `dpop_bound_access_token` parameter to `true`.
 
 ##### Request example
 
@@ -484,7 +495,7 @@ curl -X POST \
   -d ' {
     "profile": {
       "authScheme": "OAUTH2",
-      "clientId": "'{yourHubOrgServiceAppId}'",
+      "clientId": "{yourHubOrgServiceAppId}",
       "signing": {
         "rotationMode": "AUTO"
       }
@@ -563,11 +574,11 @@ The following response indicates an API Token authentication scheme configuratio
 
 ### Create a new OAuth 2.0 service app in the hub org
 
-Create a new OAuth 2.0 service app in the hub org following the same steps in [Create an OAuth 2.0 service app](#create-an-oauth-20-service-app-in-the-hub-org). Ensure you [assign the appropriate roles](#assign-admin-roles-to-the-oauth-20-service-app), [grant scopes](#grant-allowed-scopes-to-the-oauth-20-client), and [enable DPoP](#enable-demonstrating-proof-of-possession-dpop-for-the-oauth-20-client).
+Create a new OAuth 2.0 service app in the hub org following the same steps in [Create an OAuth 2.0 service app](#create-an-oauth-2-0-service-app-in-the-hub-org). Ensure you [assign the appropriate roles](#assign-admin-roles-to-the-oauth-2-0-service-app), [grant scopes](#grant-allowed-scopes-to-the-oauth-2-0-client), and [enable DPoP](#enable-demonstrating-proof-of-possession-dpop-for-the-oauth-2-0-client).
 
 ### Update the Org2Org app to use OAuth 2.0 provisioning
 
-Make a call to the [Update the default provisioning connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication) endpoint with a request body that includes the OAuth 2.0 scheme, as in  [enable provisioning in the Org2Org app](#enable-provisioning-in-the-org2org-app).
+Make a call to the [Update the default provisioning connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication) endpoint with a request body that includes the OAuth 2.0 scheme, as in [enable provisioning in the Org2Org app](#enable-provisioning-in-the-org2org-app).
 
 ##### Request example
 
@@ -579,7 +590,7 @@ curl -X POST \
   -d ' {
     "profile": {
       "authScheme": "OAUTH2",
-      "clientId": "'{yourHubOrgServiceAppId}'",
+      "clientId": "{yourHubOrgServiceAppId}",
       "signing": {
         "rotationMode": "AUTO"
       }
@@ -625,11 +636,11 @@ curl -X POST \
 
 ## Key rotation
 
-An advantage to using the OAuth 2.0 connection is that you can have automatic [key rotation](/docs/concepts/key-rotation) to adhere to cryptographic best practices. Use the steps in the following section if you're using manual key rotation.
+OAuth 2.0 connections support automatic [key rotation](/docs/concepts/key-rotation) to adhere to cryptographic best practices. Use the steps in the following section if you're using manual key rotation.
 
 ### Manual key rotation
 
-You can rotate keys manually for a specific OAuth 2.0 connection by following these API steps:
+To rotate keys manually for a specific OAuth 2.0 connection, follow these API steps:
 
 1. [Generate a new key for the Org2Org app](#generate-a-new-key-for-the-org2org-app).
 2. [Register the new key with the corresponding service app](#register-the-new-org2org-app-key-with-the-corresponding-service-app).
@@ -687,7 +698,7 @@ curl -X PUT \
   -H 'Content-Type: application/json' \
   -d ' {
     "client_id": "'{yourServiceAppId}'",
-    "client_name": "'{hubServiceClientLabel}'",
+    "client_name": "{hubServiceClientLabel}",
     "response_types": [
       "token"
     ],
@@ -729,7 +740,7 @@ curl -X PUT \
   -H 'Content-Type: application/json' \
   -d ' {
     "name": "okta_org2org",
-    "label": "'{spokeOrg2OrgClientLabel}'",
+    "label": "{spokeOrg2OrgClientLabel}",
     "credentials": {
         "signing": {
             "kid": "sf-jWwRKMUU5588aokhj-xu_mGucHLxIh_-fYLAofB8"
