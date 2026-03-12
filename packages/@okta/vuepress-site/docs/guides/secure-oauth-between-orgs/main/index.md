@@ -265,11 +265,11 @@ As an Okta admin, make a `POST /api/v1/apps` request to the spoke org with [Okta
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
-| `name`  |  `okta_org2org` |
-| `label`  |  Specify a label for this Org2Org app integration |
+| `name`  |  The key name for the OIN app definition: `okta_org2org` |
+| `label`  |  Specify a user-defined name for this Org2Org app integration |
 | `baseUrl`  |  Specify the base URL of your hub org |
 | `idpId`  |  Specify the IdP ID of your hub org from the previous procedure |
-| `signOnMode`  |  You can set this parameter to any valid value. In this example, use `OPENID_CONNECT` for the signOnMode|
+| `signOnMode`  |  You can set this parameter to any valid value. In this example, use `OPENID_CONNECT` for the `signOnMode`|
 
 ##### Request example
 
@@ -280,7 +280,7 @@ curl -v -X POST \
 -H "Authorization: Bearer {yourSpokeAccessToken}" \
 -d '{
   "name": "okta_org2org",
-  "label": "'{spokeOrg2OrgClientLabel}'",
+  "label": "{spokeOrg2OrgAppName}",
   "signOnMode": "OPENID_CONNECT",
   "settings": {
     "app": {
@@ -311,8 +311,8 @@ curl -v -X PUT \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer {yourHubAccessToken}" \
 -d '{
-  "type": "OIDC",
-  "name": "OIDC IdP via API",
+  "type": "OKTA_INTEGRATION",
+  "name": "Example API Okta Integration IdP",
   "protocol": {
     "oktaIdpOrgUrl": "https://{your-spoke-org}.com/",
     "type": "OIDC",
@@ -355,7 +355,7 @@ curl -X POST \
   -H "Authorization: Bearer {yourHubAccessToken}" \
   -H 'Content-Type: application/json' \
   -d '{
-    "client_name": "'{hubServiceClientLabel}'",
+    "client_name": "{hubServiceClientLabel}",
     "response_types": [
       "token"
     ],
@@ -430,7 +430,7 @@ curl -X POST \
   -H 'Content-Type: application/json' \
   -d ' {
     "scopeId": "okta.users.manage",
-    "issuer": "https://'{yourHubOrgDomain}'"
+    "issuer": "https://{yourHubOrgDomain}"
 }' "https://{yourHubOrgDomain}/api/v1/apps/{yourServiceAppId}/grants"
 ```
 
@@ -441,13 +441,15 @@ curl -X POST \
   -H 'Content-Type: application/json' \
   -d ' {
     "scopeId": "okta.groups.manage",
-    "issuer": "https://'{yourHubOrgDomain}'"
+    "issuer": "https://{yourHubOrgDomain}"
 }' "https://{yourHubOrgDomain}/api/v1/apps/{yourServiceAppId}/grants"
 ```
 
 ### Enable demonstrating proof-of-possession (DPoP) for the OAuth 2.0 client
 
-Enable demonstrating proof-of-possession for the hub org OAuth 2.0 client. Make a [PUT request](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication) to the hub org to set the `dpop_bound_access_token` parameter to `true`. For the body of the PUT call, make a GET request to retrieve the hub org app parameters. All system-assigned properties are ignored in the PUT call.
+Enable demonstrating proof-of-possession for the hub org OAuth 2.0 client. Make a GET request to retrieve the hub org app parameters and use the response body for the following PUT call. All system-assigned properties are ignored in the PUT call.
+
+Using the body from the previous GET call, make a [PUT request](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication) to the hub org setting the `dpop_bound_access_token` parameter to `true`.
 
 ##### Request example
 
@@ -493,7 +495,7 @@ curl -X POST \
   -d ' {
     "profile": {
       "authScheme": "OAUTH2",
-      "clientId": "'{yourHubOrgServiceAppId}'",
+      "clientId": "{yourHubOrgServiceAppId}",
       "signing": {
         "rotationMode": "AUTO"
       }
@@ -588,7 +590,7 @@ curl -X POST \
   -d ' {
     "profile": {
       "authScheme": "OAUTH2",
-      "clientId": "'{yourHubOrgServiceAppId}'",
+      "clientId": "{yourHubOrgServiceAppId}",
       "signing": {
         "rotationMode": "AUTO"
       }
@@ -696,7 +698,7 @@ curl -X PUT \
   -H 'Content-Type: application/json' \
   -d ' {
     "client_id": "'{yourServiceAppId}'",
-    "client_name": "'{hubServiceClientLabel}'",
+    "client_name": "{hubServiceClientLabel}",
     "response_types": [
       "token"
     ],
@@ -738,7 +740,7 @@ curl -X PUT \
   -H 'Content-Type: application/json' \
   -d ' {
     "name": "okta_org2org",
-    "label": "'{spokeOrg2OrgClientLabel}'",
+    "label": "{spokeOrg2OrgClientLabel}",
     "credentials": {
         "signing": {
             "kid": "sf-jWwRKMUU5588aokhj-xu_mGucHLxIh_-fYLAofB8"
