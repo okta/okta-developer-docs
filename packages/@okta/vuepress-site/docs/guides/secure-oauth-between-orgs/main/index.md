@@ -301,7 +301,7 @@ In the hub org, update your IdP with the response values from the create an Org2
 | --------- |  ------------- |
 | `protocol.credentials.client.client_id`  |  The `client_id` of the Org2Org app |
 
-Use the `id` property from the IdP instance you created previously for the `{dpId}` in the endpoint.
+Use the `id` property from the IdP instance you created previously for the `{idpId}` in the endpoint.
 
 ##### Request example
 
@@ -374,12 +374,21 @@ curl -X POST \
 
 Assign admin roles for every OAuth 2.0 service app that you create in the hub org. Service apps with assigned admin roles are constrained to the permissions and resources that are included in the role. This improves security for an org since it ensures that service apps only have access to the resources that are needed to perform their tasks.
 
-You can assign a [standard admin role](https://help.okta.com/okta_help.htm?type=oie&id=ext-administrators-admin-comparison) or a [custom admin role](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-creating-custom-admin-roles) with permissions to specific resource sets.
+You can assign a [standard admin role](https://help.okta.com/okta_help.htm?type=oie&id=ext-administrators-admin-comparison) or a [custom admin role](https://help.okta.com/okta_help.htm?type=oie&id=csh-best-practice-cstm-admin-roles) with permissions to specific resource sets.
 
-For the OAuth 2.0 Org2Org provisioning connection, Okta recommends that you assign the following [standard admin roles](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles):
+For the basic OAuth 2.0 Org2Org provisioning connection, you can assign the following [standard admin roles](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles#standard-roles) to manage the provisioning of users:
 
 * `USER_ADMIN` (Group administrator)
 * `GROUP_MEMBERSHIP_ADMIN` (Group membership administrator)
+
+Or you can create a custom role to manage group push (with permissions to create a group) in the target org:
+
+For example, to create a custom role:
+
+* Create a resource set that includes the Users and Groups resources. See [Create a resource set](https://help.okta.com/okta_help.htm?type=oie&id=csh-create-resource-set).
+* Create the custom role including the appropriate permissions (for example, **Manage users** and **Manage groups**). See [Create a role](https://help.okta.com/okta_help.htm?type=oie&id=csh-create-role).
+
+See also [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles).
 
 You can use the Admin Console to assign an admin role to your service app. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps) and go to the **Admin roles** tab from your app integration details. Alternatively, you can assign the admin role to your service app with the [Assign a client role](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleAssignmentClient/#tag/RoleAssignmentClient/operation/assignRoleToClient) API:
 
