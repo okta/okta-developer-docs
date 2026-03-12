@@ -57,7 +57,7 @@ You can set up federation and push user and group information from a spoke org t
 1. In the hub org, [create an IdP](#create-an-idp-in-the-hub-org) to configure federation between orgs. This configuration enables your spoke users to access resources on the hub. You can set up an OIDC IdP (Okta IdP) or a SAML 2.0 IdP.
 1. In each spoke org, [add an instance of the Org2Org app integration](#add-an-org2org-app-integration-in-a-spoke-org).
 1. In the hub org, [create an OAuth 2.0 service app](#create-an-oauth-2-0-service-app-in-the-hub-org) for each spoke org with the corresponding Org2Org app JWKS public key URL. For each hub-org service app (the OAuth 2.0 client), [assign admin roles](#assign-admin-roles-to-the-oauth-2-0-service-app) and [grant allowed scopes](#grant-allowed-scopes-to-the-oauth-2-0-client).
-1. For each hub-org service app (the OAuth 2.0 client), [enable demonstrating proof-of-possession (DPoP) for the OAuth 2.0 client](#enable-demonstrating-proof-of-possession-dpop-for-the-oauth-20-client). See also [Configure OAuth 2.0 Demonstrating Proof-of-Possession](/docs/guides/dpop/nonoktaresourceserver/main/).
+1. For each hub-org service app (the OAuth 2.0 client), [enable demonstrating proof-of-possession (DPoP) for the OAuth 2.0 client](#enable-demonstrating-proof-of-possession-dpop-for-the-oauth-2-0-client). See also [Configure OAuth 2.0 Demonstrating Proof-of-Possession](/docs/guides/dpop/nonoktaresourceserver/main/).
 1. In each spoke org, [set and activate provisioning in the Org2Org app](#enable-provisioning-in-the-org2org-app) from the Okta API.
 1. In each spoke org, [assign users and groups in the spoke Org2Org app](#assign-users-and-groups-in-the-org2org-app) to synchronize with the hub org.
 
@@ -397,7 +397,7 @@ Make a `POST /oauth2/v1/clients/{yourServiceAppId}/roles` request to the hub org
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
 | `yourServiceAppId`  |  Specify the `client_id` value from the previous response when the service app was created. In the following role assignment example, the `{yourServiceAppId}` variable name is used for the `client_id`.|
-| `type`  |  Specify the admin role to assign to the service app. Use the recommended standard admin roles (`USER_ADMIN`, `GROUP_MEMBERSHIP_ADMIN`)|
+| `type`  |  Specify the admin role to assign to the service app. Use the recommended standard admin roles (`USER_ADMIN`, `GROUP_MEMBERSHIP_ADMIN`) |
 
 > **Note:** Only Okta [super admins](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin) can assign roles.
 
@@ -572,7 +572,7 @@ The following response indicates an API Token authentication scheme configuratio
 
 ### Create a new OAuth 2.0 service app in the hub org
 
-Create a new OAuth 2.0 service app in the hub org following the same steps in [Create an OAuth 2.0 service app](#create-an-oauth-20-service-app-in-the-hub-org). Ensure you [assign the appropriate roles](#assign-admin-roles-to-the-oauth-20-service-app), [grant scopes](#grant-allowed-scopes-to-the-oauth-20-client), and [enable DPoP](#enable-demonstrating-proof-of-possession-dpop-for-the-oauth-20-client).
+Create a new OAuth 2.0 service app in the hub org following the same steps in [Create an OAuth 2.0 service app](#create-an-oauth-2-0-service-app-in-the-hub-org). Ensure you [assign the appropriate roles](#assign-admin-roles-to-the-oauth-2-0-service-app), [grant scopes](#grant-allowed-scopes-to-the-oauth-2-0-client), and [enable DPoP](#enable-demonstrating-proof-of-possession-dpop-for-the-oauth-2-0-client).
 
 ### Update the Org2Org app to use OAuth 2.0 provisioning
 
