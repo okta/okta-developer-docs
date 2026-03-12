@@ -133,6 +133,7 @@ guides:
  - terraform-design-rate-limits
  - terraform-enable-org-access
  - terraform-import-existing-resources
+ - terraform-migrate-consolidated-app-sign-on-policy-rules
  - terraform-landing-page
  - terraform-manage-end-user-experience
  - terraform-manage-external-authenticators
