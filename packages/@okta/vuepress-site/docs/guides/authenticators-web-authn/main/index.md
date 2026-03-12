@@ -1,17 +1,19 @@
 ---
 title: Web Authentication integration guide
+excerpt: Learn how to integrate Web Authentication (WebAuthn) into your app using the embedded SDK.
+layout: Guides
 ---
 
 <ApiLifecycle access="ie" /><br>
 
-This guide shows you how to integrate Web Authentication (WebAuthn) into your app using the embedded SDK.
+Enable phishing-resistant, passwordless authentication in your app using the embedded SDK to integrate WebAuthn for sign-in flows with passkeys, security keys, or biometrics.
 
-> <ApiLifecycle access="ea" />
 > **Note:** When the **Passkeys Rebrand** self-service Early Access feature is enabled, the FIDO2 (WebAuthn) authenticator is called Passkeys (FIDO2 WebAuthn), and there are new settings and updates to the authenticator page layout.
 >
 > See [Configure the FIDO2 (WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn) and [`settings`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod!path=8/settings&t=request). To enable the **Passkeys Rebrand** feature, see [Enable self-service features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 
 ---
+
 #### Learning outcomes
 
 * Understand the WebAuthn flow
@@ -123,15 +125,15 @@ Create a policy specifically for your app for testing purposes.
 11. Click **Close**.
 12. Verify that the app is now listed in the **Applications** tab of the new policy.
 
-## Software versions
-
 <StackSnippet snippet="softwareversions" />
 
 ## Integrate SDK for authenticator enrollment
 
+Integrate the embedded SDK to enroll a user with a WebAuthn authenticator, such as a security key or biometric. This flow typically starts after a primary authentication method, like a password, when the SDK signals that enrollment is required. Your app then uses a challenge from Okta to call the browser's `navigator.credentials.create()` method. After the user creates the new passkey, it's sent back to Okta to complete the enrollment process.
+
 ### Summary of steps
 
-The following summarizes the WebAuthn enrollment flow using a user sign-in use case.
+The following example illustrates the WebAuthn enrollment flow that occurs when a user signs in.
 
 <StackSnippet snippet="enrollmentintegrationsummary" />
 
@@ -139,9 +141,11 @@ The following summarizes the WebAuthn enrollment flow using a user sign-in use c
 
 ## Integrate SDK for authenticator challenge
 
+Use the authenticator challenge flow to verify a user with their previously enrolled passkey or security key. This process confirms possession of an existing credential for a secure sign-in flow, using the SDK to orchestrate a `navigator.credentials.get()` request and validate the cryptographic response from the authenticator.
+
 ### Summary of steps
 
-The following summarizes the WebAuthn challenge flow using a user sign-in use case.
+The following example illustrates the WebAuthn enrollment flow that occurs when a user signs in.
 
 <StackSnippet snippet="challengeintegrationsummary" />
 

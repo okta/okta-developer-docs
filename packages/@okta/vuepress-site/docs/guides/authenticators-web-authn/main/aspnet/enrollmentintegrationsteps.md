@@ -1,4 +1,4 @@
-### 1: Build a sign-in page on the client
+### Build a sign-in page on the client
 
 Build a sign-in page that captures the user’s name and password, as shown in the following example.
 
@@ -8,7 +8,7 @@ Build a sign-in page that captures the user’s name and password, as shown in t
 
 </div>
 
-### 2: Authenticate the user credentials
+### Authenticate the user credentials
 
 After a user initiates the sign-on flow by entering their username and password and then clicks **Log In**, create an `AuthenticationOptions` object in your `LogIn` method. Then, set the object's `Username` and `Password` properties to the values set by the user. Pass this object as a parameter to the `AuthenticateAsync` method on the `IdxClient`.
 
@@ -24,7 +24,7 @@ try
     var authnResponse = await _idxClient.AuthenticateAsync(authnOptions).ConfigureAwait(false);
 ```
 
-### 3: Handle the response from the sign-in flow
+### Handle the response from the sign-in flow
 
 Query the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `AuthenticateAsync` to discover the current status of the authentication process.
 
@@ -69,7 +69,7 @@ catch (OktaException exception)
 }
 ```
 
-### 4: Display a list of possible authenticator factors
+### Display a list of possible authenticator factors
 
 Build a page to display the list of authenticators (including a WebAuthn option). For example, in the sample application, a new `SelectAuthenticatorViewModel` is populated from the `Authenticators` collection returned by the `AuthenticationResponse`.
 
@@ -147,7 +147,7 @@ The WebAuthn factor option is listed as **Security Key or Biometric**, as shown 
 
 </div>
 
-### 5: Retrieve encrypted challenge and user information
+### Retrieve encrypted challenge and user information
 
 When the user selects the WebAuthn authenticator factor and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in challenge flow or enrollment flow.
 
@@ -195,7 +195,7 @@ switch (enrollResponse?.AuthenticationStatus)
 }
 ```
 
-### 6: Enroll authenticator through the browser
+### Enroll authenticator through the browser
 
 Build a page with the challenge and user information from the website's backend servers and then call `navigator.credentials.create` to raise the prompt to enter a security key, validate with Windows Hello, Touch ID, or other WebAuthn Authenticator. For example, in the sample application, a new `EnrollWebAuthnViewModel` is populated from the `currentAuthenticator` object returned by the `enrollResponse` in the previous step.
 
@@ -271,7 +271,7 @@ After the authenticator validates the user, it returns an `attestationObject` th
         };
 ```
 
-### 7. Send verification credentials to Okta server
+### Send verification credentials to Okta server
 
 Send the verifying credentials back to the Okta server to finish enrolling the WebAuthn authenticator for the user. Okta decrypts the challenge using the user's public key and stores the user's credentials and public key.
 

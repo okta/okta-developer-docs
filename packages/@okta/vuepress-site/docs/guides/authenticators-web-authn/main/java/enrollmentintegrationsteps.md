@@ -1,4 +1,4 @@
-### 1: Start enrollment flow
+### Start enrollment flow
 
 Start the challenge flow with calls to `IDXAuthenticationWrapper.begin()` and `AuthenticationResponse.getProceedContext()`. Then send username and password to the Okta server with `IDXAuthenticationWrapper.authenticate()`.
 
@@ -11,7 +11,7 @@ authenticationResponse = idxAuthenticationWrapper.authenticate(
     new AuthenticationOptions(username, password.toCharArray()), proceedContext);
 ```
 
-### 2: Display WebAuthn option
+### Display WebAuthn option
 
 If you configure your Okta org as detailed in [Configuration updates](#update-configurations) and WebAuthn is **not** already [enrolled](#integrate-sdk-for-authenticator-enrollment) for the user, `authenticate()` returns an `AuthenticationResponse` object with `authenticationStatus` equal to `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` and a `webauthn` authenticator item in the `authenticators` array.
 
@@ -53,7 +53,7 @@ A simple authenticator selection page should look like this:
 
 </div>
 
-### 3:  Submit WebAuthn option
+###  Submit WebAuthn option
 
 When the user selects the WebAuthn option, call `IDXAuthenticationWrapper.enrollAuthenticator()` passing in `ProceedContext` and the authenticator ID returned from `AuthenticationResponse.authenticators[n].factors[n].id`.
 
@@ -68,7 +68,7 @@ AuthenticationResponse enrollResponse =
 
 ```
 
-### 4: Identify data for creating a new credential
+### Identify data for creating a new credential
 
 The `AuthenticationResponse` object returned by `IDXAuthenticationWrapper.enrollAuthenticator()` has `authenticationStatus` set to `AWAITING_AUTHENTICATOR_ENROLLMENT`, which indicates that the user must verify their WebAuthn credentials. `AuthenticationResponse` returns the challenge and other information needed to verify the WebAuthn credentials on the user's device.
 
@@ -98,7 +98,7 @@ The `AuthenticationResponse` object returned by `IDXAuthenticationWrapper.enroll
 }
 ```
 
-### 5: Display page to create credentials
+### Display page to create credentials
 
 Redirect the user to a page that creates the WebAuthn credentials and allow this page access to the `AuthenticationResponse` properties.
 
@@ -133,7 +133,7 @@ Redirect the user to a page that creates the WebAuthn credentials and allow this
     </script>
     ```
 
-### 6: Build the parameter for creating new credential
+### Build the parameter for creating new credential
 
 On page load, create the parameter needed to make a new credential. When creating this parameter, use the `challenge` and `user.id` properties.
 
@@ -158,7 +158,7 @@ function strToBin(str) {
 }
 ```
 
-### 7: Create a new credential
+### Create a new credential
 
 Call `navigator.credentials.create()` in the client browser and pass in the `CredentialCreationOptions` object created in the previous step.
 
@@ -195,11 +195,12 @@ This call initiates the following steps:
     "response" : {
       "attestationObject" : Binary data ... ,
       "clientDataJSON": Binary data ... ,
+      },
     "type": "public-key"
     }
     ```
 
-### 8: Build the parameter for sending the public key to the Okta server
+### Build the parameter for sending the public key to the Okta server
 
 The returned `PublicKeyCredential` object contains the signature and other binary-formatted data you need to convert to strings before sending it back to the Okta servers.
 
@@ -226,7 +227,7 @@ function binToStr(bin) {
       }
 ```
 
-### 9: Forward public key credentials to the Okta server
+### Forward public key credentials to the Okta server
 
 Forward the signature to the Okta server for validation. Specifically, perform the following steps:
 
