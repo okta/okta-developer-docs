@@ -198,7 +198,7 @@ Use the following request body parameters to define your OIDC Okta Integration I
 | `protocol.credentials.client.token_endpoint_auth_method`  |  `private_key_jwt` |
 | `protocol.credentials.client.client_id`  |  Add a placeholder value for the Org2Org ID, which you create in the next step. Update this value using the procedure [Update the IdP in the hub org](#update-the-idp-in-the-hub-org). |
 
->**Note:** OIDC federation has a known limitation in Classic Okta orgs when using Org2Org applications. When a user logs into a Service Provider (SP) application or the Okta dashboard through an OIDC-based Org2Org app from the Identity Provider (IDP) org, the MFA challenge configured in the SP org is not enforced.
+>**Note:** OIDC federation has a known limitation in Classic Okta orgs when using Org2Org apps. When a user logs into a Service Provider (SP) app or the Okta dashboard through an OIDC-based Org2Org app from the Identity Provider (IDP) org, the MFA challenge configured in the SP org isn’t enforced.
 
 ##### Request example
 
@@ -295,13 +295,13 @@ From the response of the POST request, use the `id` property of the Org2Org app 
 
 ### Update the IdP in the hub org
 
-In the hub org, update your IdP with the response values from the create an Org2Org app request from the previous procedure. Use the [Replace an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/replaceIdentityProvider) request with the following updated parameter:
+In the hub org, update your IdP with the response values from the Create an Org2Org app request from the previous procedure. Use the [Replace an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/replaceIdentityProvider) request with the following updated parameter:
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
 | `protocol.credentials.client.client_id`  |  The `client_id` of the Org2Org app |
 
-Use the `id` property from the IdP instance you created previously for the `{idpId}` in the endpoint.
+Use the `id` property from the IdP instance that you created previously for the `{idpId}` in the endpoint.
 
 ##### Request example
 
@@ -388,7 +388,7 @@ Or you can create a custom role to manage provisioning. For example, to create a
 
 See also [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles).
 
-> **Note:** If you want Org2Org to manage group push to the target org, ensure your standard or custom role can create groups.
+> **Note:** If you want Org2Org to manage Group Push to the target org, ensure that your standard or custom role can create groups.
 
 You can use the Admin Console to assign an admin role to your service app. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps) and go to the **Admin roles** tab from your app integration details. Alternatively, you can assign the admin role to your service app with the [Assign a client role](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleAssignmentClient/#tag/RoleAssignmentClient/operation/assignRoleToClient) API:
 
