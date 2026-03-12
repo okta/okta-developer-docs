@@ -305,7 +305,7 @@ This method is ideal for containerized environments because it requires no brows
 
 Use this method if you prefer browser-based authentication. When the server starts, it displays an authentication URL in the logs. Copy and paste this URL into your browser to complete the authentication.
 
->**Note:** Docker containers can’t open a browser on the host automatically. You must manually copy the URL from docker logs okta-mcp-server and paste it into your browser.
+>**Note:** Docker containers can’t open a browser on the host automatically. You must manually copy the URL from docker logs `okta-mcp-server` and paste it into your browser.
 
 ```json
 {
