@@ -71,7 +71,7 @@ You need an access token for API requests to each Okta org. After you have API a
 
 ### Create an IdP in the hub org
 
-In the hub org, create an IdP to configure federation between your spoke and hub orgs. Add an OIDC Okta Integration IdP by using the [Create an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) request with the following body parameters. This call creates the IdP in the hub org.
+In the hub org, create an IdP to configure federation between your spoke and hub orgs. Add an OIDC Okta Integration IdP by using the [Create an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) request with the following body parameters.
 
 From the response of the POST request, use the `id` property of the IdP instance in the next step for your `idpId`.
 
@@ -261,7 +261,7 @@ You use the spoke org to push users and groups to the central hub org. In the sp
 
 > **Note:** You can't use an Integrator Free Plan org as a spoke org since the Okta Org2Org app integration isn't available. If you need to test this feature in your Integrator Free Plan org, contact your Okta account team.
 
-As an Okta admin, make a `POST /api/v1/apps` request to the spoke org with [Okta Org2Org request parameters](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/schema/Org2OrgApplication):
+Make a `POST /api/v1/apps` request to the spoke org with [Okta Org2Org request parameters](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/schema/Org2OrgApplication):
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
@@ -269,7 +269,7 @@ As an Okta admin, make a `POST /api/v1/apps` request to the spoke org with [Okta
 | `label`  |  Specify a user-defined name for this Org2Org app integration |
 | `baseUrl`  |  Specify the base URL of your hub org |
 | `idpId`  |  Specify the IdP ID of your hub org from the previous procedure |
-| `signOnMode`  |  You can set this parameter to any valid value. In this example, use `OPENID_CONNECT` for the `signOnMode`|
+| `signOnMode`  |  You can set this parameter to any valid value. In this example, set `signOnMode` to `OPENID_CONNECT`|
 
 ##### Request example
 
@@ -413,7 +413,7 @@ Make a `POST /oauth2/v1/clients/{yourServiceAppId}/roles` request to the hub org
   }' "https://{yourHubOrgDomain}/oauth2/v1/clients/{yourServiceAppId}/roles"
  ```
 
-> **Note:** The admin roles determine which resources the admin can perform the actions on (such as a specific group of users or a specific set of apps). Scopes determine the action that the admin can perform (such as manage users, read apps). Therefore, the admin roles need to have enough permissions for the scopes provided.
+> **Note:** The admin roles determine which resources the admin can perform actions on (such as a specific group of users or a specific set of apps). Scopes determine the action that the admin can perform (such as manage users, read apps). Therefore, the admin roles need to have enough permissions for the scopes provided.
 
 ### Grant allowed scopes to the OAuth 2.0 client
 
@@ -578,7 +578,7 @@ Create a new OAuth 2.0 service app in the hub org following the same steps in [C
 
 ### Update the Org2Org app to use OAuth 2.0 provisioning
 
-Make a call to the [Update the default provisioning connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication) endpoint with a request body that includes the OAuth 2.0 scheme, as in  [enable provisioning in the Org2Org app](#enable-provisioning-in-the-org2org-app).
+Make a call to the [Update the default provisioning connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication) endpoint with a request body that includes the OAuth 2.0 scheme, as in [enable provisioning in the Org2Org app](#enable-provisioning-in-the-org2org-app).
 
 ##### Request example
 
@@ -636,11 +636,11 @@ curl -X POST \
 
 ## Key rotation
 
-An advantage to using the OAuth 2.0 connection is that you can have automatic [key rotation](/docs/concepts/key-rotation) to adhere to cryptographic best practices. Use the steps in the following section if you're using manual key rotation.
+OAuth 2.0 connections support automatic [key rotation](/docs/concepts/key-rotation) to adhere to cryptographic best practices. Use the steps in the following section if you're using manual key rotation.
 
 ### Manual key rotation
 
-You can rotate keys manually for a specific OAuth 2.0 connection by following these API steps:
+To rotate keys manually for a specific OAuth 2.0 connection, follow these API steps:
 
 1. [Generate a new key for the Org2Org app](#generate-a-new-key-for-the-org2org-app).
 2. [Register the new key with the corresponding service app](#register-the-new-org2org-app-key-with-the-corresponding-service-app).
