@@ -13,6 +13,18 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 ## March
 
+### Weekly release 2026.03.1
+<!-- Published on: 2026-03-11T12:00:00Z -->
+
+| Change | Expected in Preview Orgs | Expected in Production |
+|--------|--------------------------| -----------------------|
+| [Enhanced filtering for end-user resource APIs](#enhanced-filtering-for-end-user-resource-apis) | March 4, 2026 | March 9, 2026 |
+
+#### Enhanced filtering for end-user resource APIs
+
+You can now use the contains query parameter to filter results by name when listing Universal Directory service accounts, SaaS app instances, and SaaS app service accounts. See [List all accessible Universal Directory service accounts](https://developer.okta.com/docs/api/openapi/opa/opa/okta-universal-directory-accounts/listoktaudserviceaccountsenduser), [List the end user SaaS app instances](https://developer.okta.com/docs/api/openapi/opa/opa/saas-app-accounts/listsaasapplicationsaccessiblebyuser), and [List all end user SaaS app service accounts](https://developer.okta.com/docs/api/openapi/opa/opa/saas-app-accounts/listsaasapplicationserviceaccountsenduser).
+<!-- OKTA-953339, FF: pam_saas_app_enduser_contains_filter -->
+
 ### Monthly release 2026.03.0
 <!-- Published on: 2026-03-04T12:00:00Z -->
 
@@ -43,11 +55,11 @@ A new System Log event (`pam.app.update`) has been added to track changes to the
 You can now configure password rotation for managed on-premises app accounts that require a current password to rotate. This enhancement also allows authorized users to manually override stored passwords in Okta Privileged Access to resolve out-of-sync credentials.
 New API endpoints allow you to list, retrieve, and update these strategies:
 
-• `GET /v1/teams/{team_name}/connections/saas_apps`
+ - `GET /v1/teams/{team_name}/connections/saas_apps`
 
-• `GET /v1/teams/{team_name}/connections/saas_apps/{saas_app_instance_id}`
+ - `GET /v1/teams/{team_name}/connections/saas_apps/{saas_app_instance_id}`
 
-• `PATCH /v1/teams/{team_name}/connections/saas_apps/{saas_app_instance_id}`
+ - `PATCH /v1/teams/{team_name}/connections/saas_apps/{saas_app_instance_id}`
 
 See [SaaS Application Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/tag/saas-app-accounts/#tag/saas-app-accounts).
 

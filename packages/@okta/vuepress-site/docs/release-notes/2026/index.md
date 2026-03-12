@@ -11,6 +11,17 @@ title: Okta Classic Engine API release notes 2026
 
 ## March
 
+### Weekly release 2026.03.1
+<!-- Published on: 2026-03-11T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bug fixed in 2026.03.1](#bug-fixed-in-2026-03-1)| March 11, 2026 |
+
+#### Bug fixed in 2026.03.1
+
+Some of the custom advanced sign-on settings for integrations created using the [Application API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/application/other/createapplication) weren't correctly reflected on the app instance page. (OKTA-1109692)
+
 ### Monthly release 2026.03.0
 <!-- Published on: 2026-03-04T12:00:00Z -->
 
