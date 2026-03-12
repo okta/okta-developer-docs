@@ -29,46 +29,12 @@ The consolidated `okta_app_signon_policy_rules` resource prevents this by managi
 
 ## Migration steps
 
-### Step 1: Document existing rules
+### Step 1:  Take a backup of the current configuration
 
-First, list the rules that belong to the policy you want to migrate. Note the name, priority, and configuration settings for each.
+Run the following command:
 
-Example of an existing individual configuration:
-
-```hcl
-resource "okta_app_signon_policy_rule" "rule1" {
-  name               = "MFA-Required"
-  policy_id          = okta_app_signon_policy.my_policy.id
-  priority           = 1
-  status             = "ACTIVE"
-  factor_mode        = "2FA"
-  network_connection = "ANYWHERE"
-  constraints = [jsonencode({
-    "authenticationMethods" : [
-      {
-        "key" : "okta_verify",
-        "method" : "signed_nonce"
-      }
-    ]
-  })]
-}
-
-resource "okta_app_signon_policy_rule" "rule2" {
-  name               = "Password-Only"
-  policy_id          = okta_app_signon_policy.my_policy.id
-  priority           = 2
-  status             = "ACTIVE"
-  factor_mode        = "1FA"
-  network_connection = "ANYWHERE"
-  constraints = [jsonencode({
-    "authenticationMethods" : [
-      {
-        "key" : "okta_password",
-        "method" : "password"
-      }
-    ]
-  })]
-}
+```bash
+cp terraform.tfstate terraform.tfstate.backup
 ```
 
 ### Step 2: Remove old resources from the state
@@ -86,7 +52,7 @@ terraform state rm okta_app_signon_policy_rule.password_rule
 
 In your Terraform configuration, comment out or remove the old `okta_app_signon_policy_rule` resources:
 
-```hcl
+```bash
 # COMMENTED OUT - Migrated to okta_app_signon_policy_rules
 # resource "okta_app_signon_policy_rule" "rule1" {
 #   ...
@@ -176,13 +142,15 @@ Run a plan to see how Terraform interprets the new structure:
 terraform plan
 ```
 
-## Understand "Positional Diffs"
+#### Understand "Positional Diffs"
 
 You might see names "swapping" in the plan (for example, the name: "Rule2" -> "Rule1"). This is just a display artifact. Terraform compares lists by position rather than by name.
 
 * When it's safe: If the settings (like status or constraints) match the correct rule name in your code, you can safely apply.
 
 * When to double-check: If you see configuration details moving to the wrong rule name, ensure that your code names match the names in Okta exactly.
+
+### Step 6: Apply the changes
 
 If the plan looks correct, apply the changes:
 
@@ -283,26 +251,6 @@ resource "okta_app_signon_policy_rules" "my_app_policy_rules" {
     })]
   }
 }
-```
-
-## Migration commands
-
-```bash
-# 1. Backup state
-cp terraform.tfstate terraform.tfstate.backup
-
-# 2. Remove old resources from state
-terraform state rm okta_app_signon_policy_rule.mfa_rule
-terraform state rm okta_app_signon_policy_rule.password_rule
-
-# 3. Update your .tf files (replace old resources with new consolidated resource)
-
-# 4. Import existing rules into new resource
-terraform import okta_app_signon_policy_rules.my_app_policy_rules <policy_id>
-
-# 5. Plan and apply
-terraform plan
-terraform apply
 ```
 
 ## Support
