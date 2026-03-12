@@ -58,7 +58,6 @@ The Okta MCP server works with any MCP-compatible client. While this guide focus
    * [Option 1: Configure using docker](#option-1-configure-using-docker)
    * [Option 2: Configure using uv](#option-2-configure-using-uv)
 1. Replace `/path/to/okta-mcp-server` in the following configuration with the actual path to your cloned repository.
-1. Add the following configuration to your `mcp.json` file and save it.
 
 #### Option 1: Configure using docker
 
