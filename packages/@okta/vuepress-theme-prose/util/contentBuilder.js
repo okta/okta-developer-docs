@@ -14,10 +14,10 @@ const collectFrameworksFromSections = ({ sections }) => {
 };
 
 /**
- * Creates content information object for guides or journeys
- * type - Type can be 'guide' or 'journey'
- * fragment - Fragment can be '/docs/guides/' or '/docs/journeys/'
- * getOrderKey - Function that can be fn: page => page.frontmatter.guides or fn: page => page.frontmatter.journeys
+ * Creates content information object for guides or journeys or code
+ * type - Type can be 'guide' or 'journey' or 'code'
+ * fragment - Fragment can be '/docs/guides/', '/docs/journeys/', or '/code/'
+ * getOrderKey - Function that can be fn: page => page.frontmatter.guides or page.frontmatter.stackSelectorPagesInCode
  */
 function createContentInfo({
   type,
