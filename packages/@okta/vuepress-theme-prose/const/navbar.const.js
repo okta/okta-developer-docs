@@ -1040,6 +1040,10 @@ export const guides = [
                 guideName: "terraform-import-existing-resources"
               },
               {
+                title: "Migrate to consolidated app sign-on policy rules",
+                guideName: "terraform-migrate-consolidated-app-sign-on-policy-rules"
+              },
+              {
                 title: "Manage Okta Identity Governance resources",
                 guideName: "terraform-oig-resources",
               },
