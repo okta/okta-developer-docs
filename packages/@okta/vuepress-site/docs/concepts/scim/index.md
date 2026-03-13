@@ -118,7 +118,7 @@ For more information about profile sourcing and how to configure it in the Admin
 
 ## Handle SCIM server rate limiting (HTTP 429)
 
-When integrating a custom SCIM app with Okta, it's important to understand how Okta handles rate limiting. If your SCIM server responds with an `HTTP 429 Too Many Requests` error, Okta automatically detects this response and restores normal provisioning operations without requiring manual intervention.
+When integrating a custom SCIM app with Okta, it's important to understand how Okta handles rate limiting. If your SCIM server responds with an `HTTP 429 Too Many Requests` error, Okta automatically detects this response and attempts to restore normal provisioning operations without requiring manual intervention.
 
 ### Automatic retry behavior
 
@@ -134,8 +134,6 @@ When a SCIM server returns an `HTTP 429` status code, Okta immediately pauses th
 
 Okta's retry logic depends on the presence and format of the `Retry-After` header in the `HTTP 429` response. For repeated failures, Okta employs an exponential backoff strategy.
 
-#### First retry attempt
-
 The wait time for the first retry is determined as follows:
 
 | Condition | Okta's wait time | Example |
@@ -146,13 +144,11 @@ The wait time for the first retry is determined as follows:
 
 > **Note:** Okta's rate-limit handling only supports integer values (seconds) in the `Retry-After` header. Non-integer or `null` values aren’t processed, causing the retry logic to use the default wait time.
 
-#### Subsequent retries and backoff logic
-
 If a provisioning job continues to receive `HTTP 429` errors, Okta implements an exponential backoff strategy with progressively longer wait times.
 
 For each subsequent retry attempt, Okta doubles the previous wait time.
 
-This retry process continues for a maximum of 10 attempts. If the 10th attempt also fails due to rate limiting, the task fails permanently and require manual intervention.
+This retry process continues for a maximum of 10 attempts. If the 10th attempt also fails due to rate limiting, the task fails permanently and requires manual intervention.
 
 ### Supported operations and integrations
 
