@@ -116,6 +116,64 @@ For more information about profile sourcing and how to configure it in the Admin
 * [Profile sourcing](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Masters)
 * [Provisioning and Deprovisioning](https://help.okta.com/okta_help.htm?id=ext_Provisioning_Deprovisioning_Overview)
 
+## Handle SCIM server rate limiting (HTTP 429)
+
+When integrating a custom SCIM app with Okta, it's important to understand how Okta handles rate limiting. If your SCIM server responds with an `HTTP 429 Too Many Requests` error, Okta automatically detects this response and attempts to restore normal provisioning operations without requiring manual intervention.
+
+### Automatic retry behavior
+
+When a SCIM server returns an `HTTP 429` status code, Okta immediately pauses the provisioning task.
+
+* The provisioning task's status in the Admin Console is updated with a message indicating the failure was due to API rate limiting.
+
+* Okta automatically reschedules the operation for a later retry based on specific timing rules.
+
+* No action is required from an administrator. The process is fully automated.
+
+### Retry timing and exponential backoff
+
+Okta's retry logic depends on the presence and format of the `Retry-After` header in the `HTTP 429` response. For repeated failures, Okta employs an exponential backoff strategy.
+
+The wait time for the first retry is determined as follows:
+
+| Condition | Okta's wait time | Example |
+| :--- | :--- | :--- |
+| `Retry-After` header with a seconds value is present | Okta waits the exact number of seconds specified. | `Retry-After: 120` <br> Okta waits two minutes |
+| `Retry-After` header isn’t present | Okta defaults to a five-minute wait | |
+| `Retry-After` header is in an **unsupported format** (for example, HTTP-date) | Okta defaults to a five-minute wait | `Retry-After: Wed, 11 Mar 2026 23:29:00 GMT` <br> Okta defaults to a five-minute wait |
+
+> **Note:** Okta's rate-limit handling only supports integer values (seconds) in the `Retry-After` header. Non-integer or `null` values aren’t processed, causing the retry logic to use the default wait time.
+
+If a provisioning job continues to receive `HTTP 429` errors, Okta implements an exponential backoff strategy with progressively longer wait times.
+
+For each subsequent retry attempt, Okta doubles the previous wait time.
+
+This retry process continues for a maximum of 10 attempts. If the 10th attempt also fails due to rate limiting, the task fails permanently and requires manual intervention.
+
+### Supported operations and integrations
+
+This automatic rate-limiting behavior applies to a wide range of provisioning operations and SCIM-based integrations.
+
+Supported operations:
+
+* User provisioning (Create, update, and delete)
+
+* User activation and deactivation
+
+* User profile synchronization
+
+* Group Push (Create, update, and delete)
+
+* User import
+
+Applicable integrations:
+
+* All custom SCIM 1.1 integrations
+
+* All custom SCIM 2.0 integrations
+
+* Official Okta integrations for apps that use SCIM, such as the Slack SCIM API and Zoom SCIM API
+
 ## Provisioning use cases
 
 Provisioning actions can be combined to solve for end-to-end use cases. Okta supports these common Provisioning use cases:
