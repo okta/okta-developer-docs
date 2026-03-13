@@ -8,17 +8,17 @@ Learn how to migrate your configuration from individual `okta_app_signon_policy_
 
 #### Learning outcomes
 
-* Document your existing sign-on policy rules.
+* Document your sign-on policy rules.
 * Remove individual resources from your Terraform state without affecting your Okta environment.
 * Configure and import the new consolidated resource.
 * Verify your plan and resolve common "positional diff" issues.
 
 #### What you need
 
-* An Okta org that has an Okta tenant with Identity Engine enabled
+* An Identity Engine org that has an Okta tenant
 * Terraform CLI 1.0 or later
 * Okta Terraform provider 6.6.0 or later
-* Administrative access with permissions to manage policies and apps
+* AAn admin role with permission to manage policies and apps
 * A backup copy of your terraform.tfstate file
 
 ## Overview
@@ -29,7 +29,7 @@ The consolidated `okta_app_signon_policy_rules` resource prevents this by managi
 
 ## Migration steps
 
-### Step 1:  Take a backup of the current configuration
+### Step 1:  Back up your current configuration
 
 Run the following command:
 
@@ -41,7 +41,7 @@ cp terraform.tfstate terraform.tfstate.backup
 
 You must stop Terraform from tracking these rules as individual resources. You can remove the old resources from the state using the following options:
 
-#### Option A: Use the command line
+#### Option 1: Use the command line
 
 Run the following command for each rule:
 
@@ -62,7 +62,7 @@ In your Terraform configuration, comment out or remove the old `okta_app_signon_
 # }
 ```
 
-#### Option B: Version-controlled approach (Recommended for Terraform 1.7+)
+#### Option 2: Version-controlled approach (recommended for Terraform 1.7+)
 
 Instead of manual command-line instructions, replace the old resource blocks with `removed` blocks in your configuration:
 
@@ -82,7 +82,7 @@ removed {
 }
 ```
 
-Note: Okta recommends option B because it’s version-controlled. This approach allows your team to review the changes in a pull request and use the standard `terraform plan` and `apply` Workflow. It also prevents errors that can occur when running manual CLI commands in the wrong order or workspace.
+Note: Okta recommends option B because it’s version-controlled. This approach allows your team to review the changes in a pull request and use the standard `terraform plan` and `apply` workflow. It also prevents errors that can occur when running manual CLI commands in the wrong order or workspace.
 
 ### Step 3: Create the consolidated resource
 
@@ -142,9 +142,9 @@ Run a plan to see how Terraform interprets the new structure:
 terraform plan
 ```
 
-#### Understand "Positional Diffs"
+#### Understand "positional diffs"
 
-You might see names "swapping" in the plan (for example, the name: "Rule2" -> "Rule1"). This is just a display artifact. Terraform compares lists by position rather than by name.
+You might see names "swapping" in the plan (for example, the name: "Rule2" to "Rule1"). This is just a display artifact. Terraform compares lists by position rather than by name.
 
 * When it's safe: If the settings (like status or constraints) match the correct rule name in your code, you can safely apply.
 
@@ -169,9 +169,9 @@ terraform apply
 
 ## Troubleshooting
 
-* "Inconsistent result after apply": This typically happens if rule IDs in the plan don't match what is returned after the apply, often due to mismatched ordering. To resolve this, remove the resource from your state (`terraform state rm`), re-import it, and run apply again.
+* "Inconsistent result after apply": This typically happens if rule IDs in the plan don't match what is returned after the apply, often due to mismatched ordering. To resolve this, remove the resource from your state (`terraform state rm`), reimport it, and run the `terraform apply` command again.
 
-* "Empty sets" (`[] -> null`): You might see changes where optional fields (like `groups_excluded`) move from `[]` to `null`. This is expected behavior and occurs because the imported state includes empty sets that your config doesn't specify. This resolves after the first successful apply.
+* "Empty sets" (`[] -> null`): You might see changes where optional fields (like `groups_excluded`) move from `[]` to `null`. This is expected behavior and occurs because the imported state includes empty sets that your configuration doesn't specify. This resolves after the first successful apply.
 
 ## Rollback procedure
 
@@ -197,8 +197,8 @@ Before (old method)
 
 ```hcl
 resource "okta_app_signon_policy" "my_app_policy" {
-  name        = "My App Policy"
-  description = "Policy for my application"
+  name        = "My app policy"
+  description = "Policy for my app"
 }
 
 resource "okta_app_signon_policy_rule" "mfa_rule" {
@@ -226,8 +226,8 @@ After (new method)
 
 ```hcl
 resource "okta_app_signon_policy" "my_app_policy" {
-  name        = "My App Policy"
-  description = "Policy for my application"
+  name        = "My app policy"
+  description = "Policy for my app"
 }
 
 resource "okta_app_signon_policy_rules" "my_app_policy_rules" {
@@ -255,7 +255,7 @@ resource "okta_app_signon_policy_rules" "my_app_policy_rules" {
 
 ## Support
 
-If you encounter issues during migration:
+If you encounter issues during migration, try these troubleshooting steps:
 
 * Review the Terraform provider for Okta documentation.
 * Search existing GitHub issues for similar problems.
