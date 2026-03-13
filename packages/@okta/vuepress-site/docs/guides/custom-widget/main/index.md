@@ -661,12 +661,12 @@ The Sign-In Widget for embedded authentication is app aware. This means that you
 
 When the page renders, an object called `OktaUtil` exists on the page. By calling the `OktaUtil.getRequestContext()` method, scripts on the page can get details about the current request.
 
-To access the app's client ID (which uniquely identifies the app), write a function to safely get the client ID from the request context:
+To access the application's ID (which uniquely identifies the app), write a function to safely get the app ID from the request context:
 
 ```html
 // Identity Engine
 <script>
-  function getClientId() {
+  function getAppId() {
     if (!OktaUtil) return undefined;
 
     var requestContext = OktaUtil.getRequestContext();
@@ -678,18 +678,26 @@ To access the app's client ID (which uniquely identifies the app), write a funct
 
 // Classic
 <script>
-  function getClientId() {
+  function getAppId() {
     if (!OktaUtil) return undefined;
 
     var requestContext = OktaUtil.getRequestContext();
+
+    // OIDC Apps
     if (requestContext && requestContext.target && requestContext.target.clientId) {
       return requestContext.target.clientId;
+    }
+
+    // SAML Apps
+    if (requestContext && requestContext.authentication && requestContext.authentication.issuer.id){
+      return requestContext.authentication.issuer.id;
     }
   }
 </script>
 ```
+Please note that in Classic Engine orgs, it is not possible to retrieve the application ID for SWA or Bookmark apps from the requestContext.
 
-Using this method, you can inspect the client ID and update it. For example, if you have a CSS file on your server that's for a particular client's CSS:
+Using this method, you can inspect the app ID and modify the widget configuration or appearance when user's log into the target application. For example, if you have a CSS file on your server that's for a particular OpenID Connect client's CSS:
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 2. Select the app integration that you need the client ID for. 
@@ -697,16 +705,16 @@ Using this method, you can inspect the client ID and update it. For example, if 
 
 ```html
 <script>
-  var clientId = getClientId();
+  var appId = getAppId();
 
-  if (clientId === '00exampleclientid'){
+  if (appId === '00exampleclientid'){
     // add application-specific CSS
     var head = document.head;
     var link = document.createElement('link');
 
     link.type = 'text/css';
     link.rel = 'stylesheet';
-    link.href = 'https://example.com/styles/' + clientId + '.css';
+    link.href = 'https://example.com/styles/' + appId + '.css';
     head.appendChild(link);
   }
 </script>
