@@ -19,7 +19,8 @@
     name: 'PageTitle',
     computed: {
       showPageTitle() {
-        if (this.$page.path.includes("/docs/guides")) {
+        if (this.$page.path.includes("/docs/guides") ||
+          (this.$page.path.includes("/code") && this.$page.hasStackContent)) {
           return true;
         }
         if (this.$page.frontmatter.generated) {
