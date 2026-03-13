@@ -64,7 +64,7 @@ var viewModel = new VerifyWebAuthnViewModel
 };
 ```
 
-The `viewModel` parameter is then consumed in the script section of a Razor page. Thes data is used to create the `publicKeyCredentialRequestOptions` object, which is passed to the authenticator.
+The `viewModel` parameter is then consumed in the script section of a Razor page. The data is used to create the `publicKeyCredentialRequestOptions` object, which is passed to the authenticator.
 
 ```js
 const challenge = '@Model.Challenge';
