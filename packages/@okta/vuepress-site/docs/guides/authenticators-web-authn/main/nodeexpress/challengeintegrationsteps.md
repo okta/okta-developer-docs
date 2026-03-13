@@ -1,4 +1,4 @@
-### 1: Initiate use case requiring authentication
+### Initiate a use case
 
 The first step is to initiate a use case that requires authentication. This guide uses the sign-in with username and password flow that is initiated with a call to `OktaAuth.idx.authenticate()`.
 
@@ -9,12 +9,11 @@ The first step is to initiate a use case that requires authentication. This guid
   });
 ```
 
-### 2: Handle WebAuthN challenge response
+### Handle WebAuthn the challenge response
 
 If you configure your Okta org as detailed in [Configuration updates](#update-configurations) and the WebAuthn is already [enrolled](#integrate-sdk-for-authenticator-enrollment) for the user, `authenticate()` returns a response indicating that WebAuthn is required for verification. Specifically, `IdxTransaction` is returned with a `status` of `PENDING` and `nextStep.name` set to `challenge-authenticator`.
 
-Additionally, `IdxTransaction` returns challenge and other information to verify the WebAuthn credentials on the user's device. Specifically, `nextStep.authenticator.contextualData.challengeData.challenge` contains the challenge and `nextStep.authenticator.authenticatorEnrollments` contains the authenticator details including the `credentialId`.
-
+Also, `IdxTransaction` returns the challenge and other information to verify the WebAuthn credentials on the user's device. Specifically, `nextStep.authenticator.contextualData.challengeData.challenge` contains the challenge and `nextStep.authenticator.authenticatorEnrollments` contains the authenticator details including the `credentialId`.
 
 ```json
 {
@@ -43,7 +42,7 @@ Additionally, `IdxTransaction` returns challenge and other information to verify
   }, }, }
 ```
 
-### 3: Display page to verify WebAuthn credentials
+### Display page to verify WebAuthn credentials
 
 Redirect the user to a page that verifies the WebAuthn credentials. Allow this page access to `Idxtransaction.nextStep.authenticator.contextualData.challengeData` and `Idxtransaction.nextStep.authenticatorEnrollments` retrieved in the previous step. The sample app accesses these objects by converting them to JSON strings and assigning them to server-side variables.
 
@@ -67,9 +66,9 @@ const authenticatorEnrollments = [{"type":"security_key","key":"webauthn","id": 
 
 ```
 
-### 4: Build parameter for getting a credential
+### Build parameter for getting a credential
 
-On page load, build the parameter needed to request the credential. The parameter is created by a call to `OktaAuth.webauthn.buildCredentialRequestOptions()` in the client browser. Pass into the method the `challengeData` and `authenticatorEnrollments` variables set in the previous step.
+On page load, build the parameter needed to request the credential. A call to `OktaAuth.webauthn.buildCredentialRequestOptions()` in the client browser creates the parameter. Pass into the method the `challengeData` and `authenticatorEnrollments` variables set in the previous step.
 
 ```javascript
 const options = OktaAuth.webauthn.buildCredentialRequestOptions(challengeData, authenticatorEnrollments);
@@ -97,7 +96,7 @@ The response is an object of type `CredentialRequestOptions` and includes the ch
 }
 ```
 
-### 5: Get credential and create cryptographic signature
+### Get a credential and create a cryptographic signature
 
 Call the Web Authentication API's `navigator.credentials.get()` in the client browser and pass in the `CredentialRequestOptions` object created in the previous step.
 
@@ -132,7 +131,7 @@ This call initiates the following steps:
     }
     ```
 
-### 6: Build parameter for sending the signature to Okta
+### Build a parameter for sending the signature
 
 The returned `PublicKeyCredential` object contains binary formatted data that you need to convert to a string before sending it back to the Okta servers. Call `OktaAuth.webauthn.getAssertion()` to retrieve a string formatted object of the information required to verify the user.
 
@@ -151,7 +150,7 @@ The returned assertion object looks as follows:
 }
 ```
 
-### 7: Forward signature to Okta
+### Forward the signature to Okta
 
 Send the values of the assertion object's `clientData`, `authenticatorData`, and `signatureData` properties back to the server. The sample app assigns these values in elements within the page.
 
