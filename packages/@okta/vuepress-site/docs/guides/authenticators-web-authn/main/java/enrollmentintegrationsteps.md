@@ -13,7 +13,7 @@ authenticationResponse = idxAuthenticationWrapper.authenticate(
 
 ### Display WebAuthn option
 
-If you configure your Okta org as detailed in [Configuration updates](#update-configurations) and WebAuthn is **not** already [enrolled](#integrate-sdk-for-authenticator-enrollment) for the user, `authenticate()` returns an `AuthenticationResponse` object with `authenticationStatus` equal to `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` and a `webauthn` authenticator item in the `authenticators` array.
+If you configure your Okta org as detailed in [Configuration updates](#update-configurations) and WebAuthn isn’t already [enrolled](#integrate-sdk-for-authenticator-enrollment) for the user, `authenticate()` returns an `AuthenticationResponse` object with `authenticationStatus` equal to `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` and a `webauthn` authenticator item in the `authenticators` array.
 
 ```json
 {
@@ -49,11 +49,11 @@ A simple authenticator selection page should look like this:
 
 <div class="three-quarter">
 
-![Screenshot illustrating the enroll authenticator page showing the available sign-in authenticators, including the WebAuthn.](/img/authenticators/authenticators-webauthn-java-enroll-dropdown-selection.png)
+![Image illustrating the enroll authenticator page showing the available sign-in authenticators, including the WebAuthn.](/img/authenticators/authenticators-webauthn-java-enroll-dropdown-selection.png)
 
 </div>
 
-###  Submit WebAuthn option
+### Submit WebAuthn option
 
 When the user selects the WebAuthn option, call `IDXAuthenticationWrapper.enrollAuthenticator()` passing in `ProceedContext` and the authenticator ID returned from `AuthenticationResponse.authenticators[n].factors[n].id`.
 
@@ -68,7 +68,7 @@ AuthenticationResponse enrollResponse =
 
 ```
 
-### Identify data for creating a new credential
+### Identify data for creating a credential
 
 The `AuthenticationResponse` object returned by `IDXAuthenticationWrapper.enrollAuthenticator()` has `authenticationStatus` set to `AWAITING_AUTHENTICATOR_ENROLLMENT`, which indicates that the user must verify their WebAuthn credentials. `AuthenticationResponse` returns the challenge and other information needed to verify the WebAuthn credentials on the user's device.
 
@@ -133,7 +133,7 @@ Redirect the user to a page that creates the WebAuthn credentials and allow this
     </script>
     ```
 
-### Build the parameter for creating new credential
+### Build the parameter for creating a credential
 
 On page load, create the parameter needed to make a new credential. When creating this parameter, use the `challenge` and `user.id` properties.
 
@@ -158,7 +158,7 @@ function strToBin(str) {
 }
 ```
 
-### Create a new credential
+### Create a credential
 
 Call `navigator.credentials.create()` in the client browser and pass in the `CredentialCreationOptions` object created in the previous step.
 
@@ -170,11 +170,11 @@ navigator.credentials.create({
 
 This call initiates the following steps:
 
-1. The browser prompts the user to choose the type of WebAuthn authenticator that they are using. For example: a portable hardware authenticator such as a USB security key or a software-based authenticator such as a fingerprint scanner
+1. The browser prompts the user to choose the type of WebAuthn authenticator that they’re using. For example: a portable hardware authenticator such as a USB security key or a software-based authenticator such as a fingerprint scanner.
 
 <div class="three-quarter">
 
-![Screenshot of the browser prompt that allows the user to pick the type of WebAuthn authenticator to register.](/img/authenticators/authenticators-webauthn-authenticator-options.png)
+![Image of the browser prompt that allows the user to pick the type of WebAuthn authenticator to register.](/img/authenticators/authenticators-webauthn-authenticator-options.png)
 
 </div>
 
@@ -182,7 +182,7 @@ This call initiates the following steps:
 
 <div class="half">
 
-![Screenshot showing the user consent screen that prompts the user to verify through a fingerprint or password.](/img/authenticators/authenticators-webauthn-user-consent.png)
+![Image showing the user consent screen that prompts the user to verify through a fingerprint or password.](/img/authenticators/authenticators-webauthn-user-consent.png)
 
 </div></br>
 
@@ -200,9 +200,9 @@ This call initiates the following steps:
     }
     ```
 
-### Build the parameter for sending the public key to the Okta server
+### Build the parameter for sending the public key
 
-The returned `PublicKeyCredential` object contains the signature and other binary-formatted data you need to convert to strings before sending it back to the Okta servers.
+The returned `PublicKeyCredential` object contains the signature and other binary-formatted data that you need to convert to strings before sending it back to the Okta servers.
 
 ```javascript
 .then((assertion) => {
@@ -227,7 +227,7 @@ function binToStr(bin) {
       }
 ```
 
-### Forward public key credentials to the Okta server
+### Forward public key credentials
 
 Forward the signature to the Okta server for validation. Specifically, perform the following steps:
 
