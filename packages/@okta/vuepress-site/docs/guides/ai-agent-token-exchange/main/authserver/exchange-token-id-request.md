@@ -2,7 +2,6 @@
 In this step, the AI agent sends a `POST` request to the Okta org authorization server's `/token` endpoint to exchange the ID token for the ID-JAG resource token.
 
 ``` http
-
 POST /oauth2/v1/token HTTP/1.1
 Host: example.okta.com
 Content-Type: application/x-www-form-urlencoded
@@ -16,7 +15,6 @@ grant_type=urn:ietf:params:oauth:grant-type:token-exchange
 
 &audience=https://example.okta.com/oauth2/default
 &scope=chat.read+chat.history
-
 ```
 
 | Parameter | Description and value |
@@ -29,4 +27,3 @@ grant_type=urn:ietf:params:oauth:grant-type:token-exchange
 | requested_token_type | The value must be `urn:ietf:params:oauth:token-type:id-jag` |
 | scope | A list of scopes at the resource app being requested. This defines the permissions for the final access token. |
 | audience | The issuer URL of the resource app’s authorization server. |
-
