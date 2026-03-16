@@ -6,7 +6,56 @@
 
 <!-- Source for image. Generated using http://www.plantuml.com/
 
-See Google Doc for the full Plant UML section: https://docs.google.com/document/d/1jtItaxLK-vJ_8nXdMgDR0-1tE5sQU_bF7qITApX674M/edit?pli=1&tab=t.0#heading=h.iqhwbzk7yp55
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+
+skinparam ArrowColor #005CB9
+skinparam ArrowThickness 1.5
+
+skinparam ParticipantBackgroundColor ##ececff
+skinparam ParticipantBorderColor ##e0d7f5
+skinparam ParticipantBorderThickness 1
+
+' -> Declare the participants in the desired order
+participant "User" as User
+participant "Web app" as WebApp
+participant "AI Agent" as Agent
+participant "Okta org authorization server" as OAS
+participant "SaaS App" as App
+
+
+WebApp -> OAS: 1 User SSO
+OAS ..> WebApp: ID token
+
+WebApp -> Agent: 2 Pass token to AI agent
+
+Agent -> OAS: 3 POST /token request
+note over OAS: Checks Token Store, no valid token found
+
+OAS ..> Agent: 4 HTTP 400 (interaction_required, interaction_uri)
+
+Agent -> User: 5 Redirect user to interaction_uri
+
+User -> App: 6 Grant Consent
+
+App -> OAS: 7 Redirect user with temporary auth_code
+
+OAS -> App: 8 Exchange auth_code for tokens
+
+App ..> OAS: 9 Return access_token & refresh_token
+note over OAS: Securely store new tokens in Token Store
+
+User -> Agent: 10 User asks agent to retry connection
+
+Agent -> OAS: 11 POST /token (Retry request)
+
+OAS ..> Agent: HTTP 200 OK (Returns new access token)
+
+Agent -> App: 12 Resource request with access token
+App ..> Agent: Returns Resource Data
+
+@enduml
+
 
 -->
 
