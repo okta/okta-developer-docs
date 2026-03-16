@@ -661,7 +661,7 @@ The Sign-In Widget for embedded authentication is app aware. This means that you
 
 When the page renders, an object called `OktaUtil` exists on the page. By calling the `OktaUtil.getRequestContext()` method, scripts on the page can get details about the current request.
 
-To access the application's ID (which uniquely identifies the app), write a function to safely get the app ID from the request context:
+To access the app's ID (which uniquely identifies the app), write a function to safely get the app ID from the request context:
 
 ```html
 // Identity Engine
@@ -695,9 +695,9 @@ To access the application's ID (which uniquely identifies the app), write a func
   }
 </script>
 ```
-Please note that in Classic Engine orgs, it is not possible to retrieve the application ID for SWA or Bookmark apps from the requestContext.
+> **Note:** For Classic Engine orgs, it's not possible to retrieve the app ID for Secure Web Authentication (SWA) or Bookmark apps from the `requestContext`.
 
-Using this method, you can inspect the app ID and modify the widget configuration or appearance when user's log into the target application. For example, if you have a CSS file on your server that's for a particular OpenID Connect client's CSS:
+Using this method, inspect the app ID and modify the widget configuration or appearance when users sign in to the target app. For example, if you have a CSS file on your server that's for a particular OpenID Connect client's CSS:
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 2. Select the app integration that you need the client ID for. 
