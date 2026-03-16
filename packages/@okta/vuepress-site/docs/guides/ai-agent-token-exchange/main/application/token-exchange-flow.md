@@ -4,9 +4,10 @@
 
 </div>
 
-<--Source for image. Generated using http://www.plantuml.com/
+<!-- Source for image. Generated using http://www.plantuml.com/
 
 See Google Doc for the full Plant UML section: https://docs.google.com/document/d/1jtItaxLK-vJ_8nXdMgDR0-1tE5sQU_bF7qITApX674M/edit?pli=1&tab=t.0#heading=h.iqhwbzk7yp55
+
 -->
 
 > **Note:** This flow assumes that the SaaS app you selected from the OIN catalog has been configured in the Admin Console as a resource server and you've connected an AI agent to the SaaS app as a Managed Connection.
