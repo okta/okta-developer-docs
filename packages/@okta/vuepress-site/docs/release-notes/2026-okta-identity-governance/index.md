@@ -53,8 +53,7 @@ The Org Governance Settings API has been updated to support restricting delegate
 
 <ApiLifecycle access="beta" />
 
-Admins can now track the status of asynchronous tasks initiated by governance requests, such as enabling entitlement management on a resource.
-<!-- See the [Operations](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/operations) API. -->
+Admins can now track the status of asynchronous tasks initiated by governance requests, such as enabling entitlement management on a resource. See the [Operations](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/operations) API.
 <!-- OKTA-1114195 Preview date: March 4, 2026 -->
 
 #### Slack integration for Access Certifications and Access Requests is Beta
