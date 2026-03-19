@@ -12,8 +12,8 @@ This guide describes how to manage governance delegate assignments and settings 
 
 #### Learning outcomes
 
-* As an admin user, learn how to configure your org for governance delegation with [Okta Identity Governance (OIG) APIs](https://developer.okta.com/docs/api/iga/).
-* As an admin user, learn how to appoint delegates for users with OIG APIs.
+* As an admin, learn how to configure your org for governance delegation with [Okta Identity Governance (OIG) APIs](https://developer.okta.com/docs/api/iga/).
+* As an admin, learn how to appoint delegates for users with OIG APIs.
 * As an end user, learn how to appoint your own delegates with OIG APIs.
 
 #### What you need
@@ -39,9 +39,9 @@ For either user-based or service-based API access, grant the following scopes du
 * `okta.governance.delegates.read`
 * `okta.governance.settings.manage`
 
-In addition, you have to grant the service-based OAuth 2.0 client an admin role. Without user context, the service app acts as a principal and requires the `SUPER_ADMIN` role to perform all admin delegation tasks.
+In addition, you have to grant an admin role to the service-based OAuth 2.0 client. Without user context, the service app acts as a principal and requires the `SUPER_ADMIN` role to perform all admin delegation tasks.
 
-If your workflow uses an OIDC client for user-based access, you don't need to assign a role to the OIDC client. For user-based access, Okta reviews the admin role assigned to the authenticated user to determine whether they have permission to perform the delegation tasks.
+If your workflow uses an OIDC client for user-based access, you don't need to assign an admin role to the OIDC client. For user-based access, Okta reviews the admin role that's assigned to the authenticated user and determines whether they have permission to perform the delegation tasks.
 
 ## Admin tasks
 
@@ -56,7 +56,7 @@ Use the [Retrieve the org settings](https://developer.okta.com/docs/api/iga/open
 | **Request** | [Retrieve the org settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/getorgsettings) |
 | **Request URI** | `GET /governance/api/v1/settings` |
 | **Scopes required** | `okta.governance.settings.read` |
-| **Admin role required** | super admin (`SUPER_ADMIN`) |
+| **Admin role required** | Super admin (`SUPER_ADMIN`) |
 
 ##### Request example
 
@@ -100,7 +100,7 @@ Use the [Update the org settings](https://developer.okta.com/docs/api/iga/openap
 | **Request** | [Update the org settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/org-governance-settings/updateorgsettings) |
 | **Request URI** | `PATCH /governance/api/v1/settings` |
 | **Scopes required** | `okta.governance.settings.manage` |
-| **Admin role required** | super admin (`SUPER_ADMIN`) |
+| **Admin role required** | Super admin (`SUPER_ADMIN`) |
 
 ##### Request example
 
@@ -415,5 +415,5 @@ The following lists functional behavior after a delegate is appointed for govern
 * Requesters can view the delegate assigned to their access request.
 * Governance delegated tasks aren't automatically transitive.
 
-  For example, if user A assigns user B as their delegate, and user B assigns user C as their delegate (A -> B -> C).  In this case, tasks assigned to user A aren't automatically assigned to user C. Governance tasks for user A are assigned to user B. Only an admin or the request assignee can reassign tasks to user C.
+  For example, if user A assigns user B as their delegate, and user B assigns user C as their delegate (A to B to C).  In this case, tasks assigned to user A aren't automatically assigned to user C. Governance tasks for user A are assigned to user B. Only an admin or the request assignee can reassign tasks to user C.
 * Admins can monitor updates to user-delegate configurations with the `governance.principal.settings.update` System Log event.
