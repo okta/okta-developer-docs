@@ -104,7 +104,7 @@ const COMMON_NAME_TO_FANCY_NAME = {
   authserver: 'Authorization server (ID-JAG)',
   secret: 'Secret',
   'service-account': 'Service account',
-  application: 'Application (Brokered Consent)',
+  application: 'Application',
 };
 
 const COMMON_NAME_TO_ICON_NAME = {
