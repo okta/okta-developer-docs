@@ -1335,10 +1335,6 @@ export const releaseNotes = [
         path: "/docs/release-notes/2026-okta-mcp-server/",
       },
       {
-        title: "2025 - Aerial",
-        path: "/docs/release-notes/2025-okta-aerial/",
-      },
-      {
         title: "Archive",
         path: "/docs/release-notes/archive",
         subLinks: [

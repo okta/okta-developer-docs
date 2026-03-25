@@ -22,6 +22,12 @@ title: Okta Identity Engine API release notes 2026
 
 #### Bugs fixed in 2026.03.3
 
+* The Sign-In Widget didn't load the bot protection enforcement challenge required on some endpoints, leading to an incorrect user redirect to a 403 page. ([OKTA-1125106]) (OKTA-1136962)
+
+* For realm resources, the List all resource set resources API (`api/v1/iam/resource-sets/{resourceSetIdOrLabel}/resources`) returned a `null` value for the `_links.self` parameter. (OKTA-1135761)
+
+* When users attempted to authenticate on Android devices, some password managers didn't allow them to register passkeys. (OKTA-1135513)
+
 ### Weekly release 2026.03.2
 <!-- Published on: 2026-03-18T12:00:00Z -->
 
