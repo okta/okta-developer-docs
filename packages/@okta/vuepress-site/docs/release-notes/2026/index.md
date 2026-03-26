@@ -11,6 +11,17 @@ title: Okta Classic Engine API release notes 2026
 
 ## March
 
+### Weekly release 2026.03.3
+<!-- Published on: 2026-03-25T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2026.03.3](#bugs-fixed-in-2026-03-3) | March 25, 2026 |
+
+* For realm resources, the List all resource set resources API (`api/v1/iam/resource-sets/{resourceSetIdOrLabel}/resources`) returned a `null` value for the `_links.self` parameter. (OKTA-1135761)
+
+#### Bugs fixed in 2026.03.3
+
 ### Weekly release 2026.03.2
 <!-- Published on: 2026-03-18T12:00:00Z -->
 
@@ -126,7 +137,7 @@ Okta can only manage group memberships for users and groups imported into Okta u
 #### Developer documentation updates in 2026.02.0
 
 * All references to deprecated API Postman collections are now removed from [Home | Okta Developer](https://developer.okta.com/) and replaced with references to the [Okta Public API Collections](https://www.postman.com/okta-eng/okta-public-api-collections/overview) workspace.
-* The new [Universal Directory](/docs/concepts/universal-directory/) concept provides a comprehensive overview of Okta’s Universal Directory (UD). UD is the centralized data layer that serves as the foundation for the entire Okta platform. This new doc replaces the previous User Profiles concept and goes into more depth on its components and advantages.
+* The new [Universal Directory](/docs/concepts/universal-directory/) concept provides a comprehensive overview of Okta's Universal Directory (UD). UD is the centralized data layer that serves as the foundation for the entire Okta platform. This new doc replaces the previous User Profiles concept and goes into more depth on its components and advantages.
 * The Okta developer portal search results now include the API references.
 
 #### Bugs fixed in 2026.02.0

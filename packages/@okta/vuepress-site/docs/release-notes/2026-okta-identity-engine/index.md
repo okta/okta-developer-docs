@@ -13,6 +13,19 @@ title: Okta Identity Engine API release notes 2026
 
 ## March
 
+### Weekly release 2026.03.3
+<!-- Published on: 2026-03-25T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2026.03.3](#bugs-fixed-in-2026-03-3) | March 25, 2026 |
+
+* The Sign-In Widget didn't load the bot protection enforcement challenge required on some endpoints, leading to an incorrect user redirect to a 403 page. (OKTA-1125106) (OKTA-1136962)
+
+* For realm resources, the List all resource set resources API (`api/v1/iam/resource-sets/{resourceSetIdOrLabel}/resources`) returned a `null` value for the `_links.self` parameter. (OKTA-1135761)
+
+* When users attempted to authenticate on Android devices, some password managers didn't allow them to register passkeys. (OKTA-1135513)
+
 ### Weekly release 2026.03.2
 <!-- Published on: 2026-03-18T12:00:00Z -->
 
@@ -28,7 +41,7 @@ title: Okta Identity Engine API release notes 2026
 
 * When you used the Create an org [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/orgcreator/other/createchildorg) to create a child org and then enabled Identity Engine for the org, `POST_AUTH_SESSION` and `ENTITY_RISK` policies and policy rules were sometimes deleted. (OKTA-1111235)
 
-* You sometimes weren’t able to [deactivate an Okta Integration IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identityprovider/other/deactivateidentityprovider) that had `trustClaims: true`, even when all your authentication policies didn’t require trusted claims. (OKTA-1088872)
+* You sometimes weren't able to [deactivate an Okta Integration IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identityprovider/other/deactivateidentityprovider) that had `trustClaims: true`, even when all your authentication policies didn't require trusted claims. (OKTA-1088872)
 
 * An [update a user schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/schema/other/updateuserprofile) request failed with a timeout error when it included a large number of identity providers. (OKTA-1010509)
 
@@ -41,7 +54,7 @@ title: Okta Identity Engine API release notes 2026
 
 #### Bugs fixed in 2026.03.1
 
-* The Sign-In Widget didn’t load the bot protection enforcement challenge required on some endpoints, leading to an incorrect user redirect to a 403 page. (OKTA-1125106)
+* The Sign-In Widget didn't load the bot protection enforcement challenge required on some endpoints, leading to an incorrect user redirect to a 403 page. (OKTA-1125106)
 
 * The mandatory SSO configuration check for testing information was incorrectly bypassed for all SSO submissions. (OKTA-1119127)
 
@@ -89,7 +102,7 @@ New API endpoints have been added to the Directories Integration (`POST /api/v1/
 
 #### Grace period for device assurance is GA in Production
 
-Occasionally, users’ devices might fall out of compliance with security policies due to temporary conditions such as missed software updates or unapproved network connections. Without a grace period, they would be immediately blocked from accessing critical resources, which disrupts productivity and causes frustration. The grace period for device assurance feature allows you to define a temporary window during which non-compliant devices can still access resources. This gives users time to remediate issues without being locked out, balancing productivity with security standards.
+Occasionally, users' devices might fall out of compliance with security policies due to temporary conditions such as missed software updates or unapproved network connections. Without a grace period, they would be immediately blocked from accessing critical resources, which disrupts productivity and causes frustration. The grace period for device assurance feature allows you to define a temporary window during which non-compliant devices can still access resources. This gives users time to remediate issues without being locked out, balancing productivity with security standards.
 
 See [Device Assurance Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/createDeviceAssurancePolicy!path=0/gracePeriod&t=request) and the [Add a device assurance policy guide](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-assurance-add). <!-- DEVICE_ASSURANCE_GRACE_PERIOD OKTA-803140 Preview date: October 9, 2024 -->
 
@@ -120,7 +133,7 @@ The inline hook and event hook framework now supports read and write permissions
 
 #### Bug fixed in 2026.03.0
 
-Bot detection events were logged for standard Admin/Management API calls when the Sign-In Widget wasn’t involved. (OKTA-1113990)
+Bot detection events were logged for standard Admin/Management API calls when the Sign-In Widget wasn't involved. (OKTA-1113990)
 
 ## February
 
@@ -197,7 +210,7 @@ You can configure OS version compliance by using device assurance. However, you 
 
 #### Grace period for device assurance is GA in Preview
 
-Occasionally, users’ devices might fall out of compliance with security policies due to temporary conditions such as missed software updates or unapproved network connections. Without a grace period, they would be immediately blocked from accessing critical resources, which disrupts productivity and causes frustration. The grace period for device assurance feature allows you to define a temporary window during which non-compliant devices can still access resources. This gives users time to remediate issues without being locked out, balancing productivity with security standards.
+Occasionally, users' devices might fall out of compliance with security policies due to temporary conditions such as missed software updates or unapproved network connections. Without a grace period, they would be immediately blocked from accessing critical resources, which disrupts productivity and causes frustration. The grace period for device assurance feature allows you to define a temporary window during which non-compliant devices can still access resources. This gives users time to remediate issues without being locked out, balancing productivity with security standards.
 
 See [Device Assurance Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/createDeviceAssurancePolicy!path=0/gracePeriod&t=request) and the [Add a device assurance policy guide](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-assurance-add). <!-- DEVICE_ASSURANCE_GRACE_PERIOD OKTA-803140 Preview date: October 9, 2024 -->
 
@@ -209,7 +222,7 @@ Okta can only manage group memberships for users and groups imported into Okta u
 
 #### Detection settings in session protection is GA in Preview
 
-Tailor ITP to your org’s security priorities to gain control and balance security with a seamless user experience. With new detection settings, you can define which session context changes trigger policy re-evaluations, helping you focus only on what truly matters. See [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
+Tailor ITP to your org's security priorities to gain control and balance security with a seamless user experience. With new detection settings, you can define which session context changes trigger policy re-evaluations, helping you focus only on what truly matters. See [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
 
 #### Passkeys rebrand is self-service EA in Preview
 
@@ -229,7 +242,7 @@ Admins can add non-FIDO Metadata Service (MDS) security keys and other authentic
 
 #### OAuth 2.0 support for custom email providers is self-service EA in Preview
 
-You can now configure custom email providers with OAuth 2.0 authentication. You can choose between two OAuth 2.0 client configurations to fetch access tokens and use those access tokens to authenticate with your email provider’s SMTP server. See [Custom email providers with OAuth 2.0](/docs/guides/custom-smtp/main/) to understand the new OAuth 2.0 methods.
+You can now configure custom email providers with OAuth 2.0 authentication. You can choose between two OAuth 2.0 client configurations to fetch access tokens and use those access tokens to authenticate with your email provider's SMTP server. See [Custom email providers with OAuth 2.0](/docs/guides/custom-smtp/main/) to understand the new OAuth 2.0 methods.
 
 * See [Use your own email provider](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-provider-main) to configure them in the Admin Console.
 * See the [Email Providers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailServer/) to configure them with APIs.
@@ -244,7 +257,7 @@ This feature redirects users to Okta to authenticate if the primary identity pro
 
 * All references to deprecated API Postman collections are now removed from [Home | Okta Developer](https://developer.okta.com/) and replaced with references to the [Okta Public API Collections](https://www.postman.com/okta-eng/okta-public-api-collections/overview) workspace.
 * The new [Add a sign-in form to your mobile app](https://developer.okta.com/docs/journeys/OCI-mobile/main/) journey helps you build a secure and complete sign-in experience for your mobile app, giving your users seamless access while protecting their data.
-* The new [Universal Directory](/docs/concepts/universal-directory/) concept provides a comprehensive overview of Okta’s Universal Directory (UD). UD is the centralized data layer that serves as the foundation for the entire Okta platform. This new doc replaces the previous User Profiles concept and goes into more depth on its components and advantages.
+* The new [Universal Directory](/docs/concepts/universal-directory/) concept provides a comprehensive overview of Okta's Universal Directory (UD). UD is the centralized data layer that serves as the foundation for the entire Okta platform. This new doc replaces the previous User Profiles concept and goes into more depth on its components and advantages.
 * The Okta developer portal search results now include the API references.
 * The new [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/authserver/main/) guide explains how to configure token exchange for AI agents. This feature enables you to securely request and use credentials such as Identity Assertion JWTs (ID-JAGs), secrets, or service accounts to access resources on behalf of authenticated users.
 * The [/token](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token) endpoint now supports token exchange flows for AI agents through the standard OAuth 2.0 Token Exchange grant type.
@@ -308,7 +321,7 @@ Native to Web SSO creates a seamless, unified authentication experience when a u
 
 #### Bring your own telephony credentials is self-service EA in Preview
 
-You can now connect your own telephony provider using a new simplified setup that doesn’t require you to use a telephony inline hook. You can handle usage billing directly with your provider. Okta currently supports Twilio and Telesign.
+You can now connect your own telephony provider using a new simplified setup that doesn't require you to use a telephony inline hook. You can handle usage billing directly with your provider. Okta currently supports Twilio and Telesign.
 
 To configure your own telephony credentials, you can use the [Custom Telephony Provider API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTelephonyProvider/) or you can use the [Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=configure-telephony-providers).
 <!--  OKTA-1075267 CUSTOM_TELEPHONY_PROVIDERS-->
@@ -355,7 +368,7 @@ Anything-as-a-Source (XaaS) capabilities allow customers to use a custom identit
 
 This feature improves the security posture of customer orgs by protecting the password expiry flow with the Okta account management policy. Password expiry flows now require the assurance defined in an org's Okta account management policy.
 
-You can now use the [`metadata`](/docs/reference/okta-expression-language-in-identity-engine/#okta-account-management) component in an Expression Language condition for an Okta account management policy. You can only use `metadata` in an expression that’s related to password expiry. See [Enable password expiry](https://help.okta.com/okta_help.htm?type=oie&id=oamp-enable-password-expiry)
+You can now use the [`metadata`](/docs/reference/okta-expression-language-in-identity-engine/#okta-account-management) component in an Expression Language condition for an Okta account management policy. You can only use `metadata` in an expression that's related to password expiry. See [Enable password expiry](https://help.okta.com/okta_help.htm?type=oie&id=oamp-enable-password-expiry)
 
 <!-- OKTA-853468 AMP_FOR_PASSWORD_EXPIRY preview org: july 2, 2025 -->
 
