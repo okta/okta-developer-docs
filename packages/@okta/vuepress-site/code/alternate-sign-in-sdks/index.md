@@ -37,7 +37,7 @@ There are two ways to create a custom sign-in page. In both cases, enable the fl
    |   |         |         |         |   |
    |---|---------|---------|---------|---|
    | ![Javascript](/img/sdks/javascript.png)  | Any javascript framework | [Auth Javascript SDK (Auth.js)](https://github.com/okta/okta-auth-js) |  |  |
-   | ![React](/img/sdks/react.png) | React | [React SDK](https://github.com/okta/okta-react) | [Sample App](https://github.com/okta/samples-js-react/tree/master/custom-login) | [Guide](/docs/guides/sign-in-to-spa-embedded-widget/react/) |
+   | ![React](/img/sdks/react.png) | React | [React SDK](https://github.com/okta/okta-react) | [Sample App](https://github.com/okta/samples-js-react/tree/master/custom-login) | [Guide](/docs/guides/sign-in-to-spa-embedded-widget/react/main/) |
    | ![Angular](/img/sdks/angular.png) | Angular | [Angular SDK](https://github.com/okta/okta-angular) | [Sample App](https://github.com/okta/samples-js-angular/tree/master/custom-login) | [Guide](/docs/guides/sign-in-to-spa-embedded-widget/angular/main/) |
    | ![Vue](/img/sdks/vue.png) | Vue | [Vue SDK](https://github.com/okta/okta-vue) | [Sample App](https://github.com/okta/samples-js-vue/tree/master/custom-login) | [Guide](/docs/guides/sign-in-to-spa-embedded-widget/vue/main/) |
 
