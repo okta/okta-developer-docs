@@ -430,7 +430,8 @@ export const guides = [
               },
             ],
           },
-          { title: "Enable and configure a sign-up form",
+          {
+            title: "Enable and configure a sign-up form",
             guideName: "enable-configure-signupform"
           },
           {
@@ -960,6 +961,10 @@ export const guides = [
                 path: "/docs/guides/migrate-to-okta-prerequisites/main/",
               },
               {
+                title: "Plan your user migration to Okta",
+                path: "/docs/guides/migrate-to-okta-plan/main/",
+              },
+              {
                 title: "Bulk migration with credentials",
                 path: "/docs/guides/migrate-to-okta-bulk/main/",
               },
@@ -1357,7 +1362,8 @@ export const releaseNotes = [
           {
             title: "2025 - Access Gateway",
             path: "/docs/release-notes/2025-okta-access-gateway/",
-          },          {
+          }, 
+          {
             title: "2025 - Aerial",
             path: "/docs/release-notes/2025-okta-aerial/",
           },
