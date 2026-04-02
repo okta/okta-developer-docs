@@ -14,10 +14,10 @@ excerpt: Okta maintains the following recommended SDKs for developers.
 
 Okta provides SDKs for many languages and frameworks to add an Okta sign-in experience to your application, manage your users and groups, and more.
 
-Select the task that you want to perform to access more information on the Okta-recommended method, documentation, sample code, and SDK:
+Select a task from below to see Okta recommended method, documentation, sample code, and SDK:
 
-* [Sign a user in from a web app](#sign-a-user-in-from-a-web-app)
-* [Sign a user in from a mobile app](#sign-a-user-in-from-a-mobile-app)
+* [Sign in a user from a web app](#sign-in-a-user-from-a-web-app)
+* [Sign in a user from a mobile app](#sign-in-a-user-from-a-mobile-app)
 * [Validate OAuth access tokens and ID tokens locally](#validate-tokens-locally)
 * [Enable machine-to-machine authentication between APIs and apps](#enable-machine-to-machine-authentication-between-apis-and-apps)
 * [Enable your mobile apps to act as a custom Okta authenticator](#enable-your-mobile-apps-to-act-as-a-custom-okta-authenticator)
