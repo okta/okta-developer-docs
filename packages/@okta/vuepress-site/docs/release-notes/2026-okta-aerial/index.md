@@ -23,7 +23,7 @@ See also [Introduction to the Okta Aerial API](https://developer.okta.com/docs/a
 <!-- Published on: 2026-03-31T12:00:00Z -->
 | Change | Expected in Aerial services preview | Expected in Aerial services production |
 |--------|-----------------------------| -----------------------------|
-| [Bug fixed in weekly release](#bug-fixed-in-weekly-release)| March 31, 2026  | April 6, 2026   |
+| [Bug fixed in weekly release](#bug-fixed-in-weekly-release)| March 31, 2026  | April 13, 2026   |
 
 #### Bug fixed in weekly release
 
