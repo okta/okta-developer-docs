@@ -140,7 +140,7 @@ JIT provisioning migrates users dynamically as they authenticate through SAML or
 
 While JIT provisioning ensures a transparent transition for users, it introduces higher technical complexity during the migration period. Admins should note that the initial login may be slightly slower due to real-time account creation. Also, there's less opportunity for data standardization compared to a pre-scrubbed bulk import.
 
-See [Password import inline hook](/guides/migrate-to-okta-password-hooks/main/) for implementation details.
+See [Password import inline hook](/docs/guides/migrate-to-okta-password-hooks/main/) for implementation details.
 
 ### Factors to consider
 
