@@ -202,7 +202,7 @@ Users don't need to supply any other details if you don't want them to during ac
 
 ### Post-migration user experience
 
-Unless you're changing your app's authentication flow, there is no reason for an app's user experience to change. Passwords can be imported and messages sent to phone, email or SMS can be customized to match those sent by the previous system.
+Unless you're changing your app's authentication flow, there's no reason for an app's user experience to change. Passwords can be imported and messages sent to phone, email or SMS can be customized to match those sent by the previous system.
 
 However, Okta recommends using its hosted sign-in authentication form for ease and security. Its default UI can be changed to match your brand, but the redirect and the way it implements the authentication flow might be different.
 
@@ -282,20 +282,20 @@ Monitor operational performance post-migration:
 - **Authentication success rate:** Percentage of successful sign-ins
 - **Provisioning speed:** Time to provision new users and apps
 - **API performance:** Response times for Okta API calls
-- 
+
 ## Document your plan
 
 After working through these four areas, document your decisions in a migration plan that includes the following:
 
 1. **Executive summary:** High-level overview and business justification
-2. **Data inventory:** What you're migrating and where it currently lives, including attribute mapping matrix
+2. **Data inventory:** What you're migrating and where it currently lives, including the attribute-mapping matrix
 3. **Migration approach:** One-time versus migration program with rationale
 4. **User experience strategy:** Seamless versus staged with communication plan
 5. **Success metrics:** KPIs and measurement approach
 6. **Timeline:** Key milestones and dependencies
 7. **Roles and responsibilities:** Who is accountable for each area
 8. **Risk assessment:** Potential issues and mitigation strategies
-9. **Test plan:** How you'll validate the migration with test data before production
+9. **Test plan:** How you validate the migration with test data before production
 10. **Rollback plan:** How to recover if migration fails
 
 ## See also
