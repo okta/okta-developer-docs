@@ -18,14 +18,14 @@ Learn how to configure token exchange for AI agents so you can securely request 
 - [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 - An Okta user account with the super admin role.
 - [Register an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register) in your Okta org.
-- **Managed Connections** is configured for the AI agent, defining which resources it’s allowed to access. See [Secure an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure).
+- **Managed Connections** is configured for the AI agent, defining which resources it's allowed to access. See [Secure an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure).
 - An OIDC web app is configured to authenticate users and obtain an ID token.
 
 ---
 
 ## Overview
 
-You’ve [registered an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register). You have also defined its access to third-party resources integrated with your Okta org using **Managed Connections**. Now, the agent must obtain the actual tokens or credentials to perform tasks.
+You've [registered an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register). You have also defined its access to third-party resources integrated with your Okta org using **Managed Connections**. Now, the agent must obtain the actual tokens or credentials to perform tasks.
 
 You can [connect an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure) to the following resource types:
 
@@ -35,7 +35,7 @@ You can [connect an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai
 
 - Service account: Uses a static credential for an app that's specified in the Universal Directory. This resource is vaulted in Okta Privileged Access.
 
-- Application: Uses a third party access token issued by the third-party authorization server and brokered by Okta. This resource type requires user consent before an AI agent can act on behalf of the user.
+- Resource server: Uses a third party access token issued by the third-party authorization server and brokered by Okta. This resource type requires user consent before an AI agent can act on behalf of the user.
 
 Once the resource type is configured and the AI agent has the token or credentials, it can then perform tasks on the connected app.
 

@@ -1,4 +1,4 @@
-The response during Brokered Consent depends on if Okta has a stored token.
+The response during the token exchange depends on if Okta has a stored token.
 
 ##### Interaction required response
 
@@ -15,7 +15,7 @@ Pragma: no-cache
 }
 ```
 
-If Okta doesn’t have a valid token, it returns an HTTP 400 error. Your agent's logic must handle this by initiating the user consent flow.
+If Okta doesn't have a valid token, it returns an HTTP 400 error. Your agent's logic must handle this by initiating the user consent flow.
 
 To handle this, your app should:
 
@@ -34,4 +34,5 @@ To handle this, your app should:
   "scope": "repo profile"
 }
 ```
+
 Your agent should use the `access_token` from this response to make authenticated API calls to the target resource, including it in the `Authorization` header as a Bearer token.
