@@ -196,15 +196,19 @@ Users generally won't need to set a new password with the migration. However, if
 
 ### Other credentials and details
 
-Emails and phone numbers can be imported from the incumbent system so one-time password factors don't need to be reset. However, users will need to re-verify their passkeys.
+Emails and phone numbers can be imported from the incumbent system so one-time password factors don't need to be reset. However, users will need to re-verify their device-bound credentials such as Google Authenticator, WebAuthn, and passkeys.
 
-Users don't need to supply any other details if you don't want them to during activation.
+Users shouldn't need to supply any other details. However, this could be an opportunity to collect additional information. This is optional.
 
 ### Post-migration user experience
 
 Unless you're changing your app's authentication flow, there's no reason for an app's user experience to change. Passwords can be imported and messages sent to phone, email or SMS can be customized to match those sent by the previous system.
 
-However, Okta recommends using its hosted sign-in authentication form for ease and security. Its default UI can be changed to match your brand, but the redirect and the way it implements the authentication flow might be different.
+> **Note:** Okta recommends using its built-in hosted sign-in authentication form for ease and verbose security capabilities. It has the flexibility to integrate into a standards-based federation model that matches your brand. Using Okta's multi-function widget, the authentication flow might be different but aligns with the current experience.
+
+### Ensure high availability during migration
+
+If you're concerned about users experiencing downtime, you can minimize service disruptions by leveraging IdP coexistence. Since app sessions typically persist independently of the IdP, you can possibly run both providers in parallel during the transition. For environments requiring seamless session continuity across multiple apps, you can federate the IdPs with each other. This IdP chaining  approach allows Okta to act as a bridge to your existing provider, ensuring a transparent authentication flow and preventing end-user downtime as you cut over your apps.
 
 ## Define success metrics
 
@@ -300,7 +304,7 @@ After working through these four areas, document your decisions in a migration p
 
 ## See also
 
-- [Migrate to Okta](/docs/guides/migrate-to-okta/).
+- [Migrate to Okta](/docs/guides/migrate-to-okta/)
 - [Okta Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/)
 - [Okta Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/)
 - [Password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook)
