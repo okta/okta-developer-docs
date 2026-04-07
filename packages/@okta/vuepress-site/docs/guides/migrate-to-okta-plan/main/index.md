@@ -6,8 +6,6 @@ meta:
 layout: Guides
 ---
 
-# Plan your user migration to Okta
-
 Migrating users to Okta requires careful planning and consideration. This guide helps you create a migration plan by walking through the key questions and decisions you need to address before beginning your migration journey.
 
 A well-thought-out plan reduces risk, minimizes user disruption, and ensures that your migration meets both business and security objectives. Use this guide to assess your requirements, evaluate your options, and document your migration strategy.
@@ -34,7 +32,7 @@ Create a comprehensive migration plan that addresses data identification, migrat
 
 ---
 
-## What data are you migrating?
+## Consider your data
 
 Before you can migrate to Okta, you need a clear picture of what you're migrating and where it currently lives.
 
