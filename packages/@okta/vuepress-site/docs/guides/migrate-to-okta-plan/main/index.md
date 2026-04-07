@@ -198,7 +198,7 @@ Users generally won't need to set a new password with the migration. However, if
 
 Emails and phone numbers can be imported from the incumbent system so one-time password factors don't need to be reset. However, users will need to re-verify their device-bound credentials such as Google Authenticator, WebAuthn, and passkeys.
 
-Users shouldn't need to supply any other details. However, this could be an opportunity to collect additional information. This is optional.
+Users shouldn't need to supply any other details. However, as previously mentioned, this could be an opportunity to collect additional information. This is optional.
 
 ### Post-migration user experience
 
