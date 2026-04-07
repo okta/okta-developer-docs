@@ -32,6 +32,7 @@ title: Okta Identity Engine API release notes 2026
 | [Passkeys rebrand is GA in Preview](#passkeys-rebrand-is-ga-in-preview) | Feb 4, 2026 |
 | [Maximum consecutive characters setting for passwords is GA in Production](#maximum-consecutive-characters-setting-for-passwords-is-ga-in-production) | Dec 10, 2025 |
 | [New password complexity property is GA in Production](#new-password-complexity-property-is-ga-in-production) | June 4, 2025 |
+| [Express Submission in the OIN Wizard](#express-submission-in-the-oin-wizard) | |
 | [Developer documentation updates in 2026.04.0](#developer-documentation-updates-in-2026-04-0) | April 1, 2026 |
 | [Bugs fixed in 2026.04.0](#bugs-fixed-in-2026-04-0)| April 1, 2026 |
 
@@ -99,6 +100,11 @@ You can now use the `maxConsecutiveCharacters` property to limit the number of c
 #### New password complexity property is GA in Production
 
 You can now use the `oelStatement` property to block words from being used in passwords. This feature enhances security by allowing you to customize your password strength requirements. See the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/createpolicy#other/createpolicy/t=request&path=&d=3/settings/password/complexity/oelstatement). <!-- OKTA-849300 PASSWORD_POLICY_OEL_STATEMENT preview date: June 4, 2025 -->
+
+#### Express Submission in the OIN Wizard
+
+Express Submission reduces the time-to-value for independent software vendors (ISVs) to submit Express Configuration functionality for Auth0-enabled SaaS apps to the OIN. With Express Submission, ISVs can input Auth0 metadata into Okta and generate the necessary public key on demand to complete their Express Configuration setup in the OIN Wizard. This eliminates intervention from the OIN operations team and enables quicker submission and publication of Express Configuration functionality apps in the OIN. See [Express Submission](/docs/guides/express-submission/main/).
+<!-- OKTA-1140034 EXPRESS_SUBMISSION_LITE No Preview date, Production date: April 7 -->
 
 #### Developer documentation updates in 2026.04.0
 
