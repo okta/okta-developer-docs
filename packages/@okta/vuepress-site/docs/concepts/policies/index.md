@@ -34,7 +34,7 @@ You can [configure a global session policy](/docs/guides/configure-signon-policy
 
 ### Control how users access your app
 
-The [app sign-in policy](#app-sign-in-policies) for each app determines what extra levels of authentication must be performed before a user can access an app. [Add a rule](/docs/guides/configure-access-policy), for example, to prompt groups that are assigned to your app to reauthenticate after 60 minutes.
+The [app sign-in policy](#app-sign-in-policies) for each app determines what extra levels of authentication must be performed before a user can access an app. [Add a rule](/docs/guides/configure-access-policy), for example, to prompt groups that are assigned to your app to re-authenticate after 60 minutes.
 
 A [password policy](#password-policies) also helps you control how users access your app. It determines the requirements for a user's password length and complexity, and it defines how often a user must change their password.
 
@@ -95,6 +95,8 @@ The [Okta account management policy](#okta-account-management-policy) and its ru
 
 The [Identity Threat Protection policies](#identity-threat-protection-policies) use the entity risk policy and session protection policy for threat evaluations.
 
+The [identity claims sourcing policy](#identity-claims-sourcing-policy) controls whether Okta re-authenticates federated users locally or redirects them to their external IdP when re-authentication is required.
+
 #### App sign-in policies
 
 An [app sign-in policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) determines the extra levels of authentication performed before a user can access an app, such as enforcing factor requirements. See [App sign-in policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop).
@@ -150,6 +152,25 @@ Use [device signal collection policies](/docs/guides/device-signal-collection-po
 The device signal collection policies can collect [information](https://help.okta.com/okta_help.htm?type=oie&id=ext-ov-datatypes) about registered devices and the platforms that devices use.
 
 See [Create device signal collection rules](https://help.okta.com/okta_help.htm?type=oie&id=create-device-signal-collection-ruleset) for details about configuring the policy in the Admin Console.
+
+### Identity claims sourcing policy
+
+<ApiLifecycle access="ea" />
+
+The identity claims sourcing policy (`IDENTITY_CLAIM_SOURCING`) controls how Okta re-authenticates federated users. Federated users have their Okta session established through a third-party IdP (such as Microsoft Entra ID) or an Okta Org2Org IdP. Third-party IdPs are external identity providers connected to Okta over OIDC or SAML. Org2Org IdPs connect two Okta orgs, where one org acts as the identity provider for users signing in to the other.
+
+When an [app sign-in policy](#app-sign-in-policies) or [Okta account management policy](#okta-account-management-policy) requires re-authentication, Okta evaluates the claims sourcing policy to determine whether to handle re-authentication locally or redirect the user back to their IdP.
+
+This policy addresses a gap that affects orgs relying on third-party or Org2Org IdPs for authentication. When re-authentication is required for a sensitive app, federated users may not have local Okta authenticators configured, making local re-authentication difficult or disruptive. By configuring the identity claims sourcing policy, admins control where re-authentication happens for both third-party and Org2Org IdP scenarios.
+
+The policy rule `refresh.redirectType` setting has two options:
+
+* `NONE`: (default) Okta handles re-authentication locally, prompting the user for locally configured authenticators such as Okta Verify.
+* `FIXED`: Okta redirects the user to the third-party or Org2Org IdP that last established their Okta session. You can optionally configure a filter list of allowed IdPs to limit which IdPs are eligible for redirect. If the IdP isn't in the filter list, the policy behaves as `NONE`.
+
+To use IdP re-authentication, you need a re-authentication requirement configured in an app sign-in policy or Okta account management policy, and the identity claims sourcing policy `refresh.redirectType` set to `FIXED`.
+
+See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) for details on the `IDENTITY_CLAIM_SOURCING` policy type.
 
 ### Password policies
 
