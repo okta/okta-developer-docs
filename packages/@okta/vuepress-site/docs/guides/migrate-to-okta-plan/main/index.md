@@ -67,7 +67,7 @@ Also identify any subgroups currently in use for all of your user types. For exa
 
 ### Locate your existing user profile data
 
-Your user data could be in Active Directory, LDAP, or any number of on-premises or cloud-based apps. Most importantly, you need to know exactly where the data is and how to access it. This also requires that you have permission to access and use the data. You also need to know which system is the source of truth for each data element. For example, various systems might maintain a primary email address for each of your users.
+Your existing user data could be in any number of on-premises or cloud-based sources, app database, incumbent IdP, or a directory service such as Active Directory or LDAP. Most importantly, you need to know exactly where the data is and how to access it. This also requires that you have permission to access and use the data. You also need to know which system is the source of truth for each data element. For example, various systems might maintain a primary email address for each of your users.
 
 These are the key points to remember:
 
@@ -77,6 +77,8 @@ These are the key points to remember:
 - Decide if user credentials, groups, and group memberships will be migrated.
 - Identify which user attributes are personally identifiable information (PII).
 - Define all user attributes that will be migrated to Okta, and the source of truth for each one.
+- Determine how long the current system of record will be available.
+- See if there are multiple sources that need to combine the full profile.
 
 **Note:** In this phase, the source of truth refers strictly to the migration's data origin, not the user's post-migration management location. After migration, Okta is the default [profile source](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Masters), but this can be modified.
 
@@ -113,6 +115,8 @@ Regardless of your federation strategy or the current integration status of your
 Your migration approach significantly impacts project complexity, timeline, and user experience. Choose the best user migration strategy for your scenario and deadline. Okta supports two primary migration strategies:
 
 - **Bulk Import (Staged Migration)**: This is a one-time migration that moves all users and their credentials to Okta at once. After the migration, your legacy system can be taken offline. You want to centralize all your user accounts in the Universal Directory. Currently, they're kept in a local store such as Active Directory, a custom database, or another cloud-based identity provider.
+  > **Note:** For large scale migration, a one-time import is not an easy path. You should plan for an initial import with the ability to capture the delta changes. Waiting to migrate millions of users in one day is not reasonable nor will you be able to allocate time for any potential hiccups (such as low quality source data, a source ystem outage, time to process job queues, or write rate limits). Start importing early in the migration process and don't want until days before going live.
+  > To help make this easier to assess the true effort, you can perform several smaller bulk imports to process users collectively, by specfic groups or realms.
 - **Just-In-Time (JIT) Provisioning**: This is more like a migration program that keeps your legacy system active while gradually migrating users to Okta over time. Users are migrated on-demand when they authenticate.
 
 Alternatively, you can perform a bulk import to process users collectively by specific groups and realms.
@@ -126,19 +130,19 @@ To help you choose the method, consider the following questions:
 
 ### Bulk Imports
 
-The bulk import strategy uses CSV imports or the Okta Users API to migrate an entire user base in a single operation. This method is best for orgs with smaller user counts or firm cutover dates where maintaining parallel systems is impractical. While it simplifies long-term architecture and allows for immediate legacy decommissioning, it typically requires a scheduled maintenance window.
+The bulk import strategy uses CSV imports or the Okta Users API to migrate migrate a targeted user population in a single operation. This method is best for orgs with smaller user counts or firm cutover dates where maintaining parallel systems is impractical. While it simplifies long-term architecture and allows for immediate legacy decommissioning, it typically requires a scheduled maintenance window.
 
 Bulk imports offer maximum control over data quality before go-live. However, because all users migrate simultaneously, teams should prepare for a potential spike in support volume during the initial launch.
 
 See [Bulk migration with credentials](/docs/guides/migrate-to-okta-bulk/main/) for detailed instructions.
 
+See [Import Users with Inline Password Hooks](/docs/guides/migrate-to-okta-password-hooks/main/) for implementation details on bulk loading the profile and the JIT password credential peruser.
+
 ### Just-In-Time Provisioning
 
-JIT provisioning migrates users dynamically as they authenticate through SAML or OIDC. This strategy is ideal for large user bases or orgs that can't afford downtime, as it eliminates the need for a maintenance window. Because users are created on-the-fly during their first login, both systems run in parallel. This allows for a gradual rollout and the natural filtering of inactive accounts.
+JIT provisioning migrates users dynamically as they authenticate. This could be a custom authentication flow or through SAML or OIDC federation. This strategy is ideal for large user bases or orgs that can't afford downtime, as it eliminates the need for a maintenance window. Because users are created on-the-fly during their first login, both systems run in parallel. This allows for a gradual rollout and the natural filtering of inactive accounts.
 
-While JIT provisioning ensures a transparent transition for users, it introduces higher technical complexity during the migration period. Admins should note that the initial login may be slightly slower due to real-time account creation. Also, there's less opportunity for data standardization compared to a pre-scrubbed bulk import.
-
-See [Password import inline hook](/docs/guides/migrate-to-okta-password-hooks/main/) for implementation details.
+While JIT provisioning ensures a transparent transition for users, it introduces higher technical complexity during the migration period. Admins should note that the initial login may be slightly slower due to real-time account creation (though this is still lower than a few seconds).
 
 ### Factors to consider
 
@@ -154,7 +158,7 @@ When choosing between these approaches, consider the following:
 - **Inactive accounts:** For migration programs, how long will you keep the process running before determining that non-migrated accounts are inactive?
 - **App dependencies:** Which apps need to switch over to Okta before you start the migration?
 - **Source of truth:** During a migration program, which system is the source of truth while both are active?
-- **Credential migration:** Will you migrate existing password hashes, use password import hooks, or require users to reset passwords?
+- **Credential migration:** Will you migrate existing password hashes, use password import hooks, or require users to reset passwords? Will users need to enroll a phone number or email as an authenticator or as recovery only?
 
 ## Plan the end-user experience
 
@@ -168,10 +172,9 @@ Ideally, a seamless migration has users experiencing little to no disruption. Th
 
 However, you could also use this migration as an opportunity to improve security and use Okta's features during the migration. If this case, you'd have to do the following:
 
-1. Let users know in advance and who to contact if there's an issue.
-1. Reset their credentials, update the auth flow to MFA and/or passwordless as part of the change.
-1. Update the UI to match.
-1. Let users know their account was successfully migrated and activated.
+1. Let users know in advance and who to contact if there's an issue or if they suspect any bad actors.
+1. Improve assurance levels: after initial verification, reset their credentials, update the auth flow to MFA and/or passwordless as part of the change.
+1. Let users know their account was successfully verified and the new experience has been activated (for example, move from passwords to FastPass or passkey).
 
 If you decide to migrate your users in groups over time rather than in one go, you also want to communicate that for transparency.
 
@@ -180,17 +183,19 @@ Keep these questions in mind:
 - Which user experience approach aligns with your business objectives?
 - How will you balance user convenience with security improvements?
 - What resources do you need to support your chosen approach?
+- Will you allow early adopters or advocates to self-migrate?
 
 ### Password migration
 
 Users generally won't need to set a new password with the migration. However, if you move towards the Okta-recommended passwordless experience, there are other options to consider.
 
 - **Hashed password import:** Import existing BCRYPT, SHA-1, or SHA-256 password hashes through the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/user) so users can keep their current passwords.
-- **Password import inline hooks:** Import user profiles without passwords initially, then verify passwords against your legacy system during the first login and migrate them transparently
-- **Delegated authentication:** Okta checks passwords against your legacy AD or LDAP server instead of migrating them (temporary approach).
+- **Password import inline hooks:** Import user profiles without passwords initially, then verify passwords against your legacy system during the first login and migrate them transparently. Users can keep their current passwords.
+- **Delegated authentication:** Okta checks passwords against your legacy AD or LDAP server instead of migrating them. Users can keep their current passwords.
+  > **Note:** This could be a temporary approach while the incumbent directory is being migrated.
 - **Password reset:** Users are set to `STAGED` status and sent activation emails to create passwords.
-- **Passwordless migration:** Transition users directly to passwordless authentication (such as passkeys, biometrics) during migration (Okta's recommended approach).
-- **Multifactor authentication:** Require MFA enrollment as part of the activation process.
+- **Passwordless migration:** Transition users directly to passwordless authentication (such as passkeys, biometrics) during migration (Okta's recommended approach). This requires a verification of users first, and then enrollment.
+- **Multifactor authentication:** Require MFA enrollment as part of the activation process. Improving assurance is part of the authentication flow.
 
 ### Other credentials and details
 
@@ -207,7 +212,6 @@ If you're concerned about users experiencing downtime, you can minimize service 
 Unless you're changing your app's authentication flow, there's no reason for an app's user experience to change. Passwords can be imported and messages sent to phone, email or SMS can be customized to match those sent by the previous system.
 
 > **Note:** Okta recommends using its built-in hosted sign-in authentication form for ease and verbose security capabilities. It has the flexibility to integrate into a standards-based federation model that matches your brand. Using Okta's multi-function widget, the authentication flow might be different but aligns with the current experience.
-
 
 ## Define success metrics
 
@@ -290,16 +294,16 @@ Monitor operational performance post-migration:
 
 After working through these four areas, document your decisions in a migration plan that includes the following:
 
-1. **Executive summary:** High-level overview and business justification
-2. **Data inventory:** What you're migrating and where it currently lives, including the attribute-mapping matrix
-3. **Migration approach:** One-time versus migration program with rationale
-4. **User experience strategy:** Seamless versus staged with communication plan
-5. **Success metrics:** KPIs and measurement approach
-6. **Timeline:** Key milestones and dependencies
-7. **Roles and responsibilities:** Who is accountable for each area
-8. **Risk assessment:** Potential issues and mitigation strategies
-9. **Test plan:** How you validate the migration with test data before production
-10. **Rollback plan:** How to recover if migration fails
+1. **Executive summary:** High-level overview and business justification.
+2. **Data inventory:** What you're migrating and where it currently lives, including the attribute-mapping matrix.
+3. **Migration approach:** One-time versus migration program with rationale. Consider how to handle users who don't migrate their account within the allotted time. Do the accounts get removed or put into recovery mode?
+4. **User experience strategy:** Seamless versus staged with communication plan.
+5. **Success metrics:** KPIs and measurement approach.
+6. **Timeline:** Key milestones and dependencies.
+7. **Roles and responsibilities:** Who is accountable for each area.
+8. **Risk assessment:** Potential issues and mitigation strategies.
+9. **Test plan:** How you validate the migration with test data before production.
+10. **Rollback plan:** How to recover if migration fails.
 
 ## See also
 
