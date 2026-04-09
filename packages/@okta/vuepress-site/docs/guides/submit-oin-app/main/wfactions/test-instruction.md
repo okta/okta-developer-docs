@@ -1,0 +1,1 @@
+<br>For a SCIM integration, specify how to access the SCIM server for testing. Provide the SCIM server base URL and credentials for the OIN team to conduct [QA testing](/docs/guides/submit-app-overview/#understand-the-submission-review-process). You can include instructions on obtaining SCIM credentials (API token or OAuth 2.0 properties) from your app.

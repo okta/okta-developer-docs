@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-Learn how to submit an OIDC, SAML 2.0, SCIM 2.0, Universal Logout, Entitlement Management, or API service integration to the Okta Integration Network (OIN) using the OIN Wizard.
+Learn how to submit an an integration with SSO, Universal Logout, provisioning, entitlement management, or API service capabilites to the Okta Integration Network (OIN) using the OIN Wizard.
 
 ---
 
@@ -29,7 +29,7 @@ Okta provides you with a seamless experience to integrate and submit your app fo
 The OIN Wizard is a full-service tool in the Admin Console for you to do the following:
 
 * Provide all your integration submission details.
-* Generate an app instance in your org for testing:
+* Generate an app instance in your org for testing.
 <StackSnippet snippet="overview-generate"/>
 * Submit your integration directly to the OIN team when you're satisfied with your test results.
 * Monitor the status of your submissions through the **Your OIN Integrations** dashboard.

@@ -2104,7 +2104,19 @@ h1 {
   background-image: url("/img/icons/WEB_Icon_Platform_Workflows_40x40.svg");
 }
 
+.icon.wfactions::before {
+  content: "";
+
+  background-image: url("/img/icons/identicon-actions-2.svg");
+}
+
 .icon.apiservice::before {
+  content: "";
+
+  background-image: url("/img/icons/odyssey/APIs.svg");
+}
+
+.icon.uapiservice::before {
   content: "";
 
   background-image: url("/img/icons/odyssey/APIs.svg");
