@@ -1,63 +1,10 @@
 <div class="full wireframe-border">
 
-  ![Flow diagram illustrating the process of AI agent token exchange](/img/auth/ai-agent-token-exchange-brokered-consent.png)
+  ![Flow diagram illustrating the process of AI agent token exchange](/img/auth/ai-agent-token-exchange/token_exchange_flow_for_OAuth_STS.png)
 
 </div>
 
-<!-- Source for image. Generated using http://www.plantuml.com/
-
-@startuml
-skinparam defaultFontName Arial
-skinparam defaultFontSize 12
-
-skinparam ArrowColor #005CB9
-skinparam ArrowThickness 1.5
-
-skinparam ParticipantBackgroundColor ##ececff
-skinparam ParticipantBorderColor ##e0d7f5
-skinparam ParticipantBorderThickness 1
-
-' -> Declare the participants in the desired order
-participant "User" as User
-participant "Web app" as WebApp
-participant "AI Agent" as Agent
-participant "Okta org authorization server" as OAS
-participant "Resource authorization server" as RAS
-participant "Resource Server" as App
-
-
-WebApp -> OAS: 1 User SSO
-OAS -/-> WebApp: ID token
-
-WebApp -> Agent: 2 Pass token to AI agent
-
-Agent -> OAS: 3 POST /token request
-note over OAS: Checks Token Store, no valid token found
-
-OAS -/-> Agent: 4 HTTP 400 (interaction_required, interaction_uri)
-
-Agent -> User: 5 Redirect user to interaction_uri
-
-User -> RAS: 6 Grant Consent
-
-RAS -> OAS: 7 Redirect user with temporary auth_code
-
-OAS -> RAS: 8 Exchange auth_code for tokens
-
-RAS -/-> OAS: 9 Return access_token & refresh_token
-note over OAS: Securely store new tokens in Token Store
-
-User -> Agent: 10 User asks agent to retry connection
-
-Agent -> OAS: 11 POST /token (Retry request)
-
-OAS -/-> Agent: HTTP 200 OK (Returns new access token)
-
-Agent -> App: 12 Resource request with access token
-App -/-> Agent: Returns Resource Data
-
-@enduml
--->
+<!-- Image source: https://oktainc.atlassian.net/browse/OKTA-1137019 -->
 
 > **Note:** This flow assumes that you've registered a resource server as an OIN app instance, a custom API resource server, or an MCP server, and that you've connected an AI agent to the server as a **Managed Connection**.
 

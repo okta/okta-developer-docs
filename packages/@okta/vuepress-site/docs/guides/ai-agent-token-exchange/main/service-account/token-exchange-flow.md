@@ -1,42 +1,10 @@
 <div class="full wireframe-border">
 
-  ![Flow diagram illustrating the process of AI agent token exchange](/img/auth/ai-agent-token-exchange-service-account.png)
+  ![Flow diagram illustrating the process of AI agent token exchange](/img/auth/ai-agent-token-exchange/token_exchange_flow_for_service_account.png)
 
 </div>
 
-<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
-@startuml
-skinparam defaultFontName Arial
-skinparam defaultFontSize 12
-
-skinparam ArrowColor #005CB9
-skinparam ArrowThickness 1.5
-
-skinparam ParticipantBackgroundColor ##ececff
-skinparam ParticipantBorderColor ##e0d7f5
-skinparam ParticipantBorderThickness 1
-
-skinparam padding 5
-skinparam BoxPadding 10
-
-participant "Web app" as WebApp
-participant "AI agent" as AIAgent
-participant "Okta org authorization server" as OAS
-participant "Resource server" as RS
-
-
-WebApp -> OAS: 1 User SSO
-OAS ..> WebApp: ID token
-WebApp -> AIAgent: 2 Pass token to AI agent
-AIAgent -> OAS: 3 Token exchange (requesting Service Account)
-OAS ..> AIAgent: Returns Service Account credentials
-AIAgent -> RS: 4 Resource request with Service Account credentials
-RS ..> AIAgent: Returns Resource Data
-
-@enduml
-
-
--->
+<!-- Image source: https://oktainc.atlassian.net/browse/OKTA-1137019 -->
 
 > **Note:** This flow assumes that user authentication and authorization are complete and the authorization server issued an access token and ID token associated with a successful login to the linked OIDC app.
 
