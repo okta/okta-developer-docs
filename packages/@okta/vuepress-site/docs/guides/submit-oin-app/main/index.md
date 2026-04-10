@@ -29,8 +29,8 @@ Okta provides you with a seamless experience to integrate and submit your app fo
 The OIN Wizard is a full-service tool in the Admin Console for you to do the following:
 
 * Provide all your integration submission details.
-* Generate an app instance in your org for testing.
-<StackSnippet snippet="overview-generate"/>
+* Generate an app instance in your org for testing:
+  <StackSnippet snippet="overview-generate"/>
 * Submit your integration directly to the OIN team when you're satisfied with your test results.
 * Monitor the status of your submissions through the **Your OIN Integrations** dashboard.
 * Edit published integrations and resubmit them to the OIN.

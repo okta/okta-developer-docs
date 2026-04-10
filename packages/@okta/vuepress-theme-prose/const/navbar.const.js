@@ -810,6 +810,34 @@ export const guides = [
             path: "/docs/guides/oin-universal-logout-overview/",
           },
           {
+            title: "API Integration Actions",
+            path: "/docs/guides/oin-api-actions/",
+            subLinks: [
+              {
+                title: "Build integrations with API Integration Actions",
+                guideName: "build-api-actions",
+              },
+            ],
+          },
+          {
+            title: "Express Configuration",
+            path: "/docs/guides/express-configuration/main/",
+            subLinks: [
+              {
+                title: "Enable Express Configuration",
+                guideName: "enable-express-configuration",
+              },
+              {
+                title: "Customer configuration guide template",
+                guideName: "express-config-guide-template",
+              },
+               {
+                title: "Express Submission",
+                guideName: "express-submission",
+              },
+            ]
+          },
+          {
             title: "Publish an OIN integration",
             path: "/docs/guides/submit-app-overview/",
             subLinks: [
@@ -828,24 +856,6 @@ export const guides = [
               {
                 title: "OIN Manager: Submit an integration",
                 guideName: "submit-app",
-              },
-            ]
-          },
-          {
-            title: "Express Configuration",
-            path: "/docs/guides/express-configuration/main/",
-            subLinks: [
-              {
-                title: "Enable Express Configuration",
-                guideName: "enable-express-configuration",
-              },
-              {
-                title: "Customer configuration guide template",
-                guideName: "express-config-guide-template",
-              },
-               {
-                title: "Express Submission",
-                guideName: "express-submission",
               },
             ]
           },
