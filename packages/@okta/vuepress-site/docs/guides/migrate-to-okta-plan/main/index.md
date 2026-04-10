@@ -8,15 +8,6 @@ layout: Guides
 
 Migrating users to Okta requires careful planning and consideration. This guide helps you create a migration plan by walking through the key questions and decisions you need to address before beginning your migration journey.
 
-A well-thought-out plan reduces risk, minimizes user disruption, and ensures that your migration meets both business and security objectives. Use this guide to assess your requirements, evaluate your options, and document your migration strategy.
-
-Your migration plan should address four critical areas. Work through each section to document your decisions and create a roadmap for your migration.
-
-- **Data considerations**: Identify the data that you're migrating.
-- **Migration type**: Choose the most appropriate way to migrate your information.
-- **End-user experience:** Balance seamless user migration against immediate security and feature benefits.
-- **Measure success:** Define KPIs balancing migration value, user experience, and security goals.
-
 ---
 
 #### Learning outcomes
@@ -32,6 +23,17 @@ Create a comprehensive migration plan that addresses data identification, migrat
 
 ---
 
+## Overview
+
+A well-thought-out plan reduces risk, minimizes user disruption, and ensures that your migration meets both business and security objectives. Use this guide to assess your requirements, evaluate your options, and document your migration strategy.
+
+Your migration plan should address four critical areas. Work through each section to document your decisions and create a roadmap for your migration.
+
+- **Data considerations:** Identify the data that you're migrating.
+- **Migration type:** Choose the most appropriate way to migrate your information.
+- **End-user experience:** Balance seamless user migration against immediate security and feature benefits.
+- **Measure success:** Define KPIs balancing migration value, user experience, and security goals.
+
 ## Consider your data
 
 Before you can migrate to Okta, you need a clear picture of what you're migrating and where it currently lives.
@@ -40,7 +42,7 @@ Before you can migrate to Okta, you need a clear picture of what you're migratin
 
 ### Private data and other sensitive information
 
-> **Important**: Information security is a critical issue in today's world, and user information is probably the most important information to keep secure. When preparing to migrate user data to Okta, you must consider all of your company policies and any regulatory concerns regarding personally identifiable information (PII), and user data in general. The European Union's [General Data Protection Regulation (GDPR)](https://gdpr-info.eu/) is an example of regulatory rules that may apply to your migration. Check with your legal department early in the planning process of your migration so that you can include these considerations when developing your plan.
+> **Important:** Information security is a critical issue in today's world, and user information is probably the most important information to keep secure. When preparing to migrate user data to Okta, you must consider all of your company policies and any regulatory concerns regarding personally identifiable information (PII), and user data in general. The European Union's [General Data Protection Regulation (GDPR)](https://gdpr-info.eu/) is an example of regulatory rules that may apply to your migration. Check with your legal department early in the planning process of your migration so that you can include these considerations when developing your plan.
 
 For more information on this, see the following content:
 
@@ -56,10 +58,10 @@ You may also need to consider the following:
 
 Start by identifying the different types of users in your org, based on the broad kinds of access that they need:
 
-- **Full and part-time employees** - Your internal workforce
-- **Customers** - External users who access your products or services
-- **Partners** - External collaborators and business partners
-- **Contractors** - Temporary workers and consultants
+- **Full and part-time employees:** Your internal workforce
+- **Customers:** External users who access your products or services
+- **Partners:** External collaborators and business partners
+- **Contractors:** Temporary workers and consultants
 
 How many of each type of user do you have? Understanding this helps estimate the amount of time you need when implementing your migration.
 
@@ -116,10 +118,10 @@ Regardless of your federation strategy or the current integration status of your
 
 Your migration approach significantly impacts project complexity, timeline, and user experience. Choose the best user migration strategy for your scenario and deadline. Okta supports two primary migration strategies:
 
-- **Bulk Import (Staged Migration)**: This is a one-time migration that moves all users and their credentials to Okta at once. After the migration, you can take your legacy system offline. You want to centralize all of your user accounts in Universal Directory. Currently, they're kept in a local store such as Active Directory, a custom database, or another cloud-based identity provider.
+- **Bulk Import (Staged Migration):** This is a one-time migration that moves all users and their credentials to Okta at once. After the migration, you can take your legacy system offline. You want to centralize all of your user accounts in Universal Directory. Currently, they're kept in a local store such as Active Directory, a custom database, or another cloud-based identity provider.
 > **Note:** For a large-scale migration, a one-time import isn't an easy path. Plan for an initial import with the ability to capture the delta changes. Waiting to migrate millions of users in one day isn't reasonable nor will you be able to allocate time for any potential hiccups (such as low-quality source data, a source system outage, time to process job queues, or write rate limits). Start importing early in the migration process and don't wait until days before going live.
 > To help make this easier to assess the true effort, you can perform several smaller bulk imports to process users collectively, by specific groups, or realms.
-- **Just-In-Time (JIT) Provisioning**: This is more like a migration program that keeps your legacy system active while gradually migrating users to Okta over time. Users are migrated on-demand when they authenticate.
+- **Just-In-Time (JIT) Provisioning:** This is more like a migration program that keeps your legacy system active while gradually migrating users to Okta over time. Users are migrated on-demand when they authenticate.
 
 To help you choose the method, consider the following questions:
 
