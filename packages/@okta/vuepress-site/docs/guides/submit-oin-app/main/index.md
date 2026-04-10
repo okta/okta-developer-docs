@@ -16,9 +16,9 @@ Learn how to submit an an integration with SSO, Universal Logout, provisioning, 
 
 * An admin user in the Integrator Free Plan org with either the super admin or the app and org admin roles
 
-<StackSnippet snippet="what-need"/>
-
 * The various items necessary for submission in accordance with the [OIN submission requirements](/docs/guides/submit-app-prereq/)
+
+<StackSnippet snippet="what-need"/>
 
 ---
 
@@ -96,11 +96,11 @@ Configure your OIN catalog properties:
 
 Continue with the OIN Wizard and configure your integration:
 
-#### Integration variables
+#### Tenant settings
 
 Configure integration variables if your URLs are dynamic for each tenant. The variables are for your customer admins to add their specific tenant values during installation. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language).
 
-1. In the **Integration variables** section, specify the name and label for each variable:
+1. In the **Tenant settingss** section, specify the name and label for each variable:
 
     | <div style="width:100px">Property</div> | Description  |
     | --------------- | ------------ |
