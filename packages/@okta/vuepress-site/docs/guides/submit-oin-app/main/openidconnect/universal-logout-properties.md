@@ -1,6 +1,6 @@
 #### Universal logout properties
 
-> **Note:** The **Universal Logout properties** section only displays when you select **Universal Logout** along with the protocols that your integration supports from the **Select protocol** section.
+> **Note:** The **Universal Logout properties** section only displays when you select **Universal Logout** from the **Select protocol** section.
 
 1. Specify the following properties if you want to integrate for Universal Logout:
 

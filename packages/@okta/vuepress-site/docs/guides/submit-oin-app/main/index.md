@@ -88,19 +88,11 @@ Configure your OIN catalog properties:
 
     `*` Required properties
 
-1. Click **Configure your integration**.
-
-### Configure your integration
-
-<StackSnippet snippet="express-submission-note" inline/>
-
-Continue with the OIN Wizard and configure your integration:
-
 #### Tenant settings
 
 Configure integration variables if your URLs are dynamic for each tenant. The variables are for your customer admins to add their specific tenant values during installation. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language).
 
-1. In the **Tenant settingss** section, specify the name and label for each variable:
+2. In the **Tenant settings** section, specify the name and label for each variable:
 
     | <div style="width:100px">Property</div> | Description  |
     | --------------- | ------------ |
@@ -115,6 +107,12 @@ Configure integration variables if your URLs are dynamic for each tenant. The va
 
 1. If you need to delete a variable, click the delete icon (![trash can; delete icon](/img/icons/odyssey/delete.svg)) next to it.
 <!--Odyssey icons sourced from: https://github.com/okta/odyssey/blob/main/packages/odyssey-icons/src/figma.generated/ -->
+
+<StackSnippet snippet="auth-settings"/>
+
+### Configure your integration
+
+<StackSnippet snippet="express-submission-note" inline/>
 
 #### <StackSnippet snippet="protocol-name" inline/> properties
 
