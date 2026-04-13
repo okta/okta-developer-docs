@@ -1,32 +1,31 @@
 | <div style="width:150px">Property</div> | Description  |
 | ----------------- | ------------ |
-| **User query** | Specify the flows that allow Okta to read and import users. |
+| **User query** `*` | Flows that allow Okta to read and import users from your app |
 | List users | Specify the flow to list users. |
 | Get user by ID | Specify the flow to retrieve a user by their ID. |
 | Get user by username | Specify the flow to retrieve a user by their username. |
-| **User schema discovery** | Specify the flows that allow Okta to retrieve your app's user schema and available attribute values. |
-| List user schema | Allows Okta to retrieve your integration's user schema and available attribute values. |
-| List user schema property values | Allows Okta to retrieve your integration's user schema and available attribute values.        |
-| **User operations** | Specify the flows that define the user lifecycle management actions that Okta can perform in your app. You can select any subset of these operations.|
-| Create user (Optional) | Defines which user lifecycle management actions Okta can perform in your integration. |
-| Update user (Optional) | Defines which user lifecycle management actions Okta can perform in your integration. |
-| Update user password (Optional) | Allows Okta to update user passwords in your integration. |
-| Activate user (Optional) | Allows Okta to activate users in your integration. |
-| Deactivate user (Optional) | Allows Okta to deactivate users in your integration. |
-| **Group query** |  |
-| List groups | Allows Okta to read and import groups from your integration. |
-| Get group by ID | Allows Okta to read and import groups from your integration. |
-| **Group operations** | |
-| Enable group operations  | Allows Okta to read and import groups from your integration. Please select all or none; partial selection is not supported. |
-| List groups by display name | Allows Okta to read and import groups from your integration by display name. |
-| Create group  | Allows Okta to create groups in your integration. |
-| Update group  | Allows Okta to update groups in your integration. |
-| Remove group  | Allows Okta to remove groups in your integration. |
-| **Group Membership** |  |
-| Enable group membership | Allows Okta to manage group membership in your integration. |
-| List group members | Allows Okta to list members of a group from your integration. |
-| Add group members | Allows Okta to add members to a group in your integration. |
-| Remove group members | Allows Okta to remove members from a group in your integration. |
-
+| **User schema discovery** `*` | Flows that allow Okta to retrieve your app's user schema and the available attribute values |
+| List user schema | Specify the flow to list your user schema. |
+| List user schema property values | Specify the flow to list your user schema and the available attribute values.        |
+| **User operations** | Flows that define the user lifecycle management actions that Okta can perform in your app. Each user operation is optional. You can specify a subset of these operations. |
+| Create user (Optional) | Specify the flow for Okta to create a user in your app. |
+| Update user (Optional) | Specify the flow for Okta to update a user in your app. |
+| Update user password (Optional) | Specify the flow for Okta to update a user password in your app. |
+| Activate user (Optional) | Specify the flow for Okta to activate a user in your app. |
+| Deactivate user (Optional) | Specify the flow for Okta to deactivate a user in your app. |
+| **Group query** `*` | Flows that allow Okta to read and import groups from your app |
+| List groups | Specify the flow to list the groups in your app. |
+| Get group by ID | Specify the flow to retrieve a group by their ID. |
+| **Group operations** | Flows that allows Okta to read and manage groups in your app |
+| Enable group operations | Enable group operations. You must specify flows for all group operations if you enable this feature. |
+| List groups by display name | Specify the flow to list groups in your app based on the group display name. |
+| Create group  | Specify the flow to create a group in your app. |
+| Update group  | Specify the flow to update a group in your app. |
+| Remove group  | Specify the flow to remove a group in your app. |
+| **Group Membership** | Flows that allows Okta to read and manage group memberships in your app |
+| Enable group membership | Enable group membership operations. You must specify flows for all group membership operations if you enable this feature. |
+| List group members | Specify the flow to list group members in your app. |
+| Add group members | Specify the flow to add members to a group in your app. |
+| Remove group members | Specify the flow to remove members from a group in your app. |
 
 `*` Required properties

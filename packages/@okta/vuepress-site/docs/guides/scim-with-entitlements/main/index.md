@@ -24,7 +24,7 @@ This guide teaches you how to create a System for Cross-domain Identity Manageme
 
 ## Overview
 
-Okta supports third-party entitlement discovery and assignment through a combination of [Okta Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) and SCIM 2.0.
+ and assignment through a combination of [Okta Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) and SCIM 2.0.
 
 In particular, user schema discovery allows Okta to support dynamic data from SCIM-enabled apps. The discovery process includes importing users into Okta and parsing the imported user objects.
 
