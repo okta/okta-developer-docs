@@ -13,6 +13,16 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 ## April
 
+### Weekly release 2026.04.2
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bug fixed in 2026.04.2](#bug-fixed-in-2026-04-2)| April 15, 2026 |
+
+#### Bug fixed in 2026.04.2
+
+Searching for campaigns with a `filter` query parameter failed when the filter expression contained the `startDate` or `endDate` attributes. (OKTA-1143386)
+
 ### Monthly release 2026.04.0
 <!-- Published on: 2026-04-02T12:00:00Z -->
 
