@@ -22,7 +22,7 @@ title: Okta Identity Engine API release notes 2026
 
 #### Bugs fixed in 2026.04.2
 
-* In Okta Integrator Free Plan orgs, when Entitlement Management was enabled, SCIM apps experienced import failures if users had existing entitlements. (OKTA-1150897)
+* When Entitlement Management was enabled in Integrator Free Plan orgs, SCIM apps experienced import failures if users had existing entitlements. (OKTA-1150897)
 <!--  Okta Integrator Free Plan org bug -->
 
 * In Okta Integrator Free Plan orgs, when Entitlement Management was enabled, group push for SCIM apps failed with an error and prevented groups from synchronizing. (OKTA-1149228)
