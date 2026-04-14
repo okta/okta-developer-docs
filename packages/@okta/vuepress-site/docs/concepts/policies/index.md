@@ -159,18 +159,21 @@ See [Create device signal collection rules](https://help.okta.com/okta_help.htm?
 
 The identity claims sourcing policy (`IDENTITY_CLAIM_SOURCING`) controls how Okta re-authenticates federated users. Federated users have their Okta session established through a third-party IdP (such as Microsoft Entra ID) or an Okta Org2Org IdP. Third-party IdPs are external identity providers connected to Okta over OIDC or SAML. Org2Org IdPs connect two Okta orgs, where one org acts as the identity provider for users signing in to the other.
 
-When an [app sign-in policy](#app-sign-in-policies) or [Okta account management policy](#okta-account-management-policy) requires re-authentication, Okta evaluates the claims sourcing policy to determine whether to handle re-authentication locally or redirect the user back to their IdP.
+When an [app sign-in policy](#app-sign-in-policies) or [Okta account management policy](#okta-account-management-policy) requires re-authentication, Okta evaluates the claims sourcing policy to determine whether to handle re-authentication locally or redirect the user back to the IdP that established their session. Local re-authentication means that Okta prompts the user to authenticate with authenticators that are configured in the org. For example, a user is prompted to authenticate with Okta Verify instead of redirecting to the external IdP.
 
-This policy addresses a gap that affects orgs relying on third-party or Org2Org IdPs for authentication. When re-authentication is required for a sensitive app, federated users may not have local Okta authenticators configured, making local re-authentication difficult or disruptive. By configuring the identity claims sourcing policy, admins control where re-authentication happens for both third-party and Org2Org IdP scenarios.
+Re-authentication is required when a user's session in an app has reached its maximum lifetime, and you set that re-authentication requirement in app sign-in policies or the Okta account management policy.
+
+This policy addresses a gap that affects orgs relying on third-party or Org2Org IdPs for authentication. When re-authentication is required for a sensitive app, federated users may not have local Okta authenticators configured, making local re-authentication disruptive. By configuring the identity claims sourcing policy, you can control where re-authentication happens for both third-party and Org2Org IdP scenarios.
 
 The policy rule `refresh.redirectType` setting has two options:
 
-* `NONE`: (default) Okta handles re-authentication locally, prompting the user for locally configured authenticators such as Okta Verify.
-* `FIXED`: Okta redirects the user to the third-party or Org2Org IdP that last established their Okta session. You can optionally configure a filter list of allowed IdPs to limit which IdPs are eligible for redirect. If the IdP isn't in the filter list, the policy behaves as `NONE`.
+* `NONE`: (default) Okta performs re-authentication locally, prompting the user to authenticate with authenticators that are configured and enrolled from the org, such as Okta Verify.
+* `FIXED`: Okta redirects the user to the third-party or Org2Org IdP that last established their Okta session. The IdP must be active too. You can optionally configure a filter list of allowed IdPs to limit which IdPs are eligible for redirect. If the IdP isn't in the filter list, the policy behaves as `NONE`.
 
-To use IdP re-authentication, you need a re-authentication requirement configured in an app sign-in policy or Okta account management policy, and the identity claims sourcing policy `refresh.redirectType` set to `FIXED`.
+See:
 
-See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) for details on the `IDENTITY_CLAIM_SOURCING` policy type.
+* [Configure the identity claims sourcing policy](/docs/guides/configure-identity-claims-sourcing-policy/main/)
+* [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy)
 
 ### Password policies
 
