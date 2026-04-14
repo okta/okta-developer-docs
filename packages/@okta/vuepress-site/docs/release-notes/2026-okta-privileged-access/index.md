@@ -13,6 +13,17 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 ## April
 
+### Weekly release 2026.04.2
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bug fixed in 2026.04.2](#bug-fixed-in-2026-04-2)| April 15, 2026 |
+
+#### Bugs fixed in 2026.04.2
+
+The Rotate Password endpoint (`POST v1/teams/{team_name}/active_directory/{ad_connection_id}/accounts/{ad_account_id}/rotate_password`) for Okta user account credentials returned a success status even when the password rotation failed at the Active Directory level. (OKTA-1140010)
+
+
 ### Monthly release 2026.04.0
 <!-- Published on: 2026-04-02T12:00:00Z -->
 | Change | Expected in Preview Orgs |
