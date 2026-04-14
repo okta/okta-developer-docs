@@ -16,4 +16,4 @@
 
   You are redirected to the Workflows Integrator Builder in your org to define API Integration Actions. See [Build integrations with API Integration Actions](/docs/guides/build-api-actions/main/).
 
-  Alternatively, click **Skip to configure your integration** to bypass building your integration with API Integration Actions. Configure your integration only if it supports all the capabilities you selected at the beginning of the OIN Wizard flow.
+  Alternatively, click **Skip to configure your integration** to bypass building your integration with API Integration Actions. Continue to [Configure your integration](#configure-your-integration) only if your integration supports all the capabilities you selected at the beginning of the OIN Wizard.
