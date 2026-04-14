@@ -53,23 +53,8 @@ Start your integration submission for OIN publication:
 
     > **Note:** Submit your integration from an Okta account that has your company domain in the email address. You can't use an account with a personal email address. The OIN team doesn't review submissions from personal email accounts.
 
-1. On the **Home** page, do one of the following:
+<StackSnippet snippet="entry-path"/>
 
-    * Click **Create app** to create a new app that you want to list in the Okta Integration Network. <br><br>
-    **OR**<br>
-    * If there’s an existing integration for an app, click **Add more integrations** to add another integrations to it. The **Manage your app** page appears.
-
-1. Select your integration capabilities, and then enter a display name and description. See the [Integration details](/docs/guides/submit-oin-app/openidconnect/main/#integration-details) section for more details.
-
-1. Click **Add Integration Details**. The **Integration details** page appears.
-
-   > **Note:**
-   >Alternatively, you can go to **Applications** > **Your OIN Integrations** to build your integration and select your protocols.
-
-    If you only want to test an existing submission, see [Navigate directly to test your integration](#navigate-directly-to-test-your-integration).
-
-    > **Note:** The instructions on this page are for the **<StackSnippet snippet="protocol-fullname" inline/>**. <br>
-    > If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
 
 ### Integration details
 
@@ -196,9 +181,11 @@ Follow these steps to bypass the configuration pages in the OIN Wizard:
 1. Select **Applications** > **Your OIN Integrations**. Then select the more icon (![three-dot more icon](/img/icons/odyssey/more.svg)) next to the integration submission that you want to test.
 1. Select **Test your integration**.
 
-   The OIN Wizard **Test integration** page appears for you to generate an instance and test your integration.
+   * The OIN Wizard **Test integration** page appears for you to generate an instance and test your integration.
 
-    > **Note:** If you haven't specified test information in the **[Test your integration](#enter-test-information)** page, then you're directed to this page to enter testing details. You can go to the **Test integration** page only if the protocols, configuration, and test details are provided in your submission.
+   * If you haven't specified test information in the **[Test your integration](#enter-test-information)** page, then you're directed to this page to enter testing details. You can go to the **Test integration** page only if the protocols, configuration, and test details are provided in your submission.
+
+   * If your integration is in read-only mode, click **Edit integration** to enter test details before testing.
 
 ### Generate instances for testing
 
