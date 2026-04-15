@@ -4,8 +4,17 @@
   <title>Okta Privileged Access API Release Notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/</link>
   <description>Recent release notes for Okta Privileged Access API</description>
-  <pubDate>Thu, 02 Apr 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 15 Apr 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Weekly release 2026.04.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-04-2</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-04-2</guid>
+      <pubDate>Wed, 15 Apr 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#bug-fixed-in-2026-04-2">Bug fixed in 2026.04.2</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Monthly release 2026.04.0</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#monthly-release-2026-04-0</link>
@@ -57,15 +66,6 @@
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-02-3</guid>
       <pubDate>Wed, 25 Feb 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#new-system-log-event-for-password-rotation-changes">New System Log event for password rotation changes</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#new-password-management-options-for-on-premises-saas-app-accounts-is-ea">New password management options for on-premises SaaS app accounts is EA</a>]]></description>
-    </item>
-  
-
-    <item>
-      <title>New password management options for on-premises SaaS app accounts is EA</title>
-      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#new-password-management-options-for-on-premises-SaaS-app-accounts-is-EA</link>
-      <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#new-password-management-options-for-on-premises-SaaS-app-accounts-is-EA</guid>
-      <pubDate>Thu, 01 Jan 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[]]></description>
     </item>
   
 

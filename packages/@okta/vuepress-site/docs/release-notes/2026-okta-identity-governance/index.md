@@ -14,7 +14,7 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 ## April
 
 ### Weekly release 2026.04.2
-<!-- Published on: 2026-04-14T12:00:00Z -->
+<!-- Published on: 2026-04-15T12:00:00Z -->
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
