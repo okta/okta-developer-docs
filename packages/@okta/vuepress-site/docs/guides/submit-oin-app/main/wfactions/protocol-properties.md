@@ -1,10 +1,10 @@
 #### Provisioning API Integration Actions
 
 > **Notes:**
-> * This section appears only if you select Provisioning with API Integration Actions.
-> * The instructions on this page are for **API Integration Actions** . If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
+> * This section appears only if you select provisioning with API Integration Actions.
+> * The instructions on this page are for **API Integration Actions**. If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
 
-1. Specify the following protocol properties in the **<StackSnippet snippet="protocol-name" inline/> properties** section:
+1. Specify the flows that you built in API Integration Actions to support the following operation:
 
     | <div style="width:150px">Property</div> | Description  |
     | ----------------- | ------------ |
