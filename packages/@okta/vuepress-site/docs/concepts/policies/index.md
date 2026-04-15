@@ -163,8 +163,6 @@ When an [app sign-in policy](#app-sign-in-policies) or [Okta account management 
 
 Re-authentication is required when a user's session in an app has reached its maximum lifetime, and you set that re-authentication requirement in app sign-in policies or the Okta account management policy.
 
-This policy addresses a gap that affects orgs relying on third-party or Org2Org IdPs for authentication. When re-authentication is required for a sensitive app, federated users may not have local Okta authenticators configured, making local re-authentication disruptive. By configuring the identity claims sourcing policy, you can control where re-authentication happens for both third-party and Org2Org IdP scenarios.
-
 The policy rule `refresh.redirectType` setting has two options:
 
 * `NONE`: (default) Okta performs re-authentication locally, prompting the user to authenticate with authenticators that are configured and enrolled from the org, such as Okta Verify.

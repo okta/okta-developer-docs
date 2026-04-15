@@ -4,7 +4,7 @@ excerpt: Learn how to configure the identity claims sourcing policy to redirect 
 layout: Guides
 ---
 
-<ApiLifecycle access="ea" />
+<ApiLifecycle access="ie" /><br><ApiLifecycle access="ea" />
 
 Use the Policies API to configure the identity claims sourcing policy for IdP re-authentication.
 
@@ -25,15 +25,21 @@ Use the Policies API to configure the identity claims sourcing policy for IdP re
 
 ## Overview
 
-Federated users whose Okta session was established through a third-party IdP or Org2Org IdP may not have local authenticators enrolled in Okta. When an app sign-in policy or Okta account management policy requires re-authentication, Okta prompts the user for a local Okta authenticator by default, which can be disruptive for federated users without any enrolled local authenticators.
+The identity claims sourcing policy enables federated users, who may not have authenticators enrolled in your org, to be redirected to their IdP for re-authentication. When an app sign-in policy or Okta account management policy requires re-authentication, Okta prompts the user for a local Okta authenticator by default, which can be disruptive for federated users.
 
-The identity claims sourcing policy improves the user experience for federated users. When it's configured, it redirects federated users back to the IdP that last established their most recent Okta session. The IdP handles re-authentication and returns the user to Okta with fresh authentication claims.
+Federated users authenticate with their IdP credentials and may not have any authenticators enrolled in Okta.
+
+The identity claims sourcing policy improves the user experience for federated users. When it's configured, it redirects federated users back to the IdP that last established their most recent Okta session. The IdP handles re-authentication and returns the user to their app or resource with fresh authentication claims.
+
+Federated users can access the app or resource without having to authenticate with or enroll in local Okta authenticators.
 
 ### What is re-authentication
 
 Re-authentication happens when a user needs to verify their identity again after they've already signed in. Re-authentication is typically required when a user tries to access a sensitive app or resource, or when a user's session has reached its maximum lifetime. You set re-authentication requirements in app sign-in policies or the Okta account management policy.
 
-Local re-authentication means that Okta prompts the user to authenticate with authenticators that are configured in the org. That's the default behavior. For example, Okta prompts the user to authenticate with Okta Verify instead of redirecting them to the external IdP.
+Local re-authentication means that Okta prompts the user to authenticate with authenticators that are configured in the org. That's the default behavior. For example, Okta prompts the user to authenticate with their password or Okta Verify instead of redirecting them to the external IdP.
+
+The identity claims sourcing policy only applies to re-authentication scenarios. To use it, ensure that you have a re-authentication requirement configured in an app sign-in policy or Okta account management policy.
 
 ### How the identity claims sourcing policy works
 
@@ -41,10 +47,12 @@ Each org has one identity claims sourcing policy with one default rule. You can'
 
 When you enable the feature, Okta automatically creates a default identity claims sourcing policy and rule.
 
+The MFA requirements of the app sign-in policy or Okta account management policy influence how re-authentication behaves for federated users.
+
+#### Identity claims sourcing with claims sharing
+
 * If you have claims sharing configured with your IdP, the default rule allows redirection to the last known SSO IdP for re-authentication.
 * If you don't have claims sharing configured, the default rule doesn't allow redirection, which maintains Okta's existing local re-authentication behavior.
-
-The MFA requirements of the app sign-in policy or Okta account management policy influence how re-authentication behaves for federated users.
 
 ## The claims sourcing policy and different types of IdPs
 
