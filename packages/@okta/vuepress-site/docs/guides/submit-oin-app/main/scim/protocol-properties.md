@@ -1,4 +1,11 @@
-1. Specify the following protocol properties in the **<StackSnippet snippet="protocol-name" inline/> properties** section:
+#### SCIM properties
+
+> **Notes:**
+> * This section appears if you select provisioning with SCIM 2.0.
+> * The instructions on this page are for the **SCIM 2.0** protocol. <br>
+> If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
+
+1. Specify the following protocol properties in the **SCIM properties** section:
 
     | <div style="width:150px">Property</div> | Description  |
     | ----------------- | ------------ |

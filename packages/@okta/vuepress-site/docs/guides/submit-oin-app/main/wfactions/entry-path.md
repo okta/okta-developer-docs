@@ -9,5 +9,3 @@
     > If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list on the right.
 
 1. Click **Add integration details**.
-
-   

@@ -1,4 +1,10 @@
-1. Specify the following protocol properties in the **<StackSnippet snippet="protocol-name" inline/> properties** section:
+#### SAML properties
+
+> **Notes:**
+> * This section appears if you select SSO with SAML 2.0.
+> * The instructions on this page are for the **SAML 2.0** protocol. If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
+
+1. Specify the following protocol properties:
 
     | <div style="width:150px">Property</div> | Description  |
     | ----------------- | ------------ |

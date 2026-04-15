@@ -1,4 +1,10 @@
-1. Specify the following protocol properties in the **<StackSnippet snippet="protocol-name" inline/> properties** section:
+#### OIDC properties
+
+> **Notes:**
+> * This section appears if you select SSO with OIDC.
+> * The instructions on this page are for the **OIDC** protocol. If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
+
+1. Specify the following protocol properties in the **OIDC properties** section:
 
     | <div style="width:150px">Property</div> | Description  |
     | ----------------- | ------------ |

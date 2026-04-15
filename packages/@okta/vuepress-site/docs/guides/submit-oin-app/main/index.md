@@ -99,15 +99,6 @@ Configure integration variables if your URLs are dynamic for each tenant. The va
 
 <StackSnippet snippet="express-submission-note" inline/>
 
-#### <StackSnippet snippet="protocol-name" inline/> properties
-
-> **Note:** The instructions on this page are for the **<StackSnippet snippet="protocol-fullname" inline/>** . <br>
-> If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
-
-Continue with the OIN Wizard and configure your protocol settings:
-
-<StackSnippet snippet="protocol-properties" />
-
 #### Support contact
 
 1. Specify a support contact from your organization:
@@ -118,9 +109,15 @@ Continue with the OIN Wizard and configure your protocol settings:
 
 See [Customer support contact guidelines](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines).
 
+<StackSnippet snippet="protocol-properties"/>
+
 <StackSnippet snippet="entitlement-management-properties"/>
 
 <StackSnippet snippet="universal-logout-properties"/>
+
+<br>
+
+2. Click **Get started with testing** to save your edits and move to the **Test your integration** section, where you need to [enter test information](#enter-test-information) for your integration.
 
 #### Dynamic properties with Okta Expression Language
 

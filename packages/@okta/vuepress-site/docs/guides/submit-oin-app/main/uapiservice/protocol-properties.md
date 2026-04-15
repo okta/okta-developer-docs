@@ -1,4 +1,9 @@
-1. Specify the following protocol properties in the **<StackSnippet snippet="protocol-name" inline/> properties** section:
+#### API service integration properties
+
+> **Note:** The instructions on this page are for **API service integrations**.
+> If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
+
+1. Specify the following properties:
 
     | Property | Description |
     | --- | --- |
@@ -8,5 +13,3 @@
     | **Link to configuration guide** `*` | Enter the URL for your customer-facing instructions for configuring your API service integration. See [Customer configuration document guidelines](/docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines). |
 
     `*` Required properties
-
-2. Click **Start testing** to save your edits and move to the testing section, where you need to enter your integration test details.

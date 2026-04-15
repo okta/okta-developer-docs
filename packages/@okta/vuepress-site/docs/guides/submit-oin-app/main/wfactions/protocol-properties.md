@@ -1,3 +1,9 @@
+#### Provisioning API Integration Actions
+
+> **Notes:**
+> * This section appears only if you select Provisioning with API Integration Actions.
+> * The instructions on this page are for **API Integration Actions** . If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
+
 1. Specify the following protocol properties in the **<StackSnippet snippet="protocol-name" inline/> properties** section:
 
     | <div style="width:150px">Property</div> | Description  |
@@ -29,5 +35,5 @@
     | List group members | Specify the flow to list group members in your app. |
     | Add group members | Specify the flow to add members to a group in your app. |
     | Remove group members | Specify the flow to remove members from a group in your app. |
-    
+
     `*` Required properties
