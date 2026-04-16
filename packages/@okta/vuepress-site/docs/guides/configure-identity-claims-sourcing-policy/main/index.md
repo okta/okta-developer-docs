@@ -25,33 +25,27 @@ Use the Policies API to configure the identity claims sourcing policy for IdP re
 
 ## Overview
 
-The identity claims sourcing policy enables federated users, who may not have authenticators enrolled in your org, to be redirected to their IdP for re-authentication. When an app sign-in policy or Okta account management policy requires re-authentication, Okta prompts the user for a local Okta authenticator by default, which can be disruptive for federated users.
+The identity claims sourcing policy enables federated users, who may not have authenticators enrolled in your org, to be redirected to their IdP for re-authentication. Each org has one identity claims sourcing policy with one default rule. You can't create other policies or delete the default rule. You can only update the default rule's settings. When you enable the feature, Okta automatically creates a default identity claims sourcing policy and rule.
 
-Federated users authenticate with their IdP credentials and may not have any authenticators enrolled in Okta.
+### How the identity claims sourcing policy works
 
-The identity claims sourcing policy improves the user experience for federated users. When it's configured, it redirects federated users back to the IdP that last established their most recent Okta session. The IdP handles re-authentication and returns the user to their app or resource with fresh authentication claims.
+When an app sign-in policy or Okta account management policy requires re-authentication, Okta prompts the user for a local Okta authenticator by default. Prompting to enroll local authenticators can be disruptive for federated users. That's because federated users typically authenticate with their IdP credentials instead of using Okta authenticators.
+
+The identity claims sourcing policy improves the re-authentication user experience for federated users. When it's configured, it redirects federated users back to the IdP that last established their most recent Okta session. The IdP handles re-authentication and returns the user to their app or resource with fresh authentication claims.
 
 Federated users can access the app or resource without having to authenticate with or enroll in local Okta authenticators.
 
 ### What is re-authentication
 
-Re-authentication happens when a user needs to verify their identity again after they've already signed in. Re-authentication is typically required when a user tries to access a sensitive app or resource, or when a user's session has reached its maximum lifetime. You set re-authentication requirements in app sign-in policies or the Okta account management policy.
+Re-authentication happens when a user needs to verify their identity again after they've already signed in. Re-authentication is typically required when a user accesses a sensitive app or resource, or when a user's session has reached its maximum lifetime. You set re-authentication requirements in app sign-in policies or the Okta account management policy.
 
-Local re-authentication means that Okta prompts the user to authenticate with authenticators that are configured in the org. That's the default behavior. For example, Okta prompts the user to authenticate with their password or Okta Verify instead of redirecting them to the external IdP.
+Local re-authentication means that Okta prompts the user to authenticate with authenticators that are configured in the org. That's the default behavior. For example, Okta prompts the user to authenticate with their password or Okta Verify instead of redirecting them to the external IdP. The identity claims sourcing policy enables users to re-authenticate with their IdP instead of through local re-authentication.
 
 The identity claims sourcing policy only applies to re-authentication scenarios. To use it, ensure that you have a re-authentication requirement configured in an app sign-in policy or Okta account management policy.
 
-### How the identity claims sourcing policy works
+### Identity claims sourcing with claims sharing
 
-Each org has one identity claims sourcing policy with one default rule. You can't create other policies or delete the default rule. You can only update the default rule's settings.
-
-When you enable the feature, Okta automatically creates a default identity claims sourcing policy and rule.
-
-The MFA requirements of the app sign-in policy or Okta account management policy influence how re-authentication behaves for federated users.
-
-#### Identity claims sourcing with claims sharing
-
-* If you have claims sharing configured with your IdP, the default rule allows redirection to the last known SSO IdP for re-authentication.
+* If you have [claims sharing](/docs/guides/configure-claims-sharing/) configured with your IdP, the default identity claims sourcingrule allows redirection to the last known SSO IdP for re-authentication.
 * If you don't have claims sharing configured, the default rule doesn't allow redirection, which maintains Okta's existing local re-authentication behavior.
 
 ## The claims sourcing policy and different types of IdPs
@@ -62,17 +56,17 @@ There are different behaviors and outcomes when you use the claims sourcing poli
 
 A company runs separate Okta orgs for its parent organization and each regional subsidiary. Regional employees sign in to their subsidiary org (the IdP org) and access a financial reporting app in the parent org (the SP org) through Org2Org federation. The app sign-in policy in the parent org requires re-authentication for users accessing sensitive financial data. Regional employees don't have local authenticators enrolled in the parent org.
 
-The identity claims sourcing policy in the parent org has `refresh.redirectType` set to `FIXED`. No filter is configured, so Okta redirects any federated user to their last known SSO IdP.
+The identity claims sourcing policy in the parent org has `refresh.redirectType` set to `FIXED`. No filter is configured, so Okta redirects any federated user to the last known and active SSO IdP that established their session: the subsidiary org.
 
-If the parent org keeps the default `NONE` setting instead, Okta prompts regional employees for local authenticators during re-authentication. Okta prompts employees without local authenticators enrolled in the parent org to enroll in a local authenticator to satisfy the MFA requirements of the app sign-in policy.
+If the parent org keeps the default `NONE` setting instead, Okta prompts regional employees for local authenticators during re-authentication. Okta prompts employees without local authenticators enrolled in the parent org to enroll in a local authenticator. The authenticators that are available to be enrolled depends on the app sign-in and authenticator enrollment policy.
 
 ### Example scenario with an external IdP
 
-A healthcare company uses Microsoft Entra ID as their primary identity provider. Clinical staff sign in to Okta through an Entra ID SAML connection and access a prescription management app. The app sign-in policy requires re-authentication every 60 minutes for compliance. Clinical staff don't have local Okta authenticators enrolled.
+A healthcare company uses Microsoft Entra ID as their primary identity provider. Clinical staff sign in to Okta through an Entra ID SAML connection and access a medication management app. The app sign-in policy requires re-authentication every 60 minutes for compliance. Clinical staff don't have local Okta authenticators enrolled.
 
-The identity claims sourcing policy has `refresh.redirectType` set to `FIXED` and includes a filter containing the Entra ID IdP. Only users whose last SSO IdP is Entra ID are redirected when re-authentication is required. After they re-authenticate in Entra ID, they're returned to Okta with fresh claims and can access the app seamlessly.
+The identity claims sourcing policy has `refresh.redirectType` set to `FIXED` and includes a filter containing the Entra ID IdP. Only users whose last SSO IdP is Entra ID are redirected when re-authentication is required. After they re-authenticate in Entra ID, they're returned to Okta with fresh claims and can access the app.
 
-If the policy is kept at the default `NONE` setting instead, Okta prompts clinical staff for local authenticators. Because clinical staff don't have local Okta authenticators enrolled, Okta prompts them to enroll in a local authenticator to satisfy the MFA requirements of the app sign-in policy.
+If the policy is kept at the default `NONE` setting instead, Okta prompts clinical staff for local authenticators. Because clinical staff don't have local Okta authenticators enrolled, Okta prompts them to enroll an authenticator.
 
 ## Configure the identity claims sourcing policy
 
