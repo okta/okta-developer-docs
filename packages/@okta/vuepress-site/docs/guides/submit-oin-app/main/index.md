@@ -97,6 +97,8 @@ Configure integration variables if your URLs are dynamic for each tenant. The va
 
 ### Configure your integration
 
+Configure your integration settings. Settings appear based on your capability selection.
+
 <StackSnippet snippet="express-submission-note" inline/>
 
 #### Support contact
