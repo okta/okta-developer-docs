@@ -75,7 +75,7 @@ If the policy is kept at the default `NONE` setting instead, Okta prompts clinic
 1. [Update the rule to enable re-authentication.](#enable-idp-redirection-for-re-authentication)
 1. [Test the configuration.](#test-the-configuration)
 
-> **Note:** To configure the identity claims sourcing policy in the Admin Console, see [HOC link](https://help.okta.com/okta_help.htm?type=oie&id=).
+> **Note:** To configure the identity claims sourcing policy in the Admin Console, see [Redirect federated users to IdPs for re-authentication](https://help.okta.com/okta_help.htm?type=oie&id=idp-reauth).
 
 ### Configure a re-authentication requirement
 
