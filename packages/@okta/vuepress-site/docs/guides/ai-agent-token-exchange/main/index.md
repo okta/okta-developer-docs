@@ -5,7 +5,7 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-Learn how to configure token exchange for AI agents so you can securely request and use credentials (ID-JAG, secrets, service accounts, or third-party accesst okens) to access protected resources on behalf of authenticated users.
+Learn how to configure token exchange for AI agents so that you can securely request and use credentials (ID-JAG, secrets, service accounts, or third-party accesst okens) to access protected resources on behalf of authenticated users.
 
 ---
 
@@ -33,15 +33,15 @@ You can [connect an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai
 
 - Secret: Uses a static credential for a downstream resource that has been vaulted in Okta Privileged Access.
 
-- Service account: Uses a static credential for an app that's specified in the Universal Directory. This resource is vaulted in Okta Privileged Access.
+- Service account: Uses a static credential for an app that's specified in Universal Directory. This resource is vaulted in Okta Privileged Access.
 
 - Resource server: Uses a third party access token issued by the third-party authorization server and brokered by Okta. This resource type requires user consent before an AI agent can act on behalf of the user.
 
-Once the resource type is configured and the AI agent has the token or credentials, it can then perform tasks on the connected app.
+Ater the resource type is configured and the AI agent has the token or credentials, it can then perform tasks on the connected app.
 
 ## Token Exchange flow
 
-The following diagram describes the **<StackSnippet snippet="resource-type" inline/>** resource type. If you want to change the resource type on this page, select the resource type you want from the **Instructions for** dropdown list on the right.<br>
+The following diagram describes the **<StackSnippet snippet="resource-type" inline/>** resource type. If you want to change the resource type on this page, select the resource type that you want from the **Instructions for** dropdown list on the right.<br>
 
 <StackSnippet snippet="token-exchange-flow" />
 

@@ -6,7 +6,7 @@
 
 <!-- Image source: https://oktainc.atlassian.net/browse/OKTA-1137019 -->
 
-> **Note:** This flow assumes that user authentication and authorization are complete and the authorization server issued an access token and ID token associated with a successful login to the linked OIDC app.
+> **Note:** This flow assumes that user authentication and authorization are complete and the authorization server issued an access token and ID token associated with the user successfully signing in to the linked OIDC app.
 
 The token exchange flow for an AI agent involves the following steps:
 

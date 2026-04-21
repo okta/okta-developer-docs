@@ -15,7 +15,7 @@ grant_type=urn:ietf:params:oauth:grant-type:token-exchange
 &resource=https://github.com
 ```
 
-If the AI agent needs to retrieve an access token through brokered consent using the STS service, token exchange requests must additionally contain the following parameters:
+If the AI agent needs to retrieve an access token through brokered consent using the STS service, token exchange requests must also contain the following parameters:
 
 | Parameter | Description and value |
 | --- | --- |
