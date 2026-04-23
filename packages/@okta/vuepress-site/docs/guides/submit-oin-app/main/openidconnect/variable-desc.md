@@ -4,7 +4,7 @@ For example, if you have an OIDC configuration variable called `subdomain`, then
 
 The following are Expression Language specifics for OIDC properties:
 
-* OIDC [integration variables](#integration-variables) you define in the OIN Wizard are considered [Application properties](/docs/reference/okta-expression-language/#application-properties) and have the `app.` prefix when you reference them in Expression Language. For example, if your integration variable name is `subdomain`, then you can reference that variable with `app.subdomain`.
+* OIDC [tenant settings](#tenant-settings) you define in the OIN Wizard are considered [Application properties](/docs/reference/okta-expression-language/#application-properties) and have the `app.` prefix when you reference them in Expression Language. For example, if your integration variable name is `subdomain`, then you can reference that variable with `app.subdomain`.
 
 * OIDC properties support [Expression Language conditional expressions](/docs/reference/okta-expression-language/#conditional-expressions) and evaluates everything between curly brackets. For example, the following is an expression for the **Redirect URI** property:
 
