@@ -25,13 +25,13 @@ Use the Policies API to configure the identity claims sourcing policy for IdP re
 
 ## Overview
 
-The identity claims sourcing policy enables federated users, who may not have authenticators enrolled in your org, to be redirected to their IdP for re-authentication. Each org has one identity claims sourcing policy with one default rule. You can't create other policies or delete the default rule. You can only update the default rule's settings. When you enable the feature, Okta automatically creates a default identity claims sourcing policy and rule.
+The identity claims sourcing policy enables federated users, who may not have authenticators enrolled in your org, to be redirected to their SSO IdP for re-authentication. Each org has one identity claims sourcing policy with one default rule. You can't create other policies or delete the default rule. You can only update the default rule's settings. When you enable the feature, Okta automatically creates a default identity claims sourcing policy and rule.
 
 ### How the identity claims sourcing policy works
 
 When an app sign-in policy or Okta account management policy requires re-authentication, Okta prompts the user for a local Okta authenticator by default. Prompting to enroll local authenticators can be disruptive for federated users. That's because federated users typically authenticate with their IdP credentials instead of using Okta authenticators.
 
-The identity claims sourcing policy improves the re-authentication user experience for federated users. When it's configured, it redirects federated users back to the IdP that last established their most recent Okta session. The IdP handles re-authentication and returns the user to their app or resource with fresh authentication claims.
+The identity claims sourcing policy improves the re-authentication user experience for federated users. When it's configured, it redirects federated users back to the SSO IdP that last established their most recent Okta session. The IdP handles re-authentication and returns the user to their app or resource with fresh authentication claims.
 
 Federated users can access the app or resource without having to authenticate with or enroll in local Okta authenticators.
 
@@ -39,18 +39,18 @@ Federated users can access the app or resource without having to authenticate wi
 
 Re-authentication happens when a user needs to verify their identity again after they've already signed in. Re-authentication is typically required when a user accesses a sensitive app or resource, or when a user's session has reached its maximum lifetime. You set re-authentication requirements in app sign-in policies or the Okta account management policy.
 
-Local re-authentication means that Okta prompts the user to authenticate with authenticators that are configured in the org. That's the default behavior. For example, Okta prompts the user to authenticate with their password or Okta Verify instead of redirecting them to the external IdP. The identity claims sourcing policy enables users to re-authenticate with their IdP instead of through local re-authentication.
+Local re-authentication means that Okta prompts the user to authenticate with authenticators that are configured in the org. That's the default behavior. For example, Okta prompts the user to authenticate with their password or Okta Verify instead of redirecting them to the SSO IdP. The identity claims sourcing policy enables users to re-authenticate with their IdP instead of through local re-authentication.
 
 The identity claims sourcing policy only applies to re-authentication scenarios. To use it, ensure that you have a re-authentication requirement configured in an app sign-in policy or Okta account management policy.
 
 ### Identity claims sourcing with claims sharing
 
-* If you have [claims sharing](/docs/guides/configure-claims-sharing/) configured with your IdP, the default identity claims sourcingrule allows redirection to the last known SSO IdP for re-authentication.
+* If you have [claims sharing](/docs/guides/configure-claims-sharing/) configured with your IdP, the default identity claims sourcing rule allows redirection to the last known SSO IdP for re-authentication.
 * If you don't have claims sharing configured, the default rule doesn't allow redirection, which maintains Okta's existing local re-authentication behavior.
 
 ## The claims sourcing policy and different types of IdPs
 
-There are different behaviors and outcomes when you use the claims sourcing policy with external IdPs versus Org2Org IdPs.
+There are different behaviors and outcomes when you use the claims sourcing policy with external SSO IdPs versus Org2Org SSO IdPs.
 
 ### Example scenario with an Org2Org IdP
 
@@ -200,7 +200,7 @@ Then, retrieve the rule ID for the default rule.
 Two configuration options are available when you enable IdP redirection for re-authentication:
 
 * `NONE` (default): Okta handles re-authentication locally, prompting the user for locally configured authenticators such as Okta Verify.
-* `FIXED`: Okta redirects the user to the third-party or Org2Org IdP that last established their Okta session. You can optionally configure a filter list of allowed IdPs to limit which IdPs are eligible for redirect. If the IdP isn't in the filter list, the policy behaves as NONE.
+* `FIXED`: Okta redirects the user to the third-party SSO or Org2Org SSO IdP that last established their Okta session. Only active SSO IdPs can re-authenticate users. You can optionally configure a filter list of allowed SSO IdPs to limit which IdPs are eligible for redirect. If the IdP isn't in the filter list, the policy behaves as NONE.
 
 Okta tracks which IdP most recently established the user's session. If you configure an include filter, Okta checks the user's last SSO IdP against the list at re-authentication time. If there's no match, the policy falls back to `NONE` for that user and Okta handles re-authentication locally. This means that if a user's last SSO IdP isn't in the filter, they must then authenticate with a local authenticator.
 
@@ -291,7 +291,7 @@ Okta tracks which IdP most recently established the user's session. If you confi
 
 ### Test the configuration
 
-Test the configuration by signing in to the app that has the re-authentication requirement with a federated user. If the policy and rule are configured correctly, Okta redirects you to your most recent IdP for re-authentication when the requirement triggers.
+Test the configuration by signing in to the app that has the re-authentication requirement with a federated user. If the policy and rule are configured correctly, Okta redirects you to your most recent SSO IdP for re-authentication when the requirement triggers.
 
 ## See also
 
