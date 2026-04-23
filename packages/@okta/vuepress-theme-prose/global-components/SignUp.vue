@@ -16,113 +16,6 @@
           class="signup__items"
           :class="[formHidden ? 'active' : '']"
         >
-          <div class="signup__item">
-            <div class="signup__item__title">
-              Auth0 <br> Platform
-            </div>
-            <div class="signup__description">
-              <div class="signup__rate">
-                <div class="signup__rate__title">
-                  Free
-                </div>
-                <div class="signup__rate__text">
-                  For the first tier
-                </div>
-              </div>
-              <div class="signup__content">
-                <div class="signup__content__tip signup__content__tip-green">
-                  BEST FOR DEVELOPERS
-                </div>
-                <div class="signup__content__title">
-                  Secure my customers <br> or SaaS applications
-                </div>
-                <div class="signup__content__text">
-                  Build intuitive, secure user experiences <br> in customer-facing applications.
-                </div>
-              </div>
-              <div class="signup__link signup__link-dark">
-                <a
-                  href="https://auth0.com/signup?utm_medium=referral&utm_source=okta&utm_campaign=okta-signup-referral-21-09-27&utm_content=signup&promo=sup&ocid=7014z000001cbvjAAA-aPA4z0000008OZeGAM"
-                  target="_blank"
-                >
-                  <span>Try Auth0 Platform <i>→</i></span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="signup__container">
-            <div class="signup__item__title">
-              Okta <br> Platform
-            </div>
-            <div class="signup__description">
-              <div class="signup__rate">
-                <div class="signup__rate__title">
-                  Free Trial
-                </div>
-                <div class="signup__rate__text">
-                  Get access for 30 days
-                </div>
-              </div>
-              <div class="signup__content">
-                <div class="signup__content__tip signup__content__tip-blue">
-                  BEST FOR IT ADMINS
-                </div>
-                <div class="signup__content__title">
-                  Secure my employees, <br> contractors, &amp; partners
-                </div>
-                <div class="signup__content__text">
-                  Manage secure, frictionless access <br> to the tools and data your teams <br> need, on demand.
-                </div>
-              </div>
-              <div class="signup__link">
-                <a
-                  href="https://okta.com/free-trial/workforce-identity"
-                  target="_blank"
-                >
-                  <span>Try Okta Platform <i>→</i></span>
-                </a>
-              </div>
-            </div>
-            <div class="signup__item__title signup__item__title-hidden">
-              Okta Integrator Free Plan
-            </div>
-            <div class="signup__item__title signup__item__title-tablet">
-              Access the Okta <br> Integrator Free Plan
-            </div>
-            <div class="signup__description signup__description-bordered">
-              <div class="signup__rate">
-                <div class="signup__rate__title">
-                  Free
-                </div>
-                <div class="signup__rate__text">
-                  Build, test, <br> and manage integrations
-                </div>
-              </div>
-              <div class="signup__content">
-                <div class="signup__content__tip signup__content__tip-green">
-                  BEST FOR DEVELOPERS
-                </div>
-                <div class="signup__content__title">
-                  Access the Okta <br> Integrator Free Plan
-                </div>
-                <div class="signup__content__text">
-                  Test your code and apps, as well as <br> manage and automate Okta for <br> employees and partners.<br>
-                </div>
-              </div>
-              <div
-                v-if="!formHidden"
-                class="signup__link signup__trigger"
-              >
-                <button
-                  type="button"
-                  @click="hideForm()"
-                >
-                  <span class="signup__trigger__text">Sign up for Integrator Free Plan <i>→</i></span>
-                  <span class="signup__trigger__text-hidden">Sign up free</span>
-                </button>
-              </div>
-            </div>
-          </div>
           <!-- Okta Integrator SignUp Form -->
           <div
             class="signup__popup"
@@ -141,10 +34,6 @@
                 </h2>
                 <span>Already signed up? <a href="/login">Log in here.</a></span>
               </div>
-              <div
-                class="signup__popup__close"
-                @click="hideForm()"
-              />
               <form
                 id="signupForm"
                 class="signup__form"
@@ -506,7 +395,7 @@ export default {
   },
   data() {
     return {
-      formHidden: false,
+      formHidden: true,
       isShowTermsConditionsDialog: false,
       socialUrl: "",
       state: { label: "", list: [] },
@@ -590,6 +479,11 @@ export default {
       this.isRegionLoading = false;
     });
   },
+  mounted() {
+    this.$nextTick(() => {
+      this.setHeight();
+    });
+  },
   methods: {
     setHeight(isNotUSAAndCanada) {
       let height;
@@ -611,19 +505,13 @@ export default {
         }
       }
     },
-    hideForm() {
-      if (document.querySelector('.signup__items.active') && !this.formHidden) {
-        this.setHeight(true);
-      }
-      this.formHidden = !this.formHidden;
-      if (!this.formHidden) {
-        this.setHeight(true);
-      } else {
-        this.setHeight();
-      }
-    },
     getTheme: function() {
-      return JSON.parse(storage.getItem(THEME_MODE_KEY)) === true ? "dark" : "light";
+      const stored = storage.getItem(THEME_MODE_KEY);
+      try {
+        return JSON.parse(stored) === true ? "dark" : "light";
+      } catch {
+        return "light";
+      }
     },
     async submitForm(e) {
       e.preventDefault();
