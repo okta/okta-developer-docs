@@ -1,7 +1,7 @@
 #### Universal Logout API Integration Actions
 
 > **Notes:**
-> * This section appears only if you select Universal Logout with API Integration Actions.
+> * This section appears only if you select **Universal Logout** with API Integration Actions.
 > * Universal Logout is only supported with SSO integrations. See [Universal Logout](https://developer.okta.com/docs/guides/oin-universal-logout-overview).
 
 1. Specify the following properties for Universal Logout with API Integration Actions:

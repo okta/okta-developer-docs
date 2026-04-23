@@ -109,7 +109,6 @@ Configure your integration settings. Settings appear based on your capability se
     | ----------------- | ------------ |
     | **Support email** `*` | Specify an email that the Okta team can use to contact your organization for emergencies and escalations. This field is private and not visible to customers. See [Customer support contact guidelines](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines).
 
-
 <StackSnippet snippet="protocol-properties"/>
 
 <StackSnippet snippet="entitlement-management-properties"/>
@@ -140,8 +139,7 @@ A dedicated test admin account in your app is required for Okta integration test
 
 * Privileges to configure admin settings in your test app
 * Privileges to administer test users in your test app
-
-<StackSnippet snippet="test-info-review" />
+<StackSnippet snippet="test-info-review" inline/>
 
 After your integration is verified, Okta automatically deletes test account credentials 30 days after your app is published in the OIN Wizard. To resubmit your app after this period, create a new test account and provide the required information.
 
@@ -156,9 +154,9 @@ In the **Testing information for Okta review** section, specify the following **
 | **Password** `*`  | The password for your test admin account |
 | **Testing instructions** | Include information that the OIN team needs to know about your integration for testing (such as the admin account or the testing configuration). You can also provide instructions on how to add test user accounts. |
 
-<StackSnippet snippet="test-instruction" />
-
 `*` Required properties
+
+<StackSnippet snippet="test-instruction" />
 
 <StackSnippet snippet="protocol-test-flow" />
 

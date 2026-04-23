@@ -1,1 +1,1 @@
-* Credentials to access the SCIM server for SCIM integrations
+* Credentials to access your app

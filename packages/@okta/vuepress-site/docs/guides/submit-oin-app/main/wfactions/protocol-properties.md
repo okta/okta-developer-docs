@@ -8,7 +8,7 @@
 
     | <div style="width:150px">Property</div> | Description  |
     | ----------------- | ------------ |
-    | **User query** `*` | Operations that allow Okta to read and import users from your app. |
+    | **User query** `*` | Operations that allow Okta to read and import users from your app |
     | List users | Specify the flow to list users. |
     | Get user by ID | Specify the flow to retrieve a user by their ID. |
     | Get user by username | Specify the flow to retrieve a user by their username. |
@@ -21,7 +21,7 @@
     | Update user password (Optional) | Specify the flow for Okta to update a user password in your app. |
     | Activate user (Optional) | Specify the flow for Okta to activate a user in your app. |
     | Deactivate user (Optional) | Specify the flow for Okta to deactivate a user in your app. |
-    | **Group query** `*` | Operations that allow Okta to read and import groups from your app. |
+    | **Group query** `*` | Operations that allow Okta to read and import groups from your app |
     | List groups | Specify the flow to list the groups in your app. |
     | Get group by ID | Specify the flow to retrieve a group by their ID. |
     | **Group operations** | Operations that allows Okta to read and manage groups in your app. |
