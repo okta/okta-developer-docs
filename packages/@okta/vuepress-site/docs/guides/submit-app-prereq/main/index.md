@@ -572,6 +572,12 @@ In addition to the general OIN limitations, the following are limitations specif
 
 * OIN SCIM integrations with OAuth 2.0 authentication don't support dynamic consumer key and secret. The consumer key and secret values are common for all customer tenants.
 
+### API Integration Actions limitations
+
+* Integrations that use API Integration Actions for Universal Logout is only supported with the SSO capabililty. You must select a SSO capabililty before you can select API Integration Actions for Universal Logout.
+
+* For integrations with multiple capabilities that include API Integration Actions, always access the OIN Wizard through the **Application** > **Your OIN Integrations** navigation path in the Admin Console. API Integration Actions capability isn't available through the **Home** landing page.
+
 ## Next step
 
 Ready to submit your app? See the following submission guides:

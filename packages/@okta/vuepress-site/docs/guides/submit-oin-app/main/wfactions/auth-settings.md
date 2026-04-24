@@ -10,14 +10,14 @@
 |-------| ----------- |
 | **Authorize endpoint** | Specify the HTTPS authorize endpoint. For example: `https://myexample.com/oauth2/auth`<br> You can specify a dynamic endpoint URL. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language). |
 | **Token endpoint** | Specify the HTTPS token endpoint. For example: `https://myexample.com/oauth2/token`<br>You can specify a dynamic endpoint URL. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language). |
-| **Client ID** | Specify the client ID. <br>You can use a tenant variable for your client ID. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language). |
-| **Client secret** | Specify the client secret.<br>You can use a tenant variable for your tenant client secret . See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language). |
+| **Client ID** | Specify a client ID field to map to the Integration Builder. You can specify any string field. This field is automatically mapped to the **Client ID** field (`{{{auth.client_id}}}`) in the **Authentication mapping** section of your project in the Integration Builder. |
+| **Client secret** | Specify the client secret field to map to the Integration Builder. You can specify any string field. This field is automatically mapped to the **Client Secret** field (`{{{auth.client_secret}}}`) in the **Authentication mapping** section of your project in the Integration Builder. |
 | **Scopes** | Optional: Specify scopes for the resources to access. |
 
 | Custom | Settings required for API Integration Action custom authentication |
 |-------| ----------- |
 | **Authentication variables** | Specify the variables used for **Custom** authentication in your integration actions. The variables are shown as parameters in the Integration Builder. |
-| **Label** | Specify the label of the authentication variable. This is the name for the parameter that is shown in the dialog when an admin sets up your integration. |
+| **Label** | Specify the label of the authentication variable. This is the display name for the parameter that is shown in the dialog when an admin sets up your integration. |
 | **Name**| Specify the authentication variable name (the parameter name).  |
 
 6. Click **Save and start building**.

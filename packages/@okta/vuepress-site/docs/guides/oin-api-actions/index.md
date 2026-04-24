@@ -9,34 +9,33 @@ API Integration Actions enable ISVs to build Okta integrations with capabilities
 
 The Workflows Integrator Builder is exclusively available in the Okta Integrator Free orgs, and integrates with the OIN wizard submission flow. You can define their your integration metadata in the OIN wizard, which directs you to a preset project within Integrator Builder to build your API integration action flows. After the action flows are defined, you can continue back to the OIN Wizard to validate the flows and submit the integration to the OIN for distrubtion.
 
-After the OIN catalog lists your app integration, your customers can discover and configure it in their own Okta tenant org. Configuration is easy and consistent for your customers because you've already built the integration with the required configuration instructions. Customers trust that integrations in the OIN are secure and reliable because they're verified by Okta.
+After the OIN team validates your integration and publishes it in the OIN catalog, your customers can discover and configure it in their own Okta tenant org. Configuration is easy and consistent for your customers because you've already built the integration with the required configuration instructions. Customers trust that integrations in the OIN are secure and reliable because they're verified by Okta.
 
----
+## Integration Builder
 
-## API service integration benefits
+The Integration Builder is a low-code Workflow platform that allows you to build actions based on API request and responses to your app's resource server. This builder is part of the Workflows platform that's offered only to [Okta Integrator Free Plan org](/signup) admin users.
 
-Before the OIN supported API service integrations, Okta API tokens were a common way for integrations to access the Okta management APIs. API service integrations offer improved security and reliability:
+> **Note**: See [OIN submission requirements](/docs/guides/submit-app-prereq/main/) before using the OIN Wizard to submit your integration.
 
-| &nbsp; | &nbsp; |
-| ------ | ------ |
-| **Access granularity** | Using OAuth 2.0 scopes, you can restrict access requests to specific resources instead of all the resources that a user can access. |
-| **Configuration experience** | You can discover API service integrations and add them directly from the OIN catalog. You don't need to create a service account or an anonymous activity user for the integration. |
-| **Service integration** | Okta API tokens represent a user, which means they're not a great fit for service integrations where user context isn’t needed or desirable. |
-| **Reliability** | Okta API tokens expire after 30 days of inactivity or when a user leaves the Okta org. After being authorized, API service integrations can request a new access token whenever necessary and without manual action from an admin. |
-| **Rotation** | You must rotate Okta API tokens manually. You can automatically rotate access tokens for API service integration. |
+Okta recommends that you access the Integration Builder through the OIN Wizard, which shares the details of your integration so that you don't have to enter the same information twice.
 
-## When to build an API service integration
+### Process overview
 
-API service integrations access [Okta management APIs](/docs/reference/core-okta-api/) using OAuth 2.0 and are sometimes referred to as service-to-service or machine-to-machine integrations. This API access represents the app itself rather than a particular user. Consider the following scenarios to determine if you need to build a service-based or a user-based OAuth 2.0 API integration.
+1. Start your submission in the [OIN Wizard: Submit an integration](/docs/guides/submit-oin-app/wfactions/main/).
+2. Build your API integration actions in the Integration Builder by following [Build an integration with API Integration Actions](/docs/guides/build-api-actions/main/) guide. This tool lets you define the action flows and connections to your app server.
+3. Complete the definition and testing in the OIN Wizard after building your action flows. The actions you define in the Integration Builder become available in the OIN Wizard for real-time testing.
+4. Submit for validation through the OIN Wizard once you are satisfied with your integration's functionality.
 
-| &nbsp; |  Service-based API access | User-based API access |
-| ------ | :------------------- | :----------------------- |
-| **Use cases** | <ul><li>For auditing purposes, you need to associate log entries with an app name instead of a username.</li> <li>API requests aren't initiated by a user action (for example, a user clicking a button or starting a script).</li> <li>The app that requests API access is hosted on a secure server (this type of app is also known as a confidential client).</li></ul> | <ul><li>A new custom app is configured from a user entry form.</li> <li>An admin user takes action by making API requests.</li></ul> |
-| **Examples** | <ul><li>An app that accesses certain types of Okta System Log entries for occasional analysis</li> <li>An app that sends risk signals to Okta</li> <li>An app that occasionally syncs Okta user profile information to another system</li></ul> |  <ul><li>An IT support ticketing system that allows an Okta admin to assign an app directly from the support ticket of the access request</li></ul> |
-| **Best-fit API integration** | If these use cases and examples describe your needs, implement an API service integration for the OIN. See [Build an API service integration](/docs/guides/build-api-integration/).  | If these use cases and examples describe your needs, implement a user-based API integration. User-based API integrations aren't supported in the OIN. See [Implement OAuth for Okta](/docs/guides/implement-oauth-for-okta/main/) to learn more about user-based API integrations. |
+[OIN Wizard] -> [Integration Builder]->[OIN Wizard]
+
+(Add integration details) -> (Configure the integration actions and flows) -> (Validate the flows and test the integration) -> (Submit your integration)
+
+< -- Possibly add a process image here??? -- >
+
+> **Note:** You can create an integration by navigating direcly to the Integration Builder in your Okta Integrator Free Plan org. However, you have to manually connect your API Integration Actions project to your OIN submissions afterwards.
 
 ## Next steps
 
-Ready to get started? Sign up for a free [Okta Integrator Free Plan org](/signup) and see [Build an API service integration](/docs/guides/build-api-integration/).
+Ready to get started? Sign up for a free [Okta Integrator Free Plan org](/signup) and see [OIN Wizard: Submit an integration](/docs/guides/submit-oin-app/wfactions/main/) with the API Integrations Action capability.
 
 Post your questions on the [Okta Developer Forum](https://devforum.okta.com/c/questions/oin-submissions/19) if you need help or have an issue.
