@@ -16,7 +16,9 @@ Learn how to configure passkeys with multiple domains.
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * A valid and certified [custom domain](#rp-id-types-and-domain-verification)
-* The [Passkeys (FIDO2 WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn) enabled for users in your org and assigned to an [app sign-in policy](/docs/guides/configure-signon-policy/main/#app-sign-in-policies)
+* The [Passkeys (FIDO2 WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn) enabled for users in your org
+* The Passkeys authenticator included in an [authenticator enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-mfa-policy) to allow users to register passkeys
+* The Passkeys authenticator assigned to an [app sign-in policy](/docs/guides/configure-signon-policy/main/#app-sign-in-policies)
 
 > **Note:** As of the `2026.04.0` release, the FIDO2 (WebAuthn) authenticator is now called Passkeys (FIDO2 WebAuthn) and there are new settings and updates to the authenticator page layout. See [Passkeys and WebAuthn](/docs/guides/authenticators-web-authn/aspnet/main/#passkeys-and-okta).
 
@@ -30,14 +32,6 @@ Passkey credentials are cryptographically bound to a specific domain, known as t
 
 To create a seamless experience where one passkey can work across multiple domains, set up your org to use a single, unified RP ID and, for different custom domains, establish a trust relationship between them.
 
-### Add the Passkeys authenticator to your org policies
-
-Before configuring passkeys with the steps in this guide, ensure that the Passkeys (FIDO2 WebAuthn) authenticator is available in your org. And also ensure that you add it to your authenticator enrollment and app sign-in policies. Configuring the Passkeys authenticator in your policies enables users to register and sign in with passkeys.
-
-1. [Add the Passkeys authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn) to your org.
-1. Add the Passkeys authenticator to an [authenticator enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-mfa-policy) to allow users to register passkeys.
-1. Include the Passkeys authenticator in an [app sign-in policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) to allow users to sign in with passkeys.
-
 ## Understand custom domains and passkeys
 
 When you're configuring passkeys, there are two types of domains to consider:
@@ -47,35 +41,35 @@ When you're configuring passkeys, there are two types of domains to consider:
 
 If a user creates a passkey while signing in at `companyname.okta.com`, that passkey is bound to `okta.com` as the RP ID and is only valid for `okta.com` and its subdomains, by default.
 
-But, you can [create up to three custom domains](/docs/guides/custom-url-domain/main/#about-okta-domain-customization) to allow for [multibrand customizations](/docs/concepts/brands/#what-is-multibrand-customization). With a custom domain, you replace the default Okta domain (`companyname.okta.com`) with a branded domain (`login.company.com`). You can use this branded custom domain as the RP ID for passkeys for your end users. You can use either the custom subdomain (`login.company.com`) or the root domain (`company.com`) as the RP ID, but the verification process differs for each. See [RP ID types and domain verification](#rp-id-types-and-domain-verification).
+But, you can [create up to three custom domains](/docs/guides/custom-url-domain/main/#about-okta-domain-customization) to allow for [multibrand customizations](/docs/concepts/brands/#what-is-multibrand-customization). With a custom domain, you replace the default Okta domain (`companyname.okta.com`) with a branded domain (`login.company.com`). You can use this branded custom domain as the RP ID for passkeys for your end users. You can use either a custom domain in Okta (`login.company.com`) or the root domain (`company.com`) as the RP ID, but the verification process differs for each. See [RP ID types and domain verification](#rp-id-types-and-domain-verification).
 
 ### RP ID types and domain verification
 
-You can use either a custom subdomain or its root domain as the RP ID for passkeys, but the verification method differs.
+You can use either a custom domain in Okta or its root domain as the RP ID for passkeys, but the verification method differs.
 
-A custom subdomain like `login.globex.com` is already verified through the [custom domain setup](/docs/guides/custom-url-domain/) process, which requires both TXT and CNAME records. If you use an existing custom domain as your RP ID, no additional verification is needed.
+A custom domain in Okta like `login.globex.com` is already verified after you complete the [custom domain setup](/docs/guides/custom-url-domain/), which requires both TXT and CNAME records. If you use an existing custom domain as your RP ID, no additional verification is needed.
 
-A root domain like `globex.com` can't be set up as a custom domain. Custom domain setup requires a CNAME record that routes traffic to Okta's sign-in page. Instead, Okta provides a separate RP ID verification flow that requires only a TXT record to prove domain ownership without affecting traffic routing. To use a root domain as your RP ID, you must first have a verified custom domain under that root domain (for example, `login.globex.com`).
+A root domain like `globex.com` can't be set up as a custom domain in your org. Custom domain setup requires a CNAME record that routes traffic to Okta's sign-in page. Instead, Okta provides a separate RP ID verification flow that requires only a TXT record to prove domain ownership without affecting traffic routing. To use a root domain as your RP ID, you must first have a verified custom domain under that root domain (for example, `login.globex.com`).
 
 | RP ID type | Example | Domain verification method |
 |------------|---------|----------------------------|
-| Custom subdomain | `login.globex.com` | Already verified during [custom domain setup](/docs/guides/custom-url-domain/). No additional verification needed. |
-| Root domain | `globex.com` | Requires a verified custom subdomain (for example, `login.globex.com`). Only TXT record verification is needed, using the Verify a Relying Party ID domain [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/verifyRpIdDomain). The TXT record value is returned when you [set the RP ID](#update-the-rp-id-for-the-passkeys-authenticator). |
+| Custom domain in Okta | `login.globex.com` | Already verified during [custom domain setup](/docs/guides/custom-url-domain/). No additional verification needed. |
+| Root domain | `globex.com` | Requires a verified custom domain in Okta (for example, `login.globex.com`). Only TXT record verification is needed, using the Verify a Relying Party ID domain [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/verifyRpIdDomain). The TXT record value is returned when you [set the RP ID](#update-the-rp-id-for-the-passkeys-authenticator). |
 
 > **Note:** This guide explains the process for setting a root domain as the RP ID, which requires domain verification.
 
-### Associated domains and passkeys
+### Related origins and passkeys
 
-Associated domains establish a trust relationship between different root domains. When a root domain, such as `globex.com` has a `/.well-known/webauthn` JSON file that lists other associated domains, such as `globex-apac.com`, the browser allows passkeys created with the `globex.com` RP ID to be used on `globex-apac.com`. The `/.well-known/webauthn` JSON file is hosted on the RP ID domain and lists the associated domains that are trusted to use passkeys created with that RP ID.
+Related origins establish a trust relationship between different root domains. When a root domain, such as `globex.com` has a `/.well-known/webauthn` JSON file that lists related origins, such as `https://globex-apac.com`, the browser allows passkeys created with the `globex.com` RP ID to be used on `globex-apac.com`. The `/.well-known/webauthn` JSON file is hosted on the RP ID domain and lists the related origins that are trusted to use passkeys created with that RP ID.
 
-Associated domains and the `/.well-known/webauthn` JSON file don't merge or bridge passkeys from different RP IDs. The passkey must already be registered under the RP ID configured for your org (for example, `globex.com`). Associated domains only allow the authenticator to present that credential on other origins. A passkey registered under a different RP ID (`okta.com`, for example) isn't usable on the associated domain.
+Related origins and the `/.well-known/webauthn` JSON file don't merge or bridge passkeys from different RP IDs. The passkey must already be registered under the RP ID configured for your org (for example, `globex.com`). Related origins only allow the authenticator to present that credential on other origins. A passkey registered under a different RP ID isn't usable on related origins.
 
-How you configure associated domains depends on the type of domain you use as the RP ID.
+How you configure related origins depends on the type of domain that you use as the RP ID.
 
 | RP ID type | Example | Okta configuration | `/.well-known/webauthn` file hosting |
 |------------|---------|------------------------|--------------------------------------|
-| Custom subdomain | `login.globex.com` | Required. Use the [Associated Domain Customizations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/) to configure associated domains. | Okta serves the `/.well-known/webauthn` file on custom domains that it controls. You don't need to host it yourself. |
-| Root domain | `globex.com` | Not required. | You must host this file yourself at `https://globex.com/.well-known/webauthn`. Okta can't serve it because the root domain doesn't have a CNAME record that points to Okta. This file only needs to be hosted on the RP ID domain, not on each associated domain. |
+| Custom domain in Okta | `login.globex.com` | Required. Use the [Associated Domain Customizations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/) to add related origins to your domain's `/.well-known/webauthn` file. | Okta serves the `/.well-known/webauthn` file for your custom domain in Okta (for example, `https://login.globex.com/.well-known/webauthn`). You don't need to host it yourself. |
+| Root domain | `globex.com` | Not required. | You must host this file yourself at `https://globex.com/.well-known/webauthn`. Okta can't serve it because the root domain doesn't have a CNAME record that points to Okta. This file only needs to be hosted on the RP ID domain, not on each related origin. |
 
 ### Replace an existing RP ID with a new RP ID
 
@@ -88,28 +82,28 @@ Consider the following scenarios when using an RP ID that's different from your 
 * **No existing enrollments:** If you set the new RP ID before any users enroll passkeys, all passkeys are registered under the new RP ID from the start and no migration is needed.
 * **Existing enrollments:** If users have already registered passkeys under the old RP ID, communicate the change and ask affected users to re-enroll. Users can sign in with another authentication method and then register a new passkey under the new RP ID.
 
-Passkeys registered on the Okta domain (`companyname.okta.com`) are bound to `okta.com` as the RP ID. Because `okta.com` is Okta's domain, you can't configure it as an associated domain for your custom RP ID, and your RP ID domain can't be added to Okta's `/.well-known/webauthn` file. These users must re-enroll their passkeys under the new RP ID.
+Passkeys registered on the Okta domain (`companyname.okta.com`) are bound to `okta.com` as the RP ID. Because `okta.com` is Okta's domain, you can't add it as a related origin for your custom RP ID, and your RP ID domain can't be added to Okta's `/.well-known/webauthn` file. These users must re-enroll their passkeys under the new RP ID.
 
 ## Set up passkeys for multiple domains in different ways
 
 Enable passkeys to work with multiple domains by using the following methods:
 
 * [Configure an RP ID](#configure-an-rp-id): This enables end users to sign in with passkeys across subdomains of a single root domain.
-* [Configure associated domains](#use-associated-domains-to-share-passkeys-between-root-domains): This enables end users to sign in with passkeys across different root domains.
+* [Configure related origins](#use-related-origins-to-share-passkeys-between-root-domains): This enables end users to sign in with passkeys across different root domains.
 * [Use a combination of both methods](#share-passkeys-across-okta-and-custom-domains): This enables end users to sign in with passkeys across all domains, including custom domains and Okta's default domains.
 
-These methods configure where passkeys can be used. Only passkeys registered under the configured RP ID are usable across the associated domains. Passkeys registered under a different RP ID (such as `okta.com`) aren't available during sign-in.
+These methods configure where passkeys can be used. Only passkeys registered under the configured RP ID are usable across the configured related origins. Passkeys registered under a different RP ID aren't available during sign-in.
 
 ### Configure an RP ID
 
 In this scenario, you want to enable users to sign in to `login.globex.com` and `support.globex.com` domains with a passkey. Create a new RP ID for the Passkeys authenticator that uses your root domain (`globex.com`). This RP ID works for all subdomains of `globex.com`.
 
-> **Note:** If you use a custom subdomain like `login.globex.com` as your RP ID instead of a root domain, domain verification is already complete from the [custom domain setup](/docs/guides/custom-url-domain/) process. Skip the [Verify the RP ID domain](#verify-the-rp-id-domain) step and set `rpId.enabled` to `true` in your initial [API request](#update-the-rp-id-for-the-passkeys-authenticator) to enable it immediately.
+> **Note:** If you use a custom domain in Okta like `login.globex.com` as your RP ID instead of a root domain, domain verification is already complete after you complete the [custom domain setup](/docs/guides/custom-url-domain/). Skip the [Verify the RP ID domain](#verify-the-rp-id-domain) step and set `rpId.enabled` to `true` in your initial [API request](#update-the-rp-id-for-the-passkeys-authenticator) to enable it immediately.
 
 There are three steps for setting a root domain as an RP ID for your Passkeys authenticator:
 
 1. [Set your root domain](#update-the-rp-id-for-the-passkeys-authenticator) (`globex.com`) as the RP ID for the Passkeys authenticator.
-1. [Verify the RP ID domain](#verify-the-rp-id-domain). This guide assumes that you're using the root domain `globex.com` as your RP ID, instead of a previously verified custom subdomain.
+1. [Verify the RP ID domain](#verify-the-rp-id-domain). This guide assumes that you're using the root domain `globex.com` as your RP ID, instead of a previously verified custom domain in Okta.
 1. [Enable the RP ID](#enable-the-rp-id-for-the-passkeys-authenticator) for your Passkeys authenticator after verification is complete.
 
 > **Note:** When you set a new RP ID, existing passkey enrollments aren't deleted. However, passkeys registered under a different RP ID aren't available during sign-in, making those enrollments unusable. Only passkeys enrolled under the same domain you're setting as the RP ID continue to work. Users who registered their passkeys with a different RP ID must re-enroll.
@@ -263,15 +257,15 @@ curl -i -X PUT \
 
 When a user signs in to `login.globex.com` and registers a passkey, the passkey is created with the RP ID of `globex.com`. When that user signs in to `support.globex.com` the browser sees that the passkey's RP ID (`globex.com`) matches the root domain of the subdomain (`support.globex.com`). The browser allows the authentication to proceed.
 
-### Use associated domains to share passkeys between root domains
+### Use related origins to share passkeys between root domains
 
 In this scenario, you want users with a passkey that's created with the `globex.com` RP ID to also be able to sign in to `globex-apac.com`. This method enables end users to sign in to those root domains with the same passkey.
 
-#### Add associated domains to your self-hosted file
+#### Add related origins to your self-hosted file
 
-Host the `/.well-known/webauthn` file on your own web server at `https://globex.com/.well-known/webauthn`. This file tells the browser which origins are trusted to use passkeys created with this RP ID. Ensure that all associated domains you want to trust are valid.
+Host the `/.well-known/webauthn` file on `https://globex.com/.well-known/webauthn`. This file tells the browser which origins are trusted to use passkeys created with this RP ID. Ensure that all related origins you want to trust are valid.
 
-Your `/.well-known/webauthn` file is a JSON file that lists the associated domains that you want to trust. See the [WebAuthn spec](https://w3c.github.io/webauthn/#sctn-related-origins) for information about configuring the `/.well-known/webauthn` file.
+Your `/.well-known/webauthn` file is a JSON file that lists the related origins that you want to trust. See the [WebAuthn spec](https://w3c.github.io/webauthn/#sctn-related-origins) for information about configuring the `/.well-known/webauthn` file.
 
 To trust `globex-apac.com`, your `/.well-known/webauthn` file looks like this:
 
@@ -283,23 +277,23 @@ To trust `globex-apac.com`, your `/.well-known/webauthn` file looks like this:
 }
 ```
 
-And it's located at `https://globex.com/.well-known/webauthn`. No additional Okta configuration is needed. The browser fetches this file directly from your domain during authentication.
+No additional Okta configuration is needed. The browser fetches this file directly from your domain during authentication.
 
-> **Note:** If your RP ID is a custom subdomain like `login.globex.com`, Okta serves the `/.well-known/webauthn` file for you because the subdomain points to Okta's infrastructure. Instead of hosting the file yourself, use the Associated Domain Customizations API to configure which origins to include. See [Create a webauthn customization](/docs/guides/custom-well-known-uri/main/#create-a-webauthn-customization).
+> **Note:** If your RP ID is a custom domain in Okta like `login.globex.com`, Okta serves the `/.well-known/webauthn` file for your domain (for example, `https://login.globex.com/.well-known/webauthn`) because that domain points to Okta's infrastructure. Instead of hosting the file yourself, use the Associated Domain Customizations API to add related origins to your domain's `/.well-known/webauthn` file. See [Create a webauthn customization](/docs/guides/custom-well-known-uri/main/#create-a-webauthn-customization).
 
 #### User experience
 
 When a user attempts to sign in to an app on the `globex-apac.com` domain with a passkey, the browser inspects the RP ID of the passkey. The browser requests the `/.well-known/webauthn` file from the RP ID domain. If `globex-apac.com` is listed in the file, then the user is able to sign in.
 
-If the passkey's RP ID doesn't match the configured RP ID for the associated domain (for example, the passkey was registered under `okta.com` but the associated domain expects `globex.com`), the browser doesn't present the credential and authentication fails. The user must re-enroll their passkey under the correct RP ID.
+If a user's passkey was registered under a different RP ID than the one configured for the origin, the browser doesn't present the credential and authentication fails. The user must re-enroll their passkey under the correct RP ID.
 
 ### Share passkeys across Okta and custom domains
 
 In this scenario, you want a single passkey to work for `globex.com` (custom root domain), `login.globex.com` and `support.globex.com` (subdomains), `globex-apac.com` (other custom root domain), and `globex.okta.com` (your org domain). This scenario uses a root domain RP ID (`globex.com`), so subdomains like `login.globex.com` and `support.globex.com` work automatically.
 
-Adding `globex.okta.com` to the associated domains list allows passkeys registered under the `globex.com` RP ID to be presented when users visit `globex.okta.com`. However, if users have passkeys registered under the `okta.com` RP ID, they aren't available on `globex.com` or its subdomains. Users with passkeys registered under a previous RP ID must re-enroll them.
+Adding `globex.okta.com` to the related origins allows passkeys registered under the `globex.com` RP ID to be presented when users visit `globex.okta.com`. Users with passkeys registered under a previous RP ID must re-enroll them.
 
-#### Add org domain to self-hosted associated domains list
+#### Add org domain to self-hosted related origins
 
 Before you begin, ensure that you've completed the following:
 
@@ -317,7 +311,7 @@ Add `globex.okta.com` (your org domain) to your `/.well-known/webauthn` file at 
 }
 ```
 
-> **Note:** If your RP ID is a custom subdomain like `login.globex.com`, Okta serves the `/.well-known/webauthn` file for you because the subdomain points to Okta's infrastructure. Instead of hosting the file yourself, use the Associated Domain Customizations API to configure which origins to include. See [Create a webauthn customization](/docs/guides/custom-well-known-uri/main/#create-a-webauthn-customization).
+> **Note:** If your RP ID is a custom domain in Okta like `login.globex.com`, Okta serves the `/.well-known/webauthn` file for your domain (for example, `https://login.globex.com/.well-known/webauthn`) because that domain points to Okta's infrastructure. Instead of hosting the file yourself, use the Associated Domain Customizations API to add related origins to your domain's `/.well-known/webauthn` file. See [Create a webauthn customization](/docs/guides/custom-well-known-uri/main/#create-a-webauthn-customization).
 
 #### User experience
 
@@ -325,11 +319,11 @@ When a user signs in to `login.globex.com` and registers a passkey, the passkey 
 
 Subdomains like `login.globex.com` and `support.globex.com` work automatically because the browser allows any subdomain of the RP ID to use the passkey.
 
-For associated domains like `globex-apac.com` and `globex.okta.com`, the browser fetches the `/.well-known/webauthn` file from the RP ID domain (`globex.com`) and checks whether the origin is listed. If it is, the browser presents the passkey.
+For related origins like `globex-apac.com` and `globex.okta.com`, the browser fetches the `/.well-known/webauthn` file from the RP ID domain (`globex.com`) and checks whether the origin is listed. If it is, the browser presents the passkey.
 
 ## See also
 
-* [About associated domains](/docs/guides/custom-well-known-uri/main/#about-associated-domains)
+* [Related Origin Requests](https://passkeys.dev/docs/advanced/related-origins/)
 * [Customize domain and email address](/docs/guides/custom-url-domain/main/)
 * [Associated Domain Customizations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/)
 * [Authenticator API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/)
