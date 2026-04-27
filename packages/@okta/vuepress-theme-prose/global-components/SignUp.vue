@@ -358,6 +358,18 @@
           </p>
         </div>
       </div>
+      <div class="signup-hero__features">
+        <SignUpFeatureCard
+          title="Build for Security"
+          description="Leverage industry standards to meet enterprise identity demands like SSO, provisioning, AI governance, session termination, and more."
+          :icon="theme === 'dark' ? '/img/icons/secured-laptop-dark.svg' : '/img/icons/secured-laptop.svg'"
+        />
+        <SignUpFeatureCard
+          title="Attract Enterprise Customers"
+          description="Build credibility with an OIN listing that shows enterprise buyers your integration is tested, validated, and ready to deploy."
+          :icon="theme === 'dark' ? '/img/icons/container-bucket-dark.svg' : '/img/icons/container-bucket.svg'"
+        />
+      </div>
     </div>
   </section>
 </template>
@@ -388,6 +400,7 @@ const THEME_MODE_KEY = 'is_dark_mode';
 export default {
   components: {
     VueRecaptcha,
+    SignUpFeatureCard: () => import("../components/signup/SignUpFeatureCard"),
     CompanyLogos: () => import("../components/CompanyLogos"),
     SmartLink: () => import("../components/SmartLink"),
     TermsAndConditionsDialog: () =>
@@ -483,6 +496,19 @@ export default {
     this.$nextTick(() => {
       this.setHeight();
     });
+    // Used for observing theme changes to update feature card icons accordingly
+    this._themeObserver = new MutationObserver(() => {
+      this.theme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+    });
+    this._themeObserver.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+  },
+  beforeDestroy() {
+    if (this._themeObserver) {
+      this._themeObserver.disconnect();
+    }
   },
   methods: {
     setHeight(isNotUSAAndCanada) {

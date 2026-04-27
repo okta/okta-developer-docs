@@ -156,3 +156,22 @@
 .signup__form__field .error-color {
   color: var(--c-red-300);
 }
+
+.signup-feature-card {
+  border: 0.5px solid var(--c-gray-760);
+  background-color: #171717;
+
+  color: var(--c-lightgray-450);
+}
+
+.signup-feature-card__title {
+  color: var(--c-lightgray-450);
+}
+
+.signup-feature-card__description {
+  color: #e5e5e5;
+}
+
+.signup-feature-card__icon-image {
+  background-color: rgb(180 155 252 / 0.08);
+}
