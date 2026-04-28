@@ -16,7 +16,7 @@ This guide provides an overview of the Express Submission workflow to submit Exp
 
 ### What you need
 
-* An [Okta Integrator Free Plan org](https://www.okta.com/integrator-free-plan/). The OIN Wizard is only available in Integrator Free Plan orgs.
+* An [Okta Integrator Free Plan org](https://developer.okta.com/signup/). The OIN Wizard is only available in Integrator Free Plan orgs.
 * An admin user in the Integrator Free Plan org with either the super admin or the app and org admin roles.
 * An Auth0 tenant with an integrated SSO (SAML and OIDC, or OIDC only), Universal Logout, or SCIM provisioning app.
 * Google Chrome browser with the Okta Browser Plugin installed (see [OIN Wizard requirements](https://developer.okta.com/docs/guides/submit-app-prereq/main/#oin-wizard-requirements)).
@@ -46,7 +46,7 @@ Before starting the submission in the OIN Wizard, you must generate the Express 
 
 #### Create a new OIN app that supports Auth0-enabled Express Configuration
 
-1. Sign in to your [Okta Integrator Free Plan org](https://www.okta.com/integrator-free-plan/).
+1. Sign in to your [Okta Integrator Free Plan org](https://developer.okta.com/signup/).
 2. Go to **Applications** > **Applications** > **Your OIN Integrations** > **Build new OIN integration** to start a new submission.
 3. In the **Add integration capabilities** tab, select your support protocols. You must have at least OpenID Connect (OIDC) selected.
 4. Click **Add integration details** to go to the **Integration details** page.
@@ -67,7 +67,7 @@ Before starting the submission in the OIN Wizard, you must generate the Express 
 
 #### Configure your integration in Okta
 
-1. Sign in to your [Okta Integrator Free Plan org](https://www.okta.com/integrator-free-plan/).
+1. Sign in to your [Okta Integrator Free Plan org](https://developer.okta.com/signup/).
 2. Go to **Applications** > **Your OIN Integrations**.
 3. Select your published integration to update. Your published OIN submission appears in read-only mode.
 4. Click **Edit integration** from the **This integration is read-only** information box.
