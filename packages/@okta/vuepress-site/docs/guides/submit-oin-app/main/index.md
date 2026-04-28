@@ -75,14 +75,14 @@ Configure your OIN catalog properties:
 
 #### Tenant settings
 
-Configure integration variables if your URLs are dynamic for each tenant. The variables are for your customer admins to add their specific tenant values during installation. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language).
+Configure integration variables if your URLs are dynamic for each tenant. The variables are for your customer admins to add their specific tenant setting values during installation. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language).
 
-2. In the **Tenant settings** section, specify the name and label for each variable:
+2. In the **Tenant settings** section, specify the name and label for each tenant setting variable:
 
     | <div style="width:100px">Property</div> | Description  |
     | --------------- | ------------ |
-    | **Label** `*`  | A descriptive name for the dynamic variable that admins see when they install your app integration. For example: `Subdomain` |
-     | **Name** `*`  | Specify the variable name. This variable name is used to construct the dynamic URL. It's hidden from admins and is only passed to your external app.<br>String is the only variable type supported.<br>**Note:** Use alphanumeric lowercase and underscore characters for the variable name field. The first character must be a letter and the maximum field length is 1024 characters. For example: `subdomain_div1` |
+    | **Label** `*`  | The tenant setting label that's displayed when admins install your app integration. For example: `Subdomain` or `Tenant name` |
+     | **Name** `*`  | Specify the tenant setting variable name. This variable name is used to construct dynamic URLs or other app properties that are dependant on the tenant. It's hidden from admins and is only used to pass tenant details to your external app.<br>String is the only variable type supported.<br>**Note:** Use alphanumeric lowercase and underscore characters for the variable name field. The first character must be a letter and the maximum field length is 1024 characters. For example: `subdomain_div1` |
 
      `*` This section is optional, but if you specify a variable, both `Label` and `Name` properties are required.
 
@@ -123,9 +123,9 @@ Configure your integration settings. Settings appear based on your capability se
 
  The OIN Wizard supports [Okta Expression Language](/docs/reference/okta-expression-language/#reference-user-attributes) to generate dynamic properties, such as URLs or URIs, based on your customer tenant. You can specify dynamic strings for your <StackSnippet snippet="protocol-name" inline/> properties in the OIN Wizard:
 
-1. Add your [integration variables](#integration-variables) in the OIN Wizard. These variables become fields for customers to enter during your OIN integration installation to identify their tenant.
+1. Add your [tenant settings](#tenant-settings) in the OIN Wizard. These settings become fields for customer admins to enter during your OIN integration installation to identify their tenant.
 
-2. Use the integration variables with Expression Language format in your [<StackSnippet snippet="protocol-name" inline/> property definitions](#properties) for dynamic values based on customer information.
+2. Use the tenant setting variables with Expression Language format in your integration properties for dynamic values based on customer information.
 
 <StackSnippet snippet="variable-desc" />
 

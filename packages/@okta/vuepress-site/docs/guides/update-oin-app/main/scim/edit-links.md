@@ -1,5 +1,5 @@
 * [OIN catalog properties](/docs/guides/submit-oin-app/scim/main/#oin-catalog-properties)
-* [Integration variables](/docs/guides/submit-oin-app/scim/main/#integration-variables)
+* [Tenant settings](/docs/guides/submit-oin-app/scim/main/#tenant-settings)
    > **Note:** See [Update integration considerations](#update-integration-considerations) for backwards compatibility with integration variables.
 * [SCIM properties](/docs/guides/submit-oin-app/scim/main/#properties)
 * [Universal Logout properties](/docs/guides/submit-oin-app/openidconnect/main/#universal-logout-properties)

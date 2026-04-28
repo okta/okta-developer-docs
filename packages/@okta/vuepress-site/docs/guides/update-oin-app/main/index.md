@@ -53,7 +53,7 @@ For published integrations that were migrated from the OIN Manager, if you need 
 
 * When you update an integration that's already published, be mindful to preserve backwards compatibility for your integration. Older instances of your integration could be in use by Okta customers.
 
-    * If you modify the **Name** (`name`) property of your [integration variables](/docs/guides/submit-oin-app/openidconnect/main/#integration-variables), Okta removes the original variable and creates a variable with your updated name. This action negatively impacts your existing customers if you use the original variable in your integration dynamic properties.
+    * If you modify the **Name** (`name`) property of your [tenant settings](/docs/guides/submit-oin-app/openidconnect/main/#tenant-settings), Okta removes the original variable and creates a variable with your updated name. This action negatively impacts your existing customers if you use the original variable in your integration dynamic properties.
 
     * Migrated published integrations from the OIN Manager don't have some OIN Wizard restrictions. For instance:
 
