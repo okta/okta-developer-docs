@@ -15,17 +15,17 @@ Learn how to configure token exchange for AI agents so that you can securely req
 
 #### What you need
 
-- [Okta Integrator Free Plan org](https://developer.okta.com/signup)
+- An Okta org that's subscribed to Okta for AI Agents.
 - An Okta user account with the super admin role.
-- [Register an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register) in your Okta org.
-- **Managed Connections** is configured for the AI agent, defining which resources it's allowed to access. See [Secure an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure).
+- [Add and register AI agents](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register) in your Okta org.
+- **Resource connections** are configured for the AI agent, defining which resources it's allowed to access. See [AI agent resource connections](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure).
 - An OIDC web app is configured to authenticate users and obtain an ID token.
 
 ---
 
 ## Overview
 
-You've [registered an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register). You have also defined its access to third-party resources integrated with your Okta org using **Managed Connections**. Now, the agent must obtain the actual tokens or credentials to perform tasks.
+You've [registered an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register). You've also created resource connections that define the AI agent's access to your org's resources. Now, the agent must obtain the actual tokens or credentials to perform tasks.
 
 You can [connect an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure) to the following resource types:
 

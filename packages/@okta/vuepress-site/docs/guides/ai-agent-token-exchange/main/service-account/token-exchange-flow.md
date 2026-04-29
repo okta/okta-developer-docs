@@ -12,5 +12,5 @@ The token exchange flow for an AI agent involves the following steps:
 
 1. The user authenticates with the [Okta org authorization server](/docs/concepts/auth-servers/#org-authorization-server) using a web app. The server returns an ID token to the web app.
 1. The web app passes the ID token to the AI agent so that it can perform actions on the user's behalf.
-1. The AI agent sends the ID token to the org authorization server and requests an exchange for the resource token. The server validates the request based on the configuration in the **Managed Connections** tab and returns the requested service account or service account.
-1. The AI agent uses the service account or service account credentials to request access to the resource.
+1. The AI agent sends the ID token to the org authorization server and requests an exchange for the resource token. The server validates the request based on the configuration in the **Resource Connections** tab and returns the requested service account that is vaulted in Okta Privileged Access.
+1. The AI agent uses the service account credentials to request access to the resource.
