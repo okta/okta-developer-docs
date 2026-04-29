@@ -4,8 +4,17 @@
   <title>Okta Identity Governance API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/</link>
   <description>Recent release notes for Okta Identity Governance API</description>
-  <pubDate>Wed, 15 Apr 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 29 Apr 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Weekly release 2026.04.3</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-04-3</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-04-3</guid>
+      <pubDate>Wed, 29 Apr 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#entitlement-value-response-updates">Entitlement value response updates</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Weekly release 2026.04.2</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-04-2</link>

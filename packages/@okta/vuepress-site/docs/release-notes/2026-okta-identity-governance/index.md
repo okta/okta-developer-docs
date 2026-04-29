@@ -13,6 +13,20 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 ## April
 
+### Weekly release 2026.04.3
+<!-- Published on: 2026-04-29T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Entitlement value response updates](#entitlement-value-response-updates) | April 29, 2026 |
+
+#### Entitlement value response updates
+
+The response for the [List all reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/listreviews), [Reassign the review](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/reassignreviews), and [Retrieve the review](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/getreview ) operations now return the following additional properties for [`entitlementValue`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/listreviews#reviews/listreviews/t=response&c=200&path=data/entitlementvalue):
+* `externalValue`: The external value string
+* `entitlement`: The entitlement object that the entitlement value belongs to
+<!-- OKTA-1146477 April 29, 2026 -->
+
 ### Weekly release 2026.04.2
 <!-- Published on: 2026-04-15T12:00:00Z -->
 

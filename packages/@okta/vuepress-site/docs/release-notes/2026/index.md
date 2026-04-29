@@ -11,6 +11,17 @@ title: Okta Classic Engine API release notes 2026
 
 ## April
 
+### Weekly release 2026.04.3
+<!-- Published on: 2026-04-29T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bug fixed in 2026.04.3](#bug-fixed-in-2026-04-3)| April 29, 2026 |
+
+#### Bug fixed in 2026.04.3
+
+If you included `strict=true` as a query parameter in the Update a user [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/user/other/updateuser) to update a user’s Active Directory (AD) password, an HTTP 200 OK response was returned even if the update failed in AD. (OKTA-1145080)
+
 ### Weekly release 2026.04.1
 <!-- Published on: 2026-04-08T12:00:00Z -->
 
