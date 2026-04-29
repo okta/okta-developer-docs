@@ -15,7 +15,7 @@ title: Okta Classic Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Bug fixed in 2026.04.3](#bug-fixed-in-2026043)| April 29, 2026 |
+| [Bug fixed in 2026.04.3](#bug-fixed-in-2026-04-3)| April 29, 2026 |
 
 #### Bug fixed in 2026.04.3
 
