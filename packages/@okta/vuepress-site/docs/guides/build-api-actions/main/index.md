@@ -21,9 +21,7 @@ Build, test, and submit an an integration with API Integration Actions to the Ok
 xxx
 
 
-### Build an integration with API Integration Actions
-
-### New project
+### New IB project
 
 Building and Submitting the Workflow
 The following steps occur within the Integration Builder section of Okta Workflows:
@@ -41,6 +39,39 @@ After testing, click on Validate and Submit.
 Click on Validate flows and fix any errors.
 Click on Submit in OIN Wizard.
 
+## Upload API spec
+
+If you have an OpenAPI 3.0 specification for the third-party API resource that you want to integrate with, you can upload it to your project to save configuration time. You can generate authentication configurations and action flows from your API specification instead of configuring them manually. This step is optional and not required to complete your integration project.
+
+> **Note**: Integration Builder only supports OpenAPI 3.0 specifications. You can upload a YAML or JSON-formatted schema file.
+
+1. In your Integration Builder project folder, go to the **API Spec** tab.
+1. Click **Upload spec**.
+1. Add your API specification file and click **Process file**.
+
+After you upload your API specification, the **Core flows** section appears with three flow types for you to generate. In addition, if your schema file contains authentication schemas, the **Authentication configuration** section appears for you to generate authentcation configurations.
+
+> **Note**: You can replace your uploaded API specification file with an updated file if there are changes to the API.
+
+### Generate authentication configuration
+
+The **Authentication configuration** section appears if your API specification contains authentication schemes.
+
+1. From the **API Spec** > **Authentication configuration** section, click **Generate**.
+1. Select the authentication schemes from the API specification that you want to configure.
+1. Click **Generate**.
+
+The generated authentication configurations appear in your project **Authentication** tab.
+
+### Generate core flows
+
+The **Generate flow** option is enabled for the flow types based on your API specification. Typically, the **HTTP Helper** flow type is enabled for you to generate.
+
+1. From the **API Spec** > **Core flows** section, click **Generate flow** next to the available flow type.
+1. Click **Generate flow** in the **Generate core flow** type dialog.
+1. Click **Generate**.
+
+All the endpoints in your API schema becomes available in the **Authping** and **Custom API Action** flows.
 
 ## Authentication
 
