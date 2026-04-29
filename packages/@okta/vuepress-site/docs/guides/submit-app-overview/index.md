@@ -7,15 +7,15 @@ meta:
 
 The Okta Integration Network (OIN) is the identity industry's broadest and deepest set of pre-built cloud integrations to manage access management, authentication, and provisioning. Gain exposure to thousands of Okta customers who can discover your integration by adding it to the OIN.
 
-OIN integrations speed adoption by simplifying admin configuration steps and reducing friction for your customers. They can integrate your application to Okta with minimal effort.
+OIN integrations speed adoption by simplifying admin configuration steps and reducing friction for your customers. They can integrate your app to Okta with minimal effort.
 
 If you're an integrator, from an independent software vendor (ISV) or an existing Okta customer, who wants to add your integration to the OIN, use this guide to learn about the submission process. It's free to submit and list your integration publicly in the [OIN catalog](https://www.okta.com/integrations/).
 
 ## Submission process
 
-Okta introduced a seamless experience to submit SSO, SCIM, and API service integrations for OIN publication. This experience enables you to build and test your integration before submission directly from the Admin Console with the [OIN Wizard](/docs/guides/submit-oin-app/). This reduces the tools that you need to build, test, and submit your integration. Moreover, it reduces the time needed for the OIN team to review and validate your integration, which shortens the time to publish in the OIN.
+Okta introduced a seamless experience to submit Single Sign-On (SSO), provisioning, entitlement management, Universal Logout (UL), and API service integrations for OIN publication. This experience enables you to build and test your integration before submission directly from the Admin Console with the [OIN Wizard](/docs/guides/submit-oin-app/). This reduces the tools that you need to build, test, and submit your integration. It also reduces the time needed for the OIN team to review and validate your integration, which shortens the time to publish in the OIN.
 
-You can also submit updates to a previously published SSO. SCIM, or API service integration in the OIN Wizard.
+You can also submit updates to a previously published integration in the OIN Wizard.
 
 For Workflows connector integrations, you need to use the [OIN Manager](https://oinmanager.okta.com/) for submission.
 
@@ -29,7 +29,7 @@ Before you submit your integration, in either the OIN Wizard or OIN Manager, rev
 
 Consider the following questions to help you choose which pathway to use for submission:
 
-* Are you submitting a new or published SSO, SCIM, or API service integrations?
+* Are you submitting a new or published SSO, provisioning (SCIM or API Integration Actions), entitlement management, UL (GTR or API Integration Actions), or API service integrations?
   * [Use the OIN Wizard](#submission-process-for-sso-and-scim-integrations).
     > **Note:** Published SSO or SCIM integrations that were submitted through the OIN Manager have been moved to the OIN Wizard and appear in the **Your OIN Integrations** dashboard.
 * Are you submitting a new or published Workflows integration?
@@ -39,9 +39,9 @@ Submit your integration to Okta and work with the OIN team as they test and revi
 
 The Okta OIN team reviews and prioritizes all submissions.
 
-### Submission process for SSO, SCIM, and API service integrations
+### Submission process for SSO, provisioning, and API service integrations
 
-The following steps outline the process for submitting SSO, SCIM, and API service integrations through the OIN Wizard.
+The following steps outline the process for submitting SSO, SCIM provisioning, entitlement management, UL, and API service integrations.
 
 1. Build the integration in your app.
 1. Sign in to the Admin Console of your Integrator Free Plan org.
@@ -63,6 +63,26 @@ Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 -->
 
 </div>
+
+### Submission process for API Integration Actions
+
+The following steps explain how to submit provisioning, entitlement management, or UL integrations that uses API Integration Actions in the Integration Builder:
+
+1. Sign in to the Admin Console of your Integrator Free Plan org.
+   - Add integration details in the OIN Wizard.
+1. Use the Integration Builder to create your API integration actions.
+   - Build your API integration actions.
+1. Return to the OIN Wizard to review and test your integration
+   - Define your integration capabilities with the API integration actions that you've built.
+   - Generate the app integration instances required.
+   - Test your integration.
+1. Submit and review feedback.
+   - Submit your integration
+   - After submission, the OIN team reviews your integration. See [Understand the submission review process](#understand-the-submission-review-process).
+1. Publish to OIN catalog.
+   - The OIN team publishes your integration after they verify that your integration works as intended for your Okta customers.
+
+See [API Integration Actions](/docs/guides/oin-api-actions/).
 
 ### Submission process for Workflows integrations
 
@@ -128,6 +148,8 @@ Okta accepts integrations that use the following protocols or tools into the OIN
 
 * [OAuth 2.0](/docs/concepts/oauth-openid/#oauth-2-0) (for Okta management service apps, see [Build an API service integration](/docs/guides/build-api-integration/))
 
+* [API Integration Actions](/docs/guides/oin-api-actions/) in the Workflows Integration Builder
+
 > **Note:** SWA app integrations are no longer accepted for publication in the OIN catalog. However, the OIN team still maintains existing SWA apps.
 
 ## Submission support
@@ -160,6 +182,8 @@ Ready to make your integration public? Submit an integration with the following 
 
 <Card href="/docs/guides/submit-oin-app/scim/main/" headerImage="/img/icons/scim.svg" cardTitle="SCIM" :showFooter=false>Submit a SCIM integration</Card>
 
-<Card href="/docs/guides/build-api-integration/main/" headerImage="/img/icons/odyssey/APIs.svg" cardTitle="API service" :showFooter=false>Submit an API service integration</Card>
+<Card href="/docs/guides/submit-oin-app/uapiservice/main/" headerImage="/img/icons/odyssey/APIs.svg" cardTitle="API service" :showFooter=false>Submit an API service integration</Card>
+
+<Card href="/docs/guides/submit-oin-app/wfactions/main/" headerImage="/img/icons/identicon-actions-2.svg" cardTitle="API Integration Actions" :showFooter=false>Submit an integration with API Integration Actions</Card>
 
 </Cards>
