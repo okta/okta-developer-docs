@@ -160,5 +160,5 @@ See the [Realms API](https://developer.okta.com/docs/api/openapi/okta-management
 
 Custom attributes stored in UD serve as powerful inputs for the Okta policy engines, enabling attribute-based access control.
 
-* **Fine-grained authentication:** An Okta authentication policy can reference UD attributes to enforce step-up authentication. For example: if a user has `user.clearanceLevel \== "High"`, the policy can require a Passkeys (FIDO2 WebAuthn) factor, even if they are on a trusted network.
+* **Fine-grained authentication:** An Okta authentication policy can reference UD attributes to enforce step-up authentication. For example: if a user has `user.clearanceLevel \== "High"`, the policy can require a Passkey (FIDO2 WebAuthn) factor, even if they are on a trusted network.
 * **Fine-grained authorization:** An app sign-in policy can use UD attributes to grant or deny access. For example, for a finance tools app, the policy could allow access if `user.department \== "Finance"`, but deny all others, irrespective of group memberships.

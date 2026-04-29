@@ -8,7 +8,7 @@ layout: Guides
 
 Enable phishing-resistant, passwordless authentication in your app using the embedded SDK to integrate WebAuthn for sign-in flows with passkeys, security keys, or biometrics.
 
-> **Note:** As of the `2026.04.0` release, the FIDO2 (WebAuthn) authenticator is now called Passkeys (FIDO2 WebAuthn) and there are new settings and updates to the authenticator page layout.
+> **Note:** As of the `2026.04.0` release, the FIDO2 (WebAuthn) authenticator is now called Passkey (FIDO2 WebAuthn) and there are new settings and updates to the authenticator page layout.
 
 ---
 
@@ -49,8 +49,8 @@ Non-discoverable WebAuthn credentials are sometimes referred to as second-factor
 See:
 
 * [Passkeys and custom domains](/docs/guides/custom-passkeys/main/) to learn more about passkeys, relying party IDs (RP IDs), and how to use them.
-* [Authenticators API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/authenticator) to learn how to manage the Passkeys authenticator with an API.
-* [Configure the Passkeys (FIDO2 WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=ext-webauthn) to learn how to manage the Passkeys authenticator in the Admin Console.
+* [Authenticators API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/authenticator) to learn how to manage the Passkey authenticator with an API.
+* [Configure the Passkey (FIDO2 WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=ext-webauthn) to learn how to manage the Passkey authenticator in the Admin Console.
 
 ### Example authentication flow
 
@@ -72,37 +72,37 @@ In the previous example, the public and private keys are generated on the user's
 
 </div>
 
-As the Service Provider, you can provide WebAuthn support to your users. Enable the Passkeys authenticator in your org and build out support for it in your app using the embedded SDK.
+As the Service Provider, you can provide WebAuthn support to your users. Enable the Passkey authenticator in your org and build out support for it in your app using the embedded SDK.
 
 ## Update configurations
 
-Before you can start using the Passkeys authenticator, enable it in your Okta org and create an app sign-in policy that requires it to be used.
+Before you can start using the Passkey authenticator, enable it in your Okta org and create an app sign-in policy that requires it to be used.
 
-### Add the Passkeys authenticator to your org
+### Add the Passkey authenticator to your org
 
 1. In the **Admin Console**, go to **Security > Authenticators** to show the available authenticators.
-1. Follow these steps if **Passkeys (FIDO2 WebAuthn)** isn't in the list:
+1. Follow these steps if **Passkey (FIDO2 WebAuthn)** isn't in the list:
    1. Click **Add authenticator**.
-   1. Click **Add** on the **Passkeys (FIDO2 WebAuthn)** tile.
+   1. Click **Add** on the **Passkey (FIDO2 WebAuthn)** tile.
    1. Turn off **Create passkeys**.
-   1. Set the Authenticator name as **Passkeys (FIDO2 WebAuthn)**.
+   1. Set the Authenticator name as **Passkey (FIDO2 WebAuthn)**.
    1. Set **User verification** > **Enrollment** to **Discouraged**.
    1. Click **Save**.
     [[style="list-style-type:lower-alpha"]]
 
-   If **Passkeys (FIDO2 WebAuthn)** is in the list:
-   1. Select **Actions** > **Edit** for **Passkeys (FIDO2 WebAuthn)**.
+   If **Passkey (FIDO2 WebAuthn)** is in the list:
+   1. Select **Actions** > **Edit** for **Passkey (FIDO2 WebAuthn)**.
    1. If **User verification** > **Enrollment** isn't set to **Discouraged**, click **Edit** to set it.
    1. Click **Save**.
     [[style="list-style-type:lower-alpha"]]
 
 1. Select the **Enrollment** tab.
-1. Check that **Passkeys (FIDO2 WebAuthn)** is set to either **Optional** or **Required** in the **Authenticators** section of the default policy.
-   1. If **Passkeys (FIDO2 WebAuthn)** is set to **Disabled**, click **Edit** for the default policy.
-   1. Select **Optional** from the dropdown list for **Passkeys (FIDO2 WebAuthn)**, and then click **Update policy**.
+1. Check that **Passkey (FIDO2 WebAuthn)** is set to either **Optional** or **Required** in the **Authenticators** section of the default policy.
+   1. If **Passkey (FIDO2 WebAuthn)** is set to **Disabled**, click **Edit** for the default policy.
+   1. Select **Optional** from the dropdown list for **Passkey (FIDO2 WebAuthn)**, and then click **Update policy**.
     [[style="list-style-type:lower-alpha"]]
 
-### Set your app integration to use the Passkeys authenticator
+### Set your app integration to use the Passkey authenticator
 
 Apps are automatically assigned the shared default [app sign-in policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, it becomes evident when you can share your authentication needs between apps.
 
@@ -115,7 +115,7 @@ Create a policy specifically for your app for testing purposes.
 1. Set **User must authenticate with** to **Password / IdP + Another factor**.
 1. Follow these steps for the **Possession factor constraints are** setting:
    1. Select **Phishing resistant**.
-   1. Verify that **Passkeys (FIDO2 WebAuthn)** is listed in the box under **Additional factor types**. If it isn't listed, check that the authenticator has been enabled using steps 4 and 5 of [Add the Passkeys authenticator to your org](#add-the-passkeys-authenticator-to-your-org).
+   1. Verify that **Passkey (FIDO2 WebAuthn)** is listed in the box under **Additional factor types**. If it isn't listed, check that the authenticator has been enabled using steps 4 and 5 of [Add the Passkey authenticator to your org](#add-the-passkeys-authenticator-to-your-org).
    1. Click **Save**.
     [[style="list-style-type:lower-alpha"]]
 
@@ -128,7 +128,7 @@ Create a policy specifically for your app for testing purposes.
 
 ## Integrate SDK for authenticator enrollment
 
-Integrate the embedded SDK to enroll a user with a Passkeys authenticator, such as a security key or biometric. This flow typically starts after a primary authentication method, like a password, when the SDK signals that enrollment is required. Your app then uses a challenge from Okta to call the browser's `navigator.credentials.create()` method. After the user creates the authenticator enrollment, it's sent back to Okta to complete the enrollment process.
+Integrate the embedded SDK to enroll a user with a Passkey authenticator, such as a security key or biometric. This flow typically starts after a primary authentication method, like a password, when the SDK signals that enrollment is required. Your app then uses a challenge from Okta to call the browser's `navigator.credentials.create()` method. After the user creates the authenticator enrollment, it's sent back to Okta to complete the enrollment process.
 
 ### Summary of steps
 

@@ -126,7 +126,7 @@ The following Identity Engine features aren't supported using the Factor APIs:
   * The FIPS compliance requirement for enrollments
   * The user verification requirement for enrollments
   * New Okta Verify enrollments that are created with the Factors API aren't mapped to a device.
-  * Passkeys (FIDO2 WebAuthn) authenticator user verification settings aren't enforced when enrolling using the Factors API.
+  * Passkey (FIDO2 WebAuthn) authenticator user verification settings aren't enforced when enrolling using the Factors API.
 
 See the [SDK use cases](/docs/guides/oie-embedded-common-org-setup/main/) in our embedded SDK guides for more information on profile enrollment.
 

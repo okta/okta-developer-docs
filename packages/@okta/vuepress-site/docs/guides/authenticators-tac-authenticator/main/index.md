@@ -182,9 +182,9 @@ First, create an app sign-in policy. Use the [Create a policy](https://developer
 
 ### Use TAC in an authentication method chain
 
-Use this app sign-in policy rule when you want users to specifically authenticate with TAC and a [Passkeys (FIDO2 WebAuthn)](https://help.okta.com/okta_help.htm?type=oie&id=ext-webauthn) authenticator. You can customize which authenticators to require in the authentication method chain. This policy rule can be used in the following scenario.
+Use this app sign-in policy rule when you want users to specifically authenticate with TAC and a [Passkey (FIDO2 WebAuthn)](https://help.okta.com/okta_help.htm?type=oie&id=ext-webauthn) authenticator. You can customize which authenticators to require in the authentication method chain. This policy rule can be used in the following scenario.
 
-One of your users doesn't have their phone with them and doesn't have access to their Phone or Okta Verify authenticators. You generate a TAC for them that they can use for eight hours. With this policy rule, they're required to use the TAC and their Passkeys (FIDO2 WebAuthn) authenticator whenever they sign in.
+One of your users doesn't have their phone with them and doesn't have access to their Phone or Okta Verify authenticators. You generate a TAC for them that they can use for eight hours. With this policy rule, they're required to use the TAC and their Passkey (FIDO2 WebAuthn) authenticator whenever they sign in.
 
 Use the [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) endpoint to create the rule.
 

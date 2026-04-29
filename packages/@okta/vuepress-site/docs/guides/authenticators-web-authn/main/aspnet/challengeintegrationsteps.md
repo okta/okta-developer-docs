@@ -9,9 +9,9 @@ The challenge flow follows the same first four steps as the [enrollment flow](/d
 
 ### Retrieve encrypted challenge and user information
 
-When the user selects the Passkeys factor and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in challenge flow or enrollment flow.
+When the user selects the Passkey factor and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in challenge flow or enrollment flow.
 
-When in challenge flow, a call is made to `idxClient.SelectChallengeAuthenticatorAsync`, using its `selectAuthenticatorOptions` parameter to pass in the Passkeys authenticator factor ID.
+When in challenge flow, a call is made to `idxClient.SelectChallengeAuthenticatorAsync`, using its `selectAuthenticatorOptions` parameter to pass in the Passkey authenticator factor ID.
 
 ```csharp
 var selectAuthenticatorOptions = new SelectAuthenticatorOptions
@@ -50,7 +50,7 @@ switch (selectAuthenticatorResponse?.AuthenticationStatus)
 
 ### Display a challenge page
 
-Build a page that takes the challenge and user information from Okta servers and calls `navigator.credentials.get` to raise a challenge prompt from the correct Passkeys authenticator.
+Build a page that takes the challenge and user information from Okta servers and calls `navigator.credentials.get` to raise a challenge prompt from the correct Passkey authenticator.
 
 For example, in the sample app, a `VerifyWebAuthnViewModel` populates from the `CurrentAuthenticatorEnrollment` property of the `AuthenticatorResponse` object that's returned in the previous step.
 

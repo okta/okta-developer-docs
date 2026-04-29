@@ -11,9 +11,9 @@ authenticationResponse = idxAuthenticationWrapper.authenticate(
     new AuthenticationOptions(username, password.toCharArray()), proceedContext);
 ```
 
-### Display the Passkeys authenticator option
+### Display the Passkey authenticator option
 
-If you configure your Okta org as detailed in [Configuration updates](#update-configurations) and Passkeys authenticator isn’t already [enrolled](#integrate-sdk-for-authenticator-enrollment) for the user, `authenticate()` returns an `AuthenticationResponse` object with `authenticationStatus` equal to `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` and a `webauthn` authenticator item in the `authenticators` array.
+If you configure your Okta org as detailed in [Configuration updates](#update-configurations) and Passkey authenticator isn’t already [enrolled](#integrate-sdk-for-authenticator-enrollment) for the user, `authenticate()` returns an `AuthenticationResponse` object with `authenticationStatus` equal to `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` and a `webauthn` authenticator item in the `authenticators` array.
 
 ```json
 {
@@ -49,13 +49,13 @@ A simple authenticator selection page should look like this:
 
 <div class="three-quarter">
 
-![Image illustrating the enroll authenticator page showing the available sign-in authenticators, including the Passkeys authenticator.](/img/authenticators/authenticators-webauthn-java-enroll-dropdown-selection.png)
+![Image illustrating the enroll authenticator page showing the available sign-in authenticators, including the Passkey authenticator.](/img/authenticators/authenticators-webauthn-java-enroll-dropdown-selection.png)
 
 </div>
 
-### Submit the Passkeys authenticator option
+### Submit the Passkey authenticator option
 
-When the user selects the Passkeys authenticator option, call `IDXAuthenticationWrapper.enrollAuthenticator()` passing in `ProceedContext` and the authenticator ID returned from `AuthenticationResponse.authenticators[n].factors[n].id`.
+When the user selects the Passkey authenticator option, call `IDXAuthenticationWrapper.enrollAuthenticator()` passing in `ProceedContext` and the authenticator ID returned from `AuthenticationResponse.authenticators[n].factors[n].id`.
 
 ```java
 Optional<Authenticator> authenticatorOptional =
@@ -170,11 +170,11 @@ navigator.credentials.create({
 
 This call initiates the following steps:
 
-1. The browser prompts the user to choose the type of Passkeys authenticator that they’re using. For example: a portable hardware authenticator such as a USB security key or a software-based authenticator such as a fingerprint scanner.
+1. The browser prompts the user to choose the type of Passkey authenticator that they’re using. For example: a portable hardware authenticator such as a USB security key or a software-based authenticator such as a fingerprint scanner.
 
 <div class="three-quarter">
 
-![Image of the browser prompt that allows the user to pick the type of Passkeys authenticator to register.](/img/authenticators/authenticators-webauthn-authenticator-options.png)
+![Image of the browser prompt that allows the user to pick the type of Passkey authenticator to register.](/img/authenticators/authenticators-webauthn-authenticator-options.png)
 
 </div>
 
