@@ -11,6 +11,18 @@ title: Okta Classic Engine API release notes 2026
 
 ## April
 
+### Weekly release 2026.04.3
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2026.04.3](#bugs-fixed-in-2026-04-3)| April 29, 2026 |
+
+#### Bugs fixed in 2026.04.3
+
+* If you included `strict=true` as a query parameter in the Update a user [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/user/other/updateuser) to update a user’s Active Directory (AD) password, an HTTP 200 OK response was returned even if the update failed in AD. (OKTA-1145080)
+
+* When you sent a [POST request](/docs/reference/api/authn/#step-up-authentication-without-okta-session) to the `/authn` endpoint with MFA Factor Sequencing with Okta Verify first in the chain, the response included Okta Verify metadata. (OKTA-1055365)
+
 ### Weekly release 2026.04.1
 <!-- Published on: 2026-04-08T12:00:00Z -->
 
