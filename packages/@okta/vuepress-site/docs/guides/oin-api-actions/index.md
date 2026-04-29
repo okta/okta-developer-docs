@@ -5,13 +5,13 @@ meta:
     content: Provides instruction on how to create and integration with API Integration Actions in the Workflows Integration Builder.
 ---
 
-API Integration Actions enable ISVs to build Okta integrations with capabilities, such as provisioning, entitlement management, and Universal Logout. API Integration Actions are available through the low-code Workflows Integration Builder. These integrations are seamlessly called by Okta for actions like retrieving and updating entitlements or triggering risk-based logout.
+API Integration Actions enable ISVs to build Okta integrations with capabilities, such as provisioning, entitlement management, and Universal Logout using third-party APIs. API Integration Actions are available through the low-code Workflows Integration Builder. These integrations are seamlessly called by Okta for API actions, such as retrieving and updating entitlements or triggering risk-based logout.
 
 ## Integration Builder
 
-The Integration Builder is a low-code Workflow platform that allows you to build actions based on API request and responses to your app's resource server. The Workflows Integrator Builder is exclusively available in the [Okta Integrator Free Plan orgs](/signup), and integrates with the OIN wizard submission flow.
+The Integration Builder is a low-code feature in the Workflows platform that allows you to build API actions based on request and responses to your app's resource server. The Integration Builder is exclusively available in the [Okta Integrator Free Plan orgs](/signup), and integrates with the OIN Wizard submission flow.
 
-You can define their your integration details in the OIN wizard, which directs you to a preset project, within Integrator Builder, to build your API Integration Actions. After the action flows are built, you can continue back to the OIN Wizard to validate the flows and submit the integration to the OIN for distrubtion.
+You can define their your integration details in the OIN Wizard, which directs you to a preset project within Integrator Builder, to build your API integration actions. After the actions are built, you can continue back to the OIN Wizard to validate and submit the integration to the OIN for distribution.
 
 > **Note**: See [OIN submission requirements](/docs/guides/submit-app-prereq/main/) before using the OIN Wizard to submit your integration.
 
@@ -20,8 +20,8 @@ Okta recommends that you access the Integration Builder through the OIN Wizard, 
 ### Process overview
 
 1. Start your submission in the [OIN Wizard: Submit an integration](/docs/guides/submit-oin-app/wfactions/main/).
-2. Build your API integration actions in the Integration Builder by following [Build an integration with API Integration Actions](/docs/guides/build-api-actions/main/) guide. This tool lets you define the action flows and connections to your app server.
-3. Complete the definition and testing in the OIN Wizard after building your action flows. The actions you define in the Integration Builder become available in the OIN Wizard for real-time testing.
+2. Build your API integration actions in the Integration Builder by following [Build an integration with API Integration Actions](/docs/guides/build-api-actions/main/) guide. Define the action flows and connections to your API server.
+3. Complete the definition and testing in the OIN Wizard after building your API integration actions. The actions you define in the Integration Builder become available in the OIN Wizard for real-time testing.
 4. Submit for validation through the OIN Wizard once you're satisfied with your integration's functionality.
 
 <div>
@@ -37,38 +37,32 @@ autonumber
 
 actor "ISV (app integrator)" as ISV
 
+box "Otka Integrator Free Plan org" #f0f8ff
 participant "OIN Wizard" as OINW
-
 participant "Integration Builder" as IB
+end box
 
 == 1. Create submission  ==
-ISV -> OINW:Start submission
+ISV -> OINW: Start submission
 Note right of ISV: Applications > Your OIN Integrations
-OINW -> OINW:Selects capability and protocols\n(SSO, Universal Logout, provisioning)
-OINW -> OINW: Add integration details
-Note right of OINW: App properties, tenant, and authentication settings
+OINW -> OINW: Select capabilities and\n add integration details
+Note right of OINW: SSO, Universal Logout, provisioning, \n app properties, tenant, and authentication settings
+OINW -> IB: Save integration details and start building
 
 == 2. Build integration ==
-OINW -> IB: Save integration details and start building
-IB -> IB: Verify that integrtion details were transferred to the IB project
-IB -[#blue]> IB: Configure authentication settings
-IB -> IB: Configure tenant settings
-IB -> IB: Add Actions and create flows
-IB -[#blue]> IB: Validate flow
+IB -> IB: Configure authentication settings, \n add actions, and validate flows
 IB -> OINW: Return to OIN Wizard
-OINW -> OINW: Connect integration capability with action flows
 
-== 3. Review ==
-OINW -> OINW: Enter testing details
-OINW -> OINW: Generate instances for testing
-OINW -> OINW: Test integration flows
+== 3. Review and test ==
+OINW -> OINW: Connect integration capabilities \n with action flows
+OINW -> OINW: Enter testing details, \n generate instances and test flows
 
 == 4. Submit and publish ==
-ISV -> OINW: Verify that app integration passed all test cases
-ISV -> OINW: Submit the integration
+ISV -> OINW: Verify that your integration \n passed all required tests
+ISV -> OINW: Submit your integration
 OINW -[#blue]> OINW: OIN team reviews and validates integration
-Note right of OINW: OIN team publishes the app integration in the OIN catalog
-OINW -[#blue]> ISV: OIN team notifies the ISV that the integration is published
+Note right of OINW: OIN team publishes the app integration \n in the OIN catalog
+OINW -[#blue]> ISV: OIN team notifies you that \n your integration is published in the OIN
 
 @enduml
 

@@ -6,4 +6,4 @@ The following are Expression Language specifics for API Integrations Actions pro
 
 * Any [tenant settings](#tenant-settings) that you define in the OIN Wizard are considered [application properties](/docs/reference/okta-expression-language/#application-properties). They have an `app.` prefix when you reference them in Expression Language. For example, if your integration variable name is `subdomain`, then you can reference that variable using `app.subdomain`.
 
-* Tenant setting variables that you define in the OIN Wizard appears in the Integration Buider's **Authentication mapping** section. You can map the API Integration Actions authentication parameters to the OIN Wizard tenant variables.
+* Tenant setting variables that you define in the OIN Wizard appears in the Integration Buider's **Authentication mapping** section. You can map the API integration action authentication parameters to the OIN Wizard tenant variables.

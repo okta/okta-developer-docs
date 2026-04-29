@@ -1,5 +1,5 @@
 
-#### API Integration Actions Tests
+#### API integration action tests
 
 Before you test your integration, ensure that your flows are active in the Integration Builder.
 
