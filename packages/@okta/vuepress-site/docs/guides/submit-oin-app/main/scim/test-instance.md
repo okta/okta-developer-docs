@@ -29,20 +29,19 @@
 
 > **Note:** Configure attribute-mapping instructions are only for SCIM integrations.
 
-SCIM integrations that are submitted through the OIN Wizard have a default set of user attribute mappings. Because your SCIM app may not support all default attributes, you must ensure your submission reflects only the attributes supported by your app.
+SCIM integrations that are submitted through the OIN Wizard have a default set of user attribute mappings. Because your SCIM app may not support all default attributes, you must ensure that your submission reflects only the attributes supported by your app.
 
-##### Choose your configuration method
+There are now two ways to define your user schema in OIN Wizard:
 
-There are now two ways to define your user schema in Okta:
+* **Automated (Recommended)**: If you selected **Import User Schema** checkbox in the **SCIM provisioning properties** section, Okta dynamically pulls the supported attributes directly from your SCIM server (core and extension schemas).
 
-* **Automated (Recommended)**: If you selected **Import user schema** checkbox in the **SCIM provisioning properties** section, Okta dynamically pulls the supported attributes directly from your SCIM server (core and extension schemas).
-* **Manual**: If you did not enable schema import, you must manually delete unsupported attributes and add new ones via the **Profile Editor**.
+* **Manual**: If you didn’t enable schema import, you must manually delete unsupported attributes and add new ones through the **Profile Editor**.
 
-**Automated configuration**
+##### Automated configuration
 
-If the **Import user schema** checkbox within the **SCIM provisioning properties** section is selected, Okta manages your integration’s attributes based on the following logic:
+If the **Import User Schema** checkbox within the **SCIM provisioning properties** section is selected, Okta manages your integration’s attributes based on the following logic:
 
-* **No manual deletion required**:  You can skip the deletion process. Only the required attributes defined on your SCIM server  are populated.
+* **No manual deletion required**:  You can skip the deletion process. Only the required attributes defined on your SCIM server are populated.
 
 * **Adding attributes**: To add an attribute, click **Add Attribute** in the **Profile Editor** and choose from a picklist of discovered fields. Consider the following details when managing your attributes:
 
@@ -50,9 +49,9 @@ If the **Import user schema** checkbox within the **SCIM provisioning properties
 
    * **ISV requirement**: If your schema varies across different customers, only add attributes that are common to all environments to ensure the integration works for everyone.
 
-* **Manual mapping required**: Although attributes are imported automatically, you must still define their relationship to Okta fields. Follow the instructions starting from [Step 3](/docs/guides/submit-oin-app/scim/main/#:~:text=User%20personal%20checkbox.-,After,-adding%20attributes%2C%20go) of the [Add attributes and mappings](/docs/guides/submit-oin-app/scim/main/#:~:text=want%20to%20delete.-,Add%20attributes%20and%20mappings,-In%20the%20Profile) section under [Manual configuration](/docs/guides/submit-oin-app/scim/main/#:~:text=under%20Manual%20configuration.-,Manual%20configuration,-SCIM%20integrations%20that).
+* **Manual mapping required**: Although attributes are imported automatically, you must still define their relationship to Okta fields. Follow the instructions starting from Step 3 of the [Add attributes and mapping](/docs/guides/submit-oin-app/scim/main/#add-attributes-and-mappings) section under [Manual configuration](/docs/guides/submit-oin-app/scim/main/#manual-configuration).
 
-**Manual configuration**
+##### Manual configuration
 
 SCIM integrations that are submitted through the OIN Wizard have a default set of user attribute mappings. The user schema in your SCIM app might not support all of these attributes. Ensure the integration that you're submitting to Okta reflects the attributes that are supported by your app. The OIN team uses the attribute mappings in your test instance for your integration provisioning settings in the OIN catalog.
 
@@ -63,7 +62,7 @@ After you've enabled the provisioning API connection in your test instance, conf
 
 Configure the user attribute mappings after deleting the unnecessary mappings and attributes, and then proceed to configure the attributes:
 
-**Delete mappings**
+###### Delete mappings
 
    1. Select **To App** on the left **Settings** panel.
    The **Provisioning to App** settings appear. The provisioning operations are already set by default from the [SCIM properties](#properties) section when you configured your integration.
@@ -74,14 +73,15 @@ Configure the user attribute mappings after deleting the unnecessary mappings an
    5. Scroll to the **Okta Attribute Mappings** section.
    6. Click **X** next to the attribute that you want to delete, and then click **OK** to confirm. Repeat this step until you remove all the mappings for the attributes that you want to delete.
 
-**Delete attributes**
+###### Delete attributes
+
    1. After removing all the mappings for the attributes that you want to delete, click **Go to Profile Editor**.
 
    2. In the **Profile Editor**, delete all the corresponding attributes from the mapping by clicking **X** next to the attribute and then **Delete Attribute** to confirm.
 
    3. Repeat this step for all the attributes that you want to delete.
 
-**Add attributes and mappings**
+###### Add attributes and mappings
 
    1. In the **Profile Editor**, click **Add Attribute**.
    2. Enter the information for the new attribute that you’re adding and then click **Save**.
