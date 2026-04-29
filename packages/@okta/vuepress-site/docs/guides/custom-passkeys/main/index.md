@@ -26,7 +26,9 @@ Learn how to configure passkeys with multiple domains.
 
 ## Passkeys and Okta overview
 
-Passkeys are based on the [FIDO2 Web Authentication (WebAuthn) standard](https://fidoalliance.org/fido2-2/fido2-web-authentication-webauthn/). WebAuthn credentials can exist on multiple devices, such as phones, tablets, or laptops, and across multiple operating system platforms. The WebAuthn credentials include biometric data, such as fingerprints or facial recognition. Passkeys enable WebAuthn credentials to be backed up and synchronized across devices.
+Passkeys are discoverable WebAuthn credentials based on the [FIDO2 Web Authentication (WebAuthn) standard](https://fidoalliance.org/fido2-2/fido2-web-authentication-webauthn/). WebAuthn credentials can exist on multiple devices, such as phones, tablets, or laptops, and across multiple operating system platforms. The WebAuthn credentials include biometric data, such as fingerprints or facial recognition. Passkeys enable WebAuthn credentials to be backed up and synchronized across devices.
+
+> **Note:** When users enroll a WebAuthn credential using biometric data, the biometric data is stored securely on the user's device and isn't shared with Okta or any other party. The passkey credential that gets registered with Okta contains a public key and metadata, but not the biometric data itself.
 
 Passkey credentials are cryptographically bound to a specific domain, known as the [Relying Party ID (RP ID)](https://www.w3.org/TR/webauthn/#relying-party-identifier).
 
@@ -36,8 +38,10 @@ To create a seamless experience where one passkey can work across multiple domai
 
 When you're configuring passkeys, there are two types of domains to consider:
 
-* **Root domains**: A root domain is a registrable domain name that's used with a public suffix. For example, in `okta.com`, `okta` is the root domain and `.com` is the suffix. In the context of passkeys and WebAuthn, root domains serve as the RP ID, which is the domain that passkey credentials are cryptographically tied to. Your org's root domain is `okta.com` by default.
+* **Root domains**: A root domain, also known as an apex domain, is a registrable domain name that's used with a public suffix. For example, in `okta.com`, `okta` is the root domain and `.com` is the suffix. In the context of passkeys and WebAuthn, root domains serve as the RP ID, which is the domain that passkey credentials are cryptographically tied to. Your org's root domain is `okta.com` by default.
 * **Subdomains**: Subdomains are domains that exist as a subset under a root domain. `okta.com` is your org's root domain, and your org subdomain typically follows this format: `companyname.okta.com`.
+
+> **Note:** A registrable domain is also known as an effective Top-Level Domain plus one (eTLD+1). See [Registrable domain](https://developer.mozilla.org/en-US/docs/Glossary/Registrable_domain).
 
 If a user creates a passkey while signing in at `companyname.okta.com`, that passkey is bound to `okta.com` as the RP ID and is only valid for `okta.com` and its subdomains, by default.
 
@@ -58,11 +62,11 @@ A root domain like `globex.com` can't be set up as a custom domain in your org. 
 
 > **Note:** This guide explains the process for setting a root domain as the RP ID, which requires domain verification.
 
-### Related origins and passkeys
+### Related Origin Requests (ROR) and passkeys
 
-Related origins establish a trust relationship between different root domains. When a root domain, such as `globex.com` has a `/.well-known/webauthn` JSON file that lists related origins, such as `https://globex-apac.com`, the browser allows passkeys created with the `globex.com` RP ID to be used on `globex-apac.com`. The `/.well-known/webauthn` JSON file is hosted on the RP ID domain and lists the related origins that are trusted to use passkeys created with that RP ID.
+ROR establish a trust relationship between different root domains. When a root domain, such as `globex.com` has a `/.well-known/webauthn` JSON file that lists related origins, such as `https://globex-apac.com`, the browser allows passkeys created with the `globex.com` RP ID to be used on `globex-apac.com`. The `/.well-known/webauthn` JSON file is hosted on the RP ID domain and lists the related origins that are trusted to use passkeys created with that RP ID.
 
-Related origins and the `/.well-known/webauthn` JSON file don't merge or bridge passkeys from different RP IDs. The passkey must already be registered under the RP ID configured for your org (for example, `globex.com`). Related origins only allow the authenticator to present that credential on other origins. A passkey registered under a different RP ID isn't usable on related origins.
+ROR don't merge or bridge passkeys from different RP IDs. The passkey must already be registered under the RP ID configured for your org (for example, `globex.com`). ROR only allow the browser/client to present that credential on other origins. A passkey registered under a different RP ID isn't usable on related origins.
 
 How you configure related origins depends on the type of domain that you use as the RP ID.
 
@@ -70,6 +74,8 @@ How you configure related origins depends on the type of domain that you use as 
 |------------|---------|------------------------|--------------------------------------|
 | Custom domain in Okta | `login.globex.com` | Required. Use the [Associated Domain Customizations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AssociatedDomainCustomizations/) to add related origins to your domain's `/.well-known/webauthn` file. | Okta serves the `/.well-known/webauthn` file for your custom domain in Okta (for example, `https://login.globex.com/.well-known/webauthn`). You don't need to host it yourself. |
 | Root domain | `globex.com` | Not required. | You must host this file yourself at `https://globex.com/.well-known/webauthn`. Okta can't serve it because the root domain doesn't have a CNAME record that points to Okta. This file only needs to be hosted on the RP ID domain, not on each related origin. |
+
+> **Note:** Your self-hosted `/.well-known/webauthn` file must be served over HTTPS with an `application/json` Content-Type header.
 
 ### Replace an existing RP ID with a new RP ID
 
@@ -300,7 +306,7 @@ Before you begin, ensure that you've completed the following:
 * [Set `globex.com` as your primary RP ID](#update-the-rp-id-for-the-passkeys-authenticator).
 * Create and host the `/.well-known/webauthn` file on your RP ID domain.
 
-Add `globex.okta.com` (your org domain) to your `/.well-known/webauthn` file at `https://globex.com/.well-known/webauthn`. This allows passkeys created with the `globex.com` RP ID to be used on your org domain as well. Your `/.well-known/webauthn` file looks like this:
+Add `https://globex.okta.com` (your org domain) to your `/.well-known/webauthn` file at `https://globex.com/.well-known/webauthn`. This allows passkeys created with the `globex.com` RP ID to be used on your org domain as well. Your `/.well-known/webauthn` file looks like this:
 
 ```json
 {
