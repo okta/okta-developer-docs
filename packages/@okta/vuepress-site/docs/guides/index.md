@@ -143,6 +143,7 @@ guides:
  - terraform-organize-configuration
  - terraform-overview
  - terraform-syntax-tips
+ - terraform-manage-itp
  - test-your-migration-plan
  - token-inline-hook
  - unlock-mobile-app-with-biometrics
