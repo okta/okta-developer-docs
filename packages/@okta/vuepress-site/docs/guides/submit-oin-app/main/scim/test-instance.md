@@ -29,6 +29,31 @@
 
 > **Note:** Configure attribute-mapping instructions are only for SCIM integrations.
 
+SCIM integrations that are submitted through the OIN Wizard have a default set of user attribute mappings. Because your SCIM app may not support all default attributes, you must ensure your submission reflects only the attributes supported by your app.
+
+##### Choose your configuration method
+
+There are now two ways to define your user schema in Okta:
+
+* **Automated (Recommended)**: If you selected **Import user schema** checkbox in the **SCIM provisioning properties** section, Okta dynamically pulls the supported attributes directly from your SCIM server (core and extension schemas).
+* **Manual**: If you did not enable schema import, you must manually delete unsupported attributes and add new ones via the **Profile Editor**.
+
+**Automated configuration**
+
+If the **Import user schema** checkbox within the **SCIM provisioning properties** section is selected, Okta manages your integration’s attributes based on the following logic:
+
+* **No manual deletion required**:  You can skip the deletion process. Only the required attributes defined on your SCIM server  are populated.
+
+* **Adding attributes**: To add an attribute, click **Add Attribute** in the **Profile Editor** and choose from a picklist of discovered fields. Consider the following details when managing your attributes:
+
+   * **Schema discovery details**: Okta identifies these fields by retrieving core user attributes from the schema with the URN `urn:ietf:params:scim:schemas:core:2.0:User` in `/Schemas` endpoint within the SCIM server. Extension attributes are pulled from schemas matching the URNs specified under the `User Resource Type` in `/ResourceTypes` endpoint within the SCIM server.
+
+   * **ISV requirement**: If your schema varies across different customers, only add attributes that are common to all environments to ensure the integration works for everyone.
+
+* **Manual mapping required**: Although attributes are imported automatically, you must still define their relationship to Okta fields. Follow the instructions starting from [Step 3](/docs/guides/submit-oin-app/scim/main/#:~:text=User%20personal%20checkbox.-,After,-adding%20attributes%2C%20go) of the [Add attributes and mappings](/docs/guides/submit-oin-app/scim/main/#:~:text=want%20to%20delete.-,Add%20attributes%20and%20mappings,-In%20the%20Profile) section under [Manual configuration](/docs/guides/submit-oin-app/scim/main/#:~:text=under%20Manual%20configuration.-,Manual%20configuration,-SCIM%20integrations%20that).
+
+**Manual configuration**
+
 SCIM integrations that are submitted through the OIN Wizard have a default set of user attribute mappings. The user schema in your SCIM app might not support all of these attributes. Ensure the integration that you're submitting to Okta reflects the attributes that are supported by your app. The OIN team uses the attribute mappings in your test instance for your integration provisioning settings in the OIN catalog.
 
 After you've enabled the provisioning API connection in your test instance, configure user attribute mappings to and from Okta in the **Provisioning** tab of your instance.
