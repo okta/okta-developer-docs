@@ -17,7 +17,7 @@
           :src="screenshotSrc"
           :alt="title"
           class="signup-bottom-card__screenshot-img"
-        />
+        >
       </div>
     </div>
     <div class="signup-bottom-card__content">
@@ -34,8 +34,21 @@
       class="signup-bottom-card__cta"
     >
       {{ ctaText }}
-      <svg class="signup-bottom-card__arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M3.33 8h9.34M8.67 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      <svg
+        class="signup-bottom-card__arrow-icon"
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.33 8h9.34M8.67 4l4 4-4 4"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
       </svg>
     </a>
   </div>
