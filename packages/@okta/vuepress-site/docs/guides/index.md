@@ -88,6 +88,7 @@ guides:
  - scim-with-entitlements
  - sign-in-overview
  - secure-oauth-between-orgs
+ - secure-hooks
  - single-logout
  - signup-oktahosted
  - build-sso-integration
