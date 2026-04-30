@@ -1085,10 +1085,6 @@ export const guides = [
             guideName: "secure-hooks",
           },
           {
-            title: "Common hook set-up steps",
-            guideName: "common-hook-set-up-steps",
-          },
-          {
             title: "Hooks best practices",
             path: "/docs/guides/hooks-best-practices/",
           },

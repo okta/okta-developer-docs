@@ -3157,6 +3157,38 @@ redirects:
     to: /docs/guides/secure-hooks/
   - from: /docs/guides/common-hook-set-up-steps
     to: /docs/guides/secure-hooks/
+  - from: /docs/guides/common-hook-set-up-steps/-/about-the-common-hook-set-up-steps/index.html
+    to: /docs/guides/secure-hooks/
+  - from: /docs/guides/common-hook-set-up-steps/-/about-the-common-hook-set-up-steps
+    to: /docs/guides/secure-hooks/
+  - from: /docs/guides/common-hook-set-up-steps/-/set-up-an-external-service/index.html
+    to: /docs/guides/secure-hooks/
+  - from: /docs/guides/common-hook-set-up-steps/-/set-up-an-external-service
+    to: /docs/guides/secure-hooks/
+  - from: /docs/guides/common-hook-set-up-steps/-/add-body-parsing/index.html
+    to: /docs/guides/secure-hooks/
+  - from: /docs/guides/common-hook-set-up-steps/-/add-body-parsing
+    to: /docs/guides/secure-hooks/
+  - from: /docs/guides/common-hook-set-up-steps/-/add-authentication-method/index.html
+    to: /docs/guides/secure-hooks/
+  - from: /docs/guides/common-hook-set-up-steps/-/add-authentication-method
+    to: /docs/guides/secure-hooks/
+  - from: /docs/guides/common-hook-set-up-steps/-/http-header-basic-authentication/index.html
+    to: /docs/guides/secure-hooks/nodejs/main/#http-header-basic-authentication
+  - from: /docs/guides/common-hook-set-up-steps/-/http-header-basic-authentication
+    to: /docs/guides/secure-hooks/nodejs/main/#http-header-basic-authentication
+  - from: /docs/guides/common-hook-set-up-steps/-/oauth-2-0-client-secret/index.html
+    to: /docs/guides/secure-hooks/nodejs/main/#oauth-2-0-client-secret
+  - from: /docs/guides/common-hook-set-up-steps/-/oauth-2-0-client-secret
+    to: /docs/guides/secure-hooks/nodejs/main/#oauth-2-0-client-secret
+  - from: /docs/guides/common-hook-set-up-steps/-/oauth-2-0-private-key/index.html
+    to: /docs/guides/secure-hooks/nodejs/main/#oauth-2-0-private-key
+  - from: /docs/guides/common-hook-set-up-steps/-/oauth-2-0-private-key
+    to: /docs/guides/secure-hooks/nodejs/main/#oauth-2-0-private-key
+  - from: /docs/guides/common-hook-set-up-steps/-/troubleshoot-hook-implementations/index.html
+    to: /docs/guides/hooks-best-practices/#troubleshoot-your-hook-implementations
+  - from: /docs/guides/common-hook-set-up-steps/-/troubleshoot-hook-implementations
+    to: /docs/guides/hooks-best-practices/#troubleshoot-your-hook-implementations
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/shared-sso-android-ios/-/overview
