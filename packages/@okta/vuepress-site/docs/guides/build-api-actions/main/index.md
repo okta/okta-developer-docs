@@ -4,16 +4,16 @@ excerpt: Learn how to build an integration with API Integration Actions in the W
 layout: Guides
 ---
 
-Build and validate API integration actions in the Integration Builder after you've defined your integration in the OIN Wizard.
+Build and validate integrations with API Integration Actions in the Integration Builder after you've defined your integration in the OIN Wizard.
 
 ---
 
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
-
 * An API resource server that serves request for provisioning, entitlement management, or Universal Logout for your app
-* (optional) OpenAPI 3.0 specification of your APIs
+* (optional) OpenAPI Specification (OAS) version 3.0 or later of your APIs, in either JSON or YAML format
+* An integration submission that's intiated through the Okta Integration Network (OIN) Wizard
 
 ---
 
@@ -21,49 +21,56 @@ Build and validate API integration actions in the Integration Builder after you'
 
 You can build integrations with API Integration Actions through the low-code Workflows Integration Builder. Okta calls these integrations to perform API actions against your app, such as fetching or updating user profiles, or initiating a risk-based logout.
 
-The Integration Builder integrates with the OIN Wizard for a seamless build-and-submit experience. The following integration capabilities are supported for API integration actions:
+The Integration Builder integrates with the OIN Wizard for a seamless build-and-submit experience. The following integration capabilities are supported for API Integration Actions:
 
 * Provisioning
 * Provisioning and entitlement management
 * Universal Logout (your integration must also support SSO)
 
-This guide assumes that you've already initiated your integration submission in the OIN Wizard and have been directed to the Integration Builder to build API integration actions. The next step is to configure your authentication and action flows. For a complete outline of the build and submission steps, refer to the [API Integration Actions process overview](/docs/guides/oin-api-actions/#process-overview).
+This guide assumes that you've already initiated your integration submission in the OIN Wizard and have been directed to the Integration Builder to build API actions. The next step is to configure your authentication and action flows in your [Integration Builder project](#integration-builder-project).
+
+> **Note**: For the end-to-end API Integration Actions build and submit process, see the [API Integration Actions process overview](/docs/guides/oin-api-actions/#process-overview).
 
 ## Integration Builder project
 
-Building and Submitting the Workflow
-The following steps occur within the Integration Builder section of Okta Workflows:
+After specifying your integration capabilities and details in the OIN Wizard, you're directed to the Integration Builder to build your API actions integration.
 
-Click the + sign next to Integration Builder Projects to create a new project.
-Enter the project name and description, and then click Save.
-On the General tab, confirm the OIN project is linked and that the project name and protocols are correct.
-Click on the Authentication tab and add the authentication information, ensuring it matches what you entered in the OIN Wizard.
-Fill out the Authentication Mapping section to map the OIN Wizard authentication parameters to the Workflow authentication parameters.
-Click on New Component and choose Add Action.
-Select the API Integration Action component from the list, and then click Save.
-Click on New Flow to begin building your workflow. Use the available sample templates as a guide.
-After creating your flows, you can create test flows in the test folder to validate that the API calls are being made correctly.
-After testing, click on Validate and Submit.
-Click on Validate flows and fix any errors.
-Click on Submit in OIN Wizard.
+Your integration details from the OIN Wizard are transferred to a corresponding Integration Builder project. The following are guidelines for working with your Integration Builder project:
+
+1. Review the [**General**](#general) tab and make any necessary edits.
+1. If you have an OpenAPI specification of the APIs that you want to integrate with, go to the **API Spec** tab and [upload the OpenAPI schemas](#upload-api-spec). This saves you time from configuring authentication and action events manually.
+1. Go to the [**Authentication**](#authentication) tab, configure your authentication and variable mappings.
+1. [Add actions](#add-actions) from the **New Component** dropdown option.
+1. Go to the **Test connection** tab to validate your flows and return to the OIN Wizard to complete your submission.
+
+### General
+
+You don't have to edit anything in the **General** tab because your Integration Builder project is linked to your integration in the OIN Wizard. All of the following details are transferred from the OIN Wizard:
+
+* **Project name**: Your project name, which corresponds to the integration display name for the OIN catalog
+* **Last Updated**: The last time that your integration was updated
+* **Status**: The status of your integration submission (typically in `DRAFT` state)
+* **Protocol**: Always set to `Build with no-code integration builder`
+
+> **Note**: If you modify the project name, your project becomes disconnected from your integration in the OIN Wizard. You have to relink your project to use the action flows in your OIN integration.
 
 ## Upload API spec
 
-If you have an OpenAPI 3.0 specification for the third-party API resource that you want to integrate with, you can upload it to your project to save configuration time. You can generate authentication configurations and action flows from your API specification instead of configuring them manually. This step is optional and not required to complete your integration project.
+If you have an OpenAPI specification for the API resource that you want to integrate with, you can upload it to your project to save configuration time. You can generate authentication configurations and action flows from your API specification instead of configuring them manually. This step is optional and isn't required to complete your integration project.
 
-> **Note**: Integration Builder only supports OpenAPI 3.0 specifications. You can upload a YAML or JSON-formatted schema file.
+> **Note**: Integration Builder only supports OAS version 3.0 or later. You can upload a YAML or JSON-formatted schema file.
 
 1. In your Integration Builder project folder, go to the **API Spec** tab.
 1. Click **Upload spec**.
 1. Add your API specification file and click **Process file**.
 
-After you upload your API specification, the **Core flows** section appears with three flow types for you to generate. In addition, if your schema file contains authentication schemas, the **Authentication configuration** section appears for you to generate authentcation configurations.
+After you upload your API specification, the **Core flows** section appears with three flow types for you to generate. In addition, if your schema file contains authentication schemas, the **Authentication configuration** section appears for you to generate authentication configurations.
 
 > **Note**: You can replace your uploaded API specification file with an updated file if there are changes to the API.
 
 ### Generate authentication configuration
 
-The **Authentication configuration** section appears if your API specification contains authentication schemes.
+The **Authentication configuration** section appears if your API specification contains authentication schemas.
 
 1. From the **API Spec** > **Authentication configuration** section, click **Generate**.
 1. Select the authentication schemes from the API specification that you want to configure.
@@ -73,25 +80,72 @@ The generated authentication configurations appear in your project **Authenticat
 
 ### Generate core flows
 
-The **Generate flow** option is enabled for the flow types based on your API specification. Typically, the **HTTP Helper** flow type is enabled for you to generate.
+The **Generate flow** option is enabled for the flow types based on your API specification. The **HTTP Helper** flow type is always enabled initially for you to generate helper flows.
 
 1. From the **API Spec** > **Core flows** section, click **Generate flow** next to the available flow type.
 1. Click **Generate flow** in the **Generate core flow** type dialog.
 1. Click **Generate**.
 
-All the endpoints in your API schema becomes available in the **Authping** and **Custom API Action** flows.
+After the HTTP Helper flows are available, you can generate the **Authping** and **Custom API Action** flows. These flow types require the HTTP Helper flows.
 
-## Authentication
+## Authentication configuration
 
-Configure the connection to your app by setting up the authentication scheme and credential mappings. The following authentication schemes are supported for API Integration Actions in Integration Builder:
+Configure the connection to your app by setting up the authentication scheme and credential mappings.
 
-* Basic authentication
-* OAuth 2.0 authentication
-* Custom authentication
+> **Note:** These instruction aren't required if you've generated authentication configuration from your API specification.
 
-### Basic authentication
+1. From the **Authentication** tab, click **+ Add authentication**.
+1. Select the authentication scheme from the **Auth Type** dropdown and configure the necessary fields.
 
-Configure Basic authentication to prompt your users to 
+   The following authentication schemes are supported in Integration Builder:
+
+   * **Basic**: Basic authentication
+
+        See [Build basic authentication](https://help.okta.com/wf/en-us/content/topics/workflows/connector-builder/authentication-basic.htm) for instructions from the Workflows product documentation.
+   * **OAuth 2.0**: OAuth 2.0 authentication (supports Authentication Code or Client Credentials grant type)
+
+        See [Build OAuth 2.0 authentication](https://help.okta.com/wf/en-us/content/topics/workflows/connector-builder/authentication-oauth2.htm) for instructions from the Workflows product documentation.
+   * **Custom**: Vendor proprietary custom authentication, such as an API key
+
+        See [Build custom authentication](https://help.okta.com/wf/en-us/content/topics/workflows/connector-builder/authentication-custom.htm) for instructions from the Workflows product documentation.
+
+    > **Note**: Ensure that your authentication configuration matches what you entered in the OIN Wizard.<br>
+    > For example, ensure that your **Authorization URL** value matches what you entered in the **Authorize endpoint** field of the OIN Wizard's [Authentication settings](/docs/guides/submit-oin-app/wfactions/main/#authentiation-settings). Similarly for all the other mandatory authenticaiton fields, such as **Client ID** and **Client Secret**.
+
+1. Click **Save**.
+
+### Authentication mapping
+
+After you've configured your authentication settings, you can map the authentication parameters to the tenant variables that you've configured in the OIN Wizard. This allows your customers to specify parameters that are specific to their tenant in the authentication settings, such as `subdomain`.
+
+1. From the **Authentication** > **Authentication mapping** section, for each **Connection parameter**, select the corresponding OIN Wizard integration variable.
+
+    * The parameters under **Connection parameter** are the ones that you defined in your [authentication configuration](#authentication-configuration).
+    * The variables under **OIN app integration variables** are the ones that you defined in the OIN Wizard's [Tenant settings](/docs/guides/submit-oin-app/wfactions/main/#tenant-settings) section.
+
+    > **Note** The OIN Wizard doesn't support uppercase or camel case variable names.
+
+1.  click **Save**.
+
+> **Note:** Even if you've generated your authentication configuration, you need to perform these steps to map the authentication parameters to your OIN tenant variables.
+
+## Add actions
+
+Click on New Component and choose Add Action.
+Select the API Integration Action component from the list, and then click Save.
+Click on New Flow to begin building your workflow. Use the available sample templates as a guide.
+After creating your flows, you can create test flows in the test folder to validate that the API calls are being made correctly.
+After testing, click on Validate and Submit.
+Click on Validate flows and fix any errors.
+Click on Submit in OIN Wizard.
+
+
+1. In your Integration Builder project, click **New Component** > **Add Action**.
+   The **Add new action** dialog appears with the available API Integration Actions supported:
+   * Provisioning action contracts
+   * Universal Logout
+
+1. Select an action from the list and click **Save**.
 
 ### Add an API integration action component
 
@@ -112,12 +166,6 @@ Save the flow and set them to **active** so that they are discoverable by OIN Wi
 
 #### Configure authentication in the flows
 
-
-For testing purposes, use the Okta domain, client ID, and client secret obtained from your test integration to make an access token request. Then, make an API request using the access token returned by the first request. See [Test your API service flow](#test-your-api-service-flow).
-
-
-
-### Validate ?
 
 ### Go back to OIN Wizard
 

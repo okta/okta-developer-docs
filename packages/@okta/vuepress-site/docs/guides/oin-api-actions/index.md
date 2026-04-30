@@ -11,6 +11,8 @@ API Integration Actions enable you to build Okta integrations with capabilities,
 
 Integration Builder is an environment for Independent Software Vendors (ISVs) to build, test, and deploy integrations privately or to the Okta Integration Network (OIN). The Integration Builder is exclusively available in [Okta Integrator Free Plan orgs](/signup) and integrates seamlessly with the OIN Wizard submission flow.
 
+> **Note**: Integration Builder is an evolution of the Workflows Connector Builder. See the [Connector Builder](https://help.okta.com/wf/en-us/content/topics/workflows/connector-builder/connector-builder.htm) product documentation.
+
 As an ISV, start building your integration in the OIN Wizard by defining your integration name and capabilities. The OIN Wizard directs you to the corresponding integration project within the Integration Builder. Build your API integration actions and validate the flows in the Integration Builder before returning to the OIN Wizard. Test your integration in the OIN Wizard and submit it for OIN distribution.
 
 > **Note**: See [OIN submission requirements](/docs/guides/submit-app-prereq/main/) before using the OIN Wizard to submit your integration.

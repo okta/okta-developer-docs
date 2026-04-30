@@ -22,6 +22,6 @@
 
 6. Click **Save and start building**.
 
-  You are redirected to the Integration Builder in your org to define API integration actions. See [Build integrations with API Integration Actions](/docs/guides/build-api-actions/main/).
+  You are redirected to the Integration Builder in your org to define API actions for your integration. See [Build integrations with API Integration Actions](/docs/guides/build-api-actions/main/).
 
-  Alternatively, click **Skip to configure your integration** to bypass building your API integration actions. Continue to [Configure your integration](#configure-your-integration) only if your integration supports all the capabilities you selected at the beginning of the OIN Wizard.
+ > **Note**: You can click **Skip to configure your integration** to bypass building your API integration actions. Continue to [Configure your integration](#configure-your-integration) if you have already defined all your API integration actions.
