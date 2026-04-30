@@ -16,7 +16,7 @@ This guide explains the authentication options when you implement an Okta event 
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup/)
-* An event or inline hook project with external service code. For example, see [Event hooks with ngrok](/docs/guides/event-hook-ngrok/) or [Token inline hook](/docs/guides/token-inline-hook/)
+* An event or inline hook project with external service code. For example, see [Event hooks with ngrok](/docs/guides/event-hook-ngrok/) or [Token inline hook](/docs/guides/token-inline-hook/).
 
 ---
 
@@ -28,14 +28,14 @@ During the setup of the Okta hooks, you configure which method to secure your ho
 
 ## HTTP header: Basic Authentication
 
-The inline hook guides use [HTTP Basic Authentication](/books/api-security/authn/api-authentication-options/#http-basic-authentication) to authenticate the Okta inline hook API calls received by your Glitch external service. In your Okta org, you must Base64-encode the Glitch project username and password credentials. Then, add the encoded credentials as the **Authentication secret** when you activate the inline hook. Ensure that you add the scheme `Basic ` (including a space) as a prefix to the **Authentication secret** value.
+The inline hook guides use [HTTP Basic Authentication](/books/api-security/authn/api-authentication-options/#http-basic-authentication) to authenticate the Okta inline hook API calls received by the sample external service. In your Okta org, you must Base64-encode the header authorization field value: `username:password`. Then, add the encoded credentials as the **Authentication secret** when you create the inline hook. Ensure that you add the scheme `Basic ` (including a space) as a prefix to the **Authentication secret** value.
 
 For example, the credential pair used in the inline hook examples is `admin:supersecret`, which when Base64-encoded is `YWRtaW46c3VwZXJzZWNyZXQ=`. Adding the scheme to this value creates the inline hook **Authentication secret** value: `Basic YWRtaW46c3VwZXJzZWNyZXQ=`.
 
 To add HTTP Basic Authentication to your external service:
 
-1. Include the `npm` package `express-basic-auth` in the `package.json` file in the left-hand project menu.
-1. Add the following two environment variables to the `.env` file in the left-hand project menu:
+1. Include the `npm` package dependency `express-basic-auth` in the `package.json` file.
+1. Add the following two environment variables to an `.env` file:
     * **Variable Name**: `USER` with **Value**: `admin`
     * **Variable Name**: `PASSWORD` with **Value**: `supersecret`
 1. Add the following code snippet in your project.
@@ -53,7 +53,7 @@ The OAuth 2.0 Client Secret method sends a signed JWT to your external service. 
 * Create an app integration.
 * Add a custom scope.
 * Add OAuth 2.0 authentication fields to your inline hook.
-* Add code to your external service to verify the JWT.
+* Verify the JWT with code in your external service.
 
 ### Create an app integration
 
