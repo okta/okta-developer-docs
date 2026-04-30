@@ -137,7 +137,7 @@ const listener = app.listen(8082, function () {
 });
 ```
 
-Add the following code to use Basic Authentication to validate the incoming call from Okta against the values in the `.env` file. See [HTTP header: Basic Authentication](/docs/guides/common-hook-set-up-steps/nodejs/main/#http-header-basic-authentication).
+Add the following code to use Basic Authentication to validate the incoming call from Okta against the values in the `.env` file. See [HTTP header: Basic Authentication](/docs/guides/secure-hooks/nodejs/main/#http-header-basic-authentication).
 
 ```javascript
 const basicAuth = require('express-basic-auth');
@@ -221,7 +221,7 @@ This extension renders the [ID token](https://developer.okta.com/docs/api/openap
 
  The external service in this scenario requires code to handle the token inline hook request from the Okta org. Use the [Okta Token Inline Hook](https://glitch.com/edit/#!/okta-inlinehook-tokenhook) Glitch example to either build or copy the code (re-mix on Glitch) that parses the token inline hook call.
 
-> **Note**: Make sure to have the required default code and packages in your project. See [Common Hook Set-up Steps](/docs/guides/common-hook-set-up-steps/).
+> **Note**: Make sure to have the required default code and packages in your project.
 
 From the token inline hook request, the following code retrieves the value of the username from the `data.identity` object.
 
@@ -385,7 +385,7 @@ The token inline hook is ready for preview and testing. You now have the followi
     * The user signs in as normal, but now has a patient ID displayed in the external service terminal console. A successful implementation record of the token inline hook is also available for review in your Okta org System Log (**Reports** > **System Log**).
     * If you extended the sample app, click `My Profile` in the left-hand navigation pane. The patient ID is added as part of the claims table.
 
-> **Note:** Review the [Token inline hooks troubleshooting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook) content or the [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) section for information on any difficulties.
+> **Note:** Review the [Token inline hooks troubleshooting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook) content or the [Troubleshooting hook implementations](/docs/guides/hooks-best-practices/#troubleshoot-your-hook-implementations) section for information on any difficulties.
 
 ## Next steps
 

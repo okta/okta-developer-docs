@@ -243,7 +243,7 @@ Configure your registration inline hook for your Okta org to use the Glitch proj
    * **Authentication Field** = `authorization`
    * **Authorization Secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
 
-   > **Note**: If you want to use OAuth 2.0 to secure your inline hooks, see the [Add Authentication method](/docs/guides/common-hook-set-up-steps/nodejs/main/#add-authentication-method).
+   > **Note**: If you want to use OAuth 2.0 to secure your inline hooks, see the [Add Authentication method](/docs/guides/secure-hooks/nodejs/main/#about-hook-authentication-methods).
 
 1. Click **Save**.
 
@@ -354,7 +354,7 @@ Configure your registration inline hook for your Okta org to use the Glitch proj
    * **Authentication Field** = `authorization`
    * **Authorization Secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
 
-   > **Note**: If you want to use OAuth 2.0 to secure your inline hooks, see the [Add Authentication method](/docs/guides/common-hook-set-up-steps/nodejs/main/#add-authentication-method).
+   > **Note**: If you want to use OAuth 2.0 to secure your inline hooks, see the [Add Authentication method](/docs/guides/secure-hooks/nodejs/main/#about-hook-authentication-methods).
 
 1. Click **Save**.
 
@@ -626,7 +626,7 @@ Sign back in as your org admin to review the profile of the user. Also, confirm 
 
 For invalid employee numbers, review the error message that displays the error summary from the external service code and is passed back to the Okta sign-in page. See [error](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook!c=200&path=Error&t=response). You can also review the console output from your Glitch app's **Logs**.
 
-> **Note:** Review [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) for help with any difficulties during setup or configuration.
+> **Note:** Review [Troubleshooting hook implementations](/docs/guides/hooks-best-practices/#troubleshoot-your-hook-implementations) for help with any difficulties during setup or configuration.
 
 ## Next steps
 

@@ -86,7 +86,7 @@ You might want to create the external service yourself. If so, use the following
 
 The external service in this scenario requires code to handle the SAML assertion inline hook request from the Okta org. Use the Glitch example to either build or copy the code (remix on Glitch) that parses the SAML assertion inline hook call.
 
-> **Note:** Make sure to have the required default code and packages in your Glitch project. See [Common Hook set-up steps](/docs/guides/common-hook-set-up-steps).
+> **Note:** Make sure to have the required default code and packages in your project.
 
 From the SAML assertion inline hook request, the code retrieves the name of the user who is authenticating from the `data.context.user` object.
 

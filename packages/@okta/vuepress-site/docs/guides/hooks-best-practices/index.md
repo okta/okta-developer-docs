@@ -46,8 +46,8 @@ To prevent a malicious actor from making requests to the endpoint where your Okt
 
 * For Okta inline hook calls, configure the hook to use OAuth 2.0 authentication using either:
 
-  * Client Secret method (`client_secret_post`): See [OAuth 2.0: Client secret](/docs/guides/common-hook-set-up-steps/nodejs/main/#oauth-2-0-client-secret).
-  * Private Key method (`private_key_jwt`): See [OAuth 2.0: Private Key](/docs/guides/common-hook-set-up-steps/nodejs/main/#oauth-2-0-private-key).
+  * Client Secret method (`client_secret_post`): See [OAuth 2.0: Client secret](/docs/guides/secure-hooks/nodejs/main/#oauth-2-0-client-secret).
+  * Private Key method (`private_key_jwt`): See [OAuth 2.0: Private Key](/docs/guides/secure-hooks/nodejs/main/#oauth-2-0-private-key).
 
 * Create an allowlist of IP addresses to check incoming Okta calls. For a listing of Okta IP addresses, see [What IP Addresses/Ranges Should Be Allowlisted for Inbound Traffic?](https://support.okta.com/help/s/article/What-IP-addresses-ranges-should-we-whitelist-for-inbound-traffic-i-e-REST-API-calls-from-Okta-to-on-prem-JIRA-server?language=en_US).
 
