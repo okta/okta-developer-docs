@@ -4,7 +4,7 @@ excerpt: Learn how to build an integration with API Integration Actions in the W
 layout: Guides
 ---
 
-Build, test, and submit an an integration with API Integration Actions to the Okta Integration Network (OIN) for review and publication.
+Build and validate API integration actions in the Integration Builder after you've defined your integration in the OIN Wizard.
 
 ---
 
@@ -12,16 +12,24 @@ Build, test, and submit an an integration with API Integration Actions to the Ok
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 
-* A service app that needs to access Okta APIs for your customer
+* An API resource server that serves request for provisioning, entitlement management, or Universal Logout for your app
+* (optional) OpenAPI 3.0 specification of your APIs
 
 ---
 
 ## Overview
 
-xxx
+You can build integrations with API Integration Actions through the low-code Workflows Integration Builder. Okta calls these integrations to perform API actions against your app, such as fetching or updating user profiles, or initiating a risk-based logout.
 
+The Integration Builder integrates with the OIN Wizard for a seamless build-and-submit experience. The following integration capabilities are supported for API integration actions:
 
-### New IB project
+* Provisioning
+* Provisioning and entitlement management
+* Universal Logout (your integration must also support SSO)
+
+This guide assumes that you've already initiated your integration submission in the OIN Wizard and have been directed to the Integration Builder to build API integration actions. The next step is to configure your authentication and action flows. For a complete outline of the build and submission steps, refer to the [API Integration Actions process overview](/docs/guides/oin-api-actions/#process-overview).
+
+## Integration Builder project
 
 Building and Submitting the Workflow
 The following steps occur within the Integration Builder section of Okta Workflows:
