@@ -31,9 +31,9 @@
 
 SCIM integrations that are submitted through the OIN Wizard have a default set of user attribute mappings. Because your SCIM app may not support all default attributes, you must ensure that your submission reflects only the attributes supported by your app.
 
-There are now two ways to define your user schema in OIN Wizard:
+There are now two ways to define your user schema in the OIN Wizard:
 
-* **Automated (Recommended)**: If you selected **Import User Schema** checkbox in the **SCIM provisioning properties** section, Okta dynamically pulls the supported attributes directly from your SCIM server (core and extension schemas).
+* **Automated (Recommended)**: If you selected the **Import User Schema** checkbox in the **SCIM provisioning properties** section, Okta dynamically pulls the supported attributes directly from your SCIM server (core and extension schemas).
 
 * **Manual**: If you didn’t enable schema import, you must manually delete unsupported attributes and add new ones through the **Profile Editor**.
 
@@ -45,11 +45,11 @@ If the **Import User Schema** checkbox within the **SCIM provisioning properties
 
 * **Adding attributes**: To add an attribute, click **Add Attribute** in the **Profile Editor** and choose from a picklist of discovered fields. Consider the following details when managing your attributes:
 
-   * **Schema discovery details**: Okta identifies these fields by retrieving core user attributes from the schema with the URN `urn:ietf:params:scim:schemas:core:2.0:User` in `/Schemas` endpoint within the SCIM server. Extension attributes are pulled from schemas matching the URNs specified under the `User Resource Type` in `/ResourceTypes` endpoint within the SCIM server.
+   * **Schema discovery details**: Okta identifies these fields by retrieving core user attributes from the schema with the URN `urn:ietf:params:scim:schemas:core:2.0:User` in `/Schemas` endpoint within the SCIM server. Extension attributes are pulled from schemas matching the URNs specified under the `User Resource Type` of the `/ResourceTypes` endpoint within the SCIM server.
 
-   * **ISV requirement**: If your schema varies across different customers, only add attributes that are common to all environments to ensure the integration works for everyone.
+   * **ISV requirement**: If your schema varies across different customers, only add attributes that are common to all environments to ensure that the integration works for everyone.
 
-* **Manual mapping required**: Although attributes are imported automatically, you must still define their relationship to Okta fields. Follow the instructions starting from Step 3 of the [Add attributes and mapping](/docs/guides/submit-oin-app/scim/main/#add-attributes-and-mappings) section under [Manual configuration](/docs/guides/submit-oin-app/scim/main/#manual-configuration).
+* **Manual mapping required**: Although attributes are imported automatically, you must still define their relationship to Okta fields. Follow the instructions starting from step 3 of [Add attributes and mapping](/docs/guides/submit-oin-app/scim/main/#add-attributes-and-mappings) in the [Manual configuration](/docs/guides/submit-oin-app/scim/main/#manual-configuration) section.
 
 ##### Manual configuration
 
