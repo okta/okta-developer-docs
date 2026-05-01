@@ -29,7 +29,7 @@ The Integration Builder integrates with the OIN Wizard for a seamless build-and-
 
 This guide assumes that you've already initiated your integration submission in the OIN Wizard and have been directed to the Integration Builder to build API actions. The next step is to configure your authentication and action flows in your [Integration Builder project](#integration-builder-project).
 
-> **Note**: For the end-to-end API Integration Actions build and submit process, see the [API Integration Actions process overview](/docs/guides/oin-api-actions/#process-overview).
+> **Note**: For the end-to-end API Integration Actions build and submit process, see [API Integration Actions process overview](/docs/guides/oin-api-actions/#process-overview).
 
 ## Integration Builder project
 
@@ -40,7 +40,7 @@ Your integration details from the OIN Wizard are transferred to a corresponding 
 1. Review the [**General**](#general) tab and make any necessary edits.
 1. If you have an OpenAPI specification of the APIs that you want to integrate with, go to the **API Spec** tab and [upload the OpenAPI schemas](#upload-api-spec). This saves you time from configuring authentication and action events manually.
 1. Go to the [**Authentication**](#authentication) tab, configure your authentication and variable mappings.
-1. [Add actions](#add-actions) from the **New Component** dropdown option.
+1. [Add actions](#add-actions) from the **New Component** dropdown list.
 1. Go to the **Test connection** tab to validate your flows and return to the OIN Wizard to complete your submission.
 
 ### General
@@ -116,7 +116,7 @@ Configure the connection to your app by setting up the authentication scheme and
 
 ### Authentication mapping
 
-After you've configured your authentication settings, you can map the authentication parameters to the tenant variables that you've configured in the OIN Wizard. This allows your customers to specify parameters that are specific to their tenant in the authentication settings, such as `subdomain`.
+After you've configured your authentication settings, you can map the authentication parameters to the tenant variables that you've configured in the OIN Wizard. This allows your customers to specify values that are specific to their tenant when they install your integration, such as `subdomain`.
 
 1. From the **Authentication** > **Authentication mapping** section, for each **Connection parameter**, select the corresponding OIN Wizard integration variable.
 
@@ -131,33 +131,62 @@ After you've configured your authentication settings, you can map the authentica
 
 ## Add actions
 
+1. In your Integration Builder project, select **New Component** > **Add Action**.
+
+    The **Add new action** dialog appears with the available API Integration Actions supported:
+
+       * Provisioning action contracts
+       * Universal Logout
+
+1. Select an action from the list and click **Save**.
+
+   The action contracts appear in your project > **Shared Folder** > **Actions** folder.
+
+The actions that you selected have a preset API contract. You need to create a flow for each contract.
+See [Add Universal Logout action flows](#add-universal-logout-action-flows) and [Add Provisioning action flows](#add-provisioning-action-flows).
+
+### Add Universal Logout action flows
+
+1. From the **Actions** > **Universal Logout** > **Flows** tab, click **+ New Flow**. 
+    The flow configuration page appears.
+
+1. Click **Add event**.
+1. Select **Proprietary Universal Logout**.
+
+    The proprietary Universal Logout contract loads.
+    The **body** section contains the action contract request schema.
+    The **auth** section contains the authentication parameters for the **Connection** to your API. Also included in the **Connection** section are the optional additional parameters you configured and mapped to OIN tenant variables.
+
+1. Click **Save** to save your flow.
+1. Click **Flow is OFF** button and turn the flow on.
+1. 
+
+
+
 Click on New Component and choose Add Action.
 Select the API Integration Action component from the list, and then click Save.
+
 Click on New Flow to begin building your workflow. Use the available sample templates as a guide.
 After creating your flows, you can create test flows in the test folder to validate that the API calls are being made correctly.
 After testing, click on Validate and Submit.
 Click on Validate flows and fix any errors.
 Click on Submit in OIN Wizard.
 
+### Add Provisioning action flows
 
-1. In your Integration Builder project, click **New Component** > **Add Action**.
-   The **Add new action** dialog appears with the available API Integration Actions supported:
-   * Provisioning action contracts
-   * Universal Logout
+1. From the **Actions** > **Provisioning action contracts** > **Flows** tab, click **+ New Flow**. 
+    The flow configuration page appears.
 
-1. Select an action from the list and click **Save**.
+1. Click **Add event**.
+1. Select **Provisioning Create User**.
 
-### Add an API integration action component
+    The proprietary Universal Logout contract loads.
+    The **body** section contains the action contract request schema.
+    The **auth** section contains the authentication parameters for the **Connection** to your API. Also included in the **Connection** section are the optional additional parameters you configured and mapped to OIN tenant variables.
 
-
-### Select action contracts
-
-pre-built contracts
-
-### Add flows
-
-Add the required flow for the action contracts that you selected.
-
+1. Click **Save** to save your flow.
+1. Click **Flow is OFF** button and turn the flow on.
+1. 
 #### Add events for a flow
 
 #### Add functions for a flow
