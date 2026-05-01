@@ -110,7 +110,7 @@ These settings trigger the identity claims sourcing policy when a federated user
     'https://{yourOktaDomain}/api/v1/policies?type=IDENTITY_CLAIM_SOURCING'
     ```
 
-1. Copy the policy `id` from the response into a text editor. A successful response returns the default claims sourcing policy and is structured like the following example.
+1. Copy the policy `id` from the response into a text editor. A successful response returns the default claims sourcing policy and is structured like the following example:
 
     ```json
     [
@@ -149,14 +149,14 @@ These settings trigger the identity claims sourcing policy when a federated user
     ```
 
 1. Retrieve the rule ID of the claims sourcing policy by using the List all policy rules [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/listpolicyrules).
-1. In the GET request, use the policy ID from the [previous step](#get-the-policy-and-rule-ids) as the `policyId` path parameter. Ensure that your GET request is structured like the following example.
+1. In the GET request, use the policy ID from the [previous step](#get-the-policy-and-rule-ids) as the `policyId` path parameter. Ensure that your GET request is structured like the following example:
 
     ```bash
     curl -i -X GET \
     'https://{yourOktaDomain}/api/v1/policies/{policyId}/rules'
     ```
 
-1. Copy the rule `id` from the response into a text editor. A successful response returns an array of policy rules for the identity claims sourcing policy and is structured like the following example.
+1. Copy the rule `id` from the response into a text editor. A successful response returns an array of policy rules for the identity claims sourcing policy and is structured like the following example:
 
     ```json
     [
@@ -205,7 +205,7 @@ Okta tracks which IdP most recently established the user's session. If you confi
 
 1. Update the default rule using the Replace a policy rule [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/replacepolicyrule).
 1. In the path parameters of the PUT request, use the policy ID and rule ID from the previous steps.
-1. In the request body, set `refresh.redirectType` to `FIXED`. The `FIXED` value means that Okta redirects users to the IdP that last established their session when re-authentication is required. Ensure that your PUT request is structured like the following example.
+1. In the request body, set `refresh.redirectType` to `FIXED`. The `FIXED` value means that Okta redirects users to the IdP that last established their session when re-authentication is required. Ensure that your PUT request is structured like the following example:
 
     ```bash
     curl -i -X PUT \
@@ -240,7 +240,7 @@ Okta tracks which IdP most recently established the user's session. If you confi
     }'
     ```
 
-A successful response returns the updated policy rule and is structured like the following example.
+A successful response returns the updated policy rule and is structured like the following example:
 
 ```json
     {
