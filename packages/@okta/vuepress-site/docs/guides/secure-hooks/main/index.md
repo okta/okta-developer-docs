@@ -10,8 +10,8 @@ This guide explains the authentication options when you implement an Okta event 
 
 #### Learning outcomes
 
-* Understand how to implement a secure Okta event hook with Basic Authentication
-* Understand how to implement a secure Okta inline hook with Basic Authentication or OAuth 2.0 authentication
+* Understand how to implement a secure Okta event hook with Basic Authentication.
+* Understand how to implement a secure Okta inline hook with Basic Authentication or OAuth 2.0 authentication.
 
 #### What you need
 
@@ -22,13 +22,13 @@ This guide explains the authentication options when you implement an Okta event 
 
 ## About hook authentication methods
 
-Okta event and inline hooks are outbound calls from Okta to an external service. To secure the outbound calls, Okta supports Basic Authentication for event hooks and both Basic Authentication and OAuth 2.0 authentication for inline hooks. OAuth 2.0 authentication can use either the client secret or private key method.
+Okta event and inline hooks are calls that Okta makes to an external service. To keep those calls secure, Okta supports Basic Authentication for event hooks, and both Basic Authentication and OAuth 2.0 for inline hooks. OAuth 2.0 can use either the client secret or private key method.
 
-During the setup of the Okta hooks, you configure which method to secure your hooks and then implement code to authenticate the incoming requests with your external service. See the following sections on how to implement each option.
+When setting up Okta hooks, choose an authentication method and add code to verify incoming requests from your external service. See the following sections on how to implement each option.
 
 ## HTTP header: Basic Authentication
 
-The inline hook guides use [HTTP Basic Authentication](/books/api-security/authn/api-authentication-options/#http-basic-authentication) to authenticate the Okta inline hook API calls received by the sample external service. In your Okta org, you must Base64-encode the header authorization field value: `username:password`. Then, add the encoded credentials as the **Authentication secret** when you create the inline hook. Ensure that you add the scheme `Basic ` (including a space) as a prefix to the **Authentication secret** value.
+The inline hook guides use [HTTP Basic Authentication](/books/api-security/authn/api-authentication-options/#http-basic-authentication) to authenticate the Okta inline hook API calls received by the sample external service. In your Okta org, you must use Base64-encoding on the header authorization value: `username:password`. Then, add the encoded credentials as the **Authentication secret** when you create the inline hook. Ensure that you add the scheme `Basic ` (including a space) as a prefix to the **Authentication secret** value.
 
 For example, the credential pair used in the inline hook examples is `admin:supersecret`, which when Base64-encoded is `YWRtaW46c3VwZXJzZWNyZXQ=`. Adding the scheme to this value creates the inline hook **Authentication secret** value: `Basic YWRtaW46c3VwZXJzZWNyZXQ=`.
 
@@ -36,19 +36,17 @@ To add HTTP Basic Authentication to your external service:
 
 1. Include the `npm` package dependency `express-basic-auth` in the `package.json` file.
 1. Add the following two environment variables to an `.env` file:
-    * **Variable Name**: `USER` with **Value**: `admin`
-    * **Variable Name**: `PASSWORD` with **Value**: `supersecret`
+    * **Variable Name**: `USER` and **Value**: `admin`
+    * **Variable Name**: `PASSWORD` and **Value**: `supersecret`
 1. Add the following code snippet in your project.
 
 <StackSelector snippet="auth" noSelector/>
 
 >**Note:** Ensure that you securely store your credentials for your external service.
 
-<!-- Update current Event hook guide with ngrok to save environment variables to an .env file or something else more secure -->
-
 ## OAuth 2.0: Client Secret
 
-The OAuth 2.0 Client Secret method sends a signed JWT to your external service. To use this method, you must make the following configurations to your org and add code to decode the JWT from the Okta inline hook call:
+The OAuth 2.0 Client Secret method sends a signed JWT to your external service. To use this method, you make the following configurations to your org and add code to decode the JWT from the inline hook call:
 
 * Create an app integration.
 * Add a custom scope.
@@ -125,7 +123,7 @@ app.all('*', authenticationRequired); // Require authentication for all routes
 
 ## OAuth 2.0: Private Key
 
-The OAuth 2.0 private key method sends a signed JWT to your external service. To use this method, you must make the following configurations to your org and add code to decode the JWT from the Okta inline hook call:
+The OAuth 2.0 private key method sends a signed JWT to your external service. To use this method, you make the following configurations to your org and add code to decode the JWT from the inline hook call:
 
 * Create a key
 * Create an app integration
