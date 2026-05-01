@@ -70,7 +70,7 @@ If the policy is kept at the default `NONE` setting instead, Okta prompts clinic
 
 ## Configure the identity claims sourcing policy
 
-1. [Ensure that a re-authentication requirement is configured in an app sign-in policy or Okta account management policy.](#configure-a-re-authentication-requirement)
+1. [Configure a re-authentication requirement in an app sign-in policy or Okta account management policy.](#configure-a-re-authentication-requirement)
 1. [Retrieve the default identity claims sourcing policy and rule IDs.](#get-the-policy-and-rule-ids)
 1. [Update the rule to enable re-authentication.](#enable-idp-redirection-for-re-authentication)
 1. [Test the configuration.](#test-the-configuration)
@@ -83,15 +83,21 @@ Update an existing app sign-in policy or create one with a re-authentication req
 
 Configure the re-authentication requirement with the Policies API by setting a value for the [`reauthenticateIn`](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/createpolicyrule#other/createpolicyrule/t=request&path=&d=0/actions/appsignon/verificationmethod&d=0/reauthenticatein) parameter.
 
-Alternatively, configure the re-authentication requirement in the Admin Console. Ensure that the **Prompt for authentication** setting is set to either of the following options:
+Alternatively, configure the re-authentication requirement in the Admin Console.
 
-* **Every time user signs in to resource:** Users must authenticate every time they try to access the app.
-* **When it's been over a specified length of time since the user signed in to any resource protected by the active Okta global session:** Users are prompted to authenticate when they exceed the time interval that you specify.
+1. In the Admin Console, go to **Security** > **Authentication Policies**.
+1. In this example, click **App sign-in** to update one of your app sign-in policies. You can also click **Okta account management** to update that policy instead.
+1. Select a policy to update.
+1. Click **Add Rule** to create a new rule with a re-authentication requirement, or select an existing rule to edit.
+1. Ensure that the **Prompt for authentication** setting is set to either of the following options:
 
-> **Note:** When you select **Password + Another Factor** or **Password / IdP + Another factor** for authentication, **Prompt for password authentication**
-and **Prompt for all other factors of authentication** appear as the re-authentication options. You can then set the re-authentication time intervals separately for password and non-password authenticators.
+    * **Every time user signs in to resource:** Users must authenticate every time they try to access the app.
+    * **When it's been over a specified length of time since the user signed in to any resource protected by the active Okta global session:** Users are prompted to authenticate when they exceed the time interval that you specify.
 
-For this guide, set the re-authentication requirement to the second option and specify a one minute time interval to test the policy quickly.
+    > **Note:** When you select **Password + Another Factor** or **Password / IdP + Another factor** for authentication, **Prompt for password authentication**
+    and **Prompt for all other factors of authentication** appear as the re-authentication options. You can then set the re-authentication time intervals separately for password and non-password authenticators.
+
+1. In this example, set the re-authentication requirement to the second option and specify a one minute time interval to test the policy quickly.
 
 These settings trigger the identity claims sourcing policy when a federated user tries to access the app after their session exceeds the specified time interval. See [Add an app sign-in policy rule](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy).
 
