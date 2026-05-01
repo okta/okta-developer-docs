@@ -6,7 +6,7 @@ layout: Guides
 
 <ApiLifecycle access="ie" />
 
-This guide provides examples of an Okta registration inline hook for profile enrollment (self-service registration) and progressive profile enrollments. It uses the web site [Glitch.com](https://glitch.com). Glitch acts as an external service to receive and respond to registration inline hook calls.
+This guide provides examples of an Okta registration inline hook for profile enrollment (self-service registration) and progressive profile enrollments.
 
 The sample project provides external code for three registration inline hook use cases:
 
@@ -262,7 +262,7 @@ To associate the registration inline hook with a user profile policy:
 1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
 1. Click **Back to User Profile Policy**, and then click **Edit** in **Profile Enrollment**.
 1. Select **Allowed** for **self-service registration**.
-1. Select the hook that you set up and activated earlier from the **inline hook** dropdown menu. See [Add your registration hook for profile enrollment](#add-your-registration-hook-for-profile-enrollment).
+1. Select the hook that you set up and activated earlier from the **inline hook** menu. See [Add your registration hook for profile enrollment](#add-your-registration-hook-for-profile-enrollment).
 
    > **Note:** You can associate only one inline hook at a time with your user profile policy.
 
@@ -384,7 +384,7 @@ To associate the registration inline hook with a user profile policy and add the
 1. In **Profile enrollment**, click **Edit**.
 1. For **self-service registration**, select **Denied**.
 1. For **Progressive Profiling**, select **Enabled**.
-1. From the **inline hook** dropdown menu, select the hook that you set up and activated earlier. See [Add your registration hook for progressive profile enrollment](#add-your-registration-hook-for-progressive-profile).
+1. From the **inline hook** menu, select the hook that you set up and activated earlier. See [Add your registration hook for progressive profile enrollment](#add-your-registration-hook-for-progressive-profile).
 
    > **Note:** You can associate only one inline hook at a time with your user profile policy.
 
@@ -399,7 +399,7 @@ Your registration inline hook is configured for progressive profile enrollment. 
 
 This scenario involves both profile enrollment (self-service registration) and progressive profile enrollment use cases. Existing users are prompted for new information (a four-digit employee number) to add to their profile when they sign in.
 
-New users, self-registering from the sign-up link, are required to include the default three fields and the employee number. With this use case, the external code updates the profiles of existing users if the employee number is four digits.
+New users signing up through the sign-up link need to fill out the default three fields plus the employee number. The external code updates existing users' profiles when it sees a valid four-digit employee number.
 
 The external code adds new users if their email domain contains `okta.com` and their employee number is four digits, otherwise their registration is denied. Follow these steps to implement this scenario:
 
@@ -607,7 +607,7 @@ You can also test the code directly with self-registering or profile-updating en
 
 ### Test the profile enrollment (self-service registration) inline hook
 
-To test your profile enrollment registration inline hook, go to the Okta sign-in page for your org, click the sign-up link, and attempt to self-register.
+To test your profile enrollment registration, go to the Okta sign-in page for your org, click the sign-up link, and attempt to self-register.
 
 Possible registration scenarios:
 
@@ -619,7 +619,7 @@ Review the error message that displays the error summary from the external servi
 
 ### Test the progressive enrollment hook
 
-To run a test of your progressive profile enrollment registration inline hook, [create](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) or use an existing user in your org.
+To run a test of your progressive profile enrollment registration, [create](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) or use an existing user in your org.
 
 Possible outcomes:
 
