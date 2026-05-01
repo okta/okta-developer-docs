@@ -13,7 +13,7 @@ Build and validate integrations with API Integration Actions in the Integration 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * An API resource server that serves requests for provisioning, entitlement management, or Universal Logout for your app
 * (Optional) OpenAPI Specification (OAS) version 3.0 or later of your APIs, in either JSON or YAML format
-* An integration submission that's initiated through the Okta Integration Network (OIN) Wizard
+* An integration submission that's initiated through the OIN Wizard
 
 ---
 
@@ -35,10 +35,10 @@ This guide assumes that you've already initiated your integration submission in 
 
 After specifying your integration capabilities and details in the OIN Wizard, you're directed to the Integration Builder to build your API actions integration.
 
-Your integration details from the OIN Wizard are transferred to a corresponding Integration Builder project. The following are steps to build your integration in the Integration Builder project:
+Your integration details from the OIN Wizard are transferred to a corresponding Integration Builder project. Following these steps to build in your Integration Builder project:
 
 1. Review the [**General**](#general) tab and make any necessary edits.
-1. If you have an OpenAPI specification of the APIs that you want to integrate with, go to the **API Spec** tab and [upload the OpenAPI schemas](#upload-api-spec). This saves you time from configuring authentication and action events manually.
+1. If you have an OpenAPI specification of the APIs that you want to integrate with, go to the **API Spec** tab and [upload the OpenAPI schema](#upload-api-spec). This saves you time from configuring authentication and action events manually.
 1. Go to the [**Authentication**](#authentication) tab, configure your authentication and variable mappings.
 1. [Add actions](#add-actions) from the **New Component** dropdown list.
 1. Validate all your action flows before you return to the OIN Wizard to complete your submission.
