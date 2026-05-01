@@ -157,7 +157,7 @@ See the [request properties](https://developer.okta.com/docs/api/openapi/okta-ma
 
 ## Set up for profile enrollment (SSR) scenario
 
-This profile enrollment scenario (self-service registration) involves new users self-registering from the **Sign up** link. The users sign up with the default three sign-up fields (**Email**, **First name**, and **Last name**). With this use case, the registration inline hook triggers and evaluates the domain in the Email field. If the domain is from `okta.com`, the user can register. If not, the user is denied registration. Follow these steps to implement this scenario:
+This profile enrollment scenario (self-service registration) involves new users self-registering from the sign-up link. The users sign up with the default three sign-up fields (**Email**, **First name**, and **Last name**). With this use case, the registration inline hook triggers and evaluates the domain in the Email field. If the domain is from `okta.com`, the user can register. If not, the user is denied registration. Follow these steps to implement this scenario:
 
 <StackSnippet snippet="introbullets"/><br>
 
@@ -368,8 +368,8 @@ Before creating the enrollment policy, ensure the user profile attribute `employ
 
 1. Go to the Admin Console, and select **Directory** > **Profile Editor**.
 1. Select **User (default)**.
-1. Under **Attributes**, find **Employee Number** and click the information icon.
-1. In the **Employee Number** dialog, under **User permission**, select **Read-Write**.
+1. Go to the **Attributes** section, and find **Employee Number**. Click the information icon.
+1. Select **Read-Write** under **User permission** in the **Employee Number** dialog.
 1. Click **Save Attribute**.
 
 To associate the registration inline hook with a user profile policy and add the employee number field:
@@ -391,7 +391,7 @@ To associate the registration inline hook with a user profile policy and add the
 1. Under **Profile Enrollment Form**, click **Add form input**.
 1. From the dropdown menu, select the **Employee number**.
 1. In the **Add form input** dialog, under **Customize form input**, set the **Input requirement** as **Required**.
-1. Click **Save**
+1. Click **Save**.
 
 Your registration inline hook is configured for progressive profile enrollment. Go to [Preview the registration inline hook](#preview-the-registration-inline-hook) or [Test your registration inline hook](#test-your-registration-inline-hook) to preview and run the sample.
 
@@ -399,7 +399,7 @@ Your registration inline hook is configured for progressive profile enrollment. 
 
 This scenario involves both profile enrollment (self-service registration) and progressive profile enrollment use cases. Existing users are prompted for new information (a four-digit employee number) to add to their profile when they sign in.
 
-New users self-registering from the **Sign up** link are required to include the default three sign-up fields and the employee number field. With this use case, the external code updates the profiles of existing users if the employee number is four digits.
+New users, self-registering from the sign-up link, are required to include the default three fields and the employee number. With this use case, the external code updates the profiles of existing users if the employee number is four digits.
 
 The external code adds new users if their email domain contains `okta.com` and their employee number is four digits, otherwise their registration is denied. Follow these steps to implement this scenario:
 
@@ -549,7 +549,7 @@ To associate the registration inline hook with a user profile policy and add the
 1. In **Profile enrollment**, click **Edit**.
 1. For **Self-service registration**, select **Allowed**.
 1. For **Progressive Profiling**, select **Enabled**.
-1. From the **inline hook** dropdown menu, select the hook that you set up and activated earlier. See [Add your registration hook for progressive profile enrollment](#add-your-registration-hook-for-progressive-profile).
+1. From the **inline hook** menu, select the hook that you set up and activated earlier. See [Add your registration hook for progressive profile enrollment](#add-your-registration-hook-for-progressive-profile).
 
    > **Note:** You can associate only one inline hook at a time with your user profile policy.
 
@@ -607,7 +607,7 @@ You can also test the code directly with self-registering or profile-updating en
 
 ### Test the profile enrollment (self-service registration) inline hook
 
-To run a test of your profile enrollment registration inline hook, go to the Okta sign-in page for your org, click the **Sign Up** link, and attempt to self-register.
+To test your profile enrollment registration inline hook, go to the Okta sign-in page for your org, click the sign-up link, and attempt to self-register.
 
 Possible registration scenarios:
 
