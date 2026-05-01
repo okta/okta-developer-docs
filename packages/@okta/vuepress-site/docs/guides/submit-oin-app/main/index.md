@@ -55,7 +55,6 @@ Start your integration submission for OIN publication:
 
 <StackSnippet snippet="entry-path"/>
 
-
 ### Integration details
 
 Configure your OIN catalog properties:
@@ -139,7 +138,7 @@ A dedicated test admin account in your app is required for Okta integration test
 
 * Privileges to configure admin settings in your test app
 * Privileges to administer test users in your test app
-<StackSnippet snippet="test-info-review" inline/>
+<StackSnippet snippet="test-info-review"/>
 
 After your integration is verified, Okta automatically deletes test account credentials 30 days after your app is published in the OIN Wizard. To resubmit your app after this period, create a new test account and provide the required information.
 

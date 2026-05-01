@@ -39,7 +39,7 @@ Submit your integration to Okta and work with the OIN team as they test and revi
 
 The Okta OIN team reviews and prioritizes all submissions.
 
-### Submission process for SSO, provisioning, and API service integrations
+### Submission process for SSO, SCIM provisioning, and API service integrations
 
 The following steps outline the process for submitting SSO, SCIM provisioning, entitlement management, UL, and API service integrations.
 
@@ -72,12 +72,12 @@ The following steps explain how to submit provisioning, entitlement management, 
    - Add integration details in the OIN Wizard.
 1. Use the Integration Builder to create your API integration actions.
    - Build your API integration actions.
-1. Return to the OIN Wizard to review and test your integration
+1. Return to the OIN Wizard to review and test your integration.
    - Define your integration capabilities with the API integration actions that you've built.
    - Generate the app integration instances required.
    - Test your integration.
 1. Submit and review feedback.
-   - Submit your integration
+   - Submit your integration.
    - After submission, the OIN team reviews your integration. See [Understand the submission review process](#understand-the-submission-review-process).
 1. Publish to OIN catalog.
    - The OIN team publishes your integration after they verify that your integration works as intended for your Okta customers.
