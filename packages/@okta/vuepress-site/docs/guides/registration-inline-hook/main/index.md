@@ -14,7 +14,7 @@ The sample project provides external code for three registration inline hook use
 * Progressive profile enrollment (updates to an existing profile).
 * Profile enrollment and progressive profile enrollments together.
 
-> **Note:** This document is only for Identity Engine. If you're using Classic Engine, see [Registration inline hook for Classic Engine](/docs/guides/archive-registration-inline-hook/nodejs/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+> **Note:** This document is only for Identity Engine. If you're using Classic Engine, see [registration inline hook for Classic Engine](/docs/guides/archive-registration-inline-hook/nodejs/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 <GlitchDeprecationNote />
 
@@ -157,7 +157,7 @@ See the [request properties](https://developer.okta.com/docs/api/openapi/okta-ma
 
 ## Set up for profile enrollment (SSR) scenario
 
-This profile enrollment scenario (self-service registration) involves new users self-registering from the sign-up link. The users sign up with the default three sign-up fields (**Email**, **First name**, and **Last name**). With this use case, the registration inline hook triggers and evaluates the domain in the Email field. If the domain is from `okta.com`, the user can register. If not, the user is denied registration. Follow these steps to implement this scenario:
+This profile enrollment scenario (self-service registration) involves new users self-registering from the sign-up link. The users sign up with the default three sign-up fields (**Email**, **First name**, and **Family name**). With this use case, the registration inline hook triggers and evaluates the domain in the Email field. If the domain is from `okta.com`, the user can register. If not, the user is denied registration. Follow these steps to implement this scenario:
 
 <StackSnippet snippet="introbullets"/><br>
 
@@ -256,13 +256,13 @@ Configure your registration inline hook for your Okta org to use the Glitch proj
 To associate the registration inline hook with a user profile policy:
 
 1. Go to the Admin Console, and select **Security** > **User Profile Policies**.
-1. Click **Add user profile policy**, give your policy a name (in this example, use "SSR Inline Hook"), and then click **Save**.
+1. Click **Add a user profile policy**, give your policy a name (in this example, use "SSR Inline Hook"), and then click **Save**.
 1. Find your inline hook, "SSR Inline Hook", from the list of enrollment policies, and then click the pencil icon.
 1. Click **Manage Apps**, and then click **Add Apps to this Policy**.
 1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
 1. Click **Back to User Profile Policy**, and then click **Edit** in **Profile Enrollment**.
-1. Select **Allowed** for **Self-service registration**.
-1. Select the hook that you set up and activated earlier from the **Inline hook** dropdown menu. See [Add your registration hook for profile enrollment](#add-your-registration-hook-for-profile-enrollment).
+1. Select **Allowed** for **self-service registration**.
+1. Select the hook that you set up and activated earlier from the **inline hook** dropdown menu. See [Add your registration hook for profile enrollment](#add-your-registration-hook-for-profile-enrollment).
 
    > **Note:** You can associate only one inline hook at a time with your user profile policy.
 
@@ -382,9 +382,9 @@ To associate the registration inline hook with a user profile policy and add the
 1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
 1. Click **Back to user profile policy**.
 1. In **Profile enrollment**, click **Edit**.
-1. For **Self-service registration**, select **Denied**.
+1. For **self-service registration**, select **Denied**.
 1. For **Progressive Profiling**, select **Enabled**.
-1. From the **Inline hook** dropdown menu, select the hook that you set up and activated earlier. See [Add your registration hook for progressive profile enrollment](#add-your-registration-hook-for-progressive-profile).
+1. From the **inline hook** dropdown menu, select the hook that you set up and activated earlier. See [Add your registration hook for progressive profile enrollment](#add-your-registration-hook-for-progressive-profile).
 
    > **Note:** You can associate only one inline hook at a time with your user profile policy.
 
@@ -547,7 +547,7 @@ To associate the registration inline hook with a user profile policy and add the
 1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
 1. Click **Back to user profile policy**.
 1. In **Profile enrollment**, click **Edit**.
-1. For **Self-service registration**, select **Allowed**.
+1. For **self-service registration**, select **Allowed**.
 1. For **Progressive Profiling**, select **Enabled**.
 1. From the **inline hook** menu, select the hook that you set up and activated earlier. See [Add your registration hook for progressive profile enrollment](#add-your-registration-hook-for-progressive-profile).
 
@@ -644,4 +644,4 @@ Review the following guides to implement other inline or event hook examples:
 
 ## See also
 
-For a complete description of this inline hook type, see [Registration inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook).
+For a complete description of this inline hook type, see [registration inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook).
