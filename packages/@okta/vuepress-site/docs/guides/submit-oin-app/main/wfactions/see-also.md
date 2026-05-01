@@ -1,2 +1,3 @@
-* [SAML - Frequently Asked Questions](/docs/concepts/saml/faqs/)
-* [Okta Developer Forum: SAML](https://devforum.okta.com/search?q=saml)
+* [API Integration Actions](/docs/guides/oin-api-actions/) overview
+* [Integration Builder] - link to new IB doc from Chris
+* [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder)
