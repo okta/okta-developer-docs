@@ -10,8 +10,8 @@ This guide provides examples of an Okta registration inline hook for profile enr
 
 The sample project provides external code for three registration inline hook use cases:
 
-* A simple profile enrollment (self-service registration)
-* Progressive profile enrollment updates
+* Profile enrollment (self-service registration)
+* Progressive profile enrollment (updates to an existing profile)
 * Profile enrollment and progressive profile enrollments together
 
 > **Note:** This document is only for Identity Engine. If you're using Classic Engine, see [Registration inline hook for Classic Engine](/docs/guides/archive-registration-inline-hook/nodejs/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
@@ -45,14 +45,14 @@ In these examples, you set up your registration inline hook to handle either the
 
 You configure a user profile policy to define these scenarios and implement the registration hook. The registration hook customizes how to add users to your Okta org. The hook also customizes how to update the profiles of existing users.
 
-The following is a high-level workflow for the profile enrollment (self-service registration) scenario:
+The following is a high-level walk through for the profile enrollment (self-service registration) scenario:
 
 1. An end user attempts to self-register with your Okta org.
 1. A registration inline hook triggers during this process and sends a call to the external service with the end user's data.
 1. The external service evaluates the Okta call to ensure that the end user is from the domain `okta.com`.
 1. The external service responds to Okta with a command to allow or deny the registration based on the email domain.
 
-The following is a high-level workflow for a progressive profile enrollment scenario:
+The following is a high-level walk through for a progressive profile enrollment scenario:
 
 1. An existing registered end user attempts to sign in to their profile.
 1. A user profile policy presents a custom sign-in form that asks for extra data from the end user.
@@ -169,7 +169,7 @@ This profile enrollment scenario (self-service registration) involves new users 
 
 Remix your own version of the Okta sample Glitch project and confirm that it's live.
 
-1. Go to the Okta Registration Inline Hook Example.
+1. Go to the Okta Registration Inline Hook example.
 1. Click **Remix your own** and click **Share**.
 1. Click the copy icon in the **Live site** field. This is your external service URL. Make a note of it as you need it later.
 1. Click **Logs**. If you see the following message, "Your app is listening on port {XXXX}", the app is live and ready to receive Okta requests.
@@ -284,7 +284,7 @@ The scenario of progressive profile enrollment involves existing users prompted 
 
 Remix your own version of the Okta sample Glitch project and confirm that it's live.
 
-1. Go to the Okta Registration Inline Hook Example.
+1. Go to the Okta Registration Inline Hook example.
 1. Click **Remix your own**, and then click **Share**.
 1. Click the copy icon in the **Live site** field. This is your external service URL. Make a note of it as you need it later.
 1. Click **Logs**. If you see the following message, "Your app is listening on port {XXXX}", the app is live and ready to receive Okta requests.
