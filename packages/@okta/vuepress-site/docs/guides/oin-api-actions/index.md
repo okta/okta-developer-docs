@@ -5,11 +5,11 @@ meta:
     content: Provides instruction on how to create and integration with API Integration Actions in the Workflows Integration Builder.
 ---
 
-API Integration Actions enable you to build Okta integrations with capabilities, such as provisioning, entitlement management, and Universal Logout, using third-party APIs. API Integration Actions are available through the low-code Workflows Integration Builder. These integrations are called by Okta for API actions, such as retrieving and updating entitlements or triggering risk-based logout.
+API Integration Actions enable you to build Okta integrations with capabilities, such as provisioning, entitlement management, and Universal Logout, using third-party APIs. API Integration Actions are available through the low-code Workflows Integration Builder. These integrations are called by Okta for API actions, such as retrieving and updating entitlements or triggering a risk-based logout.
 
 ## Integration Builder
 
-Integration Builder is an environment for Independent Software Vendors (ISVs) to build, test, and deploy integrations privately or to the Okta Integration Network (OIN). The Integration Builder is exclusively available in [Okta Integrator Free Plan orgs](/signup) and integrates seamlessly with the OIN Wizard submission flow.
+Integration Builder is an environment for independent software vendors (ISVs) to build, test, and deploy integrations privately or to the Okta Integration Network (OIN). It's exclusively available in [Okta Integrator Free Plan orgs](/signup) and integrates seamlessly with the OIN Wizard submission flow.
 
 > **Note**: Integration Builder is an evolution of the Workflows Connector Builder. See the [Connector Builder](https://help.okta.com/wf/en-us/content/topics/workflows/connector-builder/connector-builder.htm) product documentation.
 
@@ -70,7 +70,7 @@ OINW -[#blue]> ISV: OIN team notifies you that \n your integration is published 
 
 </div>
 
-> **Note:** You can create an integration by navigating direcly to the Integration Builder in your Okta Integrator Free Plan org. However, you have to manually connect your Integration Builder project to your OIN submission before you can validate and submit your integration. Okta recommends that you access the Integration Builder through the OIN Wizard, which shares the details of your integration so that you don't have to enter the same information twice.
+> **Note:** You can create an integration by navigating directly to the Integration Builder in your Okta Integrator Free Plan org. However, you have to manually connect your Integration Builder project to your OIN submission before you can validate and submit your integration. Okta recommends that you access the Integration Builder through the OIN Wizard, which shares the details of your integration so that you don't have to enter the same information twice.
 
 ## Next steps
 
