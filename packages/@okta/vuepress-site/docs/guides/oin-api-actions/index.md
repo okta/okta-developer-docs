@@ -70,7 +70,7 @@ OINW -[#blue]> ISV: OIN team notifies you that \n your integration is published 
 
 </div>
 
-> **Note:** You can create an integration by navigating directly to the Integration Builder in your Okta Integrator Free Plan org. However, you have to manually connect your Integration Builder project to your OIN submission before you can validate and submit your integration. Okta recommends that you access the Integration Builder through the OIN Wizard, which shares the details of your integration so that you don't have to enter the same information twice.
+> **Note:** You can create an integration by navigating directly to the Integration Builder in your Okta Integrator Free Plan org. However, you have to manually connect your Integration Builder project to your OIN submission before you can validate and submit your integration. Okta recommends accessing the Integration Builder through the OIN Wizard, which shares integration details so you don't have to enter them twice.
 
 ## Next steps
 
