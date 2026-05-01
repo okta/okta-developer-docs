@@ -34,7 +34,7 @@ You can [configure a global session policy](/docs/guides/configure-signon-policy
 
 ### Control how users access your app
 
-The [app sign-in policy](#app-sign-in-policies) for each app determines what extra levels of authentication must be performed before a user can access an app. [Add a rule](/docs/guides/configure-access-policy), for example, to prompt groups that are assigned to your app to re-authenticate after 60 minutes.
+The [app sign-in policy](#app-sign-in-policies) for each app determines what extra levels of authentication a user must perform before they can access an app. [Add a rule](/docs/guides/configure-access-policy), for example, to prompt groups that are assigned to your app to re-authenticate after 60 minutes.
 
 A [password policy](#password-policies) also helps you control how users access your app. It determines the requirements for a user's password length and complexity, and it defines how often a user must change their password.
 
@@ -172,7 +172,7 @@ Re-authentication is required when a user's session in an app has reached its ma
 The policy rule `refresh.redirectType` setting has two options:
 
 * `NONE`: (default) Okta performs re-authentication locally, prompting the user to authenticate with authenticators that are configured and enrolled from the org, such as Okta Verify.
-* `FIXED`: Okta redirects the user to the third-party or Org2Org IdP that last established their Okta session. The IdP must be active too. You can optionally configure a filter list of allowed IdPs to limit which IdPs are eligible for redirect. If the IdP isn't in the filter list, the policy behaves as `NONE`.
+* `FIXED`: Okta redirects the user to the third-party or Org2Org IdP that last established their Okta session. The IdP must also be active. You can optionally configure a filter list of allowed IdPs to limit which IdPs are eligible for redirect. If the IdP isn't in the filter list, the policy behaves as `NONE`.
 
 See:
 

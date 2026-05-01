@@ -351,7 +351,7 @@ The SDK communicates with an Okta server using the HTTPS protocol and requires a
 * Request pending push challenges
 * Enable and disable CIBA capability for push authenticator enrollment
 * Delete push authenticator enrollment
-  > **Note:** Applications that use sensitive data shouldn't store or cache access tokens or refresh access tokens that contain the `okta.myAccount.appAuthenticator.manage` scope. Instead, re-authenticate the user and get a new access token.
+  > **Note:** Apps that use sensitive data shouldn't store or cache access tokens or refresh access tokens that contain the `okta.myAccount.appAuthenticator.manage` scope. Instead, re-authenticate the user and get a new access token.
 
 The following is a list of operations that are considered high risk and require re-authentication:
   * Enroll push authenticator
@@ -360,7 +360,7 @@ The following is a list of operations that are considered high risk and require 
 
 ### Maintenance token configuration and usage
 
-Other operations are low risk and may not require interactive authentication. For that reason, the Okta Devices SDK provides the silent user re-authentication method, `retrieveMaintenanceToken`. This method retrieves a maintenance access token for re-authentication that allows an application to silently perform the following operations:
+Other operations are low risk and may not require interactive authentication. For that reason, the Okta Devices SDK provides the silent user re-authentication method, `retrieveMaintenanceToken`. This method retrieves a maintenance access token for re-authentication that allows an app to silently perform the following operations:
 
 * Request pending push challenges
 * Enable and disable CIBA capability for the push authenticator enrollment

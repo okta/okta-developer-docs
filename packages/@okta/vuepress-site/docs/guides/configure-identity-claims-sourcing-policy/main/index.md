@@ -54,7 +54,7 @@ There are different behaviors and outcomes when you use the claims sourcing poli
 
 ### Example scenario with an Org2Org IdP
 
-A company runs separate Okta orgs for its parent organization and each regional subsidiary. Regional employees sign in to their subsidiary org (the IdP org) and access a financial reporting app in the parent org (the SP org) through Org2Org federation. The app sign-in policy in the parent org requires re-authentication for users accessing sensitive financial data. Regional employees don't have local authenticators enrolled in the parent org.
+A company runs separate Okta orgs for its parent org and each regional subsidiary. Regional employees sign in to their subsidiary org (the IdP org) and access a financial reporting app in the parent org (the SP org) through Org2Org federation. The app sign-in policy in the parent org requires re-authentication for users accessing sensitive financial data. Regional employees don't have local authenticators enrolled in the parent org.
 
 The identity claims sourcing policy in the parent org has `refresh.redirectType` set to `FIXED`. No filter is configured, so Okta redirects any federated user to the last known and active SSO IdP that established their session: the subsidiary org.
 
@@ -64,7 +64,7 @@ If the parent org keeps the default `NONE` setting instead, Okta prompts regiona
 
 A healthcare company uses Microsoft Entra ID as their primary identity provider. Clinical staff sign in to Okta through an Entra ID SAML connection and access a medication management app. The app sign-in policy requires re-authentication every 60 minutes for compliance. Clinical staff don't have local Okta authenticators enrolled.
 
-The identity claims sourcing policy has `refresh.redirectType` set to `FIXED` and includes a filter containing the Entra ID IdP. Only users whose last SSO IdP is Entra ID are redirected when re-authentication is required. After they re-authenticate in Entra ID, they're returned to Okta with fresh claims and can access the app.
+The identity claims sourcing policy has `refresh.redirectType` set to `FIXED` and includes a filter that contains the Entra ID IdP. Only users whose last SSO IdP is Entra ID are redirected when re-authentication is required. After they re-authenticate in Entra ID, they're returned to Okta with fresh claims and can access the app.
 
 If the policy is kept at the default `NONE` setting instead, Okta prompts clinical staff for local authenticators. Because clinical staff don't have local Okta authenticators enrolled, Okta prompts them to enroll an authenticator.
 
@@ -83,7 +83,7 @@ Update an existing app sign-in policy or create one with a re-authentication req
 
 Configure the re-authentication requirement with the Policies API by setting a value for the [`reauthenticateIn`](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/createpolicyrule#other/createpolicyrule/t=request&path=&d=0/actions/appsignon/verificationmethod&d=0/reauthenticatein) parameter.
 
-Alternatively, configure the re-authentication requirement in the Admin Console.
+Alternatively, configure the re-authentication requirement in the Admin Console:
 
 1. In the Admin Console, go to **Security** > **Authentication Policies**.
 1. In this example, click **App sign-in** to update one of your app sign-in policies. You can also click **Okta account management** to update that policy instead.
