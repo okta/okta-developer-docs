@@ -69,3 +69,7 @@ Use the Authorization Code with PKCE flow to obtain an authorization code for th
 The response contains the requested resource token.
 
 <StackSnippet snippet="exchange-token-id-response" />
+
+## Revoke tokens
+
+<StackSnippet snippet="revoke" />
