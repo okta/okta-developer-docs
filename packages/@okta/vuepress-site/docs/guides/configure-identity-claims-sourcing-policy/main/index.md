@@ -94,8 +94,7 @@ Alternatively, configure the re-authentication requirement in the Admin Console:
     * **Every time user signs in to resource:** Users must authenticate every time they try to access the app.
     * **When it's been over a specified length of time since the user signed in to any resource protected by the active Okta global session:** Users are prompted to authenticate when they exceed the time interval that you specify.
 
-    > **Note:** When you select **Password + Another Factor** or **Password / IdP + Another factor** for authentication, **Prompt for password authentication**
-    and **Prompt for all other factors of authentication** appear as the re-authentication options. You can then set the re-authentication time intervals separately for password and non-password authenticators.
+    > **Note:** When you select **Password + Another Factor** or **Password / IdP + Another factor** for authentication, **Prompt for password authentication** and **Prompt for all other factors of authentication** appear as the re-authentication options. You can then set the re-authentication time intervals separately for password and non-password authenticators.
 
 1. In this example, set the re-authentication requirement to the second option and specify a one minute time interval to test the policy quickly.
 
@@ -104,16 +103,14 @@ These settings trigger the identity claims sourcing policy when a federated user
 ### Get the policy and rule IDs
 
 1. Retrieve the policy ID of the claims sourcing policy by using the List all policies [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies).
-1. In the GET request, use the `type` query parameter with `IDENTITY_CLAIM_SOURCING` to filter for the claims sourcing policy.
-1. See the following example request:
+1. In the GET request, use the `type` query parameter with `IDENTITY_CLAIM_SOURCING` to filter for the claims sourcing policy. Ensure that your GET request is structured like the following example.
 
     ```bash
     curl -i -X GET \
     'https://{yourOktaDomain}/api/v1/policies?type=IDENTITY_CLAIM_SOURCING'
     ```
 
-1. Copy the policy `id` from the response into a text editor.
-1. See the following example response for the policy:
+1. Copy the policy `id` from the response into a text editor. A successful response returns the default claims sourcing policy and is structured like the following example.
 
     ```json
     [
@@ -151,19 +148,15 @@ These settings trigger the identity claims sourcing policy when a federated user
     ]
     ```
 
-Then, retrieve the rule ID for the default rule.
-
 1. Retrieve the rule ID of the claims sourcing policy by using the List all policy rules [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/listpolicyrules).
-1. In the GET request, use the policy ID from the [previous step](#get-the-policy-and-rule-ids).
-1. See the following example request:
+1. In the GET request, use the policy ID from the [previous step](#get-the-policy-and-rule-ids) as the `policyId` path parameter. Ensure that your GET request is structured like the following example.
 
     ```bash
     curl -i -X GET \
     'https://{yourOktaDomain}/api/v1/policies/{policyId}/rules'
     ```
 
-1. Copy the rule `id` from the response into a text editor.
-1. See the following example response for the policy rule:
+1. Copy the rule `id` from the response into a text editor. A successful response returns an array of policy rules for the identity claims sourcing policy and is structured like the following example.
 
     ```json
     [
@@ -211,9 +204,8 @@ Two configuration options are available when you enable IdP redirection for re-a
 Okta tracks which IdP most recently established the user's session. If you configure an include filter, Okta checks the user's last SSO IdP against the list at re-authentication time. If there's no match, the policy falls back to `NONE` for that user and Okta handles re-authentication locally. This means that if a user's last SSO IdP isn't in the filter, they must then authenticate with a local authenticator.
 
 1. Update the default rule using the Replace a policy rule [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/replacepolicyrule).
-1. In the path parameters of the request, use the policy ID and rule ID from the previous steps.
-1. In the request body, set `refresh.redirectType` to `FIXED`. The `FIXED` value means that Okta redirects users to the IdP that last established their session when re-authentication is required.
-1. See the following example request:
+1. In the path parameters of the PUT request, use the policy ID and rule ID from the previous steps.
+1. In the request body, set `refresh.redirectType` to `FIXED`. The `FIXED` value means that Okta redirects users to the IdP that last established their session when re-authentication is required. Ensure that your PUT request is structured like the following example.
 
     ```bash
     curl -i -X PUT \
@@ -248,9 +240,9 @@ Okta tracks which IdP most recently established the user's session. If you confi
     }'
     ```
 
-1. See the following example response for the updated rule:
+A successful response returns the updated policy rule and is structured like the following example.
 
-    ```json
+```json
     {
     "id": "rulIdentityClaimSourcing",
     "name": "Catch-all rule",
@@ -293,7 +285,7 @@ Okta tracks which IdP most recently established the user's session. If you confi
         }
     }
     }
-    ```
+```
 
 ### Test the configuration
 
