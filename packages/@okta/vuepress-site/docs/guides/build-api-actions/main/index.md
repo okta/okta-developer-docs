@@ -4,16 +4,16 @@ excerpt: Learn how to build an integration with API Integration Actions in the W
 layout: Guides
 ---
 
-Build and validate integrations with API Integration Actions in the Integration Builder after you've defined your integration in the OIN Wizard.
+Build and validate integrations with API Integration Actions in the Integration Builder after you've defined your integration in the Okta Integration Network (OIN) Wizard.
 
 ---
 
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
-* An API resource server that serves request for provisioning, entitlement management, or Universal Logout for your app
-* (optional) OpenAPI Specification (OAS) version 3.0 or later of your APIs, in either JSON or YAML format
-* An integration submission that's intiated through the Okta Integration Network (OIN) Wizard
+* An API resource server that serves requests for provisioning, entitlement management, or Universal Logout for your app
+* (Optional) OpenAPI Specification (OAS) version 3.0 or later of your APIs, in either JSON or YAML format
+* An integration submission that's initiated through the Okta Integration Network (OIN) Wizard
 
 ---
 
@@ -29,13 +29,13 @@ The Integration Builder integrates with the OIN Wizard for a seamless build-and-
 
 This guide assumes that you've already initiated your integration submission in the OIN Wizard and have been directed to the Integration Builder to build API actions. The next step is to configure your authentication and action flows in your [Integration Builder project](#integration-builder-project).
 
-> **Note**: For the end-to-end API Integration Actions build and submit process, see [API Integration Actions process overview](/docs/guides/oin-api-actions/#process-overview).
+> **Note**: For the end-to-end API Integration Actions build and submit process, see the [API Integration Actions process overview](/docs/guides/oin-api-actions/#process-overview).
 
 ## Integration Builder project
 
 After specifying your integration capabilities and details in the OIN Wizard, you're directed to the Integration Builder to build your API actions integration.
 
-Your integration details from the OIN Wizard are transferred to a corresponding Integration Builder project. The following are guidelines for working with your Integration Builder project:
+Your integration details from the OIN Wizard are transferred to a corresponding Integration Builder project. The following are steps to build your integration in the Integration Builder project:
 
 1. Review the [**General**](#general) tab and make any necessary edits.
 1. If you have an OpenAPI specification of the APIs that you want to integrate with, go to the **API Spec** tab and [upload the OpenAPI schemas](#upload-api-spec). This saves you time from configuring authentication and action events manually.
@@ -52,7 +52,7 @@ You don't have to edit anything in the **General** tab because your Integration 
 * **Status**: The status of your integration submission (typically in `DRAFT` state)
 * **Protocol**: Always set to `Build with no-code integration builder`
 
-> **Note**: If you modify the project name, your project becomes disconnected from your integration in the OIN Wizard. You have to relink your project to use the action flows in your OIN integration.
+> **Note**: If you modify the project name, your project becomes disconnected from your integration in the OIN Wizard. Relink your project to use the action flows in your OIN integration.
 
 ## Upload API spec
 
@@ -60,7 +60,7 @@ If you have an OpenAPI specification for the API resource that you want to integ
 
 > **Note**: Integration Builder only supports OAS version 3.0 or later. You can upload a YAML or JSON-formatted schema file.
 
-1. In your Integration Builder project folder, go to the **API Spec** tab.
+1. Click the **API Spec** tab from the Integration Builder project.
 1. Click **Upload spec**.
 1. Add your API specification file and click **Process file**.
 
@@ -94,7 +94,7 @@ Configure the connection to your app by setting up the authentication scheme and
 
 > **Note:** These instruction aren't required if you've generated authentication configuration from your API specification.
 
-1. From the **Authentication** tab, click **+ Add authentication**.
+1. Click **+ Add authentication** from the **Authentication** tab.
 1. Select the authentication scheme from the **Auth Type** dropdown and configure the necessary fields.
 
    The following authentication schemes are supported in Integration Builder:
@@ -109,10 +109,10 @@ Configure the connection to your app by setting up the authentication scheme and
 
         See [Build custom authentication](https://help.okta.com/wf/en-us/content/topics/workflows/connector-builder/authentication-custom.htm) for instructions from the Workflows product documentation.
 
-    If you configured an optional authentication parameters, you can map them to the tenant authentication variables configured in the OIN Wizard. See [Authentication mapping](#authentication-mapping).
+    If you configured optional authentication parameters, you can map them to the tenant authentication variables configured in the OIN Wizard. See [Authentication mapping](#authentication-mapping).
 
     > **Note**: Ensure that your authentication configuration matches what you entered in the OIN Wizard.<br>
-    > For example, ensure that your **Authorization URL** value matches what you entered in the **Authorize endpoint** field of the OIN Wizard's [Authentication settings](/docs/guides/submit-oin-app/wfactions/main/#authentiation-settings). Similarly for all the other mandatory authenticaiton fields, such as **Client ID** and **Client Secret**.
+    > For example, ensure that your **Authorization URL** value matches what you entered in the **Authorize endpoint** field of the OIN Wizard's [Authentication settings](/docs/guides/submit-oin-app/wfactions/main/#authentiation-settings). Similarly for all the other mandatory authentication fields, such as **Client ID** and **Client Secret**.
 
 1. Click **Save**.
 
@@ -120,12 +120,12 @@ Configure the connection to your app by setting up the authentication scheme and
 
 After you've configured your authentication settings, you can map the authentication parameters to the tenant variables that you've configured in the OIN Wizard. This allows your customers to specify values that are specific to their tenant when they install your integration, such as `subdomain`.
 
-1. From the **Authentication** > **Authentication mapping** section, for each **Connection parameter**, select the corresponding OIN Wizard integration variable.
+1. Select the corresponding OIN Wizard integration variable for each **Connection parameter** from the **Authentication** > **Authentication mapping** section.
 
     * The parameters under **Connection parameter** are the ones that you defined in your [authentication configuration](#authentication-configuration).
     * The variables under **OIN app integration variables** are the ones that you defined in the OIN Wizard's [Tenant settings](/docs/guides/submit-oin-app/wfactions/main/#tenant-settings) section.
 
-    > **Note** The OIN Wizard doesn't support uppercase or camel case variable names.
+    > **Note**: The OIN Wizard doesn't support uppercase or camel case variable names.
 
 1. Click **Save**.
 
@@ -133,7 +133,7 @@ After you've configured your authentication settings, you can map the authentica
 
 ## Add actions
 
-1. In your Integration Builder project, select **New Component** > **Add Action**.
+1. Select **New Component** > **Add Action** in your Integration Builder project.
 
     The **Add new action** dialog appears with the available API Integration Actions supported:
 
@@ -149,15 +149,15 @@ See [Add Universal Logout action flows](#add-universal-logout-action-flows) and 
 
 ### Add Universal Logout action flows
 
-1. From the **Actions** > **Universal Logout** > **Flows** tab, click **+ New Flow**.
+1. Click **+ New Flow** from the **Actions** > **Universal Logout** > **Flows** tab.
     The flow configuration page appears.
 
 1. Click **Add event**.
 1. Select **Proprietary Universal Logout**.
 
     The proprietary Universal Logout contract loads:
-    * The **body** section contains the action contract request schema.
-    * The **auth** section contains the authentication parameters for the **Connection** to your API. Also included in the **Connection** section are the optional additional parameters you configured and mapped to OIN tenant variables.
+    * The **body** section contains the contract request schema.
+    * The **auth** section contains the authentication parameters for the **Connection** to your API. Also included in the **Connection** section are the optional other parameters you configured and mapped to OIN tenant variables.
 
 1. Create the action flows to your APIs. See [Flow types in Connector Builder](https://help.okta.com/wf/en-us/content/topics/workflows/connector-builder/about-flows.htm) for guidance.
 1. Click **Save** to save your flow.
@@ -168,7 +168,8 @@ See [Add Universal Logout action flows](#add-universal-logout-action-flows) and 
 
 ### Add Provisioning action flows
 
-1. From the **Actions** > **Provisioning action contracts** > **Flows** tab, click **+ New Flow**.
+1. Click **+ New Flow** from the **Actions** > **Provisioning action contracts** > **Flows** tab.
+
     The flow configuration page appears.
 
 1. Click **Add event**.
@@ -176,7 +177,7 @@ See [Add Universal Logout action flows](#add-universal-logout-action-flows) and 
 
     The provisioning contract loads:
     * The **body** section contains the action contract request schema.
-    * The **auth** section contains the authentication parameters for the **Connection** to your API. Also included in the **Connection** section are the optional additional parameters you configured and mapped to OIN tenant variables.
+    * The **auth** section contains the authentication parameters for the **Connection** to your API. Also included in the **Connection** section are the optional other parameters you configured and mapped to OIN tenant variables.
 
 1. Click **Save** to save your flow.
 1. Click **Flow is OFF** button and turn the flow **ON**.

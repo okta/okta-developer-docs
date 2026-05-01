@@ -12,12 +12,12 @@
 
    The **Governance** tab appears in the app page.
 
-1. Click **Provisioning** > **Configure API Integration**.
-1. Select **Enable API integration**.
-1. Click **Save**.
-1. Select **Settings** > **To Okta** from the updated **Provisioning** tab.
-1. In the **General** section, click **Edit** to schedule imports and configure the username format for imported users.
+1. If your integration supports provisioning, click **Provisioning** > **Configure API Integration**.
+    1. Select **Enable API integration**.
+    1. Click **Save**.
+    1. Select **Settings** > **To Okta** from the updated **Provisioning** tab.
+    1. In the **General** section, click **Edit** to schedule imports and configure the username format for imported users.
 
-   You can also define a percentage of acceptable assignments before the [import safeguards](https://help.okta.com/okta_help.htm?id=csh-eu-import-safeguard) feature is automatically triggered.
+       You can also define a percentage of acceptable assignments before the [import safeguards](https://help.okta.com/okta_help.htm?id=csh-eu-import-safeguard) feature is automatically triggered.
 
 1. Click **Save**.
