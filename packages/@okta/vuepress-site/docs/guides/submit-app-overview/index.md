@@ -29,7 +29,7 @@ Before you submit your integration, in either the OIN Wizard or OIN Manager, rev
 
 Consider the following questions to help you choose which pathway to use for submission:
 
-* Are you submitting a new or published SSO, provisioning (SCIM or API Integration Actions), entitlement management, UL (GTR or API Integration Actions), or API service integrations?
+* Are you submitting a new or published SSO, provisioning, entitlement management, UL, or API service integrations?
   * [Use the OIN Wizard](#submission-process-for-sso-and-scim-integrations).
     > **Note:** Published SSO or SCIM integrations that were submitted through the OIN Manager have been moved to the OIN Wizard and appear in the **Your OIN Integrations** dashboard.
 * Are you submitting a new or published Workflows integration?
@@ -66,7 +66,7 @@ Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 ### Submission process for API Integration Actions
 
-The following steps explain how to submit provisioning, entitlement management, or UL integrations that uses API Integration Actions in the Integration Builder:
+The following steps explain how to submit provisioning, entitlement management, or UL integrations that use API Integration Actions in the Integration Builder:
 
 1. Sign in to the Admin Console of your Integrator Free Plan org.
    - Add integration details in the OIN Wizard.
@@ -86,7 +86,7 @@ See [API Integration Actions](/docs/guides/oin-api-actions/).
 
 ### Submission process for Workflows integrations
 
-The following steps and flowchart explain how to submit Workflows integrations through the OIN Manager:
+The following steps and flow chart explain how to submit Workflows integrations through the OIN Manager:
 
 1. Build the Workflows capabilities in your app.
    - Sign in to your Integrator Free Plan org Admin Console.
@@ -164,7 +164,7 @@ Getting your app integration in the OIN catalog involves two phases: creating a 
 
    * If you need help with using the OIN Wizard during the submission process, see [Submit an integration using the OIN Wizard](/docs/guides/submit-oin-app/). If you can't find an answer in the documentation, post a question on the [Okta Developer Forum](https://devforum.okta.com/).
 
-   * If you need help with using the OIN Manager during the submission process, use the **Get Support** section on the OIN Manager **My App Integrations** page. This section provides resources from the Okta developer portal.
+   * If you need help with using the OIN Manager during the submission process, use the **Get Support** section on the OIN Manager **My App Integrations** page. This section provides resources from the Okta Developer Portal.
 
 If you have questions or need more support to publish your app integration, you can reach out to the Okta OIN team directly at <oin@okta.com>.
 
