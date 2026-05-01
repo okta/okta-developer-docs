@@ -45,7 +45,7 @@ Your integration details from the OIN Wizard are transferred to a corresponding 
 
 ### General
 
-You don't have to edit anything in the **General** tab because your Integration Builder project is linked to your integration in the OIN Wizard. All of the following details are transferred from the OIN Wizard:
+You don't have to edit anything in the **General** tab because your Integration Builder project is linked to your integration in the OIN Wizard. The following details are transferred from the OIN Wizard:
 
 * **Project name**: Your project name, which corresponds to the integration display name for the OIN catalog
 * **Last Updated**: The last time that your integration was updated
@@ -92,7 +92,7 @@ After the HTTP Helper flows are available, you can generate the **Authping** and
 
 Configure the connection to your app by setting up the authentication scheme and credential mappings.
 
-> **Note:** These instruction aren't required if you've generated authentication configuration from your API specification.
+> **Note:** These instructions aren't required if you've generated authentication configurations from your API specification.
 
 1. Click **+ Add authentication** from the **Authentication** tab.
 1. Select the authentication scheme from the **Auth Type** dropdown and configure the necessary fields.
@@ -112,7 +112,7 @@ Configure the connection to your app by setting up the authentication scheme and
     If you configured optional authentication parameters, you can map them to the tenant authentication variables configured in the OIN Wizard. See [Authentication mapping](#authentication-mapping).
 
     > **Note**: Ensure that your authentication configuration matches what you entered in the OIN Wizard.<br>
-    > For example, ensure that your **Authorization URL** value matches what you entered in the **Authorize endpoint** field of the OIN Wizard's [Authentication settings](/docs/guides/submit-oin-app/wfactions/main/#authentiation-settings). Similarly for all the other mandatory authentication fields, such as **Client ID** and **Client Secret**.
+    > For example, ensure that your **Authorization URL** value matches what you entered in the **Authorize endpoint** field of the OIN Wizard's [Authentication settings](/docs/guides/submit-oin-app/wfactions/main/#authentiation-settings). Similarly, for all the other mandatory authentication fields, such as **Client ID** and **Client Secret**.
 
 1. Click **Save**.
 
@@ -144,7 +144,7 @@ After you've configured your authentication settings, you can map the authentica
 
    The action contracts appear in your project > **Shared Folder** > **Actions** folder.
 
-The actions that you selected have a preset API contracts. You need to create a flow for each contract.
+The actions that you selected have preset API contracts. You need to create a flow for each contract.
 See [Add Universal Logout action flows](#add-universal-logout-action-flows) and [Add Provisioning action flows](#add-provisioning-action-flows).
 
 ### Add Universal Logout action flows
@@ -184,9 +184,9 @@ See [Add Universal Logout action flows](#add-universal-logout-action-flows) and 
 Create the action flows to your APIs. See [Flow types in Connector Builder](https://help.okta.com/wf/en-us/content/topics/workflows/connector-builder/about-flows.htm) for guidance.
 1. Click **Save** to save your flow.
 1. Click **Flow is OFF** button and turn the flow on.
-1. After you finished building your flows, go to the **Validate and submit** tab. Click **Validate flows** to confirm that your flows are error-free.
+1. Click **Validate flows** to confirm that your flows are error-free from the **Validate and submit** tab.
 1. Resolve any validation errors in your flow.
-1. After all your flows are validated successfully, click **Continue submission in OIN** to return to the OIN Wizard.
+1. Click **Continue submission in OIN** to return to the OIN Wizard after all your flows are validated successfully.
 
 ## Support
 
