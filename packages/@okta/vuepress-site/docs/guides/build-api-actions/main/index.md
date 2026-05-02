@@ -4,7 +4,7 @@ excerpt: Learn how to build an integration with API Integration Actions in the W
 layout: Guides
 ---
 
-Build and validate integrations with API Integration Actions in the Integration Builder after you've defined your integration in the Okta Integration Network (OIN) Wizard.
+Build and validate integrations with API Integration Actions from the Okta Integration Network (OIN) Wizard.
 
 ---
 
@@ -21,13 +21,13 @@ Build and validate integrations with API Integration Actions in the Integration 
 
 You can build integrations with API Integration Actions through the low-code Workflows Integration Builder. Okta calls these integrations to perform API actions against your app, such as fetching or updating user profiles, or initiating a risk-based logout.
 
-The Integration Builder integrates with the OIN Wizard for a seamless build-and-submit experience. The following integration capabilities are supported for API Integration Actions:
+The Integration Builder integrates with the OIN Wizard for a seamless build-and-submit experience. The following capabilities are supported for API Integration Actions:
 
 * Provisioning
 * Provisioning and entitlement management
 * Universal Logout (your integration must also support SSO)
 
-This guide assumes that you've already initiated your integration submission in the OIN Wizard and have been directed to the Integration Builder to build API actions. The next step is to configure your authentication and action flows in your [Integration Builder project](#integration-builder-project).
+This guide assumes that you've already initiated your integration submission in the OIN Wizard and have been redirected to the Integration Builder to build API actions. The next step is to configure your authentication and action flows in your [Integration Builder project](#integration-builder-project).
 
 > **Note**: For the end-to-end API Integration Actions build and submit process, see the [API Integration Actions process overview](/docs/guides/oin-api-actions/#process-overview).
 
@@ -39,7 +39,7 @@ Your integration details from the OIN Wizard are transferred to a corresponding 
 
 1. Review the [**General**](#general) tab and make any necessary edits.
 1. If you have an OpenAPI specification of the APIs that you want to integrate with, go to the **API Spec** tab and [upload the OpenAPI schema](#upload-api-spec). This saves you time from configuring authentication and action events manually.
-1. Go to the [**Authentication**](#authentication) tab, configure your authentication and variable mappings.
+1. Configure your authentication and variable mappings in the [**Authentication**](#authentication) tab.
 1. [Add actions](#add-actions) from the **New Component** dropdown list.
 1. Validate all your action flows before you return to the OIN Wizard to complete your submission.
 
