@@ -32,5 +32,94 @@ The following are input (requests) and outputs (responses) for the **Proprietary
 
 ## Provisioning action contracts
 
-The following are the schema contracts for each provisioning action (includes Entitlement Management actions).
+The following are input (requests) and outputs (responses) for the **Provisioning action contracts** action. These also include Entitlement Management action contracts.
+
+### Provisioning Create User
+
+This action schema contract is for provisioning user actions.
+
+### Provisioning Update User
+
+This action schema contract is for provisioning user actions.
+
+### Provisioning Update User Password
+
+This action schema contract is for provisioning user actions.
+
+### Provisioning Activate User
+
+This action schema contract is for provisioning user actions.
+
+
+### Provisioning Deactivate User
+
+This action schema contract is for provisioning user actions.
+
+### Provisioning Get User by ID
+
+This action schema contract is for provisioning user actions.
+
+
+### Provisioning Get User by UserName
+
+This action schema contract is for provisioning user actions.
+
+### Provisioning List Users
+
+This action schema contract is for provisioning user actions.
+
+### Provisioning Create Group
+
+This action schema contract is for provisioning group actions.
+
+### Provisioning Update Group
+
+This action schema contract is for provisioning group actions.
+
+### Provisioning Remove Group
+
+This action schema contract is for provisioning group actions.
+
+
+### Provisioning Add Group Members
+
+This action schema contract is for provisioning group actions.
+
+### Provisioning Remove Group Members
+
+This action schema contract is for provisioning group actions.
+
+### Provisioning List Group Members
+
+This action schema contract is for provisioning group actions.
+
+### Provisioning Get Group by ID
+
+This action schema contract is for provisioning group actions.
+
+### Provisioning List Groups
+
+This action schema contract is for provisioning group actions.
+
+### Provisioning List Groups by Display Name
+
+This action schema contract is for provisioning group actions.
+
+### Provisioning List User Schema
+
+This action schema contract is for provisioning Entitlement Management actions.
+
+### Provisioning List Entitlement Schema
+
+This action schema contract is for provisioning Entitlement Management actions.
+
+
+### Provisioning List User Schema Property Values
+
+This action schema contract is for provisioning Entitlement Management actions.
+
+
+### Provisioning List Entitlement Schema Property Values
+
+This action schema contract is for provisioning Entitlement Management actions.
 
