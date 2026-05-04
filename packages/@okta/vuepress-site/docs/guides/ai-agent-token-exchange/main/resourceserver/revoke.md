@@ -14,10 +14,10 @@ token=eyJhbGciOiJIUzI1NiIsI...
 
 | Parameter | Description and value |
 | --- | --- |
-| `token` | The `access_token` value from the successful token exchange response. |
-| `token_type_hint` | The value must be `oauth_sts`. |
-| `client_assertion_type` | The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| `client_assertion` | The same signed JWT used for client authentication in the `/token` request. |
+| token | The `access_token` value from the successful token exchange response. |
+| token_type_hint | The value must be `oauth_sts`. |
+| client_assertion_type | The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| client_assertion | A newly generated signed JWT used for client authentication for the `/revoke` endpoint. You must sign the JWT using the key created during the AI Agent registration. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |
 
 The endpoint returns `200 OK` regardless of whether the token was valid or already expired, to prevent information leakage.
 
@@ -25,4 +25,4 @@ The endpoint returns `200 OK` regardless of whether the token was valid or alrea
 >
 > - If Okta still holds a valid refresh token for the connection, the next token exchange request will obtain a new access token automatically.
 > - If Okta's refresh token is also expired or invalid, the next token exchange request returns an `interaction_required` response and a new user consent flow is required.
-> - The access token is not automatically revoked from the external resource authorization server. If the access token was shared or copied elsewhere, you must revoke it directly with the external provider.
+> - The access token isn't automatically revoked from the external resource authorization server. If the access token was shared or copied elsewhere, you must revoke it directly with the external provider.

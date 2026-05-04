@@ -31,7 +31,7 @@ To handle this, your app should:
   "access_token": "eyJhbGciOiJIUzI1NiIsI...",
   "token_type": "Bearer",
   "expires_in": 3600,
-  "scope": "repo profile"
+  "scope": "read resource"
 }
 ```
 
