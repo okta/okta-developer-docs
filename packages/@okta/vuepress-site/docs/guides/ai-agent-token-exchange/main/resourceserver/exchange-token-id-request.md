@@ -12,7 +12,7 @@ grant_type=urn:ietf:params:oauth:grant-type:token-exchange
 &subject_token_type=urn:ietf:params:oauth:token-type:id_token
 &client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer
 &client_assertion=eyJhbGci...
-&resource=https://github.com
+&resource=resource:indicator:from:resource:connection
 ```
 
 If the AI agent needs to retrieve an access token through brokered consent using the STS service, token exchange requests must also contain the following parameters:
