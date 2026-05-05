@@ -596,7 +596,7 @@ This action schema contract is for provisioning users.
 | **group** | group object for provisioning operations | object |  |
 | **group.schemas** | List of schemas for the group object | array | TRUE |
 | **group.id** | The ID of the group | string |  |
-| **group.displayName** | A human-readable name for the group. REQUIRED | string | TRUE |
+| **group.displayName** | A human-readable name for the group. Required. | string | TRUE |
 | **group.description** | Group description | string |  |
 
 #### Output
