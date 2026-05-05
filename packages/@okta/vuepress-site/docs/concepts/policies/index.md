@@ -109,6 +109,24 @@ Use the [App sign-in policies page](https://help.okta.com/okta_help.htm?type=oie
 
 > **Note:** API service apps aren't automatically assigned a default app sign-in policy. You must explicitly assign an app sign-in policy to each API service app.
 
+#### Policy branching
+
+<ApiLifecycle access="ea" />
+
+App sign-in policies support branching, which lets you draft, test, and deploy policy changes without affecting end users until you're ready.
+
+A policy can have one of the following branch states:
+
+- **Live branch** - The set of policy rules currently enforced for end-user access.
+- **Staged branch** - A draft copy of the live policy. Rules in a staged branch aren't evaluated or enforced until you push the branch to live.
+- **Archived branch** - A set of policy rules that were previously live. Okta retains the five most recent archived branches for 90 days.
+
+You can enable monitoring on a staged branch to evaluate its rules against real user traffic without enforcing them. This lets you assess the impact of your changes before deploying them.
+
+The Policies API exposes branch operations under `/api/v1/policies/{policyId}/branches`. The `okta.policies.manage` scope is required. See the [Policies API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/).
+
+For Admin Console steps, see [Manage staged app sign-in policy branches](https://help.okta.com/okta_help.htm?type=oie&id=ext-pcm-staged-branches).
+
 #### Okta account management policy
 
 <ApiLifecycle access="ie" />

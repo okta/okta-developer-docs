@@ -58,6 +58,8 @@ You don’t have to use the default app sign-in policy. You can create a policy 
 
 > **Note:** There can be only one app sign-in policy per app.
 
+> **Note:** If your org has Policy Change Management enabled, make policy changes on a staged branch rather than directly on the live policy. Staged branches let you test changes against real traffic before they affect end users. See [Policy branching](/docs/concepts/policies/#policy-branching).
+
 ## Configure sign-on policies for common scenarios
 
 This guide provides step-by-step instructions to configure a global session policy and an app sign-in policy for three common scenarios:
