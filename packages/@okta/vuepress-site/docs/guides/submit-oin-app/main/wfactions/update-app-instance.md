@@ -14,7 +14,7 @@ To edit the app instance from the OIN Wizard, follow these steps:
 
         The **Test integration** page appears.
 
-    * Click **Go to integrations** (upper-right corner) for the backwards-compatible instance.
+    * Click **Go to integrations** (upper-right corner) for the backward-compatible instance.
 
         The **Your OIN Integrations** dashboard appears.
         Go to your integration submission > **Configure your integration** > **Get started with testing** to continue with testing your integration.

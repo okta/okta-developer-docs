@@ -10,5 +10,3 @@
     | ----------------- | ------------ |
     | **List entitlement schema** | Specify the flow to list the entitlement schema in your app. |
     | **List entitlement schema property values** | Specify the flow to list entitlement-schema property values. |
-
-    `*` Required properties

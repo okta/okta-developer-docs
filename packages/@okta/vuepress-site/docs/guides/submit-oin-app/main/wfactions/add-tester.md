@@ -2,7 +2,7 @@
 
 > **Note:** The OIN Submission Tester only supports SSO integrations. The **Add to Tester** option isn't available for provisioning integrations with SCIM or API Integration Actions.
 
-* Click **Add to Tester** next to the app in the **Application instances for testing** list. This includes it for testing with the OIN Submission Tester. The **Add to Tester** option only appears for apps that are active and eligible for testing.
+* Click **Add to Tester** next to the app in the **Application instances for testing** list. This includes it for testing with the OIN Submission Tester. The **Add to Tester** option appears only for active and eligible apps.
 
     The test cases are populated with the app name and the **Run test** option is enabled in the OIN Submission Tester.
 
