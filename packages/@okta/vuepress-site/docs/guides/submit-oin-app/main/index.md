@@ -43,9 +43,9 @@ The OIN team verifies your submitted integration before they publish it in the [
 
 ## Start a submission
 
-Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before you start your submission. There are artifacts and technical details that you need to provide during the submission process.
+Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before you start your submission. You need to provide artifacts and technical details during the submission process.
 
-> **Note:** As a best practice, add two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future. See [Add users manually](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) and ensure that the app and org admin roles are assigned to your admin users. The super admin role also provides the same access, but Okta recommends limiting super admin role assignments.
+> **Note:** As a best practice, add two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for future updates. See [Add users manually](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) and ensure that the app and org admin roles are assigned to your admin users. The super admin role also provides the same access, but Okta recommends limiting assignments to this role.
 
 Start your integration submission for OIN publication:
 
