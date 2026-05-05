@@ -802,8 +802,33 @@ This action schema contract is for provisioning groups.
 
 #### Input
 
+| Property | Description | Type | Required |
+| ----- | ----- | ----- | ----- |
+| **pagination** | Pagination object | object | |
+| **pagination.cursor** | Cursor for the next page of results | string | |
+| **pagination.limit** | Maximum number of results to return | integer | |
 
 #### Output
+
+
+| Property | Description | Type |
+| ----- | ----- | ----- |
+| **resources[]** | List of SCIM group objects | array |
+| **resources[].schemas** | List of schemas for the group object | array |
+| **resources[].id** | The ID of the group | string |
+| **resources[].displayName** | A human-readable name for the group | string |
+| **resources[].description** | Group description | string |
+| **pagination** | Pagination object | object |
+| **pagination.nextCursor** | Cursor for the next page of results | string |
+| **executionStatus** | Execution status of the action | object |
+| **executionStatus.status** | Outcome of the action (`SUCCEEDED`, `FAILED`) | string |
+| **executionStatus.errors[]** | List of errors that occurred during the action | array |
+| **executionStatus.errors[].code** | Error code | string |
+| **executionStatus.errors[].summary** | Summary of the error | string |
+| **executionStatus.errors[].details[]** | Details of the error | array |
+| **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
+| **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
+| **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
 
 ### Provisioning List Groups by Display Name
 
@@ -811,8 +836,33 @@ This action schema contract is for provisioning groups.
 
 #### Input
 
+| Property | Description | Type | Required |
+| ----- | ----- | ----- | ----- |
+| **displayName** | Display name of the group | string | TRUE |
+| **pagination** | Pagination object | object | |
+| **pagination.cursor** | Cursor for the next page of results | string | |
+| **pagination.limit** | Maximum number of results to return | integer | |
 
 #### Output
+
+| Property | Description | Type |
+| ----- | ----- | ----- |
+| **resources[]** | List of SCIM group objects | array |
+| **resources[].schemas** | List of schemas for the group object | array |
+| **resources[].id** | The ID of the group | string |
+| **resources[].displayName** | A human-readable name for the group | string |
+| **resources[].description** | Group description | string |
+| **pagination** | Pagination object | object |
+| **pagination.nextCursor** | Cursor for the next page of results | string |
+| **executionStatus** | Execution status of the action | object |
+| **executionStatus.status** | Outcome of the action (`SUCCEEDED`, `FAILED`) | string |
+| **executionStatus.errors[]** | List of errors that occurred during the action | array |
+| **executionStatus.errors[].code** | Error code | string |
+| **executionStatus.errors[].summary** | Summary of the error | string |
+| **executionStatus.errors[].details[]** | Details of the error | array |
+| **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
+| **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
+| **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
 
 ### Provisioning List User Schema
 
@@ -820,8 +870,68 @@ This action schema contract is for provisioning Entitlement Management.
 
 #### Input
 
+| Property | Description | Type | Required |
+| ----- | ----- | ----- | ----- |
+| **scim** | SCIM server configuration | object | |
+| **scim.baseUri** | The base URL of the SCIM server | string | TRUE |
+| **scim.authMode** | Authentication mode of the SCIM server (`header`, `bearer`, `oauth`) | string | TRUE |
+| **scim.entitlementTypes[]** | List of entitlement types supported by the SCIM server | array | TRUE |
+| **scim.entitlementTypes[].name** | Entitlement type name | string | TRUE |
+| **scim.entitlementTypes[].endpoint** | The resource type's HTTP-addressable endpoint relative to the base URL | string | TRUE |
+| **scim.entitlementTypes[].description** | The resource type's human-readable description | string | |
+| **scim.entitlementTypes[].attributes** | The attributes of the resource type | object | |
+| **scim.entitlementTypes[].attributes.required** | Whether this entitlement attribute is required | boolean | |
+| **scim.entitlementTypes[].attributes.multiValued** | Whether this entitlement attribute can have multiple values | boolean | |
+| **scim.entitlementTypes[].mappings** | Schema mappings for the entitlement type | object | TRUE |
+| **scim.entitlementTypes[].mappings.idField** | The name of the field that contains the unique identifier for the entitlement | string | TRUE |
+| **scim.entitlementTypes[].mappings.displayNameField** | The name of the field that contains the display name for the entitlement | string | TRUE |
+| **scim.entitlementTypes[].mappings.descriptionField** | The name of the field that contains the description of the entitlement | string | |
+| **pagination** | Pagination object | object | |
+| **pagination.cursor** | Cursor for the next page of results | string | |
+| **pagination.limit** | Maximum number of results to return | integer | |
 
 #### Output
+
+| Property | Description | Type |
+| ----- | ----- | ----- |
+| **schemaProperties[]** | List of schema property definitions | array |
+| **schemaProperties[].name** | Name of the schema property | string |
+| **schemaProperties[].title** | Display title of the schema property | string |
+| **schemaProperties[].externalName** | External name of the schema property | string |
+| **schemaProperties[].externalNamespace** | External namespace of the schema property | string |
+| **schemaProperties[].description** | Description of the schema property | string |
+| **schemaProperties[].required** | Whether the schema property is required | boolean |
+| **schemaProperties[].propertyType** | Data type of the schema property (`STRING`, `NUMBER`, `INTEGER`, `BOOLEAN`, `DATE`, `ARRAY`, `URI`, `COUNTRY_CODE`, `TIMEZONE`, `LOCALE`, `LANGUAGE_CODE`, `EMAIL`, `OBJECT`) | string |
+| **schemaProperties[].scope** | Scope of the schema property (`SELF`, `SYSTEM`, `NONE`) | string |
+| **schemaProperties[].schemaName** | Name of the schema this property belongs to | string |
+| **schemaProperties[].defaultValue** | Default value for the schema property | any |
+| **schemaProperties[].enumConstraint** | List of allowed enum values | array |
+| **schemaProperties[].oneOfConstraint** | Map of allowed key-value pairs for the property | object |
+| **schemaProperties[].enumTitles** | Display titles for enum values | object |
+| **schemaProperties[].__metadata** | Additional metadata for the schema property | object |
+| **schemaProperties[].properties[]** | Nested schema property definitions (for object types) | array |
+| **schemaProperties[].minItems** | Minimum number of items (for array types) | number |
+| **schemaProperties[].maxItems** | Maximum number of items (for array types) | number |
+| **schemaProperties[].minLength** | Minimum string length | number |
+| **schemaProperties[].maxLength** | Maximum string length | number |
+| **schemaProperties[].pattern** | Regex pattern constraint | string |
+| **schemaProperties[].minimum** | Minimum numeric value | integer |
+| **schemaProperties[].maximum** | Maximum numeric value | integer |
+| **schemaProperties[].minSize** | Minimum size constraint | number |
+| **schemaProperties[].maxSize** | Maximum size constraint | number |
+| **schemaProperties[].beforeDate** | Upper bound date constraint | date-time |
+| **schemaProperties[].afterDate** | Lower bound date constraint | date-time |
+| **pagination** | Pagination object | object |
+| **pagination.nextCursor** | Cursor for the next page of results | string |
+| **executionStatus** | Execution status of the action | object |
+| **executionStatus.status** | Outcome of the action (`SUCCEEDED`, `FAILED`) | string |
+| **executionStatus.errors[]** | List of errors that occurred during the action | array |
+| **executionStatus.errors[].code** | Error code | string |
+| **executionStatus.errors[].summary** | Summary of the error | string |
+| **executionStatus.errors[].details[]** | Details of the error | array |
+| **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
+| **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
+| **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
 
 ### Provisioning List Entitlement Schema
 
@@ -829,8 +939,68 @@ This action schema contract is for provisioning Entitlement Management.
 
 #### Input
 
+| Property | Description | Type | Required |
+| ----- | ----- | ----- | ----- |
+| **scim** | SCIM server configuration | object | |
+| **scim.baseUri** | The base URL of the SCIM server | string | TRUE |
+| **scim.authMode** | Authentication mode of the SCIM server (`header`, `bearer`, `oauth`) | string | TRUE |
+| **scim.entitlementTypes[]** | List of entitlement types supported by the SCIM server | array | TRUE |
+| **scim.entitlementTypes[].name** | Entitlement type name | string | TRUE |
+| **scim.entitlementTypes[].endpoint** | The resource type's HTTP-addressable endpoint relative to the base URL | string | TRUE |
+| **scim.entitlementTypes[].description** | The resource type's human-readable description | string | |
+| **scim.entitlementTypes[].attributes** | The attributes of the resource type | object | |
+| **scim.entitlementTypes[].attributes.required** | Whether this entitlement attribute is required | boolean | |
+| **scim.entitlementTypes[].attributes.multiValued** | Whether this entitlement attribute can have multiple values | boolean | |
+| **scim.entitlementTypes[].mappings** | Schema mappings for the entitlement type | object | TRUE |
+| **scim.entitlementTypes[].mappings.idField** | The name of the field that contains the unique identifier for the entitlement | string | TRUE |
+| **scim.entitlementTypes[].mappings.displayNameField** | The name of the field that contains the display name for the entitlement | string | TRUE |
+| **scim.entitlementTypes[].mappings.descriptionField** | The name of the field that contains the description of the entitlement | string | |
+| **pagination** | Pagination object | object | |
+| **pagination.cursor** | Cursor for the next page of results | string | |
+| **pagination.limit** | Maximum number of results to return | integer | |
 
 #### Output
+
+| Property | Description | Type |
+| ----- | ----- | ----- |
+| **schemaProperties[]** | List of schema property definitions | array |
+| **schemaProperties[].name** | Name of the schema property | string |
+| **schemaProperties[].title** | Display title of the schema property | string |
+| **schemaProperties[].externalName** | External name of the schema property | string |
+| **schemaProperties[].externalNamespace** | External namespace of the schema property | string |
+| **schemaProperties[].description** | Description of the schema property | string |
+| **schemaProperties[].required** | Whether the schema property is required | boolean |
+| **schemaProperties[].propertyType** | Data type of the schema property (`STRING`, `NUMBER`, `INTEGER`, `BOOLEAN`, `DATE`, `ARRAY`, `URI`, `COUNTRY_CODE`, `TIMEZONE`, `LOCALE`, `LANGUAGE_CODE`, `EMAIL`, `OBJECT`) | string |
+| **schemaProperties[].scope** | Scope of the schema property (`SELF`, `SYSTEM`, `NONE`) | string |
+| **schemaProperties[].schemaName** | Name of the schema this property belongs to | string |
+| **schemaProperties[].defaultValue** | Default value for the schema property | any |
+| **schemaProperties[].enumConstraint** | List of allowed enum values | array |
+| **schemaProperties[].oneOfConstraint** | Map of allowed key-value pairs for the property | object |
+| **schemaProperties[].enumTitles** | Display titles for enum values | object |
+| **schemaProperties[].__metadata** | Additional metadata for the schema property | object |
+| **schemaProperties[].properties[]** | Nested schema property definitions (for object types) | array |
+| **schemaProperties[].minItems** | Minimum number of items (for array types) | number |
+| **schemaProperties[].maxItems** | Maximum number of items (for array types) | number |
+| **schemaProperties[].minLength** | Minimum string length | number |
+| **schemaProperties[].maxLength** | Maximum string length | number |
+| **schemaProperties[].pattern** | Regex pattern constraint | string |
+| **schemaProperties[].minimum** | Minimum numeric value | integer |
+| **schemaProperties[].maximum** | Maximum numeric value | integer |
+| **schemaProperties[].minSize** | Minimum size constraint | number |
+| **schemaProperties[].maxSize** | Maximum size constraint | number |
+| **schemaProperties[].beforeDate** | Upper bound date constraint | date-time |
+| **schemaProperties[].afterDate** | Lower bound date constraint | date-time |
+| **pagination** | Pagination object | object |
+| **pagination.nextCursor** | Cursor for the next page of results | string |
+| **executionStatus** | Execution status of the action | object |
+| **executionStatus.status** | Outcome of the action (`SUCCEEDED`, `FAILED`) | string |
+| **executionStatus.errors[]** | List of errors that occurred during the action | array |
+| **executionStatus.errors[].code** | Error code | string |
+| **executionStatus.errors[].summary** | Summary of the error | string |
+| **executionStatus.errors[].details[]** | Details of the error | array |
+| **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
+| **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
+| **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
 
 ### Provisioning List User Schema Property Values
 
@@ -838,8 +1008,47 @@ This action schema contract is for provisioning Entitlement Management.
 
 #### Input
 
+| Property | Description | Type | Required |
+| ----- | ----- | ----- | ----- |
+| **scim** | SCIM server configuration | object | |
+| **scim.baseUri** | The base URL of the SCIM server | string | TRUE |
+| **scim.authMode** | Authentication mode of the SCIM server (`header`, `bearer`, `oauth`) | string | TRUE |
+| **scim.entitlementTypes[]** | List of entitlement types supported by the SCIM server | array | TRUE |
+| **scim.entitlementTypes[].name** | Entitlement type name | string | TRUE |
+| **scim.entitlementTypes[].endpoint** | The resource type's HTTP-addressable endpoint relative to the base URL | string | TRUE |
+| **scim.entitlementTypes[].description** | The resource type's human-readable description | string | |
+| **scim.entitlementTypes[].attributes** | The attributes of the resource type | object | |
+| **scim.entitlementTypes[].attributes.required** | Whether this entitlement attribute is required | boolean | |
+| **scim.entitlementTypes[].attributes.multiValued** | Whether this entitlement attribute can have multiple values | boolean | |
+| **scim.entitlementTypes[].mappings** | Schema mappings for the entitlement type | object | TRUE |
+| **scim.entitlementTypes[].mappings.idField** | The name of the field that contains the unique identifier for the entitlement | string | TRUE |
+| **scim.entitlementTypes[].mappings.displayNameField** | The name of the field that contains the display name for the entitlement | string | TRUE |
+| **scim.entitlementTypes[].mappings.descriptionField** | The name of the field that contains the description of the entitlement | string | |
+| **pagination** | Pagination object | object | |
+| **pagination.cursor** | Cursor for the next page of results | string | |
+| **pagination.limit** | Maximum number of results to return | integer | |
 
 #### Output
+
+| Property | Description | Type |
+| ----- | ----- | ----- |
+| **schemaPropertyValues[]** | List of schema property values | array |
+| **schemaPropertyValues[].id** | Identifier of the schema property value | string |
+| **schemaPropertyValues[].displayName** | Display name of the schema property value | string |
+| **schemaPropertyValues[].schemaPropertyName** | Name of the schema property associated with this value | string |
+| **schemaPropertyValues[].typeName** | Name of the entitlement type associated with this value | string |
+| **schemaPropertyValues[].description** | Description of the schema property value | string |
+| **pagination** | Pagination object | object |
+| **pagination.nextCursor** | Cursor for the next page of results | string |
+| **executionStatus** | Execution status of the action | object |
+| **executionStatus.status** | Outcome of the action (`SUCCEEDED`, `FAILED`) | string |
+| **executionStatus.errors[]** | List of errors that occurred during the action | array |
+| **executionStatus.errors[].code** | Error code | string |
+| **executionStatus.errors[].summary** | Summary of the error | string |
+| **executionStatus.errors[].details[]** | Details of the error | array |
+| **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
+| **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
+| **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
 
 ### Provisioning List Entitlement Schema Property Values
 
@@ -847,5 +1056,44 @@ This action schema contract is for provisioning Entitlement Management.
 
 #### Input
 
+| Property | Description | Type | Required |
+| ----- | ----- | ----- | ----- |
+| **scim** | SCIM server configuration | object | |
+| **scim.baseUri** | The base URL of the SCIM server | string | TRUE |
+| **scim.authMode** | Authentication mode of the SCIM server (`header`, `bearer`, `oauth`) | string | TRUE |
+| **scim.entitlementTypes[]** | List of entitlement types supported by the SCIM server | array | TRUE |
+| **scim.entitlementTypes[].name** | Entitlement type name | string | TRUE |
+| **scim.entitlementTypes[].endpoint** | The resource type's HTTP-addressable endpoint relative to the base URL | string | TRUE |
+| **scim.entitlementTypes[].description** | The resource type's human-readable description | string | |
+| **scim.entitlementTypes[].attributes** | The attributes of the resource type | object | |
+| **scim.entitlementTypes[].attributes.required** | Whether this entitlement attribute is required | boolean | |
+| **scim.entitlementTypes[].attributes.multiValued** | Whether this entitlement attribute can have multiple values | boolean | |
+| **scim.entitlementTypes[].mappings** | Schema mappings for the entitlement type | object | TRUE |
+| **scim.entitlementTypes[].mappings.idField** | The name of the field that contains the unique identifier for the entitlement | string | TRUE |
+| **scim.entitlementTypes[].mappings.displayNameField** | The name of the field that contains the display name for the entitlement | string | TRUE |
+| **scim.entitlementTypes[].mappings.descriptionField** | The name of the field that contains the description of the entitlement | string | |
+| **pagination** | Pagination object | object | |
+| **pagination.cursor** | Cursor for the next page of results | string | |
+| **pagination.limit** | Maximum number of results to return | integer | |
 
 #### Output
+
+| Property | Description | Type |
+| ----- | ----- | ----- |
+| **schemaPropertyValues[]** | List of schema property values | array |
+| **schemaPropertyValues[].id** | Identifier of the schema property value | string |
+| **schemaPropertyValues[].displayName** | Display name of the schema property value | string |
+| **schemaPropertyValues[].schemaPropertyName** | Name of the schema property associated with this value | string |
+| **schemaPropertyValues[].typeName** | Name of the entitlement type associated with this value | string |
+| **schemaPropertyValues[].description** | Description of the schema property value | string |
+| **pagination** | Pagination object | object |
+| **pagination.nextCursor** | Cursor for the next page of results | string |
+| **executionStatus** | Execution status of the action | object |
+| **executionStatus.status** | Outcome of the action (`SUCCEEDED`, `FAILED`) | string |
+| **executionStatus.errors[]** | List of errors that occurred during the action | array |
+| **executionStatus.errors[].code** | Error code | string |
+| **executionStatus.errors[].summary** | Summary of the error | string |
+| **executionStatus.errors[].details[]** | Details of the error | array |
+| **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
+| **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
+| **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
