@@ -54,7 +54,7 @@ This action schema contract is for provisioning users.
 | **user.schemas** | List of schemas for the user object | array | TRUE |
 | **user.id** | The ID of the user | string | TRUE |
 | **user.externalId** | External ID of the user, defined by the provisioning client | string |  |
-| **user.userName** | A unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty username value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string | TRUE |
+| **user.userName** | A unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user must include a non-empty username value. This identifier must be unique across the service provider's entire set of users. Required. | string | TRUE |
 | **user.name** | The components of the user's real name | object |  |
 | **user.name.formatted** | The full name (including middle names, titles, and suffixes) that's formatted for display | string |  |
 | **user.name.familyName** | The family name of the user | string |  |
