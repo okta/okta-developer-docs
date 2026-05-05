@@ -32,7 +32,7 @@ The following are input (requests) and outputs (responses) for the **Proprietary
 | **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
 | **executionStatus.errors[].code** | Error code identifier | string |
 | **executionStatus.errors[].summary** | Human-readable summary of the error | string |
-| **executionStatus.errors[].details** | Additional error details | array |
+| **executionStatus.errors[].details** | More error details | array |
 | **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
 | **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
 | **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
@@ -51,18 +51,18 @@ This action schema contract is for provisioning users.
 | Property | Description | Type | Required|
 | ----- | ----- | ----- | ----- |
 | **user** | A SCIM user object | object |  |
-| **user.schemas** | List of Schemas for the user object | array | TRUE |
+| **user.schemas** | List of schemas for the user object | array | TRUE |
 | **user.id** | The ID of the user | string | TRUE |
 | **user.externalId** | External ID of the user, defined by the provisioning client | string |  |
-| **user.userName** | Unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty userName value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string | TRUE |
+| **user.userName** | An unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty username value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string | TRUE |
 | **user.name** | The components of the user's real name | object |  |
-| **user.name.formatted** | The full name, including middle names, titles, and suffixes, formatted for display | string |  |
+| **user.name.formatted** | The full name (including middle names, titles, and suffixes) formatted for display | string |  |
 | **user.name.familyName** | The family name of the user | string |  |
 | **user.name.givenName** | The given name of the user | string |  |
-| **user.name.middleName** | The middle name(s) of the user | string |  |
+| **user.name.middleName** | The middle names of the user | string |  |
 | **user.name.honorificPrefix** | The honorific prefix or title of the user | string |  |
 | **user.name.honorificSuffix** | The honorific suffix of the user | string |  |
-| **user.displayName** | The name of the user, suitable for display to end-users | string |  |
+| **user.displayName** | The name of the user, suitable for display to end users | string |  |
 | **user.nickName** | The casual way to address the user in real life | string |  |
 | **user.profileUrl** | A fully qualified URL pointing to a page representing the user's online profile | string |  |
 | **user.title** | The user's title, such as Vice President | string |  |
@@ -70,7 +70,7 @@ This action schema contract is for provisioning users.
 | **user.preferredLanguage** | Indicates the user's preferred written or spoken language | string |  |
 | **user.locale** | Indicates the user's default location for localization purposes | string |  |
 | **user.timezone** | The user's time zone in Olson database format, for example America/Los_Angeles | string |  |
-| **user.active** | A Boolean value indicating the user's administrative status | boolean |  |
+| **user.active** | A boolean value indicating the user's administrative status | boolean |  |
 | **user.password** | The user's cleartext password used for initial set or reset | string |  |
 | **user.emails** | Email addresses for the user | array |  |
 | **user.emails[].value** | Email address value for the user | string |  |
@@ -122,7 +122,7 @@ This action schema contract is for provisioning users.
 | **user.x509Certificates[].type** | Label indicating certificate type | string |  |
 | **user.x509Certificates[].primary** | Indicates whether this is the primary certificate value | boolean |  |
 | **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User** | Enterprise user object schema | object |  |
-| **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.employeeNumber** | String identifier assigned to a person by the organization | string |  |
+| **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.employeeNumber** | A string identifier assigned to a person by the organization | string |  |
 | **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.costCenter** | Name of the cost center | string |  |
 | **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.organization** | Name of the organization | string |  |
 | **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.division** | Name of the division | string |  |
@@ -145,7 +145,7 @@ This action schema contract is for provisioning users.
 | **user.name.formatted** | The full name, including middle names, titles, and suffixes, formatted for display | string |
 | **user.name.familyName** | The family name of the user | string |
 | **user.name.givenName** | The given name of the user | string |
-| **user.name.middleName** | The middle name(s) of the user | string |
+| **user.name.middleName** | The middle names of the user | string |
 | **user.name.honorificPrefix** | The honorific prefix or title of the user | string |
 | **user.name.honorificSuffix** | The honorific suffix of the user | string |
 | **user.displayName** | The name of the user, suitable for display to end-users | string |
@@ -222,8 +222,8 @@ This action schema contract is for provisioning users.
 | **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
 | **executionStatus.errors[].code** | Error code identifier | string |
 | **executionStatus.errors[].summary** | Human-readable summary of the error | string |
-| **executionStatus.errors[].details** | Additional error details | array |
-| **executionStatus.errors[].details[]** | Additional error detail entry | string |
+| **executionStatus.errors[].details** | More error details | array |
+| **executionStatus.errors[].details[]** | More error detail entry | string |
 | **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
 | **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
 | **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
@@ -237,18 +237,18 @@ This action schema contract is for provisioning users.
 | **Property** | Description | Type | Required |
 | ----- | ----- | ----- | ----- |
 | **user** | A SCIM user object | object |  |
-| **user.schemas** | List of Schemas for the user object | array | TRUE |
+| **user.schemas** | List of schemas for the user object | array | TRUE |
 | **user.id** | The ID of the user | string | TRUE |
 | **user.externalId** | External ID of the user, defined by the provisioning client | string |  |
-| **user.userName** | Unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty userName value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string | TRUE |
+| **user.userName** | An unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty userName value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string | TRUE |
 | **user.name** | The components of the user's real name | object |  |
 | **user.name.formatted** | The full name, including middle names, titles, and suffixes, formatted for display | string |  |
 | **user.name.familyName** | The family name of the user | string |  |
 | **user.name.givenName** | The given name of the user | string |  |
-| **user.name.middleName** | The middle name(s) of the user | string |  |
+| **user.name.middleName** | The middle names of the user | string |  |
 | **user.name.honorificPrefix** | The honorific prefix or title of the user | string |  |
 | **user.name.honorificSuffix** | The honorific suffix of the user | string |  |
-| **user.displayName** | The name of the user, suitable for display to end-users | string |  |
+| **user.displayName** | The name of the user, suitable for display to end users | string |  |
 | **user.nickName** | The casual way to address the user in real life | string |  |
 | **user.profileUrl** | A fully qualified URL pointing to a page representing the user's online profile | string |  |
 | **user.title** | The user's title, such as Vice President | string |  |
@@ -308,7 +308,7 @@ This action schema contract is for provisioning users.
 | **user.x509Certificates[].type** | Label indicating certificate type | string |  |
 | **user.x509Certificates[].primary** | Indicates whether this is the primary certificate value | boolean |  |
 | **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User** | Enterprise user object schema | object |  |
-| **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.employeeNumber** | String identifier assigned to a person by the organization | string |  |
+| **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.employeeNumber** | A string identifier assigned to a person by the organization | string |  |
 | **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.costCenter** | Name of the cost center | string |  |
 | **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.organization** | Name of the organization | string |  |
 | **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.division** | Name of the division | string |  |
@@ -324,18 +324,18 @@ This action schema contract is for provisioning users.
 | Property | Description | Type |
 | ----- | ----- | ----- |
 | **user** | A SCIM user object | object |
-| **user.schemas** | List of Schemas for the user object | array |
+| **user.schemas** | List of schemas for the user object | array |
 | **user.id** | The ID of the user | string |
 | **user.externalId** | External ID of the user, defined by the provisioning client | string |
-| **user.userName** | Unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty userName value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string |
+| **user.userName** | An unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty userName value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string |
 | **user.name** | The components of the user's real name | object |
-| **user.name.formatted** | The full name, including middle names, titles, and suffixes, formatted for display | string |
+| **user.name.formatted** | The full name (including middle names, titles, and suffixes) formatted for display | string |
 | **user.name.familyName** | The family name of the user | string |
 | **user.name.givenName** | The given name of the user | string |
-| **user.name.middleName** | The middle name(s) of the user | string |
+| **user.name.middleName** | The middle names of the user | string |
 | **user.name.honorificPrefix** | The honorific prefix or title of the user | string |
 | **user.name.honorificSuffix** | The honorific suffix of the user | string |
-| **user.displayName** | The name of the user, suitable for display to end-users | string |
+| **user.displayName** | The name of the user, suitable for display to end users | string |
 | **user.nickName** | The casual way to address the user in real life | string |
 | **user.profileUrl** | A fully qualified URL pointing to a page representing the user's online profile | string |
 | **user.title** | The user's title, such as Vice President | string |
@@ -395,7 +395,7 @@ This action schema contract is for provisioning users.
 | **user.x509Certificates[].type** | Label indicating certificate type | string |
 | **user.x509Certificates[].primary** | Indicates whether this is the primary certificate value | boolean |
 | **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User** | Enterprise user object schema | object |
-| **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.employeeNumber** | String identifier assigned to a person by the organization | string |
+| **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.employeeNumber** | A string identifier assigned to a person by the organization | string |
 | **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.costCenter** | Name of the cost center | string |
 | **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.organization** | Name of the organization | string |
 | **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.division** | Name of the division | string |
@@ -409,8 +409,8 @@ This action schema contract is for provisioning users.
 | **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
 | **executionStatus.errors[].code** | Error code identifier | string |
 | **executionStatus.errors[].summary** | Human-readable summary of the error | string |
-| **executionStatus.errors[].details** | Additional error details | array |
-| **executionStatus.errors[].details[]** | Additional error detail entry | string |
+| **executionStatus.errors[].details** | More error details | array |
+| **executionStatus.errors[].details[]** | More error detail entry | string |
 | **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
 | **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
 | **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
@@ -435,8 +435,8 @@ This action schema contract is for provisioning users.
 | **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
 | **executionStatus.errors[].code** | Error code identifier | string |
 | **executionStatus.errors[].summary** | Human-readable summary of the error | string |
-| **executionStatus.errors[].details** | Additional error details | array |
-| **executionStatus.errors[].details[]** | Additional error detail entry | string |
+| **executionStatus.errors[].details** | More error details | array |
+| **executionStatus.errors[].details[]** | More error detail entry | string |
 | **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
 | **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
 | **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
@@ -460,8 +460,8 @@ This action schema contract is for provisioning users.
 | **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
 | **executionStatus.errors[].code** | Error code identifier | string |
 | **executionStatus.errors[].summary** | Human-readable summary of the error | string |
-| **executionStatus.errors[].details** | Additional error details | array |
-| **executionStatus.errors[].details[]** | Additional error detail entry | string |
+| **executionStatus.errors[].details** | More error details | array |
+| **executionStatus.errors[].details[]** | More error detail entry | string |
 | **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
 | **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
 | **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
@@ -485,8 +485,8 @@ This action schema contract is for provisioning users.
 | **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
 | **executionStatus.errors[].code** | Error code identifier | string |
 | **executionStatus.errors[].summary** | Human-readable summary of the error | string |
-| **executionStatus.errors[].details** | Additional error details | array |
-| **executionStatus.errors[].details[]** | Additional error detail entry | string |
+| **executionStatus.errors[].details** | More error details | array |
+| **executionStatus.errors[].details[]** | More error detail entry | string |
 | **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
 | **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
 | **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
@@ -509,6 +509,36 @@ This action schema contract is for provisioning users.
 | **user.schemas** | List of schemas for the user object. REQUIRED | array |
 | **user.id** | The ID of the user. REQUIRED | string |
 | **user.externalId** | External ID of the user, defined by the provisioning client | string |
+| **user.userName** | An unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty username value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string |
+| **executionStatus** | Execution result details for the request | object |
+| **executionStatus.status** | Execution result state of the request (`SUCCEEDED` or `FAILED`) | string |
+| **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
+| **executionStatus.errors[].code** | Error code identifier | string |
+| **executionStatus.errors[].summary** | Human-readable summary of the error | string |
+| **executionStatus.errors[].details** | More error details | array |
+| **executionStatus.errors[].details[]** | More error detail entry | string |
+| **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
+| **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
+| **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
+
+### Provisioning Get User by UserName
+
+This action schema contract is for provisioning users.
+
+#### Input
+
+| **Property** | Description | Type | Required |
+| ----- | ----- | ----- | ----- |
+| **userName** | A unique username of the user to retrieve | string | TRUE |
+
+#### Output
+
+| Property | Description | Type |
+| ----- | ----- | ----- |
+| **user** | A SCIM user object | object |
+| **user.schemas** | List of schemas for the user object | array |
+| **user.id** | The ID of the user | string |
+| **user.externalId** | External ID of the user, defined by the provisioning client | string |
 | **user.userName** | Unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty userName value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string |
 | **executionStatus** | Execution result details for the request | object |
 | **executionStatus.status** | Execution result state of the request (`SUCCEEDED` or `FAILED`) | string |
@@ -521,37 +551,107 @@ This action schema contract is for provisioning users.
 | **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
 | **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
 
-### Provisioning Get User by UserName
-
-This action schema contract is for provisioning users.
-#### Input
-
-
-#### Output
-
 ### Provisioning List Users
 
 This action schema contract is for provisioning users.
+
 #### Input
 
+| **Property** | Description | Type | Required |
+| ----- | ----- | ----- | ----- |
+| **pagination** | Pagination object for list users requests | object |  |
+| **pagination.cursor** | Cursor used to continue listing users from a specific position | string |  |
+| **pagination.limit** | Maximum number of users to return in the response | integer |  |
 
 #### Output
+
+| Property | Description | Type |
+| ----- | ----- | ----- |
+| **resources** | List of user objects returned by the request | array |
+| **resources[].schemas** | List of schemas for the user object | array |
+| **resources[].id** | The ID of the user | string |
+| **resources[].externalId** | External ID of the user, defined by the provisioning client | string |
+| **resources[].userName** | Unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty userName value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string |
+| **pagination** | Pagination details for the response | object |
+| **pagination.nextCursor** | Cursor for retrieving the next page of users | string |
+| **executionStatus** | Execution result details for the request | object |
+| **executionStatus.status** | Execution result state of the request (`SUCCEEDED` or `FAILED`) | string |
+| **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
+| **executionStatus.errors[].code** | Error code identifier | string |
+| **executionStatus.errors[].summary** | Human-readable summary of the error | string |
+| **executionStatus.errors[].details** | Additional error details | array |
+| **executionStatus.errors[].details[]** | Additional error detail entry | string |
+| **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
+| **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
+| **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
 
 ### Provisioning Create Group
 
 This action schema contract is for provisioning users.
+
 #### Input
 
+| Property | Description | Type | Required |
+| ----- | ----- | ----- | ----- |
+| **group** | group object for provisioning operations | object |  |
+| **group.schemas** | List of schemas for the Group object | array | TRUE |
+| **group.id** | The ID of the group | string |  |
+| **group.displayName** | A human-readable name for the group. REQUIRED | string | TRUE |
+| **group.description** | Group description | string |  |
 
 #### Output
+
+| Property | Description | Type |
+| ----- | ----- | ----- |
+| **group** | A SCIM group object | object |
+| **group.schemas** | List of schemas for the group object | array |
+| **group.id** | The ID of the group | string |
+| **group.displayName** | A human-readable name for the group. REQUIRED | string |
+| **group.description** | Group description | string |
+| **executionStatus** | Execution result details for the request | object |
+| **executionStatus.status** | Execution result state of the request (`SUCCEEDED` or `FAILED`) | string |
+| **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
+| **executionStatus.errors[].code** | Error code identifier | string |
+| **executionStatus.errors[].summary** | Human-readable summary of the error | string |
+| **executionStatus.errors[].details** | Additional error details | array |
+| **executionStatus.errors[].details[]** | Additional error detail entry | string |
+| **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
+| **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
+| **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
 
 ### Provisioning Update Group
 
 This action schema contract is for provisioning groups.
+
 #### Input
 
+| Property | Description | Type | Required |
+| ----- | ----- | ----- | ----- |
+| **group** | group object for provisioning operations | object |  |
+| **group.schemas** | List of schemas for the group object | array | TRUE |
+| **group.id** | The ID of the group | string |  |
+| **group.displayName** | A human-readable name for the group. REQUIRED | string | TRUE |
+| **group.description** | Group description | string |  |
 
 #### Output
+
+| Property | Description | Type |
+| ----- | ----- | ----- |
+| **group** | A SCIM group object | object |
+| **group.schemas** | List of schemas for the group object | array |
+| **group.id** | The ID of the group | string |
+| **group.displayName** | A human-readable name for the group. REQUIRED | string |
+| **group.description** | Group description | string |
+| **executionStatus** | Execution result details for the request | object |
+| **executionStatus.status** | Execution result state of the request (`SUCCEEDED` or `FAILED`) | string |
+| **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
+| **executionStatus.errors[].code** | Error code identifier | string |
+| **executionStatus.errors[].summary** | Human-readable summary of the error | string |
+| **executionStatus.errors[].details** | Additional error details | array |
+| **executionStatus.errors[].details[]** | Additional error detail entry | string |
+| **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
+| **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
+| **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
 
 ### Provisioning Remove Group
 
@@ -559,32 +659,113 @@ This action schema contract is for provisioning groups.
 
 #### Input
 
+| Property | Description | Type | Required |
+| ----- | ----- | ----- | ----- |
+| **groupId** | ID of the group to remove | string | TRUE |
 
 #### Output
+
+| Property | Description | Type |
+| ----- | ----- | ----- |
+| **executionStatus** | Execution result details for the request | object |
+| **executionStatus.status** | Execution result state of the request (`SUCCEEDED` or `FAILED`) | string |
+| **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
+| **executionStatus.errors[].code** | Error code identifier | string |
+| **executionStatus.errors[].summary** | Human-readable summary of the error | string |
+| **executionStatus.errors[].details** | More error details | array |
+| **executionStatus.errors[].details[]** | More error detail entry | string |
+| **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
+| **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
+| **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
 
 ### Provisioning Add Group Members
 
 This action schema contract is for provisioning groups.
+
 #### Input
 
+| Property | Description | Type | Required |
+| ----- | ----- | ----- | ----- |
+| **groupId** | Identifier of the group | string | TRUE |
+| **groupMembers** | List of group member objects to add | array | TRUE |
+| **groupMembers[].value** | Identifier of the member of this group | string | TRUE |
+| **groupMembers[].display** | The display name for this group member object | string |  |
 
 #### Output
+
+| Property | Description | Type |
+| ----- | ----- | ----- |
+| **executionStatus** | Execution result details for the request | object |
+| **executionStatus.status** | Execution result state of the request (`SUCCEEDED` or `FAILED`) | string |
+| **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
+| **executionStatus.errors[].code** | Error code identifier | string |
+| **executionStatus.errors[].summary** | Human-readable summary of the error | string |
+| **executionStatus.errors[].details** | Additional error details | array |
+| **executionStatus.errors[].details[]** | Additional error detail entry | string |
+| **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
+| **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
+| **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
 
 ### Provisioning Remove Group Members
 
 This action schema contract is for provisioning groups.
+
 #### Input
 
+| Property | Description | Type | Required |
+| ----- | ----- | ----- | ----- |
+| **groupId** | Identifier of the group | string | TRUE |
+| **groupMembers** | List of group member objects to remove | array | TRUE |
+| **groupMembers[].value** | Identifier of the member of this group | string | TRUE |
+| **groupMembers[].display** | The display name for this group member object | string |  |
 
 #### Output
+
+| Property | Description | Type |
+| ----- | ----- | ----- |
+| **executionStatus** | Execution result details for the request | object |
+| **executionStatus.status** | Execution result state of the request (`SUCCEEDED` or `FAILED`) | string |
+| **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
+| **executionStatus.errors[].code** | Error code identifier | string |
+| **executionStatus.errors[].summary** | Human-readable summary of the error | string |
+| **executionStatus.errors[].details** | Additional error details | array |
+| **executionStatus.errors[].details[]** | Additional error detail entry | string |
+| **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
+| **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
+| **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
 
 ### Provisioning List Group Members
 
 This action schema contract is for provisioning groups.
+
 #### Input
 
+| Property | Description | Type | Required |
+| ----- | ----- | ----- | ----- |
+| **groupId** | Identifier of the group | string | TRUE |
+| **pagination** | Pagination object for list requests | object |  |
+| **pagination.cursor** | Cursor used to continue listing members from a specific position | string |  |
+| **pagination.limit** | Maximum number of members to return in the response | integer |  |
 
 #### Output
+
+| Property | Description | Type |
+| ----- | ----- | ----- |
+| **resources** | List of group member objects returned by the request | array |
+| **resources[].value** | Identifier of the member of this group | string |
+| **resources[].display** | The display name for this group member object | string |
+| **pagination** | Pagination details for the response | object |
+| **pagination.nextCursor** | Cursor for retrieving the next page of members | string |
+| **executionStatus** | Execution result details for the request | object |
+| **executionStatus.status** | Execution result state of the request (`SUCCEEDED` or `FAILED`) | string |
+| **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
+| **executionStatus.errors[].code** | Error code identifier | string |
+| **executionStatus.errors[].summary** | Human-readable summary of the error | string |
+| **executionStatus.errors[].details** | Additional error details | array |
+| **executionStatus.errors[].details[]** | Additional error detail entry | string |
+| **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
+| **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
+| **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
 
 ### Provisioning Get Group by ID
 
@@ -592,8 +773,28 @@ This action schema contract is for provisioning groups.
 
 #### Input
 
+| Property | Description | Type | Required |
+| ----- | ----- | ----- | ----- |
+| **groupId** | Identifier of the group | string | TRUE |
 
 #### Output
+
+| Property | Description | Type |
+| ----- | ----- | ----- |
+| **group** | A SCIM group object | object |
+| **group.schemas** | List of schemas for the group object | array |
+| **group.id** | The ID of the group | string |
+| **group.displayName** | A human-readable name for the group | string |
+| **group.description** | Group description | string |
+| **executionStatus** | Execution status of the action | object |
+| **executionStatus.status** | Outcome of the action (`SUCCEEDED`, `FAILED`) | string |
+| **executionStatus.errors[]** | List of errors that occurred during the action | array |
+| **executionStatus.errors[].code** | Error code | string |
+| **executionStatus.errors[].summary** | Summary of the error | string |
+| **executionStatus.errors[].details[]** | Details of the error | array |
+| **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
+| **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
+| **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
 
 ### Provisioning List Groups
 
