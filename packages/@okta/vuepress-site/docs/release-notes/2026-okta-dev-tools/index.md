@@ -9,7 +9,7 @@ These release notes list customer-visible changes to the Developer Tools. The Ok
 ## June
 
 ### Monthly release 2026.06.0
-<!-- Published on: 2026-05-09T12:00:00Z -->
+<!-- Published on: 2026-05-06T12:00:00Z -->
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
