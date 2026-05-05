@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>Okta Developer Tools release notes</title>
+  <link>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/</link>
+  <description>Recent release notes for Okta Developer Tools</description>
+  <pubDate>Wed, 06 May 2026 12:00:00 GMT</pubDate>
+  
+    <item>
+      <title>Monthly release 2026.06.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#monthly-release-2026-06-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#monthly-release-2026-06-0</guid>
+      <pubDate>Wed, 06 May 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#update-to-python-sdk">Update to Python SDK</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#update-to-terraform-provider-for-okta">Update to Terraform Provider for Okta</a>]]></description>
+    </item>
+  
+</channel>
+</rss>
