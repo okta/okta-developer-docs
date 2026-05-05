@@ -13,7 +13,7 @@ The following are schema contracts for Universal Logout actions.
 
 ### Proprietary Universal Logout
 
-The following are input (requests) and outputs (responses) for the **Proprietary Universal Logout** action.
+The following are input (requests) and output (responses) for the **Proprietary Universal Logout** action.
 
 #### Input
 
