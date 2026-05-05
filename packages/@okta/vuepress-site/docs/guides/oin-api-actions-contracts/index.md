@@ -132,7 +132,7 @@ This action schema contract is for provisioning users.
 | **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.manager.ref** | URI of the SCIM resource representing the user's manager | string |  |
 | **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.manager.displayName** | Display name of the user's manager | string |  |
 
-#### Outputs
+#### Output
 
 | Property | Description | Type |
 | ----- | ----- | ----- |
