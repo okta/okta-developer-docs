@@ -2,9 +2,9 @@
 
 This guide covers submissions that use API Integration Actions for the following capabilities:
 
-* Universal Logout with SSO
+* Universal Logout (with SSO)
 * Provisioning
-* Provisioning with Entitlement Management
+* Entitlement Management (with provisioning)
 
 > **Notes:**
 > * Universal Logout is supported with SAML 2.0 or OIDC SSO capability.
