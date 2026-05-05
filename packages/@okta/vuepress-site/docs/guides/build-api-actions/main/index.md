@@ -4,7 +4,7 @@ excerpt: Learn how to build an integration with API Integration Actions in the W
 layout: Guides
 ---
 
-Build and validate integrations with API Integration Actions from the Okta Integration Network (OIN) Wizard.
+Build and validate integrations with API Integration Actions from the Okta Integration Network (OIN) Wizard and Integration Builder.
 
 ---
 
@@ -19,15 +19,15 @@ Build and validate integrations with API Integration Actions from the Okta Integ
 
 ## Overview
 
-You can build integrations with API Integration Actions through the low-code Workflows Integration Builder. Okta calls these integrations to perform API actions against your app, such as fetching or updating user profiles, or initiating a risk-based logout.
+You can build integrations with API Integration Actions, which Okta calls to perform API actions against your app, such as fetching or updating user profiles, or initiating a risk-based logout. API actions to your app are built through the low-code Workflows Integration Builder, which is available in Okta Integrator Free Plan orgs.
 
-The Integration Builder integrates with the OIN Wizard for a seamless build-and-submit experience. The following capabilities are supported for API Integration Actions:
+To begin building API actions in the Integration Builder, you must first start your integration submission within the OIN Wizard. This process ensures a seamless build-and-submit experience, as the Integration Builder is designed to integrate directly with the OIN Wizard.
+
+The following capabilities are supported for API Integration Actions:
 
 * Provisioning
-* Provisioning and entitlement management
+* Entitlement Management
 * Universal Logout (your integration must also support SSO)
-
-This guide assumes that you've already initiated your integration submission in the OIN Wizard and have been redirected to the Integration Builder to build API actions. The next step is to configure your authentication and action flows in your [Integration Builder project](#integration-builder-project).
 
 > **Note**: For the end-to-end API Integration Actions build and submit process, see the [API Integration Actions process overview](/docs/guides/oin-api-actions/#process-overview).
 
@@ -35,10 +35,10 @@ This guide assumes that you've already initiated your integration submission in 
 
 After specifying your integration capabilities and details in the OIN Wizard, you're directed to the Integration Builder to build your API actions integration.
 
-Your integration details from the OIN Wizard are transferred to a corresponding Integration Builder project. Following these steps to build in your Integration Builder project:
+Your integration details from the OIN Wizard are transferred to a corresponding Integration Builder project, which is highlighted in the left list of project folders. Following these steps to build in your Integration Builder project:
 
 1. Review the [**General**](#general) tab and make any necessary edits.
-1. If you have an OpenAPI specification of the APIs that you want to integrate with, go to the **API Spec** tab and [upload the OpenAPI schema](#upload-api-spec). This saves you time from configuring authentication and action events manually.
+1. If you have an OpenAPI specification of the APIs that you want to integrate with, go to the **API Spec** tab and [upload the OpenAPI schema](#upload-api-spec). This saves you time from configuring authentication and core flows manually.
 1. Configure your authentication and variable mappings in the [**Authentication**](#authentication) tab.
 1. [Add actions](#add-actions) from the **New Component** dropdown list.
 1. Validate all your action flows before you return to the OIN Wizard to complete your submission.
@@ -51,6 +51,11 @@ You don't have to edit anything in the **General** tab because your Integration 
 * **Last Updated**: The last time that your integration was updated
 * **Status**: The status of your integration submission (typically in `DRAFT` state)
 * **Protocol**: Always set to `Build with no-code integration builder`
+
+Available options:
+
+* **View in OIN Wizard**: Click **View in OIN Wizard** to return to the OIN Wizard
+* **Unlinik app**: Click **Unlinik app** to disconnect the Integration Builder project from the integration in the OIN Wizard. If you unlink the project, tenant variables from the OIN Wizard aren't available for your authentication and action configurations.
 
 > **Note**: If you modify the project name, your project becomes disconnected from your integration in the OIN Wizard. Relink your project to use the action flows in your OIN integration.
 
