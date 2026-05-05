@@ -9,7 +9,7 @@ This reference provides the API Integration Actions schema contracts supported i
 
 ## Universal Logout
 
-The following are schema contracts for Universal Logout action.
+The following are schema contracts for Universal Logout actions.
 
 ### Proprietary Universal Logout
 
@@ -40,7 +40,7 @@ The following are input (requests) and outputs (responses) for the **Proprietary
 
 ## Provisioning action contracts
 
-The following are input (requests) and outputs (responses) for the **Provisioning action contracts** action, which also includes Entitlement Management.
+The following are schema contracts for provisioning actions, which also includes Entitlement Management.
 
 ### Provisioning Create User
 
@@ -54,9 +54,9 @@ This action schema contract is for provisioning users.
 | **user.schemas** | List of schemas for the user object | array | TRUE |
 | **user.id** | The ID of the user | string | TRUE |
 | **user.externalId** | External ID of the user, defined by the provisioning client | string |  |
-| **user.userName** | An unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty username value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string | TRUE |
+| **user.userName** | A unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty username value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string | TRUE |
 | **user.name** | The components of the user's real name | object |  |
-| **user.name.formatted** | The full name (including middle names, titles, and suffixes) formatted for display | string |  |
+| **user.name.formatted** | The full name (including middle names, titles, and suffixes) that's formatted for display | string |  |
 | **user.name.familyName** | The family name of the user | string |  |
 | **user.name.givenName** | The given name of the user | string |  |
 | **user.name.middleName** | The middle names of the user | string |  |
@@ -148,7 +148,7 @@ This action schema contract is for provisioning users.
 | **user.name.middleName** | The middle names of the user | string |
 | **user.name.honorificPrefix** | The honorific prefix or title of the user | string |
 | **user.name.honorificSuffix** | The honorific suffix of the user | string |
-| **user.displayName** | The name of the user, suitable for display to end-users | string |
+| **user.displayName** | The name of the user for display in the UI | string |
 | **user.nickName** | The casual way to address the user in real life | string |
 | **user.profileUrl** | A fully qualified URL pointing to a page representing the user's online profile | string |
 | **user.title** | The user's title, such as Vice President | string |
@@ -240,9 +240,9 @@ This action schema contract is for provisioning users.
 | **user.schemas** | List of schemas for the user object | array | TRUE |
 | **user.id** | The ID of the user | string | TRUE |
 | **user.externalId** | External ID of the user, defined by the provisioning client | string |  |
-| **user.userName** | An unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty userName value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string | TRUE |
+| **user.userName** | A unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty username value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string | TRUE |
 | **user.name** | The components of the user's real name | object |  |
-| **user.name.formatted** | The full name, including middle names, titles, and suffixes, formatted for display | string |  |
+| **user.name.formatted** | The full name (including middle names, titles, and suffixes) that's formatted for display | string |  |
 | **user.name.familyName** | The family name of the user | string |  |
 | **user.name.givenName** | The given name of the user | string |  |
 | **user.name.middleName** | The middle names of the user | string |  |
@@ -256,7 +256,7 @@ This action schema contract is for provisioning users.
 | **user.preferredLanguage** | Indicates the user's preferred written or spoken language | string |  |
 | **user.locale** | Indicates the user's default location for localization purposes | string |  |
 | **user.timezone** | The user's time zone in Olson database format, for example America/Los_Angeles | string |  |
-| **user.active** | A Boolean value indicating the user's administrative status | boolean |  |
+| **user.active** | A boolean value indicating the user's administrative status | boolean |  |
 | **user.password** | The user's cleartext password used for initial set or reset | string |  |
 | **user.emails** | Email addresses for the user | array |  |
 | **user.emails[].value** | Email address value for the user | string |  |
@@ -327,7 +327,7 @@ This action schema contract is for provisioning users.
 | **user.schemas** | List of schemas for the user object | array |
 | **user.id** | The ID of the user | string |
 | **user.externalId** | External ID of the user, defined by the provisioning client | string |
-| **user.userName** | An unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty userName value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string |
+| **user.userName** | A unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty username value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string |
 | **user.name** | The components of the user's real name | object |
 | **user.name.formatted** | The full name (including middle names, titles, and suffixes) formatted for display | string |
 | **user.name.familyName** | The family name of the user | string |
@@ -343,7 +343,7 @@ This action schema contract is for provisioning users.
 | **user.preferredLanguage** | Indicates the user's preferred written or spoken language | string |
 | **user.locale** | Indicates the user's default location for localization purposes | string |
 | **user.timezone** | The user's time zone in Olson database format, for example America/Los_Angeles | string |
-| **user.active** | A Boolean value indicating the user's administrative status | boolean |
+| **user.active** | A boolean value indicating the user's administrative status | boolean |
 | **user.password** | The user's cleartext password used for initial set or reset | string |
 | **user.emails** | Email addresses for the user | array |
 | **user.emails[].value** | Email address value for the user | string |
@@ -509,7 +509,7 @@ This action schema contract is for provisioning users.
 | **user.schemas** | List of schemas for the user object. REQUIRED | array |
 | **user.id** | The ID of the user. REQUIRED | string |
 | **user.externalId** | External ID of the user, defined by the provisioning client | string |
-| **user.userName** | An unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty username value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string |
+| **user.userName** | A unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty username value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string |
 | **executionStatus** | Execution result details for the request | object |
 | **executionStatus.status** | Execution result state of the request (`SUCCEEDED` or `FAILED`) | string |
 | **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
@@ -539,14 +539,14 @@ This action schema contract is for provisioning users.
 | **user.schemas** | List of schemas for the user object | array |
 | **user.id** | The ID of the user | string |
 | **user.externalId** | External ID of the user, defined by the provisioning client | string |
-| **user.userName** | Unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty userName value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string |
+| **user.userName** | A unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty username value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string |
 | **executionStatus** | Execution result details for the request | object |
 | **executionStatus.status** | Execution result state of the request (`SUCCEEDED` or `FAILED`) | string |
 | **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
 | **executionStatus.errors[].code** | Error code identifier | string |
 | **executionStatus.errors[].summary** | Human-readable summary of the error | string |
-| **executionStatus.errors[].details** | Additional error details | array |
-| **executionStatus.errors[].details[]** | Additional error detail entry | string |
+| **executionStatus.errors[].details** | More error details | array |
+| **executionStatus.errors[].details[]** | More error detail entry | string |
 | **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
 | **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
 | **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
@@ -571,7 +571,7 @@ This action schema contract is for provisioning users.
 | **resources[].schemas** | List of schemas for the user object | array |
 | **resources[].id** | The ID of the user | string |
 | **resources[].externalId** | External ID of the user, defined by the provisioning client | string |
-| **resources[].userName** | Unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty userName value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string |
+| **resources[].userName** | Unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty username value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string |
 | **pagination** | Pagination details for the response | object |
 | **pagination.nextCursor** | Cursor for retrieving the next page of users | string |
 | **executionStatus** | Execution result details for the request | object |
@@ -579,8 +579,8 @@ This action schema contract is for provisioning users.
 | **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
 | **executionStatus.errors[].code** | Error code identifier | string |
 | **executionStatus.errors[].summary** | Human-readable summary of the error | string |
-| **executionStatus.errors[].details** | Additional error details | array |
-| **executionStatus.errors[].details[]** | Additional error detail entry | string |
+| **executionStatus.errors[].details** | More error details | array |
+| **executionStatus.errors[].details[]** | More error detail entry | string |
 | **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
 | **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
 | **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
@@ -594,7 +594,7 @@ This action schema contract is for provisioning users.
 | Property | Description | Type | Required |
 | ----- | ----- | ----- | ----- |
 | **group** | group object for provisioning operations | object |  |
-| **group.schemas** | List of schemas for the Group object | array | TRUE |
+| **group.schemas** | List of schemas for the group object | array | TRUE |
 | **group.id** | The ID of the group | string |  |
 | **group.displayName** | A human-readable name for the group. REQUIRED | string | TRUE |
 | **group.description** | Group description | string |  |
@@ -613,8 +613,8 @@ This action schema contract is for provisioning users.
 | **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
 | **executionStatus.errors[].code** | Error code identifier | string |
 | **executionStatus.errors[].summary** | Human-readable summary of the error | string |
-| **executionStatus.errors[].details** | Additional error details | array |
-| **executionStatus.errors[].details[]** | Additional error detail entry | string |
+| **executionStatus.errors[].details** | More error details | array |
+| **executionStatus.errors[].details[]** | More error detail entry | string |
 | **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
 | **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
 | **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
@@ -647,8 +647,8 @@ This action schema contract is for provisioning groups.
 | **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
 | **executionStatus.errors[].code** | Error code identifier | string |
 | **executionStatus.errors[].summary** | Human-readable summary of the error | string |
-| **executionStatus.errors[].details** | Additional error details | array |
-| **executionStatus.errors[].details[]** | Additional error detail entry | string |
+| **executionStatus.errors[].details** | More error details | array |
+| **executionStatus.errors[].details[]** | More error detail entry | string |
 | **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
 | **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
 | **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
@@ -700,8 +700,8 @@ This action schema contract is for provisioning groups.
 | **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
 | **executionStatus.errors[].code** | Error code identifier | string |
 | **executionStatus.errors[].summary** | Human-readable summary of the error | string |
-| **executionStatus.errors[].details** | Additional error details | array |
-| **executionStatus.errors[].details[]** | Additional error detail entry | string |
+| **executionStatus.errors[].details** | More error details | array |
+| **executionStatus.errors[].details[]** | More error detail entry | string |
 | **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
 | **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
 | **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
@@ -728,8 +728,8 @@ This action schema contract is for provisioning groups.
 | **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
 | **executionStatus.errors[].code** | Error code identifier | string |
 | **executionStatus.errors[].summary** | Human-readable summary of the error | string |
-| **executionStatus.errors[].details** | Additional error details | array |
-| **executionStatus.errors[].details[]** | Additional error detail entry | string |
+| **executionStatus.errors[].details** | More error details | array |
+| **executionStatus.errors[].details[]** | More error detail entry | string |
 | **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
 | **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
 | **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
@@ -761,8 +761,8 @@ This action schema contract is for provisioning groups.
 | **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
 | **executionStatus.errors[].code** | Error code identifier | string |
 | **executionStatus.errors[].summary** | Human-readable summary of the error | string |
-| **executionStatus.errors[].details** | Additional error details | array |
-| **executionStatus.errors[].details[]** | Additional error detail entry | string |
+| **executionStatus.errors[].details** | More error details | array |
+| **executionStatus.errors[].details[]** | More error detail entry | string |
 | **executionStatus.errors[].httpStatusCode** | HTTP status code associated with the error | integer |
 | **executionStatus.errors[].requestId** | Request identifier associated with the error | string |
 | **executionStatus.errors[].type** | Categorized error type (`RESOURCE_NOT_FOUND`, `RATE_LIMIT_EXCEEDED`, `INVALID_CREDENTIALS`, `TOKEN_EXPIRED`, `GENERIC_FAILURE`) | string |
@@ -908,7 +908,7 @@ This action schema contract is for provisioning Entitlement Management.
 | **schemaProperties[].enumConstraint** | List of allowed enum values | array |
 | **schemaProperties[].oneOfConstraint** | Map of allowed key-value pairs for the property | object |
 | **schemaProperties[].enumTitles** | Display titles for enum values | object |
-| **schemaProperties[].__metadata** | Additional metadata for the schema property | object |
+| **schemaProperties[].__metadata** | More metadata for the schema property | object |
 | **schemaProperties[].properties[]** | Nested schema property definitions (for object types) | array |
 | **schemaProperties[].minItems** | Minimum number of items (for array types) | number |
 | **schemaProperties[].maxItems** | Maximum number of items (for array types) | number |
@@ -977,7 +977,7 @@ This action schema contract is for provisioning Entitlement Management.
 | **schemaProperties[].enumConstraint** | List of allowed enum values | array |
 | **schemaProperties[].oneOfConstraint** | Map of allowed key-value pairs for the property | object |
 | **schemaProperties[].enumTitles** | Display titles for enum values | object |
-| **schemaProperties[].__metadata** | Additional metadata for the schema property | object |
+| **schemaProperties[].__metadata** | More metadata for the schema property | object |
 | **schemaProperties[].properties[]** | Nested schema property definitions (for object types) | array |
 | **schemaProperties[].minItems** | Minimum number of items (for array types) | number |
 | **schemaProperties[].maxItems** | Maximum number of items (for array types) | number |
