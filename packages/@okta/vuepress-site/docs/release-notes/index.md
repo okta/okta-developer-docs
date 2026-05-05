@@ -5,7 +5,7 @@ meta:
     content: List of changes to the Okta API and related API...
 ---
 
-# Okta API Release Notes
+# Okta Developer Doc Release Notes
 
 Each month, Okta releases API-specific features, enhancements, bug fixes, and Okta Integration Network updates. The monthly release includes Generally Available (GA) and Early Access (EA) features. Following the monthly release, bug fixes and stability improvements are deployed weekly for the remainder of the month.
 
@@ -24,6 +24,10 @@ Learn about features and fixes deployed to the following Okta products:
 * [Okta Access Gateway 2026](/docs/release-notes/2026-okta-access-gateway/)
 
 * [Okta Aerial 2026](/docs/release-notes/2026-okta-aerial)
+
+* [Okta MCP Server 2026](/docs/release-notes/2026-okta-mcp-server/)
+
+* [Okta Developer Tools 2026](/docs/release-notes/2026-okta-dev-tools)
 
 You can find older release notes in the [Archive](/docs/release-notes/archive) section.
 
