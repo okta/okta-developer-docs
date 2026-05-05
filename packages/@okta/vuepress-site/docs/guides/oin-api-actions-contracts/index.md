@@ -59,7 +59,7 @@ This action schema contract is for provisioning users.
 | **user.name.formatted** | The full name (including middle names, titles, and suffixes) that's formatted for display | string |  |
 | **user.name.familyName** | The family name of the user | string |  |
 | **user.name.givenName** | The given name of the user | string |  |
-| **user.name.middleName** | The middle names of the user | string |  |
+| **user.name.middleName** | The middle name of the user | string |  |
 | **user.name.honorificPrefix** | The honorific prefix or title of the user | string |  |
 | **user.name.honorificSuffix** | The honorific suffix of the user | string |  |
 | **user.displayName** | The name of the user, suitable for display to end users | string |  |
