@@ -56,7 +56,7 @@ This action schema contract is for provisioning users.
 | **user.externalId** | External ID of the user, defined by the provisioning client | string |  |
 | **user.userName** | A unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user must include a non-empty username value. This identifier must be unique across the service provider's entire set of users. Required. | string | TRUE |
 | **user.name** | The components of the user's real name | object |  |
-| **user.name.formatted** | The full name (including middle names, titles, and suffixes) that's formatted for display | string |  |
+| **user.name.formatted** | The full name (including middle name, titles, and suffixes) that's formatted for display | string |  |
 | **user.name.familyName** | The family name of the user | string |  |
 | **user.name.givenName** | The given name of the user | string |  |
 | **user.name.middleName** | The middle name of the user | string |  |
@@ -142,10 +142,10 @@ This action schema contract is for provisioning users.
 | **user.externalId** | External ID of the user, defined by the provisioning client | string |
 | **user.userName** | Unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user must include a non-empty userName value. This identifier must be unique across the service provider's entire set of users. Required. | string |
 | **user.name** | The components of the user's real name | object |
-| **user.name.formatted** | The full name, including middle names, titles, and suffixes, formatted for display | string |
+| **user.name.formatted** | The full name, including middle name, titles, and suffixes, formatted for display | string |
 | **user.name.familyName** | The family name of the user | string |
 | **user.name.givenName** | The given name of the user | string |
-| **user.name.middleName** | The middle names of the user | string |
+| **user.name.middleName** | The middle name of the user | string |
 | **user.name.honorificPrefix** | The honorific prefix or title of the user | string |
 | **user.name.honorificSuffix** | The honorific suffix of the user | string |
 | **user.displayName** | The name of the user for display in the UI | string |
@@ -240,12 +240,12 @@ This action schema contract is for provisioning users.
 | **user.schemas** | List of schemas for the user object | array | TRUE |
 | **user.id** | The ID of the user | string | TRUE |
 | **user.externalId** | External ID of the user, defined by the provisioning client | string |  |
-| **user.userName** | A unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty username value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string | TRUE |
+| **user.userName** | A unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user must include a non-empty username value. This identifier must be unique across the service provider's entire set of users. Required. | string | TRUE |
 | **user.name** | The components of the user's real name | object |  |
-| **user.name.formatted** | The full name (including middle names, titles, and suffixes) that's formatted for display | string |  |
+| **user.name.formatted** | The full name (including middle name, titles, and suffixes) that's formatted for display | string |  |
 | **user.name.familyName** | The family name of the user | string |  |
 | **user.name.givenName** | The given name of the user | string |  |
-| **user.name.middleName** | The middle names of the user | string |  |
+| **user.name.middleName** | The middle name of the user | string |  |
 | **user.name.honorificPrefix** | The honorific prefix or title of the user | string |  |
 | **user.name.honorificSuffix** | The honorific suffix of the user | string |  |
 | **user.displayName** | The name of the user, suitable for display to end users | string |  |
@@ -327,12 +327,12 @@ This action schema contract is for provisioning users.
 | **user.schemas** | List of schemas for the user object | array |
 | **user.id** | The ID of the user | string |
 | **user.externalId** | External ID of the user, defined by the provisioning client | string |
-| **user.userName** | A unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty username value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string |
+| **user.userName** | A unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user must include a non-empty username value. This identifier must be unique across the service provider's entire set of users. Required. | string |
 | **user.name** | The components of the user's real name | object |
 | **user.name.formatted** | The full name (including middle names, titles, and suffixes) formatted for display | string |
 | **user.name.familyName** | The family name of the user | string |
 | **user.name.givenName** | The given name of the user | string |
-| **user.name.middleName** | The middle names of the user | string |
+| **user.name.middleName** | The middle name of the user | string |
 | **user.name.honorificPrefix** | The honorific prefix or title of the user | string |
 | **user.name.honorificSuffix** | The honorific suffix of the user | string |
 | **user.displayName** | The name of the user, suitable for display to end users | string |
@@ -509,7 +509,7 @@ This action schema contract is for provisioning users.
 | **user.schemas** | List of schemas for the user object. REQUIRED | array |
 | **user.id** | The ID of the user. Required. | string |
 | **user.externalId** | External ID of the user, defined by the provisioning client | string |
-| **user.userName** | A unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty username value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string |
+| **user.userName** | A unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user must include a non-empty username value. This identifier must be unique across the service provider's entire set of users. Required. | string |
 | **executionStatus** | Execution result details for the request | object |
 | **executionStatus.status** | Execution result state of the request (`SUCCEEDED` or `FAILED`) | string |
 | **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
@@ -539,7 +539,7 @@ This action schema contract is for provisioning users.
 | **user.schemas** | List of schemas for the user object | array |
 | **user.id** | The ID of the user | string |
 | **user.externalId** | External ID of the user, defined by the provisioning client | string |
-| **user.userName** | A unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty username value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string |
+| **user.userName** | A unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user must include a non-empty username value. This identifier must be unique across the service provider's entire set of users. Required. | string |
 | **executionStatus** | Execution result details for the request | object |
 | **executionStatus.status** | Execution result state of the request (`SUCCEEDED` or `FAILED`) | string |
 | **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
@@ -571,7 +571,7 @@ This action schema contract is for provisioning users.
 | **resources[].schemas** | List of schemas for the user object | array |
 | **resources[].id** | The ID of the user | string |
 | **resources[].externalId** | External ID of the user, defined by the provisioning client | string |
-| **resources[].userName** | Unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty username value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string |
+| **resources[].userName** | Unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user must include a non-empty username value. This identifier must be unique across the service provider's entire set of users. Required. | string |
 | **pagination** | Pagination details for the response | object |
 | **pagination.nextCursor** | Cursor for retrieving the next page of users | string |
 | **executionStatus** | Execution result details for the request | object |
@@ -606,7 +606,7 @@ This action schema contract is for provisioning users.
 | **group** | A SCIM group object | object |
 | **group.schemas** | List of schemas for the group object | array |
 | **group.id** | The ID of the group | string |
-| **group.displayName** | A human-readable name for the group. REQUIRED | string |
+| **group.displayName** | A human-readable name for the group. Required. | string |
 | **group.description** | Group description | string |
 | **executionStatus** | Execution result details for the request | object |
 | **executionStatus.status** | Execution result state of the request (`SUCCEEDED` or `FAILED`) | string |
@@ -630,7 +630,7 @@ This action schema contract is for provisioning groups.
 | **group** | group object for provisioning operations | object |  |
 | **group.schemas** | List of schemas for the group object | array | TRUE |
 | **group.id** | The ID of the group | string |  |
-| **group.displayName** | A human-readable name for the group. REQUIRED | string | TRUE |
+| **group.displayName** | A human-readable name for the group. Required. | string | TRUE |
 | **group.description** | Group description | string |  |
 
 #### Output
@@ -640,7 +640,7 @@ This action schema contract is for provisioning groups.
 | **group** | A SCIM group object | object |
 | **group.schemas** | List of schemas for the group object | array |
 | **group.id** | The ID of the group | string |
-| **group.displayName** | A human-readable name for the group. REQUIRED | string |
+| **group.displayName** | A human-readable name for the group. Required. | string |
 | **group.description** | Group description | string |
 | **executionStatus** | Execution result details for the request | object |
 | **executionStatus.status** | Execution result state of the request (`SUCCEEDED` or `FAILED`) | string |
