@@ -507,7 +507,7 @@ This action schema contract is for provisioning users.
 | ----- | ----- | ----- |
 | **user** | A SCIM user object | object |
 | **user.schemas** | List of schemas for the user object. REQUIRED | array |
-| **user.id** | The ID of the user. REQUIRED | string |
+| **user.id** | The ID of the user. Required. | string |
 | **user.externalId** | External ID of the user, defined by the provisioning client | string |
 | **user.userName** | A unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user MUST include a non-empty username value. This identifier MUST be unique across the service provider's entire set of users. REQUIRED | string |
 | **executionStatus** | Execution result details for the request | object |
