@@ -138,7 +138,8 @@ A dedicated test admin account in your app is required for Okta integration test
 
 * Privileges to configure admin settings in your test app
 * Privileges to administer test users in your test app
-<StackSnippet snippet="test-info-review"/>
+
+<StackSnippet snippet="test-info-review" inline/>
 
 After your integration is verified, Okta automatically deletes test account credentials 30 days after your app is published in the OIN Wizard. To resubmit your app after this period, create a test account and provide the required information.
 
@@ -227,7 +228,7 @@ The **Application instances for testing** section displays, by default, the inst
 
 An instance is eligible if it was generated from the latest version of the integration submission in the OIN Wizard. An instance is ineligible if it was generated from a previous version of the integration submission and you later made edits to the submission. This is to ensure that you test your integration based on the latest submission details.
 
-If you modify a published OIN integration, you must generate an instance based on the currently published integration for backwards-compatibility testing. A backwards-compatible instance is eligible if it was generated from the published version of the integration before any edits are made in the current submission. The OIN Wizard detects if you're modifying a published OIN integration and asks you to generate a backwards-compatible instance before you make any edits.
+If you modify a published OIN integration, you must generate an instance based on the currently published integration for backward-compatibility testing. A backward-compatible instance is eligible if it was generated from the published version of the integration before any edits are made in the current submission. The OIN Wizard detects if you're modifying a published OIN integration and asks you to generate a backward-compatible instance before you make any edits.
 
 > **Note:** The Integrator Free Plan org has no limit on active instances. You can create as many test instances as needed for your integration. To deactivate any instances you no longer need, see [Deactivate an app instance in your org](#deactivate-an-app-instance-in-your-org).
 

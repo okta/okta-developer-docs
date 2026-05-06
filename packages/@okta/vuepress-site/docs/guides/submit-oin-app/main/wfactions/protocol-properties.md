@@ -15,7 +15,7 @@
     | **User schema discovery** `*` | Operations that allow Okta to retrieve your app's user schema and the available attribute values. These are required for attribute mapping and profile sourcing. |
     | List user schema | Specify the flow to list your user schema. |
     | List user schema property values | Specify the flow to list your user schema and the available attribute values.        |
-    | **User operations** | User lifecycle management operations that Okta can perform in your app. Each operation is optional. Okta only calls the operations that you define. |
+    | **User operations** | User lifecycle management operations that Okta can perform in your app. Each operation is optional. However, they could be required, depending on the provisioning capability you want to support. Okta only calls the operations that you define. |
     | Create user (Optional) | Specify the flow for Okta to create a user in your app. |
     | Update user (Optional) | Specify the flow for Okta to update a user in your app. |
     | Update user password (Optional) | Specify the flow for Okta to update a user password in your app. |

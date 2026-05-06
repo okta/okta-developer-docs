@@ -16,7 +16,7 @@
 
 | Custom | Settings required for API Integration Action custom authentication |
 |-------| ----------- |
-| **Authentication variables** | Specify the variables used for **Custom** authentication in your integration actions. The variables are shown as parameters in the Integration Builder. |
+| **Authentication variables** | Specify the variables used for **Custom** authentication in your integration actions. The variables are shown as connection parameters in the Integration Builder. |
 | **Label** | Specify the label of the authentication variable. This is the display name for the parameter that is shown in the dialog when an admin sets up your integration. |
 | **Name**| Specify the authentication variable name (the parameter name).  |
 

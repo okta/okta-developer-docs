@@ -817,6 +817,10 @@ export const guides = [
                 title: "Build integrations with API Integration Actions",
                 guideName: "build-api-actions",
               },
+              {
+                title: "API Integration Actions reference",
+                path: "/docs/guides/oin-api-actions-contracts/",
+              }
             ],
           },
           {
