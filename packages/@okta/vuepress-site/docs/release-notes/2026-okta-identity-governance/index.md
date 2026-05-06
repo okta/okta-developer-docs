@@ -25,7 +25,7 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 Allow or block campaign reviewers from approving or revoking their own access to Okta admin roles. While Okta prevents self-reviews in campaigns that govern Okta admin roles by default, this feature gives you the option to allow self-reviews. See [Create campaigns to review admin roles](https://help.okta.com/okta_help.htm?type=oie&id=csh-campaign-admin-roles).
 
-As a result, the [`reviewerSettings.selfReviewDisabled`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reviewersettings/selfreviewdisabled) and the [reviewerSettings.reviewerLevels[].selfReviewDisabled](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reviewersettings/reviewerlevels/selfreviewdisabled) properties aren't required to be `true` for campaigns that include the Admin Console as a resource.
+As a result, the [`reviewerSettings.selfReviewDisabled`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reviewersettings/selfreviewdisabled) and the [`reviewerSettings.reviewerLevels[].selfReviewDisabled`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reviewersettings/reviewerlevels/selfreviewdisabled) properties aren't required to be `true` for campaigns that include the Admin Console as a resource.
 <!--  OKTA-1163396 IGA_ACCESS_CERT_ALLOW_SELF_REVIEW_GOFAR, Preview date: May 6, 2026 -->
 
 #### Governance Analyzer is EA
