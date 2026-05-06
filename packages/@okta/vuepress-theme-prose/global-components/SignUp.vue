@@ -370,6 +370,7 @@
           :icon="theme === 'dark' ? '/img/icons/container-bucket-dark.svg' : '/img/icons/container-bucket.svg'"
         />
       </div>
+      <SignUpPartnerLogos :theme="theme" />
     </div>
   </section>
 </template>
@@ -388,6 +389,7 @@ import getAnalyticsValues from "../util/attribution/attribution";
 import storage from "../util/localStorage";
 import { getIdpUri } from "../util/uris";
 import { GeoLocation, isRegionLocked } from "../util/geoLocation";
+import SignUpPartnerLogos from "../components/signup/SignUpPartnerLogos.vue";
 
 const CANADA = "Canada";
 const USA = "United States";
@@ -401,6 +403,7 @@ export default {
   components: {
     VueRecaptcha,
     SignUpFeatureCard: () => import("../components/signup/SignUpFeatureCard"),
+    SignUpPartnerLogos: () => import("../components/signup/SignUpPartnerLogos"),
     CompanyLogos: () => import("../components/CompanyLogos"),
     SmartLink: () => import("../components/SmartLink"),
     TermsAndConditionsDialog: () =>
