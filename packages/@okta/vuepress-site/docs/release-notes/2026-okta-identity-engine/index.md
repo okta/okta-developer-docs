@@ -94,7 +94,7 @@ For more information about the new settings and updates, see [Passkeys and WebAu
 
 * The new [Sign-up flows](/docs/concepts/sign-up-flows/ ) guide provides best practices for designing secure, high-conversion registration strategies. This resource helps developers balance user experience and security by covering topics such as progressive enrollment and automated group assignments.
 
-* The new [Script your user migration with the Okta Users API](/docs/guides/migrate-to-okta-with-scripts/) guide demonstrates how to programmatically import users from an external system to Okta using the Okta Users API. This guide provides best practices and sample code to help you script 3 import scenarios.
+* The new [Script your user migration with the Okta Users API](/docs/guides/migrate-to-okta-with-scripts/) guide demonstrates how to programmatically import users from an external system to Okta using the Okta Users API. This guide provides best practices and sample code to help you script three import scenarios.
 
 * The new [Migrate users to Okta](/docs/journeys/OCI-migrate-users/main/) journey helps you move your existing user accounts into Okta's Universal Directory, centralizing identity management and improving security.
 
