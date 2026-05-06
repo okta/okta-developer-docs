@@ -209,3 +209,5 @@ You can configure and run test flows to test your API actions across multiple us
 ## Support
 
 Post a question on the [Okta Developer Forum](https://devforum.okta.com/c/questions/oin-submissions/19) if you need help or have an issue.
+
+See [Integration Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder).
