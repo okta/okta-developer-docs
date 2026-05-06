@@ -18,7 +18,7 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Service accounts is GA]()| May 6, 2026 |
+| [Service accounts is GA](#service-accounts-is-ga)| May 6, 2026 |
 
 #### Service accounts is GA
 
