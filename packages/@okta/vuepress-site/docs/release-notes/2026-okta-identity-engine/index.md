@@ -35,7 +35,7 @@ title: Okta Identity Engine API release notes 2026
 
 You can now configure the identity claims sourcing policy which enables federated users to re-authenticate with their most recent and active SSO IdP.
 
-Reauthentication to an IdP helps Okta admins secure federated identities by redirecting federated users to their source SAML, OIDC, or Org2Org IdP when a policy requires them to reauthenticate. By forcing reauthentication at the source IdP, admins can close security gaps from long-lived sessions and remove the need to configure duplicate MFA enrolment in Okta.
+Reauthentication to an IdP helps Okta admins secure federated identities by redirecting federated users to their source SAML, OIDC, or Org2Org IdP when a policy requires them to reauthenticate. By forcing reauthentication at the source IdP, admins can close security gaps from long-lived sessions and remove the need to configure duplicate MFA enrollment in Okta.
 
 See [Configure the identity claims sourcing policy](/docs/guides/configure-identity-claims-sourcing-policy/main/).
 
