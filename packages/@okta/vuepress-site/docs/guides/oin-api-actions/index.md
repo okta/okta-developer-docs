@@ -20,7 +20,7 @@ As an ISV, start building your integration in the OIN Wizard by defining your in
 ### Process overview
 
 1. Start your submission in the [OIN Wizard: Submit an integration](/docs/guides/submit-oin-app/wfactions/main/).
-2. Build your API integration actions in the Integration Builder by following [Build an integration with API Integration Actions](/docs/guides/build-api-actions/main/) guide. Define the authentication and action flows to your API server.
+2. Build your API integration actions in the Integration Builder by following the [Build an integration with API Integration Actions](/docs/guides/build-api-actions/main/) guide. Define the authentication and action flows to your API server.
 3. Return to the OIN Wizard to complete the integration configuration and testing. The actions you define in the Integration Builder become available in the OIN Wizard for real-time testing.
 4. Submit for validation through the OIN Wizard once you're satisfied with your integration's functionality.
 
