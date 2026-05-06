@@ -19,6 +19,7 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
  Change | Expected in Preview Orgs |
 | ------| ------------------------ |
 | [Self-review for Okta admin roles is EA](#self-review-for-okta-admin-roles-is-ea) | May 6, 2026|
+| [Governance Analyzer](#governance-analyzer) | May 6, 2026|
 
 #### Self-review for Okta admin roles is EA
 
@@ -26,6 +27,16 @@ Allow or block campaign reviewers from approving or revoking their own access to
 
 As a result, the [`reviewerSettings.selfReviewDisabled`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reviewersettings/selfreviewdisabled) and the [reviewerSettings.reviewerLevels[].selfReviewDisabled](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reviewersettings/reviewerlevels/selfreviewdisabled) properties aren't required to be `true` for campaigns that include the Admin Console as a resource.
 <!--  OKTA-1163396 IGA_ACCESS_CERT_ALLOW_SELF_REVIEW_GOFAR, Preview date: May 6, 2026 -->
+
+#### Governance Analyzer
+
+Governance Analyzer provides access certification campaign reviewers with insights and recommendations to make more informed decisions when approving or revoking user access. See [Governance Analyzer](https://help.okta.com/okta_help.htm?type=oie&id=csh-gov-analyzer) in the product documentation.
+
+The following [My Access Certification Reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews) end-user operations are now available to support the Governance Analyzer feature:
+
+* Submit a bulk-review decision
+* Retrieve the status of a bulk-review submission
+<!-- OKTA-1168162 IGA_REVIEW_ML_RECOMMENDATIONS Preview: May 6, 2026 -->
 
 ## April
 

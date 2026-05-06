@@ -26,7 +26,7 @@ title: Okta Identity Engine API release notes 2026
 | [PIV Identity Provider supports dynamic user matching](#piv-identity-provider-supports-dynamic-user-matching) | May 6, 2026 |
 | [SHA-256 digest algorithm support is GA in Preview](#sha-256-digest-algorithm-support-is-ga-in-preview) | Dec 10, 2025 |
 | [Skip counts for authenticator enrollment grace periods is GA in Production](#skip-counts-for-authenticator-enrollment-grace-periods-is-ga-in-production) | Feb 4, 2026 |
-| [Client update policy is GA in Production is GA in Production](#client-update-policy-is-ga-in-production-is-ga-in-production) | Jan 7, 2026 |
+| [Client update policy is GA in Production](#client-update-policy-is-ga-in-production) | Jan 7, 2026 |
 | [Passkeys rebrand is GA in Production](#passkeys-rebrand-is-ga-in-production) | Feb 4, 2026 |
 | [Developer documentation updates in 2026.05.0](#developer-documentation-updates-in-2026-05-0) | May 6, 2026 |
 | [Bug fixed in 2026.05.0](#bug-fixed-in-2026-05-0)| May 6, 2026 |
@@ -78,7 +78,7 @@ This feature allows admins to define a number of skips end users can defer enrol
 
 <!-- OKTA-1044803 FF: ENROLLMENT_POLICY_GRACE_PERIOD_V2 preview date: Feb 4, 2026 -->
 
-#### Client update policy is GA in Production is GA in Production
+#### Client update policy is GA in Production
 
 The Policies API now supports the `CLIENT_POLICY` type, enabling you to enforce or defer app updates across different device platforms. This lets you programmatically align app versions with internal change management processes. See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies) and [Release controls policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-ov-release-controls). <!-- OKTA_VERIFY_RELEASE_CONTROL_POLICY OKTA-1036332 January 7, 2026 -->
 
