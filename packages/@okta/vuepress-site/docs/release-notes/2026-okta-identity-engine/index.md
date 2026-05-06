@@ -96,13 +96,13 @@ For more information about the new settings and updates, see [Passkeys and WebAu
 
 * The new [Script your user migration with the Okta Users API](/docs/guides/migrate-to-okta-with-scripts/) guide demonstrates how to programmatically import users from an external system to Okta using the Okta Users API. This guide provides best practices and sample code to help you script 3 import scenarios.
 
-* The new [Migrate users to Okta](docs/journeys/OCI-migrate-users/main/) journey helps you move your existing user accounts into Okta's Universal Directory, centralizing identity management and improving security.
+* The new [Migrate users to Okta](/docs/journeys/OCI-migrate-users/main/) journey helps you move your existing user accounts into Okta's Universal Directory, centralizing identity management and improving security.
 
 * The new [Plan your user migration to Okta](/docs/guides/migrate-to-okta-plan/main/) guide helps you create a more comprehensive and tailored migration plan. It provides a structured, question-based approach to planning.
 
 * The new [Test your migration plan](/docs/guides/test-your-migration-plan/main/) guide helps you test your migration method before moving to production. It provides a systematic approach to create test scenarios, track defects, and establish a rollback plan.
 
-* The [Set up AI agent token exchange](docs/guides/ai-agent-token-exchange/authserver/main/) guide has been updated to include configuration instructions for resource servers (such as MCP servers). The Token Exchange flow diagram has also been updated to be specific for each resource type.
+* The [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/authserver/main/) guide has been updated to include configuration instructions for resource servers (such as MCP servers). The Token Exchange flow diagram has also been updated to be specific for each resource type.
 
 #### Bug fixed in 2026.05.0
 
