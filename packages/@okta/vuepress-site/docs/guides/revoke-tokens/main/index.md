@@ -60,7 +60,7 @@ curl --location --request POST 'https://{yourOktaDomain}/oauth2/v1/revoke' \
 
 ### Revoke only the refresh token
 
-If you revoke only the refresh token, then the access token is also revoked. This allows you to, for example, force a user to reauthenticate.
+If you revoke only the refresh token, then the access token is also revoked. This allows you to, for example, force a user to re-authenticate.
 
 #### Request Example
 

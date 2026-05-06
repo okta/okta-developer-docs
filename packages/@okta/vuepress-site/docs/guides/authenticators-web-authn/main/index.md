@@ -34,7 +34,7 @@ Passwords and other authenticators that rely on one-time passcodes (OTPs) are vu
 
 To be resistant to phishing attacks, a local communication channel must exist between the device and the authentication factor. WebAuthn supplies this local communication channel by providing a framework to authenticate through USB security keys, fingerprints, Touch ID, and other types of localized authenticators. For example, an app running in a browser can authenticate a user by initiating a biometric request using a fingerprint scanner on their laptop.
 
-Besides being resistant to phishing attacks, WebAuthn can drastically reduce sign-in friction by allowing passwordless sign-ins during reauthentication use cases. For example, mobile banking apps use this type of sign-in flow. Some mobile banking apps allow iPhone users to sign in using only Face ID after the user first signs in with a password.
+Besides being resistant to phishing attacks, WebAuthn can drastically reduce sign-in friction by allowing passwordless sign-ins during re-authentication use cases. For example, mobile banking apps use this type of sign-in flow. Some mobile banking apps allow iPhone users to sign in using only Face ID after the user first signs in with a password.
 
 > **Note**: For detailed information on the WebAuthn standard, including an up-to-date list of supported browsers, see [webauthn.me](https://a0.to/webauthnme-okta-docs).
 

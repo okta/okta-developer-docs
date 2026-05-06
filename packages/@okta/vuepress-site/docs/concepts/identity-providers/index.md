@@ -126,6 +126,8 @@ You can also set up group sync to specify the groups that users should be added 
 
 You can define logic to determine which IdP individual end users are routed to when they authenticate. You can define that logic only if you have more than one IdP configured in your org. For example, if you have just one external IdP, in addition to Okta itself also serving as an IdP. This functionality is called IdP Discovery, or IdP routing rules. You can configure it by using the [IdP Discovery policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy).
 
+To control which IdP Okta redirects federated users to when re-authentication is required, use the [identity claims sourcing policy](/docs/concepts/policies/#identity-claims-sourcing-policies). <ApiLifecycle access="ea" />
+
 The Okta Sign-In Widget (version 2.5.0 or above) interacts with the IdP Discovery policy to redirect end users to the IdP determined by the policy.
 
 > **Note:** Version 1 of the Okta API supports IdP Discovery with the Okta-hosted widget only.

@@ -34,7 +34,7 @@ You can [configure a global session policy](/docs/guides/configure-signon-policy
 
 ### Control how users access your app
 
-The [app sign-in policy](#app-sign-in-policies) for each app determines what extra levels of authentication must be performed before a user can access an app. [Add a rule](/docs/guides/configure-access-policy), for example, to prompt groups that are assigned to your app to reauthenticate after 60 minutes.
+The [app sign-in policy](#app-sign-in-policies) for each app determines what extra levels of authentication a user must perform before they can access an app. [Add a rule](/docs/guides/configure-access-policy), for example, to prompt groups that are assigned to your app to re-authenticate after 60 minutes.
 
 A [password policy](#password-policies) also helps you control how users access your app. It determines the requirements for a user's password length and complexity, and it defines how often a user must change their password.
 
@@ -95,7 +95,11 @@ The [Okta account management policy](#okta-account-management-policy) and its ru
 
 The [Identity Threat Protection policies](#identity-threat-protection-policies) use the entity risk policy and session protection policy for threat evaluations.
 
+The [identity claims sourcing policy](#identity-claims-sourcing-policy) controls whether Okta re-authenticates federated users locally or redirects them to their external IdP when re-authentication is required.
+
 #### App sign-in policies
+
+<ApiLifecycle access="ie" />
 
 An [app sign-in policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) determines the extra levels of authentication performed before a user can access an app, such as enforcing factor requirements. See [App sign-in policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop).
 
@@ -121,6 +125,8 @@ See [Okta account management policy](https://help.okta.com/okta_help.htm?type=oi
 
 #### Device assurance policies
 
+<ApiLifecycle access="ie" />
+
 Use [device assurance policies](/docs/guides/device-assurance-policies/main/) to check sets of security-related device attributes. Device assurance works as part of your [app sign-in policies](#app-sign-in-policies).
 
 For example, you can configure a device assurance policy to check whether a specific operating system version is installed on a device. Once verified, that device can be used to access Okta-protected resources.
@@ -145,11 +151,33 @@ Identity Threat Protection with Okta AI is an identity threat solution that comb
 
 #### Device signal collection policies
 
+<ApiLifecycle access="ie" />
+
 Use [device signal collection policies](/docs/guides/device-signal-collection-policies/main/) to collect contextual information about registered devices and control how those registered devices are used during authentication. Device signal collection works as part of your [app sign-in policies](#app-sign-in-policies).
 
 The device signal collection policies can collect [information](https://help.okta.com/okta_help.htm?type=oie&id=ext-ov-datatypes) about registered devices and the platforms that devices use.
 
 See [Create device signal collection rules](https://help.okta.com/okta_help.htm?type=oie&id=create-device-signal-collection-ruleset) for details about configuring the policy in the Admin Console.
+
+### Identity claims sourcing policy
+
+<ApiLifecycle access="ea" /><ApiLifecycle access="ie" />
+
+The identity claims sourcing policy (`IDENTITY_CLAIM_SOURCING`) controls how Okta re-authenticates federated users. Federated users have their Okta session established through a third-party IdP (such as Microsoft Entra ID) or an Okta Org2Org IdP. Third-party IdPs are external identity providers connected to Okta through OIDC or SAML. Org2Org IdPs connect two Okta orgs, where one org acts as the identity provider for users signing in to the other.
+
+When an [app sign-in policy](#app-sign-in-policies) or [Okta account management policy](#okta-account-management-policy) requires re-authentication, Okta evaluates the claims sourcing policy to determine whether to handle re-authentication locally or redirect the user back to the IdP that established their session. Local re-authentication means that Okta prompts the user to authenticate with authenticators that are configured in the org. For example, a user is prompted to authenticate with Okta Verify instead of redirecting to the external IdP.
+
+Re-authentication is required when a user's session in an app has reached its maximum lifetime, and you set that re-authentication requirement in app sign-in policies or the Okta account management policy.
+
+The policy rule `refresh.redirectType` setting has two options:
+
+* `NONE`: (default) Okta performs re-authentication locally, prompting the user to authenticate with authenticators that are configured and enrolled from the org, such as Okta Verify.
+* `FIXED`: Okta redirects the user to the third-party or Org2Org IdP that last established their Okta session. The IdP must also be active. You can optionally configure a filter list of allowed IdPs to limit which IdPs are eligible for redirect. If the IdP isn't in the filter list, Okta handles re-authentication locally.
+
+See:
+
+* [Configure the identity claims sourcing policy](/docs/guides/configure-identity-claims-sourcing-policy/main/)
+* [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy)
 
 ### Password policies
 
@@ -186,6 +214,8 @@ To see the grace periods object in the API reference documentation, see the [Pol
 
 #### User profile policies
 
+<ApiLifecycle access="ie" />
+
 The [User profile policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) collects the attributes required to validate users when they attempt to access your app. Use this policy for [self-service registration](/docs/journeys/OCI-web-sign-up/main/), [progressive enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-pe-policies), or [multiple identifiers](https://help.okta.com/okta_help.htm?type=oie&id=ext-multiple-ids).
 
 * With self-service registration flows, users register and activate their profiles by clicking a sign-up link in the Sign-In Widget or through a custom-embedded authentication solution.
@@ -193,6 +223,8 @@ The [User profile policy](https://developer.okta.com/docs/api/openapi/okta-manag
 * With multiple identifiers, you can map custom attributes to custom identifiers. Then, Okta can identify users by those identifiers, instead of by their username. The custom attributes must be unique, contain no sensitive information, and be either read-write or read-only. For example, you can create a custom attribute, `employeeNumber`, and then enable users to sign in with their `employeeNumber` by configuring it as an identifier in the user profile policy.
 
 ### Client update policies
+
+<ApiLifecycle access="ie" />
 
 The client update policy allows admins to manage the delivery and acceptance of updates for specific client apps, such as Okta Verify.
 

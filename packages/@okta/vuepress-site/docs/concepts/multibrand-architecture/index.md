@@ -212,7 +212,7 @@ Consider the following controls:
 * **App label:** Parse a custom string within the label. Optimal for dynamic and managed branding. Similar to brand families, this control allows you to inject regional or regulatory metadata to adjust the experience.
 * **App ID:** Use with an external lookup service. Supports the greatest variation. Best for when a market requires unique, app-wide brand and experience changes that need a high degree of variation.
 * **Domain:** Carries branding across the entire experience. Use this control if a specific domain is synonymous with a specific market or brand.
-  > **Caution:** If apps are shared across markets, the use of a different domain per market breaks SSO, and forces users to reauthenticate when transitioning between brands.
+  > **Caution:** If apps are shared across markets, the use of a different domain per market breaks SSO, and forces users to re-authenticate when transitioning between brands.
 
 ## Context controls reference
 
@@ -244,7 +244,7 @@ The following table lists controls that you control externally:
 
 The use of separate Okta orgs or tenants solely for branding or market segmentation isn’t recommended for the following reasons:
 
-* **Breaks SSO:** Users must reauthenticate when moving between apps hosted on different orgs.
+* **Breaks SSO:** Users must re-authenticate when moving between apps hosted on different orgs.
 * **Forces Directory Segmentation:** Multi-org solutions create multiple separate user directories, which increases management overhead.
 * **Splits the user population:** User data is segmented across tenants, and complicates global reporting and user management.
 
