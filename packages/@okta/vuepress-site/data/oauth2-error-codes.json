@@ -1,6 +1,6 @@
 {
-  "release" : "2026.04.1",
-  "build" : "2026.04.1-begin-209-gb10cfad58fb2",
+  "release" : "2026.05.1",
+  "build" : "2026.05.1-begin-232-g4c8ed7fe9896",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -414,6 +414,20 @@
     "internalErrorCode" : "direct_auth_factor_enrollment_required",
     "errorCode" : "access_denied",
     "errorDescription" : "The required authenticator cannot be used. Check if it is required by policy and the user is enrolled in the authenticator and try again."
+  }, {
+    "title" : "Direct auth requirements not challenged",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "direct_auth_requirements_not_challenged",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The user is not challenged for any authenticators by the current policy."
+  }, {
+    "title" : "Direct auth requirements no supported authenticators",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "direct_auth_requirements_no_supported_authenticators",
+    "errorCode" : "access_denied",
+    "errorDescription" : "No supported authenticators are available."
   }, {
     "title" : "Direct auth expired token",
     "statusCode" : 403,
@@ -940,6 +954,41 @@
     "errorCode" : "invalid_client_metadata",
     "errorDescription" : "Invalid request"
   }, {
+    "title" : "Cimd client ID mismatch",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "cimd_client_id_mismatch",
+    "errorCode" : "invalid_client_metadata",
+    "errorDescription" : "The 'client_id' in the metadata document does not match the URL used to fetch it."
+  }, {
+    "title" : "Cimd missing redirect URIs",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "cimd_missing_redirect_uris",
+    "errorCode" : "invalid_client_metadata",
+    "errorDescription" : "The metadata document is missing the required 'redirect_uris' field."
+  }, {
+    "title" : "Cimd invalid metadata json",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "cimd_invalid_metadata_json",
+    "errorCode" : "invalid_client_metadata",
+    "errorDescription" : "The metadata document could not be parsed as valid JSON."
+  }, {
+    "title" : "Cimd invalid client details",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "cimd_invalid_client_details",
+    "errorCode" : "invalid_client_metadata",
+    "errorDescription" : "The metadata document contains invalid client configuration details."
+  }, {
+    "title" : "Cimd throttled invalid client",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "cimd_throttled_invalid_client",
+    "errorCode" : "invalid_client_metadata",
+    "errorDescription" : "Request throttled due to repeated invalid client errors."
+  }, {
     "title" : "Invalid dpop proof",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1345,6 +1394,13 @@
     "internalErrorCode" : "id_jag_lacking_scopes",
     "errorCode" : "invalid_grant",
     "errorDescription" : "The id-jag must include at least one scope."
+  }, {
+    "title" : "ID jag resource mismatch",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "id_jag_resource_mismatch",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The 'resource' is invalid."
   }, {
     "title" : "Direct auth invalid otp",
     "statusCode" : 400,
@@ -1752,6 +1808,20 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "'resource' app assurance is not met."
   }, {
+    "title" : "Invalid subject token act claim depth",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_act_claim_depth",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The 'subject_token' 'act' claim contains too many nested actors."
+  }, {
+    "title" : "Invalid subject token act claim malformed",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_act_claim_malformed",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The 'subject_token' 'act' claim is malformed."
+  }, {
     "title" : "Invalid client type native sso",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1870,6 +1940,13 @@
     "internalErrorCode" : "id_jag_scopes_in_request",
     "errorCode" : "invalid_request",
     "errorDescription" : "The id-jag request must not include a 'scope' parameter."
+  }, {
+    "title" : "Oauth2 sts user subject required",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "oauth_sts_user_subject_required",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The subject token must represent an end user for OAuth STS token exchange."
   }, {
     "title" : "Authorize request object and request URI provided",
     "statusCode" : 400,
@@ -2003,6 +2080,13 @@
     "internalErrorCode" : "direct_auth_intent_values_changed",
     "errorCode" : "invalid_request",
     "errorDescription" : "The intent 'en' does not match the intent requested in the original request '{1}'. Use the originally requested intent and try again."
+  }, {
+    "title" : "Direct auth intent required",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_intent_required",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The intent parameter is required."
   }, {
     "title" : "Direct auth invalid intent",
     "statusCode" : 400,
