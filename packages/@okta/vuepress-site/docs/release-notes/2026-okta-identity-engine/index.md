@@ -26,7 +26,7 @@ title: Okta Identity Engine API release notes 2026
 | [PIV Identity Provider supports dynamic user matching](#piv-identity-provider-supports-dynamic-user-matching) | May 6, 2026 |
 | [SHA-256 digest algorithm support is GA in Preview](#sha-256-digest-algorithm-support-is-ga-in-preview) | Dec 10, 2025 |
 | [Skip counts for authenticator enrollment grace periods is GA in Production](#skip-counts-for-authenticator-enrollment-grace-periods-is-ga-in-production) | Feb 4, 2026 |
-| [Client update policy is GA in Production is GA in Production](#client-update-policy-is-ga-in-production-is-ga-in-production) | January 7, 2026 |
+| [Client update policy is GA in Production is GA in Production](#client-update-policy-is-ga-in-production-is-ga-in-production) | Jan 7, 2026 |
 | [Passkeys rebrand is GA in Production](#passkeys-rebrand-is-ga-in-production) | Feb 4, 2026 |
 | [Developer documentation updates in 2026.05.0](#developer-documentation-updates-in-2026-05-0) | May 6, 2026 |
 | [Bug fixed in 2026.05.0](#bug-fixed-in-2026-05-0)| May 6, 2026 |
