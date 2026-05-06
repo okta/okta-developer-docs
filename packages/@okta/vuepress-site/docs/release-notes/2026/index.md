@@ -9,6 +9,32 @@ title: Okta Classic Engine API release notes 2026
   Subscribe to RSS
 </a>
 
+## May
+
+### Monthly release 2026.05.0
+<!-- Published on: 2026-05-06T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Service accounts is GA in Preview](#service-accounts-is-ga-in-preview) | May 6, 2026 |
+| [SHA-256 digest algorithm support is GA in Preview](#sha-256-digest-algorithm-support-is-ga-in-preview) | May 6, 2026 |
+| [Developer documentation update in 2026.05.0](#developer-documentation-update-in-2026-05-0) | May 6, 2026 |
+
+#### Service accounts is GA in Preview
+
+The Okta Managed User Accounts API is now available for Okta Privileged Access-enabled orgs. Okta Privileged Access secures SaaS service accounts that allows customers to monitor, manage, and control access to service accounts in their SaaS apps. Okta users designated with privileged access are treated as service accounts that resource admins can assign to resource groups and projects, and security admins can create policies to configure which users can access them. The Okta Managed User Accounts API provides operations to manage these user accounts in Okta Universal Directory with OPA.
+This feature is available only if you're subscribed to Okta Privileged Access. Ensure that you've set up the Okta Privileged Access app before creating app accounts through the API.
+
+See [Okta Managed User Accounts](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/oktamanageduseraccount), [Service Accounts](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/serviceaccount) and [Manage service accounts](https://help.okta.com/okta_help.htm?type=oie&id=ud-privileged-acnt). <!-- OKTA-1165876, OKTA-955102 FF: SERVICE_ACCOUNTS and CUSTOM_ADMIN_ROLE_SERVICE_ACCOUNTS preview date: May 6, 2026-->
+
+#### SHA-256 digest algorithm support is GA in Preview
+
+Okta now supports the SHA-256 digest algorithm when hashing SAML AuthnRequests that are sent to external IdPs. <!-- IDP_SHA256_DIGEST_ALGORITHM_SUPPORT OKTA-1061375 preview date: Dec 10, 2025 -->
+
+#### Developer documentation update in 2026.05.0
+
+The new [Sign-up flows](/docs/concepts/sign-up-flows/ ) guide provides best practices for designing secure, high-conversion registration strategies. This resource helps developers balance user experience and security by covering topics such as progressive enrollment and automated group assignments.
+
 ## April
 
 ### Weekly release 2026.04.3
@@ -16,11 +42,13 @@ title: Okta Classic Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Bug fixed in 2026.04.3](#bug-fixed-in-2026-04-3)| April 29, 2026 |
+| [Bugs fixed in 2026.04.3](#bugs-fixed-in-2026-04-3)| April 29, 2026 |
 
-#### Bug fixed in 2026.04.3
+#### Bugs fixed in 2026.04.3
 
-If you included `strict=true` as a query parameter in the Update a user [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/user/other/updateuser) to update a user’s Active Directory (AD) password, an HTTP 200 OK response was returned even if the update failed in AD. (OKTA-1145080)
+* If you included `strict=true` as a query parameter in the Update a user [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/user/other/updateuser) to update a user’s Active Directory (AD) password, an HTTP 200 OK response was returned even if the update failed in AD. (OKTA-1145080)
+
+* When you sent a [POST request](/docs/reference/api/authn/#step-up-authentication-without-okta-session) to the `/authn` endpoint with MFA Factor Sequencing with Okta Verify first in the chain, the response included Okta Verify metadata. (OKTA-1055365)
 
 ### Weekly release 2026.04.1
 <!-- Published on: 2026-04-08T12:00:00Z -->
