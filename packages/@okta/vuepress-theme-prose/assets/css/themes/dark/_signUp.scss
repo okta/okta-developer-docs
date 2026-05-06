@@ -184,3 +184,27 @@
   border: 0.5px solid #555555;
   background: #171717;
 }
+
+.signup-bottom-card__title {
+  color: var(--c-lightgray-450);
+}
+
+.signup-bottom-card__description {
+  color: #e5e5e5;
+}
+
+.signup-bottom-card__cta {
+  border-color: var(--c-lightgray-450);
+
+  color: var(--c-lightgray-450);
+}
+
+.signup-bottom-card__cta:hover {
+  border-color: var(--c-green-300);
+
+  color: var(--c-green-300);
+}
+
+.signup-bottom-card + .signup-bottom-card {
+  border-color: var(--c-gray-760);
+}
