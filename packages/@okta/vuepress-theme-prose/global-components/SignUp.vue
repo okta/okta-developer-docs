@@ -362,12 +362,34 @@
         <SignUpFeatureCard
           title="Build for Security"
           description="Leverage industry standards to meet enterprise identity demands like SSO, provisioning, AI governance, session termination, and more."
-          :icon="theme === 'dark' ? '/img/icons/secured-laptop-dark.svg' : '/img/icons/secured-laptop.svg'"
+          :icon="theme === 'dark' ? '/img/signup/secured-laptop-dark.svg' : '/img/signup/secured-laptop.svg'"
         />
         <SignUpFeatureCard
           title="Attract Enterprise Customers"
           description="Build credibility with an OIN listing that shows enterprise buyers your integration is tested, validated, and ready to deploy."
-          :icon="theme === 'dark' ? '/img/icons/container-bucket-dark.svg' : '/img/icons/container-bucket.svg'"
+          :icon="theme === 'dark' ? '/img/signup/container-bucket-dark.svg' : '/img/signup/container-bucket.svg'"
+        />
+      </div>
+      <div class="signup__bottom-cards">
+        <SignUpBottomCard
+          variant="okta"
+          logo-src="/img/signup/okta-logo-bottom-card.svg"
+          logo-alt="Okta"
+          screenshot-src="/img/signup/bottom-card-1.png"
+          title="Your employees or partners"
+          description="Get the Workforce or Customer Identity Cloud free trial Manage secure, frictionless access to the tools and data your teams need."
+          cta-text="Try Okta Platform"
+          cta-link="https://okta.com/free-trial/workforce-identity"
+        />
+        <SignUpBottomCard
+          variant="auth0"
+          logo-src="/img/signup/auth0-logo-bottom-card.png"
+          logo-alt="Auth0"
+          screenshot-src="/img/signup/bottom-card-2.png"
+          title="Your customers or applications"
+          description="Secure AI agents, humans, and whatever comes next. Build intuitive, secure user experiences in customer-facing applications."
+          cta-text="Try Auth0 Platform"
+          cta-link="https://auth0.com/signup?utm_medium=referral&utm_source=okta&utm_campaign=okta-signup-referral-21-09-27&utm_content=signup&promo=sup&ocid=7014z000001cbvjAAA-aPA4z0000008OZeGAM"
         />
       </div>
     </div>
@@ -401,6 +423,7 @@ export default {
   components: {
     VueRecaptcha,
     SignUpFeatureCard: () => import("../components/signup/SignUpFeatureCard"),
+    SignUpBottomCard: () => import("../components/signup/SignUpBottomCard"),
     CompanyLogos: () => import("../components/CompanyLogos"),
     SmartLink: () => import("../components/SmartLink"),
     TermsAndConditionsDialog: () =>
