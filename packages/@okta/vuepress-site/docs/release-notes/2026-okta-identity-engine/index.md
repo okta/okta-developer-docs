@@ -11,6 +11,110 @@ title: Okta Identity Engine API release notes 2026
   Subscribe to RSS
 </a>
 
+## May
+
+### Monthly release 2026.05.0
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Identity claims sourcing policy is self-service EA in Preview](#identity-claims-sourcing-policy-is-self-service-ea-in-preview-is-ea) | May 6, 2026 |
+| [Email authenticator auto-enrollment and recovery management is self-service EA in Preview](#email-authenticator-auto-enrollment-and-recovery-management-is-self-service-ea-in-preview-is-ea) | May 6, 2026 |
+| [Managed connections renamed to resource connections is GA in Production](#managed-connections-renamed-to-resource-connections-is-ga-in-production) | May 6, 2026 |
+| [Service accounts is GA in Preview](#service-accounts-is-ga-in-preview) | May 6, 2026 |
+| [PIV Identity Provider JIT provisioning updates](#piv-identity-provider-jit-provisioning-updates) | May 6, 2026 |
+| [PIV Identity Provider supports dynamic user matching](#piv-identity-provider-supports-dynamic-user-matching) | May 6, 2026 |
+| [SHA-256 digest algorithm support is GA in Preview](#sha-256-digest-algorithm-support-is-ga-in-preview) | Dec 10, 2025 |
+| [Skip counts for authenticator enrollment grace periods is GA in Production](#skip-counts-for-authenticator-enrollment-grace-periods-is-ga-in-production) | Feb 4, 2026 |
+| [Client update policy is GA in Production is GA in Production](#client-update-policy-is-ga-in-production-is-ga-in-production) | January 7, 2026 |
+| [Passkeys rebrand is GA in Production](#passkeys-rebrand-is-ga-in-production) | Feb 4, 2026 |
+| [OIN submissions for API Integration Actions is GA in Production](#oin-submissions-for-api-integration-actions-is-ga-in-production) | May 12, 2026 |
+| [Bug fixed in 2026.05.0](#bug-fixed-in-2026-05-0)| May 6, 2026 |
+| [Developer documentation updates in 2026.05.0](#developer-documentation-updates-in-2026-05-0) | May 6, 2026 |
+
+#### Identity claims sourcing policy is self-service EA in Preview
+
+You can now configure the identity claims sourcing policy which enables federated users to re-authenticate with their most recent and active SSO IdP.
+
+Reauthentication to an IdP helps Okta admins secure federated identities by redirecting federated users to their source SAML, OIDC, or Org2Org IdP when a policy requires them to reauthenticate. By forcing reauthentication at the source IdP, admins can close security gaps from long-lived sessions and remove the need to configure duplicate MFA enrolment in Okta.
+
+See [Configure the identity claims sourcing policy](/docs/guides/configure-identity-claims-sourcing-policy/main/).
+
+<!-- SUPPORT_FOR_REAUTH_WITH_EXTERNAL_IDP OKTA-1169603 preview date: May 6, 2026 -->
+
+#### Email authenticator auto-enrollment and recovery management is self-service EA in Preview
+
+Use the Policies API to control the automatic enrollment of email as an authenticator and configure email-based password recovery, unlock, and change where email isn't an authenticator. See [`autoEnroll`](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/createpolicy#other/createpolicy/t=request&path=&d=1/settings/authenticators/enroll/autoenroll) and [`allowRecoveryEmailWithoutEnrollment`](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/createpolicyrule#other/createpolicyrule/t=request&path=&d=1/actions/selfservicepasswordreset/settings/allowrecoveryemailwithoutenrollment).
+
+<!-- OKTA-1169086 EMAIL_ENROLLMENT_AND_RECOVERY_CONTROL preview date: may 6, 2026 -->
+
+#### Managed connections renamed to resource connections is GA in Production
+
+The **Managed connections** tab has been renamed to **Resource connections** on the Okta for AI Agents pages. The associated System Logs' event types, debug data key, and details entries have been renamed accordingly.
+
+#### Service accounts is GA in Preview
+
+The Okta Managed User Accounts API is now available for Okta Privileged Access-enabled orgs. Okta Privileged Access secures SaaS service accounts that allows customers to monitor, manage, and control access to service accounts in their SaaS apps. Okta users designated with privileged access are treated as service accounts that resource admins can assign to resource groups and projects, and security admins can create policies to configure which users can access them. The Okta Managed User Accounts API provides operations to manage these user accounts in Okta Universal Directory with OPA.
+This feature is available only if you're subscribed to Okta Privileged Access. Ensure that you've set up the Okta Privileged Access app before creating app accounts through the API.
+
+ See [Okta Managed User Accounts](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/oktamanageduseraccount), [Service Accounts](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/serviceaccount) and [Manage service accounts](https://help.okta.com/okta_help.htm?type=oie&id=ud-privileged-acnt).
+
+<!-- OKTA-1165876, OKTA-955102 FF: SERVICE_ACCOUNTS and CUSTOM_ADMIN_ROLE_SERVICE_ACCOUNTS preview date: May 6, 2026 -->
+
+#### PIV Identity Provider JIT provisioning updates
+
+The `allowUserUpdates` attribute for PIV Identity Providers is now available. When enabled, Just-In-Time (JIT) provisioning updates existing user profiles with attributes from the PIV certificate during every authentication. See [Replace an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identityprovider/other/replaceidentityprovider). <!-- OKTA-1158921 PIV_JIT_PROVISIONING 06 May 26 -->
+
+#### PIV Identity Provider supports dynamic user matching
+
+The PIV Identity Provider now includes the `allowDynamicUserMatching` parameter. This allows you to link PIV certificates to existing user profiles using custom matching logic, providing greater flexibility for resolving identities during authentication. See [Replace an IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identityprovider/other/replaceidentityprovider). <!-- OKTA-1116984 PIV_JIT_PROVISIONING 06 May 26 -->
+
+#### SHA-256 digest algorithm support is GA in Preview
+
+Okta now supports the SHA-256 digest algorithm when hashing SAML AuthnRequests that are sent to external IdPs. <!-- IDP_SHA256_DIGEST_ALGORITHM_SUPPORT OKTA-1061375 preview date: Dec 10, 2025 -->
+
+#### Skip counts for authenticator enrollment grace periods is GA in Production
+
+This feature allows admins to define a number of skips end users can defer enrollment into an authenticator, as well as customizations to the prompt when end users see the grace period. See [Grace periods](/docs/concepts/policies/#grace-periods) and [type](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/createpolicy#other/createpolicy/t=response&c=200&path=&d=1/settings/authenticators/enroll/graceperiod).
+
+<!-- OKTA-1044803 FF: ENROLLMENT_POLICY_GRACE_PERIOD_V2 preview date: Feb 4, 2026 -->
+
+#### Client update policy is GA in Production is GA in Production
+
+The Policies API now supports the `CLIENT_POLICY` type, enabling you to enforce or defer app updates across different device platforms. This lets you programmatically align app versions with internal change management processes. See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies) and [Release controls policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-ov-release-controls). <!-- OKTA_VERIFY_RELEASE_CONTROL_POLICY OKTA-1036332 January 7, 2026 -->
+
+#### Passkeys rebrand is GA in Production
+
+The FIDO2 (WebAuthn) authenticator is being rebranded to Passkey (FIDO2 WebAuthn) and Okta is introducing enhanced administrative controls and a streamlined user experience. This update centralizes passkey management through a consolidated settings page, allows for customized authenticator naming, and introduces a dedicated **Sign in with a passkey** button within the Sign-In Widget. These enhancements simplify the authentication journey and provide users with a more intuitive sign-in process with the **Sign in with a passkey** button.
+
+For more information about the new settings and updates, see [Passkeys and WebAuthn](/docs/guides/authenticators-web-authn/aspnet/main/#passkeys-and-webauthn) and [Configure the Passkey (FIDO2 WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn).
+
+<!-- OKTA-1012303 FF: PASSKEYS_REBRAND preview date: Feb 4, 2026 -->
+
+#### OIN submissions for API Integration Actions is GA in Production
+
+Independent Software Vendors (ISVs) can now use the low-code Okta Integration Builder to integrate their apps with API Integration Actions. This allows ISVs to integrate their existing APIs with Okta actions without adopting specific protocols, such as SCIM or GTR. You can submit integrations that use API Integration Actions to the OIN catalog using the OIN Wizard.
+
+See [API Integration Actions]() and [Submit an integration with the OIN Wizard]().
+<!-- OKTA-1007250, OKTA-1145738, ACTIONS_3P_SUBMISSION, Production: May 12, 2026 -->
+
+#### Developer documentation updates in 2026.05.0
+
+* The new [Sign-up flows](/docs/concepts/sign-up-flows/ ) guide provides best practices for designing secure, high-conversion registration strategies. This resource helps developers balance user experience and security by covering topics such as progressive enrollment and automated group assignments.
+
+* The new [Script your user migration with the Okta Users API](/docs/guides/migrate-to-okta-with-scripts/) guide demonstrates how to programmatically import users from an external system to Okta using the Okta Users API. This guide provides best practices and sample code to help you script 3 import scenarios.
+
+* The new [Migrate users to Okta](docs/journeys/OCI-migrate-users/main/) journey helps you move your existing user accounts into Okta's Universal Directory, centralizing identity management and improving security.
+
+* The new [Plan your user migration to Okta](/docs/guides/migrate-to-okta-plan/main/) guide helps you create a more comprehensive and tailored migration plan. It provides a structured, question-based approach to planning.
+
+* The new [Test your migration plan](/docs/guides/test-your-migration-plan/main/) guide helps you test your migration method before moving to production. It provides a systematic approach to create test scenarios, track defects, and establish a rollback plan.
+
+* The [Set up AI agent token exchange](docs/guides/ai-agent-token-exchange/authserver/main/) guide has been updated to include configuration instructions for resource servers (such as MCP servers). The Token Exchange flow diagram has also been updated to be specific for each resource type.
+
+#### Bug fixed in 2026.05.0
+
+Some API responses to unauthenticated passwordless flows included values for the `deviceName` property. (OKTA-828990)
+
 ## April
 
 ### Weekly release 2026.04.3
