@@ -1,6 +1,6 @@
 #### Universal Logout properties
 
-> **Note:** This section appears if you select Universal Logout with GTR.
+> **Note:** This section appears if you select Universal Logout with Global Token Revocation (GTR).
 
 1. Specify the following properties if you want to integrate for Universal Logout:
 

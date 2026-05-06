@@ -2,8 +2,8 @@ For example, if you have a tenant setting variable named `subdomain`, then you c
 
 > **Note**: A variable can include a complete URL (for example, `https://example.com/strawberry/`). This enables you to use global variables, such as `app.baseURL`.
 
-The following are Expression Language specifics for API Integrations Actions properties:
+The following are Expression Language specifics for API integrations action properties:
 
 * Any [tenant settings](#tenant-settings) that you define in the OIN Wizard are considered [application properties](/docs/reference/okta-expression-language/#application-properties). They have an `app.` prefix when you reference them in Expression Language. For example, if your integration variable name is `subdomain`, then you can reference that variable using `app.subdomain`.
 
-* Tenant setting variables that you define in the OIN Wizard appears in the Integration Buider's **Authentication mapping** section. You can map the API integration action authentication parameters to the OIN Wizard tenant variables.
+* Tenant setting variables that you define in the OIN Wizard appear in the Integration Builder's **Authentication mapping** section. You can map the API integration action authentication parameters to the OIN Wizard tenant variables.

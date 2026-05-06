@@ -29,17 +29,17 @@ The following capabilities are supported for API Integration Actions:
 * Entitlement Management
 * Universal Logout (your integration must also support SSO)
 
-> **Note**: For the end-to-end API Integration Actions build and submit process, see the [API Integration Actions process overview](/docs/guides/oin-api-actions/#process-overview).
+> **Note**: For the end-to-end API integration actions build and submit process, see the [API Integration Actions process overview](/docs/guides/oin-api-actions/#process-overview).
 
 ## Integration Builder project
 
 After specifying your integration capabilities and details in the OIN Wizard, you're directed to the Integration Builder to build your API actions integration.
 
-Your integration details from the OIN Wizard are transferred to a corresponding Integration Builder project, which is highlighted in the Integration Builder project panel (the left list of project folders). Follow these steps to build from your Integration Builder project:
+Your integration details from the OIN Wizard are transferred to a corresponding Integration Builder project, which is highlighted in the Integration Builder project panel (the left panel). Perform these steps to build your Integration Builder project:
 
 1. Review the [**General**](#general) tab and make any necessary edits.
 1. If you have an OpenAPI specification of the APIs that you want to integrate with, go to the **API Spec** tab and [upload the OpenAPI schema](#upload-api-spec). This saves you time from configuring authentication and core flows manually.
-1. Configure your authentication and variable mappings in the [**Authentication**](#authentication) tab.
+1. [Configure your authentication](#authentication-configuration) and variable mappings in the **Authentication** tab.
 1. [Add actions](#add-actions) from the **New Component** dropdown list.
 1. Add [test flows](#test-flows) to test your actions' use cases.
 1. Validate all your actions and test flows before you return to the OIN Wizard to complete your submission.
@@ -56,7 +56,7 @@ You don't have to edit anything in the **General** tab because your Integration 
 Available options:
 
 * **View in OIN Wizard**: Click **View in OIN Wizard** to return to the OIN Wizard
-* **Unlinik app**: Click **Unlinik app** to disconnect the Integration Builder project from the integration in the OIN Wizard. If you unlink the project, tenant variables from the OIN Wizard aren't available for your authentication and action configurations.
+* **Unlinik app**: Click **Unlink app** to disconnect the Integration Builder project from the integration in the OIN Wizard. If you unlink the project, tenant variables from the OIN Wizard aren't available for your authentication and action configurations.
 * **Link an OIN app**: If your project isn't linked to an integration in the OIN Wizard, click **Link an OIN app** to connect your project to an integration from the OIN Wizard. Integration details are then transferred to your project.
 
 > **Note**: If you modify the project name, description, or logo, the updates are only visible in the Integration Builder project folder. The corresponding integration in the OIN Wizard doesn't reflect the changes you made in the **General** tab.
@@ -71,7 +71,7 @@ If you have an OpenAPI specification for the API resource that you want to integ
 1. Click **Upload spec**.
 1. Add your API specification file and click **Process file**.
 
-After you upload your API specification, the **Core flows** section appears with three flow types for you to generate. In addition, if your schema file contains authentication schemas, the **Authentication configuration** section appears for you to generate authentication configurations.
+After you upload your API specification, the **Core flows** section appears with three flow types for you to generate. If your schema file contains authentication schemas, the **Authentication configuration** section appears for you to generate authentication configurations.
 
 > **Note**: You can replace your uploaded API specification file with an updated version if the API changes.
 
@@ -79,7 +79,7 @@ After you upload your API specification, the **Core flows** section appears with
 
 The **Authentication configuration** section appears if your API specification contains authentication schemas.
 
-1. From the **API Spec** > **Authentication configuration** section, click **Generate**.
+1. Click **Generate** from the **API Spec** > **Authentication configuration** section.
 1. Select the authentication schemes from the API specification that you want to configure.
 1. Click **Generate**.
 
@@ -119,7 +119,7 @@ Configure the connection to your app by setting up the authentication scheme and
     If you configured optional authentication parameters, you can map them to the tenant authentication variables configured in the OIN Wizard. See [Authentication mapping](#authentication-mapping).
 
     > **Note**: Ensure that your authentication configuration matches what you entered in the OIN Wizard.<br>
-    > For example, ensure that your **Authorization URL** value matches what you entered in the **Authorize endpoint** field of the OIN Wizard's [Authentication settings](/docs/guides/submit-oin-app/wfactions/main/#authentiation-settings). Similarly, for all the other mandatory authentication fields, such as **Client ID** and **Client Secret**.
+    > For example, ensure that your **Authorization URL** value matches what you entered in the **Authorize endpoint** field of the OIN Wizard's [Authentication settings](/docs/guides/submit-oin-app/wfactions/main/#authentiation-settings). Review all the other mandatory authentication fields, such as **Client ID** and **Client Secret**.
 
 1. Click **Save**.
 
@@ -136,23 +136,22 @@ After you've configured your authentication settings, you can map the authentica
 
 1. Click **Save**.
 
-> **Note:** Even if you've generated your authentication configuration, you need to perform these steps to map the authentication parameters to your OIN tenant variables.
+> **Note:** Even if you've generated your authentication configurations from an OpenAPI specification, you still need to perform these steps to map the authentication parameters to your OIN tenant variables.
 
 ## Add actions
 
 1. Select **New Component** > **Add Action** in your Integration Builder project.
 
-    The **Add new action** dialog appears with the available API Integration Actions supported:
+    The **Add new action** dialog appears with the supported API Integration Actions available:
 
     * Provisioning action contracts
     * Universal Logout
 
 1. Select an action from the list and click **Save**.
 
-   The action contracts appear in your project > **Shared Folder** > **Actions** folder.
+   The actions appear in your project panel's **Shared Folder** > **Actions** folder.
 
-The actions that you selected have preset API contracts. You need to create a flow for each contract.
-See [Add Universal Logout action flows](#add-universal-logout-action-flows) and [Add Provisioning action flows](#add-provisioning-action-flows).
+See [API Integration Action reference](/docs/guides/oin-api-actions-contracts/) for the available API schema contracts.
 
 ### Add Universal Logout action flows
 
@@ -163,16 +162,16 @@ See [Add Universal Logout action flows](#add-universal-logout-action-flows) and 
 1. Select **Proprietary Universal Logout**.
 
     The proprietary Universal Logout contract loads:
-    * The **body** section contains the contract request schema. See the [Proprietary Universal Logout] schema reference for input and output property definitions.
-    * The **auth** section contains the authentication parameters for the **Connection** to your API. Also included in the **Connection** section are the optional other parameters you configured and mapped to OIN tenant variables.
+    * The **body** section contains the contract request schema. See the [Proprietary Universal Logout](/docs/guides/oin-api-actions-contracts/#proprietary-universal-logout) schema reference for input and output property definitions.
+    * The **auth** section contains the authentication parameters for the **Connection** to your API. Also included in the **Connection** section are optional parameters that you can configure and map to OIN tenant variables.
 
 1. Create the action flows to your APIs. See [Flow types in Connector Builder](https://help.okta.com/wf/en-us/content/topics/workflows/connector-builder/about-flows.htm) for guidance.
 1. Click **Save** to save your flow.
-1. Click **Flow is OFF**, and turn the flow **ON**.
+1. Select **Flow is OFF**, and then set the toggle to **ON**.
 1. After you've finished building your flows, go to the **Validate and submit** tab. Click **Validate flows** to confirm that your flows are error-free.
 1. Resolve any validation errors in your flow.
 1. Optionally, add [test flows](#test-flows) to test different use cases and combination flows.
-1. Click **Continue submission in OIN** from the **Validate and submit** tab to return to the OIN Wizard after all your flows are validated successfully.
+1. Click **Continue submission in OIN** from the **Validate and submit** tab to return to the OIN Wizard, or continue to [add provisioning action flows](#add-provisioning-action-flows).
 
 ### Add Provisioning action flows
 
@@ -181,27 +180,27 @@ See [Add Universal Logout action flows](#add-universal-logout-action-flows) and 
     The flow configuration page appears.
 
 1. Click **Add event**.
-1. Select one of the provisioning request contracts. You need to build a flow for each of the mandatory actions listed in [Provisioning API Integration Actions](/docs/guides/submit-oin-app/wfactions/main/#provisioning-api-integration-actions). If your API supports them, you can also add the optional action flows.
+1. Select one of the provisioning action contracts.
 
     The provisioning contract loads:
-    * The **body** section contains the action contract request schema. See the [Provisioning action contracts] schema reference for input and output property definitions.
-    * The **auth** section contains the authentication parameters for the **Connection** to your API. Also included in the **Connection** section are the optional other parameters you configured and mapped to OIN tenant variables.
+    * The **body** section contains the action contract request schema. See the [Provisioning action contracts](/docs/guides/oin-api-actions-contracts/#provisioning-action-contracts) schema reference for input and output property definitions.
+    * The **auth** section contains the authentication parameters for the **Connection** to your API. Also included in the **Connection** section are optional parameters that you can configure and map to OIN tenant variables.
 
+    Build a flow for each of the mandatory actions listed in [Provisioning API Integration Actions](/docs/guides/submit-oin-app/wfactions/main/#provisioning-api-integration-actions). If your API supports them, you can also add the optional action flows.
+
+1. Create the action flows to your APIs. See [Flow types in Connector Builder](https://help.okta.com/wf/en-us/content/topics/workflows/connector-builder/about-flows.htm) for guidance.
 1. Click **Save** to save your flow.
-1. Click **Flow is OFF** button and turn the flow **ON**.
-Create the action flows to your APIs. See [Flow types in Connector Builder](https://help.okta.com/wf/en-us/content/topics/workflows/connector-builder/about-flows.htm) for guidance.
-1. Click **Save** to save your flow.
-1. Click **Flow is OFF** button and turn the flow on.
+1. Select **Flow is OFF**, and then set the toggle to **ON**.
 1. Click **Validate flows** to confirm that your flows are error-free from the **Validate and submit** tab.
 1. Resolve any validation errors in your flow.
 1. Optionally, add [test flows](#test-flows) to test different use cases and combination flows.
-1. Click **Continue submission in OIN** from the **Validate and submit** tab to return to the OIN Wizard after all your flows are validated successfully.
+1. Click **Continue submission in OIN** from the **Validate and submit** tab to return to the OIN Wizard.
 
 ## Test flows
 
 You can configure and run test flows to test your API actions across multiple use cases.
 
-1. From the Integration Builder project panel, select the **Test Folder** that belongs to your action contracts. The **Test Folder** flow page appears.
+1. From the Integration Builder project panel, select the **Test Folder** that belongs to your action. The **Test Folder** flow page appears.
 1. Click **+ New Flow**, and add your test flow to your project. See [Build and test a flow](https://help.okta.com/wf/en-us/content/topics/workflows/workflows-build-a-flow.htm) for guidance.
 
 1. After you've finished testing your flows, click your project folder from the Integration Builder project panel. The **General** tab appears for your project.
