@@ -13,13 +13,21 @@ These release notes list customer-visible changes to the Developer Tools. The Ok
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Update to Python SDK](#update-to-python-sdk)      | May 6, 2026            |
-| [Update to Terraform Provider for Okta](#update-to-terraform-provider-for-okta)       | May 6 2026            |
+| [Terraform guide for Zoom](#terraform-guide-for-zoom) | June 6, 2026            |
 
-#### Update to Python SDK
+#### Terraform guide for Zoom
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+To be added later during the June monthly release.
 
-#### Update to Terraform Provider for Okta
+## April
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+### Weekly release 2026.04.3
+<!-- Published on: 2026-04-29T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Identity Threat Protection with Okta AI managed with Terraform](#identity-threat-protection-with-okta-ai-managed-with-terraform) | April 29, 2026 |
+
+#### Identity Threat Protection with Okta AI managed with Terraform
+
+You can now manage Okta Identity Threat Protection (ITP) with Okta AI using the Okta Terraform Provider. This allows admins to manage their entire threat protection surface using an Infrastructure-as-Code (IaC) approach, ensuring consistent, repeatable, and scalable security configurations. See [Manage Identity Threat Protection with Okta AI resources using Terraform](/docs/guides/terraform-manage-itp/main/). <!-- OKTA-1122778 -->
