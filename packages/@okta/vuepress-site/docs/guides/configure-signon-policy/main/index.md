@@ -50,15 +50,19 @@ You can specify any number of global session policies and the order in which the
 
 In addition to the global session policy, you can configure app sign-in policies for each app for extra levels of authentication. You can also [share app sign-in policies across multiple apps](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy).
 
-When you add an app, a shared default policy is automatically assigned to it. This policy has a single catch-all rule that allows a user access with two factors. You can add as many rules to the default policy as you need. However, remember that the changes are applied to both new and existing apps that are assigned to the shared default policy.
+When you add an app, a shared default policy is automatically assigned to it. This policy has a single catch-all rule that allows a user access with two factors. You can add as many rules to the default policy as you need. But there can be only one app sign-in policy per app.
+
+Remember that any changes to the default app sign-in policy are applied to both new and existing apps that are assigned to the shared default policy.
+
+You don’t have to use the default app sign-in policy. You can create a policy specifically for an app, or you can [add an app to another existing shared policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy). If you change an app’s sign-in requirements, you can modify its policy or switch to a different shared policy. You can do this by using the [App sign-in policies page](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy).
 
 > **Note:** API service apps aren't automatically assigned a default app sign-in policy. You must explicitly assign an app sign-in policy to each API service app.
 
-You don’t have to use the default app sign-in policy. You can create a policy specifically for an app, or you can [add an app to another existing shared policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy). If you change an app’s sign-on requirements, you can modify its policy or switch to a different shared policy. You can do this by using the [App sign-in policies page](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy).
+#### Policy branching
 
-> **Note:** There can be only one app sign-in policy per app.
+<ApiLifecycle access="ea" /><ApiLifecycle access="ie" />
 
-> **Note:** If your org has Policy Change Management enabled, make policy changes on a staged branch rather than directly on the live policy. Staged branches let you test changes against real traffic before they affect end users. See [Policy branching](/docs/concepts/policies/#policy-branching).
+App sign-in policies support branching. You can create and monitor staged branches, which lets you draft, test, and deploy policy changes without affecting end users until you're ready. See [Staged policy branches](/docs/concepts/policies/#staged-policy-branches).
 
 ## Configure sign-on policies for common scenarios
 

@@ -30,13 +30,13 @@ You can use the Policy API to simulate real-world user requests to access an app
 
 The policy simulations run access tests based on existing policy configurations and which rules and settings are matched to create the authentication and enrollment requirements. Results of the tests determine individual or group access to an app.
 
-> **Note:** If your org has Policy Change Management enabled, the Access Testing Tool lets you run simulations against either the live branch or the staged branch of an app sign-in policy. This lets you verify how a staged policy behaves before you push it live. See [Policy branching](/docs/concepts/policies/#policy-branching).
+> **Note:** If you have the Change management for app sign-in policies feature enabled, the Access Testing Tool lets you run simulations against either the live branch or the staged branch of an app sign-in policy. This lets you verify how a staged policy behaves before it's used as a live policy. See [Policy branching](/docs/concepts/policies/#policy-branching).
 
 You can simulate matches for the following types of policies and rules:
 
 * App sign-in policies
 * Authenticator enrollment policies
-* Global Session Policies
+* Global session policies
 * User enrollment policies for apps
 
 For background information on policies, see [Policies](/docs/concepts/policies) and [Global session and app sign-in policies](/docs/guides/configure-signon-policy/main/).
