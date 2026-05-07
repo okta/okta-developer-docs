@@ -392,6 +392,7 @@
           cta-link="https://auth0.com/signup?utm_medium=referral&utm_source=okta&utm_campaign=okta-signup-referral-21-09-27&utm_content=signup&promo=sup&ocid=7014z000001cbvjAAA-aPA4z0000008OZeGAM"
         />
       </div>
+      <SignUpPartnerLogos :theme="theme" />
     </div>
   </section>
 </template>
@@ -410,6 +411,7 @@ import getAnalyticsValues from "../util/attribution/attribution";
 import storage from "../util/localStorage";
 import { getIdpUri } from "../util/uris";
 import { GeoLocation, isRegionLocked } from "../util/geoLocation";
+import SignUpPartnerLogos from "../components/signup/SignUpPartnerLogos.vue";
 
 const CANADA = "Canada";
 const USA = "United States";
@@ -423,6 +425,7 @@ export default {
   components: {
     VueRecaptcha,
     SignUpFeatureCard: () => import("../components/signup/SignUpFeatureCard"),
+    SignUpPartnerLogos: () => import("../components/signup/SignUpPartnerLogos"),
     SignUpBottomCard: () => import("../components/signup/SignUpBottomCard"),
     CompanyLogos: () => import("../components/CompanyLogos"),
     SmartLink: () => import("../components/SmartLink"),
