@@ -116,7 +116,7 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 
 * When you implement a custom domain, users aren't automatically rerouted from the original URL to the new custom URL. Be sure to communicate the new custom domain to your users.
 
-* If you configure the [Passkeys (FIDO2 WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn) in your org and create a custom domain, your users first need to sign in with an authenticator that they're already enrolled in. Then, your users can re-enroll with the Passkeys authenticator.
+* If you configure the [Passkey (FIDO2 WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn) in your org and create a custom domain, your users first need to sign in with an authenticator that they're already enrolled in. Then, your users can re-enroll with the Passkey authenticator.
 
   * Communicate the new URL to your users so that Okta prompts them to re-enroll.
   * Every domain that a user accesses requires re-enrollment because each set of their credentials is scoped to a separate domain.

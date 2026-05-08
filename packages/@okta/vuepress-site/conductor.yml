@@ -3138,21 +3138,29 @@ redirects:
   - from: /docs/guides/sign-users-out/vue/next-steps/index.html
     to: /docs/guides/sign-users-out/vue/main/#see-also
   - from: /docs/guides/common-hook-set-up-steps/-/overview/index.html
-    to: /docs/guides/common-hook-set-up-steps/
+    to: /docs/guides/secure-hooks/
   - from: /docs/guides/common-hook-set-up-steps/-/overview
-    to: /docs/guides/common-hook-set-up-steps/
+    to: /docs/guides/secure-hooks/
   - from: /docs/guides/common-hook-set-up-steps/-/setting-up-an-external-service/index.html
-    to: /docs/guides/common-hook-set-up-steps/-/main/#set-up-an-external-service
+    to: /docs/guides/secure-hooks/
   - from: /docs/guides/common-hook-set-up-steps/-/setting-up-an-external-service
-    to: /docs/guides/common-hook-set-up-steps/-/main/#set-up-an-external-service
+    to: /docs/guides/secure-hooks/
   - from: /docs/guides/common-hook-set-up-steps/-/adding-basic-auth/index.html
-    to: /docs/guides/common-hook-set-up-steps/-/main/#http-header-basic-authentication
+    to: /docs/guides/secure-hooks/nodejs/main/#http-header-basic-authentication
   - from: /docs/guides/common-hook-set-up-steps/-/adding-basic-auth
-    to: /docs/guides/common-hook-set-up-steps/-/main/#http-header-basic-authentication
+    to: /docs/guides/secure-hooks/nodejs/main/#http-header-basic-authentication
   - from: /docs/guides/common-hook-set-up-steps/-/troubleshooting/index.html
-    to: /docs/guides/common-hook-set-up-steps/-/main/#troubleshoot-hook-implementations
+    to: /docs/guides/hooks-best-practices/#troubleshoot-your-hook-implementations
   - from: /docs/guides/common-hook-set-up-steps/-/troubleshooting
-    to: /docs/guides/common-hook-set-up-steps/-/main/#troubleshoot-hook-implementations
+    to: /docs/guides/hooks-best-practices/#troubleshoot-your-hook-implementations
+  - from: /docs/guides/common-hook-set-up-steps/index.html
+    to: /docs/guides/secure-hooks/
+  - from: /docs/guides/common-hook-set-up-steps
+    to: /docs/guides/secure-hooks/
+  - from: /docs/guides/common-hook-set-up-steps/nodejs/main/index.html
+    to: /docs/guides/secure-hooks/
+  - from: /docs/guides/common-hook-set-up-steps/nodejs/main
+    to: /docs/guides/secure-hooks/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/shared-sso-android-ios/-/overview

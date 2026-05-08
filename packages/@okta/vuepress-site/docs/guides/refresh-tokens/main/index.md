@@ -268,7 +268,7 @@ With a SPA, it's undesirable to redirect the user to a sign-in page during norma
 
 If the value of the `prompt` parameter is `none`, this guarantees that the user isn't prompted to sign in, regardless of whether they have an active session. Instead, your app either silently obtains the requested tokens or an OAuth error response occurs. Before [refresh token rotation](#refresh-token-rotation) was available, the `prompt` parameter was the only way for a SPA to maintain user sessions without prompting the user to sign in multiple times.
 
-The introduction of browser privacy controls such as Intelligent Tracking Prevention (ITP) and Enhanced Tracking Prevention (ETP) affect how browsers handle third-party cookies. These browser privacy controls prevent the use of an Okta session cookie to silently renew user sessions. This forces users to reauthenticate and takes away the seamless user experience.
+The introduction of browser privacy controls such as Intelligent Tracking Prevention (ITP) and Enhanced Tracking Prevention (ETP) affect how browsers handle third-party cookies. These browser privacy controls prevent the use of an Okta session cookie to silently renew user sessions. This forces users to re-authenticate and takes away the seamless user experience.
 
 Refresh token rotation provides a solution for SPAs to maintain user sessions in an ITP browser world. Because refresh tokens are independent of any cookies, you don't have to rely on an Okta session cookie to renew access and ID tokens.
 

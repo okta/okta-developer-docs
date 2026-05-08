@@ -20,7 +20,7 @@ Learn how to configure passkeys with multiple domains.
 * The Passkeys authenticator included in an [authenticator enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-mfa-policy) to allow users to register passkeys
 * The Passkeys authenticator assigned to an [app sign-in policy](/docs/guides/configure-signon-policy/main/#app-sign-in-policies)
 
-> **Note:** As of the `2026.04.0` release, the FIDO2 (WebAuthn) authenticator is now called Passkeys (FIDO2 WebAuthn) and there are new settings and updates to the authenticator page layout. See [Passkeys and WebAuthn](/docs/guides/authenticators-web-authn/aspnet/main/#passkeys-and-okta).
+> **Note:** As of the `2026.04.0` release, the FIDO2 (WebAuthn) authenticator is now called Passkey (FIDO2 WebAuthn) and there are new settings and updates to the authenticator page layout. See [Passkeys and WebAuthn](/docs/guides/authenticators-web-authn/aspnet/main/#passkeys-and-okta).
 
 ---
 
@@ -102,7 +102,7 @@ These methods configure where passkeys can be used. Only passkeys registered und
 
 ### Configure an RP ID
 
-In this scenario, you want to enable users to sign in to `login.globex.com` and `support.globex.com` domains with a passkey. Create a new RP ID for the Passkeys authenticator that uses your root domain (`globex.com`). This RP ID works for all subdomains of `globex.com`.
+In this scenario, you want to enable users to sign in to `login.globex.com` and `support.globex.com` domains with a passkey. Create a new RP ID for the Passkey authenticator that uses your root domain (`globex.com`). This RP ID works for all subdomains of `globex.com`.
 
 > **Note:** If you use a custom domain in Okta like `login.globex.com` as your RP ID instead of a root domain, domain verification is already complete after you complete the [custom domain setup](/docs/guides/custom-url-domain/). Skip the [Verify the RP ID domain](#verify-the-rp-id-domain) step and set `rpId.enabled` to `true` in your initial [API request](#update-the-rp-id-for-the-passkeys-authenticator) to enable it immediately.
 
@@ -114,7 +114,7 @@ There are three steps for setting a root domain as an RP ID for your Passkeys au
 
 > **Note:** When you set a new RP ID, existing passkey enrollments aren't deleted. However, passkeys registered under a different RP ID aren't available during sign-in, making those enrollments unusable. Only passkeys enrolled under the same domain you're setting as the RP ID continue to work. Users who registered their passkeys with a different RP ID must re-enroll.
 
-#### Update the RP ID for the Passkeys authenticator
+#### Update the RP ID for the Passkey authenticator
 
 Before you set an RP ID, follow these steps:
 
@@ -230,7 +230,7 @@ curl -i -X POST \
 
 The RP ID domain is verified and can be enabled if its `verificationStatus` is `VERIFIED`.
 
-#### Enable the RP ID for the Passkeys authenticator
+#### Enable the RP ID for the Passkey authenticator
 
 After the RP ID domain is verified, use the Replace an authenticator method [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod) again to enable the RP ID for your Passkeys authenticator.
 

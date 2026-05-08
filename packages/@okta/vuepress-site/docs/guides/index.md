@@ -18,7 +18,6 @@ guides:
  - build-self-signed-jwt
  - check-for-session
  - client-secret-rotation-key
- - common-hook-set-up-steps
  - configure-access-policy
  - configure-claims-sharing
  - configure-ciba
@@ -88,6 +87,7 @@ guides:
  - scim-with-entitlements
  - sign-in-overview
  - secure-oauth-between-orgs
+ - secure-hooks
  - single-logout
  - signup-oktahosted
  - build-sso-integration
@@ -143,6 +143,7 @@ guides:
  - terraform-organize-configuration
  - terraform-overview
  - terraform-syntax-tips
+ - terraform-manage-itp
  - test-your-migration-plan
  - token-inline-hook
  - unlock-mobile-app-with-biometrics
@@ -204,6 +205,7 @@ guides:
  - set-up-oauth-api
  - custom-smtp
  - oag-offline-mode
+ - configure-identity-claims-sourcing-policy
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

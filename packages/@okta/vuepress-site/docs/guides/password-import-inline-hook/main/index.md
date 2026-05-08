@@ -72,7 +72,7 @@ const listener = app.listen(8082, function () {
 });
 ```
 
-Add the following code to use Basic Authentication to validate the incoming call from Okta against the values in the `.env` file. See [HTTP header: Basic Authentication](/docs/guides/common-hook-set-up-steps/nodejs/main/#http-header-basic-authentication).
+Add the following code to use Basic Authentication to validate the incoming call from Okta against the values in the `.env` file. See [HTTP header: Basic Authentication](/docs/guides/secure-hooks/nodejs/main/#http-header-basic-authentication).
 
 ```javascript
 const basicAuth = require('express-basic-auth');
@@ -178,7 +178,7 @@ To run a test of your password import inline hook, go to the Okta sign-in page f
 * Sign out and sign in again to ensure the hook is no longer called (by reviewing the Admin Console logs).
 * Use the ngrok interface (`http://localhost:4040`) to review the Okta hook calls and your responses to Okta. See [Review ngrok inspection interface](/docs/guides/event-hook-ngrok/nodejs/main/#review-ngrok-inspection-interface)
 
-> **Note:** Review the [troubleshooting](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) section for information if you encounter any setup or configuration difficulties.
+> **Note:** Review the [troubleshooting](/docs/guides/hooks-best-practices/#troubleshoot-your-hook-implementations) section for information if you encounter any setup or configuration difficulties.
 
 ## Next steps
 

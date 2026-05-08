@@ -11,7 +11,7 @@ The first step is to initiate a use case that requires authentication. This guid
 
 ### Handle the authenticator challenge response
 
-If you configure your Okta org as detailed in [Configuration updates](#update-configurations) and the Passkeys authenticator is already [enrolled](#integrate-sdk-for-authenticator-enrollment) for the user, `authenticate()` returns a response indicating that the authenticator is required for verification. Specifically, `IdxTransaction` is returned with a `status` of `PENDING` and `nextStep.name` set to `challenge-authenticator`.
+If you configure your Okta org as detailed in [Configuration updates](#update-configurations) and the Passkey authenticator is already [enrolled](#integrate-sdk-for-authenticator-enrollment) for the user, `authenticate()` returns a response indicating that the authenticator is required for verification. Specifically, `IdxTransaction` is returned with a `status` of `PENDING` and `nextStep.name` set to `challenge-authenticator`.
 
 Also, `IdxTransaction` returns the challenge and other information to verify the WebAuthn credentials on the user's device. Specifically, `nextStep.authenticator.contextualData.challengeData.challenge` contains the challenge and `nextStep.authenticator.authenticatorEnrollments` contains the authenticator details including the `credentialId`.
 

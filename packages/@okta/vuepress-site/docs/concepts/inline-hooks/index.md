@@ -88,11 +88,11 @@ OAuth 2.0 tokens provide enhanced security between Okta and your external servic
 
 #### Client secret post
 
-The client secret method (`client_secret_post`) uses a generated client ID and secret to obtain a token from the authorization server. The OAuth 2.0 inline hook request includes the token as a signed JWT. Your external service must verify the JWT to authenticate the inline hook call. See [OAuth 2.0: Client Secret](/docs/guides/common-hook-set-up-steps/#oauth-2-0-client-secret).
+The client secret method (`client_secret_post`) uses a generated client ID and secret to obtain a token from the authorization server. The OAuth 2.0 inline hook request includes the token as a signed JWT. Your external service must verify the JWT to authenticate the inline hook call. See [OAuth 2.0: Client Secret](/docs/guides/secure-hooks/nodejs/main/#oauth-2-0-client-secret).
 
 #### Private key
 
-The private key method (`private_key_jwt`) uses a generated key, which includes a private key and a public key. A JWT is generated using the private key and sent to the authorization server. The authorization server uses the public key to verify the JWT and returns an access token as a signed JWT. The OAuth 2.0 inline hook request includes the signed JWT. Your external service must verify the JWT to authenticate the inline hook call. See [OAuth 2.0: Private Key](/docs/guides/common-hook-set-up-steps/#oauth-2-0-private-key).
+The private key method (`private_key_jwt`) uses a generated key, which includes a private key and a public key. A JWT is generated using the private key and sent to the authorization server. The authorization server uses the public key to verify the JWT and returns an access token as a signed JWT. The OAuth 2.0 inline hook request includes the signed JWT. Your external service must verify the JWT to authenticate the inline hook call. See [OAuth 2.0: Private Key](/docs/guides/secure-hooks/nodejs/main/#oauth-2-0-private-key).
 
 ### HTTP header
 
@@ -106,7 +106,7 @@ Authorization: {key}
 
 #### Authorization header
 
-The Authorization header (`Authorization: {key}`) is a secret string that you provide to Okta when you register your external service. This string serves as an API access key for your service, and Okta provides it in every request. Your code can check if the string is present as a security measure. (This isn't an Okta authorization token, it's simply a text string you decide on.) See [HTTP header: Basic Authentication](/docs/guides/common-hook-set-up-steps/#http-header-basic-authentication).
+The Authorization header (`Authorization: {key}`) is a secret string that you provide to Okta when you register your external service. This string serves as an API access key for your service, and Okta provides it in every request. Your code can check if the string is present as a security measure. (This isn't an Okta authorization token, it's simply a text string you decide on.) See [HTTP header: Basic Authentication](/docs/guides/secure-hooks/nodejs/main/#http-header-basic-authentication).
 
 ### JSON request payload objects
 
@@ -184,6 +184,8 @@ This allows you to specify additional information to make available in the Okta 
 
 When Okta calls an external service, it enforces a default timeout of three seconds. Okta attempts at most one retry. A request isn't retried if the external service endpoint responds with a 2xx HTTP success code or a 4xx HTTP error code. If the external service endpoint responds with a redirect, it isn't followed.
 
+> **Note:** The token inline hook and the telephony inline hook don't support retries.
+
 ### Inline hooks and concurrent rate limits
 
 The Okta process flow that triggered the inline hook remains in progress until a response from your external service is received. For process flows initiated by calls to Okta APIs, slow processing times by your external service can cause open API transactions to accumulate. That accumulation can potentially cause you to exceed [Concurrent Rate Limits](/docs/reference/rl2-concurrency/).
@@ -221,7 +223,7 @@ For more information on implementing inline hooks, see the documentation for spe
 
 ## Troubleshooting
 
-A hook preview feature is available for the following hooks: SAML, telephony, token, and registration inline hooks. Use this feature to view a sample request body and evaluate and troubleshoot the response from your external service. See [Troubleshoot hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) and [Preview an inline hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-preview-inline-hooks).
+A hook preview feature is available for the following hooks: SAML, telephony, token, and registration inline hooks. Use this feature to view a sample request body and evaluate and troubleshoot the response from your external service. See [Troubleshoot hook implementations](/docs/guides/hooks-best-practices/#troubleshoot-your-hook-implementations) and [Preview an inline hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-preview-inline-hooks).
 
 The [Okta System Log](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/) also captures events related to inline hook setup and execution that you can use to troubleshoot your implementation. You can see descriptions of the relevant event types by querying the event types catalog with the `inline_hook` query parameter. See [Event Types](/docs/reference/api/event-types/).
 

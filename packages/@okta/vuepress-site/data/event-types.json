@@ -1,6 +1,6 @@
 {
-  "release" : "2026.04.1",
-  "build" : "2026.04.1-begin-209-gb10cfad58fb2",
+  "release" : "2026.05.1",
+  "build" : "2026.05.1-begin-232-g4c8ed7fe9896",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -8,20 +8,11 @@
     "id" : "account-services",
     "name" : "Account Services"
   }, {
-    "id" : "adaptive",
-    "name" : "Adaptive"
-  }, {
     "id" : "agent-rotation",
     "name" : "Agent Rotation"
   }, {
-    "id" : "analytics",
-    "name" : "Analytics"
-  }, {
     "id" : "asa",
     "name" : "Advanced Server Access"
-  }, {
-    "id" : "authenticator-platform",
-    "name" : "Authenticator Platform"
   }, {
     "id" : "access-frameworks",
     "name" : "Access Frameworks"
@@ -59,9 +50,6 @@
     "id" : "core-identity",
     "name" : "Core Identity"
   }, {
-    "id" : "cred-platform",
-    "name" : "Credential Platform"
-  }, {
     "id" : "customizations-platform",
     "name" : "Customization Platform"
   }, {
@@ -79,9 +67,6 @@
   }, {
     "id" : "device-assurance",
     "name" : "Device Assurance"
-  }, {
-    "id" : "device-authenticators",
-    "name" : "Device Authenticators"
   }, {
     "id" : "device-access",
     "name" : "Device Access"
@@ -106,9 +91,6 @@
   }, {
     "id" : "essential-security",
     "name" : "Essential Security"
-  }, {
-    "id" : "fastpass-platform",
-    "name" : "FastPass Platform"
   }, {
     "id" : "first-party-apps",
     "name" : "First Party Apps Platform"
@@ -202,9 +184,6 @@
   }, {
     "id" : "protect-cis",
     "name" : "Protect CIS"
-  }, {
-    "id" : "provisioning-fabric",
-    "name" : "Provisioning Fabric"
   }, {
     "id" : "qa-system-test",
     "name" : "QA System Test"
@@ -1290,6 +1269,24 @@
         "changeDetails" : [ "AccessRequestSettingsChangeDetailsEntry" ]
       }
     }, {
+      "id" : "access.request.update",
+      "category" : "id-fabric",
+      "description" : "Access request updated. Can be used to audit access to an Okta resource or to trigger downstream automation that depends on request update, which can include changes to the request task(s). Okta Identity Governance API can be used to get more details about the updated request.",
+      "info" : {
+        "created" : "2026-03-20",
+        "release" : "2026.05.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "access", "event-hook-eligible" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "AccessRequestRequestDebugData",
+        "actor" : null,
+        "targets" : [ "AccessRequestResourceDetails" ],
+        "changeDetails" : [ "AccessRequestSequenceChangeDetailsEntry" ]
+      }
+    }, {
       "id" : "access.review.action",
       "category" : "id-fabric",
       "description" : "Record a reviewer's decision on an access review item. Audit specific access decisions (e.g., approve, revoke) made during a review. This event records the intended action. The access.review.remediate event indicates fulfillment of the action.",
@@ -1723,7 +1720,7 @@
       }
     }, {
       "id" : "analytics.feedback.provide",
-      "category" : "adaptive",
+      "category" : "itp",
       "description" : "An admin has provided feedback on a detection Okta provided which indicated a change in user or session risk. This can be used to monitor feedback provided by admins in response to Okta determined changes in risk. This event is fired when an admin chooses to provide feedback on a detection event in the admin console.",
       "info" : {
         "created" : "2023-10-02",
@@ -2161,7 +2158,7 @@
         "created" : "2026-02-09",
         "release" : "2026.03.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "workload-principal" ],
       "mappings" : [ ],
@@ -2179,7 +2176,7 @@
         "created" : "2026-02-09",
         "release" : "2026.03.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "workload-principal" ],
       "mappings" : [ ],
@@ -2197,7 +2194,7 @@
         "created" : "2026-02-09",
         "release" : "2026.03.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "workload-principal" ],
       "mappings" : [ ],
@@ -2215,7 +2212,7 @@
         "created" : "2026-02-09",
         "release" : "2026.03.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "workload-principal" ],
       "mappings" : [ ],
@@ -2233,7 +2230,7 @@
         "created" : "2026-02-09",
         "release" : "2026.03.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "workload-principal" ],
       "mappings" : [ ],
@@ -2251,7 +2248,7 @@
         "created" : "2026-02-09",
         "release" : "2026.03.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "workload-principal" ],
       "mappings" : [ ],
@@ -2269,7 +2266,7 @@
         "created" : "2026-02-09",
         "release" : "2026.03.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "workload-principal" ],
       "mappings" : [ ],
@@ -2287,7 +2284,7 @@
         "created" : "2026-02-09",
         "release" : "2026.03.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "workload-principal" ],
       "mappings" : [ ],
@@ -2404,78 +2401,6 @@
         "actor" : null,
         "targets" : null,
         "changeDetails" : null
-      }
-    }, {
-      "id" : "app.audit_report.download",
-      "category" : "insights-platform",
-      "description" : "Application access report downloaded.",
-      "info" : {
-        "created" : "2017-12-18",
-        "release" : "2017.52"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "app" ],
-      "mappings" : [ "app.audit_report.download" ],
-      "schema" : {
-        "debugData" : "UserDiffReportDebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ],
-        "changeDetails" : [ ]
-      }
-    }, {
-      "id" : "app.audit_report.download.local.active",
-      "category" : "insights-platform",
-      "description" : "Application access report downloaded.",
-      "info" : {
-        "created" : "2017-12-18",
-        "release" : "2017.52"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "app" ],
-      "mappings" : [ "app.audit_report.download.local.active" ],
-      "schema" : {
-        "debugData" : "UserDiffReportDebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ],
-        "changeDetails" : [ ]
-      }
-    }, {
-      "id" : "app.audit_report.download.local.deprov",
-      "category" : "insights-platform",
-      "description" : "Recent unassignments report downloaded.",
-      "info" : {
-        "created" : "2017-12-18",
-        "release" : "2017.52"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "app" ],
-      "mappings" : [ "app.audit_report.download.local.deprov" ],
-      "schema" : {
-        "debugData" : "UserDiffReportDebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ],
-        "changeDetails" : [ ]
-      }
-    }, {
-      "id" : "app.audit_report.download.rogue.report",
-      "category" : "insights-platform",
-      "description" : "Rogue report downloaded.",
-      "info" : {
-        "created" : "2017-12-18",
-        "release" : "2017.52"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "app" ],
-      "mappings" : [ "app.audit_report.download.rogue.report" ],
-      "schema" : {
-        "debugData" : "UserDiffReportDebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ],
-        "changeDetails" : [ ]
       }
     }, {
       "id" : "app.cross_app_access.connection.create",
@@ -2853,60 +2778,6 @@
         "debugData" : "SystemDebugData",
         "actor" : null,
         "targets" : [ "OAuth2ResourceDetails" ],
-        "changeDetails" : [ ]
-      }
-    }, {
-      "id" : "app.oauth2.api_resource.create",
-      "category" : "outbound-federation",
-      "description" : "OAuth2 API Resource is created. Manage and audit lifecycle events of API resources. Administrators are made aware that a new API resource is getting created under Authorization servers.",
-      "info" : {
-        "created" : "2022-03-29",
-        "release" : "2022.04.2"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "oauth2", "oauth2-api-resource" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : "SystemDebugData",
-        "actor" : null,
-        "targets" : [ "AuthorizationServerResourceDetails" ],
-        "changeDetails" : [ ]
-      }
-    }, {
-      "id" : "app.oauth2.api_resource.delete",
-      "category" : "outbound-federation",
-      "description" : "OAuth2 API Resource is deleted. Manage and audit lifecycle events of API resources. Administrators are made aware that a new API resource is getting deleted under Authorization servers.",
-      "info" : {
-        "created" : "2022-03-29",
-        "release" : "2022.04.2"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "oauth2", "oauth2-api-resource" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : "SystemDebugData",
-        "actor" : null,
-        "targets" : [ "AuthorizationServerResourceDetails" ],
-        "changeDetails" : [ ]
-      }
-    }, {
-      "id" : "app.oauth2.api_resource.update",
-      "category" : "outbound-federation",
-      "description" : "OAuth2 API Resource is updated. Manage and audit lifecycle events of API resources. Administrators are made aware that a new API resource is getting updated under Authorization servers.",
-      "info" : {
-        "created" : "2022-03-29",
-        "release" : "2022.04.2"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "oauth2", "oauth2-api-resource" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : "SystemDebugData",
-        "actor" : null,
-        "targets" : [ "AuthorizationServerResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -3961,7 +3832,7 @@
         "created" : "2026-03-17",
         "release" : "2026.04.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "oauth-sts" ],
       "mappings" : [ ],
@@ -4028,12 +3899,12 @@
     }, {
       "id" : "app.oauth2.token.oauth_sts.request_token",
       "category" : "secure-ai",
-      "description" : "A request was made to a third-party authorization server to request OAuth tokens. This event is triggered when Okta requests OAuth tokens from a third-party authorization server.",
+      "description" : "Request OAuth tokens from a third-party authorization server. This event is triggered when Okta requests OAuth tokens from a third-party authorization server.",
       "info" : {
         "created" : "2026-03-17",
         "release" : "2026.04.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "oauth-sts" ],
       "mappings" : [ ],
@@ -8455,7 +8326,7 @@
       }
     }, {
       "id" : "device.token.enrollment.create",
-      "category" : "fastpass-platform",
+      "category" : "device-assurance",
       "description" : "Okta Verify device enrollment token created with existing Okta Verify enrollment. Identifies an Okta verify device enrollment token which allows a user to enroll a new Okta Verify client on a different device. May be useful to evaluate the context under which an Okta Verify enrollment was authorized for the purpose of security investigation or analysis of user preference. The target specifies the existing Okta Verify enrollment which was used to authorize token creation. It does not specify whether the token was actually used to enroll a new device. Refer to the event type device.enrollment.create to identify newly enrolled Okta Verify clients.",
       "info" : {
         "created" : "2024-10-08",
@@ -9895,7 +9766,7 @@
       }
     }, {
       "id" : "mim.command.generic.acknowledged",
-      "category" : "fastpass-platform",
+      "category" : "device-assurance",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -9913,7 +9784,7 @@
       }
     }, {
       "id" : "mim.command.generic.cancelled",
-      "category" : "fastpass-platform",
+      "category" : "device-assurance",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -9931,7 +9802,7 @@
       }
     }, {
       "id" : "mim.command.generic.delegated",
-      "category" : "fastpass-platform",
+      "category" : "device-assurance",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -9949,7 +9820,7 @@
       }
     }, {
       "id" : "mim.command.generic.error",
-      "category" : "fastpass-platform",
+      "category" : "device-assurance",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -9967,7 +9838,7 @@
       }
     }, {
       "id" : "mim.command.generic.new",
-      "category" : "fastpass-platform",
+      "category" : "device-assurance",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -9985,7 +9856,7 @@
       }
     }, {
       "id" : "mim.command.generic.notnow",
-      "category" : "fastpass-platform",
+      "category" : "device-assurance",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -10003,7 +9874,7 @@
       }
     }, {
       "id" : "mim.command.ios.acknowledged",
-      "category" : "fastpass-platform",
+      "category" : "device-assurance",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -10021,7 +9892,7 @@
       }
     }, {
       "id" : "mim.command.ios.cancelled",
-      "category" : "fastpass-platform",
+      "category" : "device-assurance",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -10039,7 +9910,7 @@
       }
     }, {
       "id" : "mim.command.ios.error",
-      "category" : "fastpass-platform",
+      "category" : "device-assurance",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -10057,7 +9928,7 @@
       }
     }, {
       "id" : "mim.command.ios.formaterror",
-      "category" : "fastpass-platform",
+      "category" : "device-assurance",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -10075,7 +9946,7 @@
       }
     }, {
       "id" : "mim.command.ios.new",
-      "category" : "fastpass-platform",
+      "category" : "device-assurance",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -10093,7 +9964,7 @@
       }
     }, {
       "id" : "mim.createEnrollment.ANDROID",
-      "category" : "fastpass-platform",
+      "category" : "device-assurance",
       "description" : "",
       "info" : {
         "created" : "2016-09-20",
@@ -10111,7 +9982,7 @@
       }
     }, {
       "id" : "mim.createEnrollment.IOS",
-      "category" : "fastpass-platform",
+      "category" : "device-assurance",
       "description" : "",
       "info" : {
         "created" : "2016-09-20",
@@ -10129,7 +10000,7 @@
       }
     }, {
       "id" : "mim.createEnrollment.OSX",
-      "category" : "fastpass-platform",
+      "category" : "device-assurance",
       "description" : "",
       "info" : {
         "created" : "2016-09-20",
@@ -10147,7 +10018,7 @@
       }
     }, {
       "id" : "mim.createEnrollment.UNKNOWN",
-      "category" : "fastpass-platform",
+      "category" : "device-assurance",
       "description" : "",
       "info" : {
         "created" : "2016-09-20",
@@ -10165,7 +10036,7 @@
       }
     }, {
       "id" : "mim.createEnrollment.WINDOWS",
-      "category" : "fastpass-platform",
+      "category" : "device-assurance",
       "description" : "",
       "info" : {
         "created" : "2016-09-20",
@@ -10183,7 +10054,7 @@
       }
     }, {
       "id" : "mim.streamDevicesCSVDownload",
-      "category" : "fastpass-platform",
+      "category" : "device-assurance",
       "description" : "",
       "info" : {
         "created" : "2016-09-20",
@@ -10201,7 +10072,7 @@
       }
     }, {
       "id" : "network_zone.rule.disabled",
-      "category" : "adaptive",
+      "category" : "essential-security",
       "description" : "",
       "info" : {
         "created" : "2016-03-30",
@@ -10417,7 +10288,7 @@
       }
     }, {
       "id" : "org.not_configured_origin.redirection.usage",
-      "category" : "cred-platform",
+      "category" : "passwordless",
       "description" : "Using untrusted origin for redirection.",
       "info" : {
         "created" : "2017-10-21",
@@ -12954,6 +12825,24 @@
         "changeDetails" : [ ]
       }
     }, {
+      "id" : "pki.ca.expiration.warn",
+      "category" : "access-frameworks",
+      "description" : "Warn about approaching third-party CA certificate expiration. Monitor certificate expiration timelines to proactively rotate third-party CA certificates and avoid FastPass authentication failures when strict enforcement begins. Fires at 6-month, 3-month, and 1-month intervals before the enforcement deadline. The target resource identifies the specific certificate. Use outcome.reason to filter by urgency interval (EXPIRING_6_MONTHS, EXPIRING_3_MONTHS, EXPIRING_1_MONTH).",
+      "info" : {
+        "created" : "2026-04-02",
+        "release" : "2026.05.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "oie-only" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "OktaCAResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
       "id" : "pki.ca.renew",
       "category" : "client-foundations",
       "description" : "Triggered when one or more certificates that belong to a certificate authority are renewed. Use to audit certificate renewals that belong to a certificate authority. You can also use it as a notification to download the renewed certificates. When triggered, this event includes the old certificates and the new certificate replacements.",
@@ -13239,6 +13128,204 @@
         "debugData" : "ContinuousAccessEvaluationDebugData",
         "actor" : null,
         "targets" : [ "PolicyEvaluationResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "policy.branch.lifecycle.create",
+      "category" : "authn-platform",
+      "description" : "Create a policy branch. Use this event to track when policy branches are created for testing policy changes before production deployment.",
+      "info" : {
+        "created" : "2026-04-02",
+        "release" : "2026.05.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "policy" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "PolicyResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "policy.branch.lifecycle.delete",
+      "category" : "authn-platform",
+      "description" : "Delete a policy branch. Use this event to audit when policy branches are removed after testing completion or abandonment.",
+      "info" : {
+        "created" : "2026-04-02",
+        "release" : "2026.05.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "policy" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "PolicyResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "policy.branch.lifecycle.promote",
+      "category" : "authn-platform",
+      "description" : "Promote a policy branch. Use this event to audit when policy branches are promoted to production and when the tested changes become active.",
+      "info" : {
+        "created" : "2026-04-02",
+        "release" : "2026.05.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "policy" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "PolicyResourceDetails" ],
+        "changeDetails" : [ "PolicyChangeDetailsEntry" ]
+      }
+    }, {
+      "id" : "policy.branch.lifecycle.rollback",
+      "category" : "authn-platform",
+      "description" : "Roll back a policy branch. Use this event to audit when policy branches are rolled back.",
+      "info" : {
+        "created" : "2026-04-02",
+        "release" : "2026.05.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "policy" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "PolicyResourceDetails" ],
+        "changeDetails" : [ "PolicyChangeDetailsEntry" ]
+      }
+    }, {
+      "id" : "policy.branch.lifecycle.stage",
+      "category" : "authn-platform",
+      "description" : "Stage a policy branch. Use this event to track when policy branches are staged for final validation before production deployment.",
+      "info" : {
+        "created" : "2026-04-02",
+        "release" : "2026.05.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "policy" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "PolicyResourceDetails" ],
+        "changeDetails" : [ "PolicyChangeDetailsEntry" ]
+      }
+    }, {
+      "id" : "policy.branch.lifecycle.update",
+      "category" : "authn-platform",
+      "description" : "Update a policy branch. Use this event to monitor modifications to policy branches during testing and development.",
+      "info" : {
+        "created" : "2026-04-02",
+        "release" : "2026.05.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "policy" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "PolicyResourceDetails" ],
+        "changeDetails" : [ "PolicyChangeDetailsEntry" ]
+      }
+    }, {
+      "id" : "policy.branch.rule.activate",
+      "category" : "authn-platform",
+      "description" : "Activate a policy rule in a branch. Use this event to track when policy rules are activated within branches for testing purposes.",
+      "info" : {
+        "created" : "2026-04-02",
+        "release" : "2026.05.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "policy" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "PolicyDebugData",
+        "actor" : null,
+        "targets" : [ "PolicyResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "policy.branch.rule.add",
+      "category" : "authn-platform",
+      "description" : "Add a policy rule to a branch. Use this event to track when new policy rules are added to branches for testing.",
+      "info" : {
+        "created" : "2026-04-02",
+        "release" : "2026.05.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "policy" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "PolicyDebugData",
+        "actor" : null,
+        "targets" : [ "PolicyResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "policy.branch.rule.deactivate",
+      "category" : "authn-platform",
+      "description" : "Deactivate a policy rule in a branch. Use this event to monitor when policy rules are deactivated within branches during testing.",
+      "info" : {
+        "created" : "2026-04-02",
+        "release" : "2026.05.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "policy" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "PolicyDebugData",
+        "actor" : null,
+        "targets" : [ "PolicyResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "policy.branch.rule.delete",
+      "category" : "authn-platform",
+      "description" : "Delete a policy rule in a branch. Use this event to audit when policy rules are removed from branches during testing and development.",
+      "info" : {
+        "created" : "2026-04-02",
+        "release" : "2026.05.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "policy" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "PolicyDebugData",
+        "actor" : null,
+        "targets" : [ "PolicyResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "policy.branch.rule.update",
+      "category" : "authn-platform",
+      "description" : "Update a policy rule in a branch. Use this event to monitor modifications to policy rules within branches during testing phases.",
+      "info" : {
+        "created" : "2026-04-02",
+        "release" : "2026.05.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "policy" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "PolicyDebugData",
+        "actor" : null,
+        "targets" : [ "PolicyResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -14059,7 +14146,7 @@
         "created" : "2026-03-17",
         "release" : "2026.04.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "api-server", "event-hook-eligible" ],
       "mappings" : [ ],
@@ -14077,7 +14164,7 @@
         "created" : "2026-03-17",
         "release" : "2026.04.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "api-server", "event-hook-eligible" ],
       "mappings" : [ ],
@@ -14095,7 +14182,7 @@
         "created" : "2026-03-17",
         "release" : "2026.04.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "api-server", "event-hook-eligible" ],
       "mappings" : [ ],
@@ -14113,7 +14200,7 @@
         "created" : "2026-03-17",
         "release" : "2026.04.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "api-server", "event-hook-eligible" ],
       "mappings" : [ ],
@@ -14131,7 +14218,7 @@
         "created" : "2026-03-17",
         "release" : "2026.04.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "api-server", "event-hook-eligible" ],
       "mappings" : [ ],
@@ -14149,7 +14236,7 @@
         "created" : "2026-03-17",
         "release" : "2026.04.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "api-server", "event-hook-eligible" ],
       "mappings" : [ ],
@@ -14167,7 +14254,7 @@
         "created" : "2026-03-17",
         "release" : "2026.04.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "api-server", "event-hook-eligible" ],
       "mappings" : [ ],
@@ -14185,7 +14272,7 @@
         "created" : "2026-03-17",
         "release" : "2026.04.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "api-server", "event-hook-eligible" ],
       "mappings" : [ ],
@@ -14203,7 +14290,7 @@
         "created" : "2026-03-18",
         "release" : "2026.04.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "client-auth-settings", "event-hook-eligible" ],
       "mappings" : [ ],
@@ -14221,7 +14308,7 @@
         "created" : "2026-03-18",
         "release" : "2026.04.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "client-auth-settings", "event-hook-eligible" ],
       "mappings" : [ ],
@@ -14239,7 +14326,7 @@
         "created" : "2026-03-18",
         "release" : "2026.04.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "client-auth-settings", "event-hook-eligible" ],
       "mappings" : [ ],
@@ -14257,7 +14344,7 @@
         "created" : "2026-03-18",
         "release" : "2026.04.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "event-hook-eligible", "mcp-server" ],
       "mappings" : [ ],
@@ -14275,7 +14362,7 @@
         "created" : "2026-03-18",
         "release" : "2026.04.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "event-hook-eligible", "mcp-server" ],
       "mappings" : [ ],
@@ -14293,7 +14380,7 @@
         "created" : "2026-03-18",
         "release" : "2026.04.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "event-hook-eligible", "mcp-server" ],
       "mappings" : [ ],
@@ -14311,7 +14398,7 @@
         "created" : "2026-03-18",
         "release" : "2026.04.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "event-hook-eligible", "mcp-server" ],
       "mappings" : [ ],
@@ -14329,7 +14416,7 @@
         "created" : "2026-03-18",
         "release" : "2026.04.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "event-hook-eligible", "mcp-server" ],
       "mappings" : [ ],
@@ -14347,7 +14434,7 @@
         "created" : "2026-03-18",
         "release" : "2026.04.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "event-hook-eligible", "mcp-server" ],
       "mappings" : [ ],
@@ -14365,7 +14452,7 @@
         "created" : "2026-03-18",
         "release" : "2026.04.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "event-hook-eligible", "mcp-server" ],
       "mappings" : [ ],
@@ -14383,7 +14470,7 @@
         "created" : "2026-03-18",
         "release" : "2026.04.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "event-hook-eligible", "mcp-server" ],
       "mappings" : [ ],
@@ -14467,7 +14554,7 @@
       }
     }, {
       "id" : "security.attack.end",
-      "category" : "adaptive",
+      "category" : "essential-security",
       "description" : "Fired when Threat Insight detects that an org is no longer under attack. This can be used to monitor when our models no longer detect an attack on an org. When this event is fired, Threat Insight will stop being extra aggressive in logging and/or blocking suspicious requests. This is fired from within an internal Okta context and therefore will not have any request level context information.",
       "info" : {
         "created" : "2021-02-05",
@@ -14485,7 +14572,7 @@
       }
     }, {
       "id" : "security.attack.start",
-      "category" : "adaptive",
+      "category" : "essential-security",
       "description" : "Fired when Threat Insight detects that an org is under attack. This can be used to monitor attacks against your organization. When this event is fired, Threat Insight will automatically become more aggressive in logging and/or blocking suspicious requests. This is fired from within an internal Okta context and therefore will not have any request level context information.",
       "info" : {
         "created" : "2021-02-05",
@@ -14593,7 +14680,7 @@
       }
     }, {
       "id" : "security.behavior.settings.create",
-      "category" : "adaptive",
+      "category" : "itp",
       "description" : "Behavior settings create. This can also be used to identify when a behavior setting is created. When fired, this event contains information about a created setting.",
       "info" : {
         "created" : "2019-07-01",
@@ -14611,7 +14698,7 @@
       }
     }, {
       "id" : "security.behavior.settings.delete",
-      "category" : "adaptive",
+      "category" : "itp",
       "description" : "Behavior settings delete. This can also be used to identify when a behavior setting has been deleted. When fired, this event contains information about a delete setting.",
       "info" : {
         "created" : "2019-07-01",
@@ -14629,7 +14716,7 @@
       }
     }, {
       "id" : "security.behavior.settings.update",
-      "category" : "adaptive",
+      "category" : "itp",
       "description" : "Behavior settings update. This can also be used to identify when a behavior setting has been changed. When fired, this event contains information about a updated setting.",
       "info" : {
         "created" : "2019-07-01",
@@ -14683,7 +14770,7 @@
       }
     }, {
       "id" : "security.breached_credential.detected",
-      "category" : "adaptive",
+      "category" : "essential-security",
       "description" : "A credential, such as a password, which is associated with a known breach was used during an authentication flow. Used to identify users for whom credential rotation or other risk mitigation is necessary. The actor is the user with the breached credential. For Identity Engine, a target will indicate the specific credential associated with the breach. The outcome for this event will always be SUCCESS with a severity level of WARN. If breached credential protection is enabled, auser.session.clear will also be fired. These two events can be correlated by the Request ID.",
       "info" : {
         "created" : "2024-04-03",
@@ -14755,7 +14842,7 @@
       }
     }, {
       "id" : "security.events.provider.activate",
-      "category" : "adaptive",
+      "category" : "itp",
       "description" : "Activate a security events provider. Appears when an authorized security events provider, such as the Shared Signals Framework (SSF) transmitter, is activated.This event helps admins troubleshoot issues with the delivery of security events to Okta. When fired, this event contains information about the activated security events provider.",
       "info" : {
         "created" : "2024-07-29",
@@ -14773,7 +14860,7 @@
       }
     }, {
       "id" : "security.events.provider.create",
-      "category" : "adaptive",
+      "category" : "itp",
       "description" : "Create a security events provider. Appears when an authorized security events provider, such as the  Shared Signals Framework (SSF) transmitter, is created.This event helps admins troubleshoot issues with the delivery of security events to Okta. When fired, this event contains information about the created security events provider.",
       "info" : {
         "created" : "2024-07-29",
@@ -14791,7 +14878,7 @@
       }
     }, {
       "id" : "security.events.provider.deactivate",
-      "category" : "adaptive",
+      "category" : "itp",
       "description" : "Deactivate a security events provider. Appears when an authorized security events provider, such as the Shared Signals Framework (SSF) transmitter, is deactivated.This event helps admins troubleshoot issues with the delivery of security events to Okta. When fired, this event contains information about the deactivated security events provider.",
       "info" : {
         "created" : "2024-07-29",
@@ -14809,7 +14896,7 @@
       }
     }, {
       "id" : "security.events.provider.delete",
-      "category" : "adaptive",
+      "category" : "itp",
       "description" : "Delete a security events provider. Appears when an authorized security events provider, such as the Shared Signals Framework (SSF) transmitter, is deleted.This event helps admins troubleshoot issues with the delivery of security events to Okta. When fired, this event contains information about the deleted security events provider.",
       "info" : {
         "created" : "2024-07-29",
@@ -14827,7 +14914,7 @@
       }
     }, {
       "id" : "security.events.provider.receive_event",
-      "category" : "adaptive",
+      "category" : "essential-security",
       "description" : "Appears when a security events provider submits a valid event for each known detection. The event helps admins debug or monitor SSF provider submissions. The event contains debug context data about the provider's risk report.",
       "info" : {
         "created" : "2022-06-30",
@@ -14845,7 +14932,7 @@
       }
     }, {
       "id" : "security.events.provider.update",
-      "category" : "adaptive",
+      "category" : "itp",
       "description" : "Update a security events provider. Appears when an update is made to an authorized security events provider,such as the Shared Signals Framework (SSF) transmitter.This event helps admins troubleshoot issues with the delivery of security events to Okta. When fired, this event contains information about the updated security events provider.",
       "info" : {
         "created" : "2024-07-29",
@@ -14863,7 +14950,7 @@
       }
     }, {
       "id" : "security.events.transmitter.create",
-      "category" : "adaptive",
+      "category" : "itp",
       "description" : "Create security events transmitter. Appears when a specific security events transmitter, such as the Shared Signals Framework (SSF) transmitter, is created. This event helps admins troubleshoot issues with event delivery to security event receivers. This event contains configuration details of the created security events transmitter.",
       "info" : {
         "created" : "2024-07-26",
@@ -14881,7 +14968,7 @@
       }
     }, {
       "id" : "security.events.transmitter.delete",
-      "category" : "adaptive",
+      "category" : "itp",
       "description" : "Delete security events transmitter. Appears when a specific security events transmitter, such as the Shared Signals Framework (SSF) transmitter, is deleted. This event helps admins troubleshoot issues with event delivery to security events receivers. This event contains configuration details of the deleted security events transmitter.",
       "info" : {
         "created" : "2024-07-26",
@@ -14899,7 +14986,7 @@
       }
     }, {
       "id" : "security.events.transmitter.update",
-      "category" : "adaptive",
+      "category" : "itp",
       "description" : "Update security events transmitter. Appears when there is an update to a specific security events transmitter, such as the Shared Signals Framework (SSF) transmitter. This event helps admins troubleshoot issues with event delivery to security events receivers. This event contains configuration details of the updated security events transmitter.",
       "info" : {
         "created" : "2024-07-26",
@@ -14917,7 +15004,7 @@
       }
     }, {
       "id" : "security.internal.authentication",
-      "category" : "adaptive",
+      "category" : "essential-security",
       "description" : "This internal event combines the various steps of an authentication transaction into a single event. It is consumed by the behavior topology for risk scoring models and is also consumed by the BI topology to send this into the data lake. This is an internal event and is not visible to the admins.",
       "info" : {
         "created" : "2019-12-15",
@@ -14935,7 +15022,7 @@
       }
     }, {
       "id" : "security.internal.dco_malicious_ip_report",
-      "category" : "adaptive",
+      "category" : "itp",
       "description" : "Indicates that a malicious IP indicator was reported by the DCO team. This can be used to monitor malicious ip reports from the DCO team to the risk engine. This event is fired when the DCO team reports to the risk engine that an IP is malicious.",
       "info" : {
         "created" : "2023-09-12",
@@ -14953,7 +15040,7 @@
       }
     }, {
       "id" : "security.internal.dco_user_risk_report",
-      "category" : "adaptive",
+      "category" : "itp",
       "description" : "Indicates that a DCO indicator was reported to the risk engine, that triggers a user.risk.change event. This internal event can be used to monitor DCO indicators that impact users risk level. This event is fired when Okta determines that a user is associated with a DCO indicator.",
       "info" : {
         "created" : "2023-09-12",
@@ -14971,7 +15058,7 @@
       }
     }, {
       "id" : "security.internal.threat.detected",
-      "category" : "adaptive",
+      "category" : "essential-security",
       "description" : "This internal event mirrors SECURITY_THREAT_DETECTED. Firing an internal event after some threshold allows for EDS team to consume security events without overwhelming syslog. This internal event gets fired in place of security.threat.detected, such that during periods of large load, EDS can consume threat detected events without overloading admins. This event is not visible to admins.",
       "info" : {
         "created" : "2022-04-26",
@@ -14989,7 +15076,7 @@
       }
     }, {
       "id" : "security.origin.auto_whitelisted",
-      "category" : "cred-platform",
+      "category" : "passwordless",
       "description" : "A new origin (redirectUrl) was automatically whitelisted. This can be used to monitor when trusted origins are dynamically added to your tenant by Okta. This is a temporary event, which will be used by the subset of tenants who get the dynamic whitelisting functionality prior to having the enforcement of Trusted Origins whitelists enabled.",
       "info" : {
         "created" : "2019-06-26",
@@ -15007,7 +15094,7 @@
       }
     }, {
       "id" : "security.password_spray.detected",
-      "category" : "adaptive",
+      "category" : "essential-security",
       "description" : "This internal event is fired when we detect a password spray associated with a failed login attempt. It is consumed by the behavior topology to collect metrics around IPs involved with password spray. This is an internal event and is not visible to the admins.",
       "info" : {
         "created" : "2019-12-15",
@@ -15061,7 +15148,7 @@
       }
     }, {
       "id" : "security.request.blocked",
-      "category" : "adaptive",
+      "category" : "essential-security",
       "description" : "Security request blocked.",
       "info" : {
         "created" : "2018-08-01",
@@ -15115,7 +15202,7 @@
       }
     }, {
       "id" : "security.threat.configuration.update",
-      "category" : "adaptive",
+      "category" : "essential-security",
       "description" : "Fired when a ThreatInsight configuration has been updated. This can be used to identify when an existing ThreatInsight configuration has been updated. An update can be updating the action or the excluded zones. When fired, this event contains information about who made the update to the configuration.",
       "info" : {
         "created" : "2019-06-20",
@@ -15133,7 +15220,7 @@
       }
     }, {
       "id" : "security.threat.detected",
-      "category" : "adaptive",
+      "category" : "essential-security",
       "description" : "Request from an IP identified as malicious by Okta ThreatInsight. This can be used to monitor and act on credential based attacks (such as Brute Force, Password Spray) on your organization. The reasons why the request was classified as malicious can be found in the outcome.reason field. The outcome.result field will be 'ALLOW', 'DENY' or 'RATE_LIMIT' based on whether Okta Threat Insight is configured in log mode or log and enforce mode, where 'ALLOW' means the request continued, 'DENY' means the request was blocked and 'RATE_LIMIT' means we protected your org from exceeding your rate limit by not allowing suspicious activity to count towards your rate limit.",
       "info" : {
         "created" : "2019-02-11",
@@ -15481,7 +15568,7 @@
         "created" : "2026-02-17",
         "release" : "2026.02.3"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "ad-agent" ],
       "mappings" : [ ],
@@ -16713,7 +16800,7 @@
         "debugData" : "SystemDebugData",
         "actor" : null,
         "targets" : [ "CustomDomainResourceDetails" ],
-        "changeDetails" : [ ]
+        "changeDetails" : [ "CustomDomainChangeDetailsEntry" ]
       }
     }, {
       "id" : "system.custom_url_domain.verify",
@@ -16843,7 +16930,7 @@
       }
     }, {
       "id" : "system.email.account_unlock.sent_message",
-      "category" : "cred-platform",
+      "category" : "passwordless",
       "description" : "Send self-service account unlock email.",
       "info" : {
         "created" : "2016-03-17",
@@ -16879,7 +16966,7 @@
       }
     }, {
       "id" : "system.email.challenge_factor_redeemed",
-      "category" : "cred-platform",
+      "category" : "passwordless",
       "description" : "User completed an email factor challenge. This can be used to identify when a credential sent in an email to a user has been redeemed (the link was clicked or the code was entered). When fired, this event contains information about the result. Success if successful or error reasons should be present for failure cases (e.g. incorrect code, timeout, expired, etc.). The event also contains a debugData with the action (the link was clicked or the code was entered).",
       "info" : {
         "created" : "2019-06-21",
@@ -16969,7 +17056,7 @@
       }
     }, {
       "id" : "system.email.password_reset.sent_message",
-      "category" : "cred-platform",
+      "category" : "passwordless",
       "description" : "Send self-service password reset email.",
       "info" : {
         "created" : "2016-03-17",
@@ -16987,7 +17074,7 @@
       }
     }, {
       "id" : "system.email.send_factor_verify_message",
-      "category" : "cred-platform",
+      "category" : "passwordless",
       "description" : "An email was sent to a user for verification. Used to notify admins that an email was sent to a user for verification. When fired, this event contains information about the token lifetime in the debugData.",
       "info" : {
         "created" : "2019-06-21",
@@ -19795,7 +19882,7 @@
       }
     }, {
       "id" : "user.account.lock",
-      "category" : "cred-platform",
+      "category" : "passwordless",
       "description" : "Auto-lock user account for Okta.",
       "info" : {
         "created" : "2016-01-08",
@@ -19813,7 +19900,7 @@
       }
     }, {
       "id" : "user.account.lock.limit",
-      "category" : "cred-platform",
+      "category" : "passwordless",
       "description" : "User account reached lockout limit and will not be automatically unlocked. This event indicates an account that will not be able to log in until remedial action is taken by the account admin. This event can be used to understand the specifics of an account lockout. Often this indicates a client application that is repeatedly attempting to authenticate with invalid credentials such as an old password.",
       "info" : {
         "created" : "2019-04-18",
@@ -19903,7 +19990,7 @@
       }
     }, {
       "id" : "user.account.reset_password",
-      "category" : "cred-platform",
+      "category" : "passwordless",
       "description" : "User's Okta password has been reset.",
       "info" : {
         "created" : "2016-04-01",
@@ -19939,7 +20026,7 @@
       }
     }, {
       "id" : "user.account.unlock",
-      "category" : "cred-platform",
+      "category" : "passwordless",
       "description" : "Auto-unlock user account for Okta.",
       "info" : {
         "created" : "2016-04-01",
@@ -19957,7 +20044,7 @@
       }
     }, {
       "id" : "user.account.unlock_by_admin",
-      "category" : "cred-platform",
+      "category" : "passwordless",
       "description" : "User account unlock by admin.",
       "info" : {
         "created" : "2016-04-01",
@@ -19975,7 +20062,7 @@
       }
     }, {
       "id" : "user.account.unlock_failure",
-      "category" : "cred-platform",
+      "category" : "passwordless",
       "description" : "Failed to schedule unlock job for user.",
       "info" : {
         "created" : "2018-05-31",
@@ -19993,7 +20080,7 @@
       }
     }, {
       "id" : "user.account.unlock_token",
-      "category" : "cred-platform",
+      "category" : "passwordless",
       "description" : "Issued recovery token for self-service account unlock.",
       "info" : {
         "created" : "2017-11-15",
@@ -20011,7 +20098,7 @@
       }
     }, {
       "id" : "user.account.update_password",
-      "category" : "cred-platform",
+      "category" : "passwordless",
       "description" : "User update password for Okta.",
       "info" : {
         "created" : "2016-04-01",
@@ -20133,6 +20220,24 @@
         "debugData" : "UserAuthenticationDebugData",
         "actor" : null,
         "targets" : [ "UserAuthenticationResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "user.authentication.auth_identifier_not_in_policy",
+      "category" : "directories",
+      "description" : "Authenticate a user with an identifier that's not in the User Profile Policy. Identify users who authenticate with an identifier that's not in the User Profile Policy's configured identifier list. Add the identifier to the policy before delegated authentication is disabled (manually or through a Password Migration campaign) to prevent lockout. Distinct from user.authentication.auth_unconfigured_identifier, which concerns directory source priority rather than User Profile Policy identifier rules.",
+      "info" : {
+        "created" : "2026-04-23",
+        "release" : "2026.05.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "ad-agent", "delegated-auth", "directory", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "IdentifierNotInPolicyDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -20461,7 +20566,7 @@
       }
     }, {
       "id" : "user.behavior.profile.reset",
-      "category" : "adaptive",
+      "category" : "itp",
       "description" : "User behavior profile reset. This event can be used to identify resets to a user behavior profiles, which may be helpful when troubleshooting unexpected behavior detection evaluations. This event is triggered when an administrator manually resets a user's behavior profile in the Admin Console.",
       "info" : {
         "created" : "2024-07-23",
@@ -20605,7 +20710,7 @@
       }
     }, {
       "id" : "user.import.password",
-      "category" : "cred-platform",
+      "category" : "passwordless",
       "description" : "Imported user password from external system during login. This can be used to understand if a user password import attempt was successful or if it failed. If the attempt failed, the password import will be tried again on a subsequent successful login. When fired, this event contains information about the import type, and whether or not the password import was successful. If the import is successful, it is safe to \"clean up\" that user from an external system. If the import failed, Okta will continue retrying the import during every successful authentication attempt until the password is successfully imported. Check the failure reason for details about whether any action is needed for the import to succeed.",
       "info" : {
         "created" : "2020-04-13",
@@ -20641,7 +20746,7 @@
       }
     }, {
       "id" : "user.internal.risk.change",
-      "category" : "adaptive",
+      "category" : "itp",
       "description" : "Indicates a user's risk level has changed. This internal event can be used to monitor risk level changes for users. This event triggers when Okta determines that a user is associated with a change in risk activity or context.",
       "info" : {
         "created" : "2023-02-06",
@@ -20659,7 +20764,7 @@
       }
     }, {
       "id" : "user.internal.risk.detect",
-      "category" : "adaptive",
+      "category" : "itp",
       "description" : "Indicates a user risk was detected. This internal event can be used to monitor risk level detections for users. This event triggers when Okta detects that a user is associated with risk activity or context.",
       "info" : {
         "created" : "2024-06-03",
@@ -20677,7 +20782,7 @@
       }
     }, {
       "id" : "user.internal.session_context_change",
-      "category" : "cred-platform",
+      "category" : "passwordless",
       "description" : "User session context changed. This internal event indicates that the context in which the session is being used has changed significantly enough from the context in which the event was created, that re-evaluation of policy may be required. Often this indicates a security issue related to the session.",
       "info" : {
         "created" : "2023-02-06",
@@ -20803,7 +20908,7 @@
       }
     }, {
       "id" : "user.lifecycle.password_mass_expiry",
-      "category" : "cred-platform",
+      "category" : "passwordless",
       "description" : "Mass expire all users' passwords initiated.",
       "info" : {
         "created" : "2018-01-17",
@@ -20906,7 +21011,7 @@
       "schema" : {
         "debugData" : "AuthenticatorEnrollmentDebugData",
         "actor" : null,
-        "targets" : [ "ResourceDetails" ],
+        "targets" : [ "AuthenticatorEnrollmentResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -20922,10 +21027,10 @@
       "tags" : [ "end-user-visible", "event-hook-eligible", "mfa" ],
       "mappings" : [ "core.user.factor.deactivate" ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "SystemDebugData",
         "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
+        "targets" : [ "AuthenticatorEnrollmentResourceDetails" ],
+        "changeDetails" : [ ]
       }
     }, {
       "id" : "user.mfa.factor.reset_all",
@@ -21127,7 +21232,7 @@
       }
     }, {
       "id" : "user.risk.change",
-      "category" : "adaptive",
+      "category" : "itp",
       "description" : "Indicates a user's risk level has changed. This event can be used to monitor risk level changes for users. This event triggers when Okta determines that a user is associated with a change in risk activity or context.",
       "info" : {
         "created" : "2022-08-17",
@@ -21145,7 +21250,7 @@
       }
     }, {
       "id" : "user.risk.detect",
-      "category" : "adaptive",
+      "category" : "itp",
       "description" : "Indicates a user risk was detected. This event can be used to monitor risk level detections for users. This event triggers when Okta detects that a user is associated with risk activity or context.",
       "info" : {
         "created" : "2024-06-03",
@@ -21181,7 +21286,7 @@
       }
     }, {
       "id" : "user.session.clear",
-      "category" : "cred-platform",
+      "category" : "passwordless",
       "description" : "Clear user session.",
       "info" : {
         "created" : "2016-04-01",
@@ -21199,7 +21304,7 @@
       }
     }, {
       "id" : "user.session.context.change",
-      "category" : "cred-platform",
+      "category" : "passwordless",
       "description" : "User session context changed. This event indicates that the context in which the session is being used has changed significantly enough from the context in which the event was created, that re-evaluation of policy may be required. Often this indicates a security issue related to the session.",
       "info" : {
         "created" : "2023-01-11",
@@ -21217,7 +21322,7 @@
       }
     }, {
       "id" : "user.session.end",
-      "category" : "cred-platform",
+      "category" : "passwordless",
       "description" : "User logout from Okta.",
       "info" : {
         "created" : "2016-01-08",
@@ -21235,7 +21340,7 @@
       }
     }, {
       "id" : "user.session.expire",
-      "category" : "cred-platform",
+      "category" : "passwordless",
       "description" : "Expire user session. This event does not appear in the system logs unless the user explicitly signs out or the user session is revoked by an admin.",
       "info" : {
         "created" : "2016-04-01",
@@ -21343,7 +21448,7 @@
       }
     }, {
       "id" : "user.session.start",
-      "category" : "cred-platform",
+      "category" : "passwordless",
       "description" : "User login to Okta.",
       "info" : {
         "created" : "2016-01-08",
@@ -21358,6 +21463,42 @@
         "actor" : "UserAuthenticationResourceDetails",
         "targets" : [ "UserAuthenticationResourceDetails", "CaptchaVerifyResourceDetails", "UserIdentifierResourceDetails", "BotProtectionConfigurationResourceDetails" ],
         "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workflows.org.step_execution_limit.violation",
+      "category" : "wax-insights",
+      "description" : "Report that a Workflows org has exceeded its step execution limit. Monitor for step execution limit violations to understand when orgs are being throttled or blocked due to exceeding their monthly or lifetime step limit. Fires at 100% utilization of the org's step limit. After this event fires, flows will be throttled or blocked depending on enforcementType. Additional step limit information can be found in the debug context field.",
+      "info" : {
+        "created" : "2026-04-09",
+        "release" : "2026.04.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "workflows.org.step_execution_limit.warning",
+      "category" : "wax-insights",
+      "description" : "Warn that a Workflows org is approaching its step execution limit. Monitor step execution utilization to proactively manage Workflows orgs before they reach their execution limit and become throttled or blocked. Fires at 50%, 75%, and 90% utilization of the org's step limit. Additional step limit information can be found in the debug context field.",
+      "info" : {
+        "created" : "2026-04-09",
+        "release" : "2026.04.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
       }
     }, {
       "id" : "workflows.user.connection.create",
@@ -22260,96 +22401,6 @@
         "changeDetails" : [ ]
       }
     }, {
-      "id" : "workload_principal.managed_connection.activate",
-      "category" : "workload-principal",
-      "description" : "Workload principal managed connection activation. This event can be used to track the activation of managed connections for workload principals within the organization, including details about the connection and the user who made the activation. When fired, this event contains information about the workload principal, the managed connection activated, and the user who performed the activation.",
-      "info" : {
-        "created" : "2025-11-21",
-        "release" : "2025.12.0"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "workload-principal" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : "WorkloadPrincipalDebugData",
-        "actor" : null,
-        "targets" : [ "WorkloadPrincipalManagedConnectionDetails" ],
-        "changeDetails" : [ ]
-      }
-    }, {
-      "id" : "workload_principal.managed_connection.create",
-      "category" : "workload-principal",
-      "description" : "Workload principal managed connection creation. This event can be used to track the creation of managed connections for workload principals within the organization, including details about the connection and the user who made the creation. When fired, this event contains information about the workload principal, the managed connection created, and the user who performed the creation.",
-      "info" : {
-        "created" : "2025-11-07",
-        "release" : "2025.11.2"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "workload-principal" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : "WorkloadPrincipalDebugData",
-        "actor" : null,
-        "targets" : [ "WorkloadPrincipalManagedConnectionDetails" ],
-        "changeDetails" : [ ]
-      }
-    }, {
-      "id" : "workload_principal.managed_connection.deactivate",
-      "category" : "workload-principal",
-      "description" : "Workload principal managed connection deactivation. This event can be used to track the deactivation of managed connections for workload principals within the organization, including details about the connection and the user who made the deactivation. When fired, this event contains information about the workload principal, the managed connection deactivated, and the user who performed the deactivation.",
-      "info" : {
-        "created" : "2025-11-21",
-        "release" : "2025.12.0"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "workload-principal" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : "WorkloadPrincipalDebugData",
-        "actor" : null,
-        "targets" : [ "WorkloadPrincipalManagedConnectionDetails" ],
-        "changeDetails" : [ ]
-      }
-    }, {
-      "id" : "workload_principal.managed_connection.delete",
-      "category" : "workload-principal",
-      "description" : "Workload principal managed connection deletion. This event can be used to track the deletion of managed connections for workload principals within the organization, including details about the connection and the user who made the deletion. When fired, this event contains information about the workload principal, the managed connection deleted, and the user who performed the deletion.",
-      "info" : {
-        "created" : "2025-11-07",
-        "release" : "2025.11.2"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "workload-principal" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : "WorkloadPrincipalDebugData",
-        "actor" : null,
-        "targets" : [ "WorkloadPrincipalManagedConnectionDetails" ],
-        "changeDetails" : [ ]
-      }
-    }, {
-      "id" : "workload_principal.managed_connection.update",
-      "category" : "workload-principal",
-      "description" : "Workload principal managed connection update. This event can be used to track updates made to managed connections for workload principals within the organization, including details about the changes and the user who made them. When fired, this event contains information about the workload principal, the managed connection updated, the changes made, and the user who performed the update.",
-      "info" : {
-        "created" : "2025-11-07",
-        "release" : "2025.11.2"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "workload-principal" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : "WorkloadPrincipalDebugData",
-        "actor" : null,
-        "targets" : [ "WorkloadPrincipalManagedConnectionDetails" ],
-        "changeDetails" : [ "WorkloadPrincipalManagedConnectionChangeDetailsEntry" ]
-      }
-    }, {
       "id" : "workload_principal.register",
       "category" : "workload-principal",
       "description" : "Workload Principal has been registered. This event can be used to track the registration of workload principals within the organization, including details about the user who registered it. When fired, this event contains information about the workload principal, such as its type, configuration, and the user who registered it.",
@@ -22366,6 +22417,96 @@
         "actor" : null,
         "targets" : [ "WorkloadPrincipalResourceDetails", "WorkloadPrincipalAiAgentImportDetails" ],
         "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workload_principal.resource_connection.activate",
+      "category" : "workload-principal",
+      "description" : "Workload principal resource connection activation. This event can be used to track the activation of resource connections for workload principals within the organization, including details about the connection and the user who made the activation. When fired, this event contains information about the workload principal, the resource connection activated, and the user who performed the activation.",
+      "info" : {
+        "created" : "2025-11-21",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalResourceConnectionDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workload_principal.resource_connection.create",
+      "category" : "workload-principal",
+      "description" : "Workload principal resource connection creation. This event can be used to track the creation of resource connections for workload principals within the organization, including details about the connection and the user who made the creation. When fired, this event contains information about the workload principal, the resource connection created, and the user who performed the creation.",
+      "info" : {
+        "created" : "2025-11-07",
+        "release" : "2025.11.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalResourceConnectionDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workload_principal.resource_connection.deactivate",
+      "category" : "workload-principal",
+      "description" : "Workload principal resource connection deactivation. This event can be used to track the deactivation of resource connections for workload principals within the organization, including details about the connection and the user who made the deactivation. When fired, this event contains information about the workload principal, the resource connection deactivated, and the user who performed the deactivation.",
+      "info" : {
+        "created" : "2025-11-21",
+        "release" : "2025.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalResourceConnectionDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workload_principal.resource_connection.delete",
+      "category" : "workload-principal",
+      "description" : "Workload principal resource connection deletion. This event can be used to track the deletion of resource connections for workload principals within the organization, including details about the connection and the user who made the deletion. When fired, this event contains information about the workload principal, the resource connection deleted, and the user who performed the deletion.",
+      "info" : {
+        "created" : "2025-11-07",
+        "release" : "2025.11.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalResourceConnectionDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workload_principal.resource_connection.update",
+      "category" : "workload-principal",
+      "description" : "Workload principal resource connection update. This event can be used to track updates made to resource connections for workload principals within the organization, including details about the changes and the user who made them. When fired, this event contains information about the workload principal, the resource connection updated, the changes made, and the user who performed the update.",
+      "info" : {
+        "created" : "2025-11-07",
+        "release" : "2025.11.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalResourceConnectionDetails" ],
+        "changeDetails" : [ "WorkloadPrincipalResourceConnectionChangeDetailsEntry" ]
       }
     }, {
       "id" : "workload_principal.sign_on_provider.add",
@@ -22423,7 +22564,7 @@
       }
     }, {
       "id" : "zone.activate",
-      "category" : "adaptive",
+      "category" : "essential-security",
       "description" : "Network zone activate.",
       "info" : {
         "created" : "2017-11-29",
@@ -22441,7 +22582,7 @@
       }
     }, {
       "id" : "zone.create",
-      "category" : "adaptive",
+      "category" : "essential-security",
       "description" : "Network zone create.",
       "info" : {
         "created" : "2017-11-29",
@@ -22459,7 +22600,7 @@
       }
     }, {
       "id" : "zone.deactivate",
-      "category" : "adaptive",
+      "category" : "essential-security",
       "description" : "Network zone deactivate.",
       "info" : {
         "created" : "2017-11-29",
@@ -22477,7 +22618,7 @@
       }
     }, {
       "id" : "zone.delete",
-      "category" : "adaptive",
+      "category" : "essential-security",
       "description" : "Network zone delete.",
       "info" : {
         "created" : "2017-11-29",
@@ -22495,7 +22636,7 @@
       }
     }, {
       "id" : "zone.make_blacklist",
-      "category" : "adaptive",
+      "category" : "essential-security",
       "description" : "Network zone mark as blacklist.",
       "info" : {
         "created" : "2017-11-29",
@@ -22513,7 +22654,7 @@
       }
     }, {
       "id" : "zone.remove_blacklist",
-      "category" : "adaptive",
+      "category" : "essential-security",
       "description" : "Network zone unmark as blacklist.",
       "info" : {
         "created" : "2017-11-29",
@@ -22531,7 +22672,7 @@
       }
     }, {
       "id" : "zone.update",
-      "category" : "adaptive",
+      "category" : "essential-security",
       "description" : "Network zone update.",
       "info" : {
         "created" : "2017-11-29",
@@ -23030,6 +23171,14 @@
             "examples" : [ "1666156939565", "1698156939565" ]
           },
           "canceled_at" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "1666156939565", "1698156939565" ]
+          },
+          "updated_at" : {
             "type" : "String",
             "sensitive" : false,
             "personal" : false,
@@ -33934,6 +34083,219 @@
           }
         }
       },
+      "IdentifierNotInPolicyDebugData" : {
+        "name" : "IdentifierNotInPolicyDebugData",
+        "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "associated_proxies" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
+          },
+          "tunnels" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{\"operator\":\"HOTSPOT_VPN\",\"type\":\"VPN\",\"anonymous\":true}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "app_instance_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:appInstanceId",
+            "examples" : [ "0oa9trrz4ezn3eA6y1t7" ]
+          },
+          "userProvidedUsername" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : true,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "test.user@okta.com" ]
+          },
+          "okta_username" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : true,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "test.user@domain.com" ]
+          }
+        }
+      },
       "IdpAuthDebugData" : {
         "name" : "IdpAuthDebugData",
         "properties" : {
@@ -38132,7 +38494,7 @@
             "format" : "epochMillis",
             "examples" : [ "1596743593000", "1596587608000", "1596293244000" ]
           },
-          "managed_connection_id" : {
+          "resource_connection_id" : {
             "type" : "String",
             "sensitive" : false,
             "personal" : false,
@@ -47057,203 +47419,6 @@
           }
         }
       },
-      "UserDiffReportDebugData" : {
-        "name" : "UserDiffReportDebugData",
-        "properties" : {
-          "trace_id" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
-          },
-          "oag_app" : {
-            "type" : "Boolean",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "boolean",
-            "examples" : [ "true", "false" ]
-          },
-          "webhooks" : {
-            "type" : "List",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : true,
-            "format" : "text",
-            "examples" : [ ]
-          },
-          "risk_change" : {
-            "type" : "RiskChangeSecurityData",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "json",
-            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
-          },
-          "log_only_security_data" : {
-            "type" : "LogOnlySecurityData",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "json",
-            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
-          },
-          "threat_detections" : {
-            "type" : "ObjectNode",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "json",
-            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
-          },
-          "threat_suspected" : {
-            "type" : "Boolean",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "boolean",
-            "examples" : [ "true", "false" ]
-          },
-          "security_conditions" : {
-            "type" : "List",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
-          },
-          "associated_proxies" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "[\"OCULUS_PROXY\",\"GEONODE_PROXY\"]" ]
-          },
-          "tunnels" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "[{\"operator\":\"HOTSPOT_VPN\",\"type\":\"VPN\",\"anonymous\":true}]" ]
-          },
-          "anonymizer_status" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "enum",
-            "examples" : [ "private" ]
-          },
-          "proxy_type" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "enum",
-            "examples" : [ "tor", "service" ]
-          },
-          "behaviors" : {
-            "type" : "Map",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
-          },
-          "partner_risk" : {
-            "type" : "List",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
-          },
-          "risk" : {
-            "type" : "Map",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
-          },
-          "url" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "url",
-            "examples" : [ "/login/do-login?" ]
-          },
-          "request_uri" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "uri",
-            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
-          },
-          "request_id" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "id",
-            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
-          },
-          "redirect_uri" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "uri",
-            "examples" : [ "http://httpbin.org" ]
-          },
-          "original_principal" : {
-            "type" : "Resource",
-            "sensitive" : false,
-            "personal" : true,
-            "customer" : false,
-            "format" : "",
-            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
-          },
-          "device_fingerprint" : {
-            "type" : "String",
-            "sensitive" : true,
-            "personal" : false,
-            "customer" : false,
-            "format" : "id",
-            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
-          },
-          "dt_hash" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "id",
-            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
-          },
-          "authn_request_id" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "id",
-            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
-          },
-          "generated" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "2020-08-19", "2020-08-24", "2019-11-19" ]
-          }
-        }
-      },
       "UserFactorDebugData" : {
         "name" : "UserFactorDebugData",
         "properties" : {
@@ -51741,6 +51906,30 @@
             "format" : "enum",
             "examples" : [ "OktaMfaEnroll", "Password", "wifi", "OktaSignOn", "group_rule", "IdpDiscovery", "ommEnroll", "OAuthAuthzPolicy", "user_lifecycle", "ACCESS_POLICY", "PROFILE_ENROLLMENT" ]
           },
+          "branch_comments" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Promoting policy branch", "Staging policy branch" ]
+          },
+          "branch_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "rsb3reaTOgst82eO30g4", "rsb4j71vgjbAQXuCy0g4" ]
+          },
+          "branch_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "LIVE", "STAGED", "ARCHIVED", "INACTIVE" ]
+          },
           "action_type" : {
             "type" : "String",
             "sensitive" : false,
@@ -51769,6 +51958,30 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "OktaMfaEnroll", "Password", "wifi", "OktaSignOn", "group_rule", "IdpDiscovery", "ommEnroll", "OAuthAuthzPolicy", "user_lifecycle", "ACCESS_POLICY", "PROFILE_ENROLLMENT" ]
+          },
+          "branch_comments" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Promoting policy branch", "Staging policy branch" ]
+          },
+          "branch_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "rsb3reaTOgst82eO30g4", "rsb4j71vgjbAQXuCy0g4" ]
+          },
+          "branch_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "LIVE", "STAGED", "ARCHIVED", "INACTIVE" ]
           },
           "action_type" : {
             "type" : "String",
@@ -52186,6 +52399,14 @@
             "customer" : false,
             "format" : "boolean",
             "examples" : [ "AUTHENTICATED", "CHALLENGE", "REDIRECT", "REAUTHENTICATE_DEVICE_ASSURANCE" ]
+          },
+          "policy_branch_rule_properties" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[PHISHING_RESISTANT]" ]
           },
           "policy_branch_rule_assurance_reason" : {
             "type" : "String",
@@ -53198,10 +53419,10 @@
           }
         }
       },
-      "WorkloadPrincipalManagedConnectionDetails" : {
-        "name" : "WorkloadPrincipalManagedConnectionDetails",
+      "WorkloadPrincipalResourceConnectionDetails" : {
+        "name" : "WorkloadPrincipalResourceConnectionDetails",
         "properties" : {
-          "workload_principal_managed_connection_protocol_metadata_id" : {
+          "workload_principal_resource_connection_protocol_metadata_id" : {
             "type" : "String",
             "sensitive" : false,
             "personal" : false,
@@ -53209,7 +53430,7 @@
             "format" : "id",
             "examples" : [ "pmd1234abcdEFGH5678" ]
           },
-          "workload_principal_managed_connection_status" : {
+          "workload_principal_resource_connection_status" : {
             "type" : "String",
             "sensitive" : false,
             "personal" : false,
@@ -53217,7 +53438,7 @@
             "format" : "enum",
             "examples" : [ "ACTIVE", "INACTIVE", "DELETED" ]
           },
-          "workload_principal_managed_connection_resource_id" : {
+          "workload_principal_resource_connection_resource_id" : {
             "type" : "String",
             "sensitive" : false,
             "personal" : false,
@@ -53225,7 +53446,7 @@
             "format" : "id",
             "examples" : [ "00a1234abcdEFGH5678" ]
           },
-          "workload_principal_managed_connection_resource_type" : {
+          "workload_principal_resource_connection_resource_type" : {
             "type" : "String",
             "sensitive" : false,
             "personal" : false,
@@ -53233,7 +53454,7 @@
             "format" : "enum",
             "examples" : [ "APP_INSTANCE", "CUSTOM_AS_RESOURCE", "VAULTED_SECRET", "SERVICE_ACCOUNT" ]
           },
-          "workload_principal_managed_connection_type" : {
+          "workload_principal_resource_connection_type" : {
             "type" : "String",
             "sensitive" : false,
             "personal" : false,
@@ -53246,6 +53467,22 @@
       "WorkloadPrincipalResourceDetails" : {
         "name" : "WorkloadPrincipalResourceDetails",
         "properties" : {
+          "workload_principal_platform" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "AWS_BEDROCK_AGENTCORE" ]
+          },
+          "workload_principal_external_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "3SSZFQL7OU" ]
+          },
           "workload_principal_description" : {
             "type" : "String",
             "sensitive" : false,
@@ -54085,12 +54322,12 @@
             "examples" : [ "true", "false" ]
           },
           "import_interval" : {
-            "type" : "Integer",
+            "type" : "String",
             "sensitive" : false,
             "personal" : false,
             "customer" : false,
-            "format" : "id",
-            "examples" : [ "1", "2", "3" ]
+            "format" : "text",
+            "examples" : [ "1 hour", "2 hours", "3 days" ]
           },
           "import_schedule" : {
             "type" : "ImportSchedule",
@@ -54098,7 +54335,7 @@
             "personal" : false,
             "customer" : false,
             "format" : "text",
-            "examples" : [ "{'expressionFull':'30 10 * * Wed,Sun','timeZoneFull':'Asia/calcutta'}" ]
+            "examples" : [ "{'expressionFull':'30 10 * * Wed,Sun','expressionFullReadable':'At 10:30, every Wednesday and Sunday','timeZoneFull':'Asia/Calcutta','expressionIncremental':'0 */4 * * *','expressionIncrementalReadable':'Every 4 hours','timeZoneIncremental':'Asia/Calcutta'}" ]
           },
           "user_name_format" : {
             "type" : "UserNameFormat",
@@ -54357,6 +54594,14 @@
       "AttackProtectionSettingChangeDetailsEntry" : {
         "name" : "AttackProtectionSettingChangeDetailsEntry",
         "properties" : {
+          "user_enumeration_prevention_excluded_apps" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "[]", "[DESKTOP_LOGON]" ]
+          },
           "user_enumeration_prevention_authenticators" : {
             "type" : "List",
             "sensitive" : false,
@@ -54454,6 +54699,19 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ "My Client Auth Settings" ]
+          }
+        }
+      },
+      "CustomDomainChangeDetailsEntry" : {
+        "name" : "CustomDomainChangeDetailsEntry",
+        "properties" : {
+          "custom_domain_redirect_source" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:customDomainId",
+            "examples" : [ "default", "OcD4sqgiCZpQeknrc0g4" ]
           }
         }
       },
@@ -55807,10 +56065,10 @@
           }
         }
       },
-      "WorkloadPrincipalManagedConnectionChangeDetailsEntry" : {
-        "name" : "WorkloadPrincipalManagedConnectionChangeDetailsEntry",
+      "WorkloadPrincipalResourceConnectionChangeDetailsEntry" : {
+        "name" : "WorkloadPrincipalResourceConnectionChangeDetailsEntry",
         "properties" : {
-          "workload_principal_managed_connection_scopes_condition" : {
+          "workload_principal_resource_connection_scopes_condition" : {
             "type" : "String",
             "sensitive" : false,
             "personal" : false,
@@ -55818,7 +56076,7 @@
             "format" : "text",
             "examples" : [ "ANY", "ALL" ]
           },
-          "workload_principal_managed_connection_scopes" : {
+          "workload_principal_resource_connection_scopes" : {
             "type" : "String",
             "sensitive" : false,
             "personal" : false,

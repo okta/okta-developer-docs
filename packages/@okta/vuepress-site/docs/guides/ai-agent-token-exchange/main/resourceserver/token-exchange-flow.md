@@ -6,7 +6,7 @@
 
 <!-- Image source: https://oktainc.atlassian.net/browse/OKTA-1137019 -->
 
-> **Note:** This flow assumes that you've registered a resource server as an OIN app instance, a custom API resource server, or an MCP server, and that you've connected an AI agent to the server as a **Managed Connection**.
+> **Note:** This flow assumes that you've registered a resource server as an OIN app instance, a custom API resource server, or an MCP server, and that you've connected an AI agent to the server as a **Resource Connection**.
 
 The token exchange flow for an AI agent involves the following steps:
 

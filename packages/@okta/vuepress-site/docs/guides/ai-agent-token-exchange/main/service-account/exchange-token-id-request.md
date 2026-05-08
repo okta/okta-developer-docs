@@ -25,4 +25,4 @@ grant_type=urn:ietf:params:oauth:grant-type:token-exchange
 | subject_token_type | The value must be `urn:ietf:params:oauth:token-type:id_token`. |
 | subject_token | A valid ID token issued to the resource app associated with the AI agent |
 | requested_token_type | The value must be `urn:okta:params:oauth:token-type:service-account`. |
-| resource | A resource identifier for the service account. This value must match the identifier configured on the **Managed Connection** tab. |
+| resource | A resource identifier for the service account. This value must match the identifier configured on the **Resource Connection** tab. |

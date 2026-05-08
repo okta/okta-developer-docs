@@ -20,6 +20,10 @@ export const concepts = [
         path: "/docs/concepts/brands/",
       },
       {
+        title: "Sign-up flows",
+        path: "/docs/concepts/sign-up-flows/",
+      },
+      {
         title: "Direct authentication",
         path: "/docs/concepts/direct-authentication/",
       },
@@ -510,6 +514,7 @@ export const guides = [
           },
           { title: "Configure AMR claims mapping", guideName: "configure-amr-claims-mapping", hidden: true },
           { title: "Configure claims sharing", guideName: "configure-claims-sharing" },
+          { title: "Configure identity claims sourcing policy", guideName: "configure-identity-claims-sourcing-policy" },
           { title: "Sign users out", guideName: "oie-embedded-sdk-use-case-basic-sign-out" },
           { title: "Delete all Stay signed in sessions", guideName: "delete-all-stay-signed-in-sessions" },
           { title: "Single Logout", guideName: "single-logout" },
@@ -1017,6 +1022,10 @@ export const guides = [
             title: "Create and manage resources",
             subLinks: [
               {
+                title: "Import existing resources",
+                guideName: "terraform-import-existing-resources"
+              },
+              {
                 title: "Manage groups",
                 guideName: "terraform-manage-groups",
               },
@@ -1045,16 +1054,16 @@ export const guides = [
                 guideName: "terraform-manage-multiple-domains"
               },
               {
-                title: "Import existing resources",
-                guideName: "terraform-import-existing-resources"
-              },
-              {
                 title: "Migrate to consolidated app sign-on policy rules",
                 guideName: "terraform-migrate-consolidated-app-sign-on-policy-rules"
               },
               {
                 title: "Manage Okta Identity Governance resources",
                 guideName: "terraform-oig-resources",
+              },
+              {
+                title: "Manage Identity Threat Protection with Okta AI resources",
+                guideName: "terraform-manage-itp",
               },
             ],
           },
@@ -1081,8 +1090,8 @@ export const guides = [
         title: "Hooks",
         subLinks: [
           {
-            title: "Common hook set-up steps",
-            guideName: "common-hook-set-up-steps",
+            title: "Secure your hooks",
+            guideName: "secure-hooks",
           },
           {
             title: "Hooks best practices",

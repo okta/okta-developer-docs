@@ -30,10 +30,6 @@ This guide provides an example of an Okta telephony inline hook. This guide uses
 
 ## Before you begin
 
-* Review the information and required steps in the [Common hook set-up steps](/docs/guides/common-hook-set-up-steps/nodejs/main/) page first. This includes remixing (copying) the Glitch.com project that's used in this guide and understanding how Glitch projects are configured and used with hooks.
-
-> **Note:** You can also use Amazon Web Services Lambda Serverless Framework as an external service. See [Setting Up Serverless Framework With AWS](https://www.serverless.com/framework/docs/getting-started).
-
 * Ensure that you have a user in your org with a Phone authenticator enrolled. See [MFA Usage report](https://help.okta.com/okta_help.htm?type=oie&id=ext-mfa-usage).
 
 * Ensure that you have an active phone number in Twilio with SMS and MMS capabilities.
@@ -44,6 +40,8 @@ This guide provides an example of an Okta telephony inline hook. This guide uses
     <?xml version="1.0" encoding="UTF-8"?>
     <Response><Say>Your code is {{otp}}</Say></Response>
     ```
+
+> **Note:** You can also use Amazon Web Services Lambda Serverless Framework as an external service. See [Setting Up Serverless Framework With AWS](https://www.serverless.com/framework/docs/getting-started).
 
 ## About telephony inline hook implementation
 
@@ -122,7 +120,7 @@ Alternatively, you can use the Inline Hooks API to [create an inline hook](https
 
 Copy the account SID and auth token from your Twilio account and add them as variables in the `.env` file in the Glitch project.
 
-> **Note:** Ensure that you have the required default code and packages in your project. See [Common hook set-up steps](https://developer.okta.com/docs/guides/common-hook-set-up-steps/nodejs/main/).
+> **Note:** Ensure that you have the required default code and packages in your project.
 
 1. From the left navigation in the Glitch project, click **.env**.
 1. In the first blank variable line that appears, add **ACCOUNT_SID** and then paste your account SID as the value on the right.
