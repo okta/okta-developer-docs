@@ -20,7 +20,7 @@ Learn how to configure passkeys with multiple domains.
 * The Passkey authenticator included in an [authenticator enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-mfa-policy) to allow users to register passkeys
 * The Passkey authenticator assigned to an [app sign-in policy](/docs/guides/configure-signon-policy/main/#app-sign-in-policies)
 
-> **Note:** As of the `2026.04.0` release, the FIDO2 (WebAuthn) authenticator is now called Passkey (FIDO2 WebAuthn) and there are new settings and updates to the authenticator page layout. See [Passkeys and WebAuthn](/docs/guides/authenticators-web-authn/aspnet/main/#passkeys-and-okta).
+> **Note:** As of the `2026.04.0` release, the FIDO2 (WebAuthn) authenticator is now called Passkey (FIDO2 WebAuthn) and there are new settings and updates to the authenticator page layout. See [Passkeys and WebAuthn](/docs/guides/authenticators-web-authn/aspnet/main/#passkeys-and-webauthn).
 
 ---
 
