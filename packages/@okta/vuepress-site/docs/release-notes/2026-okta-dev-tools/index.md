@@ -4,20 +4,7 @@ title: Okta Developer Tools API release notes 2026
 
 # Developer Tools release notes (2026)
 
-These release notes list customer-visible changes to the Developer Tools. The Okta's developer tooling ecosystem includes Terraform, SDKs, CLI, token validators, and other libraries.
-
-## June
-
-### Monthly release 2026.06.0
-<!-- Published on: 2026-05-06T12:00:00Z -->
-
-| Change | Expected in Preview Orgs |
-|--------|--------------------------|
-| [Terraform guide for Zoom](#terraform-guide-for-zoom) | June 6, 2026            |
-
-#### Terraform guide for Zoom
-
-To be added later during the June monthly release.
+These release notes list customer-visible changes to the Developer Tools. The Okta's developer tooling ecosystem includes Terraform, SDKs, CLI, and other libraries.
 
 ## April
 
