@@ -1,6 +1,6 @@
 {
-  "release" : "2026.04.1",
-  "build" : "2026.04.1-begin-209-gb10cfad58fb2",
+  "release" : "2026.05.1",
+  "build" : "2026.05.1-begin-232-g4c8ed7fe9896",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1992,6 +1992,14 @@
     "statusReasonPhrase" : "Forbidden",
     "errorCode" : "E0000267",
     "errorSummary" : "Access to the Home Page is restricted and is not available for this organization.",
+    "errorDescription" : null
+  }, {
+    "title" : "Role manager lock conflict exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000268",
+    "errorSummary" : "Another request is making changes to the role assignments. Please try again.",
     "errorDescription" : null
   } ]
 }

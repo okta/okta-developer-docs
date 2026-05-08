@@ -44,7 +44,7 @@ An access token is the credential that a client app uses to access protected res
 
 A refresh token is a credential used to obtain new access tokens when the current access token expires or becomes invalid.
 
-**Purpose**: Refresh tokens allow client apps to maintain continuous access to protected resources without requiring the user to reauthenticate or re-grant consent every time an access token expires.
+**Purpose**: Refresh tokens allow client apps to maintain continuous access to protected resources without requiring the user to re-authenticate or re-grant consent every time an access token expires.
 
 **Characteristics**:
 
@@ -161,7 +161,7 @@ Access tokens and ID tokens are short-lived. The following are the results of an
 * The client app, during ID token validation, detects that the ID token has expired.
 * The resource server rejects the request with an HTTP 401 Unauthorized status code, indicating that the access token isn't valid for accessing protected resources.
 
-When an access token expires, the client app can't use it to access protected resources. To maintain continuous access without requiring the user to reauthenticate, the client app relies on the refresh token through the token renewal process. See [Renewal (refresh tokens)](#renewal-refresh-tokens).
+When an access token expires, the client app can't use it to access protected resources. To maintain continuous access without requiring the user to re-authenticate, the client app relies on the refresh token through the token renewal process. See [Renewal (refresh tokens)](#renewal-refresh-tokens).
 
 ### Renewal (refresh tokens)
 

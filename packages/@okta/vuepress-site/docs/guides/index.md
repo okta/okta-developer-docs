@@ -205,6 +205,7 @@ guides:
  - set-up-oauth-api
  - custom-smtp
  - oag-offline-mode
+ - configure-identity-claims-sourcing-policy
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
