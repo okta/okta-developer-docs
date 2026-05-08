@@ -108,13 +108,13 @@ Configure the connection to your app by setting up the authentication scheme and
 
    * **Basic**: Basic authentication
 
-        See [Build basic authentication](https://help.okta.com/wf/en-us/content/topics/workflows/connector-builder/authentication-basic.htm) for instructions from the Workflows product documentation.
+        See [Build basic authentication](https://help.okta.com/okta_help.htm?type=wf&id=ext-connectorbuilder-auth-basic) for instructions from the Workflows product documentation.
    * **OAuth 2.0**: OAuth 2.0 authentication (supports Authentication Code or Client Credentials grant type)
 
-        See [Build OAuth 2.0 authentication](https://help.okta.com/wf/en-us/content/topics/workflows/connector-builder/authentication-oauth2.htm) for instructions from the Workflows product documentation.
+        See [Build OAuth 2.0 authentication](https://help.okta.com/okta_help.htm?type=wf&id=ext-connectorbuilder-auth-oauth) for instructions from the Workflows product documentation.
    * **Custom**: Vendor proprietary custom authentication, such as an API key
 
-        See [Build custom authentication](https://help.okta.com/wf/en-us/content/topics/workflows/connector-builder/authentication-custom.htm) for instructions from the Workflows product documentation.
+        See [Build custom authentication](https://help.okta.com/okta_help.htm?type=wf&id=ext-connectorbuilder-auth-custom) for instructions from the Workflows product documentation.
 
     If you configured optional authentication parameters, you can map them to the tenant authentication variables configured in the OIN Wizard. See [Authentication mapping](#authentication-mapping).
 
@@ -165,7 +165,7 @@ See [API Integration Action reference](/docs/guides/oin-api-actions-contracts/) 
     * The **body** section contains the contract request schema. See the [Proprietary Universal Logout](/docs/guides/oin-api-actions-contracts/#proprietary-universal-logout) schema reference for input and output property definitions.
     * The **auth** section contains the authentication parameters for the **Connection** to your API. Also included in the **Connection** section are optional parameters that you can configure and map to OIN tenant variables.
 
-1. Create the action flows to your APIs. See [Flow types in Connector Builder](https://help.okta.com/wf/en-us/content/topics/workflows/connector-builder/about-flows.htm) for guidance.
+1. Create the action flows to your APIs. See [Flow types in Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connectorbuilder-flows-learn) for guidance.
 1. Click **Save** to save your flow.
 1. Select **Flow is OFF**, and then set the toggle to **ON**.
 1. After you've finished building your flows, go to the **Validate and submit** tab. Click **Validate flows** to confirm that your flows are error-free.
@@ -188,7 +188,7 @@ See [API Integration Action reference](/docs/guides/oin-api-actions-contracts/) 
 
     Build a flow for each of the mandatory actions listed in [Provisioning API Integration Actions](/docs/guides/submit-oin-app/wfactions/main/#provisioning-api-integration-actions). If your API supports them, you can also add the optional action flows.
 
-1. Create the action flows to your APIs. See [Flow types in Connector Builder](https://help.okta.com/wf/en-us/content/topics/workflows/connector-builder/about-flows.htm) for guidance.
+1. Create the action flows to your APIs. See [Flow types in Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connectorbuilder-flows-learn) for guidance.
 1. Click **Save** to save your flow.
 1. Select **Flow is OFF**, and then set the toggle to **ON**.
 1. Click **Validate flows** to confirm that your flows are error-free from the **Validate and submit** tab.
@@ -201,7 +201,7 @@ See [API Integration Action reference](/docs/guides/oin-api-actions-contracts/) 
 You can configure and run test flows to test your API actions across multiple use cases.
 
 1. From the Integration Builder project panel, select the **Test Folder** that belongs to your action. The **Test Folder** flow page appears.
-1. Click **+ New Flow**, and add your test flow to your project. See [Build and test a flow](https://help.okta.com/wf/en-us/content/topics/workflows/workflows-build-a-flow.htm) for guidance.
+1. Click **+ New Flow**, and add your test flow to your project. See [Build and test a flow](https://help.okta.com/okta_help.htm?type=wf&id=ext-build-a-flow) for guidance.
 
 1. After you've finished testing your flows, click your project folder from the Integration Builder project panel. The **General** tab appears for your project.
 1. Click **View in OIN wizard** to return to the OIN Wizard.
@@ -210,4 +210,4 @@ You can configure and run test flows to test your API actions across multiple us
 
 Post a question on the [Okta Developer Forum](https://devforum.okta.com/c/questions/oin-submissions/19) if you need help or have an issue.
 
-See [Integration Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder).
+See [Integration Builder](https://help.okta.com/okta_help.htm?type=wf&id=csh-integration-builder).
