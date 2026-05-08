@@ -4,7 +4,7 @@ excerpt: Learn how to customize passkeys with custom domains.
 layout: Guides
 ---
 
-This guide explains different methods for configuring the Passkeys (FIDO2 WebAuthn) authenticator to allow a single passkey to be used across multiple domains. All passkeys must be registered (or re-registered) under the configured RP ID for cross-domain authentication to work.
+This guide explains different methods for configuring the Passkey (FIDO2 WebAuthn) authenticator to allow a single passkey to be used across multiple domains. All passkeys must be registered (or re-registered) under the configured RP ID for cross-domain authentication to work.
 
 ---
 
@@ -16,9 +16,9 @@ Learn how to configure passkeys with multiple domains.
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * A valid and certified [custom domain](#rp-id-types-and-domain-verification)
-* The [Passkeys (FIDO2 WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn) enabled for users in your org
-* The Passkeys authenticator included in an [authenticator enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-mfa-policy) to allow users to register passkeys
-* The Passkeys authenticator assigned to an [app sign-in policy](/docs/guides/configure-signon-policy/main/#app-sign-in-policies)
+* The [Passkey (FIDO2 WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn) enabled for users in your org
+* The Passkey authenticator included in an [authenticator enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-mfa-policy) to allow users to register passkeys
+* The Passkey authenticator assigned to an [app sign-in policy](/docs/guides/configure-signon-policy/main/#app-sign-in-policies)
 
 > **Note:** As of the `2026.04.0` release, the FIDO2 (WebAuthn) authenticator is now called Passkey (FIDO2 WebAuthn) and there are new settings and updates to the authenticator page layout. See [Passkeys and WebAuthn](/docs/guides/authenticators-web-authn/aspnet/main/#passkeys-and-okta).
 
@@ -79,7 +79,7 @@ How you configure related origins depends on the type of domain that you use as 
 
 ### Replace an existing RP ID with a new RP ID
 
-When you change the RP ID for your Passkeys authenticator, the outcome depends on whether users have already registered passkeys under the previous RP ID.
+When you change the RP ID for your Passkey authenticator, the outcome depends on whether users have already registered passkeys under the previous RP ID.
 
 Existing passkey enrollments aren't deleted when you set a new RP ID. Those enrollments remain in the system, but the browser doesn't present them at sign-in. That's because the stored RP ID no longer matches the new RP ID. If you revert to the previous RP ID, those passkeys become usable again.
 
@@ -106,11 +106,11 @@ In this scenario, you want to enable users to sign in to `login.globex.com` and 
 
 > **Note:** If you use a custom domain in Okta like `login.globex.com` as your RP ID instead of a root domain, domain verification is already complete after you complete the [custom domain setup](/docs/guides/custom-url-domain/). Skip the [Verify the RP ID domain](#verify-the-rp-id-domain) step and set `rpId.enabled` to `true` in your initial [API request](#update-the-rp-id-for-the-passkeys-authenticator) to enable it immediately.
 
-There are three steps for setting a root domain as an RP ID for your Passkeys authenticator:
+There are three steps for setting a root domain as an RP ID for your Passkey authenticator:
 
-1. [Set your root domain](#update-the-rp-id-for-the-passkeys-authenticator) (`globex.com`) as the RP ID for the Passkeys authenticator.
+1. [Set your root domain](#update-the-rp-id-for-the-passkeys-authenticator) (`globex.com`) as the RP ID for the Passkey authenticator.
 1. [Verify the RP ID domain](#verify-the-rp-id-domain). This guide assumes that you're using the root domain `globex.com` as your RP ID, instead of a previously verified custom domain in Okta.
-1. [Enable the RP ID](#enable-the-rp-id-for-the-passkeys-authenticator) for your Passkeys authenticator after verification is complete.
+1. [Enable the RP ID](#enable-the-rp-id-for-the-passkeys-authenticator) for your Passkey authenticator after verification is complete.
 
 > **Note:** When you set a new RP ID, existing passkey enrollments aren't deleted. However, passkeys registered under a different RP ID aren't available during sign-in, making those enrollments unusable. Only passkeys enrolled under the same domain you're setting as the RP ID continue to work. Users who registered their passkeys with a different RP ID must re-enroll.
 
@@ -118,16 +118,16 @@ There are three steps for setting a root domain as an RP ID for your Passkeys au
 
 Before you set an RP ID, follow these steps:
 
-1. Retrieve the `authenticatorId` of the Passkeys authenticator with the List all authenticators [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticators).
+1. Retrieve the `authenticatorId` of the Passkey authenticator with the List all authenticators [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticators).
 1. Ensure that you've [set up a custom domain](/docs/guides/custom-url-domain/) that has a valid root domain to use as your RP ID.
 1. Add the root domain as a trusted origin in your org. In the Admin Console, go to **Security** > **API** > **Trusted Origins** and add your root domain.
    > **Note:** You must add the root domain as a trusted origin to use it as an RP ID. This step doesn't apply to subdomains. If you use a subdomain as your RP ID, you can skip this step.
 
-Then, use the Replace an authenticator method [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod) to create an RP ID for the Passkeys authenticator. The response includes the TXT record value that you need to add to your DNS provider to verify ownership of the root domain.
+Then, use the Replace an authenticator method [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod) to create an RP ID for the Passkey authenticator. The response includes the TXT record value that you need to add to your DNS provider to verify ownership of the root domain.
 
 1. Use the following request example as a template.
 1. In the path parameters, set the following values:
-   * Use the Passkeys `authenticatorId`.
+   * Use the Passkey `authenticatorId`.
    * Set `webauthn` as the `methodType`.
 1. Set your domain name as the `rpId.domain.name`. For example, set the `name` as `globex.com`.
 1. Send the request.
@@ -212,11 +212,11 @@ After you set the TXT record in your DNS provider, wait for DNS propagation to c
 
 Use the Verify a Relying Party ID domain [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/verifyRpIdDomain) to verify the RP ID domain. This endpoint checks that the domain is properly configured and that you own it.
 
-After the RP ID domain is verified, [enable the RP ID](#enable-the-rp-id-for-the-passkeys-authenticator) for your Passkeys authenticator.
+After the RP ID domain is verified, [enable the RP ID](#enable-the-rp-id-for-the-passkeys-authenticator) for your Passkey authenticator.
 
 1. Use the following request example as a template.
 1. In the path parameters, set the following values:
-   * Use the Passkeys `authenticatorId`.
+   * Use the Passkey `authenticatorId`.
    * Set `webauthn` as the `webAuthnMethodType`.
 1. Send the request.
 
@@ -232,7 +232,7 @@ The RP ID domain is verified and can be enabled if its `verificationStatus` is `
 
 #### Enable the RP ID for the Passkey authenticator
 
-After the RP ID domain is verified, use the Replace an authenticator method [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod) again to enable the RP ID for your Passkeys authenticator.
+After the RP ID domain is verified, use the Replace an authenticator method [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticatorMethod) again to enable the RP ID for your Passkey authenticator.
 
 1. Use the [previous request](#update-the-rp-id-for-the-passkeys-authenticator) when you created the RP ID as a template.
 1. Set the `rpId.enabled` value to `true`.
