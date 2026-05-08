@@ -11,7 +11,7 @@ Build and validate integrations with API Integration Actions from the Okta Integ
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
-* An API resource server that serves requests for provisioning, entitlement management, or Universal Logout for your app
+* An API resource server that serves requests for provisioning, Entitlement Management, or Universal Logout for your app
 * (Optional) OpenAPI Specification (OAS) version 3.0 or later of your APIs, in either JSON or YAML format
 * An integration submission that's initiated through the OIN Wizard
 
