@@ -1,6 +1,6 @@
 2. On the **Home** page, do one of the following:
 
-    * Click **Create app** to create a new app that you want to list in the Okta Integration Network. <br><br>
+    * Click **Create app** to create an app that you want to list in the Okta Integration Network. <br><br>
     **OR**<br>
     * If there's an existing integration for an app, click **Add more integrations** to add more integrations for your app. The **Manage your app** page appears.
 

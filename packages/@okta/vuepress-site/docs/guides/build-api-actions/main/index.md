@@ -182,7 +182,7 @@ See [API Integration Action reference](/docs/guides/oin-api-actions-contracts/) 
 1. Click **Add event**.
 1. Select one of the provisioning action contracts.
 
-    The provisioning contract loads:
+    The provisioning contract loads the following details:
     * The **body** section contains the action contract request schema. See the [Provisioning action contracts](/docs/guides/oin-api-actions-contracts/#provisioning-action-contracts) schema reference for input and output property definitions.
     * The **auth** section contains the authentication parameters for the **Connection** to your API. Also included in the **Connection** section are optional parameters that you can configure and map to OIN tenant variables.
 

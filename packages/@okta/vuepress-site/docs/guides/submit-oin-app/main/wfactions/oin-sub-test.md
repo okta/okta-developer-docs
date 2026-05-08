@@ -47,7 +47,7 @@ To run the IdP flow test:
     * Your app tile appears on the Okta End-User Dashboard.
     * The tester selects the app tile and you're signed in to your app.
 
-1. Verify that the test end user signed in to your app with the correct profile.
+1. Verify that the test end user is signed in to your app with the correct profile.
 1. Select **The user successfully signed in to your app** in the upper-right **Test in progress** dialog to confirm that the IdP flow test passed.
 1. Click **Continue** from the **Test in progress** dialog to sign out of your app.
 
@@ -64,7 +64,7 @@ To run the IdP flow test:
     A new Chrome browser in incognito mode appears for you to sign in.
 
 1. Sign in to your app as the test end user who's assigned to your app instance.
-1. Verify that the test end user signed in to your app with the correct profile.
+1. Verify that the test end user is signed in to your app with the correct profile.
 1. Select **The user successfully signed in to your app** in the upper-right **Test in progress** dialog to confirm that the SP flow test passed.
 1. Click **Continue** from the **Test in progress** dialog to sign out of your app.
 
@@ -93,7 +93,7 @@ To run the JIT provisioning with IdP flow test:
     1. Selects the app tile.
     1. Wait for confirmation that the new test user signed in and was provisioned in your app. You're responsible for verifying this step.
 
-1. Verify that the test user signed in to your app with the correct first name, last name, and email attributes.
+1. Verify that the test user is signed in to your app with the correct first name, last name, and email attributes.
 
     > **Note:** You can go back to the OIN Submission Tester window and expand the test case to view network traffic details for this test run. The **NETWORK TRAFFIC** tab contains API calls to Okta with the test user details in the request payload.
 

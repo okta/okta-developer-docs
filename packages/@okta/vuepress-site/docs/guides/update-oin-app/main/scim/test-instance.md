@@ -14,4 +14,4 @@ You need to run three sets of tests for SCIM integrations:
 
 1. Test the logout flow manually for Universal Logout integration. See [Test your Universal Logout integration](/docs/guides/submit-oin-app/openidconnect/main/#test-your-universal-logout-integration).
 
-> **Note:** Okta recommends that you execute the Runscope CRUD tests and the manual Okta SCIM integration tests on a published-version SCIM instance for backwards compatibility. The results of the backward-compatibility tests aren't requirements for submission.
+> **Note:** Okta recommends that you execute the Runscope CRUD tests and the manual Okta SCIM integration tests on a published-version SCIM instance for backward compatibility. The results of the backward compatibility tests aren't requirements for submission.

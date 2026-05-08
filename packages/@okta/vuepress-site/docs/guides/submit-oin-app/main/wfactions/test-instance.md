@@ -8,7 +8,7 @@
 
 1. In the **General settings** tab, enter an **Application label** and any other required integration properties.
 1. Click **Done**. Your generated test instance appears with more tabs for configuration.
-1. If your integration supports entitlement management, go to **Entitlement Management** in the **General** tab.Click **Edit** and enable entitlement management.
+1. If your integration supports Entitlement Management, go to **Entitlement Management** in the **General** tab. Click **Edit** and enable Entitlement Management.
 
    The **Governance** tab appears in the app page.
 

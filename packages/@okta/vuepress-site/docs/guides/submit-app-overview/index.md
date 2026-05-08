@@ -66,7 +66,7 @@ Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 ### Submission process for API Integration Actions
 
-The following steps explain how to submit provisioning, entitlement management, or UL integrations that use API Integration Actions in the Integration Builder:
+The following steps explain how to submit provisioning, Entitlement Management, or UL integrations that use API Integration Actions in the Integration Builder:
 
 1. Sign in to the Admin Console of your Integrator Free Plan org.
    - Add integration details in the OIN Wizard.
