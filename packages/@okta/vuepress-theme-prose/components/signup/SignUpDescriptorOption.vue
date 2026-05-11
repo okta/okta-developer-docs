@@ -8,7 +8,8 @@
     <span class="signup-descriptor__label">{{ label }}</span>
     <span
       class="signup-descriptor__info"
-      :title="tooltip"
+      @mouseenter="showTooltip = true"
+      @mouseleave="showTooltip = false"
     >
       <svg
         width="16"
@@ -29,6 +30,10 @@
           fill="currentColor"
         />
       </svg>
+      <span
+        v-if="showTooltip && tooltip"
+        class="signup-descriptor__tooltip"
+      >{{ tooltip }}</span>
     </span>
   </button>
 </template>
@@ -53,6 +58,11 @@ export default {
       type: Boolean,
       default: false,
     },
+  },
+  data() {
+    return {
+      showTooltip: false,
+    };
   },
 };
 </script>

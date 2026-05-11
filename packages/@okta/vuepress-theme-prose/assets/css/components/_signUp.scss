@@ -310,7 +310,9 @@ select.signup-form__input:required:invalid {
 }
 
 .signup-descriptor:hover {
-  border-color: var(--c-gray-760);
+  padding: 13px 15px;
+
+  border: 2px solid #3f59e4;
 }
 
 .signup-descriptor--selected {
@@ -325,6 +327,8 @@ select.signup-form__input:required:invalid {
 }
 
 .signup-descriptor__info {
+  position: relative;
+
   display: flex;
   flex-shrink: 0;
   justify-content: center;
@@ -335,6 +339,41 @@ select.signup-form__input:required:invalid {
   color: var(--c-gray-450);
 
   transition: color 0.15s;
+}
+
+.signup-descriptor__tooltip {
+  position: absolute;
+  right: 50%;
+  bottom: calc(100% + 10px);
+  z-index: 10;
+
+  padding: 12px 16px;
+  width: 260px;
+
+  border-radius: 8px;
+  background: #1a1a1a;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #e5e5e5;
+
+  transform: translateX(50%);
+  pointer-events: none;
+}
+
+.signup-descriptor__tooltip::after {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+
+  border-top: 6px solid #1a1a1a;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+
+  transform: translateX(-50%);
 }
 
 .signup-descriptor:hover .signup-descriptor__info {
