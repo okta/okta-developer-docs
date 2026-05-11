@@ -366,8 +366,8 @@ select.signup-form__input:required:invalid {
   content: "";
 
   position: absolute;
-  left: 50%;
   bottom: -6px;
+  left: 50%;
 
   border-top: 6px solid #1a1a1a;
   border-left: 6px solid transparent;
