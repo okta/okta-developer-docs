@@ -64,7 +64,7 @@ The following JavaScript code imports users from your source data into Okta in o
 
 * One-time migration with authentication reset: This scenario migrates users without credentials and stages their accounts.
 
-* Migration program using Okta password inline hook: This scenario imports users who can migrate their existing password the first time they sign in to Okta. This requires the configuration of an [Okta password import inline hook](/docs/guides/password-import-inline-hook/nodejs/main/).
+* Migration program using Okta password inline hook: This scenario imports users who can migrate their existing password the first time they sign in to Okta. This use case requires the configuration of an [Okta password import inline hook](/docs/guides/password-import-inline-hook/nodejs/main/) for the password import process.
 
 The following JavaScript file contains all three scenarios:
 
@@ -441,7 +441,7 @@ See the [Create a User API](https://developer.okta.com/docs/api/openapi/okta-man
 
 This scenario imports users who have active accounts and allows them to use their existing passwords when they first sign in through a password import inline hook. The user's password is validated through your custom hook logic, which can authenticate against your legacy system or hashed password database. This approach is ideal when you want users to retain their original passwords during migration and have a more gradual password transition period.
 
-> **Note:** This scenario requires the configuration of an [Okta password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/inlinehook/webhooks/createpasswordimportinlinehook) before you run the import script.
+> **Note:** This scenario requires the configuration of an [Okta password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/inlinehook/webhooks/createpasswordimportinlinehook) for the password import process.
 
 The following example shows the Users API request body for this scenario:
 
@@ -470,6 +470,82 @@ POST https://{yourOktaDomain}/api/v1/users?activate=true
 * `activate=true`: Immediately activates the user account (the default value is `true`)
 * `hook.type: "default"`: Specifies that a client implements a password import inline hook for authentication
 * `profile`: Contains user profile information (`name`, `email`, and `login`)
+
+The following example response shows the user profile created from the request:
+
+```json
+{
+    "id": "00uymevfiiNXaJKw11d7",
+    "status": "ACTIVE",
+    "created": "2026-05-11T15:26:08.000Z",
+    "activated": "2026-05-11T15:26:09.000Z",
+    "statusChanged": "2026-05-11T15:26:09.000Z",
+    "lastLogin": null,
+    "lastUpdated": "2026-05-11T15:26:09.000Z",
+    "passwordChanged": "2026-05-11T15:26:08.000Z",
+    "realmId": "guolmfhtgj9pXaslwY1d7",
+    "type": {
+        "id": "oty7xut91mYBi6o081d7"
+    },
+    "profile": {
+        "firstName": "Jessie",
+        "lastName": "Smith",
+        "mobilePhone": null,
+        "secondEmail": null,
+        "login": "jessie.smithn@example.com",
+        "email": "jessie.smith@example.com"
+    },
+    "credentials": {
+        "password": {},
+        "provider": {
+            "type": "IMPORT",
+            "name": "IMPORT"
+        }
+    },
+    "_links": {
+        "suspend": {
+            "href": "https://{yourOktaDomain}/api/v1/users/00uymevfiiNXaJKw11d7/lifecycle/suspend",
+            "method": "POST"
+        },
+        "schema": {
+            "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/osc7xut91mYAi6o081e7"
+        },
+        "resetPassword": {
+            "href": "https://{yourOktaDomain}/api/v1/users/00uymevfiiNXaJKw11d7/lifecycle/reset_password",
+            "method": "POST"
+        },
+        "forgotPassword": {
+            "href": "https://{yourOktaDomain}/api/v1/users/00uymevfiiNXaJKw11d7/credentials/forgot_password",
+            "method": "POST"
+        },
+        "expirePassword": {
+            "href": "https://{yourOktaDomain}/api/v1/users/00uymevfiiNXaJKw11d7/lifecycle/expire_password",
+            "method": "POST"
+        },
+        "changeRecoveryQuestion": {
+            "href": "https://{yourOktaDomain}/api/v1/users/00uymevfiiNXaJKw11d7/credentials/change_recovery_question",
+            "method": "POST"
+        },
+        "self": {
+            "href": "https://{yourOktaDomain}/api/v1/users/00uymevfiiNXaJKw11d7"
+        },
+        "type": {
+            "href": "https://{yourOktaDomain}/api/v1/meta/types/user/oty7xut91mYBi6o081d7"
+        },
+        "changePassword": {
+            "href": "https://{yourOktaDomain}/api/v1/users/00uymevfiiNXaJKw11d7/credentials/change_password",
+            "method": "POST"
+        },
+        "deactivate": {
+            "href": "https://{yourOktaDomain}/api/v1/users/00uymevfiiNXaJKw11d7/lifecycle/deactivate",
+            "method": "POST"
+        }
+    }
+}
+```
+
+The `password` property displays as empty `{ }`, which in this scenario indicates the password hook is set.
+The `credentials.provider.type` property, with a value of `IMPORT`, indicates the origin of the password is from an external source. See [Create a user API response](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/user/other/createuser#other/createuser/response&c=200).
 
 On the user's first sign-in attempt, their credentials are sent to your configured password import inline hook. This validates them against your legacy system and either grants access or returns an error. See the [Create a User API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/user/section/create-user-with-imported-hashed-password#section/Create-user-with-password-import-inline-hook).
 

@@ -87,10 +87,10 @@ For a one-time migration with authentication reset, where users must reset their
 
 For a migration program, where user passwords are migrated when they first sign in to an app from the source provider:
 
+* [Use the Okta Users API to create active user accounts with a password import inline hook](/docs/guides/migrate-to-okta-with-scripts/main/#migration-program-using-inline-password-hooks).
 * Create a password import inline hook to one of the following places:
   * Local Active Directory or LDAP server
   * [Third-party identity provider](/docs/guides/password-import-inline-hook/nodejs/main/)
-* [Use the Okta Users API to create active user accounts with the provider type and name set to IMPORT, and the inline hook attached](/docs/guides/migrate-to-okta-with-scripts/main/#migration-program-using-inline-password-hooks).
 * Send that user a notification to sign in through the standard Okta process.
 
 If your system uses Active Directory agents to synchronize passwords with Okta for SSO, you can also [use the AD Agent to migrate passwords to Okta](https://help.okta.com/okta_help.htm?type=oie&id=ad-password-migration).
