@@ -1,13 +1,19 @@
 <template>
   <section
-    class="signup"
     v-if="!isRegionLoading"
+    class="signup"
   >
     <div class="signup__wrapper">
-      <div v-if="isRegionLocked" class="signup__locked">
+      <div
+        v-if="isRegionLocked"
+        class="signup__locked"
+      >
         <p>We believe that you are located in a region recently impacted by the US sanctions and we are no longer able to process this request. This policy is in effect until further notice.</p>
       </div>
-      <div v-else class="signup__main">
+      <div
+        v-else
+        class="signup__main"
+      >
         <h1 class="signup__mobile-title">
           Start your Integration
           building journey.
@@ -33,7 +39,7 @@
           />
         </div>
       </div>
-      <div class="signup__form-bottom-cards-divider"></div>
+      <div class="signup__form-bottom-cards-divider" />
       <div class="signup__bottom-cards">
         <SignUpBottomCard
           variant="okta"

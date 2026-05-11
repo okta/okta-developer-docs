@@ -348,7 +348,10 @@
             v-if="isPending"
             class="signup-form__pending"
           >
-            <img class="signup-form__pending-img" src="/img/ajax-loader-white.gif">
+            <img
+              class="signup-form__pending-img"
+              src="/img/ajax-loader-white.gif"
+            >
           </a>
           <input
             v-else
