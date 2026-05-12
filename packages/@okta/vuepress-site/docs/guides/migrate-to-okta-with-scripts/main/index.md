@@ -547,7 +547,7 @@ The following example response shows the user profile created from the request:
 ```
 
 The `password` property displays as empty `{ }`, which in this scenario indicates the password hook is set.
-The `credentials.provider.type` property, with a value of `IMPORT`, indicates the origin of the password is from an external source. See [Create a user API response](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/user/other/createuser#other/createuser/response&c=200).
+The `credentials.provider.type` property, with a value of `IMPORT`, indicates that the origin of the password is from an external source. See [Create a user API response](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/user/other/createuser#other/createuser/response&c=200).
 
 On the user's first sign-in attempt, their credentials are sent to your external service through the password import inline hook. This validates them against your legacy system and either grants access or returns an error.
 
