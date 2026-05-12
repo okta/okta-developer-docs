@@ -2,159 +2,28 @@
   background: var(--c-gray-950);
 }
 
-.signup__title {
+.signup__locked {
   color: var(--c-lightgray-450);
 }
 
-.signup__wrapper h1 span {
-  color: var(--c-green-300);
-}
-
-.signup__popup:before {
-  background-color: var(--c-gray-980);
-}
-
-.signup__popup:after {
-  background: var(--c-gray-980);
-}
-
-.signup__popup__title {
-  border-color: var(--c-gray-760);
-}
-
-.signup__popup__title h2 {
+.signup__mobile-title {
   color: var(--c-lightgray-450);
 }
 
-.signup__popup__title span {
+.signup-hero__title {
   color: var(--c-lightgray-450);
 }
 
-.signup__popup__title a {
-  border-bottom: 1px solid var(--c-lightgray-450);
+.signup-hero__divider {
+  margin-bottom: 48px;
 
-  color: var(--c-lightgray-450);
+  border: 0.5px solid #2a2a2a;
 }
 
-.signup__popup__title a:hover {
+.signup__form-bottom-cards-divider {
   @include media(">signup") {
-    border-color: var(--c-green-100);
+    border: 0.5px solid #2a2a2a;
   }
-}
-
-.signup__form__label {
-  color: var(--c-lightgray-450);
-}
-
-.signup__form__input {
-  border: 1px solid var(--c-gray-450);
-  background-color: var(--c-gray-950);
-  
-  color: var(--c-lightgray-450);
-}
-
-.signup__form__input:active,
-.signup__form__input:focus {
-  box-shadow: 0 0 0 4px var(--c-green-200);
-  border-color: var(--c-green-300);
-}
-
-.signup__form__input option {
-  color: var(--c-lightgray-450);
-}
-
-.signup__form__recaptcha {
-  color: var(--c-lightgray-450);
-}
-
-.signup__form__recaptcha .error-color {
-  color: var(--c-red-300);
-}
-
-.signup__form__splitter {
-  color: var(--c-gray-420);
-}
-
-.signup__form__button {
-  border: 1px solid var(--c-lightgray-450);
-  background-color: var(--c-gray-980);
-
-  color: var(--c-lightgray-450);
-}
-
-.signup__form__button:hover {
-  @include media(">signup") {
-    border-color: var(--c-green-300);
-
-    color: var(--c-green-300);
-  }
-}
-
-.signup__form__button-dark:hover {
-  @include media(">signup") {
-    background-color: var(--c-green-300);
-  }
-}
-
-.signup__form__button-dark:hover input {
-  @include media(">signup") {
-    color: var(--c-gray-980);
-  }
-}
-
-.signup__form__button i {
-  color: var(--c-lightgray-450);
-}
-
-.signup__form__button i::before {
-  color: var(--c-lightgray-450);
-}
-
-.signup__form__button-dark {
-  background: var(--c-lightgray-450);
-}
-
-.signup__form__button-dark input {
-  color: var(--c-gray-950);
-}
-
-.signup__items.active .signup__popup {
-  background-color: var(--c-gray-980);
-  @include media(">signup") {
-    overflow: hidden;
-
-    background-color: transparent;
-  }
-}
-
-.signup__popup__container span:nth-child(3) {
-  color: var(--c-lightgray-450);
-}
-
-.signup__popup__container span:nth-child(3) a {
-  border-color: var(--c-lightgray-450);
-
-  color: var(--c-lightgray-450);
-}
-
-.signup__footer {
-  color: var(--c-gray-125);
-}
-
-.signup__footer a {
-  border-bottom: 1px solid var(--c-lightgray-450);
-
-  color: var(--c-lightgray-450);
-}
-
-.signup__footer a:hover {
-  @include media(">signup") {
-    border-color: var(--c-green-100);
-  }
-}
-
-.signup__form__field .error-color {
-  color: var(--c-red-300);
 }
 
 .signup-feature-card {
@@ -206,5 +75,5 @@
 }
 
 .signup-bottom-card + .signup-bottom-card {
-  border-color: var(--c-gray-760);
+  border-color: #2a2a2a;
 }

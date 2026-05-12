@@ -76,7 +76,7 @@ describe('Sign up page check spec', () => {
 
   describe('verify button text', () => {
     it('email signup button text verification', () => {
-      signUpPage.getSignUpSubmitInput().should('have.value', 'Sign up');
+      signUpPage.getSignUpSubmitInput().should('have.value', 'Sign Up');
     });
 
     // it('github signup button text verification', () => {
