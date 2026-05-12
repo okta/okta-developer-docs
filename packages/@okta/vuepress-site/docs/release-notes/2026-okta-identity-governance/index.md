@@ -26,8 +26,8 @@ The Tasks APIs allow admins to automate the management of in-flight access reque
 
 These APIs are only available for access requests managed by conditions in **Access Request - V2**:
 
-* **Access Request - V2** > [Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks)
-* **End user APIs** > [My Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks)
+* Access Request - V2 > [Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks)
+* End user APIs > [My Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks)
 
 <!-- OKTA-1162968 IN_FLIGHT_REQUEST_API Preview: May 13, 2026 -->
 
