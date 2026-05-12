@@ -31,6 +31,14 @@ These APIs are only available for access requests managed by conditions in **Acc
 <!-- [Tasks] link: https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks -->
 <!-- [My Tasks] link: https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks -->
 
+#### Customize Justification Requirements
+
+When you create or edit a campaign, configure [Justification Settings](https://help.okta.com/okta_help.htm?type=oie&id=csh-bp-create-campaign) to provide granular control over how campaign reviewers justify their access decisions. This includes requiring the reviewer to provide a reason for revoking or approving access. This helps you better align the reviewer experience with your org’s specific compliance needs.
+
+The [`reviewerSettings.justificationRequirement`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reviewersettings/justificationRequirement) campaign API property has been added to support configuring review justification settings. Use this new property instead of `reviewerSettings.justificationRequired` for granular control over review justification settings.
+
+<!-- OKTA-1169635 IGA_ACCESS_CERT_JUSTIFICATION_CONTROLS, Preview date: May 13, 2026 -->
+
 ### Monthly release 2026.05.0
 <!-- Published on: 2026-05-06T12:00:00Z -->
 
