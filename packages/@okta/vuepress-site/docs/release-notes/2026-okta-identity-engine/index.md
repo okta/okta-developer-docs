@@ -21,7 +21,13 @@ title: Okta Identity Engine API release notes 2026
 
 #### Bugs fixed in 2026.05.1
 
+* The `okta.eventhooks.manage` permission didn't allow an admin or service app to create an event hook. (OKTA-1162004)
 
+* In the Admin Console, group searches and membership count API operations intermittently failed with 504 timeout errors for groups with very large memberships. (OKTA-1134762)
+
+* POST requests to the `/api/v1/policies/{policyId}/rules` endpoint and PUT requests to the `/api/v1/policies/{policyId}/rules/{ruleId}` endpoint returned a successful response when the same app was specified in both the include and exclude lists of the app conditions. (OKTA-1115016)
+
+* Custom attributes in Workday failed to sync during incremental imports unless a base attribute was simultaneously updated, even when a transaction log was generated for the custom attribute change. (OKTA-1089429)
 
 ### Monthly release 2026.05.0
 <!-- Published on: 2026-05-06T12:00:00Z -->
