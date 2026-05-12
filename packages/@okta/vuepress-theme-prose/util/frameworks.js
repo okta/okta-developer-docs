@@ -85,6 +85,7 @@ const COMMON_NAME_TO_FANCY_NAME = {
   saml2assert: 'SAML 2.0 Assertion',
   interactioncode: 'Interaction Code',
   wfconnector: 'Workflows connector',
+  wfactions: 'API Integration Actions',
   apiservice: 'API service',
   uapiservice: 'API service',
   aotp: 'OTP (primary factor)',

@@ -1,0 +1,2 @@
+   * For an SSO integration, test the required flows in the [OIN Submission Tester](#oin-submission-tester) with your generated test instance. Fix any test failures from the OIN Submission Tester, then regenerate the test instance (if necessary) and retest.
+   * For a Universal Logout integration, test the logout flow manually. See [Test your Universal Logout integration](#test-your-universal-logout-integration).
