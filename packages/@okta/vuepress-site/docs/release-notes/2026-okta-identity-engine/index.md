@@ -42,6 +42,7 @@ title: Okta Identity Engine API release notes 2026
 | [Skip counts for authenticator enrollment grace periods is GA in Production](#skip-counts-for-authenticator-enrollment-grace-periods-is-ga-in-production) | Feb 4, 2026 |
 | [Client update policy is GA in Production](#client-update-policy-is-ga-in-production) | Jan 7, 2026 |
 | [Passkeys rebrand is GA in Production](#passkeys-rebrand-is-ga-in-production) | Feb 4, 2026 |
+| [OIN submissions for API Integration Actions](#oin-submissions-for-api-integration-actions) |  |
 | [Developer documentation updates in 2026.05.0](#developer-documentation-updates-in-2026-05-0) | May 6, 2026 |
 | [Bug fixed in 2026.05.0](#bug-fixed-in-2026-05-0)| May 6, 2026 |
 
@@ -110,6 +111,13 @@ The FIDO2 (WebAuthn) authenticator is being rebranded to Passkey (FIDO2 WebAuthn
 For more information about the new settings and updates, see [Passkeys and WebAuthn](/docs/guides/authenticators-web-authn/aspnet/main/#passkeys-and-webauthn) and [Configure the Passkey (FIDO2 WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn).
 
 <!-- OKTA-1012303 FF: PASSKEYS_REBRAND preview date: Feb 4, 2026 -->
+
+#### OIN submissions for API Integration Actions
+
+Independent Software Vendors (ISVs) can now use the low-code Okta Integration Builder to integrate their apps with API Integration Actions. This allows ISVs to integrate their existing APIs with Okta actions without adopting specific protocols, such as SCIM or GTR. ISVs can submit integrations that use API Integration Actions to the OIN catalog using the OIN Wizard.
+
+See [API Integration Actions](/docs/guides/oin-api-actions/) and [Submit an integration with the OIN Wizard](/docs/guides/submit-oin-app/wfactions/main/). The OIN Wizard and Okta Integration Builder are only available on Integrator Free Plan orgs.
+<!-- OKTA-1007250, OKTA-1145738, ACTIONS_3P_SUBMISSION, Production: May 12, 2026 -->
 
 #### Developer documentation updates in 2026.05.0
 

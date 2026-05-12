@@ -52,8 +52,8 @@ Governance Analyzer provides access certification campaign reviewers with insigh
 
 The following [My Access Certification Reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews) end-user operations are now available to support the Governance Analyzer feature:
 
-* Submit a bulk-review decision
-* Retrieve the status of a bulk-review submission
+* [Submit a bulk-review decision](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews/submitcampaignbulkdecisions)
+* [Retrieve the status of a bulk-review submission](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews/getcampaignbulkdecisionsjobstatus)
 <!-- OKTA-1168162 IGA_REVIEW_ML_RECOMMENDATIONS Preview: May 6, 2026 -->
 
 ## April
@@ -68,8 +68,8 @@ The following [My Access Certification Reviews](https://developer.okta.com/docs/
 #### Entitlement value response updates
 
 The response for the [List all reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/listreviews), [Reassign the review](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/reassignreviews), and [Retrieve the review](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/getreview ) operations now return the following additional properties for [`entitlementValue`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/listreviews#reviews/listreviews/t=response&c=200&path=data/entitlementvalue):
-* `externalValue`: The external value string
-* `entitlement`: The entitlement object that the entitlement value belongs to
+* [`externalValue`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/listreviews#reviews/listreviews/t=response&c=200&path=data/entitlementvalue/externalvalue): The external value string
+* [`entitlement`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/listreviews#reviews/listreviews/t=response&c=200&path=data/entitlementvalue/entitlement): The entitlement object that the entitlement value belongs to
 <!-- OKTA-1146477 April 29, 2026 -->
 
 ### Weekly release 2026.04.2
@@ -102,8 +102,8 @@ If you've enabled the Unified Requester Experience feature, you can now configur
 
 The following settings have been updated to support the improved Slack integration, and are available as Beta:
 
-* Access Request - V2 > Request Settings > `integrations.settings.caninitiateRequest`: indicates that users can initiate a request from Slack
-* Access Request - V2 > Request Settings > `integrations.settings.canApproveRequest`: indicates that reviewers can approve a request from Slack
+* **Access Request - V2** > **Request Settings** > [Update the org request settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/request-settings/updateorgrequestsettingsv2) > `integrations.settings.caninitiateRequest`: indicates that users can initiate a request from Slack
+* **Access Request - V2** > **Request Settings** > [Update the org request settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/request-settings/updateorgrequestsettingsv2) > `integrations.settings.canApproveRequest`: indicates that reviewers can approve a request from Slack
 <!-- OKTA-1143017, OKTA-1094247, Preview: April 1, 2026 -->
 
 #### Updated access certification campaign filter
