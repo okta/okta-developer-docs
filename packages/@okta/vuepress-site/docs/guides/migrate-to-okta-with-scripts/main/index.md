@@ -437,9 +437,11 @@ After import, users receive an email with instructions to activate their account
 
 See the [Create a User API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/user/section/create-user-with-optional-password#section/Create-user-without-credentials).
 
-## Migration program using inline password hooks
+## Migration program using password import inline hooks
 
 This scenario imports users who have active accounts and allows them to use their existing passwords when they first sign in through a password import inline hook. The user's password is validated through your custom hook logic, which can authenticate against your legacy system or hashed password database. This approach is ideal when you want users to retain their original passwords during migration and have a more gradual password transition period.
+
+For details on creating users with a password import inline hook, see the [Create a User API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/user/section/create-user-with-imported-hashed-password#section/Create-user-with-password-import-inline-hook).
 
 > **Note:** This scenario requires the configuration of an [Okta password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/inlinehook/webhooks/createpasswordimportinlinehook) for the password import process.
 
@@ -547,7 +549,7 @@ The following example response shows the user profile created from the request:
 The `password` property displays as empty `{ }`, which in this scenario indicates the password hook is set.
 The `credentials.provider.type` property, with a value of `IMPORT`, indicates the origin of the password is from an external source. See [Create a user API response](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/user/other/createuser#other/createuser/response&c=200).
 
-On the user's first sign-in attempt, their credentials are sent to your configured password import inline hook. This validates them against your legacy system and either grants access or returns an error. See the [Create a User API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/user/section/create-user-with-imported-hashed-password#section/Create-user-with-password-import-inline-hook).
+On the user's first sign-in attempt, their credentials are sent to your external service through the password import inline hook. This validates them against your legacy system and either grants access or returns an error.
 
 For examples on how to implement the password import inline hook, see these resources:
 
