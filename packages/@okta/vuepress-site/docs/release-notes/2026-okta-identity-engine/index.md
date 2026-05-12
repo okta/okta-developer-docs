@@ -18,6 +18,7 @@ title: Okta Identity Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
+  |[Automated syncing of attributes from SCIM server is GA in Production](#automated-syncing-of-attributes-from-scim-server-is-ga-in-production)| |
 | [Identity claims sourcing policy is self-service EA in Preview](#identity-claims-sourcing-policy-is-self-service-ea-in-preview) | May 6, 2026 |
 | [Email authenticator auto-enrollment and recovery management is self-service EA in Preview](#email-authenticator-auto-enrollment-and-recovery-management-is-self-service-ea-in-preview) | May 6, 2026 |
 | [Managed connections renamed to resource connections is GA in Production](#managed-connections-renamed-to-resource-connections-is-ga-in-production) | May 6, 2026 |
@@ -30,6 +31,12 @@ title: Okta Identity Engine API release notes 2026
 | [Passkeys rebrand is GA in Production](#passkeys-rebrand-is-ga-in-production) | Feb 4, 2026 |
 | [Developer documentation updates in 2026.05.0](#developer-documentation-updates-in-2026-05-0) | May 6, 2026 |
 | [Bug fixed in 2026.05.0](#bug-fixed-in-2026-05-0)| May 6, 2026 |
+
+#### Automated syncing of attributes from SCIM server is GA in Production
+
+The new **Import User Schema** feature streamlines provisioning by automatically syncing attributes directly from your SCIM server instead of using a static template. By selecting the **Import user schema** checkbox, Okta fetches core attributes from the `urn:ietf:params:scim:schemas:core:2.0:User` schema and extension attributes from the /`Schemas` and `/ResourceTypes` endpoints. After these attributes are identified, you can add these specific fields through the **Add Attribute** picklist in the **Profile Editor**. This ensures that only supported attributes are populated, eliminating the need to manually remove unnecessary fields during setup. See [Automated configuration](/docs/guides/submit-oin-app/scim/main/#automated-configuration).
+
+<!-- OKTA-1167768, Automated Service/Operations discovery for SCIM submissions, Production: May 12, 2026 -->
 
 #### Identity claims sourcing policy is self-service EA in Preview
 
@@ -107,7 +114,9 @@ For more information about the new settings and updates, see [Passkeys and WebAu
 
 #### Bug fixed in 2026.05.0
 
-Some API responses to unauthenticated passwordless flows included values for the `deviceName` property. (OKTA-828990)
+* Some API responses to unauthenticated passwordless flows included values for the `deviceName` property. (OKTA-828990)
+
+* The **Support Contact (for Okta use only)** field was incorrectly located on the **Configure your integration** page instead of the **Integration details** page where other catalog properties are managed. (OKTA-1147858)
 
 ## April
 
