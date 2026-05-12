@@ -522,7 +522,7 @@ You can't publish integrations with the following Okta features in the OIN catal
 
 * **Unsupported multi-tenancy**: Your app integration must support multi-tenancy to be available in the public OIN catalog. See [OIN multi-tenancy](#oin-multi-tenancy).
 
-* **Integration variables**: You can add up to three variables for per-tenant app-instance properties in the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#integration-variables). If you need to edit more than three variables for a published integration, contact the OIN team at <oin@okta.com>.
+* **Integration variables**: You can add up to three variables for per-tenant app-instance properties in the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#tenant-settings). If you need to edit more than three variables for a published integration, contact the OIN team at <oin@okta.com>.
 
 ### OIDC/OAuth 2.0 integration limitations
 
@@ -571,6 +571,12 @@ In addition to the general OIN limitations, the following are limitations specif
 * The OIN Wizard only supports integrations with header authentication or OAuth 2.0 authentication to the SCIM server. Header authentication can use token or bearer token format.
 
 * OIN SCIM integrations with OAuth 2.0 authentication don't support dynamic consumer key and secret. The consumer key and secret values are common for all customer tenants.
+
+### API Integration Actions limitations
+
+* Integrations that use API Integration Actions for Universal Logout is only supported with the SSO capabililty. You must select a SSO capabililty before you can select API Integration Actions for Universal Logout.
+
+* For integrations with multiple capabilities that include API Integration Actions, always access the OIN Wizard through the **Application** > **Your OIN Integrations** navigation path in the Admin Console. API Integration Actions capability isn't available through the **Home** landing page.
 
 ## Next step
 

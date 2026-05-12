@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-Learn how to submit an OIDC, SAML 2.0, SCIM 2.0, Universal Logout, Entitlement Management, or API service integration to the Okta Integration Network (OIN) using the OIN Wizard.
+Learn how to submit an integration with SSO, Universal Logout, provisioning, entitlement management, or API service capabilities to the Okta Integration Network (OIN) using the OIN Wizard.
 
 ---
 
@@ -16,9 +16,9 @@ Learn how to submit an OIDC, SAML 2.0, SCIM 2.0, Universal Logout, Entitlement M
 
 * An admin user in the Integrator Free Plan org with either the super admin or the app and org admin roles
 
-<StackSnippet snippet="what-need"/>
-
 * The various items necessary for submission in accordance with the [OIN submission requirements](/docs/guides/submit-app-prereq/)
+
+<StackSnippet snippet="what-need"/>
 
 ---
 
@@ -30,7 +30,7 @@ The OIN Wizard is a full-service tool in the Admin Console for you to do the fol
 
 * Provide all your integration submission details.
 * Generate an app instance in your org for testing:
-<StackSnippet snippet="overview-generate"/>
+  <StackSnippet snippet="overview-generate"/>
 * Submit your integration directly to the OIN team when you're satisfied with your test results.
 * Monitor the status of your submissions through the **Your OIN Integrations** dashboard.
 * Edit published integrations and resubmit them to the OIN.
@@ -43,9 +43,9 @@ The OIN team verifies your submitted integration before they publish it in the [
 
 ## Start a submission
 
-Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before you start your submission. There are artifacts and technical details that you need to provide during the submission process.
+Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before you start your submission. You need to provide artifacts and technical details during the submission process.
 
-> **Note:** As a best practice, add two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future. See [Add users manually](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) and ensure that the app and org admin roles are assigned to your admin users. The super admin role also provides the same access, but Okta recommends limiting super admin role assignments.
+> **Note:** As a best practice, add two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for future updates. See [Add users manually](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) and ensure that the app and org admin roles are assigned to your admin users. The super admin role also provides the same access, but Okta recommends limiting assignments to this role.
 
 Start your integration submission for OIN publication:
 
@@ -53,23 +53,7 @@ Start your integration submission for OIN publication:
 
     > **Note:** Submit your integration from an Okta account that has your company domain in the email address. You can't use an account with a personal email address. The OIN team doesn't review submissions from personal email accounts.
 
-1. On the **Home** page, do one of the following:
-
-    * Click **Create app** to create a new app that you want to list in the Okta Integration Network. <br><br>
-    **OR**<br>
-    * If there’s an existing integration for an app, click **Add more integrations** to add another integrations to it. The **Manage your app** page appears.
-
-1. Select your integration capabilities, and then enter a display name and description. See the [Integration details](/docs/guides/submit-oin-app/openidconnect/main/#integration-details) section for more details.
-
-1. Click **Add Integration Details**. The **Integration details** page appears.
-
-   > **Note:**
-   >Alternatively, you can go to **Applications** > **Your OIN Integrations** to build your integration and select your protocols.
-
-    If you only want to test an existing submission, see [Navigate directly to test your integration](#navigate-directly-to-test-your-integration).
-
-    > **Note:** The instructions on this page are for the **<StackSnippet snippet="protocol-fullname" inline/>**. <br>
-    > If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
+<StackSnippet snippet="entry-path"/>
 
 ### Integration details
 
@@ -88,24 +72,16 @@ Configure your OIN catalog properties:
 
     `*` Required properties
 
-1. Click **Configure your integration**.
+#### Tenant settings
 
-### Configure your integration
+Configure integration variables if your URLs are dynamic for each tenant. The variables are for your customer admins to add their specific tenant setting values during installation. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language).
 
-<StackSnippet snippet="express-submission-note" inline/>
-
-Continue with the OIN Wizard and configure your integration:
-
-#### Integration variables
-
-Configure integration variables if your URLs are dynamic for each tenant. The variables are for your customer admins to add their specific tenant values during installation. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language).
-
-1. In the **Integration variables** section, specify the name and label for each variable:
+2. In the **Tenant settings** section, specify the name and label for each tenant setting variable:
 
     | <div style="width:100px">Property</div> | Description  |
     | --------------- | ------------ |
-    | **Label** `*`  | A descriptive name for the dynamic variable that admins see when they install your app integration. For example: `Subdomain` |
-     | **Name** `*`  | Specify the variable name. This variable name is used to construct the dynamic URL. It's hidden from admins and is only passed to your external app.<br>String is the only variable type supported.<br>**Note:** Use alphanumeric lowercase and underscore characters for the variable name field. The first character must be a letter and the maximum field length is 1024 characters. For example: `subdomain_div1` |
+    | **Label** `*`  | The tenant setting label that's displayed when admins install your app integration. For example: `Subdomain` or `Tenant name` |
+     | **Name** `*`  | Specify the tenant setting variable name. This variable name is used to construct dynamic URLs or other app properties that are dependent on the tenant. It's hidden from admins and is only used to pass tenant details to your external app.<br>String is the only variable type supported.<br>**Note:** Use alphanumeric lowercase and underscore characters for the variable name field. The first character must be a letter and the maximum field length is 1024 characters. For example: `subdomain_div1` |
 
      `*` This section is optional, but if you specify a variable, both `Label` and `Name` properties are required.
 
@@ -116,28 +92,39 @@ Configure integration variables if your URLs are dynamic for each tenant. The va
 1. If you need to delete a variable, click the delete icon (![trash can; delete icon](/img/icons/odyssey/delete.svg)) next to it.
 <!--Odyssey icons sourced from: https://github.com/okta/odyssey/blob/main/packages/odyssey-icons/src/figma.generated/ -->
 
-#### <StackSnippet snippet="protocol-name" inline/> properties
+<StackSnippet snippet="auth-settings"/>
 
-> **Note:** The instructions on this page are for the **<StackSnippet snippet="protocol-fullname" inline/>** . <br>
-> If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
+### Configure your integration
 
-Continue with the OIN Wizard and configure your protocol settings:
+Configure your integration settings. Settings appear based on your capability selection.
 
-1. Specify the following protocol properties in the **<StackSnippet snippet="protocol-name" inline/> properties** section:
+<StackSnippet snippet="express-submission-note" inline/>
 
-    <StackSnippet snippet="protocol-properties" />
+#### Support contact
+
+1. Specify a support contact from your organization:
+
+    | <div style="width:150px">Property</div> | Description  |
+    | ----------------- | ------------ |
+    | **Support email** `*` | Specify an email that the Okta team can use to contact your organization for emergencies and escalations. This field is private and not visible to customers. See [Customer support contact guidelines](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines).
+
+<StackSnippet snippet="protocol-properties"/>
 
 <StackSnippet snippet="entitlement-management-properties"/>
 
 <StackSnippet snippet="universal-logout-properties"/>
 
+<br>
+
+2. Click **Get started with testing** to save your edits and move to the **Test your integration** section, where you need to [enter test information](#enter-test-information) for your integration.
+
 #### Dynamic properties with Okta Expression Language
 
  The OIN Wizard supports [Okta Expression Language](/docs/reference/okta-expression-language/#reference-user-attributes) to generate dynamic properties, such as URLs or URIs, based on your customer tenant. You can specify dynamic strings for your <StackSnippet snippet="protocol-name" inline/> properties in the OIN Wizard:
 
-1. Add your [integration variables](#integration-variables) in the OIN Wizard. These variables become fields for customers to enter during your OIN integration installation to identify their tenant.
+1. Add your [tenant settings](#tenant-settings) in the OIN Wizard. These settings become fields for customer admins to enter during your OIN integration installation to identify their tenant.
 
-2. Use the integration variables with Expression Language format in your [<StackSnippet snippet="protocol-name" inline/> property definitions](#properties) for dynamic values based on customer information.
+2. Use the tenant setting variables with Expression Language format in your integration properties for dynamic values based on customer information.
 
 <StackSnippet snippet="variable-desc" />
 
@@ -152,9 +139,9 @@ A dedicated test admin account in your app is required for Okta integration test
 * Privileges to configure admin settings in your test app
 * Privileges to administer test users in your test app
 
-<StackSnippet snippet="test-info-review" />
+<StackSnippet snippet="test-info-review" inline/>
 
-After your integration is verified, Okta automatically deletes test account credentials 30 days after your app is published in the OIN Wizard. To resubmit your app after this period, create a new test account and provide the required information.
+After your integration is verified, Okta automatically deletes test account credentials 30 days after your app is published in the OIN Wizard. To resubmit your app after this period, create a test account and provide the required information.
 
 See [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-guidelines).
 
@@ -167,9 +154,9 @@ In the **Testing information for Okta review** section, specify the following **
 | **Password** `*`  | The password for your test admin account |
 | **Testing instructions** | Include information that the OIN team needs to know about your integration for testing (such as the admin account or the testing configuration). You can also provide instructions on how to add test user accounts. |
 
-<StackSnippet snippet="test-instruction" />
-
 `*` Required properties
+
+<StackSnippet snippet="test-instruction" />
 
 <StackSnippet snippet="protocol-test-flow" />
 
@@ -198,9 +185,11 @@ Follow these steps to bypass the configuration pages in the OIN Wizard:
 1. Select **Applications** > **Your OIN Integrations**. Then select the more icon (![three-dot more icon](/img/icons/odyssey/more.svg)) next to the integration submission that you want to test.
 1. Select **Test your integration**.
 
-   The OIN Wizard **Test integration** page appears for you to generate an instance and test your integration.
+   * The OIN Wizard **Test integration** page appears for you to generate an instance and test your integration.
 
-    > **Note:** If you haven't specified test information in the **[Test your integration](#enter-test-information)** page, then you're directed to this page to enter testing details. You can go to the **Test integration** page only if the protocols, configuration, and test details are provided in your submission.
+   * If you haven't specified test information in the **[Test your integration](#enter-test-information)** page, then you're directed to this page to enter testing details. You can go to the **Test integration** page only if the protocols, configuration, and test details are provided in your submission.
+
+   * If your integration is in read-only mode, click **Edit integration** to enter test details before testing.
 
 ### Generate instances for testing
 
@@ -239,7 +228,7 @@ The **Application instances for testing** section displays, by default, the inst
 
 An instance is eligible if it was generated from the latest version of the integration submission in the OIN Wizard. An instance is ineligible if it was generated from a previous version of the integration submission and you later made edits to the submission. This is to ensure that you test your integration based on the latest submission details.
 
-If you modify a published OIN integration, you must generate an instance based on the currently published integration for backwards-compatibility testing. A backwards-compatible instance is eligible if it was generated from the published version of the integration before any edits are made in the current submission. The OIN Wizard detects if you're modifying a published OIN integration and asks you to generate a backwards-compatible instance before you make any edits.
+If you modify a published OIN integration, you must generate an instance based on the currently published integration for backward compatibility testing. A backward-compatible instance is eligible if it was generated from the published version of the integration before any edits are made in the current submission. The OIN Wizard detects if you're modifying a published OIN integration and asks you to generate a backward-compatible instance before you make any edits.
 
 > **Note:** The Integrator Free Plan org has no limit on active instances. You can create as many test instances as needed for your integration. To deactivate any instances you no longer need, see [Deactivate an app instance in your org](#deactivate-an-app-instance-in-your-org).
 
