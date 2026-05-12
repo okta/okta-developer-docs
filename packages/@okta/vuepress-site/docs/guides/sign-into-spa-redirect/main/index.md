@@ -52,7 +52,7 @@ To create your app integration in Okta using the Admin Console:
 1. Select an **Application type** of **Single-Page Application**, then click **Next**.
    > **Note:** If you choose an inappropriate app type, it can break the sign-in or sign-out flows by requiring the verification of a client secret. Public clients don't have a client secret.
 1. Enter an **App integration name**.
-1. Select **Authorization Code** and **Refresh Token** as the **Grant type**. This enables the Authorization Code flow with PKCE for your app. It also can refresh the access token when it expires without prompting the user to reauthenticate.
+1. Select **Authorization Code** and **Refresh Token** as the **Grant type**. This enables the Authorization Code flow with PKCE for your app. It also can refresh the access token when it expires without prompting the user to re-authenticate.
 1. Enter the **Sign-in redirect URIs** and **Sign-out redirect URIs** for both local development, such as `http://localhost:xxxx/login/callback`, and for production, such as `https://app.example.com/login/callback`:<br>
 
     <StackSnippet snippet="redirectvalues" />

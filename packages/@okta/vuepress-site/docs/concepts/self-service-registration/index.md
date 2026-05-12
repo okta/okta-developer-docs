@@ -11,6 +11,12 @@ Learn about self-service registration (SSR) and three key aspects that you can c
 
 ---
 
+## Video: Customizing self-service registration overview
+
+Watch this video for a high-level overview of the customization options discussed on this page.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lTEpzvcdIOQ" title="Customizing Self-Service Registration | Okta for Consumer Apps" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Overview of self-service registration
 
 Self-service registration allows users to create an account and sign in to an app on their own.
