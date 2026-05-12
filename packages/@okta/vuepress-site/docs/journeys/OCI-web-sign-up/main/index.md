@@ -31,11 +31,13 @@ Learn the basics that you need to lay the foundations for your work:
 
 ## Plan
 
-Plan for and develop the best end user SSR experience:
+Plan for and develop the best end-user SSR experience:
 
-<!-- * [Consider refactoring your SSR flows from your many apps and brands into a single, dedicated registration app](). waiting on the video link -->
-[Understand the default SSR flow and how you can customize it](/docs/concepts/self-service-registration).
-<!-- * [Design your sign-up flows for different types of users](). waiting on Brent to finish doc -->
+* Consider refactoring your SSR flows from your many apps and brands into a single, dedicated registration app.
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/lTEpzvcdIOQ" title="Customizing Self-Service Registration | Okta for Consumer Apps" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+* [Understand the default SSR flow and how you can customize it](/docs/concepts/self-service-registration).
+* [Design your sign-up flows for different types of users](/docs/concepts/sign-up-flows).
 
 ## Build
 
