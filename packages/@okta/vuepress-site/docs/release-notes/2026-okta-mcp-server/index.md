@@ -11,19 +11,6 @@ title: Okta MCP Server API release notes 2026
 
 These release notes list customer-visible changes to the Okta MCP server.
 
-## May
-
-### Weekly release 2026.05.1
-<!-- Published on: 2026-05-13T12:00:00Z -->
-
-| Change | Expected in Preview Orgs |
-|--------|--------------------------|
-| [Bug fixed in 2026.05.1](#bug-fixed-in-2026-05-1)| May 13, 2026 |
-
-#### Bug fixed in 2026.05.1
-
-Admins with the **Manage third-party MCP Servers** permission couldn't edit their org's MCP servers. (OKTA-1173945)
-
 ## March
 
 ### Monthly release 2026.03.0
