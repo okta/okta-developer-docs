@@ -4,8 +4,17 @@
   <title>Okta Access Gateway API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-access-gateway/</link>
   <description>Recent release notes for Okta Access Gateway</description>
-  <pubDate>Wed, 08 Apr 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 13 May 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Monthly release 2026.05.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-access-gateway/#monthly-release-2026-05-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-access-gateway/#monthly-release-2026-05-0</guid>
+      <pubDate>Wed, 13 May 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-access-gateway/#bug-fixed-in-2026-05-0">Bug fixed in 2026.05.0</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Monthly release 2026.04.0</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-access-gateway/#monthly-release-2026-04-0</link>

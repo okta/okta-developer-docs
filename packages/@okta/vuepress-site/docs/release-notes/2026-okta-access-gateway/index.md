@@ -12,6 +12,19 @@ title: Okta Access Gateway API release notes 2026
 
 Access Gateway is available for both Okta Classic Engine and Okta Identity Engine.
 
+## May
+
+### Monthly release 2026.05.0
+<!-- Published on: 2026-05-13T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bug fixed in 2026.05.0](#bug-fixed-in-2026-05-0) | May 13, 2026 |
+
+#### Bug fixed in 2026.05.0
+
+The Access Gateway API was disabled when upgrading from version `2025.10.0` to `2026.03.0` or `2026.04.0`. (OKTA-1153987)
+
 ## April
 
 ### Monthly release 2026.04.0
