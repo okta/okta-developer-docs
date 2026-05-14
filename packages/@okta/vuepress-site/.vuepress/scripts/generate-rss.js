@@ -225,3 +225,12 @@ generateRssFromMarkdown(
   'https://developer.okta.com/docs/release-notes/2026-okta-mcp-server/',
   path.join(__dirname, '../public/rss/mcp.xml')
 );
+
+// Okta Developer Tools Release Notes
+generateRssFromMarkdown(
+  path.join(__dirname, '../../docs/release-notes/2026-okta-dev-tools/index.md'),
+  'Okta Developer Tools release notes',
+  'Recent release notes for Okta Developer Tools',
+  'https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/',
+  path.join(__dirname, '../public/rss/dev-tools.xml')
+);

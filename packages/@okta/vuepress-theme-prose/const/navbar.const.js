@@ -1367,6 +1367,10 @@ export const releaseNotes = [
         path: "/docs/release-notes/2026-okta-mcp-server/",
       },
       {
+        title: "2026 - Developer Tools",
+        path: "/docs/release-notes/2026-okta-dev-tools/",
+      },
+      {
         title: "Archive",
         path: "/docs/release-notes/archive",
         subLinks: [
