@@ -9,7 +9,7 @@ title: Okta Developer Tools API release notes 2026
   Subscribe to RSS
 </a><br><br>
 
-These release notes list customer-visible changes to the Developer Tools. The Okta's developer tooling ecosystem includes Terraform, SDKs, CLI, and other libraries.
+These release notes list customer-visible changes to the Developer Tools. The Okta's developer tooling ecosystem includes Terraform, SDKs, and CLI.
 
 ## April
 
