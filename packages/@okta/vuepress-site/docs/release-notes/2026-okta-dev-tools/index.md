@@ -7,14 +7,14 @@ title: Okta Developer Tools API release notes 2026
 <a href="/rss/dev-tools.xml">
   <img src="/img/icons/Feed-icon.svg" alt="RSS" width="20" height="20" />
   Subscribe to RSS
-</a>
+</a><br><br>
 
 These release notes list customer-visible changes to the Developer Tools. The Okta's developer tooling ecosystem includes Terraform, SDKs, CLI, and other libraries.
 
 ## April
 
 ### Weekly release 2026.04.3
-<!-- Published on: 2026-05-14T12:00:00Z -->
+<!-- Published on: 2026-04-29T12:00:00Z -->
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
