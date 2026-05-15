@@ -27,11 +27,19 @@ yarn build-with-redirect
 echo "Deploying preview to Netlify..."
 
 if [ -n "$BRANCH" ]; then
+  NETLIFY_SITE_NAME="dev-docs-preview"
+  NETLIFY_SUBDOMAIN_MAX_LENGTH=63
+  NETLIFY_ALIAS_MAX_LENGTH=$((NETLIFY_SUBDOMAIN_MAX_LENGTH - ${#NETLIFY_SITE_NAME} - 2))
   NETLIFY_ALIAS="${BRANCH//./-}"
+
+  if [ ${#NETLIFY_ALIAS} -gt "$NETLIFY_ALIAS_MAX_LENGTH" ]; then
+    NETLIFY_ALIAS="${NETLIFY_ALIAS:0:$NETLIFY_ALIAS_MAX_LENGTH}"
+    echo "Branch name exceeds Netlify subdomain length limit. Using trimmed alias: ${NETLIFY_ALIAS}"
+  fi
 
   npx netlify-cli@17.23.5 deploy --alias="${NETLIFY_ALIAS}" --filter @okta/vuepress-site --dir ../packages/@okta/vuepress-site/dist
 
-  export PREVIEW_URL="https://${NETLIFY_ALIAS}--dev-docs-preview.netlify.app"
+  export PREVIEW_URL="https://${NETLIFY_ALIAS}--${NETLIFY_SITE_NAME}.netlify.app"
 
   echo "Preview link:"
   echo "${PREVIEW_URL}"
