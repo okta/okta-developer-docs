@@ -58,4 +58,4 @@ Directions on setting up your Postman environment and pointers to the various Po
 
 Additional information about using various query options, including searching and filtering, within the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/).
 
-[Learn more](/docs/reference/user-query/)
+[Learn more](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/user/other/listusers#other/listusers/request/query)
