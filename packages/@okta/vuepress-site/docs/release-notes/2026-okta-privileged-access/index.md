@@ -13,6 +13,21 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 ## May
 
+### Weekly release 2026.05.1
+<!-- Published on: 2026-05-14T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [On-demand password rotation for server accounts is EA](#on-demand-password-rotation-for-server-accounts-is-ea) | May 14, 2026 |
+
+#### On-demand password rotation for server accounts is EA
+
+You can now rotate passwords for server accounts on-demand instead of waiting for the scheduled rotation interval. Use the new [Rotate the password for a server account]( https://developer.okta.com/docs/api/openapi/opa/opa/server-accounts/rotateserveraccountpassword) endpoint to initiate rotation, grant access to end users through the new `rotate_password` security policy privilege, and track the password sync status through the `secret_sync_status` field on the server account. You can also enable or disable initial password rotation for newly discovered managed accounts through the `enable_initial_server_account_password_rotation` password policy setting.
+See [Server Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/server-accounts), [Projects](https://developer.okta.com/docs/api/openapi/opa/opa/projects), and [Security Policy](https://developer.okta.com/docs/api/openapi/opa/opa/security-policy).
+
+<!-- OKTA-963826 FF: pam_server_account_rotate_now preview date: May 14, 2026 -->
+
+
 ### Monthly release 2026.05.0
 <!-- Published on: 2026-05-06T12:00:00Z -->
 
@@ -26,7 +41,7 @@ The new Okta Managed User Accounts API is now available for Okta Privileged Acce
 
 This feature is available only if you're subscribed to Okta Privileged Access. Ensure that you've set up the Okta Privileged Access app before creating app accounts through the API.
 
-<!-- See [Okta Managed User Accounts](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/oktamanageduseraccount), [Service Accounts](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/serviceaccount) and [Manage service accounts](https://help.okta.com/okta_help.htm?type=oie&id=ud-privileged-acnt) -->
+See [Okta Managed User Accounts](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/oktamanageduseraccount), [Service Accounts](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/serviceaccount) and [Manage service accounts](https://help.okta.com/okta_help.htm?type=oie&id=ud-privileged-acnt).
 
 <!-- OKTA-1165876, OKTA-955102 FF: SERVICE_ACCOUNTS and CUSTOM_ADMIN_ROLE_SERVICE_ACCOUNTS preview date: May 6, 2026 -->
 
