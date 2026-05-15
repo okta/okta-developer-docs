@@ -102,7 +102,7 @@
                     id: 1,
                     title: 'Enable Single Sign-On',
                     text: 'Let users securely sign in to your app with their credentials.',
-                    link: '/docs/guides/oin-sso-overview/',
+                    link: '/docs/concepts/sso-overview/',
                     linkText: 'Get started with Single Sign-On',
                     list: [
                         'Streamline the sign-in flow',
