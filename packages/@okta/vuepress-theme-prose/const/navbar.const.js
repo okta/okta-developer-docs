@@ -1324,7 +1324,6 @@ export const reference = [
       },
       { title: "SSF Transmitter SET payload structures", path: "/docs/reference/ssf-transmitter-sets/" },
       { title: "System Log query", path: "/docs/reference/system-log-query/" },
-      { title: "User query options", path: "/docs/reference/user-query/" },
       {
         title: "Test APIs with Postman",
         path: "/docs/reference/rest/",
