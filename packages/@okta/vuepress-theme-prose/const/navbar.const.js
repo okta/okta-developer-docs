@@ -755,20 +755,6 @@ export const guides = [
         customLandingPage: true,
         subLinks: [
           {
-            title: "Single Sign-On",
-            path: "/docs/guides/oin-sso-overview/",
-            subLinks: [
-              {
-                title: "Build an SSO integration",
-                guideName: "build-sso-integration",
-              },
-              {
-                title: "Add a private SSO integration",
-                guideName: "add-private-app",
-              },
-            ],
-          },
-          {
             title: "Lifecycle management",
             path: "/docs/guides/oin-lifecycle-mgmt-overview/",
             subLinks: [
