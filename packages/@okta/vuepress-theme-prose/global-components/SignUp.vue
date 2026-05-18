@@ -630,14 +630,14 @@ export default {
       this.validationService.checkFormInput("firstName");
       this.validationService.checkFormInput("lastName");
       this.validationService.checkFormInput("country");
-      await this.validationService.checkEmailInput("email");
+      await this.validationService.checkEmailInput("email", this.$site.themeConfig.uris.baseUri);
       this.validationService.checkFormInput("state");
       this.validationService.checkFormInput("captcha");
 
       if (this.validationService.isValidForm()) {
         // make api call
         const { baseUri, campaignId, orgPlan } = this.$site.themeConfig.uris;
-        const registrationPath = `/free-trial/api/free-trial/`;
+        const registrationPath = this.$site.themeConfig.uris.apiPath ?? '/free-trial/api/free-trial/';
 
         const analyticsValues = getAnalyticsValues();
         const body = {

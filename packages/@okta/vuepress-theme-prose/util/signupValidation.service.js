@@ -37,7 +37,7 @@ export class SignUpValidation {
     }
   }
 
-  async checkEmailInput(key) {
+  async checkEmailInput(key, baseuri) {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     this.resetFormField(key);
 
@@ -54,7 +54,7 @@ export class SignUpValidation {
     }
 
     // If not a work email, display errror
-    if (!(await this._isWorkEmail(this.form[key].value))) {
+    if (!(await this._isWorkEmail(this.form[key].value, baseuri))) {
       this._setInputError(key, this.errorDictionary.notWorkEmail);
     }
   }
@@ -91,8 +91,8 @@ export class SignUpValidation {
     return re.test(value);
   }
 
-  async _isWorkEmail(email) {
-    const oktaApi = new Api('https://www.okta.com');
+  async _isWorkEmail(email, baseuri) {
+    const oktaApi = new Api(baseuri ?? 'https://www.okta.com');
     try {
       const email_domain = email.split('@')[1];
       const { data: { isBusinessEmail } } = await oktaApi

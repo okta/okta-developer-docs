@@ -54,6 +54,7 @@ function configUris() {
       return {
         baseUri: 'https://www.okta.com',
         baseUriSocial: 'https://okta-devok12.okta.com',
+        apiPath: '/free-trial/api/free-trial/',
         campaignId: '701F0000000mDmxIAE',
         orgPlan: 'Integrator',
         idps: {
@@ -64,8 +65,9 @@ function configUris() {
     case 'test':
     default:
       return {
-        baseUri: 'https://okta-next-test.oktaweb.dev',
+        baseUri: 'https://www.okdev.okta.com',
         baseUriSocial: 'https://okta-dev-parent.trexcloud.com',
+        apiPath: '/free-trial/',
         campaignId: '701F0000000mDmxIAE',
         orgPlan: 'Integrator',
         idps: {
