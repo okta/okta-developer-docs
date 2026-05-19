@@ -140,7 +140,7 @@ module.exports = ctx => ({
      */
     captcha: {
       production: '6LeaS6UZAAAAADd6cKDSXw4m2grRsCpHGXjAFJcL',
-      test: '6LcgkzYaAAAAAAgXBo2cLdct9D-kUtyCOgcyd5WW',
+      test: '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI',
     },
 
     quickstarts: {
