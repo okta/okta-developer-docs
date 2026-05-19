@@ -138,5 +138,5 @@ The classic Auth SDKs for [Android](https://github.com/okta/okta-auth-java) (Jav
 
 |  |   |   |   |  |
 | -- | ------- | -------------------------- | -- | ---------------- |
-| ![Android](/img/sdks/android.png) | Android | [Okta Mobile SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin) |  | [SessionTokenFlow](https://github.com/okta/okta-mobile-kotlin/blob/master/oauth2/src/main/java/com/okta/oauth2/SessionTokenFlow.kt) |
+| ![Android](/img/sdks/android.png) | Android | [Okta Mobile SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin) |[Sample App](https://github.com/okta/okta-mobile-kotlin/tree/master/session-token-sample) | [SessionTokenFlow](https://github.com/okta/okta-mobile-kotlin/blob/master/oauth2/src/androidMain/kotlin/com/okta/oauth2/SessionTokenFlow.kt) |
 | ![iOS](/img/sdks/ios.png) | iOS | [Okta Mobile SDK for Swift](https://github.com/okta/okta-mobile-swift) | [Sample App](https://github.com/okta/okta-mobile-swift/tree/master/Samples/ClassicNativeAuth) | [SessionTokenFlow](https://okta.github.io/okta-mobile-swift/development/documentation/oauth2auth/sessiontokenflow) |
