@@ -25,8 +25,6 @@ title: Okta Identity Engine API release notes 2026
 * When the *Map primary email to login setting* was enabled, a POST request to the `/idp/myaccount/emails` endpoint changed the username before the new email was verified, leaving the primary email attribute unchanged. (OKTA-1147280)
 * Sometimes, the Just-in-Time (JIT) testing mechanism in the OIN Wizard failed to execute the test and immediately reported a failure, which prevented ISVs from resubmitting updated integrations. (OKTA-1019331)
 * The OIN Wizard auto-tester failed during SSO because a 308 redirect dropped the required code and state parameters from the callback URL. (OKTA-1101077)
-* 
-
 
 ### Monthly release 2026.05.0
 <!-- Published on: 2026-05-06T12:00:00Z -->
