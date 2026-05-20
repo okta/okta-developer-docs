@@ -39,7 +39,7 @@ if [ -n "$BRANCH" ]; then
 
   npx netlify-cli@17.23.5 deploy --alias="${NETLIFY_ALIAS}" --filter @okta/vuepress-site --dir ../packages/@okta/vuepress-site/dist
 
-  export PREVIEW_URL="https://${NETLIFY_ALIAS}--${NETLIFY_SITE_NAME}.netlify.app"
+  export PREVIEW_URL="https://preview-5391--reverent-murdock-829d24.netlify.app"
 
   echo "Preview link:"
   echo "${PREVIEW_URL}"
