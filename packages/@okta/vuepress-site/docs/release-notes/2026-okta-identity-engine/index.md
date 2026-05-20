@@ -26,6 +26,23 @@ title: Okta Identity Engine API release notes 2026
 * Sometimes, the Just-in-Time (JIT) testing mechanism in the OIN Wizard failed to execute the test and immediately reported a failure, which prevented ISVs from resubmitting updated integrations. (OKTA-1019331)
 * The OIN Wizard auto-tester failed during SSO because a 308 redirect dropped the required code and state parameters from the callback URL. (OKTA-1101077)
 
+### Weekly release 2026.05.1
+<!-- Published on: 2026-05-13T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2026.05.1](#bugs-fixed-in-2026-05-1)| May 13, 2026 |
+
+#### Bugs fixed in 2026.05.1
+
+* The `okta.eventhooks.manage` permission didn't allow an admin or service app to create an event hook. (OKTA-1162004)
+
+* In the Admin Console, group searches and membership count API operations intermittently failed with 504 timeout errors for groups with very large memberships. (OKTA-1134762)
+
+* POST requests to the `/api/v1/policies/{policyId}/rules` endpoint and PUT requests to the `/api/v1/policies/{policyId}/rules/{ruleId}` endpoint returned a successful response when the same app was specified in both the include and exclude lists of the app conditions. (OKTA-1115016)
+
+* Custom attributes in Workday failed to sync during incremental imports unless a base attribute was simultaneously updated, even when a transaction log was generated for the custom attribute change. (OKTA-1089429)
+
 ### Monthly release 2026.05.0
 <!-- Published on: 2026-05-06T12:00:00Z -->
 
