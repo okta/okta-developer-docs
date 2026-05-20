@@ -4,8 +4,17 @@
   <title>Okta Identity Governance API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/</link>
   <description>Recent release notes for Okta Identity Governance API</description>
-  <pubDate>Wed, 13 May 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 20 May 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Weekly release 2026.05.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-05-2</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-05-2</guid>
+      <pubDate>Wed, 20 May 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#automate-access-request-management-with-tasks-apis">Automate access request management with Tasks APIs</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Weekly release 2026.05.1</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-05-1</link>
