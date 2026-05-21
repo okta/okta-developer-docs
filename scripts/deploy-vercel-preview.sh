@@ -6,7 +6,7 @@ VERCEL_ALIAS="$2"
 BRANCH="$3"
 SHA="$4"
 
-setup_service node v22.22.3
+setup_service node v22.22.2
 
 if [ -z "$DEPLOY_DIR" ] || [ -z "$VERCEL_ALIAS" ] || [ -z "$BRANCH" ] || [ -z "$SHA" ]; then
   echo "Usage: $0 <deploy-dir> <vercel-alias> <branch> <sha>" >&2
