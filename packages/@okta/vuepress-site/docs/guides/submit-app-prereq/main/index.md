@@ -78,7 +78,9 @@ To access the OIN Wizard and the **Your OIN Integrations** dashboard in your org
 * You must have either the super admin or the app and org admin [roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-administrators-admin-comparison) assigned to you.
 * Use your company domain email as your username for your Okta admin account (submissions from a personal email account aren't reviewed).
 
-> **Note:** The app admin role enables you to view and edit details in the OIN Wizard. For OIN Wizard testing, you must have both the app admin and the org admin roles assigned to you. The super admin role gives you access to all functionality in the OIN Wizard.
+> **Notes:**
+> The app admin role enables you to view and edit details in the OIN Wizard. For OIN Wizard testing, you must have both the app admin and the org admin roles assigned to you. The super admin role gives you access to all functionality in the OIN Wizard.
+> You can't use the Okta SDKs to validate access tokens for apps in the OIN. This is due to the OIN restriction of using an org authorization server and the Authorization Code flow.
 
 ### OIN Wizard test requirements
 
