@@ -30,9 +30,9 @@ mkdir -p "${VERCEL_PROJECT_DIR}"
 printf '{"orgId":"%s","projectId":"%s"}\n' "${VERCEL_ORG_ID}" "${VERCEL_PROJECT_ID}" > "${VERCEL_PROJECT_DIR}/project.json"
 
 echo "Deploying ${DEPLOY_DIR} to Vercel..." >&2
-DEPLOY_URL="$(npx vercel deploy --cwd "${DEPLOY_DIR}" --yes --token="${VERCEL_TOKEN}" --meta "message=${DEPLOY_MESSAGE}")"
+DEPLOY_URL="$(npx vercel@54.2.0 deploy --cwd "${DEPLOY_DIR}" --yes --token="${VERCEL_TOKEN}" --meta "message=${DEPLOY_MESSAGE}")"
 
 echo "Assigning Vercel alias ${VERCEL_PREVIEW_DOMAIN}..." >&2
-npx vercel alias set "${DEPLOY_URL}" "${VERCEL_PREVIEW_DOMAIN}" --token="${VERCEL_TOKEN}" >&2
+npx vercel@54.2.0 alias set "${DEPLOY_URL}" "${VERCEL_PREVIEW_DOMAIN}" --token="${VERCEL_TOKEN}" >&2
 
 echo "https://${VERCEL_PREVIEW_DOMAIN}"
