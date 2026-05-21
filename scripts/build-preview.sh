@@ -6,6 +6,10 @@ echo "Checking required secrets..."
 get_terminus_secret "/" NETLIFY_AUTH_TOKEN NETLIFY_AUTH_TOKEN
 get_terminus_secret "/" NETLIFY_SITE_ID NETLIFY_SITE_ID
 
+get_terminus_secret "/" VERCEL_TOKEN VERCEL_TOKEN
+get_terminus_secret "/" VERCEL_ORG_ID VERCEL_ORG_ID
+get_terminus_secret "/" VERCEL_PROJECT_ID VERCEL_PROJECT_ID
+
 if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
   echo "Missing required Netlify secrets."
   exit 1
