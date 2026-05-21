@@ -3,6 +3,7 @@ const path = require("path");
 
 const yamlPath = path.resolve(__dirname, "../../conductor.yml");
 const outputPath = path.resolve(__dirname, "../../vercel.json");
+const bulkRedirectsPath = path.resolve(__dirname, "../../vercel-redirects.json");
 
 const text = fs.readFileSync(yamlPath, "utf8");
 const redirectBlocks = text.match(/- from:[\s\S]*?to: .*/g);
@@ -28,7 +29,7 @@ const redirects = redirectBlocks
   .filter(Boolean);
 
 const vercelConfig = {
-  redirects,
+  bulkRedirectsPath: "vercel-redirects.json",
 };
 
 fs.writeFileSync(
@@ -36,5 +37,10 @@ fs.writeFileSync(
   `${JSON.stringify(vercelConfig, null, 2)}\n`,
   "utf8"
 );
+fs.writeFileSync(
+  bulkRedirectsPath,
+  `${JSON.stringify(redirects, null, 2)}\n`,
+  "utf8"
+);
 
-console.log("vercel.json file created.");
+console.log("vercel.json and vercel-redirects.json files created.");
