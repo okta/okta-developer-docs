@@ -7,7 +7,7 @@ layout: Guides
 
 Learn how to configure token exchange for AI agents so that you can securely request and use credentials (ID-JAG, secrets, service accounts, or third-party access tokens) to access protected resources on behalf of authenticated users.
 
-> **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents (O4AA). See your Okta account executive for details.
+> **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents (O4AA). See your Okta Account Executive for details.
 
 ---
 
