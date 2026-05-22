@@ -36,19 +36,7 @@ These APIs are only available for access requests managed by conditions in **Acc
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Automate access request management with Tasks APIs is Beta](#automate-access-request-management-with-tasks-apis-is-beta) | May 13, 2026 |
 | [Customized Justification Requirements](#customize-justification-requirements) | May 13, 2026|
-
-#### Automate access request management with Tasks APIs is Beta
-
-The Tasks APIs allow admins to automate the management of in-flight access requests and build custom approval logic using tools like Okta Workflows. These APIs enable the integration of the access request lifecycle into custom portals, IT Service Management (ITSM) tools, custom CLIs, or chatbots.
-
-These APIs are only available for access requests managed by conditions in **Access Request - V2**:
-
-* Access Request - V2 > [Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks)
-* End user APIs > [My Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks)
-
-<!-- OKTA-1162968 IN_FLIGHT_REQUEST_API Preview: May 13, 2026 -->
 
 #### Customize Justification Requirements
 
