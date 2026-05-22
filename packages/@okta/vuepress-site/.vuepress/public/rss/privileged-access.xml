@@ -4,8 +4,17 @@
   <title>Okta Privileged Access API Release Notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/</link>
   <description>Recent release notes for Okta Privileged Access API</description>
-  <pubDate>Wed, 06 May 2026 12:00:00 GMT</pubDate>
+  <pubDate>Thu, 14 May 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Weekly release 2026.05.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-05-1</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-05-1</guid>
+      <pubDate>Thu, 14 May 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#on-demand-password-rotation-for-server-accounts-is-ea">On-demand password rotation for server accounts is EA</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Monthly release 2026.05.0</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#monthly-release-2026-05-0</link>
