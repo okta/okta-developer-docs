@@ -94,6 +94,8 @@ The following table shows you which OAuth 2.0 flow to use for the type of app th
 
 > **Note**: There's also an OAuth 2.0 [SAML 2.0 Assertion flow](#saml-2-0-assertion-flow). This flow is intended for client apps that want to use an existing trust relationship without a direct user approval step at the authorization server. It supports access and ID tokens.
 
+> **Note:** If you're building an integration for the [Okta Integration Network (OIN)](https://www.okta.com/integrations/), additional restrictions apply to your flow choice and authorization server. See [OIDC/OAuth 2.0 integration limitations](/docs/guides/submit-app-prereq/main/#oidc-oauth-2-0-integration-limitations).
+
 ### What kind of client are you building?
 
 The type of OAuth 2.0 flow depends on what kind of client that you're building. This flowchart can quickly help you decide which flow to use.

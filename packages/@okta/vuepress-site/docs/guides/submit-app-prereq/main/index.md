@@ -530,7 +530,19 @@ You can't publish integrations with the following Okta features in the OIN catal
 
 In addition to the general OIN limitations, the following are limitations specific to OIDC or OAuth 2.0 integrations:
 
-* You can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server) that includes the `default` server for an OIDC or API service integration. You can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
+* When you create your app integration in your Okta org, select **Web Application** as the OIDC app type.
+
+* Native and mobile app integrations aren't accepted as OIDC app integrations in the OIN unless they use server-side authentication patterns. Set up your app to use an authentication flow that allows your client app to talk to your SaaS backend. Your SaaS backend can then securely communicate with Okta through trusted back-channel connections. See [Implement the authorization code flow](/docs/guides/implement-grant-type/authcode/main/).
+
+* The Implicit flow isn't recommended for token exchange in web apps. If your use case requires the use of an Implicit flow for token exchange, contact [Okta Support](https://support.okta.com).
+
+* You can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server) that includes the `default` server for an OIDC or API service integration. You can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server). The following are the various `/authorize` request URLs for the different authorization servers:
+
+  * **custom authorization server**: `https://{customerOktaDomain}/oauth2/{authorizationServerId}/v1/authorize?client_id={clientId}&response_type=code&scope=openid&redirect_uri={redirectURI}&state={state}`
+  * **default custom authorization server** (`{authorizationServerId}=default`): `https://{customerOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}&response_type=code&scope=openid&redirect_uri={redirectURI}&state={state}`
+  * **org authorization server**: `https://{customerOktaDomain}/oauth2/v1/authorize?client_id={clientId}&response_type=code&scope=openid&redirect_uri={redirectURI}&state={state}`
+
+  Make sure that you only use the **org authorization server** URL. When you use the org authorization server, the issuer URL is `https://{yourOktaDomain}`.
 
 * You can't use the Okta SDKs to validate access tokens with the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
