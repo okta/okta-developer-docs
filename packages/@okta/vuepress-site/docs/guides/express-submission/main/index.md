@@ -35,6 +35,14 @@ Okta provides you with a seamless experience to integrate and submit Express Con
 
 ### Submit a new OIN integration
 
+<div>
+
+![ISV Express Submission workflow - new submission](/img/oin/exp_submission_workflow_new.svg)
+
+<!-- Source: https://www.figma.com/design/bOaM9sx9oLumgvk42KKruj/Expression-submission-workflow?node-id=0-1&t=pBFWtNTfGLdFmwEJ-1 -->
+
+</div>
+
 #### Generate the Express Configuration information in the Auth0 dashboard
 
 Before starting the submission in the OIN Wizard, you must generate the Express Configuration information in your Auth0 dashboard.
@@ -64,6 +72,14 @@ Before starting the submission in the OIN Wizard, you must generate the Express 
 > **Note**: If you exited the setup after providing the Express Configuration information, you can return to your submission to continue. In the Admin Console, go to **Applications** > **Applications** > **Your OIN Integrations**. Select your draft integration, and then go to **Configure your integration** to download the PEM file again.
 
 ### Update an existing OIN integration
+
+<div>
+
+![ISV Express Submission workflow - update](/img/oin/exp_submission_workflow_update.svg)
+
+<!-- Source: https://www.figma.com/design/bOaM9sx9oLumgvk42KKruj/Expression-submission-workflow?node-id=0-1&t=pBFWtNTfGLdFmwEJ-1 -->
+
+</div>
 
 #### Configure your integration in Okta
 
