@@ -13,6 +13,22 @@ title: Okta Identity Engine API release notes 2026
 
 ## May
 
+### Weekly release 2026.05.3
+<!-- Published on: 2026-05-27T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Search, filtering, and configurable views for for AI agents is GA in Production](#search-filtering-and-configurable-views-for-for-ai-agents-is-ga-in-production) | May 27, 2026 |
+| [Bugs fixed in 2026.05.3](#bugs-fixed-in-2026-05-3)| May 27, 2026 |
+
+#### Search, filtering, and configurable views for for AI agents is GA in Production
+
+
+
+#### Bugs fixed in 2026.05.3
+
+* 
+
 ### Weekly release 2026.05.2
 <!-- Published on: 2026-05-20T12:00:00Z -->
 
