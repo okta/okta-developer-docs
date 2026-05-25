@@ -80,7 +80,7 @@ See the [Profile Mappings API](https://developer.okta.com/docs/api/openapi/okta-
 Effective access management is achieved through groups, not individual user assignments. Universal Directory supports two primary group types:
 
 * **Okta Groups:** Groups that are created and managed directly within Okta.
-* **Groups in apps and directories**: Groups that are imported from external directories, such as Active Directory, LDAP, or from apps. Membership is managed in the source directory or app and synchronized to Okta. Only certain apps can import groups into Okta. See [Okta group source types](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-group-types.htm). See [Okta group source types](https://help.okta.com/okta_help.htm?type=oie&id=<alias_id>).
+* **Groups in apps and directories**: Groups that are imported from external directories, such as Active Directory, LDAP, or from apps. Membership is managed in the source directory or app and synchronized to Okta. Only certain apps can import groups into Okta. See [Okta group source types](https://help.okta.com/okta_help.htm?type=oie&id=about_group_source_types).
 
 See the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) and [Group Rules API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/).
 
