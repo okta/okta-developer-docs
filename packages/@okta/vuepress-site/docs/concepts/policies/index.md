@@ -141,7 +141,7 @@ See [Device assurance](https://help.okta.com/okta_help.htm?type=oie&id=ext-devic
 
 <ApiLifecycle access="ie" />
 
-Identity Threat Protection is an identity threat solution that combines current security practices with continuous real-time risk assessment. See [Identity Threat Protection](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview). Identity Threat Protection uses the entity risk policy and session protection policy for these threat evaluations.
+Identity Threat Protection (ITP) is an identity threat solution that combines current security practices with continuous real-time risk assessment. See [Identity Threat Protection](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview). ITP uses the entity risk policy and session protection policy for these threat evaluations.
 
 * [Entity risk policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy): This policy monitors your org for entity risk changes that are related to identity-based threats. For Admin Console tasks and further information, see [Entity risk policy](https://help.okta.com/okta_help.htm?type=oie&id=csh-entity-risk-policy).
 
