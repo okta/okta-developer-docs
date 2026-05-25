@@ -17,7 +17,7 @@ To assign test users to your app:
 1. Verify the user-specific attributes for the assigned users, and then select **Save and Go Back**.
 1. Click **Done**.
 
-   > **Note:** If your integration supports Entitlement Management, assign entitlements to the users manually for testing or automatically through a policy. For more information, see [Assign entitlements to users](https://help.okta.com/oie/en-us/content/topics/identity-governance/em/assign-entitlements-users.htm).
+   > **Note:** If your integration supports Entitlement Management, assign entitlements to the users manually for testing or automatically through a policy. For more information, see [Assign entitlements to users](https://help.okta.com/oie/en-us/content/topics/identity-governance/em/assign-entitlements-users.htm) see [Assign entitlements to users](https://help.okta.com/okta_help.htm?type=oie&id=<alias_id>).
 
 1. Click **Begin testing** in the OIN Wizard. After the **Test integration** page appears, continue to the [Application instances for testing](#application-instances-for-testing) section to include your test instance in the OIN Submission Tester.
 

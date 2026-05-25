@@ -49,7 +49,7 @@ To apply your brand to the Okta-hosted Sign-In Widget, consider an upgrade to th
 
 Consider using the third generation Sign-In Widget for the best customization options:
 
-* [Understand the differences between the second and third-generation widget](https://help.okta.com/oie/en-us/content/topics/reference/siw-compare-generations.htm?cshid=ext-compare-siw).
+* [Understand the differences between the second and third-generation widget](https://help.okta.com/okta_help.htm?type=oie&id=ext-compare-siw).
 * [Learn how to upgrade to the third-generation widget](/docs/guides/custom-widget-migration-gen3/main/).
 
 ### Register a vanity domain with your org
