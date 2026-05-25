@@ -163,11 +163,11 @@ See [API Integration Actions](/docs/guides/oin-api-actions/) and [Submit an inte
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Identity Threat Protection with Okta AI managed with Terraform](#identity-threat-protection-with-okta-ai-managed-with-terraform) | April 29, 2026 |
+| [Identity Threat Protection managed with Terraform](#identity-threat-protection-managed-with-terraform) | April 29, 2026 |
 
-#### Identity Threat Protection with Okta AI managed with Terraform
+#### Identity Threat Protection managed with Terraform
 
-You can now manage Okta Identity Threat Protection (ITP) with Okta AI using the Okta Terraform Provider. This allows admins to manage their entire threat protection surface using an Infrastructure-as-Code (IaC) approach, ensuring consistent, repeatable, and scalable security configurations. See [Manage Identity Threat Protection with Okta AI resources using Terraform](/docs/guides/terraform-manage-itp/main/). <!-- OKTA-1122778 -->
+You can now manage Okta Identity Threat Protection (ITP) using the Okta Terraform Provider. This allows admins to manage their entire threat protection surface using an Infrastructure-as-Code (IaC) approach, ensuring consistent, repeatable, and scalable security configurations. See [Manage Identity Threat Protection resources using Terraform](/docs/guides/terraform-manage-itp/main/). <!-- OKTA-1122778 -->
 
 ### Weekly release 2026.04.2
 <!-- Published on: 2026-04-15T12:00:00Z -->
