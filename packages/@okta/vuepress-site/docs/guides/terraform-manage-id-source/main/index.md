@@ -40,9 +40,9 @@ Perform the following steps to complete the management process:
 2. Manage individual records: Update specific users or memberships directly.
 3. Run bulk operations: Group large batches of data changes inside a single import resource.
 
-## 1. Retrieve existing data
+## Retrieve existing data
 
-Before you make changes, use data sources to look up existing information about your users, groups, and sessions. This ensures you have the correct external IDs to use in your configuration.
+Before you make changes, use data sources to look up existing information about your users, groups, and sessions. This ensures that you have the correct external IDs to use in your configuration.
 
 Example: Look up a user and group memberships
 
@@ -62,7 +62,7 @@ data "okta_identity_source_group_memberships" "group_members" {
 }
 ```
 
-## 2. Manage individual records
+## Manage individual records
 
 To update a specific record without affecting other data, use standard resource blocks to interact with the identity source directly. This method is best for isolated, standalone changes.
 
@@ -101,7 +101,7 @@ resource "okta_identity_source_group_membership" "example" {
 }
 ```
 
-## 3. Perform bulk operations
+## Perform bulk operations
 
 To manage large sets of data efficiently, use the okta_identity_source_import resource. This resource streamlines the process by automatically creating an import session, staging your batch data, and running the final import in a single configuration block.
 
@@ -171,11 +171,11 @@ resource "okta_identity_source_import" "example" {
 
 ## Best practices
 
-* Use the unified import resource: Do not manually configure resource dependencies or use `depends_on` blocks for bulk workflows. The `okta_identity_source_import` resource automatically creates the session, uploads data, and starts the import.
+* Use the unified import resource: Don’t manually configure resource dependencies or use `depends_on` blocks for bulk workflows. The `okta_identity_source_import` resource automatically creates the session, uploads data, and starts the import.
 
-* Avoid rate limits: Okta allows only one active import session per identity source every five minutes. If a configuration fails during execution, the provider deletes the incomplete session automatically so that future `terraform apply` runs are not blocked.
+* Avoid rate limits: Okta allows only one active import session per identity source every five minutes. If a configuration fails during execution, the provider deletes the incomplete session automatically so that future `terraform apply` runs aren’t blocked.
 
-* Understand permanent actions: The import process sends standalone data updates to Okta. Removing an `okta_identity_source_import` block from your configuration later does not undo or remove the entries created during the initial run.
+* Understand permanent actions: The import process sends standalone data updates to Okta. Removing an `okta_identity_source_import` block from your configuration later doesn’t undo or remove the entries created during the initial run.
 
 ## Troubleshooting
 
