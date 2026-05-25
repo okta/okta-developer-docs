@@ -26,7 +26,7 @@ Use Terraform to configure ITP resources in your org, such as policies, shared s
 
 ## Identity Threat Protection resources
 
-Identity Threat Protection (ITP) is a continuous identity threat detection and response solution that detects and responds to threats as they occur. ITP continuously evaluates users and their sessions, receiving risk signals from the Okta risk engine and security event providers. When ITP identifies changes in a user's risk, network zone, device, or behavior, it launches automated mitigation and remediation actions, such as Universal Logout. See [Identity Threat Protection](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview).
+ITP is a continuous identity threat detection and response solution that detects and responds to threats as they occur. It continuously evaluates users and their sessions, receiving risk signals from the Okta risk engine and security event providers. When ITP identifies changes in a user's risk, network zone, device, or behavior, it launches automated mitigation and remediation actions, such as Universal Logout. See [Identity Threat Protection](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview).
 
 The [Okta Terraform provider](https://registry.terraform.io/providers/okta/okta/latest) now supports ITP resource configuration, and existing IAM resource configuration, such as groups, users, devices, and authentication services. The following ITP resources can be managed through the Okta Terraform provider:
 
