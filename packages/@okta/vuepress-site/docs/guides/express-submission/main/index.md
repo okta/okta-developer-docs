@@ -47,7 +47,7 @@ Okta provides you with a seamless experience to integrate and submit Express Con
 
 Before starting the submission in the OIN Wizard, you must generate the Express Configuration information in your Auth0 dashboard.
 
-1. Log in to your Auth0 dashboard and navigate to the OIN dashboard.
+1. Log in to your Auth0 dashboard and go to the OIN dashboard.
 2. Select your app and provide the required profile details.
 3. Generate the Express Configuration information.
 4. Copy the generated configuration information to your clipboard. For more information, see [Express Configuration with Okta](https://auth0.com/docs/authenticate/identity-providers/enterprise-identity-providers/okta/express-configuration).
