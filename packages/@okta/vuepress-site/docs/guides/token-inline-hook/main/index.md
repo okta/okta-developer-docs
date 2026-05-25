@@ -261,7 +261,7 @@ These are the HTTP Basic Authentication credentials that validate the inline tok
 
 ## Install ngrok
 
-Install and run [ngrok](https://ngrok.com/downloads/). See [Install ngrok](https://developer.okta.com/docs/guides/event-hook-ngrok/nodejs/main/#install-ngrok) or their [documentation](https://ngrok.com/docs).
+Install and run [ngrok](https://ngrok.com/downloads/). See [Install ngrok](https://developer.okta.com/docs/guides/event-hook-ngrok/nodejs/main/#install-ngrok) or their [documentation](https://ngrok.com/docs/start).
 
 ## Run ngrok and your local app
 
