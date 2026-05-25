@@ -35,7 +35,7 @@ echo "Deploying ${DEPLOY_DIR} to Vercel..." >&2
 echo "Vercel preview alias: https://${VERCEL_PREVIEW_DOMAIN}" >&2
 echo "Vercel deploy message: ${DEPLOY_MESSAGE}" >&2
 
-DEPLOY_URL="$(npx vercel@54.2.0 deploy --cwd "${DEPLOY_DIR}" --yes --logs --token="${VERCEL_TOKEN}" --meta "message=${DEPLOY_MESSAGE}")"
+DEPLOY_URL="$(npx vercel@54.2.0 deploy --cwd "${DEPLOY_DIR}" --yes --logs --archive=tgz --token="${VERCEL_TOKEN}" --meta "message=${DEPLOY_MESSAGE}")"
 
 if [ -z "${DEPLOY_URL}" ]; then
   echo "Vercel deployment did not return a deployment URL." >&2
