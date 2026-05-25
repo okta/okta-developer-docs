@@ -1076,7 +1076,7 @@ export const guides = [
                 guideName: "terraform-oig-resources",
               },
               {
-                title: "Manage Identity Threat Protection with Okta AI resources",
+                title: "Manage Identity Threat Protection resources",
                 guideName: "terraform-manage-itp",
               },
             ],
