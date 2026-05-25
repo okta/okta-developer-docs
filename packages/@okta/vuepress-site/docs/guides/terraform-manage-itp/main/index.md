@@ -16,7 +16,7 @@ Use Terraform to configure ITP resources in your org, such as policies, shared s
 
 #### **What you need**
 
-* An Okta Identity Engine org that's subscribed to Identity Threat Protection (also limited support to Okta orgs with Adaptive MFA)
+* An Okta Identity Engine org that's subscribed to ITP (also limited support to Okta orgs with Adaptive MFA)
 * Terraform CLI version 1.14.7 or later
 * [Okta Terraform provider 6.9.0](https://registry.terraform.io/providers/okta/okta/latest/docs) or later
 * Familiarity with the Terraform terms: configuration, resources, state, and commands (see [Terraform overview](https://developer.okta.com/docs/guides/terraform-overview/main/))
