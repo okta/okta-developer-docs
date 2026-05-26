@@ -19,10 +19,10 @@ Learn how to use Terraform to manage users, groups, and memberships within an Ok
 
 #### Prerequisites
 
-* An Okta Identity Engine organization.
+* An Okta Identity Engine org.
 * Terraform CLI version 1.0 or later.
 * Okta Terraform provider version 6.6.0 or later.
-* The specific `identity_source_id` for your integration. See, [API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identitysource/identitysource) documentation.
+* The specific `identity_source_id` for your integration. See [API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identitysource/identitysource).
 
 ## Overview
 
