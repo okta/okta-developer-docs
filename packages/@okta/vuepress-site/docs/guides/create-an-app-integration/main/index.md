@@ -91,7 +91,7 @@ Okta adds an instance of the app integration to your org, and you can now assign
 
 ### Create a custom app integration
 
-You can add an app integration that doesn't exist in the OIN, using the App Integration Wizard (AIW). The wizard allows you to create an app integration and connect Okta with your SAML, OIDC, SWA, or SCIM app. You can also add SCIM provisioning to a custom app integration.
+You can add an app integration that doesn't exist in the OIN, using the App Integration Wizard (AIW). The wizard allows you to create a private app integration for your app and connect Okta with your SAML, OIDC, SWA, or SCIM app. You can also add SCIM provisioning to a custom app integration.
 
 >**Note**: As a best practice, create two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future.
 
@@ -124,24 +124,18 @@ To build, test, and submit your API service integration to the OIN catalog. See 
 
 Once your app is set up:
 
-### Assign users
+1. Assign users:
 
-1. Click the **Assignments** tab.
-2. Click **Assign** and then select either **Assign to People** or **Assign to Groups**.
-3. Enter the appropriate people or groups that you want to have Single Sign-On into your app, click **Assign** for each, verify user attributes, and select **Save and Go Back**.
-4. Click **Done**.
+    a. Click the **Assignments** tab.
+    b. Click **Assign** and then select either **Assign to People** or **Assign to Groups**.
+    c. Enter the appropriate people or groups that you want to have Single Sign-On into your app, click **Assign** for each, verify user attributes, and select **Save and Go Back**.
+    4. Click **Done**.
 
-### Test SSO
+1. Test SSO: Sign in to the Okta End-User Dashboard as a test user and click the app tile.
 
-1. Sign in to the Okta End-User Dashboard as a test user and click the app tile.
+1. Verify redirection: Ensure the app-initiated flow correctly redirects back from the Okta sign-in page to your app.
 
-### Verify redirection
-
-Ensure the app-initiated flow correctly redirects back from the Okta sign-in page to your app.
-
-### Troubleshoot
-
-If issues occur, navigate to **Reports** > **System Log** to examine failure messages or 4XX status codes. You can also post your questions on the [Okta Developer Forum](https://devforum.okta.com/search?q=oidc).
+1. Troubleshoot: If issues occur, navigate to **Reports** > **System Log** to examine failure messages or *4XX* status codes. You can also post your questions on the [Okta Developer Forum](https://devforum.okta.com/search?q=oidc).
 
 ## See also
 <StackSnippet snippet="see-also" />
