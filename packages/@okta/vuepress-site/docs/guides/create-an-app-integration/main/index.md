@@ -18,7 +18,7 @@ This guide explains what an app integration is, why you need one, and how to cre
 
 * An [Okta Integrator Free Plan org](https://developer.okta.com/signup/).
 * An admin user in the Integrator Free Plan org with either the super admin or the app and org admin roles.
-* A functional SSO integration created in accordance with the Build a Single Sign-On integration guide.
+* A functional SSO integration created in accordance with the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/openidconnect/main/) guide.
 
 ---
 
@@ -110,10 +110,6 @@ You can add an app integration that doesn't exist in the OIN, using the App Inte
 
 1. To build and finalize your implementation settings details, see <StackSnippet snippet="integration" />
 
-After you create your integration, you can assign it to your users in your org.
-
-The integration you created is private and visible only within your own Okta org. If you want to make your app integration publicly available in the OIN, see [Publish an OIN integration](https://developer.okta.com/docs/guides/submit-app-overview/).
-
 ### Create an API Service Integration
 
 You can also add any API service integration listed in the OIN catalog with their Okta tenant org. See [API Service Integrations](https://developer.okta.com/docs/guides/oin-api-service-overview/).
@@ -127,9 +123,12 @@ Once your app is set up:
 1. Assign users:
 
     a. Click the **Assignments** tab.
+
     b. Click **Assign** and then select either **Assign to People** or **Assign to Groups**.
+
     c. Enter the appropriate people or groups that you want to have Single Sign-On into your app, click **Assign** for each, verify user attributes, and select **Save and Go Back**.
-    4. Click **Done**.
+
+    d. Click **Done**.
 
 1. Test SSO: Sign in to the Okta End-User Dashboard as a test user and click the app tile.
 

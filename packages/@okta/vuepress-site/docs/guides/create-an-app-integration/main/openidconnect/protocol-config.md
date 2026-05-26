@@ -1,6 +1,6 @@
-* **App integration name** - enter a name for your integration and (optionally) upload a logo.
+* **App integration name** - Enter a name for your integration and (optionally) upload a logo.
 
-* **Grant types** - select the [grant type](/docs/guides/implement-grant-type/) for your OAuth 2.0 flow based on your app type:
+* **Grant types** - Select the [grant type](/docs/guides/implement-grant-type/) for your OAuth 2.0 flow based on your app type:
 	- **Web app:**
 		- **Authorization Code** (mandatory for web platform applications)
 		- **Refresh token** (not supported for OIN app integrations)
@@ -10,7 +10,7 @@
 
 	- **SPA:**
 		- **Authorization Code**
-		- **Implicit (hybrid)** — click **Advanced** to select.
+		- **Implicit (hybrid)** — Click **Advanced** to select.
 		
         >**Note:** For SPA app integrations, the **Authorization Code** grant type always uses PKCE to verify the client. Also, the **Client acting on behalf of itself** grant type isn't supported in OIN app integrations.
 
