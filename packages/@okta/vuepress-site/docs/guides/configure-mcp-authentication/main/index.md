@@ -12,9 +12,8 @@ Create an Okta admin app integration, configure authentication credentials, and 
 #### Learning outcomes
 
 * Implement a device authorization grant or private key JWT to authorize the Okta MCP server.
-* Get the client ID and security keys and identify the OAuth 2.0 scopes required for your specific use cases.
-* Configure a scope-based tool loading to match your app permissions.
-
+* Get the client ID and security keys and identify the OAuth 2.0 scopes that are required for your specific use cases.
+* Configure scope-based tool loading to match your app permissions.
 
 #### What you need
 
@@ -165,7 +164,7 @@ You've created an app integration, configured the authentication flow, and grant
 
 ## Configure scope-based tool loading
 
-The Okta MCP server uses a scope-based tool loading mechanism to ensure that only the tools your application is authorized to use are exposed to the LLM.
+The Okta MCP server uses a scope-based tool loading mechanism to ensure that only the tools your app is authorized to use are exposed to the LLM.
 
 ### How it works
 
@@ -205,13 +204,13 @@ To activate specific tools, complete the following configuration steps:
 
 1. Grant the scope to your Okta app:
 
-   1. Open your app integration in the Admin Console.
-   1. Select the Okta API scopes tab and click Grant next to each scope you want to enable.
+   a. Open your app integration in the Admin Console.
+   b. Select the **Okta API scopes** tab and click **Grant** for each scope that you want to enable.
 
 1. Add the scope to client configurations:
 
-   1. Update the `OKTA_SCOPES` value in your `mcp.json` or `settings.json` file.
-   1. Include the required scopes as a space-separated string:
+   a. Update the `OKTA_SCOPES` value in your `mcp.json` or `settings.json` file.
+   b. Include the required scopes as a space-separated string:
 
    ```
    "OKTA_SCOPES": "okta.users.read okta.groups.read okta.brands.read okta.templates.read"
@@ -219,7 +218,7 @@ To activate specific tools, complete the following configuration steps:
 
 1. Restart the client: Restart your MCP client app to apply the updated scope configurations.
 
-  > **Note:** Start with the minimum set of scopes your use case requires. For example, if you only need to read users and brands, use `okta.users.read okta.brands.read`. Managing scopes enables write operations, so only grant them when required.
+  > **Note:** Start with the minimum set of scopes that your use case requires. For example, if you only need to read users and brands, use `okta.users.read okta.brands.read`. Managing scopes enables write operations, so only grant them when required.
 
 ## Next Steps
 

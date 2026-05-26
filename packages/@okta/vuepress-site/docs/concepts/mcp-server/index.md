@@ -70,10 +70,10 @@ The Okta MCP server enables AI agents to perform the following actions through n
 | --- | --- |
 | User management | Create, list, retrieve, update, deactivate, delete users, and manage user profile attributes. |
 | Group administration | Create, list, retrieve, update, and delete groups. Add and remove users from groups, and view group memberships. |
-| Application management | List, retrieve, create, update, activate and deactivate apps. View app assignments. |
-| Policy and security management | Manage authentication policies, password rules, MFA configurations, and Device Assurance policies. |
-| System monitoring and logs | Filter System Logs, generate security audit reports, and query specific login failures. |
-| Brands and Customization | Manage brands, themes, custom pages, email templates, and custom domains. |
+| App management | List, retrieve, create, update, activate and deactivate apps. View app assignments. |
+| Policy and security management | Manage authentication policies, password rules, MFA configurations, and device assurance policies. |
+| System monitoring and logs | Filter System Logs, generate security audit reports, and query specific sign-in failures. |
+| Brands and customization | Manage brands, themes, custom pages, email templates, and custom domains. |
 
 ## Security and authentication
 

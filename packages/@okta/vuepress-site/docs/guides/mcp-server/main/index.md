@@ -27,7 +27,7 @@ Get started with the Okta Model Context Protocol (MCP) server setup, prerequisit
 
 ## Overview
 
-This guide explains how to initialize the Okta MCP server project and install the required dependencies, including Okta's Python SDK v3.4.1. To learn about the Okta MCP server architecture, see the [introductory page](/docs/concepts/mcp-server/) on the Okta MCP server.
+This guide explains how to initialize the Okta MCP server project and install the required dependencies, including Okta's Python SDK v3.4.1. See [Manage Okta APIs with the Okta MCP server](/docs/concepts/mcp-server/).
 
 ---
 
@@ -57,4 +57,4 @@ Install and configure the Okta MCP server project for integration with your chos
 
 ## Next steps
 
-[Set up Okta app authentication](/docs/guides/configure-mcp-authentication/main/) for the Okta MCP server to create the required credentials and grant the specific OAuth 2.0 scopes required to load tools at startup.
+[Set up Okta app authentication](/docs/guides/configure-mcp-authentication/main/) for the Okta MCP server to create the required credentials and grant the specific OAuth 2.0 scopes that are required to load tools at startup.

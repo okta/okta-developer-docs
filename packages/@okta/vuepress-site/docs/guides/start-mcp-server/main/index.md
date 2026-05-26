@@ -5,7 +5,7 @@ meta:
     content: Set up your local environment variables and start the Okta Model Context Protocol (MCP) server to connect your AI agent to your org.
 ---
 
-Set up your local environment variables (including OKTA_SCOPES), start the Okta Model Context Protocol (MCP) server to connect your AI agent to your org, and test connections to **Device Assurance** and **Brand customization** tools.
+Set up your local environment variables (including OKTA_SCOPES), start the Okta Model Context Protocol (MCP) server to connect your AI agent to your org, and test connections to device assurance** and **brand customization** tools.
 
 ---
 
@@ -164,7 +164,7 @@ The steps to start the server vary by client. To start the Okta MCP server in VS
    | :--- | :--- | :--- |
    | `OKTA_ORG_URL` | Your Okta tenant org URL (for example, `https://integrator-1234567.okta.com`). | Yes |
    | `OKTA_CLIENT_ID` | The client ID copied from your Okta app. | Yes |
-   | `OKTA_SCOPES` | A space-separated list of API scopes you granted to the app (example: `okta.users.read okta.groups.read`).  The server uses this list to dynamically load authorized tools at startup. **Note:** Don't include scopes that you haven't granted to the app. | Yes |
+   | `OKTA_SCOPES` | A space-separated list of API scopes that you granted to the app (example: `okta.users.read okta.groups.read`).  The server uses this list to dynamically load authorized tools at startup. **Note:** Don't include scopes that you haven't granted to the app. | Yes |
    | `OKTA_PRIVATE_KEY` | Your private key in PEM format (starts with `-----BEGIN PRIVATE KEY-----`). | Private key JWT only |
    | `OKTA_KEY_ID` | The key ID (KID) for your private key. | Private key JWT only |
 
@@ -222,7 +222,7 @@ Use the following conversational prompts to interact with your Okta org:
 1. Manage apps:
    * Show me all active apps in my org.
 1. Security and auditing:
-   * Show me recent login failures using the `login_failures` tool.
+   * Show me recent sign-in failures using the `login_failures` tool.
    * Generate a security audit report for the last 30 days. Highlight all changes to user and group memberships.
 1. Policy management:
    * Create a macOS device assurance policy requiring OS 14.2.1 and disk encryption.
