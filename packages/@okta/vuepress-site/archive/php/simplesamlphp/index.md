@@ -23,7 +23,7 @@ If you're already familiar with Okta, you can skip to the section titled "Config
 
 Before you can configure the example application and SimpleSAMLphp you need to set up an Okta application icon that an Okta user selects to sign in to your to your application using SAML through SimpleSAMLphp.
 
-To set up Okta to connect to your application, follow the guide to [Build a Single Sign-On integration](/docs/guides/build-sso-integration/saml2/main/). As you follow the instructions to [Create your integration](/docs/guides/build-sso-integration/saml2/main/#create-your-integration), there are two steps where you do things differently:
+To set up Okta to connect to your application, follow the guide to [Build a Single Sign-On integration](/docs/guides/sign-in-overview/main/). As you follow the instructions to [OIN submission requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements), there are two steps where you do things differently:
 
 * In step \#9: Use **SimpleSAMLphp Example** instead **Example SAML application**.
 * In step \#10: Instead of entering the URL: `http://example.com/saml/sso/example-okta-com`
@@ -171,7 +171,7 @@ Configuring SimpleSAMLphp:
     );
     ```
 
-    Be sure to replace the contents of `${metadataUrl}` with the link that you copied in step \#10 of the [Setting up a SAML application in Okta](/docs/guides/build-sso-integration/saml2/main/#create-your-integration) instructions that you followed above.
+    Be sure to replace the contents of `${metadataUrl}` with the link that you copied in step \#10 that you followed above.
 
     > **Note:** The contents of `${metadataUrl}` should look similar to this:
     > `https://${yourOktaDomain}/app/a0b1c2deFGHIJKLMNOPQ/sso/saml/metadata`
