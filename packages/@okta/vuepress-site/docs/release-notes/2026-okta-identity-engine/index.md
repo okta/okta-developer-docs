@@ -18,7 +18,12 @@ title: Okta Identity Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Bugs fixed in 2026.05.2](#bugs-fixed-in-2026-05-2)| May 20, 2026 |
+| [Email claim included in ID-JAG tokens](#email-claim-included-in-id-jag-tokens) | May 20, 2026 |
+| [Bugs fixed in 2026.05.2](#bugs-fixed-in-2026-05-2) | May 20, 2026 |
+
+#### Email claim included in ID-JAG tokens
+
+Identity Assertion Authorization Grant JWT (ID-JAG) tokens now include the `email` claim when the `email` scope is requested during SSO in cross-app access flows.
 
 #### Bugs fixed in 2026.05.2
 
