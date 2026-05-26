@@ -57,7 +57,7 @@ The following describes the usual OAuth 2.0 Authorization Code flow.
 
 At the core of both OAuth 2.0 and OIDC is the authorization server. An authorization server is simply an OAuth 2.0 token minting engine. Each authorization server has a unique issuer URI and its own signing key for tokens to keep a proper boundary between security domains. In the context of this guide, Okta is your authorization server.
 
-The authorization server also acts as an OIDC provider. This means you can request [ID tokens](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#id-token) in addition to [access tokens](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#access-token) from the authorization server endpoints.
+The authorization server also acts as an OIDC provider. This means that you can request [ID tokens](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#id-token) in addition to [access tokens](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#access-token) from the authorization server endpoints.
 
 > **Note:** For information on authorization servers, how they work, and how you can use them, see [Authorization servers](/docs/concepts/auth-servers).
 

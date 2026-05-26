@@ -66,7 +66,7 @@ The **Overview** tab is your monitoring hub. Use it to scan for issues or drill 
 * Top offenders: A bar graph shows the top five APIs with the most rate limit events.
 * Rate Limit Buckets table: Each bucket is listed with current rate limits (including overrides and multipliers), recent events, and a usage trend line for the last hour.
 
-You can hover to reveal detailed data points, click on a rate limit bucket to see deeper metrics and historical usage, or filter by time period, multiplier status, or event type.
+You can hover to reveal detailed data points, select a rate limit bucket to see deeper metrics and historical usage, or filter by time period, multiplier status, or event type.
 
 <div class="half">
 
@@ -76,7 +76,7 @@ You can hover to reveal detailed data points, click on a rate limit bucket to se
 
 ### Events graph
 
-The event count graph plots the number of violations, bursts, and warnings over the selected time period, which can be the last 24 hours, the last seven days, last month, or the last three months. The events by API bar graph shows the top five number of events by API over the same time period.
+The event count graph plots the number of violations, bursts, and warnings over the selected time period, which can be the last 24 hours, the last seven days, last month, or the last three months. The `events by API` bar graph shows the top five number of events by API over the same time period.
 
 <div class="half">
 
