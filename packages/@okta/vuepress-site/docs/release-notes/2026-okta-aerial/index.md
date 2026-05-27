@@ -83,12 +83,12 @@ The Okta developer portal search results now include the API references.
 <!-- Published on: 2026-01-13T12:00:00Z -->
 | Change | Expected in Aerial services preview | Expected in Aerial services production |
 |--------|-----------------------------| -----------------------------|
-| [Okta Aerial supports Identity Threat Protection with Okta AI](#okta-aerial-supports-identity-threat-protection-with-okta-ai)| January 13, 2026 | January 20, 2026 |
+| [Okta Aerial supports Identity Threat Protection](#okta-aerial-supports-identity-threat-protection)| January 13, 2026 | January 20, 2026 |
 | [Developer documentation update](#developer-documentation-update)| January 8, 2026 | January 8, 2026 |
 
-#### Okta Aerial supports Identity Threat Protection with Okta AI
+#### Okta Aerial supports Identity Threat Protection
 
-Okta Aerial now supports the enablement of Identity Threat Protection with Okta AI for managed orgs (IT Products - Identity Threat Protection). Use the [Update enabled products for an org](https://developer.okta.com/docs/guides/manage-orgs-okta-aerial/main/#enable-products-in-the-org) endpoint with the product ID `P001113` to enable this product. See [Enable products in the org](https://developer.okta.com/docs/guides/manage-orgs-okta-aerial/main/#enable-products-in-the-org) and [Identity Threat Protection with Okta AI](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview).
+Okta Aerial now supports the enablement of Identity Threat Protection for managed orgs (IT Products - Identity Threat Protection). Use the [Update enabled products for an org](https://developer.okta.com/docs/guides/manage-orgs-okta-aerial/main/#enable-products-in-the-org) endpoint with the product ID `P001113` to enable this product. See [Enable products in the org](https://developer.okta.com/docs/guides/manage-orgs-okta-aerial/main/#enable-products-in-the-org) and [Identity Threat Protection](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview).
 
 #### Developer documentation update
 

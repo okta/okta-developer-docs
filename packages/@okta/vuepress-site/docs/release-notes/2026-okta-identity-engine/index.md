@@ -36,7 +36,12 @@ Admins can now use enhanced filtering, search, and configuration capabilities on
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Bugs fixed in 2026.05.2](#bugs-fixed-in-2026-05-2)| May 20, 2026 |
+| [Email claim included in ID-JAG tokens](#email-claim-included-in-id-jag-tokens) | May 20, 2026 |
+| [Bugs fixed in 2026.05.2](#bugs-fixed-in-2026-05-2) | May 20, 2026 |
+
+#### Email claim included in ID-JAG tokens
+
+Identity Assertion Authorization Grant JWT (ID-JAG) tokens now include the `email` claim when the `email` scope is requested during SSO in cross-app access flows.
 
 #### Bugs fixed in 2026.05.2
 
@@ -181,11 +186,11 @@ See [API Integration Actions](/docs/guides/oin-api-actions/) and [Submit an inte
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Identity Threat Protection with Okta AI managed with Terraform](#identity-threat-protection-with-okta-ai-managed-with-terraform) | April 29, 2026 |
+| [Identity Threat Protection managed with Terraform](#identity-threat-protection-managed-with-terraform) | April 29, 2026 |
 
-#### Identity Threat Protection with Okta AI managed with Terraform
+#### Identity Threat Protection managed with Terraform
 
-You can now manage Okta Identity Threat Protection (ITP) with Okta AI using the Okta Terraform Provider. This allows admins to manage their entire threat protection surface using an Infrastructure-as-Code (IaC) approach, ensuring consistent, repeatable, and scalable security configurations. See [Manage Identity Threat Protection with Okta AI resources using Terraform](/docs/guides/terraform-manage-itp/main/). <!-- OKTA-1122778 -->
+You can now manage Okta Identity Threat Protection (ITP) using the Okta Terraform Provider. This allows admins to manage their entire threat protection surface using an Infrastructure-as-Code (IaC) approach, ensuring consistent, repeatable, and scalable security configurations. See [Manage Identity Threat Protection resources using Terraform](/docs/guides/terraform-manage-itp/main/). <!-- OKTA-1122778 -->
 
 ### Weekly release 2026.04.2
 <!-- Published on: 2026-04-15T12:00:00Z -->

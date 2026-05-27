@@ -5,11 +5,11 @@ test_suites:
     sort_order: '0'
     timeout: '50'
     criteria: OPTIONAL
-    queue_name: small
+    queue_name: ci-queue-productionJenga-AL2023
   - name: 'publish-production'
     script_path: /root/okta/okta-developer-docs/scripts
     script_name: publish
     sort_order: '1'
     timeout: '50'
     criteria: MAINLINE
-    queue_name: small
+    queue_name: ci-queue-productionJenga-AL2023
