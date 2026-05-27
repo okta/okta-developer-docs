@@ -13,6 +13,19 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 ## May
 
+### Weekly release 2026.05.3
+<!-- Published on: 2026-05-28T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Database privileged access management is EA](#database-privileged-access-management-is-ea) | May 28, 2026 |
+
+#### Database privileged access management is EA
+
+Okta Privileged Access for databases helps minimize security risks by automatically discovering database user accounts, rotating and vaulting credentials, and enforcing policy-based multifactor authentication or manual approvals for access.
+The newly introduced APIs lets you discover accounts, manage connections to PostgreSQL and MySQL databases, and configure secure gateway orchestrator connectivity.
+See [Database Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/database-accounts), [Database Connections](https://developer.okta.com/docs/api/openapi/opa/opa/database-connections), and [Infrastructure Orchestrators](https://developer.okta.com/docs/api/openapi/opa/opa/infrastructure-orchestrators) APIs.
+
 ### Weekly release 2026.05.1
 <!-- Published on: 2026-05-14T12:00:00Z -->
 

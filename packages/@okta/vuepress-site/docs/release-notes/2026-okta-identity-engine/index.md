@@ -14,20 +14,22 @@ title: Okta Identity Engine API release notes 2026
 ## May
 
 ### Weekly release 2026.05.3
-<!-- Published on: 2026-05-27T12:00:00Z -->
+<!-- Published on: 2026-05-28T12:00:00Z -->
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Search, filtering, and configurable views for for AI agents is GA in Production](#search-filtering-and-configurable-views-for-for-ai-agents-is-ga-in-production) | May 27, 2026 |
-| [Bugs fixed in 2026.05.3](#bugs-fixed-in-2026-05-3)| May 27, 2026 |
+| [Search, filtering, and configurable views for for AI agents is GA in Production](#search-filtering-and-configurable-views-for-for-ai-agents-is-ga-in-production) | May 28, 2026 |
+| [Bugs fixed in 2026.05.3](#bugs-fixed-in-2026-05-3)| May 28, 2026 |
 
 #### Search, filtering, and configurable views for for AI agents is GA in Production
 
-
+Admins can now use enhanced filtering, search, and configuration capabilities on the **AI agents**, **AI agent providers**, and **Import Monitoring** > **AI agent import** pages.
 
 #### Bugs fixed in 2026.05.3
 
-* 
+* The Potential Connections API for AI agents returned incorrect relative HREF links that were missing the org URL. (OKTA-1173194)
+
+* A generic error message was returned when a token exchange request to `/oauth2/v1/token` omitted the `audience` parameter. (OKTA-1116286)
 
 ### Weekly release 2026.05.2
 <!-- Published on: 2026-05-20T12:00:00Z -->
@@ -211,7 +213,7 @@ You can now manage Okta Identity Threat Protection (ITP) with Okta AI using the 
 
 #### Bugs fixed in 2026.04.1
 
-* WebAuthn transport values, which specify the connection method that WebAuthn authenticators use to communicate with a user's device, weren’t returned by the List all authenticator enrollments [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/userauthenticatorenrollments/other/listauthenticatorenrollments). (OKTA-1118046)
+* WebAuthn transport values, which specify the connection method that WebAuthn authenticators use to communicate with a user's device, weren't returned by the List all authenticator enrollments [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/userauthenticatorenrollments/other/listauthenticatorenrollments). (OKTA-1118046)
 
 * The `AuthnRequestId` field in the System Log wasn't included for authorization code flow and device code flow token request events. (OKTA-1082636)
 
@@ -287,7 +289,7 @@ The PUT `/api/v1/users/{userId}/risk` [endpoint](https://developer.okta.com/docs
 
 #### Detection settings in session protection is GA in Production
 
-Tailor ITP to your org’s security priorities to gain control and balance security with a seamless user experience. With new detection settings, you can define which session context changes trigger policy reevaluations, helping you focus only on what truly matters. See [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation). <!-- OKTA-1016513 SESSION_VIOLATION_DETECTION_CONFIGURATION Preview date: December 10, 2025 -->
+Tailor ITP to your org's security priorities to gain control and balance security with a seamless user experience. With new detection settings, you can define which session context changes trigger policy reevaluations, helping you focus only on what truly matters. See [Session protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation). <!-- OKTA-1016513 SESSION_VIOLATION_DETECTION_CONFIGURATION Preview date: December 10, 2025 -->
 
 #### Passkeys rebrand is GA in Preview
 
@@ -318,7 +320,7 @@ Express Submission reduces the time-to-value for independent software vendors (I
 
 * When an admin added users to read-only groups using the Groups API (`PUT /api/v1/groups/{groupId}/users/{userId}`), the endpoint incorrectly returned HTTP 501 (Not Implemented) instead of HTTP 403 (Forbidden). (OKTA-1139611)
 
-* The Factors API didn’t return enrollment information about the Okta FastPass factor (`signed_nonce`) for some users who didn’t have Okta Verify with push notifications enrolled or enabled. (OKTA-1052073)
+* The Factors API didn't return enrollment information about the Okta FastPass factor (`signed_nonce`) for some users who didn't have Okta Verify with push notifications enrolled or enabled. (OKTA-1052073)
 
 * ISVs were unable to submit their integrations for review despite passing all validation tests. (OKTA-1134528)
 
