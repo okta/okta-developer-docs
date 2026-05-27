@@ -1,4 +1,4 @@
-If you already have ngrok installed, move on to [Run ngrok](#run-ngrok). If not, follow the installation instructions at [https://ngrok.com/download](https://ngrok.com/download) to install in your sample app folder (or the location of your choice).
+If you already have ngrok installed, move on to [Set up for profile enrollment (SSR scenario)](#set-up-for-profile-enrollment-ssr-scenario). If not, follow the installation instructions at [https://ngrok.com/download](https://ngrok.com/download) to install in your sample app folder (or the location of your choice).
 
 Installation notes:
 

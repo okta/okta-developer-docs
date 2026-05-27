@@ -251,14 +251,14 @@ The message "Your app is listening on port 8082" appears in your terminal consol
 
 ### Add your registration hook for profile enrollment
 
-Configure your registration inline hook for your Okta org to use the Glitch project for profile enrollment (SSR).
+Configure your registration inline hook for your Okta org to call your external service code for profile enrollment (SSR).
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 1. Click **Add Inline Hook** and select **Registration** from the dropdown menu.
 1. Add a name for the hook (in this example, use "Profile Enrollment SSR").
 1. Add your external service URL, and append it with the endpoint. For example, use your Glitch project name with the endpoint (`registrationHookSSR`):
 
-   `https://your-glitch-projectname.glitch.me/registrationHookSSR`
+   `https://2d20-142-126-163-77.ngrok.io/registrationHookSSR`
 
 1. Include the authentication field and secret. In this example:
 
@@ -280,9 +280,9 @@ To associate the registration inline hook with a user profile policy:
 1. In the the Admin Console, go to **Security** > **User Profile Policies**.
 1. Click **Add a user profile policy**, give your policy a name (in this example, use "SSR Inline Hook"), and then click **Save**.
 1. Find your inline hook, "SSR Inline Hook", from the list of enrollment policies, and then click the pencil icon.
-1. Click **Manage Apps**, and then click **Add Apps to this Policy**.
+1. Click **Apps**, and then click **Add an App to this Policy**.
 1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
-1. Click **Back to User Profile Policy**, and then click **Edit** in **Profile Enrollment**.
+1. Click **Enrollment**, and then click **Edit** in **Profile Enrollment**.
 1. Select **Allowed** for **Self-service registration**.
 1. Select the hook that you set up and activated earlier from the **Inline hook** menu. See [Add your registration hook for profile enrollment](#add-your-registration-hook-for-profile-enrollment).
 
@@ -639,7 +639,7 @@ To test your profile enrollment registration, go to the Okta sign-in page for yo
 
 Possible registration scenarios:
 
-* If you use an allowable email domain, such as `rosario.jones@okta.com`, the end user registration goes through the profile enrollment scenario.
+* If you use an allowable email domain, such as `kim.sato@okta.com`, the end user registration goes through the profile enrollment scenario.
 * If you use an allowable email domain and employee number, the end user registration goes through the profile and progressive profile enrollment scenario.
 * If you use an incorrect email domain or employee number (depending on the scenario), the end user registration is denied.
 
