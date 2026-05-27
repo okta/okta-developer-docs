@@ -18,10 +18,10 @@ title: Okta Identity Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Search, filtering, and configurable views for for AI agents is GA in Production](#search-filtering-and-configurable-views-for-for-ai-agents-is-ga-in-production) | May 28, 2026 |
+| [Search, filtering, and configurable views for AI agents is GA in Production](#search-filtering-and-configurable-views-for-ai-agents-is-ga-in-production) | May 28, 2026 |
 | [Bugs fixed in 2026.05.3](#bugs-fixed-in-2026-05-3)| May 28, 2026 |
 
-#### Search, filtering, and configurable views for for AI agents is GA in Production
+#### Search, filtering, and configurable views for AI agents is GA in Production
 
 Admins can now use enhanced filtering, search, and configuration capabilities on the **AI agents**, **AI agent providers**, and **Import Monitoring** > **AI agent import** pages.
 
