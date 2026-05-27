@@ -24,7 +24,7 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 You can now rotate passwords for server accounts on-demand instead of waiting for the scheduled rotation interval. Use the new [Rotate the password for a server account]( https://developer.okta.com/docs/api/openapi/opa/opa/server-accounts/rotateserveraccountpassword) endpoint to initiate rotation, grant access to end users through the new `rotate_password` security policy privilege, and track the password sync status through the `secret_sync_status` field on the server account. You can also enable or disable initial password rotation for newly discovered managed accounts through the `enable_initial_server_account_password_rotation` password policy setting.
 See [Server Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/server-accounts), [Projects](https://developer.okta.com/docs/api/openapi/opa/opa/projects), and [Security Policy](https://developer.okta.com/docs/api/openapi/opa/opa/security-policy).
 
-<!-- OKTA-963826 FF: pam_server_account_rotate_now preview date: May 14, 2026 -->
+<!-- OKTA-963826 FF: pam_server_account_rotate_now preview date: May 14, 2026, prod date: May 27, 2026 -->
 
 
 ### Weekly release 2026.05.1
