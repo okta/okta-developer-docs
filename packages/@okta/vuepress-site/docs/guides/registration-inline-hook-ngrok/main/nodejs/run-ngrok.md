@@ -1,4 +1,4 @@
-After installing ngrok, ensure that it's running by creating a "tunnel" into a local port (`8082` in this example). If you installed directly into your project directory (for example, `sample-app`), run the following command in your terminal:
+Run ngrok to create a "tunnel" into a local port (`8082` in this example). If you installed directly into your project directory (for example, `sample-app`), run the following command in your terminal:
 
 ```shell
 sample-app > ./ngrok http 8082

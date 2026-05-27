@@ -8,7 +8,7 @@ layout: Guides
 
 This guide provides examples of an Okta registration inline hook for profile enrollment (self-service registration) and progressive profile enrollments.
 
-The sample project provides external code for three registration inline hook use cases:
+The sample app provides external code for three registration inline hook use cases:
 
 * Profile enrollment (self-service registration).
 * Progressive profile enrollment (updates to an existing profile).
@@ -33,12 +33,12 @@ The sample project provides external code for three registration inline hook use
 
 ## About registration inline hook implementation
 
-In the following examples, the external service code parses requests from Okta and responds with commands that indicate the following:
+In the following use cases, the external service code parses requests from Okta and responds with commands that indicate the following:
 
 * Whether the end user's email domain is valid and allowed to register (for profile enrollment)
 * Whether the end user's employee number is valid and allowed to be added to their profile (for progressive profile enrollment)
 
-In these examples, you set up your registration inline hook to handle either the simple profile enrollment (SSR) scenario, progressive profile enrollment scenario, or both.
+In these use cases, you set up your registration inline hook to handle either the simple profile enrollment (SSR) scenario, progressive profile enrollment scenario, or both.
 
 You configure a user profile policy to define these scenarios and implement the registration hook. The registration hook customizes how to add users to your Okta org. The hook also customizes how to update the profiles of existing users.
 
@@ -156,10 +156,6 @@ See the [request properties](https://developer.okta.com/docs/api/openapi/okta-ma
 
 <StackSelector snippet="install-ngrok" noSelector/>
 
-### Run ngrok
-
-<StackSelector snippet="run-ngrok" noSelector/>
-
 ## Set up for profile enrollment (SSR) scenario
 
 This profile enrollment scenario (self-service registration) involves new users self-registering from the sign-up link. The users sign up with the default three sign-up fields (**Email**, **First name**, and **Last name**). With this use case, the registration inline hook triggers and evaluates the domain in the Email field. If the domain is from `okta.com`, the user can register. If not, the user is denied registration. Follow these steps to implement this scenario:
@@ -248,6 +244,10 @@ node server.js
 ```
 
 The message "Your app is listening on port 8082" appears in your terminal console.
+
+### Run ngrok
+
+<StackSelector snippet="run-ngrok" noSelector/>
 
 ### Add your registration hook for profile enrollment
 

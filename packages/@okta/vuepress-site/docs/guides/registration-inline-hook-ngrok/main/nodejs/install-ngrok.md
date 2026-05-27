@@ -2,6 +2,4 @@ If you already have ngrok installed, move on to [Run ngrok](#run-ngrok). If not,
 
 Installation notes:
 
-* A free ngrok account isn't required, but can provide more features including Basic authentication.
-
 * You can install ngrok in the system path directory or the project directory. Alternatively, you can install the executable in another local directory, as long as you reference the directory path when using the tool.
