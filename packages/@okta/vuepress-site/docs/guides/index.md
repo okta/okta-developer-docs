@@ -106,6 +106,7 @@ guides:
  - sampleapp-oie-redirectauth
  - refresh-tokens
  - registration-inline-hook
+ - registration-inline-hook-ngrok
  - request-user-consent
  - revoke-tokens
  - saml-inline-hook
