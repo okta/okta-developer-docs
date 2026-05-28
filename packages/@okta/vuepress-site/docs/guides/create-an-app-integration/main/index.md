@@ -98,22 +98,9 @@ You can add an app integration that doesn't exist in the OIN, using the App Inte
 1. Open the Admin Console for your org.
 1. Go to **Applications > Applications**.
 1. Click **Create App Integration**.
-1. Select SAML 2.0 as the integration type in the **Sign-In** method section and click **Next**.
-1. On the **General Settings** tab, enter a name for your integration and optionally upload a logo. You can also choose to hide the integration from your end user's Okta dashboard or mobile app. Click **Next**.
-1. On the **Configure SAML** tab, configure the following integration settings using the SAML information that you gathered when you built your integration:
+1. Select the required integration type in the **Sign-In** method section and click **Next**.
 
-    <StackSnippet snippet="protocol-config" />
-
-1. On the **Feedback** tab, select how you want to position this app:
-
-    * **Internal (Private) Apps**: Select **I'm an Okta customer adding an internal app**. You can then specify the app type or indicate if the vendor needs to be contacted.
-    * **OIN-bound Apps**: If you’re an ISV, select **I'm a software vendor. I'd like to integrate my app with Okta**. This doesn’t make it public automatically. It prepares the integration for OIN submission.
-
-1. Click **Finish**.
-
-1. To build and finalize your implementation settings details, see: <StackSnippet snippet="integration" />.
-
->**Note:** This private integration is only visible within your Okta org. To modify settings after creation, click **Edit** on the main app page. To configure your SP app, copy the **Metadata URL** from the **Sign On** tab, or click **More details** to manually copy individual URLs and certificates. To make your app publicly available later, see [Publish an OIN integration](/docs/guides/submit-app-overview/).
+<StackSnippet snippet="protocol-config" />
 
 ### Create an API Service Integration
 

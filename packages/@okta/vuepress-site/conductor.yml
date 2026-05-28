@@ -6094,4 +6094,4 @@ redirects:
   - from: /docs/guides/add-private-app/saml2/main/index.html
     to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /docs/guides/add-private-app/saml2/main
-    to: /docs/guides/create-an-app-integration/saml2/main
+    to: /docs/guides/create-an-app-integration/saml2/main/
