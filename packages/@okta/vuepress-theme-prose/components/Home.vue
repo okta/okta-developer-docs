@@ -6,6 +6,7 @@
     <div class="width-adjuster">
       <div class="justify-content-center">
         <Hero />
+        <Journeys />
         <Resources />
         <News />
         <Support />
@@ -23,6 +24,7 @@ export default {
     Resources: () => import("../components/Resources"),
     News: () => import("../components/News"),
     Support: () => import("../components/Support"),
+    Journeys: () => import("../components/Journeys"),
   },
 };
 </script>
