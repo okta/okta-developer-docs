@@ -92,14 +92,16 @@
 }
 
 .hero__paragraph {
+  max-width: 530px;
+
   font-weight: 400;
+
   font-size: 20px;
   line-height: 1.2;
 
-  max-width: 530px;
-
   @include media(">desktop") {
     max-width: 640px;
+
     font-size: 24px;
   }
 }
