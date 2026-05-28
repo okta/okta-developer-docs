@@ -98,7 +98,7 @@ You can add an app integration that doesn't exist in the OIN, using the App Inte
 1. Open the Admin Console for your org.
 1. Go to **Applications > Applications**.
 1. Click **Create App Integration**.
-1. Select **OpenID Connect** in the **Sign in Method** section.
+1. Select the required integration type in the **Sign in Method** section.
 1. Choose either **Web Application** or **Single-Page Application** as the **Application type** for your integration and click **Next**.
 1. Configure the following integration settings on the **General Settings** tab:
 
