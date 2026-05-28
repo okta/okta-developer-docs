@@ -38,6 +38,4 @@
 
 8. Click **Finish**.
 
->**Note:** This private integration is only visible within your Okta org. To modify settings after creation, click **Edit** on the main app page. To configure your SP app, copy the **Metadata URL** from the **Sign On** tab, or click **More details** to manually copy individual URLs and certificates. To make your app publicly available later, see [Publish an OIN integration](/docs/guides/submit-app-overview/).
-
 9. To build and finalize your implementation settings details, see: [Create SAML app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_App_Integration_Wizard-saml).

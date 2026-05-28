@@ -102,6 +102,8 @@ You can add an app integration that doesn't exist in the OIN, using the App Inte
 
 <StackSnippet snippet="protocol-config" />
 
+>**Note:** This private integration is only visible within your Okta org. To modify settings after creation, click **Edit** on the main app page. To configure your SP app, copy the **Metadata URL** from the **Sign On** tab, or click **More details** to manually copy individual URLs and certificates. To make your app publicly available later, see [Publish an OIN integration](/docs/guides/submit-app-overview/).
+
 ### Create an API Service Integration
 
 You can also add any API service integration listed in the OIN catalog with their Okta tenant org. See [API Service Integrations](https://developer.okta.com/docs/guides/oin-api-service-overview/).
