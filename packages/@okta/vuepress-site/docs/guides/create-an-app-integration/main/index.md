@@ -12,11 +12,13 @@ This guide explains what an app integration is, why you need one, and how to cre
 
 * Learn about app integrations in Okta.
 * Learn how to create the app integration.
+* Learn how to test your sso integration in your okta org.
 
 #### What you need
 
 * An [Okta Integrator Free Plan org](https://developer.okta.com/signup/).
 * An admin user in the Integrator Free Plan org with either the super admin or the app and org admin roles.
+* A functional SSO integration created in accordance with the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/saml2/main/) guide.
 
 ---
 
@@ -91,19 +93,27 @@ Okta adds an instance of the app integration to your org, and you can now assign
 
 You can add an app integration that doesn't exist in the OIN, using the App Integration Wizard (AIW). The wizard allows you to create an app integration and connect Okta with your SAML, OIDC, SWA, or SCIM app. You can also add SCIM provisioning to a custom app integration.
 
+>**Note:** As a best practice, create two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future.
+
 1. Open the Admin Console for your org.
-2. Go to **Applications > Applications**.
-3. Click **Create App Integration**.
-4. Choose the integration type that matches your app’s requirements.
-5. Ensure that you have the following integration settings ready:
+1. Go to **Applications > Applications**.
+1. Click **Create App Integration**.
+1. Select SAML 2.0 as the integration type in the **Sign-In** method section and click **Next**.
+1. On the **General Settings** tab, enter a name for your integration and optionally upload a logo. You can also choose to hide the integration from your end user's Okta dashboard or mobile app. Click **Next**.
+1. On the **Configure SAML** tab, configure the following integration settings using the SAML information that you gathered when you built your integration:
 
     <StackSnippet snippet="protocol-config" />
 
-6. Create the integration. See: <StackSnippet snippet="integration" />
+1. On the **Feedback** tab, select how you want to position this app:
 
-After you create your integration, you can assign it to your users in your org.
+    * **Internal (Private) Apps**: Select **I'm an Okta customer adding an internal app**. You can then specify the app type or indicate if the vendor needs to be contacted.
+    * **OIN-bound Apps**: If you’re an ISV, select **I'm a software vendor. I'd like to integrate my app with Okta**. This doesn’t make it public automatically. It prepares the integration for OIN submission.
 
-The integration you created is private and visible only within your own Okta org. If you want to make your app integration publicly available in the OIN, see [Publish an OIN integration](https://developer.okta.com/docs/guides/submit-app-overview/).
+1. Click **Finish**.
+
+1. To build and finalize your implementation settings details, see: <StackSnippet snippet="integration" />.
+
+>**Note:** This private integration is only visible within your Okta org. To modify settings after creation, click **Edit** on the main app page. To configure your SP app, copy the **Metadata URL** from the **Sign On** tab, or click **More details** to manually copy individual URLs and certificates. To make your app publicly available later, see [Publish an OIN integration](/docs/guides/submit-app-overview/).
 
 ### Create an API Service Integration
 
@@ -115,10 +125,28 @@ To build, test, and submit your API service integration to the OIN catalog. See 
 
 Once your app is set up:
 
-1. Assign the app to a test user or group from **Assignments**.
-2. Log in to the Okta End-User Dashboard.
-3. Click the app and verify successful redirection/authentication.
-4. Review tokens or SAML assertions using developer tools or Okta logs.
+1. Assign users:
+
+    a. Go to the **Assignments** tab.
+
+    b. Click **Assign** and select either **Assign to People** or **Assign to Groups**.
+
+    c. Enter the people or groups that you want to grant SSO access to the app, click **Assign** for each, verify user attributes, then select **Save and Go Back**.
+
+    d. Click **Done**.
+
+1. Identity Provider (IdP) flow:
+
+    a. Sign in to the Okta End-User Dashboard.
+
+    b. Click the app tile and verify successful redirection/authentication.
+
+1. Review tokens or SAML assertions using developer tools or Okta logs.
+
+1. Troubleshoot:
+
+    * Install the [SAML Tracer extension for Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) for testing, or use a similar tool for other browsers.
+    * Post your questions on the [Okta Developer Forum](https://devforum.okta.com/search?q=saml).
 
 ## See also
 <StackSnippet snippet="see-also" />
