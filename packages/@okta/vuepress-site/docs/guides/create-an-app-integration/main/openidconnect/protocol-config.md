@@ -20,7 +20,7 @@
 
 * **Login initiation** - Configure the settings based on your sign-in initiation flow to determine how the integration appears as a tile on the Okta End-User Dashboard:
 	- If you only support direct SSO from your app, set **Login initiated by to App Only**.
-	- If you want a dashboard tile, set L**ogin initiated by to Either Okta or App**. This reveals the **App Embed Link** and allows you to select **Display application icon to users**.
+	- If you want a dashboard tile, set **Login initiated by to Either Okta or App**. This reveals the **App Embed Link** and allows you to select **Display application icon to users**.
 	- Set the **Login flow to Redirect to app to initiate login (OIDC compliant)** and provide the URI used to initiate the request.
 
 * **Assignments** - Assign a group or leave the **Everyone** default. Ensure that the intended users are assigned to the selected group.
