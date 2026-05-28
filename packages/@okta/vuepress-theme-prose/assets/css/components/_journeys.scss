@@ -1,0 +1,139 @@
+.journeys {
+  --journeys-text-color: #282828;
+  --journeys-link-color: var(--c-gray-950);
+  --journeys-graphic-radius: 14px;
+  --journeys-padding-top: 42px;
+  --journeys-padding-bottom: 40px;
+
+  padding-top: var(--journeys-padding-top);
+  padding-bottom: var(--journeys-padding-bottom);
+
+  background-color: cv("homepage-section", "bg");
+
+  @include media(">tablet") {
+    --journeys-padding-top: 56px;
+    --journeys-padding-bottom: 56px;
+  }
+
+  @include media(">desktop") {
+    --journeys-graphic-radius: 24px;
+    --journeys-padding-top: 80px;
+    --journeys-padding-bottom: 100px;
+  }
+}
+
+.journeys__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
+  @include media(">tablet") {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+  }
+
+  @include media(">desktop") {
+    min-height: 572px;
+  }
+}
+
+.journeys__content {
+  max-width: 672px;
+
+  @include media(">desktop") {
+    padding-right: 72px;
+  }
+}
+
+.journeys__title {
+  margin-top: 0;
+  margin-bottom: 22px;
+
+  color: var(--journeys-text-color);
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: -0.8px;
+
+  @include media(">desktop") {
+    margin-bottom: 16px;
+
+    font-size: 56px;
+    line-height: 64px;
+    letter-spacing: -1.12px;
+  }
+}
+
+.journeys__subtitle,
+.journeys__text {
+  margin-top: 0;
+
+  color: var(--journeys-text-color);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 0;
+
+  @include media(">desktop") {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+.journeys__subtitle {
+  margin-bottom: 24px;
+}
+
+.journeys__text {
+  margin-bottom: 22px;
+
+  @include media(">desktop") {
+    margin-bottom: 32px;
+  }
+}
+
+.journeys__link {
+  display: inline-flex;
+  align-items: center;
+
+  border-bottom: 1px solid currentcolor;
+
+  color: var(--journeys-link-color);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    color: var(--c-blue-550);
+  }
+}
+
+.journeys__visual {
+  display: flex;
+  justify-content: center;
+
+  @include media(">desktop") {
+    justify-content: flex-end;
+  }
+}
+
+.journeys__diagram {
+  display: block;
+  width: 100%;
+  max-width: 357.649px;
+  height: auto;
+  aspect-ratio: 357.649 / 335;
+
+  border-radius: var(--journeys-graphic-radius);
+
+  @include media(">desktop") {
+    max-width: 611px;
+    aspect-ratio: 611 / 572;
+  }
+}
