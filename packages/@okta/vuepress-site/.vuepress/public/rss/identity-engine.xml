@@ -4,14 +4,23 @@
   <title>Okta Identity Engine API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/</link>
   <description>Recent release notes for Okta Identity Engine API</description>
-  <pubDate>Wed, 20 May 2026 12:00:00 GMT</pubDate>
+  <pubDate>Thu, 28 May 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Weekly release 2026.05.3</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#weekly-release-2026-05-3</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#weekly-release-2026-05-3</guid>
+      <pubDate>Thu, 28 May 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#search-filtering-and-configurable-views-for-ai-agents-is-ga-in-production">Search, filtering, and configurable views for AI agents is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#bugs-fixed-in-2026-05-3">Bugs fixed in 2026.05.3</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Weekly release 2026.05.2</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#weekly-release-2026-05-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#weekly-release-2026-05-2</guid>
       <pubDate>Wed, 20 May 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#bugs-fixed-in-2026-05-2">Bugs fixed in 2026.05.2</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#email-claim-included-in-id-jag-tokens">Email claim included in ID-JAG tokens</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#bugs-fixed-in-2026-05-2">Bugs fixed in 2026.05.2</a>]]></description>
     </item>
   
 
@@ -38,7 +47,7 @@
       <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#weekly-release-2026-04-3</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#weekly-release-2026-04-3</guid>
       <pubDate>Wed, 29 Apr 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#identity-threat-protection-with-okta-ai-managed-with-terraform">Identity Threat Protection with Okta AI managed with Terraform</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#bug-fixed-in-2026-04-3">Bug fixed in 2026.04.3</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#identity-threat-protection-managed-with-terraform">Identity Threat Protection managed with Terraform</a>]]></description>
     </item>
   
 
