@@ -18,7 +18,7 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 | Change | Expected in Preview Orgs | Expected in Production |
 | ------ | ------------------------ | -----------------------|
-| [On-demand password rotation for server accounts is GA](#on-demand-password-rotation-for-server-accounts-is-ga) | May 14, 2026 | May 28, 2026 |
+| [On-demand password rotation for server accounts is GA](#on-demand-password-rotation-for-server-accounts-is-ga) | May 14, 2026 | May 27, 2026 |
 
 #### On-demand password rotation for server accounts is GA
 
