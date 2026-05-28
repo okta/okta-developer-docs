@@ -94,14 +94,12 @@
 .hero__paragraph {
   font-weight: 400;
   font-size: 20px;
-  line-height: 1.4;
-  letter-spacing: 0.005em;
+  line-height: 1.2;
 
-  @include media(">tablet") {
-    max-width: 500px;
+  max-width: 530px;
+
+  @include media(">desktop") {
+    max-width: 640px;
+    font-size: 24px;
   }
-}
-
-.dark-theme .hero__paragraph {
-  color: var(--c-green-100);
 }
