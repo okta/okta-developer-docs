@@ -15,7 +15,7 @@ This guide explains how to test a SAML app implementation with the SAML-tracer b
 
 #### What you need
 
-A SAML app to test. See [Prepare a SAML integration](/docs/guides/build-sso-integration/saml2/main/#prepare-a-saml-integration).
+A SAML app to test. See [Prepare a SAML integration](/docs/guides/create-an-app-integration/saml2/main/#prepare-a-saml-integration).
 
 ---
 
@@ -255,4 +255,4 @@ SAML responses are signed and contain the profile attributes of the person who r
 
 * [SAML overview](https://developer.okta.com/docs/concepts/saml/)
 * [SAML FAQ](https://developer.okta.com/docs/concepts/saml/faqs/)
-* [Prepare a SAML integration](/docs/guides/build-sso-integration/saml2/main/#prepare-a-saml-integration)
+* [Prepare a SAML integration](/docs/guides/create-an-app-integration/saml2/main/#prepare-a-saml-integration)
