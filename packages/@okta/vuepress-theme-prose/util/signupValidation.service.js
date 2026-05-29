@@ -9,8 +9,9 @@ export class SignUpValidation {
     emptyField: "This field is required."
   };
 
-  constructor(form) {
+  constructor(form, baseUri) {
     this.form = form;
+    this.baseUri = baseUri;
   }
 
   checkFormInput(key) {
@@ -92,7 +93,7 @@ export class SignUpValidation {
   }
 
   async _isWorkEmail(email) {
-    const oktaApi = new Api('https://www.okta.com');
+    const oktaApi = new Api(this.baseUri);
     try {
       const email_domain = email.split('@')[1];
       const { data: { isBusinessEmail } } = await oktaApi

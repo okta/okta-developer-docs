@@ -559,7 +559,7 @@ export default {
       return countriesList;
     },
     validationService() {
-      return new SignUpValidation(this.form);
+      return new SignUpValidation(this.form, this.$site.themeConfig.uris.baseUri);
     },
     apiService() {
       return new Api(this.$site.themeConfig.uris.baseUri);
