@@ -54,4 +54,3 @@ If you’re a Classic Engine customer who wants to upgrade their apps to use Ide
 * [Add an external identity provider](/docs/guides/identity-providers/)
 * [Configure an access policy](/docs/guides/configure-access-policy/main/)
 * [Configure a global session policy and app sign-in policies](/docs/guides/configure-signon-policy/main/)
-* [Build a Single Sign-On (SSO) integration](/docs/guides/build-sso-integration/openidconnect/main/)

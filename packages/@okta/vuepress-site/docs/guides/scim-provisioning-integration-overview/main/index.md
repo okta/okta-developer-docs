@@ -33,7 +33,7 @@ If you need more detail on the concepts behind lifecycle management with SCIM an
 
 While many ISVs have custom APIs for managing user accounts, this guide assumes that you use the [System for Cross-domain Identity Management](https://scim.cloud) (SCIM) protocol. The SCIM protocol is an industry standard that supports all the needed features for lifecycle provisioning. For more technical details on how you can take advantage of the SCIM API with Okta, see our [SCIM Protocol reference](https://developer.okta.com/docs/api/openapi/okta-scim/guides/).
 
-Your Okta integration should use Single Sign-On (SSO) to initiate end user authentication. Learn how to set up your integration with SSO in our [Build a Single Sign-On (SSO) integration](/docs/guides/build-sso-integration/) guide.
+Your Okta integration should use Single Sign-On (SSO) to initiate end user authentication. Learn how to set up your integration with SSO in our [Build a Single Sign-On (SSO) integration](/docs/guides/sign-in-overview/main/) guide.
 
 ## Guides
 
