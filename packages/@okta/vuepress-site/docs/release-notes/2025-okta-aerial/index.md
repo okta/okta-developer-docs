@@ -64,7 +64,7 @@ The [List all associated orgs API](https://developer.okta.com/docs/api/openapi/a
 
 #### Okta Aerial Console
 
-Okta Aerial allows management of multiple Okta orgs from a single, centralized account. Use the Okta Aerial Console to view your Aerial account settings, and view the list of all orgs associated with your Aerial account as well as other available orgs. You can access the Okta Aerial Console from your Aerial org if you have super admin privileges. See [Okta Aerial](https://help.okta.com/en/programs/aerial/content/topics/aerial/overview.htm).
+Okta Aerial allows management of multiple Okta orgs from a single, centralized account. Use the Okta Aerial Console to view your Aerial account settings, and view the list of all orgs associated with your Aerial account as well as other available orgs. You can access the Okta Aerial Console from your Aerial org if you have super admin privileges. See [Okta Aerial](https://help.okta.com/okta_help.htm?type=aerial&id=aerial-overview).
 
 ## February 2025
 

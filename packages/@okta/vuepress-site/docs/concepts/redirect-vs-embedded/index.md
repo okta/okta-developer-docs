@@ -47,7 +47,7 @@ The user or system is redirected to Okta for credential verification. The user o
 
 You can customize your app's [domain](/docs/guides/custom-url-domain/) and the [Okta Sign-In Widget style](/docs/guides/custom-widget/) to match your brand.
 
-> **Note**: [SSO](/docs/guides/build-sso-integration/) is supported for redirect authentication. This means that Okta may create a session (based on the Okta policies, for example). Other integrated apps can then use SSO to sign users in.
+> **Note**: [SSO](/docs/guides/sign-in-overview/main/) is supported for redirect authentication. This means that Okta may create a session (based on the Okta policies, for example). Other integrated apps can then use SSO to sign users in.
 
 Consider, for example, when an organization uses Okta as its Identity Provider:
 

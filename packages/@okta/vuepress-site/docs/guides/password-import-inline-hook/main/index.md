@@ -41,7 +41,7 @@ At a high level, the following workflow occurs:
 
 ## Install ngrok
 
-Install and run [ngrok](https://ngrok.com/downloads/). See [Install ngrok](/docs/guides/event-hook-ngrok/nodejs/main/#install-ngrok) or their [documentation](https://ngrok.com/docs) for further information.
+Install and run [ngrok](https://ngrok.com/downloads/). See [Install ngrok](/docs/guides/event-hook-ngrok/nodejs/main/#install-ngrok) or their [documentation](https://ngrok.com/docs/start).
 
 ## Create a local app
 

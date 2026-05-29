@@ -90,7 +90,6 @@ guides:
  - secure-hooks
  - single-logout
  - signup-oktahosted
- - build-sso-integration
  - custom-sms-messaging
  - submit-app
  - submit-app-prereq
