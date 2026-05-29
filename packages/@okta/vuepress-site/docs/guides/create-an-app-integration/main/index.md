@@ -91,7 +91,7 @@ Okta adds an instance of the app integration to your org, and you can now assign
 
 ### Create a custom app integration
 
-You can add an app integration that doesn't exist in the OIN, using the App Integration Wizard (AIW). The wizard allows you to create an app integration and connect Okta with your SAML, OIDC, SWA, or SCIM app. You can also add SCIM provisioning to a custom app integration.
+You can add an app integration that doesn't exist in the OIN, using the App Integration Wizard (AIW). The wizard allows you to create a custom app integration for your app and connect Okta with your SAML, OIDC, SWA, or SCIM app. You can also add SCIM provisioning to a custom app integration.
 
 >**Note:** As a best practice, create two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future.
 
@@ -102,7 +102,7 @@ You can add an app integration that doesn't exist in the OIN, using the App Inte
 
 <StackSnippet snippet="protocol-config" />
 
->**Note:** This private integration is only visible within your Okta org. To modify settings after creation, click **Edit** on the main app page. To configure your SP app, copy the **Metadata URL** from the **Sign On** tab, or click **More details** to manually copy individual URLs and certificates. To make your app publicly available later, see [Publish an OIN integration](/docs/guides/submit-app-overview/).
+>**Note:** This custom integration is only visible within your Okta org. To modify settings after creation, click **Edit** on the main app page. To configure your SP app, copy the **Metadata URL** from the **Sign On** tab, or click **More details** to manually copy individual URLs and certificates. To make your app publicly available later, see [Publish an OIN integration](/docs/guides/submit-app-overview/).
 
 ### Create an API Service Integration
 
