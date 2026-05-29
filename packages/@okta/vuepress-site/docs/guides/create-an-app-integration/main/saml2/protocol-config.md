@@ -4,3 +4,4 @@
 * Name ID format and attribute statement
 * Signed SAML assertions
 See [Application Integration Wizard SAML field reference](https://help.okta.com/okta_help.htm?type=oie&id=csh-attribute-statements-saml) for details.
+

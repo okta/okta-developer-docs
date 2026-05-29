@@ -99,16 +99,10 @@ You can add an app integration that doesn't exist in the OIN, using the App Inte
 1. Go to **Applications > Applications**.
 1. Click **Create App Integration**.
 1. Select the required integration type in the **Sign in Method** section.
-1. Choose either **Web Application** or **Single-Page Application** as the **Application type** for your integration and click **Next**.
-1. Configure the following integration settings on the **General Settings** tab:
 
-    <StackSnippet snippet="protocol-config" />
+<StackSnippet snippet="protocol-config" />
 
-1. Click **Save**.
-
-    >**Note:** This private integration is only visible within your Okta org. To modify settings after creation, click **Edit** on the main app page. If you need to generate a new client secret under **Client Credentials**, remember to update your app with the new credentials to prevent downtime. To make your app publicly available later, see [Publish an OIN integration](https://developer.okta.com/docs/guides/submit-app-overview/).
-
-1. To build and finalize your implementation settings details, see <StackSnippet snippet="integration" />
+>**Note:** This private integration is only visible within your Okta org. To modify settings after creation, click **Edit** on the main app page. To configure your SP app, copy the **Metadata URL** from the **Sign On** tab, or click **More details** to manually copy individual URLs and certificates. To make your app publicly available later, see [Publish an OIN integration](/docs/guides/submit-app-overview/).
 
 ### Create an API Service Integration
 
