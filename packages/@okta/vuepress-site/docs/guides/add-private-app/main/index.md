@@ -17,7 +17,7 @@ Use this guide to add a private, custom Single Sign-On (SSO) OpenID Connect (OID
 
 #### What you need
 
-* A functional SSO integration created in accordance with the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) guide
+* A functional SSO integration created in accordance with the [Build a Single Sign-On integration](/docs/guides/sign-in-overview/main/) guide
 * An Okta org (such as an [Okta Integrator Free Plan org](https://developer.okta.com/signup))
 
 ---
