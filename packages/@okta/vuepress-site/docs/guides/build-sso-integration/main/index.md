@@ -78,7 +78,7 @@ Having your SSO integration public in the OIN catalog provides you with exposure
 
 ### Add a private integration
 
-If you want your integration to exist only in your Okta org, follow the instructions in [Add a private SSO integration](/docs/guides/add-private-app/). This guide shows you how to use the Application Integration Wizard (AIW) in the Admin Console to:
+If you want your integration to exist only in your Okta org, follow the instructions in [Add a private SSO integration](/docs/guides/create-an-app-integration/). This guide shows you how to use the Application Integration Wizard (AIW) in the Admin Console to:
 
 * Create your app integration instance.
 * Test your SSO flows.
