@@ -5,6 +5,7 @@
 
 	* **Grant types** - Select the [grant type](/docs/guides/implement-grant-type/) for your OAuth 2.0 flow based on your app type:
 		- **Web app:**
+			- **Client credentials** (Supported for service-to-service communication when a user isn't present.)
 			- **Authorization Code** (mandatory for web platform applications)
 			- **Refresh token** (not supported for OIN app integrations)
 			- **Implicit (hybrid)** (optional) — click **Advanced** to select.
