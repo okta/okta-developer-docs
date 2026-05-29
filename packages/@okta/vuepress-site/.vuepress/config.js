@@ -64,7 +64,7 @@ function configUris() {
     case 'test':
     default:
       return {
-        baseUri: 'https://okta-next-test.oktaweb.dev',
+        baseUri: 'https://www.okqa.okta.com',
         baseUriSocial: 'https://okta-dev-parent.trexcloud.com',
         campaignId: '701F0000000mDmxIAE',
         orgPlan: 'Integrator',
@@ -140,7 +140,7 @@ module.exports = ctx => ({
      */
     captcha: {
       production: '6LeaS6UZAAAAADd6cKDSXw4m2grRsCpHGXjAFJcL',
-      test: '6LcgkzYaAAAAAAgXBo2cLdct9D-kUtyCOgcyd5WW',
+      test: '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI',
     },
 
     quickstarts: {
