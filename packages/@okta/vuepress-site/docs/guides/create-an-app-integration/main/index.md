@@ -93,12 +93,12 @@ Okta adds an instance of the app integration to your org, and you can now assign
 
 You can add an app integration that doesn't exist in the OIN, using the App Integration Wizard (AIW). The wizard allows you to create a custom app integration for your app and connect Okta with your SAML, OIDC, SWA, or SCIM app. You can also add SCIM provisioning to a custom app integration.
 
->**Note:** As a best practice, create two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future.
+>**Note**: As a best practice, create two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future.
 
 1. Open the Admin Console for your org.
 1. Go to **Applications > Applications**.
 1. Click **Create App Integration**.
-1. Select the required integration type in the **Sign-In** method section and click **Next**.
+1. Select the required integration type in the **Sign in Method** section.
 
 <StackSnippet snippet="protocol-config" />
 
@@ -116,26 +116,19 @@ Once your app is set up:
 
 1. Assign users:
 
-    a. Go to the **Assignments** tab.
+    a. Click the **Assignments** tab.
 
-    b. Click **Assign** and select either **Assign to People** or **Assign to Groups**.
+    b. Click **Assign** and then select either **Assign to People** or **Assign to Groups**.
 
-    c. Enter the people or groups that you want to grant SSO access to the app, click **Assign** for each, verify user attributes, then select **Save and Go Back**.
+    c. Enter the appropriate people or groups that you want to have Single Sign-On into your app, click **Assign** for each, verify user attributes, and select **Save and Go Back**.
 
     d. Click **Done**.
 
-1. Identity Provider (IdP) flow:
+1. Test SSO: Sign in to the Okta End-User Dashboard as a test user and click the app tile.
 
-    a. Sign in to the Okta End-User Dashboard.
+1. Verify redirection: Ensure the app-initiated flow correctly redirects back from the Okta sign-in page to your app.
 
-    b. Click the app tile and verify successful redirection/authentication.
-
-1. Review tokens or SAML assertions using developer tools or Okta logs.
-
-1. Troubleshoot:
-
-    * Install the [SAML Tracer extension for Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) for testing, or use a similar tool for other browsers.
-    * Post your questions on the [Okta Developer Forum](https://devforum.okta.com/search?q=saml).
+1. Troubleshoot: If issues occur, navigate to **Reports** > **System Log** to examine failure messages or *4XX* status codes. You can also post your questions on the [Okta Developer Forum](https://devforum.okta.com/search?q=oidc).
 
 ## See also
 <StackSnippet snippet="see-also" />
