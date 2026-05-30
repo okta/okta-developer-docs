@@ -12,7 +12,7 @@ This guide explains what an app integration is, why you need one, and how to cre
 
 * Learn about app integrations in Okta.
 * Learn how to create the app integration.
-* Learn how to test your SSO integration in your Okta org.
+* Learn how to test your sso integration in your okta org.
 
 #### What you need
 

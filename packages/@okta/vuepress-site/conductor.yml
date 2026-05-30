@@ -6091,6 +6091,10 @@ redirects:
     to: /docs/guides/migrate-to-okta-with-scripts/main/
   - from: /docs/guides/migrate-to-okta-bulk/main
     to: /docs/guides/migrate-to-okta-with-scripts/main/
+  - from: /docs/guides/add-private-app/saml2/main/index.html
+    to: /docs/guides/create-an-app-integration/saml2/main/
+  - from: /docs/guides/add-private-app/saml2/main
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /docs/guides/add-private-app/openidconnect/main/index.html
     to: /docs/guides/create-an-app-integration/openidconnect/main/
   - from: /docs/guides/add-private-app/openidconnect/main
