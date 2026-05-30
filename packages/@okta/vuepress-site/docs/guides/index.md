@@ -95,7 +95,6 @@ guides:
  - submit-app-prereq
  - submit-oin-app
  - update-oin-app
- - add-private-app
  - deployment-checklist
  - deploy-your-app
  - dpop

@@ -23,3 +23,4 @@ To quickly build your SSO integration, use an open source or paid toolkit to imp
 >* SAML integrations must use SHA256 encryption for security. If you're using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
 
 See [Application Integration Wizard SAML field reference](https://help.okta.com/okta_help.htm?type=oie&id=csh-attribute-statements-saml) for details.
+
