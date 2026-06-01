@@ -38,6 +38,7 @@
   display: none;
 
   margin: 0;
+
   border: none;
   border-top: 1px solid var(--featured-journeys-divider-color);
 
@@ -72,10 +73,9 @@
 
 .featured-journeys__card-icon {
   display: block;
+  margin-bottom: 24px;
   width: auto;
   height: 56px;
-
-  margin-bottom: 24px;
 }
 
 .featured-journeys__card-icon--dark {
