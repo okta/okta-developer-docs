@@ -7,6 +7,7 @@
       <div class="justify-content-center">
         <Hero />
         <Journeys />
+        <FeaturedJourneys />
         <Resources />
         <News />
         <Support />
@@ -16,6 +17,8 @@
 </template>
 
 <script>
+import FeaturedJourneys from "./FeaturedJourneys.vue";
+
 export default {
   name: "Home",
   components: {
@@ -25,6 +28,7 @@ export default {
     News: () => import("../components/News"),
     Support: () => import("../components/Support"),
     Journeys: () => import("../components/Journeys"),
+    FeaturedJourneys: () => import("../components/FeaturedJourneys"),
   },
 };
 </script>
