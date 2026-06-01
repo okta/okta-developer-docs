@@ -1,0 +1,13 @@
+.featured-journeys {
+  --featured-journeys-title-color: var(--c-white);
+  --featured-journeys-card-title-color: var(--c-white);
+  --featured-journeys-card-description-color: var(--c-gray-300);
+}
+
+.featured-journeys__card-icon--light {
+  display: none;
+}
+
+.featured-journeys__card-icon--dark {
+  display: block;
+}

@@ -1,5 +1,5 @@
 .journeys {
-  --journeys-text-color: #282828;
+  --journeys-text-color: var(--c-gray-960);
   --journeys-link-color: var(--c-gray-950);
   --journeys-graphic-radius: 14px;
   --journeys-padding-top: 42px;
@@ -108,7 +108,7 @@
   line-height: 22px;
   letter-spacing: 0.2px;
   text-decoration: none;
-  
+
   color: var(--journeys-link-color);
 
   &:hover {
