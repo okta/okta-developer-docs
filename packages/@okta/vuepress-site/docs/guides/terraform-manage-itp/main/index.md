@@ -38,7 +38,7 @@ The [Okta Terraform provider](https://registry.terraform.io/providers/okta/okta/
 
 > **Note:** The following ITP configurations aren't available through the Okta Terraform provider:
 > * **Universal Logout**: Configure remediation action for apps, such as Universal Logout, through the Admin Console. See [Configure Universal Logout in ITP](https://help.okta.com/okta_help.htm?type=oie&id=csh-universal-logout).
-> * **Bot protection**: Configure bot protection through the [Okta APIs](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/botprotection) or the Admin Console. See [Bot protection](https://help.okta.com/oie/en-us/content/topics/itp/bot-protection.htm) See [Bot protection](https://help.okta.com/okta_help.htm?type=oie&id=about_bot_protection).
+> * **Bot protection**: Configure bot protection through the [Okta APIs](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/botprotection) or the Admin Console. See [Bot protection](https://help.okta.com/okta_help.htm?type=oie&id=about_bot_protection).
 > * **Workflows**: Configure ITP Workflows through the Okta Workflows console. See [Workflows for Identity Threat Protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-workflows-for-itp).
 > * **Custom admin roles for ITP**: Configure custom admin roles for ITP through the Admin Console. See [Admin roles for ITP](https://help.okta.com/okta_help.htm?type=oie&id=csh-itp-rbac).
 
