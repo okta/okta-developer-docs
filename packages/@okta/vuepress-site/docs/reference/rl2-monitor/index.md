@@ -66,7 +66,7 @@ The **Overview** tab is your monitoring hub. Use it to scan for issues or drill 
 * Top offenders: A bar graph shows the top five APIs with the most rate limit events.
 * Rate Limit Buckets table: Each bucket is listed with current rate limits (including overrides and multipliers), recent events, and a usage trend line for the last hour.
 
-You can hover to reveal detailed data points, click on a rate limit bucket to see deeper metrics and historical usage, or filter by time period, multiplier status, or event type.
+You can hover to reveal detailed data points, select a rate limit bucket to see deeper metrics and historical usage, or filter by time period, multiplier status, or event type.
 
 <div class="half">
 
@@ -76,7 +76,7 @@ You can hover to reveal detailed data points, click on a rate limit bucket to se
 
 ### Events graph
 
-The event count graph plots the number of violations, bursts, and warnings over the selected time period, which can be the last 24 hours, the last seven days, last month, or the last three months. The events by API bar graph shows the top five number of events by API over the same time period.
+The event count graph plots the number of violations, bursts, and warnings over the selected time period, which can be the last 24 hours, the last seven days, last month, or the last three months. The `events by API` bar graph shows the top five number of events by API over the same time period.
 
 <div class="half">
 
@@ -195,6 +195,16 @@ Okta provides several tools to give you real-time visibility into your rate limi
 
 </div>
 
+For concurrent rate limits, these headers behave a little differently:
+
+* When the number of unfinished requests is below the concurrent rate limit, request headers only report org-wide rate limits.
+* After you exceed a concurrent rate limit, the headers report that the limit has been exceeded.
+* When you drop back down below the concurrent rate limit, the headers switch back to reporting the time-based rate limits.
+* The first two header values are always `0` for concurrent rate limit errors. The third header reports an estimated time interval when the concurrent rate limit may be resolved.
+* The `X-Rate-Limit-Reset` time for concurrent rate limits is only a suggested value. There's no guarantee that enough requests can complete for the requests to go below the concurrent rate limit at the time indicated.
+
+The error condition resolves itself when there's another concurrent thread available. Normally no intervention is required. You may be exceeding the concurrent rate limit if you notice frequent bursts of HTTP 429 errors. Examine the activities in the log before the burst of HTTP 429 errors appeared. If you can't identify what is causing you to exceed the limit, contact [Okta Support](https://support.okta.com).
+
 ### Identify the source
 
 Check the rate limit dashboard for more information:
@@ -222,6 +232,8 @@ Each event includes the endpoint (`requestURI`), the actor, thresholds, and actu
 ### Action
 
 After you have confirmed 429 errors and understand the root cause, you can employ a few strategies.
+
+If you anticipate a large number of requests over a specified time period, you can request a temporary rate limit increase. Contact [Okta Support](https://support.okta.com) to open a ticket to permit the exception. See [How to Request a Temporary Rate Limit Increase](https://support.okta.com/help/s/article/How-can-we-request-to-have-the-rate-limit-for-our-org-temporarily-increased?language=en_US).
 
 | Root cause                        | Description                                                                                                                                                                                                 | Strategies to fix                                                                                                                                                                                                                                                                                                                                                                 |
 |------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

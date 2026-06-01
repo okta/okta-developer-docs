@@ -274,7 +274,7 @@ Okta ThreatInsight coverage is now available for core Okta API endpoints ([OIDC 
 
 #### Developer documentation update in 2023.07.0
 
-The guides within the Primer for OIN OpenID Connect section have been removed. Content for OIDC protocol requirements, multi-tenancy, and best practices have been updated and merged to the [Overview of Single Sign-On in the OIN](/docs/guides/oin-sso-overview/) and [Build an SSO integration](/docs/guides/build-sso-integration/openidconnect/main/) guides. <!-- OKTA-447961 -->
+The guides within the Primer for OIN OpenID Connect section have been removed. Content for OIDC protocol requirements, multi-tenancy, and best practices have been updated and merged to the [Overview of Single Sign-On in the OIN](/docs/guides/oin-sso-overview/) and [Sign users in overview](/docs/guides/create-an-app-integration/openidconnect/main/) guides. <!-- OKTA-447961 -->
 
 #### Bug fixed in 2023.07.0
 

@@ -57,7 +57,7 @@ The following describes the usual OAuth 2.0 Authorization Code flow.
 
 At the core of both OAuth 2.0 and OIDC is the authorization server. An authorization server is simply an OAuth 2.0 token minting engine. Each authorization server has a unique issuer URI and its own signing key for tokens to keep a proper boundary between security domains. In the context of this guide, Okta is your authorization server.
 
-The authorization server also acts as an OIDC provider. This means you can request [ID tokens](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#id-token) in addition to [access tokens](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#access-token) from the authorization server endpoints.
+The authorization server also acts as an OIDC provider. This means that you can request [ID tokens](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#id-token) in addition to [access tokens](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#access-token) from the authorization server endpoints.
 
 > **Note:** For information on authorization servers, how they work, and how you can use them, see [Authorization servers](/docs/concepts/auth-servers).
 
@@ -93,6 +93,8 @@ The following table shows you which OAuth 2.0 flow to use for the type of app th
 | Service                 | [Client Credentials](#client-credentials-flow)                  | &#9989;          | &#10060;     |
 
 > **Note**: There's also an OAuth 2.0 [SAML 2.0 Assertion flow](#saml-2-0-assertion-flow). This flow is intended for client apps that want to use an existing trust relationship without a direct user approval step at the authorization server. It supports access and ID tokens.
+
+> **Note:** If you're building an integration for the [Okta Integration Network (OIN)](https://www.okta.com/integrations/), additional restrictions apply to your flow choice and authorization server. See [OIDC/OAuth 2.0 integration limitations](/docs/guides/submit-app-prereq/main/#oidc-oauth-2-0-integration-limitations).
 
 ### What kind of client are you building?
 

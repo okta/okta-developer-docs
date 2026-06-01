@@ -67,6 +67,12 @@ The following multi-tenant example assumes that your Okta app integration suppor
 * Similarly, customer B instantiates your OIDC app integration in their Okta org and obtains their unique client ID and secret. They then sign in to their account on your app platform. They use their client ID, client secret, and Okta domain (for the issuer URL) to enable SSO without any assistance from you.
 * Each customer enables SSO to your app for their users in a separate credential system with their Okta org. Because you've created a self-service portal that allows your customers to enable SSO by themselves, you save resources and provide autonomy to your customers.
 
+#### Rate limit considerations
+
+When you construct your SSO app, be aware of the limits on requests to Okta APIs. Okta provides headers in each response to report on both concurrent and org-wide rate limits. To monitor org-wide rate limits, include code in your app to check the relevant headers in the response.
+
+For information on the rate-limit categories, including which public metadata endpoints aren't subject to rate limits, see the [Rate limits overview](/docs/reference/rate-limits/). For details on response headers, troubleshooting HTTP 429 errors, and requesting a temporary rate limit increase, see [Monitor and troubleshoot rate limits](/docs/reference/rl2-monitor/).
+
 ## OIN Wizard requirements
 
 The OIN Wizard is only available in Integrator Free Plan orgs.
@@ -78,7 +84,9 @@ To access the OIN Wizard and the **Your OIN Integrations** dashboard in your org
 * You must have either the super admin or the app and org admin [roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-administrators-admin-comparison) assigned to you.
 * Use your company domain email as your username for your Okta admin account (submissions from a personal email account aren't reviewed).
 
-> **Note:** The app admin role enables you to view and edit details in the OIN Wizard. For OIN Wizard testing, you must have both the app admin and the org admin roles assigned to you. The super admin role gives you access to all functionality in the OIN Wizard.
+> **Notes:**
+> The app admin role enables you to view and edit details in the OIN Wizard. For OIN Wizard testing, you must have both the app admin and the org admin roles assigned to you. The super admin role gives you access to all functionality in the OIN Wizard.
+> You can't use the Okta SDKs to validate access tokens for apps in the OIN. This is due to the OIN restriction of using an org authorization server and the Authorization Code flow.
 
 ### OIN Wizard test requirements
 
@@ -528,9 +536,21 @@ You can't publish integrations with the following Okta features in the OIN catal
 
 In addition to the general OIN limitations, the following are limitations specific to OIDC or OAuth 2.0 integrations:
 
-* You can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server) that includes the `default` server for an OIDC or API service integration. You can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
+* When you create your app integration in your Okta org, select **Web Application** as the OIDC app type.
 
-* You can't use the Okta SDKs to validate access tokens with the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
+* Native and mobile app integrations aren't accepted as OIDC app integrations in the OIN unless they use server-side authentication patterns. Set up your app to use an authentication flow that allows your client app to talk to your SaaS backend. Your SaaS backend can then securely communicate with Okta through trusted back-channel connections. See [Implement the authorization code flow](/docs/guides/implement-grant-type/authcode/main/).
+
+* The Implicit flow isn't recommended for token exchange in web apps. If your use case requires the use of an Implicit flow for token exchange, contact [Okta Support](https://support.okta.com).
+
+* You can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server) that includes the `default` server for an OIDC or API service integration. You can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server). The following are the various `/authorize` request URLs for the different authorization servers:
+
+  * **custom authorization server**: `https://{customerOktaDomain}/oauth2/{authorizationServerId}/v1/authorize?client_id={clientId}&response_type=code&scope=openid&redirect_uri={redirectURI}&state={state}`
+  * **default custom authorization server** (`{authorizationServerId}=default`): `https://{customerOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}&response_type=code&scope=openid&redirect_uri={redirectURI}&state={state}`
+  * **org authorization server**: `https://{customerOktaDomain}/oauth2/v1/authorize?client_id={clientId}&response_type=code&scope=openid&redirect_uri={redirectURI}&state={state}`
+
+  Make sure that you only use the **org authorization server** URL. When you use the org authorization server, the issuer URL is `https://{yourOktaDomain}`.
+
+* You can't use the Okta SDKs to validate access tokens with the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server). This is due to the OIN restriction of using an org authorization server and the Authorization Code flow.
 
 * Refresh tokens aren't supported for SSO OIDC integrations published in the OIN.
 
@@ -555,6 +575,8 @@ In addition to the general OIN limitations, the following are limitations specif
 * The force authentication (`ForceAuthn`) functionality is enabled by default for SAML app instances that were created from an OIN Wizard integration. You can disable force authentication for an app instance by selecting **Disable Force Authentication** in the app **Sign On** tab.
 
 * SP-initiated Single Logout (SLO) isn’t supported.
+
+The OIN Wizard doesn't accept new SSO integrations with more than three app instance variables or advanced SAML features. For these new integrations, add a [private SSO integration](/docs/guides/add-private-app/) with the Application Integration Wizard (AIW) in your Okta org instead.
 
 The OIN team maintains existing SAML integrations with advanced features not supported in the OIN Wizard. If you need to update your existing advanced SAML integration, contact the OIN team at <oin@okta.com>.
 

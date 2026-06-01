@@ -1,11 +1,11 @@
 ---
-title: OAuth 2.0 and OpenID Connect claims
+title: OAuth 2.0 claims and scopes
 meta:
   - name: description
-    content: A high-level overview of OAuth 2.0 and OpenID Connect claims.
+    content: A high-level overview of OAuth 2.0 claims and scopes.
 ---
 
-# Learn about OAuth 2.0 and OpenID Connect claims
+# Learn about OAuth 2.0 claims and scopes
 
 [OAuth 2.0 and OpenID Connect (OIDC)](/docs/concepts/oauth-openid) claims are key-value pairs of data that contain information, typically information about a user. Okta uses these claims to provide context about the user and their permissions.
 
@@ -26,6 +26,10 @@ Claims and scopes are related in OAuth 2.0 and OIDC, but have some important dif
 During the authorization flow, an app requests specific scopes. The resulting access token or ID token includes claims that correspond to those scopes. The claims are the actual data returned as a result of that request.
 
 You can use claims for fine-grained permissions and information to enhance the security of your apps. Scopes include bundles of claims, whereas claims provide more granularity that allows you to control access to specific resources or actions.
+
+> **Note**: The following scopes aren't supported for integrations published in the OIN:
+>   * `offline_access` scope (since refresh tokens aren't supported)
+>   * Custom scopes (such as the `groups` scope). You can only request the [OIDC scopes](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scopes). You can't configure custom scopes.
 
 ### Claims in access tokens
 

@@ -56,6 +56,15 @@ SSO app integrations are multi-tenant by design. Each customer (the organization
 
 Because each org manages its own users, policies, and application access independently, a single app integration can serve multiple customers without their data or configurations affecting one another.
 
+### OIDC customer org credentials
+For OpenID Connect (OIDC) integrations, Okta uses a local credential system. When your customer adds your integration in their Okta org, they obtain a unique set of OIDC credentials. Each instance of your app integration inside a customer org has a separate set of OIDC client credentials that are used to access your app.
+
+This local credential approach differs from other IdPs that use a global credential system, where a given app has the same customer credentials across all orgs.
+
+See the [OIN multi-tenancy](/docs/guides/submit-app-prereq/main/#oin-multi-tenancy) requirement.
+
+You must track client credentials for each app integration instance for your app. For example, consider a scenario where your app integration is added to 10 separate customer orgs. Seven of those customers create a single instance of your app integration. However, the other three customers each create two separate instances of your app integration so they can use different configuration options. This scenario creates a total of 13 sets of client credentials for your app that you need to track.
+
 ## Why would you want more than one tenant
 
 An organization can create a tenant for various reasons. For example
