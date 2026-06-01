@@ -1,0 +1,126 @@
+.featured-journeys {
+  --featured-journeys-title-color: var(--c-gray-960);
+  --featured-journeys-divider-color: var(--c-gray-425);
+  --featured-journeys-card-title-color: var(--c-gray-950);
+  --featured-journeys-card-description-color: var(--c-gray-750);
+
+  padding-top: 32px;
+  padding-bottom: 32px;
+
+  background-color: cv("homepage-section", "bg");
+
+  @include media(">desktop") {
+    padding-bottom: 80px;
+  }
+}
+
+.featured-journeys__title {
+  margin-top: 0;
+  margin-bottom: 16px;
+
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: -0.8px;
+
+  color: var(--featured-journeys-title-color);
+
+  @include media(">desktop") {
+    margin-bottom: 28px;
+
+    font-size: 56px;
+    line-height: 64px;
+    letter-spacing: -1.12px;
+  }
+}
+
+.featured-journeys__divider {
+  display: none;
+
+  margin: 0;
+
+  border: none;
+  border-top: 1px solid var(--featured-journeys-divider-color);
+
+  @include media(">desktop") {
+    display: block;
+  }
+}
+
+.featured-journeys__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  margin-top: 32px;
+
+  @include media(">tablet") {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  @include media(">desktop") {
+    margin-top: 28px;
+  }
+}
+
+.featured-journeys__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.featured-journeys__card-icon {
+  display: block;
+  margin-bottom: 24px;
+  width: auto;
+  height: 56px;
+}
+
+.featured-journeys__card-icon--dark {
+  display: none;
+}
+
+.featured-journeys__card-title {
+  margin-top: 0;
+  margin-bottom: 12px;
+
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.28;
+  letter-spacing: -0.32px;
+
+  color: var(--featured-journeys-card-title-color);
+}
+
+.featured-journeys__card-description {
+  margin-top: 0;
+  margin-bottom: 24px;
+
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: 0.1px;
+
+  color: var(--featured-journeys-card-description-color);
+}
+
+.featured-journeys__card-link {
+  display: inline-flex;
+  align-items: center;
+
+  margin-top: auto;
+
+  border-bottom: 1px solid currentcolor;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
