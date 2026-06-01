@@ -23,7 +23,7 @@ If you're already familiar with Okta, you can skip to the section titled "Config
 
 Before you can configure the example application and SimpleSAMLphp you need to set up an Okta application icon that an Okta user selects to sign in to your to your application using SAML through SimpleSAMLphp.
 
-To set up Okta to connect to your application, follow the guide to [Build a Single Sign-On integration](/docs/guides/sign-in-overview/main/). As you follow the instructions to [OIN submission requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements), there are two steps where you do things differently:
+To set up Okta to connect to your application, follow the guide to [Build a Single Sign-On integration](/docs/guides/create-an-app-integration/saml2/main/). As you follow the instructions to [OIN submission requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements), there are two steps where you do things differently:
 
 * In step \#9: Use **SimpleSAMLphp Example** instead **Example SAML application**.
 * In step \#10: Instead of entering the URL: `http://example.com/saml/sso/example-okta-com`

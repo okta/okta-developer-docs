@@ -6110,7 +6110,7 @@ redirects:
   - from: /docs/guides/add-private-app/openidconnect/main
     to: /docs/guides/create-an-app-integration/openidconnect/main/
   - from: /docs/guides/build-sso-integration/openidconnect/main/
-    to: /docs/guides/sign-in-overview/main/
+    to: /docs/guides/create-an-app-integration/openidconnect/main/
   - from: /docs/guides/build-sso-integration/openidconnect/main/#deployment-models
     to: /docs/concepts/redirect-vs-embedded/
   - from: /docs/guides/build-sso-integration/openidconnect/main/#overview

@@ -300,4 +300,4 @@ Response:
 
 * [SAML overview](https://developer.okta.com/docs/concepts/saml/)
 * [SAML FAQ](https://developer.okta.com/docs/concepts/saml/faqs/)
-* [Building a SAML SSO integration](https://developer.okta.com/docs/guides/sign-in-overview/main/)
+* [Building a SAML SSO integration](https://developer.okta.com/docs/guides/create-an-app-integration/saml2/main/)
