@@ -52,7 +52,7 @@ The following table summarizes the key differences:
 
 ### Supported protocols
 
-Okta app integrations support standard protocols for both [SSO](https://developer.okta.com/docs/guides/oin-sso-overview/) and automated user provisioning:
+Okta app integrations support standard protocols for both [SSO](/docs/concepts/sso-overview/) and automated user provisioning:
 
 * [OpenID Connect (OIDC)](https://developer.okta.com/docs/concepts/oauth-openid/): Authentication protocol based on OAuth 2.0, which enables secure SSO and supports advanced security features.
 * [Security Assertion Markup Language (SAML)](https://developer.okta.com/docs/concepts/saml/): An XML-based protocol for exchanging authentication and authorization data between Okta and external apps.

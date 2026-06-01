@@ -45,7 +45,7 @@ Your app integration must support multi-tenancy to be listed in the public OIN c
 
 What does this mean?
 
-Multi-tenancy in the OIN refers to the concept that as an ISV, you support several instances of your app. Each app instance has a unique credential system for each of your customers. An instance of an app that contains the infrastructure to support a group of users is considered a tenant. See [Tenants in Okta](/docs/guides/oin-sso-overview/#tenants-in-okta).
+Multi-tenancy in the OIN refers to the concept that as an ISV, you support several instances of your app. Each app instance has a unique credential system for each of your customers. An instance of an app that contains the infrastructure to support a group of users is considered a tenant. See [Tenants in Okta](/docs/concepts/multi-tenancy/#tenants-in-okta).
 
 Provide a method for each of your customer tenants to uniquely connect to their Okta org. This allows your customers to find your app integration from the OIN catalog in their own Okta org. Then, they can instantiate the app integration with their unique tenant credentials, either with your support or on their own.
 
