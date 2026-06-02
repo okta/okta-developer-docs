@@ -8,6 +8,7 @@
         <Hero />
         <Journeys />
         <FeaturedJourneys />
+        <ReleaseNotes />
         <Resources />
         <News />
         <Support />
@@ -17,8 +18,6 @@
 </template>
 
 <script>
-import FeaturedJourneys from "./FeaturedJourneys.vue";
-
 export default {
   name: "Home",
   components: {
@@ -29,6 +28,7 @@ export default {
     Support: () => import("../components/Support"),
     Journeys: () => import("../components/Journeys"),
     FeaturedJourneys: () => import("../components/FeaturedJourneys"),
+    ReleaseNotes: () => import("../components/ReleaseNotes"),
   },
 };
 </script>
