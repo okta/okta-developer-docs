@@ -11,6 +11,6 @@
         >**Note:** After provisioning is complete, it might take some time for the entitlements to load.
 
     1. Map user profile attributes on the test instance.
-    1. Assign the entitlements to the users manually for testing or automatically through a policy. For more information, see [Assign entitlements to users](https://help.okta.com/okta_help.htm?type=oie&id=assign_entitlements_to_users).
+    1. Assign the entitlements to the users manually for testing or automatically through a policy. See [Assign entitlements to users](https://help.okta.com/okta_help.htm?type=oie&id=assign_entitlements_to_users).
 
 * For the Universal Logout integration, assign the test user and enable the **Logout** option on the instance. You can use the same instance that you created for SSO integration testing.
