@@ -1,6 +1,6 @@
 {
-  "release" : "2026.05.1",
-  "build" : "2026.05.1-begin-232-g4c8ed7fe9896",
+  "release" : "2026.06.1",
+  "build" : "2026.06.1-begin-175-g9f0adb724505",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -13,6 +13,9 @@
   }, {
     "id" : "asa",
     "name" : "Advanced Server Access"
+  }, {
+    "id" : "pam",
+    "name" : "Privileged Access Management"
   }, {
     "id" : "access-frameworks",
     "name" : "Access Frameworks"
@@ -116,6 +119,9 @@
     "id" : "iga-ramp",
     "name" : "IGA RAMP"
   }, {
+    "id" : "imports-platform",
+    "name" : "Imports Platform"
+  }, {
     "id" : "io-builder-platform",
     "name" : "Flow Builder"
   }, {
@@ -151,6 +157,9 @@
   }, {
     "id" : "oin-integration-platform",
     "name" : "OIN Integration Platform"
+  }, {
+    "id" : "onprem-integrations",
+    "name" : "On-prem Integrations"
   }, {
     "id" : "isv-submissions",
     "name" : "ISV Submissions"
@@ -977,6 +986,10 @@
     "tags" : [ ]
   }, {
     "id" : "mcp-server",
+    "description" : "",
+    "tags" : [ ]
+  }, {
+    "id" : "a2a-server",
     "description" : "",
     "tags" : [ ]
   }, {
@@ -2160,7 +2173,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -2178,7 +2191,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -2196,7 +2209,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -2214,7 +2227,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -2232,7 +2245,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -2250,7 +2263,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -2268,7 +2281,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -2286,7 +2299,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -11223,6 +11236,42 @@
         "changeDetails" : null
       }
     }, {
+      "id" : "pam.integration.create",
+      "category" : "asa",
+      "description" : "Create an integration in Okta Privileged Access. Use this event to verify that an integration has been created in Okta Privileged Access. For example, when a MySQL database integration is created.",
+      "info" : {
+        "created" : "2026-05-29",
+        "release" : "2026.05.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "pam.integration.delete",
+      "category" : "asa",
+      "description" : "Delete an integration from Okta Privileged Access. Use this event to verify that an integration has been removed from Okta Privileged Access. For example, when a MySQL database integration is deleted.",
+      "info" : {
+        "created" : "2026-05-29",
+        "release" : "2026.05.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
       "id" : "pam.member.add",
       "category" : "asa",
       "description" : "This event is triggered after a user is added to an ASA group.",
@@ -12273,6 +12322,24 @@
       "info" : {
         "created" : "2022-02-01",
         "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "pam.team.delete",
+      "category" : "asa",
+      "description" : "Delete a team from Okta Privileged Access. Audit the permanent removal of a team from Okta Privileged Access. This event is emitted by the automated expired-tenant cleanup job after a team transitions through INACTIVE and DELETING. Includes the team_id and team_name fields, mirroring pam.team.create.",
+      "info" : {
+        "created" : "2026-06-01",
+        "release" : "2026.07.0"
       },
       "beta" : false,
       "internal" : false,
@@ -14139,6 +14206,78 @@
         "changeDetails" : [ ]
       }
     }, {
+      "id" : "resource_servers.a2a_server.auth_server.add",
+      "category" : "secure-ai",
+      "description" : "An Okta custom authorization server has been associated with an A2A server, enabling that authorization server to issue tokens accepted by the A2A server. This can be used to audit when an Okta custom authorization server is linked to an A2A server.",
+      "info" : {
+        "created" : "2026-04-30",
+        "release" : "2026.06.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "a2a-server", "event-hook-eligible" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "ResourceServerMcpServerDebugData",
+        "actor" : null,
+        "targets" : [ "A2aServerResourceDetails", "ExternalAuthServerResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "resource_servers.a2a_server.auth_server.remove",
+      "category" : "secure-ai",
+      "description" : "An authorization server association has been removed from an A2A server. This can be used to audit when an Okta custom authorization server is unlinked from an A2A server.",
+      "info" : {
+        "created" : "2026-04-30",
+        "release" : "2026.06.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "a2a-server", "event-hook-eligible" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "ResourceServerMcpServerDebugData",
+        "actor" : null,
+        "targets" : [ "A2aServerResourceDetails", "ExternalAuthServerResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "resource_servers.a2a_server.delete",
+      "category" : "secure-ai",
+      "description" : "Delete A2A server. This can be used to monitor when A2A servers are removed from your organization.",
+      "info" : {
+        "created" : "2026-04-30",
+        "release" : "2026.06.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "a2a-server", "event-hook-eligible" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "ResourceServerMcpServerDebugData",
+        "actor" : null,
+        "targets" : [ "A2aServerResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "resource_servers.a2a_server.register",
+      "category" : "secure-ai",
+      "description" : "Register A2A server. This can be used to monitor when new A2A servers are registered in your organization.",
+      "info" : {
+        "created" : "2026-04-30",
+        "release" : "2026.06.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "a2a-server", "event-hook-eligible" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "ResourceServerMcpServerDebugData",
+        "actor" : null,
+        "targets" : [ "A2aServerResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
       "id" : "resource_servers.api_server.activate",
       "category" : "secure-ai",
       "description" : "Activate an API server. This can be used to audit when an API server is transitioned to an active state.",
@@ -14369,7 +14508,7 @@
       "schema" : {
         "debugData" : "ResourceServerMcpServerDebugData",
         "actor" : null,
-        "targets" : [ "McpAuthServerResourceDetails" ],
+        "targets" : [ "ExternalAuthServerResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -14387,7 +14526,7 @@
       "schema" : {
         "debugData" : "ResourceServerMcpServerDebugData",
         "actor" : null,
-        "targets" : [ "McpAuthServerResourceDetails" ],
+        "targets" : [ "ExternalAuthServerResourceDetails" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -14405,7 +14544,7 @@
       "schema" : {
         "debugData" : "ResourceServerMcpServerDebugData",
         "actor" : null,
-        "targets" : [ "McpAuthServerResourceDetails" ],
+        "targets" : [ "ExternalAuthServerResourceDetails" ],
         "changeDetails" : [ "McpAuthServerRefreshChangeDetailsEntry" ]
       }
     }, {
@@ -15067,6 +15206,24 @@
       "beta" : false,
       "internal" : true,
       "tags" : [ "security", "threat-insight" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "security.internal.valid_password_sprayed.detected",
+      "category" : "itp",
+      "description" : "This internal event is fired when we detect a successful authentication using a previously sprayed password. It is consumed by the ITP risk pipeline and drives downstream user.risk.detect events for Entity Risk Policy evaluation. This is an internal event and is not visible to the admins.",
+      "info" : {
+        "created" : "2026-04-30",
+        "release" : "2026.06.0"
+      },
+      "beta" : false,
+      "internal" : true,
+      "tags" : [ "password-spray" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -22275,6 +22432,78 @@
         "changeDetails" : null
       }
     }, {
+      "id" : "workflows.user.truststore.create",
+      "category" : "wax-insights",
+      "description" : "Add a certificate authority to a Workflows trust store. Security teams can use this event to audit additions to the trust store and ensure compliance with organizational security standards. Other trust-store lifecycle events include: workflows.user.truststore.delete, workflows.user.truststore.update, and workflows.user.truststore.view. Target carries the trust-store name and the certificate serial number. This event is only available for US Regulated Environments: FedRAMP High and DOD IL4/5, and eligible FedRAMP Moderate customers.",
+      "info" : {
+        "created" : "2026-05-11",
+        "release" : "2026.05.3"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "workflows.user.truststore.delete",
+      "category" : "wax-insights",
+      "description" : "Delete a certificate authority from a Workflows trust store. Enables alerting on unauthorized or accidental removals of trusted roots, which could disrupt secure connections. Other trust-store lifecycle events include: workflows.user.truststore.create, workflows.user.truststore.update, and workflows.user.truststore.view. Target carries the trust-store name and the certificate serial number. This event is only available for US Regulated Environments: FedRAMP High and DOD IL4/5, and eligible FedRAMP Moderate customers.",
+      "info" : {
+        "created" : "2026-05-11",
+        "release" : "2026.05.3"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "workflows.user.truststore.update",
+      "category" : "wax-insights",
+      "description" : "Update a certificate authority in a Workflows trust store. Tracks modifications to existing entries, such as certificate rotations, to ensure updates are authorized. Other trust-store lifecycle events include: workflows.user.truststore.create, workflows.user.truststore.delete, and workflows.user.truststore.view. Fires when an admin uploads a new certificate over an existing entry. Target carries the trust-store name and the new certificate serial number. This event is only available for US Regulated Environments: FedRAMP High and DOD IL4/5, and eligible FedRAMP Moderate customers.",
+      "info" : {
+        "created" : "2026-05-11",
+        "release" : "2026.05.3"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "workflows.user.truststore.view",
+      "category" : "wax-insights",
+      "description" : "View certificate authority details in a Workflows trust store. Provides an audit trail for users inspecting sensitive security configurations, which is useful for detecting potential reconnaissance. Other trust-store lifecycle events include: workflows.user.truststore.create, workflows.user.truststore.delete, and workflows.user.truststore.update. Target carries the trust-store name and the certificate serial number. This event is only available for US Regulated Environments: FedRAMP High and DOD IL4/5, and eligible FedRAMP Moderate customers.",
+      "info" : {
+        "created" : "2026-05-11",
+        "release" : "2026.05.3"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
       "id" : "workload_principal.activate",
       "category" : "workload-principal",
       "description" : "Workload principal has been activated. This event can be used to track the activation of workload principals within the organization, including details about the agent and the user who performed the activation. When fired, this event contains information about the workload principal, such as its configuration, and the user who activated it.",
@@ -22284,7 +22513,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -22302,7 +22531,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -22320,7 +22549,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -22338,7 +22567,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -22356,7 +22585,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -22374,12 +22603,48 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
         "actor" : null,
         "targets" : [ "WorkloadPrincipalResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workload_principal.delegation_link.create",
+      "category" : "workload-principal",
+      "description" : "Create a workload principal delegation link. This event can be used to track the creation of delegation link for workload principals within the organization, including details about the source, target and the user who created it. When fired, this event contains information about the workload principal, the delegation link created, and the user who performed the creation.",
+      "info" : {
+        "created" : "2026-05-11",
+        "release" : "2026.06.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalResourceDetails", "WorkloadPrincipalDelegationLink" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "workload_principal.delegation_link.delete",
+      "category" : "workload-principal",
+      "description" : "Delete a workload principal delegation link. This event can be used to track the deletion of delegation link for workload principals within the organization, including details about the source, target and the user who deleted it. When fired, this event contains information about the delegation link deleted, and the user who performed the deletion.",
+      "info" : {
+        "created" : "2026-05-11",
+        "release" : "2026.06.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "WorkloadPrincipalDebugData",
+        "actor" : null,
+        "targets" : [ "WorkloadPrincipalResourceDetails", "WorkloadPrincipalDelegationLink" ],
         "changeDetails" : [ ]
       }
     }, {
@@ -22392,7 +22657,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -22410,7 +22675,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -22428,7 +22693,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -22446,7 +22711,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -22464,7 +22729,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -22482,7 +22747,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -22500,7 +22765,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -22518,7 +22783,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -22536,7 +22801,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -22554,7 +22819,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "workload-principal" ],
+      "tags" : [ "event-hook-eligible", "workload-principal" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "WorkloadPrincipalDebugData",
@@ -34483,6 +34748,22 @@
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
           },
+          "idp_endpoint_url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "https://example.com/services/oauth2/token", "https://example.com/services/oauth2/userinfo" ]
+          },
+          "idp_display_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "OIDC Idp", "SAML Idp" ]
+          },
           "invalid_configured_key_ids" : {
             "type" : "String",
             "sensitive" : false,
@@ -38221,6 +38502,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "delegation_link_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:delegationLinkId",
+            "examples" : [ "dlkbf8u8iqQsZr1fq1t7", "dlkmmbjao77Fzrb1E0x7", "dlk7dqpc0lWdQuIr02p7" ]
           },
           "workload_principal_orn" : {
             "type" : "String",
@@ -46706,6 +46995,14 @@
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
           },
+          "is_self_initiated" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
           "temp_password_set" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -50011,6 +50308,27 @@
           }
         }
       },
+      "A2aServerResourceDetails" : {
+        "name" : "A2aServerResourceDetails",
+        "properties" : {
+          "a2a_server_resource_url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "https://demo-agent.example.com" ]
+          },
+          "a2a_server_orn" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "orn:okta:idp:00o1234abcDE56789:a2a-servers:wlpo1234abcdEFGH5678" ]
+          }
+        }
+      },
       "AccessRequestResourceDetails" : {
         "name" : "AccessRequestResourceDetails",
         "properties" : {
@@ -50135,6 +50453,38 @@
       "AuthenticatorEnrollmentResourceDetails" : {
         "name" : "AuthenticatorEnrollmentResourceDetails",
         "properties" : {
+          "authenticator_transports" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"internal\", \"hybrid\"]", "[\"usb\", \"ble\", \"nfc\"]" ]
+          },
+          "passkey" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true" ]
+          },
+          "aaguid" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "00000000-0000-0000-0000-000000000000", "CB69481E-8FF7-4039-93EC-0A2729A154A8", "08987058-CADC-4B81-B6E1-30DE50DCBE96" ]
+          },
+          "backup_eligible" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
           "method_used_verified_properties" : {
             "type" : "Set",
             "sensitive" : false,
@@ -50156,6 +50506,38 @@
       "AuthenticatorEnrollmentResourceDetailsEx" : {
         "name" : "AuthenticatorEnrollmentResourceDetailsEx",
         "properties" : {
+          "authenticator_transports" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"internal\", \"hybrid\"]", "[\"usb\", \"ble\", \"nfc\"]" ]
+          },
+          "passkey" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true" ]
+          },
+          "aaguid" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "00000000-0000-0000-0000-000000000000", "CB69481E-8FF7-4039-93EC-0A2729A154A8", "08987058-CADC-4B81-B6E1-30DE50DCBE96" ]
+          },
+          "backup_eligible" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
           "method_used_verified_properties" : {
             "type" : "Set",
             "sensitive" : false,
@@ -51048,6 +51430,27 @@
           }
         }
       },
+      "ExternalAuthServerResourceDetails" : {
+        "name" : "ExternalAuthServerResourceDetails",
+        "properties" : {
+          "auth_server_issuer_url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "https://auth.example.com" ]
+          },
+          "auth_server_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "ACTIVE", "INACTIVE", "PENDING", "INVALID" ]
+          }
+        }
+      },
       "HookKeyResourceDetails" : {
         "name" : "HookKeyResourceDetails",
         "properties" : {
@@ -51217,27 +51620,6 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ "aef65ce9-b9c0-47b4-bf78-bdd5df4f4b24" ]
-          }
-        }
-      },
-      "McpAuthServerResourceDetails" : {
-        "name" : "McpAuthServerResourceDetails",
-        "properties" : {
-          "auth_server_issuer_url" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "uri",
-            "examples" : [ "https://auth.example.com" ]
-          },
-          "auth_server_status" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "ACTIVE", "INACTIVE", "PENDING", "INVALID" ]
           }
         }
       },
@@ -51554,6 +51936,14 @@
             "customer" : false,
             "format" : "okta:appInstanceId",
             "examples" : [ "0oanrajfrtdHZYrwn0x7", "0oaop0ink4cq9fGUN0x7", "0oan5ql6s5W0JoTz00x7" ]
+          },
+          "actor" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"sub\":\"wlp6nmo4sKcRGuacC0g5\",\"sub_profile\":\"ai_agent\",\"act\":{\"sub\":\"0oa1e66iqQPtvuEJ70g5\",\"sub_profile\":\"web_app\"}}" ]
           }
         }
       },
@@ -53419,6 +53809,51 @@
           }
         }
       },
+      "WorkloadPrincipalDelegationLink" : {
+        "name" : "WorkloadPrincipalDelegationLink",
+        "properties" : {
+          "workload_principal_delegation_link_to_resource_orn" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "orn:okta:directory:00o4p0z0f8s5rNkEJ8g6:workload-principals:ai-agents:wlp25spbxqmZzyS4f0h" ]
+          },
+          "workload_principal_delegation_link_to_authorization_server_orn" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "orn:okta:idp:00o15qfgoxB8xxXGF0g5:authorization_servers:aus3coymqtHobaVSr0g5" ]
+          },
+          "workload_principal_delegation_link_from_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "OKTA_AUTHORIZATION_SERVER" ]
+          },
+          "workload_principal_delegation_link_from_token_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "ID_TOKEN", "ACCESS_TOKEN" ]
+          },
+          "workload_principal_delegation_link_from_client_orn" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "orn:okta:idp:00o11edPwGqbUrsDm0g4:apps:oidc:0oafxqCAJWWGELFTYASJ" ]
+          }
+        }
+      },
       "WorkloadPrincipalResourceConnectionDetails" : {
         "name" : "WorkloadPrincipalResourceConnectionDetails",
         "properties" : {
@@ -53467,6 +53902,14 @@
       "WorkloadPrincipalResourceDetails" : {
         "name" : "WorkloadPrincipalResourceDetails",
         "properties" : {
+          "workload_principal_resource_url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "https://demo-agent.example.com" ]
+          },
           "workload_principal_platform" : {
             "type" : "String",
             "sensitive" : false,
@@ -53869,7 +54312,7 @@
             "personal" : false,
             "customer" : false,
             "format" : "json",
-            "examples" : [ "{\"groups\" : [ \"00g1oqdbq6o0sbXZt0g4\"]" ]
+            "examples" : [ "{\"groups\" : [ \"00g1oqdbq6o0sbXZt0g4\"]}", "{\"scoped_entitlement_options\" : [{\"assets\" : {\"ids\" : [\"rea12g24007g0x41m0g4\"]}, \"entitlements\" : {\"entitlement_values\" : [{\"id\" : \"espfxqCAJWWGELFTYASJ\", \"values\" : [\"entfxqCAJWWGELFTYAAA\"]}]}}]}" ]
           },
           "access_scope_settings_type" : {
             "type" : "String",
@@ -53877,7 +54320,7 @@
             "personal" : false,
             "customer" : false,
             "format" : "text",
-            "examples" : [ "ENTITLEMENT_BUNDLES", "ENTITLEMENT_VALUES", "GROUPS", "RESOURCE_DEFAULT" ]
+            "examples" : [ "ENTITLEMENT_BUNDLES", "ENTITLEMENT_VALUES", "GROUPS", "RESOURCE_DEFAULT", "SCOPED_ENTITLEMENTS" ]
           },
           "requester_settings" : {
             "type" : "RequesterSettings",
@@ -56039,6 +56482,22 @@
       "WorkloadPrincipalChangeDetailsEntry" : {
         "name" : "WorkloadPrincipalChangeDetailsEntry",
         "properties" : {
+          "workload_principal_platform" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "AWS_BEDROCK_AGENTCORE" ]
+          },
+          "workload_principal_external_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "3SSZFQL7OU" ]
+          },
           "workload_principal_status" : {
             "type" : "String",
             "sensitive" : false,
