@@ -32,7 +32,7 @@ Okta represents each user as a single user object. The profile object within thi
 
 The true power of UD lies in its schema extensibility. Using the Profile Editor or the Schema API, you can add custom attributes to the profile object to store any required organizational data. You must assign each custom attribute a specific data type (such as string, number, Boolean, integer, or array). Configure attributes with end user permissions (read-only, read-write) and other constraints, such as being required or unique. This allows you to transform the Okta user profile into the definitive and trusted record for each user. See [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/) and [Schemas API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/).
 
-Okta supports importing users from several sources, primarily through directory services, CSV files, and connected apps. You can also import users through custom sources (see [Build an Anything-as-a-Source custom client integration](/docs/guides/anything-as-a-source/)). Importing users into UD enables you to automate, secure, and scale identity operations like the [mover-joiner-leaver](/docs/guides/oin-lifecycle-mgmt-overview/#example-of-a-workforce-lifecycle-journey-with-okta) lifecycle management process. See [Import Users](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-import-users-main.htm).
+Okta supports importing users from several sources, primarily through directory services, CSV files, and connected apps. You can also import users through custom sources (see [Build an Anything-as-a-Source custom client integration](/docs/guides/anything-as-a-source/)). Importing users into UD enables you to automate, secure, and scale identity operations like the [mover-joiner-leaver](/docs/guides/oin-lifecycle-mgmt-overview/#example-of-a-workforce-lifecycle-journey-with-okta) lifecycle management process. See [Import Users](https://help.okta.com/okta_help.htm?type=oie&id=ext_Importing_People).
 
 This user profile is separate from the app user profile used for granular attribute mapping. You can designate a single system (like an HR platform) as the primary source for a user's entire profile (profile-level sourcing). You can do this while also sourcing specific attributes from different sources (attribute-level sourcing). This provides the flexibility to create a composite user record, no matter the source of an attribute. For example, you can source a user's manager from Workday while sourcing their email address from Active Directory, creating a single profile from multiple authoritative systems.
 
@@ -80,7 +80,7 @@ See the [Profile Mappings API](https://developer.okta.com/docs/api/openapi/okta-
 Effective access management is achieved through groups, not individual user assignments. Universal Directory supports two primary group types:
 
 * **Okta Groups:** Groups that are created and managed directly within Okta.
-* **Groups in apps and directories**: Groups that are imported from external directories, such as Active Directory, LDAP, or from apps. Membership is managed in the source directory or app and synchronized to Okta. Only certain apps can import groups into Okta. See [Okta group source types](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-group-types.htm).
+* **Groups in apps and directories**: Groups that are imported from external directories, such as Active Directory, LDAP, or from apps. Membership is managed in the source directory or app and synchronized to Okta. Only certain apps can import groups into Okta. See [Okta group source types](https://help.okta.com/okta_help.htm?type=oie&id=about_group_source_types).
 
 See the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) and [Group Rules API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/).
 
@@ -140,7 +140,7 @@ Centralizing user data in Universal Directory unlocks advanced capabilities for 
 
 Okta Identity Governance (OIG) is a product that works with Universal Directory by using its attributes and relationships as the foundation for governance processes. In essence, UD provides the identity "state" (who users are, their relationships, and their entitlements), while OIG provides the governance layer to ensure that state is correct and audited.
 
-See [Identity Governance](https://help.okta.com/oie/en-us/content/topics/identity-governance/iga.htm) and [Okta Identity Governance APIs](https://developer.okta.com/docs/api/iga/).
+See [Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) and [Okta Identity Governance APIs](https://developer.okta.com/docs/api/iga/).
 
 ### Realms for segmenting user populations
 
@@ -154,7 +154,7 @@ Key capabilities and benefits of realms include:
 
 For developers, realms are fully manageable using the Realms API (`/api/v1/realms`). You can programmatically create realms, assign users, and configure realm-specific behaviors, enabling complex, multi-tenant use cases on a unified platform.
 
-See the [Realms API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Realm/) and [Manage Realms](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/realms/realms.htm).
+See the [Realms API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Realm/) and [Manage Realms](https://help.okta.com/okta_help.htm?type=oie&id=ext-realms).
 
 ### Fine-grained authentication and authorization
 

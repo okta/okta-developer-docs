@@ -22,7 +22,7 @@ You can also grant granular hook management permissions to custom admin roles. C
 | Inline hook | Manage              | [okta.inlinehooks.manage](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#oktainlinehooksmanage)     |
 | Inline hook | Read                | [okta.inlinehooks.read](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions/#oktainlinehooksread)         |
 
-For more information on custom roles, see [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#roles-in-okta) and [Custom admin roles](https://help.okta.com/oie/en-us/content/topics/security/custom-admin-role/custom-admin-roles.htm).
+For more information on custom roles, see [Roles in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#roles-in-okta) and [Custom admin roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-cstm-admin-roles).
 
 >**Note:** Custom permissions for hooks are a [self-service Early Access (EA)](/docs/concepts/feature-lifecycle-management/#self-service-features) feature. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable it.
 

@@ -73,7 +73,7 @@ You can build custom apps to monitor and analyze events in Okta using Okta SDKs 
 
 Refer to the supported [Event Types catalog](/docs/reference/api/event-types/#catalog) for the list of events you can use to filter for the system logs you're interested in.
 
-See [System Log filters and search](https://help.okta.com/en-us/content/topics/reports/syslog-filters.htm) and [System Log query](/docs/reference/system-log-query/) for common system log query use cases.
+See [System Log filters and search](https://help.okta.com/okta_help.htm?type=oie&id=csh-syslog-filters) and [System Log query](/docs/reference/system-log-query/) for common system log query use cases.
 
 > **NOTE**: When you test your custom monitoring tool, use the Admin Console for verification or troubleshooting purposes. Compare the system logs from the Admin Console with the system logs received in your custom tool.
 
