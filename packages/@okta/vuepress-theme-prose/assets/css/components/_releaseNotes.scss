@@ -41,7 +41,7 @@
 
   background-color: var(--release-notes-card-background-color);
 
-  @include media(">desktop") {
+  @include media(">tablet") {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: start;
@@ -116,6 +116,10 @@
     text-decoration: none;
 
     color: var(--release-notes-button-hover-text-color);
+  }
+
+  &:visited {
+    color: var(--release-notes-button-text-color);
   }
 }
 
