@@ -11,6 +11,45 @@ title: Okta Identity Governance API release notes 2026
 
 Okta Identity Governance is available for both Okta Classic Engine and Okta Identity Engine.
 
+## June
+
+### Monthly release 2026.06.0
+<!-- Published on: 2026-06-03T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Increased maximum for groups in access scope settings](#increased-maximum-for-groups-in-access-scope-settings) | June 3, 2026 |
+| [Customize Justification Requirements is GA in Preview](#customize-justification-requirements-is-ga-in-preview) | May 13, 2026 |
+| [Self-review for Okta admin roles is GA in Preview](#self-review-for-okta-admin-roles-is-ga-in-preview) | May 6, 2026 |
+| [Automate access request management with Tasks APIs is Beta](#automate-access-request-management-with-tasks-apis-is-beta) | May 20, 2026 |
+
+#### Increased maximum for groups in access scope settings
+
+You can now specify a maximum of 500 unique groups when you define the `accessScopeSettings` parameter for an access request condition.
+
+#### Customize Justification Requirements is GA in Preview
+
+When you create or edit a campaign, configure [Justification Settings](https://help.okta.com/okta_help.htm?type=oie&id=csh-bp-create-campaign) to provide granular control over how campaign reviewers justify their access decisions. This includes requiring the reviewer to provide a reason for revoking or approving access. This helps you better align the reviewer experience with your org’s specific compliance needs.
+
+The [`reviewerSettings.justificationRequirement`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reviewersettings/justificationRequirement) campaign API property has been added to support configuring review justification settings. Use this new property instead of `reviewerSettings.justificationRequired` for granular control over review justification settings.
+<!-- OKTA-1169635 IGA_ACCESS_CERT_JUSTIFICATION_CONTROLS, Preview date: May 13, 2026 -->
+
+#### Self-review for Okta admin roles is GA in Preview
+
+Allow or block campaign reviewers from approving or revoking their own access to Okta admin roles. While Okta prevents self-reviews in campaigns that govern Okta admin roles by default, this feature gives you the option to allow self-reviews. See [Create campaigns to review admin roles](https://help.okta.com/okta_help.htm?type=oie&id=csh-campaign-admin-roles).
+
+As a result, the [`reviewerSettings.selfReviewDisabled`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reviewersettings/selfreviewdisabled) and the [reviewerSettings.reviewerLevels.selfReviewDisabled](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reviewersettings/reviewerlevels/selfreviewdisabled) properties aren't required to be `true` for campaigns that include the Admin Console as a resource.
+<!--  OKTA-1163396 IGA_ACCESS_CERT_ALLOW_SELF_REVIEW_GOFAR, Preview date: May 6, 2026 -->
+
+#### Automate access request management with Tasks APIs is Beta
+
+The Tasks APIs allow admins to automate the management of in-flight access requests and build custom approval logic using tools like Okta Workflows. These APIs enable the integration of the access request lifecycle into custom portals, IT Service Management (ITSM) tools, custom CLIs, or chatbots.
+
+These APIs are only available for access requests managed by conditions in **Access Request - V2**:
+* **Access Request - V2** > [Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks)
+* **End user APIs** > [My Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks)
+<!-- OKTA-1162968 IN_FLIGHT_REQUEST_API Preview: May 20, 2026 -->
+
 ## May
 
 ### Weekly release 2026.05.2
@@ -25,11 +64,9 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 The Tasks APIs allow admins to automate the management of in-flight access requests and build custom approval logic using tools like Okta Workflows. These APIs enable the integration of the access request lifecycle into custom portals, IT Service Management (ITSM) tools, custom CLIs, or chatbots.
 
 These APIs are only available for access requests managed by conditions in **Access Request - V2**:
-* **Access Request - V2** > [Tasks]
-* **End user APIs** > [My Tasks]
+* **Access Request - V2** > [Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks)
+* **End user APIs** > [My Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks)
 <!-- OKTA-1162968 IN_FLIGHT_REQUEST_API Preview: May 20, 2026 -->
-<!-- [Tasks] link: https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks -->
-<!-- [My Tasks] link: https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks -->
 
 ### Weekly release 2026.05.1
 <!-- Published on: 2026-05-13T12:00:00Z -->
