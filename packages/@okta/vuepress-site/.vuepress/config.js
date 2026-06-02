@@ -268,9 +268,9 @@ module.exports = ctx => ({
       },
       websites: {
         items: [
-          { text: 'OKTA.COM', link: 'https://www.okta.com/', description: 'Products, case studies, resources' },
-          { text: 'HELP CENTER', link: 'https://support.okta.com/help/s/', description: 'Knowledgebase, roadmaps, and more' },
-          { text: 'TRUST', link: 'https://trust.okta.com/', description: 'System status, security, compliance' },
+          { text: 'Okta.com', link: 'https://www.okta.com/', description: 'Products, case studies, and resources' },
+          { text: 'Support Center', link: 'https://support.okta.com/help/s/', description: 'Knowledgebase, roadmaps, and more' },
+          { text: 'Okta trust', link: 'https://trust.okta.com/', description: 'System status, security, and compliance' },
         ]
       }
     },
