@@ -16,16 +16,18 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 ### Monthly release 2026.06.0
 <!-- Published on: 2026-06-03T12:00:00Z -->
 
-| Change | Expected in Preview Orgs |
-| ------ | ------------------------ |
-| Service accounts is GA | May 6, 2026 |
+| Change | Expected in Preview Orgs | Expected in Production |
+| ------ | ------------------------ | -----------------------|
+| [Service accounts is GA in Production](#service-accounts-is-ga-in-production) | May 6, 2026 | June 3, 2026 |
 
-#### Service accounts is GA
+#### Service accounts is GA in Production
 
 The new Okta Managed User Accounts API is now available for Okta Privileged Access-enabled orgs. Okta Privileged Access secures SaaS service accounts that allows customers to monitor, manage, and control access to service accounts in their SaaS apps. Okta users designated with privileged access are treated as service accounts that resource admins can assign to resource groups and projects, and security admins can create policies to configure which users can access them. The Okta Managed User Accounts API provides operations to manage these user accounts in Okta Universal Directory with OPA.
 This feature is available only if you're subscribed to Okta Privileged Access. Ensure that you've set up the Okta Privileged Access app before creating app accounts through the API.
 
-<!-- OKTA-1165876, OKTA-955102 FF: SERVICE_ACCOUNTS and CUSTOM_ADMIN_ROLE_SERVICE_ACCOUNTS preview date: May 6, 2026, See [Okta Managed User Accounts](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/oktamanageduseraccount), [Service Accounts](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/serviceaccount) and [Manage service accounts](https://help.okta.com/okta_help.htm?type=oie&id=ud-privileged-acnt). -->
+See [Okta Managed User Accounts](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/oktamanageduseraccount), [Service Accounts](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/serviceaccount), and [Manage service accounts](https://help.okta.com/okta_help.htm?type=oie&id=ud-privileged-acnt).
+
+<!-- OKTA-1165876, OKTA-955102 FF: SERVICE_ACCOUNTS and CUSTOM_ADMIN_ROLE_SERVICE_ACCOUNTS preview date: May 6, 2026 -->
 
 ## May
 
