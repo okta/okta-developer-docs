@@ -11,6 +11,105 @@ title: Okta Identity Engine API release notes 2026
   Subscribe to RSS
 </a>
 
+## June
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Service accounts is GA in Production](#service-accounts-is-ga-in-production) | May 6, 2026 |
+| [New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview](#new-directories-integration-endpoints-to-view-extended-active-directory-group-attributes-is-ga-in-preview) | June 3, 2026 |
+| [Clear Managed Chrome Profile Browsing Data is GA in Preview](#clear-managed-chrome-profile-browsing-data-is-ga-in-preview) | June 3, 2026 |
+| [Bring your own telephony credentials is GA in Production](#bring-your-own-telephony-credentials-is-ga-in-production) | January 7, 2026 |
+| [SHA-256 digest algorithm support is GA in Production](#sha-256-digest-algorithm-support-is-ga-in-production) | December 10, 2025 |
+| [Seamless ISV experience for SCIM is GA in Production](#seamless-isv-experience-for-scim-is-ga-in-production) | June 3, 2026 |
+| [New System Log event for database privileged access management is EA](#new-system-log-event-for-database-privileged-access-management-is-ea) | June 3, 2026 |
+| [Bugs fixed in 2026.06.0](#bugs-fixed-in-2026-06-0)| June 3, 2026 |
+
+#### Service accounts is GA in Production
+
+The Okta Managed User Accounts API is now available for Okta Privileged Access-enabled orgs. Okta Privileged Access secures SaaS service accounts that allows customers to monitor, manage, and control access to service accounts in their SaaS apps. Okta users designated with privileged access are treated as service accounts that resource admins can assign to resource groups and projects, and security admins can create policies to configure which users can access them. The Okta Managed User Accounts API provides operations to manage these user accounts in Okta Universal Directory with OPA.
+This feature is available only if you're subscribed to Okta Privileged Access. Ensure that you've set up the Okta Privileged Access app before creating app accounts through the API.
+
+<!-- OKTA-1165876, OKTA-955102 FF: SERVICE_ACCOUNTS and CUSTOM_ADMIN_ROLE_SERVICE_ACCOUNTS preview date: May 6, 2026, See [Okta Managed User Accounts](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/oktamanageduseraccount), [Service Accounts](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/serviceaccount) and [Manage service accounts](https://help.okta.com/okta_help.htm?type=oie&id=ud-privileged-acnt). -->
+
+#### New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview
+
+New API endpoints have been added to the Directories Integration (`POST /api/v1/directories/{appInstanceId}/group/{groupId}/query` and `GET /api/v1/directories/{appInstanceId}/group/{groupId}/query/{resultId}`), which allows for the real-time retrieval of any standard or custom attribute from Active Directory (AD) groups. You can now programmatically access attributes, like cost centers and department codes, without waiting for a full directory sync. This feature allows you to accelerate automation by using live AD group metadata, while simultaneously eliminating manual data management by creating a single, reliable bridge between your on-premises directory details and your cloud ecosystem. See [Directories Integrations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/directoriesintegration).
+
+#### Clear Managed Chrome Profile Browsing Data is GA in Preview
+
+Clear Managed Chrome Profile Browsing Data provides real-time remediation by instantly purging local session data (cookies and cache) within managed Chrome profiles upon ITP detection. By transforming the browser into a policy-enforced workspace, it ensures immediate, automated protection. See [API doc].
+
+#### Bring your own telephony credentials is GA in Production
+
+You can now connect your own telephony provider using a new simplified setup that doesn’t require you to use a telephony inline hook. You can handle usage billing directly with your provider. Okta currently supports Twilio and Telesign.
+
+To configure your own telephony credentials, you can use the [Custom Telephony Provider API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTelephonyProvider/) or you can use the [Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=configure-telephony-providers).
+
+<!--  OKTA-1075267 CUSTOM_TELEPHONY_PROVIDERS preview date: Jan 7, 2026 -->
+
+#### SHA-256 digest algorithm support is GA in Production
+
+Okta now supports the SHA-256 digest algorithm when hashing SAML AuthnRequests that are sent to external IdPs. <!-- IDP_SHA256_DIGEST_ALGORITHM_SUPPORT OKTA-1061375 preview date: Dec 10, 2025 -->
+
+#### Seamless ISV experience for SCIM is GA in Production
+
+Okta now provides a seamless ISV experience to optimize the [Okta Integration Network (OIN)](https://www.okta.com/integrations/) submission experience for SCIM integrations. This new experience enables independent software vendors (ISVs) to build and manually test their SCIM integration metadata before submission to the OIN. This reduces the time needed for the OIN team to review and validate that the SCIM integration functions as intended, which shortens the time to publish in the OIN. This experience also incorporates communication processes in Salesforce, enabling improved collaboration internally within Okta teams and externally with ISVs. See [Publish an OIN integration overview](https://developer.okta.com/docs/guides/submit-app-overview/) and [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/scim/main/) guide.
+
+#### New System Log event for database privileged access management is EA
+
+New System Log events allow you to track when database integrations are created (`pam.integration.create`) or removed (`pam.integration.delete`) in Okta Privileged Access. See [Event Types](/docs/reference/api/event-types/).
+<!--  OKTA-1166896 - Added in Release 2026.05.1 -->
+
+#### Bugs fixed in 2026.06.0
+
+* The `application.lifecycle.update` event in the System Log didn't populate the `changeDetails` field when Active Directory app settings were updated. (OKTA-1178325) (OKTA-1178325)
+
+* In Identity Engine orgs where both a v1 (Classic Engine) session (`sid` cookie) and an Identity Engine session (`idx` cookie) were active, calls to the deprecated endpoint `DELETE /api/v1/sessions/me` returned HTTP 404 errors and left the v1 session active when the Identity Engine session had already been deleted. (OKTA-1163605)
+
+* When `actor_token_type` wasn't included in an interclient token exchange request to a custom authorization server, Okta returned an invalid audience error instead of an error related to the missing parameter. (OKTA-1116317)
+
+* The `/.well-known/oauth-authorization-server` metadata [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/customas/getwellknownoauthconfigurationcustomas) for custom authorization servers used a path (`/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`) that didn't comply with RFC 8414, which prevented RFC-compliant OAuth 2.0 clients from retrieving authorization server metadata. The RFC-compliant path (`/.well-known/oauth-authorization-server/oauth2/{authorizationServerId}`) is now supported alongside the existing path. (OKTA-998096)
+
+### Monthly release 2026.06.0
+<!-- Published on: 2026-06-03T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Increased maximum for groups in access scope settings]() | ADD_DATE |
+| [Customize Justification Requirements is GA in Preview]() | ADD_DATE |
+| [Self-review for Okta admin roles is GA in Preview]() | ADD_DATE |
+| [Automate access request management with Tasks APIs is Beta]() | ADD_DATE |
+
+#### Increased maximum for groups in access scope settings
+
+You can now specify a maximum of 500 unique groups when you define the `accessScopeSettings` parameter for an access request condition. 
+
+#### Customize Justification Requirements is GA in Preview
+
+When you create or edit a campaign, configure [Justification Settings](https://help.okta.com/okta_help.htm?type=oie&id=csh-bp-create-campaign) to provide granular control over how campaign reviewers justify their access decisions. This includes requiring the reviewer to provide a reason for revoking or approving access. This helps you better align the reviewer experience with your org’s specific compliance needs.
+
+The [`reviewerSettings.justificationRequirement`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reviewersettings/justificationRequirement) campaign API property has been added to support configuring review justification settings. Use this new property instead of `reviewerSettings.justificationRequired` for granular control over review justification settings.
+<!-- OKTA-1169635 IGA_ACCESS_CERT_JUSTIFICATION_CONTROLS, Preview date: May 13, 2026 -->
+
+#### Self-review for Okta admin roles is GA in Preview
+
+Allow or block campaign reviewers from approving or revoking their own access to Okta admin roles. While Okta prevents self-reviews in campaigns that govern Okta admin roles by default, this feature gives you the option to allow self-reviews. See [Create campaigns to review admin roles](https://help.okta.com/okta_help.htm?type=oie&id=csh-campaign-admin-roles).
+
+As a result, the [`reviewerSettings.selfReviewDisabled`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reviewersettings/selfreviewdisabled) and the [reviewerSettings.reviewerLevels[].selfReviewDisabled](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reviewersettings/reviewerlevels/selfreviewdisabled) properties aren't required to be `true` for campaigns that include the Admin Console as a resource.
+<!--  OKTA-1163396 IGA_ACCESS_CERT_ALLOW_SELF_REVIEW_GOFAR, Preview date: May 6, 2026 -->
+
+#### Automate access request management with Tasks APIs is Beta
+
+The Tasks APIs allow admins to automate the management of in-flight access requests and build custom approval logic using tools like Okta Workflows. These APIs enable the integration of the access request lifecycle into custom portals, IT Service Management (ITSM) tools, custom CLIs, or chatbots.
+
+These APIs are only available for access requests managed by conditions in **Access Request - V2**:
+* **Access Request - V2** > [Tasks]
+* **End user APIs** > [My Tasks]
+
+<!-- OKTA-1162968 IN_FLIGHT_REQUEST_API Preview: May 20, 2026 -->
+<!-- [Tasks] link: https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks -->
+<!-- [My Tasks] link: https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks -->
+
 ## May
 
 ### Weekly release 2026.05.3
