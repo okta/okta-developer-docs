@@ -1,0 +1,18 @@
+.release-notes {
+  --release-notes-divider-color: var(--c-gray-460);
+  --release-notes-card-background-color: #1e1e1e;
+  --release-notes-title-color: var(--c-gray-350);
+  --release-notes-description-color: var(--c-gray-350);
+  --release-notes-button-background-color: var(--c-white);
+  --release-notes-button-hover-background-color: var(--c-green-300);
+  --release-notes-button-text-color: var(--c-gray-950);
+  --release-notes-button-hover-text-color: var(--c-gray-950);
+  --release-notes-newest-releases-label-color: var(--c-gray-350);
+  --release-notes-newest-releases-link-color: var(--c-gray-350);
+}
+
+.release-notes__button {
+  &:hover {
+    color: var(--release-notes-button-hover-text-color) !important;
+  }
+}
