@@ -9,7 +9,7 @@
           Advanced
         </span>
         <p class="resources__subtitle dont-break-out">
-          Automation and Orchestration
+          Automation and orchestration
         </p>
         <p class="resources__paragraph dont-break-out">
           Automate your Okta provisioning with Terraform. Okta articles and partner resources are available to help you get up and running, and as always, the Okta community forum is a great space to ask questions and find peer support.
@@ -58,7 +58,7 @@
               class="resources__list-link dont-break-out"
               href="https://support.okta.com/help/s/article/Prepare-the-Okta-Terraform-Provider-for-the-OIE-upgrade?language=en_US"
             >
-              <span>Prepare the Okta Terraform Provider for OIE Upgrade</span>
+              <span>Prepare the Okta Terraform provider for OIE upgrade</span>
               <div class="resources__list-icon" />
             </a>
             <a
