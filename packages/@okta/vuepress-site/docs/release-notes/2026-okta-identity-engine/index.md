@@ -49,7 +49,7 @@ New API endpoints have been added to the Directories Integration (`POST /api/v1/
 
 #### Clear Managed Chrome Profile Browsing Data is GA in Preview
 
-Clear Managed Chrome Profile Browsing Data provides real-time remediation by instantly purging local session data (cookies and cache) within managed Chrome profiles upon ITP detection. By transforming the browser into a policy-enforced workspace, it ensures immediate, automated protection. See [API doc].
+Clear Managed Chrome Profile Browsing Data provides real-time remediation by instantly purging local session data (cookies and cache) within managed Chrome profiles upon ITP detection. By transforming the browser into a policy-enforced workspace, it ensures immediate, automated protection.
 
 #### Bring your own telephony credentials is GA in Production
 
