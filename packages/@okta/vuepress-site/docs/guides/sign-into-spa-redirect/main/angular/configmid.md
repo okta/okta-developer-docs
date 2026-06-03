@@ -7,7 +7,7 @@ Make the following changes to `src/app/app.config.ts`:
 1. Add the following import lines to the code to pull in the dependencies:
 
    ```ts
-   import { OktaAuthModule } from '@okta/okta-angular';
+   import { provideOktaAuth, withOktaConfig } from '@okta/okta-angular';
    import { OktaAuth } from '@okta/okta-auth-js';
    ```
 
@@ -28,9 +28,9 @@ Make the following changes to `src/app/app.config.ts`:
    export const appConfig: ApplicationConfig = {
     providers: [
       // other providers as required
-      importProvidersFrom(
-           OktaAuthModule.forRoot({ oktaAuth })
-      )
+      provideOktaAuth(
+        withOktaConfig({ oktaAuth })
+      ),
     ]
    };
    ```
