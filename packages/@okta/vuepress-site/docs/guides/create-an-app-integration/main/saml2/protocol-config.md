@@ -31,10 +31,11 @@
 
     * Click **Next**.
 
-7. On the **Feedback** tab, select how you want to position this app:
+7. On the **Feedback** tab, select how you want to position this app::
 
-    * **Internal (Private) Apps**: Select **I'm an Okta customer adding an internal app**. You can then specify the app type or indicate if the vendor needs to be contacted.
-    * **OIN-bound Apps**: If you’re an ISV, select **I'm a software vendor. I'd like to integrate my app with Okta**. This doesn’t make it public automatically. It prepares the integration for OIN submission.
+    * Internal app creation: If your organization created the app and you don't want it publicly released, select **This is an internal app that we have created**.
+
+    * Vendor configuration: If your app requires more SAML configuration instructions to work with Okta, select **It's required to contact the vendor to enable SAML**, and then fill in the fields to help the Okta support team understand your setup.
 
 8. Click **Finish**.
 
