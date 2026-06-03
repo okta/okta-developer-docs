@@ -1,4 +1,3 @@
-* Create your local external service app
-* Add your external service code
+* Create the local external service with code to receive the hook
 * Add your registration inline hook
 * Create an enrollment policy to use the registration inline hook
