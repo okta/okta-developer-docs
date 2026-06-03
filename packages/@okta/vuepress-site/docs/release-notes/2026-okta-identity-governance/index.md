@@ -18,10 +18,21 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
+| [Governance Analyzer is GA in Preview](#governance-analyzer-is-ga-in-preview) | June 3, 2026 |
 | [Increased maximum for groups in access scope settings](#increased-maximum-for-groups-in-access-scope-settings) | June 3, 2026 |
 | [Customize Justification Requirements is GA in Preview](#customize-justification-requirements-is-ga-in-preview) | May 13, 2026 |
 | [Self-review for Okta admin roles is GA in Preview](#self-review-for-okta-admin-roles-is-ga-in-preview) | May 6, 2026 |
 | [Automate access request management with Tasks APIs is Beta](#automate-access-request-management-with-tasks-apis-is-beta) | May 20, 2026 |
+
+#### Governance Analyzer is GA in Preview
+
+Governance Analyzer provides access certification campaign reviewers with insights and recommendations to make more informed decisions when approving or revoking user access. See [Governance Analyzer](https://help.okta.com/okta_help.htm?type=oie&id=csh-gov-analyzer) in the product documentation.
+
+The following [My Access Certification Reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews) end-user operations are now available to support the Governance Analyzer feature:
+
+* [Submit a bulk-review decision](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews/submitcampaignbulkdecisions)
+* [Retrieve the status of a bulk-review submission](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews/getcampaignbulkdecisionsjobstatus)
+<!-- OKTA-1168162 IGA_REVIEW_ML_RECOMMENDATIONS GA Preview: June 3, 2026 -->
 
 #### Increased maximum for groups in access scope settings
 

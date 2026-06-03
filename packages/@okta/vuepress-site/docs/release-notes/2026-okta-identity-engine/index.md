@@ -18,6 +18,7 @@ title: Okta Identity Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
+| [New enhancements to the Groups API endpoints is GA in Production](#new-enhancements-to-the-groups-api-endpoints-is-ga-in-production) | June 3, 2026 |
 | [Service accounts is GA in Production](#service-accounts-is-ga-in-production) | May 6, 2026 |
 | [New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview](#new-directories-integration-endpoints-to-view-extended-active-directory-group-attributes-is-ga-in-preview) | June 3, 2026 |
 | [Clear Managed Chrome Profile Browsing Data is GA in Preview](#clear-managed-chrome-profile-browsing-data-is-ga-in-preview) | June 3, 2026 |
@@ -26,6 +27,12 @@ title: Okta Identity Engine API release notes 2026
 | [Seamless ISV experience for SCIM is GA in Production](#seamless-isv-experience-for-scim-is-ga-in-production) | June 3, 2026 |
 | [New System Log event for database privileged access management is EA](#new-system-log-event-for-database-privileged-access-management-is-ea) | June 3, 2026 |
 | [Bugs fixed in 2026.06.0](#bugs-fixed-in-2026-06-0)| June 3, 2026 |
+
+#### New enhancements to the Groups API endpoints is GA in Production
+
+The **List all member users** (`GET /api/v1/groups/{groupId}/users`) endpoint now supports an `expand` query parameter, which allows group membership data and group rules to be retrieved in a single API call. The new **List all group rules for a user** (`GET /api/v1/groups/{groupId}/users/{userId}/group-rules`) endpoint returns all group rules that manage a specific user's membership in a group. See [List all member users](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group/other/listgroupusers#other/listgroupusers/t=request&in=query&path=expand) and [List all group rules for a user](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group/other/listgrouprulesforuseringroup).
+
+<!-- (OKTA-1153307) -->
 
 #### Service accounts is GA in Production
 
@@ -75,7 +82,7 @@ New System Log events allow you to track when database integrations are created 
 
 * The `/.well-known/oauth-authorization-server` metadata [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/customas/getwellknownoauthconfigurationcustomas) for custom authorization servers used a path (`/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`) that didn't comply with RFC 8414, which prevented RFC-compliant OAuth 2.0 clients from retrieving authorization server metadata. The RFC-compliant path (`/.well-known/oauth-authorization-server/oauth2/{authorizationServerId}`) is now supported alongside the existing path. (OKTA-998096)
 
-* POST requests to the `/brands/{brandId}/themes/{themeId}/background-image` endpoint with invalid filenames returned a 500 Internal Server Error message. (OKTA-1120411)
+* POST requests to the `/brands/{brandId}/themes/{themeId}/background-image` and `/brands/{brandId}/themes/{themeId}/background-image` endpoints with invalid filenames returned a 500 Internal Server Error message. (OKTA-1120411)
 
 ## May
 

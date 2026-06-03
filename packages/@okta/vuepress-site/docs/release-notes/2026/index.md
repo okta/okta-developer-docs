@@ -65,7 +65,7 @@ See [Event Types](/docs/reference/api/event-types/).
 
 * The `/.well-known/oauth-authorization-server` metadata [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/customas/getwellknownoauthconfigurationcustomas) for custom authorization servers used a path (`/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`) that didn't comply with RFC 8414, which prevented RFC-compliant OAuth 2.0 clients from retrieving authorization server metadata. The RFC-compliant path (`/.well-known/oauth-authorization-server/oauth2/{authorizationServerId}`) is now supported alongside the existing path. (OKTA-998096)
 
-* POST requests to the `/brands/{brandId}/themes/{themeId}/background-image` endpoint with invalid filenames returned a 500 Internal Server Error message. (OKTA-1120411)
+* POST requests to the `/brands/{brandId}/themes/{themeId}/background-image` and `/brands/{brandId}/themes/{themeId}/background-image` endpoints with invalid filenames returned a 500 Internal Server Error message. (OKTA-1120411)
 
 ## May
 
