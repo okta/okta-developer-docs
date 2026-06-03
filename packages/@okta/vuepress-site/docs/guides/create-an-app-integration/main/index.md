@@ -126,6 +126,8 @@ Once your app is set up:
 
 1. Test SSO: Sign in to the Okta End-User Dashboard as a test user and click the app tile.
 
+    >**Note:**. This step applies only to SSO (OIDC or SAML) integrations.
+
 1. Verify redirection: Ensure the app-initiated flow correctly redirects back from the Okta sign-in page to your app.
 
 1. Troubleshoot: If issues occur, navigate to **Reports** > **System Log** to examine failure messages or *4XX* status codes. You can also post your questions on the [Okta Developer Forum](https://devforum.okta.com/search?q=oidc).
