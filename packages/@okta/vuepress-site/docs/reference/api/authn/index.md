@@ -318,6 +318,8 @@ The user must [change their expired password](#change-password) to complete the 
 
 The user is assigned to a **sign-on policy** that requires additional verification and must [select and verify](#verify-factor) a previously enrolled [Factor](#factor-object) by `id` to complete the authentication transaction.
 
+> **Note:** In unauthenticated responses, the `profile` object for any Okta Verify factor is returned as an empty object (`{}`). The `profile` is populated after the factor is verified. See the [Factor object](#factor-object) for details.
+
 ```json
 {
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
@@ -7578,6 +7580,8 @@ A subset of [Factor properties](https://developer.okta.com/docs/api/openapi/okta
 | profile        | profile of a [supported Factor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/)                       | [Factor Profile object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/listFactors!c=200&path=0/profile&t=response)         | TRUE     | FALSE  | TRUE     |
 | provider       | Factor provider                                                                                | [Provider Type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/listSupportedFactors!c=200&path=provider&t=response)                         | FALSE    | TRUE   | TRUE     |
 | vendorName     | Factor vendor name (same as provider but for On-Prem MFA it depends on administrator settings) | [Provider Type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/listSupportedFactors!c=200&path=provider&t=response)                         | FALSE    | TRUE   | TRUE     |
+
+> **Note:** For Okta Verify factors, the `profile` is returned as an empty object (`"profile": {}`) when the factor appears in an unauthenticated response &mdash; for example, when only a username is submitted to the `/api/v1/authn` endpoint and Okta returns the factors required to authenticate (as in a Factor Sequencing flow). After the factor is verified, and in authenticated flows, the `profile` is fully populated.
 
 ```json
 {
