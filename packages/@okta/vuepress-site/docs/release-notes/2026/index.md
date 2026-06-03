@@ -26,7 +26,7 @@ title: Okta Classic Engine API release notes 2026
 
 #### New enhancements to the Groups API endpoints is GA in Production
 
-The List all member users (`GET /api/v1/groups/{groupId}/users`) endpoint now supports an `expand` query parameter, which allows group membership data and group rules to be retrieved in a single API call. The new endpoint returns all group rules that manage a specific user's membership in a group. See [List all member users](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group/other/listgroupusers#other/listgroupusers/t=request&in=query&path=expand) and [List all group rules for a user](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group/other/listgrouprulesforuseringroup).
+The **List all member users** (`GET /api/v1/groups/{groupId}/users`) endpoint now supports an `expand` query parameter, which allows group membership data and group rules to be retrieved in a single API call. The new **List all group rules for a user** (`GET /api/v1/groups/{groupId}/users/{userId}/group-rules`) endpoint returns all group rules that manage a specific user's membership in a group. See [List all member users](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group/other/listgroupusers#other/listgroupusers/t=request&in=query&path=expand) and [List all group rules for a user](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group/other/listgrouprulesforuseringroup).
 
 <!-- (OKTA-1153307) -->
 
