@@ -19,6 +19,8 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 | Change | Expected in Preview Orgs | Expected in Production |
 | ------ | ------------------------ | -----------------------|
 | [On-demand password rotation for server accounts is GA](#on-demand-password-rotation-for-server-accounts-is-ga) | May 14, 2026 | May 27, 2026 |
+| [Database privileged access management is EA](#database-privileged-access-management-is-ea) | May 29, 2026 | |
+
 
 #### On-demand password rotation for server accounts is GA
 
@@ -26,6 +28,12 @@ You can now rotate passwords for server accounts on-demand instead of waiting fo
 See [Server Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/server-accounts), [Projects](https://developer.okta.com/docs/api/openapi/opa/opa/projects), and [Security Policy](https://developer.okta.com/docs/api/openapi/opa/opa/security-policy).
 
 <!-- OKTA-963826 FF: pam_server_account_rotate_now preview date: May 14, 2026, prod date: May 28, 2026 -->
+
+#### Database privileged access management is EA
+
+Okta Privileged Access for databases helps minimize security risks by automatically discovering database user accounts, rotating and vaulting credentials, and enforcing policy-based multifactor authentication or manual approvals for access.The newly introduced APIs lets you discover accounts, manage connections to PostgreSQL and MySQL databases, and configure secure gateway orchestrator connectivity.
+See [Database Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/database-accounts), [Database Connections](https://developer.okta.com/docs/api/openapi/opa/opa/database-connections), and [Infrastructure Orchestrators](https://developer.okta.com/docs/api/openapi/opa/opa/infrastructure-orchestrators) APIs.
+<!-- OKTA-1101128, FF: pam_databases, preview date: May 29, 2026 -->
 
 ### Weekly release 2026.05.1
 <!-- Published on: 2026-05-14T12:00:00Z -->
