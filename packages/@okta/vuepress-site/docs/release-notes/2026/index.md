@@ -53,8 +53,7 @@ Okta now provides a seamless ISV experience to optimize the [Okta Integration Ne
 
 #### New System Log event for database privileged access management is EA
 
-New System Log events allow you to track when database integrations are created (`pam.integration.create`) or removed (`pam.integration.delete`) in Okta Privileged Access.
-See [Event Types](/docs/reference/api/event-types/).
+New System Log events allow you to track when database integrations are created (`pam.integration.create`) or removed (`pam.integration.delete`) in Okta Privileged Access. See [Event Types](/docs/reference/api/event-types/).
 <!--  OKTA-1166896 - Added in Release 2026.05.1 -->
 
 #### Bugs fixed in 2026.06.0
