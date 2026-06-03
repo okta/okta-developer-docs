@@ -996,19 +996,25 @@ export const guides = [
         ],
       },
       {
-        title: "Okta MCP server",
+        title: "Okta MCP server overview",
+        guideName: "okta-hosted-mcp-overview/main",
         subLinks: [
           {
-            title: "Install and initialize",
-            path: "/docs/guides/mcp-server/main/",
-          },
-          {
-            title: "Set up Okta app authentication",
-            path: "/docs/guides/configure-mcp-authentication/main/",
-          },
-          {
-            title: "Configure, start, and test",
-            path: "/docs/guides/start-mcp-server/main/",
+            title: "Self-hosted Okta MCP server",
+            subLinks: [
+              {
+                title: "Install and initialize",
+                path: "/docs/guides/mcp-server/main/",
+              },
+              {
+                title: "Set up Okta app authentication",
+                path: "/docs/guides/configure-mcp-authentication/main/",
+              },
+              {
+                title: "Configure, start, and test",
+                path:"/docs/guides/start-mcp-server/main/",
+              },
+            ],
           },
         ],
       },

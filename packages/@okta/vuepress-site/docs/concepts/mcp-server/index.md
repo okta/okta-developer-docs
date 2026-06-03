@@ -13,6 +13,27 @@ The Okta MCP server translates natural language instructions into structured API
 
 IT admins, developers, and security professionals use the Okta MCP server to automate Okta administration through AI-powered interfaces.
 
+## Deployment options: Self-hosted and Okta-hosted
+
+To integrate AI assistants securely with your identity infrastructure, the Okta Model Context Protocol (MCP) server can be deployed using two distinct hosting options: Self-hosted and Okta-hosted.
+
+You can choose the deployment track that matches your technical requirements:
+
+* **Self-hosted MCP server:** You run the server software locally on your own network. This track is best for developers who want to modify the underlying server code. See, [Self hosted MCP server](/docs/guides/self-hosted-okta-mcp-server/) documentation.
+
+* **Okta-hosted MCP server:** Okta hosts and manages the gateway in the cloud. Your chat client streams instructions over secure HTTPS, which removes local software installations and hosting fees. This setup simplifies onboarding for nontechnical users, such as Okta Identity Governance (OIG) request approvers, who need a ready-made tool without local configuration. It also supports browser-based tools and lets you run clients and servers on separate containers for better flexibility. See, Okta hosted MCP server documentation.
+
+The following table compares the two hosting options:
+
+| Feature | Self-hosted | Okta-hosted |
+| :--- | :--- | :--- |
+| **Where it runs** | Your computer, a company container, or a private cloud. | Okta cloud infrastructure. |
+| **Setup required** | Install python packages, clone code repositories, and maintain tools manually. | No software to install. You connect using a web address. |
+| **How it connects** | Uses local standard input and output channels on your machine. | Uses a secure internet connection (HTTPS). |
+| **Sign-in method** | Browser sign-in or secure digital keys. | Uses the signed-in user's active Okta credentials. |
+| **Maintenance** | You handle costs, updates, security patches, and logs. | Okta handles upgrades, scaling, and system performance. |
+| **Best for** | Developers testing code in a sandbox or using a command-line interface. | Help Desk teams, IT admins, and automated Workflows. |
+
 ## Benefits
 
 The Okta MCP server addresses security, automation, and integration requirements.
