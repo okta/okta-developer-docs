@@ -69,7 +69,7 @@ For custom authorization servers that you create yourself, Okta returns a unique
 
 The following endpoints return OAuth 2.0 or OIDC metadata related to a custom authorization server:
 
-* **OAuth 2.0:** `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`
+* **OAuth 2.0:** `https://{yourOktaDomain}/.well-known/oauth-authorization-server/oauth2/{authorizationServerId}`
 * **OIDC:** `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/openid-configuration`
 
  Clients can use this information to programmatically configure their interactions with Okta. Custom scopes and custom claims aren't returned.
@@ -88,7 +88,7 @@ The `default` custom authorization server doesn't include a basic access policy 
 
 The OAuth 2.0 and OIDC discovery endpoints for the default custom authorization server are:
 
-* **OAuth 2.0:** `https://{yourOktaDomain}/oauth2/default/.well-known/oauth-authorization-server`
+* **OAuth 2.0:** `https://{yourOktaDomain}/.well-known/oauth-authorization-server/oauth2/default`
 * **OIDC:** `https://{yourOktaDomain}/oauth2/default/.well-known/openid-configuration`
 
 ## Which authorization server should you use
