@@ -12,4 +12,4 @@ test_suites:
     sort_order: '1'
     timeout: '50'
     criteria: MAINLINE
-    queue_name: ci-queue-productionJenga-AL2023
+    queue_name: small
