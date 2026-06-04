@@ -64,7 +64,7 @@ To test the full authentication flow that returns an ID token or an access token
     `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/openid-configuration`
 
     **Access token**
-    `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`
+    `https://{yourOktaDomain}/.well-known/oauth-authorization-server/oauth2/{authorizationServerId}`
 
 3. Add the following query parameters to the URL:
 

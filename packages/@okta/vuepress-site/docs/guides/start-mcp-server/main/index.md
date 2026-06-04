@@ -5,7 +5,7 @@ meta:
     content: Set up your local environment variables and start the Okta Model Context Protocol (MCP) server to connect your AI agent to your org.
 ---
 
-Set up your local environment variables and start the Okta Model Context Protocol (MCP) server to connect your AI agent to your org.
+Set up your local environment variables (including OKTA_SCOPES), start the Okta Model Context Protocol (MCP) server to connect your AI agent to your org, and test connections to device assurance** and **brand customization** tools.
 
 ---
 
@@ -14,7 +14,7 @@ Set up your local environment variables and start the Okta Model Context Protoco
 * Map your Okta app credentials to MCP environment variables.
 * Start the Okta MCP server.
 * Verify the connection between the Okta MCP server and your org.
-* Use natural language commands to perform admin tasks (such as managing users, groups, apps, and policies).
+* Use natural language commands to perform admin tasks (such as managing users, groups, apps, and policies). You can also customize your brand, maintain device compliance, and perform log analysis.
 
 #### What you need
 
@@ -49,7 +49,7 @@ The Okta MCP server works with any MCP-compatible client. While this guide focus
 1. Open the **Copilot chat** view in VS Code.
 1. Enable agent mode by following the steps in the [VS Code documentation](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode#_enable-agent-mode-in-vs-code).
 1. Update your VS Code settings to include the Okta MCP server configuration:
-   * Press `Command + Shift + P` (MacOS) or `Ctrl + Shift + P` (Windows) open the command palette.
+   * Press `Command + Shift + P` (macOS) or `Ctrl + Shift + P` (Windows) open the command palette.
    * Type "Preferences: Open User Settings (JSON)" and press **Enter**.
 1. Define the connection parameters for the Okta MCP server:
    * Create a folder named `.vscode` in your project directory.
@@ -164,7 +164,7 @@ The steps to start the server vary by client. To start the Okta MCP server in VS
    | :--- | :--- | :--- |
    | `OKTA_ORG_URL` | Your Okta tenant org URL (for example, `https://integrator-1234567.okta.com`). | Yes |
    | `OKTA_CLIENT_ID` | The client ID copied from your Okta app. | Yes |
-   | `OKTA_SCOPES` | A space-separated list of API scopes you granted to the app (example: `okta.users.read okta.groups.read`). **Note:** Don't include scopes that you haven't granted to the app. | Yes |
+   | `OKTA_SCOPES` | A space-separated list of API scopes that you granted to the app (example: `okta.users.read okta.groups.read`).  The server uses this list to dynamically load authorized tools at startup. **Note:** Don't include scopes that you haven't granted to the app. | Yes |
    | `OKTA_PRIVATE_KEY` | Your private key in PEM format (starts with `-----BEGIN PRIVATE KEY-----`). | Private key JWT only |
    | `OKTA_KEY_ID` | The key ID (KID) for your private key. | Private key JWT only |
 
@@ -222,14 +222,19 @@ Use the following conversational prompts to interact with your Okta org:
 1. Manage apps:
    * Show me all active apps in my org.
 1. Security and auditing:
-   * Show me all failed sign-in attempts from the last 24 hours.
+   * Show me recent sign-in failures using the `login_failures` tool.
    * Generate a security audit report for the last 30 days. Highlight all changes to user and group memberships.
 1. Policy management:
-   * Create a password policy that requires 12 characters with special characters for the engineering group.
+   * Create a macOS device assurance policy requiring OS 14.2.1 and disk encryption.
    * Show me a list of all active users in the **Finance** group with the Salesforce app who haven't signed in to Okta in the last 60 days.
    * Evaluate the policy's logic and compare it to the user's context (such as, their device, and OS) from the log.
+1. Brand Customization:
 
->**Note:** All destructive actions such as deleting groups, apps, policies, policy rules, or deactivating and deleting users require explicit confirmation using the [MCP Elicitation API](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation). The confirmation experience depends on the client:
+   * Change the primary color of my brand theme to `#FF5733`.
+   * Show me the sign-in page preview.
+
+
+>**Note:** All destructive actions such as deleting groups, apps, policies, device assurance policies, or deactivating and deleting users require explicit confirmation using the [MCP Elicitation API](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation). The confirmation experience depends on the client:
 >
 >* Clients that support elicitation: The user sees a native chat UI dialog to accept, decline, or cancel the request.
 >* Clients that don’t support elicitation: The tool returns a JSON payload describing the pending action so the LLM can relay the confirmation request to the user.

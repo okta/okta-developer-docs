@@ -1,6 +1,6 @@
 {
-  "release" : "2026.05.1",
-  "build" : "2026.05.1-begin-232-g4c8ed7fe9896",
+  "release" : "2026.06.1",
+  "build" : "2026.06.1-begin-175-g9f0adb724505",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -1400,7 +1400,14 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "id_jag_resource_mismatch",
     "errorCode" : "invalid_grant",
-    "errorDescription" : "The 'resource' is invalid."
+    "errorDescription" : "The 'resource' claim in the id-jag does not match the 'resource' parameter in the request."
+  }, {
+    "title" : "ID jag resource not allowed for as",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "id_jag_resource_not_allowed_for_as",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The 'resource' claim in the id-jag is not valid for this authorization server."
   }, {
     "title" : "Direct auth invalid otp",
     "statusCode" : 400,
@@ -2437,6 +2444,13 @@
     "internalErrorCode" : "mfa_attestation_invalid_scope",
     "errorCode" : "invalid_scope",
     "errorDescription" : "'scope' must be 'openid' for MFA attestation."
+  }, {
+    "title" : "Interclient access scope not permitted",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "interclient_access_scope_not_permitted",
+    "errorCode" : "invalid_scope",
+    "errorDescription" : "The 'interclient_access' scope can only be granted to clients with a configured trust relationship."
   }, {
     "title" : "OpenID not allowed token exchange",
     "statusCode" : 400,

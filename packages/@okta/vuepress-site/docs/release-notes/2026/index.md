@@ -9,6 +9,63 @@ title: Okta Classic Engine API release notes 2026
   Subscribe to RSS
 </a>
 
+## June
+
+### Monthly release 2026.06.0
+<!-- Published on: 2026-06-03T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [New enhancements to the Groups API endpoints is GA in Production](#new-enhancements-to-the-groups-api-endpoints-is-ga-in-production) | June 3, 2026 |
+| [Service accounts is GA in Production](#service-accounts-is-ga-in-production) | May 6, 2026 |
+| [New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview](#new-directories-integration-endpoints-to-view-extended-active-directory-group-attributes-is-ga-in-preview) | June 3, 2026 |
+| [SHA-256 digest algorithm support is GA in Production](#sha-256-digest-algorithm-support-is-ga-in-production) | December 10, 2025 |
+| [Seamless ISV experience for SCIM is GA in Production](#seamless-isv-experience-for-scim-is-ga-in-production) | June 3, 2026 |
+| [New System Log event for database privileged access management is EA](#new-system-log-event-for-database-privileged-access-management-is-ea) | May 13, 2026 |
+| [Bugs fixed in 2026.06.0](#bugs-fixed-in-2026-06-0)| June 3, 2026 |
+
+#### New enhancements to the Groups API endpoints is GA in Production
+
+The **List all member users** (`GET /api/v1/groups/{groupId}/users`) endpoint now supports an `expand` query parameter, which allows group membership data and group rules to be retrieved in a single API call. The new **List all group rules for a user** (`GET /api/v1/groups/{groupId}/users/{userId}/group-rules`) endpoint returns all group rules that manage a specific user's membership in a group. See [List all member users](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group/other/listgroupusers#other/listgroupusers/t=request&in=query&path=expand) and [List all group rules for a user](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group/other/listgrouprulesforuseringroup).
+
+<!-- (OKTA-1153307) -->
+
+#### Service accounts is GA in Production
+
+The Okta Managed User Accounts API is now available for Okta Privileged Access-enabled orgs. Okta Privileged Access secures SaaS service accounts that allows customers to monitor, manage, and control access to service accounts in their SaaS apps. Okta users designated with privileged access are treated as service accounts that resource admins can assign to resource groups and projects, and security admins can create policies to configure which users can access them. The Okta Managed User Accounts API provides operations to manage these user accounts in Okta Universal Directory with OPA.
+This feature is available only if you're subscribed to Okta Privileged Access. Ensure that you've set up the Okta Privileged Access app before creating app accounts through the API.
+
+See [Okta Managed User Accounts](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/oktamanageduseraccount), [Service Accounts](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/serviceaccount), and [Manage service accounts](https://help.okta.com/okta_help.htm?type=oie&id=ud-privileged-acnt).
+
+<!-- OKTA-1165876, OKTA-955102 FF: SERVICE_ACCOUNTS and CUSTOM_ADMIN_ROLE_SERVICE_ACCOUNTS preview date: May 6, 2026, -->
+
+#### New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview
+
+New API endpoints have been added to the Directories Integration (`POST /api/v1/directories/{appInstanceId}/group/{groupId}/query` and `GET /api/v1/directories/{appInstanceId}/group/{groupId}/query/{resultId}`), which allows for the real-time retrieval of any standard or custom attribute from Active Directory (AD) groups. You can now programmatically access attributes, like cost centers and department codes, without waiting for a full directory sync. This feature allows you to accelerate automation by using live AD group metadata, while simultaneously eliminating manual data management by creating a single, reliable bridge between your on-premises directory details and your cloud ecosystem. See [Directories Integrations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/directoriesintegration).
+
+#### SHA-256 digest algorithm support is GA in Production
+
+Okta now supports the SHA-256 digest algorithm when hashing SAML AuthnRequests that are sent to external IdPs. <!-- IDP_SHA256_DIGEST_ALGORITHM_SUPPORT OKTA-1061375 preview date: Dec 10, 2025 -->
+
+#### Seamless ISV experience for SCIM is GA in Production
+
+Okta now provides a seamless ISV experience to optimize the [Okta Integration Network (OIN)](https://www.okta.com/integrations/) submission experience for SCIM integrations. This new experience enables independent software vendors (ISVs) to build and manually test their SCIM integration metadata before submission to the OIN. This reduces the time needed for the OIN team to review and validate that the SCIM integration functions as intended, which shortens the time to publish in the OIN. This experience also incorporates communication processes in Salesforce, enabling improved collaboration internally within Okta teams and externally with ISVs. See [Publish an OIN integration overview](https://developer.okta.com/docs/guides/submit-app-overview/) and [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/scim/main/) guide.
+
+#### New System Log event for database privileged access management is EA
+
+New System Log events allow you to track when database integrations are created (`pam.integration.create`) or removed (`pam.integration.delete`) in Okta Privileged Access. See [Event Types](/docs/reference/api/event-types/).
+<!--  OKTA-1166896 - Added in Release 2026.05.1 -->
+
+#### Bugs fixed in 2026.06.0
+
+* The `application.lifecycle.update` event in the System Log didn't populate the `changeDetails` field when Active Directory app settings were updated. (OKTA-1178325)
+
+* In orgs where you can create passkeys, and you enrolled a WebAuthn factor with the Factors API, the enrollment response didn't set `requireResidentKey` as `true`. (OKTA-1176293)
+
+* The `/.well-known/oauth-authorization-server` metadata [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/customas/getwellknownoauthconfigurationcustomas) for custom authorization servers used a path (`/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`) that didn't comply with RFC 8414, which prevented RFC-compliant OAuth 2.0 clients from retrieving authorization server metadata. The RFC-compliant path (`/.well-known/oauth-authorization-server/oauth2/{authorizationServerId}`) is now supported alongside the existing path. (OKTA-998096)
+
+* POST requests to the `/brands/{brandId}/themes/{themeId}/background-image` and `/brands/{brandId}/themes/{themeId}/background-image` endpoints with invalid filenames returned a 500 Internal Server Error message. (OKTA-1120411)
+
 ## May
 
 ### Weekly release 2026.05.1

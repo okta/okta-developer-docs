@@ -1079,6 +1079,10 @@ export const guides = [
                 title: "Manage Identity Threat Protection resources",
                 guideName: "terraform-manage-itp",
               },
+              {
+                title: "Manage identity source",
+                guideName: "terraform-manage-id-source",
+              },
             ],
           },
           {
