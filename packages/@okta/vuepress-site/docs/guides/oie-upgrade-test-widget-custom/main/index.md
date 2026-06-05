@@ -86,9 +86,7 @@ Sign in as a test user and validate each customized flow:
 * Verify Sign-In Widget dimensions and layout.
 * Test on both desktop and mobile screen sizes.
 
-> **Note:** Unsupported CSS customizations beyond the documented styles may break after a widget version update.
-
-See [Updates to Sign-In Widget styling](/docs/guides/oie-upgrade-sign-in-widget-styling/main/) for more details.
+> **Note:** Unsupported CSS customizations beyond the documented styles may break after a widget version update. See [Updates to Sign-In Widget styling](/docs/guides/oie-upgrade-sign-in-widget-styling/main/) for more details.
 
 ### Step 5: Test i18n translations
 
