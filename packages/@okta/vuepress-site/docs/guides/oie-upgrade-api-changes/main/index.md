@@ -83,7 +83,7 @@ See [v1/sessions/me APIs](https://support.okta.com/help/s/article/v1sessionsme-A
 
 In Identity Engine, a verified primary email automatically functions as an email authenticator enrollment. This changes the reset factor behavior:
 
-* The `GET /factors` API returns the verified primary email as an active email factor.
+* The `GET /api/v1/users/{userId}/factors` endpoint returns the verified primary email as an active email factor.
 * Don't use the Classic Engine Reset Factor operation for email enrollment, because email auto-enrolls in Identity Engine.
 * Users can use their verified primary email for recovery only, or for both authentication and recovery. This depends on the Email authenticator configuration.
 
@@ -91,9 +91,9 @@ In Identity Engine, a verified primary email automatically functions as an email
 
 Identity Engine consolidates recovery and MFA questions into a single concept:
 
-* The `GET /factors` API now returns recovery questions even when no MFA Security Question enrollment exists.
+* The `GET /api/v1/users/{userId}/factors` endpoint now returns recovery questions even when no MFA Security Question enrollment exists.
 * After you reset all factors, the forgotten-password question still appears in API responses. This differs from Classic Engine behavior.
-* Resetting both question types requires two separate POST calls to `/api/v1/users/${userId}/lifecycle/reset_factors`.
+* Resetting both question types requires two separate `POST /api/v1/users/{userId}/lifecycle/reset_factors` calls.
 
 ### SMS Factor lifecycle operations aren't supported
 
