@@ -26,6 +26,7 @@ title: Okta Identity Engine API release notes 2026
 | [SHA-256 digest algorithm support is GA in Production](#sha-256-digest-algorithm-support-is-ga-in-production) | December 10, 2025 |
 | [Seamless ISV experience for SCIM is GA in Production](#seamless-isv-experience-for-scim-is-ga-in-production) | June 3, 2026 |
 | [New System Log event for database privileged access management is EA](#new-system-log-event-for-database-privileged-access-management-is-ea) | June 3, 2026 |
+| [Search, filtering, and configurable views for AI agents is GA in Production](#search-filtering-and-configurable-views-for-ai-agents-is-ga-in-production) | May 28, 2026 |
 | [Bugs fixed in 2026.06.0](#bugs-fixed-in-2026-06-0)| June 3, 2026 |
 
 #### New enhancements to the Groups API endpoints is GA in Production
@@ -72,6 +73,12 @@ Okta now provides a seamless ISV experience to optimize the [Okta Integration Ne
 New System Log events allow you to track when database integrations are created (`pam.integration.create`) or removed (`pam.integration.delete`) in Okta Privileged Access. See [Event Types](/docs/reference/api/event-types/).
 <!--  OKTA-1166896 - Added in Release 2026.05.1 -->
 
+#### Search, filtering, and configurable views for AI agents is GA in Production
+
+Admins can now use enhanced filtering, search, and configuration capabilities on the **AI agents**, **AI agent providers**, and **Import Monitoring** > **AI agent import** pages.
+
+<!-- OKTA-1184819 SECURE_AI_AGENTS_FILTERS_AND_SEARCH preview date: May 28, 2026 -->
+
 #### Bugs fixed in 2026.06.0
 
 * The `application.lifecycle.update` event in the System Log didn't populate the `changeDetails` field when Active Directory app settings were updated. (OKTA-1178325)
@@ -97,6 +104,8 @@ New System Log events allow you to track when database integrations are created 
 #### Search, filtering, and configurable views for AI agents is GA in Production
 
 Admins can now use enhanced filtering, search, and configuration capabilities on the **AI agents**, **AI agent providers**, and **Import Monitoring** > **AI agent import** pages.
+
+<!-- OKTA-1184819 SECURE_AI_AGENTS_FILTERS_AND_SEARCH preview date: May 28, 2026 -->
 
 #### Bugs fixed in 2026.05.3
 
