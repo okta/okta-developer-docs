@@ -131,9 +131,7 @@ If you're moving to the third generation (Gen3) of the Sign-In Widget as part of
 | Customization migration | n/a | Gen2 customizations don't carry over to Gen3. |
 | Accessibility | Standard | Improved color contrast, focus management, and screen reader support |
 
-> **Important:** Customizations that you made in Gen2 don't appear if you move to Gen3. You must reconfigure them.
-
-See [Migrate to the third generation (Gen3) Sign-In Widget](/docs/guides/custom-widget-migration-gen3/main/) and [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/main/) for more details.
+> **Important:** Customizations that you made in Gen2 don't appear if you move to Gen3. You must reconfigure them. See [Migrate to the third generation (Gen3) Sign-In Widget](/docs/guides/custom-widget-migration-gen3/main/) and [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/main/) for more details.
 
 ## Validation checklist before upgrading production
 
