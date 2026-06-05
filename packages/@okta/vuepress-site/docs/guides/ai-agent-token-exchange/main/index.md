@@ -5,7 +5,7 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-<StackSnippet snippet="EA" />
+<StackSnippet snippet="ea" />
 
 Learn how to configure token exchange for AI agents so that you can securely request and use credentials (ID-JAG, secrets, service accounts, or third-party access tokens) to access protected resources on behalf of authenticated users<StackSnippet snippet="client" inline />.
 
@@ -25,7 +25,7 @@ Learn how to configure token exchange for AI agents so that you can securely req
 
 ## Overview
 
-<StackSnippet snippet="overview1" />
+<StackSnippet snippet="overview" />
 
 You can [connect an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure) to the following resource types:
 
@@ -37,8 +37,7 @@ You can [connect an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai
 
 - Resource server: Uses a third party access token issued by the third-party authorization server and brokered by Okta. This resource type requires user consent before an AI agent can act on behalf of the user.
 
-<ApiLifecycle access="ea" />
-- Connect to another AI agent: Allows one AI agent to securely invoke another AI agent as a downstream resource protected by an Okta custom authorization server. Through this A2A token exchange, A2A maintains the original service identity across both agents while each obtains specific access tokens for its next connection. This resource type is supported by [Cross App Access](https://help.okta.com/okta_help.htm?type=oie&id=apps-cross-app-access) (XAA), which uses ID-JAG (Identity Assertion JWT).
+- Connect to another AI agent (Early Access): Allows one AI agent to securely invoke another AI agent as a downstream resource protected by an Okta custom authorization server. Through this agent-to-agent (A2A) token exchange, A2A maintains the original service identity across both agents while each obtains specific access tokens for its next connection. This resource type is supported by [Cross App Access](https://help.okta.com/okta_help.htm?type=oie&id=apps-cross-app-access) (XAA), which uses ID-JAG (Identity Assertion JWT).
 
 After the resource type is configured and the AI agent has the token or credentials, it can then perform tasks on the connected app.
 
