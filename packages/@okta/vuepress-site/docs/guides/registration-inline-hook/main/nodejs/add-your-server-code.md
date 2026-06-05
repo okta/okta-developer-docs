@@ -16,12 +16,12 @@ const listener = app.listen(8082, function () {
 });
 ```
 
-Add the following code to use Basic Authentication to validate the incoming call from Okta against the values in the `.env` file. See [HTTP header: Basic Authentication](/docs/guides/secure-hooks/nodejs/main/#http-header-basic-authentication).
+Add the following code to use Basic authentication to validate the incoming call from Okta against the values in the `.env` file. See [HTTP header: Basic Authentication](/docs/guides/secure-hooks/nodejs/main/#http-header-basic-authentication).
 
 ```javascript
 const basicAuth = require('express-basic-auth');
 
-/* HTTP basic auth middleware for Express
+/* HTTP Basic auth middleware for Express
 //
 // Refer to https://www.npmjs.com/package/express-basic-auth#custom-authorization for more information
 //

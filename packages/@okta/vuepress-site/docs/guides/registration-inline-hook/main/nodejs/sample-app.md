@@ -1,5 +1,5 @@
 
-1. Create a local folder to hold your sample application and open it. In this example, `sample-app`.
+1. Create a local folder to hold your sample app and open it. In this example, `sample-app`.
 
     ```bash
     mkdir sample-app
