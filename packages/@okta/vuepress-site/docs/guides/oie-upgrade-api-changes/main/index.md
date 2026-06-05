@@ -7,7 +7,7 @@ meta:
 
 <ApiLifecycle access="ie" />
 
-Several Okta APIs behave differently or have limitations after you upgrade from Classic Engine to Identity Engine. If your applications use the Authentication API, Factors API, or Sessions API, review these changes before you upgrade.
+Upgrading from Classic Engine to Identity Engine changes how some Okta APIs work. A few behave differently, and others have new limitations. If your apps call the Authentication API, Factors API, or Sessions API, take a look at what's changed before you upgrade.
 
 ---
 
@@ -17,8 +17,8 @@ Understand which Okta APIs behave differently or are unsupported in Identity Eng
 
 **What you need**
 
-* Knowledge of which Okta APIs your applications call
-* Access to the application code that integrates with Okta APIs
+* Knowledge of which Okta APIs your apps call
+* Access to the app code that integrates with Okta APIs
 * An understanding of whether your apps use Classic Engine Authentication API flows or OAuth 2.0/OIDC flows
 
 ---
@@ -47,7 +47,7 @@ Passing the `audience` parameter to `/api/v1/authn` isn't supported in Identity 
 
 **Why:** Identity Engine uses a flexible app sign-on policy model that Classic Engine authentication pipelines can't accommodate.
 
-**Action:** Remove the `audience` parameter from authentication requests. Instead, use application-specific sign-on policies that you configure in the Admin Console.
+**Action:** Remove the `audience` parameter from authentication requests. Instead, use app-specific sign-on policies that you configure in the Admin Console.
 
 ### Device token behavior changed
 
@@ -57,25 +57,25 @@ Direct device token passing is no longer the primary method for device context i
 | --- | --- | --- |
 | Temporary backward compatibility | Keep the Classic global sign-on policy active. | New Identity Engine device features remain unavailable. |
 | Redirect-based authentication | Migrate to Okta-hosted sign-in pages. | Device context policies are handled automatically. |
-| Updated SDKs | Adopt Identity Engine SDKs for embedded apps. | Full access to Identity Engine device trust capabilities. |
+| Updated SDKs | Adopt Identity Engine SDKs for embedded apps. | Full access to Identity Engine Device Trust capabilities. |
 
-See [Device Token in Auth API](https://support.okta.com/help/s/article/Device-Token-in-Auth-API?language=en_US) on the Okta Help Center for details.
+See [Device Token in Auth API](https://support.okta.com/help/s/article/Device-Token-in-Auth-API?language=en_US) for details.
 
 ## Sessions API changes
 
 ### `POST /api/v1/sessions` with `cookieToken`
 
-The request `POST /api/v1/sessions?additionalFields=cookieToken` isn't supported in Identity Engine. Apps that manage sessions entirely within the `/api/v1/sessions` APIs can continue to work. However, you can't request the `cookieToken` additional field.
+The request `POST /api/v1/sessions?additionalFields=cookieToken` isn't supported in Identity Engine. Apps that manage sessions entirely within the `/api/v1/sessions` APIs can continue to work. However, you can't request the `cookieToken` extra field.
 
 ### `/api/v1/sessions/me` response changes
 
 After the upgrade, the `/api/v1/sessions/me` response no longer returns Identity Provider (IdP) information.
 
-**Backward compatibility:** Existing applications continue to work without immediate changes. Embedded Sign-In Widgets and apps that use older SDKs or direct APIs still operate after the upgrade.
+**Backward compatibility:** Existing apps continue to work without immediate changes. Embedded Sign-In Widgets and apps that use older SDKs or direct APIs still operate after the upgrade.
 
 **Limitation:** Some new Identity Engine capabilities require updated SDKs. To use passwordless authentication and app-specific sign-on policies, upgrade to SDKs that support the [Interaction Code flow](/docs/concepts/interaction-code/).
 
-See [v1/sessions/me APIs](https://support.okta.com/help/s/article/v1sessionsme-APIs?language=en_US) on the Okta Help Center for details.
+See [v1/sessions/me APIs](https://support.okta.com/help/s/article/v1sessionsme-APIs?language=en_US) for details.
 
 ## Factors API changes
 
@@ -84,7 +84,7 @@ See [v1/sessions/me APIs](https://support.okta.com/help/s/article/v1sessionsme-A
 In Identity Engine, a verified primary email automatically functions as an email authenticator enrollment. This changes the reset factor behavior:
 
 * The `GET /api/v1/users/{userId}/factors` endpoint returns the verified primary email as an active email factor.
-* Don't use the Classic Engine Reset Factor operation for email enrollment, because email auto-enrolls in Identity Engine.
+* Don't use the Classic Engine reset factor operation for email enrollment, because email auto-enrolls in Identity Engine.
 * Users can use their verified primary email for recovery only, or for both authentication and recovery. This depends on the Email authenticator configuration.
 
 ### Reset Factor API: question enrollment
@@ -113,8 +113,8 @@ If you use the `/api/v1/authn` API for custom password reset experiences, be awa
 Identity Engine introduces features that are only available through updated SDKs and the Interaction Code flow. Classic Engine APIs can't access these features:
 
 * Passwordless authentication
-* Application-specific sign-on policies
-* Modern device trust evaluation
+* App-specific sign-on policies
+* Modern Device Trust evaluation
 * Advanced authenticator enrollment options
 
 **Action:** To access Identity Engine features, migrate from Classic Engine APIs to the Identity Engine SDKs that support the Interaction Code flow.
@@ -134,8 +134,8 @@ Before you upgrade, audit your integrations against the following checklist:
 
 ## See also
 
-* [Identity Engine limitations](/docs/guides/ie-limitations/main/) — full reference for current Identity Engine limitations and behavioral differences.
-* [Session changes after the upgrade](/docs/guides/oie-upgrade-sessions-api/main/) — how sessions work in Identity Engine.
-* [Upgrade your app SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/main/) — migrate to the Identity Engine SDKs.
-* [Device Token in Auth API](https://support.okta.com/help/s/article/Device-Token-in-Auth-API?language=en_US) — device token changes and migration paths (Okta Help Center).
-* [v1/sessions/me APIs](https://support.okta.com/help/s/article/v1sessionsme-APIs?language=en_US) — session API response changes (Okta Help Center).
+* [Identity Engine limitations](/docs/guides/ie-limitations/main/): Full reference for current Identity Engine limitations and behavioral differences
+* [Session changes after the upgrade](/docs/guides/oie-upgrade-sessions-api/main/): How sessions work in Identity Engine
+* [Upgrade your app SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/main/): Migrate to the Identity Engine SDKs
+* [Device Token in Auth API](https://support.okta.com/help/s/article/Device-Token-in-Auth-API?language=en_US): Device token changes and migration paths
+* [v1/sessions/me APIs](https://support.okta.com/help/s/article/v1sessionsme-APIs?language=en_US): Session API response changes
