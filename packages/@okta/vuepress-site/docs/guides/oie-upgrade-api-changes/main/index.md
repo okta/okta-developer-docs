@@ -7,7 +7,7 @@ meta:
 
 <ApiLifecycle access="ie" />
 
-Upgrading from Classic Engine to Identity Engine changes how some Okta APIs work. A few behave differently, and others have new limitations. If your apps call the Authentication API, Factors API, or Sessions API, take a look at what's changed before you upgrade.
+Upgrading from Classic Engine to Identity Engine changes how some Okta APIs work. A few behave differently, and others have new limitations. If your apps call the [Authentication API](#authentication-api-changes), [Factors API](#factors-api-changes), or [Sessions API](#sessions-api-changes), take a look at what's changed before you upgrade.
 
 ---
 
