@@ -69,7 +69,7 @@ These APIs are only available for access requests managed by conditions in **Acc
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Automate access request management with Tasks APIs](#automate-access-request-management-with-tasks-apis) | May 20, 2026 |
-| [New System Log event for access request task updates](#new-system-log-event-for-access-request-task-updates) | May 20, 2026 |
+| [New System Log event](#new-system-log-event) | May 20, 2026 |
 
 #### Automate access request management with Tasks APIs
 
