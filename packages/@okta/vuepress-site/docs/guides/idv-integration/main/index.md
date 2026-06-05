@@ -242,7 +242,10 @@ Okta uses the `request_uri` in the IDV vendor response and constructs a `GET /oa
 
 The user's browser sends the GET request to the IDV vendor's OAuth 2.0 authorization endpoint. The IDV vendor evaluates the `request_uri` so that the IDV flow can start.
 
-> **Note:** For IDV vendors, Okta recommends renaming the authorization endpoint so that it's clear the endpoint is used for identity verification. For example, rename the endpoint to `/oauth2/idv-authorize`.
+> **Notes:**
+>
+> * For IDV vendors, Okta recommends renaming the authorization endpoint so that it's clear the endpoint is used for identity verification. For example, rename the endpoint to `/oauth2/idv-authorize`.
+> * IDV vendors must provide a user experience at their authorization endpoint that supports a user taking up to 10 minutes to complete the IDV flow.
 
 #### GET /oauth2/authorize request example
 
