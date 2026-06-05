@@ -172,7 +172,7 @@ See the [response properties](https://developer.okta.com/docs/api/openapi/okta-m
 
 ### Create a local external service app
 
-To get you up and running quickly, use the following steps to build a basic Express Node.js app to serve as your external service. This app simply responds to registration inline hook calls.
+To get you up and running quickly, use the following steps to build an Express Node.js app to serve as your external service. This app simply responds to registration inline hook calls.
 
 <StackSelector snippet="sample-app" noSelector/>
 
@@ -293,7 +293,7 @@ The scenario of progressive profile enrollment involves prompting existing users
 
 <StackSnippet snippet="introbullets"/><br>
 
-Ensure you've created your external service as in the previous profile enrollment (self-service registration) scenario. See [Create the external service](#create-the-external-service). However, modify the server code as in the following section, [Add your progressive profile enrollment server code](#add-your-progressive-profile-enrollment-server-code).
+Ensure that you've created your external service as in the previous profile enrollment (self-service registration) scenario. See [Create the external service](#create-the-external-service). However, modify the server code as in the following section, [Add your progressive profile enrollment server code](#add-your-progressive-profile-enrollment-server-code).
 
 <HookBasicAuthValuesNote/>
 
@@ -379,7 +379,7 @@ Before creating the enrollment policy, ensure the user profile attribute `employ
 1. Select **Read-Write** under **User permission** in the **Employee Number** dialog.
 1. Click **Save Attribute**.
 
-To associate the registration inline hook with a user profile policy and the employee number field:
+Follow these steps to associate the registration inline hook with a user profile policy and the employee number field:
 
 1. In the Admin Console, go to **Security** > **User Profile Policies**.
 1. Click **Add user profile policy**.
@@ -405,15 +405,15 @@ Your registration inline hook is configured for progressive profile enrollment. 
 
 This scenario involves both profile enrollment (self-service registration) and progressive profile enrollment use cases:
 
-* Existing users are prompted for new information (a four-digit employee number) to add to their profile when they sign in. The external code updates existing users' profiles when it sees a valid four-digit employee number.
+* Existing users are prompted for a four-digit employee number to add to their profile when they sign in. The external code updates existing users' profiles when it sees a valid four-digit employee number.
 
-* New users signing up through the sign-up link need to fill out the default three fields plus the employee number. The external code adds new users if their email domain contains `okta.com` and their employee number is four digits. Otherwise, their registration is denied.
+* When a user signs up through the sign-up link, they need to fill out the default three fields plus the employee number. The external code adds new users if their email domain contains `okta.com` and their employee number is four digits. Otherwise, their registration is denied.
 
 Follow these steps to implement this scenario:
 
 <StackSnippet snippet="introbullets"/><br>
 
-Ensure you've created your external service as in the previous profile enrollment (self-service registration) scenario. See [Create the external service](#create-the-external-service). However, modify the server code as in the following section, [Add your profile and progressive profile enrollment server code](#add-your-profile-and-progressive-profile-enrollment-server-code).
+Ensure that you've created your external service as in the previous profile enrollment (self-service registration) scenario. See [Create the external service](#create-the-external-service). However, modify the server code as in the following section, [Add your profile and progressive profile enrollment server code](#add-your-profile-and-progressive-profile-enrollment-server-code).
 
 <HookBasicAuthValuesNote/>
 
@@ -545,7 +545,7 @@ To associate the registration inline hook with a user profile policy and the emp
 1. In the Admin Console, go to **Security** > **User Profile Policies**.
 1. Click **Add user profile policy**.
 1. Give your policy a name (in this example, use "SSR + PP Inline Hook"), and then click **Save**.
-1. Find your policy, "SSR + PP Inline Hook", from the list of enrollment policies, and then click the pencil icon.
+1. Find your "SSR + PP Inline Hook" policy from the list of enrollment policies, and then click the pencil icon.
 1. Click **Apps**, and then click **Add an App to this Policy**.
 1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
 1. Click the **Enrollment** tab.
@@ -582,7 +582,7 @@ To preview a profile enrollment (self-service registration) request and response
 1. In the **Configure Inline Hook request** block, select an end user from your org in the **data.userProfile** field. That is, select a value for your `data.user.profile` object.
 1. Under **requestType**, select **Self-Service Registration**.
 1. From the **Preview example Inline Hook request** block, select **Generate Request**.
-   The end user's request information, in JSON format, that is sent to the external service appears.
+   The end user's request information that's sent to the external service appears in JSON format.
 1. Optional: Click **Edit** to update your request before previewing the response. For this example, you can change the email domain to view a response that accepts or denies the registration. For example, a user registering with an `okta.com` email or not. Click **Save**.
 1. From the **View service's response** block, click **View Response**.
 
@@ -611,7 +611,7 @@ To preview a progressive profile enrollment request and response:
 
 1. Click **Save**. From the **View service's response** block, click **View Response**.
 
-The response from your external service in JSON format appears, which indicates that the profile update was either allowed or denied. You can also review the console output from your local app and the ngrok web inspector at `http://127.0.0.1:4040` when your ngrok service is running.
+The response from your external service appears in JSON format. It indicates if the profile update is allowed or denied. You can also review the console output from your local app and the ngrok web inspector at `http://127.0.0.1:4040` when your ngrok service is running.
 
 ## Test your registration inline hook
 
@@ -638,7 +638,7 @@ Possible outcomes:
 * If you use valid sign-in credentials with an **Employee number** value of four digits, the user's profile is updated.
 * If you enter an employee number in an invalid format, the profile update is denied.
 
-Sign back in as your org admin to review the profile of the user. Confirm that the user's profile was updated and the employee number value exists.
+Sign back in as an org admin to review the profile of the user. Confirm that the user's profile is updated and the employee number value exists.
 
 For invalid employee numbers, review the error message. The error summary from the external service code is passed back to the Okta sign-in page as the error message. See [error](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook!c=200&path=Error&t=response). You can also review the console output from your local app and the ngrok web inspector at `http://127.0.0.1:4040` when your ngrok service is running.
 
