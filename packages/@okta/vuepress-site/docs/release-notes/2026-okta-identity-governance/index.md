@@ -68,7 +68,7 @@ These APIs are only available for access requests managed by conditions in **Acc
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Automate access request management with Tasks APIs](#automate-access-request-management-with-tasks-apis) | May 20, 2026|
+| [Automate access request management with Tasks APIs](#automate-access-request-management-with-tasks-apis) | May 20, 2026 |
 
 #### Automate access request management with Tasks APIs
 
@@ -78,6 +78,12 @@ These APIs are only available for access requests managed by conditions in **Acc
 * **Access Request - V2** > [Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks)
 * **End user APIs** > [My Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks)
 <!-- OKTA-1162968 IN_FLIGHT_REQUEST_API Preview: May 20, 2026 -->
+
+#### New System Log event
+
+The `access.request.update` event is fired when an update is made to the tasks in a request, such as task assignment or completion. See [Event types](/docs/reference/api/event-types/?q=access%20request%20updated).
+
+<!-- OKTA-1138057 -->
 
 ### Weekly release 2026.05.1
 <!-- Published on: 2026-05-13T12:00:00Z -->
