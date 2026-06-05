@@ -565,6 +565,10 @@ export const guides = [
             guideName: "ie-limitations",
           },
           {
+            title: "Okta API changes for OIE",
+            guideName: "oie-upgrade-api-changes",
+          },
+          {
             title: "Okta Sign-In Widget upgrade",
             subLinks: [
               {
