@@ -146,6 +146,7 @@ guides:
  - terraform-syntax-tips
  - terraform-manage-itp
  - test-your-migration-plan
+ - test-oie-preview-widget-custom
  - token-inline-hook
  - unlock-mobile-app-with-biometrics
  - updating-saml-cert

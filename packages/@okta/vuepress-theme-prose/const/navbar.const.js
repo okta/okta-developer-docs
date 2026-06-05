@@ -583,6 +583,10 @@ export const guides = [
                 title: "Updates to widget i18n",
                 guideName: "oie-upgrade-sign-in-widget-i18n",
               },
+              {
+                title: "Test widget customizations",
+                guideName: "test-oie-preview-widget-custom",
+              },
             ],
           },
           {
