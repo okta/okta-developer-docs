@@ -656,6 +656,28 @@ export const guides = [
             guideName: "ai-agent-token-exchange",
           },
           {
+            title: "Set up third-party AI agent token exchange",
+            guideName: "ai-agent-third-party-token-exchange",
+          },
+          {
+            title: "Secure third-party AI agents",
+            path: "/docs/guides/ai-agent-secure-third-party/main/",
+            subLinks: [
+              {
+                title: "Secure Azure AI Foundry agents with Okta",
+                guideName: "ai-agent-secure-azure"
+              },
+              {
+                title: "Secure AWS Bedrock Agents with Okta",
+                guideName: "ai-agent-secure-aws-bedrock"
+              },
+              {
+                title: "Secure an Amazon Bedrock AgentCore agent",
+                guideName: "ai-agent-secure-amazon-bedrock",
+              },
+            ],
+          },
+          {
             title: "Transactional verification using CIBA",
             guideName: "configure-ciba",
           },

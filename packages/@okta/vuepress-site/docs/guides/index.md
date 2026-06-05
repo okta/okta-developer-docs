@@ -4,6 +4,11 @@ guides:
  - add-an-external-idp
  - add-id-verification-idp
  - ai-agent-token-exchange
+ - ai-agent-third-party-token-exchange
+ - ai-agent-secure-third-party
+ - ai-agent-secure-azure
+ - ai-agent-secure-aws-bedrock
+ - ai-agent-secure-amazon-bedrock
  - app-provisioning-connection
  - archive-auth-js
  - archive-embedded-siw
