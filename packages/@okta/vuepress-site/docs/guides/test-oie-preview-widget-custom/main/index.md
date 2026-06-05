@@ -4,7 +4,7 @@ title: Test your widget's existing customizations in a test environment
 
 <ApiLifecycle access="ie" />
 
-If your current Okta Sign-In Widget has customizations (CSS, JavaScript, i18n, branding, or custom sign-in pages), test those customizations in an Identity Engine (OIE) org before you upgrade your production org to Identity Engine. This guide explains what to test, how to set up your test, and how to fix common issues.
+If your Okta Sign-In Widget has customizations (CSS, JavaScript, i18n, branding, or custom sign-in pages), test them in an Okta Identity Engine (OIE) org before you upgrade production. This guide explains what to test, how to set up your test, and how to fix common issues.
 
 ---
 
@@ -14,13 +14,9 @@ Validate that your Sign-In Widget customizations work in Identity Engine, and re
 
 **What you need**
 
-* A test environment ready for Identity Engine. Use a Preview org, a free trial Identity Engine org, or an [Integrator Free Plan org](/docs/reference/org-defaults/).
-* Your current Sign-In Widget version.
-* A record of your existing customizations: CSS overrides, JavaScript hooks, i18n properties, and branding.
-
-**Sample code**
-
-n/a
+* A test environment ready for Identity Engine. Use a preview org, a free trial Identity Engine org, or an [Integrator Free Plan org](/docs/reference/org-defaults/)
+* Your current Sign-In Widget version
+* A record of your existing customizations: CSS overrides, JavaScript hooks, i18n properties, and branding
 
 ---
 
@@ -30,7 +26,7 @@ Your testing approach depends on how your Sign-In Widget is deployed.
 
 | Deployment model | Description | Testing approach |
 | --- | --- | --- |
-| Okta-hosted (redirect) | Okta hosts the sign-in page. You customize it through the Admin Console or the code editor. | Test your customizations in a Preview org after you upgrade it to Identity Engine. |
+| Okta-hosted (redirect) | Okta hosts the sign-in page. You customize it through the Admin Console or the code editor. | Test your customizations in a preview org after you upgrade it to Identity Engine. |
 | Embedded (self-hosted) | Your app hosts the Sign-In Widget directly. | Test in your app's development environment pointed at an Identity Engine org. |
 
 See [Redirect vs. embedded deployment](/docs/concepts/redirect-vs-embedded/) for more details.
@@ -57,7 +53,7 @@ See [Upgrade the Okta Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/ma
 
 Use one of these environments:
 
-* **Preview org (recommended):** Upgrade your Preview org to Identity Engine and test your customizations there.
+* **Preview org (recommended):** Upgrade your preview org to Identity Engine and test your customizations there.
 * **Identity Engine free trial org:** Create a free trial org and apply your customizations manually.
 
 For Okta-hosted widgets, apply your customizations in the Admin Console code editor of the test org. For embedded widgets, point your development app at the Identity Engine test org.
@@ -66,7 +62,7 @@ For Okta-hosted widgets, apply your customizations in the Admin Console code edi
 
 Search your custom code for deprecated methods that don't work in later versions of the Sign-In Widget and Identity Engine. Check these common areas:
 
-* Factor sequencing customizations
+* Factor Sequencing customizations
 * `afterRender` event handlers
 * The `useClassicEngine` configuration flag
 
@@ -87,7 +83,7 @@ Sign in as a test user and validate each customized flow:
 
 * Confirm that the logo, colors, and background render correctly.
 * Check that your custom CSS overrides are applied.
-* Verify the widget dimensions and layout.
+* Verify Sign-In Widget dimensions and layout.
 * Test on both desktop and mobile screen sizes.
 
 > **Note:** Unsupported CSS customizations beyond the documented styles may break after a widget version update.
@@ -120,14 +116,14 @@ If you use a custom Okta-hosted sign-in page:
 | Styling is missing or broken | CSS overrides are no longer applied in Gen3 | Migrate to design tokens or a supported styling API. |
 | i18n strings show raw keys | Classic Engine property keys are removed in Identity Engine | Map them to the new Identity Engine property keys. |
 | Sign-in page looks different | Identity Engine introduces the identifier-first flow and removes the security image | This is expected behavior. Update your user communications. |
-| Factor sequencing isn't working | Factor sequencing rules aren't supported in Identity Engine | Remove factor sequencing customizations. |
+| Factor Sequencing isn't functional | Factor Sequencing rules aren't supported in Identity Engine | Remove Factor Sequencing customizations. |
 | Redirect URI issue | Redirect configuration changed in Identity Engine | Update your redirect URI configuration. |
 
 See [Identity Engine limitations](/docs/guides/ie-limitations/main/) to learn more about feature changes in Identity Engine.
 
 ## Gen2 vs. Gen3 widget considerations
 
-If you're moving to the third generation (Gen3) of the Sign-In Widget as part of your Identity Engine upgrade, be aware of additional testing needs.
+If you're moving to the third generation (Gen3) of the Sign-In Widget as part of your Identity Engine upgrade, be aware of other testing needs.
 
 | Feature | Gen2 | Gen3 |
 | --- | --- | --- |
