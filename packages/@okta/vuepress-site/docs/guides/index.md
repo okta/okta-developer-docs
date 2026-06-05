@@ -146,7 +146,6 @@ guides:
  - terraform-syntax-tips
  - terraform-manage-itp
  - test-your-migration-plan
- - test-oie-preview-widget-custom
  - token-inline-hook
  - unlock-mobile-app-with-biometrics
  - updating-saml-cert
@@ -175,6 +174,7 @@ guides:
  - oie-upgrade-sign-in-widget-i18n
  - oie-upgrade-sign-in-widget
  - oie-upgrade-sign-in-widget-styling
+ - oie-upgrade-test-widget-custom
  - oie-upgrade-mfa-enroll-policy
  - ie-limitations
  - authenticators-overview
