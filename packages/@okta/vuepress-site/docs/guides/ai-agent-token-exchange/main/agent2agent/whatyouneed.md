@@ -2,4 +2,4 @@
 - An Okta user account with the super admin role.
 - Two registered AI agents in your Okta org. See [Add and register AI agents](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register).
 - A **Resource connection** that's configured for the AI agents, defining which resources they're allowed to access. See [AI agent resource connections](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure).
-- An OIDC web app that's configured to authenticate users and obtain an ID token.
+- An OIDC client app that's configured to authenticate users and obtain an ID token.

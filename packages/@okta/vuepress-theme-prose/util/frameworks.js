@@ -106,6 +106,7 @@ const COMMON_NAME_TO_FANCY_NAME = {
   secret: 'Secret',
   'service-account': 'Service account',
   resourceserver: 'Resource server',
+  'agent-to-agent': 'Agent-to-agent',
 };
 
 const COMMON_NAME_TO_ICON_NAME = {

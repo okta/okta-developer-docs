@@ -1,0 +1,1 @@
+You've [registered an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register). You've also created resource connections that define the AI agent's access to your org's resources. Now, the agent must obtain the actual tokens or credentials to perform tasks.
