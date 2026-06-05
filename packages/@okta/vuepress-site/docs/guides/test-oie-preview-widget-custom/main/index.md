@@ -4,7 +4,7 @@ title: Test your widget's existing customizations in a test environment
 
 <ApiLifecycle access="ie" />
 
-If your Okta Sign-In Widget has customizations (CSS, JavaScript, i18n, branding, or custom sign-in pages), test them in an Okta Identity Engine (OIE) org before you upgrade production. This guide explains what to test, how to set up your test, and how to fix common issues.
+Does your Okta Sign-In Widget have customizations such as CSS, JavaScript, i18n, branding, or custom sign-in pages? Test them in an Okta Identity Engine (OIE) org before you upgrade production. This guide explains what to test, how to set up your test, and how to fix common issues.
 
 ---
 
