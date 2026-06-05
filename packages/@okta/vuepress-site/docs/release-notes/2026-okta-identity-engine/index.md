@@ -50,7 +50,7 @@ New API endpoints have been added to the Directories Integration (`POST /api/v1/
 
 #### Clear Managed Chrome Profile Browsing Data is GA in Preview
 
-Clear Managed Chrome Profile Browsing Data provides real-time remediation by instantly purging local session data (cookies and cache) within managed Chrome profiles upon ITP detection. By transforming the browser into a policy-enforced workspace, it ensures immediate, automated protection.
+Clear Managed Chrome Profile Browsing Data provides real-time remediation by instantly purging local session data (cookies and cache) within managed Chrome profiles upon ITP detection. By transforming the browser into a policy-enforced workspace, it ensures immediate, automated protection. See [Clear the managed Chrome profile browsing data API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/user/other/clearchromedata).
 
 #### Bring your own telephony credentials is GA in Production
 
