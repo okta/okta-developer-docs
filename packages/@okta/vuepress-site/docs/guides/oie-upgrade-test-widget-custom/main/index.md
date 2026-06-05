@@ -72,12 +72,12 @@ See [Deprecated JavaScript methods in the Sign-In Widget](/docs/guides/oie-upgra
 
 Sign in as a test user and validate each customized flow:
 
-* Standard sign-in (username and password)
-* MFA enrollment and challenge
-* Password recovery
-* Self-service registration (if enabled)
-* Social or external Identity Provider authentication (if configured)
-* Identifier-first flow behavior (new in Identity Engine)
+* [Standard sign-in](/docs/guides/sign-in-overview/main/) (username and password)
+* [MFA enrollment and challenge](/docs/concepts/mfa/)
+* [Password recovery](https://help.okta.com/okta_help.htm?id=ext-add-self-service-password-reset)
+* [Self-service registration](/docs/concepts/self-service-registration/) (if enabled)
+* [Social or external Identity Provider authentication](/docs/concepts/identity-providers/) (if configured)
+* [Identifier-first flow behavior](/docs/concepts/sign-in-widget/) (new in Identity Engine)
 
 ### Step 4: Test styling and branding
 
