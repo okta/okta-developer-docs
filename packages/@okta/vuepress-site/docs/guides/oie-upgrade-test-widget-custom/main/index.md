@@ -4,7 +4,7 @@ title: Test your widget's existing customizations in a test environment
 
 <ApiLifecycle access="ie" />
 
-Does your Okta Sign-In Widget have customizations such as CSS, JavaScript, i18n, branding, or custom sign-in pages? Test them in an Okta Identity Engine (OIE) org before you upgrade production. This guide explains what to test, how to set up your test, and how to fix common issues.
+Does your Okta Sign-In Widget have customizations such as CSS, JavaScript, i18n, branding, or custom sign-in pages? Test them in an Okta [Identity Engine](/docs/concepts/oie-intro/) (OIE) org before you upgrade production. This guide explains what to test, how to set up your test, and how to fix common issues.
 
 ---
 
@@ -14,7 +14,7 @@ Validate that your Sign-In Widget customizations work in Identity Engine, and re
 
 **What you need**
 
-* A test environment ready for Identity Engine. Use a preview org, a free trial Identity Engine org, or an [Integrator Free Plan org](/docs/reference/org-defaults/)
+* A test environment ready for Identity Engine. Use a preview org, a free trial Identity Engine org, or an [Integrator Free Plan org](/docs/reference/org-defaults/).
 * Your current Sign-In Widget version
 * A record of your existing customizations: CSS overrides, JavaScript hooks, i18n properties, and branding
 
@@ -37,13 +37,13 @@ Check which customizations you have and what the Identity Engine upgrade may aff
 
 | Customization type | What may change in newer widget versions and Identity Engine | Action |
 | --- | --- | --- |
-| CSS overrides | Unsupported CSS may break after a widget version update. The third generation (Gen3) of the Sign-In Widget doesn't support the CSS code editor. | Test styling after the upgrade. Migrate to design tokens if you're on Gen3. |
+| CSS overrides | Unsupported CSS may break after a widget version update. The third generation (Gen3) of the Sign-In Widget doesn't support the CSS code editor. | Test styling after the upgrade. Migrate to [design tokens](/docs/guides/custom-widget-gen3/main/#use-design-tokens) if you're on Gen3. |
 | JavaScript hooks (such as `afterRender` or `processCreds`) | Some events behave differently or are deprecated in Identity Engine. | Remove deprecated methods and validate hook behavior. |
 | i18n translations | New Identity Engine-specific property keys are available. Some Classic Engine strings no longer apply. | Verify that translations display correctly and add new Identity Engine string overrides. |
 | Branding (logo, colors, background) | Supported through the Admin Console in both Classic Engine and Identity Engine. No breaking change is expected. | Confirm that branding renders after the upgrade. |
 | Custom sign-in page (hosted) | Classic Engine custom sign-in pages may not work after the upgrade. | Validate that the page loads and functions correctly. |
 | Security image | Removed in Identity Engine. No security image is displayed. | Remove references. No replacement is needed. |
-| Remember me checkbox | Replaced by **Keep me signed in** in Identity Engine. | Update your UI expectations. No code change is needed. |
+| Remember me checkbox | Replaced by [**Keep me signed in**](/docs/guides/keep-me-signed-in/main/) in Identity Engine. | Update your UI expectations. No code change is needed. |
 
 See [Upgrade the Okta Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/main/) for more details on Sign-In Widget changes after the upgrade.
 
