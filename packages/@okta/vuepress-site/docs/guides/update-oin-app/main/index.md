@@ -38,11 +38,39 @@ The OIN Wizard currently supports updates for integrations that use the followin
 
 > **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, SCIM 2.0, and API service integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
 
+If you only need to make non-functional data updates, such as your app name, description, logo, or support contact information, the OIN Wizard routes your submission through a streamlined Fast Path. This path allows you to submit minor branding updates directly to the OIN Ops team for review without requiring functional re-testing or backward-compatibility verification
+
 When you edit a published OIN integration, you need to test the flows for the updated version and the published version for backwards compatibility. The integration version that was previously installed in your customer's org isn't modified with the updated version from the OIN catalog. Testing the published version for backwards compatibility ensures that your integration still works for customers who have already installed it. See [Update integration considerations](#update-integration-considerations) before you edit your published integration.
 
 After you successfully test the updated and published versions of your integration, resubmit your integration to the OIN team. Your integration goes through a [submission review process](/docs/guides/submit-app-overview/#understand-the-submission-review-process) before the updated version is published in the OIN catalog.
 
 ## Update integration considerations
+
+### Non-functional data-only updates (Fast Path)
+
+To keep your listing accurate without consuming engineering resources, you can update non-functional data independently.
+
+The OIN Wizard Fast Path is available exclusively when you access your apps from the **Home** page. Go to the **Home** page, locate the **Your apps** section, click **Edit** next to the app that you want to modify, and select **Catalog Info**. You can use this accelerated, no-test pathway to update the following non-functional fields:
+
+- App name
+- Logo
+- App description
+- Contact information
+
+When you modify only these fields on a published integration, the OIN Wizard bypasses the standard technical testing environment. Once submitted, your changes are tracked through an automated operations ticket and deployed immediately upon OIN Ops team approval.
+
+> **Note:** You can also edit these non-functional metadata fields by navigating to **Applications > Your OIN Integrations**. However, that page only supports the standard editing workflow and doesn't provide access to the accelerated Fast Path.
+
+If your update includes changes to functional configurations such as SAML settings, SCIM provisioning, or URLs, you must select the **Integration** option instead of **Catalog Info** and complete the full end-to-end testing workflow.
+
+### Functional configuration considerations
+
+To update functional settings for your published application, you can use either of the following navigation paths:
+
+- Go to the **Home** page, locate the **Your apps** section, click **Edit** next to the application, and select **Integration**.
+- Go to **Applications > Your OIN Integrations**, click your published integration, and select the standard editing option.
+
+Review the following guidelines before you edit and resubmit your configurations:
 
 For published integrations that were migrated from the OIN Manager, if you need to update configured properties that aren't available in the OIN Wizard, contact <oin@okta.com>.
 
@@ -92,7 +120,12 @@ To update a previously published OIN integration:
 
 1. Click **Add integration details**. The **OIN catalog properties** page appears.
 1. Update [OIN catalog properties](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties) as required for your integration.
-1. Click **Configure your integration** to proceed to update your integration as required in the following sections of the OIN Wizard:
+1. Determine your update path based on your changes:
+
+    - Non-functional data updates only: If you only changed non-functional data (such as the name, logo, description, or contact information), confirm your intent on the prompt. The OIN Wizard bypasses configuration and testing, prompting you to submit immediately. After clicking submit, the app displays an in review status under **Your apps** section. The live version remains active in the public OIN catalog while Okta reviews your changes. See, [Non-functional data-only updates (Fast Path)](#non-functional-data-only-updates-fast-path).
+    - Functional updates: If you altered settings like tenant properties, OIDC capabilities, or Universal Logout protocols, click **Configure your integration** to proceed through the standard testing tabs. See, [Functional configuration considerations](#functional-configuration-considerations).
+
+1. (For functional updates only) Click **Configure your integration** to proceed to update your integration as required in the following sections of the OIN Wizard:
 
    <StackSnippet snippet="edit-links" />
 
