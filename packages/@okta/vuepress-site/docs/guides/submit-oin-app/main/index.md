@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-Learn how to submit an integration with SSO, Universal Logout, provisioning, entitlement management, or API service capabilities to the Okta Integration Network (OIN) using the OIN Wizard.
+Learn how to submit an integration with SSO, Universal Logout, provisioning, entitlement management, API service, or Identity Verification (IDV) capabilities to the Okta Integration Network (OIN) using the OIN Wizard.
 
 ---
 
