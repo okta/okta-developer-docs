@@ -1,4 +1,4 @@
-The OIN Wizard checks the following for  Identity Verification submissions:
+The OIN Wizard checks the following for Identity Verification submissions:
 
 * All required instances are detected.
 * All required instances are active.
