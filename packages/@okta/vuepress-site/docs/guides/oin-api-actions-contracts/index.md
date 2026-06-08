@@ -540,6 +540,91 @@ This action schema contract is for provisioning users.
 | **user.id** | The ID of the user | string |
 | **user.externalId** | External ID of the user, defined by the provisioning client | string |
 | **user.userName** | A unique identifier for the user, typically used by the user to directly authenticate to the service provider. Each user must include a non-empty username value. This identifier must be unique across the service provider's entire set of users. Required. | string |
+| **user.name** | Components of the user's name | object |
+| **user.name.formatted** | Full name formatted for display | string |
+| **user.name.familyName** | Family name of the user (last name) | string |
+| **user.name.givenName** | Given name of the user (first name) | string |
+| **user.name.middleName** | Middle name of the user | string |
+| **user.name.honorificPrefix** | Honorific prefix or title of the user  | string |
+| **user.name.honorificSuffix** | Honorific suffix of the user | string |
+| **user.displayName** | Display name suitable for end users | string |
+| **user.nickName** | Casual name used to address the user | string |
+| **user.profileUrl** | Fully qualified URL to the user profile page | string (URI) |
+| **user.title** | User title, such as vice president | string |
+| **user.userType** | Relationship type between the organization and the user | string |
+| **user.preferredLanguage** | Preferred written or spoken language | string |
+| **user.locale** | Default locale for formatting and localization | string |
+| **user.timezone** | User time zone in olson format | string |
+| **user.active** | Administrative status of the user | boolean |
+| **user.password** | Cleartext password used for create/reset operations | string |
+| **user.emails** | Email addresses for the user | array |
+| **user.emails[]** | User email object | object |
+| **user.emails[].value** | Email address value | string |
+| **user.emails[].display** | Human-readable display value (read-only) | string |
+| **user.emails[].type** | Label of email function (for example, work/home) | string |
+| **user.emails[].primary** | Whether this is the primary email value | boolean |
+| **user.phoneNumbers** | Phone numbers for the user | array |
+| **user.phoneNumbers[]** | User phone number object | object |
+| **user.phoneNumbers[].value** | Phone number value | string |
+| **user.phoneNumbers[].display** | Human-readable display value (read-only) | string |
+| **user.phoneNumbers[].type** | Label of phone function (for example, work/home/mobile) | string |
+| **user.phoneNumbers[].primary** | Whether this is the primary phone number value | boolean |
+| **user.ims** | Instant messaging addresses for the user | array |
+| **user.ims[]** | User im object | object |
+| **user.ims[].value** | Instant messaging address value | string |
+| **user.ims[].display** | Human-readable display value (read-only) | string |
+| **user.ims[].type** | Label of im function (for example, aim/gtalk/xmpp) | string |
+| **user.ims[].primary** | Whether this is the primary im value | boolean |
+| **user.photos** | Photo URLs for the user | array |
+| **user.photos[]** | User photo object | object |
+| **user.photos[].value** | Photo URL value | string (URI) |
+| **user.photos[].display** | Display text for the photo entry | string |
+| **user.photos[].type** | Label of photo function (photo/thumbnail) | string |
+| **user.photos[].primary** | Whether this is the primary photo value | boolean |
+| **user.addresses** | Physical mailing addresses for the user | array |
+| **user.addresses[]** | User address object | object |
+| **user.addresses[].formatted** | Full address formatted for display | string |
+| **user.addresses[].streetAddress** | Full street address component | string |
+| **user.addresses[].locality** | City or locality component | string |
+| **user.addresses[].region** | State or region component | string |
+| **user.addresses[].postalCode** | Zip/postal code component | string |
+| **user.addresses[].country** | Country name component | string |
+| **user.addresses[].type** | Label of address function (for example, work/home) | string |
+| **user.addresses[].primary** | Whether this is the primary address value | boolean |
+| **user.groups** | Groups the user belongs to | array |
+| **user.groups[]** | User group object | object |
+| **user.groups[].value** | Group identifier | string |
+| **user.groups[].ref** | URI of the related group resource | string (URI) |
+| **user.groups[].display** | Display text for the group entry | string |
+| **user.groups[].type** | Label of group membership function (for example, direct/indirect) | string |
+| **user.entitlements** | Entitlements assigned to the user | array |
+| **user.entitlements[]** | User entitlement object | object |
+| **user.entitlements[].value** | Entitlement value | string |
+| **user.entitlements[].display** | Display text for the entitlement entry | string |
+| **user.entitlements[].type** | Label of entitlement function | string |
+| **user.entitlements[].primary** | Whether this is the primary entitlement value | boolean |
+| **user.roles** | Roles assigned to the user | array |
+| **user.roles[]** | User role object | object |
+| **user.roles[].value** | Role value | string |
+| **user.roles[].display** | Display text for the role entry | string |
+| **user.roles[].type** | Label of role function | string |
+| **user.roles[].primary** | Whether this is the primary role value | boolean |
+| **user.x509Certificates** | Certificates issued to the user | array |
+| **user.x509Certificates[]** | User certificate object | object |
+| **user.x509Certificates[].value** | X.509 certificate value | string |
+| **user.x509Certificates[].display** | Label describing the certificate entry type | string |
+| **user.x509Certificates[].type** | Label of certificate function | string |
+| **user.x509Certificates[].primary** | Whether this is the primary certificate value | boolean |
+| **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User** | Enterprise user extension object | object |
+| **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.employeeNumber** | Employee number identifier | string |
+| **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.costCenter** | Cost center name | string |
+| **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.organization** | Organization name | string |
+| **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.division** | Division name | string |
+| **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.department** | Department name | string |
+| **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.manager** | Manager object for organizational hierarchy | object |
+| **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.manager.value** | Id of the manager SCIM resource | string |
+| **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.manager.ref** | URI of the manager SCIM resource | string (URI) |
+| **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.manager.displayName** | Display name of the manager | string |
 | **executionStatus** | Execution result details for the request | object |
 | **executionStatus.status** | Execution result state of the request (`SUCCEEDED` or `FAILED`) | string |
 | **executionStatus.errors** | List of error objects returned when execution fails or partially fails | array |
@@ -581,7 +666,7 @@ This action schema contract is for provisioning users.
 | **resources[].name.honorificSuffix** | Honorific suffix of the user | string |
 | **resources[].displayName** | Display name suitable for end users | string |
 | **resources[].nickName** | Casual name used to address the user | string |
-| **resources[].profileUrl** | Fully qualified url to the user profile page | string |
+| **resources[].profileUrl** | Fully qualified URL to the user profile page | string |
 | **resources[].title** | Title of the user | string |
 | **resources[].userType** | Relationship type between the organization and the user | string |
 | **resources[].preferredLanguage** | Preferred written or spoken language of the user | string |
@@ -605,7 +690,7 @@ This action schema contract is for provisioning users.
 | **resources[].ims[].type** | Label describing the im entry type | string |
 | **resources[].ims[].primary** | Whether the im entry is primary | boolean |
 | **resources[].photos** | Photo entries for the user | array |
-| **resources[].photos[].value** | Url value of the photo | string |
+| **resources[].photos[].value** | URL value of the photo | string |
 | **resources[].photos[].display** | Display text for the photo entry | string |
 | **resources[].photos[].type** | Label describing the photo entry type | string |
 | **resources[].photos[].primary** | Whether the photo entry is primary | boolean |
@@ -620,7 +705,7 @@ This action schema contract is for provisioning users.
 | **resources[].addresses[].primary** | Whether the address entry is primary | boolean |
 | **resources[].groups** | Group membership entries for the user | array |
 | **resources[].groups[].value** | Identifier of the user group | string |
-| **resources[].groups[].ref** | Uri of the related group resource | string |
+| **resources[].groups[].ref** | URI of the related group resource | string |
 | **resources[].groups[].display** | Display text for the group entry | string |
 | **resources[].groups[].type** | Label describing the group membership type | string |
 | **resources[].entitlements** | Entitlement entries for the user | array |
@@ -646,7 +731,7 @@ This action schema contract is for provisioning users.
 | **resources[].urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.department** | Department name | string |
 | **resources[].urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.manager** | Manager object for the user | object |
 | **resources[].urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.manager.value** | Id of the manager scim resource | string |
-| **resources[].urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.manager.ref** | Uri of the manager scim resource | string |
+| **resources[].urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.manager.ref** | URI of the manager scim resource | string |
 | **resources[].urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.manager.displayName** | Display name of the manager | string |
 | **pagination** | Pagination details for the response | object |
 | **pagination.nextCursor** | Cursor for retrieving the next page of users | string |
