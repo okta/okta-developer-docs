@@ -540,7 +540,7 @@ This action schema contract is for provisioning users.
 | **user.ims** | Instant messaging addresses for the user | array |
 | **user.ims[].value** | Instant messaging address for the user | string |
 | **user.ims[].display** | Display text for the instant message entry; read-only | string |
-| **user.ims[].type** | A label indicating the attribute function, such as AIM, gTalk, or XMPP | string |
+| **user.ims[].type** | A label indicating the attribute function, such as AIM, gtalk, or XMPP | string |
 | **user.ims[].primary** | A Boolean value indicating the primary or preferred attribute value for this attribute | boolean |
 | **user.photos** | URLs of photos of the user | array |
 | **user.photos[].value** | URL of a photo of the user | string |
