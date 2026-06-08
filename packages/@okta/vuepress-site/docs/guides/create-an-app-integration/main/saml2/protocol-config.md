@@ -1,9 +1,9 @@
 5. On the **General Settings** tab, enter a name for your integration and optionally upload a logo. You can also choose to hide the integration from your end user's Okta dashboard or mobile app. Click **Next**.
 6. On the **Configure SAML** tab, configure the following integration settings using the SAML information that you gathered when you built your integration:
 
-    * **Single sign on URL** field - Enter the Assertion Consumer Service (ACS) URL.
+    * **Single sign-on URL** field-Enter the Assertion Consumer Service (ACS) URL.
 
-    * **Audience URI (SP Entity ID)** field - Enter the unique identifier for your app.
+    * **Audience URI (SP Entity ID)** field-Enter the unique identifier for your app.
 
         > **Note:** If you're just testing your setup using a sample SAML SP (such as a sample SAML Service Provider on GitHub), enter the following test URL into the **Single sign on URL** and **Audience URI (SP Entity ID)** fields:
 
@@ -13,7 +13,7 @@
 
     * Choose the **Name ID format** and **Application username** that must be sent to your app in the SAML response (for example, `EmailAddress` and `Email`) or leave the defaults.
 
-    * **Attribute Statements (optional)** section - Enter the SAML attributes to be shared with your application. For example:
+    * **Attribute Statements (optional)** section-Enter the SAML attributes to be shared with your application. For example:
 
         | Name (in SAML application) | Value (in Okta profile) |
         |---|---|
@@ -31,11 +31,11 @@
 
     * Click **Next**.
 
-7. On the **Feedback** tab, select how you want to position this app::
+7. On the **Feedback** tab, select how you want to position this app:
 
     * Internal app creation: If your organization created the app and you don't want it publicly released, select **This is an internal app that we have created**.
 
-    * Vendor configuration: If your app requires more SAML configuration instructions to work with Okta, select **It's required to contact the vendor to enable SAML**, and then fill in the fields to help the Okta support team understand your setup.
+    * Vendor configuration: If your app requires more SAML configuration instructions to work with Okta, select **It's required to contact the vendor to enable SAML**, and then fill in the fields to help the Okta Support team understand your setup.
 
 8. Click **Finish**.
 
