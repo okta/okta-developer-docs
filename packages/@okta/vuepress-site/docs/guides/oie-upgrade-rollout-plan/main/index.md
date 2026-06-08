@@ -66,7 +66,7 @@ To prepare:
 * Plan a replacement authentication method. Common replacements are Desktop SSO with Okta FastPass or certificate-based authentication.
 * After the upgrade and FastPass migration are complete, decommission IWA agents and servers.
 
-See [Remove support for Integrated Windows Authentication (IWA)](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/remove-iwa.htm).
+See [Delete IWA routing rules](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/dt-remove-iwa-routing-rules.htm).
 
 ## Replace Device Trust
 
@@ -94,7 +94,7 @@ Okta Mobile is deprecated and unavailable after the Identity Engine upgrade. Bef
 * Deploy and enroll Okta Verify for all mobile users before the upgrade date.
 * Confirm that Okta Verify enrollment is complete before scheduling the org upgrade.
 
-See [Prepare to remove Okta Mobile](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/prepare-remove-okta-mobile.htm).
+See [Prepare Okta Mobile users for upgrade](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/prepare-om-users-for-upgrade.htm).
 
 ## Update authenticator policies after the upgrade
 
