@@ -625,7 +625,7 @@ This action schema contract is for provisioning users.
 | **user.name.honorificSuffix** | Honorific suffix of the user | string |
 | **user.displayName** | Display name suitable for end users | string |
 | **user.nickName** | Casual name used to address the user | string |
-| **user.profileUrl** | Fully qualified URL to the user profile page | string (URI) |
+| **user.profileUrl** | Fully qualified URL to the user profile page | string |
 | **user.title** | User title, such as vice president | string |
 | **user.userType** | Relationship type between the organization and the user | string |
 | **user.preferredLanguage** | Preferred written or spoken language | string |
@@ -653,7 +653,7 @@ This action schema contract is for provisioning users.
 | **user.ims[].primary** | Whether this is the primary IM value | boolean |
 | **user.photos** | Photo URLs for the user | array |
 | **user.photos[]** | User photo object | object |
-| **user.photos[].value** | Photo URL value | string (URI) |
+| **user.photos[].value** | Photo URL value | string |
 | **user.photos[].display** | Display text for the photo entry | string |
 | **user.photos[].type** | Label of photo function (photo/thumbnail) | string |
 | **user.photos[].primary** | Whether this is the primary photo value | boolean |
@@ -670,7 +670,7 @@ This action schema contract is for provisioning users.
 | **user.groups** | Groups the user belongs to | array |
 | **user.groups[]** | User group object | object |
 | **user.groups[].value** | Group identifier | string |
-| **user.groups[].ref** | URI of the related group resource | string (URI) |
+| **user.groups[].ref** | URI of the related group resource | string |
 | **user.groups[].display** | Display text for the group entry | string |
 | **user.groups[].type** | Label of group membership function (for example, direct/indirect) | string |
 | **user.entitlements** | Entitlements assigned to the user | array |
@@ -699,7 +699,7 @@ This action schema contract is for provisioning users.
 | **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.department** | Department name | string |
 | **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.manager** | Manager object for organizational hierarchy | object |
 | **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.manager.value** | Id of the manager SCIM resource | string |
-| **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.manager.ref** | URI of the manager SCIM resource | string (URI) |
+| **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.manager.ref** | URI of the manager SCIM resource | string |
 | **user.urn:ietf:params:scim:schemas:extension:enterprise:2.0:<br>User.manager.displayName** | Display name of the manager | string |
 | **executionStatus** | Execution result details for the request | object |
 | **executionStatus.status** | Execution result state of the request (`SUCCEEDED` or `FAILED`) | string |
