@@ -150,8 +150,6 @@ Okta accepts integrations that use the following protocols or tools into the OIN
 
 * [API Integration Actions](/docs/guides/oin-api-actions/) in the Workflows Integration Builder
 
-* Identity Proofing (for Identity Verification integrations)
-
 > **Note:** SWA app integrations are no longer accepted for publication in the OIN catalog. However, the OIN team still maintains existing SWA apps.
 
 ## Submission support
