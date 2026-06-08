@@ -554,7 +554,7 @@ This action schema contract is for provisioning users.
 | **user.userType** | Relationship type between the organization and the user | string |
 | **user.preferredLanguage** | Preferred written or spoken language | string |
 | **user.locale** | Default locale for formatting and localization | string |
-| **user.timezone** | User time zone in olson format | string |
+| **user.timezone** | User time zone in Olson format | string |
 | **user.active** | Administrative status of the user | boolean |
 | **user.password** | Cleartext password used for create/reset operations | string |
 | **user.emails** | Email addresses for the user | array |
@@ -671,7 +671,7 @@ This action schema contract is for provisioning users.
 | **resources[].userType** | Relationship type between the organization and the user | string |
 | **resources[].preferredLanguage** | Preferred written or spoken language of the user | string |
 | **resources[].locale** | Locale used for localization preferences | string |
-| **resources[].timezone** | Timezone of the user in olson format | string |
+| **resources[].timezone** | Timezone of the user in Olson format | string |
 | **resources[].active** | Administrative status of the user | boolean |
 | **resources[].password** | Cleartext password value used for initial set or reset | string |
 | **resources[].emails** | Email entries for the user | array |
