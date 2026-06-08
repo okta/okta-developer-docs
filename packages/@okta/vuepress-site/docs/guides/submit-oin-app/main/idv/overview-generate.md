@@ -1,2 +1,2 @@
 
-* Test your Identity Verification (IDV) integration manually.
+* Test your Identity Verification (IDV) integration with the OIN Submission Tester.
