@@ -9,7 +9,7 @@ showBreadcrumb: False
 guides:
   - name: Enable Single Sign-On
     icon: /img/icons/icon--saml.png
-    description: Federate using SAML or OIDC
+    description: Federate using SAML or OIDC.
     links:
       - text: What is SAML?
         url: /docs/concepts/saml
@@ -18,7 +18,7 @@ guides:
     docsUrl: /docs/guides/sign-in-overview/main
   - name: Automate Provisioning
     icon: /img/icons/icon--lock.svg
-    description: Synchronize user identities using SCIM
+    description: Synchronize user identities using SCIM.
     links:
       - text: What is SCIM?
         url: /docs/concepts/scim
@@ -39,6 +39,6 @@ developSteps:
     description: Your integration is added to our OIN catalog for your end users.
   - name: Grow
     icon: /img/icons/icon--flow.svg
-    description: After your launch, Okta work with you to update your integration as business needs change.
+    description: After your launch, Okta works with you to update your integration as business needs change.
 
 ---
