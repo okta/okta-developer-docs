@@ -27,7 +27,7 @@ guides:
 developSteps:
   - name: Build
     icon: /img/icons/icon--tool.svg
-    description: Develop your integration with the software tools you choose.
+    description: Develop your integration with the software tools that you choose.
   - name: Submit
     icon: /img/icons/icon--check-outline.svg
     description: Our ISV portal walks you through every step of the submission process.
@@ -39,6 +39,6 @@ developSteps:
     description: Your integration is added to our OIN catalog for your end users.
   - name: Grow
     icon: /img/icons/icon--flow.svg
-    description: After your launch, we work with you to update your integration as business needs change.
+    description: After your launch, Okta work with you to update your integration as business needs change.
 
 ---
