@@ -4,20 +4,20 @@ title: Plan your upgrade rollout
 
 <ApiLifecycle access="ie" />
 
-Upgrading from Okta Classic Engine to Okta Identity Engine (OIE) involves more than a single click in the Upgrade Hub. Before scheduling your production upgrade, decide how to sequence the upgrade across orgs, how to migrate users to the new flows gradually, and how to handle features that don't carry over to Identity Engine. Okta recommends an iterative approach rather than upgrading everything at once.
+Upgrading from Classic Engine to Okta Identity Engine (Identity Engine) involves more than a single click in the Identity Engine Upgrade Hub. Before scheduling your production upgrade, decide how to sequence the upgrade across orgs, how to migrate users to the new flows gradually, and how to handle features that don't carry over to Identity Engine. Okta recommends an iterative approach rather than upgrading everything at once.
 
 ---
 
-**Learning outcome**
+#### Learning outcome
 
 Build a rollout plan that covers org upgrade sequencing, user segment rollout, and feature replacement for features that aren't supported in Identity Engine.
 
-**What you need**
+#### What you need
 
-* Access to the Okta Admin Console for each org you plan to upgrade
+* Access to the Admin Console for each org you plan to upgrade
 * A list of all Okta orgs in your tenant and their purpose (preview, sandbox, production)
 * An understanding of how your apps integrate with Okta (redirect, embedded widget, or embedded SDK)
-* Completed Upgrade Hub action items for each org
+* Completed Identity Engine Upgrade Hub action items for each org
 
 ---
 
@@ -27,11 +27,11 @@ If your organization has more than one Okta org, upgrade them in stages rather t
 
 | Org type | Recommended order | Why |
 | --- | --- | --- |
-| Preview org | First | Rehearse the upgrade, validate configuration changes, and run your test matrix before touching production. |
+| Preview org | First | Rehearse the upgrade, validate configuration changes, and run your test matrix before upgrading the production org. |
 | Non-production or sandbox orgs | Second | Validate app-specific flows and integrations in a real Identity Engine environment. |
 | Production org | Last | Apply only after preview and sandbox validation passes. |
 
-Each org is upgraded independently through the self-service process in the Upgrade Hub. The upgrade takes only a few minutes and requires no downtime, but you must complete all Upgrade Hub action items in an org before scheduling it. Wait at least one week after upgrading your preview org before scheduling production.
+Each org is upgraded independently through the self-service process in the Identity Engine Upgrade Hub. The upgrade takes only a few minutes and requires no downtime, but you must complete all Identity Engine Upgrade Hub action items in an org before scheduling it. Wait at least one week after upgrading your preview org before scheduling production.
 
 See [Self-service upgrade process](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/self-service/self-service-process.htm).
 
@@ -57,14 +57,14 @@ Whichever strategy you choose, follow this sequence:
 
 ## Replace Integrated Windows Authentication
 
-IWA routing rules must be removed before you can upgrade. The Upgrade Hub blocks the upgrade if any IWA routing rules exist in your org.
+Integrated Windows Authentication (IWA) routing rules must be removed before you can upgrade. The Identity Engine Upgrade Hub blocks the upgrade if any IWA routing rules exist in your org.
 
 To prepare:
 
 * Identify all IWA routing rules in the Admin Console.
 * Delete each routing rule before scheduling the upgrade.
-* Plan a replacement authentication method. Common replacements are Desktop SSO with Okta FastPass or certificate-based authentication.
-* After the upgrade and FastPass migration are complete, decommission IWA agents and servers.
+* Plan a replacement authentication method. Common replacements are desktop SSO with Okta FastPass or certificate-based authentication.
+* After the upgrade and Okta FastPass migration are complete, decommission IWA agents and servers.
 
 See [Delete IWA routing rules](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/dt-remove-iwa-routing-rules.htm).
 
@@ -72,9 +72,9 @@ See [Delete IWA routing rules](https://help.okta.com/oie/en-us/content/topics/id
 
 Classic Engine Device Trust isn't supported in Identity Engine. The replacement is Okta Verify with managed certificates and Okta FastPass.
 
-Start by identifying whether your org uses Device Trust for desktop, mobile, or both, then plan the migration path for each.
+Start by identifying whether your org uses Device Trust for Desktop, mobile, or both, then plan the migration path for each.
 
-After you remove IWA routing rules (see [Replace Integrated Windows Authentication](#replace-integrated-windows-authentication)) and complete the upgrade, migrate desktop devices to Okta FastPass:
+After you [remove the IWA routing rules](#replace-integrated-windows-authentication) and complete the upgrade, migrate desktop devices to Okta FastPass:
 
 1. Configure Device Integration and establish a new Certificate Authority.
 2. Import the new CA into your Device Management software.
@@ -83,11 +83,11 @@ After you remove IWA routing rules (see [Replace Integrated Windows Authenticati
 5. Decommission legacy IWA agents and servers.
 6. Remove Classic Engine Device Trust platforms.
 
-Mobile device migration is a separate process. See [Device Trust upgrade considerations for desktop](https://help.okta.com/oie/en-us/Content/Topics/identity-engine-upgrade/dt-upgrade-considerations-desktop.htm) for full details.
+Mobile device migration is a separate process. See [Device Trust upgrade considerations for desktop](https://help.okta.com/oie/en-us/Content/Topics/identity-engine-upgrade/dt-upgrade-considerations-desktop.htm) for more details.
 
 ## Replace Okta Mobile
 
-Okta Mobile is deprecated and unavailable after the Identity Engine upgrade. Before upgrading, make sure all affected users are enrolled in Okta Verify.
+Okta Mobile is deprecated and unavailable after the Identity Engine upgrade. Before upgrading, make sure that all affected users are enrolled in Okta Verify.
 
 * Identify which users currently rely on Okta Mobile.
 * Communicate the deprecation timeline to those users.
@@ -114,13 +114,13 @@ Use the following table to map Classic Engine policy concepts to their Identity 
 | --- | --- | --- |
 | MFA enrollment policy | Authenticator enrollment policy | Review and reconfigure authenticator settings. |
 | Sign-on policy factors | Authentication policy authenticator constraints | Map each Classic Engine factor to its Identity Engine authenticator. |
-| Factor sequencing | Authenticator possession and verification | Update policy rules for the new authenticator model. |
+| Factor Sequencing | Authenticator possession and verification | Update policy rules for the new authenticator model. |
 
 See [Post-upgrade checklist](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/post-upgrade-checklist.htm).
 
 ## Rollout checklist
 
-After you complete your planning, confirm all items are done before scheduling the upgrade.
+After you complete your planning, confirm that all items are done before scheduling the upgrade.
 
 **Before upgrading:**
 
