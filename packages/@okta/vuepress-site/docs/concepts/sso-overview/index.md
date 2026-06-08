@@ -51,7 +51,7 @@ Okta supports two protocols for handling federated SSO: OpenID Connect (OIDC) an
 | **Benefits** | <ul><li>A newer protocol with widespread and growing use</li> <li>Best Okta customer configuration experience</li> <li>Ideal for mobile and cloud apps</li> </ul> | <ul><li>Many people are familiar with SAML because it's an older protocol</li> <li>Widely used federation protocol for SSO in web apps</li> <li>Many SaaS providers support SAML integration to grant SSO access to end users</li></ul>|
 | **Technology** | <ul><li>An identity layer on top of the [OAuth 2.0](https://oauth.net/2/) protocol</li> <li>Verifies end user identity and obtains profile information</li> <li>Lightweight and REST-based</li></ul> |   <ul><li>XML-based messages</li> <li>The specification doesn’t have user consent, although it can be built into the flow</li> </ul> |
 | **Resources** | <ul><li>[OpenID Connect Foundation](https://openid.net/connect/)</li></ul>| <ul><li>[SAML 2.0 Technical Overview](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) </li></ul> |
-| **Get started** | <ul><li>[Build an Okta SSO integration with OIDC](/docs/guides/build-sso-integration/openidconnect/main/)  </li></ul>| <ul><li>[Build an Okta SSO integration with SAML](/docs/guides/build-sso-integration/saml2/main/) </li></ul> |
+| **Get started** | <ul><li>[Build an Okta SSO integration with OIDC]( /docs/guides/create-an-app-integration/openidconnect/main/)  </li></ul>| <ul><li>[Build an Okta SSO integration with SAML](/docs/guides/create-an-app-integration/saml2/main/) </li></ul> |
 
 ## SSO, Single Logout (SLO), and Universal Login
 

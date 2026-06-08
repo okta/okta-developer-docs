@@ -576,7 +576,7 @@ In addition to the general OIN limitations, the following are limitations specif
 
 * SP-initiated Single Logout (SLO) isn’t supported.
 
-The OIN Wizard doesn't accept new SSO integrations with more than three app instance variables or advanced SAML features. For these new integrations, add a [private SSO integration](/docs/guides/add-private-app/) with the Application Integration Wizard (AIW) in your Okta org instead.
+The OIN Wizard doesn't accept new SSO integrations with more than three app instance variables or advanced SAML features. For these new integrations, add a [custom SSO integration](/docs/guides/create-an-app-integration) with the Application Integration Wizard (AIW) in your Okta org instead.
 
 The OIN team maintains existing SAML integrations with advanced features not supported in the OIN Wizard. If you need to update your existing advanced SAML integration, contact the OIN team at <oin@okta.com>.
 
