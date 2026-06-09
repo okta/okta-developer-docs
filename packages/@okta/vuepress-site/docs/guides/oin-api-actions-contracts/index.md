@@ -626,7 +626,7 @@ This action schema contract is for provisioning users.
 | **user.displayName** | Display name suitable for end users | string |
 | **user.nickName** | Casual name used to address the user | string |
 | **user.profileUrl** | Fully qualified URL to the user profile page | string |
-| **user.title** | User title, such as vice president | string |
+| **user.title** | User title, such as Vice President | string |
 | **user.userType** | Relationship type between the organization and the user | string |
 | **user.preferredLanguage** | Preferred written or spoken language | string |
 | **user.locale** | Default locale for formatting and localization | string |
