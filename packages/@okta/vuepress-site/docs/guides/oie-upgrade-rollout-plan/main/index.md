@@ -55,6 +55,33 @@ Whichever strategy you choose, follow this sequence:
 4. Gradually increase the proportion of users on Identity Engine flows.
 5. Remove Classic Engine flow code after all users have been fully migrated and validated.
 
+## Upgrade your Sign-In Widget
+
+If your app uses an embedded Sign-In Widget, verify that it runs version 5.11.0 or later before you schedule the org upgrade. Earlier versions don't support Identity Engine flows. If you haven't already upgraded the widget, do it now as part of your rollout prep — not at the same time as the org upgrade.
+
+After the upgrade, the widget behavior changes in the following ways: the security image is removed, the **Remember me** and **Don't prompt me again** checkboxes are replaced with **Keep me signed in**, and the default sign-in flow switches from password-first to identifier-first if your global session policy is set to **Any factor used to meet the authentication policy requirements**.
+
+See [Sign-In Widget upgrade overview](/docs/guides/oie-upgrade-sign-in-widget/main/) and [Sign-In Widget changes](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/siw-changes.htm).
+
+## Update event hook endpoints
+
+If your app uses event hooks for phone verification events, update the endpoint handler before the org upgrade. The JSON payload for `system.voice.send_phone_verification_call` and `system.sms.send_phone_verification_message` events changes in Identity Engine: the phone number moves from the `target` object (`MobilePhone` type) to `debugContext.debugData.phoneNumber`. An endpoint that reads the phone number from the Classic Engine location stops working after the upgrade.
+
+See [Update event hook endpoints](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/event-hook-endpoint-update.htm).
+
+## Prepare Terraform for the upgrade
+
+If you use Terraform to manage Okta orgs, prepare before you upgrade:
+
+1. Migrate to the latest version of the [Okta Terraform provider](https://registry.terraform.io/providers/okta/okta).
+2. Update your HCL scripts to accommodate syntax changes.
+3. Sync the `.tfstate` file using Terraform commands so it stays consistent with the updated scripts.
+4. Test the changes on a temporary Okta tenant before applying them in production.
+
+After the upgrade, run `terraform plan -refresh=false` to verify that the script and `.tfstate` file are in sync. The output should read `Resources: 0 added, 0 changed, 0 destroyed`. If changes are detected, update the script or `.tfstate` file to match the current state.
+
+See [Prepare Terraform for upgrade](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/prepare-terraform.htm).
+
 ## Replace Integrated Windows Authentication
 
 Integrated Windows Authentication (IWA) routing rules must be removed before you can upgrade. The Identity Engine Upgrade Hub blocks the upgrade if any IWA routing rules exist in your org.
@@ -96,6 +123,27 @@ Okta Mobile is deprecated and unavailable after the Identity Engine upgrade. Bef
 
 See [Prepare Okta Mobile users for upgrade](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/prepare-om-users-for-upgrade.htm).
 
+## Build a test plan
+
+A structured test plan reduces the risk of discovering issues after your production upgrade. The plan has two phases:
+
+1. **Before the upgrade**: Record the current Classic Engine experience for your critical flows. Document your policies, sign-in widget customizations, and device configurations. Run through each scenario and note what the expected result is for each one.
+2. **After the upgrade**: Repeat the same scenarios in Identity Engine and verify the results match. Start on the preview org before repeating on production.
+
+At minimum, cover these scenarios in your test matrix:
+
+| Scenario | What to verify |
+| --- | --- |
+| Okta-hosted sign-in | Username/password flow, MFA prompt, error messages |
+| Embedded Sign-In Widget | Sign-in flow, MFA enrollment, custom branding, error states |
+| Self-Service Registration | New user registration, activation email, MFA enrollment |
+| Password recovery | Forgot password flow, recovery factors |
+| SSO | Sign-in to at least five apps with different sign-on policies |
+| MFA authenticators | Email, phone, Okta Verify, and any other enrolled authenticators |
+| Admin Console access | Admin sign-in and role-based access |
+
+Use the [Upgrade Test Matrix](https://support.okta.com/help/s/article/sample-template-oie-upgrade-test-matrix) spreadsheet from Okta Support to track results. See [Upgrade test plan](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/self-service/self-service-process.htm) for the full testing workflow.
+
 ## Update authenticator policies after the upgrade
 
 Identity Engine replaces Classic Engine MFA factors with an authenticator model. Most policy changes can wait until after a one-week validation period, but two checks should happen immediately.
@@ -118,6 +166,12 @@ Use the following table to map Classic Engine policy concepts to their Identity 
 
 See [Post-upgrade checklist](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/post-upgrade-checklist.htm).
 
+## Plan for rollback
+
+If you discover a critical issue after upgrading, Okta can roll back your org to Classic Engine. Build rollback into your plan by scheduling a validation window immediately after each org upgrade. The rollback window closes after seven days, so testing can't wait.
+
+See [Roll back to Classic Engine](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/rollback.htm), [Initiate a rollback request](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/rollback-steps.htm), and [Behavior after a rollback](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/rollback-behavior.htm).
+
 ## Rollout checklist
 
 After you complete your planning, confirm that all items are done before scheduling the upgrade.
@@ -126,25 +180,36 @@ After you complete your planning, confirm that all items are done before schedul
 
 * Identify all orgs that need to be upgraded and confirm the sequence.
 * Plan your user segment rollout strategy if you use embedded apps.
+* Upgrade the embedded Sign-In Widget to version 5.11.0 or later.
+* Update event hook endpoint handlers if you use phone verification event hooks.
+* Prepare Terraform: update the provider, HCL scripts, and `.tfstate` files, and test on a temporary tenant.
 * Identify Device Trust usage and plan the replacement path.
 * Delete IWA routing rules from all orgs before scheduling.
 * Enroll all Okta Mobile users in Okta Verify and communicate the deprecation timeline.
+* Record your Classic Engine baseline using the test plan before each org upgrade.
 * Complete all Upgrade Hub action items in each org.
 
 **After upgrading:**
 
 * Verify global session policy settings immediately after the upgrade.
 * Validate MFA and authenticator enrollment for test users.
+* Run the post-upgrade test plan and compare results against the Classic Engine baseline.
+* If critical issues arise, request a rollback within seven days.
 * Make no other policy changes for at least one week.
 * After one week, update authenticator enrollment policies.
 * After one week, enable new Identity Engine features as needed.
+* Run `terraform plan -refresh=false` to confirm Terraform is in sync after the upgrade.
 * Remove Classic Engine flow code from embedded apps after all users have migrated.
 
 ## See also
 
 * [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/main/)
 * [Plan embedded auth app upgrades](/docs/guides/oie-upgrade-plan-embedded-upgrades/main/)
+* [Sign-In Widget upgrade overview](/docs/guides/oie-upgrade-sign-in-widget/main/)
 * [Understand authenticator enrollment policy changes after the upgrade](/docs/guides/oie-upgrade-mfa-enroll-policy/main/)
 * [Identity Engine limitations](/docs/guides/ie-limitations/main/)
 * [Self-service upgrade process](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/self-service/self-service-process.htm)
+* [Upgrade test plan](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/self-service/test-plan.htm)
 * [Post-upgrade checklist](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/post-upgrade-checklist.htm)
+* [Prepare Terraform for upgrade](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/prepare-terraform.htm)
+* [Roll back to Classic Engine](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/rollback.htm)
