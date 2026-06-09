@@ -121,7 +121,7 @@ To update a previously published OIN integration:
 1. Update [OIN catalog properties](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties) as required for your integration.
 1. Determine your update path based on your changes:
 
-    - Catalog info only: If you only changed catalog data (such as the name, logo, description, or contact information), confirm your intent on the prompt. The OIN Wizard bypasses configuration and testing, prompting you to submit immediately. After clicking submit, the app displays an in review status under **Your apps** section. The live version remains active in the public OIN catalog while Okta reviews your changes. See, [Catalog information only updates](#catalog-information-only-updates).
+    - Catalog info only: If you only changed catalog data (such as the name, logo, description, or contact information), confirm your intent on the prompt. The OIN Wizard bypasses configuration and testing, prompting you to submit immediately. After clicking submit, the app displays an in review status under **Your apps** section. The live version remains active in the public OIN catalog while Okta reviews your changes. See, [Update catalog information only](#update-catalog-information-only).
     - Functional updates: If you altered settings like tenant properties, OIDC capabilities, or Universal Logout protocols, click **Configure your integration** to proceed through the standard testing tabs. See, [Functional configuration considerations](#functional-configuration-considerations).
 
 1. (For functional updates only) Click **Configure your integration** to proceed to update your integration as required in the following sections of the OIN Wizard:
