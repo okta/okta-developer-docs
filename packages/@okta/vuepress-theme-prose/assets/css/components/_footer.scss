@@ -362,12 +362,6 @@
   }
 }
 
-@include media("<desktop-xl") {
-  .app-footer {
-    padding: 60px 0;
-  }
-}
-
 .app-footer .link {
   font-weight: 500;
 }

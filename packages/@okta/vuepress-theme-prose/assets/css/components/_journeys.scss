@@ -2,23 +2,9 @@
   --journeys-text-color: var(--c-gray-960);
   --journeys-link-color: var(--c-gray-950);
   --journeys-graphic-radius: 14px;
-  --journeys-padding-top: 42px;
-  --journeys-padding-bottom: 40px;
-
-  padding-top: var(--journeys-padding-top);
-  padding-bottom: var(--journeys-padding-bottom);
-
-  background-color: cv("homepage-section", "bg");
-
-  @include media(">tablet") {
-    --journeys-padding-top: 56px;
-    --journeys-padding-bottom: 56px;
-  }
 
   @include media(">desktop") {
     --journeys-graphic-radius: 24px;
-    --journeys-padding-top: 80px;
-    --journeys-padding-bottom: 100px;
   }
 }
 

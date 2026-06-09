@@ -1,7 +1,3 @@
-.news {
-  background-color: cv("homepage-section", "bg");
-}
-
 .news__wrapper {
   display: flex;
   flex-grow: 1;
@@ -15,14 +11,9 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
-  padding-top: 30px;
-  padding-bottom: 30px;
 
   @include media(">tablet") {
     --news-padding-x: 80px;
-
-    padding-top: 40px;
-    padding-bottom: 40px;
   }
 
   @include media(">desktop") {
@@ -30,8 +21,6 @@
     grid-template-rows: repeat(2, auto);
     grid-template-columns: 1fr repeat(2, 296px);
     gap: 32px;
-    padding-top: 44.5px;
-    padding-bottom: 56.5px;
   }
 }
 

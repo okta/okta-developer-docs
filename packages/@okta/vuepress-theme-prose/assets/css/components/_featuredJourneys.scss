@@ -3,15 +3,6 @@
   --featured-journeys-divider-color: var(--c-gray-425);
   --featured-journeys-card-title-color: var(--c-gray-950);
   --featured-journeys-card-description-color: var(--c-gray-750);
-
-  padding-top: 32px;
-  padding-bottom: 32px;
-
-  background-color: cv("homepage-section", "bg");
-
-  @include media(">desktop") {
-    padding-bottom: 80px;
-  }
 }
 
 .featured-journeys__title {

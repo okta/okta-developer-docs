@@ -4,7 +4,7 @@
       <Sidebar />
     </div>
     <div class="width-adjuster">
-      <div class="justify-content-center">
+      <div class="homepage--content">
         <Hero />
         <Journeys />
         <FeaturedJourneys />

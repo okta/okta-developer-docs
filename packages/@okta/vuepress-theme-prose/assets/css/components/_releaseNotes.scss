@@ -9,16 +9,6 @@
   --release-notes-button-hover-text-color: var(--c-white);
   --release-notes-newest-releases-label-color: var(--c-gray-750);
   --release-notes-newest-releases-link-color: var(--c-gray-950);
-
-  padding-top: 16px;
-  padding-bottom: 32px;
-
-  background-color: cv("homepage-section", "bg");
-
-  @include media(">desktop") {
-    padding-top: 32px;
-    padding-bottom: 80px;
-  }
 }
 
 .release-notes__divider {

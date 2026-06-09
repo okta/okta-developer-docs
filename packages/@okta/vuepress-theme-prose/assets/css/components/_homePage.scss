@@ -84,6 +84,19 @@
   }
 }
 
+.homepage--content {
+  --homepage-content-gap: 98px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--homepage-content-gap);
+
+  background-color: cv("homepage-section", "bg");
+
+  @include media(">desktop") {
+    --homepage-content-gap: 128px;
+  }
+}
+
 .homepage--selector-block-margin {
   margin-bottom: 150px;
   padding-top: 42px;
