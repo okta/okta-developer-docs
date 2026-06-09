@@ -1,45 +1,28 @@
-.support {
-  padding-top: 30px;
-
-  background-color: cv("support", "bg");
-
-  @include media(">tablet") {
-    padding-top: 40px;
-  }
-
-  @include media(">desktop") {
-    padding-top: 46px;
-  }
-}
-
 .support__box {
   grid-column: 1 / 7;
 }
 
 .support__wrapper {
-  --support-padding-y: 30px;
+  --support-padding-bottom: 98px;
   --support-gap: 30px;
 
   display: flex;
   flex-direction: column;
   gap: var(--support-gap);
-  padding-top: var(--support-padding-y);
-  padding-bottom: var(--support-padding-y);
+  padding-bottom: var(--support-padding-bottom);
 
   @include media(">tablet") {
-    --support-padding-y: 60px;
     --support-gap: 40px;
   }
 
   @include media(">desktop") {
+    --support-padding-bottom: 128px;
     --support-gap: 50px;
 
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     justify-content: space-between;
     align-items: center;
-    padding-top: 36px;
-    padding-bottom: 100px;
   }
 }
 
