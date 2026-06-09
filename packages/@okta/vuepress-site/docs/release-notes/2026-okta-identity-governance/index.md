@@ -20,9 +20,9 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 | ------ | ------------------------ |
 | [Governance Analyzer is GA in Preview](#governance-analyzer-is-ga-in-preview) | June 3, 2026 |
 | [Increased maximum for groups in access scope settings](#increased-maximum-for-groups-in-access-scope-settings) | June 3, 2026 |
-| [Customize Justification Requirements is GA in Preview](#customize-justification-requirements-is-ga-in-preview) | May 13, 2026 |
+| [Customize justification requirements is GA in Preview](#customize-justification-requirements-is-ga-in-preview) | May 13, 2026 |
 | [Self-review for Okta admin roles is GA in Preview](#self-review-for-okta-admin-roles-is-ga-in-preview) | May 6, 2026 |
-| [Automate access request management with Tasks APIs is Beta](#automate-access-request-management-with-tasks-apis-is-beta) | May 20, 2026 |
+| [Automate access request management with Tasks APIs is Beta in Production](#automate-access-request-management-with-tasks-apis-is-beta-in-production) | May 20, 2026 |
 
 #### Governance Analyzer is GA in Preview
 
@@ -38,11 +38,11 @@ The following [My Access Certification Reviews](https://developer.okta.com/docs/
 
 You can now specify a maximum of 500 unique groups when you define the `accessScopeSettings` parameter for an access request condition.
 
-#### Customize Justification Requirements is GA in Preview
+#### Customize justification requirements is GA in Preview
 
 When you create or edit a campaign, configure [Justification Settings](https://help.okta.com/okta_help.htm?type=oie&id=csh-bp-create-campaign) to provide granular control over how campaign reviewers justify their access decisions. This includes requiring the reviewer to provide a reason for revoking or approving access. This helps you better align the reviewer experience with your org’s specific compliance needs.
 
-The [`reviewerSettings.justificationRequirement`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reviewersettings/justificationRequirement) campaign API property has been added to support configuring review justification settings. Use this new property instead of `reviewerSettings.justificationRequired` for granular control over review justification settings.
+The [`reviewerSettings.justificationRequirement`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reviewersettings/justificationrequirement) campaign API property has been added to support configuring review justification settings. Use this new property instead of `reviewerSettings.justificationRequired` for granular control over review justification settings.
 <!-- OKTA-1169635 IGA_ACCESS_CERT_JUSTIFICATION_CONTROLS, Preview date: May 13, 2026 -->
 
 #### Self-review for Okta admin roles is GA in Preview
@@ -52,12 +52,14 @@ Allow or block campaign reviewers from approving or revoking their own access to
 As a result, the [`reviewerSettings.selfReviewDisabled`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reviewersettings/selfreviewdisabled) and the [reviewerSettings.reviewerLevels.selfReviewDisabled](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reviewersettings/reviewerlevels/selfreviewdisabled) properties aren't required to be `true` for campaigns that include the Admin Console as a resource.
 <!--  OKTA-1163396 IGA_ACCESS_CERT_ALLOW_SELF_REVIEW_GOFAR, Preview date: May 6, 2026 -->
 
-#### Automate access request management with Tasks APIs is Beta
+#### Automate access request management with Tasks APIs is Beta in Production
+
+<ApiLifecycle access="beta" />
 
 The Tasks APIs allow admins to automate the management of in-flight access requests and build custom approval logic using tools like Okta Workflows. These APIs enable the integration of the access request lifecycle into custom portals, IT Service Management (ITSM) tools, custom CLIs, or chatbots.
 
-These APIs are only available for access requests managed by conditions in **Access Request - V2**:
-* **Access Request - V2** > [Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks)
+These APIs are only available for access requests managed by conditions:
+* **Management APIs** > **Access Request - V2** > [Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks)
 * **End user APIs** > [My Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks)
 <!-- OKTA-1162968 IN_FLIGHT_REQUEST_API Preview: May 20, 2026 -->
 
@@ -68,15 +70,17 @@ These APIs are only available for access requests managed by conditions in **Acc
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Automate access request management with Tasks APIs](#automate-access-request-management-with-tasks-apis) | May 20, 2026 |
+| [Automate access request management with Tasks APIs is Beta in Preview](#automate-access-request-management-with-tasks-apis-is-beta-in-preview) | May 20, 2026 |
 | [New System Log event](#new-system-log-event) | May 20, 2026 |
 
-#### Automate access request management with Tasks APIs
+#### Automate access request management with Tasks APIs is Beta in Preview
+
+<ApiLifecycle access="beta" />
 
 The Tasks APIs allow admins to automate the management of in-flight access requests and build custom approval logic using tools like Okta Workflows. These APIs enable the integration of the access request lifecycle into custom portals, IT Service Management (ITSM) tools, custom CLIs, or chatbots.
 
-These APIs are only available for access requests managed by conditions in **Access Request - V2**:
-* **Access Request - V2** > [Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks)
+These APIs are only available for access requests managed by conditions:
+* **Management APIs** > **Access Request - V2** > [Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks)
 * **End user APIs** > [My Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks)
 <!-- OKTA-1162968 IN_FLIGHT_REQUEST_API Preview: May 20, 2026 -->
 
@@ -91,13 +95,13 @@ The `access.request.update` event is fired when an update is made to the tasks i
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Customized Justification Requirements](#customize-justification-requirements) | May 13, 2026|
+| [Customized justification requirements is EA](#customize-justification-requirements-is-ea) | May 13, 2026 |
 
-#### Customize Justification Requirements
+#### Customize justification requirements is EA
 
 When you create or edit a campaign, configure [Justification Settings](https://help.okta.com/okta_help.htm?type=oie&id=csh-bp-create-campaign) to provide granular control over how campaign reviewers justify their access decisions. This includes requiring the reviewer to provide a reason for revoking or approving access. This helps you better align the reviewer experience with your org’s specific compliance needs.
 
-The [`reviewerSettings.justificationRequirement`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reviewersettings/justificationRequirement) campaign API property has been added to support configuring review justification settings. Use this new property instead of `reviewerSettings.justificationRequired` for granular control over review justification settings.
+The [`reviewerSettings.justificationRequirement`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reviewersettings/justificationrequirement) campaign API property has been added to support configuring review justification settings. Use this new property instead of `reviewerSettings.justificationRequired` for granular control over review justification settings.
 
 <!-- OKTA-1169635 IGA_ACCESS_CERT_JUSTIFICATION_CONTROLS, Preview date: May 13, 2026 -->
 
