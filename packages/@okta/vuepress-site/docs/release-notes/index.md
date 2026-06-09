@@ -13,9 +13,9 @@ You can identify your product type and release version from the Admin Console. T
 
 Learn about features and fixes deployed to the following Okta products:
 
-* [Classic Engine 2026](/docs/release-notes/2026/)
-
 * [Identity Engine 2026](/docs/release-notes/2026-okta-identity-engine/)
+
+* [Classic Engine 2026](/docs/release-notes/2026/)
 
 * [Okta Identity Governance 2026](/docs/release-notes/2026-okta-identity-governance/)
 
