@@ -33,6 +33,8 @@ Okta's token exchange uses two API calls. The user's ID token is exchanged for a
 <!--diagram below?-->
 
 ```bash
+Diagram? From Vicky?
+
 User
   authenticates via Okta OIDC web app → receives id_token
   ↓
@@ -51,15 +53,6 @@ Okta-protected API
 
 The machine identity that signs token exchange requests is an AI Agent (WORKLOAD type) created in the Okta Admin Console. The AI Agent authenticates both steps of the exchange using a private key jwt. Only WORKLOAD type clients can perform this request.
 
-This guide covers the Okta setup for the third-party AI agent token exchange flow. It requires the following configurations:
-
-- Create an Okta OIDC web app integration to handle user sign-on and issue ID tokens.
-- Add a custom scope for your custom authorization server.
-- Create an AI Agent (WORKLOAD type) with RSA key-pair authentication.
-- Configure the access policy to allow the JWT Bearer grant type
-- Complete the token exchange flow with Okta APIs.
-- Create an app to test the token exchange
-
 ### Supported platforms
 
 After setting up the third-party AI Agent token exchange flow, you can use this flow with the following supported providers and AI agents:
@@ -70,7 +63,19 @@ After setting up the third-party AI Agent token exchange flow, you can use this 
 | Amazon Web Services | AWS Bedrock AgentCore | AWS Bedrock AgentCore guide |
 | Microsoft | Azure AI Foundry | Azure AI Foundry guide |
 
-## Create an OIDC web app integration
+## Setting up the third-party token flow
+
+The setup for the third-party AI agent token exchange flow involves the following configurations doc
+
+- Create an Okta OIDC web app integration to handle user sign-on and issue ID tokens.
+- Add a custom scope for your custom authorization server.
+- Create an AI Agent (WORKLOAD type) with RSA key-pair authentication.
+- Configure the access policy to allow the JWT Bearer grant type
+- Complete the token exchange flow with Okta APIs.
+
+After these configurations, you can create an app to test this flow, see [Create an app to test the token exchange flow](#create-an-app-to-test-the-token-exchange-flow).
+
+### Create an OIDC web app integration
 
 An app integration represents your app in your Okta org. Use it to configure how your app connects with Okta services.
 
@@ -99,7 +104,7 @@ Make a note of the`client_id` and `client_secret`. Both are in the configuration
 
 > **Note:** For a complete guide to all the options not explained in this guide, see [Create OIDC app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_App_Integration_Wizard-oidc).
 
-## Add a custom scope for your custom authorization server
+### Add a custom scope for your custom authorization server
 
 Your custom authorization server requires a custom scope for the third-party AI Agent token exchange. You can use the default custom authorization server or create your own. See [Create an authorization server](/docs/guides/customize-authz-server/main/#about-the-custom-authorization-server).
 
@@ -113,7 +118,7 @@ Your custom authorization server requires a custom scope for the third-party AI 
 
 See [Create Scopes](/docs/guides/customize-authz-server/main/#create-scopes).
 
-## Create an AI Agent (WORKLOAD type)
+### Create an AI Agent (WORKLOAD type)
 
 The AI Agent is the machine identity your application uses to sign token exchange requests. Its `id` is prefaced by `wlp` and authenticates both steps of the exchange.
 
@@ -131,7 +136,7 @@ The AI Agent is the machine identity your application uses to sign token exchang
 
 Make a note of the`AGENT_CLIENT_ID`, the `AGENT_KEY_ID`, and the `AGENT_PRIVATE_KEY_JWK`.
 
-## Configure the access policy
+### Configure the access policy
 
 After you create the `WORKLOAD` AI Agent, configure your custom authorization server's access policy to authenticate your AI Agent.
 
@@ -145,18 +150,18 @@ After you create the `WORKLOAD` AI Agent, configure your custom authorization se
 
 >**Note:** If you get `access_denied: no_matching_policy` during testing, the JWT Bearer grant type isn't enabled. Return to this step and verify the rule is saved and active.
 
-## Complete the token exchange flow
+### Complete the token exchange flow
 
 Your app makes two API calls directly to Okta's token endpoints. No Okta SDK is required. The flow comprises the following two steps:
 
 1. Exchange the `id_token` for ID-JAG
 1. Exchange the ID-JAG for an `access_token`
 
-### Exchange the ID token for ID-JAG
+#### Exchange the ID token for ID-JAG
 
 Call the org authorization server's `/token` endpoint. The `client_assertion` is signed with the agent's RSA private key.
 
-#### Request
+##### Request
 
 ```bash
 curl -X POST https://{yourOktaDomain}/oauth2/v1/token \
@@ -182,7 +187,7 @@ curl -X POST https://{yourOktaDomain}/oauth2/v1/token \
 | scope | A list of scopes at the resource app being requested. This defines the permissions for the final access token.  Use `xaa:read` |
 | audience | The issuer URL of the resource app's authorization server. |
 
-#### Response
+##### Response
 
 A successful response returns an `id_jag` token. Pass this token to the next step:
 
@@ -201,11 +206,11 @@ Pragma: no-cache
 }
 ```
 
-### Exchange the ID-JAG for an access token
+#### Exchange the ID-JAG for an access token
 
 Call the custom authorization server's token endpoint. The `client_assertion` audience is the custom authorization server token URL.
 
-#### Request
+##### Request
 
 ```bash
 curl -X POST https://<your-okta-domain>/oauth2/<custom-as-id>/v1/token \
@@ -223,7 +228,7 @@ curl -X POST https://<your-okta-domain>/oauth2/<custom-as-id>/v1/token \
 | client_assertion_type | The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | client_assertion | A signed JWT used for client authentication. You must sign the JWT using the key created during the AI Agent registration. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |
 
-#### Response
+##### Response
 
 The response contains the access token that the AI agent uses to access the resource server.
 
