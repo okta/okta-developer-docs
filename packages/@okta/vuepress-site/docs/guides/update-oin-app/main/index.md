@@ -38,7 +38,7 @@ The OIN Wizard currently supports updates for integrations that use the followin
 
 > **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, SCIM 2.0, and API service integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
 
-If you only need to update only catalog information, such as your app name, description, logo, or support contact information, the **Edit** button on the                                                                                   **Home** page routes your submission through a dedicated path. This path allows you to submit minor branding updates directly to the OIN Ops team for review without requiring functional re-testing or backward-compatibility verification
+If you need to update only catalog information, such as your app name, description, logo, or support contact information, the **Edit** button on the                                                                                   **Home** page routes your submission through a dedicated path. This path allows you to submit minor branding updates directly to the OIN Ops team for review without requiring functional re-testing or backward-compatibility verification.
 
 When you edit a published OIN integration, you need to test the flows for the updated version and the published version for backwards compatibility. The integration version that was previously installed in your customer's org isn't modified with the updated version from the OIN catalog. Testing the published version for backwards compatibility ensures that your integration still works for customers who have already installed it. See [Update integration considerations](#update-integration-considerations) before you edit your published integration.
 
@@ -46,7 +46,7 @@ After you successfully test the updated and published versions of your integrati
 
 ## Update integration considerations
 
-### Catalog information only updates
+### Update catalog information only
 
 To keep your listing accurate without consuming engineering resources, you can update catalog information independently.
 
@@ -121,7 +121,7 @@ To update a previously published OIN integration:
 1. Update [OIN catalog properties](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties) as required for your integration.
 1. Determine your update path based on your changes:
 
-    - Catalog info only: If you only changed catalog data (such as the name, logo, description, or contact information), confirm your intent on the prompt. The OIN Wizard bypasses configuration and testing, prompting you to submit immediately. After clicking submit, the app displays an in review status under **Your apps** section. The live version remains active in the public OIN catalog while Okta reviews your changes. See, [Catalog information only updates](#catalog-information-only-updates).
+    - Catalog info only: If you only changed catalog data (such as the name, logo, description, or contact information), confirm your intent on the prompt. The OIN Wizard bypasses configuration and testing, prompting you to submit immediately. After clicking submit, the app displays an in review status under **Your apps** section. The live version remains active in the public OIN catalog while Okta reviews your changes. See, [Update catalog information only](#update-catalog-information-only).
     - Functional updates: If you altered settings like tenant properties, OIDC capabilities, or Universal Logout protocols, click **Configure your integration** to proceed through the standard testing tabs. See, [Functional configuration considerations](#functional-configuration-considerations).
 
 1. (For functional updates only) Click **Configure your integration** to proceed to update your integration as required in the following sections of the OIN Wizard:
