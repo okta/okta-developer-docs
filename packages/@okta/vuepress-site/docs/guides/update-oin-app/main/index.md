@@ -38,7 +38,7 @@ The OIN Wizard currently supports updates for integrations that use the followin
 
 > **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, SCIM 2.0, and API service integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
 
-If you only need to update only catalog information, such as your app name, description, logo, or support contact information, the **Edit** button on the                                                                                   **Home** page routes your submission through a deditcated path. This path allows you to submit minor branding updates directly to the OIN Ops team for review without requiring functional re-testing or backward-compatibility verification
+If you only need to update only catalog information, such as your app name, description, logo, or support contact information, the **Edit** button on the                                                                                   **Home** page routes your submission through a dedicated path. This path allows you to submit minor branding updates directly to the OIN Ops team for review without requiring functional re-testing or backward-compatibility verification
 
 When you edit a published OIN integration, you need to test the flows for the updated version and the published version for backwards compatibility. The integration version that was previously installed in your customer's org isn't modified with the updated version from the OIN catalog. Testing the published version for backwards compatibility ensures that your integration still works for customers who have already installed it. See [Update integration considerations](#update-integration-considerations) before you edit your published integration.
 
@@ -59,20 +59,20 @@ The edit catalog information path is available exclusively for published integra
 
 When you modify only these fields on a published integration, the OIN Wizard bypasses the standard technical testing environment. Once submitted, your changes are tracked through an automated operations ticket and deployed immediately upon OIN Ops team approval.
 
-If your update includes changes to functional configurations such as SAML settings, SCIM provisioning, or URLs, you must select the **Edit** >  **Integration** option instead of **Edit** > **Catalog Info** and complete the full end-to-end testing workflow.
+If your update includes changes to functional configurations such as SAML settings, SCIM provisioning, or URLs, you must select the **Edit** >  **Integration** option instead of **Edit** > **Catalog Info** and complete the full end-to-end testing Workflow.
 
 ### Functional configuration considerations
 
 To update functional settings for your published app, you can use either of the following navigation paths:
 
-- Go to the **Home** page, locate the **Your apps** section, click **Edit** next to the application, and select **Integration**.
+- Go to the **Home** page, locate the **Your apps** section, click **Edit** next to the app, and select **Integration**.
 - Go to **Applications > Your OIN Integrations**, click your published integration, and select the standard editing option.
 
 Review the following guidelines before you edit and resubmit your configurations:
 
 For published integrations that were migrated from the OIN Manager, if you need to update configured properties that aren't available in the OIN Wizard, contact <oin@okta.com>.
 
-> **Note:** Some considerations on this page are specifically for the **<StackSnippet snippet="protocol-name" inline/>** . <br>
+> **Note:** Some considerations on this page are specifically for the **<StackSnippet snippet="protocol-name" inline/>**. <br>
 > If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
 
 <StackSnippet snippet="considerations" />
@@ -139,7 +139,7 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 
 See [Submit your updated integration](#submit-your-updates) after all required tests are successful.
 
-> **Note:** Test steps on this page are specifically for the **<StackSnippet snippet="protocol-name" inline/>** . <br>
+> **Note:** Test steps on this page are specifically for the **<StackSnippet snippet="protocol-name" inline/>**. <br>
 > If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
 
 ### Generate instances for testing
