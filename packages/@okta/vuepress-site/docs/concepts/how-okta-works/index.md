@@ -23,7 +23,7 @@ You can use Okta to [secure your APIs](/docs/guides/protect-your-api/) and appli
 
 ##### You have more than one app, and you want to implement Single Sign-On (SSO)
 
-Use Okta to allow your users to [sign in to other applications](/docs/guides/sign-in-overview/main/) instead of requiring them to remember separate sets of credentials for each application or service. Users can simply sign in once and access your full suite of applications.
+Use Okta to allow your users to [sign in to other app](/docs/guides/sign-in-overview/main/) instead of requiring them to remember separate sets of credentials for each app or service. Users can simply sign in once and access your full suite of apps.
 
 ##### You want to enforce multifactor authentication (MFA) when your users want to access sensitive data
 
