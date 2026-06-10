@@ -45,7 +45,7 @@ Your app integration must support multi-tenancy to be listed in the public OIN c
 
 What does this mean?
 
-Multi-tenancy in the OIN refers to the concept that as an ISV, you support several instances of your app. Each app instance has a unique credential system for each of your customers. An instance of an app that contains the infrastructure to support a group of users is considered a tenant. See [Tenants in Okta](/docs/concepts/multi-tenancy/#tenants-in-okta).
+Multi-tenancy in the OIN means that as an ISV, you support several instances of your app. Each app instance has a unique credential system for each of your customers. An instance of an app that contains the infrastructure to support a group of users is considered a tenant. See [Tenants in Okta](/docs/concepts/multi-tenancy/#tenants-in-okta).
 
 Provide a method for each of your customer tenants to uniquely connect to their Okta org. This allows your customers to find your app integration from the OIN catalog in their own Okta org. Then, they can instantiate the app integration with their unique tenant credentials, either with your support or on their own.
 
@@ -86,7 +86,7 @@ To access the OIN Wizard and the **Your OIN Integrations** dashboard in your org
 
 > **Notes:**
 > The app admin role enables you to view and edit details in the OIN Wizard. For OIN Wizard testing, you must have both the app admin and the org admin roles assigned to you. The super admin role gives you access to all functionality in the OIN Wizard.
-> You can't use the Okta SDKs to validate access tokens for apps in the OIN. This is due to the OIN restriction of using an org authorization server and the Authorization Code flow.
+> You can't use the Okta SDKs to validate access tokens for apps in the OIN. This is due to the OIN restriction of using an org authorization server and the authorization code flow.
 
 ### OIN Wizard test requirements
 
@@ -550,7 +550,7 @@ In addition to the general OIN limitations, the following are limitations specif
 
   Make sure that you only use the **org authorization server** URL. When you use the org authorization server, the issuer URL is `https://{yourOktaDomain}`.
 
-* You can't use the Okta SDKs to validate access tokens with the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server). This is due to the OIN restriction of using an org authorization server and the Authorization Code flow.
+* You can't use the Okta SDKs to validate access tokens with the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server). This is due to the OIN restriction of using an org authorization server and the authorization code flow.
 
 * Refresh tokens aren't supported for SSO OIDC integrations published in the OIN.
 
