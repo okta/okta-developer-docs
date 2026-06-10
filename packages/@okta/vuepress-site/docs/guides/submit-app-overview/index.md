@@ -13,7 +13,7 @@ If you're an integrator, from an independent software vendor (ISV) or an existin
 
 ## Submission process
 
-Okta introduced a seamless experience to submit Single Sign-On (SSO), provisioning, Entitlement Management, Universal Logout (UL), API service, and Identity Verification (IDV)integrations for OIN publication. This experience enables you to build and test your integration before submission directly from the Admin Console with the [OIN Wizard](/docs/guides/submit-oin-app/). This reduces the tools that you need to build, test, and submit your integration. It also reduces the time needed for the OIN team to review and validate your integration, which shortens the time to publish in the OIN.
+Okta introduced a seamless experience to submit Single Sign-On (SSO), provisioning, Entitlement Management, Universal Logout (UL), API service, and Identity Verification (IDV) integrations for OIN publication. This experience enables you to build and test your integration before submission directly from the Admin Console with the [OIN Wizard](/docs/guides/submit-oin-app/). This reduces the tools that you need to build, test, and submit your integration. It also reduces the time needed for the OIN team to review and validate your integration, which shortens the time to publish in the OIN.
 
 You can also submit updates to a previously published integration in the OIN Wizard.
 
@@ -185,5 +185,7 @@ Ready to make your integration public? Submit an integration with the following 
 <Card href="/docs/guides/submit-oin-app/uapiservice/main/" headerImage="/img/icons/odyssey/APIs.svg" cardTitle="API service" :showFooter=false>Submit an API service integration</Card>
 
 <Card href="/docs/guides/submit-oin-app/wfactions/main/" headerImage="/img/icons/identicon-actions-2.svg" cardTitle="API Integration Actions" :showFooter=false>Submit an integration with API Integration Actions</Card>
+
+<Card href="/docs/guides/submit-oin-app/idv/main/" headerImage="/img/icons/identicon-actions-2.svg" cardTitle="Identity Verification" :showFooter=false>Submit an integration with Identity Verification</Card>
 
 </Cards>
