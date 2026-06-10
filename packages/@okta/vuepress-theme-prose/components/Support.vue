@@ -12,7 +12,7 @@
           class="support__link dont-break-out"
           href="https://devforum.okta.com"
         >
-          Go to Okta Developer Forum <span aria-hidden="true">→</span>
+          Go to Okta developer forum <span aria-hidden="true">→</span>
         </a>
       </div>
       <aside class="support__sidebar">
