@@ -66,7 +66,7 @@ The **Overview** tab is your monitoring hub. Use it to scan for issues or drill 
 * Top offenders: A bar graph shows the top five APIs with the most rate limit events.
 * Rate Limit Buckets table: Each bucket is listed with current rate limits (including overrides and multipliers), recent events, and a usage trend line for the last hour.
 
-You can hover to reveal detailed data points, select a rate limit bucket to see deeper metrics and historical usage, or filter by time period, multiplier status, or event type.
+You can hover to reveal detailed data points, select a rate limit bucket to see deeper metrics and historical use, or filter by time period, multiplier status, or event type.
 
 <div class="half">
 
@@ -203,7 +203,7 @@ For concurrent rate limits, these headers behave a little differently:
 * The first two header values are always `0` for concurrent rate limit errors. The third header reports an estimated time interval when the concurrent rate limit may be resolved.
 * The `X-Rate-Limit-Reset` time for concurrent rate limits is only a suggested value. There's no guarantee that enough requests can complete for the requests to go below the concurrent rate limit at the time indicated.
 
-The error condition resolves itself when there's another concurrent thread available. Normally no intervention is required. You may be exceeding the concurrent rate limit if you notice frequent bursts of HTTP 429 errors. Examine the activities in the log before the burst of HTTP 429 errors appeared. If you can't identify what is causing you to exceed the limit, contact [Okta Support](https://support.okta.com).
+The error condition resolves itself when there's another concurrent thread available. Normally no intervention is required. You may be exceeding the concurrent rate limit if you notice frequent bursts of HTTP 429 errors. Examine the activities in the log before the burst of HTTP 429 errors appeared. If you can't identify what's causing you to exceed the limit, contact [Okta Support](https://support.okta.com).
 
 ### Identify the source
 
