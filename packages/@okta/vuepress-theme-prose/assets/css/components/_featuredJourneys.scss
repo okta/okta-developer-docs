@@ -60,11 +60,11 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 24px;
 }
 
 .featured-journeys__card-icon {
   display: block;
-  margin-bottom: 24px;
   width: auto;
   height: 56px;
 }
@@ -73,9 +73,18 @@
   display: none;
 }
 
+.featured-journeys__card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @include media(">desktop") {
+    padding-right: 32px;
+  }
+}
+
 .featured-journeys__card-title {
-  margin-top: 0;
-  margin-bottom: 12px;
+  margin-block: 0;
 
   font-weight: 400;
   font-size: 32px;
@@ -87,7 +96,6 @@
 
 .featured-journeys__card-description {
   margin-top: 0;
-  margin-bottom: 24px;
 
   font-weight: 400;
   font-size: 20px;

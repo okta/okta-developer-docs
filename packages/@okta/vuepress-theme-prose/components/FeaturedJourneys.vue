@@ -19,12 +19,14 @@
             class="featured-journeys__card-icon featured-journeys__card-icon--dark"
             :src="journey.iconDark"
           >
-          <h3 class="featured-journeys__card-title dont-break-out">
-            {{ journey.title }}
-          </h3>
-          <p class="featured-journeys__card-description dont-break-out">
-            {{ journey.description }}
-          </p>
+          <div class="featured-journeys__card-content">
+            <h3 class="featured-journeys__card-title dont-break-out">
+              {{ journey.title }}
+            </h3>
+            <p class="featured-journeys__card-description dont-break-out">
+              {{ journey.description }}
+            </p>
+          </div>
           <a
             class="featured-journeys__card-link dont-break-out"
             :href="journey.link"
