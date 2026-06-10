@@ -96,7 +96,7 @@ You can add an app integration that doesn't exist in the OIN, using the App Inte
 >**Note**: As a best practice, create two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future.
 
 1. Open the Admin Console for your org.
-1. Go to **Applications > Applications**.
+1. Go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
 1. Select the required integration type in the **Sign in Method** section.
 
@@ -120,7 +120,7 @@ Once your app is set up:
 
     b. Click **Assign** and then select either **Assign to People** or **Assign to Groups**.
 
-    c. Enter the appropriate people or groups that you want to have Single Sign-On into your app, click **Assign** for each, verify user attributes, and select **Save and Go Back**.
+    c. Enter the appropriate people or groups that you want to have SSO into your app, click **Assign** for each, verify user attributes, and select **Save and Go Back**.
 
     d. Click **Done**.
 
@@ -128,7 +128,7 @@ Once your app is set up:
 
     >**Note:**. This step applies only to SSO (OIDC or SAML) integrations.
 
-1. Verify redirection: Ensure the app-initiated flow correctly redirects back from the Okta sign-in page to your app.
+1. Verify redirection: Ensure that the app-initiated flow correctly redirects back from the Okta sign-in page to your app.
 
 1. Troubleshoot: If issues occur, navigate to **Reports** > **System Log** to examine failure messages or *4XX* status codes. You can also post your questions on the [Okta Developer Forum](https://devforum.okta.com/search?q=oidc).
 
