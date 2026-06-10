@@ -18,9 +18,9 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Governance Analyzer is GA in Preview](#governance-analyzer-is-ga-in-preview) | June 03, 2026 |
+| [Governance Analyzer](#governance-analyzer) | June 03, 2026 |
 
-#### Governance Analyzer is GA in Preview
+#### Governance Analyzer
 
 Governance Analyzer provides access certification campaign reviewers with insights and recommendations to make more informed decisions when approving or revoking user access. See [Governance Analyzer](https://help.okta.com/okta_help.htm?type=oie&id=csh-gov-analyzer) in the product documentation.
 
