@@ -18,8 +18,8 @@ title: Okta Identity Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Spec-compliant client ID claims for AI agent tokens](#spec-compliant-client-id-claims-for-ai-agent-tokens)| Jun 11, 2026 |
-|[SCIM filter use added to endpoints](#scim-filter-use-added-to-endpoints)| Jun 11, 2026 |
+| [Spec-compliant client ID claims for AI agent tokens](#spec-compliant-client-id-claims-for-ai-agent-tokens) | Jun 11, 2026 |
+| [SCIM filter use added to endpoints](#scim-filter-use-added-to-endpoints) | Jun 11, 2026 |
 
 #### Spec-compliant client ID claims for AI agent tokens
 
@@ -28,7 +28,6 @@ Okta Expression Language profiles now include the `app.clientId` property during
 #### SCIM filter use added to endpoints
 
 The [List all authorization servers for an API server](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/apiserverregistration/other/listapiserverauthorizationservers) and [List all authorization servers for an MCP server](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/listmcpserverauthorizationservers) endpoints now use the SCIM filter.
-
 
 #### Bugs fixed in 2026.06.1
 
