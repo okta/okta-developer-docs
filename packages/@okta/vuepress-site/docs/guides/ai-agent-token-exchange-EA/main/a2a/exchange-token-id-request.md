@@ -24,10 +24,11 @@ grant_type=urn:ietf:params:oauth:grant-type:token-exchange
 | Parameter | Description and value |
 | --- | --- |
 | grant_type | Standard OAuth 2.0 token exchange grant. The value must be `urn:ietf:params:oauth:grant-type:token-exchange`. |
+| subject_token | A valid ID or access token that satisfies a delegation link for the AI agent. |
+| subject_token_type | The value is either `urn:ietf:params:oauth:token-type:id_token` or `urn:ietf:params:oauth:token-type:access_token`. |
+| requested_token_type | The value must be `urn:ietf:params:oauth:token-type:id-jag`. |
+| audience | The issuer URL of the resource app's authorization server. |
+| resource | The resource URL of the agent that receives and validates the incoming request.|
+| scope    | `agent.invoke` |
 | client_assertion_type | The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | client_assertion | A signed JWT used for client authentication. You must sign the JWT using the key created during the AI Agent registration. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |
-| subject_token_type | The value is either `urn:ietf:params:oauth:token-type:id_token` or `urn:ietf:params:oauth:token-type:access_token`. |
-| subject_token | A valid ID or access token that satisfies a delegation link for the AI agent. |
-| requested_token_type | The value must be `urn:ietf:params:oauth:token-type:id-jag`. |
-| scope |  |
-| audience | The issuer URL of the resource app's authorization server. |
