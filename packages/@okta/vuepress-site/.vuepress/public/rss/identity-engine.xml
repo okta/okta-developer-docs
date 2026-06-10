@@ -4,13 +4,13 @@
   <title>Okta Identity Engine API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/</link>
   <description>Recent release notes for Okta Identity Engine API</description>
-  <pubDate>Thu, 11 Jun 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 10 Jun 2026 12:00:00 GMT</pubDate>
   
     <item>
       <title>Weekly release 2026.06.1</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#weekly-release-2026-06-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#weekly-release-2026-06-1</guid>
-      <pubDate>Thu, 11 Jun 2026 12:00:00 GMT</pubDate>
+      <pubDate>Wed, 10 Jun 2026 12:00:00 GMT</pubDate>
       <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#spec-compliant-client-id-claims-for-ai-agent-tokens">Spec-compliant client ID claims for AI agent tokens</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#scim-filter-use-added-to-endpoints">SCIM filter use added to endpoints</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#bug-fixed-in-2026-06-1">Bug fixed in 2026.06.1</a>]]></description>
     </item>
   
