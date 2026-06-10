@@ -1,0 +1,16 @@
+<div class="full wireframe-border">
+
+  ![Flow diagram illustrating the process of AI agent token exchange](/img/auth/ai-agent-token-exchange/token_exchange_flow_for_service_account.png)
+
+</div>
+
+<!-- Image source: https://oktainc.atlassian.net/browse/OKTA-1137019 -->
+
+> **Note:** This flow assumes that user authentication and authorization are complete and the authorization server issued an access token and ID token associated with the user successfully signing in to the linked OIDC app.
+
+The token exchange flow for an AI agent involves the following steps:
+
+1. The initiating client authenticates with an Okta [org](/docs/concepts/auth-servers/#org-authorization-server) or [custom](/docs/concepts/auth-servers/#custom-authorization-server) authorization server and obtains a subject token (T1) that satisfies a delegation link for the AI agent.
+1. The client passes the token to the AI agent so that it can perform actions on the user's behalf.
+1. The AI agent sends the token to the org authorization server and requests an exchange for the resource token. The server validates the request based on the configuration in the **Resource Connections** tab and returns the requested service account that is vaulted in Okta Privileged Access.
+1. The AI agent uses the service account credentials to request access to the resource.
