@@ -24,17 +24,15 @@ title: Okta Identity Engine API release notes 2026
 
 #### Spec-compliant client ID claims for AI agent tokens
 
-Okta Expression Language profiles now include the `app.clientId` property during user claim evaluations for AI agent OAuth clients. This allows developers to generate spec-compliant tokens during AI agent flows.
+Okta Expression Language profiles now include the `app.clientId` property during user claim evaluations for AI agent OAuth 2.0 clients. This allows developers to generate spec-compliant tokens during AI agent flows.
 
 #### SCIM filter use added to endpoints
 
 The [List all authorization servers for an API server](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/apiserverregistration/other/listapiserverauthorizationservers) and [List all authorization servers for an MCP server](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/listmcpserverauthorizationservers) endpoints now use the SCIM filter.
 
-When a requesting client requested the `interclient_access` scope without a trust relationship configured, the error message was unclear.
-
 #### Bug fixed in 2026.06.1
 
-* When a requesting client requested the `interclient_access` scope without a trust relationship configured, the error message was unclear. (OKTA-1119468)
+When a requesting client requested the `interclient_access` scope without a trust relationship configured, the error message was unclear. (OKTA-1119468)
 
 ### Monthly release 2026.06.0
 <!-- Published on: 2026-06-03T12:00:00Z -->

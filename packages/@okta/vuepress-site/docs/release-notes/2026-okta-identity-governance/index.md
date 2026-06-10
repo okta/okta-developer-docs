@@ -13,23 +13,6 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 ## June
 
-### Weekly release 2026.06.1
-<!-- Published on: 2026-06-11T12:00:00Z -->
-
-| Change | Expected in Preview Orgs |
-| ------ | ------------------------ |
-| [Governance Analyzer](#governance-analyzer) | June 03, 2026 |
-
-#### Governance Analyzer
-
-Governance Analyzer provides access certification campaign reviewers with insights and recommendations to make more informed decisions when approving or revoking user access. See [Governance Analyzer](https://help.okta.com/okta_help.htm?type=oie&id=csh-gov-analyzer) in the product documentation.
-
-The following [My Access Certification Reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews) end-user operations are now available to support the Governance Analyzer feature:
-
-* [Submit a bulk-review decision](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews/submitcampaignbulkdecisions)
-* [Retrieve the status of a bulk-review submission](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews/getcampaignbulkdecisionsjobstatus)
-<!-- OKTA-1168162 IGA_REVIEW_ML_RECOMMENDATIONS GA Preview: June 3, 2026 -->
-
 ### Monthly release 2026.06.0
 <!-- Published on: 2026-06-03T12:00:00Z -->
 
