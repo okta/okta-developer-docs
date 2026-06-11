@@ -1,3 +1,5 @@
+### Exchange ID-JAG for access token
+
 After receiving the ID-JAG, Agent 1 sends a `POST` request to the custom authorization server's `/token` endpoint to exchange the ID-JAG (T2) for an access token (T3) that can be used to invoke Agent 2.
 
 ```bash

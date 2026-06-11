@@ -1,3 +1,5 @@
+### Agent 2 exchanges ID-JAG for token
+
 Agent 2 exchanges the ID-JAG (T4) at the custom authorization server for a final access token (T5) that it can use to access the downstream resource.
 
 ```bash
