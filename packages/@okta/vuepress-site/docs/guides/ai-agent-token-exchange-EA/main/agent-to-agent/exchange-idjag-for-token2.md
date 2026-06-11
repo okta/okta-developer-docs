@@ -32,7 +32,7 @@ The access token contains the following claims:
   "aud": "https://finance-api.example.com",
   "iat": 1780597035,
   "exp": 1780600635,
-  "scope": "agent.invoke",
+  "scope": "chat.read+chat.history",
   "sub_profile": "service",
   "act": {
     "sub": "wlp9jecfovIcujmca0g7", (Agent 2 immediate actor)
@@ -55,9 +55,9 @@ The access token contains the following claims:
 
 Agent 2 uses the access token (T5) to request access to the downstream resource. The resource server can cryptographically verify the complete delegation chain without trusting any single agent:
 
-**Origin**: The original service client that initiated the flow.
-**Delegated through**: Agent 1 that received the initial token and passed it to Agent 2.
-**Immediate actor**: Agent 2 that's currently accessing the resource.
-**Subject**: The original service client identity that all actions are performed on behalf of.
+* **Origin**: The original service client that initiated the flow.
+* **Delegated through**: Agent 1 that received the initial token and passed it to Agent 2.
+* **Immediate actor**: Agent 2 that's currently accessing the resource.
+* **Subject**: The original service client identity that all actions are performed on behalf of.
 
 This cryptographic audit trail provides complete visibility into the delegation chain and prevents token spoofing or unauthorized modifications.
