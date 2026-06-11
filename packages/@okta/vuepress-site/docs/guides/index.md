@@ -4,7 +4,6 @@ guides:
  - add-an-external-idp
  - add-id-verification-idp
  - ai-agent-token-exchange
- - ai-agent-token-exchange-EA
  - app-provisioning-connection
  - archive-auth-js
  - archive-embedded-siw
@@ -43,6 +42,7 @@ guides:
  - delete-all-stay-signed-in-sessions
  - device-assurance-policies
  - device-authorization-grant
+ - ea-ai-agent-token-exchange
  - embedded-siw
  - enable-cors
  - enable-configure-signupform
