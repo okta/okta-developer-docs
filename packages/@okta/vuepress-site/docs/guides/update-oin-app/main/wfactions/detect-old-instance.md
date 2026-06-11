@@ -1,4 +1,4 @@
-* For SSO integrations, if the OIN Wizard doesn't detect an instance to test your published integration, an **Application instance not detected** dialog appears.
+* If the OIN Wizard doesn't detect an instance to test your published integration, an **Application instance not detected** dialog appears.
 
   1. Click **Generate instance** to create an app instance based on your published OIN integration. See [Add existing app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) to create an OIN-published instance for backward compatibility testing.
 
