@@ -7,7 +7,7 @@ meta:
 
 <ApiLifecycle access="ie" />
 
-Okta integrations can span apps, sign-in pages, custom code, SDKs, API tokens, Okta Workflows, hooks, directory agents, and log streams. Discovery helps your team decide what to test, update, replace, retire, or assign an owner before the Okta Identity Engine upgrade.
+Okta integrations can span apps, sign-in pages, custom code, SDKs, API tokens, Okta Workflows, hooks, directory agents, and log streams. Any of these can break during an upgrade. Discovery helps your team decide what to test, update, replace, retire, or assign an owner before the Okta Identity Engine upgrade.
 
 A single Okta org may run multiple deployment models at the same time. Find all of them before the upgrade so that nothing breaks unexpectedly.
 
