@@ -54,7 +54,7 @@ Okta orgs host their interfaces through individual subdomains and each org is as
 
 SSO app integrations are multi-tenant by design. Each customer (the org deploying the SSO app) operates through a separate Okta org, and each org is a distinct tenant. The org serves as the identity provider (IdP) for that customer's users. For OpenID Connect (OIDC) integrations, the org acts as the authorization server. For SAML integrations, the org acts as the IdP.
 
-Because each org manages its own users, policies, and application access independently, a single app integration can serve multiple customers without their data or configurations affecting one another.
+Because each org manages its own users, policies, and app access independently, a single app integration can serve multiple customers without their data or configurations affecting one another.
 
 ### OIDC customer org credentials
 For OpenID Connect (OIDC) integrations, Okta uses a local credential system. When your customer adds your integration in their Okta org, they obtain a unique set of OIDC credentials. Each instance of your app integration inside a customer org has a separate set of OIDC client credentials that are used to access your app.
