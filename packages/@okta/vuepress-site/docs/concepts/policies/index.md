@@ -133,7 +133,7 @@ Previously live branches are stored in branch history. You can restore a branch 
 
 To configure staged branches for an app sign-in policy, see [Manage staged app sign-in policy branches](https://help.okta.com/okta_help.htm?type=oie&id=ext-staged-policy-branches).
 
-The Policies API exposes branch operations under `/api/v1/policies/{policyId}/branches`. The `okta.policies.manage` scope is required to perform these operations. See [Policy Branching](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policybranch).
+The Policy Branching API exposes branch operations under `/api/v1/policies/{policyId}/branches`. The `okta.policies.manage` scope is required to perform these operations. See [Policy Branching](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policybranch).
 
 #### Okta account management policy
 
