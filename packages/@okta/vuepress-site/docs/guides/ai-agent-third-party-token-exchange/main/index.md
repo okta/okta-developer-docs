@@ -51,7 +51,7 @@ Okta-protected API
 
 >**Note:** No gateway or proxy is involved. The calling application owns the full token exchange. The AI agent receives a ready-to-use access token.
 
-The machine identity that signs token exchange requests is an AI Agent (WORKLOAD type) created in the Okta Admin Console. The AI Agent authenticates both steps of the exchange using a private key jwt. Only WORKLOAD type clients can perform this request.
+The machine identity that signs token exchange requests is an AI Agent created in the Okta Admin Console. The AI Agent authenticates both steps of the exchange using a private key jwt. 
 
 ### Supported platforms
 
@@ -65,15 +65,15 @@ After setting up the third-party AI Agent token exchange flow, you can use this 
 
 ## Setting up the third-party token flow
 
-The setup for the third-party AI agent token exchange flow involves the following configurations doc
+The setup for the third-party AI agent token exchange flow involves the following configurations documented in the following sections:
 
 - Create an Okta OIDC web app integration to handle user sign-on and issue ID tokens.
 - Add a custom scope for your custom authorization server.
-- Create an AI Agent (WORKLOAD type) with RSA key-pair authentication.
+- Create an AI Agent with RSA key-pair authentication.
 - Configure the access policy to allow the JWT Bearer grant type
 - Complete the token exchange flow with Okta APIs.
 
-After these configurations, you can create an app to test this flow, see [Create an app to test the token exchange flow](#create-an-app-to-test-the-token-exchange-flow).
+After these configurations, you can create a test app to demonstrate this flow, see [Create an app to test the token exchange flow](#create-an-app-to-test-the-token-exchange-flow).
 
 ### Create an OIDC web app integration
 
@@ -84,19 +84,18 @@ An app integration represents your app in your Okta org. Use it to configure how
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
 1. Select **Web Application** as the **Application type**, then click **Next**.
-1. Enter an **App integration name**. For example, AI Third-Party Token Exchange.
+1. Enter an **App integration name**. For example, "AI Third-Party Token Exchange".
 1. Set the following values.
    1. **Grant types**: Authorization Code
    [[style="list-style-type:lower-alpha"]]
    1. **Sign-in redirect URIs**: Enter `http://localhost:5000/callback`
-   1. **Scopes**: `openid`, `profile`, and `email`
 
 1. Select **Allow everyone in your organization to access** for **Controlled access**.
 1. Click **Save** to create the app integration.
 
 The configuration page for the new app integration appears.
 
-Make a note of the`client_id` and `client_secret`. Both are in the configuration pane for the app integration that you've created:
+Make a note of the Client ID and Client secret. Both are in the configuration pane for the app integration that you've created:
 
 - **Client ID**: Found on the **General** tab in the **Client Credentials** section.
 
@@ -114,41 +113,44 @@ Your custom authorization server requires a custom scope for the third-party AI 
 1. On the **Authorization Servers** tab, select the name of your authorization server, and then select **Scopes**.
 1. Select **Scopes** and then **Add Scope**.
 1. Enter a **Name**, for example, `xaa:read`.
+1. Optional. Enter a **Display phrase**, for example, "Cross App Access (XAA read-only scope)".
+1. Optional. Enter a **Description**, for example, "This scope allows token exchange between AI Agents."
 1. Click **Save**.
 
 See [Create Scopes](/docs/guides/customize-authz-server/main/#create-scopes).
 
-### Create an AI Agent (WORKLOAD type)
+### Create an AI Agent
 
 The AI Agent is the machine identity your application uses to sign token exchange requests. Its `id` is prefaced by `wlp` and authenticates both steps of the exchange.
 
-> **Note**: Only `WORKLOAD` type clients can perform the first step of the token exchange. Using your OIDC web app's `client ID` for this step returns an error.
+1. In the Admin Console, go to **Directory** > **AI agents**.
+1. Click **Register AI agent** > **Register manually**.
+1. Under **Profile** add a name and description for your AI Agent, for example, "Third-Party AI Agent".
+1. Click **Register**.
+1. Under **Owners**, add owners to the AI Agent. You must add at least two owners. Click **Save**.
+1. Select your AI Agent from the list of AI Agents, and click **Credentials**.
+1. Under **Client Authentication**, generate an RSA key-pair. Click **Add public key** and
+**Generate new key** or use your own public key.
+1. From **Actions**, select **Active**.
+1. Click **Delegations**. Under **User sign-on**, click **Add caller**. From **Application**, select your previously created OIDC app integration, for example, "AI Third-Party Token Exchange". Click **Add caller**.
+1. Under **Non-human identity**, click **Configure**. From **Authorization server**, select your custom authorization server, in this example, use `default`.
+1. Add a value for the **Audience/resource URL**. In this test example, use `https://example.com`. Click **Save**.
+1. Click **Resource connections**, and then **Add resource connection**. Select the **Authorization server** resource type, and then from **Select Authorization server**, select your custom authorization server, in this example, use `default`. From **The following OAuth scopes**, select the custom scope you added previously, for example, `xaa:read`.
 
-1. In the Admin Console, go to **AI Agents** > **Create new agent**.
-1. Under **Client Authentication**, select **Public Key / Private Key (`private_key_jwt`)**.
-1. Generate an RSA keypair. Register the public key JWK under **Credentials** > **Add key**. Note the `kid`.
-1. Under **Connected Resources**:
-    - Link to the OIDC web app created in the previous section.
-    - Select the Custom Authorization Server you configured.
-    - **Allowed scopes**: include your custom scope (for example, `xaa:read`).
-1. Set **Status** to **Active**.
-1. Save. Note the **Agent Client ID** (`wlp...`) and keep the private key JWK; it's shown only once.
+Make a note of the AI Agent ID. For example, `wlp9k6....GKZ5hAE0g7`.
 
-Make a note of the`AGENT_CLIENT_ID`, the `AGENT_KEY_ID`, and the `AGENT_PRIVATE_KEY_JWK`.
+<!-- Verify this section above in Susan's Trex org-->
 
 ### Configure the access policy
 
-After you create the `WORKLOAD` AI Agent, configure your custom authorization server's access policy to authenticate your AI Agent.
+After you create the AI Agent, configure your custom authorization server's access policy to authenticate your AI Agent.
 
 1. In the Admin Console, go to **Security** > **API**.
 1. On the **Authorization Servers** tab, select the name of an authorization server (`default` if you're using the default custom authorization server).
 1. Select **Access Policies**, and then edit an existing policy. If you need to add a policy, see [Create access policies](/docs/guides/customize-authz-server/main/#create-access-policies).
 1. Edit the default rule or create a new rule, see [Create Rules for each Access Policy](/docs/guides/customize-authz-server/main/#create-rules-for-each-access-policy).
-1. Enable grant type **JWT Bearer** (`urn:ietf:params:oauth:grant-type:jwt-bearer`).
-1. Add the AI Agent as an allowed client.
+1. Enable grant type **JWT Bearer**.
 1. Save the rule and policy.
-
->**Note:** If you get `access_denied: no_matching_policy` during testing, the JWT Bearer grant type isn't enabled. Return to this step and verify the rule is saved and active.
 
 ### Complete the token exchange flow
 
@@ -157,9 +159,15 @@ Your app makes two API calls directly to Okta's token endpoints. No Okta SDK is 
 1. Exchange the `id_token` for ID-JAG
 1. Exchange the ID-JAG for an `access_token`
 
+To test this flow, use the following `curl` calls with your configured data. To generate an ID Token, use the [xyz script] in the [Test section].
+
+Use the [token exchange demo script] to demonstrate the full token exchange flow and display the ID Token, ID_JAG token, and Access token.
+
 #### Exchange the ID token for ID-JAG
 
 Call the org authorization server's `/token` endpoint. The `client_assertion` is signed with the agent's RSA private key.
+
+Ensure you update the following values in this call: `{yourOktaDomain}`, `{signed JWT}`, `{User id_token}`, and the `audience` URL. See the following Parameter table.
 
 ##### Request
 
@@ -201,7 +209,6 @@ Pragma: no-cache
  "issued_token_type": "urn:ietf:params:oauth:token-type:id-jag",
  "access_token": "eyJhbGciOiJIUzI1NiIsI...",
  "token_type": "N_A",
- "scope": "xaa:read",
  "expires_in": 300
 }
 ```
@@ -210,10 +217,12 @@ Pragma: no-cache
 
 Call the custom authorization server's token endpoint. The `client_assertion` audience is the custom authorization server token URL.
 
+Ensure you update the following values in this call: `{yourOktaDomain}`, `custom-as-id` (`default` in this example), `{signed JWT}`, and the `{ID_JAG}` token. See the following Parameter table.
+
 ##### Request
 
 ```bash
-curl -X POST https://<your-okta-domain>/oauth2/<custom-as-id>/v1/token \
+curl -X POST https://{your-okta-domain}/oauth2/{custom-as-id}/v1/token \
   -H "Content-Type: application/x-www-form-urlencoded" \
   --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer" \
   --data-urlencode "client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer" \
