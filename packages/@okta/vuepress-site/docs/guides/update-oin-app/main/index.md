@@ -59,7 +59,6 @@ When you update an integration that's already published, be mindful to preserve 
 
 <StackSnippet snippet="considerations" />
 
-
 ## Update your integration
 
 > **Notes:** When you edit your published OIN integration, your previous PUBLISHED status and date are overwritten with the DRAFT status and current date.
