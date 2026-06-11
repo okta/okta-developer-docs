@@ -10,8 +10,8 @@
 
 The token exchange flow for an AI agent involves the following steps:
 
-1. The user authenticates with the [Okta org authorization server](/docs/concepts/auth-servers/#org-authorization-server) using a web app. The server returns an ID token to the web app.
-1. The web app passes the ID token to the AI agent so that it can perform actions on the user's behalf.
+1. The initiating client authenticates with an Okta [org](/docs/concepts/auth-servers/#org-authorization-server) or [custom](/docs/concepts/auth-servers/#custom-authorization-server) authorization server and obtains a subject token that satisfies a delegation link for the AI agent.
+1. The client passes the token to the AI agent so that it can perform actions on the user's behalf.
 1. The AI agent sends a `POST /token` request to Okta, asking for an access token for a protected resource in the target app. Okta checks to see if it already possesses a valid token for the user and the requested app.
 1. If no valid token is found, Okta returns an `HTTP 400 Bad Request` response to the AI agent. This response contains an error code of `interaction_required` and a unique `interaction_uri`.
 1. The AI agent receives the `interaction_required` error and redirects the user's browser to the `interaction_uri` provided by Okta.

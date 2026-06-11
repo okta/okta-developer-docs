@@ -4,6 +4,7 @@ guides:
  - add-an-external-idp
  - add-id-verification-idp
  - ai-agent-token-exchange
+ - ai-agent-token-exchange-ea
  - app-provisioning-connection
  - archive-auth-js
  - archive-embedded-siw
