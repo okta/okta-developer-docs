@@ -8,6 +8,8 @@ excerpt: Control user access to Okta.
 
 The Okta Authentication API provides operations to authenticate users, perform multifactor enrollment and verification, recover forgotten passwords, and unlock accounts. It can be used as a standalone API to provide the identity layer on top of your existing application. Or it can be integrated with the Okta [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/) to obtain an Okta [session cookie](/docs/guides/session-cookie/) and access apps within Okta.
 
+> **Note:** This is a Classic Engine API. Before you upgrade to Identity Engine, [identify your Okta authentication integrations and customizations](/docs/guides/oie-upgrade-identify-integrations/) to find every caller of this API in your org.
+
 The API is targeted for developers who want to build their own end-to-end sign-in experience. Developers can build their own sign-in experience to replace the built-in Okta login experience and addresses the following key scenarios:
 
 * **Primary authentication** allows you to verify the username and password credentials for a user.
