@@ -1,6 +1,6 @@
 <div class="full wireframe-border">
 
-  ![Flow diagram illustrating the process of AI agent to AI agent token exchange](/img/auth/ai-agent-token-exchange/name_of_file_here.png)
+  ![Flow diagram illustrating the process of AI agent to AI agent token exchange](/img/auth/ai-agent-token-exchange/AI-Agent-to-AI-Agent-token-exchange.svg)
 
 </div>
 
