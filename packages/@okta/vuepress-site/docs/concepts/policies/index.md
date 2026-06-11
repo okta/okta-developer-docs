@@ -115,19 +115,25 @@ Use the [App sign-in policies page](https://help.okta.com/okta_help.htm?type=oie
 
 > **Note:** This functionality is available as a self-service Early Access (EA) feature for Identity Engine orgs. To use it, enable the Change management for app sign-in policies feature. See [Self-service features](/docs/concepts/feature-lifecycle-management/#self-service-features).
 
-App sign-in policies support branching which allows you to create and monitor staged branches. With staged policy branches, you draft, test, and deploy policy changes without affecting end users until you're satisfied that the staged policy is ready to go live.
+App sign-in policies support branching, which lets you draft, test, and deploy policy changes without affecting end users until you're ready to promote them.
 
-An app sign-in policy can have one of the following branch states:
+A policy can have at most one draft or staged branch at a time, alongside the live branch.
 
+An app sign-in policy branch can have one of the following states:
+
+* **Draft branch:** A new branch created that's created as a copy of the live policy. Rules are inherited and can be edited. Draft branches can be promoted directly to live, but can't be monitored.
+* **Staged branch:** A draft branch that has been staged. Rules can be added, updated, or deleted. You can enable monitoring on a staged branch to evaluate its rules against real user traffic without enforcing them.
 * **Live branch:** The set of policy rules that are currently enforced. This is the standard branch state for an app sign-in policy.
-* **Staged branch:** A copy of the live policy that you've modified. Rules in a staged branch aren't evaluated or enforced until you push the branch to make it live.
-* **Archived branch:** A set of policy rules that were previously live. When you push a staged branch to make it live, the previous live branch is archived.
 
 Enable monitoring on a staged branch to evaluate its rules against real user traffic without enforcing them. This lets you assess the impact of your changes before deploying them.
 
+To enable monitoring on a staged branch, set a monitoring expiry date when you stage the branch. The maximum monitoring period is 28 days. Monitoring stops automatically when the branch is promoted to live, reverted to draft, or the expiry passes. To view monitoring data, see [Use the Policy Insights Dashboard](https://help.okta.com/okta_help.htm?type=oie&id=policy-insights-dashboard).
+
+Previously live branches are stored in branch history. You can restore a branch from history to make it live again.
+
 To configure staged branches for an app sign-in policy, see [Manage staged app sign-in policy branches](https://help.okta.com/okta_help.htm?type=oie&id=ext-staged-policy-branches).
 
-The Policies API exposes branch operations under `/api/v1/policies/{policyId}/branches`. The `okta.policies.manage` scope is required to perform these operations. See [Policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy).
+The Policies API exposes branch operations under `/api/v1/policies/{policyId}/branches`. The `okta.policies.manage` scope is required to perform these operations. See [Policy Branching](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policybranch).
 
 #### Okta account management policy
 

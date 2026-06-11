@@ -62,7 +62,7 @@ You don’t have to use the default app sign-in policy. You can create a policy 
 
 <ApiLifecycle access="ea" /><ApiLifecycle access="ie" />
 
-App sign-in policies support branching. You can create and monitor staged branches, which lets you draft, test, and deploy policy changes without affecting end users until you're ready. See [Staged policy branches](/docs/concepts/policies/#staged-policy-branches).
+App sign-in policies support branching. You can create and promote staged branches, which lets you draft, test, and deploy policy changes without affecting end users until you're ready. See [Staged policy branches](/docs/concepts/policies/#staged-policy-branches).
 
 ## Configure sign-on policies for common scenarios
 
