@@ -117,6 +117,14 @@ In this step, after Agent 1 receives the access or ID token (T1) from the client
 
 <StackSnippet snippet="exchange-idjag-for-token" />
 
+### Agent 2 exchanges token for ID-JAG
+
+<StackSnippet snippet="exchange-token-for-idjag" />
+
+### Agent 2 exchanges ID-JAG for token
+
+<StackSnippet snippet="exchange-idjag-for-token2" />
+
 ## Revoke tokens
 
 <StackSnippet snippet="revoke" />

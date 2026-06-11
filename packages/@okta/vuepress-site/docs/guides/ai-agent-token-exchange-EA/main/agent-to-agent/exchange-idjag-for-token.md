@@ -2,13 +2,13 @@ After receiving the ID-JAG, Agent 1 sends a `POST` request to the custom authori
 
 ```bash
   curl --location --request POST \
-  --url 'https://{yourOktaDomain}/oauth2/{authServerId}/v1/token' \
-  --header "Content-Type: application/x-www-form-urlencoded" \
-  --header "Accept: application/json" \
-  --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer" \
-  --data-urlencode "assertion=eyJraWQiOiJuc3MwV3UyblE4...[jwt-id-jag]" \
-  --data-urlencode "client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer" \
-  --data-urlencode "client_assertion=eyJhbGciOiJSUzI1NiIsInR5...[jwt]"
+    --url 'https://{yourOktaDomain}/oauth2/{authServerId}/v1/token' \
+    --header "Content-Type: application/x-www-form-urlencoded" \
+    --header "Accept: application/json" \
+    --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer" \
+    --data-urlencode "assertion=eyJraWQiOiJuc3MwV3UyblE4...[jwt-id-jag]" \
+    --data-urlencode "client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer" \
+    --data-urlencode "client_assertion=eyJhbGciOiJSUzI1NiIsInR5...[jwt]"
 ```
 
 | Parameter | Description and value |
@@ -41,8 +41,14 @@ The access token contains the following claims:
   "scope": "chat.read+chat.history",
   "sub_profile": "service",
   "act": {
-    "sub": "wlp9jebmx18qWtCeu0g7",
+    "sub": "wlp9jebmx18qWtCeu0g7", (Agent 1 immediate actor)
     "sub_profile": "ai_agent"
-  }
+  },
+  "delegated_through": [
+    {
+      "sub": "0oa9jh6hizeR7uMag0g7", (service client)
+      "sub_profile": "service"
+    }
+  ],
 }
 ```

@@ -1,5 +1,0 @@
-- An Okta org that's subscribed to Okta for AI Agents and has the Secure AI A2A Servers feature enabled. To enable this feature, go to **Settings** > **Features**, locate the Secure AI A2A Servers feature, and enable.
-- An Okta user account with the super admin role.
-- Two registered AI agents in your Okta org. See [Add and register AI agents](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register).
-- A **Resource connection** that's configured for the AI agents, defining which resources they're allowed to access. See [AI agent resource connections](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-secure).
-- A delegation link that's configured for each AI agent, defining the users, apps, and other AI agents that can authorize the AI agent to act on their behalf. See the **Add delegations** section of the [Configure imported AI agents](https://preview-4797--regal-biscotti-8ee5d8.netlify.app/oie/en-us/content/topics/ai-agents/ai-agent-add-manually.htm) page.
