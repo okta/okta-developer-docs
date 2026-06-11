@@ -43,7 +43,7 @@ You can [connect an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai
 
 - **Resource server**: Uses a third party access token issued by the third-party authorization server and brokered by Okta. This resource type requires user consent before an AI agent can act on behalf of the user.
 
-- **Agent-to-agent (A2A)**: Allows one AI agent to securely invoke another AI agent as a downstream resource protected by an Okta custom authorization server. Through this A2A token exchange, A2A maintains the original service identity across both agents while each obtains specific access tokens for its next connection. This resource type is supported by Cross App Access (XAA), which uses ID-JAG (Identity Assertion JWT).
+- **Agent-to-agent**: Allows one AI agent to securely invoke another AI agent as a downstream resource protected by an Okta custom authorization server. Through token exchange, the original service identity is maintained across both agents while each obtains specific access tokens for its next connection. This resource type is supported by Cross App Access (XAA), which uses ID-JAG (Identity Assertion JWT).
 
 Ater the resource type is configured and the AI agent has the token or credentials, it can then perform tasks on the connected app.
 
@@ -63,65 +63,54 @@ To initiate the token exchange flow, the client must first authenticate with the
 
 #### ID token
 
-To obtain a subject token for a user, the client sends a request to the Okta org or custom authorization server to obtain an ID token for the user. Use the Authorization Code with PKCE grant type flow to obtain an authorization code for the client. See [Implement authorization by grant type](/docs/guides/implement-grant-type/authcodepkce/main/).
+To obtain a subject token for a user, the client sends a request to the Okta org or custom authorization server to obtain an ID token. Use the Authorization Code with PKCE grant type to obtain an authorization code for the client. See [Implement authorization by grant type](/docs/guides/implement-grant-type/authcodepkce/main/).
+
+#### Response
+
+The response contains the access and ID token and the `openid` scope.
+
+```JSON
+{
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "access_token": "eyJraW...OYqhUp6g",
+  "scope": "openid",
+  "id_token": "eyJ...vc_JaEQCw"
+}
+```
 
 #### Access token
 
-To obtain a subject token for itself, the client sends a request to an Okta custom authorization server to obtain an access token. Use the Client Credentials grant type flow to obtain the subject token. See [Implement authorization by grant type](/docs/guides/implement-grant-type/clientcreds/main/).
+To obtain a subject token for itself, the client sends a request to an Okta custom authorization server to obtain an access token. Use the Client Credentials grant type to obtain the subject token. See [Implement authorization by grant type](/docs/guides/implement-grant-type/clientcreds/main/).
 
-The access token request includes the `resource` parameter. The parameter value is the resource URL that's configured on the agent that this client is invoking. For example `resource: https://agent1.example.com`.
+The request includes the `resource` parameter. The parameter value is the resource URL that's configured on the agent that this client is invoking. For example `resource: https://agent1.{yourOktaDomain}`.
 
-The `subject_token` returned in the response contains the `aud` parameter. The parameter value is the resource URL (`https://agent1.example.com`) for AI agent 1. This is the agent that initiates the request and calls another agent.
+#### Response
+
+The token returned in the response contains the `aud` parameter. The parameter value is the resource URL (`https://agent1.{yourOktaDomain}`) for AI agent 1. This is the agent that initiates the request and calls another agent.
+
+```JSON
+{
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "access_token": "eyJraWQiOiJQLVgxeC1ITWtuSThPS0lUeE5TWVlsMHR0blJobUY4Q0xTaUdBenlwemJVIiwiYWxnIjoi...",
+  "scope": "chat.read+chat.history"
+}
+```
 
 ### Exchange token for resource token
 
-> **Note:** The instructions on this page are for the **<StackSnippet snippet="resource-type" inline/>** resource type. If you want to change the resource type on this page, select the resource type you want from the **Instructions for** dropdown list on the right.<br>
+> **Note:** The instructions on this page are for the **<StackSnippet snippet="resource-type" inline/>** resource type. If you want to change the resource type on this page, select that type from the **Instructions for** dropdown list on the right.<br>
 
-In this step, after Agent 1 receives the access or ID token (T1) from the client, Agent 1 sends a `POST` request to the Okta org authorization server's `/token` endpoint. This request is to exchange the `subject_token` for an ID-JAG resource token (T2). This exchange establishes Agent 1 as the immediate actor in the delegation chain while maintaining the original service client as the subject.
-
-> **Note**: This request example uses the access token subject token type.
-
-```bash
-  curl --location --request POST \
-    --url 'https://{yourOktaDomain}/oauth2/v1/token' \
-    --header "Content-Type: application/x-www-form-urlencoded" \
-    --header "Accept: application/json" \
-    --data-urlencode "grant_type=urn:ietf:params:oauth:grant-type:token-exchange" \
-    --data-urlencode "subject_token=eyJraWQiOiJQLVgxeC1ITWtuSThPS0lUeE5TWVlsMHR0bl...." \
-    --data-urlencode "subject_token_type=urn:ietf:params:oauth:token-type:access_token" \
-    --data-urlencode "requested_token_type=urn:ietf:params:oauth:token-type:id-jag" \
-    --data-urlencode "audience=https://{yourOktaDomain}/oauth2/{authServerId}" \
-    --data-urlencode "resource=https://agent2.{yourOktaDomain}" \
-    --data-urlencode "scope=chat.read+chat.history" \
-    --data-urlencode "client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer" \
-    --data-urlencode "client_assertion=eyJhbGciOiJSUzI1NiIsInR5…[jwt]"
-```
-
-| Parameter | Description and value |
-| --- | --- |
-| `grant_type` | Standard OAuth 2.0 token exchange grant. The value must be `urn:ietf:params:oauth:grant-type:token-exchange`. |
-| `subject_token` | A valid ID or access token that satisfies a delegation link for the AI agent |
-| `subject_token_type` | The type of subject token. The value is either `urn:ietf:params:oauth:token-type:id_token` or `urn:ietf:params:oauth:token-type:access_token`. |
-| `requested_token_type` | The type of token being requested. The value must be `urn:ietf:params:oauth:token-type:id-jag`. |
-| `audience` | The issuer URL of the resource app's authorization server |
-| `resource` | The resource URL of the agent that receives and validates the incoming request |
-| `scope`    | A list of scopes at the resource app being requested. This defines the permissions for the final access token. |
-| `client_assertion_type` | The type of assertioin. The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| `client_assertion` | A signed JWT used for client authentication. You must sign the JWT using the key created during the AI agent registration. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |
+<StackSnippet snippet="exchange-token-for-idjag1" />
 
 #### Response
 
 <StackSnippet snippet="exchange-token-id-response" />
 
-### Exchange ID-JAG for access token
-
 <StackSnippet snippet="exchange-idjag-for-token" />
 
-### Agent 2 exchanges token for ID-JAG
-
-<StackSnippet snippet="exchange-token-for-idjag" />
-
-### Agent 2 exchanges ID-JAG for token
+<StackSnippet snippet="exchange-token-for-idjag2" />
 
 <StackSnippet snippet="exchange-idjag-for-token2" />
 

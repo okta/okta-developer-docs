@@ -28,12 +28,12 @@ The ID-JAG contains the following claims:
    "sub_profile": "service",
    "resource": "https://agent2.{yourOktaDomain}",
    "act": {
-     "sub": "wlp9jebmx18qWtCeu0g7", (Agent 1)
+     "sub": "wlp9jebmx18qWtCeu0g7",
      "sub_profile": "ai_agent"
    },
     "delegated_through": [
     {
-      "sub": "0oa9jh6hizeR7uMag0g7" (service client)
+      "sub": "0oa9jh6hizeR7uMag0g7"
       "sub_profile": "service"
     }
   ],

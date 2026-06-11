@@ -6,8 +6,6 @@
 
 <!-- Image source: https://oktainc.atlassian.net/browse/OKTA-1137019 -->
 
-> **Note:** This flow assumes that you've registered a resource server as an OIN app instance, a custom API resource server, or an MCP server, and that you've connected an AI agent to the server as a **Resource Connection**.
-
 The token exchange flow for an AI agent involves the following steps:
 
 1. The initiating client authenticates with an Okta [org](/docs/concepts/auth-servers/#org-authorization-server) or [custom](/docs/concepts/auth-servers/#custom-authorization-server) authorization server and obtains a subject token that satisfies a delegation link for the AI agent.
