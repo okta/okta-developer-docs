@@ -104,8 +104,6 @@ The token returned in the response contains the `aud` parameter. The parameter v
 
 <StackSnippet snippet="exchange-token-for-idjag1" />
 
-#### Response
-
 <StackSnippet snippet="exchange-token-id-response" />
 
 <StackSnippet snippet="exchange-idjag-for-token" />

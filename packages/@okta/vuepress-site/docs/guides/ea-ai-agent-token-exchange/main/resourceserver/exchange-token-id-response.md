@@ -1,3 +1,5 @@
+#### Response
+
 The response contains the requested resource token.
 
 The response during the token exchange depends on if Okta has a stored token.
