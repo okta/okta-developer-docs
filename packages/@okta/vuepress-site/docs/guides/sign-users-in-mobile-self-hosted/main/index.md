@@ -4,7 +4,7 @@ excerpt: Learn how to sign users in to your mobile app using a self-hosted sign-
 layout: Guides
 ---
 
-Add authentication to your mobile app using a self-hosted sign-in page with the Okta Client SDK.
+Add authentication to your mobile app using a self-hosted sign-in page with the <StackSnippet snippet="sdkname" inline />.
 
 ---
 
@@ -25,7 +25,7 @@ Add authentication to your mobile app using a self-hosted sign-in page with the 
 
 ## Overview
 
-Building a streamlined authentication experience is essential for modern mobile apps. While multifactor authentication provides enhanced security, many apps start with a simpler approach, such as username and password authentication. With the Okta Client SDK, you can implement a fully native, password-based sign-in flow like direct authentication. This keeps users within your app while still using the Okta identity platform.
+Building a streamlined authentication experience is essential for modern mobile apps. While multifactor authentication provides enhanced security, many apps start with a simpler approach, such as username and password authentication. With the <StackSnippet snippet="sdkname" inline />, you can implement a fully native, password-based sign-in flow like direct authentication. This keeps users within your app while still using the Okta identity platform.
 
 ## Understand Okta direct authentication for password authentication
 
@@ -50,7 +50,7 @@ While this implementation provides a functional authentication system, keep thes
 
 * **Handle token expiration**: Always implement token refresh logic to maintain sessions without requiring the user to repeatedly sign in.
 
-* **Secure storage**: Never store passwords locally. The Okta Client SDK handles secure token storage automatically.
+* **Secure storage**: Never store passwords locally. The <StackSnippet snippet="sdkname" inline /> handles secure token storage automatically.
 
 * **Error handling**: Provide clear error messages without exposing sensitive security details.
 
@@ -150,4 +150,4 @@ You've built a complete, mobile authentication system using Okta direct authenti
 
 This foundation makes it easy to add more sophisticated authentication features later like biometric verification or passwordless, while maintaining the same clean architecture.
 
-The Okta Client SDK provides a secure and user-friendly authentication experience that can scale with your app's needs.
+The <StackSnippet snippet="sdkname" inline /> provides a secure and user-friendly authentication experience that can scale with your app's needs.

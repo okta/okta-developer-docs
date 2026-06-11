@@ -1,4 +1,4 @@
-Add the [Okta Mobile Kotlin](https://github.com/okta/okta-mobile-kotlin) libraries to the `dependencies` block of your `app/build.gradle`:
+Add the [Okta Client SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin) libraries to the `dependencies` block of your `app/build.gradle`:
 
 ```groovy
 dependencies {

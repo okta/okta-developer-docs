@@ -1,4 +1,4 @@
-Use Swift Package Manager to add the Okta Client SDK:
+Use Swift Package Manager to add the Okta Client SDK for Swift:
 
 1. In Xcode, go to **File** > **Add Package Dependencies**.
 1. Enter the repository URL: `https://github.com/okta/okta-mobile-swift`.
