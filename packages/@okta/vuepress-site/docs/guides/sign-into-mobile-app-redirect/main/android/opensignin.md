@@ -134,7 +134,7 @@
                 val result = WebAuthentication().logoutOfBrowser(
                     context = context,
                     redirectUrl = BuildConfig.SIGN_OUT_REDIRECT_URI,
-                    idToken = credential?.token?.idToken ?: "",
+                    idToken = credential.token.idToken ?: return@launch
                 )
                 when (result) {
                     is OAuth2ClientResult.Error -> {
