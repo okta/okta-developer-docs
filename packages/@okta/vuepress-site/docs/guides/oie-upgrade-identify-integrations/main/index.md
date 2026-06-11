@@ -266,6 +266,8 @@ Review all inventory entries and assign an upgrade action to each integration.
 
 ### What to assess before the upgrade
 
+Assess each integration against this checklist:
+
 * Confirm who owns each integration.
 * Confirm that each integration is still active and in use.
 * Confirm whether the integration affects sign-in, policy, API automation, provisioning, user lifecycle, logging, or security monitoring.
@@ -275,6 +277,8 @@ Review all inventory entries and assign an upgrade action to each integration.
 * Assign an upgrade action to each integration: test, update, replace, retire, validate, or investigate.
 
 ## Next steps
+
+After you finish discovery, take these actions:
 
 * Complete all acknowledgment items in the **OIE Upgrade Hub** for your org.
 * Test all embedded, SDK-based, and server-side integration points in an Identity Engine preview environment before upgrading production.
