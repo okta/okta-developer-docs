@@ -1,6 +1,6 @@
 ---
-title: Configure advanced posture checks and custom remeditation
-excerpt: How to use Okta Admin Management APIs to configure posture checks and custom remediation
+title: Configure advanced posture checks and custom remediation
+excerpt: How to use the Device Posture Checks API to enforce custom OSQuery checks and show custom remediation instructions
 layout: Guides
 sections:
  - main

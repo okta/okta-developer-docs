@@ -475,6 +475,10 @@ export const guides = [
             guideName: "device-assurance-policies"
           },
           {
+            title: "Advanced posture checks and custom remediation",
+            guideName: "device-assurance-posture-checks-and-remediation"
+          },
+          {
             title: "Device signal collection policies",
             guideName: "device-signal-collection-policies"
           },
