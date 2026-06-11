@@ -9,7 +9,7 @@ In this step, after the agent receives the access or ID token from the client, t
     --data-urlencode "subject_token=eyJraWQiOiJQLVgxeC1ITWtuSThPS0lUeE5TWVlsMHR0bl...." \
     --data-urlencode "subject_token_type=urn:ietf:params:oauth:token-type:id_token" \
     --data-urlencode "requested_token_type=urn:ietf:params:oauth:token-type:id-jag" \
-    --data-urlencode "audience=https://{yourOktaDomain}/" \
+    --data-urlencode "audience=https://{yourOktaDomain}/oauth2/default" \
     --data-urlencode "scope=chat.read+chat.history" \
     --data-urlencode "client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer" \
     --data-urlencode "client_assertion=eyJhbGciOiJSUzI1NiIsInR5…[jwt]"
