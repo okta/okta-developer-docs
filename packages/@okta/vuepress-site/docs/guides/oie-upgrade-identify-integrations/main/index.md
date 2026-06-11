@@ -20,7 +20,7 @@ A single Okta org may run multiple deployment models at the same time. Find all 
 
 #### What you need
 
-* Super admin or read-only admin access to the Okta Admin Console.
+* Super admin or read-only admin access to the Admin Console.
 * A contact list for app, security, DevOps, and development team owners.
 * Access to source-code search, CI/CD configuration, and secrets managers.
 * A date range for log and report queries, such as the past 90 days.
@@ -39,7 +39,7 @@ Use this worksheet to record every integration that you find. Add a row for each
 | Column | What to record |
 | --- | --- |
 | Integration name | The name of the app, service, script, Workflow, agent, or integration. |
-| Integration type | Redirect SSO, embedded widget, custom sign-in page, SDK or Auth.js, SSWS API token, OAuth service app, custom authorization server, event hook, Workflow, directory agent, log stream, or other. |
+| Integration type | Redirect SSO, embedded widget, SDK, API token, OAuth service app, hook, Workflow, directory agent, log stream, or other. |
 | Where found | Admin Console, System Log, a report, source code, CORS trusted origins, secrets manager, or SIEM. |
 | Owner | A team, an admin, or unknown. |
 | Last observed use | A date or evidence from logs, reports, or code history. |
@@ -53,11 +53,11 @@ Use this table to choose a starting point for each kind of integration.
 
 | To find... | Start with... | Confirm with... | Record... |
 | --- | --- | --- | --- |
-| Apps using Okta SSO | **Applications** > **Applications** in the Admin Console | Application Access report | App name, type, status, and owner |
-| Apps with recent sign-in activity | Application usage report | `user.authentication.sso` events in the System Log | App name, last used, and user count |
-| Apps with user or group assignments | App integration assignments | User App Access report | Groups assigned and provisioning status |
-| Redirect apps with a customized hosted login | **OIE Upgrade Hub** acknowledgement items | **Customizations** > **Brands** > **Pages** > **Code Editor** | Custom domain and any custom CSS or JavaScript |
-| Embedded Sign-In Widget or Auth.js SDK | **OIE Upgrade Hub** acknowledgement items | **Security** > **API** > **Trusted Origins** CORS entries | URLs registered for CORS |
+| Apps using Okta SSO | **Apps** > **Apps** in the Admin Console | App access report | App name, type, status, and owner |
+| Apps with recent sign-in activity | App usage report | `user.authentication.sso` events in the System Log | App name, last used, and user count |
+| Apps with user or group assignments | App integration assignments | User App access report | Groups assigned and provisioning status |
+| Redirect apps with a customized hosted login | **OIE Upgrade Hub** acknowledgment items | **Customizations** > **Brands** > **Pages** > **Code Editor** | Custom domain and any custom CSS or JavaScript |
+| Embedded Sign-In Widget or Auth.js SDK | **OIE Upgrade Hub** acknowledgment items | **Security** > **API** > **Trusted Origins** CORS entries | URLs registered for CORS |
 | SSWS API tokens and owners | **Security** > **API** > **Tokens** | [List API tokens](/docs/guides/create-an-api-token/) | Token name, role, last used, and owner |
 | OAuth service apps calling Okta APIs | **Security** > **API** > **API service integrations** | Okta API scopes assigned to each app | App name, scopes, and owner |
 | Custom authorization servers | **Security** > **API** > **Authorization servers** | [Build authorization servers](/docs/guides/customize-authz-server/) | Server name, audience, and scopes |
@@ -75,10 +75,10 @@ Use this section to find apps that redirect users to an Okta-hosted login page, 
 **Check**
 
 * Check the URL that users visit to sign in.
-  * A `.okta.com` or `.oktapreview.com` URL means no [custom domain](/docs/guides/custom-url-domain/) is configured, so login page customizations aren't possible.
-  * A URL on your own domain means a custom domain is configured.
-* Open the **OIE Upgrade Hub** and review acknowledgement items for hosted login page customizations.
-  * Any change to the login page code editor, even a comment, triggers an acknowledgement item.
+  * A `.okta.com` or `.oktapreview.com` URL means that no [custom domain](/docs/guides/custom-url-domain/) is configured, so login page customizations aren't possible.
+  * A URL on your own domain means that a custom domain is configured.
+* Open the **OIE Upgrade Hub** and review acknowledgment items for hosted login page customizations.
+  * Any change to the login page code editor, even a comment, triggers an acknowledgment item.
 * Go to **Customizations** > **Brands**.
   * For each brand with a custom domain, open **Pages** > **Login page** > **Code Editor**.
   * Review for [deprecated Sign-In Widget methods](/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/), custom CSS, or custom JavaScript.
@@ -86,7 +86,7 @@ Use this section to find apps that redirect users to an Okta-hosted login page, 
 **Record**
 
 * Whether a custom domain is in use.
-* Whether an acknowledgement item appears in the **OIE Upgrade Hub**.
+* Whether an acknowledgment item appears in the **OIE Upgrade Hub**.
 * The location and nature of any custom code in the code editor.
 
 ### Embedded Sign-In Widget and custom sign-in pages
@@ -95,7 +95,7 @@ Use this section to find apps that embed the Okta Sign-In Widget on an applicati
 
 **Check**
 
-* Open the **OIE Upgrade Hub** and look for an acknowledgement item that indicates an embedded Okta Sign-In Widget.
+* Open the **OIE Upgrade Hub** and look for an acknowledgment item that indicates an embedded Okta Sign-In Widget.
   * This item appears when the widget is detected as embedded.
 * Go to **Security** > **API** > **Trusted Origins** and filter for entries with CORS enabled.
   * [CORS registration](/docs/guides/enable-cors/) is required for both the Sign-In Widget and the Auth.js SDK to function.
@@ -107,7 +107,7 @@ Use this section to find apps that embed the Okta Sign-In Widget on an applicati
 **Record**
 
 * Each URL registered for CORS, and whether CORS was the intended purpose.
-* Whether an embedded Sign-In Widget acknowledgement item exists in the Upgrade Hub.
+* Whether an embedded Sign-In Widget acknowledgment item exists in the Upgrade Hub.
 * Whether Classic Mode is in use.
 
 ### Okta SDKs and client-side authentication
@@ -135,10 +135,10 @@ Use this section to find all app integrations in the org, including active, inac
 
 **Check**
 
-* Go to **Applications** > **Applications** and review all app integrations by status, including active and inactive apps.
-* Use the [Applications API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/) to export a complete list programmatically for large orgs.
+* Go to **Apps** > **Apps** and review all app integrations by status, including active and inactive apps.
+* Use the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/) to export a complete list programmatically for large orgs.
 * Review each app's sign-on method (SAML, OIDC, SWA, or bookmark), provisioning status, and last sign-in date.
-* Use the Application usage report to identify apps with no recent sign-in activity.
+* Use the app usage report to identify apps with no recent sign-in activity.
 
 **Record**
 
@@ -225,9 +225,9 @@ Use these tools to confirm which integration points are still in active use befo
 
 | Report | What it shows | Use it to |
 | --- | --- | --- |
-| Application Access report | SSO attempts across app integrations | Confirm which apps have recent SSO activity |
-| Application usage report | Sign-in counts by app over a date range | Identify stale or inactive apps |
-| User App Access report | Users and groups with access to each app | Identify ownership and dependency scope |
+| App access report | SSO attempts across app integrations | Confirm which apps have recent SSO activity |
+| App usage report | Sign-in counts by app over a date range | Identify stale or inactive apps |
+| User App access report | Users and groups with access to each app | Identify ownership and dependency scope |
 | Admin role assignments report | Admins, resource sets, and roles | Identify API token owners and possible app owners |
 
 **System Log**
@@ -251,7 +251,7 @@ Review all inventory entries and assign an upgrade action to each integration.
 | Finding | Why it matters before the upgrade | Recommended action |
 | --- | --- | --- |
 | Redirect app using a custom domain | The custom login page may use deprecated Sign-In Widget methods | Test before the upgrade |
-| **OIE Upgrade Hub** acknowledgement item | Indicates a customization or embedded component that needs review | Complete the Upgrade Hub acknowledgement process |
+| **OIE Upgrade Hub** acknowledgment item | Indicates a customization or embedded component that needs review | Complete the Upgrade Hub acknowledgment process |
 | Embedded Sign-In Widget | Widget version compatibility must be confirmed for Identity Engine | Test before upgrade; update the widget version if needed |
 | Auth.js SDK in use | The SDK version must be Identity Engine-compatible | Update the SDK version before the upgrade |
 | Server-side calls to `/api/v1/authn`, `/api/v1/sessions`, or `/api/v1/factors` | Classic-only endpoints may change behavior in Identity Engine | Identify the caller, assess impact, and update or replace |
@@ -270,13 +270,13 @@ Review all inventory entries and assign an upgrade action to each integration.
 * Confirm that each integration is still active and in use.
 * Confirm whether the integration affects sign-in, policy, API automation, provisioning, user lifecycle, logging, or security monitoring.
 * Confirm whether the integration must be tested in an Identity Engine preview or sandbox environment.
-* Complete all relevant **OIE Upgrade Hub** acknowledgement items.
+* Complete all relevant **OIE Upgrade Hub** acknowledgment items.
 * Notify downstream teams of the upgrade timeline and any expected changes.
 * Assign an upgrade action to each integration: test, update, replace, retire, validate, or investigate.
 
 ## Next steps
 
-* Complete all acknowledgement items in the **OIE Upgrade Hub** for your org.
+* Complete all acknowledgment items in the **OIE Upgrade Hub** for your org.
 * Test all embedded, SDK-based, and server-side integration points in an Identity Engine preview environment before upgrading production.
 * Replace or update Classic-only API calls with Identity Engine-supported equivalents where needed.
 * Assign integration owners and collect upgrade readiness sign-off from each team before the production upgrade.
@@ -285,7 +285,7 @@ Review all inventory entries and assign an upgrade action to each integration.
 ## Related topics
 
 * [Prepare your customizations for upgrade](https://help.okta.com/okta_help.htm?type=oie&id=ext-custom-sign-in-page)
-* [Applications API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/)
+* [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/)
 * [Create and manage API tokens](/docs/guides/create-an-api-token/)
 * [Implement OAuth for Okta service app](/docs/guides/implement-oauth-for-okta-serviceapp/)
 * [Build authorization servers](/docs/guides/customize-authz-server/)
