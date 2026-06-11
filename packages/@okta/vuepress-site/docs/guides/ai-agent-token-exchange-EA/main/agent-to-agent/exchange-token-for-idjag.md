@@ -1,4 +1,4 @@
-In this step, Agent 2 receives the access token (T3) from Agent 1. Agent 2 validates the request by performing another token exchange, exchanging T3 at the org authorization server for an ID-JAG token (T4). Agent 2 also adds itself to the actor chain. The ID-JAG now reflects Agent 2 as the immediate actor, with Agent 1 in the delegated chain, and the original service client as the origin.
+In this step, Agent 2 receives the access token (T3) from Agent 1 and exchanges it at the org authorization server for an ID-JAG token (T4). Agent 2 also adds itself to the actor chain. The ID-JAG now reflects Agent 2 as the immediate actor, with Agent 1 in the delegated chain, and the original service client as the origin.
 
 
 ```bash
@@ -10,7 +10,6 @@ In this step, Agent 2 receives the access token (T3) from Agent 1. Agent 2 valid
     --data-urlencode "subject_token_type=urn:ietf:params:oauth:token-type:access_token" \
     --data-urlencode "requested_token_type=urn:ietf:params:oauth:token-type:id-jag" \
     --data-urlencode "audience=https://{yourOktaDomain}/oauth2/{authServerId}" \
-    --data-urlencode "resource=https://agent2.{yourOktaDomain}" \
     --data-urlencode "scope=chat.read+chat.history" \
     --data-urlencode "client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer" \
     --data-urlencode "client_assertion=eyJhbGciOiJSUzI1NiIsInR5...[jwt]"
