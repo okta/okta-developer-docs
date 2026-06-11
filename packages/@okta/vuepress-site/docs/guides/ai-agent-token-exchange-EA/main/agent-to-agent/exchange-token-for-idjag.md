@@ -42,18 +42,24 @@ The ID-JAG contains the following claims:
   "scope": "achat.read+chat.history",
   "sub_profile": "service",
   "act": {
-    "sub": "wlp9jecfovIcujmca0g7", (Agent 2 immediate actor)
+    "sub": "wlp9jecfovIcujmca0g7",
     "sub_profile": "ai_agent"
   },
   "delegated_through": [
     {
-      "sub": "wlp9jebmx18qWtCeu0g7", (Agent 1)
+      "sub": "wlp9jebmx18qWtCeu0g7",
       "sub_profile": "ai_agent"
     }
   ],
   "origin": {
-    "sub": "0oa9jh6hizeR7uMag0g7", (service client)
+    "sub": "0oa9jh6hizeR7uMag0g7",
     "sub_profile": "service"
   }
 }
 ```
+
+| Claim | Actor |
+| --- | --- |
+| `act.sub` | Agent 2, the immediate actor |
+| `delegated_through.sub` | Agent 1 |
+| `origin.sub` | The original service client that initiated the flow |

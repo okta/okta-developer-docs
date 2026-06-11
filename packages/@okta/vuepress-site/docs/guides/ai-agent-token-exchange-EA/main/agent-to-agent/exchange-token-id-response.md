@@ -38,3 +38,9 @@ The ID-JAG contains the following claims:
     }
   ],
 }
+```
+
+| Claim | Actor |
+| --- | --- |
+| `act.sub` | Agent 1, the immediate actor |
+| `delegated_through.sub` | The original service client that initiated the flow |
