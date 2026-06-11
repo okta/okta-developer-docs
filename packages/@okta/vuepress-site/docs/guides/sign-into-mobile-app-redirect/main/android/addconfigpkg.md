@@ -1,4 +1,4 @@
-Add the latest [Okta Mobile Kotlin library](https://github.com/okta/okta-mobile-kotlin) to the `dependencies` block of the `app/build.gradle` file:
+Add the latest [Okta Client SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin) libraries to the `dependencies` block of the `app/build.gradle` file:
 
 ```gradle
 // Ensure that all dependencies are compatible using the Bill of Materials (BOM).

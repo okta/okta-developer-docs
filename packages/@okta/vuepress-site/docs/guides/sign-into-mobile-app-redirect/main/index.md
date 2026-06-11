@@ -65,7 +65,7 @@ In this section you create a sample mobile app and add redirect authentication u
 
 ### Add packages
 
-Add the required dependencies for using the Okta SDK with your app.
+Add the required dependencies for using the <StackSnippet snippet="sdkname" inline /> with your app.
 
 <StackSnippet snippet="addconfigpkg" />
 
@@ -79,13 +79,13 @@ To sign users in, your app opens a browser and displays an Okta-hosted sign-in p
 
 In mobile apps, use a custom scheme similar to `your-app:/callback` so that your app can switch back into the foreground after the user is done signing in through the browser. This should be the same value that you used for the sign-in and sign-out redirect URIs.
 
-Your mobile app is responsible for parsing the information Okta sends to the callback route. The Okta SDKs can help you with this task (covered later in the [Open the sign-in page](#open-the-sign-in-page) section). For now, define the route itself.
+Your mobile app is responsible for parsing the information Okta sends to the callback route. The <StackSnippet snippet="sdkname" inline /> can help you with this task (covered later in the [Open the sign-in page](#open-the-sign-in-page) section). For now, define the route itself.
 
 <StackSnippet snippet="definecallback" />
 
 ## Open the sign-in page
 
-The SDK signs in the user by opening an Okta-hosted web page. The app can send the SDK sign-in request when the following occurs:
+The <StackSnippet snippet="sdkname" inline /> signs in the user by opening an Okta-hosted web page. The app can send the SDK sign-in request when the following occurs:
 
 * A user visits a protected route.
 * A user taps a button.
