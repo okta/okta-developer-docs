@@ -129,7 +129,7 @@ Enable monitoring on a staged branch to evaluate its rules against real user tra
 
 To enable monitoring on a staged branch, set a monitoring expiry date when you stage the branch. The maximum monitoring period is 28 days. Monitoring stops automatically when the branch is promoted to live, reverted to draft, or the expiry passes. To view monitoring data, see [Use the Policy Insights Dashboard](https://help.okta.com/okta_help.htm?type=oie&id=policy-insights-dashboard).
 
-Previously live branches are stored in branch history. You can restore a branch from history to make it live again.
+Previously live branches are stored in a branch history. You can restore a branch from history to make it live again. When you restore a branch, the restored branch is still included in the branch history. Okta makes an identical copy of the branch in the branch history and promotes the copy as the live branch.
 
 To configure staged branches for an app sign-in policy, see [Manage staged app sign-in policy branches](https://help.okta.com/okta_help.htm?type=oie&id=ext-staged-policy-branches).
 
