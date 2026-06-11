@@ -585,7 +585,7 @@ export const guides = [
               },
               {
                 title: "Test widget customizations",
-                guideName: "test-oie-preview-widget-custom",
+                guideName: "oie-upgrade-test-widget-custom",
               },
             ],
           },
