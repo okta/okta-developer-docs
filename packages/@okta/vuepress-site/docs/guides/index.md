@@ -90,13 +90,11 @@ guides:
  - secure-hooks
  - single-logout
  - signup-oktahosted
- - build-sso-integration
  - custom-sms-messaging
  - submit-app
  - submit-app-prereq
  - submit-oin-app
  - update-oin-app
- - add-private-app
  - deployment-checklist
  - deploy-your-app
  - dpop
@@ -298,7 +296,7 @@ You can publish your integration in the Okta Integration Network (OIN) catalog t
 If you're creating an Okta integration for the first time, Okta recommends the following sequence of guides:
 
 1. [OIN landing](/docs/guides/okta-integration-network/)
-1. [Overview of Single Sign-On in the OIN](/docs/guides/oin-sso-overview/)
+1. [What is Single Sign-On (SSO)?](/docs/concepts/sso-overview/)
 1. [Overview of lifecycle management in the OIN](/docs/guides/oin-lifecycle-mgmt-overview/)
 1. [Overview of API service apps in the OIN](/docs/guides/oin-api-service-overview/)
 1. [OIN submission requirements](/docs/guides/submit-app-prereq/)

@@ -244,13 +244,13 @@ redirects:
   - from: /docs/guides/saml_guidance.html
     to: /standards/SAML/
   - from: /docs/guides/setting_up_a_saml_application_in_okta
-    to: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /docs/guides/setting_up_a_saml_application_in_okta.html
-    to: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /docs/examples/configuring_a_saml_application_in_okta
-    to: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /docs/examples/configuring_a_saml_application_in_okta.html
-    to: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /standards/SCIM/index.html
     to: /docs/concepts/scim/
   - from: /docs/reference/api/resource-server-beta/index.html
@@ -278,7 +278,7 @@ redirects:
   - from: /use_cases/integrate_with_okta/provisioning/index.html
     to: /docs/guides/scim-provisioning-integration-overview/
   - from: /use_cases/integrate_with_okta/sso-with-saml/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /use_cases/isv/embedded-occ/index.html
     to: https://www.okta.com/integrate/documentation/embedded-okta-cloud-connect/
   - from: /use_cases/isv/isv-syslog-references/index.html
@@ -462,7 +462,7 @@ redirects:
   - from: /docs/how-to/updating_saml_cert/index.html
     to: /docs/guides/updating-saml-cert/
   - from: /standards/SAML/setting_up_a_saml_application_in_okta/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /standards/SAML/saml_tracer/index.html
     to: /docs/guides/saml-tracer/
   - from: /authentication-guide/implementing-authentication/set-up-authz-server/index.html
@@ -792,7 +792,7 @@ redirects:
   - from: /docs/how-to/updating_saml_cert
     to: /docs/guides/updating-saml-cert/
   - from: /standards/SAML/setting_up_a_saml_application_in_okta
-    to: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /standards/SAML/saml_tracer
     to: /docs/guides/saml-tracer/
   - from: /authentication-guide/implementing-authentication/set-up-authz-server.html
@@ -1066,7 +1066,7 @@ redirects:
   - from: /guides/revoke-tokens/-/overview/index.html
     to: /docs/guides/revoke-tokens/-/overview/
   - from: /guides/saml-application-setup/-/overview/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /guides/sharing-cert/-/generate-new-credential/index.html
     to: /docs/guides/sharing-cert/main/#generate-a-new-credential-for-the-source-app
   - from: /guides/sharing-cert/-/overview/index.html
@@ -1326,7 +1326,7 @@ redirects:
   - from: /guides/revoke-tokens/index.html
     to: /docs/guides/revoke-tokens/
   - from: /guides/saml-application-setup/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /guides/session-cookie/index.html
     to: /docs/guides/session-cookie/
   - from: /guides/sharing-cert/index.html
@@ -1872,19 +1872,19 @@ redirects:
   - from: /docs/guides/build-sso-integration/oidc/before-you-begin/index.html
     to: /docs/guides/build-sso-integration/openidconnect/main/
   - from: /docs/guides/build-sso-integration/saml/before-you-begin/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /docs/guides/build-sso-integration/oidc/create-your-app/index.html
     to: /docs/guides/build-sso-integration/openidconnect/main/
   - from: /docs/guides/build-sso-integration/saml/create-your-app/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /docs/guides/build-sso-integration/oidc/submit-your-app/index.html
     to: /docs/guides/build-sso-integration/openidconnect/main/#next-steps
   - from: /docs/guides/build-sso-integration/saml2/submit-your-app/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/#next-steps
+    to: /docs/guides/create-an-app-integration/saml2/main/#next-steps
   - from: /docs/guides/build-sso-integration/oidc/test-your-app/index.html
     to: /docs/guides/build-sso-integration/openidconnect/main/
   - from: /docs/guides/build-sso-integration/saml/test-your-app/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /docs/guides/submit-app/prepare-for-submission/index.html
     to: /docs/guides/submit-app-prereq/
   - from: /docs/guides/submit-app/submit/index.html
@@ -1896,7 +1896,7 @@ redirects:
   - from: /docs/guides/build-sso-integration/openidconnect/submit-your-app/index.html
     to: /docs/guides/build-sso-integration/openidconnect/main/#next-steps
   - from: /docs/guides/build-sso-integration/saml2/submit-your-app/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/#next-steps
+    to: /docs/guides/create-an-app-integration/saml2/main/#next-steps
   - from: /docs/guides/build-provisioning-integration/prepare-guide/index.html
     to: /docs/guides/scim-provisioning-integration-test/main/#next-steps
   - from: /docs/api/resources/oidc.html/index.html
@@ -4174,29 +4174,29 @@ redirects:
   - from: /docs/guides/build-sso-integration/-/next-steps/index.html
     to: /docs/guides/build-sso-integration/
   - from: /docs/guides/build-sso-integration/saml2/overview
-    to: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /docs/guides/build-sso-integration/saml2/before-you-begin
-    to: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /docs/guides/build-sso-integration/saml2/create-your-app
-    to: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /docs/guides/build-sso-integration/saml2/specify-your-settings
-    to: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /docs/guides/build-sso-integration/saml2/test-your-app
-    to: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /docs/guides/build-sso-integration/saml2/next-steps
-    to: /docs/guides/build-sso-integration/saml2/main/#next-steps
+    to: /docs/guides/create-an-app-integration/saml2/main/#next-steps
   - from: /docs/guides/build-sso-integration/saml2/overview/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /docs/guides/build-sso-integration/saml2/before-you-begin/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /docs/guides/build-sso-integration/saml2/create-your-app/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /docs/guides/build-sso-integration/saml2/specify-your-settings/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /docs/guides/build-sso-integration/saml2/test-your-app/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/
+    to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /docs/guides/build-sso-integration/saml2/next-steps/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/#next-steps
+    to: /docs/guides/create-an-app-integration/saml2/main/#next-steps
   - from: /docs/guides/build-sso-integration/openidconnect/overview
     to: /docs/guides/build-sso-integration/openidconnect/main/
   - from: /docs/guides/build-sso-integration/openidconnect/before-you-begin
@@ -4626,47 +4626,57 @@ redirects:
   - from: /docs/guides/style-the-widget/next-steps/index.html
     to: /docs/guides/custom-widget/main/#see-also
   - from: /docs/guides/oin-oidc-guide/overview
-    to: /docs/guides/oin-sso-overview/
+    to: /docs/concepts/sso-overview/
   - from: /docs/guides/oin-oidc-guide/background
-    to: /docs/guides/oin-sso-overview/
+    to: /docs/concepts/sso-overview/
   - from: /docs/guides/oin-oidc-guide/protocol-level-requirements
     to: /docs/guides/build-sso-integration/openidconnect/main/#build-your-integration
   - from: /docs/guides/oin-oidc-guide/multi-tenancy
-    to: /docs/guides/oin-sso-overview/#okta-organization-and-multi-tenancy
+    to: /docs/concepts/multi-tenancy/#sso-app-integrations-and-multi-tenancy
   - from: /docs/guides/oin-oidc-guide/integration-best-practices
-    to: /docs/guides/oin-sso-overview/
+    to: /docs/concepts/sso-overview/
   - from: /docs/guides/oin-oidc-guide/next-steps
-    to: /docs/guides/oin-sso-overview/#next-steps
+    to: /docs/concepts/sso-overview/
   - from: /docs/guides/oin-oidc-guide/overview/index.html
-    to: /docs/guides/oin-sso-overview/
+    to: /docs/concepts/sso-overview/
   - from: /docs/guides/oin-oidc-guide/background/index.html
-    to: /docs/guides/oin-sso-overview/
+    to: /docs/concepts/sso-overview/
   - from: /docs/guides/oin-oidc-guide/protocol-level-requirements/index.html
     to: /docs/guides/build-sso-integration/openidconnect/main/
   - from: /docs/guides/oin-oidc-guide/multi-tenancy/index.html
-    to: /docs/guides/oin-sso-overview/#okta-organization-and-multi-tenancy
+    to: /docs/concepts/multi-tenancy/#sso-app-integrations-and-multi-tenancy
   - from: /docs/guides/oin-oidc-guide/integration-best-practices/index.html
-    to: /docs/guides/oin-sso-overview/
+    to: /docs/concepts/sso-overview/
   - from: /docs/guides/oin-oidc-guide/next-steps/index.html
-    to: /docs/guides/oin-sso-overview/#next-steps
+    to: /docs/concepts/sso-overview/
   - from: /docs/guides/oin-oidc-best-practices/main
-    to: /docs/guides/oin-sso-overview/
+    to: /docs/concepts/sso-overview/
   - from: /docs/guides/oin-oidc-best-practices/main/index.html
-    to: /docs/guides/oin-sso-overview/
+    to: /docs/concepts/sso-overview/
   - from: /docs/guides/oin-oidc-best-practices/main/#rate-restrictions
     to: /docs/guides/build-sso-integration/openidconnect/main/#rate-limit-considerations
   - from: /docs/guides/oin-oidc-multi-tenancy/main
-    to: /docs/guides/oin-sso-overview/#okta-organization-and-multi-tenancy
+    to: /docs/concepts/multi-tenancy/#sso-app-integrations-and-multi-tenancy
   - from: /docs/guides/oin-oidc-multi-tenancy/main/index.html
-    to: /docs/guides/oin-sso-overview/#okta-organization-and-multi-tenancy
+    to: /docs/concepts/multi-tenancy/#sso-app-integrations-and-multi-tenancy
   - from: /docs/guides/oin-oidc-protocols/main
     to: /docs/guides/build-sso-integration/openidconnect/main/
   - from: /docs/guides/oin-oidc-protocols/main/index.html
     to: /docs/guides/build-sso-integration/openidconnect/main/
   - from: /docs/guides/oin-oidc-overview/main
-    to: /docs/guides/oin-sso-overview/
+    to: /docs/concepts/sso-overview/
   - from: /docs/guides/oin-oidc-overview/main/index.html
-    to: /docs/guides/oin-sso-overview/
+    to: /docs/concepts/sso-overview/
+  - from: /docs/guides/oin-sso-overview/
+    to: /docs/concepts/sso-overview/
+  - from: /docs/guides/oin-sso-overview/index.html
+    to: /docs/concepts/sso-overview/
+  - from: /docs/guides/oin-sso-overview/#choose-your-sso-protocol
+    to: /docs/concepts/sso-overview/#choose-your-sso-protocol
+  - from: /docs/guides/oin-sso-overview/#okta-organization-and-multi-tenancy
+    to: /docs/concepts/multi-tenancy/#sso-app-integrations-and-multi-tenancy
+  - from: /docs/guides/oin-sso-overview/#tenants-in-okta
+    to: /docs/concepts/multi-tenancy/#tenants-in-okta
   - from: /docs/guides/third-party-risk-integration/overview
     to: /docs/guides/third-party-risk-integration/
   - from: /docs/guides/third-party-risk-integration/overview/index.html
@@ -6091,3 +6101,23 @@ redirects:
     to: /docs/guides/migrate-to-okta-with-scripts/main/
   - from: /docs/guides/migrate-to-okta-bulk/main
     to: /docs/guides/migrate-to-okta-with-scripts/main/
+  - from: /docs/guides/add-private-app/saml2/main/index.html
+    to: /docs/guides/create-an-app-integration/saml2/main/
+  - from: /docs/guides/add-private-app/saml2/main
+    to: /docs/guides/create-an-app-integration/saml2/main/
+  - from: /docs/guides/add-private-app/openidconnect/main/index.html
+    to: /docs/guides/create-an-app-integration/openidconnect/main/
+  - from: /docs/guides/add-private-app/openidconnect/main
+    to: /docs/guides/create-an-app-integration/openidconnect/main/
+  - from: /docs/guides/build-sso-integration/openidconnect/main/
+    to: /docs/guides/create-an-app-integration/openidconnect/main/
+  - from: /docs/guides/build-sso-integration/openidconnect/main/#deployment-models
+    to: /docs/concepts/redirect-vs-embedded/
+  - from: /docs/guides/build-sso-integration/openidconnect/main/#overview
+    to: /docs/concepts/sso-overview/
+  - from: /docs/guides/build-sso-integration/openidconnect/main/#build-your-integration
+    to: /docs/guides/submit-app-prereq/main/#oin-wizard-requirements
+  - from: /docs/guides/build-sso-integration/openidconnect/main/#scopes
+    to: /docs/concepts/oauth-claims/
+  - from: /docs/guides/build-sso-integration/openidconnect/main/#rate-limit-considerations
+    to: /docs/reference/rate-limits/

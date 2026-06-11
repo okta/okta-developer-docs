@@ -24,7 +24,7 @@ The Integrator Free Plan org is provisioned with the features in the following t
 
 | Feature                                     | Description                                    |
 |---------------------------------------------|------------------------------------------------|
-| SSO (Single Sign-On)                        | Provides capabilities to incorporate SSO authentication for your users. See [Build a Single Sign-On (SSO) Integration](/docs/guides/build-sso-integration/-/main/).                              |
+| SSO (Single Sign-On)                        | Provides capabilities to incorporate SSO authentication for your users. See [Build a Single Sign-On (SSO) Integration](/docs/guides/create-an-app-integration).                              |
 | UD (Universal Directory)                                         | Stores and manages your user information. See [What is the Okta Universal Directory](/docs/concepts/user-profiles/#what-is-the-okta-universal-directory).                            |
 | AMFA (Adaptive Multifactor Authentication)                                       | Provides capabilities to implement authentication based on risk. See [Authentication factors](/docs/concepts/iam-overview-authentication-factors/).          |
 | LCM (Lifecycle Management)                                        | Manages the process of access to apps and resources over the lifecycle of a user. See [Overview of lifecycle management in the OIN](/docs/guides/oin-lifecycle-mgmt-overview/).                          |
