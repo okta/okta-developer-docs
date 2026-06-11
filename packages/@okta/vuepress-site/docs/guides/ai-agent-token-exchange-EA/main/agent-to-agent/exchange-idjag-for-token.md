@@ -41,14 +41,19 @@ The access token contains the following claims:
   "scope": "chat.read+chat.history",
   "sub_profile": "service",
   "act": {
-    "sub": "wlp9jebmx18qWtCeu0g7", (Agent 1 immediate actor)
+    "sub": "wlp9jebmx18qWtCeu0g7",
     "sub_profile": "ai_agent"
   },
   "delegated_through": [
     {
-      "sub": "0oa9jh6hizeR7uMag0g7", (service client)
+      "sub": "0oa9jh6hizeR7uMag0g7",
       "sub_profile": "service"
     }
   ],
 }
 ```
+
+| Claim | Actor |
+| --- | --- |
+| `act.sub` | Agent 1, the immediate actor |
+| `delegated_through.sub` | Original service client that initiated the flow. |
