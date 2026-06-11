@@ -83,7 +83,7 @@ Use this section to find apps that redirect users to an Okta-hosted login page, 
   * For each brand with a custom domain, open **Pages** > **Login page** > **Code Editor**.
   * Review for [deprecated Sign-In Widget methods](/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/), custom CSS, or custom JavaScript.
 
-**Record**
+**Record:**
 
 * Whether a custom domain is in use.
 * Whether an acknowledgment item appears in the **OIE Upgrade Hub**.
@@ -91,24 +91,24 @@ Use this section to find apps that redirect users to an Okta-hosted login page, 
 
 ### Embedded Sign-In Widget and custom sign-in pages
 
-Use this section to find apps that embed the Okta Sign-In Widget on an application page, or custom sign-in pages not hosted by Okta.
+Use this section to find apps that embed the Okta Sign-In Widget on an app page, or custom sign-in pages not hosted by Okta.
 
 **Check**
 
 * Open the **OIE Upgrade Hub** and look for an acknowledgment item that indicates an embedded Okta Sign-In Widget.
-  * This item appears when the widget is detected as embedded.
+  * This item appears when the Sign-In Widget is detected as embedded.
 * Go to **Security** > **API** > **Trusted Origins** and filter for entries with CORS enabled.
   * [CORS registration](/docs/guides/enable-cors/) is required for both the Sign-In Widget and the Auth.js SDK to function.
   * Any URL registered for CORS is a potential embedded client-side authentication endpoint.
 * The Upgrade Hub doesn't detect the Auth.js (`okta-auth-js`) SDK independently.
   * Use CORS entries and source-code search to find Auth.js usage.
-* If the Sign-In Widget runs in Classic Mode, the upgrade may not require changes. Thorough testing is still required.
+* If the Sign-In Widget runs in classic mode, the upgrade may not require changes. Thorough testing is still required.
 
-**Record**
+**Record:**
 
 * Each URL registered for CORS, and whether CORS was the intended purpose.
 * Whether an embedded Sign-In Widget acknowledgment item exists in the Upgrade Hub.
-* Whether Classic Mode is in use.
+* Whether classic mode is in use.
 
 ### Okta SDKs and client-side authentication
 
@@ -123,7 +123,7 @@ Use this section to find apps that use the Auth.js SDK, Okta client-side SDKs, o
 * Reach out to development teams directly.
   * Server-side authentication patterns may not appear in the Admin Console or System Log in a traceable way.
 
-**Record**
+**Record:**
 
 * The application or repository name.
 * The SDK or library version found.
@@ -140,7 +140,7 @@ Use this section to find all app integrations in the org, including active, inac
 * Review each app's sign-on method (SAML, OIDC, SWA, or bookmark), provisioning status, and last sign-in date.
 * Use the app usage report to identify apps with no recent sign-in activity.
 
-**Record**
+**Record:**
 
 * App name, sign-on method, status, provisioning status, and the date of last observed sign-in.
 
@@ -161,7 +161,7 @@ Use this section to find SSWS API tokens, OAuth service apps, and service accoun
   * In the CSV, filter the `rawUserAgent` column for values that don't start with `Mozilla`.
   * If a log event includes `system.transaction.request.apiTokenId`, look up that token ID under **Security** > **API** > **Tokens** to find the owner.
 
-**Record**
+**Record:**
 
 * Token name, owner, associated admin role, and last-used date.
 * Which services or scripts are confirmed to use each token.
@@ -173,7 +173,7 @@ Use this section to find SSWS API tokens, OAuth service apps, and service accoun
 * Go to **Security** > **API** > **API service integrations** and review each machine-to-machine integration and its scopes.
 * Use the [Okta API scopes](/docs/guides/implement-oauth-for-okta/) reference to understand what each scope allows.
 
-**Record**
+**Record:**
 
 * Service app name, configured scopes, and owner team.
 
