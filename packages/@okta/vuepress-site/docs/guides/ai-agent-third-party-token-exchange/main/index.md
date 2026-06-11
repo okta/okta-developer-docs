@@ -65,7 +65,7 @@ After setting up the third-party AI Agent token exchange flow, you can use this 
 
 ## Setting up the third-party token flow
 
-The setup for the third-party AI agent token exchange flow involves the following configurations documented in the following sections:
+The setup for the third-party AI agent token exchange flow involves the configurations documented in the following sections:
 
 - Create an Okta OIDC web app integration to handle user sign-on and issue ID tokens.
 - Add a custom scope for your custom authorization server.
@@ -101,7 +101,7 @@ Make a note of the Client ID and Client secret. Both are in the configuration pa
 
 - **Client Secret**: Found on the **General** tab in the **Client Credentials** section.
 
-> **Note:** For a complete guide to all the options not explained in this guide, see [Create OIDC app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_App_Integration_Wizard-oidc).
+> **Note:** For a complete guide to all the options not explained in this guide, see [Create OIDC app integrations](/docs/guides/create-an-app-integration/openidconnect/main/).
 
 ### Add a custom scope for your custom authorization server
 
@@ -159,7 +159,7 @@ Your app makes two API calls directly to Okta's token endpoints. No Okta SDK is 
 1. Exchange the `id_token` for ID-JAG
 1. Exchange the ID-JAG for an `access_token`
 
-To test this flow, use the following `curl` calls with your configured data. To generate an ID Token, use the [xyz script] in the [Test section].
+To test this flow, use the following `curl` calls with your configured data. 
 
 Use the [token exchange demo script] to demonstrate the full token exchange flow and display the ID Token, ID_JAG token, and Access token.
 
@@ -168,6 +168,8 @@ Use the [token exchange demo script] to demonstrate the full token exchange flow
 Call the org authorization server's `/token` endpoint. The `client_assertion` is signed with the agent's RSA private key.
 
 Ensure you update the following values in this call: `{yourOktaDomain}`, `{signed JWT}`, `{User id_token}`, and the `audience` URL. See the following Parameter table.
+
+To generate an ID Token, use the [xyz script] in the [Test section].
 
 ##### Request
 
@@ -217,7 +219,7 @@ Pragma: no-cache
 
 Call the custom authorization server's token endpoint. The `client_assertion` audience is the custom authorization server token URL.
 
-Ensure you update the following values in this call: `{yourOktaDomain}`, `custom-as-id` (`default` in this example), `{signed JWT}`, and the `{ID_JAG}` token. See the following Parameter table.
+Ensure you update the following values in this call: `{yourOktaDomain}`, `{custom-as-id}` (`default` in this example), `{signed JWT}`, and the `{ID_JAG}` token. See the following Parameter table.
 
 ##### Request
 
@@ -250,24 +252,486 @@ The response contains the access token that the AI agent uses to access the reso
 }
 ```
 
-## Create an app to test the token exchange flow
+## Set up a Python environment
 
-Use the following Python Flask app to test the token exchange flow. It uses the Python package manager [uv](https://docs.astral.sh/uv/) to run this demo app.
+This project demonstrates how to set up and run standalone Python scripts using the `uv` package manager.
 
 ### Install uv
 
+Install `uv` using the official installer:
+
+```bash
+brew install uv
+```
+
+For more installation options (Windows, macOS without curl, etc.), see the [uv installation guide](https://docs.astral.sh/uv/getting-started/installation/).
+
+After installation, verify it works:
+
+```bash
+uv --version
+```
 
 ### Set up the project
 
+Navigate to the project directory:
+
+```bash
+cd /yourProject
+```
+
+Initialize the project with `uv init`:
+
+```bash
+uv init
+```
+
+After initialization, sync the environment:
+
+```bash
+uv sync
+```
+
+Install the required dependencies:
+
+```bash
+uv add python-dotenv flask requests "pyjwt[crypto]"
+```
+
+This adds the packages needed by the demo scripts.
+
+## Create an app to obtain a test ID token
+
+This demo script obtains an ID token for testing. See [Exchange the ID token for ID-JAG](#exchange-the-id-token-for-id-jag).
 
 ### Create your environment file
 
+Create a `.env` file that is referenced by the demo script. Include the following details from your OIDC app integration. See [Create an OIDC app integration](#create-an-oidc-web-app-integration) for these values. Add:
+
+```bash
+OKTA_DOMAIN=https://{yourOktaDomain}
+OIDC_CLIENT_ID={client_id}
+OIDC_CLIENT_SECRET={client_secret}
+```
+
+For example:
+
+```bash
+# OIDC config for agent2.py
+# OKTA_DOMAIN must include https:// and have NO trailing slash
+OKTA_DOMAIN=https://example.okta.com
+OIDC_CLIENT_ID=0oazte....Vv6aZ1d7
+OIDC_CLIENT_SECRET=rPgK0mZi6aqpmRD....
+```
 
 ### Create the demo file
 
+Create a `scripts` folder at the root level of your project, and create a file name, for example, `oidc.id-token.py`. Copy the following Python code into the file and save.
+
+```python
+# oidc_helper.py
+import os, secrets
+from flask import Flask, redirect, request, session
+import requests
+from dotenv import load_dotenv
+load_dotenv()
+
+OKTA_DOMAIN        = os.environ["OKTA_DOMAIN"]
+OIDC_CLIENT_ID     = os.environ["OIDC_CLIENT_ID"]
+OIDC_CLIENT_SECRET = os.environ["OIDC_CLIENT_SECRET"]
+REDIRECT_URI       = "http://localhost:5000/callback"
+
+app = Flask(__name__)
+app.secret_key = os.environ.get("FLASK_SECRET_KEY", secrets.token_hex(32))
+
+@app.route("/")
+def index():
+    state = secrets.token_urlsafe(16)
+    session["oauth_state"] = state
+    return redirect(
+        f"{OKTA_DOMAIN}/oauth2/v1/authorize"
+        f"?response_type=code&client_id={OIDC_CLIENT_ID}"
+        f"&redirect_uri={REDIRECT_URI}&scope=openid+profile+email"
+        f"&state={state}"
+    )
+
+@app.route("/callback")
+def callback():
+    # Surface any error Okta sent back instead of crashing on a missing code.
+    if "error" in request.args:
+        return (
+            f"<pre>error: {request.args.get('error')}\n"
+            f"description: {request.args.get('error_description')}</pre>",
+            400,
+        )
+
+    # Validate state to protect against CSRF.
+    expected_state = session.pop("oauth_state", None)
+    if not expected_state or request.args.get("state") != expected_state:
+        return "<pre>error: state mismatch</pre>", 400
+
+    code = request.args.get("code")
+    if not code:
+        return "<pre>error: no authorization code returned</pre>", 400
+
+    resp = requests.post(f"{OKTA_DOMAIN}/oauth2/v1/token", data={
+        "grant_type":    "authorization_code",
+        "code":          code,
+        "redirect_uri":  REDIRECT_URI,
+        "client_id":     OIDC_CLIENT_ID,
+        "client_secret": OIDC_CLIENT_SECRET,
+    })
+    if not resp.ok:
+        return f"<pre>token endpoint error ({resp.status_code}):\n{resp.text}</pre>", 400
+
+    id_token = resp.json().get("id_token", "")
+    return f"""\
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Okta secures AI</title>
+  <style>
+    body {{
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f5f6f8;
+      color: #1d1d21;
+      margin: 0;
+      padding: 2.5rem;
+    }}
+    h1 {{
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #00297a;
+      margin: 0 0 1.5rem;
+    }}
+    table {{
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 960px;
+      background: #fff;
+      border: 1px solid #d7dae0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }}
+    th, td {{
+      text-align: left;
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid #e6e8ec;
+      vertical-align: top;
+    }}
+    th {{
+      background: #00297a;
+      color: #fff;
+      font-weight: 600;
+    }}
+    tr:last-child td {{
+      border-bottom: none;
+    }}
+    td.token-name {{
+      font-weight: 600;
+      white-space: nowrap;
+      width: 1%;
+    }}
+    td.token-value {{
+      font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+      font-size: 0.85rem;
+      word-break: break-all;
+    }}
+  </style>
+</head>
+<body>
+  <h1>Okta secures AI</h1>
+  <table>
+    <thead>
+      <tr><th>Token</th><th>Value</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="token-name">ID token</td>
+        <td class="token-value">{id_token}</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>"""
+
+if __name__ == "__main__":
+    app.run(port=5000)
+```
+
+### Run the demo file
+
+Run the demo file:
+
+```bash
+uv run scripts/oidc-id-token.py
+```
+
+Then open `http://localhost:5000/` in your browser to start the sign-in flow. After you enter your Okta credentials, the ID Token appears on the rendered page. You can use this ID token to test the token exchange flow API calls in [Exchange the ID token for ID-JAG](#exchange-the-id-token-for-id-jag).
+
+To see the full flow, create and run the following demo script.
+
+## Create an app to test the token exchange flow
+
+Use the following Python Flask app to test the token exchange flow. It obtains an ID token and then calls the two-step authentication process as documented in [Complete the token exchange flow](#complete-the-token-exchange-flow).
+
+### Create your environment file
+
+Create an `.env` file (or modify the `.env` from the previous section) that is referenced by the demo script. Include the following details from the remainder of your token exchange set up:
+
+```bash
+OKTA_DOMAIN=https://{yourOktaDomain}
+OIDC_CLIENT_ID={client_id}
+OIDC_CLIENT_SECRET={client_secret}
+CUSTOM_AS={yourCustomAS}
+AGENT_CLIENT_ID={yourAgentID}
+AGENT_KEY_ID={yourAgentKID}
+AGENT_PRIVATE_KEY_JWK={yourAgentPrivateKey}
+```
+
+For example:
+
+```bash
+# OIDC config for agent2.py
+# OKTA_DOMAIN must include https:// and have NO trailing slash
+OKTA_DOMAIN=https://example.okta.com
+OIDC_CLIENT_ID=0oazte....Vv6aZ1d7
+OIDC_CLIENT_SECRET=rPgK0mZi6aqpmRD....
+
+# --- Token exchange (agent on behalf of user), used by token_demo.py / agent.py ---
+# Custom authorization server ID (e.g. "default" or an "ausXXXX..." id)
+CUSTOM_AS=default
+# The agent's OAuth client id
+AGENT_CLIENT_ID=wlpzx5jq6....zGJY1d7
+# The "kid" of the agent's signing key (must match a key in the client's JWKS)
+AGENT_KEY_ID=98cfd0b41b99b68....fb8868188d2f5
+# The agent's PRIVATE key as a single-line JSON JWK, e.g. {"kty":"RSA","n":"...","e":"AQAB","d":"...","p":"...","q":"...","kid":"..."}
+AGENT_PRIVATE_KEY_JWK={"alg":"RS256","d":"QtPaeAww4ykVlxafEqZ7A......}
+```
+
+### Create the demo file
+
+Create a `scripts` folder at the root level of your project, and create a file name, for example, `token-exchange-demo.py`. Copy the following Python code into the file and save.
+
+```python
+# token_demo.py
+import os, json, time, uuid, secrets
+import jwt
+import requests
+from flask import Flask, redirect, request, session
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# --- OIDC (user login) ---
+OKTA_DOMAIN        = os.environ["OKTA_DOMAIN"]
+OIDC_CLIENT_ID     = os.environ["OIDC_CLIENT_ID"]
+OIDC_CLIENT_SECRET = os.environ["OIDC_CLIENT_SECRET"]
+REDIRECT_URI       = "http://localhost:5000/callback"
+
+# --- Token exchange (agent on behalf of user) ---
+CUSTOM_AS             = os.environ["CUSTOM_AS"]
+SCOPE                 = os.environ.get("SCOPE", "xaa:read")
+AGENT_CLIENT_ID       = os.environ["AGENT_CLIENT_ID"]
+AGENT_KEY_ID          = os.environ["AGENT_KEY_ID"]
+AGENT_PRIVATE_KEY_JWK = json.loads(os.environ["AGENT_PRIVATE_KEY_JWK"])
+# PyJWT can't sign with a raw JWK dict; convert it to a key object once.
+AGENT_SIGNING_KEY = jwt.PyJWK.from_dict(AGENT_PRIVATE_KEY_JWK).key
+
+
+def build_client_assertion(audience: str) -> str:
+    now = int(time.time())
+    return jwt.encode(
+        {
+            "iss": AGENT_CLIENT_ID,
+            "sub": AGENT_CLIENT_ID,
+            "aud": audience,
+            "iat": now,
+            "exp": now + 300,
+            "jti": str(uuid.uuid4()),
+        },
+        AGENT_SIGNING_KEY,
+        algorithm="RS256",
+        headers={"kid": AGENT_KEY_ID},
+    )
+
+
+def get_id_jag(id_token: str) -> str:
+    org_token_url     = f"{OKTA_DOMAIN}/oauth2/v1/token"
+    custom_as_issuer  = f"{OKTA_DOMAIN}/oauth2/{CUSTOM_AS}"   # audience = AS issuer, not its token endpoint
+    resp = requests.post(org_token_url, data={
+        "grant_type":            "urn:ietf:params:oauth:grant-type:token-exchange",
+        "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+        "client_assertion":      build_client_assertion(org_token_url),
+        "subject_token":         id_token,
+        "subject_token_type":    "urn:ietf:params:oauth:token-type:id_token",
+        "requested_token_type":  "urn:ietf:params:oauth:token-type:id-jag",
+        "scope":                 SCOPE,
+        "audience":              custom_as_issuer,
+    })
+    if not resp.ok:
+        raise RuntimeError(f"id-jag exchange failed ({resp.status_code}) at {org_token_url}:\n{resp.text}")
+    return resp.json()["access_token"]
+
+
+def get_access_token(id_jag: str) -> str:
+    custom_as_token_url = f"{OKTA_DOMAIN}/oauth2/{CUSTOM_AS}/v1/token"
+    resp = requests.post(custom_as_token_url, data={
+        "grant_type":            "urn:ietf:params:oauth:grant-type:jwt-bearer",
+        "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+        "client_assertion":      build_client_assertion(custom_as_token_url),
+        "assertion":             id_jag,
+    })
+    if not resp.ok:
+        raise RuntimeError(f"access-token exchange failed ({resp.status_code}) at {custom_as_token_url}:\n{resp.text}")
+    return resp.json()["access_token"]
+
+
+app = Flask(__name__)
+app.secret_key = os.environ.get("FLASK_SECRET_KEY", secrets.token_hex(32))
+
+
+@app.route("/")
+def index():
+    state = secrets.token_urlsafe(16)
+    session["oauth_state"] = state
+    return redirect(
+        f"{OKTA_DOMAIN}/oauth2/v1/authorize"
+        f"?response_type=code&client_id={OIDC_CLIENT_ID}"
+        f"&redirect_uri={REDIRECT_URI}&scope=openid+profile+email"
+        f"&state={state}"
+    )
+
+
+@app.route("/callback")
+def callback():
+    # Surface any error Okta sent back instead of crashing on a missing code.
+    if "error" in request.args:
+        return (
+            f"<pre>error: {request.args.get('error')}\n"
+            f"description: {request.args.get('error_description')}</pre>",
+            400,
+        )
+
+    # Validate state to protect against CSRF.
+    expected_state = session.pop("oauth_state", None)
+    if not expected_state or request.args.get("state") != expected_state:
+        return "<pre>error: state mismatch</pre>", 400
+
+    code = request.args.get("code")
+    if not code:
+        return "<pre>error: no authorization code returned</pre>", 400
+
+    resp = requests.post(f"{OKTA_DOMAIN}/oauth2/v1/token", data={
+        "grant_type":    "authorization_code",
+        "code":          code,
+        "redirect_uri":  REDIRECT_URI,
+        "client_id":     OIDC_CLIENT_ID,
+        "client_secret": OIDC_CLIENT_SECRET,
+    })
+    resp.raise_for_status()
+    id_token = resp.json()["id_token"]
+
+    id_jag = get_id_jag(id_token)
+    access_token = get_access_token(id_jag)
+
+    return f"""\
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Okta secures AI</title>
+  <style>
+    body {{
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f5f6f8;
+      color: #1d1d21;
+      margin: 0;
+      padding: 2.5rem;
+    }}
+    h1 {{
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #00297a;
+      margin: 0 0 1.5rem;
+    }}
+    table {{
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 960px;
+      background: #fff;
+      border: 1px solid #d7dae0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }}
+    th, td {{
+      text-align: left;
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid #e6e8ec;
+      vertical-align: top;
+    }}
+    th {{
+      background: #00297a;
+      color: #fff;
+      font-weight: 600;
+    }}
+    tr:last-child td {{
+      border-bottom: none;
+    }}
+    td.token-name {{
+      font-weight: 600;
+      white-space: nowrap;
+      width: 1%;
+    }}
+    td.token-value {{
+      font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+      font-size: 0.85rem;
+      word-break: break-all;
+    }}
+  </style>
+</head>
+<body>
+  <h1>Okta secures AI</h1>
+  <table>
+    <thead>
+      <tr><th>Token</th><th>Value</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="token-name">ID token</td>
+        <td class="token-value">{id_token}</td>
+      </tr>
+      <tr>
+        <td class="token-name">ID-JAG</td>
+        <td class="token-value">{id_jag}</td>
+      </tr>
+      <tr>
+        <td class="token-name">Access token</td>
+        <td class="token-value">{access_token}</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>"""
+
+
+if __name__ == "__main__":
+    app.run(port=5000)
+
+```
 
 ### Run the demo
 
+Run the demo file:
+
+```bash
+uv run scripts/token-exchange-demo.py
+```
+
+Then open `http://localhost:5000/` in your browser to start the sign-in flow. After you enter your Okta credentials, the full flow completes and the following tokens appear on the rendered page: ID Token, ID-JAG token, and Access Token. See [Complete the token exchange flow](#complete-the-token-exchange-flow).
 
 ## Next steps
 
