@@ -1,3 +1,5 @@
+#### Response
+
 The response contains an ID-JAG token (T2) with Agent 1 identified in the `act` claim as the immediate actor and the service client identified in the delegated chain.
 
 ``` http

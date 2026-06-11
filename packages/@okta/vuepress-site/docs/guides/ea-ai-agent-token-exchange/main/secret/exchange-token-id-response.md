@@ -1,3 +1,5 @@
+#### Response
+
 The response contains the requested resource token.
 
 ``` bash
