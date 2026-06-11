@@ -661,7 +661,7 @@ export const guides = [
           },
           {
             title: "Set up AI agent-to-agent token exchange",
-            guideName: "ai-agent-token-exchange-ea",
+            guideName: "ai-agent-token-exchange-EA",
           },
           {
             title: "Transactional verification using CIBA",
