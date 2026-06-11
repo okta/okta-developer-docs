@@ -12,6 +12,6 @@ The token exchange flow for an AI agent involves the following steps:
 
 1. The initiating client authenticates with an Okta [org](/docs/concepts/auth-servers/#org-authorization-server) or [custom](/docs/concepts/auth-servers/#custom-authorization-server) authorization server and obtains a subject token (T1) that satisfies a delegation link for the AI agent.
 1. The client passes the token to the AI agent so that it can perform actions on the user's behalf.
-1. The AI agent sends the token to the org authorization server and requests an exchange for an ID-JAG token. The server validates the request based on the configuration in the **Resource Connections** tab and returns the requested ID-JAG.
+1. The AI agent sends the token to the org authorization server and requests an exchange for an ID-JAG token. The server validates the request based on the **Resource Connections** configuration and returns the requested ID-JAG.
 1. Because the requested credential was an ID-JAG, the AI agent sends the ID-JAG to the [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server) to exchange it for a usable access token.
 1. The AI agent uses the access token to request access to the resource.

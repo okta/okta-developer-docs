@@ -1,3 +1,4 @@
+The response contains an ID-JAG token (T2) with Agent 1 identified in the `act` claim as the immediate actor and the service client identified in the delegated chain.
 
 ``` http
 HTTP/1.1 200 OK
@@ -11,9 +12,10 @@ Pragma: no-cache
  "token_type": "N_A",
  "scope": "chat.read chat.history",
  "expires_in": 300
-
 }
 ```
+
+
 
 ### Exchange ID-JAG for Access Token
 
