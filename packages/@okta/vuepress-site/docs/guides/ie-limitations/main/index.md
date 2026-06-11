@@ -142,4 +142,4 @@ If you use the `/api/v1/authn` APIs to build custom password reset and account u
 
 ## Okta Sign-In Widget upgrade
 
-For Identity Engine, some specific objects that were previously in the Sign-In Widget configuration are no longer supported and must be removed. Also, specific feature flags aren't supported when you upgrade Sign-In Widget and must be removed from `features` in the JSON code. See [Upgrade your Okta Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/main/) for a comprehensive list of configuration and feature changes.
+For Identity Engine, some specific objects that were previously in the Sign-In Widget configuration are no longer supported and must be removed. Also, specific feature flags aren't supported when you upgrade Sign-In Widget and must be removed from `features` in the JSON code. See [Upgrade your Okta Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/main/) for a comprehensive list of configuration and feature changes. Before you upgrade production, see [Test your widget's existing customizations in a test environment](/docs/guides/oie-upgrade-test-widget-custom/main/).
