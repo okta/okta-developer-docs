@@ -28,7 +28,11 @@ A single Okta org may run multiple deployment models at the same time. Find all 
 
 ---
 
-## Create an integration inventory
+## Plan your discovery
+
+Set up a place to record findings, then choose where to begin.
+
+### Create an integration inventory
 
 Use this worksheet to record every integration that you find. Add a row for each app, service, script, Workflow, agent, or integration that interacts with Okta.
 
@@ -43,7 +47,7 @@ Use this worksheet to record every integration that you find. Add a row for each
 | Upgrade action | Test, update, replace, retire, validate, or investigate. |
 | Notes | Any other relevant detail. |
 
-## Decide where to start your discovery
+### Decide where to start your discovery
 
 Use this table to choose a starting point for each kind of integration.
 
@@ -60,7 +64,11 @@ Use this table to choose a starting point for each kind of integration.
 | Workflows or automations using Okta | Okta Workflows console > **Flows** | Workflows connected apps | Flow name, connections, and Okta actions |
 | Directory agents or log stream dependencies | **Directory** > **Directory Integrations** | **Reports** > **Log streaming** | Agent type, version, and connection status |
 
-## Find Okta-hosted redirect sign-in integration points
+## Find sign-in and client-side integration points
+
+Use this section to find redirect sign-in, embedded widget, custom sign-in page, and SDK integration points.
+
+### Okta-hosted redirect sign-in
 
 Use this section to find apps that redirect users to an Okta-hosted login page, especially apps with a customized login page.
 
@@ -81,7 +89,7 @@ Use this section to find apps that redirect users to an Okta-hosted login page, 
 * Whether an acknowledgement item appears in the **OIE Upgrade Hub**.
 * The location and nature of any custom code in the code editor.
 
-## Find embedded Sign-In Widget and custom sign-in page integration points
+### Embedded Sign-In Widget and custom sign-in pages
 
 Use this section to find apps that embed the Okta Sign-In Widget on an application page, or custom sign-in pages not hosted by Okta.
 
@@ -102,7 +110,7 @@ Use this section to find apps that embed the Okta Sign-In Widget on an applicati
 * Whether an embedded Sign-In Widget acknowledgement item exists in the Upgrade Hub.
 * Whether Classic Mode is in use.
 
-## Find apps that use Okta SDKs or client-side authentication
+### Okta SDKs and client-side authentication
 
 Use this section to find apps that use the Auth.js SDK, Okta client-side SDKs, or custom JavaScript authentication flows.
 
@@ -205,7 +213,11 @@ Use this section to find components that affect sign-in flows, token issuance, p
 
 For each component, record the name, type, configuration, owner, and whether it's currently active.
 
-## Validate active usage with reports and the System Log
+## Validate usage and plan upgrade actions
+
+Confirm which integration points are still in use, then assign an action to each one.
+
+### Validate active usage with reports and the System Log
 
 Use these tools to confirm which integration points are still in active use before you assign upgrade actions.
 
@@ -232,7 +244,7 @@ To find server-side API callers:
 
 For programmatic export, use the [List Log Events API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/).
 
-## Map owners, dependencies, and upgrade actions
+### Map owners, dependencies, and upgrade actions
 
 Review all inventory entries and assign an upgrade action to each integration.
 
@@ -252,7 +264,7 @@ Review all inventory entries and assign an upgrade action to each integration.
 | Inactive app with no recent activity | A candidate for retirement before the upgrade | Verify with the owner; retire if confirmed unused |
 | Unknown owner | You can't assign upgrade responsibility | Escalate to IT or the security team for ownership investigation |
 
-## What to assess before the upgrade
+### What to assess before the upgrade
 
 * Confirm who owns each integration.
 * Confirm that each integration is still active and in use.
