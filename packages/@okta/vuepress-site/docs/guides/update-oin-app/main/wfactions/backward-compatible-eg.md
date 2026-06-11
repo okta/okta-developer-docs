@@ -1,9 +1,2 @@
-   Your integration update introduced a new variable (`companyId`), and you use it in your updated ACS URL. The ACS URL changed from `https://login.myapp.io` to `https://login.myapp.io?connection=${org.companyId}`. In this case, ensure that the dynamic ACS URL is also valid for existing instances where the `companyId` value isn't set.
 
-   To handle empty `companyId` values, you can define the ACS URL as:
-
-   ```bash
-   https://${empty org.companyId ? 'login.myapp.io' : 'login.myapp.io?connection=' += org.companyId}
-   ```
-
-   This expression handles both scenarios where `companyId` is populated or empty. See [Dynamic properties with Okta Expression Language](/docs/guides/submit-oin-app/saml2/main/#dynamic-properties-with-okta-expression-language).
+  New tenant setting variables that you define in the OIN Wizard appear in the Integration Builder's Authentication mapping section. You can map the new variables to authentication parameters, however, you must ensure that your integration works without the new variable for existing customer instances.
