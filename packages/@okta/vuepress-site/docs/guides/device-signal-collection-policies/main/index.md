@@ -47,7 +47,7 @@ You can use any of the following types of registered devices in your device sign
 
 * [Okta Verify](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-ov)
 * [Chrome Device Trust connector](https://help.okta.com/okta_help.htm?type=oie&id=ext-devices-enable-chrome)
-* [Device posture IdP](https://help.okta.com/okta_help.htm?type=oie&id=device-assurance-dev-posture-idp)
+* Device posture IdP: [configure it in the Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=device-assurance-dev-posture-idp), or [integrate and manage it with the API](/docs/guides/device-posture-idp/)
 
 ### How to configure device signal collection policies
 
