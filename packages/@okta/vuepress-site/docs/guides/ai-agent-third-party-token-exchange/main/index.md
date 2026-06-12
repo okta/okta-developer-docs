@@ -5,7 +5,7 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-Okta's AI Agents feature secures third-party AI agents with delegated user identity. When a user authenticates with Okta, your application exchanges the user's identity token for a scoped access token. The AI agent can then call Okta-protected APIs on the user's behalf.
+Okta's AI Agents feature secures third-party AI agents with delegated user identity. When a user authenticates with Okta, your app exchanges the user's identity token for a scoped access token. The AI agent can then call Okta-protected APIs on the user's behalf.
 
 In this guide, learn how to configure token exchange for third-party AI agents.
 
@@ -15,7 +15,7 @@ In this guide, learn how to configure token exchange for third-party AI agents.
 
 #### Learning outcomes
 
-- Understand Okta's two-step cross app access (XAA) token exchange flow for AI agents
+- Understand Okta's two-step cross app access (XAA) token exchange flow for AI agents.
 - Understand how to set up the token exchange flow.
 - Test the third-party token exchange flow.
 
@@ -28,7 +28,7 @@ In this guide, learn how to configure token exchange for third-party AI agents.
 
 ## Overview
 
-Okta's token exchange uses two API calls. The user's ID token is exchanged for an ID-JAG at the org authorization server. The ID-JAG is then exchanged for a scoped access token at the custom authorization server. The calling application passes that token to the AI agent.
+Okta's token exchange uses two API calls. The user's ID token is exchanged for an ID-JAG at the org authorization server. The ID-JAG is then exchanged for a scoped access token at the custom authorization server. The calling app passes that token to the AI agent.
 
 <!--diagram below?-->
 
@@ -49,9 +49,9 @@ Okta-protected API
   Authorization: Bearer <access_token>
 ```
 
->**Note:** No gateway or proxy is involved. The calling application owns the full token exchange. The AI agent receives a ready-to-use access token.
+>**Note:** No gateway or proxy is involved. The calling app owns the full token exchange. The AI agent receives a ready-to-use access token.
 
-The machine identity that signs token exchange requests is an AI Agent created in the Okta Admin Console. The AI Agent authenticates both steps of the exchange using a private key jwt. 
+The machine identity that signs token exchange requests is an AI Agent created in the Admin Console. The AI Agent authenticates both steps of the exchange using a private key JWT.
 
 ### Supported platforms
 
@@ -65,12 +65,12 @@ After setting up the third-party AI Agent token exchange flow, you can use this 
 
 ## Setting up the third-party token flow
 
-The setup for the third-party AI agent token exchange flow involves the configurations documented in the following sections:
+To configure token exchange for third-party AI agents, you must complete the following configurations:
 
 - Create an Okta OIDC web app integration to handle user sign-on and issue ID tokens.
 - Add a custom scope for your custom authorization server.
 - Create an AI Agent with RSA key-pair authentication.
-- Configure the access policy to allow the JWT Bearer grant type
+- Configure the access policy to allow the JWT Bearer grant type.
 - Complete the token exchange flow with Okta APIs.
 
 After these configurations, you can create a test app to demonstrate this flow, see [Create an app to test the token exchange flow](#create-an-app-to-test-the-token-exchange-flow).
@@ -84,7 +84,7 @@ An app integration represents your app in your Okta org. Use it to configure how
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
 1. Select **Web Application** as the **Application type**, then click **Next**.
-1. Enter an **App integration name**. For example, "AI Third-Party Token Exchange".
+1. Enter an **App integration name**. For example, "AI third-party token exchange."
 1. Set the following values.
    1. **Grant types**: Authorization Code
    [[style="list-style-type:lower-alpha"]]
@@ -95,7 +95,7 @@ An app integration represents your app in your Okta org. Use it to configure how
 
 The configuration page for the new app integration appears.
 
-Make a note of the Client ID and Client secret. Both are in the configuration pane for the app integration that you've created:
+Make a note of the client ID and client secret. Both are in the configuration pane for the app integration that you've created:
 
 - **Client ID**: Found on the **General** tab in the **Client Credentials** section.
 
@@ -107,7 +107,7 @@ Make a note of the Client ID and Client secret. Both are in the configuration pa
 
 Your custom authorization server requires a custom scope for the third-party AI Agent token exchange. You can use the default custom authorization server or create your own. See [Create an authorization server](/docs/guides/customize-authz-server/main/#about-the-custom-authorization-server).
 
->**Note**: System scopes (`openid`, `profile`, `email`) are stripped during the ID-JAG exchange and cause an `invalid_scope` error. You must use a custom scope.
+>**Note**: System scopes (`openid`, `profile`, `email`) are stripped during the ID-JAG exchange and cause an `invalid_scope` error. Use a custom scope.
 
 1. In the Admin Console, go to **Security** > **API**.
 1. On the **Authorization Servers** tab, select the name of your authorization server, and then select **Scopes**.
@@ -121,7 +121,7 @@ See [Create Scopes](/docs/guides/customize-authz-server/main/#create-scopes).
 
 ### Create an AI Agent
 
-The AI Agent is the machine identity your application uses to sign token exchange requests. Its `id` is prefaced by `wlp` and authenticates both steps of the exchange.
+The AI Agent is the machine identity your app uses to sign token exchange requests. Its `id` is prefaced by `wlp` and authenticates both steps of the exchange.
 
 1. In the Admin Console, go to **Directory** > **AI agents**.
 1. Click **Register AI agent** > **Register manually**.
