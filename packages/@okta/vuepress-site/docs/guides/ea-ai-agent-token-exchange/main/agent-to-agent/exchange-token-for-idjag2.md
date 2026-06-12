@@ -40,21 +40,19 @@ The ID-JAG contains the following claims:
   "iat": 1780597035,
   "exp": 1780597335,
   "jti": "IDAAG.FhYRSbhaXljvZIn71hCBN6FKreFgeYgDgm62TkidWqo",
-  "scope": "achat.read+chat.history",
+  "scope": "chat.read chat.history",
   "sub_profile": "service",
   "act": {
-    "sub": "wlp9jecfovIcujmca0g7",
-    "sub_profile": "ai_agent"
-  },
-  "delegated_through": [
-    {
-      "sub": "wlp9jebmx18qWtCeu0g7",
-      "sub_profile": "ai_agent"
+    "sub": "{agent2ClientId}",
+    "sub_profile": "ai_agent",
+    "act": {
+      "sub": "{agent1ClientId}",
+      "sub_profile": "ai_agent",
+      "act": {
+        "sub": "{initiatingClientId}",
+        "sub_profile": "service"
+      }
     }
-  ],
-  "origin": {
-    "sub": "0oa9jh6hizeR7uMag0g7",
-    "sub_profile": "service"
   }
 }
 ```
@@ -62,5 +60,5 @@ The ID-JAG contains the following claims:
 | Claim | Actor |
 | --- | --- |
 | `act.sub` | Agent 2, the immediate actor |
-| `delegated_through.sub` | Agent 1 |
-| `origin.sub` | The original service client that initiated the flow |
+| `act.act.sub` | Agent 1 |
+| `act.act.act.sub` | The original service client that initiated the flow |

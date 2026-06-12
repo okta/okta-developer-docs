@@ -19,7 +19,7 @@ In this step, after the agent receives the access or ID token from the client, t
 | --- | --- |
 | `grant_type` | Standard OAuth 2.0 token exchange grant. The value must be `urn:ietf:params:oauth:grant-type:token-exchange`. |
 | `subject_token` | A valid ID or access token that satisfies a delegation link for the AI agent |
-| `subject_token_type` | The type of subject token. The value is either `urn:ietf:params:oauth:token-type:id_token` or `urn:ietf:params:oauth:token-type:id_token`. |
+| `subject_token_type` | The type of subject token. The value is either `urn:ietf:params:oauth:token-type:id_token` or `urn:ietf:params:oauth:token-type:access_token`. |
 | `requested_token_type` | The type of token being requested. The value must be `urn:ietf:params:oauth:token-type:id-jag`. |
 | `audience` | The issuer URL of the resource app's authorization server |
 | `scope`    | A list of scopes at the resource app being requested. This defines the permissions for the final access token. |

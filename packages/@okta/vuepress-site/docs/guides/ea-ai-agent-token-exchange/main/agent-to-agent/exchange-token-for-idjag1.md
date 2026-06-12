@@ -12,7 +12,7 @@ In this step, after Agent 1 receives the access or ID token (T1) from the client
     --data-urlencode "subject_token_type=urn:ietf:params:oauth:token-type:access_token" \
     --data-urlencode "requested_token_type=urn:ietf:params:oauth:token-type:id-jag" \
     --data-urlencode "audience=https://{yourOktaDomain}/oauth2/{authServerId}" \
-    --data-urlencode "resource=https://agent2.{yourOktaDomain}" \
+    --data-urlencode "resource=https://agent2.example.com" \
     --data-urlencode "scope=chat.read+chat.history" \
     --data-urlencode "client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer" \
     --data-urlencode "client_assertion=eyJhbGciOiJSUzI1NiIsInR5…[jwt]"
@@ -25,7 +25,7 @@ In this step, after Agent 1 receives the access or ID token (T1) from the client
 | `subject_token_type` | The type of subject token. The value is either `urn:ietf:params:oauth:token-type:id_token` or `urn:ietf:params:oauth:token-type:access_token`. |
 | `requested_token_type` | The type of token being requested. The value must be `urn:ietf:params:oauth:token-type:id-jag`. |
 | `audience` | The issuer URL of the resource app's authorization server |
-| `resource` | The resource URL of the agent that receives and validates the incoming request |
+| `resource` | The resource URL of Agent 2 |
 | `scope`    | A list of scopes at the resource app being requested. This defines the permissions for the final access token. |
-| `client_assertion_type` | The type of assertioin. The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| `client_assertion_type` | The type of assertion for client authentication. The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | `client_assertion` | A signed JWT used for client authentication. You must sign the JWT using the key created during the AI agent registration. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |

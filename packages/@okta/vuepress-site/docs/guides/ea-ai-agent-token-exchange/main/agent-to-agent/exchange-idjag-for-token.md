@@ -37,25 +37,23 @@ The access token contains the following claims:
 {
   "iss": "https://{yourOktaDomain}/oauth2/{authServerId}",
   "sub": "0oa9jh6hizeR7uMag0g7",
-  "aud": "https://agent2.{yourOktaDomain}",
+  "aud": "https://agent2.example.com",
   "iat": 1780596935,
   "exp": 1780600535,
-  "scope": "chat.read+chat.history",
+  "scope": "chat.read chat.history",
   "sub_profile": "service",
   "act": {
-    "sub": "wlp9jebmx18qWtCeu0g7",
-    "sub_profile": "ai_agent"
-  },
-  "delegated_through": [
-    {
-      "sub": "0oa9jh6hizeR7uMag0g7",
+    "sub": "{agent1ClientId}",
+    "sub_profile": "ai_agent",
+    "act": {
+      "sub": "{initiatingClientId}",
       "sub_profile": "service"
     }
-  ],
+  }
 }
 ```
 
 | Claim | Actor |
 | --- | --- |
-| `act.sub` | Agent 1, the immediate actor |
-| `delegated_through.sub` | Original service client that initiated the flow. |
+| `sub` | Agent 1, the immediate actor |
+| `act.act.sub` | Original service client that initiated the flow. |
