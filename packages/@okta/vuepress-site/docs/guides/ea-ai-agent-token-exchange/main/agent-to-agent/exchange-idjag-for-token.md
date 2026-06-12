@@ -16,7 +16,7 @@ After receiving the ID-JAG, Agent 1 sends a `POST` request to the custom authori
 | Parameter | Description and value |
 | --- | --- |
 | `grant_type` | The value must be `urn:ietf:params:oauth:grant-type:jwt-bearer` |
-| `assertion` | The ID-JAG received in the Exchange token for resource token [response](/docs/guides/ai-agent-token-exchange/a2a/main/#response). |
+| `assertion` | The ID-JAG received in the Exchange token for resource token [response](/docs/guides/ea-ai-agent-token-exchange/agent-to-agent/main/#response). |
 
 #### Response
 
