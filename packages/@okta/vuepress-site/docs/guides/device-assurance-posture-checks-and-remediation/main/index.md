@@ -69,6 +69,8 @@ Okta Verify can only run custom checks after you enable them on the device. Enab
 * `OktaVerify.EnableOSQueryCustomChecks`: Set to `true` to allow custom osquery checks on the device. The default is `false`.
 * `OktaVerify.OSQueryAllowedDomains`: A semicolon-separated list of the org sign-in URLs that can run custom checks on the device.
 
+See [Enable custom device checks on user devices](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-assurance-adv-posture-check) for more details.
+
 The following example property list (`.plist`) enables custom checks for two orgs:
 
 ```xml
@@ -173,8 +175,6 @@ curl -i -X POST \
   }'
 ```
 
-> **Note:** A single device assurance policy can include a maximum of 50 custom checks.
-
 ## Add the device assurance policy to an app sign-in policy rule
 
 A device assurance policy is evaluated only after you add it to an app sign-in policy rule. The steps are the same as for a standard device assurance policy. See [Add device assurance to an app sign-in policy](/docs/guides/device-assurance-policies/main/#add-device-assurance-to-an-app-sign-in-policy).
@@ -199,5 +199,6 @@ When you write a query for a custom check, return a single value that device ass
 
 The following resources help you write and test queries:
 
+* [osquery schema version 5.18.1](https://www.osquery.io/schema/5.18.1/)
 * [osquery schema](https://www.osquery.io/schema/) for the list of available tables
 * [osquery documentation](https://osquery.readthedocs.io/) for query syntax and examples
