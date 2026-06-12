@@ -1,0 +1,2 @@
+
+  New tenant setting variables that you define in the OIN Wizard appear in the Integration Builder's Authentication mapping section. You can map the new variables to authentication parameters, however, you must ensure that your integration works without the new variable for existing customer instances.
