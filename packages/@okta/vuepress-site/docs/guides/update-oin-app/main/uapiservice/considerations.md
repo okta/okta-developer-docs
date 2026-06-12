@@ -1,4 +1,4 @@
-* For published integrations that were migrated from the OIN Manager, if you need to update configured properties that aren't available in the OIN Wizard, contact <oin@okta.com>.
+* For migrated integrations from the OIN Manager, if you need to update configured properties that aren't available in the OIN Wizard, contact <oin@okta.com>.
 
 * Migrated published integrations from the OIN Manager don't have some OIN Wizard restrictions. For instance:
 

@@ -1,7 +1,6 @@
+* You can add the Entitlement Management capability only if your integration also supports provisioning with API Integration Actions.
 
-* You can add Entitlement Management capabilities only if your integration also supports provisioning with API Integration Actions.
-
-* You can't update the authentication type for a published integration that uses API Integration Actions.
+* You can't update the authentication type for a published integration.
 
 * You can't change or remove any existing capabilities or protocols.
 
