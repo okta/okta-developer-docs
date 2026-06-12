@@ -36,7 +36,7 @@ This guide describes how to use the [Device Posture Checks API](https://develope
 
 A standard device assurance policy checks a fixed set of device attributes, such as OS version, disk encryption, or screen lock. See [Configure a device assurance policy](/docs/guides/device-assurance-policies/).
 
-Advanced posture checks extend this model with *custom* checks. You define a check as an [osquery](https://www.osquery.io/) SQL statement that reads a device attribute. Okta Verify runs the query on the device and returns the result to Okta. Device assurance then compares the result against the value that you require.
+Advanced posture checks extend this model with custom checks. You define a check as an [osquery](https://www.osquery.io/) SQL statement that reads a device attribute. Okta Verify runs the query on the device and returns the result to Okta. Device assurance then compares the result against the value that you require.
 
 Use advanced posture checks to enforce security requirements that the built-in attributes don't cover. For example, you can check whether the firewall is on, whether a required agent is running, or whether a specific app is installed.
 
