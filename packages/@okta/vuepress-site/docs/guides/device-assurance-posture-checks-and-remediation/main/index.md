@@ -54,9 +54,11 @@ You can also configure these settings in the Admin Console. See [Configure custo
 
 ## How posture checks and remediation work together
 
-A custom check and its remediation instructions form a single unit. You create the check, attach remediation settings, and then enforce the check through a device assurance policy. The following diagram shows the runtime flow when a user signs in.
+A custom check and its remediation instructions form a single unit. You create the check, attach remediation settings, and then enforce the check through a device assurance policy.
 
+<!-- TODO(OKTA-896213): Re-enable the sequence diagram after Design approves the updated artifact.
 ![Sequence diagram that shows a user signing in, Okta evaluating a device assurance policy, Okta Verify running a custom osquery check on the device, and the Sign-In Widget showing custom remediation instructions when the device fails the check.](/img/guides/device-assurance-posture-checks-and-remediation/posture-check-remediation-flow.svg)
+-->
 
 The remediation instructions appear only when the policy is set to show them. To display remediation, set `displayRemediationMode` to `SHOW` on the device assurance policy. Remediation works best with a grace period, which gives users time to fix the device. See [About grace period and remediation](/docs/guides/device-assurance-policies/main/#about-grace-period-and-remediation).
 
