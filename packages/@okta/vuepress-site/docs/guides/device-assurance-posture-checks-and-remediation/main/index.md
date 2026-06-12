@@ -4,7 +4,7 @@ excerpt: How to use the Device Posture Checks API to enforce custom osquery chec
 layout: Guides
 ---
 
-<ApiLifecycle access="ie" /></br><ApiLifecycle access="ea" />
+<ApiLifecycle access="ie" />
 
 This guide describes how to use the [Device Posture Checks API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DevicePostureCheck/) to enforce custom device checks. It also shows how to add custom remediation instructions, and then enforce the checks with the [Device Assurance Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/).
 
