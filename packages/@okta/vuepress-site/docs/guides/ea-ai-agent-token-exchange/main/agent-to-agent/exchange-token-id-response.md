@@ -30,7 +30,7 @@ The ID-JAG contains the following claims:
    "sub_profile": "service",
    "resource": "https://agent2.example.com",
    "act": {
-     "sub": "{agent1ClientId}}",
+     "sub": "{agent1ClientId}",
      "sub_profile": "ai_agent",
      "act": {
         "sub": "{initiatingClientId}",

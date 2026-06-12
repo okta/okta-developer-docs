@@ -64,6 +64,6 @@ Agent 2 uses the access token (T5) to request access to the downstream resource.
 * **Origin**: The original service client that initiated the flow.
 * **Delegated through**: Agent 1 that received the initial token and passed it to Agent 2.
 * **Immediate actor**: Agent 2 that's currently accessing the resource.
-* **Subject**: The original service client identity that all actions are performed on behalf of.
+* **Subject**: The original service client or user identity that all actions are performed on behalf of.
 
 This cryptographic audit trail provides complete visibility into the delegation chain and prevents token spoofing or unauthorized modifications.

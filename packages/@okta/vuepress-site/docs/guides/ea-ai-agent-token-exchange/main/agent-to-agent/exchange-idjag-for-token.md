@@ -55,5 +55,5 @@ The access token contains the following claims:
 
 | Claim | Actor |
 | --- | --- |
-| `sub` | Agent 1, the immediate actor |
+| `act.sub` | Agent 1, the immediate actor |
 | `act.act.sub` | Original service client that initiated the flow. |
