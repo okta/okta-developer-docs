@@ -18,10 +18,11 @@ Learn how to configure token exchange for agent-to-agent connections so that AI 
 
 #### What you need
 
-- An Okta org that's subscribed to Okta for AI Agents and has the Secure AI A2A Servers feature enabled. To enable this feature, go to **Settings** > **Features**, locate the Secure AI A2A Servers feature, and enable.
+- An Okta org that's subscribed to Okta for AI Agents and has the Agent to Agent Connections feature enabled. To enable this feature, go to **Settings** > **Features**, locate the Secure AI A2A Servers feature, and enable.
 - An Okta user account with the super admin role.
 - [Custom scopes](/docs/guides/customize-authz-server/main/#create-scopes) defined in your Okta custom authorization server for each resource app where you're requesting access. These scopes specify what permissions the token exchange grants in the final access token. You select these scopes when you [connect AI agents to resource connections](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-app-connection).
-- Two registered AI agents in your Okta org. See [Add and register AI agents](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register).
+- A registered AI agent in your Okta org. See [Add and register AI agents](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register).
+  > **Note**: If you're using the Agent-to-agent connection type, you need two registered AI agents.
 - A **Resource connection** that's configured for the AI agents, defining which resources they're allowed to access. See [Connect AI agents to resources](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-app-connection).
 - A delegation link that's configured for each AI agent, defining the users, apps, and other AI agents that can authorize the AI agent to act on their behalf. See the **Add delegations** section of the [Add AI agents manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) page.
 
@@ -83,11 +84,11 @@ The response contains the access and ID token and the `openid` scope.
 
 To obtain a subject token for itself, the client sends a request to an Okta custom authorization server to obtain an access token. Use the Client Credentials grant type to obtain the subject token. See [Implement authorization by grant type](/docs/guides/implement-grant-type/clientcreds/main/).
 
-The request includes the `resource` parameter. The parameter value is the resource URL that's configured on the agent that this client is invoking. For example `resource: https://agent1.{yourOktaDomain}`.
+The request includes the `resource` parameter. The parameter value is the resource URL that's configured on the agent that this client is invoking. For example `resource: https://agent1.example.com`.
 
 #### Response
 
-The token returned in the response contains the `aud` parameter. The parameter value is the resource URL (`https://agent1.{yourOktaDomain}`) for AI agent 1. This is the agent that initiates the request and calls another agent.
+The token returned in the response contains the `aud` claim. The claim value is the resource URL (`https://agent1.example.com`) for AI agent 1. This is the agent that will perform token exchange.
 
 ```JSON
 {
@@ -98,7 +99,7 @@ The token returned in the response contains the `aud` parameter. The parameter v
 }
 ```
 
-### Exchange token for resource token
+### Exchange subject token for resource token
 
 > **Note:** The instructions on this page are for the **<StackSnippet snippet="resource-type" inline/>** resource type. If you want to change the resource type on this page, select that type from the **Instructions for** dropdown list on the right.<br>
 

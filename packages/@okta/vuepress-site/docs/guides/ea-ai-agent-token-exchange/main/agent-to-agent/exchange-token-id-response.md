@@ -20,29 +20,27 @@ The ID-JAG contains the following claims:
 
 ```JSON
 {
-   "scope": "chat.read+chat.history",
+   "scope": "chat.read chat.history",
    "iss": "https://{yourOktaDomain}",
-   "sub": "0oa9jh6hizeR7uMag0g7",
-   "aud": "https://{yourOktaDomain}/oauth2/aus9jef27qggJqmEj0g7",
+   "sub": "{subjectFromSubjectToken}",
+   "aud": "https://{yourOktaDomain}/oauth2/{authServerId}",
    "iat": "1780596934 // 12:15:34 PM",
    "exp": "1780597234 // 12:20:34 PM",
    "jti": "IDAAG.tAO20ExqeUlh6VcpyQxTJ42fn3vDp9E3xR5Iq3Y79pY",
    "sub_profile": "service",
-   "resource": "https://agent2.{yourOktaDomain}",
+   "resource": "https://agent2.example.com",
    "act": {
-     "sub": "wlp9jebmx18qWtCeu0g7",
-     "sub_profile": "ai_agent"
-   },
-    "delegated_through": [
-    {
-      "sub": "0oa9jh6hizeR7uMag0g7"
-      "sub_profile": "service"
+     "sub": "{agent1ClientId}}",
+     "sub_profile": "ai_agent",
+     "act": {
+        "sub": "{initiatingClientId}",
+        "sub_profile": "service"
+      }
     }
-  ],
 }
 ```
 
 | Claim | Actor |
 | --- | --- |
 | `act.sub` | Agent 1, the immediate actor |
-| `delegated_through.sub` | The original service client that initiated the flow |
+| `act.act.sub` | The original client that initiated the flow |
