@@ -26,7 +26,7 @@ A device posture IdP is an external service that provides device posture data to
 
 Okta uses SAML or OIDC to communicate with the device posture IdP. Okta sends a request to the IdP, and the IdP returns an assertion or token that contains device posture attributes. Okta then evaluates these attributes against your policies. Only devices that meet your security standards can access Okta-protected resources.
 
-With this integration, you can build dynamic access controls that are based on the real-time security status of your end users' devices. You can use your existing device trust signals in Okta without extra agents or redundant tooling.
+With this integration, you can build dynamic access controls that are based on the real-time security status of your end users' devices. You can use your existing Device Trust signals in Okta without extra agents or redundant tooling.
 
 > **Note:** You can configure only one device posture IdP for each org.
 
@@ -180,7 +180,7 @@ A device assurance policy isn't enforced until you add it to an app sign-in poli
 Consider the following behavior when you use device posture IdP signals:
 
 * Okta redirects an end user to the external compliance service only when the first matched app sign-in policy rule requires device posture claims. Give this rule the highest priority, and target specific users with conditions such as group, platform, or network zone.
-* If your [global session policy](/docs/guides/configure-signon-policy/) requires a password, the Sign-In Widget prompts users for a username and password before it redirects them to the device posture IdP.
+* If your [global session policy](/docs/guides/configure-signon-policy/) requires a password, the Sign-In Widget prompts for a username and password before redirecting to the device posture IdP.
 
 ## About the data contract
 
