@@ -947,6 +947,10 @@ export const guides = [
           {
             title: "Configure offline mode",
             guideName: "oag-offline-mode"
+          },
+          {
+            title: "Add apps for offline mode",
+            guideName: "oag-configure-apps-offline-mode"
           }
         ]
       },
