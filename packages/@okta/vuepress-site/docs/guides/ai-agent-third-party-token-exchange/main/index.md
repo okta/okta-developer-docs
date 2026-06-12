@@ -128,18 +128,16 @@ The AI Agent is the machine identity your application uses to sign token exchang
 1. Under **Profile** add a name and description for your AI Agent, for example, "Third-Party AI Agent".
 1. Click **Register**.
 1. Under **Owners**, add owners to the AI Agent. You must add at least two owners. Click **Save**.
-1. Select your AI Agent from the list of AI Agents, and click **Credentials**.
+1. Select your AI Agent from the list of AI Agents, and click **Credentials**. Make a note of the AI agent ID.
 1. Under **Client Authentication**, generate an RSA key-pair. Click **Add public key** and
-**Generate new key** or use your own public key.
-1. From **Actions**, select **Active**.
+**Generate new key** or use your own public key. Click **Done**.
+1. From **Actions**, select **Activate**.
 1. Click **Delegations**. Under **User sign-on**, click **Add caller**. From **Application**, select your previously created OIDC app integration, for example, "AI Third-Party Token Exchange". Click **Add caller**.
 1. Under **Non-human identity**, click **Configure**. From **Authorization server**, select your custom authorization server, in this example, use `default`.
 1. Add a value for the **Audience/resource URL**. In this test example, use `https://example.com`. Click **Save**.
-1. Click **Resource connections**, and then **Add resource connection**. Select the **Authorization server** resource type, and then from **Select Authorization server**, select your custom authorization server, in this example, use `default`. From **The following OAuth scopes**, select the custom scope you added previously, for example, `xaa:read`.
+1. Click **Resource connections**, and then **Add resource connection**. Select the **Authorization server** resource type, and then from **Select Authorization server**, select your custom authorization server, in this example, use `default`. From **The following OAuth scopes**, select the custom scope you added previously, for example, `xaa:read`. Click **Add**.
 
-Make a note of the AI Agent ID. For example, `wlp9k6....GKZ5hAE0g7`.
-
-<!-- Verify this section above in Susan's Trex org-->
+>**Note:** Make a note of the AI Agent ID. For example, `wlp9k6....GKZ5hAE0g7`.
 
 ### Configure the access policy
 
@@ -152,7 +150,7 @@ After you create the AI Agent, configure your custom authorization server's acce
 1. Enable grant type **JWT Bearer**.
 1. Save the rule and policy.
 
-### Complete the token exchange flow
+## Complete the token exchange flow
 
 Your app makes two API calls directly to Okta's token endpoints. No Okta SDK is required. The flow comprises the following two steps:
 
@@ -169,7 +167,7 @@ Call the org authorization server's `/token` endpoint. The `client_assertion` is
 
 Ensure you update the following values in this call: `{yourOktaDomain}`, `{signed JWT}`, `{User id_token}`, and the `audience` URL. See the following Parameter table.
 
-To generate an ID Token, use the [xyz script] in the [Test section].
+To generate an ID Token, see [Create an app to obtain a test ID token](#create-an-app-to-obtain-a-test-id-token).
 
 ##### Request
 
