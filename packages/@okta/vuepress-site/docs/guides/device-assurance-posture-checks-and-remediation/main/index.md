@@ -76,7 +76,7 @@ Deploy these Okta Verify configuration keys through your MDM solution:
 
 * `OktaVerify.EnableOSQueryCustomChecks`: Set to `true` to allow custom osquery checks on the device. The default is `false`.
 * `OktaVerify.OSQueryAllowedDomains`: A semicolon-separated list of the org sign-in URLs that can run custom checks on the device.
-* `OktaVerify.OSQueryCustomChecksTimeout`: The maximum time, in milliseconds, that Okta Verify waits for a custom check to return a result.
+* `OktaVerify.OSQueryCustomChecksTimeout`: The maximum time, in seconds, that Okta Verify waits for a custom check to return a result. The default is `2`.
 
 The following example property list (`.plist`) enables custom checks for two orgs:
 
@@ -91,7 +91,7 @@ The following example property list (`.plist`) enables custom checks for two org
   <key>OktaVerify.OSQueryAllowedDomains</key>
   <string>your-subdomain.okta.com;your-other-subdomain.okta.com</string>
   <key>OktaVerify.OSQueryCustomChecksTimeout</key>
-  <integer>5000</integer>
+  <integer>2</integer>
 </dict>
 </plist>
 ```
