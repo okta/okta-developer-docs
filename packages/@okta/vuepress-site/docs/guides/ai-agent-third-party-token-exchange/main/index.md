@@ -113,7 +113,7 @@ Your custom authorization server requires a custom scope for the third-party AI 
 1. On the **Authorization Servers** tab, select the name of your authorization server, and then select **Scopes**.
 1. Select **Scopes** and then **Add Scope**.
 1. Enter a **Name**, for example, `xaa:read`.
-1. Optional. Enter a **Display phrase**, for example, "Cross App Access (XAA read-only scope)".
+1. Optional. Enter a **Display phrase**, for example, "Cross App access (XAA read-only scope)."
 1. Optional. Enter a **Description**, for example, "This scope allows token exchange between AI Agents."
 1. Click **Save**.
 
@@ -121,18 +121,18 @@ See [Create Scopes](/docs/guides/customize-authz-server/main/#create-scopes).
 
 ### Create an AI Agent
 
-The AI Agent is the machine identity your app uses to sign token exchange requests. Its `id` is prefaced by `wlp` and authenticates both steps of the exchange.
+The AI Agent is the machine identity that your app uses to sign token exchange requests. Its `id` starts with `wlp...` and authenticates both steps of the exchange.
 
 1. In the Admin Console, go to **Directory** > **AI agents**.
 1. Click **Register AI agent** > **Register manually**.
-1. Under **Profile** add a name and description for your AI Agent, for example, "Third-Party AI Agent".
+1. Under **Profile** add a name and description for your AI Agent, for example, "third-party AI Agent."
 1. Click **Register**.
-1. Under **Owners**, add owners to the AI Agent. You must add at least two owners. Click **Save**.
+1. Under **Owners**, add owners to the AI Agent. Add at least two owners. Click **Save**.
 1. Select your AI Agent from the list of AI Agents, and click **Credentials**. Make a note of the AI agent ID.
 1. Under **Client Authentication**, generate an RSA key-pair. Click **Add public key** and
 **Generate new key** or use your own public key. Click **Done**.
 1. From **Actions**, select **Activate**.
-1. Click **Delegations**. Under **User sign-on**, click **Add caller**. From **Application**, select your previously created OIDC app integration, for example, "AI Third-Party Token Exchange". Click **Add caller**.
+1. Click **Delegations**. Under **User sign-on**, click **Add caller**. From **Application**, select your previously created OIDC app integration, for example, "AI third-party token exchange." Click **Add caller**.
 1. Under **Non-human identity**, click **Configure**. From **Authorization server**, select your custom authorization server, in this example, use `default`.
 1. Add a value for the **Audience/resource URL**. In this test example, use `https://example.com`. Click **Save**.
 1. Click **Resource connections**, and then **Add resource connection**. Select the **Authorization server** resource type, and then from **Select Authorization server**, select your custom authorization server, in this example, use `default`. From **The following OAuth scopes**, select the custom scope you added previously, for example, `xaa:read`. Click **Add**.
@@ -146,7 +146,7 @@ After you create the AI Agent, configure your custom authorization server's acce
 1. In the Admin Console, go to **Security** > **API**.
 1. On the **Authorization Servers** tab, select the name of an authorization server (`default` if you're using the default custom authorization server).
 1. Select **Access Policies**, and then edit an existing policy. If you need to add a policy, see [Create access policies](/docs/guides/customize-authz-server/main/#create-access-policies).
-1. Edit the default rule or create a new rule, see [Create Rules for each Access Policy](/docs/guides/customize-authz-server/main/#create-rules-for-each-access-policy).
+1. Edit the default rule or create a rule, see [Create Rules for each Access Policy](/docs/guides/customize-authz-server/main/#create-rules-for-each-access-policy).
 1. Enable grant type **JWT Bearer**.
 1. Save the rule and policy.
 
@@ -159,15 +159,15 @@ Your app makes two API calls directly to Okta's token endpoints. No Okta SDK is 
 
 To test this flow, use the following `curl` calls with your configured data. 
 
-Use the [token exchange demo script] to demonstrate the full token exchange flow and display the ID Token, ID_JAG token, and Access token.
+Use the [token exchange demo script] to demonstrate the full token exchange flow and display the ID token, ID_JAG token, and access token.
 
 #### Exchange the ID token for ID-JAG
 
 Call the org authorization server's `/token` endpoint. The `client_assertion` is signed with the agent's RSA private key.
 
-Ensure you update the following values in this call: `{yourOktaDomain}`, `{signed JWT}`, `{User id_token}`, and the `audience` URL. See the following Parameter table.
+Ensure you update the following values in this call: `{yourOktaDomain}`, `{signed JWT}`, `{User id_token}`, and the `audience` URL. See the following parameter table.
 
-To generate an ID Token, see [Create an app to obtain a test ID token](#create-an-app-to-obtain-a-test-id-token).
+To generate an ID token, see [Create an app to obtain a test ID token](#create-an-app-to-obtain-a-test-id-token).
 
 ##### Request
 
@@ -188,7 +188,7 @@ curl -X POST https://{yourOktaDomain}/oauth2/v1/token \
 | --- | --- |
 | grant_type | Standard OAuth 2.0 token exchange grant. The value must be `urn:ietf:params:oauth:grant-type:token-exchange`. |
 | client_assertion_type | The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| client_assertion | A signed JWT used for client authentication. You must sign the JWT using the key created during the AI Agent registration. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |
+| client_assertion | A signed JWT used for client authentication. Sign the JWT using the key created during the AI Agent registration. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |
 | subject_token_type | The value must be `urn:ietf:params:oauth:token-type:id_token`. |
 | subject_token | A valid ID token issued to the resource app associated with the AI agent |
 | requested_token_type | The value must be `urn:ietf:params:oauth:token-type:id-jag`. |
@@ -217,7 +217,7 @@ Pragma: no-cache
 
 Call the custom authorization server's token endpoint. The `client_assertion` audience is the custom authorization server token URL.
 
-Ensure you update the following values in this call: `{yourOktaDomain}`, `{custom-as-id}` (`default` in this example), `{signed JWT}`, and the `{ID_JAG}` token. See the following Parameter table.
+Ensure you update the following values in this call: `{yourOktaDomain}`, `{custom-as-id}` (`default` in this example), `{signed JWT}`, and the `{ID_JAG}` token. See the following parameter table.
 
 ##### Request
 
@@ -233,9 +233,9 @@ curl -X POST https://{your-okta-domain}/oauth2/{custom-as-id}/v1/token \
 | Parameter | Description and value |
 | --- | --- |
 | grant_type | The value must be `urn:ietf:params:oauth:grant-type:jwt-bearer` |
-| assertion | The ID-JAG received in the Exchange token ID for resource token [response](#response). |
+| assertion | The ID-JAG received in the exchange token ID for resource token [response](#response). |
 | client_assertion_type | The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| client_assertion | A signed JWT used for client authentication. You must sign the JWT using the key created during the AI Agent registration. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |
+| client_assertion | A signed JWT used for client authentication. Sign the JWT using the key created during the AI Agent registration. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |
 
 ##### Response
 
@@ -262,7 +262,7 @@ Install `uv` using the official installer:
 brew install uv
 ```
 
-For more installation options (Windows, macOS without curl, etc.), see the [uv installation guide](https://docs.astral.sh/uv/getting-started/installation/).
+For more installation options (Windows, macOS without curl, and so on), see the [uv installation guide](https://docs.astral.sh/uv/getting-started/installation/).
 
 After installation, verify it works:
 
@@ -272,7 +272,7 @@ uv --version
 
 ### Set up the project
 
-Navigate to the project directory:
+Go to the project directory:
 
 ```bash
 cd /yourProject
@@ -304,7 +304,7 @@ This demo script obtains an ID token for testing. See [Exchange the ID token for
 
 ### Create your environment file
 
-Create a `.env` file that is referenced by the demo script. Include the following details from your OIDC app integration. See [Create an OIDC app integration](#create-an-oidc-web-app-integration) for these values. Add:
+Create a `.env` file. The demo script references the values in this file. Include the following details from your OIDC app integration. See [Create an OIDC app integration](#create-an-oidc-web-app-integration) for these values. Add:
 
 ```bash
 OKTA_DOMAIN=https://{yourOktaDomain}
@@ -467,7 +467,7 @@ Run the demo file:
 uv run scripts/oidc-id-token.py
 ```
 
-Then open `http://localhost:5000/` in your browser to start the sign-in flow. After you enter your Okta credentials, the ID Token appears on the rendered page. You can use this ID token to test the token exchange flow API calls in [Exchange the ID token for ID-JAG](#exchange-the-id-token-for-id-jag).
+Then open `http://localhost:5000/` in your browser to start the sign-in flow. After you enter your Okta credentials, the ID token appears on the rendered page. You can use this ID token to test the token exchange flow API calls in [Exchange the ID token for ID-JAG](#exchange-the-id-token-for-id-jag).
 
 To see the full flow, create and run the following demo script.
 
@@ -477,7 +477,7 @@ Use the following Python Flask app to test the token exchange flow. It obtains a
 
 ### Create your environment file
 
-Create an `.env` file (or modify the `.env` from the previous section) that is referenced by the demo script. Include the following details from the remainder of your token exchange set up:
+Create an `.env` file (or modify the `.env` from the previous section). The demo script will reference the values in this file. Include the following details from the remainder of your token exchange setup:
 
 ```bash
 OKTA_DOMAIN=https://{yourOktaDomain}
@@ -729,7 +729,7 @@ Run the demo file:
 uv run scripts/token-exchange-demo.py
 ```
 
-Then open `http://localhost:5000/` in your browser to start the sign-in flow. After you enter your Okta credentials, the full flow completes and the following tokens appear on the rendered page: ID Token, ID-JAG token, and Access Token. See [Complete the token exchange flow](#complete-the-token-exchange-flow).
+Then open `http://localhost:5000/` in your browser to start the sign-in flow. After you enter your Okta credentials, the full flow completes and the following tokens appear on the rendered page: ID token, ID-JAG token, and access token. See [Complete the token exchange flow](#complete-the-token-exchange-flow).
 
 ## Next steps
 
