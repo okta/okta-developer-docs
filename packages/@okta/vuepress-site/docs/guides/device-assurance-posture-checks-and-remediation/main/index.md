@@ -15,7 +15,7 @@ This guide describes how to use the [Device Posture Checks API](https://develope
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
-* A way to authenticate to the [Okta Management API](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/#authentication). The examples in this guide use an [API token](/docs/guides/create-an-api-token/) in the `Authorization` header with the `SSWS` scheme. Okta recommends a scoped OAuth 2.0 access token instead, with the `okta.devicePostureChecks.manage` and `okta.deviceAssurance.manage` scopes.
+* A scoped OAuth 2.0 [access token](/docs/guides/implement-oauth-for-okta/) with the `okta.devicePostureChecks.manage` and `okta.deviceAssurance.manage` scopes
 * The **Advanced Posture Checks** feature enabled
 * The **Custom remediation for Device Assurance** feature enabled
 * A mobile device management (MDM) solution to configure Okta Verify
@@ -139,7 +139,7 @@ curl -i -X POST \
   https://${yourOktaDomain}/api/v1/device-posture-checks \
   -H 'Accept: application/json' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: SSWS ${api_token}' \
+  -H 'Authorization: Bearer ${yourOktaAccessToken}' \
   -d '{
     "name": "macOS - Firewall enabled",
     "description": "Checks whether the macOS firewall is enabled",
@@ -170,7 +170,7 @@ curl -i -X POST \
   https://${yourOktaDomain}/api/v1/device-posture-checks \
   -H 'Accept: application/json' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: SSWS ${api_token}' \
+  -H 'Authorization: Bearer ${yourOktaAccessToken}' \
   -d '{
     "name": "Windows - Firewall enabled",
     "description": "Checks whether the Windows firewall is enabled",
@@ -208,7 +208,7 @@ curl -i -X POST \
   https://${yourOktaDomain}/api/v1/device-assurances \
   -H 'Accept: application/json' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: SSWS ${api_token}' \
+  -H 'Authorization: Bearer ${yourOktaAccessToken}' \
   -d '{
     "name": "Device assurance macOS",
     "platform": "MACOS",

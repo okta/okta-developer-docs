@@ -15,7 +15,7 @@ This guide describes how to use the [Device Assurance Policies API](https://deve
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
-* A way to authenticate to the [Okta Management API](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/#authentication). The examples in this guide use an [API token](/docs/guides/create-an-api-token/) in the `Authorization` header with the `SSWS` scheme. Okta recommends a scoped OAuth 2.0 access token instead. The examples span three APIs, so request the scopes for the calls you make: `okta.deviceAssurance.manage` (device assurance policies), `okta.policies.manage` (app sign-in policy rule), and `okta.logs.read` (System Log).
+* A scoped OAuth 2.0 [access token](/docs/guides/implement-oauth-for-okta/) with the `okta.deviceAssurance.manage`, `okta.policies.manage`, and `okta.logs.read` scopes
 * The **Dynamic OS version compliance** feature enabled, required for the `dynamicVersionRequirement` object in the [Create a device assurance policy](#create-a-device-assurance-policy) example
 * The device assurance grace period feature enabled, required for the `gracePeriod` and `displayRemediationMode` properties in the [Edit a device assurance policy](#edit-a-device-assurance-policy) example
 
@@ -72,7 +72,7 @@ curl -i -X POST \
   https://${yourOktaDomain}/api/v1/device-assurances \
   -H 'Accept: application/json' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: SSWS ${api_token}' \
+  -H 'Authorization: Bearer ${yourOktaAccessToken}' \
   -d '{
     "name": "Device assurance iOS",
     "osVersion": {
@@ -126,7 +126,7 @@ curl -i -X PUT \
   https://${yourOktaDomain}/api/v1/device-assurances/${deviceAssuranceId} \
   -H 'Accept: application/json' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: SSWS ${api_token}' \
+  -H 'Authorization: Bearer ${yourOktaAccessToken}' \
   -d '{
     "name": "Device assurance iOS",
     "osVersion": {
@@ -171,7 +171,7 @@ curl -i -X PUT \
   "https://${yourOktaDomain}/api/v1/policies/${policyId}/rules/${ruleId}" \
   -H "Accept: application/json" \
   -H "Content-Type: application/json" \
-  -H "Authorization: SSWS ${api_token}" \
+  -H "Authorization: Bearer ${yourOktaAccessToken}" \
   -d '{
     "name": "Device Assurance Rule",
     "type": "ACCESS_POLICY",
@@ -221,7 +221,7 @@ See [Event Types](https://developer.okta.com/docs/reference/api/event-types/).
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
+-H "Authorization: Bearer ${yourOktaAccessToken}" \
 "https://${yourOktaDomain}/api/v1/logs?filter=event_type+eq+%22device.assurance.policy.add%22"
 ```
 
