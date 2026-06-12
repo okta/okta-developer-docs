@@ -43,6 +43,7 @@ guides:
  - device-assurance-policies
  - device-assurance-posture-checks-and-remediation
  - device-authorization-grant
+ - device-posture-idp
  - ea-ai-agent-token-exchange
  - embedded-siw
  - enable-cors
