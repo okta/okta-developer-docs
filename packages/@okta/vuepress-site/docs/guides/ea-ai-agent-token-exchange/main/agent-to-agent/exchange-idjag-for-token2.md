@@ -31,7 +31,7 @@ The access token contains the following claims:
 {
   "iss": "https://{yourOktaDomain}/oauth2/{authServerId}",
   "sub": "0oa9jh6hizeR7uMag0g7",
-  "aud": "https://finance-api.example.com",
+  "aud": "https://{finalResource}.example.com",
   "iat": 1780597035,
   "exp": 1780600635,
   "scope": "chat.read chat.history",
