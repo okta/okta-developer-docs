@@ -15,7 +15,9 @@ This guide describes how to use the [Device Assurance Policies API](https://deve
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
-* Dynamic OS version compliance enabled
+* A way to authenticate to the [Okta Management API](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/#authentication). The examples in this guide use an [API token](/docs/guides/create-an-api-token/) in the `Authorization` header with the `SSWS` scheme. Okta recommends a scoped OAuth 2.0 access token instead. The examples span three APIs, so request the scopes for the calls you make: `okta.deviceAssurance.manage` (device assurance policies), `okta.policies.manage` (app sign-in policy rule), and `okta.logs.read` (System Log).
+* The **Dynamic OS version compliance** feature enabled, required for the `dynamicVersionRequirement` object in the [Create a device assurance policy](#create-a-device-assurance-policy) example
+* The device assurance grace period feature enabled, required for the `gracePeriod` and `displayRemediationMode` properties in the [Edit a device assurance policy](#edit-a-device-assurance-policy) example
 
 ---
 
@@ -40,6 +42,8 @@ The examples in this guide use iOS as the platform, but the following platforms 
 * `WINDOWS`
 
 See [Platform](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/createDeviceAssurancePolicy!path=1/platform&t=request).
+
+> **Note:** Each platform supports a different set of condition properties. For example, Windows OS version requirements use the `osVersionConstraints` array, with `WINDOWS_11` and `WINDOWS_10` major version constraints, instead of `osVersion.minimum`. See the platform-specific request examples in [Create a device assurance policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/createDeviceAssurancePolicy).
 
 ## Create a device assurance policy
 
