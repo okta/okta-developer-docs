@@ -16,8 +16,6 @@ This guide describes how to use the [Device Assurance Policies API](https://deve
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
 * A scoped OAuth 2.0 [access token](/docs/guides/implement-oauth-for-okta/) with the `okta.deviceAssurance.manage`, `okta.policies.manage`, and `okta.logs.read` scopes
-* The **Dynamic OS version compliance** feature enabled, required for the `dynamicVersionRequirement` object in the [Create a device assurance policy](#create-a-device-assurance-policy) example
-* The device assurance grace period feature enabled, required for the `gracePeriod` and `displayRemediationMode` properties in the [Edit a device assurance policy](#edit-a-device-assurance-policy) example
 
 ---
 
