@@ -8,7 +8,7 @@ layout: Guides
 
 <ApiLifecycle access="ea" />
 
-This guide explains how to create a <StackSnippet snippet="apptype" inline /> app for use with Access Gateway offline mode.
+This guide explains how to create an app for use with Access Gateway offline mode.
 
 > **Note:** The Access Gateway APIs used in this guide are available in a Limited Early Access program and may be updated or changed based on feedback.
 
@@ -26,7 +26,7 @@ This guide explains how to create a <StackSnippet snippet="apptype" inline /> ap
 
 ---
 
-## About offline mode apps
+## Learn about offline mode apps
 
 By default, apps behind Access Gateway require a connection to Okta to authenticate users. If Okta is unreachable, authentication fails and users can't access the app.
 
