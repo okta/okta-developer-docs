@@ -55,7 +55,7 @@ The machine identity that signs token exchange requests is an AI Agent created i
 
 ### Supported platforms
 
-After setting up the third-party AI Agent token exchange flow, you can use this flow with the following supported providers and AI agents:
+After setting up the third-party AI Agent token exchange, you can use this flow with the following supported providers and AI agents:
 
 | Provider | Platform | Guide |
 | --- | --- | --- |
@@ -113,7 +113,7 @@ Your custom authorization server requires a custom scope for the third-party AI 
 1. On the **Authorization Servers** tab, select the name of your authorization server, and then select **Scopes**.
 1. Select **Scopes** and then **Add Scope**.
 1. Enter a **Name**, for example, `xaa:read`.
-1. Optional. Enter a **Display phrase**, for example, "Cross App access (XAA read-only scope)."
+1. Optional. Enter a **Display phrase**, for example, "Cross App Access (XAA read-only scope)."
 1. Optional. Enter a **Description**, for example, "This scope allows token exchange between AI Agents."
 1. Click **Save**.
 
@@ -125,7 +125,7 @@ The AI Agent is the machine identity that your app uses to sign token exchange r
 
 1. In the Admin Console, go to **Directory** > **AI agents**.
 1. Click **Register AI agent** > **Register manually**.
-1. Under **Profile** add a name and description for your AI Agent, for example, "third-party AI Agent."
+1. Under **Profile**, add a name and description for your AI Agent, for example, "third-party AI Agent."
 1. Click **Register**.
 1. Under **Owners**, add owners to the AI Agent. Add at least two owners. Click **Save**.
 1. Select your AI Agent from the list of AI Agents, and click **Credentials**. Make a note of the AI agent ID.
@@ -165,7 +165,7 @@ Use the [token exchange demo script] to demonstrate the full token exchange flow
 
 Call the org authorization server's `/token` endpoint. The `client_assertion` is signed with the agent's RSA private key.
 
-Ensure you update the following values in this call: `{yourOktaDomain}`, `{signed JWT}`, `{User id_token}`, and the `audience` URL. See the following parameter table.
+Ensure you update the following values in this call: `{yourOktaDomain}`, `{signed JWT}`, `{user id_token}`, and the `audience` URL. See the following parameter table.
 
 To generate an ID token, see [Create an app to obtain a test ID token](#create-an-app-to-obtain-a-test-id-token).
 
@@ -735,7 +735,7 @@ Then open `http://localhost:5000/` in your browser to start the sign-in flow. Af
 
 <!-- maybe too generic ... focus on the actual platform specific docs below -->
 
-Authenticating imported agents with delegated user identity is one part of the Okta for AI Agents framework. After your agent can call APIs on a user's behalf, you can:
+Authenticating third-party agents with delegated user identity is one part of the Okta for AI Agents framework. After your agent can call APIs on a user's behalf, you can:
 
 - Authorize access to tools and APIs: Configure brokered consent, MCP integration, and OAuth 2.0 resource server policies to define which resources and scopes agents are permitted to reach.
 
