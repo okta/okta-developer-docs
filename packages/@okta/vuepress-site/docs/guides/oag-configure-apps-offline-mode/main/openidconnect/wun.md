@@ -1,1 +1,1 @@
-An OIDC client application and its redirect URI
+An OIDC client app and its redirect URI

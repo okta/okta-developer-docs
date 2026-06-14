@@ -1,13 +1,13 @@
 Before you create the app, ensure that you have the following information:
 
-* The redirect URI for your client application
-* The `applicationType` for your client (`web`, `native`, or `spa`). This determines which OAuth 2.0 flows are supported and whether a client secret is required. See [Create the app](#create-the-app).
+* The redirect URI for your client app.
+* The `applicationType` for your client app (`web`, `native`, or `spa`). This determines which OAuth 2.0 flows are supported and whether a client secret is required.
 
-Review the following sections to understand the requirements for your app and how to configure the app settings when you create it.
+Review the following sections to understand the requirements for your app and how to configure the app settings in Access Gateway when you create it.
 
 ### Scopes and claims
 
-Access Gateway supports the `openid`, `profile`, `email`, and `offline_access` scopes.
+Access Gateway supports the `openid`, `profile`, and `email` scopes.
 
 The following claims are included in tokens based on the granted scopes:
 
@@ -21,7 +21,7 @@ The following claims are included in tokens based on the granted scopes:
 
 ### Token lifetimes and behavior
 
-You can configure access token and refresh token lifetimes per app using `accessTokenLifetime` and `refreshTokenLifetime` in the request body. If you omit these fields, the following default settings apply:
+You can configure access token and refresh token lifetimes per app using `accessTokenLifetime` and `refreshTokenLifetime` in the request body when you create the app. If you omit these fields, the following default settings apply:
 
 | Token | Default lifetime |
 | --- | --- |
