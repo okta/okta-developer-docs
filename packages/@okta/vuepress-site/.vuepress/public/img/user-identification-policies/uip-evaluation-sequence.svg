@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 636" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+    <marker id="arrowReturn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748B"/>
+    </marker>
+  </defs>
+
+  <!-- background -->
+  <rect x="0" y="0" width="960" height="636" fill="#FFFFFF"/>
+
+  <!-- title -->
+  <text x="480" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#0F172A">User identification policy evaluation at sign-in</text>
+  <text x="480" y="49" text-anchor="middle" font-size="12.5" fill="#64748B">How Okta decides whether to show the Sign in with Okta Verify button on the Sign-In Widget</text>
+
+  <!-- lifelines -->
+  <g stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4 4">
+    <line x1="100" y1="124" x2="100" y2="558"/>
+    <line x1="290" y1="124" x2="290" y2="558"/>
+    <line x1="480" y1="124" x2="480" y2="558"/>
+    <line x1="670" y1="124" x2="670" y2="558"/>
+    <line x1="860" y1="124" x2="860" y2="558"/>
+  </g>
+
+  <!-- participant boxes -->
+  <g>
+    <rect x="25"  y="66" width="150" height="54" rx="8" fill="#EEF2F7" stroke="#475569" stroke-width="1.5"/>
+    <text x="100" y="91" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#0F172A">User</text>
+    <text x="100" y="108" text-anchor="middle" font-size="11" fill="#64748B">Browser</text>
+
+    <rect x="215" y="66" width="150" height="54" rx="8" fill="#EEF2F7" stroke="#475569" stroke-width="1.5"/>
+    <text x="290" y="98" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#0F172A">Sign-In Widget</text>
+
+    <rect x="405" y="66" width="150" height="54" rx="8" fill="#E7EEF9" stroke="#475569" stroke-width="1.5"/>
+    <text x="480" y="91" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#0F172A">Okta</text>
+    <text x="480" y="108" text-anchor="middle" font-size="11" fill="#64748B">Policy engine</text>
+
+    <rect x="595" y="66" width="150" height="54" rx="8" fill="#EEF2F7" stroke="#475569" stroke-width="1.5"/>
+    <text x="670" y="91" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0F172A">App sign-in</text>
+    <text x="670" y="108" text-anchor="middle" font-size="11" fill="#64748B">policy (ASOP)</text>
+
+    <rect x="785" y="66" width="150" height="54" rx="8" fill="#EEF2F7" stroke="#475569" stroke-width="1.5"/>
+    <text x="860" y="91" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0F172A">User identification</text>
+    <text x="860" y="108" text-anchor="middle" font-size="11" fill="#64748B">policy</text>
+  </g>
+
+  <!-- messages -->
+  <g font-size="12.5" fill="#1A202C" text-anchor="middle">
+    <!-- 1 -->
+    <text x="195" y="143">1. Open the app sign-in page</text>
+    <line x1="100" y1="150" x2="290" y2="150" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <!-- 2 -->
+    <text x="385" y="187">2. Request the sign-in page for the app</text>
+    <line x1="290" y1="194" x2="480" y2="194" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <!-- 3 -->
+    <text x="575" y="231">3. Resolve the app sign-in policy</text>
+    <line x1="480" y1="238" x2="670" y2="238" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <!-- 4 (return) -->
+    <text x="575" y="275">4. App sign-in policy + linked policy id</text>
+    <line x1="670" y1="282" x2="480" y2="282" stroke="#64748B" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#arrowReturn)"/>
+    <!-- 5 -->
+    <text x="670" y="319">5. Evaluate rules (platform + network conditions)</text>
+    <line x1="480" y1="326" x2="860" y2="326" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <!-- 6 (return) -->
+    <text x="670" y="363">6. Matching rule &#8594; showSignInWithOV: ALWAYS | NEVER</text>
+    <line x1="860" y1="370" x2="480" y2="370" stroke="#64748B" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#arrowReturn)"/>
+    <!-- 7 (self) -->
+    <text x="498" y="407" text-anchor="start">7. Apply global gate: Okta Verify configured + FastPass enabled *</text>
+    <path d="M480,414 H548 V428 H482" fill="none" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <!-- 8 (return) -->
+    <text x="385" y="459">8. Button decision: show or hide the button</text>
+    <line x1="480" y1="466" x2="290" y2="466" stroke="#64748B" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#arrowReturn)"/>
+    <!-- 9 (return) -->
+    <text x="195" y="503">9. Render the Sign-In Widget</text>
+    <line x1="290" y1="510" x2="100" y2="510" stroke="#64748B" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#arrowReturn)"/>
+  </g>
+
+  <!-- legend -->
+  <g font-size="11.5" fill="#475569">
+    <line x1="280" y1="582" x2="315" y2="582" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="323" y="586" text-anchor="start">Call</text>
+    <line x1="420" y1="582" x2="455" y2="582" stroke="#64748B" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#arrowReturn)"/>
+    <text x="463" y="586" text-anchor="start">Response</text>
+  </g>
+
+  <!-- footnote -->
+  <g font-size="10.5">
+    <text x="60" y="614" text-anchor="start" fill="#64748B">* The button appears only when Okta Verify is configured and Okta FastPass is enabled, and a matching rule sets showSignInWithOV to ALWAYS.</text>
+  </g>
+</svg>
