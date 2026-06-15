@@ -33,15 +33,15 @@ See [Registration inline hook](/docs/guides/registration-inline-hook/nodejs/main
 
 ## What changes during the upgrade
 
-When you upgrade your org from Classic Engine to Identity Engine, the registration inline hook continues to exist as the same hook type, but three things change:
+When you upgrade your org from Classic Engine to Identity Engine, the registration inline hook continues to exist as the same hook type, but the following two things change:
 
 * **Where you enable the hook.** In Classic Engine, you enable the hook on the **Self-Service Registration** page. In Identity Engine, self-service registration is driven by a [user profile policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) (profile enrollment), and you enable the hook there instead. See [Move the hook to a user profile policy](#move-the-hook-to-a-user-profile-policy).
 
 * **The inline hook request format.** Identity Engine adds a `requestType` property to the request and sends a request for a new use case (progressive profile enrollment). Your external service may need code updates to read the new request properly. See [Changes to the inline hook request](#changes-to-the-inline-hook-request).
 
-* **The Sign-In Widget configuration.** If you embed the Sign-In Widget, registration is no longer configured in widget JavaScript. See [Changes to the Sign-In Widget](#changes-to-the-sign-in-widget).
-
 The way that you create the hook (in the Admin Console under **Workflow** > **Inline Hooks**, or through the [Inline Hooks Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createInlineHook)) doesn't change. The `commands` object that your service returns to allow or deny a registration also stays the same.
+
+> **Note:** To use Identity Engine's profile enrollment and progressive profile enrollment with registration inline hooks, the [Okta Sign-In Widget](/docs/guides/embedded-siw/) must be version 4.5 or later.
 
 ## Move the hook to a user profile policy
 
@@ -63,10 +63,10 @@ For the full set of profile enrollment options, see [Configure user profile poli
 
 ## Changes to the inline hook request
 
-In both Classic Engine and Identity Engine, the hook fires before a user is registered (`eventType` is `com.okta.user.pre-registration`) and submitted fields arrive in the `data.userProfile` object. The key difference is that Identity Engine adds a `requestType` property that identifies which registration use case triggered the hook:
+In both Classic Engine and Identity Engine, the hook triggers before a user is registered (`eventType` is `com.okta.user.pre-registration`). The key difference is that Identity Engine adds a `requestType` property to the request. This property identifies which registration use case triggered the hook, and it determines where in the request the submitted fields arrive:
 
-* `self.service.registration`: A new user self-registers. This is the equivalent of the Classic Engine self-service registration flow, and the submitted fields are in `data.userProfile`.
-* `progressive.profile`: An existing user is prompted for more profile information when they sign in. This use case is new in Identity Engine. The submitted fields are in `data.userProfileUpdate`, and the existing user's current profile is in `data.context.user`.
+* `self.service.registration`: A new user self-registers. This is the equivalent of the Classic Engine self-service registration flow. The submitted fields arrive in the `data.userProfile` object.
+* `progressive.profile`: An existing user is prompted for more profile information when they sign in. This use case is new in Identity Engine. The submitted fields arrive in the `data.userProfileUpdate` object, and the existing user's current profile is in the `data.context.user.profile` object.
 
 Because Classic Engine has only one registration flow, your existing external service probably reads `data.userProfile` directly without inspecting a request type. After the upgrade, your service must branch on `requestType` so that it reads the correct properties for each use case.
 
@@ -96,10 +96,10 @@ For `self.service.registration`, the submitted fields are in `data.userProfile`,
             }
         },
         "userProfile": {
-            "firstName": "Rosario",
-            "lastName": "Jones",
-            "login": "rosario.jones@example.com",
-            "email": "rosario.jones@example.com"
+            "firstName": "Jessie",
+            "lastName": "Smith",
+            "login": "jessie.smith@example.com",
+            "email": "jessie.smith@example.com"
         },
         "action": "ALLOW"
     }
@@ -108,7 +108,7 @@ For `self.service.registration`, the submitted fields are in `data.userProfile`,
 
 ### Progressive profile enrollment request
 
-For `progressive.profile`, the new or updated fields are in `data.userProfileUpdate`, and the existing user's profile is in `data.context.user`:
+For `progressive.profile`, the new or updated fields are in `data.userProfileUpdate`, and the existing user's profile is in `data.context.user.profile`:
 
 >**Note:** The `requestType` is `progressive.profile`.
 
@@ -132,9 +132,9 @@ For `progressive.profile`, the new or updated fields are in `data.userProfileUpd
             },
             "user": {
                 "profile": {
-                    "firstName": "Rosario",
-                    "lastName": "Jones",
-                    "login": "rosario.jones@example.com",
+                    "firstName": "Jessie",
+                    "lastName": "Smith",
+                    "login": "jessie.smith@example.com",
                     "locale": "en_US"
                 },
                 "id": "00u48gwcu01WxvNo"
@@ -183,7 +183,7 @@ app.post('/registrationHook', async (request, response) => {
 });
 ```
 
-The following Identity Engine example branches on `requestType`. The `self.service.registration` branch keeps the original allow/deny logic, and the `progressive.profile` branch reads `data.userProfileUpdate` and returns the new `com.okta.user.progressive.profile.update` command:
+The following Identity Engine example branches on `requestType`. The `self.service.registration` branch keeps the original allow or deny logic, and the `progressive.profile` branch reads `data.userProfileUpdate` and returns the new `com.okta.user.progressive.profile.update` command:
 
 ```javascript
 // Identity Engine: branch on requestType
@@ -235,15 +235,9 @@ app.post('/registrationHook', async (request, response) => {
 });
 ```
 
-> **Note:** If your external service should only ever process self-service registrations, you can still add the `requestType` check defensively so that a future progressive profile policy doesn't send your service a request that it doesn't expect.
+> **Note:** If your external service only processes self-service registrations, you can still add the `requestType` check defensively so that a future progressive profile policy doesn't send your service a request that it doesn't expect.
 
 For the complete external service implementation, including the full `error` object and progressive profile policy setup, see [Registration inline hook](/docs/guides/registration-inline-hook/nodejs/main/).
-
-## Changes to the Sign-In Widget
-
-If you embed the Okta Sign-In Widget, registration is no longer configured in widget JavaScript after you upgrade. Self-service registration is driven by the user profile policy that you configured in [Move the hook to a user profile policy](#move-the-hook-to-a-user-profile-policy).
-
-Remove the `registration` object and the `features.registration` property from your widget configuration. The `parseSchema` method is also no longer supported, because the ability to include more schemas through the widget is removed. For the full set of widget configuration changes, see [Registration](/docs/guides/oie-upgrade-sign-in-widget/main/#registration) in the Sign-In Widget upgrade guide.
 
 ## Test your upgraded registration inline hook
 
