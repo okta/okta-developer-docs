@@ -159,6 +159,14 @@ The device signal collection policies can collect [information](https://help.okt
 
 See [Create device signal collection rules](https://help.okta.com/okta_help.htm?type=oie&id=create-device-signal-collection-ruleset) for details about configuring the policy in the Admin Console.
 
+#### User identification policies
+
+<ApiLifecycle access="ie" /><ApiLifecycle access="ea" />
+
+Use [user identification policies](/docs/guides/user-identification-policies/main/) to control the pre-identification experience on the Sign-In Widget for an app. User identification works as part of your [app sign-in policies](#app-sign-in-policies).
+
+A user identification policy maps one-to-one to an app sign-in policy. Currently, it controls whether the **Sign in with Okta Verify** button appears on the Sign-In Widget for the app.
+
 ### Identity claims sourcing policy
 
 <ApiLifecycle access="ea" /><ApiLifecycle access="ie" />
