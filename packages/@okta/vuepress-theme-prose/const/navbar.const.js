@@ -565,10 +565,6 @@ export const guides = [
             guideName: "oie-upgrade-plan-embedded-upgrades",
           },
           {
-            title: "Identity Engine limitations",
-            guideName: "ie-limitations",
-          },
-          {
             title: "Okta Sign-In Widget upgrade",
             subLinks: [
               {

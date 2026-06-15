@@ -174,7 +174,6 @@ guides:
  - oie-upgrade-sign-in-widget
  - oie-upgrade-sign-in-widget-styling
  - oie-upgrade-mfa-enroll-policy
- - ie-limitations
  - authenticators-overview
  - authenticators-google-authenticator
  - authenticators-web-authn
