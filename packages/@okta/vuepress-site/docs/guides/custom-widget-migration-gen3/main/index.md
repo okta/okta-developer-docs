@@ -343,3 +343,4 @@ The third generation can use the `afterRender` function for non-DOM manipulation
 * [Customize a domain and email address](/docs/guides/custom-url-domain/main/)
 * [Brands](/docs/concepts/brands/)
 * [Sign-In Widget, third generation](https://help.okta.com/okta_help.htm?type=oie&id=ext-compare-siw)
+* [Test your widget's existing customizations in a test environment](/docs/guides/oie-upgrade-test-widget-custom/main/)
