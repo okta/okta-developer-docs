@@ -1,0 +1,351 @@
+---
+title: Configure a user identification policy
+excerpt: How to use the Policies API to manage user identification policies
+layout: Guides
+---
+
+<ApiLifecycle access="ie" /></br><ApiLifecycle access="ea" />
+
+This guide describes how to use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/) to manage user identification policies in your org.
+
+> **Note:** This document is only for Okta Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+
+---
+
+#### What you need
+
+* [Okta Integrator Free Plan org](https://developer.okta.com/signup)
+* The User Identification Policy feature enabled for your org
+* [Okta Verify configured](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-ov) as an authenticator, with Okta FastPass enabled
+* An existing [app sign-in policy](/docs/concepts/policies/#app-sign-in-policies) for the app that you want to configure
+* A test [user account](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users)
+* A test [group](https://help.okta.com/okta_help.htm?type=oie&id=usgp-groups-create) in your org that the test user is added to
+
+---
+
+## About user identification policies
+
+A user identification policy controls the pre-identification experience on the [Sign-In Widget](/docs/guides/custom-widget/) for an app. It applies before a user enters their username. Currently, the policy controls whether the **Sign in with Okta Verify** button appears on the Sign-In Widget.
+
+Previously, the **Sign in with Okta Verify** button was an org-wide authenticator setting. The user identification policy moves this control to a per-app policy, so that you can show or hide the button for each app.
+
+### Relationship to app sign-in policies
+
+Each user identification policy maps one-to-one to an [app sign-in policy](/docs/concepts/policies/#app-sign-in-policies). Okta creates, maps, clones, and removes the user identification policy automatically with its app sign-in policy. You can't create, deactivate, remove, map, or clone a user identification policy directly.
+
+If you call one of those operations directly, Okta returns the following error:
+
+`This operation isn't supported in the User Identification Policy.`
+
+You manage only the **rules** on the policy. Each policy has a default rule that you can't deactivate or remove.
+
+> **Note:** The user identification policy is closely related to the [device signal collection policy](/docs/guides/device-signal-collection-policies/), which also works as part of your app sign-in policies.
+
+### Rule conditions and settings
+
+User identification policy rules support [platform](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=1/conditions/platform&t=request) and [network](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=1/conditions/network&t=request) conditions only.
+
+Each rule sets `actions.userIdentification.settings.showSignInWithOV` to one of the following values:
+
+* `ALWAYS`: Show the **Sign in with Okta Verify** button on the Sign-In Widget.
+* `NEVER`: Hide the **Sign in with Okta Verify** button on the Sign-In Widget.
+
+> **Note:** You can only set `showSignInWithOV` to `ALWAYS` when Okta Verify is configured and Okta FastPass is enabled. Otherwise, Okta returns the following error: `This rule cannot be saved. Okta FastPass is not enabled for this org. To save this rule, enable Okta FastPass in the Okta Verify authenticator (Security > Authenticators > Okta Verify > Actions > Edit).`
+
+> **Note:** The deprecated authenticator setting `settings.showSignInWithOV` on the `/api/v1/authenticators/{id}/methods/signed_nonce` endpoint still overrides all user identification policy rules. Use the user identification policy instead. See [Okta Verify authenticator](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthenticatorMethods/).
+
+### How user identification works at sign-in
+
+The following diagram shows how Okta evaluates the user identification policy to decide whether to show the **Sign in with Okta Verify** button.
+
+![Sequence diagram showing Okta resolve the app sign-in policy, find the linked user identification policy, evaluate its rules against platform and network conditions, and return the Sign in with Okta Verify button decision to the Sign-In Widget.](/img/user-identification-policies/uip-evaluation-sequence.svg)
+
+### How to configure a user identification policy
+
+To configure a user identification policy in your org, follow these steps:
+
+1. [Find the user identification policy](#find-the-user-identification-policy) for your app sign-in policy.
+1. [Create a user identification policy rule](#create-a-user-identification-policy-rule) to show or hide the button.
+1. [Update a user identification policy rule](#update-a-user-identification-policy-rule) when you need to change the setting.
+1. [Review the System Log](#review-the-system-log) to confirm that the policy is evaluated.
+
+## Find the user identification policy
+
+Use the [List all policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies) endpoint to find the user identification policy for your app.
+
+1. Set the `type` query parameter to `USER_IDENTIFICATION`.
+1. Send the `GET /api/v1/policies?type=USER_IDENTIFICATION` request.
+1. In the response, find the policy for your app and copy its `id` into a text editor.
+
+### List user identification policies response example
+
+```json
+[
+    {
+        "type": "USER_IDENTIFICATION",
+        "id": "policyId",
+        "status": "ACTIVE",
+        "name": "Policy name",
+        "description": "Policy description",
+        "priority": 1,
+        "system": false,
+        "conditions": null,
+        "created": "2025-04-25T17:35:02.000Z",
+        "lastUpdated": "2025-04-25T17:35:02.000Z",
+        "_links": {
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/policies/{policyId}",
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            },
+            "rules": {
+                "href": "https://{yourOktaDomain}/api/v1/policies/{policyId}/rules",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "POST"
+                    ]
+                }
+            }
+        }
+    }
+]
+```
+
+### Review the default rule
+
+Each user identification policy includes a default rule. Use the [List all policy rules](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyRules) endpoint to review it.
+
+1. In the path parameters, set the user identification policy `id` as the `policyId`.
+1. Send the `GET /api/v1/policies/{policyId}/rules` request.
+
+### List user identification policy rules response example
+
+```json
+[
+    {
+        "id": "ruleId",
+        "status": "ACTIVE",
+        "name": "Default Rule",
+        "priority": 0,
+        "created": "2025-04-25T17:35:02.000Z",
+        "lastUpdated": "2025-04-25T17:35:02.000Z",
+        "system": false,
+        "conditions": {
+            "network": {
+                "connection": "ANYWHERE"
+            },
+            "platform": {
+                "include": [
+                    {
+                        "type": "DESKTOP",
+                        "os": {
+                            "type": "WINDOWS"
+                        }
+                    }
+                ]
+            }
+        },
+        "actions": {
+            "userIdentification": {
+                "settings": {
+                    "showSignInWithOV": "ALWAYS"
+                }
+            }
+        },
+        "type": "USER_IDENTIFICATION"
+    }
+]
+```
+
+## Create a user identification policy rule
+
+In this example, create a rule that shows the **Sign in with Okta Verify** button for users on the `WINDOWS` desktop platform from any network.
+
+Use the [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) endpoint to create a user identification policy rule.
+
+Create your own POST request body or copy the [example request](#create-a-user-identification-policy-rule-request-example) and input your values.
+
+1. In the path parameters, set the user identification policy `id` as the `policyId`.
+1. Set the following request body parameters:
+   * Enter a value for `name`.
+   * Set the `type` as `USER_IDENTIFICATION`.
+   * Set `conditions.network.connection` as `ANYWHERE`.
+   * Include `WINDOWS` as a `DESKTOP` platform condition.
+   * Set `actions.userIdentification.settings.showSignInWithOV` as `ALWAYS`.
+1. Send the `POST /api/v1/policies/{policyId}/rules` request.
+
+### Create a user identification policy rule request example
+
+```json
+{
+    "name": "User Identification Rule",
+    "conditions": {
+        "network": {
+            "connection": "ANYWHERE"
+        },
+        "platform": {
+            "include": [
+                {
+                    "type": "DESKTOP",
+                    "os": {
+                        "type": "WINDOWS"
+                    }
+                }
+            ]
+        }
+    },
+    "actions": {
+        "userIdentification": {
+            "settings": {
+                "showSignInWithOV": "ALWAYS"
+            }
+        }
+    },
+    "type": "USER_IDENTIFICATION"
+}
+```
+
+### Create a user identification policy rule response example
+
+```json
+{
+    "id": "ruleId",
+    "status": "ACTIVE",
+    "name": "User Identification Rule",
+    "priority": 0,
+    "created": "2025-04-25T17:35:02.000Z",
+    "lastUpdated": "2025-04-25T17:35:02.000Z",
+    "system": false,
+    "conditions": {
+        "network": {
+            "connection": "ANYWHERE"
+        },
+        "platform": {
+            "include": [
+                {
+                    "type": "DESKTOP",
+                    "os": {
+                        "type": "WINDOWS"
+                    }
+                }
+            ]
+        }
+    },
+    "actions": {
+        "userIdentification": {
+            "settings": {
+                "showSignInWithOV": "ALWAYS"
+            }
+        }
+    },
+    "type": "USER_IDENTIFICATION",
+    "_links": {
+        "self": {
+            "href": "https://{yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT"
+                ]
+            }
+        }
+    }
+}
+```
+
+## Update a user identification policy rule
+
+To change a rule, update it with the [Replace a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/replacePolicyRule) endpoint. In this example, update the rule to hide the **Sign in with Okta Verify** button.
+
+Create your own PUT request body or copy the [example request](#update-a-user-identification-policy-rule-request-example) and input your values.
+
+1. In the path parameters, set the user identification policy `id` as the `policyId` and the rule `id` as the `ruleId`.
+1. Set `actions.userIdentification.settings.showSignInWithOV` as `NEVER`.
+1. Send the `PUT /api/v1/policies/{policyId}/rules/{ruleId}` request.
+
+### Update a user identification policy rule request example
+
+```json
+{
+    "name": "User Identification Rule",
+    "conditions": {
+        "network": {
+            "connection": "ANYWHERE"
+        },
+        "platform": {
+            "include": [
+                {
+                    "type": "DESKTOP",
+                    "os": {
+                        "type": "WINDOWS"
+                    }
+                }
+            ]
+        }
+    },
+    "actions": {
+        "userIdentification": {
+            "settings": {
+                "showSignInWithOV": "NEVER"
+            }
+        }
+    },
+    "type": "USER_IDENTIFICATION"
+}
+```
+
+### Update a user identification policy rule response example
+
+```json
+{
+    "id": "ruleId",
+    "status": "ACTIVE",
+    "name": "User Identification Rule",
+    "priority": 0,
+    "created": "2025-04-25T17:35:02.000Z",
+    "lastUpdated": "2025-04-25T17:35:02.000Z",
+    "system": false,
+    "conditions": {
+        "network": {
+            "connection": "ANYWHERE"
+        },
+        "platform": {
+            "include": [
+                {
+                    "type": "DESKTOP",
+                    "os": {
+                        "type": "WINDOWS"
+                    }
+                }
+            ]
+        }
+    },
+    "actions": {
+        "userIdentification": {
+            "settings": {
+                "showSignInWithOV": "NEVER"
+            }
+        }
+    },
+    "type": "USER_IDENTIFICATION",
+    "_links": {
+        "self": {
+            "href": "https://{yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT"
+                ]
+            }
+        }
+    }
+}
+```
+
+## Review the System Log
+
+Review your System Log events to confirm that your user identification policy is evaluated correctly. The user identification policy rule is included as a target of the `policy.evaluate_sign_on` event type. See [System Log query](/docs/reference/system-log-query/) and [Event Types](/docs/reference/api/event-types/).
