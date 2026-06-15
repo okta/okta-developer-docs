@@ -77,7 +77,7 @@ Congratulations, your app now uses Okta to provide its sign-in services.
 
 Learn how to secure other types of apps:
 
-* [Sign users in to a mobile app by redirecting them to an Okta-hosted sign-in form](/docs/guides/sign-into-mobile-app-redirect/ios/main/).
+* [Sign users in to a mobile app by redirecting them to an Okta-hosted sign-in form](/docs/guides/sign-into-mobile-app-redirect/).
 * [Sign users in to a mobile app using a self-hosted sign-in form](/docs/guides/sign-into-mobile-app-embedded/main/).
 
 After a user signs in, Okta returns tokens to identify the user and the user's access levels. See [Understand the token lifecycle](/docs/concepts/token-lifecycles/index.md).
