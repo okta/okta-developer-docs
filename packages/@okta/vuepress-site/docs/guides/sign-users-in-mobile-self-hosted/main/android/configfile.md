@@ -8,7 +8,7 @@ Rather than hardcoding configuration values, keep them in a properties file:
     authorizationServerId={yourCustomAuthServer}
     ```
 
-    Replace `{yourOktaDomain}` and `{yourClientID}` with the values from the app that you create. Use the org base URL for `issuer` (such as `https://dev-123456.okta.com`); the default custom authorization server is selected in code.
+    Replace `{yourOktaDomain}` and `{yourClientID}` with the values from the app that you create. Use the org base URL for `issuer` (such as `https://dev-123456.okta.com`). The default custom authorization server is selected in code.
 
 1. Surface those values through `BuildConfig`. Add the following to the bottom of your `app/build.gradle.kts`:
 
