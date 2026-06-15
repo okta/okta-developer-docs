@@ -47,6 +47,8 @@ Rather than hardcoding configuration values, keep them in a properties file:
     }
     ```
 
+    This configures the AuthFoundation OIDC SDK, which backs token storage and the credential lifecycle (token refresh and user info). The direct authentication flow is configured separately in `AuthService`. Both target the default custom authorization server.
+
 1. Register the `Application` class in your `AndroidManifest.xml` with the `android:name` attribute:
 
     ```xml
