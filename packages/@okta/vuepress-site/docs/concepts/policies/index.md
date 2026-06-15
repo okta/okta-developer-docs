@@ -105,9 +105,35 @@ An [app sign-in policy](https://developer.okta.com/docs/api/openapi/okta-managem
 
 You can create an app sign-in policy specifically for the app or create a few policies and [share them](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy) across multiple apps.
 
-Use the [App sign-in policies page](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) to modify an app's sign-in policy or switch to a different policy. See [Configure a global session policy and an app sign-in policy](/docs/guides/configure-signon-policy/main/). Also, you can [merge duplicate app sign-in policies with identical rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies) to simplify policy management.
+Use the [App sign-in policies page](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) to modify an app's sign-in policy or switch to a different policy. See [Configure a global session policy and an app sign-in policy](/docs/guides/configure-signon-policy/main/). Also, you can [merge duplicate app sign-in policies with identical rules](https://help.okta.com/okta_help.htm?type=oie&id=policy-branches) to simplify policy management.
 
 > **Note:** API service apps aren't automatically assigned a default app sign-in policy. You must explicitly assign an app sign-in policy to each API service app.
+
+##### Staged policy branches
+
+<ApiLifecycle access="ea" /><ApiLifecycle access="ie" />
+
+> **Note:** This functionality is available as a self-service Early Access (EA) feature for Identity Engine orgs. To use it, enable the Change management for app sign-in policies feature. See [Self-service features](/docs/concepts/feature-lifecycle-management/#self-service-features).
+
+App sign-in policies support branching, which lets you draft, test, and deploy policy changes without affecting end users until you're ready to promote them.
+
+A policy can have at most one draft or staged branch at a time, alongside the live branch.
+
+An app sign-in policy branch can have one of the following states:
+
+* **Draft branch:** A new branch created that's created as a copy of the live policy. Rules are inherited and can be edited. Draft branches can be promoted directly to live, but can't be monitored.
+* **Staged branch:** A draft branch that has been staged. Rules can be added, updated, or deleted. You can enable monitoring on a staged branch to evaluate its rules against real user traffic without enforcing them.
+* **Live branch:** The set of policy rules that are currently enforced. This is the standard branch state for an app sign-in policy.
+
+Enable monitoring on a staged branch to evaluate its rules against real user traffic without enforcing them. This lets you assess the impact of your changes before deploying them.
+
+To enable monitoring on a staged branch, set a monitoring expiry date when you stage the branch. The maximum monitoring period is 28 days. Monitoring stops automatically when the branch is promoted to live, reverted to draft, or the expiry passes. To view monitoring data, see [Use the Policy Insights Dashboard](https://help.okta.com/okta_help.htm?type=oie&id=policy-insights-dashboard).
+
+Previously live branches are stored in a branch history. You can restore a branch from history to make it live again. When you restore a branch, the restored branch is still included in the branch history. Okta makes an identical copy of the branch in the branch history and promotes the copy as the live branch.
+
+To configure staged branches for an app sign-in policy, see [Manage staged app sign-in policy branches](https://help.okta.com/okta_help.htm?type=oie&id=ext-staged-policy-branches).
+
+The Policy Branching API exposes branch operations under `/api/v1/policies/{policyId}/branches`. The `okta.policies.manage` scope is required to perform these operations. See [Policy Branching](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policybranch).
 
 #### Okta account management policy
 
