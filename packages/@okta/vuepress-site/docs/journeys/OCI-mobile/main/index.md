@@ -56,7 +56,7 @@ The Okta-recommended way to sign users in to your portal is to redirect them to 
 
 * [Learn about the Okta Sign-In Widget](/docs/concepts/sign-in-widget/)
 * [Configure the Swift SDK for an Okta-hosted sign-in form](/docs/guides/mobile-swift-configure-redirect/main/)
-* Sign users into your mobile app by redirecting them to an Okta sign-in page using the Okta Client SDK for [Swift](/docs/guides/sign-into-mobile-app-redirect/ios/main/) or [Kotlin](/docs/guides/sign-into-mobile-app-redirect/android/main/)
+* Sign users into your mobile app by redirecting them to an Okta sign-in page using the Okta Client SDK for [Swift](/docs/guides/sign-into-mobile-app-redirect/ios/main/) or [Kotlin](/docs/guides/sign-into-mobile-app-redirect/android/main/).
 
 Learn how to [customize the Sign-In Widget to match your app's theme or your company's brand](/docs/journeys/OCI-branding/main/).
 
