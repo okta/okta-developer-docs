@@ -1,4 +1,4 @@
-Add the latest Okta OIDC package to your project:
+Add the latest Okta Client SDK for Swift package to your project:
 
 1. Choose **File** > **Add Package Dependencies**. The Swift Package Manager opens.
 1. Enter the URL for the package in the search field:
