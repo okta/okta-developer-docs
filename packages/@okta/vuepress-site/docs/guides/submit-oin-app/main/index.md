@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-Learn how to submit an integration with SSO, Universal Logout, provisioning, entitlement management, or API service capabilities to the Okta Integration Network (OIN) using the OIN Wizard.
+Learn how to submit an integration with SSO, Universal Logout, provisioning, entitlement management, API service, or Identity Verification (IDV) capabilities to the Okta Integration Network (OIN) using the OIN Wizard.
 
 ---
 
@@ -59,38 +59,10 @@ Start your integration submission for OIN publication:
 
 Configure your OIN catalog properties:
 
-#### OIN catalog properties
+<StackSnippet snippet="catalog-properties"/>
 
-1. In the **OIN catalog properties** section, specify the following OIN catalog information:
+<StackSnippet snippet="tenant-settings"/>
 
-    | <div style="width:150px">Property</div>| Description  |
-    | ----------------- | ------------ |
-    | **Display name** `*` | Provide a name for your integration. This is the main title used for your integration in the OIN.<br>The maximum field length is 64 characters. |
-    | **Description** `*` | Give a general description of your app and the benefits of this integration to your customers. See [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines). |
-    | **Logo** `*` | Upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The logo file must be less than one MB. See [Logo guidelines](/docs/guides/submit-app-prereq/main/#logo-guidelines). |
-    | **Use Cases** | Add optional use case categories that apply to your integration:<br><ul><li>Automation</li> <li>Centralized Logging</li> <li>Directory and HR Sync</li> <li>Identity Governance and Administration (IGA)</li> <li>Identity Verification</li> <li>Multifactor Authentication (MFA)</li> <li>Zero Trust</li></ul>You can select up to three optional use cases. Default use cases are assigned to your integration based on supported features. See [Use case guidelines](/docs/guides/submit-app-prereq/main/#use-case-guidelines). |
-
-    `*` Required properties
-
-#### Tenant settings
-
-Configure integration variables if your URLs are dynamic for each tenant. The variables are for your customer admins to add their specific tenant setting values during installation. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language).
-
-2. In the **Tenant settings** section, specify the name and label for each tenant setting variable:
-
-    | <div style="width:100px">Property</div> | Description  |
-    | --------------- | ------------ |
-    | **Label** `*`  | The tenant setting label that's displayed when admins install your app integration. For example: `Subdomain` or `Tenant name` |
-     | **Name** `*`  | Specify the tenant setting variable name. This variable name is used to construct dynamic URLs or other app properties that are dependent on the tenant. It's hidden from admins and is only used to pass tenant details to your external app.<br>String is the only variable type supported.<br>**Note:** Use alphanumeric lowercase and underscore characters for the variable name field. The first character must be a letter and the maximum field length is 1024 characters. For example: `subdomain_div1` |
-
-     `*` This section is optional, but if you specify a variable, both `Label` and `Name` properties are required.
-
-1. Click **+ Add another** to add another variable. You can add up to eight variables.
-
-   > **Note:**  Apps that are migrated from the OIN Manager and that have more than eight variables can retain those variables, but you can't add new ones. However, you can update or delete the existing variables.
-
-1. If you need to delete a variable, click the delete icon (![trash can; delete icon](/img/icons/odyssey/delete.svg)) next to it.
-<!--Odyssey icons sourced from: https://github.com/okta/odyssey/blob/main/packages/odyssey-icons/src/figma.generated/ -->
 
 <StackSnippet snippet="auth-settings"/>
 
@@ -118,15 +90,9 @@ Configure your integration settings. Settings appear based on your capability se
 
 2. Click **Get started with testing** to save your edits and move to the **Test your integration** section, where you need to [enter test information](#enter-test-information) for your integration.
 
-#### Dynamic properties with Okta Expression Language
+<StackSnippet snippet="dynamic-properties"/>
 
- The OIN Wizard supports [Okta Expression Language](/docs/reference/okta-expression-language/#reference-user-attributes) to generate dynamic properties, such as URLs or URIs, based on your customer tenant. You can specify dynamic strings for your <StackSnippet snippet="protocol-name" inline/> properties in the OIN Wizard:
-
-1. Add your [tenant settings](#tenant-settings) in the OIN Wizard. These settings become fields for customer admins to enter during your OIN integration installation to identify their tenant.
-
-2. Use the tenant setting variables with Expression Language format in your integration properties for dynamic values based on customer information.
-
-<StackSnippet snippet="variable-desc" />
+<StackSnippet snippet="variable-desc"/>
 
 ### Enter test information
 
@@ -209,16 +175,13 @@ The Integrator Free Plan org has no limit on active instances. You can create as
 > **Note:** The steps in this section are for generating one instance to test the **<StackSnippet snippet="protocol-name" inline/>**. <br>
 > If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
 
-<StackSnippet snippet="test-instance" />
+<StackSnippet snippet="test-instance"/>
 
-<StackSnippet snippet="assign-test" />
+<StackSnippet snippet="assign-test"/>
 
 ### Required app instances
 
-The **Required app instances** box shows you the instances detected in your org that are available to test your integration. It also shows you the test instances required for the OIN Submission Tester based on your selected protocols:
-
-* The **CURRENT VERSION** status indicates the instances that you need to test your current integration submission.
-* The **PUBLISHED VERSION** status indicates the instances that you need to test backwards compatibility if you edit a previously published integration. See [Update a published integration with the OIN Wizard](/docs/guides/update-oin-app/).
+<StackSnippet snippet="req-app-instance"/>
 
 ### Application instances for testing
 
@@ -228,7 +191,7 @@ The **Application instances for testing** section displays, by default, the inst
 
 An instance is eligible if it was generated from the latest version of the integration submission in the OIN Wizard. An instance is ineligible if it was generated from a previous version of the integration submission and you later made edits to the submission. This is to ensure that you test your integration based on the latest submission details.
 
-If you modify a published OIN integration, you must generate an instance based on the currently published integration for backward compatibility testing. A backward-compatible instance is eligible if it was generated from the published version of the integration before any edits are made in the current submission. The OIN Wizard detects if you're modifying a published OIN integration and asks you to generate a backward-compatible instance before you make any edits.
+<StackSnippet snippet="test-back-comp" />
 
 > **Note:** The Integrator Free Plan org has no limit on active instances. You can create as many test instances as needed for your integration. To deactivate any instances you no longer need, see [Deactivate an app instance in your org](#deactivate-an-app-instance-in-your-org).
 

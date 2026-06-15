@@ -6,13 +6,13 @@ meta:
 layout: Guides
 ---
 
-Learn how to submit an OIDC, SAML 2.0, SCIM 2.0, Universal Logout, or API service integration to the Okta Integration Network (OIN) using the OIN Wizard.
+Learn how to submit an OIDC, SAML 2.0, SCIM 2.0, Universal Logout, API service, or Identity Verification (IDV) integration to the Okta Integration Network (OIN) using the OIN Wizard.
 
 ---
 
 #### What you need
 
-* A published OIDC, SAML 2.0, SCIM, or API service integration in the OIN.
+* A published OIDC, SAML 2.0, SCIM, API service, or Identity Verification (IDV) integration in the OIN.
 * The [Okta Integrator Free Plan org](https://developer.okta.com/signup/) from where you originally submitted your published integration. The OIN Wizard is only available in Integrator Free Plan orgs.
 * An admin user in the Integrator Free Plan org with either the super admin or the app and org admin roles.
 
@@ -20,7 +20,7 @@ Learn how to submit an OIDC, SAML 2.0, SCIM 2.0, Universal Logout, or API servic
 
 ## Overview
 
-If you have a published Single Sign-On (SSO), lifecycle management, or API service integration in the [OIN catalog](https://www.okta.com/integrations/), you can update and resubmit it with the OIN Wizard.
+If you have a published Single Sign-On (SSO), lifecycle management, API service, or IDV integration in the [OIN catalog](https://www.okta.com/integrations/), you can update and resubmit it with the OIN Wizard.
 
 The OIN Wizard currently supports updates for integrations that use the following protocols:
 
@@ -36,7 +36,7 @@ The OIN Wizard currently supports updates for integrations that use the followin
 
 * [API service integration](/docs/guides/oin-api-service-overview/)
 
-> **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, SCIM 2.0, and API service integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
+> **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, SCIM 2.0, API service, or IDV integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
 
 When you edit a published OIN integration, you need to test the flows for the updated version and the published version for backwards compatibility. The integration version that was previously installed in your customer's org isn't modified with the updated version from the OIN catalog. Testing the published version for backwards compatibility ensures that your integration still works for customers who have already installed it. See [Update integration considerations](#update-integration-considerations) before you edit your published integration.
 
@@ -44,30 +44,13 @@ After you successfully test the updated and published versions of your integrati
 
 ## Update integration considerations
 
-For published integrations that were migrated from the OIN Manager, if you need to update configured properties that aren't available in the OIN Wizard, contact <oin@okta.com>.
-
 > **Note:** Some considerations on this page are specifically for the **<StackSnippet snippet="protocol-name" inline/>** . <br>
 > If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
 
 <StackSnippet snippet="considerations" />
 
-* When you update an integration that's already published, be mindful to preserve backwards compatibility for your integration. Older instances of your integration could be in use by Okta customers.
 
-    * If you modify the **Name** (`name`) property of your [tenant settings](/docs/guides/submit-oin-app/openidconnect/main/#tenant-settings), Okta removes the original variable and creates a variable with your updated name. This action negatively impacts your existing customers if you use the original variable in your integration dynamic properties.
-
-    * Migrated published integrations from the OIN Manager don't have some OIN Wizard restrictions. For instance:
-
-        * Published integrations can have more than three integration variables
-        * Published integrations can have variable names with uppercase letters
-        * Published integrations can use `http` (instead of enforced `https`) in URLs and Expression Language-supported properties
-
-    * If your update introduces new variables and you're using dynamic URLs, ensure that your tests cover various scenarios with different possible values for those variables. The newly introduced variables aren't populated for older instances of your integration.
-
-        For example:
-
-       <StackSnippet snippet="backward-compatible-eg" />
-
-    * Entitlement Management is only supported for SCIM-based provisioning.
+<StackSnippet snippet="backward-compatible-eg" />
 
 ## Update your integration
 
