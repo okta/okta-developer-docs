@@ -561,6 +561,10 @@ export const guides = [
         guideName: "oie-upgrade-overview/main",
         subLinks: [
           {
+            title: "Plan upgrade rollout",
+            guideName: "oie-upgrade-rollout-plan",
+          },
+          {
             title: "Plan embedded app upgrades",
             guideName: "oie-upgrade-plan-embedded-upgrades",
           },
