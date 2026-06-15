@@ -59,7 +59,7 @@ The following breaks down what each step does:
 
 1. **Handle MFA.** If the org policy requires another factor, the flow returns `MfaRequired`. This password-only sample treats that as an error. You can extend the flow to handle additional factors later.
 
-1. **Handle server errors.** An `Oauth2Error` (such as invalid credentials) carries an `errorDescription` you can show the user.
+1. **Handle server errors.** An `Oauth2Error` (such as invalid credentials) carries an `errorDescription` that you can show the user.
 
 1. **Handle everything else.** Any other error or unexpected state becomes a generic error message.
 
