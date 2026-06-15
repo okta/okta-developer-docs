@@ -16,7 +16,7 @@ After receiving the ID-JAG, the agent sends a `POST` request to the resource aut
 | Parameter | Description and value |
 | --- | --- |
 | `grant_type` | The value must be `urn:ietf:params:oauth:grant-type:jwt-bearer` |
-| `assertion` | The ID-JAG received in the **Exchange subject token for resource token** response. |
+| `assertion` | The ID-JAG that's received in the **Exchange subject token for resource token** response. |
 
 #### Response
 

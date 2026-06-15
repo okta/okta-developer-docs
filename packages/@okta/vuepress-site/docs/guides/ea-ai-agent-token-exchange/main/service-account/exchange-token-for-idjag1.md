@@ -16,8 +16,8 @@ In this step, the AI agent sends a `POST` request to the Okta org authorization 
 | --- | --- |
 | `grant_type` | Standard OAuth 2.0 token exchange grant. The value must be `urn:ietf:params:oauth:grant-type:token-exchange`. |
 | `client_assertion_type` | The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| `client_assertion` | A signed JWT used for client authentication. You must sign the JWT using the key created during the AI Agent registration. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key).|
+| `client_assertion` | A signed JWT used for client authentication. You must sign the JWT using the key that you created when you registered the AI agent. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key).|
 | `subject_token_type` | The type of subject token. The value is either `urn:ietf:params:oauth:token-type:id_token` or `urn:ietf:params:oauth:token-type:access_token`. |
-| `subject_token` | A valid ID or access token issued to the resource app associated with the AI agent |
+| `subject_token` | A valid ID or access token issued to the resource app that's associated with the AI agent |
 | `requested_token_type` | The value must be `urn:okta:params:oauth:token-type:service-account`. |
-| `resource `| A resource identifier for the service account. This value must match the identifier configured on the **Resource Connection** tab. |
+| `resource `| A resource identifier for the service account. This value must match the identifier that's configured on the **Resource Connection** tab. |
