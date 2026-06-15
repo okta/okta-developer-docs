@@ -14,7 +14,7 @@ The `LoginViewModel` acts as an intermediary layer between your composables and 
 
 `LoginScreen`: The main authentication interface
 
-The `LoginScreen` is your app's primary authentication screen. It recomposes based on the authentication state collected from the view model:
+The `LoginScreen` is your app's primary authentication screen. It recomposes based on the authentication state that's collected from the view model:
 
 * **Login form** (`NotAuthenticated` or `Error`): Username and password fields with a sign-in button.
 * **Loading state** (`Authenticating`): A progress indicator while credentials are verified.
