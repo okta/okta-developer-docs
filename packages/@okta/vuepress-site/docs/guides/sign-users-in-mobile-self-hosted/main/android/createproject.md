@@ -9,16 +9,16 @@ Now that you've configured your Okta org, create the Android app.
     * **Minimum SDK**: `API 23: Android 6.0 (Marshmallow)`
 1. Click **Finish**.
 
-The Okta SDK uses Java 8 APIs, so enable core library desugaring. Add the following to your `app/build.gradle`:
+The Okta SDK uses Java 8 APIs, so enable core library desugaring. Add the following to your `app/build.gradle.kts`:
 
-```groovy
+```kotlin
 android {
     compileOptions {
-        coreLibraryDesugaringEnabled true
+        isCoreLibraryDesugaringEnabled = true
     }
 }
 
 dependencies {
-    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
 }
 ```

@@ -10,16 +10,16 @@ Rather than hardcoding configuration values, keep them in a properties file:
 
     Replace `{yourOktaDomain}` and `{yourClientID}` with the values from the app that you created. Use the org base URL for `issuer` (such as `https://dev-123456.okta.com`); the default custom authorization server is selected in code.
 
-1. Surface those values through `BuildConfig`. Add the following to the bottom of your `app/build.gradle`:
+1. Surface those values through `BuildConfig`. Add the following to the bottom of your `app/build.gradle.kts`:
 
-    ```groovy
-    def oktaProperties = new Properties()
-    rootProject.file("okta.properties").withInputStream { oktaProperties.load(it) }
+    ```kotlin
+    val oktaProperties = java.util.Properties()
+    rootProject.file("okta.properties").inputStream().use { oktaProperties.load(it) }
 
     android.defaultConfig {
-        buildConfigField "String", 'ISSUER', "\"${oktaProperties.getProperty('issuer')}\""
-        buildConfigField "String", 'CLIENT_ID', "\"${oktaProperties.getProperty('clientId')}\""
-        buildConfigField "String", 'SCOPES', "\"${oktaProperties.getProperty('scopes')}\""
+        buildConfigField("String", "ISSUER", "\"${oktaProperties.getProperty("issuer")}\"")
+        buildConfigField("String", "CLIENT_ID", "\"${oktaProperties.getProperty("clientId")}\"")
+        buildConfigField("String", "SCOPES", "\"${oktaProperties.getProperty("scopes")}\"")
     }
     ```
 
