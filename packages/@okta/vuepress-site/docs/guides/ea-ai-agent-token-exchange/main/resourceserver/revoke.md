@@ -1,5 +1,5 @@
 
-After obtaining an OAuth STS access token through the token exchange flow, the AI agent can revoke that token using the org authorization server's `/oauth2/v1/revoke` endpoint and the same client credentials used for token exchange.
+After obtaining an OAuth STS access token through the token exchange flow, the AI agent can revoke that token using the org authorization server's `/oauth2/v1/revoke` endpoint and the same client credentials that it used for token exchange.
 
 ``` http
 POST /oauth2/v1/revoke HTTP/1.1
@@ -17,7 +17,7 @@ token=eyJhbGciOiJIUzI1NiIsI...
 | token | The `access_token` value from the successful token exchange response. |
 | token_type_hint | The value must be `oauth_sts`. |
 | client_assertion_type | The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| client_assertion |  A signed JWT used for client authentication. You must sign the JWT using the key created during AI Agent registration. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |
+| client_assertion |  A signed JWT that's used for client authentication. You must sign the JWT using the key that you created when you registered the AI agent. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |
 
 The endpoint returns `200 OK` regardless of whether the token was valid or already expired, to prevent information leaks.
 
