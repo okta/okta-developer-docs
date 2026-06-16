@@ -98,4 +98,4 @@ if (authClient.isLoginRedirect()) {
 
 After you upgrade your org to Identity Engine, you can't subscribe to the `processCreds` hook in the Sign-In Widget. Remove any custom code that depends on it.
 
-> **Note:** The `processCreds` hook is a client-side Sign-In Widget hook. It isn't a server-side [registration inline hook](/docs/guides/oie-upgrade-sign-in-widget/main/#registration-inline-hooks). Registration inline hooks remain supported in Identity Engine, though their request format and Admin Console location have changed.
+> **Note:** `processCreds` is a client-side Sign-In Widget hook, not a server-side Okta inline hook.
