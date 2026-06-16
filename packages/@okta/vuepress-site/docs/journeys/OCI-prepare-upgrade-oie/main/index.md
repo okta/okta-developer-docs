@@ -29,46 +29,46 @@ Before diving in, watch our how-to videos to learn about the OIE upgrade and how
 
 ### User experience changes
 
-* [How the sign in flows work in OIE](https://help.okta.com).
-* [How app intent links work](https://help.okta.com).
-* [Learn how the sign*in flow changes for inbound federation or Okta-to-Okta SSO](https://help.okta.com).
+* [OIE sign-in flow behavior](https://help.okta.com/okta_help.htm?type=oie&id=sign-in-flows).
+* [App intent links in OIE](https://help.okta.com/okta_help.htm?type=oie&id=).??
+* [Sign-in flow changes with federation and SSO](https://help.okta.com/okta_help.htm?type=oie&id=).??
 
 ### Policy changes
 
-* [How app sign*on policies change](https://help.okta.com).
-* [How Okta sign*on policies change](https://help.okta.com).
-* [How sign-on policy tasks differ](https://help.okta.com).
-* [Learn how the MFA enrollment policy changes](https://help.okta.com).
+* [App sign-on policy changes](https://help.okta.com/okta_help.htm?type=oie&id=).??
+* [Changes to Okta sign-on policies](https://help.okta.com/okta_help.htm?type=oie&id=).??
+* [Sign-on policy task differences](https://help.okta.com/okta_help.htm?type=oie&id=).??
+* [Multifactor authentication (MFA) enrollmet policy changes](https://help.okta.com/okta_help.htm?type=oie&id=).??
 
 ### Multifactor Authentication (MFA) changes
 
-* [How multifactor authentication (MFA) changes](https://help.okta.com).
-* [How Okta Verify changes](https://help.okta.com).
-* [How email as an optional authenticator works](https://help.okta.com).
-* [How the phone authenticator works](https://help.okta.com).
-* [Learn how the changes to enabling a secondary email address](https://help.okta.com).
-* [How security questions change](https://help.okta.com).
+* [MFA changes](https://help.okta.com/okta_help.htm?type=oie&id=).??
+* [Okta Verify changes](https://help.okta.com/okta_help.htm?type=oie&id=).??
+* [Email as an optional authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-optional).
+* [Phone authenticator capabilities](https://help.okta.com).??
+* [Changes to secondary email address setup](https://help.okta.com).??
+* [Security question changes](https://help.okta.com).??
 
 ### Other product and feature changes
 
-* [How the Sign-In Widget changes](https://help.okta.com).
-* [How email templates change](https://help.okta.com).
-* [How the End-User Settings changes](https://help.okta.com).
-* [How global redirect changes](https://help.okta.com).
-* [How the password reset feature changes](https://help.okta.com).
-* [How registration inline hooks change](https://help.okta.com).
-* [How the self-service registration process changes](https://help.okta.com).
-* [How suspicious activity reporting changes](https://help.okta.com).
-* [How sessions change](https://developer.okta.com).
+* [Sign-In Widget changes](https://help.okta.com/okta_help.htm?type=oie&id=csh-siw-changes).
+* [Changes to email templates](https://help.okta.com).
+* [End-User Settings changes](https://help.okta.com/okta_help.htm?type=oie&id=eus-changes).
+* [Changes to global redirect](https://help.okta.com).??
+* [Password reset feature changes](https://help.okta.com).??
+* [Changes to registration inline hooks](https://help.okta.com).??
+* [Self-service registration process changes](https://help.okta.com).??
+* [Changes to suspicious activity reporting](https://help.okta.com).??
+* [Sessions change](/docs/guides/oie-upgrade-sessions-api/main/).
 
 ### Okta API changes
 
-* [What's changed with the Okta APIs](https://developer.okta.com).
-* [How the authenticator enrollment policy API has changed](https://developer.okta.com).
+* [What's changed with the Okta APIs](https://developer.okta.com).??
+* [Authenticator enrollment policy API changes](/docs/guides/oie-upgrade-mfa-enroll-policy/main/).
 
 ### Legacy features with limited support
 
-[Custom app login only available to classic orgs that used it](https://help.okta.com).
+[Custom app login only available to classic orgs that used it](https://help.okta.com).??
 
 ### Discontinued features
 
@@ -80,22 +80,22 @@ Prepare your upgrade strategy by identifying integration points and defining you
 
 ### Identify integration points and customizations
 
-[Identify your Okta authentication integration points and customizations](https://developer.okta.com).
+[Identify your Okta authentication integration points and customizations](https://developer.okta.com).??
 
 ### Handle unsupported features
 
-* [Prepare to remove Okta Mobile](https://help.okta.com).
-* [Update your policies for Office 365 MFA pass claim](https://help.okta.com).
-* [Prepare the replacement for your Device Trust setup](https://help.okta.com).
+* [Prepare to remove Okta Mobile](https://help.okta.com/okta_help.htm?type=oie&id=identity-engine-upgrade-prepare-om-users-for-upgrade).
+* [Update your policies for Office 365 MFA pass claim](https://help.okta.com).??
+* [Prepare the replacement for your Device Trust setup](https://help.okta.com).??
 
 ### Define your rollout approach
 
-[Plan your upgrade rollout](https://help.okta.com).
+[Plan your upgrade rollout](https://help.okta.com).??
 
 ### PRollback strategy
 
-* [Learn when you should rollback](https://help.okta.com).
-* [Initiate a rollback request](https://help.okta.com).
+* [When you should rollback](https://help.okta.com/okta_help.htm?type=oie&id=identity-engine-upgrade-rollback).
+* [Initiate a rollback request](https://help.okta.com/okta_help.htm?type=oie&id=identity-engine-upgrade-rollback-steps).
 
 ## Build
 
