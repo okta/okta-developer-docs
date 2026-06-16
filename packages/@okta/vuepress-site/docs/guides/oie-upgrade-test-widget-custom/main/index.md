@@ -38,7 +38,7 @@ Check which customizations you have and what the Identity Engine upgrade may aff
 | Customization type | What may change in newer widget versions and Identity Engine | Action |
 | --- | --- | --- |
 | CSS overrides | Unsupported CSS may break after a widget version update. The third generation (Gen3) of the Sign-In Widget doesn't support the CSS code editor. | Test styling after the upgrade. Migrate to [design tokens](/docs/guides/custom-widget-gen3/main/#use-design-tokens) if you're on Gen3. |
-| JavaScript hooks (such as `afterRender` or `processCreds`) | Some events behave differently or are deprecated in Identity Engine. | Remove deprecated methods and validate hook behavior. |
+| JavaScript hooks (the widget's `before` and `after` lifecycle hooks, plus older events such as `afterRender` or `processCreds`) | Some events behave differently or are deprecated in Identity Engine. The `after` hook is supported only in Identity Engine. These client-side widget hooks aren't the same as server-side registration inline hooks. | Remove deprecated methods and validate hook behavior. |
 | i18n translations | New Identity Engine-specific property keys are available. Some Classic Engine strings no longer apply. | Verify that translations display correctly and add new Identity Engine string overrides. |
 | Branding (logo, colors, background) | Supported through the Admin Console in both Classic Engine and Identity Engine. No breaking change is expected. | Confirm that branding renders after the upgrade. |
 | Custom sign-in page (hosted) | Classic Engine custom sign-in pages may not work after the upgrade. | Validate that the page loads and functions correctly. |
@@ -67,6 +67,8 @@ Search your custom code for deprecated methods that don't work in later versions
 * The `useClassicEngine` configuration flag
 
 See [Deprecated JavaScript methods in the Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/main/) for the full list.
+
+> **Note:** These are client-side Sign-In Widget hooks (for example, `before` and `after`). They aren't the server-side [registration inline hooks](/docs/guides/oie-upgrade-sign-in-widget/main/#registration-inline-hooks) that fire during registration. Test each type separately.
 
 ### Step 3: Test sign-in flows
 
