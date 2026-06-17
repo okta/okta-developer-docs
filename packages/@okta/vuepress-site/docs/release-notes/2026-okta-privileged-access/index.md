@@ -13,6 +13,16 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 ## June
 
+### Weekly release 2026.06.2
+<!-- Published on: 2026-06-17T12:00:00Z -->
+ Change | Expected in Preview Orgs | Expected in Production |
+| ------ | ------------------------ | -----------------------|
+| [Bug fixed in 2026.06.2](#bug-fixed-in-2026-06-2)| June 17, 2026 | June 17, 2026 |
+
+#### Bug fixed in 2026.06.2
+
+When an end user with only the 'reveal_password` privilege attempted to rotate or update a password for a managed SaaS app account, the request returned the `HTTP 204` status code. (OKTA-1198356)
+
 ### Monthly release 2026.06.0
 <!-- Published on: 2026-06-03T12:00:00Z -->
 
