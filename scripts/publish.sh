@@ -32,9 +32,6 @@ trap on_failure EXIT
 
 DEPLOY_ENVIRONMENT="vuepress-site-prod"
 
-# test exit with error
-exit ${BUILD_FAILURE}
-
 # "${MAIN_BRANCH}" branch indecates that current deploy is for production.
 # In such case, PROD will take 'prod' value.
 # PROD ENV is used to distinguished the prod environment from the test environment (see config.js)
