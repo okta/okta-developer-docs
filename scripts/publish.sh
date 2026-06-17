@@ -10,20 +10,20 @@ export MAIN_BRANCH="m""aster"
 
 echo "Current branch is $BRANCH"
 
-# if [[ "$BRANCH" != "master" ]]; then
-#     echo "Current branch '$BRANCH' is not 'master'. Exiting with success."
-#     exit ${SUCCESS}
-# fi
+if [[ "$BRANCH" != "master" ]]; then
+    echo "Current branch '$BRANCH' is not 'master'. Exiting with success."
+    exit ${SUCCESS}
+fi
 
 export BACON_ARTIFACT="okta-developer-docs"
 export BACON_LINK="https://bacon-go.aue1e.saasure.net/commits?artifact=${BACON_ARTIFACT}&sha=${SHA}"
-export SLACK_CHANNEL='#tmp-test-slack-notif'
+export SLACK_CHANNEL='#infodev-notifications'
 
 on_failure() {
   local exit_code=$?
   if [[ $exit_code -ne 0 ]]; then
     send_slack_message "${SLACK_CHANNEL}" \
-      "Production deployment failed for developer docs " \
+      "[Developer Docs] Production deployment failed" \
       "Please check bacon task (${BACON_LINK}) for more details. " \
       "danger"
   fi
