@@ -8,9 +8,10 @@ layout: Guides
 
 This guide describes how to use the [Device Posture Checks API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DevicePostureCheck/) to enforce custom device checks. It also shows how to add custom remediation instructions, and then enforce the checks with the [Device Assurance Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/).
 
-> **Note:** This document is only for Okta Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
-
-> **Note:** Advanced posture checks require the Okta Device Access (ODA) SKU. Contact your Okta account team to enable this feature.
+> **Notes:**
+>
+> * This document is only for Okta Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+> * Advanced posture checks require the Okta Device Access (ODA) SKU. Contact your Okta account team to enable this feature.
 
 ---
 
