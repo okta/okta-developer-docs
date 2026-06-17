@@ -10,10 +10,10 @@ export MAIN_BRANCH="m""aster"
 
 echo "Current branch is $BRANCH"
 
-if [[ "$BRANCH" != "master" ]]; then
-    echo "Current branch '$BRANCH' is not 'master'. Exiting with success."
-    exit ${SUCCESS}
-fi
+# if [[ "$BRANCH" != "master" ]]; then
+#     echo "Current branch '$BRANCH' is not 'master'. Exiting with success."
+#     exit ${SUCCESS}
+# fi
 
 export BACON_ARTIFACT="okta-developer-docs"
 export BACON_LINK="https://bacon-go.aue1e.saasure.net/commits?artifact=${BACON_ARTIFACT}&sha=${SHA}"
