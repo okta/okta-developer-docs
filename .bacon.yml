@@ -11,5 +11,5 @@ test_suites:
     script_name: publish
     sort_order: '1'
     timeout: '50'
-    criteria: OPTIONAL
+    criteria: MAINLINE
     queue_name: small
