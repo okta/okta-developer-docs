@@ -40,16 +40,17 @@ Navigate to the project folder and run the sample app. Click **Login** and sign 
 
 ### Create a React app (optional)
 
-If you don't have an existing React app, you can quickly create an app by using [Create React App](https://create-react-app.dev/):
+If you don't have an existing React app, you can quickly create one using [Vite](https://vite.dev/):
 
 ```bash
-  npx create-react-app okta-app
+npm create vite@latest okta-app -- --template react
 ```
 
-Go into your root app directory to view the created files:
+Go into your app directory and install the base dependencies:
 
 ```bash
-  cd okta-app
+cd okta-app
+npm install
 ```
 
 ### Install dependencies
