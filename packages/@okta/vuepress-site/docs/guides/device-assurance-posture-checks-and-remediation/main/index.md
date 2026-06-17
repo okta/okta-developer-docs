@@ -10,6 +10,8 @@ This guide describes how to use the [Device Posture Checks API](https://develope
 
 > **Note:** This document is only for Okta Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
+> **Note:** Advanced posture checks require the Okta Device Access (ODA) SKU. Contact your Okta account team to enable this feature.
+
 ---
 
 #### What you need
