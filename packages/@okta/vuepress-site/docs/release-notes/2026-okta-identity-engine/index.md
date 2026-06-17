@@ -27,7 +27,7 @@ title: Okta Identity Engine API release notes 2026
 Agent-to-agent server connections allow admins to connect AI agents to other AI agents through delegated links.
 Admins can manage scopes to restrict access to the appropriate AI agent tasks, and allow service apps to call AI agents without user context. Using tokens and the System Log, admins can view all the users, AI agents, and apps that call an AI agent. See Agent-to-agent token exchange.
 
-The Delegated Links API is BETA. Delegated links are explicit, configurable policy statements that declare which principals (OIDC apps or other agents) and token types each agent accepts as valid proof of identity. This replaces the implicit linked app policy. See Delegation Links. <!--(https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks). --> <!-- FF SECURE_AI_A2A_SERVERS preview release 2026.06.2 OKTA-1197640 -->
+The Delegated Links API is BETA. Delegated links are explicit, configurable policy statements that declare which principals (OIDC apps or other agents) and token types each agent accepts as valid proof of identity. This replaces the implicit linked app policy. See Delegation Links API. <!--(https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks). --> <!-- FF SECURE_AI_A2A_SERVERS preview release 2026.06.2 OKTA-1197640 -->
 
 #### Register an AI agent API appId parameter deprecated
 
