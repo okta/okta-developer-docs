@@ -7,7 +7,7 @@ Review the following sections to understand the requirements for your app and ho
 
 ### Scopes and claims
 
-Access Gateway supports the `openid`, `profile`, and `email` scopes.
+Access Gateway supports the `openid`, `profile`, `email`, and `offline_access` scopes. Include `offline_access` in `allowedScopes` when you create the app to enable refresh tokens.
 
 The following claims are included in tokens based on the granted scopes:
 
@@ -16,8 +16,8 @@ The following claims are included in tokens based on the granted scopes:
 | `sub` | `openid` | Subject identifier |
 | `name` | `profile` | Full name of the user |
 | `email` | `email` | Email address of the user |
-| `job_title` | `profile` | Job title of the user |
-| `groups` | `profile` | Group memberships of the user |
+
+Include the `offline_access` scope in `allowedScopes` to enable refresh tokens. Without this scope, Access Gateway doesn't issue a refresh token. When a mode transition occurs, existing refresh tokens are invalidated and users must re-authenticate.
 
 ### Token lifetimes and behavior
 
