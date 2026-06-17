@@ -19,7 +19,7 @@ title: Okta Identity Engine API release notes 2026
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Agent-to-agent connections](#agent-to-agent-connections)| June 17, 2026 |
-| [Register an AI agent API `appId` parameter deprecated](#register-an-ai-agent-api-appid-parameter-deprecated) | June 17, 2026 |
+| [Register an AI agent API appId parameter deprecated](#register-an-ai-agent-api-appid-parameter-deprecated) | June 17, 2026 |
 | [Bug fixed in 2026.06.2](#bug-fixed-in-2026-06-2) | June 17, 2026 |
 
 #### Agent-to-agent connections
