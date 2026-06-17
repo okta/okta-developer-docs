@@ -4,8 +4,17 @@
   <title>Okta Identity Engine API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/</link>
   <description>Recent release notes for Okta Identity Engine API</description>
-  <pubDate>Wed, 10 Jun 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 17 Jun 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Weekly release 2026.06.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#weekly-release-2026-06-2</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#weekly-release-2026-06-2</guid>
+      <pubDate>Wed, 17 Jun 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#agent-to-agent-connections-is-ea-in-preview">Agent-to-agent connections is EA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#register-an-ai-agent-api-appid-parameter-deprecated">Register an AI agent API appId parameter deprecated</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#bug-fixed-in-2026-06-2">Bug fixed in 2026.06.2</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Weekly release 2026.06.1</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-engine/#weekly-release-2026-06-1</link>
