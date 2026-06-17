@@ -82,7 +82,10 @@ See the following table for a list of authenticators, their keys, types, and met
 | `google_otp`        | `app`                   | `otp`                   |
 | `okta_email`        | `email`                 | `email`                 |
 | `okta_password`     | `password`              | `password`              |
-| `okta_verify`       | `app`                   | `totp`, `push`, `signed_nonce` |
+| `okta_verify` | `app`              | `totp`, `push`, `signed_nonce` |
+| <ApiLifecycle access="ea" /> `okta_verify_fastpass` | `app`                   | `signed_nonce`                 |
+| <ApiLifecycle access="ea" /> `okta_verify_push`  | `app`                   | `push`                         |
+| <ApiLifecycle access="ea" /> `okta_verify_totp`  | `app`                   | `totp`                         |
 | `onprem_mfa`        | `security_key`            | `otp`                      |
 | `phone_number`     | `phone`                   | `sms`, `voice`            |
 | `rsa_token`        | `security_key`            | `otp`                      |
@@ -92,6 +95,8 @@ See the following table for a list of authenticators, their keys, types, and met
 | `tac`               | `tac`                    | `tac`                      |
 | `webauthn`         | `security_key`            | `webauthn`                |
 | `yubikey_token`    | `security_key`            | `otp`                      |
+
+> **Note:** When the self-service Early Access (EA) Okta Verify independent authenticators feature is enabled, the `okta_verify` key is replaced by `okta_verify_totp`, `okta_verify_push`, and `okta_verify_fastpass`. See [Okta Verify as independent authenticators](/docs/guides/authenticators-okta-verify/main/#okta-verify-as-independent-authenticators) for API behavior and policy changes.
 
 ### Understand the terminology in the User Factors API
 
