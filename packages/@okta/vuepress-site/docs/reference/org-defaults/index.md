@@ -37,7 +37,7 @@ The Integrator Free Plan org has the following limitations:
 
 | Org feature                                   | Limitation                                                           |
 |-----------------------------------------------|----------------------------------------------------------------------|
-| Availability                                  | Integrator free plan orgs don't expire. However, they will deactivate if no users log in for 180 consecutive days, unless you submit an app to the OIN. |
+| Availability                                  | Integrator free plan orgs don't expire. However, they will deactivate if no users sign in for 180 consecutive days, unless you submit an app to the OIN. |
 | Number of active users                        | 10                                                                   |
 | Okta Org2Org app integration                  | Not available                                                        |
 | Number of Workflows                           | 5                                                                    |
