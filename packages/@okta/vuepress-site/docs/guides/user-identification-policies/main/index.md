@@ -181,7 +181,18 @@ You can also find a user identification policy from its mapped app sign-in polic
                         "GET"
                     ]
                 }
+            },
+            "deactivate": {
+                "href": "https://{yourOktaDomain}/api/v1/policies/{appSignOnPolicyId}/lifecycle/deactivate",
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                }
             }
+        },
+        "_embedded": {
+            "resourceType": "APP"
         }
     }
 ]
