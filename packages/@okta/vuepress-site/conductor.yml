@@ -6127,5 +6127,7 @@ redirects:
     to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /docs/guides/build-sso-integration/saml2/main
     to: /docs/guides/create-an-app-integration/saml2/main/
-  - from: /docs/guides/build-sso-integration/
+  - from: /docs/guides/build-sso-integration/index.html
+    to: /docs/guides/create-an-app-integration/
+  - from: /docs/guides/build-sso-integration
     to: /docs/guides/create-an-app-integration/
