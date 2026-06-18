@@ -1,0 +1,723 @@
+Secure an Imported Amazon Bedrock AgentCore Agent
+May 1, 2026
+Okta Identity Engine
+Okta For AI Agents
+Overview
+This article is intended for developers integrating Amazon Bedrock AgentCore with Okta. After an Amazon Bedrock AgentCore agent is imported into Okta, it appears on the Directory > AI Agents page with a status of Staged. A staged agent is visible in the Okta AI Agent Registry but cannot yet act on resources.
+
+ 
+
+This article covers the AWS infrastructure and Python configuration required to enable an imported AgentCore agent to authenticate with Okta and access protected resources on a user's behalf. It walks through the required prerequisites and implements a two-step token exchange in the AgentCore runtime.
+
+ 
+
+Applies to
+Okta Identity Engine (OIE)
+Okta AI Agent Registry
+Amazon Bedrock AgentCore
+Super Admin role
+ 
+
+ 
+
+How the token exchange works
+Once secured, the AgentCore agent performs an OAuth 2.0 token exchange inside its own application code to act on behalf of a signed-in user:
+
+The agent signs a client assertion with its private key.
+
+The agent exchanges the user's ID token for an Identity Assertion JSON Web Token (ID-JAG) at Okta's Org Authorization Server.
+
+The agent exchanges the ID-JAG for a scoped access token at a Custom Authorization Server.
+
+The agent uses the access token to call downstream resources, such as a Model Context Protocol (MCP) server, Amazon Bedrock, or any Okta-protected API.
+
+ 
+
+ 
+
+Before you begin
+Okta administrator prerequisites
+Before implementing the token exchange, ensure an Okta administrator has completed the following:
+
+Import the AgentCore agent into Okta. See Import AI Agents from an App
+
+Assign owners, generate credentials, configure a linked OIDC application, and activate the agent. See Configure Imported AI Agent
+
+Add at least one managed connection to a protected resource or authorization server. See Connect AI Agents to Resources
+
+ 
+
+ 
+
+Developer prerequisites
+Complete the following one-time setup in AWS and Okta:
+
+Create the agent in AWS Bedrock AgentCore.
+
+Configure the AWS cloud provider in Okta. See Configure cloud providers for Okta AI agent import.
+
+Import the agent into Okta. See Import AI Agents from an App
+
+Configure a Custom Authorization Server — use the built-in default or create a new one. Note the Issuer URL (https://<domain>/oauth2/default).
+
+Define a custom scope, such as xaa:read, on the Custom Authorization Server (Security > API > Custom AS > Scopes > Add scope).
+
+NOTE: System scopes (openid, profile, email) are stripped in the ID-JAG flow and cause an invalid_scope error. Use only non-system custom scopes.
+
+Configure an access policy rule on the Custom Authorization Server (Custom AS > Access Policies > edit the default rule or add a new rule) that:
+
+Enables grant type JSON Web Token (JWT) Bearer (urn:ietf:params:oauth:grant-type:jwt-bearer)
+
+Adds the AI agent as an allowed client (update this entry for each agent being secured)
+
+Includes the audience (api://default or the Custom Authorization Server audience), the custom scope, and a user or group condition
+
+Create an OIDC web application (Authorization Code grant, scopes openid profile email) that end users sign into. The CLIENT_ID of this application must match the aud claim in the ID token the agent receives.
+
+ 
+
+ 
+
+Collect environment variables
+Collect the following values before you configure the agent runtime. They are referenced in main.py as environment variables:
+
+ 
+
+Environment variable
+
+Value
+
+Where to find it
+
+OKTA_DOMAIN
+
+Okta org domain
+
+Admin Console → Settings → Account
+
+OKTA_CUSTOM_AS_ID
+
+Custom Authorization Server ID (for example, default)
+
+Security → API
+
+OKTA_SCOPE
+
+Custom scope the agent requests
+
+Custom AS → Scopes
+
+AGENT_CLIENT_ID
+
+Client ID of the imported AI Agent
+
+Directory → AI Agents → (agent)
+
+AGENT_KEY_ID
+
+kid of the public JWK registered on the agent
+
+Directory → AI Agents → (agent) → Credentials
+
+AGENT_PRIVATE_KEY_JWK
+
+Private JWK generated in Generate credentials
+
+Output of Generate key pair; store in a secrets manager
+
+BEDROCK_AGENT_ID
+
+Downstream Bedrock agent to invoke
+
+AWS Console → Bedrock → Agents
+
+BEDROCK_AGENT_ALIAS_ID
+
+Alias of the downstream Bedrock agent
+
+AWS Console → Bedrock → Agents → Aliases
+
+AWS_REGION, AWS_DEFAULT_REGION
+
+AWS region where the Bedrock agent runs
+
+AWS Console
+
+ 
+
+ 
+
+Solution
+Implement the token exchange in AWS                                                                         
+Before beginning this section, confirm that the Okta administrator has completed the following in the Admin Console:
+
+The agent is imported, configured, and has a status of Active
+Owners are assigned, and credentials have been generated. The public JSON Web Key (JWK) is registered on the agent, and the private key is stored in a secrets manager
+NOTE:  The Okta administrator must securely transfer the private key to the developer at the time of generation, as Okta does not retain it. The developer is responsible for storing it in a secrets manager before beginning implementation.
+
+ 
+
+An OIDC application is linked to the agent
+
+A managed connection to the Custom Authorization Server is active, with a custom scope (for example, xaa:read) configured
+
+All environment variable values from the table in Before you begin have been collected
+
+ 
+
+With the above in place, implement the two-step token exchange in the AgentCore runtime using the steps below.
+
+ 
+
+Set up runtime dependencies
+requirements.txt
+
+
+bedrock-agentcore
+boto3
+botocore[crt]
+PyJWT[crypto]
+requests
+
+
+ 
+
+Sign the client assertion
+At runtime, the agent uses the private key to sign a short-lived client assertion JWT. The build_client_assertion helper signs the assertion using the private key JWK and the public key kid:
+
+Python
+
+import time, uuid, json
+from jwt.algorithms import RSAAlgorithm
+import jwt
+
+def build_client_assertion(client_id: str, audience: str,
+                           private_key_jwk: dict, kid: str) -> str:
+private_key = RSAAlgorithm.from_jwk(json.dumps(private_key_jwk))    
+	now = int(time.time())
+    return jwt.encode(
+        {
+            "iss": client_id,
+            "sub": client_id,
+            "aud": audience,
+            "iat": now,
+            "exp": now + 300,
+            "jti": str(uuid.uuid4()),
+        },
+        private_key,
+        algorithm="RS256",
+        headers={"kid": kid},
+    )
+ 
+
+The helper produces a JWT with the following structure:
+
+{
+  "iss": "<agent_client_id>",
+  "sub": "<agent_client_id>",
+  "aud": "<token_endpoint_url>",
+  "iat": <now>,
+  "exp": <now + 300>,
+  "jti": "<uuid>"
+}
+
+ 
+
+NOTE: The agent must build the client assertion twice per invocation — once with aud set to the Org Authorization Server token URL (Step 1) and once with aud set to the Custom Authorization Server token URL (Step 2). The kid header must match the public JWK registered on the agent in the Admin Console.
+
+ 
+
+Exchange the ID token for an ID-JAG
+The following helper from main.py implements this step:
+
+Python
+
+
+import requests
+
+def exchange_id_token_for_id_jag(id_token: str, client_assertion: str,
+                                 org_token_url: str,
+                                 custom_as_audience: str) -> str:
+    r = requests.post(org_token_url, data={
+        "grant_type": "urn:ietf:params:oauth:grant-type:token-exchange",
+        "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+        "client_assertion": client_assertion,
+        "subject_token": id_token,
+        "subject_token_type": "urn:ietf:params:oauth:token-type:id_token",
+        "requested_token_type": "urn:ietf:params:oauth:token-type:id-jag",
+        "scope": "xaa:read",
+        "audience": custom_as_audience,
+    })
+    r.raise_for_status()
+    return r.json()["access_token"]  # the ID-JAG
+
+ 
+
+The following shows the request format for this step:
+
+POST /oauth2/v1/token
+grant_type=urn:ietf:params:oauth:grant-type:token-exchange
+client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+client_assertion=<JWT signed by agent private key, aud=org token URL>
+subject_token=<user id_token>
+subject_token_type=urn:ietf:params:oauth:token-type:id_token
+requested_token_type=urn:ietf:params:oauth:token-type:id-jag
+scope=xaa:read
+audience=https://<domain>/oauth2/<custom-as-id>
+
+ 
+
+ 
+
+Exchange the ID-JAG for an access token
+The agent posts to the Custom Authorization Server token endpoint with the ID-JAG:
+
+Python
+
+
+def exchange_id_jag_for_access_token(id_jag: str, client_assertion: str,
+                                     resource_token_url: str) -> str:
+    r = requests.post(resource_token_url, data={
+        "grant_type": "urn:ietf:params:oauth:grant-type:jwt-bearer",
+        "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+        "client_assertion": client_assertion,
+        "assertion": id_jag,
+    })
+    r.raise_for_status()
+    return r.json()["access_token"]  # scoped access token for the resource
+
+
+
+
+The following shows the request format for this step:
+
+
+POST /oauth2/<custom-as-id>/v1/token
+grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
+client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+client_assertion=<JWT signed by agent private key, aud=custom AS token URL>
+assertion=<ID-JAG from the previous request>
+
+ 
+
+Call the downstream Bedrock agent
+The invoke_bedrock_agent helper calls the downstream Bedrock agent with the scoped access token attached as a session attribute (oktaAccessToken). A Lambda action group on the Bedrock agent can read that attribute and forward it as Authorization: Bearer <access_token> to an Okta-protected resource, such as an MCP server.
+
+The agent posts to the Custom Authorization Server token endpoint with the ID-JAG:
+
+
+def invoke_bedrock_agent(prompt: str, access_token: str, session_id: str) -> str:
+    client = boto3.client("bedrock-agent-runtime", region_name=AWS_REGION)
+    response = client.invoke_agent(
+        agentId=BEDROCK_AGENT_ID,
+        agentAliasId=BEDROCK_AGENT_ALIAS_ID,
+        sessionId=session_id,
+        inputText=prompt,
+        sessionState={"sessionAttributes": {"oktaAccessToken": access_token}},
+    )
+    chunks = []
+    for event in response["completion"]:
+        if "chunk" in event:
+            chunks.append(event["chunk"]["bytes"].decode("utf-8"))
+    return "".join(chunks)
+
+ 
+
+Two runtime requirements apply:
+
+The AWS Identity and Access Management (IAM) user running the AgentCore runtime must have bedrock:InvokeAgent  permission on the target Bedrock agent.
+
+Both AWS_REGION and AWS_DEFAULT_REGION must be set. The botocore[crt] credential refresher requires AWS_DEFAULT_REGION.
+
+ 
+
+Assemble the complete runtime
+Create a file named main.py and copy the following code into it. This file contains all of the helper functions defined in the previous steps, along with the AgentCore entrypoint that ties them together. The entry point expects the caller to supply both the user prompt and the Okta ID token obtained from the linked OIDC application.
+
+ 
+
+NOTE: For production workloads, cache the ID-JAG and access token in-process until the exp claim expires. This avoids triggering a fresh two-step exchange on every user request.
+
+
+Python
+
+
+"""Okta-secured AgentCore runtime for AWS Bedrock.
+
+Performs the XAA token exchange (id_token -> ID-JAG -> access_token) and then
+invokes a downstream AWS Bedrock agent on behalf of the signed-in user.
+Configuration comes from environment variables.
+"""
+
+import json
+import os
+import time
+import uuid
+
+import boto3
+import jwt
+import requests
+from bedrock_agentcore.runtime import BedrockAgentCoreApp
+
+# ---------------------------------------------------------------------------
+# Configuration (populated from environment variables at startup)
+# ---------------------------------------------------------------------------
+OKTA_DOMAIN = os.environ["OKTA_DOMAIN"]                    # e.g. example.okta.com
+CUSTOM_AS_ID = os.environ["OKTA_CUSTOM_AS_ID"]             # e.g. default
+AGENT_CLIENT_ID = os.environ["AGENT_CLIENT_ID"]            # AI Agent client_id
+AGENT_KEY_ID = os.environ["AGENT_KEY_ID"]                  # kid of registered public JWK
+AGENT_PRIVATE_KEY_JWK = json.loads(os.environ["AGENT_PRIVATE_KEY_JWK"])
+REQUESTED_SCOPE = os.environ.get("OKTA_SCOPE", "xaa:read")
+
+ORG_TOKEN_URL = f"https://{OKTA_DOMAIN}/oauth2/v1/token"
+CUSTOM_AS_TOKEN_URL = f"https://{OKTA_DOMAIN}/oauth2/{CUSTOM_AS_ID}/v1/token"
+CUSTOM_AS_AUDIENCE = f"https://{OKTA_DOMAIN}/oauth2/{CUSTOM_AS_ID}"
+
+BEDROCK_AGENT_ID = os.environ["BEDROCK_AGENT_ID"]
+BEDROCK_AGENT_ALIAS_ID = os.environ["BEDROCK_AGENT_ALIAS_ID"]
+AWS_REGION = os.environ.get("AWS_REGION", "us-east-1")
+
+app = BedrockAgentCoreApp()
+
+
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
+def build_client_assertion(client_id: str, audience: str,
+                           private_key_jwk: dict, kid: str) -> str:
+    private_key = RSAAlgorithm.from_jwk(json.dumps(private_key_jwk))
+    now = int(time.time())
+    return jwt.encode(
+        {
+            "iss": client_id,
+            "sub": client_id,
+            "aud": audience,
+            "iat": now,
+            "exp": now + 300,
+            "jti": str(uuid.uuid4()),
+        },
+        private_key_jwk,
+        algorithm="RS256",
+        headers={"kid": kid},
+    )
+
+
+def exchange_id_token_for_id_jag(id_token: str, client_assertion: str,
+                                 org_token_url: str,
+                                 custom_as_audience: str) -> str:
+    r = requests.post(
+        org_token_url,
+        data={
+            "grant_type": "urn:ietf:params:oauth:grant-type:token-exchange",
+            "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+            "client_assertion": client_assertion,
+            "subject_token": id_token,
+            "subject_token_type": "urn:ietf:params:oauth:token-type:id_token",
+            "requested_token_type": "urn:ietf:params:oauth:token-type:id-jag",
+            "scope": REQUESTED_SCOPE,
+            "audience": custom_as_audience,
+        },
+        timeout=10,
+    )
+    r.raise_for_status()
+    return r.json()["access_token"]  # the ID-JAG
+
+
+def exchange_id_jag_for_access_token(id_jag: str, client_assertion: str,
+                                     resource_token_url: str) -> str:
+    r = requests.post(
+        resource_token_url,
+        data={
+            "grant_type": "urn:ietf:params:oauth:grant-type:jwt-bearer",
+            "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+            "client_assertion": client_assertion,
+            "assertion": id_jag,
+        },
+        timeout=10,
+    )
+    r.raise_for_status()
+    return r.json()["access_token"]
+
+
+def invoke_bedrock_agent(prompt: str, access_token: str, session_id: str) -> str:
+    client = boto3.client("bedrock-agent-runtime", region_name=AWS_REGION)
+    response = client.invoke_agent(
+        agentId=BEDROCK_AGENT_ID,
+        agentAliasId=BEDROCK_AGENT_ALIAS_ID,
+        sessionId=session_id,
+        inputText=prompt,
+        sessionState={"sessionAttributes": {"oktaAccessToken": access_token}},
+    )
+    chunks = []
+    for event in response["completion"]:
+        if "chunk" in event:
+            chunks.append(event["chunk"]["bytes"].decode("utf-8"))
+    return "".join(chunks)
+
+
+# ---------------------------------------------------------------------------
+# AgentCore entrypoint
+# ---------------------------------------------------------------------------
+@app.entrypoint
+def handler(payload: dict) -> dict:
+    """Expected payload: {"prompt": "...", "id_token": "<okta id_token>"}."""
+    id_token = payload["id_token"]
+    prompt = payload["prompt"]
+    session_id = payload.get("session_id") or str(uuid.uuid4())
+
+    # Build two client_assertions — each with aud set to the token endpoint it targets.
+    ca_org = build_client_assertion(
+        AGENT_CLIENT_ID, ORG_TOKEN_URL, AGENT_PRIVATE_KEY_JWK, AGENT_KEY_ID,
+    )
+    id_jag = exchange_id_token_for_id_jag(
+        id_token, ca_org, ORG_TOKEN_URL, CUSTOM_AS_AUDIENCE,
+    )
+
+    ca_custom = build_client_assertion(
+        AGENT_CLIENT_ID, CUSTOM_AS_TOKEN_URL, AGENT_PRIVATE_KEY_JWK, AGENT_KEY_ID,
+    )
+    access_token = exchange_id_jag_for_access_token(
+        id_jag, ca_custom, CUSTOM_AS_TOKEN_URL,
+    )
+
+    answer = invoke_bedrock_agent(
+        prompt=prompt,
+        access_token=access_token,
+        session_id=session_id,
+    )
+    return {"answer": answer, "session_id": session_id}
+
+
+if __name__ == "__main__":
+    app.run()
+
+ 
+
+ 
+
+Verify the configuration
+From the agent's configuration, select Test connection on each managed connection and confirm each returns a successful response
+
+Go to Directory > AI Agents and confirm the agent appears with Status: Active and the expected owners, connections, and User application.
+
+(Optional) Go to Identity Governance > Access Certifications to confirm the agent's User Sign-on application is visible for future certification campaigns.
+
+ 
+
+Obtain a test ID token
+NOTE: Add http://localhost:8765/callback to the linked OIDC application's Sign-in redirect URIs before running the helper below. Remove it after verification is complete.
+
+Python
+
+
+"""Complete an OIDC Authorization Code + PKCE sign-in and print the id_token.
+
+Environment:
+  OKTA_DOMAIN           (e.g. example.okta.com)
+  OIDC_CLIENT_ID        client_id of the linked OIDC Web App
+  OIDC_CLIENT_SECRET    client_secret of the linked OIDC Web App
+"""
+
+import base64, hashlib, http.server, os, secrets, threading, urllib.parse, webbrowser
+import requests
+
+OKTA_DOMAIN = os.environ["OKTA_DOMAIN"]
+OIDC_CLIENT_ID = os.environ["OIDC_CLIENT_ID"]
+OIDC_CLIENT_SECRET = os.environ["OIDC_CLIENT_SECRET"]
+REDIRECT_URI = "http://localhost:8765/callback"
+AUTHORIZE_URL = f"https://{OKTA_DOMAIN}/oauth2/v1/authorize"
+TOKEN_URL = f"https://{OKTA_DOMAIN}/oauth2/v1/token"
+
+verifier = secrets.token_urlsafe(64)
+challenge = base64.urlsafe_b64encode(
+    hashlib.sha256(verifier.encode()).digest()
+).rstrip(b"=").decode()
+state = secrets.token_urlsafe(16)
+captured = {}
+done = threading.Event()
+
+class CallbackHandler(http.server.BaseHTTPRequestHandler):
+    def do_GET(self):
+        params = dict(urllib.parse.parse_qsl(urllib.parse.urlparse(self.path).query))
+        captured.update(params)
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b"Sign-in complete. You can close this window.")
+        done.set()
+    def log_message(self, *_): pass
+
+server = http.server.HTTPServer(("localhost", 8765), CallbackHandler)
+threading.Thread(target=server.handle_request, daemon=True).start()
+
+webbrowser.open(AUTHORIZE_URL + "?" + urllib.parse.urlencode({
+    "client_id": OIDC_CLIENT_ID,
+    "response_type": "code",
+    "scope": "openid profile email",
+    "redirect_uri": REDIRECT_URI,
+    "state": state,
+    "code_challenge": challenge,
+    "code_challenge_method": "S256",
+}))
+
+if not done.wait(timeout=300):
+    raise SystemExit("Timed out waiting for sign-in")
+if captured.get("state") != state:
+    raise SystemExit("State mismatch")
+
+r = requests.post(TOKEN_URL, data={
+    "grant_type": "authorization_code",
+    "client_id": OIDC_CLIENT_ID,
+    "client_secret": OIDC_CLIENT_SECRET,
+    "code": captured["code"],
+    "redirect_uri": REDIRECT_URI,
+    "code_verifier": verifier,
+}, timeout=10)
+r.raise_for_status()
+print(r.json()["id_token"])
+
+ 
+
+Run it, complete sign-in in the browser, and capture the output:
+
+Shell
+
+export OKTA_DOMAIN=example.okta.com
+export OIDC_CLIENT_ID=<linked_oidc_app_client_id>
+export OIDC_CLIENT_SECRET=<linked_oidc_app_client_secret>
+ID_TOKEN=$(python get_id_token.py)
+
+ 
+
+Run an end-to-end invocation
+Shell
+
+
+# Start the runtime locally; while this is running, `invoke` hits the local instance.
+agentcore dev
+agentcore invoke "{\"prompt\": \"Who am I?\", \"id_token\": \"$ID_TOKEN\"}"
+
+# Stop `agentcore dev`, deploy to AWS, then `invoke` hits the deployed instance.
+agentcore deploy
+agentcore invoke "{\"prompt\": \"Who am I?\", \"id_token\": \"$ID_TOKEN\"}"
+
+ 
+
+A successful response is shaped like the following and confirms the full id_token → ID-JAG → access_token round trip. Reuse the returned session_id on any follow-up invocation to keep the Bedrock conversation state:
+
+JSON
+
+
+{
+     "answer": "You are signed in as jane.doe@example.com.",
+     "session_id": "3e4f1b9a-7c26-4d88-9e42-1a0b5c9d2f3e"
+ }
+
+ 
+
+ 
+
+Next step
+Govern access to AI agents
+
+ 
+
+ 
+
+Troubleshooting
+Error
+
+Root cause
+
+Fix
+
+invalid_scope: openid not allowed
+
+System scopes (openid/profile/email) are stripped in the ID-JAG flow
+
+Use a custom scope such as xaa:read on the Custom AS and on the managed connection
+
+invalid_client: JWKSet not configured
+
+Public key is not registered on the AI Agent
+
+Register the public JWK at Directory → AI Agents → (agent) → Credentials
+
+invalid_grant / invalid_token on Step 1
+
+The user's id_token is expired or was issued by a different OIDC app than the one linked to the agent
+
+Complete a fresh OIDC sign-in against the User Sign-on app; confirm the aud claim equals the linked OIDC app's Client ID
+
+invalid_client: kid is invalid
+
+kid in the signing code does not match the registered key
+
+Copy the kid from AI Agent → Credentials into AGENT_KEY_ID
+
+access_denied: no_matching_policy
+
+Custom AS access policy missing JWT Bearer grant
+
+Custom AS → Access Policies → enable JWT Bearer in the rule
+
+Only service apps can use client_credentials
+
+Wrong client type at Org AS
+
+Only a WORKLOAD (AI Agent) client can perform Step 1; OIDC apps cannot
+
+token_exchange_invalid_audience
+
+Wrong flow path (for example, WebSSO instead of XAA)
+
+Use the AI Agent (WORKLOAD) client for Step 1, not the OIDC app
+
+Cannot access app: You are not allowed...
+
+User is not assigned to the OIDC app or the Custom AS rule excludes them
+
+Assign the user/group to the OIDC app and add them to the Custom AS access policy rule
+
+Bedrock ResourceNotFoundException on InvokeAgent
+
+Wrong Agent ID or Alias ID
+
+Verify BEDROCK_AGENT_ID and BEDROCK_AGENT_ALIAS_ID in AWS Console → Bedrock → Agents
+
+Bedrock ThrottlingException on InvokeAgent
+
+Bedrock model invocation quota exceeded (often quota=0 on new accounts)
+
+Check Service Quotas: Requests/min, Tokens/min, Tokens/day. Quota=0 means the model is disabled for the account
+
+NoRegionError: You must specify a region
+
+boto3 SSO credential refresher needs AWS_DEFAULT_REGION
+
+Set both AWS_REGION and AWS_DEFAULT_REGION in the agent runtime environment
+
+ModuleNotFoundError: awscrt at startup
+
+Missing CRT extension required by the SSO credential provider
+
+pip install botocore[crt]
+
+Agent Instruction cannot be null
+
+Bedrock agent was created without instructions
+
+AWS Console → Bedrock → Agents → Edit → add instruction → Prepare
+
+Was this content helpful?
+
+
+Recommended content
+
+Documentation
+Apps that support AI agent imports
+Documentation
+Configure AWS Identity and Access Management for AI agent imports
+Documentation
+Configure imported AI agents
+Documentation
+Connect AI agents to resources

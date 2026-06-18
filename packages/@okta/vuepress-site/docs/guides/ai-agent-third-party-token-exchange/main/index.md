@@ -51,11 +51,11 @@ Okta-protected API
 
 >**Note:** No gateway or proxy is involved. The calling app owns the full token exchange. The AI agent receives a ready-to-use access token.
 
-The machine identity that signs token exchange requests is an AI Agent created in the Admin Console. The AI Agent authenticates both steps of the exchange using a private key JWT.
+The machine identity that signs token exchange requests is the third-party AI Agent imported in the Admin Console. The AI Agent authenticates both steps of the exchange using a private key JWT.
 
 ### Supported platforms
 
-After setting up the third-party AI Agent token exchange, you can use this flow with the following supported providers and AI agents:
+The following third-party AI Agent platforms are supported:
 
 | Provider | Platform | Guide |
 | --- | --- | --- |
@@ -69,7 +69,7 @@ To configure token exchange for third-party AI agents, you must complete the fol
 
 - Create an Okta OIDC web app integration to handle user sign-on and issue ID tokens.
 - Add a custom scope for your custom authorization server.
-- Create an AI Agent with RSA key-pair authentication.
+- Import a third-party AI Agent with RSA key-pair authentication.
 - Configure the access policy to allow the JWT Bearer grant type.
 - Complete the token exchange flow with Okta APIs.
 
@@ -114,14 +114,22 @@ Your custom authorization server requires a custom scope for the third-party AI 
 1. Select **Scopes** and then **Add Scope**.
 1. Enter a **Name**, for example, `xaa:read`.
 1. Optional. Enter a **Display phrase**, for example, "Cross App Access (XAA read-only scope)."
-1. Optional. Enter a **Description**, for example, "This scope allows token exchange between AI Agents."
+1. Optional. Enter a **Description**, for example, "This scope allows third-party AI Agent token exchange."
 1. Click **Save**.
 
 See [Create Scopes](/docs/guides/customize-authz-server/main/#create-scopes).
 
-### Create an AI Agent
+### Import your AI Agent
 
-The AI Agent is the machine identity that your app uses to sign token exchange requests. Its `id` starts with `wlp...` and authenticates both steps of the exchange.
+The AI Agent is the machine identity that your calling application uses to sign token exchange requests. Import your third-party AI Agent following steps in [AI Agent Imports](https://help.okta.com/okta_help.htm?type=oie&id=<ai-agent-imports).
+
+The AI Agent identity is distinct from the OIDC web app integration, which signs users in and issues the ID token. The AI Agent identity authenticates both steps of the exchange.
+
+<!-- See Barbara's docs here: https://preview-4797--regal-biscotti-8ee5d8.netlify.app/oie/en-us/content/topics/ai-agents/ai-agent-imports.htm-->
+
+<!-- walk thru configuring an imported AI agent - same stuff I believe-->
+
+Import your third-party AI agent, or, if you'd like an AI Agent identity to test the token exchange flow in this guide, you can create one manually:
 
 1. In the Admin Console, go to **Directory** > **AI agents**.
 1. Click **Register AI agent** > **Register manually**.
@@ -157,9 +165,9 @@ Your app makes two API calls directly to Okta's token endpoints. No Okta SDK is 
 1. Exchange the `id_token` for ID-JAG
 1. Exchange the ID-JAG for an `access_token`
 
-To test this flow, use the following `curl` calls with your configured data. 
+To test this flow, use the following `curl` calls with your configured data.
 
-Use the [token exchange demo script] to demonstrate the full token exchange flow and display the ID token, ID_JAG token, and access token.
+Use the [Create an app to test the token exchange flow](#create-an-app-to-test-the-token-exchange-flow) to demonstrate the full token exchange flow and display the ID token, ID_JAG token, and access token.
 
 #### Exchange the ID token for ID-JAG
 
@@ -315,19 +323,19 @@ OIDC_CLIENT_SECRET={client_secret}
 For example:
 
 ```bash
-# OIDC config for agent2.py
+# OIDC config for oidc.id-token.py
 # OKTA_DOMAIN must include https:// and have NO trailing slash
 OKTA_DOMAIN=https://example.okta.com
 OIDC_CLIENT_ID=0oazte....Vv6aZ1d7
 OIDC_CLIENT_SECRET=rPgK0mZi6aqpmRD....
 ```
 
-### Create the demo file
+### Create the token demo file
 
 Create a `scripts` folder at the root level of your project, and create a file name, for example, `oidc.id-token.py`. Copy the following Python code into the file and save.
 
 ```python
-# oidc_helper.py
+# oidc.id-token.py
 import os, secrets
 from flask import Flask, redirect, request, session
 import requests
@@ -492,14 +500,14 @@ AGENT_PRIVATE_KEY_JWK={yourAgentPrivateKey}
 For example:
 
 ```bash
-# OIDC config for agent2.py
+# OIDC config for token-exchange-demo.py`
 # OKTA_DOMAIN must include https:// and have NO trailing slash
 OKTA_DOMAIN=https://example.okta.com
 OIDC_CLIENT_ID=0oazte....Vv6aZ1d7
 OIDC_CLIENT_SECRET=rPgK0mZi6aqpmRD....
 
-# --- Token exchange (agent on behalf of user), used by token_demo.py / agent.py ---
-# Custom authorization server ID (e.g. "default" or an "ausXXXX..." id)
+# --- Token exchange (agent on behalf of user), used by token-exchange-demo.py` ---
+# Custom authorization server ID (for example,  "default" or an "ausXXXX..." id)
 CUSTOM_AS=default
 # The agent's OAuth client id
 AGENT_CLIENT_ID=wlpzx5jq6....zGJY1d7
@@ -730,6 +738,20 @@ uv run scripts/token-exchange-demo.py
 ```
 
 Then open `http://localhost:5000/` in your browser to start the sign-in flow. After you enter your Okta credentials, the full flow completes and the following tokens appear on the rendered page: ID token, ID-JAG token, and access token. See [Complete the token exchange flow](#complete-the-token-exchange-flow).
+
+## Troubleshooting
+
+The following errors come from the Okta token exchange module:
+
+| Error | Root cause | Fix |
+| --- | --- | --- |
+| `invalid_scope: openid not allowed` | System scopes (`openid`/`profile`/`email`) are stripped in the ID-JAG flow | Use a custom scope such as `xaa:read` on the custom AS and the managed connection |
+| `invalid_client: JWKSet not configured` | The public key isn't registered on the AI Agent | Register the public JWK at **Directory** > **AI Agents** > *(agent)* > **Credentials** |
+| `invalid_grant` / `invalid_token` on Step 1 | The user's `id_token` is expired or was issued by a different OIDC app than the one linked to the agent | Complete a fresh sign-in; confirm the `aud` claim equals the linked OIDC app's client ID |
+| `invalid_client: kid is invalid` | The `kid` in the signing code doesn't match the registered key | Copy the `kid` from the agent's **Credentials** into `AGENT_KEY_ID` |
+| `access_denied: no_matching_policy` | The custom AS access policy is missing the JWT Bearer grant | In the custom AS access policy rule, enable the JWT Bearer grant |
+| `Only service apps can use client_credentials` | Wrong client type at the org AS | Only an Okta client can perform Step 1; OIDC apps can't |
+| `token_exchange_invalid_audience` | Wrong flow path (for example, Web SSO instead of token exchange) | Use the AI Agent client for Step 1, not the OIDC app |
 
 ## Next steps
 

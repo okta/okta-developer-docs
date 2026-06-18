@@ -1,0 +1,479 @@
+Secure AWS Bedrock Agents with Okta
+Learning outcomes
+Complete the Okta setup and add the shared token exchange module to your project.
+Set up an AWS Bedrock Agent with action group Lambda functions that can call Okta-protected APIs.
+Invoke the Bedrock Agent with the user's Okta identity passed as sessionAttributes.
+Test the end-to-end flow locally and verify that action group Lambdas receive the access_token.
+What you need
+Okta setup complete (see Token exchange reference); have your AGENT_CLIENT_ID, AGENT_KEY_ID, and AGENT_PRIVATE_KEY_JWK ready
+AWS account with Amazon Bedrock available in your region
+AWS CLI configured (aws configure sso or access key + secret)
+Python 3.10+
+
+How it works
+Your calling application performs the Okta token exchange, then passes the resulting access_token and user claims to the Bedrock Agent as sessionAttributes; action group Lambdas read the token from there to call Okta-protected APIs. For a full explanation of the token exchange, see Secure imported AI agents.
+
+Configure Okta
+Complete the Okta setup described in the Token exchange reference. When you are done, you will have the following values; you will use them as environment variables in the steps below.
+Variable
+Description
+OKTA_DOMAIN
+Your Okta org URL (for example, https://yourorg.okta.com)
+CUSTOM_AS
+Authorization server ID (for example, default)
+AGENT_CLIENT_ID
+WORKLOAD agent client ID (wlp...)
+AGENT_KEY_ID
+kid of the registered public key
+AGENT_PRIVATE_KEY_JWK
+RSA private key JWK (full JSON, single-line string)
+
+
+Set up your AWS Bedrock Agent
+Enable model access
+Foundation models are not enabled by default. If your model shows as unavailable:
+In the AWS Console, go to Amazon Bedrock > Model access.
+Click Request access for the model you want (for example, amazon.titan-text-lite-v1).
+Note: There is no CLI command for requesting model access. Use the AWS Console.
+To verify access via CLI after approval:
+bash
+aws bedrock get-foundation-model \
+  --model-identifier amazon.titan-text-lite-v1 \
+  --region us-east-1
+Create the agent
+In the AWS Console, go to Amazon Bedrock > Agents > Create Agent.
+Choose a foundation model.
+Add Agent Instructions — this field cannot be empty; describe what the agent does.
+(Optional) Add Action Groups: Lambda functions the agent can invoke. Inside each Lambda, retrieve the Okta token from sessionAttributes to call Okta-protected APIs:
+python
+def lambda_handler(event, context):
+    access_token = event.get("sessionAttributes", {}).get("okta_access_token")
+    user_email   = event.get("sessionAttributes", {}).get("user_email")
+
+    resp = requests.get(
+        "https://yourorg.okta.com/api/v1/users/me",
+        headers={"Authorization": f"Bearer {access_token}"},
+    )
+    ...
+Click Prepare after any change, before testing.
+Note the Agent ID and create an Alias; note the Alias ID.
+
+Configure your application
+Project structure
+text
+bedrock-agent-p1/
+├── main.py             # Token exchange + Bedrock Agent invocation
+├── token_exchange.py   # Shared module from Token exchange reference
+├── requirements.txt
+├── .env                # Secrets (gitignored)
+└── .env.example        # Template
+Install dependencies
+text
+# requirements.txt
+boto3>=1.34.0
+requests>=2.31.0
+PyJWT>=2.8.0
+cryptography>=42.0.0
+python-dotenv>=1.0.0
+botocore[crt]
+Note: botocore[crt] is required when AWS credentials use the SSO login credential provider.
+bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+Set environment variables
+The five Okta variables are documented in the Token exchange reference. Add the following AWS-specific variables to your .env file:
+Variable
+Description
+AWS_REGION
+AWS region for Bedrock (for example, us-east-1)
+AWS_DEFAULT_REGION
+Must match AWS_REGION
+BEDROCK_AGENT_ID
+Bedrock Agent ID (from the Agents list in the AWS Console)
+BEDROCK_AGENT_ALIAS_ID
+Bedrock Agent Alias ID
+
+Note: AWS_REGION is passed as region_name to the boto3 client. AWS_DEFAULT_REGION is read by boto3 internals when refreshing SSO credentials; omitting it causes a NoRegionError.
+Add the token exchange module
+Copy token_exchange.py from the Token exchange reference into your project root. Your main.py imports get_id_jag and get_access_token from this module and calls both before invoking the agent.
+Invoke the Bedrock Agent
+After the token exchange, invoke the agent and pass the access_token and user claims as sessionAttributes:
+python
+import boto3, uuid
+from token_exchange import get_id_jag, get_access_token
+
+def invoke_bedrock_agent(prompt, user_claims, access_token):
+    client = boto3.client("bedrock-agent-runtime", region_name=AWS_REGION)
+
+    response = client.invoke_agent(
+        agentId=BEDROCK_AGENT_ID,
+        agentAliasId=BEDROCK_AGENT_ALIAS_ID,
+        sessionId=str(uuid.uuid4()),  # reuse across turns for multi-turn sessions
+        inputText=prompt,
+        sessionState={
+            "sessionAttributes": {
+                "okta_access_token": access_token,
+                "user_name":  user_claims.get("name", ""),
+                "user_email": user_claims.get("email", ""),
+                "user_sub":   user_claims.get("sub", ""),
+            }
+        }
+    )
+
+    # Response is a streaming EventStream
+    chunks = [
+        e["chunk"]["bytes"].decode()
+        for e in response["completion"]
+        if "chunk" in e
+    ]
+    return "".join(chunks)
+
+Test your integration
+To get an id_token for testing, see Obtain a test ID token in the Token exchange reference. The OIDC web app's CLIENT_ID must match the aud claim in the token.
+Run locally:
+bash
+source venv/bin/activate
+python main.py '{"id_token": "<okta_id_token>", "prompt": "Who am I?"}'
+Expected output on success:
+json
+{
+  "ok": true,
+  "user": "Jane Doe",
+  "access_token_prefix": "eyJraWQiOiI...",
+  "answer": "Hello! How can I help you today?"
+}
+Useful AWS CLI commands:
+bash
+# List your Bedrock Agents
+aws bedrock list-agents --region us-east-1
+
+# Find an Agent's Alias IDs
+aws bedrock list-agent-aliases \
+  --agent-id <BEDROCK_AGENT_ID> \
+  --region us-east-1
+
+# Invoke the agent directly (bypassing main.py)
+aws bedrock-agent-runtime invoke-agent \
+  --agent-id <BEDROCK_AGENT_ID> \
+  --agent-alias-id <BEDROCK_AGENT_ALIAS_ID> \
+  --session-id test-session-1 \
+  --input-text "Hello" \
+  --region us-east-1 \
+  outfile.json
+
+# Check Lambda logs for action groups
+aws logs tail /aws/lambda/<action-group-function-name> \
+  --follow \
+  --region us-east-1
+
+Troubleshooting
+Error
+Root cause
+Fix
+invalid_scope: openid not allowed
+System scopes are stripped in the ID-JAG flow
+Use a custom scope like xaa:read
+invalid_client: JWKSet not configured
+Public key not registered on the AI Agent
+Register the public JWK in Admin Console
+invalid_client: kid is invalid
+Wrong kid value in your code
+Copy kid from Admin Console > AI Agent > Public Keys
+access_denied: no_matching_policy
+Custom AS policy is missing the JWT Bearer grant type
+Enable JWT Bearer in the access policy rule
+Only service apps can use client_credentials
+Wrong client type for the Org AS
+Only WORKLOAD (AI Agent) type can perform Step 1
+NoRegionError
+boto3 SSO credential refresher needs AWS_DEFAULT_REGION
+Set AWS_DEFAULT_REGION=us-east-1 in .env
+Missing Dependency: botocore[crt]
+SSO credential provider requires the CRT extension
+Run pip install botocore[crt] in your venv
+throttlingException on InvokeAgent
+Bedrock model invocation quota is at zero or exceeded
+Check Bedrock > Model access in the AWS Console; a quota of 0 disables all requests
+Agent Instruction cannot be null
+Bedrock Agent was created without instructions
+AWS Console > Bedrock > Agents > Edit > add instruction > Prepare
+ResourceNotFoundException on InvokeAgent
+Wrong Agent ID or Alias ID
+Verify both IDs in AWS Console > Bedrock > Agents
+
+
+Next steps
+Your Bedrock Agent can now authenticate as a user and call Okta-protected APIs on their behalf. To configure which resources and scopes the agent is permitted to reach, see Authorize access to tools and APIs in the Okta for AI Agents documentation.
+
+
+V1
+Secure AWS Bedrock Agents with Okta
+AWS Bedrock Agents is Amazon's managed AI agent service; this guide shows how to call it securely using Okta's token exchange. Your application exchanges the user's id_token for a scoped access_token through Okta, then invokes the Bedrock Agent with the user's identity passed as session attributes so that action group Lambda functions can call Okta-protected APIs on the user's behalf.
+How it works
+The flow has two stages. First, your application performs Okta's two-step token exchange: the user's id_token becomes an ID-JAG at the Org Authorization Server, then the ID-JAG becomes a scoped access_token at the Custom Authorization Server. Second, your application invokes the Bedrock Agent and passes the access_token and user claims as sessionAttributes.
+User
+  { "prompt": "...", "id_token": "<okta_id_token>" }
+  ↓
+Application (main.py)
+  Step 1: id_token → ID-JAG      (Org AS — /oauth2/v1/token)
+  Step 2: ID-JAG  → access_token (Resource AS — /oauth2/{custom-as}/v1/token)
+  ↓
+AWS Bedrock Agent  (bedrock-agent-runtime · invoke_agent)
+  sessionAttributes: { okta_access_token, user_name, user_email, user_sub }
+  ↓
+Action Group Lambda
+  Authorization: Bearer <access_token>
+  ↓
+Okta-protected API
+Key characteristic: no gateway, no interceptor. The calling application owns the full Okta token exchange; the Bedrock Agent receives a ready-to-use access_token in sessionAttributes.
+Before you begin
+Okta:
+Okta org with the AI Agents feature enabled
+Admin access to the Okta Admin Console
+AWS:
+AWS account with Amazon Bedrock available in your region
+Foundation model access approved in the AWS Console (see Enable model access)
+AWS CLI configured (aws configure sso or access key + secret)
+Python 3.10+, pip or uv
+Part 1: Configure Okta
+These steps are performed once per Okta org by an admin. Collect the values noted here; you will use them as environment variables in Part 3.
+1. Create an OIDC web app
+This app handles user-facing login and issues the id_token your application exchanges.
+In the Okta Admin Console, go to Applications > Create App Integration.
+Select OIDC - OpenID Connect, then Web Application.
+Set the following:
+Grant types: Authorization Code
+Sign-in redirect URI: your application's callback URL (for local testing: http://localhost:5000/callback)
+Scopes: openid profile email
+Save. Note the Client ID and Client Secret.
+2. Set up a Custom Authorization Server
+Go to Security > API > Authorization Servers.
+Use the built-in default server or create a new one.
+Note the Issuer URL (for example: https://<your-domain>/oauth2/default).
+3. Add a custom scope
+System scopes (openid, profile, email) are stripped during the ID-JAG exchange and cause an invalid_scope error. You must create a custom scope instead.
+In your Custom AS, go to Scopes > Add Scope.
+Add the scope: xaa:read
+4. Create an AI Agent (WORKLOAD type)
+This is the machine identity your application uses to sign token exchange requests.
+In the Admin Console, go to AI Agents > Create new agent.
+Under Client Authentication, select Public Key / Private Key (private_key_jwt).
+Generate an RSA keypair. Register the public key JWK with the agent.
+Under Connected Resource:
+Link to the OIDC web app from step 1.
+Set the Custom AS to the one from step 2.
+Allowed scopes: include xaa:read.
+Set Status to Active.
+Save. Note the Agent Client ID, the key kid, and keep the private key JWK (shown once only).
+5. Configure the access policy
+In your Custom AS, go to Access Policies.
+Edit the default rule or create a new one.
+Enable grant type: JWT Bearer (urn:ietf:params:oauth:grant-type:jwt-bearer).
+Add the AI Agent as an allowed client.
+
+Part 2: Set up your AWS Bedrock Agent
+Enable model access
+Foundation models are not enabled by default. If your model shows as unavailable:
+In the AWS Console, go to Amazon Bedrock > Model access.
+Click Request access for the model you want (for example, amazon.titan-text-lite-v1).
+There is no CLI command for this step.
+To verify access via CLI after approval:
+aws bedrock get-foundation-model \
+  --model-identifier amazon.titan-text-lite-v1 \
+  --region us-east-1
+Create the agent
+In the AWS Console, go to Amazon Bedrock > Agents > Create Agent.
+Choose a foundation model.
+Add Agent Instructions — this field cannot be empty; describe what the agent does.
+(Optional) Add Action Groups: Lambda functions the agent can invoke. Inside each Lambda, retrieve the Okta token from sessionAttributes to call Okta-protected APIs:
+def lambda_handler(event, context):
+    access_token = event.get("sessionAttributes", {}).get("okta_access_token")
+    user_email   = event.get("sessionAttributes", {}).get("user_email")
+
+    resp = requests.get(
+        "https://yourorg.okta.com/api/v1/users/me",
+        headers={"Authorization": f"Bearer {access_token}"},
+    )
+    ...
+Click Prepare after any change, before testing.
+Note the Agent ID and create an Alias; note the Alias ID.
+
+Part 3: Configure your application
+Project structure
+bedrock-agent-p1/
+├── main.py           # XAA token exchange + Bedrock Agent invocation
+├── requirements.txt
+├── .env              # Secrets (gitignored)
+└── .env.example      # Template
+Install dependencies
+# requirements.txt
+boto3>=1.34.0
+requests>=2.31.0
+PyJWT>=2.8.0
+cryptography>=42.0.0
+python-dotenv>=1.0.0
+botocore[crt]
+Note: botocore[crt] is required when AWS credentials use the SSO login credential provider.
+Set up your virtual environment:
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+Environment variables
+Create a .env file with the following values:
+Variable
+Description
+OKTA_DOMAIN
+Your Okta org URL (e.g., https://yourorg.okta.com)
+CUSTOM_AS
+Authorization server ID (default or your custom AS ID)
+AGENT_CLIENT_ID
+Okta AI Agent (WORKLOAD) client ID
+AGENT_KEY_ID
+kid of the registered public key
+AGENT_PRIVATE_KEY_JWK
+RSA private key JWK (full JSON, single-line string)
+
+
+Variable
+Description
+AWS_REGION
+AWS region for Bedrock (e.g., us-east-1)
+AWS_DEFAULT_REGION
+Must match AWS_REGION
+BEDROCK_AGENT_ID
+Bedrock Agent ID (from the Agents list in the AWS Console)
+BEDROCK_AGENT_ALIAS_ID
+Bedrock Agent Alias ID
+
+AWS_DEFAULT_REGION vs AWS_REGION: AWS_REGION is passed as region_name to the boto3 client. AWS_DEFAULT_REGION is read by boto3 internals when refreshing SSO credentials; omitting it causes a NoRegionError.
+Token exchange flow
+The application makes two HTTP POST calls to Okta's token endpoints directly — no Okta SDK is required.
+Step 1: Exchange id_token for ID-JAG (Org AS)
+POST /oauth2/v1/token
+grant_type=urn:ietf:params:oauth:grant-type:token-exchange
+client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+client_assertion=<signed JWT, aud=org token URL>
+subject_token=<user id_token>
+subject_token_type=urn:ietf:params:oauth:token-type:id_token
+requested_token_type=urn:ietf:params:oauth:token-type:id-jag
+scope=xaa:read
+audience=https://<domain>/oauth2/<custom-as-id>
+Step 2: Exchange ID-JAG for access_token (Custom AS)
+POST /oauth2/<custom-as-id>/v1/token
+grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
+client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+client_assertion=<signed JWT, aud=custom AS token URL>
+assertion=<id_jag from Step 1>
+The client_assertion is a short-lived JWT (5-minute expiry) signed with the agent's RSA private key using RS256. The kid header must match the registered public key.
+{
+  "iss": "<agent_client_id>",
+  "sub": "<agent_client_id>",
+  "aud": "<token_endpoint_url>",
+  "iat": <now>,
+  "exp": <now + 300>,
+  "jti": "<uuid>"
+}
+Invoke the Bedrock Agent
+After the token exchange, invoke the agent and pass the access_token and user claims as sessionAttributes. This is the AWS-specific part of the integration:
+import boto3, uuid
+
+def invoke_bedrock_agent(prompt, user_claims, access_token):
+    client = boto3.client("bedrock-agent-runtime", region_name=AWS_REGION)
+
+    response = client.invoke_agent(
+        agentId=BEDROCK_AGENT_ID,
+        agentAliasId=BEDROCK_AGENT_ALIAS_ID,
+        sessionId=str(uuid.uuid4()),  # reuse across turns for multi-turn sessions
+        inputText=prompt,
+        sessionState={
+            "sessionAttributes": {
+                "okta_access_token": access_token,
+                "user_name":  user_claims.get("name", ""),
+                "user_email": user_claims.get("email", ""),
+                "user_sub":   user_claims.get("sub", ""),
+            }
+        }
+    )
+
+    # Response is a streaming EventStream
+    chunks = [
+        e["chunk"]["bytes"].decode()
+        for e in response["completion"]
+        if "chunk" in e
+    ]
+    return "".join(chunks)
+
+Part 4: Test
+To get an id_token for testing, complete an OIDC login against your Okta org using the OIDC web app. The app's CLIENT_ID must match the aud claim in the token.
+Run locally:
+source venv/bin/activate
+python main.py '{"id_token": "<okta_id_token>", "prompt": "Who am I?"}'
+Expected output on success:
+{
+  "ok": true,
+  "user": "Jane Doe",
+  "access_token_prefix": "eyJraWQiOiI...",
+  "answer": "Hello! How can I help you today?"
+}
+Useful AWS CLI commands:
+# List your Bedrock Agents
+aws bedrock list-agents --region us-east-1
+
+# Find an Agent's Alias IDs
+aws bedrock list-agent-aliases \
+  --agent-id <BEDROCK_AGENT_ID> \
+  --region us-east-1
+
+# Invoke the agent directly (bypassing main.py)
+aws bedrock-agent-runtime invoke-agent \
+  --agent-id <BEDROCK_AGENT_ID> \
+  --agent-alias-id <BEDROCK_AGENT_ALIAS_ID> \
+  --session-id test-session-1 \
+  --input-text "Hello" \
+  --region us-east-1 \
+  outfile.json
+
+# Check Lambda logs for action groups
+aws logs tail /aws/lambda/<action-group-function-name> \
+  --follow \
+  --region us-east-1
+
+Troubleshooting
+Error
+Root cause
+Fix
+invalid_scope: openid not allowed
+System scopes are stripped in the ID-JAG flow
+Use a custom scope like xaa:read
+invalid_client: JWKSet not configured
+Public key not registered on the AI Agent
+Register the public JWK in Admin Console
+invalid_client: kid is invalid
+Wrong kid value in your code
+Copy kid from Admin Console > AI Agent > Public Keys
+access_denied: no_matching_policy
+Custom AS policy is missing the JWT Bearer grant type
+Enable JWT Bearer in the access policy rule
+Only service apps can use client_credentials
+Wrong client type for the Org AS
+Only WORKLOAD (AI Agent) type can perform Step 1
+NoRegionError
+boto3 SSO credential refresher needs AWS_DEFAULT_REGION
+Set AWS_DEFAULT_REGION=us-east-1 in .env
+Missing Dependency: botocore[crt]
+SSO credential provider requires the CRT extension
+Run pip install botocore[crt] in your venv
+throttlingException on InvokeAgent
+Bedrock model invocation quota is at zero or exceeded
+Check Bedrock > Model access in the AWS Console; a quota of 0 disables all requests
+Agent Instruction cannot be null
+Bedrock Agent was created without instructions
+AWS Console > Bedrock > Agents > Edit > add instruction > Prepare
+ResourceNotFoundException on InvokeAgent
+Wrong Agent ID or Alias ID
+Verify both IDs in AWS Console > Bedrock > Agents
+
+
+Editorial note: Sections marked with amber callouts contain content that will move to shared articles once they're published. Click any collapsed section to review content excluded from the final published version. The four deferred sections are: (1) the XAA conceptual explanation + flow diagram → Overview / Secure Imported AI Agents; (2) Okta configuration steps (Part 1) → Token Exchange Reference; (3) token exchange HTTP details + client_assertion JWT structure → Token Exchange Reference; (4) Okta-side environment variables → Token Exchange Reference. The AWS-specific core of this article is: Part 2 (Bedrock Agent setup), the invoke_bedrock_agent code, and the sessionAttributes pattern.
+
