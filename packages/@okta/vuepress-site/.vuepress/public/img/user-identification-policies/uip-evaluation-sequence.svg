@@ -68,7 +68,7 @@
     <text x="670" y="363">6. Matching rule &#8594; showSignInWithOV: ALWAYS | NEVER</text>
     <line x1="860" y1="370" x2="480" y2="370" stroke="#64748B" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#arrowReturn)"/>
     <!-- 7 (self) -->
-    <text x="498" y="407" text-anchor="start">7. Apply global gate: Okta Verify configured + FastPass enabled *</text>
+    <text x="498" y="407" text-anchor="start">7. Apply global gate: Okta Verify configured + Okta FastPass enabled *</text>
     <path d="M480,414 H548 V428 H482" fill="none" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
     <!-- 8 (return) -->
     <text x="385" y="459">8. Button decision: show or hide the button</text>
