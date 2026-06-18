@@ -24,21 +24,21 @@ Review how OIE affects your apps, configurations, and user experiences. Examine 
 Before diving in, watch our how-to videos to learn about the OIE upgrade and how to identify Okta integration points in your org:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/N_FsbMFeyoM" title="OIE Upgrade Overview" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+<br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gUqZUSeL_oM" title="Identifying Okta Integration Points" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### User experience changes
 
 * [OIE sign-in flow behavior](https://help.okta.com/okta_help.htm?type=oie&id=sign-in-flows).
 * [App intent links in OIE](https://help.okta.com/okta_help.htm?type=oie&id=).??
-* [Sign-in flow changes with federation and SSO](https://help.okta.com/okta_help.htm?type=oie&id=).??
+* [Sign-in flow changes with federation and SSO](https://help.okta.com/okta_help.htm?type=oie&id=inbound-sign-in-flow)
 
 ### Policy changes
 
-* [App sign-on policy](https://help.okta.com/okta_help.htm?type=oie&id=).??
-* [Okta sign-on policies](https://help.okta.com/okta_help.htm?type=oie&id=).??
-* [Sign-on policy task differences](https://help.okta.com/okta_help.htm?type=oie&id=).??
-* [Multifactor authentication (MFA) enrollmet policy](https://help.okta.com/okta_help.htm?type=oie&id=).??
+* [App sign-on policy](https://help.okta.com/okta_help.htm?type=oie&id=app-sign-on-policy-changes).??
+* [Okta sign-on policies](https://help.okta.com/okta_help.htm?type=oie&id=okta-sign-on-policy-changes).??
+* [Sign-on policy task differences](https://help.okta.com/okta_help.htm?type=oie&id=compare-app-sign-on-policies).??
+* [Multifactor authentication (MFA) enrollmet policy](https://help.okta.com/okta_help.htm?type=oie&id=mfa-enrollment-policy-changes).??
 
 ### Multifactor Authentication (MFA) changes
 
