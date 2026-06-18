@@ -6109,6 +6109,8 @@ redirects:
     to: /docs/guides/create-an-app-integration/openidconnect/main/
   - from: /docs/guides/add-private-app/openidconnect/main
     to: /docs/guides/create-an-app-integration/openidconnect/main/
+  - from: /docs/guides/build-sso-integration/openidconnect/main/index.html
+    to: /docs/guides/create-an-app-integration/openidconnect/main/
   - from: /docs/guides/build-sso-integration/openidconnect/main/
     to: /docs/guides/create-an-app-integration/openidconnect/main/
   - from: /docs/guides/build-sso-integration/openidconnect/main/#deployment-models
@@ -6121,3 +6123,9 @@ redirects:
     to: /docs/concepts/oauth-claims/
   - from: /docs/guides/build-sso-integration/openidconnect/main/#rate-limit-considerations
     to: /docs/reference/rate-limits/
+  - from: /docs/guides/build-sso-integration/saml2/index.html
+    to: /docs/guides/create-an-app-integration/saml2/main/
+  - from: /docs/guides/build-sso-integration/saml2/main
+    to: /docs/guides/create-an-app-integration/saml2/main/
+  - from: /docs/guides/build-sso-integration/
+    to: /docs/guides/create-an-app-integration/

@@ -18,7 +18,6 @@ This guide explains what an app integration is, why you need one, and how to cre
 
 * An [Okta Integrator Free Plan org](https://developer.okta.com/signup/).
 * An admin user in the Integrator Free Plan org with either the super admin or the app and org admin roles.
-* A functional SSO integration created in accordance with the [Build a Single Sign-On integration](/docs/guides/create-an-app-integration) guide.
 
 ---
 
