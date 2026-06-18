@@ -465,7 +465,7 @@ export const guides = [
           {
             title: "User identification policies",
             guideName: "user-identification-policies"
-          }
+          },
           {
             title: "Okta account management policy",
             guideName: "okta-account-management-policy"
