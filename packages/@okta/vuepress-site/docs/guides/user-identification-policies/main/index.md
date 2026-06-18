@@ -15,7 +15,7 @@ This guide describes how to use the [Policies API](https://developer.okta.com/do
 #### What you need
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
-* The User Identification Policy feature enabled for your org
+* The user identification policy feature enabled for your org
 * [Okta Verify configured](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-ov) as an authenticator, with Okta FastPass enabled
 * An existing [app sign-in policy](/docs/concepts/policies/#app-sign-in-policies) for the app that you want to configure
 * A test [user account](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users)
@@ -31,11 +31,11 @@ Previously, the **Sign in with Okta Verify** button was an org-wide authenticato
 
 ### Relationship to app sign-in policies
 
-Each user identification policy maps one-to-one to an [app sign-in policy](/docs/concepts/policies/#app-sign-in-policies). Okta creates, maps, clones, and removes the user identification policy automatically with its app sign-in policy. You can't create, deactivate, remove, map, or clone a user identification policy directly.
+Each user identification policy maps one-to-one to an [app sign-in policy](/docs/concepts/policies/#app-sign-in-policies). Okta creates, maps, clones, and removes the user identification policy automatically with its app sign-in policy. You can't create, activate, update, deactivate, remove, map, or clone a user identification policy directly.
 
 If you call one of those operations directly, Okta returns the following error:
 
-`This operation isn't supported in the User Identification Policy.`
+`This operation isn't supported in the user identification policy.`
 
 You manage only the **rules** on the policy. Each policy has a default rule that you can't deactivate or remove.
 
@@ -50,9 +50,7 @@ Each rule sets `actions.userIdentification.settings.showSignInWithOV` to one of 
 * `ALWAYS`: Show the **Sign in with Okta Verify** button on the Sign-In Widget.
 * `NEVER`: Hide the **Sign in with Okta Verify** button on the Sign-In Widget.
 
-> **Note:** You can only set `showSignInWithOV` to `ALWAYS` when Okta Verify is configured and Okta FastPass is enabled. Otherwise, Okta returns the following error: `This rule cannot be saved. Okta FastPass is not enabled for this org. To save this rule, enable Okta FastPass in the Okta Verify authenticator (Security > Authenticators > Okta Verify > Actions > Edit).`
-
-> **Note:** The deprecated authenticator setting `settings.showSignInWithOV` on the `/api/v1/authenticators/{id}/methods/signed_nonce` endpoint still overrides all user identification policy rules. Use the user identification policy instead. See [Okta Verify authenticator](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthenticatorMethods/).
+> **Note:** You can only set `showSignInWithOV` to `ALWAYS` when Okta Verify is configured and Okta FastPass is enabled. Otherwise, Okta returns the following error: `This rule can't be saved. Okta FastPass isn't enabled for this org. To save this rule, enable Okta FastPass in the Okta Verify authenticator.`
 
 ### How user identification works at sign-in
 
@@ -107,6 +105,80 @@ Use the [List all policies](https://developer.okta.com/docs/api/openapi/okta-man
                     "allow": [
                         "GET",
                         "POST"
+                    ]
+                }
+            },
+            "mappings": {
+                "href": "https://{yourOktaDomain}/api/v1/policies/{policyId}/mappings",
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            }
+        }
+    }
+]
+```
+
+### Find the policy from its app sign-in policy
+
+You can also find a user identification policy from its mapped app sign-in policy. Each app sign-in policy (`ACCESS_POLICY`) includes a `userIdentificationPolicy` link to its linked user identification policy.
+
+1. Set the `type` query parameter to `ACCESS_POLICY`.
+1. Send the `GET /api/v1/policies?type=ACCESS_POLICY` request.
+1. In the response, find the app sign-in policy for your app.
+1. Follow the `_links.userIdentificationPolicy.href` to the linked user identification policy.
+
+### List app sign-in policies response example
+
+```json
+[
+    {
+        "type": "ACCESS_POLICY",
+        "id": "appSignOnPolicyId",
+        "status": "ACTIVE",
+        "name": "App sign-in policy",
+        "description": "App sign-in policy description",
+        "priority": 1,
+        "system": false,
+        "conditions": null,
+        "created": "2025-04-25T17:35:02.000Z",
+        "lastUpdated": "2025-04-25T17:35:02.000Z",
+        "_links": {
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/policies/{appSignOnPolicyId}",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "PUT",
+                        "DELETE"
+                    ]
+                }
+            },
+            "rules": {
+                "href": "https://{yourOktaDomain}/api/v1/policies/{appSignOnPolicyId}/rules",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "POST"
+                    ]
+                }
+            },
+            "mappings": {
+                "href": "https://{yourOktaDomain}/api/v1/policies/{appSignOnPolicyId}/mappings",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "POST"
+                    ]
+                }
+            },
+            "userIdentificationPolicy": {
+                "href": "https://{yourOktaDomain}/api/v1/policies/{policyId}",
+                "hints": {
+                    "allow": [
+                        "GET"
                     ]
                 }
             }
