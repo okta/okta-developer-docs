@@ -1,7 +1,7 @@
 * [OIN catalog properties](/docs/guides/submit-oin-app/wfactions/main/#oin-catalog-properties)
 * [Tenant settings](/docs/guides/submit-oin-app/wfactions/main/#tenant-settings)
    > **Notes:** 
-   > * See [Update integration considerations](#update-integration-considerations) for backward compatibility with changing tenant settings.
+   > * See [Update integration considerations](#update-integration-considerations) for backward compatibility with changing updated settings.
    > * You can't edit **Authentication settings** for an existing integration.
 
 1. Click **Save and start building** to navigate to the [Integration Builder](/docs/guides/build-api-actions/main/). Update or add actions for your integration in the Integration Builder.
