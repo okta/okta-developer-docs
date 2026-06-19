@@ -7,4 +7,4 @@
 
   * For a Universal Logout integration updates, test the logout flow manually. See [Test your Universal Logout integration](/docs/guides/submit-oin-app/wfactions/main/#test-your-universal-logout-integration).
 
-  * For API Integration Actions updates, Okta also provides a test plan for you to functionally test your provisioning flow through the Admin Console and End-User Dashboard. See [Test API integration action provisioning](/docs/guides/submit-oin-app/wfactions/main/#test-api-integration-action-provisioning).
+  * For API Integration Actions updates, Okta provides a test plan for you to functionally test your provisioning flow through the Admin Console and End-User Dashboard. See [Test API integration action provisioning](/docs/guides/submit-oin-app/wfactions/main/#test-api-integration-action-provisioning).

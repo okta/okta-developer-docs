@@ -1,6 +1,7 @@
-For an SSO integration, use the OIN Submission Tester to test the required flows on your generated test instance.
+Test your updates:
 
-1. Go to the [Application instance for testing](/docs/guides/submit-oin-app/saml2/main/#application-instances-for-testing) section on the **Test integration** page.
-1. Add your test instance to the OIN Submission Tester. See [Add to Tester](/docs/guides/submit-oin-app/saml2/main/#add-to-tester).
-1. Run the required tests in the OIN Submission Tester. Fix any test failures, then regenerate the test instance (if necessary) and retest. See [OIN Submission Tester](/docs/guides/submit-oin-app/saml2/main/#oin-submission-tester).
-1. Test the logout flow manually for Universal Logout integration. See [Test your Universal Logout integration](/docs/guides/submit-oin-app/openidconnect/main/#test-your-universal-logout-integration).
+  * For an SSO integration updates, test the required flows in the [OIN Submission Tester](/guides/submit-oin-app/wfactions/main/#oin-submission-tester) with your generated test instance. Fix any test failures from the OIN Submission Tester, then regenerate the test instance (if necessary) and retest.
+
+  * For a Universal Logout integration updates, test the logout flow manually. See [Test your Universal Logout integration](/docs/guides/submit-oin-app/wfactions/main/#test-your-universal-logout-integration).
+
+  * For API Integration Actions updates, Okta provides a test plan for you to functionally test your provisioning flow through the Admin Console and End-User Dashboard. See [Test API integration action provisioning](/docs/guides/submit-oin-app/wfactions/main/#test-api-integration-action-provisioning).
