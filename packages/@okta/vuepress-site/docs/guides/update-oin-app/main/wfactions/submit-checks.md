@@ -1,9 +1,6 @@
-The OIN Wizard checks the following for SSO submissions:
+The OIN Wizard checks the following for updated submissions:
 
 * All required instances are detected.
 * All required instances are active.
-* All required tests for the updated and backward-compatible instances passed within the last 48 hours.
-
-The OIN Wizard checks the following for Universal Logout submissions:
-
-* All required instances are detected.
+* All required SSO tests for the updated and backward-compatible instances passed within the last 48 hours.
+* All API Integration Action flows are validated.

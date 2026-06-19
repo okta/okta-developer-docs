@@ -49,7 +49,7 @@ After you successfully test the updated and published versions of your integrati
 > **Note:** Some considerations on this page are specifically for the **<StackSnippet snippet="protocol-name" inline/>** . <br>
 > If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
 
-When you update an integration that's already published, be mindful to preserve backwards compatibility for your integration. Older instances of your integration could be in use by Okta customers.
+When you update an integration that's already published, be mindful to preserve backward compatibility for your integration. Older instances of your integration could be in use by Okta customers.
 
 * If you modify the **Name** (`name`) property of your [tenant settings](/docs/guides/submit-oin-app/openidconnect/main/#tenant-settings), Okta removes the original variable and creates a variable with your updated name. This action negatively impacts your existing customers if you use the original variable in your integration dynamic properties.
 
