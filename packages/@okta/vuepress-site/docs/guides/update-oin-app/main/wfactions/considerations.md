@@ -1,5 +1,7 @@
 * You can add the Entitlement Management capability only if your integration also supports provisioning with API Integration Actions.
 
+* The API service capability is mutually exclusive of other capabilities in a submission. If you selected the SSO or provisioning capabilities, you can't select the API service capability (the option is unavailable in the submission).
+
 * You can't update the authentication type for a published integration.
 
 * You can't change or remove any existing capabilities or protocols.

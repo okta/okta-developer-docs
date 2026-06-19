@@ -81,8 +81,8 @@ To update a previously published OIN integration:
     <StackSnippet snippet="detect-old-instance" />
 
 1. Click **Add integration details**. The **OIN catalog properties** page appears.
-1. Update [OIN catalog properties](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties) as required for your integration.
-1. Click **Configure your integration** to proceed to update your integration as required in the following sections of the OIN Wizard:
+
+1. Proceed to update your integration as required in the following sections of the OIN Wizard:
 
    <StackSnippet snippet="edit-links" />
 
