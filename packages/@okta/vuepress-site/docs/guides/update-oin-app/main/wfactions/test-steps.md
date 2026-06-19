@@ -1,6 +1,10 @@
 1. Generate app instances from your updated integration and assign test users. See [Generate instances for testing](#generate-instances-for-testing).
-> **Note**: For Universal Logout integration, you can use the same instance that you created for SSO protocol testing.
+> **Note**: For the Universal Logout capability, you can use the same instance that you created for SSO protocol testing.
 
-2. Test the required flows for each of your SSO instances. See [Test your integration](#test-your-integration).
+2. Test your updates:
 
-3. Test the logout flow manually for Universal Logout integration. See [Test your integration](#test-your-integration).
+  * For an SSO integration updates, test the required flows in the [OIN Submission Tester](/guides/submit-oin-app/wfactions/main/#oin-submission-tester) with your generated test instance. Fix any test failures from the OIN Submission Tester, then regenerate the test instance (if necessary) and retest.
+
+  * For a Universal Logout integration updates, test the logout flow manually. See [Test your Universal Logout integration](/docs/guides/submit-oin-app/wfactions/main/#test-your-universal-logout-integration).
+
+  * For API Integration Actions updates, Okta also provides a test plan for you to functionally test your provisioning flow through the Admin Console and End-User Dashboard. See [Test API integration action provisioning](/docs/guides/submit-oin-app/wfactions/main/#test-api-integration-action-provisioning).

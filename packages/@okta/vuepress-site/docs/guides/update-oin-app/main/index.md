@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-Learn how to update an existing integration with SSO, Universal Logout, provisioning, entitlement management, or API service capabilities in the Okta Integration Network (OIN) using the OIN Wizard.
+Learn how to update an existing integration with SSO, Universal Logout, provisioning, Entitlement Management, or API service capabilities in the Okta Integration Network (OIN) using the OIN Wizard.
 
 ---
 
