@@ -71,8 +71,7 @@ The token exchange depends on Okta objects that you configure once per org. Conf
 * An OIDC web app integration that signs users in and issues the `id_token` your agent exchanges. Use the Authorization Code grant type and the `openid profile email` scopes. The `id_token` must have an `aud` claim equal to this app's client ID.
 * A custom authorization server. Use the built-in `default` server or create one.
 * A custom scope on the custom authorization server, such as `xaa:read`.
-* An imported Amazon Bedrock AgentCore agent into Okta that uses `private_key_jwt` client authentication, with its public key (JWK) registered. Link the OIDC web app, set the custom authorization server, include your custom scope, and activate the agent.
-* An AI Agent (WORKLOAD client)** that uses `private_key_jwt` client authentication, with its public key (JWK) registered. Link the OIDC web app, set the custom authorization server, include your custom scope, and activate the agent.
+* The Bedrock AgentCore agent imported into Okta as an AI Agent identity that uses `private_key_jwt` client authentication, with its public key (JWK) registered. Link the OIDC web app, set the custom authorization server, include your custom scope, and activate the agent.
 
   > **Note:** Okta doesn't retain the agent's private key. Store it in a secrets manager when it's generated, because it's shown only once.
 

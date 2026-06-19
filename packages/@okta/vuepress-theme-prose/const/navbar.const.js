@@ -1016,6 +1016,10 @@ export const guides = [
         title: "Secure AI Agents",
         subLinks: [
           {
+            title: "Generic - Secure Third-Party AI Agents",
+            guideName: "ai-agent-secure-third-party",
+          },
+          {
             title: "Set up third-party AI agent token exchange",
             guideName: "ai-agent-third-party-token-exchange",
           },
