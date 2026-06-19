@@ -13,6 +13,30 @@ title: Okta Identity Engine API release notes 2026
 
 ## June
 
+### Weekly release 2026.06.2
+<!-- Published on: 2026-06-17T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Agent-to-agent connections is EA in Preview](#agent-to-agent-connections-is-ea-in-preview)| June 17, 2026 |
+| [Register an AI agent API appId parameter deprecated](#register-an-ai-agent-api-appid-parameter-deprecated) | June 17, 2026 |
+| [Bug fixed in 2026.06.2](#bug-fixed-in-2026-06-2) | June 17, 2026 |
+
+#### Agent-to-agent connections is EA in Preview
+
+Agent-to-agent server connections allow admins to connect AI agents to other AI agents through delegated links.
+Admins can manage scopes to restrict access to the appropriate AI agent tasks, and allow service apps to call AI agents without user context. Using tokens and the System Log, admins can view all the users, AI agents, and apps that call an AI agent. See [Agent-to-agent token exchange](/docs/guides/ea-ai-agent-token-exchange/agent-to-agent/main/).
+
+The Delegated Links API is BETA. Delegated links are explicit, configurable policy statements that declare which principals (OIDC apps or other agents) and token types each agent accepts as valid proof of identity. This replaces the implicit linked app policy. See Delegation Links API. <!--(https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks). --> <!-- FF SECURE_AI_A2A_SERVERS preview release 2026.06.2 OKTA-1197640 -->
+
+#### Register an AI agent API appId parameter deprecated
+
+The `appId` parameter for the Register an AI agent API has been deprecated. Use the Delegation Links API<!-- (https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks) --> instead. <!-- FF SECURE_AI_A2A_SERVERS OKTA-1180123 in preview 2026.06.2 -->
+
+#### Bug fixed in 2026.06.2
+
+When an admin deleted an Okta managed user account (`DELETE /privileged-access/api/v1/okta-service-accounts/{id}`) from Okta Privileged Access, the linked Okta user was suspended. (OKTA-1199623)
+
 ### Weekly release 2026.06.1
 <!-- Published on: 2026-06-10T12:00:00Z -->
 
