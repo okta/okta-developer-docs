@@ -1,7 +1,7 @@
 The **Required app instances** section shows you the instances detected in your org that are required to test your integration.
 
 * The **CURRENT VERSION** status indicates the instances that you need to test your current integration submission. [Generate an instance](#generate-an-instance) to test SCIM if **No instance detected** appears next to the **SCIM** label.
-* The **PUBLISHED VERSION** status indicates the instances that you need to test backwards compatibility for SSO. If your integration only supports the SCIM protocol, then the OIN Wizard doesn't require a published-version instance.
+* The **PUBLISHED VERSION** status indicates the instances that you need to test backward compatibility for SSO. If your integration only supports the SCIM protocol, then the OIN Wizard doesn't require a published-version instance.
 
 Depending on the nature of your updates, you may need to generate instances for backward-compatibility testing. Okta recommends that you execute the Runscope tests on your SCIM published-version instance for backwards compatibility, but it's not a requirement for submission.
 
