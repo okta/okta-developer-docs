@@ -226,3 +226,5 @@ curl -v -X GET \
 ## Next steps
 
 To enforce custom device attributes that the built-in checks don't cover, define your own osquery checks and show users custom remediation instructions when a device fails. See [Configure advanced posture checks and custom remediation](/docs/guides/device-assurance-posture-checks-and-remediation/).
+
+To use device posture signals from an external compliance service in your policies, integrate a SAML or OIDC device posture IdP. See [Configure a device posture IdP](/docs/guides/device-posture-idp/).
