@@ -47,7 +47,7 @@ export default {
       journeys: [
         {
           title: "Sign users in through your web app",
-          description: "Add sign-in and sign-out using the Okta SDK. Keep authentication native to your experience rather than redirecting users to an external page.",
+          description: "Learn the best way to securely sign users in and out of your app with Okta. This includes managing tokens and maintaining user sessions.",
           link: "/docs/journeys/OCI-web-sign-in/main/",
           icon: "/img/web-app-icon.svg",
           iconDark: "/img/dark-web-app-icon.svg",
