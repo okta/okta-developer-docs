@@ -16,7 +16,7 @@
    | **Client secret \*** | Enter the client secret from your IDV vendor. |
    | **Scope \*** | The `openid`, `profile`, and `identity_assurance` scopes are pre-filled in the field and are required to perform the verification. Select the field and enter the name of another scope that you want to add. Press Enter. Repeat for each additional scope that you want to add. |
 
-1. Click **Finish**. Okta performs a verification check on the configuration.
+1. Click **Finish** to complete configuring your instance..
 1. Add your user attributes by clicking the user profile dropdown menu, selecting the appropriate profile attribute, and mapping it to your configuration.
 1. Click **Finish**. 
 1. Click **Begin testing**. This action redirects you back to the **Test integration** page, where the newly created instance is now listed under the detected instances section.

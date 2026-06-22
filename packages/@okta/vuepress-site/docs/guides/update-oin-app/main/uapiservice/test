@@ -1,0 +1,32 @@
+```mermaid
+flowchart LR
+    classDef clientBox fill:#E8F4FD,stroke:#006AC1,color:#1B1B1B,font-size:13px
+    classDef mcpBox fill:#006AC1,stroke:#004F8C,color:#FFFFFF,font-size:13px
+    classDef subBox fill:#1A6DB5,stroke:#FFFFFF,color:#FFFFFF,font-size:11px
+    classDef oktaBox fill:#F5F5F5,stroke:#CCCCCC,color:#1B1B1B,font-size:13px
+
+    subgraph CLIENT["MCP Client"]
+        C1["Claude Desktop\nVS Code\nAmazon Bedrock"]
+    end
+
+    subgraph MCP["Okta-Hosted MCP Server"]
+        direction TB
+        S1["① Authentication & Validation\n─────────────────────\n• Verifies OIDC session\n• Checks OAuth scopes\n• Validates inputs against security schemas"]
+        S2["② API Execution\n─────────────────────\n• Identifies relevant Okta API\n• Executes call against your Okta org\n• Retrieves result"]
+        S3["③ Response Optimization\n─────────────────────\n• Removes _links and _embedded\n• Returns clean, concise result"]
+        S1 --> S2 --> S3
+    end
+
+    subgraph OKTA["Okta Admin Console"]
+        O1["Users\nGroups\nApplications\nPolicies\nSystem Logs\nOIG"]
+    end
+
+    CLIENT -->|"① HTTPS\nSecure request"| MCP
+    MCP -->|"② Okta API call"| OKTA
+    OKTA -->|"③ API response"| MCP
+    MCP -->|"④ Clean, optimized\nresponse"| CLIENT
+
+    class CLIENT,C1 clientBox
+    class MCP mcpBox
+    class S1,S2,S3 subBox
+    class OKTA,O1 oktaBox
