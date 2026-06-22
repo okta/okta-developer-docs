@@ -188,7 +188,7 @@ Your device posture IdP must send device posture data to Okta in a specific form
 
 ### SAML assertion data contract
 
-See [SAML assertion data contract](https://help.okta.com/oie/en-us/content/topics/identity-engine/devices/device-assurance-device-posture-idp.htm) in the Okta product documentation.
+See [SAML assertion data contract](https://help.okta.com/okta_help.htm?type=oie&id=device-assurance-dev-posture-idp#identity-engine-devices-device-assurance-device-posture-idp__SAML_assertion) in the Okta product documentation.
 
 ### OIDC data contract
 
