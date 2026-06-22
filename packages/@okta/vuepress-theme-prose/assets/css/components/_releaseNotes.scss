@@ -34,7 +34,7 @@
   @include media(">tablet") {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: start;
+    align-items: center;
     gap: 32px;
   }
 }
@@ -47,7 +47,7 @@
   padding: 32px 16px 0;
 
   @include media(">desktop") {
-    padding: 96px 32px 32px;
+    padding: 32px;
   }
 }
 
@@ -63,6 +63,8 @@
   color: var(--release-notes-title-color);
 
   @include media(">desktop") {
+    margin-bottom: 48px;
+
     font-size: 48px;
     line-height: 56px;
     letter-spacing: -0.96px;
