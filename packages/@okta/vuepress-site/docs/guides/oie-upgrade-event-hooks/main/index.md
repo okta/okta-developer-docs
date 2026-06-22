@@ -7,7 +7,7 @@ meta:
 
 <ApiLifecycle access="ie" />
 
-If your org uses event hooks that rely on Classic Engine event payloads or event types, update your event hook endpoints before you upgrade to Okta Identity Engine. Some event payload structures have changed, some event types are no longer available, and new Identity Engine event types may be relevant to your workflows.
+If your org uses event hooks that rely on Classic Engine event payloads or event types, update your event hook external service before you upgrade to Okta Identity Engine. Some event payload structures have changed, some event types are no longer available, and new Identity Engine event types may be relevant to your workflows.
 
 ---
 
@@ -105,11 +105,20 @@ Identity Engine introduces event types that weren't available in Classic Engine.
 
 | Event type | Description |
 | ---------- | ----------- |
-| `device.enrollment.create` | A device is enrolled |
+| `device.enrollment.create` | A new device is enrolled |
+| `device.lifecycle.activate` | A device is activated |
+| `device.lifecycle.deactivate` | A device is deactivated |
+| `device.lifecycle.delete` | A device is deleted |
+| `device.lifecycle.suspend` | A device is suspended |
+| `device.lifecycle.unsuspend` | A device is unsuspended |
+| `device.user.add` | A device is added to a user |
+| `device.user.remove` | A device is removed from a user |
+| `security.authenticator.lifecycle.activate` | An authenticator is activated for the org |
+| `security.authenticator.lifecycle.create` | An authenticator is created for the org |
+| `security.authenticator.lifecycle.deactivate` | An authenticator is deactivated for the org |
+| `security.authenticator.lifecycle.update` | An authenticator is updated for the org |
 | `user.mfa.factor.suspend` | A user's MFA factor is suspended |
 | `user.mfa.factor.unsuspend` | A user's MFA factor is unsuspended |
-| `security.authenticator.lifecycle.activated` | An authenticator is activated |
-| `security.authenticator.lifecycle.deactivate` | An authenticator is deactivated |
 
 See [Event types](/docs/reference/api/event-types/) for the full list of event types that are available for event hook subscriptions.
 
@@ -127,6 +136,6 @@ Complete these steps before you upgrade your org:
 ## See also
 
 * [Event hooks](/docs/concepts/event-hooks/): Conceptual background on how event hooks work.
-* [Event hook implementation](/docs/guides/event-hook-implementation/): A working example of an event hook with an external service.
+* [Event hooks with ngrok](/docs/guides/event-hook-ngrok/): Expose a local app to the internet with ngrok to test your updated endpoint before you upgrade.
 * [Event types](/docs/reference/api/event-types/): The full list of event types available for event hook subscriptions.
 * [Identity Engine limitations](/docs/guides/ie-limitations/): Other Classic Engine features and APIs that change or aren't supported in Identity Engine.
