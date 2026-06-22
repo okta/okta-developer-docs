@@ -12,10 +12,10 @@
             features, plus weekly bug fixes.
           </p>
           <a
-            class="release-notes__button dont-break-out"
+            class="release-notes__link dont-break-out"
             href="/docs/release-notes/"
           >
-            Go to release notes →
+            Go to release notes
           </a>
         </div>
         <div class="release-notes__newest-releases">
@@ -29,7 +29,7 @@
               class="release-notes__newest-releases-item"
             >
               <a
-                class="release-notes__newest-releases-link dont-break-out"
+                class="release-notes__link dont-break-out"
                 :href="release.link"
               >
                 {{ release.title }}

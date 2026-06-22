@@ -3,10 +3,6 @@
   --release-notes-card-background-color: var(--c-gray-050);
   --release-notes-title-color: var(--c-gray-950);
   --release-notes-description-color: var(--c-gray-750);
-  --release-notes-button-background-color: var(--c-black);
-  --release-notes-button-hover-background-color: var(--c-blue-550);
-  --release-notes-button-text-color: var(--c-white);
-  --release-notes-button-hover-text-color: var(--c-white);
   --release-notes-newest-releases-label-color: var(--c-gray-750);
   --release-notes-newest-releases-link-color: var(--c-gray-950);
 }
@@ -83,38 +79,6 @@
   color: var(--release-notes-description-color);
 }
 
-.release-notes__button {
-  display: inline-flex;
-  justify-content: flex-start;
-  align-items: center;
-
-  padding: 12px 96px 12px 32px;
-
-  border-radius: 4px;
-
-  background-color: var(--release-notes-button-background-color);
-
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: -0.16px;
-  text-decoration: none;
-
-  color: var(--release-notes-button-text-color);
-
-  &:hover {
-    background-color: var(--release-notes-button-hover-background-color);
-
-    text-decoration: none;
-
-    color: var(--release-notes-button-hover-text-color);
-  }
-
-  &:visited {
-    color: var(--release-notes-button-text-color);
-  }
-}
-
 .release-notes__newest-releases {
   display: flex;
   flex-direction: column;
@@ -148,7 +112,7 @@
   list-style: none;
 }
 
-.release-notes__newest-releases-link {
+.release-notes__link {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
