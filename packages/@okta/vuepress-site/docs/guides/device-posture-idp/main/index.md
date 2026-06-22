@@ -53,7 +53,7 @@ To use a device posture IdP in your org, complete the following steps:
 
 Add the external compliance service as a SAML 2.0 or OIDC IdP, and set its usage to device posture. This step creates the device posture provider integration that you manage in the rest of this guide.
 
-In the Admin Console:
+In the Admin Console, perform the following steps:
 
 1. Go to **Security** > **Identity Providers**.
 1. Click **Add identity provider**.
