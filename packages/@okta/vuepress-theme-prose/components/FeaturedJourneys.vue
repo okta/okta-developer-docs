@@ -54,7 +54,7 @@ export default {
         },
         {
           title: "Apply your brand to the Okta user experience",
-          description: "Customize colors, fonts, and CSS across Okta sign-in flows to match your brand. Deliver a consistent experience without building auth UI from scratch.",
+          description: "Customize colors, fonts, and CSS across Okta sign-in flows to match your brand. Deliver a consistent experience without building an auth UI from scratch.",
           link: "/docs/journeys/OCI-branding/main/",
           icon: "/img/your-brand-icon.svg",
           iconDark: "/img/dark-your-brand-icon.svg",
