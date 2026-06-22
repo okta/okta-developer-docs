@@ -1,2 +1,1 @@
-* See [Build an SSO integration](https://developer.okta.com/docs/guides/create-an-app-integration/openidconnect/main/) for information on how to make your SSO app integration publish in the OIN.
 * See [Publish an OIN integration](https://developer.okta.com/docs/guides/submit-app-overview/) for information on submitting your integration for publication in the OIN.
