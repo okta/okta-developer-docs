@@ -19,7 +19,7 @@ If your org uses event hooks that rely on Classic Engine event payloads or event
 
 #### What you need
 
-* One or more active event hooks configured in your Classic Engine org.
+* One or more active event hooks that are configured in your Classic Engine org.
 * An understanding of which event types your hooks subscribe to.
 * Access to the external service code that receives your event hook payloads.
 
@@ -32,7 +32,7 @@ Event hooks are outbound calls from Okta that notify your external service of ev
 When you upgrade from Classic Engine to Identity Engine, three kinds of changes can affect your event hooks:
 
 * The payload structure changes for some event types, which means that your endpoint may parse data from a field that no longer exists.
-* Some Classic Engine event types are no longer triggered in Identity Engine, which means that hooks subscribed to those events stop receiving calls.
+* Some Classic Engine event types are no longer triggered in Identity Engine, which means that hooks that are subscribed to those events stop receiving calls.
 * New event types are available only in Identity Engine, which you can subscribe to after you upgrade.
 
 Review the following sections and update your endpoints before you upgrade your production org.
@@ -127,7 +127,7 @@ See [Event types](/docs/reference/api/event-types/) for the full list of event t
 Complete these steps before you upgrade your org:
 
 1. List all active event hooks in your Classic Engine org. In the Admin Console, go to **Workflow** > **Event Hooks**.
-1. Identify which subscribed event types are affected by the Identity Engine changes in this guide.
+1. Identify which subscribed event types the Identity Engine changes affect.
 1. Update your endpoint code to handle the new payload structure for phone verification events.
 1. Remove subscriptions to event types that are no longer available in Identity Engine.
 1. Test your updated endpoints in a preview org or with sample Identity Engine payloads.
