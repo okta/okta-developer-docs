@@ -131,11 +131,11 @@ Complete these steps before you upgrade your org:
 1. Update your endpoint code to handle the new payload structure for phone verification events.
 1. Remove subscriptions to event types that are no longer available in Identity Engine.
 1. Test your updated endpoints in a preview org or with sample Identity Engine payloads.
-1. After you upgrade, add subscriptions for the new Identity Engine event types, if they're relevant to your workflows.
+1. Add event hooks for the new Identity Engine event types, if they're relevant to your workflows, after the upgrade.
 
 ## See also
 
 * [Event hooks](/docs/concepts/event-hooks/): Conceptual background on how event hooks work.
 * [Event hooks with ngrok](/docs/guides/event-hook-ngrok/): Expose a local app to the internet with ngrok to test your updated endpoint before you upgrade.
-* [Event types](/docs/reference/api/event-types/): The full list of event types available for event hook subscriptions.
+* [Event types](/docs/reference/api/event-types/): The full list of event types that are available for event hook subscriptions.
 * [Identity Engine limitations](/docs/guides/ie-limitations/): Other Classic Engine features and APIs that change or aren't supported in Identity Engine.
