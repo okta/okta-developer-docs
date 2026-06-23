@@ -7,7 +7,7 @@ meta:
 
 <ApiLifecycle access="ie" />
 
-If your org uses event hooks that rely on Classic Engine event payloads or event types, update your event hook external service before you upgrade to Okta Identity Engine. Some event payload structures have changed, some event types are no longer available, and new Identity Engine event types may be relevant to your workflows.
+If your org uses event hooks that rely on Classic Engine event payloads or event types, review your event hook external service before you upgrade to Okta Identity Engine. Some event payload structures have changed, some event types are no longer available, and new Identity Engine event types may be relevant to your workflows.
 
 ---
 
@@ -101,7 +101,7 @@ Some Classic Engine event types aren't triggered in Identity Engine. If your hoo
 
 ## New event types available only in Identity Engine
 
-Identity Engine introduces event types that weren't available in Classic Engine. If these events are relevant to your workflows, subscribe to them after you upgrade.
+Identity Engine introduces event types that weren't available in Classic Engine. If these events are relevant to your workflows, you can subscribe to them with event hooks after you upgrade.
 
 | Event type | Description |
 | ---------- | ----------- |
