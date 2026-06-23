@@ -121,15 +121,15 @@ A policy can have at most one draft or staged branch at a time, alongside the li
 
 An app sign-in policy branch can have one of the following states:
 
-* **Draft branch:** A new branch created that's created as a copy of the live policy. Rules are inherited and can be edited. Draft branches can be promoted directly to live, but can't be monitored.
+* **Draft branch:** A new branch that's created as a copy of the live policy. Rules are inherited and can be edited. You can promote draft branches directly to live, but you can't monitor them.
 * **Staged branch:** A draft branch that has been staged. Rules can be added, updated, or deleted. You can enable monitoring on a staged branch to evaluate its rules against real user traffic without enforcing them.
 * **Live branch:** The set of policy rules that are currently enforced. This is the standard branch state for an app sign-in policy.
 
-Enable monitoring on a staged branch to evaluate its rules against real user traffic without enforcing them. This lets you assess the impact of your changes before deploying them.
+Enable monitoring on a staged branch to evaluate its rules against real user traffic without enforcing them. This lets you assess the impact of your changes before you deploy them.
 
-To enable monitoring on a staged branch, set a monitoring expiry date when you stage the branch. The maximum monitoring period is 28 days. Monitoring stops automatically when the branch is promoted to live, reverted to draft, or the expiry passes. To view monitoring data, see [Use the Policy Insights Dashboard](https://help.okta.com/okta_help.htm?type=oie&id=policy-insights-dashboard).
+To enable this, set a monitoring expiry date when you stage the branch. The maximum monitoring period is 28 days. Monitoring stops automatically when you promote the brach to live, revert it to draft, or the expiry passes. To view monitoring data, see [Use the Policy Insights Dashboard](https://help.okta.com/okta_help.htm?type=oie&id=policy-insights-dashboard).
 
-Previously live branches are stored in a branch history. You can restore a branch from history to make it live again. When you restore a branch, the restored branch is still included in the branch history. Okta makes an identical copy of the branch in the branch history and promotes the copy as the live branch.
+Previously live branches are stored in a branch history. You can restore a branch from history to make it live again. Restored branches are still included in the branch history. Okta makes an identical copy of the branch in the branch history and promotes the copy as the live branch.
 
 To configure staged branches for an app sign-in policy, see [Manage staged app sign-in policy branches](https://help.okta.com/okta_help.htm?type=oie&id=ext-staged-policy-branches).
 
