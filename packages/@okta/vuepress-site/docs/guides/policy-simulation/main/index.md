@@ -36,6 +36,7 @@ You can simulate matches for the following types of policies and rules:
 * Authenticator enrollment policies
 * Global session policies
 * User enrollment policies for apps
+* [User identification policies](/docs/guides/user-identification-policies/main/)
 
 For background information on policies, see [Policies](/docs/concepts/policies) and [Global session and app sign-in policies](/docs/guides/configure-signon-policy/main/).
 
