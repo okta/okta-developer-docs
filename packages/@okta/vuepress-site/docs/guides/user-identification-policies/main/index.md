@@ -37,7 +37,7 @@ If you call one of those operations directly, Okta returns the following error:
 
 `This operation isn't supported in the user identification policy.`
 
-You manage only the **rules** on the policy. You can create and update rules, but you can't delete them. Each policy has a default rule that you can't deactivate or remove.
+You manage only the **rules** on the policy. You can create, update, and delete rules, but you can't deactivate or remove the default rule.
 
 > **Note:** The user identification policy is closely related to the [device signal collection policy](/docs/guides/device-signal-collection-policies/), which also works as part of your app sign-in policies.
 
