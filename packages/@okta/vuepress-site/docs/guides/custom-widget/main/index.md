@@ -733,7 +733,7 @@ config['features.registration'] = true;
 OktaUtil.renderSignInWidgetToEl('okta-login-container', config);
 ```
 
-> **Caution:** Do **not** override the entire `config.features` object. Assigning a new object to `config.features` (for example, `config.features = { registration: true }`) removes all of Okta's default feature settings and can break flows such as the password-reset email link. Always set individual feature flags as shown above.
+> **Caution:** **Don’t** override the entire `config.features` object. Assigning a new object to `config.features` (for example, `config.features = { registration: true }`) removes all of Okta's default feature settings and can break flows such as the password-reset email link. Always set individual feature flags as shown earlier.
 
 ### About the Sign-In Widget version
 
