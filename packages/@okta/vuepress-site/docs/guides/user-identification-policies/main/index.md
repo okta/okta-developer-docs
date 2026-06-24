@@ -37,7 +37,7 @@ If you call one of those operations directly, Okta returns the following error:
 
 `This operation isn't supported in the user identification policy.`
 
-You manage only the **rules** on the policy. Each policy has a default rule that you can't deactivate or remove.
+You manage only the **rules** on the policy. You can create and update rules, but you can't delete them. Each policy has a default rule that you can't deactivate or remove.
 
 > **Note:** The user identification policy is closely related to the [device signal collection policy](/docs/guides/device-signal-collection-policies/), which also works as part of your app sign-in policies.
 
@@ -432,3 +432,7 @@ Create your own PUT request body or copy the [example request](#update-a-user-id
 ## Review the System Log
 
 Review your System Log events to confirm that your user identification policy is evaluated correctly. The user identification policy rule is included as a target of the `policy.evaluate_sign_on` event type. See [System Log query](/docs/reference/system-log-query/) and [Event Types](/docs/reference/api/event-types/).
+
+## Test your policy with policy simulation
+
+You can use the [policy simulation](/docs/guides/policy-simulation/main/) endpoint to test how your user identification policy rules evaluate for a given user and device context before you go live. Policy simulation returns the matched rule and the resulting `showSignInWithOV` value. See [Test your policies with access simulations](/docs/guides/policy-simulation/main/).
