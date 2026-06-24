@@ -606,6 +606,30 @@ var config = {
 };
 ```
 
+### Host your own language files
+
+The `i18n` option lets you override specific strings in languages Sign-In Widget already supports. If you need to support a language not in the default list, or want to serve language files from your own server instead of the Okta CDN, use `assets.baseUrl` and `assets.languages`.
+
+* `assets.baseUrl`: The base URL where your language files are served. The Sign-In Widget loads `labels/json/login_{lang}.json` and `country_{lang}.json` relative to this path.
+* `assets.languages`: The list of language codes you're hosting. This replaces Sign-In Widget's default supported-languages list. If a requested language isn't in the list, Sign-In Widget falls back to `en`.
+
+```javascript
+var config = {
+  baseUrl: 'https://{yourOktaDomain}',
+  assets: {
+    baseUrl: 'https://acme.com/assets/dist',
+    languages: ['en', 'ja', 'fr'],
+  },
+};
+
+var signIn = new OktaSignIn(config);
+```
+
+> **Notes:**
+>
+> * The language JSON source files are in the `dist/labels/json` folder of the [`@okta/okta-signin-widget` npm package](https://www.npmjs.com/package/@okta/okta-signin-widget).
+> * Hosting your own language files is also supported in the Gen3 Sign-In Widget used with redirect authentication. See [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/main/).
+
 ## Customization examples
 
 Use the following examples to help you customize the sign-in page with your own CSS, scripts, and per-application branding.
