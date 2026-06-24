@@ -34,6 +34,7 @@ The policy simulations run access tests based on existing policy configurations 
 * Authenticator enrollment policies
 * Global Session Policies
 * User enrollment policies for apps
+* [User identification policies](/docs/guides/user-identification-policies/main/)
 
 For background information on policies, see [Policies](/docs/concepts/policies) and [Global session and app sign-in policies](/docs/guides/configure-signon-policy/main/).
 
