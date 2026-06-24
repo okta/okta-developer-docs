@@ -56,7 +56,7 @@ Each rule sets `actions.userIdentification.settings.showSignInWithOV` to one of 
 
 The following diagram shows how Okta evaluates the user identification policy to decide whether to show the **Sign in with Okta Verify** button.
 
-![Sequence diagram showing Okta resolve the app sign-in policy, find the linked user identification policy, evaluate its rules against platform and network conditions, and return the Sign in with Okta Verify button decision to the Sign-In Widget.](/img/user-identification-policies/uip-evaluation-sequence.svg)
+![Sequence diagram showing Okta resolve the app sign-in policy, find the linked user identification policy, evaluate its rules against platform and network conditions, check the global gate against the Okta Verify authenticator, and return the Sign in with Okta Verify button decision to the Sign-In Widget.](/img/user-identification-policies/uip-evaluation-sequence.svg)
 
 ### How to configure a user identification policy
 
