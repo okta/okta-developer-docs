@@ -272,11 +272,11 @@ The following is a list of available design tokens with default values. See [Cus
 
 ## Language customization
 
-By default, the widget loads English text and fetches other languages on demand from the Okta CDN. Use the following options in the code editor to control language behavior.
+By default, the Sign-In Widget loads English text and fetches other languages on demand from the Okta CDN. Use the following options in the code editor to control language behavior.
 
 ### Set the language
 
-Use the `language` option to set a specific language for the widget. Pass a language code as a string, or a callback function that receives the supported and user-preferred languages and returns a language code.
+Use the `language` option to set a specific language for the Sign-In Widget. Pass a language code as a string, or a callback function that receives the supported and user-preferred languages and returns a language code.
 
 ```javascript
 new OktaSignIn({
@@ -312,10 +312,10 @@ new OktaSignIn({
 
 ### Host your own language files
 
-By default, the widget ships with English text only and loads other language files from the Okta CDN. To serve language files from your own host, use `assets.baseUrl` and `assets.languages`.
+By default, the Sign-In Widget ships with English text only and loads other language files from the Okta CDN. To serve language files from your own host, use `assets.baseUrl` and `assets.languages`.
 
-* `assets.baseUrl`: The base path where your language files are served. The widget loads `labels/json/login_{lang}.json` and `country_{lang}.json` relative to this URL.
-* `assets.languages`: The list of language codes you're hosting. This replaces the default supported-languages list. If a requested language isn't in the list, the widget falls back to `en`.
+* `assets.baseUrl`: The base path is where your language files are served. The Sign-In Widget loads `labels/json/login_{lang}.json` and `country_{lang}.json` relative to this URL.
+* `assets.languages`: The list of language codes you're hosting. This replaces the default supported-languages list. If a requested language isn't in the list, the Sign-In Widget falls back to `en`.
 
 ```javascript
 new OktaSignIn({
