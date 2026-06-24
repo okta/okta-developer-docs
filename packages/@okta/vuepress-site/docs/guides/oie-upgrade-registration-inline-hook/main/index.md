@@ -4,11 +4,11 @@ title: Upgrade registration inline hooks to Identity Engine
 
 <ApiLifecycle access="ie" />
 
-This guide explains what changes for your registration inline hook when you upgrade from Okta Classic Engine to Identity Engine, and how to update your external service so that self-service registration keeps working after the upgrade.
+This guide explains what changes for your registration inline hook when you upgrade from Okta Classic Engine to Identity Engine, and how to update your external service so that self-service registration functions after the upgrade.
 
-The registration inline hook still triggers during self-service registration and still responds with the same `commands` object. However, Identity Engine changes where you enable the hook in the Admin Console and the shape of the inline hook request that Okta sends to your external service. Existing hooks may experience compatibility issues until your external service is updated to consume the new request format. Identity Engine also introduces a new use case for the hook: progressive profile enrollment.
+The registration inline hook still triggers during self-service registration and responds with the same `commands` object. However, Identity Engine changes where you enable the hook in the Admin Console and the shape of the inline hook request that Okta sends to your external service. Existing hooks may experience compatibility issues until your external service is updated to consume the new request format. Identity Engine also introduces a new use case for the hook: progressive profile enrollment.
 
-> **Note:** This guide covers the upgrade. After you upgrade, see [Registration inline hook](/docs/guides/registration-inline-hook/nodejs/main/) for the complete Identity Engine implementation, including a runnable sample app. For the Classic Engine behavior that you're upgrading from, see [Registration inline hook for Classic Engine](/docs/guides/archive-registration-inline-hook/nodejs/main/).
+> **Note:** This guide covers the upgrade. After you upgrade, see the [Registration inline hook](/docs/guides/registration-inline-hook/nodejs/main/) for the complete Identity Engine implementation, including a runnable sample app. For the Classic Engine behavior that you're upgrading from, see [Registration inline hook for Classic Engine](/docs/guides/archive-registration-inline-hook/nodejs/main/).
 
 ---
 
@@ -35,9 +35,9 @@ See [Registration inline hook](/docs/guides/registration-inline-hook/nodejs/main
 
 When you upgrade your org from Classic Engine to Identity Engine, the registration inline hook continues to exist as the same hook type, but the following two things change:
 
-* **Where you enable the hook.** In Classic Engine, you enable the hook on the **Self-Service Registration** page. In Identity Engine, self-service registration is driven by a [user profile policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) (profile enrollment), and you enable the hook there instead. See [Move the hook to a user profile policy](#move-the-hook-to-a-user-profile-policy).
+* Where you enable the hook: In Classic Engine, you enable the hook on the **Self-Service Registration** page. In Identity Engine, self-service registration is driven by a [user profile policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) (profile enrollment), and you enable the hook there instead. See [Move the hook to a user profile policy](#move-the-hook-to-a-user-profile-policy).
 
-* **The inline hook request format.** Identity Engine adds a `requestType` property to the request and sends a request for a new use case (progressive profile enrollment). Your external service may need code updates to read the new request properly. See [Changes to the inline hook request](#changes-to-the-inline-hook-request).
+* The inline hook request format: Identity Engine adds a `requestType` property to the request and sends a request for a new use case (progressive profile enrollment). Your external service may need code updates to read the new request properly. See [Changes to the inline hook request](#changes-to-the-inline-hook-request).
 
 The way that you create the hook (in the Admin Console under **Workflow** > **Inline Hooks**, or through the [Inline Hooks Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createInlineHook)) doesn't change. The `commands` object that your service returns to allow or deny a registration also stays the same.
 
@@ -59,7 +59,7 @@ In Identity Engine, self-service registration is configured through a user profi
 
 1. From **Run this hook**, select **When a new user is created**, and then click **Save**.
 
-For the full set of profile enrollment options, see [Configure user profile policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) and the detailed steps in [Create an enrollment policy for profile enrollment (SSR)](/docs/guides/registration-inline-hook/nodejs/main/#create-an-enrollment-policy-for-profile-enrollment-ssr).
+For profile enrollment options, see [Configure user profile policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) and the detailed steps in [Create an enrollment policy for profile enrollment (SSR)](/docs/guides/registration-inline-hook/nodejs/main/#create-an-enrollment-policy-for-profile-enrollment-ssr).
 
 ## Changes to the inline hook request
 
@@ -243,7 +243,7 @@ For the complete external service implementation, including the full `error` obj
 
 After you've moved the hook to a user profile policy and updated your external service, verify that registration still works.
 
-1. Make sure your external service is running and reachable at the URL configured on the inline hook.
+1. Make sure that your external service is running and reachable at the URL configured on the inline hook.
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**, select your registration inline hook, and click **Preview**. Generate a request with the **Self-Service Registration** request type and confirm that your service returns the expected `ALLOW` or `DENY` response.
 1. Go to the sign-in page for your org, click the sign-up link, and attempt to self-register:
    * With an allowed value (for example, an `example.com` email), registration succeeds.
