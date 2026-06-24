@@ -66,7 +66,7 @@ For profile enrollment options, see [Configure user profile policies](https://he
 In both Classic Engine and Identity Engine, the hook triggers before a user is registered (`eventType` is `com.okta.user.pre-registration`). The key difference is that Identity Engine adds a `requestType` property to the request. This property identifies which registration use case triggered the hook, and it determines where in the request the submitted fields arrive:
 
 * `self.service.registration`: A new user self-registers. This is the equivalent of the Classic Engine self-service registration flow. The submitted fields arrive in the `data.userProfile` object.
-* `progressive.profile`: An existing user is prompted for more profile information when they sign in. This use case is new in Identity Engine. The submitted fields arrive in the `data.userProfileUpdate` object, and the existing user's current profile is in the `data.context.user.profile` object.
+* `progressive.profile`: When you sign in as an existing user, you receive a prompt for more profile information. This use case is new in Identity Engine. The submitted fields arrive in the `data.userProfileUpdate` object, and the existing user's current profile is in the `data.context.user.profile` object.
 
 Because Classic Engine has only one registration flow, your existing external service likely reads `data.userProfile` directly without inspecting a request type. After the upgrade, your service must branch on `requestType` so that it reads the correct properties for each use case.
 
