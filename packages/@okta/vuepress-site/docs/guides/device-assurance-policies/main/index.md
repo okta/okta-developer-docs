@@ -53,6 +53,8 @@ You can configure OS version compliance by using device assurance. However, you 
 
 To use Dynamic OS version compliance, you need to define the `dynamicVersionRequirement` object. See [Example POST request](#example-post-request).
 
+> **Note:** To see the OS versions that Okta currently recognizes as latest and supported, send a GET request to `https://{yourOktaDomain}.okta.com/.well-known/ov-configurations`.
+
 ### Example POST request
 
 Send a POST request to the `/api/v1/device-assurances` endpoint. Include the following:
