@@ -315,7 +315,7 @@ new OktaSignIn({
 By default, the Sign-In Widget ships with English text only and loads other language files from the Okta CDN. To serve language files from your own host, use `assets.baseUrl` and `assets.languages`.
 
 * `assets.baseUrl`: The base path is where your language files are served. The Sign-In Widget loads `labels/json/login_{lang}.json` and `country_{lang}.json` relative to this URL.
-* `assets.languages`: The list of language codes you're hosting. This replaces the default supported-languages list. If a requested language isn't in the list, the Sign-In Widget falls back to `en`.
+* `assets.languages`: The list of language codes that you're hosting. This replaces the default supported-languages list. If a requested language isn't in the list, the Sign-In Widget falls back to `en`.
 
 ```javascript
 new OktaSignIn({
