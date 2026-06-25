@@ -20,11 +20,11 @@ A single Okta org may run multiple deployment models at the same time. Find all 
 
 #### What you need
 
-* Super admin or read-only admin access to the Admin Console.
-* A contact list for app, security, DevOps, and development team owners.
-* Access to source-code search, CI/CD configuration, and secrets managers.
-* A date range for log and report queries, such as the past 90 days.
-* A spreadsheet or tracking tool to record inventory findings.
+* Super admin or read-only admin access to the Admin Console
+* A contact list for app, security, DevOps, and development team owners
+* Access to source-code search, CI/CD configuration, and secrets managers
+* A date range for log and report queries, such as the past 90 days
+* A spreadsheet or tracking tool to record inventory findings
 
 ---
 
