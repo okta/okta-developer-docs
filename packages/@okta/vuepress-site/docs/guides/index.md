@@ -176,6 +176,7 @@ guides:
  - oie-upgrade-sign-in-widget-i18n
  - oie-upgrade-sign-in-widget
  - oie-upgrade-sign-in-widget-styling
+ - oie-upgrade-test-widget-custom
  - oie-upgrade-registration-inline-hook
  - oie-upgrade-mfa-enroll-policy
  - ie-limitations

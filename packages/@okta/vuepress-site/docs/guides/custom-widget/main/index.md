@@ -777,3 +777,4 @@ For information about other Okta customization options:
 * [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/)
 * [Customize SMS messages](/docs/guides/custom-sms-messaging)
 * [Customize email notifications](/docs/guides/custom-email/)
+* [Test your widget's existing customizations in a test environment](/docs/guides/oie-upgrade-test-widget-custom/main/)
