@@ -13,6 +13,17 @@ title: Okta Identity Engine API release notes 2026
 
 ## June
 
+### Weekly release 2026.06.3
+<!-- Published on: 2026-06-24T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Improved validation for Create a client authentication settings endpoint](#improved-validation-for-create-a-client-authentication-settings-endpoint) | June 24, 2026 |
+
+#### Improved validation for Create a client authentication settings endpoint
+
+Validation for the [Create a client authentication settings endpoint](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/resourceserverclientauthsettings/other/createclientauthsettings) now restricts the `purpose` parameter to a single value. <!-- OKTA-120008 -->
+
 ### Weekly release 2026.06.2
 <!-- Published on: 2026-06-17T12:00:00Z -->
 
