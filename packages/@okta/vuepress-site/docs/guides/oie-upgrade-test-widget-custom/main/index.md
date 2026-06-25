@@ -92,7 +92,7 @@ Sign in as a test user and validate each customized flow:
 
 ### Step 5: Test i18n translations
 
-* Verify that your custom translations display in all supported languages.
+* Verify that your custom translations appear in all supported languages.
 * Check that new Identity Engine-specific strings (for example, `oie.password.challenge.title`) show default or custom values.
 * Confirm that removed Classic Engine strings don't cause errors.
 
