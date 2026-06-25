@@ -45,7 +45,7 @@ The following table summarizes the API changes in Identity Engine.
 
 Passing the `audience` parameter to `/api/v1/authn` isn't supported in Identity Engine.
 
-**Why:** Identity Engine uses a flexible app sign-on policy model that Classic Engine authentication pipelines can't accommodate.
+**Why:** Identity Engine uses a flexible app sign-in policy model that Classic Engine authentication pipelines can't accommodate.
 
 **Action:** Remove the `audience` parameter from authentication requests. Instead, use app-specific sign-on policies that you configure in the Admin Console.
 
