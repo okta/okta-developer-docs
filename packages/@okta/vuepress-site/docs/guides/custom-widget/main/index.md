@@ -721,6 +721,21 @@ Using this method, inspect the app ID and modify the widget configuration or app
 </script>
 ```
 
+### Enable Sign-In Widget features on the Okta-hosted sign-in page
+
+The Okta-hosted sign-in page sets default [feature flags](https://github.com/okta/okta-signin-widget#feature-flags) on the Sign-In Widget that are required for certain flows to work correctly. For example, the password-reset email link flow depends on default feature settings that Okta configures at runtime.
+
+To enable or disable a feature, use the `OktaUtil.getSignInWidgetConfig()` method to retrieve the existing config object, then set the individual feature property on it. Use the bracket notation (`config['features.featureName']`) or dot notation (`config.features.featureName`) to target a single flag:
+
+```javascript
+var config = OktaUtil.getSignInWidgetConfig();
+config['features.registration'] = true;
+// or: config.features.registration = true;
+// Then pass config to OktaSignIn as usual
+```
+
+> **Caution:** **Don’t** override the entire `config.features` object. Assigning a new object to `config.features` (for example, `config.features = { registration: true }`) removes all of Okta's default feature settings and can break flows such as the password-reset email link. Always set individual feature flags as shown earlier.
+
 ### About the Sign-In Widget version
 
 The Okta-hosted sign-in page uses the [Sign-In Widget](https://github.com/okta/okta-signin-widget#okta-hosted-sign-in-page-default) component to interact with the user.
