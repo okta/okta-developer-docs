@@ -106,7 +106,7 @@ See [Configure user profile policies](https://help.okta.com/okta_help.htm?type=o
 
 ### SMS Factors Administration lifecycle operations
 
-**What Changed:** The SMS Factor can no longer be activated or deactivated using the Factors API (`/api/v1/org/factors`).
+**What changed:** The SMS Factor can no longer be activated or deactivated using the Factors API (`/api/v1/org/factors`).
 
 **Further information:** [Factors Administration API](/docs/reference/api/factor-admin) and [Factors API changes after the upgrade](/docs/guides/oie-upgrade-api-changes/main/#factors-api-changes)
 
