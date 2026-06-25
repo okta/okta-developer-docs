@@ -611,7 +611,7 @@ var config = {
 The `i18n` option lets you override specific strings in languages that Sign-In Widget already supports. If you need to support a language not in the default list, or want to serve language files from your own server instead of the Okta CDN, use `assets.baseUrl` and `assets.languages`.
 
 * `assets.baseUrl`: The base URL where your language files are served. The Sign-In Widget loads `labels/json/login_{lang}.json` and `country_{lang}.json` relative to this path.
-* `assets.languages`: The list of language codes you're hosting. This replaces Sign-In Widget's default supported-languages list. If a requested language isn't in the list, Sign-In Widget falls back to `en`.
+* `assets.languages`: The list of language codes that you're hosting. This replaces Sign-In Widget's default supported-languages list. If a requested language isn't in the list, Sign-In Widget falls back to `en`.
 
 ```javascript
 var config = {
