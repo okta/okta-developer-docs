@@ -12,6 +12,7 @@ This guide explains what an app integration is, why you need one, and how to cre
 
 * Learn about app integrations in Okta.
 * Learn how to create the app integration.
+* Learn how to test your sso integration in your okta org.
 
 #### What you need
 
@@ -50,7 +51,7 @@ The following table summarizes the key differences:
 
 ### Supported protocols
 
-Okta app integrations support standard protocols for both [SSO](https://developer.okta.com/docs/guides/oin-sso-overview/) and automated user provisioning:
+Okta app integrations support standard protocols for both [SSO](/docs/concepts/sso-overview/) and automated user provisioning:
 
 * [OpenID Connect (OIDC)](https://developer.okta.com/docs/concepts/oauth-openid/): Authentication protocol based on OAuth 2.0, which enables secure SSO and supports advanced security features.
 * [Security Assertion Markup Language (SAML)](https://developer.okta.com/docs/concepts/saml/): An XML-based protocol for exchanging authentication and authorization data between Okta and external apps.
@@ -89,21 +90,18 @@ Okta adds an instance of the app integration to your org, and you can now assign
 
 ### Create a custom app integration
 
-You can add an app integration that doesn't exist in the OIN, using the App Integration Wizard (AIW). The wizard allows you to create an app integration and connect Okta with your SAML, OIDC, SWA, or SCIM app. You can also add SCIM provisioning to a custom app integration.
+You can add an app integration that doesn't exist in the OIN, using the App Integration Wizard (AIW). The wizard allows you to create a custom app integration for your app and connect Okta with your SAML, OIDC, SWA, or SCIM app. You can also add SCIM provisioning to a custom app integration.
+
+>**Note**: As a best practice, create two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future.
 
 1. Open the Admin Console for your org.
-2. Go to **Applications > Applications**.
-3. Click **Create App Integration**.
-4. Choose the integration type that matches your app’s requirements.
-5. Ensure that you have the following integration settings ready:
+1. Go to **Applications** > **Applications**.
+1. Click **Create App Integration**.
+1. Select the required integration type in the **Sign in Method** section.
 
-    <StackSnippet snippet="protocol-config" />
+<StackSnippet snippet="protocol-config" />
 
-6. Create the integration. See: <StackSnippet snippet="integration" />
-
-After you create your integration, you can assign it to your users in your org.
-
-The integration you created is private and visible only within your own Okta org. If you want to make your app integration publicly available in the OIN, see [Publish an OIN integration](https://developer.okta.com/docs/guides/submit-app-overview/).
+>**Note:** This custom integration is only visible within your Okta org. To modify settings after creation, click **Edit** on the main app page. To configure your SP app, copy the **Metadata URL** from the **Sign On** tab, or click **More details** to manually copy individual URLs and certificates. To make your app publicly available later, see [Publish an OIN integration](/docs/guides/submit-app-overview/).
 
 ### Create an API Service Integration
 
@@ -115,10 +113,23 @@ To build, test, and submit your API service integration to the OIN catalog. See 
 
 Once your app is set up:
 
-1. Assign the app to a test user or group from **Assignments**.
-2. Log in to the Okta End-User Dashboard.
-3. Click the app and verify successful redirection/authentication.
-4. Review tokens or SAML assertions using developer tools or Okta logs.
+1. Assign users:
+
+    a. Click the **Assignments** tab.
+
+    b. Click **Assign** and then select either **Assign to People** or **Assign to Groups**.
+
+    c. Enter the appropriate people or groups that you want to have SSO into your app, click **Assign** for each, verify user attributes, and select **Save and Go Back**.
+
+    d. Click **Done**.
+
+1. Test SSO: Sign in to the Okta End-User Dashboard as a test user and click the app tile.
+
+    >**Note:**. This step applies only to SSO (OIDC or SAML) integrations.
+
+1. Verify redirection: Ensure that the app-initiated flow correctly redirects back from the Okta sign-in page to your app.
+
+1. Troubleshoot: If issues occur, navigate to **Reports** > **System Log** to examine failure messages or *4XX* status codes. You can also post your questions on the [Okta Developer Forum](https://devforum.okta.com/search?q=oidc).
 
 ## See also
 <StackSnippet snippet="see-also" />

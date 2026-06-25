@@ -13,6 +13,64 @@ title: Okta Identity Engine API release notes 2026
 
 ## June
 
+### Weekly release 2026.06.3
+<!-- Published on: 2026-06-24T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Improved validation for Create a client authentication settings endpoint](#improved-validation-for-create-a-client-authentication-settings-endpoint) | June 24, 2026 |
+
+#### Improved validation for Create a client authentication settings endpoint
+
+Validation for the [Create a client authentication settings endpoint](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/resourceserverclientauthsettings/other/createclientauthsettings) now restricts the `purpose` parameter to a single value. <!-- OKTA-120008 -->
+
+### Weekly release 2026.06.2
+<!-- Published on: 2026-06-17T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Agent-to-agent connections is EA in Preview](#agent-to-agent-connections-is-ea-in-preview)| June 17, 2026 |
+| [Register an AI agent API appId parameter deprecated](#register-an-ai-agent-api-appid-parameter-deprecated) | June 17, 2026 |
+| [Bugs fixed in 2026.06.2](#bugs-fixed-in-2026-06-2) | June 17, 2026 |
+
+#### Agent-to-agent connections is EA in Preview
+
+Agent-to-agent server connections allow admins to connect AI agents to other AI agents through delegated links.
+Admins can manage scopes to restrict access to the appropriate AI agent tasks, and allow service apps to call AI agents without user context. Using tokens and the System Log, admins can view all the users, AI agents, and apps that call an AI agent. See [Agent-to-agent token exchange](/docs/guides/ea-ai-agent-token-exchange/agent-to-agent/main/).
+
+The Delegated Links API is BETA. Delegated links are explicit, configurable policy statements that declare which principals (OIDC apps or other agents) and token types each agent accepts as valid proof of identity. This replaces the implicit linked app policy. See the [Delegation Links API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks). <!-- FF SECURE_AI_A2A_SERVERS preview release 2026.06.2 OKTA-1197640 -->
+
+#### Register an AI agent API appId parameter deprecated
+
+The `appId` parameter for the Register an AI agent API has been deprecated. Use the [Delegation Links API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks) instead. <!-- FF SECURE_AI_A2A_SERVERS OKTA-1180123 in preview 2026.06.2 -->
+
+#### Bugs fixed in 2026.06.2
+
+* When an admin deleted an Okta managed user account (`DELETE /privileged-access/api/v1/okta-service-accounts/{id}`) from Okta Privileged Access, the linked Okta user was suspended. (OKTA-1199623)
+
+* Read-only admins couldn't view submissions in the OIN Wizard and received a 403 (Access Forbidden) error. (OKTA-981845)
+
+### Weekly release 2026.06.1
+<!-- Published on: 2026-06-10T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Spec-compliant client ID claims for AI agent tokens](#spec-compliant-client-id-claims-for-ai-agent-tokens) | Jun 11, 2026 |
+| [SCIM filter use added to endpoints](#scim-filter-use-added-to-endpoints) | Jun 11, 2026 |
+| [Bug fixed in 2026.06.1](#bug-fixed-in-2026-06-1)|Jun 11, 2026 |
+
+#### Spec-compliant client ID claims for AI agent tokens
+
+Okta Expression Language profiles now include the `app.clientId` property during user claim evaluations for AI agent OAuth 2.0 clients. This allows developers to generate spec-compliant tokens during AI agent flows.
+
+#### SCIM filter use added to endpoints
+
+The [List all authorization servers for an API server](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/apiserverregistration/other/listapiserverauthorizationservers) and [List all authorization servers for an MCP server](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/listmcpserverauthorizationservers) endpoints now use the SCIM filter.
+
+#### Bug fixed in 2026.06.1
+
+When a requesting client requested the `interclient_access` scope without a trust relationship configured, the error message was unclear. (OKTA-1119468)
+
 ### Monthly release 2026.06.0
 <!-- Published on: 2026-06-03T12:00:00Z -->
 
@@ -26,6 +84,7 @@ title: Okta Identity Engine API release notes 2026
 | [SHA-256 digest algorithm support is GA in Production](#sha-256-digest-algorithm-support-is-ga-in-production) | December 10, 2025 |
 | [Seamless ISV experience for SCIM is GA in Production](#seamless-isv-experience-for-scim-is-ga-in-production) | June 3, 2026 |
 | [New System Log event for database privileged access management is EA](#new-system-log-event-for-database-privileged-access-management-is-ea) | June 3, 2026 |
+| [Search, filtering, and configurable views for AI agents is GA in Production](#search-filtering-and-configurable-views-for-ai-agents-is-ga-in-production) | May 28, 2026 |
 | [Bugs fixed in 2026.06.0](#bugs-fixed-in-2026-06-0)| June 3, 2026 |
 
 #### New enhancements to the Groups API endpoints is GA in Production
@@ -49,7 +108,7 @@ New API endpoints have been added to the Directories Integration (`POST /api/v1/
 
 #### Clear Managed Chrome Profile Browsing Data is GA in Preview
 
-Clear Managed Chrome Profile Browsing Data provides real-time remediation by instantly purging local session data (cookies and cache) within managed Chrome profiles upon ITP detection. By transforming the browser into a policy-enforced workspace, it ensures immediate, automated protection.
+Clear Managed Chrome Profile Browsing Data provides real-time remediation by instantly purging local session data (cookies and cache) within managed Chrome profiles upon ITP detection. By transforming the browser into a policy-enforced workspace, it ensures immediate, automated protection. See [Clear the managed Chrome profile browsing data API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/user/other/clearchromedata).
 
 #### Bring your own telephony credentials is GA in Production
 
@@ -71,6 +130,12 @@ Okta now provides a seamless ISV experience to optimize the [Okta Integration Ne
 
 New System Log events allow you to track when database integrations are created (`pam.integration.create`) or removed (`pam.integration.delete`) in Okta Privileged Access. See [Event Types](/docs/reference/api/event-types/).
 <!--  OKTA-1166896 - Added in Release 2026.05.1 -->
+
+#### Search, filtering, and configurable views for AI agents is GA in Production
+
+Admins can now use enhanced filtering, search, and configuration capabilities on the **AI agents**, **AI agent providers**, and **Import Monitoring** > **AI agent import** pages.
+
+<!-- OKTA-1184819 SECURE_AI_AGENTS_FILTERS_AND_SEARCH preview date: May 28, 2026 -->
 
 #### Bugs fixed in 2026.06.0
 
@@ -97,6 +162,8 @@ New System Log events allow you to track when database integrations are created 
 #### Search, filtering, and configurable views for AI agents is GA in Production
 
 Admins can now use enhanced filtering, search, and configuration capabilities on the **AI agents**, **AI agent providers**, and **Import Monitoring** > **AI agent import** pages.
+
+<!-- OKTA-1184819 SECURE_AI_AGENTS_FILTERS_AND_SEARCH preview date: May 28, 2026 -->
 
 #### Bugs fixed in 2026.05.3
 

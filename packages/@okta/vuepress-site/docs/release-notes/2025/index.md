@@ -453,7 +453,7 @@ Unified claims generation is a new streamlined interface for managing claims (OI
 
 #### Web app integrations now mandate the use of the Authorization Code flow
 
-To enhance security, web app integrations now mandate the use of the Authorization Code flow, as the Implicit flow is no longer recommended. See [Build a Single Sign-On (SSO) integration](https://developer.okta.com/docs/guides/build-sso-integration/openidconnect/main/#determine-the-oauth-2-0-flow-to-use).
+To enhance security, web app integrations now mandate the use of the authorization code flow, as the Implicit flow is no longer recommended. See [OAuth 2.0 and OpenID Connect overview](https://developer.okta.com/docs/concepts/oauth-openid/).
 <!-- OKTA-703909 -->
 
 #### Developer documentation updates in 2025.08.0

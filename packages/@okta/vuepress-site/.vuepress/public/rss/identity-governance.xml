@@ -4,14 +4,23 @@
   <title>Okta Identity Governance API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/</link>
   <description>Recent release notes for Okta Identity Governance API</description>
-  <pubDate>Wed, 03 Jun 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 24 Jun 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Weekly release 2026.06.3</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-06-3</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-06-3</guid>
+      <pubDate>Wed, 24 Jun 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#api-support-for-access-certification-campaign-decisions-is-ea">API support for Access Certification campaign decisions is EA</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Monthly release 2026.06.0</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-06-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-06-0</guid>
       <pubDate>Wed, 03 Jun 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#governance-analyzer-is-ga-in-preview">Governance Analyzer is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#increased-maximum-for-groups-in-access-scope-settings">Increased maximum for groups in access scope settings</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#customize-justification-requirements-is-ga-in-preview">Customize Justification Requirements is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#self-review-for-okta-admin-roles-is-ga-in-preview">Self-review for Okta admin roles is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#automate-access-request-management-with-tasks-apis-is-beta">Automate access request management with Tasks APIs is Beta</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#governance-analyzer-is-ga-in-preview">Governance Analyzer is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#increased-maximum-for-groups-in-access-scope-settings">Increased maximum for groups in access scope settings</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#customize-justification-requirements-is-ga-in-preview">Customize justification requirements is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#self-review-for-okta-admin-roles-is-ga-in-preview">Self-review for Okta admin roles is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#automate-access-request-management-with-tasks-apis-is-beta-in-production">Automate access request management with Tasks APIs is Beta in Production</a>]]></description>
     </item>
   
 
@@ -20,7 +29,7 @@
       <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-05-2</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-05-2</guid>
       <pubDate>Wed, 20 May 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#automate-access-request-management-with-tasks-apis">Automate access request management with Tasks APIs</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#automate-access-request-management-with-tasks-apis-is-beta-in-preview">Automate access request management with Tasks APIs is Beta in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#new-system-log-event">New System Log event</a>]]></description>
     </item>
   
 
@@ -29,7 +38,7 @@
       <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-05-1</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-05-1</guid>
       <pubDate>Wed, 13 May 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#customize-justification-requirements">Customized Justification Requirements</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#customize-justification-requirements-is-ea">Customized justification requirements is EA</a>]]></description>
     </item>
   
 

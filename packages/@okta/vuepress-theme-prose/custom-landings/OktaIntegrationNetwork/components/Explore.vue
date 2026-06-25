@@ -56,7 +56,7 @@
                     caption: 'Design & build',
                     text: 'OIN is a catalog and a support system. View SSO, lifecycle, and service app integration guides to help you to design, build, and test your integration before you submit it for verification. Get support from the Okta Developer Forum during your build journey.',
                     link: 'Start with SSO',
-                    path: '/docs/guides/oin-sso-overview/'
+                    path: '/docs/concepts/sso-overview/'
                 },
                 {
                     id: 3,

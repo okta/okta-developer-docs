@@ -15,7 +15,7 @@ Upgrade Okta SAML apps from using SHA1 certificates to more secure SHA256 certif
 
 #### What you need
 
-A SAML app to upgrade. See [Building a SAML SSO integration](/docs/guides/build-sso-integration/saml2/main/#prepare-your-integration).
+A SAML app to upgrade. See [Building a SAML SSO integration](/docs/guides/create-an-app-integration/saml2/main/#prepare-your-integration).
 
 ---
 
@@ -300,4 +300,4 @@ Response:
 
 * [SAML overview](https://developer.okta.com/docs/concepts/saml/)
 * [SAML FAQ](https://developer.okta.com/docs/concepts/saml/faqs/)
-* [Building a SAML SSO integration](https://developer.okta.com/docs/guides/build-sso-integration/saml2/before-you-begin/)
+* [Building a SAML SSO integration](https://developer.okta.com/docs/guides/create-an-app-integration/saml2/main/)

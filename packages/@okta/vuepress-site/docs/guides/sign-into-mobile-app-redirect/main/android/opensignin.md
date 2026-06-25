@@ -6,17 +6,13 @@
     class BrowserSignInApplication : Application() {
         override fun onCreate() {
             super.onCreate()
-            // Initializes Auth Foundation and Credential Bootstrap classes.
-            AuthFoundationDefaults.cache = SharedPreferencesCache.create(this)
-            val oidcConfiguration = OidcConfiguration(
+            // Initialize AuthFoundation and set the default OidcConfiguration for the app.
+            AuthFoundation.initializeAndroidContext(this)
+            OidcConfiguration.default = OidcConfiguration(
                 clientId = BuildConfig.CLIENT_ID,
                 defaultScope = "openid email profile offline_access",
+                issuer = BuildConfig.ISSUER,
             )
-            val client = OidcClient.createFromDiscoveryUrl(
-                oidcConfiguration,
-                BuildConfig.DISCOVERY_URL.toHttpUrl(),
-            )
-            CredentialBootstrap.initialize(client.createCredentialDataSource(this))
         }
     }
     ```
@@ -112,18 +108,18 @@
             viewModelScope.launch {
                 _state.value = BrowserState.Loading
 
-                val result = CredentialBootstrap.oidcClient.createWebAuthenticationClient().login(
+                val result = WebAuthentication().login(
                     context = context,
                     redirectUrl = BuildConfig.SIGN_IN_REDIRECT_URI,
                 )
                 when (result) {
-                    is OidcClientResult.Error -> {
+                    is OAuth2ClientResult.Error -> {
                         Timber.e(result.exception, "Failed to login.")
                         _state.value = BrowserState.currentCredentialState("Failed to login.")
                     }
-                    is OidcClientResult.Success -> {
-                        val credential = CredentialBootstrap.defaultCredential()
-                        credential.storeToken(token = result.result)
+                    is OAuth2ClientResult.Success -> {
+                        val credential = Credential.store(token = result.result)
+                        Credential.setDefaultAsync(credential)
                         _state.value = BrowserState.LoggedIn.create()
                     }
                 }
@@ -134,18 +130,19 @@
             viewModelScope.launch {
                 _state.value = BrowserState.Loading
 
-                val result = CredentialBootstrap.oidcClient.createWebAuthenticationClient().logoutOfBrowser(
+                val credential = Credential.getDefaultAsync()
+                val result = WebAuthentication().logoutOfBrowser(
                     context = context,
                     redirectUrl = BuildConfig.SIGN_OUT_REDIRECT_URI,
-                    CredentialBootstrap.defaultCredential().token?.idToken ?: "",
+                    idToken = credential.token.idToken ?: return@launch
                 )
                 when (result) {
-                    is OidcClientResult.Error -> {
+                    is OAuth2ClientResult.Error -> {
                         Timber.e(result.exception, "Failed to logout.")
                         _state.value = BrowserState.currentCredentialState("Failed to logout.")
                     }
-                    is OidcClientResult.Success -> {
-                        CredentialBootstrap.defaultCredential().delete()
+                    is OAuth2ClientResult.Success -> {
+                        credential?.delete()
                         _state.value = BrowserState.LoggedOut()
                     }
                 }
@@ -165,11 +162,11 @@
         ) : BrowserState() {
             companion object {
                 /**
-                 * Creates the [LoggedIn] state using the [CredentialBootstrap.defaultCredential]s ID Token name claim.
+                 * Creates the [LoggedIn] state using the default [Credential]'s ID token name claim.
                  */
                 suspend fun create(errorMessage: String? = null): BrowserState {
-                    val credential = CredentialBootstrap.defaultCredential()
-                    val name = credential.idToken()?.name ?: ""
+                    val credential = Credential.getDefaultAsync()
+                    val name = credential?.idToken()?.name ?: ""
                     return LoggedIn(name, errorMessage)
                 }
             }
@@ -177,13 +174,12 @@
 
         companion object {
             /**
-             * Creates the [BrowserState] given the [CredentialBootstrap.defaultCredential]s presence of a token.
+             * Creates the [BrowserState] based on whether a default [Credential] exists.
              *
              * @return Either [LoggedIn] or [LoggedOut].
              */
             suspend fun currentCredentialState(errorMessage: String? = null): BrowserState {
-                val credential = CredentialBootstrap.defaultCredential()
-                return if (credential.token == null) {
+                return if (Credential.getDefaultAsync() == null) {
                     LoggedOut(errorMessage)
                 } else {
                     LoggedIn.create(errorMessage)

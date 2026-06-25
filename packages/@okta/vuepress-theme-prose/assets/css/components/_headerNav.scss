@@ -20,7 +20,7 @@
   white-space: nowrap;
   color: #fffefa;
 
-  @include media(">desktop") {
+  @include media(">desktop-lg") {
     &:hover {
       text-decoration: none;
       color: #b6caff !important;
@@ -33,7 +33,7 @@
 }
 
 .dark-theme .header-nav a {
-  @include media(">desktop") {
+  @include media(">desktop-lg") {
     &:hover {
       text-decoration: none;
       color: #b1e4de !important;

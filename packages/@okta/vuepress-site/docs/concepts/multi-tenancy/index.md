@@ -42,6 +42,29 @@ different types of data is shown below:
 
 </div>
 
+### Tenants in Okta
+
+In Okta, a tenant is represented as an Okta org. Each org is an isolated container that manages its own users, groups, and apps independently. Identity in Okta is scoped to the org, not globally unique across all of Okta.
+
+As an example, the same email address can exist as separate users in multiple orgs. For example, `alice.doe@example.com` can be a registered user in both `https://company1.okta.com` and `https://company2.okta.com` with different profile data in each. When building an app that serves multiple tenants, track which org authenticated a given user. You can't assume that profile data is consistent across orgs.
+
+Okta orgs host their interfaces through individual subdomains and each org is assigned a separate URL. The typical org URL is the tenant name (the subdomain) followed by the domain name. However, you can customize the domain name for your own domain and add individual aliases for each of your tenants.
+
+## SSO app integrations and multi-tenancy
+
+SSO app integrations are multi-tenant by design. Each customer (the org deploying the SSO app) operates through a separate Okta org, and each org is a distinct tenant. The org serves as the identity provider (IdP) for that customer's users. For OpenID Connect (OIDC) integrations, the org acts as the authorization server. For SAML integrations, the org acts as the IdP.
+
+Because each org manages its own users, policies, and app access independently, a single app integration can serve multiple customers without their data or configurations affecting one another.
+
+### OIDC customer org credentials
+For OpenID Connect (OIDC) integrations, Okta uses a local credential system. When your customer adds your integration in their Okta org, they obtain a unique set of OIDC credentials. Each instance of your app integration inside a customer org has a separate set of OIDC client credentials that are used to access your app.
+
+This local credential approach differs from other IdPs that use a global credential system, where a given app has the same customer credentials across all orgs.
+
+See the [OIN multi-tenancy](/docs/guides/submit-app-prereq/main/#oin-multi-tenancy) requirement.
+
+You must track client credentials for each app integration instance for your app. For example, consider a scenario where your app integration is added to 10 separate customer orgs. Seven of those customers create a single instance of your app integration. However, the other three customers each create two separate instances of your app integration so they can use different configuration options. This scenario creates a total of 13 sets of client credentials for your app that you need to track.
+
 ## Why would you want more than one tenant
 
 An organization can create a tenant for various reasons. For example
@@ -107,7 +130,7 @@ platform is ultimately decided by the customer. Okta offers four main
 configurations for multi-tenancy. They are:
 
 * [Configuration 1: Host tenants in a single org using Universal Directory (UD)](#configuration-1)
-* [Configuration 2: Host tenants in separate orgs (for example, hub-and-spoke](#configuration-2)
+* [Configuration 2: Host tenants in separate orgs (for example, hub-and-spoke)](#configuration-2)
 * [Configuration 3: Mixed. Host tenants in both single and separate orgs](#configuration-3)
 * [Configuration 4: Host tenants in a single org not using UD](#configuration-4)
 

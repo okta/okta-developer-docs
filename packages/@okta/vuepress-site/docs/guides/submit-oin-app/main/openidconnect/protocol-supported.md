@@ -12,6 +12,8 @@ This guide covers submissions that use the following protocols and integrations:
 
 * [Universal Logout](/docs/guides/oin-universal-logout-overview/)
 
+See [Choose your SSO protocol](/docs/concepts/sso-overview/#choose-your-sso-protocol) for help choosing the right protocol for your app integration.
+
 > **Notes:**
     > * Universal Logout integrations are only supported for the SAML 2.0 and OIDC protocols. If you want to submit a Universal Logout integration with SCIM provisioning, you must also submit an SSO integration with either SAML 2.0 or OIDC.
     > * Entitlement Management is supported for integrations that manage entitlements through a SCIM server.

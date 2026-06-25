@@ -15,6 +15,21 @@ if [[ "$BRANCH" != "master" ]]; then
     exit ${SUCCESS}
 fi
 
+export BACON_ARTIFACT="okta-developer-docs"
+export BACON_LINK="https://bacon-go.aue1e.saasure.net/commits?artifact=${BACON_ARTIFACT}&sha=${SHA}"
+export SLACK_CHANNEL='#infodev-notifications'
+
+on_failure() {
+  local exit_code=$?
+  if [[ $exit_code -ne 0 ]]; then
+    send_slack_message "${SLACK_CHANNEL}" \
+      "[Developer Docs] Production deployment failed" \
+      "Please check bacon task (${BACON_LINK}) for more details. " \
+      "danger"
+  fi
+}
+trap on_failure EXIT
+
 DEPLOY_ENVIRONMENT="vuepress-site-prod"
 
 # "${MAIN_BRANCH}" branch indecates that current deploy is for production.

@@ -475,6 +475,14 @@ export const guides = [
             guideName: "device-assurance-policies"
           },
           {
+            title: "Advanced posture checks and custom remediation",
+            guideName: "device-assurance-posture-checks-and-remediation"
+          },
+          {
+            title: "Device posture IdP",
+            guideName: "device-posture-idp"
+          },
+          {
             title: "Device signal collection policies",
             guideName: "device-signal-collection-policies"
           },
@@ -660,6 +668,10 @@ export const guides = [
             guideName: "ai-agent-token-exchange",
           },
           {
+            title: "Set up AI agent-to-agent token exchange",
+            guideName: "ea-ai-agent-token-exchange",
+          },
+          {
             title: "Transactional verification using CIBA",
             guideName: "configure-ciba",
           },
@@ -758,20 +770,6 @@ export const guides = [
         title: "Okta Integration Network",
         customLandingPage: true,
         subLinks: [
-          {
-            title: "Single Sign-On",
-            path: "/docs/guides/oin-sso-overview/",
-            subLinks: [
-              {
-                title: "Build an SSO integration",
-                guideName: "build-sso-integration",
-              },
-              {
-                title: "Add a private SSO integration",
-                guideName: "add-private-app",
-              },
-            ],
-          },
           {
             title: "Lifecycle management",
             path: "/docs/guides/oin-lifecycle-mgmt-overview/",
@@ -1346,12 +1344,12 @@ export const releaseNotes = [
     path: "/docs/release-notes/",
     subLinks: [
       {
-        title: "2026 - Classic Engine",
-        path: "/docs/release-notes/2026/"
-      },
-      {
         title: "2026 - Identity Engine",
         path: "/docs/release-notes/2026-okta-identity-engine/",
+      },
+      {
+        title: "2026 - Classic Engine",
+        path: "/docs/release-notes/2026/"
       },
       {
         title: "2026 - Identity Governance",

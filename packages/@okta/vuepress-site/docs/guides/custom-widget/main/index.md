@@ -606,6 +606,30 @@ var config = {
 };
 ```
 
+### Host your own language files
+
+The `i18n` option lets you override specific strings in languages that Sign-In Widget already supports. If you need to support a language not in the default list, or want to serve language files from your own server instead of the Okta CDN, use `assets.baseUrl` and `assets.languages`.
+
+* `assets.baseUrl`: The base URL where your language files are served. The Sign-In Widget loads `labels/json/login_{lang}.json` and `country_{lang}.json` relative to this path.
+* `assets.languages`: The list of language codes that you're hosting. This replaces Sign-In Widget's default supported-languages list. If a requested language isn't in the list, Sign-In Widget falls back to `en`.
+
+```javascript
+var config = {
+  baseUrl: 'https://{yourOktaDomain}',
+  assets: {
+    baseUrl: 'https://acme.com/assets/dist',
+    languages: ['en', 'ja', 'fr'],
+  },
+};
+
+var signIn = new OktaSignIn(config);
+```
+
+> **Notes:**
+>
+> * The language JSON source files are in the `dist/labels/json` folder of the [`@okta/okta-signin-widget` npm package](https://www.npmjs.com/package/@okta/okta-signin-widget).
+> * Hosting your own language files is also supported in the Gen3 Sign-In Widget used with redirect authentication. See [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/main/).
+
 ## Customization examples
 
 Use the following examples to help you customize the sign-in page with your own CSS, scripts, and per-application branding.
@@ -720,6 +744,21 @@ Using this method, inspect the app ID and modify the widget configuration or app
   }
 </script>
 ```
+
+### Enable Sign-In Widget features on the Okta-hosted sign-in page
+
+The Okta-hosted sign-in page sets default [feature flags](https://github.com/okta/okta-signin-widget#feature-flags) on the Sign-In Widget that are required for certain flows to work correctly. For example, the password-reset email link flow depends on default feature settings that Okta configures at runtime.
+
+To enable or disable a feature, use the `OktaUtil.getSignInWidgetConfig()` method to retrieve the existing config object, then set the individual feature property on it. Use the bracket notation (`config['features.featureName']`) or dot notation (`config.features.featureName`) to target a single flag:
+
+```javascript
+var config = OktaUtil.getSignInWidgetConfig();
+config['features.registration'] = true;
+// or: config.features.registration = true;
+// Then pass config to OktaSignIn as usual
+```
+
+> **Caution:** **Don’t** override the entire `config.features` object. Assigning a new object to `config.features` (for example, `config.features = { registration: true }`) removes all of Okta's default feature settings and can break flows such as the password-reset email link. Always set individual feature flags as shown earlier.
 
 ### About the Sign-In Widget version
 

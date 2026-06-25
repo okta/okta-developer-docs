@@ -4,8 +4,26 @@
   <title>Okta Privileged Access API Release Notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/</link>
   <description>Recent release notes for Okta Privileged Access API</description>
-  <pubDate>Wed, 03 Jun 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 24 Jun 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Weekly release 2026.06.3</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-06-3</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-06-3</guid>
+      <pubDate>Wed, 24 Jun 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#new-configuration-option-for-password-generation-is-ga">New configuration option for password generation is GA</a>]]></description>
+    </item>
+  
+
+    <item>
+      <title>Weekly release 2026.06.2</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-06-2</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-06-2</guid>
+      <pubDate>Wed, 17 Jun 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[------<br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#bug-fixed-in-2026-06-2">Bug fixed in 2026.06.2</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Monthly release 2026.06.0</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#monthly-release-2026-06-0</link>
@@ -20,7 +38,7 @@
       <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-05-3</link>
       <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-05-3</guid>
       <pubDate>Wed, 27 May 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#on-demand-password-rotation-for-server-accounts-is-ga">On-demand password rotation for server accounts is GA</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#on-demand-password-rotation-for-server-accounts-is-ga">On-demand password rotation for server accounts is GA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#database-privileged-access-management-is-ea">Database privileged access management is EA</a>]]></description>
     </item>
   
 

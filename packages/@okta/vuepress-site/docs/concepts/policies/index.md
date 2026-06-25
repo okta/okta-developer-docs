@@ -133,6 +133,8 @@ For example, you can configure a device assurance policy to check whether a spec
 
 After you add at least one device assurance policy, you can include it in app sign-in policy rules. You can't apply device assurance policies to users, groups, or devices until you make them part of an app sign-in policy rule.
 
+You can also use device posture signals from an external compliance service. See [Configure a device posture IdP](/docs/guides/device-posture-idp/) to integrate a SAML or OIDC device posture IdP and use its signals in your device assurance policies.
+
 <!-- See [Configure a device assurance policy]() for more details. -->
 
 See [Device assurance](https://help.okta.com/okta_help.htm?type=oie&id=ext-device-assurance) for details about configuring the policy in the Admin Console.

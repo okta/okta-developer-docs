@@ -31,6 +31,12 @@ Buckets scoped to authenticated users are independent and not nested under any o
 A bucket’s quota can vary based on several factors, including&mdash;but not limited to&mdash;the type of service subscription (for example, Workforce versus Customer Identity), the HTTP method used (for example, GET versus POST), the number of licenses purchased, and any applicable add-ons, such as DynamicScale. If the quota is exceeded within the time window, further requests are rejected with an HTTP 429 Too Many Requests response until the quota resets.
 You can monitor rate limit usage through the rate limit dashboard, System Log, or by inspecting the rate limiting headers included in API responses. See [Monitor and troubleshoot rate limits](/docs/reference/rl2-monitor/).
 
+>**Note:** The following public metadata endpoints aren't subject to rate limits:
+>
+>* `/oauth2/v1/keys`
+>* `/.well-known/openid-configuration`
+>* `/.well-known/oauth-authorization-server`
+
 ## How rate limiting works
 
 The logic behind the Okta implementation of rate limits can be summarized in the following steps:
