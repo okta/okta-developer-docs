@@ -17,7 +17,7 @@ Are you an admin? See the Identity Engine [limitations](https://help.okta.com/ok
 
 ### Custom sign-in page for embedded app links
 
-**What Changed:** Using a custom sign-in page for embedded app links isn't supported. Users who click an app embed link are now evaluated by their org's Okta sign-on policy. Admins can customize an Okta-hosted sign-in page or configure an IdP routing rule for the app.
+**What Changed:** Using a custom sign-in page for embedded app links isn't supported. Users who click an app embed link are now evaluated by their org's global session policy (called the **Okta sign-on policy** in Classic Engine). Admins can customize an Okta-hosted sign-in page or configure an IdP routing rule for the app.
 
 **Further information:** [Configure a custom Okta-hosted sign-in page](/docs/guides/custom-widget/) and [Configure routing rules](https://help.okta.com/okta_help.htm?type=oie&id=ext_Identity_Provider_Discovery).
 

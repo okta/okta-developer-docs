@@ -55,7 +55,7 @@ Direct device token passing is no longer the primary method for device context i
 
 | Migration path | Description | Trade-off |
 | --- | --- | --- |
-| Temporary backward compatibility | Keep the Classic global sign-on policy active. | New Identity Engine device features remain unavailable. |
+| Temporary backward compatibility | Keep the Okta sign-on policy active (called the **global session policy** in Identity Engine). | New Identity Engine device features remain unavailable. |
 | Redirect-based authentication | Migrate to Okta-hosted sign-in pages. | Device context policies are handled automatically. |
 | Updated SDKs | Adopt Identity Engine SDKs for embedded apps. | Full access to Identity Engine Device Trust capabilities. |
 
