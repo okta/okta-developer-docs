@@ -573,6 +573,14 @@ export const guides = [
             guideName: "ie-limitations",
           },
           {
+            title: "Update your event hooks for Identity Engine",
+            guideName: "oie-upgrade-event-hooks",
+          },
+          {
+            title: "Upgrade registration inline hooks to Identity Engine",
+            guideName: "oie-upgrade-registration-inline-hook",
+          },
+          {
             title: "Okta Sign-In Widget upgrade",
             subLinks: [
               {
