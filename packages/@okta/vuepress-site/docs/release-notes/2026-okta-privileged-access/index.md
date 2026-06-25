@@ -13,6 +13,17 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 ## June
 
+### Weekly release 2026.06.3
+<!-- Published on: 2026-06-24T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [New configuration option for password generation is GA](#new-configuration-option-for-password-generation-is-ga) | June 24, 2026 |
+
+#### New configuration option for password generation is GA
+
+The new `exclude_certain_characters` parameter in the [Projects API](https://developer.okta.com/docs/api/openapi/opa/opa/projects) allows you to exclude any combination of letters, digits, and punctuation characters from generated passwords.
+
 ### Weekly release 2026.06.2
 <!-- Published on: 2026-06-17T12:00:00Z -->
  Change | Expected in Preview Orgs | Expected in Production |
