@@ -171,6 +171,7 @@ guides:
  - oie-upgrade-add-sdk-to-your-app
  - oie-upgrade-api-sdk-to-oie-sdk
  - oie-upgrade-sessions-api
+ - oie-upgrade-event-hooks
  - oie-upgrade-sign-in-widget-deprecated-methods
  - oie-upgrade-sign-in-widget-i18n
  - oie-upgrade-sign-in-widget
@@ -287,6 +288,7 @@ If you're using Okta as an identity layer for the first time, start with [How Ok
 7. Customize Okta process flows with event or inline hooks:
 
     * [Event hook example](/docs/guides/event-hook-implementation/)
+    * [Update your event hooks for Identity Engine](/docs/guides/oie-upgrade-event-hooks/)
     * [Token inline hook example](/docs/guides/token-inline-hook/)
     * [Password import inline hook example](/docs/guides/password-import-inline-hook/)
     * [Registration inline hook example](/docs/guides/registration-inline-hook/)
