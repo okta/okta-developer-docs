@@ -22,7 +22,7 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 #### API support for Access Certification campaign decisions is EA
 
-The [My Access Certification Reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews) APIs allow developers to programmatically manage review actions for end users. Using the GET reviews and POST review actions methods, developers can retrieve reviews and submit decisions (APPROVE, REVOKE, REASSIGN). This adds the flexibility to power custom portals, integrate decision-making into proprietary UIs, or implement unique reassignment logic.
+The [My Access Certification Reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews) APIs allow developers to programmatically manage review actions for end users. Using the [GET my reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews/listcampaignreviews) and [POST my review actions](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews/submitmycampaignreviewactions) methods, users can retrieve reviews and submit decisions (APPROVE, REVOKE, REASSIGN). This adds the flexibility to power custom portals, integrate decision-making into proprietary UIs, or implement unique reassignment logic.
 <!-- OKTA-1202116 IGA_ACCESS_CERT_REVIEW_ITEMS_ENDUSER_API EA Preview June 24, 2025 -->
 
 ### Monthly release 2026.06.0
