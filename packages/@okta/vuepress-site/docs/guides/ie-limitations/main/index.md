@@ -7,6 +7,8 @@ excerpt: Okta Identity Engine introduces a lot of changes to the Okta platform. 
 
 Okta Identity Engine introduces many changes to the Okta platform. Some of these changes result in a lack of support for previously available features. Also, some of these changes result in Identity Engine features not supported for use with Classic Engine APIs.
 
+To find which of these features and integrations your org actually uses, see [Identify your Okta authentication integrations and customizations](/docs/guides/oie-upgrade-identify-integrations/).
+
 Are you an admin? See the Identity Engine [limitations](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-limitations) doc for admins.
 
 > **Note:** This doc is designed for people who are familiar with Classic Engine. If you're new to Okta and Identity Engine, see [Get started](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie) with Identity Engine.
