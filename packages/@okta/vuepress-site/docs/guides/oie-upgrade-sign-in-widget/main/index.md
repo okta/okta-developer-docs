@@ -8,7 +8,7 @@ This guide explains how to upgrade the Okta Sign-In Widget. The upgrade depends 
 
 ---
 
-**Learning outcome**
+#### Learning outcome
 
 Update your Sign-In Widget based on your user deployment model.
 
@@ -20,36 +20,21 @@ Update your Sign-In Widget based on your user deployment model.
 
 ---
 
-## About the Okta Sign-In Widget
+## Before you begin
 
-The Sign-In Widget is a JavaScript library that provides a full-featured and customizable sign-in experience. You can use the Sign-In Widget to authenticate web and mobile app users.
+You only need to upgrade the Sign-In Widget before your Identity Engine upgrade if either of the following applies:
 
-Use the Sign-In Widget on the default sign-in page to do the following:
+* Your Sign-In Widget version is older than 5.11.0.
+* You’re using Self-Service Registration (SSR).
 
-* Start an Okta SSO session
-* Set the Okta [session cookie](/docs/guides/session-cookie/) in the web browser
-* Perform a complete [OpenID Connect (OIDC)](/docs/concepts/oauth-openid/) flow
-* Integrate with [external Identity Providers](/docs/concepts/identity-providers/)
+If neither condition applies, you can skip this guide and proceed with your [Identity Engine upgrade](/docs/guides/oie-upgrade-overview/).
 
->**Note:** Some browsers block third-party cookies by default, which disrupts Okta functionality in certain flows. See [Mitigate the impact of third-party cookie deprecation](https://help.okta.com/okta_help.htm?type=oie&id=ext-third-party-cookies).
+If you do need to upgrade, the steps depend on your [user authentication deployment model](/docs/concepts/redirect-vs-embedded/):
 
-This article teaches you how to upgrade the Sign-In Widget when it’s used in any of the following ways:
+* [Redirect authentication](#upgrade-process-for-a-redirect-sign-in-flow): Okta-hosted sign-in page, with or without a custom URL domain
+* [Embedded authentication](#upgrade-process-for-an-embedded-sign-in-widget): Self-hosted Sign-In Widget embedded directly in your app
 
-* Redirect authentication (default): Okta provides a sign-in page that's available at your [org's URL](/docs/concepts/okta-organizations/). By default, a user who signs in on this page is redirected to the Okta End-User Dashboard.
-* Redirect authentication (customizable): Okta provides a sign-in page that you can customize. You can then make it available as a custom domain under your company's top-level domain.
-* Embedded authentication (self-hosted): You can embed the Sign-In Widget directly into your app.
-
-After you've completed the Sign-In Widget upgrade, review the [Okta Identity Engine overview](/docs/concepts/oie-intro/) to take advantage of the new features in Identity Engine.
-
-## Best practice for Sign-In Widget maintenance
-
-For best practices, keep your [Sign-In Widget](https://github.com/okta/okta-signin-widget/releases) up to date. This maintenance is essential so that you can use the latest Identity Engine features and benefit from ongoing improvements to the codebase.
-
-The specific steps to upgrade your Sign-In Widget depend on your [user authentication deployment model](/docs/concepts/redirect-vs-embedded/), which can be one of the following:
-
-* [Redirect authentication](#upgrade-process-for-a-redirect-sign-in-flow): Okta-hosted with no custom URL domain
-* [Redirect authentication](#upgrade-process-for-a-redirect-sign-in-flow): Okta-hosted with custom URL domain
-* [Embedded authentication](#upgrade-process-for-an-embedded-widget): Self-hosted. The embedded Sign-In Widget is able to perform the OIDC flow and return OAuth tokens directly within the app.
+> **Note:** Some browsers block third-party cookies by default, which disrupts Okta functionality in certain flows. See [Mitigate the impact of third-party cookie deprecation](https://help.okta.com/okta_help.htm?type=oie&id=ext-third-party-cookies).
 
 ## Upgrade process for a redirect sign-in flow
 
@@ -95,6 +80,15 @@ In addition to version upgrade, you need to adjust your Sign-In Widget configura
 
 > **Note:** If you're currently using the Sign-In Widget major version 4 or earlier, consult the [Okta Sign-In Widget migration guide](https://github.com/okta/okta-signin-widget/blob/master/MIGRATING.md).
 
+### Upgrade if you're using the Classic SSR flow
+
+If you're using the Sign-In Widget's Classic SSR flow, you must upgrade to the latest version of the Sign-In Widget before you upgrade. After the Identity Engine upgrade, the Classic SSR flow is no longer supported for embedded authentication. You must migrate to the [Interaction Code flow](#interaction-code-flow), which requires the latest version of the Sign-In Widget.
+
+To prepare for post-OIE Sign-In Widget updates:
+
+1. Upgrade to the latest Sign-In Widget version using the CDN instructions above.
+2. After your Identity Engine upgrade is complete, update your Sign-In Widget configuration to use the Interaction Code flow. See [Interaction Code flow](#interaction-code-flow).
+
 ## Changes to Sign-In Widget configuration for Identity Engine
 
 For Identity Engine, the Sign-In Widget is configured differently. You can remove some specific objects that were previously in the Sign-In Widget configuration from the JavaScript, as described in the following sections.
@@ -114,7 +108,7 @@ var config = {
 }
 ```
 
-If you’re using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `useClassicEngine: true` in your `config` object:
+If you’re using version 7+ and you want to use Classic Engine rather than Identity Engine, specify `useClassicEngine: true` in your `config` object:
 
 ```JavaScript
 var config = {
@@ -168,7 +162,7 @@ features: {
 
 ### OpenID Connect/social authentication
 
-You no longer require the `idps` JavaScript object in the Sign-In Widget and can remove it.
+The Sign-In Widget no longer requires the `idps` JavaScript object, so you can remove it.
 
 ```JavaScript
 idps: [
@@ -210,7 +204,7 @@ function success(res) {
 
 ### Feature flags
 
-The only feature that is supported when you upgrade Sign-In Widget is `features.hideSignOutLinkInMFA`, which hides the sign-out link for an MFA challenge.
+The only feature that's supported when you upgrade Sign-In Widget is `features.hideSignOutLinkInMFA`, which hides the sign-out link for an MFA challenge.
 
 The following specific features are no longer supported, and you can't configure them in the Sign-In Widget. Remove them from `features` in the JSON code:
 
@@ -261,7 +255,7 @@ Developers can't subscribe to the `processCreds` hook in the Sign-In Widget.
 
 Existing registration inline hooks may experience compatibility issues after migrating to Identity Engine due to changes in the Okta registration inline hook request. Your app may require code updates to consume the new request format properly.
 
-In the Admin Console, where you enable a registration inline hook has changed. Enable the hook from the Profile Enrollment Rules page (**Security** > **User Profile Policies**) instead of the Self-Service Registration page (**Self-service Directory** > **Self-Service Registration**). The creation of the registration inline hook remains the same. You can use either the Admin Console or Inline Hook Management APIs.
+In the Admin Console, where you enable a registration inline hook has changed. Enable the hook from the Profile Enrollment Rules page (**Security** > **User Profile Policies**) instead of the Self-Service Registration page (**Self-service Directory** > **Self-Service Registration**). The creation of the registration inline hook remains the same. You can use either the Admin Console or Inline Hook management APIs.
 
 See [Registration hooks API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook) and [Configure user profile policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
 
@@ -271,4 +265,6 @@ The ability for end users to specify a security image when they first register f
 
 ## See also
 
-[Deprecated JavaScript methods in the Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/main/)
+* [Deprecated JavaScript methods in the Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/main/)
+
+* [Okta Identity Engine overview](/docs/concepts/oie-intro/)
