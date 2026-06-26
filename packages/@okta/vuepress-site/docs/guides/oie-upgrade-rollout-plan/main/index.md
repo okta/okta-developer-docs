@@ -57,7 +57,7 @@ Whichever strategy you choose, follow this sequence:
 
 ## Upgrade your Sign-In Widget
 
-If your app uses an embedded Sign-In Widget, verify that it runs version 5.11.0 or later before you schedule the org upgrade. Earlier versions don't support Identity Engine flows. If you haven't already upgraded the widget, do it now as part of your rollout prep, not at the same time as the org upgrade.
+If your app uses an embedded Sign-In Widget, verify that it runs version 5.11.0 or later before you schedule the org upgrade. Earlier versions don't support Identity Engine flows. If you haven't already upgraded the widget, do it now as part of your rollout prep.
 
 After the upgrade, the widget behavior changes in the following ways: the security image is removed, the **Remember me** and **Don't prompt me again** checkboxes are replaced with **Keep me signed in**, and the default sign-in flow switches from password-first to identifier-first if your global session policy is set to **Any factor used to meet the authentication policy requirements**.
 
