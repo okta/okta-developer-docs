@@ -7,9 +7,13 @@ meta:
    target persona: Enterprise Developer, IT, Security, Product Owners
 ---
 
+# Prepare to upgrade to Okta Identity Engine
+
+Get your setup ready so that you can complete the production upgrade with confidence.
+
 ## Introduction
 
-Your organization is preparing to upgrade from Okta Classic Engine to Okta Identity Engine for enhanced security, policy control, and modern authentication. This journey guides you through understanding feature changes, such as sign-in flows, policies, MFA, APIs, and legacy functionality. Then, you plan and validate your upgrade through a checklist-driven approach.
+Your organization is preparing to upgrade from Classic Engine to Identity Engine for enhanced security, policy control, and modern authentication. This journey guides you through understanding feature changes, such as sign-in flows, policies, MFA, APIs, and legacy functionality. Then, you plan and validate your upgrade through a checklist-driven approach.
 
 As you work through each section, complete the following tasks:
 
@@ -31,7 +35,6 @@ Review how Identity Engine affects your apps, configurations, and user experienc
 Before you begin, watch these videos to understand the Identity Engine upgrade and how to identify Okta integration points in your org:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/N_FsbMFeyoM" title="Identity Engine Upgrade Overview" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gUqZUSeL_oM" title="Identifying Okta Integration Points" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### User experience changes
@@ -70,12 +73,12 @@ Before you begin, watch these videos to understand the Identity Engine upgrade a
 
 ### Okta API changes
 
-* [Okta APIs](https://developer.okta.com).??
+* [Okta APIs](/docs/guides/oie-upgrade-api-changes/main/).
 * [Authenticator enrollment policy API](/docs/guides/oie-upgrade-mfa-enroll-policy/main/).
 
 ### Legacy features with limited support
 
-[Custom app login](https://help.okta.com/okta_help.htm?type=oie&id=csh-custom-app-login-change) is available only to Classic orgs that used it prior to upgrading.
+[Custom app login](https://help.okta.com/okta_help.htm?type=oie&id=csh-custom-app-login-change) is available only to Classic Engine orgs that used it before upgrading.
 
 ### Discontinued features
 
@@ -87,7 +90,7 @@ Prepare your upgrade strategy by identifying integration points and defining you
 
 ### Identify integration points and customizations
 
-[Identify all of your Okta integration points](https://developer.okta.com) including apps, SDKs, API tokens, and hooks so that your team can triage what to test, update, replace, or retire before upgrading.??
+[Identify all of your Okta integration points](/docs/guides/oie-upgrade-identify-integrations/main/) including apps, SDKs, API tokens, and hooks. This helps your team triage what to test, update, replace, or retire before upgrading.
 
 ### Handle unsupported features
 
@@ -106,7 +109,7 @@ Prepare your upgrade strategy by identifying integration points and defining you
 
 ## Build
 
-Update your environment and code, then test everything in your preview environment:
+Update your environment and code, then test everything in your Preview environment:
 
 ### Record your classic setup and ready your test environment
 
@@ -123,24 +126,22 @@ Before you can schedule your upgrade from Classic Engine to Identity Engine, [co
 * [Remove support for Integrated Windows Authentication (IWA)](https://help.okta.com/okta_help.htm?type=oie&id=csh-dt-remove-iwa-routing-rules).
 * [Rename Duo Security custom IdP](https://help.okta.com/okta_help.htm?type=oie&id=rename-duo-security).
 
-### Update your Sign-in Widget
+### Update your Sign-In Widget
 
-* [Upgrade Okta's Sign-in Widget version](/docs/guides/oie-upgrade-sign-in-widget/main/).
+* [Upgrade the Okta Sign-In Widget version](/docs/guides/oie-upgrade-sign-in-widget/main/).
 * [Deprecated JavaScript methods in the widget](/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/main/).
 
 ### Update your custom code
-
-packages/@okta/vuepress-site/docs/guides/oie-upgrade-event-hooks/main/index.md
 
 * [Update your event hooks for Identity Engine](/docs/guides/oie-upgrade-event-hooks/main/).
 * [Update your inline hooks for Identity Engine](/docs/guides/oie-upgrade-registration-inline-hook/main/).
 * [Upgrade the Terraform provider](https://help.okta.com/okta_help.htm?type=oie&id=identity-engine-upgrade-prepare-terraform).
 
-### Test your changes in your test environment
+### Test your changes in a test environment
 
-* [Test user flows, custom code and third-party tools](https://help.okta.com/okta_help.htm?type=oie&id=ext-test-upgrade).
+* [Test user flows, custom code, and third-party tools](https://help.okta.com/okta_help.htm?type=oie&id=ext-test-upgrade).
 * [Run through your post upgrade checklist](https://help.okta.com/okta_help.htm?type=oie&id=identity-engine-upgrade-post-upgrade-checklist).
-* [Test your widget's existing customizations in a test environment](https://developer.okta.com).??
+* [Test your widget's existing customizations in a test environment](/docs/guides/oie-upgrade-test-widget-custom/main/).
 
 ### Validate readiness and schedule your upgrade
 
@@ -149,6 +150,6 @@ packages/@okta/vuepress-site/docs/guides/oie-upgrade-event-hooks/main/index.md
 
 ## Related topics
 
-* [Find troubleshooting docs at Okta's knowledge base center](https://support.okta.com/help/s/knowledge?selectedTopics&sortValue=Most%20Popular&searchTerm).
-* [Check out the video resources on Okta's support center's Identity Engine upgrade page](https://support.okta.com/help/s/product-hub/oie/upgrading-to-okta-identity-engine?language=en_US).
+* [Find troubleshooting docs at the OktakKnowledge base center](https://support.okta.com/help/s/knowledge?selectedTopics&sortValue=Most%20Popular&searchTerm).
+* [Check out the video resources on the Okta Support Center's Identity Engine upgrade page](https://support.okta.com/help/s/product-hub/oie/upgrading-to-okta-identity-engine?language=en_US).
 * [Get an overview of the Identity Engine upgrade process](/docs/guides/oie-upgrade-overview/main/).
