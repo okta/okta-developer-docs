@@ -38,7 +38,7 @@ The OIN Wizard currently supports updates for integrations that use the followin
 
 > **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, SCIM 2.0, and API service integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
 
-If you need to update only catalog information, such as your app name, description, logo, or support contact information, the **Edit** button on the                                                                                   **Home** page routes your submission through a dedicated path. This path allows you to submit minor branding updates directly to the OIN Ops team for review without requiring functional re-testing or backward-compatibility verification.
+If you need to update only catalog information, such as your app name, description, logo, or support contact information, the **Edit** button on the **Home** page routes your submission through a dedicated path. This path allows you to submit minor branding updates directly to the OIN Ops team for review without requiring functional re-testing or backward-compatibility verification.
 
 When you edit a published OIN integration, you need to test the flows for the updated version and the published version for backwards compatibility. The integration version that was previously installed in your customer's org isn't modified with the updated version from the OIN catalog. Testing the published version for backwards compatibility ensures that your integration still works for customers who have already installed it. See [Update integration considerations](#update-integration-considerations) before you edit your published integration.
 
