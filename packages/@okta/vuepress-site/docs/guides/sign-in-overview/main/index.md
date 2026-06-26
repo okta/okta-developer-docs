@@ -49,9 +49,10 @@ For more background on the different deployment models, including basic flows an
 
 If you’re a Classic Engine customer who wants to upgrade their apps to use Identity Engine for authentication, go to [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/).
 
+Before you start, [identify your Okta authentication integrations and customizations](/docs/guides/oie-upgrade-identify-integrations/) to inventory every sign-in, SDK, API, and automation point that needs testing.
+
 ## Next steps
 
 * [Add an external identity provider](/docs/guides/identity-providers/)
 * [Configure an access policy](/docs/guides/configure-access-policy/main/)
 * [Configure a global session policy and app sign-in policies](/docs/guides/configure-signon-policy/main/)
-* [Build a Single Sign-On (SSO) integration](/docs/guides/build-sso-integration/openidconnect/main/)

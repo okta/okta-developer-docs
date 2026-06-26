@@ -41,7 +41,10 @@ guides:
  - customize-tokens-groups-claim
  - delete-all-stay-signed-in-sessions
  - device-assurance-policies
+ - device-assurance-posture-checks-and-remediation
  - device-authorization-grant
+ - device-posture-idp
+ - ea-ai-agent-token-exchange
  - embedded-siw
  - enable-cors
  - enable-configure-signupform
@@ -90,13 +93,11 @@ guides:
  - secure-hooks
  - single-logout
  - signup-oktahosted
- - build-sso-integration
  - custom-sms-messaging
  - submit-app
  - submit-app-prereq
  - submit-oin-app
  - update-oin-app
- - add-private-app
  - deployment-checklist
  - deploy-your-app
  - dpop
@@ -167,14 +168,19 @@ guides:
  - oie-embedded-widget-use-case-sign-in-soc-idp
  - oie-upgrade-overview
  - oie-upgrade-rollout-plan
+ - oie-upgrade-api-changes
+ - oie-upgrade-identify-integrations
  - oie-upgrade-plan-embedded-upgrades
  - oie-upgrade-add-sdk-to-your-app
  - oie-upgrade-api-sdk-to-oie-sdk
  - oie-upgrade-sessions-api
+ - oie-upgrade-event-hooks
  - oie-upgrade-sign-in-widget-deprecated-methods
  - oie-upgrade-sign-in-widget-i18n
  - oie-upgrade-sign-in-widget
  - oie-upgrade-sign-in-widget-styling
+ - oie-upgrade-test-widget-custom
+ - oie-upgrade-registration-inline-hook
  - oie-upgrade-mfa-enroll-policy
  - ie-limitations
  - authenticators-overview
@@ -286,6 +292,7 @@ If you're using Okta as an identity layer for the first time, start with [How Ok
 7. Customize Okta process flows with event or inline hooks:
 
     * [Event hook example](/docs/guides/event-hook-implementation/)
+    * [Update your event hooks for Identity Engine](/docs/guides/oie-upgrade-event-hooks/)
     * [Token inline hook example](/docs/guides/token-inline-hook/)
     * [Password import inline hook example](/docs/guides/password-import-inline-hook/)
     * [Registration inline hook example](/docs/guides/registration-inline-hook/)
@@ -299,7 +306,7 @@ You can publish your integration in the Okta Integration Network (OIN) catalog t
 If you're creating an Okta integration for the first time, Okta recommends the following sequence of guides:
 
 1. [OIN landing](/docs/guides/okta-integration-network/)
-1. [Overview of Single Sign-On in the OIN](/docs/guides/oin-sso-overview/)
+1. [What is Single Sign-On (SSO)?](/docs/concepts/sso-overview/)
 1. [Overview of lifecycle management in the OIN](/docs/guides/oin-lifecycle-mgmt-overview/)
 1. [Overview of API service apps in the OIN](/docs/guides/oin-api-service-overview/)
 1. [OIN submission requirements](/docs/guides/submit-app-prereq/)

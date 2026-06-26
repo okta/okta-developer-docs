@@ -2,7 +2,7 @@ To make authenticated requests to your resource server, add the access token int
 
 ```kotlin
 private suspend fun callResourceServer() {
-    val accessTokenInterceptor = CredentialBootstrap.defaultCredential().accessTokenInterceptor()
+    val accessTokenInterceptor = Credential.getDefaultAsync()?.accessTokenInterceptor() ?: return
     val okHttpClient = OkHttpClient.Builder().addInterceptor(accessTokenInterceptor).build()
     val request = Request.Builder().url("https://${resourceUrl}").build()
     okHttpClient.newCall(request).enqueue(object : Callback {

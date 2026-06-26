@@ -4,19 +4,19 @@ title: Deprecated JavaScript methods in the widget
 
 <ApiLifecycle access="ie" />
 
-This guide covers the JavaScript method that is deprecated from the Okta Sign-In Widget and describes how to use `showSignIn` (and related methods) instead.
+This guide covers the JavaScript methods and hooks that are deprecated from the Okta Sign-In Widget after an Identity Engine upgrade. It describes how to use `showSignIn` (and related methods) instead of `setCookieAndRedirect`, and explains why the `processCreds` hook is no longer available.
 
 ---
 
-#### Learning outcomes
+**Learning outcome**
 
 Understand the `showSignIn` methods that are used in the widget so that you can set the redirect URI based on the sign-in policies that the administrator defines.
 
-#### What you need
+**What you need**
 
 [Widget that is updated to the latest available release](/docs/guides/oie-upgrade-sign-in-widget/main/)
 
-#### Sample code
+**Sample code**
 
 [Code samples using showSignIn](#code-samples-using-showsignin)
 
@@ -32,7 +32,7 @@ After you upgrade your org to Okta Identity Engine, the [`setCookieAndRedirect`]
 
 ## About showSignIn methods
 
-There are three similar methods in the widget. `showSignIn` applies to most use cases, but you might want to use `showSignInAndRedirect` or `showSignInAndGetTokens()`. The following describes the methods and when to use them:
+There are three similar methods in the widget. `showSignIn` applies to most use cases, but you might want to use `showSignInAndRedirect` or `showSignInToGetTokens`. The following describes the methods and when to use them:
 
 * [showSignIn](https://github.com/okta/okta-signin-widget#showsignin): Use this method for most use cases. On success, the Promise resolves. On error, the Promise is rejected. If the result is a redirect, the method redirects to Okta or another Identity Provider (IdP). The responses and errors are the same as those for [renderEl()](https://github.com/okta/okta-signin-widget#renderel).
 
@@ -46,13 +46,13 @@ There are three similar methods in the widget. `showSignIn` applies to most use 
 
 ```javascript
 var oktaSignIn = new OktaSignIn({
-   // Assumes there is an empty element on the page with an ID of 'osw-container'  el: `#osw-container`,
+   // Assumes there's an empty element on the page with an ID of 'osw-container'
    el: '#osw-container',
-   clientId: `{clientId of your OIDC app integration}`,
-   redirectUri: `{redirectUri configured in your OIDC app integration}`,
-   baseUrl: `https://{yourOktaDomain}`,
+   clientId: '{clientId of your OIDC app integration}',
+   redirectUri: '{redirectUri configured in your OIDC app integration}',
+   baseUrl: 'https://{yourOktaDomain}',
    authParams: {
-      issuer: `https://{yourOktaDomain}/oauth2/default`
+      issuer: 'https://{yourOktaDomain}/oauth2/default'
    }
 });
 
@@ -61,8 +61,7 @@ var searchParams = new URL(window.location.href).searchParams;
 oktaSignIn.otp = searchParams.get('otp');
 oktaSignIn.state = searchParams.get('state');
 
-oktaSignIn.showSignIn().then(res
-   => {
+oktaSignIn.showSignIn().then((res) => {
    oktaSignIn.authClient.handleLoginRedirect(res.tokens);
 })
 .catch(function(error) {
@@ -94,3 +93,9 @@ if (authClient.isLoginRedirect()) {
   authClient.tokenManager.setTokens(res.tokens);
 }
 ```
+
+## The processCreds hook
+
+After you upgrade your org to Identity Engine, you can't subscribe to the `processCreds` hook in the Sign-In Widget. Remove any custom code that depends on it.
+
+> **Note:** `processCreds` is a client-side Sign-In Widget hook, not a server-side Okta inline hook.

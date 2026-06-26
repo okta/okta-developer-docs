@@ -3,7 +3,7 @@ set -e
 
 echo Installing dependencies
 
-ARTIFACTORY_URL=$(ocm config get artifactory.url 2>/dev/null) || ARTIFACTORY_URL="artifacts.aue1e.internal"
+ARTIFACTORY_URL=$(ocm config get artifactory.base_url 2>/dev/null) || ARTIFACTORY_URL="artifacts.aue1e.internal"
 echo Artifactory url: $ARTIFACTORY_URL
 
 OKTA_REGISTRY="https://${ARTIFACTORY_URL}/artifactory/api/npm/npm-okta-master/"

@@ -1,20 +1,3 @@
-.resources {
-  padding-top: 30px;
-  padding-bottom: 30px;
-
-  background-color: cv("workforce", "bg");
-
-  @include media(">tablet") {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-
-  @include media(">desktop") {
-    padding-top: 58px;
-    padding-bottom: 44.5px;
-  }
-}
-
 .resources__wrapper {
   display: flex;
   flex-direction: column;
@@ -60,7 +43,6 @@
   font-size: 14px;
   line-height: 1;
   letter-spacing: 0.06em;
-  text-transform: uppercase;
 }
 
 .resources__paragraph {
@@ -152,9 +134,8 @@
   margin-top: 0;
   margin-bottom: 0;
 
-  font-weight: 700;
+  font-weight: 500;
   font-size: 14px;
-  text-transform: uppercase;
   color: var(--c-gray-460);
 }
 

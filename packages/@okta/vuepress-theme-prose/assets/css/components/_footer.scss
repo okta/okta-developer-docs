@@ -302,10 +302,6 @@
   font-weight: 400;
 }
 
-.app-footer a.link--uppercase {
-  text-transform: uppercase;
-}
-
 .app-footer a.link--underline {
   text-decoration: underline;
 }
@@ -363,12 +359,6 @@
 @include media("<desktop-xl") {
   .app-footer ul.link-list li.link-list--item {
     margin-top: 8px;
-  }
-}
-
-@include media("<desktop-xl") {
-  .app-footer {
-    padding: 60px 0;
   }
 }
 

@@ -36,7 +36,7 @@ header.page-header .search--slideout {
   margin-left: 50px;
   max-width: 131px;
 
-  @include media(">desktop") {
+  @include media(">desktop-lg") {
     flex: 1 1 280px;
     max-width: 280px;
 
@@ -147,7 +147,7 @@ header.page-header .link {
   color: cv("body", "white");
   cursor: pointer;
 
-  @include media(">desktop") {
+  @include media(">desktop-lg") {
     color: cv("body", "white") !important;
   }
 }
@@ -244,7 +244,7 @@ header.page-header .link:focus {
   }
 }
 
-@include media("<desktop") {
+@include media("<desktop-lg") {
   header.page-header {
     padding: 0 16px;
   }

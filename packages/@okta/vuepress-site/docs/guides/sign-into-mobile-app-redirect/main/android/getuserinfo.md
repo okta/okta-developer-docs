@@ -3,7 +3,7 @@ To find information about the user, use the `idToken` method. The `Jwt` object c
 Print the users preferred username by creating the function `showPreferredUsername`:
 ```kotlin
 suspend fun showPreferredUsername() {
-    val idToken: Jwt = CredentialBootstrap.defaultCredential().idToken() ?: return
+    val idToken: Jwt = Credential.getDefaultAsync()?.idToken() ?: return
     println(idToken.preferredUsername)
 }
 ```

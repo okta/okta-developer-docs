@@ -475,6 +475,14 @@ export const guides = [
             guideName: "device-assurance-policies"
           },
           {
+            title: "Advanced posture checks and custom remediation",
+            guideName: "device-assurance-posture-checks-and-remediation"
+          },
+          {
+            title: "Device posture IdP",
+            guideName: "device-posture-idp"
+          },
+          {
             title: "Device signal collection policies",
             guideName: "device-signal-collection-policies"
           },
@@ -559,6 +567,8 @@ export const guides = [
           {
             title: "Plan upgrade rollout",
             guideName: "oie-upgrade-rollout-plan",
+            title: "Identify integrations and customizations",
+            guideName: "oie-upgrade-identify-integrations",
           },
           {
             title: "Plan embedded app upgrades",
@@ -567,6 +577,18 @@ export const guides = [
           {
             title: "Identity Engine limitations",
             guideName: "ie-limitations",
+          },
+          {
+            title: "Okta API changes for OIE",
+            guideName: "oie-upgrade-api-changes",
+          },
+          {
+            title: "Update your event hooks for Identity Engine",
+            guideName: "oie-upgrade-event-hooks",
+          },
+          {
+            title: "Upgrade registration inline hooks to Identity Engine",
+            guideName: "oie-upgrade-registration-inline-hook",
           },
           {
             title: "Okta Sign-In Widget upgrade",
@@ -586,6 +608,10 @@ export const guides = [
               {
                 title: "Updates to widget i18n",
                 guideName: "oie-upgrade-sign-in-widget-i18n",
+              },
+              {
+                title: "Test widget customizations",
+                guideName: "oie-upgrade-test-widget-custom",
               },
             ],
           },
@@ -658,6 +684,10 @@ export const guides = [
           {
             title: "Set up AI agent token exchange",
             guideName: "ai-agent-token-exchange",
+          },
+          {
+            title: "Set up AI agent-to-agent token exchange",
+            guideName: "ea-ai-agent-token-exchange",
           },
           {
             title: "Transactional verification using CIBA",
@@ -758,20 +788,6 @@ export const guides = [
         title: "Okta Integration Network",
         customLandingPage: true,
         subLinks: [
-          {
-            title: "Single Sign-On",
-            path: "/docs/guides/oin-sso-overview/",
-            subLinks: [
-              {
-                title: "Build an SSO integration",
-                guideName: "build-sso-integration",
-              },
-              {
-                title: "Add a private SSO integration",
-                guideName: "add-private-app",
-              },
-            ],
-          },
           {
             title: "Lifecycle management",
             path: "/docs/guides/oin-lifecycle-mgmt-overview/",
@@ -1346,12 +1362,12 @@ export const releaseNotes = [
     path: "/docs/release-notes/",
     subLinks: [
       {
-        title: "2026 - Classic Engine",
-        path: "/docs/release-notes/2026/"
-      },
-      {
         title: "2026 - Identity Engine",
         path: "/docs/release-notes/2026-okta-identity-engine/",
+      },
+      {
+        title: "2026 - Classic Engine",
+        path: "/docs/release-notes/2026/"
       },
       {
         title: "2026 - Identity Governance",

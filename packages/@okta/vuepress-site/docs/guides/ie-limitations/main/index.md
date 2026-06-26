@@ -7,6 +7,10 @@ excerpt: Okta Identity Engine introduces a lot of changes to the Okta platform. 
 
 Okta Identity Engine introduces many changes to the Okta platform. Some of these changes result in a lack of support for previously available features. Also, some of these changes result in Identity Engine features not supported for use with Classic Engine APIs.
 
+> **Note:** To update your integrations for these changes, see [API changes after the upgrade](/docs/guides/oie-upgrade-api-changes/main/).
+
+To find which of these features and integrations your org actually uses, see [Identify your Okta authentication integrations and customizations](/docs/guides/oie-upgrade-identify-integrations/).
+
 Are you an admin? See the Identity Engine [limitations](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-limitations) doc for admins.
 
 > **Note:** This doc is designed for people who are familiar with Classic Engine. If you're new to Okta and Identity Engine, see [Get started](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie) with Identity Engine.
@@ -15,7 +19,7 @@ Are you an admin? See the Identity Engine [limitations](https://help.okta.com/ok
 
 ### Custom sign-in page for embedded app links
 
-**What Changed:** Using a custom sign-in page for embedded app links isn't supported. Users who click an app embed link are now evaluated by their org's Okta sign-on policy. Admins can customize an Okta-hosted sign-in page or configure an IdP routing rule for the app.
+**What Changed:** Using a custom sign-in page for embedded app links isn't supported. Users who click an app embed link are now evaluated by their org's global session policy (called the **Okta sign-on policy** in Classic Engine). Admins can customize an Okta-hosted sign-in page or configure an IdP routing rule for the app.
 
 **Further information:** [Configure a custom Okta-hosted sign-in page](/docs/guides/custom-widget/) and [Configure routing rules](https://help.okta.com/okta_help.htm?type=oie&id=ext_Identity_Provider_Discovery).
 
@@ -56,6 +60,8 @@ The following event types are available only in Identity Engine:
 
 Okta discourages the use of the Classic Engine Reset Factor operation for resetting a user's email enrollment. This is because email is an auto-enrolling authenticator in Identity Engine. A user's verified `primaryEmail` is always usable as long as the Email authenticator is set to `ACTIVE`. The user can use it for **recovery only** or for both **authentication and recovery**, depending on the Email authenticator settings.
 
+**Further information:** [Factors API changes after the upgrade](/docs/guides/oie-upgrade-api-changes/main/#factors-api-changes)
+
 ***
 
 ### Reset Factor API - question enrollment
@@ -67,6 +73,8 @@ In Classic Engine, when a user is using both the forgot password question and a 
 In Identity Engine, after you reset all the factors, calling the GET `/factors` API returns the forgot password question in the response.
 
 > **Note:** With Identity Engine, if a user is using both the forgot password question and a Security Question for MFA, and an API call is made to `v1/lifecycle/reset_factors` to reset all the factors for the user, just the Security Question is reset with that call. To reset the forgot password question after that first call, make a second call to `/v1/lifecycle/reset_factors`.
+
+**Further information:** [Factors API changes after the upgrade](/docs/guides/oie-upgrade-api-changes/main/#factors-api-changes)
 
 ***
 
@@ -86,7 +94,7 @@ See [Configure user profile policies](https://help.okta.com/okta_help.htm?type=o
 
 **What changed:** This POST `/api/v1/sessions?additionalFields=cookieToken` request using the Sessions API isn't supported in Identity Engine. However, your existing app could continue to work as long as session management and app interactions are fully contained within the `v1/sessions` APIs.
 
-> **Note:** See [Understand how sessions work after the upgrade](/docs/guides/oie-upgrade-sessions-api/main/).
+> **Note:** See [Understand how sessions work after the upgrade](/docs/guides/oie-upgrade-sessions-api/main/) and [Sessions API changes after the upgrade](/docs/guides/oie-upgrade-api-changes/main/#sessions-api-changes).
 
 ***
 
@@ -100,9 +108,9 @@ See [Configure user profile policies](https://help.okta.com/okta_help.htm?type=o
 
 ### SMS Factors Administration lifecycle operations
 
-**What Changed:** The SMS Factor can no longer be activated or deactivated using the Factors API (`/api/v1/org/factors`).
+**What changed:** The SMS Factor can no longer be activated or deactivated using the Factors API (`/api/v1/org/factors`).
 
-**Further information:** [Factors Administration API](/docs/reference/api/factor-admin)
+**Further information:** [Factors Administration API](/docs/reference/api/factor-admin) and [Factors API changes after the upgrade](/docs/guides/oie-upgrade-api-changes/main/#factors-api-changes)
 
 ***
 
@@ -110,7 +118,7 @@ See [Configure user profile policies](https://help.okta.com/okta_help.htm?type=o
 
 **What changed:** Passing the `audience` parameter to the `/api/v1/authn` API isn't supported in Identity Engine because of the new flexible app sign-in policy that comes with Identity Engine. The Classic Engine pipeline doesn't support the flexible app sign-in policy.
 
-**Further information:** [IdP-initiated step-up authentication](/docs/reference/api/authn/#idp-initiated-step-up-authentication)
+**Further information:** [IdP-initiated step-up authentication](/docs/reference/api/authn/#idp-initiated-step-up-authentication) and [Authentication API changes after the upgrade](/docs/guides/oie-upgrade-api-changes/main/#authentication-api-changes)
 
 ***
 
@@ -136,10 +144,10 @@ See the [SDK use cases](/docs/guides/oie-embedded-common-org-setup/main/) in our
 
 If you use the `/api/v1/authn` APIs to build custom password reset and account unlock experiences, you can't use the new recovery options in Identity Engine. Specifically, if you set a password policy rule to require Okta Verify Push for recovery or configure **Any enrolled authenticator used for MFA/SSO** for additional verification, end users who use the Classic Engine authentication APIs are denied recovery.
 
-**Further information:** [Recovery operations](/docs/reference/api/authn/#recovery-operations) section of the Authentication API.
+**Further information:** [Recovery operations](/docs/reference/api/authn/#recovery-operations) section of the Authentication API, and [Factors API changes after the upgrade](/docs/guides/oie-upgrade-api-changes/main/#factors-api-changes).
 
 ***
 
 ## Okta Sign-In Widget upgrade
 
-For Identity Engine, some specific objects that were previously in the Sign-In Widget configuration are no longer supported and must be removed. Also, specific feature flags aren't supported when you upgrade Sign-In Widget and must be removed from `features` in the JSON code. See [Upgrade your Okta Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/main/) for a comprehensive list of configuration and feature changes.
+For Identity Engine, some specific objects that were previously in the Sign-In Widget configuration are no longer supported and must be removed. Also, specific feature flags aren't supported when you upgrade Sign-In Widget and must be removed from `features` in the JSON code. See [Upgrade your Okta Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/main/) for a comprehensive list of configuration and feature changes. Before you upgrade production, see [Test your widget's existing customizations in a test environment](/docs/guides/oie-upgrade-test-widget-custom/main/).
