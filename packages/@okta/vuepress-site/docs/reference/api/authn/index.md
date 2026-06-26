@@ -96,7 +96,7 @@ The context object allows [trusted web applications](#trusted-application) such 
 | ----------- | ----------------------------------------------------------------------------- | -------- | -------- | ------ | -------- | --------- |
 | deviceToken | A globally unique ID (without hyphens) identifying the user's client device or user agent | String   | TRUE     | FALSE  | FALSE    | 32          |
 
-> **Caution:** The `deviceToken` parameter isn't shared between the Authentication API and the Okta Identity Engine-specific APIs. See [Upgrade to Okta Identity Engine](https://developer.okta.com/docs/guides/oie-upgrade-overview/main/)>.
+> **Caution:** The `deviceToken` parameter isn't shared between the Authentication API and the Okta Identity Engine-specific APIs. See [Upgrade to Okta Identity Engine](https://developer.okta.com/docs/guides/oie-upgrade-overview/main/) and [Device token behavior changed](/docs/guides/oie-upgrade-api-changes/main/#device-token-behavior-changed).
 
 > **Note:**
 >
@@ -1486,6 +1486,8 @@ Authenticates a user for signing in to the specified app.
 Only WS-Federation, SAML-based apps are supported.
 
 > **Note:** Okta Sign-on Policy and the related App Sign-on Policy are evaluated after successful primary authentication.
+
+> **Note:** In Identity Engine, the `audience` parameter isn't supported. See [Authentication API changes after the upgrade](/docs/guides/oie-upgrade-api-changes/main/#authentication-api-changes).
 
 
 ##### Request example for IdP-initiated step-up authentication
@@ -5697,6 +5699,8 @@ curl -v -X POST \
 ```
 
 ## Recovery operations
+
+> **Note:** In Identity Engine, custom recovery flows built on these operations have limitations. See [Password recovery limitations with the Classic Authentication API](/docs/guides/oie-upgrade-api-changes/main/#password-recovery-limitations-with-the-classic-authentication-api).
 
 ### Forgot password
 

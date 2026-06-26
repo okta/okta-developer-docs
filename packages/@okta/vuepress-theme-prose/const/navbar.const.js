@@ -577,6 +577,10 @@ export const guides = [
             guideName: "ie-limitations",
           },
           {
+            title: "Okta API changes for OIE",
+            guideName: "oie-upgrade-api-changes",
+          },
+          {
             title: "Update your event hooks for Identity Engine",
             guideName: "oie-upgrade-event-hooks",
           },
