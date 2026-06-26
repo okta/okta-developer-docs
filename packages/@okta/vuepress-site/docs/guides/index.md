@@ -167,6 +167,7 @@ guides:
  - oie-embedded-widget-use-case-basic-sign-in
  - oie-embedded-widget-use-case-sign-in-soc-idp
  - oie-upgrade-overview
+ - oie-upgrade-rollout-plan
  - oie-upgrade-api-changes
  - oie-upgrade-identify-integrations
  - oie-upgrade-plan-embedded-upgrades
