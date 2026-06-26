@@ -4,7 +4,7 @@
    > * See [Update integration considerations](#update-integration-considerations) for backwards compatibility with changing updated settings.
    > * You can't edit **Authentication settings** for an existing integration.
 
-1. Click **Save and start building** to navigate to the [Integration Builder](/docs/guides/build-api-actions/main/). Update or add actions for your integration in the Integration Builder.
+1. Click **Save and start building** to go to the [Integration Builder](/docs/guides/build-api-actions/main/). Update or add actions for your integration in the Integration Builder.
 [[style="list-style-type:lower-alpha"]]
 
 1. Proceed to update your integration as required in the following sections of the OIN Wizard:
