@@ -50,7 +50,7 @@ The following strategies support a gradual rollout:
 Whichever strategy you choose, follow this sequence:
 
 1. Start with internal users or a small test group.
-2. Validate sign-in, registration, MFA enrollment, and password recovery end-to-end.
+2. Validate sign-in, registration, MFA enrollment, and password recovery flows end to end.
 3. Monitor for issues in the System Log and from user feedback.
 4. Gradually increase the proportion of users on Identity Engine flows.
 5. Remove Classic Engine flow code after all users have been fully migrated and validated.
