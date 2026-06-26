@@ -25,7 +25,7 @@ Update your Sign-In Widget based on your user deployment model.
 You only need to upgrade the Sign-In Widget before your Identity Engine upgrade if either of the following applies:
 
 * Your Sign-In Widget version is older than 5.11.0.
-* You’re using Self-Service Registration (SSR).
+* You’re using the Classic Server-Side Rendering (SSR) flow. You must upgrade to the latest version of the Sign-In Widget.
 
 If neither condition applies, you can skip this guide and proceed with your [Identity Engine upgrade](/docs/guides/oie-upgrade-overview/).
 
