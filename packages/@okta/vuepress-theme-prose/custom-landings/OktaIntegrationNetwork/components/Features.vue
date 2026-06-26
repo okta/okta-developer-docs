@@ -137,7 +137,7 @@
                     id: 4,
                     title: 'Integrate Identity Verification',
                     text: "Verify and securely validate user identities directly from your app using the Identity Verification integration",
-                    link: '/docs/guides/submit-oin-app/idv/main/',
+                    link: '/docs/guides/submit-oin-app/xidv/main/',
                     linkText: 'Get started with Identity Verification integrations',
                     list: [
                         'Allow customers to find and easily connect your identity verification app through the Okta Integration Network catalog.'

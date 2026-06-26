@@ -186,6 +186,6 @@ Ready to make your integration public? Submit an integration with the following 
 
 <Card href="/docs/guides/submit-oin-app/wfactions/main/" headerImage="/img/icons/identicon-actions-2.svg" cardTitle="API Integration Actions" :showFooter=false>Submit an integration with API Integration Actions</Card>
 
-<Card href="/docs/guides/submit-oin-app/idv/main/" headerImage="/img/icons/identicon-actions-2.svg" cardTitle="Identity Verification" :showFooter=false>Submit an integration with Identity Verification</Card>
+<Card href="/docs/guides/submit-oin-app/xidv/main/" headerImage="/img/icons/customer_identity.svg" cardTitle="Identity Verification" :showFooter=false>Submit an integration with Identity Verification</Card>
 
 </Cards>
