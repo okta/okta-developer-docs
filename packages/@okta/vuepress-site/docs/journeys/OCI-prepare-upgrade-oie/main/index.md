@@ -104,7 +104,7 @@ Prepare your upgrade strategy by identifying integration points and defining you
 
 ### Plan your rollback strategy
 
-* [When you should rollback](https://help.okta.com/okta_help.htm?type=oie&id=identity-engine-upgrade-rollback).
+* [When you should roll back](https://help.okta.com/okta_help.htm?type=oie&id=identity-engine-upgrade-rollback).
 * [Initiate a rollback request](https://help.okta.com/okta_help.htm?type=oie&id=identity-engine-upgrade-rollback-steps).
 
 ## Build
@@ -150,6 +150,6 @@ Before you can schedule your upgrade from Classic Engine to Identity Engine, [co
 
 ## Related topics
 
-* [Find troubleshooting docs at the OktakKnowledge base center](https://support.okta.com/help/s/knowledge?selectedTopics&sortValue=Most%20Popular&searchTerm).
+* [Find troubleshooting docs at the Okta Knowledge base center](https://support.okta.com/help/s/knowledge?selectedTopics&sortValue=Most%20Popular&searchTerm).
 * [Check out the video resources on the Okta Support Center's Identity Engine upgrade page](https://support.okta.com/help/s/product-hub/oie/upgrading-to-okta-identity-engine?language=en_US).
 * [Get an overview of the Identity Engine upgrade process](/docs/guides/oie-upgrade-overview/main/).
