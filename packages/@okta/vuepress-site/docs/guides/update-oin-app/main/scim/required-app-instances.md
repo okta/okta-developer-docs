@@ -3,7 +3,7 @@ The **Required app instances** section shows you the instances detected in your 
 * The **CURRENT VERSION** status indicates the instances that you need to test your current integration submission. [Generate an instance](#generate-an-instance) to test SCIM if **No instance detected** appears next to the **SCIM** label.
 * The **PUBLISHED VERSION** status indicates the instances that you need to test backwards compatibility for SSO. If your integration only supports the SCIM protocol, then the OIN Wizard doesn't require a published-version instance.
 
-Depending on the nature of your updates, you may need to generate instances for backward-compatibility testing. Okta recommends that you execute the Runscope tests on your SCIM published-version instance for backwards compatibility, but it's not a requirement for submission.
+Depending on the nature of your updates, you may need to generate instances for backwards-compatibility testing. Okta recommends that you execute the Runscope tests on your SCIM published-version instance for backwards compatibility, but it's not a requirement for submission.
 
    * If you're only updating app profiles or mapping, then you don't need to create an extra app instance for SCIM backward-compatibility testing. You can test the app profile updates in the updated instance version of your submission. See [Configure attribute mappings](#configure-attribute-mappings) when you generate a SCIM instance for testing. However, if you're updating the properties such as description, logo, or guide link, then Okta recommends that you create an extra app instance for SCIM backward-compatibility testing.
 

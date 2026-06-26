@@ -4,9 +4,9 @@
 > * This section appears only if you select **Universal Logout** with API Integration Actions.
 > * Universal Logout is only supported with SSO integrations.
 > * If you want instructions for SSO integrations, select **OpenID Connect** or **SAML 2.0** from the **Instructions for** dropdown list on the right.
-> * For integrations that include API Integration Actions, always access the OIN Wizard through the **Application** > **Your OIN Integrations** path in the Admin Console.
+> * For integrations that include API actions, always access the OIN Wizard through the **Application** > **Your OIN Integrations** path in the Admin Console.
 
-1. Specify the following properties for Universal Logout with API Integration Actions:
+1. Specify the following properties for Universal Logout:
 
     | <div style="width:150px">Property</div> | Description  |
     | ----------------- | ------------ |
