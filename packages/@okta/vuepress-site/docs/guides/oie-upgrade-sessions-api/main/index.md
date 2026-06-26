@@ -7,7 +7,7 @@ meta:
 
 <ApiLifecycle access="ie" />
 
-Okta uses an HTTP session cookie to provide access to your Okta organization and applications across web requests for interactive user agents such as a browser. The Okta [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/) provides operations to create and manage authentication sessions for users in your Okta org.
+Okta uses an HTTP session cookie to provide access to your Okta org and apps across web requests for interactive user agents such as a browser. The Okta [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/) provides operations to create and manage authentication sessions for users in your Okta org.
 
 After your org is upgraded to Okta Identity Engine, there are a few things you should know about how sessions work with Identity Engine:
 
@@ -35,3 +35,7 @@ The following section discusses different use cases and what the changes are aft
 4. **Are you making this request (POST `/api/v1/sessions?additionalFields=cookieToken`) using the Sessions API?** This operation works only on the session ID (`sid`) session and not on the Identity Engine `idx` session.
 
     If you're using this endpoint, Okta highly recommends that you move away from using the session ID entirely and use the [My Session Management endpoints](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/#tag/Session/operation/getCurrentSession) instead. This puts you in charge of managing your own session.
+
+5. **Did a user authenticate in Classic Engine before the upgrade was completed?** If a user authenticates in Classic Engine, they receive a sessionToken that remains valid for five minutes. If the upgrade to Identity Engine completes while this sessionToken is still valid, the user's existing session becomes invalid. When the user attempts to access an OpenID Connect app after the upgrade, they’re prompted for their password again.
+
+    > **Note:** This scenario only happens during an upgrade from Classic Engine to Identity Engine. It doesn't continue to happen after the upgrade.

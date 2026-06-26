@@ -567,6 +567,8 @@ export const guides = [
           {
             title: "Plan upgrade rollout",
             guideName: "oie-upgrade-rollout-plan",
+          },
+          {
             title: "Identify integrations and customizations",
             guideName: "oie-upgrade-identify-integrations",
           },
@@ -575,11 +577,7 @@ export const guides = [
             guideName: "oie-upgrade-plan-embedded-upgrades",
           },
           {
-            title: "Identity Engine limitations",
-            guideName: "ie-limitations",
-          },
-          {
-            title: "Okta API changes for OIE",
+            title: "Okta API changes for Identity Engine",
             guideName: "oie-upgrade-api-changes",
           },
           {
