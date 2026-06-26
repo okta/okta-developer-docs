@@ -14,7 +14,7 @@ Build a rollout plan that covers org upgrade sequencing, user segment rollout, a
 
 #### What you need
 
-* Access to the Admin Console for each org you plan to upgrade
+* Access to the Admin Console for each org that you plan to upgrade
 * A list of all Okta orgs in your tenant and their purpose (preview, sandbox, production)
 * An understanding of how your apps integrate with Okta (redirect, embedded widget, or embedded SDK)
 * Completed Identity Engine Upgrade Hub action items for each org
