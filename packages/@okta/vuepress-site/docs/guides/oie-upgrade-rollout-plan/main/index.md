@@ -86,7 +86,7 @@ See [Prepare Terraform for upgrade](https://help.okta.com/okta_help.htm?type=oie
 
 Remove Integrated Windows Authentication (IWA) routing rules before you upgrade. The Identity Engine Upgrade Hub blocks the upgrade if any IWA routing rules exist in your org.
 
-To prepare:
+To prepare, complete the following steps:
 
 * Identify all IWA routing rules in the Admin Console.
 * Delete each routing rule before scheduling the upgrade.
