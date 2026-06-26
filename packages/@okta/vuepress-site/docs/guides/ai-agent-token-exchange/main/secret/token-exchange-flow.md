@@ -1,12 +1,10 @@
 <div class="full wireframe-border">
 
-  ![Flow diagram illustrating the process of AI agent token exchange](/img/auth/ai-agent-token-exchange/token_exchange_flow_for_secret.png)
+  ![Flow diagram illustrating the process of AI agent token exchange](/img/auth/ai-agent-token-exchange/token_exchange_flow_for_secret.svg)
 
 </div>
 
 <!-- Image source: https://oktainc.atlassian.net/browse/OKTA-1137019 -->
-
-> **Note:** This flow assumes that user authentication and authorization are complete and the authorization server issued an access token and ID token associated with the user successfully signing in to the linked OIDC app.
 
 The token exchange flow for an AI agent involves the following steps:
 

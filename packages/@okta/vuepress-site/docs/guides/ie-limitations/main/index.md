@@ -8,6 +8,7 @@ excerpt: Okta Identity Engine introduces a lot of changes to the Okta platform. 
 Okta Identity Engine introduces many changes to the Okta platform. Some of these changes result in a lack of support for previously available features. Also, some of these changes result in Identity Engine features not supported for use with Classic Engine APIs.
 
 > **Note:** To update your integrations for these changes, see [API changes after the upgrade](/docs/guides/oie-upgrade-api-changes/main/).
+To find which of these features and integrations your org actually uses, see [Identify your Okta authentication integrations and customizations](/docs/guides/oie-upgrade-identify-integrations/).
 
 Are you an admin? See the Identity Engine [limitations](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-limitations) doc for admins.
 
@@ -148,4 +149,4 @@ If you use the `/api/v1/authn` APIs to build custom password reset and account u
 
 ## Okta Sign-In Widget upgrade
 
-For Identity Engine, some specific objects that were previously in the Sign-In Widget configuration are no longer supported and must be removed. Also, specific feature flags aren't supported when you upgrade Sign-In Widget and must be removed from `features` in the JSON code. See [Upgrade your Okta Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/main/) for a comprehensive list of configuration and feature changes.
+For Identity Engine, some specific objects that were previously in the Sign-In Widget configuration are no longer supported and must be removed. Also, specific feature flags aren't supported when you upgrade Sign-In Widget and must be removed from `features` in the JSON code. See [Upgrade your Okta Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/main/) for a comprehensive list of configuration and feature changes. Before you upgrade production, see [Test your widget's existing customizations in a test environment](/docs/guides/oie-upgrade-test-widget-custom/main/).

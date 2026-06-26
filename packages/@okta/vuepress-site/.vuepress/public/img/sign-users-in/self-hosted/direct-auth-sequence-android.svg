@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 636" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+    <marker id="arrowReturn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748B"/>
+    </marker>
+  </defs>
+
+  <!-- background -->
+  <rect x="0" y="0" width="960" height="636" fill="#FFFFFF"/>
+
+  <!-- title -->
+  <text x="480" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#0F172A">Direct authentication (Resource Owner Password) sign-in flow</text>
+  <text x="480" y="49" text-anchor="middle" font-size="12.5" fill="#64748B">Self-hosted sign-in page with the Okta Client SDK (Kotlin / Android)</text>
+
+  <!-- lifelines -->
+  <g stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4 4">
+    <line x1="100" y1="124" x2="100" y2="558"/>
+    <line x1="290" y1="124" x2="290" y2="558"/>
+    <line x1="480" y1="124" x2="480" y2="558"/>
+    <line x1="670" y1="124" x2="670" y2="558"/>
+    <line x1="860" y1="124" x2="860" y2="558"/>
+  </g>
+
+  <!-- participant boxes -->
+  <g>
+    <rect x="25"  y="66" width="150" height="54" rx="8" fill="#EEF2F7" stroke="#475569" stroke-width="1.5"/>
+    <text x="100" y="98" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#0F172A">User</text>
+
+    <rect x="215" y="66" width="150" height="54" rx="8" fill="#EEF2F7" stroke="#475569" stroke-width="1.5"/>
+    <text x="290" y="91" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#0F172A">App UI</text>
+    <text x="290" y="108" text-anchor="middle" font-size="11" fill="#64748B">Composable / ViewModel</text>
+
+    <rect x="405" y="66" width="150" height="54" rx="8" fill="#EEF2F7" stroke="#475569" stroke-width="1.5"/>
+    <text x="480" y="98" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#0F172A">AuthService</text>
+
+    <rect x="595" y="66" width="150" height="54" rx="8" fill="#EEF2F7" stroke="#475569" stroke-width="1.5"/>
+    <text x="670" y="91" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#0F172A">Okta Client SDK</text>
+    <text x="670" y="108" text-anchor="middle" font-size="11" fill="#64748B">DirectAuth + Credential</text>
+
+    <rect x="785" y="66" width="150" height="54" rx="8" fill="#E7EEF9" stroke="#475569" stroke-width="1.5"/>
+    <text x="860" y="98" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#0F172A">Okta org</text>
+  </g>
+
+  <!-- messages -->
+  <g font-size="12.5" fill="#1A202C" text-anchor="middle">
+    <!-- 1 -->
+    <text x="195" y="143">1. Enter username + password, tap Sign In</text>
+    <line x1="100" y1="150" x2="290" y2="150" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <!-- 2 -->
+    <text x="385" y="187">2. authenticate(username, password)</text>
+    <line x1="290" y1="194" x2="480" y2="194" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <!-- 3 -->
+    <text x="575" y="231">3. directAuth.start(username, PrimaryFactor.Password(pw))</text>
+    <line x1="480" y1="238" x2="670" y2="238" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <!-- 4 -->
+    <text x="765" y="275">4. Direct auth request (ROPC grant)</text>
+    <line x1="670" y1="282" x2="860" y2="282" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <!-- 5 (return) -->
+    <text x="765" y="319">5. OAuth 2.0 tokens</text>
+    <line x1="860" y1="326" x2="670" y2="326" stroke="#64748B" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#arrowReturn)"/>
+    <!-- 6 (state emission) -->
+    <text x="575" y="363">6. authenticationState = Authenticated(token) *</text>
+    <line x1="670" y1="370" x2="480" y2="370" stroke="#64748B" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#arrowReturn)"/>
+    <!-- 7 -->
+    <text x="575" y="407">7. Credential.store(token) + setDefaultAsync()</text>
+    <line x1="480" y1="414" x2="670" y2="414" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <!-- 8 (return) -->
+    <text x="575" y="451">8. Stored as default credential</text>
+    <line x1="670" y1="458" x2="480" y2="458" stroke="#64748B" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#arrowReturn)"/>
+    <!-- 9 (return) -->
+    <text x="385" y="495">9. uiState = Authenticated — show authenticated screen</text>
+    <line x1="480" y1="502" x2="290" y2="502" stroke="#64748B" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#arrowReturn)"/>
+  </g>
+
+  <!-- legend -->
+  <g font-size="11.5" fill="#475569">
+    <line x1="280" y1="582" x2="315" y2="582" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="323" y="586" text-anchor="start">Call</text>
+    <line x1="420" y1="582" x2="455" y2="582" stroke="#64748B" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#arrowReturn)"/>
+    <text x="463" y="586" text-anchor="start">Response / state emission</text>
+  </g>
+
+  <!-- footnote -->
+  <g font-size="10.5">
+    <text x="60" y="614" text-anchor="start" fill="#64748B">* Steps 5–6: the SDK emits state on directAuth.authenticationState (a StateFlow) that AuthService observes — it pushes state rather than returning a value.</text>
+  </g>
+</svg>
