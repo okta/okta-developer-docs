@@ -99,7 +99,7 @@ See [Delete IWA routing rules](https://help.okta.com/okta_help.htm?type=oie&id=c
 
 Classic Engine Device Trust isn't supported in Identity Engine. The replacement is Okta Verify with managed certificates and Okta FastPass.
 
-Start by identifying whether your org uses Device Trust for Desktop, mobile, or both, then plan the migration path for each.
+Start by identifying whether your org uses Device Trust for Desktop, mobile, or both, and then plan the migration path for each.
 
 After you [remove the IWA routing rules](#replace-integrated-windows-authentication) and complete the upgrade, migrate desktop devices to Okta FastPass:
 
