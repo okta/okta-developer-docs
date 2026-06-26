@@ -1,0 +1,127 @@
+.release-notes {
+  --release-notes-divider-color: var(--c-gray-425);
+  --release-notes-card-background-color: var(--c-gray-050);
+  --release-notes-title-color: var(--c-gray-950);
+  --release-notes-description-color: var(--c-gray-750);
+  --release-notes-newest-releases-label-color: var(--c-gray-750);
+  --release-notes-newest-releases-link-color: var(--c-gray-950);
+}
+
+.release-notes__divider {
+  margin: 0 16px 16px;
+
+  border: none;
+  border-top: 1px solid var(--release-notes-divider-color);
+
+  @include media(">desktop") {
+    display: none;
+  }
+}
+
+.release-notes__card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  border-radius: 24px;
+
+  background-color: var(--release-notes-card-background-color);
+
+  @include media(">tablet") {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 32px;
+  }
+}
+
+.release-notes__card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding: 32px 16px 0;
+
+  @include media(">desktop") {
+    padding: 32px;
+  }
+}
+
+.release-notes__title {
+  margin-top: 0;
+  margin-bottom: 16px;
+
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: -0.32px;
+
+  color: var(--release-notes-title-color);
+
+  @include media(">desktop") {
+    margin-bottom: 48px;
+
+    font-size: 48px;
+    line-height: 56px;
+    letter-spacing: -0.96px;
+  }
+}
+
+.release-notes__description {
+  margin-top: 0;
+  margin-bottom: 24px;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.18px;
+
+  color: var(--release-notes-description-color);
+}
+
+.release-notes__newest-releases {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  padding: 16px 32px 32px 16px;
+
+  @include media(">desktop") {
+    padding: 32px 32px 32px 0;
+  }
+}
+
+.release-notes__newest-releases-label {
+  margin: 0;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.6px;
+
+  color: var(--release-notes-newest-releases-label-color);
+}
+
+.release-notes__newest-releases-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.release-notes__link {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+  text-decoration: underline;
+
+  color: var(--release-notes-newest-releases-link-color);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

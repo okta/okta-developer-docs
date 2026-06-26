@@ -14,6 +14,7 @@
   --c-gray-405: #bfbfbf;
   --c-gray-410: #a1a1a7;
   --c-gray-420: #afaba1;
+  --c-gray-425: #ababab;
   --c-gray-450: #8c8c8c;
   --c-gray-460: #707070;
   --c-gray-500: #6e6e78;
@@ -27,6 +28,7 @@
   --c-gray-800: #1d1d21;
   --c-gray-900: #1d1d21;
   --c-gray-950: #191919;
+  --c-gray-960: #282828;
   --c-gray-980: #2b2b2b;
   --c-gray-990: #222221;
   --c-lightgray-200: #f5f5f5;
@@ -139,9 +141,8 @@
   --c-support-button-bg: var(--c-gray-950);
   --c-support-button-text: var(--c-lightgray-450);
   --c-text-background: var(--c-lightgray-200);
-  --c-workforce-bg: var(--c-lightgray-450);
-  --c-workforce-text: var(--c-gray-950);
-  --c-workforce-block-bg: var(--c-lightgray-400);
+  --c-homepage-section-bg: var(--c-lightgray-450);
+  --c-homepage-card-bg: var(--c-lightgray-400);
 }
 
 .dark-theme {
@@ -237,9 +238,8 @@
   --c-support-text: var(--c-lightgray-450);
   --c-support-button-bg: var(--c-lightgray-450);
   --c-support-button-text: var(--c-gray-950);
-  --c-workforce-bg: var(--c-gray-950);
-  --c-workforce-text: var(--c-lightgray-450);
-  --c-workforce-block-bg: #30302f;
+  --c-homepage-section-bg: var(--c-gray-950);
+  --c-homepage-card-bg: #30302f;
 }
 
 $colors: (
@@ -392,10 +392,9 @@ $colors: (
   "theme-toggle": (
     "bg": var(--c-toggle-bg)
   ),
-  "workforce": (
-    "bg": var(--c-workforce-bg),
-    "text": var(--c-workforce-text),
-    "block-bg": var(--c-workforce-block-bg)
+  "homepage-section": (
+    "bg": var(--c-homepage-section-bg),
+    "card-bg": var(--c-homepage-card-bg)
   ),
   "support": (
     "bg": var(--c-support-bg),
