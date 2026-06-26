@@ -7,7 +7,7 @@ meta:
 
 <ApiLifecycle access="ie" />
 
-Upgrading from Classic Engine to Identity Engine changes how some Okta APIs work. A few behave differently, and others have new limitations. If your apps call the [Authentication API](#authentication-api-changes), [Factors API](#factors-api-changes), or [Sessions API](#sessions-api-changes), take a look at what's changed before you upgrade.
+Upgrading from Classic Engine to Identity Engine changes how some Okta APIs work. A few behave differently, and others have new limitations. If your apps call the [Authentication API](#authentication-api-changes), [Factors API](#factors-api-changes), or [Sessions API](#sessions-api-changes), look at what's changed before you upgrade.
 
 ---
 
@@ -94,6 +94,17 @@ Identity Engine consolidates recovery and MFA questions into a single concept:
 * The `GET /api/v1/users/{userId}/factors` endpoint now returns recovery questions even when no MFA Security Question enrollment exists.
 * After you reset all factors, the forgotten-password question still appears in API responses. This differs from Classic Engine behavior.
 * Resetting both question types requires two separate `POST /api/v1/users/{userId}/lifecycle/reset_factors` calls.
+
+### Factor API enrollment limitations
+
+The following Identity Engine features aren't supported when you use the Factors API:
+
+* You can only use the Factors API to enroll the first Okta Verify factor. Enrolling in multiple Okta Verify factors isn't supported.
+* Okta Verify authenticator settings aren't enforced when you enroll using the Factors API:
+  * The FIPS compliance requirement for enrollments
+  * The user verification requirement for enrollments
+  * New Okta Verify enrollments created with the Factors API aren't mapped to a device.
+  * Passkey (FIDO2 WebAuthn) authenticator user verification settings aren't enforced when enrolling using the Factors API.
 
 ### SMS Factor lifecycle operations aren't supported
 
