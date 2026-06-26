@@ -114,7 +114,7 @@ Mobile device migration is a separate process. See [Device Trust upgrade conside
 
 ## Replace Okta Mobile
 
-Okta Mobile is deprecated and unavailable after the Identity Engine upgrade. Before upgrading, make sure that all affected users are enrolled in Okta Verify.
+Okta Mobile is unavailable in Identity Engine. Before upgrading, make sure that all affected users are enrolled in Okta Verify.
 
 * Identify which users currently rely on Okta Mobile.
 * Communicate the deprecation timeline to those users.
