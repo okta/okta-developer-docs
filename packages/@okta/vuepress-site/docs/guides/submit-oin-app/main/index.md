@@ -218,7 +218,7 @@ The Integrator Free Plan org has no limit on active instances. You can create as
 The **Required app instances** box shows you the instances detected in your org that are available to test your integration. It also shows you the test instances required for the OIN Submission Tester based on your selected protocols:
 
 * The **CURRENT VERSION** status indicates the instances that you need to test your current integration submission.
-* The **PUBLISHED VERSION** status indicates the instances that you need to test backward compatibility if you edit a previously published integration. See [Update a published integration with the OIN Wizard](/docs/guides/update-oin-app/).
+* The **PUBLISHED VERSION** status indicates the instances that you need to test backwards compatibility if you edit a previously published integration. See [Update a published integration with the OIN Wizard](/docs/guides/update-oin-app/).
 
 ### Application instances for testing
 
@@ -228,7 +228,7 @@ The **Application instances for testing** section displays, by default, the inst
 
 An instance is eligible if it was generated from the latest version of the integration submission in the OIN Wizard. An instance is ineligible if it was generated from a previous version of the integration submission and you later made edits to the submission. This is to ensure that you test your integration based on the latest submission details.
 
-If you modify a published OIN integration, you must generate an instance based on the currently published integration for backward compatibility testing. A backward-compatible instance is eligible if it was generated from the published version of the integration before any edits are made in the current submission. The OIN Wizard detects if you're modifying a published OIN integration and asks you to generate a backward-compatible instance before you make any edits.
+If you modify a published OIN integration, you must generate an instance based on the currently published integration for backwards compatibility testing. A backward-compatible instance is eligible if it was generated from the published version of the integration before any edits are made in the current submission. The OIN Wizard detects if you're modifying a published OIN integration and asks you to generate a backward-compatible instance before you make any edits.
 
 > **Note:** The Integrator Free Plan org has no limit on active instances. You can create as many test instances as needed for your integration. To deactivate any instances you no longer need, see [Deactivate an app instance in your org](#deactivate-an-app-instance-in-your-org).
 
