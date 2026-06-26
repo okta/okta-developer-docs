@@ -54,30 +54,6 @@ The following event types are available only in Identity Engine:
 
 ***
 
-### Reset Factor API - email enrollment
-
-**What changed:** With Identity Engine, a user's verified `primaryEmail` is considered as an email (authenticator) enrollment for the user. Therefore, the GET `/factors` API always returns the verified `primaryEmail` as an active email factor.
-
-Okta discourages the use of the Classic Engine Reset Factor operation for resetting a user's email enrollment. This is because email is an auto-enrolling authenticator in Identity Engine. A user's verified `primaryEmail` is always usable as long as the Email authenticator is set to `ACTIVE`. The user can use it for **recovery only** or for both **authentication and recovery**, depending on the Email authenticator settings.
-
-**Further information:** [Factors API changes after the upgrade](/docs/guides/oie-upgrade-api-changes/main/#factors-api-changes)
-
-***
-
-### Reset Factor API - question enrollment
-
-**What changed:** Identity Engine steers away from the notion of separate questions for MFA and recovery. Therefore, the GET `/factors` API now returns the recovery question (forgot password question) in the absence of an MFA Security Question enrollment for the user.
-
-In Classic Engine, when a user is using both the forgot password question and a Security Question for MFA, and an API call is made to `v1/lifecycle/reset_factors` to reset all the factors for the user, only the Security Question is reset. If the GET `/factors` API is called, the forgot password question isn't returned as a factor.
-
-In Identity Engine, after you reset all the factors, calling the GET `/factors` API returns the forgot password question in the response.
-
-> **Note:** With Identity Engine, if a user is using both the forgot password question and a Security Question for MFA, and an API call is made to `v1/lifecycle/reset_factors` to reset all the factors for the user, just the Security Question is reset with that call. To reset the forgot password question after that first call, make a second call to `/v1/lifecycle/reset_factors`.
-
-**Further information:** [Factors API changes after the upgrade](/docs/guides/oie-upgrade-api-changes/main/#factors-api-changes)
-
-***
-
 ### Self-Service Registration
 
 **What changed:** The Classic Engine Self-Service Registration feature isn't supported. The Identity Engine Self-Service Registration is now accomplished through a user profile policy. In a user profile policy, admins select the attributes they want to collect when a new end user clicks **Sign up**. After the end user is authenticated into the app, their profile is complete and they're provisioned to the appropriate groups.
@@ -90,61 +66,11 @@ See [Configure user profile policies](https://help.okta.com/okta_help.htm?type=o
 
 ***
 
-### Sessions APIs
-
-**What changed:** This POST `/api/v1/sessions?additionalFields=cookieToken` request using the Sessions API isn't supported in Identity Engine. However, your existing app could continue to work as long as session management and app interactions are fully contained within the `v1/sessions` APIs.
-
-> **Note:** See [Understand how sessions work after the upgrade](/docs/guides/oie-upgrade-sessions-api/main/) and [Sessions API changes after the upgrade](/docs/guides/oie-upgrade-api-changes/main/#sessions-api-changes).
-
-***
-
 ### Session token created before an Identity Engine upgrade prompts user for password after upgrade completes
 
 **What changed:** If a user authenticates in Classic Engine (which creates a `sessionToken`), and the upgrade to Identity Engine completes while the `sessionToken` is valid (five minutes), then when a user attempts to access an OpenID Connect app after the upgrade, the user is prompted for their password again.
 
 > **Note:** This scenario only happens during an upgrade from Classic Engine to Identity Engine. It doesn't continue to happen after the upgrade.
-
-***
-
-### SMS Factors Administration lifecycle operations
-
-**What changed:** The SMS Factor can no longer be activated or deactivated using the Factors API (`/api/v1/org/factors`).
-
-**Further information:** [Factors Administration API](/docs/reference/api/factor-admin) and [Factors API changes after the upgrade](/docs/guides/oie-upgrade-api-changes/main/#factors-api-changes)
-
-***
-
-### The `audience` parameter in the Authentication API
-
-**What changed:** Passing the `audience` parameter to the `/api/v1/authn` API isn't supported in Identity Engine because of the new flexible app sign-in policy that comes with Identity Engine. The Classic Engine pipeline doesn't support the flexible app sign-in policy.
-
-**Further information:** [IdP-initiated step-up authentication](/docs/reference/api/authn/#idp-initiated-step-up-authentication) and [Authentication API changes after the upgrade](/docs/guides/oie-upgrade-api-changes/main/#authentication-api-changes)
-
-***
-
-## Identity Engine features not supported with Classic Engine APIs
-
-### Factor API enrollment limitations
-
-The following Identity Engine features aren't supported using the Factor APIs:
-
-* Enroll in multiple Okta Verify factors using the [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor). You can only use the Factors API to enroll the first Okta Verify factor.
-* Okta Verify authenticator settings aren't enforced when enrolling using the Factors API:
-
-  * The FIPS compliance requirement for enrollments
-  * The user verification requirement for enrollments
-  * New Okta Verify enrollments that are created with the Factors API aren't mapped to a device.
-  * Passkey (FIDO2 WebAuthn) authenticator user verification settings aren't enforced when enrolling using the Factors API.
-
-See the [SDK use cases](/docs/guides/oie-embedded-common-org-setup/main/) in our embedded SDK guides for more information on profile enrollment.
-
-***
-
-### Password recovery limitations with the Classic Authentication API
-
-If you use the `/api/v1/authn` APIs to build custom password reset and account unlock experiences, you can't use the new recovery options in Identity Engine. Specifically, if you set a password policy rule to require Okta Verify Push for recovery or configure **Any enrolled authenticator used for MFA/SSO** for additional verification, end users who use the Classic Engine authentication APIs are denied recovery.
-
-**Further information:** [Recovery operations](/docs/reference/api/authn/#recovery-operations) section of the Authentication API, and [Factors API changes after the upgrade](/docs/guides/oie-upgrade-api-changes/main/#factors-api-changes).
 
 ***
 
