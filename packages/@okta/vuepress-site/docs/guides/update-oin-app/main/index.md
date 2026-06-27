@@ -162,7 +162,7 @@ Generate instances for testing your updates directly from the OIN Wizard. See [R
 
 ## Submit your updates
 
->**Note:** Catalog information only updates submit directly without configuration or testing. Your app displays an in-review status while the live version remains active in the public OIN catalog.
+>**Note:** Submit catalog information only updates directly without configuration or testing. Your app displays an in-review status while the live version remains active in the public OIN catalog.
 
 After you successfully test your updated integration, you're ready to submit.
 
