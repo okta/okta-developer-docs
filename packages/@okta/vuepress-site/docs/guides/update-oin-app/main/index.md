@@ -132,6 +132,8 @@ To update a previously published OIN integration:
 
 ## Test integration updates
 
+>**Note:** Test integration is applicable only in case of functional updates. In case of Catalog info only uodate, the OIN Wizard bypasses configuration and testing, prompting you to submit immediately.
+
 The OIN Wizard journey includes the **Test integration** experience page to help you configure and test your updated integration within the same org before submission. These are the tasks that you need to complete:
 
 <StackSnippet snippet="test-steps" />
@@ -159,6 +161,8 @@ Generate instances for testing your updates directly from the OIN Wizard. See [R
 <StackSnippet snippet="test-instance" />
 
 ## Submit your updates
+
+>**Note:** Submit integration is applicable only in case of functional updates. In case of Catalog info only uodate, the OIN Wizard bypasses configuration and testing, prompting you to submit immediately. After clicking submit, the app displays an in review status under **Your apps** section. The live version remains active in the public OIN catalog while Okta reviews your changes.
 
 After you successfully test your updated integration, you're ready to submit.
 
