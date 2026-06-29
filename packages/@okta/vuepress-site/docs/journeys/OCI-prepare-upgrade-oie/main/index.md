@@ -20,7 +20,7 @@ As you work through each section, complete the following tasks:
 * Document your current setup.
 * Complete action items in the Upgrade Hub.
 * Test in a Preview environment.
-* Use the results to schedule and execute your production upgrade.
+* Use the results to schedule and execute your Production upgrade.
 
 You can go directly to the Okta Upgrade Hub in the Admin Console to review your open action items and schedule your upgrade. [Learn more about the Identity Engine Upgrade Hub](https://help.okta.com/okta_help.htm?type=oie&id=csh-complete-action-items).
 
