@@ -39,42 +39,42 @@ Before you begin, watch these videos to understand the Identity Engine upgrade a
 
 ### User experience changes
 
-* [Identity Engine sign-in flow behavior](https://help.okta.com/okta_help.htm?type=oie&id=sign-in-flows).
-* [App intent links in Identity Engine](https://help.okta.com/okta_help.htm?type=oie&id=csh-identity-engine-upgrade-app-intent-link).
+* [Identity Engine sign-in flow behavior](https://help.okta.com/okta_help.htm?type=oie&id=sign-in-flows)
+* [App intent links in Identity Engine](https://help.okta.com/okta_help.htm?type=oie&id=csh-identity-engine-upgrade-app-intent-link)
 * [Sign-in flow changes with federation and SSO](https://help.okta.com/okta_help.htm?type=oie&id=inbound-sign-in-flow)
 
 ### Policy changes
 
-* [App sign-on policy](https://help.okta.com/okta_help.htm?type=oie&id=app-sign-on-policy-changes).
-* [Okta sign-on policies](https://help.okta.com/okta_help.htm?type=oie&id=okta-sign-on-policy-changes).
-* [Sign-on policy task differences](https://help.okta.com/okta_help.htm?type=oie&id=compare-app-sign-on-policies).
-* [Multifactor authentication (MFA) enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=mfa-enrollment-policy-changes).
+* [App sign-on policy](https://help.okta.com/okta_help.htm?type=oie&id=app-sign-on-policy-changes)
+* [Okta sign-on policies](https://help.okta.com/okta_help.htm?type=oie&id=okta-sign-on-policy-changes)
+* [Sign-on policy task differences](https://help.okta.com/okta_help.htm?type=oie&id=compare-app-sign-on-policies)
+* [Multifactor authentication (MFA) enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=mfa-enrollment-policy-changes)
 
 ### Multifactor Authentication (MFA) changes
 
-* [MFA](https://help.okta.com/okta_help.htm?type=oie&id=csh-identity-engine-upgrade-mfa-enhancements).
-* [Okta Verify](https://help.okta.com/okta_help.htm?type=oie&id=ov-with-fp).
-* [Email as an optional authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-optional).
-* [Phone authenticator capabilities](https://help.okta.com/okta_help.htm?type=oie&id=phone-auth).
-* [Secondary email address setup](https://help.okta.com/okta_help.htm?type=oie&id=secondary-email-user-account).
-* [Security Question](https://help.okta.com/okta_help.htm?type=oie&id=security-questions-and-answers).
+* [MFA](https://help.okta.com/okta_help.htm?type=oie&id=csh-identity-engine-upgrade-mfa-enhancements)
+* [Okta Verify](https://help.okta.com/okta_help.htm?type=oie&id=ov-with-fp)
+* [Email as an optional authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-optional)
+* [Phone authenticator capabilities](https://help.okta.com/okta_help.htm?type=oie&id=phone-auth)
+* [Secondary email address setup](https://help.okta.com/okta_help.htm?type=oie&id=secondary-email-user-account)
+* [Security Question](https://help.okta.com/okta_help.htm?type=oie&id=security-questions-and-answers)
 
 ### Other product and feature changes
 
-* [Sign-In Widget](https://help.okta.com/okta_help.htm?type=oie&id=csh-siw-changes).
-* [Email templates](https://help.okta.com/okta_help.htm?type=oie&id=email-enhancements).
-* [End-User Settings](https://help.okta.com/okta_help.htm?type=oie&id=eus-changes).
-* [Global redirect](https://help.okta.com/okta_help.htm?type=oie&id=global-redirect).
-* [Password reset feature](https://help.okta.com/okta_help.htm?type=oie&id=password-reset-account-recovery).
-* [Registration inline hooks](https://help.okta.com/okta_help.htm?type=oie&id=registration-hooks).
-* [Self-service registration process](https://help.okta.com/okta_help.htm?type=oie&id=csh-identity-engine-upgrade-feature-change-ssr).
-* [Suspicious activity reporting](https://help.okta.com/okta_help.htm?type=oie&id=suspicious-activity).
-* [Sessions](/docs/guides/oie-upgrade-sessions-api/main/).
+* [Sign-In Widget](https://help.okta.com/okta_help.htm?type=oie&id=csh-siw-changes)
+* [Email templates](https://help.okta.com/okta_help.htm?type=oie&id=email-enhancements)
+* [End-User Settings](https://help.okta.com/okta_help.htm?type=oie&id=eus-changes)
+* [Global redirect](https://help.okta.com/okta_help.htm?type=oie&id=global-redirect)
+* [Password reset feature](https://help.okta.com/okta_help.htm?type=oie&id=password-reset-account-recovery)
+* [Registration inline hooks](https://help.okta.com/okta_help.htm?type=oie&id=registration-hooks)
+* [Self-service registration process](https://help.okta.com/okta_help.htm?type=oie&id=csh-identity-engine-upgrade-feature-change-ssr)
+* [Suspicious activity reporting](https://help.okta.com/okta_help.htm?type=oie&id=suspicious-activity)
+* [Sessions](/docs/guides/oie-upgrade-sessions-api/main/)
 
 ### Okta API changes
 
-* [Okta APIs](/docs/guides/oie-upgrade-api-changes/main/).
-* [Authenticator enrollment policy API](/docs/guides/oie-upgrade-mfa-enroll-policy/main/).
+* [Okta APIs](/docs/guides/oie-upgrade-api-changes/main/)
+* [Authenticator enrollment policy API](/docs/guides/oie-upgrade-mfa-enroll-policy/main/)
 
 ### Legacy features with limited support
 
@@ -104,7 +104,7 @@ Prepare your upgrade strategy by identifying integration points and defining you
 
 ### Plan your rollback strategy
 
-* [When you should roll back](https://help.okta.com/okta_help.htm?type=oie&id=identity-engine-upgrade-rollback).
+* [When you should roll back](https://help.okta.com/okta_help.htm?type=oie&id=identity-engine-upgrade-rollback)
 * [Initiate a rollback request](https://help.okta.com/okta_help.htm?type=oie&id=identity-engine-upgrade-rollback-steps).
 
 ## Build
@@ -129,7 +129,7 @@ Before you can schedule your upgrade from Classic Engine to Identity Engine, [co
 ### Update your Sign-In Widget
 
 * [Upgrade the Okta Sign-In Widget version](/docs/guides/oie-upgrade-sign-in-widget/main/).
-* [Deprecated JavaScript methods in the widget](/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/main/).
+* [Deprecated JavaScript methods in the widget](/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/main/)
 
 ### Update your custom code
 
@@ -146,7 +146,7 @@ Before you can schedule your upgrade from Classic Engine to Identity Engine, [co
 ### Validate readiness and schedule your upgrade
 
 * Confirm that all required changes are complete and your testing validates readiness.
-* Schedule and execute your production upgrade.
+* Schedule and execute your Production upgrade.
 
 ## Related topics
 

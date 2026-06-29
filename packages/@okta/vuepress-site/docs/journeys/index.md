@@ -35,5 +35,5 @@ Journeys break down your development project into consumable steps:
 </Cards>
 <br>
 <Cards>
-  <Card href="/docs/journeys/OCI-prepare-upgrade-oie/main/" cardTitle="Prepare to upgrade to Okta Identity Engine">Plan, update, test, and validate your setup so that you can confidently complete a smooth production upgrade.</Card>
+  <Card href="/docs/journeys/OCI-prepare-upgrade-oie/main/" cardTitle="Prepare to upgrade to Okta Identity Engine">Plan, update, test, and validate your setup so that you can confidently complete a smooth Production upgrade.</Card>
 </Cards>
