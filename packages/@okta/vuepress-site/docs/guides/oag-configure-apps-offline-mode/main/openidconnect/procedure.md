@@ -76,7 +76,8 @@ curl -i -X POST \
   "allowedScopes": [
     "openid",
     "profile",
-    "email"
+    "email",
+    "offline_access"
   ],
   "accessTokenLifetime": 3600,
   "refreshTokenLifetime": 86400,

@@ -1,7 +1,7 @@
 1. Retrieve your `idpId` by using the List all IdPs [endpoint](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps/other/listidps). Select the IdP that has failover mode set to `AUTOMATIC`.
 1. Create the SAML app in Access Gateway by sending a `POST` request to the Create an application [endpoint](https://developer.okta.com/docs/api/openapi/oag/oag/tags/applications/other/createapplication). Use the following [request example](#request-example) as a template.
 1. In the request body, set `clientId` to the SP entity ID that you retrieved from your client app's metadata.
-1. Optional. Include the SP's public certificate as the `spCertificate`. The SP certificate is required when any of `clientSignature`, `encryptAssertion`, `signAssertion`, or `signDocument` are set to `true`.
+1. Optional. Include the SP's public certificate as the `spCertificate`. The SP certificate is required when `clientSignature` or `encryptAssertion` is set to `true`.
 1. Adjust other settings as needed for your app and SP requirements.
 1. Send the POST request.
 1. Copy the `id` and `idpMetadata` values from the response. Use `id` and `idpMetadata` in the next steps.
@@ -93,7 +93,7 @@ Add attributes to the app to specify what user data Access Gateway includes in t
 
 The user attributes available for SAML assertions are determined by what's been synced from your directory to your offline authentication service. There's an automated sync that happens every hour, but changes made to the directory aren't synced immediately. See [Create and configure the offline mode directory](/docs/guides/oag-offline-mode/#create-and-configure-the-offline-mode-directory).
 
-> **Note:** The `NameID` in the SAML assertion defaults to `uid` for LDAP directories or `sAMAccountName` for Active Directory. To use a different attribute, such as email, set `usernameLDAPAttribute` when you [configure the offline mode directory](/docs/guides/oag-offline-mode/#create-and-configure-the-offline-mode-directory). This can't be changed in the app configuration.
+> **Note:** The `NameID` in the SAML assertion is set to the username in the authentication service. To configure which directory attribute is used as the username, see [Create and configure the offline mode directory](/docs/guides/oag-offline-mode/#create-and-configure-the-offline-mode-directory).
 
 1. Use the Create an attribute [endpoint](https://developer.okta.com/docs/api/openapi/oag/oag/tags/application-attributes/other/createattribute) to add attributes to your SAML app.
 1. Use the `id` from the previous step as the `appId` path parameter.

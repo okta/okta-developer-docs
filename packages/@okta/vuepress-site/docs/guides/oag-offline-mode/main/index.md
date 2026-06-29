@@ -200,6 +200,14 @@ Define your directory connection and synchronization settings for authentication
 > However, there's not an immediate sync when you modify a directory with a [PUT request](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-directory/other/replaceofflinemodedirectory). The changes aren't synchronized to the authentication service until the next automated sync runs. You might encounter a delay before your changes to the directory are synced with the authentication service, and are applicable for offline mode authentication.
 
 1. Retrieve your `idpId` by using the List all IdPs [endpoint](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps/other/listidps).
+1. Review the following step if you plan to use a SAML app for offline mode.
+   1. Set `usernameLDAPAttribute` to the attribute that contains the user's email address. The authentication service uses this value as the username, and it becomes the `NameID` in assertions that are sent to the service provider (SP).
+   1. Set `usernameLDAPAttribute` as `mail` for LDAP directories or `userPrincipalName` for Active Directory.
+   [[style="list-style-type:lower-alpha"]]
+1. Review the following step if you plan to use an OpenID Connect (OIDC) app for offline mode.
+    1. Set `usernameLDAPAttribute` to the attribute that contains the user's username. The authentication service uses this value as the username, and it becomes the `sub` claim in tokens issued to your client app.
+    1. Set `usernameLDAPAttribute` as `uid` for LDAP directories or `sAMAccountName` for Active Directory.
+    [[style="list-style-type:lower-alpha"]]
 1. Then, use the Create an offline mode directory [endpoint](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-directory/other/createofflinemodedirectory).
 
 #### Request example for an OpenLDAP directory
