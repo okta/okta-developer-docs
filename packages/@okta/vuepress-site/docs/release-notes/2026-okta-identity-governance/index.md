@@ -11,6 +11,14 @@ title: Okta Identity Governance API release notes 2026
 
 Okta Identity Governance is available for both Okta Classic Engine and Okta Identity Engine.
 
+## July
+
+### Monthly release 2026.07.0
+<!-- Published on: 2026-07-01T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+
 ## June
 
 ### Weekly release 2026.06.3
