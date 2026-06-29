@@ -9,7 +9,7 @@ meta:
 
 # Prepare to upgrade to Okta Identity Engine
 
-Get your setup ready so that you can complete the production upgrade with confidence.
+Get your setup ready so that you can complete the Production upgrade with confidence.
 
 ## Introduction
 
