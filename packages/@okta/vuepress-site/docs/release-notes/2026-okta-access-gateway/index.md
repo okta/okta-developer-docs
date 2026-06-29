@@ -12,6 +12,28 @@ title: Okta Access Gateway API release notes 2026
 
 Access Gateway is available for both Okta Classic Engine and Okta Identity Engine.
 
+## July
+
+### Monthly release 2026.07.0
+<!-- Published on: 2026-07-12T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Developer documentation update in 2026.07.0](#developer-documentation-update-in-2026-07-0) | July 12, 2026 |
+| [Bug fixed in 2026.07.0](#bug-fixed-in-2026-07-0) | July 12, 2026 |
+
+#### OpenID Connect apps in offline mode
+
+You can now configure OpenID Connect apps in offline mode. When you configure offline mode, it allows users to authenticate locally to their on-premises apps when Access Gateway can’t connect to the internet and the Okta identity provider. See [Add apps for offline mode](/docs/guides/oag-configure-apps-offline-mode/main/).
+
+#### Developer documentation update in 2026.07.0
+
+The update to the Okta Developer landing page replaces the static Learn/Build/Publish graphic with new sections for Journeys and release notes. This update delivers streamlined access to end-to-end guides for small-to-medium development projects and the latest platform updates. See [Okta Developer Landing page](https://developer.okta.com/).
+
+#### Bug fixed in 2026.07.0
+
+
+
 ## May
 
 ### Monthly release 2026.05.0
