@@ -24,11 +24,11 @@ Access Gateway is available for both Okta Classic Engine and Okta Identity Engin
 
 #### OpenID Connect apps in offline mode
 
-You can now configure OpenID Connect apps in offline mode. When you configure offline mode, it allows users to authenticate locally to their on-premises apps when Access Gateway can’t connect to the internet and the Okta identity provider. See [Add apps for offline mode](/docs/guides/oag-configure-apps-offline-mode/main/).
+Access Gateway now supports OpenID Connect (OIDC) apps in offline mode, providing authentication resiliency when your Access Gateway instance is disconnected from Okta or temporarily offline. OIDC apps can be configured with the authorization code with PKCE, client credentials, and device code grant flows. See [Add apps for offline mode](/docs/guides/oag-configure-apps-offline-mode/openidconnect/main/).
 
 #### Developer documentation update in 2026.07.0
 
-The update to the Okta Developer landing page replaces the static Learn/Build/Publish graphic with new sections for Journeys and release notes. This update delivers streamlined access to end-to-end guides for small-to-medium development projects and the latest platform updates. See [Okta Developer Landing page](https://developer.okta.com/).
+The Okta Developer landing page now features new sections for Journeys and release notes. A Journey is a curated, expert-driven, end-to-end guide built around a small-to-medium-sized development project. This update delivers streamlined access to both Journeys and the latest platform updates. See [Okta Developer Landing page](https://developer.okta.com/).
 
 #### Bug fixed in 2026.07.0
 
