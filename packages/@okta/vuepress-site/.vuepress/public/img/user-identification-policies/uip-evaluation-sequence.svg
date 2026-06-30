@@ -14,7 +14,7 @@
 
   <!-- title -->
   <text x="550" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#0F172A">User identification policy evaluation at sign-in</text>
-  <text x="550" y="49" text-anchor="middle" font-size="12.5" fill="#64748B">How Okta decides whether to show the Sign in with Okta Verify button on the Sign-In Widget</text>
+  <text x="550" y="49" text-anchor="middle" font-size="12.5" fill="#64748B">How Okta decides whether to show the Sign in with Okta FastPass button on the Sign-In Widget</text>
 
   <!-- lifelines -->
   <g stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4 4">
@@ -41,7 +41,7 @@
 
     <rect x="535" y="66" width="150" height="54" rx="8" fill="#EEF2F7" stroke="#475569" stroke-width="1.5"/>
     <text x="610" y="91"  text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0F172A">App sign-in</text>
-    <text x="610" y="108" text-anchor="middle" font-size="11"   fill="#64748B">policy (ASOP)</text>
+    <text x="610" y="108" text-anchor="middle" font-size="11"   fill="#64748B">policy</text>
 
     <rect x="705" y="66" width="150" height="54" rx="8" fill="#EEF2F7" stroke="#475569" stroke-width="1.5"/>
     <text x="780" y="91"  text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0F172A">User identification</text>
