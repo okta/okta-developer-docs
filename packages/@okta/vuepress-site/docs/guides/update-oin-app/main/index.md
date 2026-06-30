@@ -86,8 +86,6 @@ Use this streamlined workflow to update the following catalog fields:
 
 When you modify only these catalog fields on a published integration, the OIN Wizard bypasses configuration and testing. A confirmation dialog appears for you to submit your changes. Your submission goes directly to the OIN team. Your app displays an in-review status in **Your apps** section. Your changes are tracked through an automated operations ticket and deployed upon OIN Ops team approval. The live version remains active in the public OIN catalog during this review.
 
-> **Important:** If your update includes changes to functional configurations such as SAML settings, SCIM provisioning, or URLs, you must select **Edit** > **Integration** instead and complete the full end-to-end testing workflow described in the **Update functional configuration** section below.
-
 ### Update functional configuration
 
 > **Notes:**</br>
