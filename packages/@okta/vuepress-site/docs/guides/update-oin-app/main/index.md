@@ -40,42 +40,20 @@ The OIN Wizard currently supports updates for integrations that use the followin
 
 > **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, SCIM 2.0, and API service integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
 
-If you need to update only catalog information, such as your app name, description, logo, or support contact information, click the **Edit** button on the **Home** page. This streamlined option skips configuration and testing, allowing you to submit minor branding updates directly to the OIN Ops team for review without requiring functional testing or backward-compatibility verification.
+If you need to update only catalog information, such as your app name, description, logo, or support contact information, click **Edit** on the **Home** page. This streamlined option skips configuration and testing, allowing you to submit minor branding updates directly to the OIN Ops team for review without requiring functional testing or backward-compatibility verification. See [Update catalog information only](#update-catalog-information-only).
 
-When you edit a published OIN integration, test both the updated version and the published version for backward-compatibility. The integration version that was previously installed in your customer's org will not include new settings from your update. Testing the published version ensures that your integration still works for customers who have already installed it. See [Update integration considerations](#update-integration-considerations) before you edit your published integration.
+If you need to edit more than the catalog information for your published OIN integration, test both the updated version and the published version for backward-compatibility. The integration version that was previously installed in your customer's org doesn't include new settings from your update. Testing the published version ensures that your integration still works for customers who have already installed it. See [Update integration considerations](#update-integration-considerations) before you edit your published integration.
 
 After you successfully test the updated and published versions of your integration, resubmit your integration to the OIN team. Your integration goes through a [submission review process](/docs/guides/submit-app-overview/#understand-the-submission-review-process) before the updated version is published in the OIN catalog.
 
 ## Update integration considerations
 
-### Update catalog information only
-
-Update catalog information independently to keep your listing accurate without requiring engineering resources.
-
-To edit the catalog information directly, go to the **Home** page, locate the **Your apps** section, click **Edit** next to the app you want to modify, and select **Catalog Info**. Use this streamlined workflow to update the following catalog fields:
-
-- App name
-- Logo
-- App description
-- Contact information
-
-When you modify only the preceding catalog fields on a published integration, the OIN Wizard bypasses configuration and testing. A confirmation dialog appears for you to submit your changes. Your submission goes directly to the OIN team. Your app displays an in-review status in **Your apps** section. Your changes are tracked through an automated operations ticket and deployed upon OIN Ops team approval. The live version remains active in the public OIN catalog during this review.
-
-If your update includes changes to functional configurations such as SAML settings, SCIM provisioning, or URLs, you must select the **Edit** >  **Integration** option instead of **Edit** > **Catalog Info** and complete the full end-to-end testing Workflow.
-
-### Functional configuration considerations
-
-To update functional settings for your published app, you can use either of the following navigation paths:
-
-- Go to the **Home** page, locate the **Your apps** section, click **Edit** next to the app, and select **Integration**.
-- Go to **Applications > Your OIN Integrations**, click your published integration, and select the standard editing option.
-
-Review the following guidelines before you edit and resubmit your configurations:
-
 > **Note:** Some considerations on this page are specifically for the **<StackSnippet snippet="protocol-name" inline/>**. <br>
 > If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
 
-When you update an integration that's already published, be mindful to preserve backward compatibility for customer that have installed your integration before your latest update.
+When you update an integration that's already published, preserve backward compatibility for customer that have installed your integration before your latest update.
+
+Review the following guidelines before you edit and resubmit your configurations:
 
 * If you modify the **Name** (`name`) property of your [tenant settings](/docs/guides/submit-oin-app/openidconnect/main/#tenant-settings), Okta removes the original variable and creates a variable with your updated name. This action negatively impacts your existing customers if you use the original variable in your integration dynamic properties.
 
@@ -87,23 +65,51 @@ When you update an integration that's already published, be mindful to preserve 
 
 ## Update your integration
 
-> **Notes:**
->- This section applies only to functional updates. For updating catalog information only, see, [Update catalog information only](#update-catalog-information-only).<br>
->- When you edit your published OIN integration, your previous PUBLISHED status and date are overwritten with the DRAFT status and current date.
-</br><StackSnippet snippet="express-submission-note" inline/>
+### Update catalog information only
 
-To update a previously published OIN integration:
+Update catalog information independently to keep your listing accurate without requiring engineering resources or going through the full testing workflow.
 
-1. Sign in to your Integrator Free Plan org as a user with either app admin or super admin roles.
-   > **Note:** Edit your integration from an Okta account that has your company domain in the email address. You can't use an account with a personal email address. The OIN team doesn't review submission edits from a personal email account.
+To update only your app's catalog listing:
 
 1. In the Admin Console, go to **Applications** > **Your OIN Integrations**.
+
+2. Locate your published integration in the **Your apps** section.
+
+3. Click **Edit** next to the app, and then select **Catalog Info**.
+
+Use this streamlined workflow to update the following catalog fields:
+
+- App name
+- Logo
+- App description
+- Contact information
+
+When you modify only these catalog fields on a published integration, the OIN Wizard bypasses configuration and testing. A confirmation dialog appears for you to submit your changes. Your submission goes directly to the OIN team. Your app displays an in-review status in **Your apps** section. Your changes are tracked through an automated operations ticket and deployed upon OIN Ops team approval. The live version remains active in the public OIN catalog during this review.
+
+> **Important:** If your update includes changes to functional configurations such as SAML settings, SCIM provisioning, or URLs, you must select **Edit** > **Integration** instead and complete the full end-to-end testing workflow described in the **Update functional configuration** section below.
+
+### Update functional configuration
+
+> **Notes:**</br>
+> This section applies to updates that include functional configuration changes such as SAML settings, SCIM provisioning, or URLs.</br>
+> When you edit your published OIN integration, your previous PUBLISHED status and date are overwritten with the DRAFT status and current date.
+</br><StackSnippet snippet="express-submission-note" inline/>
+
+1. Sign in to your Integrator Free Plan org as a user with either app admin or super admin roles.
+
+   > **Note:** Edit your integration from an Okta account that has your company domain in the email address. You can't use an account with a personal email address. The OIN team doesn't review submission edits from a personal email account.
+
+1. Go to your published integration using one of the following paths:
+
+    - Go to the **Home** page, locate the **Your apps** section, click **Edit** next to the app, and select **Integration**.
+    - Go to **Applications > Your OIN Integrations**, click your published integration, and select the standard editing option.
 
    > **Note:** If you have a draft submission and want to go straight to testing, see [Navigate directly to test your integration](/docs/guides/submit-oin-app/openidconnect/main/#navigate-directly-to-test-your-integration).
 
 1. Click your published integration to update from the dashboard. Your published OIN submission appears in read-only mode.
 
 1. From the **This integration is read-only** information box, click **Edit integration**. The **Add integration capabilities** page appears.
+
     > **Note:** You can skip this step if your submission is in draft status. The **Edit integration** option isn't available for submissions in draft status because it's not in read-only mode.
 
     <StackSnippet snippet="detect-old-instance" />
