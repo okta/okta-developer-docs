@@ -40,6 +40,9 @@ if [ -n "$BRANCH" ]; then
     echo "Branch name exceeds Netlify subdomain length limit. Using trimmed alias: ${NETLIFY_ALIAS}"
   fi
 
+  # Ensure the alias does not end with a hyphen after trimming.
+  NETLIFY_ALIAS="${NETLIFY_ALIAS%-}"
+
   echo "Deploying preview to Netlify..."
   npx netlify-cli@17.23.5 deploy --alias="${NETLIFY_ALIAS}" --filter @okta/vuepress-site --dir ../packages/@okta/vuepress-site/dist
 
