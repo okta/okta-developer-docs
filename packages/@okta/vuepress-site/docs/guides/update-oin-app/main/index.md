@@ -40,9 +40,11 @@ The OIN Wizard currently supports updates for integrations that use the followin
 
 > **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, SCIM 2.0, and API service integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
 
-If you need to update only catalog information, such as your app name, description, logo, or support contact information, click **Edit** on the **Home** page. This streamlined option skips configuration and testing, allowing you to submit minor branding updates directly to the OIN Ops team for review without requiring functional testing or backward-compatibility verification. See [Update catalog information only](#update-catalog-information-only).
+There are two types of updates you can make to a published OIN integration:
 
-If you need to edit more than the catalog information for your published OIN integration, test both the updated version and the published version for backward-compatibility. The integration version that was previously installed in your customer's org doesn't include new settings from your update. Testing the published version ensures that your integration still works for customers who have already installed it. See [Update integration considerations](#update-integration-considerations) before you edit your published integration.
+* Catalog information only - Update your app listing details such as name, logo, description, or contact information without requiring functional configuration changes or testing.
+
+* Functional configuration - Update functional settings such as SAML configurations, SCIM provisioning, URLs, or other integration capabilities. This update type requires testing and backward compatibility verification.
 
 After you successfully test the updated and published versions of your integration, resubmit your integration to the OIN team. Your integration goes through a [submission review process](/docs/guides/submit-app-overview/#understand-the-submission-review-process) before the updated version is published in the OIN catalog.
 
@@ -51,7 +53,7 @@ After you successfully test the updated and published versions of your integrati
 > **Note:** Some considerations on this page are specifically for the **<StackSnippet snippet="protocol-name" inline/>**. <br>
 > If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
 
-When you update an integration that's already published, preserve backward compatibility for customer that have installed your integration before your latest update.
+When you update an integration that's already published, test both the updated version and the published version for backward compatibility. The integration version that was previously installed in your customer's org doesn't include new settings from your update. Testing the published version ensures that your integration still works for customers who have already installed it.
 
 Review the following guidelines before you edit and resubmit your configurations:
 
@@ -89,7 +91,6 @@ When you modify only these catalog fields on a published integration, the OIN Wi
 ### Update functional configuration
 
 > **Notes:**</br>
-> This section applies to updates that include functional configuration changes such as SAML settings, SCIM provisioning, or URLs.</br>
 > When you edit your published OIN integration, your previous PUBLISHED status and date are overwritten with the DRAFT status and current date.
 </br><StackSnippet snippet="express-submission-note" inline/>
 
@@ -103,8 +104,6 @@ When you modify only these catalog fields on a published integration, the OIN Wi
     - Go to **Applications > Your OIN Integrations**, click your published integration, and select the standard editing option.
 
    > **Note:** If you have a draft submission and want to go straight to testing, see [Navigate directly to test your integration](/docs/guides/submit-oin-app/openidconnect/main/#navigate-directly-to-test-your-integration).
-
-1. Click your published integration to update from the dashboard. Your published OIN submission appears in read-only mode.
 
 1. From the **This integration is read-only** information box, click **Edit integration**. The **Add integration capabilities** page appears.
 
