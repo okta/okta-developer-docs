@@ -111,8 +111,10 @@
 .signup-form-wrapper {
   padding: 32px 24px;
 
+  box-shadow: 0 4px 25px 0 rgb(0 0 0 / 0.08);
+  
   border: 1px solid var(--c-gray-405);
-  border-radius: 12px;
+  border-radius: 24px;
   background-color: #fffefa;
 
   @include media(">tablet") {
@@ -202,7 +204,7 @@
   outline: none;
   border: 1px solid var(--c-gray-450);
   border-radius: 6px;
-  background: #fffefa;
+  background: #ffffff;
 
   font-size: 14px;
   line-height: 22px;
@@ -297,7 +299,7 @@ select.signup-form__input:required:invalid {
 
   border: 1px solid var(--c-gray-450);
   border-radius: 8px;
-  background: #fffefa;
+  background: #ffffff;
 
   font-size: 13px;
   font-family: inherit;
@@ -324,6 +326,11 @@ select.signup-form__input:required:invalid {
   flex: 1;
 
   font-weight: 400;
+  font-size: 14px;
+}
+
+.signup-descriptor--selected .signup-descriptor__label {
+  font-weight: 500;
 }
 
 .signup-descriptor__info {
@@ -874,7 +881,7 @@ select.signup-form__input:required:invalid {
 
   border: 0.5px solid #808080;
   border-radius: 8px;
-  background: #ffffff;
+  background: transparent;
 }
 
 .signup-logos__item img {

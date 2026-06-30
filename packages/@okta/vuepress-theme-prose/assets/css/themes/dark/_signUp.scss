@@ -49,9 +49,13 @@
   color: #e5e5e5;
 }
 
+.signup-form-wrapper {
+  box-shadow: 0 4px 128px 0 rgb(255 255 255 / 0.25);
+}
+
 .signup-logos__item {
   border: 0.5px solid #555555;
-  background: #171717;
+  background: transparent;
 }
 
 .signup-bottom-card__title {

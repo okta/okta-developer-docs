@@ -1,19 +1,19 @@
 <template>
   <div class="signup-hero">
     <h1 class="signup-hero__title">
-      Start your Integration<br>
-      building journey.
+      Start building your<br>
+      integration
     </h1>
 
     <div class="signup-hero__features">
       <SignUpFeatureCard
-        title="Build for Security"
-        description="Leverage industry standards to meet enterprise identity demands like SSO, provisioning, AI governance, session termination, and more."
+        title="Preproduction sandbox"
+        description="Set up a dedicated environment to build, test, and validate integrations using the OIN Wizard and the Submission Tester."
         :icon="theme === 'dark' ? '/img/signup/secured-laptop-dark.svg' : '/img/signup/secured-laptop.svg'"
       />
       <SignUpFeatureCard
-        title="Attract Enterprise Customers"
-        description="Build credibility with an OIN listing that shows enterprise buyers your integration is tested, validated, and ready to deploy."
+        title="Build for security"
+        description="Deliver enterprise identity solutions like SSO, provisioning, AI governance, session termination, and more."
         :icon="theme === 'dark' ? '/img/signup/container-bucket-dark.svg' : '/img/signup/container-bucket.svg'"
       />
     </div>
