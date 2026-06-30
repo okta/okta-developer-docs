@@ -115,7 +115,7 @@ Your client app must be pointed at Access Gateway, not your Okta tenant, for aut
     [[style="list-style-type:lower-alpha"]]
 1. Set your client's issuer to the `issuer` value from the discovery document. Your client uses this value to validate the `iss` claim in tokens it receives.
 
-> **Note:** Access Gateway sets the `iss` claim to its own authorization server domain, not your Okta tenant domain. If your client is currently configured to validate tokens from Okta, update the issuer to the Access Gateway domain.
+> **Note:** Access Gateway sets the `iss` claim to its own authorization server domain, not your Okta tenant domain. If your client is configured to validate tokens from Okta, update the issuer to the Access Gateway domain.
 
 ### OIDC discovery document response example
 

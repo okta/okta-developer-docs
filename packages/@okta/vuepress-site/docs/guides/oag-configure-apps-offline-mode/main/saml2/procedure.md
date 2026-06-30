@@ -41,7 +41,6 @@ curl -i -X POST \
 ### Response example
 
 ```json
-
 {
   "id": "55931df2-4464-4c4d-97ce-5d0177b09f31",
   "name": "samltestapp",
@@ -89,7 +88,7 @@ curl -i -X POST \
 
 ## Create attributes
 
-Add attributes to the app to specify what user data Access Gateway includes in the SAML assertion it sends to the SP. Without attributes, the assertion contains only the `NameID`. Adding attributes lets you pass additional user information, such as their email address or display name, that the SP requires to identify and authorize the user.
+Add attributes to the app to specify what user data Access Gateway includes in the SAML assertion it sends to the SP. Without attributes, the assertion contains only the `NameID`. Adding attributes lets you pass other user information, such as their email address or display name, that the SP requires to identify and authorize the user.
 
 The user attributes available for SAML assertions are determined by what's been synced from your directory to your offline authentication service. There's an automated sync that happens every hour, but changes made to the directory aren't synced immediately. See [Create and configure the offline mode directory](/docs/guides/oag-offline-mode/#create-and-configure-the-offline-mode-directory).
 
@@ -101,7 +100,7 @@ The user attributes available for SAML assertions are determined by what's been 
 1. Send the POST request.
 1. Repeat this request for each attribute required by your SP.
 
-> **Note:** The `type` field in the attribute request (`HEADER` or `COOKIE`) has no effect on SAML apps. It's required by the schema but is ignored for SAML apps. The attribute is always included in the SAML assertion regardless of the value in `type`.
+> **Note:** The `type` field in the attribute request (`HEADER` or `COOKIE`) has no effect on SAML apps. The schema requires the `type` field in the request body, but it's ignored for SAML apps. The attribute is always included in the SAML assertion regardless of the value in `type`.
 
 ### Request example
 
@@ -120,8 +119,8 @@ curl -i -X POST \
 
 ## Configure your client app with Access Gateway IdP metadata
 
-Configure your SAML client app using the `idpMetadata` value from the [response](#response-example) when you created the app. The `idpMetadata` contains the information your client app needs to trust Access Gateway as an IdP. For example, it contains the SSO URL and signing certificate.
+Configure your SAML client app using the `idpMetadata` value from the [response](#response-example) when you created the app. The `idpMetadata` contains the information that your client app needs to trust Access Gateway as an IdP. For example, it contains the SSO URL and signing certificate.
 
-The `idpMetadata` property in the response is Base64-encoded XML. Decode it and import it into your SP's IdP configuration to complete the SAML trust configuration.
+The `idpMetadata` property in the response is Base64-encoded XML. Decode it and import it into your SP's IdP configuration to complete the SAML trust configuration. You can also retrieve `idpMetadata` at any time by sending a `GET` request to the Retrieve an application [endpoint](https://developer.okta.com/docs/api/openapi/oag/oag/tags/applications/other/getapplication).
 
 The exact steps to configure the client app depend on the app itself. Refer to your client app's documentation.
