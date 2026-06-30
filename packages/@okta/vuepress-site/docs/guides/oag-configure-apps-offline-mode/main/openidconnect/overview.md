@@ -7,4 +7,4 @@ This is the typical flow to configure an OIDC app in Access Gateway:
 1. Create the app, specifying the app type, redirect URIs, and client credentials. See [Create the app](#create-the-app).
 1. Configure your client app to use Access Gateway as the OIDC provider. Retrieve the discovery document from Access Gateway to get the endpoint URLs that your client needs. See [Configure your client app](#configure-your-client-app).
 
-OIDC apps in Access Gateway can only be created and configured using the Access Gateway API. You can view OIDC apps in the Access Gateway UI console, but you can't add or edit them there.
+You can only create and configure OIDC apps in Access Gateway using the Access Gateway API. You can view OIDC apps in the Access Gateway UI console, but you can't add or edit them there.

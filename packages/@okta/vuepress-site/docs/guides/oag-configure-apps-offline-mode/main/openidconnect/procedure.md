@@ -6,7 +6,7 @@ Before you begin, have your `clientId` and `clientSecret` ready. You define thes
 1. In the request body, set the following values for your app:
     1. Set `label` as the display name for the app.
     1. Set `clientId` as a unique identifier for your client app.
-    1. Set `clientSecret` to the value you defined before making this request.
+    1. Set `clientSecret` to the value that you defined before making this request.
     1. Set `redirectUris` as your client app's callback URL.
     1. For `allowedScopes`, include any combination of `openid`, `profile`, `email`, and `offline_access`. This determines which scopes the app can request.
     1. For `accessTokenLifetime` and `refreshTokenLifetime`, set the desired values in seconds. These determine how long tokens issued for this app are valid.
@@ -23,7 +23,7 @@ curl -i -X POST \
   -d '{
     "type": "OAG_OIDC",
     "label": "Test OIDC App - Auth Code",
-    "description": "OIDC application using authorization code flow with PKCE",
+    "description": "OIDC app using authorization code flow with PKCE",
     "applicationType": "web",
     "clientId": "<client-id>",
     "clientSecret": "<client-secret>",
@@ -57,7 +57,7 @@ curl -i -X POST \
   "id": "app-oidc-123",
   "type": "OAG_OIDC",
   "label": "Test OIDC App - Auth Code",
-  "description": "OIDC application using authorization code flow with PKCE",
+  "description": "OIDC app using authorization code flow with PKCE",
   "applicationType": "web",
   "status": "ACTIVE",
   "clientId": "<client-id>",
@@ -101,7 +101,7 @@ curl -i -X POST \
 
 After you create the app in Access Gateway, configure your client to use Access Gateway as its OIDC provider.
 
-Your client app must be pointed at Access Gateway, not your Okta tenant, for authentication to work. Use the OIDC discovery document to configure your client's OIDC settings. It's a JSON file that's served at `/.well-known/openid-configuration` on your Access Gateway authorization server. It contains all the endpoint URLs that your client needs.
+You must point your client app at Access Gateway, not your Okta tenant, for authentication to work. Use the OIDC discovery document to configure your client's OIDC settings. It's a JSON file that's served at `/.well-known/openid-configuration` on your Access Gateway authorization server. It contains all the endpoint URLs that your client needs.
 
 1. Retrieve your `idpId` by using the List all IdPs [endpoint](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps/other/listidps). Select the IdP that has failover mode set to `AUTOMATIC`.
 1. Use the Retrieve the OpenID Connect discovery document [endpoint](https://developer.okta.com/docs/api/openapi/oag/oag/tags/oidc/other/getopenidconnectdiscovery) with your `idpId` as the path parameter.
@@ -111,9 +111,9 @@ Your client app must be pointed at Access Gateway, not your Okta tenant, for aut
     1. `token_endpoint`: Where the client exchanges an authorization code for tokens
     1. `userinfo_endpoint`: Where the client retrieves claims about the signed-in user
     1. `introspection_endpoint`: Where the client checks whether a token is still valid
-    1. `revocation_endpoint`: Where the client invalidates a token on sign-out
+    1. `revocation_endpoint`: Where the client invalidates a token when the user signs out
     [[style="list-style-type:lower-alpha"]]
-1. Set your client's issuer to the `issuer` value from the discovery document. Your client uses this value to validate the `iss` claim in tokens it receives.
+1. Set your client's issuer to the `issuer` value from the discovery document. Your client uses this value to validate the `iss` claim in tokens that it receives.
 
 > **Note:** Access Gateway sets the `iss` claim to its own authorization server domain, not your Okta tenant domain. If your client is configured to validate tokens from Okta, update the issuer to the Access Gateway domain.
 
