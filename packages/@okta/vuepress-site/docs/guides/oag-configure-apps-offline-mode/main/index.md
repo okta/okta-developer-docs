@@ -32,7 +32,7 @@ By default, apps behind Access Gateway require a connection to Okta to authentic
 
 Offline mode apps are configured with a local directory as a fallback authentication source. When Access Gateway detects that Okta is unavailable, it switches to offline mode and authenticates users against the local directory instead. From the user's perspective, the sign-in flow looks the same regardless of whether Okta is reachable.
 
-Offline mode apps require the authentication service and directory sync to be configured before you create the app. See [Configure offline mode for Access Gateway](/docs/guides/oag-offline-mode/main/).
+Offline mode apps require you to configure the authentication service and directory sync before you create the app. See [Configure offline mode for Access Gateway](/docs/guides/oag-offline-mode/main/).
 
 ## Overview
 

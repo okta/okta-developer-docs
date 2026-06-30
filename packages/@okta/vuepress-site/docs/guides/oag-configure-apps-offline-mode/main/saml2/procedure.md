@@ -88,7 +88,7 @@ curl -i -X POST \
 
 ## Create attributes
 
-Add attributes to the app to specify what user data Access Gateway includes in the SAML assertion it sends to the SP. Without attributes, the assertion contains only the `NameID`. Adding attributes lets you pass other user information, such as their email address or display name, that the SP requires to identify and authorize the user.
+Add attributes to the app to specify what user data Access Gateway includes in the SAML assertion that it sends to the SP. Without attributes, the assertion contains only the `NameID`. Adding attributes lets you pass other user information, such as their email address or display name, that the SP requires to identify and authorize the user.
 
 The user attributes available for SAML assertions are determined by what's been synced from your directory to your offline authentication service. There's an automated sync that happens every hour, but changes made to the directory aren't synced immediately. See [Create and configure the offline mode directory](/docs/guides/oag-offline-mode/#create-and-configure-the-offline-mode-directory).
 
