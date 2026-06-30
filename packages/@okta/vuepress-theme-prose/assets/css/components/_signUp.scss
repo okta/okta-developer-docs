@@ -111,10 +111,11 @@
 .signup-form-wrapper {
   padding: 32px 24px;
 
+  box-shadow: 0 4px 25px 0 rgb(0 0 0 / 0.08);
+  
   border: 1px solid var(--c-gray-405);
   border-radius: 24px;
   background-color: #fffefa;
-  box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.08);
 
   @include media(">tablet") {
     padding: 40px 40px;
@@ -324,8 +325,8 @@ select.signup-form__input:required:invalid {
 .signup-descriptor__label {
   flex: 1;
 
-  font-size: 14px;
   font-weight: 400;
+  font-size: 14px;
 }
 
 .signup-descriptor--selected .signup-descriptor__label {

@@ -15,7 +15,7 @@
         class="signup__main"
       >
         <h1 class="signup__mobile-title">
-         Start building your integration
+          Start building your integration
         </h1>
         <div class="signup__hero-col">
           <SignUpHeroSection :theme="theme" />
