@@ -39,6 +39,9 @@ You can [connect an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai
 
 - Resource server: Uses a third party access token issued by the third-party authorization server and brokered by Okta. This resource type requires user consent before an AI agent can act on behalf of the user.
 
+> **Note**: The **Resource server** resource type in this guide covers both the **Application** and **MCP Server** resource types. These types currently support only the brokered consent (STS) flow. Additional authentication methods may be supported in the future.
+
+
 Ater the resource type is configured and the AI agent has the token or credentials, it can then perform tasks on the connected app.
 
 ## Token Exchange flow
