@@ -24,6 +24,9 @@ Learn how to configure token exchange for agent-to-agent connections so that AI 
 - A registered AI agent in your Okta org. See [Add and register AI agents](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-register).
   > **Note**: If you're using the agent-to-agent connection type, you need two registered AI agents.
 - A **Resource connection** that's configured for the AI agents, defining which resources they're allowed to access. See [Connect AI agents to resources](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-app-connection).
+
+> **Note**: The **Resource server** resource type in this guide covers both the **Application** and **MCP Server** resource types. These types support the brokered consent (STS) flow.
+
 - A delegation link that's configured for each AI agent, defining the users, apps, and other AI agents that can authorize the AI agent to act on their behalf. See the **Add delegations** section of the [Add AI agents manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) page.
 
 ---
