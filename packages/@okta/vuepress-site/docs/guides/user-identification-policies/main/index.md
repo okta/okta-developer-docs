@@ -47,13 +47,15 @@ To apply different button settings to different apps, create separate sign-in po
 
 User identification policy rules support [platform](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=1/conditions/platform&t=request) and [network](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=1/conditions/network&t=request) conditions only.
 
-<!-- TODO: Verify the field name `showSignInWithOV` with the API team before GA. This is an EA field and the name may change (OV = Okta Verify, but the button is now called Okta FastPass). If renamed, update all code blocks, the ALWAYS/NEVER descriptions below, and the diagram footnote. -->
 Each rule sets `actions.userIdentification.settings.showSignInWithOV` to one of the following values:
 
 * `ALWAYS`: Show the **Sign in with Okta FastPass** button on the Sign-In Widget.
 * `NEVER`: Hide the **Sign in with Okta FastPass** button on the Sign-In Widget.
 
-> **Note:** You can only set `showSignInWithOV` to `ALWAYS` when Okta Verify is configured and Okta FastPass is enabled. Otherwise, Okta returns the following error: `This rule can't be saved. Okta FastPass isn't enabled for this org. To save this rule, enable Okta FastPass in the Okta Verify authenticator.`
+> **Notes:**
+>
+> * The `showSignInWithOV` field name is intentional. It matches the existing naming convention in the [Authenticators API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/authenticator/other/listauthenticatormethods#other/listauthenticatormethods/t=response&c=200&path=&d=4/settings/showsigninwithov), where `OV` refers to Okta Verify. The name didn't change when this passwordless sign-in method was rebranded as Okta FastPass.
+> * You can only set `showSignInWithOV` to `ALWAYS` when Okta Verify is configured and Okta FastPass is enabled. Otherwise, Okta returns the following error: `This rule can't be saved. Okta FastPass isn't enabled for this org. To save this rule, enable Okta FastPass in the Okta Verify authenticator.`
 
 ### How user identification works at sign-in
 
