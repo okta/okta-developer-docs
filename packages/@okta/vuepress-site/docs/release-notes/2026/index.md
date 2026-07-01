@@ -20,7 +20,6 @@ title: Okta Classic Engine API release notes 2026
 | [Improved group member search functionality is GA in Production](#improved-group-member-search-functionality-is-ga-in-production) | July 1, 2026 |
 | [Group push support in API Integration Actions apps](#group-push-support-in-api-integration-actions-apps) | July 1, 2026 |
 | [Developer documentation updates in 2026.07.0](#developer-documentation-updates-in-2026-07-0) | July 1, 2026 |
-| [Bugs fixed in 2026.07.0](#bugs-fixed-in-2026-07-0)| July 1, 2026 |
 
 #### New IP Service available for enhanced dynamic network zones
 
@@ -44,8 +43,6 @@ Apps that use API Integration Actions to perform provisioning can now use the [G
 * The new [Configure the Client SDK for Kotlin to use an Okta-hosted sign-in form](/docs/guides/sign-into-mobile-app-redirect/main/android/) helps developers integrate browser-based redirect authentication into mobile apps. This guide covers project setup, custom callback URI configuration, refresh tokens for session continuity, and secure token attachment to outgoing server calls with HTTP interceptors. <!-- OKTA-1089674 -->
 
 * The [Sign users in to your SPA](/docs/guides/sign-into-spa-redirect/main/angular/) using the redirect model guide for Angular has been updated for Angular CLI v21, `@okta/okta-angular` v8.0, and the Okta Auth JavaScript SDK v8.0.1. This enhancement simplifies the setup by using standalone provider APIs and functional route guard. <!-- OKTA-1192767 -->
-
-#### Bugs fixed in 2026.07.0
 
 ## June
 

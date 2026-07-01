@@ -23,7 +23,6 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 | [Certify service accounts is GA in Preview](#certify-service-accounts-is-ga-in-preview) | July 1, 2026 |
 | [Certify AI agent resource connections is EA](#certify-ai-agent-resource-connections-is-ea) | July 1, 2026 |
 | [Developer documentation updates in 2026.07.0](#developer-documentation-updates-in-2026-07-0) | July 1, 2026 |
-| [Bugs fixed in 2026.07.0](#bugs-fixed-in-2026-07-0)| July 1, 2026 |
 
 #### Customize Justification Requirements is GA in Production
 
@@ -57,8 +56,6 @@ After you enable the **Resource Access Certifications for AI Agents** feature, y
 #### Developer documentation updates in 2026.07.0
 
 * The Okta Developer landing page now features new sections for Journeys and release notes. A Journey is a curated, expert-driven, end-to-end guide built around a small-to-medium-sized development project. This update delivers streamlined access to both Journeys and the latest platform updates. See [Okta Developer landing page](https://developer.okta.com/). <!-- OKTA-1169801 -->
-
-#### Bugs fixed in 2026.07.0
 
 ## June
 
