@@ -438,14 +438,14 @@ Create your own PUT request body or copy the [example request](#update-a-user-id
 
 Review your System Log events to confirm that your user identification policy is evaluated correctly. The user identification policy rule is included as a target of the `policy.evaluate_sign_on` event type. See [System Log query](/docs/reference/system-log-query/) and [Event Types](/docs/reference/api/event-types/).
 
-## Test your policy with policy simulation
+## Test your policy with a policy simulation
 
 You can use the [policy simulation](/docs/guides/policy-simulation/main/) endpoint to test how your user identification policy rules evaluate for a given user and device context before you go live. Policy simulation returns the matched rule and the resulting `showSignInWithOV` value. See [Test your policies with access simulations](/docs/guides/policy-simulation/main/).
 
 ## Next steps
 
-* **[Configure app sign-in policies](/docs/guides/configure-signon-policy/main/)** — Create additional sign-in policies and assign apps to each one. Each sign-in policy automatically gets its own user identification policy, so you can control the **Sign in with Okta FastPass** button independently per app or group of apps.
-* **[Multibrand architecture](/docs/concepts/multibrand-architecture/)** — If you're building a multibrand experience, assign each app to its own sign-in policy to control the FastPass button per brand independently.
-* **[Device signal collection policies](/docs/guides/device-signal-collection-policies/)** — A closely related policy that also works with app sign-in policies to control the pre-identification experience on the Sign-In Widget.
-* **[Customize the Sign-In Widget](/docs/guides/custom-widget/main/)** — Further customize the sign-in experience for your app.
-* **[System Log query](/docs/reference/system-log-query/)** — Query System Log events to monitor user identification policy evaluation in production.
+* **[Configure app sign-in policies](/docs/guides/configure-signon-policy/main/):** Create additional sign-in policies and assign apps to each one. Each sign-in policy automatically gets its own user identification policy, so you can control the **Sign in with Okta FastPass** button independently per app or group of apps.
+* **[Multibrand architecture](/docs/concepts/multibrand-architecture/):** If you're building a multibrand experience, assign each app to its own sign-in policy to control the Okta FastPass button per brand independently.
+* **[Device signal collection policies](/docs/guides/device-signal-collection-policies/):** A closely related policy that also works with app sign-in policies to control the pre-identification experience on the Sign-In Widget.
+* **[Customize the Sign-In Widget](/docs/guides/custom-widget/main/):** Further customize the sign-in experience for your app.
+* **[System Log query](/docs/reference/system-log-query/):** Query System Log events to monitor user identification policy evaluation in production.
