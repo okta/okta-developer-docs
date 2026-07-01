@@ -18,6 +18,7 @@ title: Okta Classic Engine API release notes 2026
 | ------ | ------------------------ |
 | [New IP Service available for enhanced dynamic network zones](#new-ip-service-available-for-enhanced-dynamic-network-zones) | July 1, 2026 |
 | [Improved group member search functionality is GA in Production](#improved-group-member-search-functionality-is-ga-in-production) | July 1, 2026 |
+| [Group push support in API Integration Actions apps](#group-push-support-in-api-integration-actions-apps) | July 1, 2026 |
 | [Bugs fixed in 2026.07.0](#bugs-fixed-in-2026-07-0)| July 1, 2026 |
 
 #### New IP Service available for enhanced dynamic network zones
@@ -27,6 +28,11 @@ The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](http
 #### Improved group member search functionality is GA in Production
 
 You can now search for group members using the new `search` parameter of the `GET /api/v1/groups/{groupId}/users` endpoint. This makes it easier to find members without knowing their exact profile details. See [List all member users](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group/other/listgroupusers).
+
+#### Group push support in API Integration Actions apps
+
+Apps that use API Integration Actions to perform provisioning can now use the [Group Push](https://help.okta.com/okta_help.htm?type=oie&id=ext_Directory_Using_Group_Push) feature. This enables the group import functionality for apps that use [group API contracts](/docs/guides/oin-api-actions-contracts/#provisioning-list-groups) in their provisioning actions.
+<!-- OKTA-1094245, OKTA-1196942, ENG_DISABLE_GROUP_PUSH_ENHANCEMENTS_FOR_ACTIONS, Preview: July 1, 2026 -->
 
 #### Bugs fixed in 2026.07.0
 
