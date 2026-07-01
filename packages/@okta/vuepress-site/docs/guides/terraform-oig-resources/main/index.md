@@ -12,7 +12,7 @@ Learn how to create, import, and modify Okta Identity Governance (OIG) resources
 - Define and create OIG resources using Terraform.
 - Modify existing OIG resources that are managed by Terraform.
 - Import existing OIG resources from Okta into your Terraform state.
-
+- Manage OIG labels and resource owners to categorize and organize OIG resources.
 
 #### What you need
 - Familiarity with the Terraform terms, such as configuration, resources, state, and commands.
@@ -181,3 +181,58 @@ To modify a resource already managed by Terraform:
 1. Update the code in your `.tf` configuration file.
 2. Run `terraform plan` to view the detected changes.
 3. Run `terraform apply` to push the changes to your Okta org.
+
+### Manage labels
+
+Labels help you categorize and organize OIG resources such as apps, groups, and entitlements. You can use Terraform to manage the label resource with the given example. Simply define a label resource block in your configuration, edit it to make changes, or remove it to delete the label from your Okta org.
+
+```
+resource "okta_label" "test" {
+  name = "test-label-replace_with_uuid"
+
+  values {
+    name = "test-value"
+  }
+}
+```
+
+Run `terraform apply` to create the label. To add, modify, or remove label values, update the `resource` block and run `terraform apply` again. To delete the label, remove the resource block from your configuration and run `terraform apply`.
+
+You can also retrieve label information using the data source:
+
+```
+data "okta_label" "test" {
+  id = okta_label.test.id
+}
+```
+
+### Manage resource owners
+
+Resource owners define who is responsible for managing specific OIG resources, such as apps, entitlements, and bundles. You can use Terraform to manage the resource owner resource with the given example. Simply define a resource owner block in your configuration, edit it to make changes, or remove it to revoke the owner assignment from your Okta org.
+
+```
+resource "okta_resource_owner" "test" {
+  resource_orns = ["orn:oktapreview:idp:<org ID>:apps:oidc_client:<client ID>"]
+}
+```
+
+Run `terraform apply` to assign the resource owner. To add or remove owners, update the `resource_orn` block and run `terraform apply` again. To revoke the owner assignment, remove the resource block from your configuration and run `terraform apply`.
+
+You can query resource owner information using data sources:
+
+```
+data "okta_resource_owner" "test" {
+  parent_resource_orn = "orn:oktapreview:idp:<org ID>:apps:oidc_client:<client ID>"
+  depends_on          = [okta_resource_owner.test]
+}
+data "okta_resource_owner" "example" { parent_resource_orn = "orn:oktapreview:idp:<org ID>:apps:oidc_client:<client ID>" }
+
+```
+
+To discover which resources do not have owners assigned, use:
+
+```
+data "okta_resource_owners_catalog_resource" "test" {
+  parent_resource_orn = "orn:oktapreview:idp:<org ID>:apps:oidc_client:<client ID>"
+}
+```
