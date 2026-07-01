@@ -28,7 +28,7 @@ The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](http
 
 #### Improved group member search functionality is GA in Production
 
-You can now search for group members using the new `search` parameter of the `GET /api/v1/groups/{groupId}/users` endpoint. This makes it easier to find members without knowing their exact profile details. See [List all member users](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group/other/listgroupusers).
+You can now search for group members using the new `search` parameter of the `GET /api/v1/groups/{groupId}/users` endpoint. This makes it easier to find members without knowing their exact profile details. See [List all member users](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group/other/listgroupusers). <!-- OKTA-1197716 -->
 
 #### Group push support in API Integration Actions apps
 

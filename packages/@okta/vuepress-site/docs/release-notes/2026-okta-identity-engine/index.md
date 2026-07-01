@@ -39,7 +39,7 @@ title: Okta Identity Engine API release notes 2026
 
 #### Bot protection is GA in Production
 
-The [Bot Protection API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/botprotection) enables orgs to automatically identify and mitigate bot traffic by configuring remediation actions within the Identity Threat Protection (ITP) landing page. See [Bot protection](https://help.okta.com/okta_help.htm?type=oie&id=about_bot_protection).
+The [Bot Protection API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/botprotection) enables orgs to automatically identify and mitigate bot traffic by configuring remediation actions within the Identity Threat Protection (ITP) landing page. See [Bot protection](https://help.okta.com/okta_help.htm?type=oie&id=about_bot_protection). <!-- OKTA-1209042 BOT_PROTECTION -->
 
 #### New fields query parameter for Groups, Realms, and Devices list endpoints is GA in Production
 
@@ -51,7 +51,7 @@ The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](http
 
 #### Improved group member search functionality is GA in Production
 
-You can now search for group members using the new `search` parameter of the `GET /api/v1/groups/{groupId}/users` endpoint. This makes it easier to find members without knowing their exact profile details. See [List all member users](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group/other/listgroupusers).
+You can now search for group members using the new `search` parameter of the `GET /api/v1/groups/{groupId}/users` endpoint. This makes it easier to find members without knowing their exact profile details. See [List all member users](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group/other/listgroupusers). <!-- OKTA-1197716 -->
 
 #### Customizable emails for Passkey (FIDO2 WebAuthn) authenticator is GA in Preview
 
@@ -71,7 +71,7 @@ Advanced device posture checks let admins enforce compliance based on customized
 
 #### Clear Managed Chrome Profile Browsing Data is GA in Production
 
-Clear Managed Chrome Profile Browsing Data provides real-time remediation by instantly purging local session data (cookies and cache) within managed Chrome profiles upon ITP detection. By transforming the browser into a policy-enforced workspace, it ensures immediate, automated protection. <!-- TODO: See [API doc]. -->
+Clear Managed Chrome Profile Browsing Data provides real-time remediation by instantly purging local session data (cookies and cache) within managed Chrome profiles upon ITP detection. By transforming the browser into a policy-enforced workspace, it ensures immediate, automated protection. <!-- TODO: See [API doc]. OKTA-1115952 CLEAR_CHROME_DATA -->
 
 #### Group push support in API Integration Actions apps
 

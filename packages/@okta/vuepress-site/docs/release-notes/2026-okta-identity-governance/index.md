@@ -52,7 +52,7 @@ The following API updates have been made to support service account campaigns:
 
 #### Certify AI agent resource connections is EA
 
-After you enable the **Resource Access Certifications for AI Agents** feature, you can review and certify AI agent resource connections using identity campaigns (formerly, `USER` campaign types). This helps you maintain visibility and control as AI agents' access changes over time. See the [Campaigns](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns) API.
+After you enable the **Resource Access Certifications for AI Agents** feature, you can review and certify AI agent resource connections using identity campaigns (formerly, `USER` campaign types). This helps you maintain visibility and control as AI agents' access changes over time. See the [Campaigns](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns) API. <!-- OKTA-1199955 IGA_ACCESS_CERT_CERTIFYING_AI_AGENTS_AS_PRINCIPAL -->
 
 #### Developer documentation updates in 2026.07.0
 
