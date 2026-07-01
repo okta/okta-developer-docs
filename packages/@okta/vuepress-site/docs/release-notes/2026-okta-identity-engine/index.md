@@ -126,7 +126,7 @@ Validation for the [Create a client authentication settings endpoint](https://de
 
 * The new [Identify your Okta authentication integrations and customizations](/docs/guides/oie-upgrade-identify-integrations/main/) guide helps you discover and record every Okta integration point before upgrading to Identity Engine. It covers redirect sign-in, embedded widgets, SDKs, API tokens, hooks, Workflows, and directory agents, and provides worksheets to assess upgrade impact and assign owners. <!-- OKTA-1177823 -->
 
-* The new [Prepare to upgrade to Okta Identity Engine](https://developer.okta.com/docs/journeys/OCI-prepare-upgrade-oie/main/) journey helps you plan and execute a Classic Engine to Identity Engine migration. This journey covers policy and authenticator changes, integration inventory, Sign-In Widget updates, and custom code revisions to help you upgrade with minimal disruption. <!-- OKTA-1167295 -->
+* The new [Prepare to upgrade to Okta Identity Engine](/docs/journeys/OCI-prepare-upgrade-oie/main/) journey helps you plan and execute a Classic Engine to Identity Engine migration. This journey covers policy and authenticator changes, integration inventory, Sign-In Widget updates, and custom code revisions to help you upgrade with minimal disruption. <!-- OKTA-1167295 -->
 
 * The Okta Developer landing page now features new sections for Journeys and release notes. A Journey is a curated, expert-driven, end-to-end guide built around a small-to-medium-sized development project. This update delivers streamlined access to both Journeys and the latest platform updates. See [Okta Developer landing page](https://developer.okta.com/). <!-- OKTA-1169801 -->
 
