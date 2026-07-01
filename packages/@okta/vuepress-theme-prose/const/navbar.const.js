@@ -1262,6 +1262,15 @@ export const journeys = [
           },
         ]
       },
+      {
+        title: "Upgrade to Okta Identity Engine",
+        subLinks: [
+          {
+            title: "Prepare to upgrade to Okta Identity Engine",
+            journeyName: "OCI-prepare-upgrade-oie"
+          },
+        ]
+      },
     ],
   }
 ];

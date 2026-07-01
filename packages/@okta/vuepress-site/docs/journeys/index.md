@@ -8,6 +8,7 @@ journeys:
  - OCI-mobile
  - OCI-web-sign-up
  - OCI-migrate-users
+ - OCI-prepare-upgrade-oie
 ---
 
 # Journeys
@@ -31,4 +32,8 @@ Journeys break down your development project into consumable steps:
   <Card href="/docs/journeys/OCI-mobile/main/" cardTitle="Add a sign-in form to your mobile app">Use the Okta Client SDK to build a secure and complete sign-in experience for your mobile app, giving your users seamless access while protecting their data.</Card>
   <Card href="/docs/journeys/OCI-web-sign-up/main/" cardTitle="Add a sign-up form to your web app">Implement a sign-up form for your web app, reducing onboarding friction and accelerating user acquisition.</Card>
   <Card href="/docs/journeys/OCI-migrate-users/main/" cardTitle="Migrate your non-Okta user accounts to Universal Directory">Provide a smooth and secure activation experience as you move human user identities into Universal Directory from another user store.</Card>
+</Cards>
+<br>
+<Cards>
+  <Card href="/docs/journeys/OCI-prepare-upgrade-oie/main/" cardTitle="Prepare to upgrade to Okta Identity Engine">Plan, update, test, and validate your setup so that you can confidently complete a smooth Production upgrade.</Card>
 </Cards>
