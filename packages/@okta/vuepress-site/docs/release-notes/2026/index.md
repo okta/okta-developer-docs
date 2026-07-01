@@ -19,6 +19,7 @@ title: Okta Classic Engine API release notes 2026
 | [New IP Service available for enhanced dynamic network zones](#new-ip-service-available-for-enhanced-dynamic-network-zones) | July 1, 2026 |
 | [Improved group member search functionality is GA in Production](#improved-group-member-search-functionality-is-ga-in-production) | July 1, 2026 |
 | [Group push support in API Integration Actions apps](#group-push-support-in-api-integration-actions-apps) | July 1, 2026 |
+| [Developer documentation updates in 2026.07.0](#developer-documentation-updates-in-2026-07-0) | July 1, 2026 |
 | [Bugs fixed in 2026.07.0](#bugs-fixed-in-2026-07-0)| July 1, 2026 |
 
 #### New IP Service available for enhanced dynamic network zones
@@ -33,6 +34,16 @@ You can now search for group members using the new `search` parameter of the `GE
 
 Apps that use API Integration Actions to perform provisioning can now use the [Group Push](https://help.okta.com/okta_help.htm?type=oie&id=ext_Directory_Using_Group_Push) feature. This enables the group import functionality for apps that use [group API contracts](/docs/guides/oin-api-actions-contracts/#provisioning-list-groups) in their provisioning actions.
 <!-- OKTA-1094245, OKTA-1196942, ENG_DISABLE_GROUP_PUSH_ENHANCEMENTS_FOR_ACTIONS, Preview: July 1, 2026 -->
+
+#### Developer documentation updates in 2026.07.0
+
+* The Okta Developer landing page now features new sections for Journeys and release notes. A Journey is a curated, expert-driven, end-to-end guide built around a small-to-medium-sized development project. This update delivers streamlined access to both Journeys and the latest platform updates. See [Okta Developer landing page](https://developer.okta.com/). <!-- OKTA-1169801 -->
+
+* The new [Sign in mobile users with a self-hosted page](/docs/guides/sign-users-in-mobile-self-hosted/main/android/) guide helps developers build a native, password-based sign-in flow using the [Okta Client SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin). This guide demonstrates how to use the Resource Owner Password grant type, track authentication states, store tokens securely, and manage sessions. <!-- OKTA-1200887 -->
+
+* The new [Configure the Client SDK for Kotlin to use an Okta-hosted sign-in form](/docs/guides/sign-into-mobile-app-redirect/main/android/) helps developers integrate browser-based redirect authentication into mobile apps. This guide covers project setup, custom callback URI configuration, refresh tokens for session continuity, and secure token attachment to outgoing server calls with HTTP interceptors. <!-- OKTA-1089674 -->
+
+* The [Sign users in to your SPA](/docs/guides/sign-into-spa-redirect/main/angular/) using the redirect model guide for Angular has been updated for Angular CLI v21, `@okta/okta-angular` v8.0, and the Okta Auth JavaScript SDK v8.0.1. This enhancement simplifies the setup by using standalone provider APIs and functional route guard. <!-- OKTA-1192767 -->
 
 #### Bugs fixed in 2026.07.0
 

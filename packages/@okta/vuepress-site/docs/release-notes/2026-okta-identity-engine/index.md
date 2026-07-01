@@ -34,6 +34,7 @@ title: Okta Identity Engine API release notes 2026
 | [Agent-to-agent connections is EA in Preview](#agent-to-agent-connections-is-ea-in-preview)| June 17, 2026 |
 | [Register an AI agent API appId parameter deprecated](#register-an-ai-agent-api-appid-parameter-deprecated) | June 17, 2026 |
 | [Improved validation for Create a client authentication settings endpoint](#improved-validation-for-create-a-client-authentication-settings-endpoint) | June 24, 2026 |
+| [Developer documentation updates in 2026.07.0](#developer-documentation-updates-in-2026-07-0) | July 1, 2026 |
 | [Bugs fixed in 2026.07.0](#bugs-fixed-in-2026-07-0)| July 1, 2026 |
 
 #### Bot protection is GA in Production
@@ -112,6 +113,36 @@ The `appId` parameter for the Register an AI agent API has been deprecated. Use 
 #### Improved validation for Create a client authentication settings endpoint
 
 Validation for the [Create a client authentication settings endpoint](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/resourceserverclientauthsettings/other/createclientauthsettings) now restricts the `purpose` parameter to a single value. <!-- OKTA-120008 -->
+
+#### Developer documentation updates in 2026.07.0
+
+* The new [Upgrade registration inline hooks to Identity Engine](/docs/guides/oie-upgrade-registration-inline-hook/main/) guide explains how to upgrade your registration inline hook from Okta Classic Engine to Okta Identity Engine. It includes details on payload updates and introduces the new Identity Engine use case of progressive profile enrollment. <!-- OKTA-1182951 -->
+
+* The new [Update your event hooks for Identity Engine](/docs/guides/oie-upgrade-event-hooks/main/) guide explains how to update your event hooks from Okta Classic Engine to Okta Identity Engine. It includes details on payload updates and highlights new Identity Engine only event types. <!-- OKTA-1182949 -->
+
+* The new [API changes after the upgrade](/docs/guides/oie-upgrade-api-changes/main/) guide describes how specific Okta APIs behave differently or are unsupported after upgrading to Identity Engine. It covers breaking changes and migration guidance for the [Authentication API](/docs/reference/api/authn/), [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/), and [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/). <!-- OKTA-1185560 -->
+
+* The new [Test your widget's existing customizations](/docs/guides/oie-upgrade-test-widget-custom/main/) guide helps you validate Sign-In Widget customizations in a test environment before a production upgrade. It covers how to identify affected customization types, set up a test org, and resolve common upgrade issues. <!-- OKTA-1185573 -->
+
+* The new [Identify your Okta authentication integrations and customizations](/docs/guides/oie-upgrade-identify-integrations/main/) guide helps you discover and record every Okta integration point before upgrading to Identity Engine. It covers redirect sign-in, embedded widgets, SDKs, API tokens, hooks, Workflows, and directory agents, and provides worksheets to assess upgrade impact and assign owners. <!-- OKTA-1177823 -->
+
+* The new [Prepare to upgrade to Okta Identity Engine](https://developer.okta.com/docs/journeys/OCI-prepare-upgrade-oie/main/) journey helps you plan and execute a Classic Engine to Identity Engine migration. This journey covers policy and authenticator changes, integration inventory, Sign-In Widget updates, and custom code revisions to help you upgrade with minimal disruption. <!-- OKTA-1167295 -->
+
+* The Okta Developer landing page now features new sections for Journeys and release notes. A Journey is a curated, expert-driven, end-to-end guide built around a small-to-medium-sized development project. This update delivers streamlined access to both Journeys and the latest platform updates. See [Okta Developer landing page](https://developer.okta.com/). <!-- OKTA-1169801 -->
+
+* The new [Plan your upgrade rollout](/docs/guides/oie-upgrade-rollout-plan/main/) guide explains how to plan and execute a staged upgrade from Classic Engine to Okta Identity Engine. The guide covers how to sequence the upgrade across orgs, gradually roll out Identity Engine flows, and replace unsupported features, such as Integrated Windows Authentication, Device Trust, and Okta Mobile. <!-- OKTA-1192952 -->
+
+* The [OIN Wizard: Update an integration](https://developer.okta.com/docs/guides/update-oin-app/main/openidconnect/) guide has been updated to include API Integration Actions instructions. ISVs can edit and resubmit a published app that's built with API Integration Actions. This feature is only available on Okta Integrator Free Plan orgs. <!-- OKTA-1177141 -->
+
+* The new [Configure a device posture IdP](/docs/guides/device-posture-idp/main/) guide describes how to integrate an external compliance service as a device posture identity provider. The guide shows how to use the [Device Integrations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/deviceintegrations) to retrieve and activate the device posture provider integration. It also shows how to use the [Device Assurance Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/deviceassurance) to consume device posture signals in a device assurance policy. <!-- OKTA-953417 -->
+
+* The new [Sign in mobile users with a self-hosted page](/docs/guides/sign-users-in-mobile-self-hosted/main/android/) guide helps developers build a native, password-based sign-in flow using the [Okta Client SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin). This guide demonstrates how to use the Resource Owner Password grant type, track authentication states, store tokens securely, and manage sessions. <!-- OKTA-1200887 -->
+
+* The new [Configure the Client SDK for Kotlin to use an Okta-hosted sign-in form](/docs/guides/sign-into-mobile-app-redirect/main/android/) helps developers integrate browser-based redirect authentication into mobile apps. This guide covers project setup, custom callback URI configuration, refresh tokens for session continuity, and secure token attachment to outgoing server calls with HTTP interceptors. <!-- OKTA-1089674 -->
+
+* The new [Configure advanced posture checks and custom remediation guide](/docs/guides/device-assurance-posture-checks-and-remediation/main/) shows how to use the [Device Posture Checks API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/deviceposturecheck) to enforce custom osquery checks on macOS and Windows devices. It also covers configuring custom remediation instructions that help end users fix noncompliant devices before they regain access. <!-- OKTA-896213 -->
+
+* The [Sign users in to your SPA](/docs/guides/sign-into-spa-redirect/main/angular/) using the redirect model guide for Angular has been updated for Angular CLI v21, `@okta/okta-angular` v8.0, and the Okta Auth JavaScript SDK v8.0.1. This enhancement simplifies the setup by using standalone provider APIs and functional route guard. <!-- OKTA-1192767 -->
 
 #### Bugs fixed in 2026.07.0
 

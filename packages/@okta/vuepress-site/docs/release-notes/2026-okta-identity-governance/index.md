@@ -22,6 +22,7 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 | [Self-review for Okta admin roles is GA in Production](#self-review-for-okta-admin-roles-is-ga-in-production) | July 1, 2026 |
 | [Certify service accounts is GA in Preview](#certify-service-accounts-is-ga-in-preview) | July 1, 2026 |
 | [Certify AI agent resource connections is EA](#certify-ai-agent-resource-connections-is-ea) | July 1, 2026 |
+| [Developer documentation updates in 2026.07.0](#developer-documentation-updates-in-2026-07-0) | July 1, 2026 |
 | [Bugs fixed in 2026.07.0](#bugs-fixed-in-2026-07-0)| July 1, 2026 |
 
 #### Customize Justification Requirements is GA in Production
@@ -52,6 +53,10 @@ The following API updates have been made to support service account campaigns:
 #### Certify AI agent resource connections is EA
 
 After you enable the **Resource Access Certifications for AI Agents** feature, you can review and certify AI agent resource connections using identity campaigns (formerly, `USER` campaign types). This helps you maintain visibility and control as AI agents' access changes over time. See the [Campaigns](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns) API.
+
+#### Developer documentation updates in 2026.07.0
+
+* The Okta Developer landing page now features new sections for Journeys and release notes. A Journey is a curated, expert-driven, end-to-end guide built around a small-to-medium-sized development project. This update delivers streamlined access to both Journeys and the latest platform updates. See [Okta Developer landing page](https://developer.okta.com/). <!-- OKTA-1169801 -->
 
 #### Bugs fixed in 2026.07.0
 
