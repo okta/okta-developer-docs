@@ -29,6 +29,11 @@ title: Okta Identity Engine API release notes 2026
 | [Group push support in API Integration Actions apps](#group-push-support-in-api-integration-actions-apps) | July 1, 2026 |
 | [Native to Web SSO is GA in Production](#native-to-web-sso-is-ga-in-production) | July 1, 2026 |
 | [Removal of Cross App Access as a self-service feature is EA](#removal-of-cross-app-access-as-a-self-service-feature-is-ea) | July 1, 2026 |
+| [Spec-compliant client ID claims for AI agent tokens](#spec-compliant-client-id-claims-for-ai-agent-tokens) | Jun 11, 2026 |
+| [SCIM filter use added to endpoints](#scim-filter-use-added-to-endpoints) | Jun 11, 2026 |
+| [Agent-to-agent connections is EA in Preview](#agent-to-agent-connections-is-ea-in-preview)| June 17, 2026 |
+| [Register an AI agent API appId parameter deprecated](#register-an-ai-agent-api-appid-parameter-deprecated) | June 17, 2026 |
+| [Improved validation for Create a client authentication settings endpoint](#improved-validation-for-create-a-client-authentication-settings-endpoint) | June 24, 2026 |
 | [Bugs fixed in 2026.07.0](#bugs-fixed-in-2026-07-0)| July 1, 2026 |
 
 #### Bot protection is GA in Production
@@ -84,6 +89,29 @@ The list endpoints for the [Application Interclient Trust Mappings API](https://
 
 You can no longer enable or disable the **Cross App Access** feature from the Early Access section of the **Settings** > **Features** page in the Admin Console. To change the availability of this feature for your org, contact [Okta Support](https://support.okta.com). If you have an Integrator Free Plan org, contact [Developer Support](mailto:developers@okta.com) to enable the feature. This change doesn't impact any existing configurations.
 <!-- OKTA-1203672 ENABLE_CONNECT_WITH_OKTA -->
+
+#### Spec-compliant client ID claims for AI agent tokens
+
+Okta Expression Language profiles now include the `app.clientId` property during user claim evaluations for AI agent OAuth 2.0 clients. This allows developers to generate spec-compliant tokens during AI agent flows.
+
+#### SCIM filter use added to endpoints
+
+The [List all authorization servers for an API server](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/apiserverregistration/other/listapiserverauthorizationservers) and [List all authorization servers for an MCP server](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/listmcpserverauthorizationservers) endpoints now use the SCIM filter.
+
+#### Agent-to-agent connections is EA in Preview
+
+Agent-to-agent server connections allow admins to connect AI agents to other AI agents through delegated links.
+Admins can manage scopes to restrict access to the appropriate AI agent tasks, and allow service apps to call AI agents without user context. Using tokens and the System Log, admins can view all the users, AI agents, and apps that call an AI agent. See [Agent-to-agent token exchange](/docs/guides/ea-ai-agent-token-exchange/agent-to-agent/main/).
+
+The Delegated Links API is BETA. Delegated links are explicit, configurable policy statements that declare which principals (OIDC apps or other agents) and token types each agent accepts as valid proof of identity. This replaces the implicit linked app policy. See the [Delegation Links API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks). <!-- FF SECURE_AI_A2A_SERVERS preview release 2026.06.2 OKTA-1197640 -->
+
+#### Register an AI agent API appId parameter deprecated
+
+The `appId` parameter for the Register an AI agent API has been deprecated. Use the [Delegation Links API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks) instead. <!-- FF SECURE_AI_A2A_SERVERS OKTA-1180123 in preview 2026.06.2 -->
+
+#### Improved validation for Create a client authentication settings endpoint
+
+Validation for the [Create a client authentication settings endpoint](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/resourceserverclientauthsettings/other/createclientauthsettings) now restricts the `purpose` parameter to a single value. <!-- OKTA-120008 -->
 
 #### Bugs fixed in 2026.07.0
 
