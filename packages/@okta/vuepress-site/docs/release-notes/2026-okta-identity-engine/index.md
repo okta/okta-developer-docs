@@ -11,6 +11,145 @@ title: Okta Identity Engine API release notes 2026
   Subscribe to RSS
 </a>
 
+## July
+
+### Monthly release 2026.07.0
+<!-- Published on: 2026-07-01T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bot protection is GA in Production](#bot-protection-is-ga-in-production) | July 1, 2026 |
+| [New fields query parameter for Groups, Realms, and Devices list endpoints is GA in Production](#new-fields-query-parameter-for-groups-realms-and-devices-list-endpoints-is-ga-in-production) | July 1, 2026 |
+| [New IP Service available for enhanced dynamic network zones](#new-ip-service-available-for-enhanced-dynamic-network-zones) | July 1, 2026 |
+| [Improved group member search functionality is GA in Production](#improved-group-member-search-functionality-is-ga-in-production) | July 1, 2026 |
+| [Customizable emails for Passkey (FIDO2 WebAuthn) authenticator is GA in Preview](#customizable-emails-for-passkey-fido2-webauthn-authenticator-is-ga-in-preview) | July 1, 2026 |
+| [Email authenticator auto-enrollment and recovery management is GA in Preview](#email-authenticator-auto-enrollment-and-recovery-management-is-ga-in-preview) | July 1, 2026 |
+| [Advanced device posture checks is GA in Preview](#advanced-device-posture-checks-is-ga-in-preview) | July 1, 2026 |
+| [Clear Managed Chrome Profile Browsing Data is GA in Production](#clear-managed-chrome-profile-browsing-data-is-ga-in-production) | July 1, 2026 |
+| [Group push support in API Integration Actions apps](#group-push-support-in-api-integration-actions-apps) | July 1, 2026 |
+| [Native to Web SSO is GA in Production](#native-to-web-sso-is-ga-in-production) | July 1, 2026 |
+| [Removal of Cross App Access as a self-service feature is EA](#removal-of-cross-app-access-as-a-self-service-feature-is-ea) | July 1, 2026 |
+| [Spec-compliant client ID claims for AI agent tokens](#spec-compliant-client-id-claims-for-ai-agent-tokens) | Jun 11, 2026 |
+| [SCIM filter use added to endpoints](#scim-filter-use-added-to-endpoints) | Jun 11, 2026 |
+| [Agent-to-agent connections is EA in Preview](#agent-to-agent-connections-is-ea-in-preview)| June 17, 2026 |
+| [Register an AI agent API appId parameter deprecated](#register-an-ai-agent-api-appid-parameter-deprecated) | June 17, 2026 |
+| [Improved validation for Create a client authentication settings endpoint](#improved-validation-for-create-a-client-authentication-settings-endpoint) | June 24, 2026 |
+| [Developer documentation updates in 2026.07.0](#developer-documentation-updates-in-2026-07-0) | July 1, 2026 |
+| [Bugs fixed in 2026.07.0](#bugs-fixed-in-2026-07-0)| July 1, 2026 |
+
+#### Bot protection is GA in Production
+
+The [Bot Protection API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/botprotection) enables orgs to automatically identify and mitigate bot traffic by configuring remediation actions within the Identity Threat Protection (ITP) landing page. See [Bot protection](https://help.okta.com/okta_help.htm?type=oie&id=about_bot_protection). <!-- OKTA-1209042 BOT_PROTECTION -->
+
+#### New fields query parameter for Groups, Realms, and Devices list endpoints is GA in Production
+
+The `GET /api/v1/groups`, `GET /api/v1/realms`, and `GET /api/v1/devices` endpoints now support the fields query parameter that specifies which fields to include in the response. Use this parameter to reduce the response payload size when your integration only needs a subset of fields. See [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group), [Realms API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/realm), and [Devices API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/device).
+
+#### New IP Service available for enhanced dynamic network zones
+
+The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/getnetworkzone#other/getnetworkzone/t=response&c=200&path=&d=2/ipservicecategories) now supports the `VIGOR_SSL_VPN` service category. <!-- OKTA-1202013 -->
+
+#### Improved group member search functionality is GA in Production
+
+You can now search for group members using the new `search` parameter of the `GET /api/v1/groups/{groupId}/users` endpoint. This makes it easier to find members without knowing their exact profile details. See [List all member users](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group/other/listgroupusers). <!-- OKTA-1197716 -->
+
+#### Customizable emails for Passkey (FIDO2 WebAuthn) authenticator is GA in Preview
+
+The [Custom Email Templates API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/customtemplates) now includes the `WebAuthnPreRegistrationPin` email template which is sent to users when an admin pre-registers a Passkey (FIDO2 WebAuthn) authenticator on their behalf. You can customize the template subject and body.
+
+<!-- OKTA-1169564 WEBAUTHN_PRE_ENROLLMENT_CUSTOMIZABLE_PIN_EMAIL preview date: May 20, 2026 -->
+
+#### Email authenticator auto-enrollment and recovery management is GA in Preview
+
+Use the Policies API to control the automatic enrollment of email as an authenticator and configure email-based password recovery, unlock, and change where email isn't an authenticator. See [`autoEnroll`](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/createpolicy#other/createpolicy/t=request&path=&d=1/settings/authenticators/enroll/autoenroll) and [`allowRecoveryEmailWithoutEnrollment`](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/createpolicyrule#other/createpolicyrule/t=request&path=&d=1/actions/selfservicepasswordreset/settings/allowrecoveryemailwithoutenrollment).
+
+<!-- OKTA-1169086 EMAIL_ENROLLMENT_AND_RECOVERY_CONTROL preview date: may 6, 2026 -->
+
+#### Advanced device posture checks is GA in Preview
+
+Advanced device posture checks let admins enforce compliance based on customized device attributes that extend beyond Okta's standard checks. Using osquery, the feature facilitates real-time security assessments across macOS and Windows devices, giving orgs enhanced visibility and control over their device fleet to ensure that only trusted devices can access sensitive resources. This feature is available only if you're subscribed to *Okta Device Access (ODA)*. See [Configure advanced posture checks and custom remediation](/docs/guides/device-assurance-posture-checks-and-remediation/main/) and the [Device Posture Checks API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DevicePostureCheck/). <!-- OSQUERY_CUSTOM_DEVICE_POSTURE_CHECKS_RELEASE, DEVICE_UNMANAGED_CHECKS, DEVICE_AUTHENTICATOR_INTEGRATIONS OKTA-1162878 OKTA-1193941 Preview date: April 9, 2025 -->
+
+#### Clear Managed Chrome Profile Browsing Data is GA in Production
+
+Clear Managed Chrome Profile Browsing Data provides real-time remediation by instantly purging local session data (cookies and cache) within managed Chrome profiles upon ITP detection. By transforming the browser into a policy-enforced workspace, it ensures immediate, automated protection. <!-- TODO: See [API doc]. OKTA-1115952 CLEAR_CHROME_DATA -->
+
+#### Group push support in API Integration Actions apps
+
+Apps that use API Integration Actions to perform provisioning can now use the [Group Push](https://help.okta.com/okta_help.htm?type=oie&id=ext_Directory_Using_Group_Push) feature. This enables the group import functionality for apps that use [group API contracts](/docs/guides/oin-api-actions-contracts/#provisioning-list-groups) in their provisioning actions.
+<!-- OKTA-1094245, OKTA-1196942, ENG_DISABLE_GROUP_PUSH_ENHANCEMENTS_FOR_ACTIONS, Preview: July 1, 2026 -->
+
+#### Native to Web SSO is GA in Production
+
+Native to Web SSO creates a seamless, unified authentication experience when a user transitions from an OIDC app (like a native or web app) to a web app (either OIDC or SAML). This feature uses standard, web-based federation protocols like SAML and OpenID Connect that help bridge the gap between two different application environments, using a single-use, one-way interclient trust SSO token. This eliminates repeating already provided sign-on assurances, and simplifies development by reducing authentication complexity.
+
+The list endpoints for the [Application Interclient Trust Mappings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/applicationinterclienttrustmappings/other/listinterclientallowedapplications) now support pagination. Use the `after` and `limit` query parameters to page through results for those operations. The maximum number of allowed apps per target app has increased from 5 to 50.
+
+<!-- NATIVE_TO_WEB_ONE_TIME_TOKEN_EXCHANGE OKTA-1065285 -->
+
+#### Removal of Cross App Access as a self-service feature is EA
+
+You can no longer enable or disable the **Cross App Access** feature from the Early Access section of the **Settings** > **Features** page in the Admin Console. To change the availability of this feature for your org, contact [Okta Support](https://support.okta.com). If you have an Integrator Free Plan org, contact [Developer Support](mailto:developers@okta.com) to enable the feature. This change doesn't impact any existing configurations.
+<!-- OKTA-1203672 ENABLE_CONNECT_WITH_OKTA -->
+
+#### Spec-compliant client ID claims for AI agent tokens
+
+Okta Expression Language profiles now include the `app.clientId` property during user claim evaluations for AI agent OAuth 2.0 clients. This allows developers to generate spec-compliant tokens during AI agent flows.
+
+#### SCIM filter use added to endpoints
+
+The [List all authorization servers for an API server](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/apiserverregistration/other/listapiserverauthorizationservers) and [List all authorization servers for an MCP server](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/listmcpserverauthorizationservers) endpoints now use the SCIM filter.
+
+#### Agent-to-agent connections is EA in Preview
+
+Agent-to-agent server connections allow admins to connect AI agents to other AI agents through delegated links.
+Admins can manage scopes to restrict access to the appropriate AI agent tasks, and allow service apps to call AI agents without user context. Using tokens and the System Log, admins can view all the users, AI agents, and apps that call an AI agent. See [Agent-to-agent token exchange](/docs/guides/ea-ai-agent-token-exchange/agent-to-agent/main/).
+
+The Delegated Links API is BETA. Delegated links are explicit, configurable policy statements that declare which principals (OIDC apps or other agents) and token types each agent accepts as valid proof of identity. This replaces the implicit linked app policy. See the [Delegation Links API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks). <!-- FF SECURE_AI_A2A_SERVERS preview release 2026.06.2 OKTA-1197640 -->
+
+#### Register an AI agent API appId parameter deprecated
+
+The `appId` parameter for the Register an AI agent API has been deprecated. Use the [Delegation Links API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks) instead. <!-- FF SECURE_AI_A2A_SERVERS OKTA-1180123 in preview 2026.06.2 -->
+
+#### Improved validation for Create a client authentication settings endpoint
+
+Validation for the [Create a client authentication settings endpoint](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/resourceserverclientauthsettings/other/createclientauthsettings) now restricts the `purpose` parameter to a single value. <!-- OKTA-120008 -->
+
+#### Developer documentation updates in 2026.07.0
+
+* The new [Upgrade registration inline hooks to Identity Engine](/docs/guides/oie-upgrade-registration-inline-hook/main/) guide explains how to upgrade your registration inline hook from Okta Classic Engine to Okta Identity Engine. It includes details on payload updates and introduces the new Identity Engine use case of progressive profile enrollment. <!-- OKTA-1182951 -->
+
+* The new [Update your event hooks for Identity Engine](/docs/guides/oie-upgrade-event-hooks/main/) guide explains how to update your event hooks from Okta Classic Engine to Okta Identity Engine. It includes details on payload updates and highlights new Identity Engine only event types. <!-- OKTA-1182949 -->
+
+* The new [API changes after the upgrade](/docs/guides/oie-upgrade-api-changes/main/) guide describes how specific Okta APIs behave differently or are unsupported after upgrading to Identity Engine. It covers breaking changes and migration guidance for the [Authentication API](/docs/reference/api/authn/), [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/), and [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/). <!-- OKTA-1185560 -->
+
+* The new [Test your widget's existing customizations](/docs/guides/oie-upgrade-test-widget-custom/main/) guide helps you validate Sign-In Widget customizations in a test environment before a production upgrade. It covers how to identify affected customization types, set up a test org, and resolve common upgrade issues. <!-- OKTA-1185573 -->
+
+* The new [Identify your Okta authentication integrations and customizations](/docs/guides/oie-upgrade-identify-integrations/main/) guide helps you discover and record every Okta integration point before upgrading to Identity Engine. It covers redirect sign-in, embedded widgets, SDKs, API tokens, hooks, Workflows, and directory agents, and provides worksheets to assess upgrade impact and assign owners. <!-- OKTA-1177823 -->
+
+* The new [Prepare to upgrade to Okta Identity Engine](/docs/journeys/OCI-prepare-upgrade-oie/main/) journey helps you plan and execute a Classic Engine to Identity Engine migration. This journey covers policy and authenticator changes, integration inventory, Sign-In Widget updates, and custom code revisions to help you upgrade with minimal disruption. <!-- OKTA-1167295 -->
+
+* The Okta Developer landing page now features new sections for Journeys and release notes. A Journey is a curated, expert-driven, end-to-end guide built around a small-to-medium-sized development project. This update delivers streamlined access to both Journeys and the latest platform updates. See [Okta Developer landing page](https://developer.okta.com/). <!-- OKTA-1169801 -->
+
+* The new [Plan your upgrade rollout](/docs/guides/oie-upgrade-rollout-plan/main/) guide explains how to plan and execute a staged upgrade from Classic Engine to Okta Identity Engine. The guide covers how to sequence the upgrade across orgs, gradually roll out Identity Engine flows, and replace unsupported features, such as Integrated Windows Authentication, Device Trust, and Okta Mobile. <!-- OKTA-1192952 -->
+
+* The [OIN Wizard: Update an integration](https://developer.okta.com/docs/guides/update-oin-app/main/openidconnect/) guide has been updated to include API Integration Actions instructions. ISVs can edit and resubmit a published app that's built with API Integration Actions. This feature is only available on Okta Integrator Free Plan orgs. <!-- OKTA-1177141 -->
+
+* The new [Configure a device posture IdP](/docs/guides/device-posture-idp/main/) guide describes how to integrate an external compliance service as a device posture identity provider. The guide shows how to use the [Device Integrations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/deviceintegrations) to retrieve and activate the device posture provider integration. It also shows how to use the [Device Assurance Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/deviceassurance) to consume device posture signals in a device assurance policy. <!-- OKTA-953417 -->
+
+* The new [Sign in mobile users with a self-hosted page](/docs/guides/sign-users-in-mobile-self-hosted/main/android/) guide helps developers build a native, password-based sign-in flow using the [Okta Client SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin). This guide demonstrates how to use the Resource Owner Password grant type, track authentication states, store tokens securely, and manage sessions. <!-- OKTA-1200887 -->
+
+* The new [Configure the Client SDK for Kotlin to use an Okta-hosted sign-in form](/docs/guides/sign-into-mobile-app-redirect/main/android/) helps developers integrate browser-based redirect authentication into mobile apps. This guide covers project setup, custom callback URI configuration, refresh tokens for session continuity, and secure token attachment to outgoing server calls with HTTP interceptors. <!-- OKTA-1089674 -->
+
+* The new [Configure advanced posture checks and custom remediation guide](/docs/guides/device-assurance-posture-checks-and-remediation/main/) shows how to use the [Device Posture Checks API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/deviceposturecheck) to enforce custom osquery checks on macOS and Windows devices. It also covers configuring custom remediation instructions that help end users fix noncompliant devices before they regain access. <!-- OKTA-896213 -->
+
+* The [Sign users in to your SPA](/docs/guides/sign-into-spa-redirect/main/angular/) using the redirect model guide for Angular has been updated for Angular CLI v21, `@okta/okta-angular` v8.0, and the Okta Auth JavaScript SDK v8.0.1. This enhancement simplifies the setup by using standalone provider APIs and functional route guard. <!-- OKTA-1192767 -->
+
+#### Bugs fixed in 2026.07.0
+
+* When a Native to Web SSO flow used an `interclient_token` to sign in to a target OpenID Connect (OIDC) app that had Single Logout (SLO) session data enabled, the authorization code exchange returned an unclear error message. (OKTA-1183163)
+
+* Developers were able to delete a [custom authorization server](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/authorizationserver/other/deleteauthorizationserver) that was used in AI agent resource connections. (OKTA-1182513)
+
 ## June
 
 ### Weekly release 2026.06.3
