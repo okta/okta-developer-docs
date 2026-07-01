@@ -16,6 +16,19 @@ title: Okta Classic Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
+| [New IP Service available for enhanced dynamic network zones](#new-ip-service-available-for-enhanced-dynamic-network-zones) | July 1, 2026 |
+| [Improved group member search functionality is GA in Production](#improved-group-member-search-functionality-is-ga-in-production) | July 1, 2026 |
+| [Bugs fixed in 2026.07.0](#bugs-fixed-in-2026-07-0)| July 1, 2026 |
+
+#### New IP Service available for enhanced dynamic network zones
+
+The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/getnetworkzone#other/getnetworkzone/t=response&c=200&path=&d=2/ipservicecategories) now supports the `VIGOR_SSL_VPN` service category. <!-- OKTA-1202013 -->
+
+#### Improved group member search functionality is GA in Production
+
+You can now search for group members using the new `search` parameter of the `GET /api/v1/groups/{groupId}/users` endpoint. This makes it easier to find members without knowing their exact profile details. See [List all member users](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group/other/listgroupusers).
+
+#### Bugs fixed in 2026.07.0
 
 ## June
 
