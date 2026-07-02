@@ -25,7 +25,7 @@ title: Okta Identity Engine API release notes 2026
 | [Customizable emails for Passkey (FIDO2 WebAuthn) authenticator is GA in Preview](#customizable-emails-for-passkey-fido2-webauthn-authenticator-is-ga-in-preview) | May 20, 2026 |
 | [Email authenticator auto-enrollment and recovery management is GA in Preview](#email-authenticator-auto-enrollment-and-recovery-management-is-ga-in-preview) | May 6, 2026 |
 | [Advanced device posture checks is GA in Preview](#advanced-device-posture-checks-is-ga-in-preview) | July 1, 2026 |
-| [Clear Managed Chrome Profile Browsing Data is GA in Production](#clear-managed-chrome-profile-browsing-data-is-ga-in-production) | July 1, 2026 |
+| [Clear Managed Chrome Profile Browsing Data is GA in Production](#clear-managed-chrome-profile-browsing-data-is-ga-in-production) | June 3, 2026 |
 | [Group push support in API Integration Actions apps](#group-push-support-in-api-integration-actions-apps) | July 1, 2026 |
 | [Native to Web SSO is GA in Production](#native-to-web-sso-is-ga-in-production) | January 7, 2026 |
 | [Removal of Cross App Access as a self-service feature](#removal-of-cross-app-access-as-a-self-service-feature) | July 1, 2026 |
