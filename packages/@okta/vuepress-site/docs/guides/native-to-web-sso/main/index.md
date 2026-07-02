@@ -4,8 +4,6 @@ excerpt: Learn what Native to Web SSO is and how to use it
 layout: Guides
 ---
 
-<ApiLifecycle access="ea" />
-
 Learn what Native to Web SSO is, why it matters, and how it actually connects your OpenID Connect (OIDC) apps to your web-based services.
 
 ---
@@ -119,7 +117,7 @@ To enable the Token Exchange grant type in your app, follow these steps:
 
 ## Configure the trust map
 
-Define a list of apps that are allowed to request the single-use interclient token on the target web app. This allowlist is a trust map between the origin app and the target web app. It ensures that the SSO flow only happens between apps that you explicitly trust. You can define up to five trusted apps per target web app.
+Define a list of apps that are allowed to request the single-use interclient token on the target web app. This allowlist is a trust map between the origin app and the target web app. It ensures that the SSO flow only happens between apps that you explicitly trust. You can define up to 50 trusted apps per target web app.
 
 Okta checks this trusted relationship at two critical points in the flow:
 

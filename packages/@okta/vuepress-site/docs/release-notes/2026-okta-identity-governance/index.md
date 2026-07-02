@@ -11,6 +11,52 @@ title: Okta Identity Governance API release notes 2026
 
 Okta Identity Governance is available for both Okta Classic Engine and Okta Identity Engine.
 
+## July
+
+### Monthly release 2026.07.0
+<!-- Published on: 2026-07-01T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Customize Justification Requirements is GA in Production](#customize-justification-requirements-is-ga-in-production) | May 13, 2026 |
+| [Self-review for Okta admin roles is GA in Production](#self-review-for-okta-admin-roles-is-ga-in-production) | May 6, 2026 |
+| [Certify service accounts is GA in Preview](#certify-service-accounts-is-ga-in-preview) | December 10, 2025 |
+| [Certify AI agent resource connections is EA](#certify-ai-agent-resource-connections-is-ea) | July 1, 2026 |
+| [Developer documentation updates in 2026.07.0](#developer-documentation-updates-in-2026-07-0) | July 1, 2026 |
+
+#### Customize Justification Requirements is GA in Production
+
+When you create or edit a campaign, configure [Justification Settings](https://help.okta.com/okta_help.htm?type=oie&id=csh-bp-create-campaign) to provide granular control over how campaign reviewers justify their access decisions. This includes requiring the reviewer to provide a reason for revoking or approving access. This helps you better align the reviewer experience with your org's specific compliance needs.
+
+The [`reviewerSettings.justificationRequirement`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reviewersettings/justificationrequirement) campaign API property has been added to support configuring review justification settings. Use this new property instead of `reviewerSettings.justificationRequired` for granular control over review justification settings.
+<!-- OKTA-1169635 IGA_ACCESS_CERT_JUSTIFICATION_CONTROLS, Preview date: May 13, 2026 -->
+
+#### Self-review for Okta admin roles is GA in Production
+
+Allow or block campaign reviewers from approving or revoking their own access to Okta admin roles. While Okta prevents self-reviews in campaigns that govern Okta admin roles by default, this feature gives you the option to allow self-reviews. See [Create campaigns to review admin roles](https://help.okta.com/okta_help.htm?type=oie&id=csh-campaign-admin-roles).
+
+As a result, the [`reviewerSettings.selfReviewDisabled`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reviewersettings/selfreviewdisabled) and the [reviewerSettings.reviewerLevels[].selfReviewDisabled](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=reviewersettings/reviewerlevels/selfreviewdisabled) properties aren't required to be `true` for campaigns that include the Admin Console as a resource.
+<!-- OKTA-1163396 IGA_ACCESS_CERT_ALLOW_SELF_REVIEW_GOFAR, Preview date: May 6, 2026 -->
+
+#### Certify service accounts is GA in Preview
+
+You can now create resource campaigns to review and certify access for both SaaS apps and Okta service accounts. This feature extends your governance strategy to non-human identities, ensuring you maintain visibility and control over critical service account access. See [Okta Privilege Access with Access Certification](https://help.okta.com/okta_help.htm?type=oie&id=csh-certify-service-accounts).
+
+The following API updates have been made to support service account campaigns:
+* New OKTA_SERVICE_ACCOUNT and APP_SERVICE_ACCOUNT options in the [resourceSettings.type](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/type) property of a campaign.
+* New [`resourceSettings.includeAllOktaServiceAccounts`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/includealloktaserviceaccounts) property for `resourceSettings.type` of `OKTA_SERVICE_ACCOUNT` in a campaign.
+* New [`resourceSettings.targetResources.includeAllAppServiceAccounts`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/targetresources/includeallappserviceaccounts) property for `resourceSettings.type` of `APP_SERVICE_ACCOUNT` in a campaign.
+* Reviews can be filtered by service account ID (`appServiceAccountId` or `oktaServiceAccountId`) in [List all reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/reviews/listreviews).
+<!-- OKTA-1047480 IGA_ACCESS_CERT_SERVICE_ACCOUNTS Preview: Dec 10, 2025 -->
+
+#### Certify AI agent resource connections is EA
+
+After you enable the **Resource Access Certifications for AI Agents** feature, you can review and certify AI agent resource connections using identity campaigns (formerly, `USER` campaign types). This helps you maintain visibility and control as AI agents' access changes over time. See the [Campaigns](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=campaigntype) API. <!-- OKTA-1199955 IGA_ACCESS_CERT_CERTIFYING_AI_AGENTS_AS_PRINCIPAL -->
+
+#### Developer documentation updates in 2026.07.0
+
+* The Okta Developer landing page now features new sections for Journeys and release notes. A Journey is a curated, expert-driven, end-to-end guide built around a small-to-medium-sized development project. This update delivers streamlined access to both Journeys and the latest platform updates. See [Okta Developer landing page](https://developer.okta.com/). <!-- OKTA-1169801 -->
+
 ## June
 
 ### Weekly release 2026.06.3

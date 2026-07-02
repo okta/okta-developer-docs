@@ -4,8 +4,17 @@
   <title>Okta Developer Tools release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/</link>
   <description>Recent release notes for Okta Developer Tools</description>
-  <pubDate>Thu, 04 Jun 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 01 Jul 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Monthly release 2026.07.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#monthly-release-2026-07-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#monthly-release-2026-07-0</guid>
+      <pubDate>Wed, 01 Jul 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#manage-resource-owners">Manage resource owners</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#manage-labels">Manage labels</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Monthly release 2026.06.0</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#monthly-release-2026-06-0</link>
