@@ -4,8 +4,17 @@
   <title>Okta Identity Governance API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/</link>
   <description>Recent release notes for Okta Identity Governance API</description>
-  <pubDate>Wed, 24 Jun 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 01 Jul 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Monthly release 2026.07.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-07-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#monthly-release-2026-07-0</guid>
+      <pubDate>Wed, 01 Jul 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#customize-justification-requirements-is-ga-in-production">Customize Justification Requirements is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#self-review-for-okta-admin-roles-is-ga-in-production">Self-review for Okta admin roles is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#certify-service-accounts-is-ga-in-preview">Certify service accounts is GA in Preview</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#certify-ai-agent-resource-connections-is-ea">Certify AI agent resource connections is EA</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#developer-documentation-updates-in-2026-07-0">Developer documentation updates in 2026.07.0</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Weekly release 2026.06.3</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-identity-governance/#weekly-release-2026-06-3</link>
