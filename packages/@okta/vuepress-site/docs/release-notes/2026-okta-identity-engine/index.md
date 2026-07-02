@@ -28,7 +28,7 @@ title: Okta Identity Engine API release notes 2026
 | [Clear Managed Chrome Profile Browsing Data is GA in Production](#clear-managed-chrome-profile-browsing-data-is-ga-in-production) | July 1, 2026 |
 | [Group push support in API Integration Actions apps](#group-push-support-in-api-integration-actions-apps) | July 1, 2026 |
 | [Native to Web SSO is GA in Production](#native-to-web-sso-is-ga-in-production) | July 1, 2026 |
-| [Removal of Cross App Access as a self-service feature is EA](#removal-of-cross-app-access-as-a-self-service-feature-is-ea) | July 1, 2026 |
+| [Removal of Cross App Access as a self-service feature](#removal-of-cross-app-access-as-a-self-service-feature) | July 1, 2026 |
 | [Spec-compliant client ID claims for AI agent tokens](#spec-compliant-client-id-claims-for-ai-agent-tokens) | Jun 11, 2026 |
 | [SCIM filter use added to endpoints](#scim-filter-use-added-to-endpoints) | Jun 11, 2026 |
 | [Agent-to-agent connections is EA in Preview](#agent-to-agent-connections-is-ea-in-preview)| June 17, 2026 |
@@ -86,7 +86,7 @@ The list endpoints for the [Application Interclient Trust Mappings API](https://
 
 <!-- NATIVE_TO_WEB_ONE_TIME_TOKEN_EXCHANGE OKTA-1065285 -->
 
-#### Removal of Cross App Access as a self-service feature is EA
+#### Removal of Cross App Access as a self-service feature
 
 You can no longer enable or disable the **Cross App Access** feature from the Early Access section of the **Settings** > **Features** page in the Admin Console. To change the availability of this feature for your org, contact [Okta Support](https://support.okta.com). If you have an Integrator Free Plan org, contact [Developer Support](mailto:developers@okta.com) to enable the feature. This change doesn't impact any existing configurations.
 <!-- OKTA-1203672 ENABLE_CONNECT_WITH_OKTA -->
