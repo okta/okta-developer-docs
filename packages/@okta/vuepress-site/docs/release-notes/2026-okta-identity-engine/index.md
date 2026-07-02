@@ -85,7 +85,7 @@ The [Delete a group push mapping](https://developer.okta.com/docs/api/openapi/ok
 
 #### Native to Web SSO is GA in Production
 
-Native to Web SSO creates a seamless, unified authentication experience when a user transitions from an OIDC app (like a native or web app) to a web app (either OIDC or SAML). This feature uses standard, web-based federation protocols like SAML and OpenID Connect that help bridge the gap between two different application environments, using a single-use, one-way interclient trust SSO token. This eliminates repeating already provided sign-on assurances, and simplifies development by reducing authentication complexity.
+Native to Web SSO creates a seamless, unified authentication experience when a user transitions from an OIDC app (like a native or web app) to a web app (either OIDC or SAML). This feature uses standard, web-based federation protocols like SAML and OpenID Connect that help bridge the gap between two different app environments, using a single-use, one-way interclient trust SSO token. This eliminates repeating already provided sign-on assurances, and simplifies development by reducing authentication complexity.
 
 The list endpoints for the [Application Interclient Trust Mappings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/applicationinterclienttrustmappings/other/listinterclientallowedapplications) now support pagination. Use the `after` and `limit` query parameters to page through results for those operations. The maximum number of allowed apps per target app has increased from 5 to 50.
 
@@ -121,6 +121,8 @@ Validation for the [Create a client authentication settings endpoint](https://de
 
 #### Developer documentation updates in 2026.07.0
 
+* The new [Prepare to upgrade to Okta Identity Engine](/docs/journeys/OCI-prepare-upgrade-oie/main/) journey helps you plan and execute a Classic Engine to Identity Engine migration. This journey covers policy and authenticator changes, integration inventory, Sign-In Widget updates, and custom code revisions to help you upgrade with minimal disruption. <!-- OKTA-1167295 -->
+
 * The new [Upgrade registration inline hooks to Identity Engine](/docs/guides/oie-upgrade-registration-inline-hook/main/) guide explains how to upgrade your registration inline hook from Okta Classic Engine to Okta Identity Engine. It includes details on payload updates and introduces the new Identity Engine use case of progressive profile enrollment. <!-- OKTA-1182951 -->
 
 * The new [Update your event hooks for Identity Engine](/docs/guides/oie-upgrade-event-hooks/main/) guide explains how to update your event hooks from Okta Classic Engine to Okta Identity Engine. It includes details on payload updates and highlights new Identity Engine only event types. <!-- OKTA-1182949 -->
@@ -130,8 +132,6 @@ Validation for the [Create a client authentication settings endpoint](https://de
 * The new [Test your widget's existing customizations](/docs/guides/oie-upgrade-test-widget-custom/main/) guide helps you validate Sign-In Widget customizations in a test environment before a production upgrade. It covers how to identify affected customization types, set up a test org, and resolve common upgrade issues. <!-- OKTA-1185573 -->
 
 * The new [Identify your Okta authentication integrations and customizations](/docs/guides/oie-upgrade-identify-integrations/main/) guide helps you discover and record every Okta integration point before upgrading to Identity Engine. It covers redirect sign-in, embedded widgets, SDKs, API tokens, hooks, Workflows, and directory agents, and provides worksheets to assess upgrade impact and assign owners. <!-- OKTA-1177823 -->
-
-* The new [Prepare to upgrade to Okta Identity Engine](/docs/journeys/OCI-prepare-upgrade-oie/main/) journey helps you plan and execute a Classic Engine to Identity Engine migration. This journey covers policy and authenticator changes, integration inventory, Sign-In Widget updates, and custom code revisions to help you upgrade with minimal disruption. <!-- OKTA-1167295 -->
 
 * The Okta Developer landing page now features new sections for Journeys and release notes. A Journey is a curated, expert-driven, end-to-end guide built around a small-to-medium-sized development project. This update delivers streamlined access to both Journeys and the latest platform updates. See [Okta Developer landing page](https://developer.okta.com/). <!-- OKTA-1169801 -->
 

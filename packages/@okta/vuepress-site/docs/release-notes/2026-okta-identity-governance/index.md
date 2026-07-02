@@ -40,7 +40,7 @@ As a result, the [`reviewerSettings.selfReviewDisabled`](https://developer.okta.
 
 #### Certify service accounts is GA in Preview
 
-You can now create resource campaigns to review and certify access for both SaaS application and Okta service accounts. This feature extends your governance strategy to non-human identities, ensuring you maintain visibility and control over critical service account access. See [Okta Privilege Access with Access Certification](https://help.okta.com/okta_help.htm?type=oie&id=csh-certify-service-accounts).
+You can now create resource campaigns to review and certify access for both SaaS apps and Okta service accounts. This feature extends your governance strategy to non-human identities, ensuring you maintain visibility and control over critical service account access. See [Okta Privilege Access with Access Certification](https://help.okta.com/okta_help.htm?type=oie&id=csh-certify-service-accounts).
 
 The following API updates have been made to support service account campaigns:
 * New OKTA_SERVICE_ACCOUNT and APP_SERVICE_ACCOUNT options in the [resourceSettings.type](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/type) property of a campaign.
