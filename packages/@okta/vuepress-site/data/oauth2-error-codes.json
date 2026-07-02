@@ -1,6 +1,6 @@
 {
-  "release" : "2026.06.1",
-  "build" : "2026.06.1-begin-175-g9f0adb724505",
+  "release" : "2026.07.1",
+  "build" : "2026.07.1-begin-272-gf692608c1918",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -43,6 +43,13 @@
     "internalErrorCode" : "enroll_authenticator_not_allowed",
     "errorCode" : "access_denied",
     "errorDescription" : "Authenticator enrollment is not allowed at this time. Please contact support for assistance."
+  }, {
+    "title" : "Self service registration policy denied",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "ssr_denied",
+    "errorCode" : "access_denied",
+    "errorDescription" : "Sign-up denied. Please contact support for assistance."
   }, {
     "title" : "Lite user grant type not allowed",
     "statusCode" : 403,
@@ -169,6 +176,13 @@
     "internalErrorCode" : "interclient_relationship_not_configured",
     "errorCode" : "access_denied",
     "errorDescription" : "No trust relationship exists between the client app and the target app."
+  }, {
+    "title" : "Interclient token exchange requesting client invalid",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "interclient_token_exchange_requesting_client_invalid",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The requesting client app retrieved from session is different from the audience of the id_token."
   }, {
     "title" : "Associated server not exists",
     "statusCode" : 403,
@@ -982,6 +996,20 @@
     "errorCode" : "invalid_client_metadata",
     "errorDescription" : "The metadata document contains invalid client configuration details."
   }, {
+    "title" : "Cimd client ID not matching entity",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "cimd_client_id_not_matching_entity",
+    "errorCode" : "invalid_client_metadata",
+    "errorDescription" : "The CIMD client does not match any configured CIMD client entity."
+  }, {
+    "title" : "Cimd document requirement failure",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "cimd_document_requirement_failure",
+    "errorCode" : "invalid_client_metadata",
+    "errorDescription" : "The CIMD metadata document is invalid based on the configured metadata document requirements."
+  }, {
     "title" : "Cimd throttled invalid client",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1121,6 +1149,13 @@
     "internalErrorCode" : "invalid_grant",
     "errorCode" : "invalid_grant",
     "errorDescription" : "Invalid grant"
+  }, {
+    "title" : "Invalid grant type or token exchange sku not enabled",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_grant_type_or_token_exchange_sku_not_enabled",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The en SKU is not enabled. Contact your Account Executive to enable the SKU to use the requested grant type or token exchange flow."
   }, {
     "title" : "PKCE verification failed",
     "statusCode" : 400,
@@ -1640,6 +1675,13 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "'prompt' parameter must not have the value 'none' for request with 'zero' as max_age."
   }, {
+    "title" : "Invalid prompt IdP refresh without IdP param",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_prompt_idp_refresh_without_idp_param",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The 'prompt' parameter value 'idp_refresh' requires the 'idp' parameter to be specified."
+  }, {
     "title" : "Invalid user type",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1829,12 +1871,75 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "The 'subject_token' 'act' claim is malformed."
   }, {
+    "title" : "Invalid subject token authorization server",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_authorization_server",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid: the authorization server that issued it is not valid."
+  }, {
+    "title" : "Invalid subject token no delegation link",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_no_delegation_link",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid: no delegation policy authorizes this token."
+  }, {
+    "title" : "Invalid subject token issuer not allowed",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_issuer_not_allowed",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid: the token issuer is not allowed for this exchange."
+  }, {
+    "title" : "Invalid subject token client not registered",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_client_not_registered",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid: the client application is not registered for delegation to this agent."
+  }, {
+    "title" : "Invalid subject token session expired",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_session_expired",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid: the session associated with it is no longer active."
+  }, {
+    "title" : "Invalid subject token user inactive",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_user_inactive",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid: the user account is not active."
+  }, {
+    "title" : "Invalid subject token user not assigned",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_user_not_assigned",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid: the user is not assigned to the client application."
+  }, {
+    "title" : "Invalid subject token client inactive",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_client_inactive",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid: the client application referenced in the token is not active."
+  }, {
     "title" : "Invalid client type native sso",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "invalid_client_type_native_sso",
     "errorCode" : "invalid_request",
     "errorDescription" : "A service client may not use the native sso flow."
+  }, {
+    "title" : "Invalid client configuration native to web sso",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_client_configuration_native_to_web_sso",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Sign-in failed: the target application requires a user session, which is not supported in interclient_token sso flows."
   }, {
     "title" : "On behalf invalid client type",
     "statusCode" : 400,
@@ -2438,6 +2543,13 @@
     "errorCode" : "invalid_scope",
     "errorDescription" : "The following scopes: [en] must be requested together with at least one of [{1}]."
   }, {
+    "title" : "Exact scope required",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "exact_scope_required",
+    "errorCode" : "invalid_scope",
+    "errorDescription" : "The scope parameter must exactly match the required scopes: [en]."
+  }, {
     "title" : "MFA attestation invalid scope",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -2528,6 +2640,13 @@
     "internalErrorCode" : "unsupported_resource",
     "errorCode" : "invalid_target",
     "errorDescription" : "The authorization server has rejected the 'resource' parameter: en"
+  }, {
+    "title" : "Too many resources",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "too_many_resources",
+    "errorCode" : "invalid_target",
+    "errorDescription" : "Too many 'resource' parameters in the request; maximum allowed is en."
   }, {
     "title" : "Token exchange invalid audience",
     "statusCode" : 400,
@@ -3109,5 +3228,12 @@
     "internalErrorCode" : "web_sso_token_replayed",
     "errorCode" : "web_sso_token_replayed",
     "errorDescription" : "The 'web_sso_token' was already consumed."
+  }, {
+    "title" : "Workload principal not found",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "workload_principal_not_found",
+    "errorCode" : "workload_principal_not_found",
+    "errorDescription" : "The device does not have a registered workload principal. Bootstrap the device before making token requests."
   } ]
 }
