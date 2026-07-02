@@ -185,7 +185,7 @@ To modify a resource already managed by Terraform:
 
 ### Manage labels
 
-Labels help you categorize and organize OIG resources such as apps, groups, and entitlements. You can use Terraform to manage the label resource with the given example. Simply define a label resource block in your configuration, edit it to make changes, or remove it to delete the label from your Okta org.
+Labels help you categorize and organize OIG resources such as apps, groups, and entitlements. You can use Terraform to manage the label resource with the given example. Define a label resource block in your configuration, edit it to make changes, or remove it to delete the label from your Okta org.
 
 ```
 resource "okta_label" "test" {
@@ -209,7 +209,7 @@ data "okta_label" "test" {
 
 ### Manage resource owners
 
-Resource owners define who is responsible for managing specific OIG resources, such as apps, entitlements, and bundles. You can use Terraform to manage the resource owner resource with the given example. Simply define a resource owner block in your configuration, edit it to make changes, or remove it to revoke the owner assignment from your Okta org.
+Resource owners define who is responsible for managing specific OIG resources, such as apps, entitlements, and bundles. You can use Terraform to manage the resource owner resource with the given example. Define a resource owner block in your configuration, edit it to make changes, or remove it to revoke the owner assignment from your Okta org.
 
 ```
 resource "okta_resource_owner" "test" {
@@ -230,7 +230,7 @@ data "okta_resource_owner" "example" { parent_resource_orn = "orn:oktapreview:id
 
 ```
 
-To discover which resources do not have owners assigned, use:
+To discover which resources do not have owners assigned, use the following:
 
 ```
 data "okta_resource_owners_catalog_resource" "test" {
