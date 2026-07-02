@@ -24,7 +24,7 @@ title: Okta Identity Engine API release notes 2026
 | [Improved group member search functionality is GA in Production](#improved-group-member-search-functionality-is-ga-in-production) | July 1, 2026 |
 | [Customizable emails for Passkey (FIDO2 WebAuthn) authenticator is GA in Preview](#customizable-emails-for-passkey-fido2-webauthn-authenticator-is-ga-in-preview) | May 20, 2026 |
 | [Email authenticator auto-enrollment and recovery management is GA in Preview](#email-authenticator-auto-enrollment-and-recovery-management-is-ga-in-preview) | May 6, 2026 |
-| [Advanced device posture checks is GA in Preview](#advanced-device-posture-checks-is-ga-in-preview) | July 1, 2026 |
+| [Advanced device posture checks is GA in Preview](#advanced-device-posture-checks-is-ga-in-preview) | April 9, 2025 |
 | [Clear Managed Chrome Profile Browsing Data is GA in Production](#clear-managed-chrome-profile-browsing-data-is-ga-in-production) | June 3, 2026 |
 | [Group push support in API Integration Actions apps](#group-push-support-in-api-integration-actions-apps) | July 1, 2026 |
 | [Delete group push mappings in ERROR state](#delete-group-push-mappings-in-error-state) | July 1, 2026 |

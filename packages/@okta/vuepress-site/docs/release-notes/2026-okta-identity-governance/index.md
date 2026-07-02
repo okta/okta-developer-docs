@@ -18,9 +18,9 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Customize Justification Requirements is GA in Production](#customize-justification-requirements-is-ga-in-production) | July 1, 2026 |
-| [Self-review for Okta admin roles is GA in Production](#self-review-for-okta-admin-roles-is-ga-in-production) | July 1, 2026 |
-| [Certify service accounts is GA in Preview](#certify-service-accounts-is-ga-in-preview) | July 1, 2026 |
+| [Customize Justification Requirements is GA in Production](#customize-justification-requirements-is-ga-in-production) | May 13, 2026 |
+| [Self-review for Okta admin roles is GA in Production](#self-review-for-okta-admin-roles-is-ga-in-production) | May 6, 2026 |
+| [Certify service accounts is GA in Preview](#certify-service-accounts-is-ga-in-preview) | December 10, 2025 |
 | [Certify AI agent resource connections is EA](#certify-ai-agent-resource-connections-is-ea) | July 1, 2026 |
 | [Developer documentation updates in 2026.07.0](#developer-documentation-updates-in-2026-07-0) | July 1, 2026 |
 
