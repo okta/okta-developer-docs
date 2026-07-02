@@ -22,12 +22,12 @@ title: Okta Identity Engine API release notes 2026
 | [New fields query parameter for Groups, Realms, and Devices list endpoints is GA in Production](#new-fields-query-parameter-for-groups-realms-and-devices-list-endpoints-is-ga-in-production) | July 1, 2026 |
 | [New IP Service available for enhanced dynamic network zones](#new-ip-service-available-for-enhanced-dynamic-network-zones) | July 1, 2026 |
 | [Improved group member search functionality is GA in Production](#improved-group-member-search-functionality-is-ga-in-production) | July 1, 2026 |
-| [Customizable emails for Passkey (FIDO2 WebAuthn) authenticator is GA in Preview](#customizable-emails-for-passkey-fido2-webauthn-authenticator-is-ga-in-preview) | July 1, 2026 |
-| [Email authenticator auto-enrollment and recovery management is GA in Preview](#email-authenticator-auto-enrollment-and-recovery-management-is-ga-in-preview) | July 1, 2026 |
+| [Customizable emails for Passkey (FIDO2 WebAuthn) authenticator is GA in Preview](#customizable-emails-for-passkey-fido2-webauthn-authenticator-is-ga-in-preview) | May 20, 2026 |
+| [Email authenticator auto-enrollment and recovery management is GA in Preview](#email-authenticator-auto-enrollment-and-recovery-management-is-ga-in-preview) | May 6, 2026 |
 | [Advanced device posture checks is GA in Preview](#advanced-device-posture-checks-is-ga-in-preview) | July 1, 2026 |
 | [Clear Managed Chrome Profile Browsing Data is GA in Production](#clear-managed-chrome-profile-browsing-data-is-ga-in-production) | July 1, 2026 |
 | [Group push support in API Integration Actions apps](#group-push-support-in-api-integration-actions-apps) | July 1, 2026 |
-| [Native to Web SSO is GA in Production](#native-to-web-sso-is-ga-in-production) | July 1, 2026 |
+| [Native to Web SSO is GA in Production](#native-to-web-sso-is-ga-in-production) | January 7, 2026 |
 | [Removal of Cross App Access as a self-service feature](#removal-of-cross-app-access-as-a-self-service-feature) | July 1, 2026 |
 | [Spec-compliant client ID claims for AI agent tokens](#spec-compliant-client-id-claims-for-ai-agent-tokens) | Jun 11, 2026 |
 | [SCIM filter use added to endpoints](#scim-filter-use-added-to-endpoints) | Jun 11, 2026 |
@@ -84,7 +84,7 @@ Native to Web SSO creates a seamless, unified authentication experience when a u
 
 The list endpoints for the [Application Interclient Trust Mappings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/applicationinterclienttrustmappings/other/listinterclientallowedapplications) now support pagination. Use the `after` and `limit` query parameters to page through results for those operations. The maximum number of allowed apps per target app has increased from 5 to 50.
 
-<!-- NATIVE_TO_WEB_ONE_TIME_TOKEN_EXCHANGE OKTA-1065285 -->
+<!-- NATIVE_TO_WEB_ONE_TIME_TOKEN_EXCHANGE OKTA-1065285 preview date: January 7, 2026 -->
 
 #### Removal of Cross App Access as a self-service feature
 
