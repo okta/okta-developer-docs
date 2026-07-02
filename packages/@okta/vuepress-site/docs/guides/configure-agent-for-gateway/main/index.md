@@ -26,21 +26,19 @@ Configure your AI agent to call tools through Okta Agent Gateway. The Gateway ex
 
 ## Overview
 
-Each Agent Gateway exposes one MCP endpoint. Point any supported agent at that URL and the Gateway handles tool aggregation, identity enforcement, credential injection, and audit — no changes to the agent's code are required.
+Each Agent Gateway exposes one MCP endpoint. Point any supported agent at that URL and the Gateway handles tool aggregation, identity enforcement, credential injection, and auditing with no changes to the agent's code.
 
-Agents authenticate using OAuth 2.1 authorization code with PKCE. Okta issues a short-lived, Gateway-scoped access token; the agent presents that token on every tool call. The Gateway brokers downstream credentials at runtime inside Okta — the agent never holds them.
+Agents authenticate using authorization code with PKCE. Okta issues a short-lived, Gateway-scoped access token. The agent presents that token on every tool call. The Gateway brokers downstream credentials at runtime inside Okta. The agent never holds them.
 
-**Client identity methods**
+### Client identity methods
 
-How the agent identifies itself as an OAuth client depends on the platform:
+The agent identifies itself as an OAuth client using a pre-registered `client_id`. An admin provisions an OAuth client in the Admin Console and distributes the `client_id` to the agent.
 
-| Method | When to use |
-|---|---|
-| CIMD (Client ID Metadata Document) | The platform publishes a vendor CIMD URL, so no per-tenant client provisioning is required. Available at GA. |
-| Pre-registered `client_id` | An admin provisions an OAuth client in the Okta Admin Console and distributes the `client_id` to the agent. This is the supported method today. |
-| DCR (Dynamic Client Registration) | Not supported. Okta doesn't accept DCR for Agent Gateway. Platforms that attempt DCR must fall back to a pre-registered `client_id`. |
+<!-- | CIMD (Client ID Metadata Document) | The platform publishes a vendor CIMD URL, so no per-tenant client provisioning is required.  | -->
 
----
+> **Note**: Okta doesn't accept Dynamic Client Registration for Agent Gateway. Platforms that attempt to use Dynamic Client Registration must fall back to a pre-registered `client_id`.
+
+need a heading here
 
 ## Claude Code
 
@@ -65,14 +63,12 @@ Claude Code supports MCP server configuration through a project-level `.mcp.json
    }
    ```
 
-1. Start Claude Code. On the first tool call, Claude Code opens a browser window for Okta login and consent.
-1. After authorization, Claude Code stores the token and calls tools through the Gateway.
+1. Start Claude Code. On the first tool call, Claude Code opens the Okta sign-in page for you to sign in and grant consent.
+1. After authorization, Claude Code stores the token and can call tools through the Gateway.
 
 ### Enterprise lockdown (recommended)
 
 Deploy a managed `mcp.json` file through your MDM solution (Jamf, Intune, or similar) to lock down the Gateway endpoint and prevent developers from modifying or adding MCP servers.
-
----
 
 ## Claude Enterprise and Claude.ai
 
@@ -85,9 +81,9 @@ Claude Enterprise and Claude.ai support MCP server configuration through the ten
 1. Select **OAuth 2.0** and enter the `client_id`. Add a client secret if your org requires confidential clients.
 1. Save the connector. It becomes available to all users in the tenant.
 
----
-
 ## VS Code with GitHub Copilot
+
+STOPPED HERE
 
 VS Code publishes its own CIMD URL, which means no per-tenant client provisioning is required when CIMD support is available at GA.
 
