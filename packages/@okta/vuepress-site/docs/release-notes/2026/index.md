@@ -19,6 +19,7 @@ title: Okta Classic Engine API release notes 2026
 | [New IP Service available for enhanced dynamic network zones](#new-ip-service-available-for-enhanced-dynamic-network-zones) | July 1, 2026 |
 | [Improved group member search functionality is GA in Production](#improved-group-member-search-functionality-is-ga-in-production) | July 1, 2026 |
 | [Group push support in API Integration Actions apps](#group-push-support-in-api-integration-actions-apps) | July 1, 2026 |
+| [Delete group push mappings in ERROR state](#delete-group-push-mappings-in-error-state) | July 1, 2026 |
 | [Developer documentation updates in 2026.07.0](#developer-documentation-updates-in-2026-07-0) | July 1, 2026 |
 
 #### New IP Service available for enhanced dynamic network zones
@@ -33,6 +34,10 @@ You can now search for group members using the new `search` parameter of the `GE
 
 Apps that use API Integration Actions to perform provisioning can now use the [Group Push](https://help.okta.com/okta_help.htm?type=oie&id=ext_Directory_Using_Group_Push) feature. This enables the group import functionality for apps that use [group API contracts](/docs/guides/oin-api-actions-contracts/#provisioning-list-groups) in their provisioning actions.
 <!-- OKTA-1094245, OKTA-1196942, ENG_DISABLE_GROUP_PUSH_ENHANCEMENTS_FOR_ACTIONS, Preview: July 1, 2026 -->
+
+#### Delete group push mappings in ERROR state
+
+The [Delete a group push mapping](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/grouppushmapping/other/deletegrouppushmapping) endpoint now supports deleting group push mappings in the `ERROR` state, alongside the `INACTIVE` state. <!-- OKTA-1210326 -->
 
 #### Developer documentation updates in 2026.07.0
 
