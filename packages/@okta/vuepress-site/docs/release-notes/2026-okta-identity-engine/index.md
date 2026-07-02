@@ -44,7 +44,7 @@ The [Bot Protection API](https://developer.okta.com/docs/api/openapi/okta-manage
 
 #### New fields query parameter for Groups, Realms, and Devices list endpoints is GA in Production
 
-The `GET /api/v1/groups`, `GET /api/v1/realms`, and `GET /api/v1/devices` endpoints now support the fields query parameter that specifies which fields to include in the response. Use this parameter to reduce the response payload size when your integration only needs a subset of fields. See [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group), [Realms API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/realm), and [Devices API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/device).
+The `GET /api/v1/groups`, `GET /api/v1/realms`, and `GET /api/v1/devices` endpoints now support the fields query parameter that specifies which fields to include in the response. Use this parameter to reduce the response payload size when your integration only needs a subset of fields. See [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group), [Realms API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/realm), and [Devices API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/device). <!--OKTA-1208394 -->
 
 #### New IP Service available for enhanced dynamic network zones
 
