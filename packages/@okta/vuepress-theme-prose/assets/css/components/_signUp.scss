@@ -14,7 +14,7 @@
 
 .signup__wrapper {
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1280px;
 }
 
 .signup__locked {
@@ -35,7 +35,7 @@
   @include media(">signup") {
     flex-direction: row;
     align-items: flex-start;
-    gap: 60px;
+    gap: 96px;
   }
 }
 
@@ -97,7 +97,7 @@
 }
 
 .signup-hero__divider {
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 
   border: 0.5px solid #ababab;
 }
@@ -197,7 +197,7 @@
 }
 
 .signup-form__input {
-  padding: 10px 16px;
+  padding: 14px 16px;
   width: 100%;
   min-height: 44px;
 
@@ -206,7 +206,7 @@
   border-radius: 6px;
   background: #ffffff;
 
-  font-size: 14px;
+  font-size: 16px;
   line-height: 22px;
   color: var(--c-gray-950);
   appearance: none;
@@ -301,7 +301,7 @@ select.signup-form__input:required:invalid {
   border-radius: 8px;
   background: #ffffff;
 
-  font-size: 13px;
+  font-size: 16px;
   font-family: inherit;
   line-height: 18px;
   text-align: left;
@@ -326,7 +326,8 @@ select.signup-form__input:required:invalid {
   flex: 1;
 
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 .signup-descriptor--selected .signup-descriptor__label {
@@ -514,7 +515,7 @@ select.signup-form__input:required:invalid {
 }
 
 .signup-form__login-link {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   color: #6b665f;
 }
@@ -531,7 +532,7 @@ select.signup-form__input:required:invalid {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 
   @include media(">tablet") {
     flex-direction: row;
@@ -608,6 +609,8 @@ select.signup-form__input:required:invalid {
 .signup-feature-card__description {
   margin: 0;
 
+  width: 400px;
+
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
@@ -655,9 +658,9 @@ select.signup-form__input:required:invalid {
 
   @include media(">signup") {
     margin-top: 0;
-    margin-left: 32px;
+    margin-left: 64px;
     padding-top: 0;
-    padding-left: 32px;
+    padding-left: 64px;
 
     border-top: none;
     border-left: 1px solid #ababab;
