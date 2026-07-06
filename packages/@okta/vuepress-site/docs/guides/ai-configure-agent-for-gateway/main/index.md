@@ -51,7 +51,7 @@ Before you start, get the following from your Okta admin:
 | Auth and token URLs | The Okta custom authorization server endpoints protecting the Agent Gateway. Some platforms require these explicitly, and others discover them automatically. |
 | Scopes | The OAuth scopes your agent is authorized to request. |
 
-### How it works
+## How it works
 
 When your agent connects to the Agent Gateway for the first time, the following sequence occurs:
 
@@ -61,15 +61,15 @@ When your agent connects to the Agent Gateway for the first time, the following 
 1. The first time a tool from a specific upstream MCP server is called, you may be prompted to consent to that upstream. After you consent once, subsequent calls to that upstream are silent.
 1. The Agent Gateway handles credential injection to upstream MCP servers. Your agent never holds or sees upstream credentials.
 
-### Client identity methods
+## Client identity methods
 
 Your agent identifies itself to the Agent Gateway as an OAuth client using one of the following methods.
 
-#### Client ID
+### Client ID
 
 The AI agent identifies itself as an OAuth client using a pre-registered `client_id`. An admin provisions an OAuth client in the Admin Console and distributes the `client_id` to the agent.
 
-#### Client ID Metadata Document (CIMD)
+### Client ID Metadata Document (CIMD)
 
 The platform publishes a vendor CIMD URL, so no per-tenant client provisioning is required. (need to link to CIMD docs - Thomas??)
 
@@ -77,7 +77,12 @@ The platform publishes a vendor CIMD URL, so no per-tenant client provisioning i
 
 ## Configure your AI agent platform
 
-Agent Gateway supports a growing list of AI agent platforms, each with its own MCP configuration method and OAuth client model. Find your platform in the following section and follow its setup and, where available, enterprise lockdown steps to connect your agent to the Agent Gateway.
+Agent Gateway supports two broad authentication patterns:
+
+- **Interactive OAuth 2.0** (Authorization Code with PKCE), where your agent redirects you to Okta to sign in and grant consent. Most platforms use this pattern. See the worked examples for [Claude Code](#claude-code) (config-file based, public client) and [Claude Enterprise and Claude.ai](#claude-enterprise-and-claudeai) (admin-console based, confidential client).
+- **Static bearer tokens**, where an admin mints a long-lived, Agent Gateway-scoped token and distributes it to the agent directly, with no interactive OAuth flow. See the [Kiro](#kiro) example.
+
+For your specific platform's MCP configuration location and auth method, see [Other supported platforms](#other-supported-platforms).
 
 ---
 
@@ -107,6 +112,8 @@ Claude Code supports MCP server configuration through a project-level `.mcp.json
 1. Start Claude Code. On the first tool call, Claude Code opens the Okta sign-in page for you to sign in and grant consent.
 1. After authorization, Claude Code stores the token and can call tools through the Agent Gateway.
 
+> **Note**: The Claude Code VS Code extension uses the same MCP configuration as Claude Code (it uses Claude's MCP subsystem, not VS Code's native MCP policy).
+
 #### Enterprise lockdown (recommended)
 
 Deploy a managed `mcp.json` file through your MDM solution (Jamf, Intune, or similar) to lock down the Agent Gateway endpoint and prevent developers from modifying or adding MCP servers.
@@ -126,153 +133,7 @@ Claude Enterprise and Claude.ai support MCP server configuration through the ten
 
 ---
 
-### VS Code with GitHub Copilot
-
-STOPPED HERE
-
-VS Code publishes its own CIMD URL, which means no per-tenant client provisioning is required when CIMD support is available at GA.
-
-#### Configure using the Copilot enterprise MCP registry (recommended)
-
-Use the Copilot enterprise MCP registry to enforce a list of approved MCP servers across your organization.
-
-1. In your GitHub organization settings, go to **Copilot** > **MCP servers**.
-1. Click **Add MCP server**.
-1. Enter the Agent Gateway URL: `https://gateway.{yourOktaDomain}/mcp/servers/{gatewayName}`.
-1. Select **OAuth** as the authentication type.
-1. Save. The Agent Gateway is now available to all Copilot users in the organization, and only registry-listed servers are permitted.
-
-#### Configure locally
-
-1. Open VS Code settings (`Cmd+,` / `Ctrl+,`) and search for **MCP servers**.
-1. Click **Edit in settings.json**.
-1. Add the Agent Gateway server:
-
-   ```json
-   {
-     "github.copilot.mcpServers": {
-       "{gatewayName}": {
-         "url": "https://gateway.{yourOktaDomain}/mcp/servers/{gatewayName}",
-         "auth": {
-           "type": "oauth",
-           "clientId": "{clientId}"
-         }
-       }
-     }
-   }
-   ```
-
----
-
-### VS Code with Claude Code extension
-
-The Claude Code VS Code extension uses Claude's MCP subsystem, not VS Code's native MCP policy. Configuration is identical to [Claude Code](#claude-code) above.
-
----
-
-### Cursor
-
-Cursor attempts DCR (Dynamic Client Registration) by default, which Okta doesn't support. Use a pre-configured OAuth client or static bearer token instead.
-
-> **Note**: DCR compatibility with Cursor is under evaluation. Check with your Okta admin for the current recommended configuration path.
-
-1. Open Cursor settings and navigate to **Tools & Integrations** > **MCP**.
-1. Click **Add new MCP server**.
-1. Enter the Agent Gateway URL: `https://gateway.{yourOktaDomain}/mcp/servers/{gatewayName}`.
-1. Select **OAuth** as the authentication type and enter the `client_id`.
-
-### Enterprise lockdown (recommended)
-
-Use the Cursor cloud admin **MCP allowlist** to restrict which MCP servers are permitted across your organization. This option is available on Cursor Business and Enterprise plans.
-
----
-
-## Codex (OpenAI)
-
-Codex uses a `managed_config.toml` configuration file and supports public OAuth clients with PKCE only — no client secret is used.
-
-1. Open (or create) `managed_config.toml` in your Codex configuration directory.
-1. Add the Agent Gateway as an MCP server:
-
-   ```toml
-   [[mcp_servers]]
-   name = "{gatewayName}"
-   url = "https://gateway.{yourOktaDomain}/mcp/servers/{gatewayName}"
-   client_id = "{clientId}"
-   ```
-
-1. Codex initiates PKCE authorization on the first tool call.
-
-### Enterprise lockdown (recommended)
-
-Deploy `managed_config.toml` through MDM and configure a requirements allowlist to restrict agents to approved MCP servers.
-
----
-
-## Microsoft Copilot Studio
-
-Copilot Studio uses manually configured OAuth credentials to connect to external MCP servers.
-
-1. In Copilot Studio, open your agent and go to **Actions**.
-1. Click **Add an action** > **Call an external service (MCP)**.
-1. Enter the Agent Gateway URL: `https://gateway.{yourOktaDomain}/mcp/servers/{gatewayName}`.
-1. Select **OAuth 2.0** as the authentication type.
-1. Enter the `client_id` and client secret from your agent's Okta app registration.
-1. Save the action.
-
-### Enterprise lockdown (recommended)
-
-Apply **Power Platform Advanced Connector Policies** to restrict which MCP endpoints agents in your tenant are permitted to call.
-
----
-
-## Agentforce (Salesforce)
-
-Agentforce uses a pre-registered External Client App in Salesforce to authenticate with Okta using authorization code with PKCE.
-
-1. In Salesforce Setup, search for **External Client Apps** and click **New**.
-1. Enter a name for the client app, such as "Okta Agent Gateway".
-1. Under **OAuth Settings**, configure the following:
-   - **Callback URL**: The callback URL provided by Salesforce for this app.
-   - **Selected OAuth Scopes**: Add the scopes required for your Agent Gateway.
-1. Save the External Client App and copy the **Consumer Key**. This value is your `client_id`.
-1. In the Okta Admin Console, register this `client_id` as the agent's OAuth client in Universal Directory.
-1. In Agentforce, configure the agent to use the External Client App and set the Agent Gateway as the MCP endpoint.
-
-### Enterprise lockdown (recommended)
-
-Manage access through **Salesforce Setup** > **External Client Apps** to control which agents and users can invoke the Agent Gateway.
-
----
-
-## ServiceNow AI Agent Studio
-
-ServiceNow supports OAuth 2.1 or a static bearer token to connect to external MCP servers.
-
-1. In ServiceNow, go to **AI Agent Studio** > **MCP Servers**.
-1. Click **New**.
-1. Enter the Agent Gateway URL: `https://gateway.{yourOktaDomain}/mcp/servers/{gatewayName}`.
-1. Select **OAuth 2.1** as the authentication type.
-1. Enter the `client_id` and client secret from your agent's Okta app registration.
-1. Click **Test connection** to verify the configuration.
-1. Save.
-
----
-
-## Glean
-
-Glean supports both public (PKCE-only) and confidential (client ID and secret) OAuth clients.
-
-1. Sign in to the Glean admin console.
-1. Go to **Actions** > **MCP action pack**.
-1. Click **Add MCP server**.
-1. Enter the Agent Gateway URL: `https://gateway.{yourOktaDomain}/mcp/servers/{gatewayName}`.
-1. Select **OAuth** and enter the `client_id`. Add a client secret if your org requires confidential clients.
-1. Save.
-
----
-
-## Kiro
+### Kiro
 
 Kiro connects to MCP servers using a static bearer token injected via a request header. An admin must mint an Agent Gateway-scoped Okta access token and distribute it through a managed configuration file.
 
@@ -298,22 +159,20 @@ Kiro connects to MCP servers using a static bearer token injected via a request 
 
 ---
 
-## n8n
+### Other supported platforms
 
-n8n connects to external MCP servers using its **MCP Client Tool** node, which supports OAuth 2 credentials or a static bearer token.
+The following platforms use the same OAuth 2.0/2.1 patterns described earlier, through their own MCP configuration surface. Enter your Agent Gateway URL and `client_id` (and client secret, if required) wherever each platform manages MCP servers or connectors.
 
-1. In n8n, go to **Credentials** and click **Add credential**.
-1. Select **OAuth2 API** as the credential type.
-1. Configure the credential:
-   - **Authorization URL**: `https://{yourOktaDomain}/oauth2/{authServerId}/v1/authorize`
-   - **Access Token URL**: `https://{yourOktaDomain}/oauth2/{authServerId}/v1/token`
-   - **Client ID**: The `client_id` from your agent's Okta app registration.
-   - **Client Secret**: The client secret (for confidential clients).
-   - **Scope**: The scopes granted on the Agent Gateway's custom authorization server.
-1. Save the credential.
-1. In your workflow, add an **MCP Client Tool** node.
-1. Set the **Server URL** to `https://gateway.{yourOktaDomain}/mcp/servers/{gatewayName}`.
-1. Select the OAuth2 credential you created.
+| Platform | MCP configuration location | Auth method | Notes |
+| --- | --- | --- | --- |
+| VS Code with GitHub Copilot | Copilot enterprise MCP registry (GitHub org settings > **Copilot** > **MCP servers**) or local VS Code `settings.json` | OAuth 2.0, `client_id` | Publishes its own CIMD URL, so per-tenant provisioning isn't required once CIMD support reaches GA. Use the enterprise registry to restrict approved servers org-wide (recommended lockdown). |
+| Cursor | Cursor settings > **Tools & Integrations** > **MCP** | OAuth 2.0, `client_id` | Attempts DCR by default, which Okta doesn't support — use a pre-configured `client_id` or static bearer token instead. Enterprise lockdown: Cursor Business/Enterprise **MCP allowlist**. |
+| Codex (OpenAI) | `managed_config.toml` | OAuth 2.0 with PKCE, public client (no secret) | Enterprise lockdown: deploy the config via MDM with a requirements allowlist restricting approved servers. |
+| Microsoft Copilot Studio | Agent **Actions** > **Add an action** > **Call an external service (MCP)** | OAuth 2.0, `client_id` + client secret | Enterprise lockdown: Power Platform Advanced Connector Policies. |
+| Agentforce (Salesforce) | Salesforce **External Client Apps** | OAuth 2.0 with PKCE, via a pre-registered External Client App | Create the External Client App first, then register its Consumer Key as the `client_id` in Okta Universal Directory. Enterprise lockdown: manage access via **External Client Apps**. |
+| ServiceNow AI Agent Studio | **AI Agent Studio** > **MCP Servers** | OAuth 2.1, `client_id` + client secret (or static bearer token) | — |
+| Glean | Glean admin console > **Actions** > **MCP action pack** | OAuth 2.0, `client_id` (add a client secret for confidential clients) | — |
+| n8n | **MCP Client Tool** node, using an OAuth2 API credential | OAuth 2.0, `client_id` + client secret | Requires manually entering your org's authorization and token URLs (`https://{yourOktaDomain}/oauth2/{authServerId}/v1/authorize` and `.../token`), rather than just the Agent Gateway URL. |
 
 ---
 
