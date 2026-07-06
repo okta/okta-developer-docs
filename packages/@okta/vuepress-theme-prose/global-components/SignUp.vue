@@ -15,8 +15,7 @@
         class="signup__main"
       >
         <h1 class="signup__mobile-title">
-          Start your Integration
-          building journey.
+          Start building your integration
         </h1>
         <div class="signup__hero-col">
           <SignUpHeroSection :theme="theme" />
@@ -46,9 +45,9 @@
           logo-src="/img/signup/okta-logo-bottom-card.svg"
           logo-alt="Okta"
           screenshot-src="/img/signup/bottom-card-1.png"
-          title="Your employees or partners"
-          description="Get the Workforce or Customer Identity Cloud free trial Manage secure, frictionless access to the tools and data your teams need."
-          cta-text="Try Okta Platform"
+          title="Internal teams and partners"
+          description="Get a Workforce or Customer Identity Cloud free trial to manage secure, frictionless access for your teams"
+          cta-text="Start a 30-day free trial"
           cta-link="https://okta.com/free-trial/workforce-identity"
         />
         <SignUpBottomCard
@@ -56,8 +55,8 @@
           logo-src="/img/signup/auth0-logo-bottom-card.png"
           logo-alt="Auth0"
           screenshot-src="/img/signup/bottom-card-2.png"
-          title="Your customers or applications"
-          description="Secure AI agents, humans, and whatever comes next. Build intuitive, secure user experiences in customer-facing applications."
+          title="Customers and apps"
+          description="Secure and scale intuitive user experiences for AI agents, users, and customer-facing apps, ensuring security from end to end."
           cta-text="Try Auth0 Platform"
           cta-link="https://auth0.com/signup?utm_medium=referral&utm_source=okta&utm_campaign=okta-signup-referral-21-09-27&utm_content=signup&promo=sup&ocid=7014z000001cbvjAAA-aPA4z0000008OZeGAM"
         />
@@ -79,7 +78,7 @@ import {
 import getAnalyticsValues from "../util/attribution/attribution";
 import storage from "../util/localStorage";
 import { getIdpUri } from "../util/uris";
-import { GeoLocation, isRegionLocked } from "../util/geoLocation";
+import { GeoLocation, isRegionLocked, getStoredCountryCode } from "../util/geoLocation";
 
 const CANADA = "Canada";
 const USA = "United States";
@@ -168,6 +167,7 @@ export default {
     const geoCallback = () => {
       this.isRegionLocked = isRegionLocked();
       this.isRegionLoading = false;
+      this.prefillCountry();
     };
 
     new GeoLocation(geoCallback);
@@ -202,6 +202,23 @@ export default {
         return JSON.parse(stored) === true ? "dark" : "light";
       } catch {
         return "light";
+      }
+    },
+    prefillCountry() {
+      const isoCode = getStoredCountryCode();
+      if (!isoCode) return;
+
+      try {
+        const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
+        const countryName = regionNames.of(isoCode);
+        const match = countriesList.find(c => c.value === countryName);
+        if (match) {
+          this.form.country.value = match.value;
+          this.states = match.value;
+          this.showConsentSection(match.value);
+        }
+      } catch (_) {
+        // Intl.DisplayNames not supported in this environment, skip prefill
       }
     },
     onCountryChange(country) {

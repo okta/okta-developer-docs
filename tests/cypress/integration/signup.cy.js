@@ -14,12 +14,12 @@ describe('Sign up page', () => {
 
     it('should display the mobile title', () => {
       signUpPage.getMobileTitle().should('exist');
-      signUpPage.getMobileTitle().should('contain.text', 'Start your Integration');
+      signUpPage.getMobileTitle().should('contain.text', 'Start building your');
     });
 
     it('should display the form heading', () => {
       signUpPage.getFormHeading().should('exist');
-      signUpPage.getFormHeading().should('contain.text', 'Create your integrator free plan now!');
+      signUpPage.getFormHeading().should('contain.text', 'Create your free integrator plan');
     });
   });
 
@@ -76,7 +76,7 @@ describe('Sign up page', () => {
     it('should have "Select Department" as the default disabled option', () => {
       signUpPage.getDepartmentSelect()
         .find('option:first-child')
-        .should('contain.text', 'Select Department')
+        .should('contain.text', 'Select department')
         .and('be.disabled');
     });
   });
@@ -89,9 +89,9 @@ describe('Sign up page', () => {
     it('should contain expected descriptor labels', () => {
       const labels = [
         'Independent Software Vendor (ISV)',
-        'Solution Builders (GSI, SI, MSP, Solution Provider)',
-        'Other Developers Exploring APIs, SDKs etc',
-        'Existing Customers at Okta',
+        'Solution builders (GSI, SI, MSP, Solution Provider)',
+        'Other developers exploring APIs and SDKs',
+        'Existing customer',
       ];
       labels.forEach((label) => {
         signUpPage.getDescriptorByLabel(label).should('exist');
@@ -109,9 +109,9 @@ describe('Sign up page', () => {
       signUpPage.getDescriptorByLabel('Independent Software Vendor (ISV)').click();
       signUpPage.getSelectedDescriptor().should('contain.text', 'Independent Software Vendor (ISV)');
 
-      signUpPage.getDescriptorByLabel('Existing Customers at Okta').click();
+      signUpPage.getDescriptorByLabel('Existing customer').click();
       signUpPage.getSelectedDescriptor().should('have.length', 1);
-      signUpPage.getSelectedDescriptor().should('contain.text', 'Existing Customers at Okta');
+      signUpPage.getSelectedDescriptor().should('contain.text', 'Existing customer');
     });
 
     it('should show a tooltip on hover of the info icon', () => {
@@ -236,7 +236,7 @@ describe('Sign up page', () => {
     it('should display login link with correct href', () => {
       signUpPage.getLoginLink().should('exist');
       signUpPage.getLoginLink().should('have.attr', 'href', '/login');
-      signUpPage.getLoginLink().should('contain.text', 'Log in here');
+      signUpPage.getLoginLink().should('contain.text', 'Sign in');
     });
   });
 
@@ -244,7 +244,7 @@ describe('Sign up page', () => {
     it('should display the hero title', () => {
       signUpPage.getHeroTitle().should('exist');
       signUpPage.getHeroTitle().invoke('text').then((text) => {
-        expect(text.replace(/\s+/g, ' ').trim()).to.equal('Start your Integration building journey.');
+        expect(text.replace(/\s+/g, ' ').trim()).to.equal('Start building your integration');
       });
     });
 
@@ -263,7 +263,7 @@ describe('Sign up page', () => {
     });
 
     it('should show Okta card with correct CTA text', () => {
-      signUpPage.getBottomCardCta('okta').should('contain.text', 'Try Okta Platform');
+      signUpPage.getBottomCardCta('okta').should('contain.text', 'Start a 30-day free trial');
     });
 
     it('should show Auth0 card with correct CTA text', () => {
