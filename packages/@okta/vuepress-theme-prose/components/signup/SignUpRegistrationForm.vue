@@ -1,7 +1,7 @@
 <template>
   <div class="signup-form-wrapper">
     <h2 class="signup-form-wrapper__heading">
-      Create your integrator free plan now!
+      Create your free integrator plan
     </h2>
 
     <form
@@ -15,7 +15,7 @@
           for="firstName"
         >
           <div class="signup-form__label">
-            First Name<span class="signup-form__required">*</span>
+            First name<span class="signup-form__required">*</span>
           </div>
           <input
             id="firstName"
@@ -38,7 +38,7 @@
           for="lastName"
         >
           <div class="signup-form__label">
-            Last Name<span class="signup-form__required">*</span>
+            Last name<span class="signup-form__required">*</span>
           </div>
           <input
             id="lastName"
@@ -64,7 +64,7 @@
           for="email"
         >
           <div class="signup-form__label">
-            Email<span class="signup-form__required">*</span>
+            Corporate email<span class="signup-form__required">*</span>
           </div>
           <input
             id="email"
@@ -113,7 +113,7 @@
                 disabled
                 selected
               >
-                Select Department
+                Select department
               </option>
               <option
                 v-for="dept in departments"
@@ -261,7 +261,7 @@
 
       <div class="signup-form__row">
         <div class="signup-form__label signup-form__label--section">
-          Select one that describes you best<span class="signup-form__required">*</span>
+          Select your role<span class="signup-form__required">*</span>
         </div>
         <div class="signup-form__descriptors">
           <SignUpDescriptorOption
@@ -367,7 +367,7 @@
       <div class="signup-form__divider" />
 
       <div class="signup-form__login-link">
-        <span>Signed up already? <a href="/login">Log in here</a></span>
+        <span>Already a customer? <a href="/login">Sign in</a></span>
       </div>
     </form>
   </div>
@@ -447,23 +447,23 @@ export default {
       builderTypeOptions: [
         {
           label: "Independent Software Vendor (ISV)",
-          value: "Independent Software Vendor (ISV)",
-          tooltip: "Build and publish integrations for your product on the Okta Integration Network (OIN), or extend an existing integration with additional capabilities.",
+          value: "Independent Software Vendor",
+          tooltip: "Build and publish integrations for your product on the Okta Integration Network (OIN), or enhance existing integrations with additional capabilities.",
         },
         {
-          label: "Solution Builders (GSI, SI, MSP, Solution Provider)",
-          value: "Solution Builders (GSI, SI, MSP, Solution Provider)",
-          tooltip: "Build and deliver integrations for customers as part of implementation, advisory, or managed services, with support for broader distribution through OIN.",
+          label: "Solution builders (GSI, SI, MSP, Solution Provider)",
+          value: "Solution Builders",
+          tooltip: "Build and deliver integrations for customers as part of implementation, advisory, or managed services, with the option to publish through OIN.",
         },
         {
-          label: "Other Developers Exploring APIs, SDKs etc",
-          value: "Other Developers Exploring APIs, SDKs etc",
-          tooltip: "Explore Okta APIs, authentication flows, and platform capabilities. If you are not building for Okta Platform, use an Okta Free Trial org for testing and evaluation.",
+          label: "Other developers exploring APIs and SDKs",
+          value: "Other Developers",
+          tooltip: "Explore Okta APIs, authentication flows, and platform capabilities. If you aren't building for Okta platform, use an Okta Free Trial org for testing and evaluation.",
         },
         {
-          label: "Existing Customers at Okta",
-          value: "Existing Customers at Okta",
-          tooltip: "Build integrations for your organization's Okta environment to support internal applications, workflows, and identity use cases.",
+          label: "Existing customer",
+          value: "Existing Customers",
+          tooltip: "Build integrations for your org's Okta environment to support internal apps, workflows, and identity use cases.",
         },
       ],
     };

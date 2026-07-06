@@ -1,7 +1,7 @@
 <template>
   <div class="signup-logos">
     <p class="signup-logos__text">
-      Join thousands of ISVs publishing integrations to the OIN and reach 17,000+ enterprises.
+      Join the Okta Integration Network to reach 17,000+ enterprise customers.
     </p>
     <div class="signup-logos__grid">
       <span
