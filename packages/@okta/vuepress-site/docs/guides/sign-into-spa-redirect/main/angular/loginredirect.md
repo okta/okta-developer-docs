@@ -24,7 +24,7 @@ The `OktaAuth` service has methods for sign-in and sign-out actions.
 
    @Component({
       selector: 'app-root',
-      imports: [RouterOutlet, AsyncPipe, RouterLink],
+      imports: [AsyncPipe, RouterLink, RouterOutlet],
       templateUrl: './app.component.html',
       styleUrls: ['./app.component.css']
    })
@@ -32,7 +32,6 @@ The `OktaAuth` service has methods for sign-in and sign-out actions.
      private oktaStateService = inject(OktaAuthStateService);
      private oktaAuth = inject(OKTA_AUTH);
 
-     title = 'okta-angular-quickstart';
      public isAuthenticated$ = this.oktaStateService.authState$.pipe(
         filter((s: AuthState) => !!s),
         map((s: AuthState) => s.isAuthenticated ?? false)

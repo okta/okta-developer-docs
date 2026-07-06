@@ -6,30 +6,37 @@ The `authState$` subject in `OktaAuthStateService` contains an `idToken` that co
 
    ```ts
    import { Component, inject } from '@angular/core';
-   import { OktaAuthStateService } from '@okta/okta-angular';
-   import { filter, map } from 'rxjs';
-   import { AuthState } from '@okta/okta-auth-js';
-   import { AsyncPipe } from '@angular/common';
+   import { OKTA_AUTH } from '@okta/okta-auth-js';
 
    @Component({
      selector: 'app-profile',
-     imports: [AsyncPipe],
+     imports: [],
      template: `
-        <p>Welcome
-          @if(name$ | async; as name) {
-            <span> {{name}} </span>
-          }
-        </p>
-     `,
-     styleUrls: ['./profile.component.css']
+        <table>
+          <thead>
+            <tr>
+              <th>Claim</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (claim of claims; track claim.name) {
+              <tr>
+                <td>{{ claim.name }}</td>
+                <td>{{ claim.value }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+     `
    })
    export class ProfileComponent {
-     private oktaAuthStateService = inject(OktaAuthStateService);
+     private oktaAuth = inject(OKTA_AUTH);
 
-     public name$ = this.oktaAuthStateService.authState$.pipe(
-       filter((authState: AuthState) => !!authState && !!authState.isAuthenticated),
-       map((authState: AuthState) => authState.idToken?.claims.name ?? '')
-     );
+     get claims() {
+       const idToken = this.oktaAuth.authStateManager.getAuthState()?.idToken;
+       return Object.entries(idToken?.claims ?? {}).map(([name, value]) => ({ name, value }));
+     }
    }
    ```
 
