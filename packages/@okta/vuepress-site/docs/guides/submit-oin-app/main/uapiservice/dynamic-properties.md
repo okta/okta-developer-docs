@@ -4,4 +4,4 @@
 
 1. Add your [tenant settings](#tenant-settings) in the OIN Wizard. These settings become fields for customer admins to enter during your OIN integration installation to identify their tenant.
 
-2. Use the tenant setting variables with Expression Language format in your integration properties for dynamic values that are based on customer information.
+2. Use the tenant setting variables with the Expression Language format in your integration properties for dynamic values that are based on customer information.
