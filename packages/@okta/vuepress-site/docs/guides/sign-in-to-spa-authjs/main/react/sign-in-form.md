@@ -1,4 +1,4 @@
-Build a sign-in page that captures both the username and password. As an example, from the test application, see the `index.js` file, which renders the simple sign-in for from the `formtransformer.js` file:
+Build a sign-in page that captures both the username and password. As an example, from the test application, see the `index.js` file, which renders the simple sign-in form from the `formTransformer.js` file:
 
 ```JavaScript
 import React from 'react';
@@ -16,7 +16,7 @@ root.render(
 );
 ```
 
-From the `formtransformer.js` file:
+From the `formTransformer.js` file:
 
 ```JavaScript
 const inputTransformer = nextStep => form => {

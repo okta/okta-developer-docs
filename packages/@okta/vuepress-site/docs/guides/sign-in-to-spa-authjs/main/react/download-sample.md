@@ -26,7 +26,6 @@ Create and add a configuration file (`testenv`) to the `okta-auth-js` root folde
 ```txt
 ISSUER=https://{yourOktaDomain}/oauth2/default
 CLIENT_ID={clientId}
-USE_INTERACTION_CODE=true
 ```
 
 #### Run the sample application
@@ -71,4 +70,15 @@ npm install @okta/okta-react@latest
 npm install react-router-dom@5
 ```
 
-> **Note:** The sample code in this use case requires `react-router-dom` version 5.x. Certain objects used in the sample code don't exist in `reactor-router-dom` version 6.x.
+> **Note:** The sample code in this use case requires `react-router-dom` version 5.x. Certain objects used in the sample code don't exist in `react-router-dom` version 6.x or later. Okta's own reference sample app is also still on `react-router-dom` version 5.x, so there's no version 6+ equivalent to switch to yet.
+
+### Add environment variables
+
+Vite only exposes environment variables to your app code when they're prefixed with `VITE_` and read through `import.meta.env`, unlike some other React tooling. Create a `.env` file in your app's root folder with your [app integration settings](#app-integration-settings):
+
+```txt
+VITE_ISSUER=https://{yourOktaDomain}/oauth2/default
+VITE_CLIENT_ID={clientId}
+```
+
+> **Note:** Add `.env` to your `.gitignore` file so you don't commit it to source control.

@@ -8,30 +8,40 @@ Review the simple password-only sign-in use case from the sample app. This use c
 
 ### Set up the Okta configuration settings
 
-Review the `src/config.js` file that references the required [app integration settings](#app-integration-settings) to initialize your Okta Auth JS instance. The `config.js` file references the values that you add to the `testenv` file.
+Review the `src/config.js` file that references the required [app integration settings](#app-integration-settings) to initialize your Okta Auth JS instance. The `config.js` file references the values that you add to the `.env` file.
 
 ```JavaScript
-const CLIENT_ID = process.env.SPA_CLIENT_ID || process.env.CLIENT_ID || '{clientId}';
-const ISSUER = process.env.ISSUER || 'https://{yourOktaDomain}/oauth2/default';
-const REDIRECT_URI = `{window.location.origin}/login/callback`;
+const CLIENT_ID = import.meta.env.VITE_CLIENT_ID || '{clientId}';
+const ISSUER = import.meta.env.VITE_ISSUER || 'https://{yourOktaDomain}/oauth2/default';
+const REDIRECT_URI = `${window.location.origin}/login/callback`;
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   clientId: CLIENT_ID,
   issuer: ISSUER,
   redirectUri: REDIRECT_URI,
   scopes: ['openid', 'offline_access', 'profile', 'email'],
+  pkce: true,
+  idx: {
+    // Okta Auth JS 8.x defaults idx.proceed() to Step Mode, which requires every
+    // call to name a step or action. This guide uses the older, generic
+    // remediation-driven pattern below instead (calling idx.proceed() with just
+    // the form values), so Legacy Mode is enabled here to keep that working.
+    enableLegacyMode: true
+  }
 };
 ```
 
+> **Note:** Legacy Mode is on a deprecation path in Okta Auth JS but is still fully supported. It's what lets the generic, response-driven form pattern in this guide work without hardcoding every remediation step by name. See [Step Mode vs Legacy Mode](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#step-mode-vs-legacy-mode) in the Auth JS SDK docs if you want to build against the newer, explicit-step approach instead.
+
 ### Instantiate the Okta Auth JS client
 
-Review the React `app.js` file that imports the required libraries and instantiates the Okta Auth JS client with values from the `config.js`.
+Review the React `app.js` file that imports the required libraries and instantiates the Okta Auth JS client with values from the `config.js`. Wrap your app in the `Security` component from the Okta React SDK so it can manage the Auth JS instance for you.
 
 ```JavaScript
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { OktaAuth, IdxStatus, urlParamsToObject, hasErrorInUrl } from '@okta/okta-auth-js';
+import { OktaAuth, IdxStatus, urlParamsToObject } from '@okta/okta-auth-js';
+import { Security } from '@okta/okta-react';
 import { formTransformer } from './formTransformer';
 import oidcConfig from './config';
 import './App.css';
@@ -44,13 +54,44 @@ function createOktaAuthInstance() {
 }
 
 const oktaAuth = createOktaAuthInstance();
+const restoreOriginalUri = () => {};
 
 ...
+
+function App() {
+  const history = useHistory();
+
+  return (
+    <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
+      ...
+    </Security>
+  );
+}
 ```
+
+> **Note:** This guide's simplified example doesn't cover redirect callbacks (for example, social IdP sign-in or email magic links). If your app needs them, see [Redirect callbacks](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#redirect-callbacks) in the Auth JS SDK docs and the `LoginCallback` component in [Okta's reference sample app](https://github.com/okta/okta-auth-js/tree/master/samples/generated/react-embedded-auth-with-sdk).
+
+### Start the sign-in transaction
+
+Before you can render a sign-in form, you need an in-progress IDX transaction to drive it. Start one when your component mounts by calling `idx.authenticate()` with no arguments — the response's `nextStep.inputs` tells you which fields to render. For this password-only use case, that's `username` and `password`:
+
+```JavaScript
+const [transaction, setTransaction] = useState(null);
+
+useEffect(() => {
+  const startTransaction = async () => {
+    const newTransaction = await oktaAuth.idx.authenticate();
+    setTransaction(newTransaction);
+  };
+  startTransaction();
+}, []);
+```
+
+Pass `transaction.nextStep` into `formTransformer` (see [Basic sign-in flow](#basic-sign-in-flow)) to render the form fields for the current step.
 
 ### Handle the password authentication
 
-Review the `apps.js` file for details on handling a successful password authentication by receiving the `SUCCESS` status and storing the returned tokens:
+Review the `app.js` file for details on handling a successful password authentication by receiving the `SUCCESS` status and storing the returned tokens:
 
 ```JavaScript
 ....
