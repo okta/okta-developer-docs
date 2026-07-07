@@ -5,7 +5,7 @@ cd ${OKTA_HOME}/${REPO}
 export GENERATED_SITE_LOCATION=dist
 
 # Use latest version of Node
-setup_service node v14.21.1
+setup_service node v16.20.2
 
 if [[ -z "${BUILD_FAILURE}" ]]; then
     export BUILD_FAILURE=1
