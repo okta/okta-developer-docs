@@ -1,0 +1,1 @@
+The Identity Engine SDK included with the Classic Engine Authentication SDK doesn't have a new method for the basic sign-out flow. See the previous sign-out method ([signOut](https://github.com/okta/okta-auth-js/tree/master#signout)) for implementation details for both Classic Engine and Identity Engine.
