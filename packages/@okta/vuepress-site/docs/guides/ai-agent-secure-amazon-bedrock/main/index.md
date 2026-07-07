@@ -9,7 +9,7 @@ This guide explains how to add Okta authentication to an Amazon Bedrock AgentCor
 
 The Okta authentication is a two-step token exchange that's the same for any AI agent, regardless of the platform it runs on. This guide first introduces what the integration needs to do and provides sample code functions that implement the authentication. It then shows the Amazon Bedrock-specific code and configuration that consumes it.
 
-> **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. See your Okta account team to enable the feature.
+> **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
 
 ---
 
