@@ -5,9 +5,9 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide explains how to add Okta authentication to an Amazon Bedrock AgentCore agent that you've already built. It assumes that you have a working agent and can edit its code. The focus is on the Okta authentication that you add so that the agent can act on a signed-in user's behalf.
+This guide explains how to add Okta authentication to an Amazon Bedrock AgentCore agent that you've already built. It assumes that you have a functional agent and can edit its code. The focus is on the Okta authentication that you add so that the agent can act on a signed-in user's behalf.
 
-The Okta authentication is a two-step token exchange that's the same for any AI agent, regardless of the platform it runs on. This guide first introduces what the integration needs to do and provides sample code functions that implements the authentication. It then shows the Amazon Bedrock-specific code and configuration that consume it.
+The Okta authentication is a two-step token exchange that's the same for any AI agent, regardless of the platform it runs on. This guide first introduces what the integration needs to do and provides sample code functions that implement the authentication. It then shows the Amazon Bedrock-specific code and configuration that consumes it.
 
 > **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. See your Okta account team to enable the feature.
 
@@ -36,7 +36,6 @@ An AI agent has no inherent knowledge of an Okta user. To let it act for a speci
 The integration has two parts:
 
 * Okta authentication. The agent performs a two-step token exchange:
-  1. Sign a client assertion with the agent's private key.
   1. Exchange the user's `id_token` for an Identity Assertion JWT authorization grant (ID-JAG) at the org authorization server.
   1. Exchange the ID-JAG for a scoped `access_token` at a custom authorization server.
 
@@ -87,7 +86,7 @@ Your Amazon Bedrock AgentCore agent code reads these values as environment varia
 | --- | --- | --- |
 | `OKTA_DOMAIN` | Okta org domain, for example `example.okta.com` (no `https://` prefix) | **Admin Console** > **Settings** > **Account** |
 | `OKTA_CUSTOM_AS_ID` | Custom authorization server ID, for example `default` | **Security** > **API** |
-| `OKTA_SCOPE` | The custom scope the agent requests | Custom AS > **Scopes** |
+| `OKTA_SCOPE` | The custom scope that the agent requests | Custom AS > **Scopes** |
 | `AGENT_CLIENT_ID` | Client ID of the imported third-party AI Agent | **Directory** > **AI Agents** > *(agent)* |
 | `AGENT_KEY_ID` | `kid` of the public JWK registered on the third-party AI agent | **Directory** > **AI Agents** > *(agent)* > **Credentials** |
 | `AGENT_PRIVATE_KEY_JWK` | The third-party agent's private JWK (single-line JSON) | Output of **Generate credentials**. Store the value in a secrets manager |
@@ -98,7 +97,7 @@ Your Amazon Bedrock AgentCore agent code reads these values as environment varia
 | --- | --- | --- |
 | `BEDROCK_AGENT_ID` | The downstream Bedrock agent to invoke | **AWS Console** > **Bedrock** > **Agents** |
 | `BEDROCK_AGENT_ALIAS_ID` | The alias of the downstream Bedrock agent | **AWS Console** > **Bedrock** > **Agents** > **Aliases** |
-| `AWS_REGION`, `AWS_DEFAULT_REGION` | The AWS Region where the Bedrock agent runs | **AWS Console** |
+| `AWS_REGION`, `AWS_DEFAULT_REGION` | The AWS region where the Bedrock agent runs | **AWS Console** |
 
 > **Note:** Set both `AWS_REGION` and `AWS_DEFAULT_REGION`. The `botocore[crt]` credential refresher requires `AWS_DEFAULT_REGION`. Omitting this value causes a `NoRegionError`.
 
@@ -193,13 +192,13 @@ def get_access_token(id_jag: str) -> str:
     return r.json()["access_token"]  # scoped access token for the resource
 ```
 
-A few details that this module encodes:
+A few details that this module provides:
 
 * The client assertion function is invoked twice. `build_client_assertion` is called once per step, each time with the `aud` set to the token endpoint it targets: the org token URL for Step 1, and the custom authorization server token URL for Step 2. The `kid` header must match the public JWK registered on the agent.
 * The `audience` parameter in Step 1 is the custom authorization server's issuer URL (`https://{yourOktaDomain}/oauth2/{custom-as-id}`), not its token endpoint.
-* Step 1 requires the Okta imported AI Agent client. An OIDC app client can't perform this exchange.
+* Step 1 requires an Okta imported AI Agent client. An OIDC app client can't perform this exchange.
 
-> **Note:** For production workloads, cache the ID-JAG and access token in process until their `exp` claim expires. This avoids a fresh two-step exchange on every user request.
+> **Note:** For production workloads, cache the ID-JAG and access token in memory until their `exp` claim expires. This avoids a fresh two-step exchange on every user request.
 
 ## Integrate the token exchange into your AgentCore agent
 
@@ -215,7 +214,7 @@ boto3
 botocore[crt]
 ```
 
-> **Note:** `botocore[crt]` is required when your AWS credentials use the SSO login credential provider. Without it, the runtime fails at startup with `ModuleNotFoundError: awscrt`.
+> **Note:** Your agent requires `botocore[crt]` when your AWS credentials use the SSO login credential provider. Without it, the runtime fails at startup with `ModuleNotFoundError: awscrt`.
 
 Install the complete set of dependencies:
 
@@ -254,7 +253,7 @@ def invoke_bedrock_agent(prompt: str, access_token: str, session_id: str) -> str
 Two AWS runtime requirements apply:
 
 * The IAM identity running the AgentCore runtime must have the `bedrock:InvokeAgent` permission on the target Bedrock agent.
-* Both `AWS_REGION` and `AWS_DEFAULT_REGION` must be set, because the `botocore[crt]` credential refresher requires `AWS_DEFAULT_REGION`.
+* You must set both `AWS_REGION` and `AWS_DEFAULT_REGION`, because the `botocore[crt]` credential refresher requires `AWS_DEFAULT_REGION`.
 
 ### Wire it into the AgentCore entry point
 
@@ -294,14 +293,14 @@ if __name__ == "__main__":
 
 After you add the code, verify the Okta-side configuration:
 
-1. Go to **Directory** > **AI Agents** and confirm that the agent appears with **Status: Active** and the expected owners, connections, and user application.
-1. (Optional) Go to **Identity Governance** > **Access Certifications** to confirm that the agent's user sign-on application is visible for future certification campaigns.
+1. Go to **Directory** > **AI Agents** and confirm that the agent appears with **Status: Active** and the expected owners, connections, and user app.
+1. (Optional) Go to **Identity Governance** > **Access Certifications** to confirm that the agent's user sign-on app is visible for future certification campaigns.
 
 ## Obtain a test ID token
 
-To exercise the flow, you need an ID token from the OIDC application linked to the agent. Complete an OIDC sign-in against that application to obtain one. For a ready-to-run Authorization Code with PKCE sign-in helper, see [Create an app to obtain a test ID token](/docs/guides/ai-agent-third-party-token-exchange/main/#create-an-app-to-obtain-a-test-id-token).
+To exercise the flow, you need an ID token from the OIDC app linked to the agent. Complete an OIDC sign-in against that app to obtain one. For a ready-to-run Authorization Code with PKCE sign-in helper, see [Create an app to obtain a test ID token](/docs/guides/ai-agent-third-party-token-exchange/main/#create-an-app-to-obtain-a-test-id-token).
 
-> **Note:** Add the helper's callback URL (for example, `http://localhost:8765/callback`) to the linked OIDC application's **Sign-in redirect URIs** before you run it, and remove it after verification is complete.
+> **Note:** Add the helper's callback URL (for example, `http://localhost:8765/callback`) to the linked OIDC app's **Sign-in redirect URIs** before you run it, and remove it after verification is complete.
 
 ## Run an end-to-end invocation
 
@@ -317,7 +316,7 @@ agentcore deploy
 agentcore invoke "{\"prompt\": \"Who am I?\", \"id_token\": \"$ID_TOKEN\"}"
 ```
 
-A successful response is shaped as follows and confirms the full round trip. Reuse the returned `session_id` on any follow-up invocation to keep the Bedrock conversation state:
+A successful response appears as follows and confirms the full round trip. Reuse the returned `session_id` on any follow-up invocation to keep the Bedrock conversation state:
 
 ```json
 {
@@ -326,17 +325,17 @@ A successful response is shaped as follows and confirms the full round trip. Reu
 }
 ```
 
-## Troubleshooting
+## Troubleshoot your integration
 
 The following errors are specific to the Amazon Bedrock integration:
 
 | Error | Root cause | Fix |
 | --- | --- | --- |
-| `ResourceNotFoundException` on `InvokeAgent` | Wrong agent ID or alias ID | Verify `BEDROCK_AGENT_ID` and `BEDROCK_AGENT_ALIAS_ID` in the AWS Console |
-| `ThrottlingException` on `InvokeAgent` | Bedrock model invocation quota exceeded (often `0` on new accounts) | Check **Service Quotas**; a quota of `0` means the model is disabled for the account |
+| `ResourceNotFoundException` on `InvokeAgent` | Wrong agent ID or alias ID | Verify `BEDROCK_AGENT_ID` and `BEDROCK_AGENT_ALIAS_ID` in the AWS console |
+| `ThrottlingException` on `InvokeAgent` | Bedrock model invocation quota exceeded (often `0` on new accounts) | Check **Service Quotas**. A quota of `0` means that the model is disabled for the account |
 | `NoRegionError: You must specify a region` | The boto3 SSO credential refresher needs `AWS_DEFAULT_REGION` | Set both `AWS_REGION` and `AWS_DEFAULT_REGION` in the agent runtime environment |
 | `ModuleNotFoundError: awscrt` at startup | Missing the CRT extension required by the SSO credential provider | Run `pip install botocore[crt]` |
-| `Agent Instruction cannot be null` | The Bedrock agent was created without instructions | In the AWS Console, edit the agent to add an instruction, then choose **Prepare** |
+| `Agent Instruction cannot be null` | The Bedrock agent has no instructions. | In the AWS console, edit the agent to add an instruction, then choose **Prepare** |
 
 ## Next steps
 
