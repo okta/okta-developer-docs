@@ -327,16 +327,11 @@ az containerapp ingress update \
 
 ## Verify the configuration
 
-After you add the code, verify the Okta-side configuration:
-
-1. Go to **Directory** > **AI Agents** and confirm that the agent appears with **Status: Active** and the expected owners, connections, and user app.
-1. (Optional) Go to **Identity Governance** > **Access Certifications** to confirm that the agent's user sign-on app is visible for future certification campaigns.
+<AiAgentVerifyConfiguration/>
 
 ## Obtain a test ID token
 
-To exercise the flow, you need an ID token from the OIDC app linked to the agent. Complete an OIDC sign-in against that app to obtain one. For a ready-to-run Authorization Code with PKCE sign-in helper, see [Create an app to obtain a test ID token](/docs/guides/ai-agent-third-party-token-exchange/main/#create-an-app-to-obtain-a-test-id-token).
-
-> **Note:** Add the helper's callback URL (for example, `http://localhost:8765/callback`) to the linked OIDC app's **Sign-in redirect URIs** before you run it, and remove it after verification is complete.
+<AiAgentObtainTestIdToken/>
 
 ## Run an end-to-end invocation
 
