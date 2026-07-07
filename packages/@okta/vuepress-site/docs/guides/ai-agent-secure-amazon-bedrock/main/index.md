@@ -80,16 +80,7 @@ The token exchange depends on Okta objects that you configure once per org. Conf
 
 Your Amazon Bedrock AgentCore agent code reads these values as environment variables. The first group is consumed by the token exchange module. The second group is specific to Amazon Bedrock.
 
-**Okta values (used by the token exchange):**
-
-| Environment variable | Description | Where to find it |
-| --- | --- | --- |
-| `OKTA_DOMAIN` | Okta org domain, for example `example.okta.com` (no `https://` prefix) | **Admin Console** > **Settings** > **Account** |
-| `OKTA_CUSTOM_AS_ID` | Custom authorization server ID, for example `default` | **Security** > **API** |
-| `OKTA_SCOPE` | The custom scope that the agent requests | Custom AS > **Scopes** |
-| `AGENT_CLIENT_ID` | Client ID of the imported third-party AI Agent | **Directory** > **AI Agents** > *(agent)* |
-| `AGENT_KEY_ID` | `kid` of the public JWK registered on the third-party AI agent | **Directory** > **AI Agents** > *(agent)* > **Credentials** |
-| `AGENT_PRIVATE_KEY_JWK` | The third-party agent's private JWK (single-line JSON) | Output of **Generate credentials**. Store the value in a secrets manager |
+<AiAgentOktaConfigValues/>
 
 **Amazon Bedrock values (used by the platform integration):**
 
