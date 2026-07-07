@@ -75,7 +75,7 @@ For a more detailed look at the upgrade steps, see the [Plan embedded auth appli
 
     **Are you embedding your authentication with an Okta SDK?**
 
-    * Upgrade to the latest version of the Identity Engine SDK. See [Upgrade your app to the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/) for detailed steps by language.
+    * Upgrade to the latest version of the Identity Engine SDK. See [Upgrade your app to the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/main/) for detailed steps by language.
 
     * Add the appropriate Identity Engine SDK to your application code. See [Add the latest Auth SDKs to your applications](/docs/guides/oie-upgrade-add-sdk-to-your-app/nodejs/main/) for detailed steps by language.
 
