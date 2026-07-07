@@ -20,7 +20,7 @@ Learn how to update an existing integration with SSO, Universal Logout, provisio
 
 ## Overview
 
-If you have a published Single Sign-On (SSO), lifecycle management, provisioning, Entitlement Management, API service, or IDV integration in the [OIN catalog](https://www.okta.com/integrations/), you can update and resubmit it with the OIN Wizard.
+If you've a published Single Sign-On (SSO), lifecycle management, provisioning, Entitlement Management, API service, or IDV integration in the [OIN catalog](https://www.okta.com/integrations/), you can update and resubmit it with the OIN Wizard.
 
 The OIN Wizard currently supports updates for integrations that use the following protocols or tools:
 

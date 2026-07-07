@@ -19,4 +19,4 @@ To edit the app instance from the OIN Wizard, follow these steps:
         The **Your OIN Integrations** dashboard appears.
         Go to your integration submission > **Configure your integration** > **Get started with testing** to continue with testing your integration.
 
-> **Note:** After you edit a test instance, any previous test results for that instance are invalid and removed from the OIN Submission Tester. Rerun all the required tests again with the new instance.
+> **Note:** After you edit a test instance, any previous test results for that instance are invalid and are removed from the OIN Submission Tester. Rerun all the required tests with the new instance.

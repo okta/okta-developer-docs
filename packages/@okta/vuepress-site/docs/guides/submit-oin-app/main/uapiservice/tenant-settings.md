@@ -7,7 +7,7 @@ Configure integration variables if your URLs are dynamic for each tenant. The va
     | <div style="width:100px">Property</div> | Description  |
     | --------------- | ------------ |
     | **Label** `*`  | The tenant setting label that's displayed when admins install your app integration. For example: `Subdomain` or `Tenant name` |
-     | **Name** `*`  | Specify the tenant setting variable name. This variable name is used to construct dynamic URLs or other app properties that are dependent on the tenant. It's hidden from admins and is only used to pass tenant details to your external app.<br>String is the only variable type supported.<br>**Note:** Use alphanumeric lowercase and underscore characters for the variable name field. The first character must be a letter and the maximum field length is 1024 characters. For example: `subdomain_div1` |
+     | **Name** `*`  | The tenant setting variable name. This variable name is used to construct dynamic URLs or other app properties that are dependent on the tenant. It's hidden from admins and is only used to pass tenant details to your external app.<br>String is the only variable type supported.<br>**Note:** Use alphanumeric lowercase and underscore characters for the variable name field. The first character must be a letter and the maximum field length is 1024 characters. For example: `subdomain_div1` |
 
      `*` This section is optional, but if you specify a variable, both `Label` and `Name` properties are required.
 
