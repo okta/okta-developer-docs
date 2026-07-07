@@ -5,9 +5,9 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide shows you how to build a FastAPI application that authenticates users with Okta and calls Azure OpenAI with the signed-in user's verified identity. The application performs Okta's two-step token exchange internally, and deploys to Azure Container Apps.
+This guide shows you how to build a FastAPI app that authenticates users with Okta and calls Azure OpenAI with the signed-in user's verified identity. The app performs Okta's two-step token exchange internally, and deploys to Azure Container Apps.
 
-> **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. See your Okta account team to enable the feature.
+> **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
 
 ---
 
@@ -16,7 +16,7 @@ This guide shows you how to build a FastAPI application that authenticates users
 * Understand what a third-party AI agent must do to authenticate as a signed-in user with Okta.
 * Deploy an Azure OpenAI resource and configure a model deployment.
 * Build a FastAPI wrapper that performs the Okta token exchange and calls Azure OpenAI with the resulting identity.
-* Deploy the application to Azure Container Apps.
+* Deploy the app to Azure Container Apps.
 * Verify and test the end-to-end flow with a real Okta ID token.
 
 #### What you need
@@ -24,7 +24,7 @@ This guide shows you how to build a FastAPI application that authenticates users
 * An [Identity Engine](/docs/concepts/oie-intro/) org with the Okta for AI Agents feature enabled
 * An Azure subscription with Azure OpenAI access in your region
 * The [Azure CLI](https://learn.microsoft.com/cli/azure/) (`az`), installed and authenticated (`az login`)
-* Docker, or access to Azure Container Registry for building images
+* Docker, or access to the Azure Container Registry for building images
 * [Python](https://www.python.org/) 3.10 or later
 
 ---
@@ -36,13 +36,12 @@ An AI agent has no inherent knowledge of an Okta user. To let it act for a speci
 The integration has two parts:
 
 * Okta authentication. The agent performs a two-step token exchange:
-  1. Sign a client assertion with the agent's private key.
   1. Exchange the user's `id_token` for an Identity Assertion JWT authorization grant (ID-JAG) at the org authorization server.
   1. Exchange the ID-JAG for a scoped `access_token` at a custom authorization server.
 
   This logic is identical for any agent. You add it once as a reusable module. See [Add Okta authentication to your agent](#add-okta-authentication-to-your-agent).
 
-* Platform integration (Azure-specific). Your FastAPI application calls the token exchange, decodes the user's identity claims from the `id_token`, and passes that identity to Azure OpenAI in the system message of a chat completion request. See [Call Azure OpenAI with user identity](#call-azure-openai-with-user-identity).
+* Platform integration (Azure-specific). Your FastAPI app calls the token exchange, decodes the user's identity claims from the `id_token`, and passes that identity to Azure OpenAI in the system message of a chat completion request. See [Call Azure OpenAI with user identity](#call-azure-openai-with-user-identity).
 
 ```text
 User
@@ -75,11 +74,11 @@ The token exchange depends on Okta objects that you configure once per org. Conf
 
   > **Note:** Okta doesn't retain the agent's private key. Store it in a secrets manager when it's generated, because it's shown only once.
 
-* An access policy rule on the custom authorization server that enables the JWT Bearer grant type (`urn:ietf:params:oauth:grant-type:jwt-bearer`), adds the AI Agent as an allowed client, and includes the audience, the custom scope, and a user or group condition.
+* An access policy rule on the custom authorization server that enables the JWT bearer grant type (`urn:ietf:params:oauth:grant-type:jwt-bearer`), adds the AI Agent as an allowed client, and includes the audience, the custom scope, and a user or group condition.
 
 ### Collect your configuration values
 
-Your FastAPI application reads these values as environment variables. The first group is consumed by the token exchange module. The second group is specific to Azure OpenAI.
+Your FastAPI app reads these values as environment variables. The token exchange module uses the first group. The second group is specific to Azure OpenAI.
 
 **Okta values (used by the token exchange):**
 
@@ -87,7 +86,7 @@ Your FastAPI application reads these values as environment variables. The first 
 | --- | --- | --- |
 | `OKTA_DOMAIN` | Okta org domain, for example `example.okta.com` (no `https://` prefix) | **Admin Console** > **Settings** > **Account** |
 | `OKTA_CUSTOM_AS_ID` | Custom authorization server ID, for example `default` | **Security** > **API** |
-| `OKTA_SCOPE` | The custom scope the agent requests | Custom AS > **Scopes** |
+| `OKTA_SCOPE` | The custom scope that the agent requests | Custom AS > **Scopes** |
 | `AGENT_CLIENT_ID` | Client ID of the imported AI Agent, for example `wlp9k6...` | **Directory** > **AI Agents** > *(agent)* |
 | `AGENT_KEY_ID` | `kid` of the public JWK registered on the AI agent | **Directory** > **AI Agents** > *(agent)* > **Credentials** |
 | `AGENT_PRIVATE_KEY_JWK` | The agent's private JWK (single-line JSON) | Output of **Generate credentials**. Store the value in a secrets manager |
@@ -110,7 +109,7 @@ The following example `token_exchange.py` module that you create here has no dep
 
 ### Create an Azure OpenAI resource
 
-1. In the Azure Portal, search for **Azure OpenAI** and create a new resource.
+1. In the Azure Portal, search for **Azure OpenAI** and create a resource.
 1. Select a region that supports the model you want to use. Check Azure OpenAI model availability for your region before you continue.
 1. After the resource deploys, note the endpoint URL and one of the API keys. You need both for `AZURE_OPENAI_ENDPOINT` and `AZURE_OPENAI_KEY`.
 
@@ -120,7 +119,7 @@ The following example `token_exchange.py` module that you create here has no dep
 1. Click **Create new deployment** and select your model, for example `gpt-4o`.
 1. Set a deployment name and note it exactly. It becomes `AZURE_OPENAI_DEPLOYMENT`.
 
-> **Important:** The deployment name you set here, not the model name, is what you pass to the API. If you get a `DeploymentNotFound` error, verify the exact name in **Azure OpenAI Studio** > **Deployments**.
+> **Important:** The deployment name that you set here, not the model name, is what you pass to the API. If you get a `DeploymentNotFound` error, verify the exact name in **Azure OpenAI Studio** > **Deployments**.
 
 ### Create an Azure Container Registry
 
@@ -131,7 +130,7 @@ az acr create \
   --sku Standard
 ```
 
-> **Important:** Use the Standard SKU. The Basic SKU can cause `416` or `503` errors during image pushes. Use `az acr build` (cloud build) rather than a local Docker push; local pushes are more likely to fail.
+> **Important:** Use the standard SKU. The basic SKU can cause `416` or `503` errors during image pushes. Use `az acr build` (cloud build) rather than a local Docker push. Local pushes are more likely to fail.
 
 ### Create a Container Apps environment and container app
 
@@ -149,9 +148,9 @@ az containerapp create \
   --target-port 8000
 ```
 
-> **Note:** The FastAPI application runs on port 8000. Set `--target-port 8000` at creation time. If the container app defaults to port 80, the app returns the default Azure page.
+> **Note:** The FastAPI app runs on port 8000. Set `--target-port 8000` at creation time. If the container app defaults to port 80, the app returns the default Azure page.
 
-## Configure your application
+## Configure your app
 
 ### Project structure
 
@@ -226,11 +225,11 @@ def ask_llm(prompt: str, user_claims: dict, access_token: str) -> str:
     return response.choices[0].message.content
 ```
 
-> **Note:** The `access_token` is available in your application after Step 2 of the token exchange. You can pass it to downstream Okta-protected APIs; in this pattern, it's verified but not forwarded directly to Azure OpenAI.
+> **Note:** The `access_token` is available in your app after step 2 of the token exchange. You can pass it to downstream Okta-protected APIs. In this pattern, your app verifies it but doesn't forward it directly to Azure OpenAI.
 
 ## Wire it into the FastAPI entry point
 
-In your application's entry point, call the two token exchange functions in order, decode the user's identity claims from the `id_token`, and then call Azure OpenAI. The following `main.py` imports the reusable token exchange module and adds only the FastAPI-specific wiring:
+In your app's entry point, call the two token exchange functions in order, decode the user's identity claims from the `id_token`, and then call Azure OpenAI. The following `main.py` imports the reusable token exchange module and adds only the FastAPI-specific wiring:
 
 ```python
 import jwt
@@ -256,7 +255,7 @@ def invoke(request: InvokeRequest) -> dict:
 
     # The id_token was already verified by the org authorization server in
     # Step 1. Decoding it here only reads display claims for the system
-    # message; it isn't used to make an authorization decision.
+    # message. It isn't used to make an authorization decision.
     user_claims = jwt.decode(request.id_token, options={"verify_signature": False})
 
     # Platform integration (Azure OpenAI)
@@ -278,14 +277,14 @@ if __name__ == "__main__":
 
 ## Deploy to Azure Container Apps
 
-### 1. Build the image in ACR
+### Build the image in ACR
 
 ```bash
 cd /path/to/okta-azure-agent
 az acr build --registry <registry-name> --image okta-agent:latest .
 ```
 
-### 2. Grant the container app access to ACR
+### Grant the container app access to ACR
 
 ```bash
 az containerapp registry set \
@@ -296,7 +295,7 @@ az containerapp registry set \
   --password <acr-password>
 ```
 
-### 3. Deploy with environment variables
+### Deploy with environment variables
 
 ```bash
 az containerapp update \
@@ -315,9 +314,9 @@ az containerapp update \
     AZURE_OPENAI_DEPLOYMENT="<deployment-name>"
 ```
 
-### 4. Verify the target port
+### Verify the target port
 
-If the container app returns the default Azure page, the target port is set to 80. Update it:
+If the container app returns the default Azure page, the target port defaults to 80. Update it:
 
 ```bash
 az containerapp ingress update \
@@ -330,14 +329,14 @@ az containerapp ingress update \
 
 After you add the code, verify the Okta-side configuration:
 
-1. Go to **Directory** > **AI Agents** and confirm that the agent appears with **Status: Active** and the expected owners, connections, and user application.
-1. (Optional) Go to **Identity Governance** > **Access Certifications** to confirm that the agent's user sign-on application is visible for future certification campaigns.
+1. Go to **Directory** > **AI Agents** and confirm that the agent appears with **Status: Active** and the expected owners, connections, and user app.
+1. (Optional) Go to **Identity Governance** > **Access Certifications** to confirm that the agent's user sign-on app is visible for future certification campaigns.
 
 ## Obtain a test ID token
 
-To exercise the flow, you need an ID token from the OIDC application linked to the agent. Complete an OIDC sign-in against that application to obtain one. For a ready-to-run Authorization Code with PKCE sign-in helper, see [Create an app to obtain a test ID token](/docs/guides/ai-agent-third-party-token-exchange/main/#create-an-app-to-obtain-a-test-id-token).
+To exercise the flow, you need an ID token from the OIDC app linked to the agent. Complete an OIDC sign-in against that app to obtain one. For a ready-to-run Authorization Code with PKCE sign-in helper, see [Create an app to obtain a test ID token](/docs/guides/ai-agent-third-party-token-exchange/main/#create-an-app-to-obtain-a-test-id-token).
 
-> **Note:** Add the helper's callback URL (for example, `http://localhost:8765/callback`) to the linked OIDC application's **Sign-in redirect URIs** before you run it, and remove it after verification is complete.
+> **Note:** Add the helper's callback URL (for example, `http://localhost:8765/callback`) to the linked OIDC app's **Sign-in redirect URIs** before you run it, and remove it after verification is complete.
 
 ## Run an end-to-end invocation
 
@@ -349,7 +348,7 @@ curl -s -X POST "https://<your-container-app-url>/invoke" \
   --data "{\"id_token\": \"$ID_TOKEN\", \"prompt\": \"Who am I?\"}"
 ```
 
-A successful response is shaped as follows and confirms the full round trip:
+A successful response appears as follows and confirms the full round trip:
 
 ```json
 {
@@ -360,16 +359,16 @@ A successful response is shaped as follows and confirms the full round trip:
 }
 ```
 
-## Troubleshooting
+## Troubleshoot your integration
 
 The following errors are specific to the Azure integration:
 
 | Error | Root cause | Fix |
 | --- | --- | --- |
-| `DeploymentNotFound` | Wrong or missing Azure OpenAI deployment name | Check the exact deployment name in **Azure OpenAI Studio** > **Deployments**; names are case-sensitive |
-| ACR push `416` / `503` errors | Basic SKU ACR with stale upload sessions | Upgrade ACR to Standard SKU; use `az acr build` instead of a local `docker push` |
-| Container app not pulling image | No registry credentials configured on the container app | Run `az containerapp registry set` before updating the image |
-| App returns the default Azure page | Target port set to 80; the FastAPI app runs on 8000 | Run `az containerapp ingress update --target-port 8000` |
+| `DeploymentNotFound` | Wrong or missing Azure OpenAI deployment name | Check the exact deployment name in **Azure OpenAI Studio** > **Deployments**. Names are case-sensitive |
+| ACR push `416` / `503` errors | Basic SKU ACR with stale upload sessions | Upgrade ACR to standard SKU. Use `az acr build` instead of a local `docker push` |
+| Container app not pulling image | The container app has no registry credentials configured | Run `az containerapp registry set` before updating the image |
+| App returns the default Azure page | Target port defaults to 80. The FastAPI app runs on 8000 | Run `az containerapp ingress update --target-port 8000` |
 
 The following errors come from the Okta token exchange and are covered in [Set up third-party AI Agent token exchange: Troubleshooting](/docs/guides/ai-agent-third-party-token-exchange/main/#troubleshooting):
 

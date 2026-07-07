@@ -151,7 +151,7 @@ Foundation models aren't enabled by default. If your model shows as unavailable:
    ```
 
 1. Click **Prepare** after any change, before testing.
-1. Note the **Agent ID** and create an **Alias**; note the **Alias ID**.
+1. Note the **Agent ID** and create an **Alias**. Note the **Alias ID**.
 
 > **Important:** Scope the Lambda's execution role to least privilege: grant it only the specific downstream APIs it needs to call, run it in a VPC if it needs network isolation, and monitor it with CloudWatch and CloudTrail. See [AWS IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) and [Implementing least privilege access for Amazon Bedrock](https://aws.amazon.com/blogs/security/implementing-least-privilege-access-for-amazon-bedrock/).
 
