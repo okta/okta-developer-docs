@@ -48,6 +48,8 @@ if (transaction.status === IdxStatus.SUCCESS) {
 
 For further details and reference material, see [Migrating from authn to IDX](https://github.com/okta/okta-auth-js/blob/master/docs/migrate-from-authn-to-idx.md) in the Okta Auth JavaScript SDK.
 
+For further details on the password authentication flow using Identity Engine and a sample application, see [Auth JS fundamentals](/docs/guides/auth-js/main/).
+
 #### Identity Engine SDK code options
 
 The Identity Engine SDK methods provide an opportunity to mirror the code styles used in the Classic Engine Authentication SDK, which can facilitate an easier migration path. It also provides an opportunity to use a more open, flexible code style that takes advantage of the recursive nature of the SDK. These styles are respectively referenced in the Identity Engine SDK as Up-Front and On-Demand. See [Approaches](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#approaches) in the Identity Engine SDK.
