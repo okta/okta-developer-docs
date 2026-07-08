@@ -3,7 +3,7 @@ Review the simple password-only sign-in use case from the sample app.
 <!-- The sequence diagram below is out of date with the Step Mode rework in this
 guide (it shows a single idx.authenticate(username,password) call, not the
 two-call authenticate()-then-proceed({ step }) flow). Commented out until the
-updated diagram is ready — see OKTA-1220702 for the design request tracking
+updated diagram is ready — see the design request ticket (TBD) for tracking
 this.
 <div class="full">
 
