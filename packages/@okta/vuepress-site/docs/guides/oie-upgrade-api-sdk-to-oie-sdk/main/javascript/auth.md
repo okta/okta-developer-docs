@@ -1,6 +1,6 @@
 ### Map the Authentication SDK to the Identity Engine SDK
 
-If your app uses the Classic Engine Authentication SDK methods to authenticate through Okta, you generally start the authentication flow with a call to the `signInWithCredentials` method on an `OktaAuth` object (for example, `authClient`), using the parameters of username and password. This call returns a status on the transaction object (`transaction.status`) that the app code must handle. If successful (`transaction.status === 'SUCCESS'`), call the `setCookieAndRedirect` method to retrieve a `sessionToken`.
+If your app uses the Classic Engine Authentication SDK, you typically authenticate through Okta with the `signInWithCredentials` method. Call it on an `OktaAuth` object (for example, `authClient`) with a username and password. This call returns a status on the transaction object (`transaction.status`) that the app code must handle. If successful (`transaction.status === 'SUCCESS'`), call the `setCookieAndRedirect` method to retrieve a `sessionToken`.
 
 > **Note:** The `setCookieAndRedirect` method requires access to third-party cookies and is deprecated in the Identity Engine SDK. Many browsers now block third-party cookies by default, which can break this call in production.
 
@@ -28,7 +28,7 @@ The authentication flow for the Identity Engine SDK is similar. However, you mus
 
 #### Identity Engine SDK authentication flow
 
-For the Identity Engine SDK, you generally start the authentication flow with a call to the `idx.authenticate` method on an `OktaAuth` object (for example, `authClient`), using the parameters of username and password, or no parameters at all (see [Identity Engine code options](#identity-engine-sdk-code-options)). This call returns a status on the transaction object (`transaction.status`) that the app code must handle. If successful (`transaction.status === IdxStatus.SUCCESS`), your app receives access and ID tokens directly in the response, with no redirect or third-party cookie access required.
+For the Identity Engine SDK, you typically start the authentication flow with a call to the `idx.authenticate` method. Call it on an `OktaAuth` object, such as `authClient`, with a username and password, or with no parameters at all. See [Identity Engine code options](#identity-engine-sdk-code-options) for more on these approaches. This call returns a status on the transaction object (`transaction.status`) that the app code must handle. If successful (`transaction.status === IdxStatus.SUCCESS`), your app receives access and ID tokens directly in the response. No redirect or third-party cookie access is required.
 
 See the following code snippet for this example:
 
@@ -52,4 +52,4 @@ For further details on the password authentication flow using Identity Engine an
 
 #### Identity Engine SDK code options
 
-The Identity Engine SDK methods provide an opportunity to mirror the code styles used in the Classic Engine Authentication SDK, which can facilitate an easier migration path. It also provides an opportunity to use a more open, flexible code style that takes advantage of the recursive nature of the SDK. These styles are respectively referenced in the Identity Engine SDK as up-front and on-demand. See [Approaches](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#approaches) in the Identity Engine SDK.
+The Identity Engine SDK methods can mirror the code styles used in the Classic Engine Authentication SDK. This can make migration easier. Or use a more open, flexible style that takes advantage of the SDK's recursive calls. These styles are respectively referenced in the Identity Engine SDK as up-front and on-demand. See [Approaches](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#approaches) in the Identity Engine SDK.
