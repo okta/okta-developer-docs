@@ -34,7 +34,7 @@
     "stylelint:vue": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
     "eslint": "eslint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
     "lint-all": "yarn eslint --max-warnings=0 && yarn stylelint",
-    "rss": "node packages/@okta/vuepress-site/.vuepress/scripts/generate-rss.js",
+    "rss": "yarn generate-pubdate && node packages/@okta/vuepress-site/.vuepress/scripts/generate-rss.js",
     "generate-pubdate": "node packages/@okta/vuepress-site/.vuepress/scripts/generate-pubdate.js",
     "install-dev": "bash scripts/yarn-install-dev.sh"
   },
