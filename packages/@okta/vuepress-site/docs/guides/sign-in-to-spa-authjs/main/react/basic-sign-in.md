@@ -1,10 +1,16 @@
-Review the simple password-only sign-in use case from the sample app. This use case is outlined in the following sequence diagram with your single-page app (SPA) as the client:
+Review the simple password-only sign-in use case from the sample app.
 
+<!-- The sequence diagram below is out of date with the Step Mode rework in this
+guide (it shows a single idx.authenticate(username,password) call, not the
+two-call authenticate()-then-proceed({ step }) flow). Commented out until the
+updated diagram is ready — see OKTA-1220702 for the design request tracking
+this.
 <div class="full">
 
 ![Sequence diagram that displays the interactions between the resource owner, SDK, authorization server, and resource server for a basic SPA password sign-in flow.](/img/oie-embedded-sdk/password-only-spa-authjs-flow.svg)
 
 </div>
+-->
 
 ### Set up the Okta configuration settings
 
