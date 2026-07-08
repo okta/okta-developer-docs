@@ -20,18 +20,11 @@ export default {
   issuer: ISSUER,
   redirectUri: REDIRECT_URI,
   scopes: ['openid', 'offline_access', 'profile', 'email'],
-  pkce: true,
-  idx: {
-    // Okta Auth JS 8.x defaults idx.proceed() to Step Mode, which requires every
-    // call to name a step or action. This guide uses the older, generic
-    // remediation-driven pattern below instead (calling idx.proceed() with just
-    // the form values), so Legacy Mode is enabled here to keep that working.
-    enableLegacyMode: true
-  }
+  pkce: true
 };
 ```
 
-> **Note:** Legacy Mode is on a deprecation path in Okta Auth JS but is still fully supported. It's what lets the generic, response-driven form pattern in this guide work without hardcoding every remediation step by name. See [Step Mode vs Legacy Mode](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#step-mode-vs-legacy-mode) in the Auth JS SDK docs if you want to build against the newer, explicit-step approach instead.
+> **Note:** Okta Auth JS 8.x requires every `idx.proceed()` call to name the remediation step it's submitting. This guide uses that Step Mode pattern throughout. See [Step Mode vs Legacy Mode](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#step-mode-vs-legacy-mode) in the Auth JS SDK docs if you're migrating an older app that relies on the deprecated, generic remediation-driven pattern.
 
 ### Instantiate the Okta Auth JS client
 
@@ -91,15 +84,67 @@ Pass `transaction.nextStep` into `formTransformer` (see [Basic sign-in flow](#ba
 
 ### Handle the password authentication
 
-Review the `app.js` file for details on handling a successful password authentication by receiving the `SUCCESS` status and storing the returned tokens:
+Name the step you're submitting on every `idx.proceed()` call — `transaction.nextStep.name` holds the value, and it's the same step the form already rendered against. For this password-only use case, the step name is `identify`. Review the `app.js` file for details on handling a successful password authentication by receiving the `SUCCESS` status and storing the returned tokens:
 
 ```JavaScript
-....
-
 const handleSubmit = async e => {
+  e.preventDefault();
+
+  const newTransaction = await oktaAuth.idx.proceed({ step: 'identify', ...inputValues }); // inputValues = username, password
+  console.log('Transaction:', newTransaction);
+
+  setInputValues({});
+  if (newTransaction.status === IdxStatus.SUCCESS) {
+    oktaAuth.tokenManager.setTokens(newTransaction.tokens);
+  } else {
+    setTransaction(newTransaction);
+  }
+};
+```
+
+### The full sign-in component code
+
+With the pieces above in place, here's the complete `App.jsx` for the password-only sign-in flow, with everything shown together:
+
+```JavaScript
+import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { OktaAuth, IdxStatus, urlParamsToObject } from '@okta/okta-auth-js';
+import { Security } from '@okta/okta-react';
+import { formTransformer } from './formTransformer';
+import oidcConfig from './config';
+import './App.css';
+
+function createOktaAuthInstance() {
+  const { state } = urlParamsToObject(window.location.search);
+  return new OktaAuth(Object.assign({}, oidcConfig, {
+    state
+  }));
+}
+
+const oktaAuth = createOktaAuthInstance();
+const restoreOriginalUri = () => {};
+
+function SignInForm() {
+  const [transaction, setTransaction] = useState(null);
+  const [inputValues, setInputValues] = useState({});
+
+  useEffect(() => {
+    const startTransaction = async () => {
+      const newTransaction = await oktaAuth.idx.authenticate();
+      setTransaction(newTransaction);
+    };
+    startTransaction();
+  }, []);
+
+  const handleChange = ({ target: { name, value } }) => {
+    setInputValues({ ...inputValues, [name]: value });
+  };
+
+  const handleSubmit = async e => {
     e.preventDefault();
 
-    const newTransaction = await oktaAuth.idx.proceed(inputValues); // inputValues = username, password
+    const newTransaction = await oktaAuth.idx.proceed({ step: 'identify', ...inputValues });
     console.log('Transaction:', newTransaction);
 
     setInputValues({});
@@ -110,5 +155,40 @@ const handleSubmit = async e => {
     }
   };
 
-  ...
-  ```
+  if (!transaction?.nextStep) {
+    return null;
+  }
+
+  const { inputs } = formTransformer(transaction.nextStep)({});
+
+  return (
+    <form onSubmit={handleSubmit}>
+      {inputs.map(({ label, name, type, required }) => (
+        <label key={name}>
+          {label}
+          <input
+            name={name}
+            type={type}
+            required={required}
+            value={inputValues[name] || ''}
+            onChange={handleChange}
+          />
+        </label>
+      ))}
+      <button type="submit">Sign in</button>
+    </form>
+  );
+}
+
+function App() {
+  const history = useHistory();
+
+  return (
+    <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
+      <SignInForm />
+    </Security>
+  );
+}
+
+export default App;
+```

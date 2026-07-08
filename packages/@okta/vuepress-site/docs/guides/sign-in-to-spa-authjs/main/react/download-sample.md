@@ -1,6 +1,8 @@
 ### Download the sample React application
 
-To view a simple example of a React app, clone the Auth JS repository and follow the setup procedure:
+Clone the Auth JS repository and follow the setup procedure below to confirm your org and environment work end-to-end.
+
+> **Note:** The generated sample still uses Auth JS's Legacy Mode internally, so its `App.jsx` and `GeneralForm.jsx` source don't match the Step Mode code shown later in this guide. Use the sample only to verify your app integration settings and environment; use this guide's own code snippets as the reference for how to build the sign-in logic.
 
 #### Clone the Auth JS repository
 
