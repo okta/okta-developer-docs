@@ -5,9 +5,9 @@ meta:
     content: Learn how Okta Agent Gateway enforces identity and policy on AI agent tool calls to enterprise MCP servers.
 ---
 
-# Okta Agent Gateway
+<ApiLifecycle access="beta" />
 
-> **Note:** Okta Agent Gateway is a Research Release feature.
+# Okta Agent Gateway
 
 Okta Agent Gateway is an identity-native proxy that sits between AI agents and the enterprise tools that they call. It aggregates tools from multiple upstream MCP servers behind a single Okta-secured endpoint, enforces identity and policy on every tool call, and produces a unified audit trail. This extends Okta's identity fabric to agents that the enterprise doesn't build or control.
 
@@ -32,7 +32,54 @@ The two layers are independently scalable. The data plane picks up configuration
 
 The following diagram describes the Agent Gateway flow when an agent invokes a tool through the gateway.
 
-<!-- Diagram placeholder: Agent Gateway flow -->
+<div class="full">
+
+   ![Sequence diagram that displays the interactions between the resource owner, authorization server, and resource server for Authorization Code flow"](/img/authorization/somefilename.png)
+
+   <!--
+      source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4133%3A43845&mode=design&t=Me7qqw8odOmrLh6K-1
+   -->
+
+</div>
+
+<!-- Generated using http://www.plantuml.com/plantuml/uml/
+
+@startuml
+skinparam monochrome true
+
+participant "Agent\n(ex: Claude Code)" as Agent
+participant "Okta custom authorization server" as CAS
+participant "Gateway" as GW
+participant "Okta org authorization server" as OrgAS
+participant "Upstream MCP Server\n(ex: GitHub)" as Upstream
+
+== Inbound: Agent authenticates to gateway ==
+
+Agent -> CAS: GET /oauth2/{asId}/v1/authorize\n(authorization code + PKCE)
+CAS -> Agent: Authorization code
+Agent -> CAS: POST /oauth2/{asId}/v1/token\n(code + code_verifier)
+CAS -> Agent: Access token (scoped to gateway)
+Agent -> GW: tools/list or tools/call\n(Bearer: access token)
+GW -> GW: Validate token against linked custom auth server\nCheck vMCP is ACTIVE
+
+== Outbound: Gateway obtains downstream credential ==
+
+GW -> OrgAS: POST /oauth2/v1/token\n(OAuth STS token exchange)
+OrgAS -> OrgAS: Validate delegation link\nValidate resource connection
+
+alt First use - no stored refresh token
+    OrgAS -> Agent: interaction_required + consent URL
+    Agent -> Upstream: User authenticates\nand consents in browser
+    Upstream -> OrgAS: Refresh token stored
+    GW -> OrgAS: Retry token exchange
+end
+
+OrgAS -> GW: Downstream access token
+GW -> Upstream: Tool call\n(Bearer: downstream access token)
+Upstream -> Agent: Response
+
+@enduml
+-->
 
 When an agent invokes a tool through the gateway, the following sequence occurs:
 
@@ -82,6 +129,14 @@ Each vMCP is protected by an Okta custom authorization server. The gateway valid
 ### WorkloadPrincipal
 
 When an admin registers an AI agent in Okta Universal Directory, it's created as a `WorkloadPrincipal`, a first-class managed identity in Okta that's separate from human users and traditional app service accounts. The agent's identity is tied to its `WorkloadPrincipal`, which means audit logs attribute tool calls to the agent regardless of credential rotation.
+
+#### Other related concepts
+
+**Cross-App Access (XAA)**: An alternative approach to agent identity that delivers Okta-issued tokens to the agent, which then calls upstream services directly. XAA is better suited to agents that the enterprise builds and controls. Unlike Agent Gateway, XAA doesn't sit in the path of every request, so it can't enforce tool-level policy or produce a unified audit trail across heterogeneous upstreams. For third-party agents the enterprise can't instrument, Agent Gateway is the appropriate choice.
+
+**Okta for AI Agents (O4AA)**: The broader Okta product surface for securing AI agents, of which Agent Gateway is one component. Agent Gateway extends Okta for AI Agent's identity fabric specifically to agents that the enterprise doesn't build or control.
+
+**CIMD (Client ID Metadata Document)**: A mechanism by which an agent vendor publishes a single metadata URL that serves as the agent's OAuth client identity across customer orgs. With CIMD, an admin doesn't need to provision an OAuth client in Okta per agent per tenant. Okta accepts the vendor's CIMD URL as the agent's identity.
 
 ## What you can connect
 
