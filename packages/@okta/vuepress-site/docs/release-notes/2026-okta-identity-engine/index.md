@@ -43,7 +43,7 @@ title: Okta Identity Engine API release notes 2026
 
 The [Bot Protection API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/botprotection) enables orgs to automatically identify and mitigate bot traffic by configuring remediation actions within the Identity Threat Protection (ITP) landing page. See [Bot protection](https://help.okta.com/okta_help.htm?type=oie&id=about_bot_protection). <!-- OKTA-1209042 BOT_PROTECTION -->
 
-#### New fields query parameter for Groups, Realms, and Devices list endpoints is GA in Production
+#### New fields query parameter for Groups, Realms, and Devices list endpoints is GA in Preview
 
 The `GET /api/v1/groups`, `GET /api/v1/realms`, and `GET /api/v1/devices` endpoints now support the fields query parameter that specifies which fields to include in the response. Use this parameter to reduce the response payload size when your integration only needs a subset of fields. See [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group), [Realms API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/realm), and [Devices API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/device). <!--OKTA-1208394 -->
 
