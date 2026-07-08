@@ -17,7 +17,7 @@ For AI agents that an enterprise builds in-house, the agent's code can be instru
 
 Without something in the path of the agent's outbound requests, there's no way to enforce Okta on those agents. The typical workaround is giving the agent a long-lived API key or service account credential.
 
-This approach provides broad, standing access with no per-call policy enforcement, no per-user attribution, and no audit trail. It also gives the agent direct access to the credential, which prompt injection, log leaks, or a compromised model could use to steal it.
+This approach provides broad, standing access with no per-call policy enforcement, no per-user attribution, and no audit trail. It also gives the agent direct access to the credential, which prompt-injection, log leaks, or a compromised model could use to steal it.
 
 ### The solution
 
@@ -41,7 +41,7 @@ The following diagram describes the Agent Gateway flow when an agent invokes a t
    ![Sequence diagram that displays the interactions between an agent, the Okta custom and org auth servers, agent gateway, and the upstream mcp server"](/img/authorization/somefilename.png)
 
    <!--
-      source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4133%3A43845&mode=design&t=Me7qqw8odOmrLh6K-1
+      source image:
    -->
 
 </div>
@@ -89,7 +89,7 @@ When an agent invokes a tool through the gateway, the following sequence occurs:
 
 1. The agent requests an authorization code from the Okta custom authorization server using the authorization code flow with PKCE. The authorization server returns an authorization code to the agent.
 1. The agent exchanges the authorization code and PKCE code verifier for an access token. The authorization server returns an access token scoped to the gateway.
-1. The agent sends a `tools/list` or `tools/call` request to the gateway with the access token as a Bearer token. The gateway validates the token against the linked authorization server and checks that the vMCP is active.
+1. The agent sends a `tools/list` or `tools/call` request to the gateway with the access token as a Bearer token. The gateway validates the token against the linked authorization server and checks that the [virtual MCP server (vMCP)](#key-concepts) is active.
 1. Agent Gateway sends an OAuth Security Token Service token exchange request to the Okta org authorization server. It presents the agent's access token as the subject token. The authorization server validates the delegation link, confirming that the agent's OAuth client is authorized to delegate to this vMCP. Then, it validates that the resource connection to the upstream MCP server is active.
 1. (First use only) If the user has no stored refresh token for the upstream MCP server, the org authorization server returns an `interaction_required` response with a consent URL. See the [Token exchange flow for OAuth Security Token Service](/docs/guides/ai-agent-token-exchange/resourceserver/main/) for an example of this entire flow.
 1. The agent directs the user to the consent URL, where the user authenticates and consents to the upstream MCP server. The upstream MCP server returns a refresh token, which Okta stores.
@@ -144,10 +144,10 @@ Realizing the full benefit of Agent Gateway requires the agent to support OAuth 
 | --- | --- |
 | Tools only | MCP resources, prompts, sampling, completion, logging, and roots aren't supported. Upstream MCPs that rely on these capabilities have reduced functionality or break silently when routed through the gateway. |
 | Stateless sessions | Every tool call initiates a new session with the upstream MCP server. MCPs that require session state, such as multi-step workflows, resource subscriptions, and paginated responses, break silently. |
-| Cloud-reachable upstreams only | The gateway relay makes outbound calls from the Okta cloud. Upstream MCP servers that run inside a private network aren't reachable. Examples include servers behind a corporate firewall or in an on-premises data center. The gateway has no way to connect to infrastructure outside of the Okta hosted environment. |
-| OAuth/Bearer auth only | Upstream MCP servers that run inside a private network aren't reachable. Examples include servers behind a corporate firewall or in an on-premises data center. The gateway has no way to connect to infrastructure outside of the Okta hosted environment. |
+| Remote MCP Servers only | The gateway relay makes outbound calls from the Okta cloud. Upstream MCP servers that run inside a private network aren't reachable. Examples include servers behind a corporate firewall or in an on-premises data center. The gateway has no way to connect to infrastructure outside of the Okta hosted environment. |
+| OAuth/Bearer auth only | Upstream MCP servers must accept Bearer tokens issued through OAuth token exchange. Upstreams that require API keys, mTLS, vaulted credentials, or custom header authentication aren't supported. |
 | No real-time token revocation | Revoked agent tokens remain valid at the gateway until they expire naturally. Effective revocation time equals the shorter of the inbound and cached downstream token lifetimes. |
-| Cloud-only deployment | The Agent Gateway is hosted in the Okta Workforce domain. No on-premises, sidecar, or self-hosted deployment is supported. |
+| Cloud-only deployment | The Agent Gateway is hosted in the Okta Workforce domain. You can't run your own copy of the Agent Gateway. |
 | Dynamic Client Registration (DCR) not supported | Agents that rely on DCR for OAuth client registration can't use the gateway without reconfiguration. The recommended alternative is CIMD-based registration or a pre-registered client ID. |
 
 ## Related topics
