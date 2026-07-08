@@ -21,7 +21,7 @@ Configure your AI agent to call tools through Okta Agent Gateway. Agent Gateway 
 #### What you need
 
 - An Okta org that's subscribed to Okta for AI Agents.
-- An Agent Gateway that's been created and activated. See [Create an Agent Gateway](#) (link TBD).
+- An Agent Gateway that's been created and activated. See [Configure an Agent Gateway using the APIs](/docs/guides/??).
 - Your Agent Gateway URL: `https://gateway.{yourOktaDomain}/mcp/servers/{gatewayName}`
 - The OAuth `client_id` assigned to your agent in Okta Universal Directory.
 
@@ -33,11 +33,11 @@ Okta Agent Gateway is an identity-native proxy that sits between AI agents and t
 
 Each Agent Gateway exposes one MCP endpoint. Point any supported agent at that URL. The Agent Gateway handles tool aggregation, identity enforcement, credential injection, and auditing, with no changes to the agent's code.
 
-> **Note**: See the [Okta Agent Gateway](/docs/guides/concept doc here??) concept doc for more detailed information and a diagram of the Agent Gateway authorization flow.
+> **Note**: See the [Okta Agent Gateway](/docs/guides/concept link ??) concept doc for more detailed information and a diagram of the Agent Gateway authorization flow.
 
 ### What your admin provides
 
-Before configuring your agent, an Okta admin has created the Agent Gateway, connected upstream MCP servers, and selected which tools are available. Your job is to then point your agent at the Agent Gateway URL and complete authentication.
+Before you configure your agent, an Okta admin creates the Agent Gateway. The admin also connects upstream MCP servers and selects which tools are available. Your job is to then point your agent at the Agent Gateway URL and complete authentication.
 
 Before you start, get the following from your Okta admin:
 
@@ -51,7 +51,9 @@ Before you start, get the following from your Okta admin:
 
 ### Authentication
 
-Agents authenticate themselves to the Agent Gateway as an OAuth client, identified either by a pre-registered `client_id` or a [Client ID Metadata Document (CIMD)](#client-id-metadata-document-cimd). Most agents obtain a short-lived, Agent Gateway-scoped access token using the [Authorization Code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) grant type. Some platforms instead use a long-lived static bearer token that an admin mints and distributes directly. Either way, the agent presents its token to the Agent Gateway on every tool call. The Agent Gateway never holds the tokens. It brokers downstream credentials at runtime inside Okta instead.
+Agents authenticate themselves to the Agent Gateway as an OAuth client, identified either by a pre-registered `client_id` or a [Client ID Metadata Document (CIMD)](#client-id-metadata-document-cimd). Most agents obtain a short-lived, Agent Gateway-scoped access token using the [Authorization Code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) grant type.
+
+Some platforms instead use a long-lived static bearer token that an admin mints and distributes directly. Either way, the agent presents its token to the Agent Gateway on every tool call. The Agent Gateway never holds the tokens. It brokers downstream credentials at runtime inside Okta instead.
 
 ## How it works
 
@@ -73,7 +75,7 @@ The AI agent identifies itself as an OAuth client using a pre-registered `client
 
 ### Client ID Metadata Document (CIMD)
 
-The platform publishes a vendor CIMD URL, so no per-tenant client provisioning is required. (need to link to CIMD docs - Thomas??)
+The platform publishes a vendor CIMD URL, so no per-tenant client provisioning is required. (need to link to CIMD docs??)
 
 > **Note**: Okta doesn't accept Dynamic Client Registration for Agent Gateway. Platforms that attempt to use Dynamic Client Registration must fall back to a pre-registered `client_id`.
 
@@ -184,10 +186,10 @@ After your agent is connected to Agent Gateway:
 
 - Verify the connection by running a tool call and confirming the response.
 - Review agent activity in the Okta System Log under **AI Agent activity** (admin events).
-- To adjust which tools the agent can call, update the tool selection on the Agent Gateway. See [Manage tool access in Agent Gateway](#) (link to API doc).
+- To adjust which tools the agent can call, update the tool selection on the Agent Gateway. See [Manage tool access in Agent Gateway](link to API doc??).
 - To revoke the agent's access, deactivate the agent-to-agent gateway resource connection in the Okta Admin Console.
 
 ## Related topics
 
-- Okta Agent Gateway (link comes later??)
-- Configure Agent Gateway using the Okta APIs (link comes later??)
+- [Okta Agent Gateway](link to concept doc??)
+- [Configure Agent Gateway using the Okta APIs](link to ??)
