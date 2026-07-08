@@ -4,14 +4,23 @@
   <title>Okta Classic Engine API release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026/</link>
   <description>Recent release notes for Okta Classic Engine API</description>
-  <pubDate>Wed, 01 Jul 2026 12:00:00 GMT</pubDate>
+  <pubDate>Thu, 01 Jan 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Weekly release 2026.07.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-07-1</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026/#weekly-release-2026-07-1</guid>
+      <pubDate>Thu, 01 Jan 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/#bug-fixed-in-2026-07-1">Bug fixed in 2026.07.1</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Monthly release 2026.07.0</title>
       <link>https://developer.okta.com/docs/release-notes/2026/#monthly-release-2026-07-0</link>
       <guid>https://developer.okta.com/docs/release-notes/2026/#monthly-release-2026-07-0</guid>
       <pubDate>Wed, 01 Jul 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/#new-ip-service-available-for-enhanced-dynamic-network-zones">New IP Service available for enhanced dynamic network zones</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#improved-group-member-search-functionality-is-ga-in-production">Improved group member search functionality is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#group-push-support-in-api-integration-actions-apps">Group push support in API Integration Actions apps</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#developer-documentation-updates-in-2026-07-0">Developer documentation updates in 2026.07.0</a>]]></description>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026/#new-ip-service-available-for-enhanced-dynamic-network-zones">New IP Service available for enhanced dynamic network zones</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#improved-group-member-search-functionality-is-ga-in-production">Improved group member search functionality is GA in Production</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#group-push-support-in-api-integration-actions-apps">Group push support in API Integration Actions apps</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#delete-group-push-mappings-in-error-state">Delete group push mappings in ERROR state</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#replace-a-group-rule-api-can-now-update-assigned-groups">Replace a Group Rule API can now update assigned groups</a><br><a href="https://developer.okta.com/docs/release-notes/2026/#developer-documentation-updates-in-2026-07-0">Developer documentation updates in 2026.07.0</a>]]></description>
     </item>
   
 
