@@ -11,6 +11,17 @@ title: Okta Classic Engine API release notes 2026
 
 ## July
 
+### Weekly release 2026.07.1
+<!-- Published on: 2026-07-08T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bug fixed in 2026.07.1](#bug-fixed-in-2026-07-1) | July 8, 2026 |
+
+#### Bug fixed in 2026.07.1
+
+The GET `/apps/{appId}/tokens` endpoint sometimes returned fewer results than the requested `limit` and omitted the `next` link in the `Link` header, even when more tokens existed for the app. (OKTA-1155607)
+
 ### Monthly release 2026.07.0
 <!-- Published on: 2026-07-01T12:00:00Z -->
 
