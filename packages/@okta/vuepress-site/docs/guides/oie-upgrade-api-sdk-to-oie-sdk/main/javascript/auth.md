@@ -28,15 +28,15 @@ The authentication flow for the Identity Engine SDK is similar. However, you mus
 
 #### Identity Engine SDK authentication flow
 
-For the Identity Engine SDK, you typically start the authentication flow with a call to the `idx.authenticate` method. Call it on an `OktaAuth` object, such as `authClient`, with a username and password, or with no parameters at all. See [Identity Engine code options](#identity-engine-sdk-code-options) for more on these approaches. This call returns a status on the transaction object (`transaction.status`) that the app code must handle. If successful (`transaction.status === IdxStatus.SUCCESS`), your app receives access and ID tokens directly in the response. No redirect or third-party cookie access is required.
+For the Identity Engine SDK, you typically start the authentication flow with a call to the `idx.start` method on an `OktaAuth` object, such as `authClient`. Each following call to `idx.proceed` must include a `step` value that names the remediation to run, based on the `nextStep` field of the previous response. See [Identity Engine code options](#identity-engine-sdk-code-options) for more on these approaches. Each call returns a status on the transaction object (`transaction.status`) that the app code must handle. If successful (`transaction.status === IdxStatus.SUCCESS`), your app receives access and ID tokens directly in the response. No redirect or third-party cookie access is required.
 
 See the following code snippet for this example:
 
 ```JavaScript
-const transaction = await authClient.idx.authenticate({
-  username: 'some-username',
-  password: 'some-password',
-});
+let transaction = await authClient.idx.start();
+transaction = await authClient.idx.proceed({ step: 'identify', username: 'some-username' });
+transaction = await authClient.idx.proceed({ step: 'select-authenticator-authenticate', authenticator: 'okta_password' });
+transaction = await authClient.idx.proceed({ step: 'challenge-authenticator', credentials: { passcode: 'some-password' } });
 
 if (transaction.status === IdxStatus.SUCCESS) {
   authClient.tokenManager.setTokens(transaction.tokens); // App receives tokens directly
