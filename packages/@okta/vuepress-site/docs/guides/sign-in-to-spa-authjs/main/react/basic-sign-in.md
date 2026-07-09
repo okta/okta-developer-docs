@@ -39,7 +39,7 @@ Review the React `app.js` file that imports the required libraries and instantia
 ```JavaScript
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { OktaAuth, IdxStatus, urlParamsToObject } from '@okta/okta-auth-js';
+import { OktaAuth, IdxStatus, urlParamsToObject, toRelativeUrl } from '@okta/okta-auth-js';
 import { Security } from '@okta/okta-react';
 import { formTransformer } from './formTransformer';
 import oidcConfig from './config';
@@ -53,12 +53,14 @@ function createOktaAuthInstance() {
 }
 
 const oktaAuth = createOktaAuthInstance();
-const restoreOriginalUri = () => {};
 
 ...
 
 function App() {
   const history = useHistory();
+  const restoreOriginalUri = async (_oktaAuth, originalUri) => {
+    history.replace(toRelativeUrl(originalUri || '/', window.location.origin));
+  };
 
   return (
     <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
@@ -72,14 +74,14 @@ function App() {
 
 ### Start the sign-in transaction
 
-Before you can render a sign-in form, you need an in-progress IDX transaction to drive it. Start one when your component mounts by calling `idx.authenticate()` with no arguments — the response's `nextStep.inputs` tells you which fields to render. For this password-only use case, that's `username` and `password`:
+Before you can render a sign-in form, you need an in-progress IDX transaction to drive it. Start one when your component mounts by calling `idx.start()` with no arguments — the response's `nextStep.inputs` tells you which fields to render. For this password-only use case, that's `username` and `password`:
 
 ```JavaScript
 const [transaction, setTransaction] = useState(null);
 
 useEffect(() => {
   const startTransaction = async () => {
-    const newTransaction = await oktaAuth.idx.authenticate();
+    const newTransaction = await oktaAuth.idx.start();
     setTransaction(newTransaction);
   };
   startTransaction();
@@ -115,7 +117,7 @@ With the pieces above in place, here's the complete `App.jsx` for the password-o
 ```JavaScript
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { OktaAuth, IdxStatus, urlParamsToObject } from '@okta/okta-auth-js';
+import { OktaAuth, IdxStatus, urlParamsToObject, toRelativeUrl } from '@okta/okta-auth-js';
 import { Security } from '@okta/okta-react';
 import { formTransformer } from './formTransformer';
 import oidcConfig from './config';
@@ -129,7 +131,6 @@ function createOktaAuthInstance() {
 }
 
 const oktaAuth = createOktaAuthInstance();
-const restoreOriginalUri = () => {};
 
 function SignInForm() {
   const [transaction, setTransaction] = useState(null);
@@ -137,7 +138,7 @@ function SignInForm() {
 
   useEffect(() => {
     const startTransaction = async () => {
-      const newTransaction = await oktaAuth.idx.authenticate();
+      const newTransaction = await oktaAuth.idx.start();
       setTransaction(newTransaction);
     };
     startTransaction();
@@ -188,6 +189,9 @@ function SignInForm() {
 
 function App() {
   const history = useHistory();
+  const restoreOriginalUri = async (_oktaAuth, originalUri) => {
+    history.replace(toRelativeUrl(originalUri || '/', window.location.origin));
+  };
 
   return (
     <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
