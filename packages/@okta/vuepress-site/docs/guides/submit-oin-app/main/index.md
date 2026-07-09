@@ -174,16 +174,13 @@ The Integrator Free Plan org has no limit on active instances. You can create as
 > **Note:** The steps in this section are for generating one instance to test the **<StackSnippet snippet="protocol-name" inline/>**. <br>
 > If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
 
-<StackSnippet snippet="test-instance" />
+<StackSnippet snippet="test-instance"/>
 
-<StackSnippet snippet="assign-test" />
+<StackSnippet snippet="assign-test"/>
 
 ### Required app instances
 
-The **Required app instances** box shows you the instances detected in your org that are available to test your integration. It also shows you the test instances required for the OIN Submission Tester based on your selected protocols:
-
-* The **CURRENT VERSION** status indicates the instances that you need to test your current integration submission.
-* The **PUBLISHED VERSION** status indicates the instances that you need to test backwards compatibility if you edit a previously published integration. See [Update a published integration with the OIN Wizard](/docs/guides/update-oin-app/).
+<StackSnippet snippet="req-app-instance"/>
 
 ### Application instances for testing
 

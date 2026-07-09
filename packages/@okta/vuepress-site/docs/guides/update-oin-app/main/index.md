@@ -36,7 +36,7 @@ The OIN Wizard currently supports updates for integrations that use the followin
 
 * [API service integration](/docs/guides/oin-api-service-overview/)
 
-* [API Integration Actions](/docs/guides/oin-api-actions/)
+> **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, SCIM 2.0, API service, or IDV integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
 
 > **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, SCIM 2.0, and API service integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
 * Identity Proofing (Identity Verification integration)
