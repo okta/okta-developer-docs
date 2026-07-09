@@ -39,7 +39,6 @@ The OIN Wizard currently supports updates for integrations that use the followin
 > **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, SCIM 2.0, API service, or IDV integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
 
 > **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, SCIM 2.0, and API service integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
-* Identity Proofing (Identity Verification integration)
 
 There are two types of updates you can make to a published OIN integration:
 
@@ -54,7 +53,7 @@ After you successfully test the updated and published versions of your integrati
 > **Note:** Some considerations on this page are specifically for the **<StackSnippet snippet="protocol-name" inline/>**. <br>
 > If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
 
-When you update an integration that's already published, preserve backward compatibility for customer that have installed your integration before your latest update.
+When you update an integration that's already published, test both the updated version and the published version for backward compatibility. The integration version that was previously installed in your customer's org doesn't include new settings from your update. Testing the published version ensures that your integration still works for customers who have already installed it.
 
 Review the following guidelines before you edit and resubmit your configurations:
 
@@ -94,7 +93,6 @@ When you modify only these catalog fields on a published integration, the OIN Wi
 ### Update functional configuration
 
 > **Notes:**</br>
-> This section applies to updates that include functional configuration changes such as SAML settings, SCIM provisioning, or URLs.</br>
 > When you edit your published OIN integration, your previous PUBLISHED status and date are overwritten with the DRAFT status and current date.
 </br><StackSnippet snippet="express-submission-note" inline/>
 
