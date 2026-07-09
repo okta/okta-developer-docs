@@ -24,7 +24,7 @@ If you've a published Single Sign-On (SSO), lifecycle management, provisioning, 
 
 The OIN Wizard currently supports updates for integrations that use the following protocols or tools:
 
-* [OpenID Connect (OIDC)](https://openid.net/connect/)
+* [OpenID Connect (OIDC)](https://openid.net/connect/
 
 * [Security Assertion Markup Language (SAML) 2.0](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html)
 
