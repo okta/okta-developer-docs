@@ -13,5 +13,5 @@
 
     If you only want to test an existing submission, see [Navigate directly to test your integration](#navigate-directly-to-test-your-integration).
 
-    > **Note:** The instructions on this page are for **API service** integrations. <br>
+    > **Note:** The instructions on this page are for **Identity Verification** integrations. <br>
     > If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list on the right.

@@ -1,5 +1,5 @@
 The OIN Wizard checks the following for  Identity Verification submissions:
 
-* All required instances are detected.
-* All required instances are active.
-* All required tests for the updated and backward-compatible instances passed within the last 48 hours.
+* All required instances are created.
+* Required user to be tested on IDV added.
+* All required tests are passed within the past 48 hours.
