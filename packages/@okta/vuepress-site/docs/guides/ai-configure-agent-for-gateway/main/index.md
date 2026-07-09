@@ -20,7 +20,7 @@ Configure your AI agent to call tools through Okta Agent Gateway. Agent Gateway 
 
 #### What you need
 
-- An Okta org that's subscribed to Okta for AI Agents.
+- An Okta org with the Secure AI Virtual MCP Servers feature enabled and an active Okta for AI Agents subscription. See your Okta account team to enable the Secure AI Virtual MCP Servers feature.
 - An Agent Gateway that's been created and activated. See [Configure an Agent Gateway using the APIs](/docs/guides/??).
 - Your Agent Gateway URL: `https://gateway.{yourOktaDomain}/mcp/servers/{gatewayName}`
 - The OAuth `client_id` assigned to your agent in Okta Universal Directory.
@@ -64,6 +64,8 @@ When your agent connects to the Agent Gateway for the first time, the following 
 1. Your agent presents the token to the Agent Gateway on each tool call.
 1. The first time a tool from a specific upstream MCP server is called, you may be prompted to consent to that upstream. After you consent once, subsequent calls to that upstream are silent.
 1. The Agent Gateway handles credential injection to upstream MCP servers. Your agent never holds or sees upstream credentials.
+
+> **Note**: See the [Okta Agent Gateway concept doc](/docs/concepts/agent-gateway/) for a flow diagram of the sequence.
 
 ## Client identity methods
 
