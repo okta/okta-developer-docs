@@ -34,32 +34,30 @@ To migrate your code to the Identity Engine SDK, the authentication flow is very
 
 #### Identity Engine SDK authentication flow for MFA
 
-For the Identity Engine SDK, you generally start the authentication flow with a call to the `idx.authenticate` method on an `OktaAuth` object (for example, `authClient`), using the parameters of username and password, or no parameters at all (see [Identity Engine code options](#identity-engine-sdk-code-options)). This call returns a status on the transaction object (`transaction.status`) of `Idx.status.PENDING` that the application must handle. The `nextStep` parameter included in the response provides details on what data the next call must include. In the MFA instance, recursive calls to the same `idx.authenticate` method require a call with a factor type (for example, email or SMS) that initiates the challenge, and then a follow-up call to verify the challenge.
+For the Identity Engine SDK, you generally start the authentication flow with a call to `idx.start` on an `OktaAuth` object (for example, `authClient`), then drive the flow forward with `idx.proceed` calls, each naming a `step` value (see [Identity Engine code options](#identity-engine-sdk-code-options)). This call returns a status on the transaction object (`transaction.status`) of `IdxStatus.PENDING` that the application must handle. The `nextStep` parameter included in the response provides details on what data the next call must include. In the MFA instance, a `select-authenticator-authenticate` step lets the user choose a factor type (for example, email or SMS) that initiates the challenge, followed by a `challenge-authenticator` step that verifies the challenge.
 
 If successful (`transaction.status === IdxStatus.SUCCESS`), your application receives access and ID tokens with the success response.
 
 See the following code snippet for this example:
 
 ```JavaScript
-const transaction = await authClient.idx.authenticate({
-  username: 'some-username',
-  password: 'some-password',
-});
-if (transaction.status === IdxStatus.PENDING) { } = await authClient.idx.authenticate();
-// gather user inputs (this call should happen in a separate step, for example a form submit handler)
-const {
-  status, // IdxStatus.PENDING
-  nextStep: {
-    inputs, // [{ name: 'authenticator', ... }]
-    options // [{ name: 'email', ... }, ...]
-  }
-}
-} = await authClient.idx.authenticate({ authenticator: 'email' });
+let transaction = await authClient.idx.start();
+transaction = await authClient.idx.proceed({ step: 'identify', username: 'some-username' });
+transaction = await authClient.idx.proceed({ step: 'select-authenticator-authenticate', authenticator: 'okta_password' });
+transaction = await authClient.idx.proceed({ step: 'challenge-authenticator', credentials: { passcode: 'some-password' } });
+
+// transaction
+// {
+//   status,     // IdxStatus.PENDING
+//   nextStep: {
+//     inputs,   // [{ name: 'authenticator', ... }]
+//     options   // [{ name: 'email', ... }, ...]
+//   }
+// }
+// gather user's authenticator choice (this call should happen in a separate step, for example a form submit handler)
+transaction = await authClient.idx.proceed({ step: 'select-authenticator-authenticate', authenticator: { id: '...', methodType: 'email' } });
 // gather verification code from email (this call should happen in a separate step)
-const {
-  status, // IdxStatus.SUCCESS
-  tokens
-} = await authClient.idx.authenticate({ verificationCode: 'xxx' });
+transaction = await authClient.idx.proceed({ step: 'challenge-authenticator', credentials: { passcode: 'xxx' } });
 
 if (transaction.status === IdxStatus.SUCCESS) {
   authClient.tokenManager.setTokens(transaction.tokens); // App receives tokens directly

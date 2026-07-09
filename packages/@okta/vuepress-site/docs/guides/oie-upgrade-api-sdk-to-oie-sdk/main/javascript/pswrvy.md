@@ -30,7 +30,7 @@ authClient.forgotPassword({
 
 #### Identity Engine SDK authentication flow for password recovery
 
-For the Identity Engine SDK, you generally start the password recovery flow with a call to the `idx.recoverPassword` method on an `OktaAuth` object (for example, `authClient)`, using the parameters of username and authenticators or no parameters at all (although these parameters are required in subsequent calls). This call returns a status on the transaction object (`Idx.Status`) that the application code must handle. When finally successful (`IdxStatus.SUCCESS`), your application receives access and ID tokens with the success response. There are other calls prior to that based on the password policy.
+For the Identity Engine SDK, you generally start the password recovery flow with a call to `idx.start` on an `OktaAuth` object (for example, `authClient`), then drive the flow forward with `idx.proceed` calls that name an `actions` or `step` value. This call returns a status on the transaction object (`transaction.status`) that the application code must handle. When finally successful (`IdxStatus.SUCCESS`), your application receives access and ID tokens with the success response. There are other calls prior to that based on the password policy.
 
 See the following code snippet for this example that shows the last call, which includes the user's confirmed new (recovered) password entered in a form on the page:
 
@@ -42,7 +42,9 @@ if (password !== confirmPassword) {
   throw new Error('Passwords do not match');
 }
 
-const transaction = await authClient.idx.recoverPassword({ password });
+let transaction = await authClient.idx.start();
+transaction = await authClient.idx.proceed({ actions: ['currentAuthenticator-recover'] });
+transaction = await authClient.idx.proceed({ step: 'reset-authenticator', credentials: { passcode: password } });
 
 if (transaction.status === IdxStatus.SUCCESS) {
   authClient.tokenManager.setTokens(transaction.tokens);
