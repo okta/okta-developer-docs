@@ -149,6 +149,7 @@ The exception is embedded agents in pure silo mode. These are agents that only a
 | No real-time token revocation | Revoked agent tokens remain valid at the gateway until they expire naturally. Effective revocation time equals the shorter of the inbound and cached downstream token lifetimes. |
 | Cloud-only deployment | The gateway is hosted in the Okta Workforce domain. You can't run your own copy of the gateway. |
 | Dynamic Client Registration (DCR) not supported | Agents that rely on DCR for OAuth 2.0 client registration can't use the gateway without reconfiguration. The recommended alternative is CIMD-based registration or a pre-registered client ID. |
+| MCP protocol only | The gateway calls remote MCP servers, not raw REST or GraphQL APIs. To connect a REST or GraphQL API, wrap it in an MCP server first, then connect the gateway to that server. |
 
 ## Related topics
 
