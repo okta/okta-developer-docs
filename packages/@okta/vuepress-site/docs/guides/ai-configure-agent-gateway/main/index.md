@@ -21,8 +21,8 @@ Agent Gateway is an Okta-secured endpoint that aggregates tools from multiple re
 #### What you need
 
 * An Okta org with the Secure AI Virtual MCP Servers feature enabled and an active Okta for AI Agents subscription. See your Okta account team to enable the Secure AI Virtual MCP Servers feature.
-* At least one [remote MCP server registered in Okta](/docs/guides/okta-mcp-server/), with `ClientAuthSettings` configured and tools discovered.
-* An [MCP client app registered as an OAuth app](/docs/guides/configure-mcp-authentication/main/) in Okta (an app that begins with a `0oa` ID).
+* At least one remote MCP server registered in Okta, with `ClientAuthSettings` configured and tools discovered.
+* An MCP client app registered as an OAuth app in Okta. Dynamic Client Registration isn't supported. The client must be configured as a confidential client using the authorization code flow, which requires a client ID and client secret.
 * A user for testing.
 * The Super Admin role.
 
