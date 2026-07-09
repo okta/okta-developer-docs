@@ -36,6 +36,7 @@ title: Okta Identity Engine API release notes 2026
 | [Agent-to-agent connections is EA in Preview](#agent-to-agent-connections-is-ea-in-preview)| June 17, 2026 |
 | [Register an AI agent API appId parameter deprecated](#register-an-ai-agent-api-appid-parameter-deprecated) | June 17, 2026 |
 | [Improved validation for Create a client authentication settings endpoint](#improved-validation-for-create-a-client-authentication-settings-endpoint) | June 24, 2026 |
+|[Edit catalog info of published integrations without testing](#edit-catalog-info-of-published-integrations-without-testing)||
 | [Developer documentation updates in 2026.07.0](#developer-documentation-updates-in-2026-07-0) | July 1, 2026 |
 | [Bugs fixed in 2026.07.0](#bugs-fixed-in-2026-07-0)| July 1, 2026 |
 
@@ -123,6 +124,10 @@ The `appId` parameter for the Register an AI agent API has been deprecated. Use 
 #### Improved validation for Create a client authentication settings endpoint
 
 Validation for the [Create a client authentication settings endpoint](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/resourceserverclientauthsettings/other/createclientauthsettings) now restricts the `purpose` parameter to a single value. <!-- OKTA-120008 -->
+
+#### Edit catalog info of published integrations without testing
+
+The OIN Wizard now includes an **Edit** > **Catalog Info** path that allows independent software vendors (ISVs) to update details like the app name, description, logo, and support contacts without running tests. While functional modifications like SAML or SCIM changes still require full validation, these catalog information updates are submitted directly for review. See [Update your integration](/docs/guides/update-oin-app/openidconnect/main/#update-your-integration). <!-- OKTA-1148191 -->
 
 #### Developer documentation updates in 2026.07.0
 
