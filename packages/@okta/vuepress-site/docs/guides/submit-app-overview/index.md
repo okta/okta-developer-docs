@@ -13,7 +13,7 @@ If you're an integrator, from an independent software vendor (ISV) or an existin
 
 ## Submission process
 
-Okta introduced a seamless experience to submit Single Sign-On (SSO), provisioning, Entitlement Management, Universal Logout (UL), API service, and Identity Verification (IDV) integrations for OIN publication. This experience enables you to build and test your integration before submission directly from the Admin Console with the [OIN Wizard](/docs/guides/submit-oin-app/). This reduces the tools that you need to build, test, and submit your integration. It also reduces the time needed for the OIN team to review and validate your integration, which shortens the time to publish in the OIN.
+Okta introduced a seamless experience to submit Single Sign-On (SSO), provisioning, Entitlement Management, Universal Logout (UL), API service, and Identity Verification (IDV)integrations for OIN publication. This experience enables you to build and test your integration before submission directly from the Admin Console with the [OIN Wizard](/docs/guides/submit-oin-app/). This reduces the tools that you need to build, test, and submit your integration. It also reduces the time needed for the OIN team to review and validate your integration, which shortens the time to publish in the OIN.
 
 You can also submit updates to a previously published integration in the OIN Wizard.
 
@@ -29,7 +29,7 @@ Before you submit your integration, in either the OIN Wizard or OIN Manager, rev
 
 Consider the following questions to help you choose which pathway to use for submission:
 
-* Are you submitting a new or published SSO, provisioning, Entitlement Management, UL, API service, or Identity Verification (IDV) integrations?
+* Are you submitting a new or published SSO, provisioning, Entitlement Management, UL, API service, and Identity Verification (IDV) integrations?
   * [Use the OIN Wizard](#submission-process-for-sso-and-scim-integrations).
     > **Note:** Published SSO or SCIM integrations that were submitted through the OIN Manager have been moved to the OIN Wizard and appear in the **Your OIN Integrations** dashboard.
 * Are you submitting a new or published Workflows integration?
@@ -149,6 +149,8 @@ Okta accepts integrations that use the following protocols or tools into the OIN
 * [OAuth 2.0](/docs/concepts/oauth-openid/#oauth-2-0) (for Okta management service apps, see [Build an API service integration](/docs/guides/build-api-integration/))
 
 * [API Integration Actions](/docs/guides/oin-api-actions/) in the Workflows Integration Builder
+
+* Identity Proofing (for Identity Verification integrations)
 
 > **Note:** SWA app integrations are no longer accepted for publication in the OIN catalog. However, the OIN team still maintains existing SWA apps.
 
