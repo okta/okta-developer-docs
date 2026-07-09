@@ -45,7 +45,7 @@ There are two types of updates you can make to a published OIN integration:
 
 * Catalog information only - Update your app listing details such as name, logo, description, or contact information without requiring functional configuration changes or testing.
 
-* Functional configuration - Update functional settings such as SAML configurations, SCIM provisioning, URLs, or other integration capabilities. This update type requires testing and backward compatibility verification.
+* Functional configuration - Update functional settings such as SSO configurations, SCIM provisioning, URLs, or other integration capabilities. This update type requires testing and backward compatibility verification.
 
 After you successfully test the updated and published versions of your integration, resubmit your integration to the OIN team. Your integration goes through a [submission review process](/docs/guides/submit-app-overview/#understand-the-submission-review-process) before the updated version is published in the OIN catalog.
 
