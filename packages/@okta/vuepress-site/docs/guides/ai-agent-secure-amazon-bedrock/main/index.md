@@ -5,7 +5,7 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide explains how to add Okta authentication to an Amazon Bedrock AgentCore agent that you've already built. It assumes that you have a functional agent and can edit its code. The focus is on the Okta authentication that you add so that the agent can act on a signed-in user's behalf.
+This guide explains how to secure an Amazon Bedrock AgentCore agent by adding a secure Python wrapper that handles Okta identity verification. It assumes that you have a functional AgentCore agent and can modify its code. By wrapping your agent with this runtime logic, you enable it to perform Okta's two-step token exchange internally and safely call downstream resources on the signed-in user's behalf.
 
 The Okta authentication is a two-step token exchange that's the same for any AI agent, regardless of the platform it runs on. This guide first introduces what the integration needs to do and provides sample code functions that implement the authentication. It then shows the Amazon Bedrock-specific code and configuration that consumes it.
 
@@ -147,6 +147,8 @@ def invoke_bedrock_agent(prompt: str, access_token: str, session_id: str) -> str
             chunks.append(event["chunk"]["bytes"].decode("utf-8"))
     return "".join(chunks)
 ```
+
+> **Note:** Unlike the Azure/AWS wrapper guides, `agent.py` doesn't decode the `id_token` for display claims. Identity in the response comes from the Bedrock agent's own action group, which uses the forwarded `oktaAccessToken` to call an Okta-protected resource (for example, a `/userinfo` call or an MCP server) and returns the user's profile back through the agent's orchestration. If your downstream resource doesn't resolve identity this way, you can pass additional `sessionAttributes` (or a custom prompt template with `promptSessionAttributes`) to surface display claims directly.
 
 Two AWS runtime requirements apply:
 

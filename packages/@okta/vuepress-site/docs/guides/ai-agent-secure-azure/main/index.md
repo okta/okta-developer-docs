@@ -5,7 +5,7 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide shows you how to build a FastAPI app that authenticates users with Okta and calls Azure OpenAI with the signed-in user's verified identity. The app performs Okta's two-step token exchange internally, and deploys to Azure Container Apps.
+This guide shows you how to build a FastAPI app that serves as a secure runtime wrapper for your AI agent. The app acts as the agent's gateway: it authenticates users with Okta, performs Okta's two-step token exchange internally to verify who they are, and then safely forwards their prompts and verified identity to Azure OpenAI. Finally, you will learn how to deploy this containerized agent wrapper to Azure Container Apps.
 
 > **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
 
@@ -24,7 +24,7 @@ This guide shows you how to build a FastAPI app that authenticates users with Ok
 * An [Identity Engine](/docs/concepts/oie-intro/) org with the Okta for AI Agents feature enabled
 * An Azure subscription with Azure OpenAI access in your region
 * The [Azure CLI](https://learn.microsoft.com/cli/azure/) (`az`), installed and authenticated (`az login`)
-* Docker, or access to the Azure Container Registry for building images
+* Docker or access to the Azure Container Registry for building images
 * [Python](https://www.python.org/) 3.10 or later
 
 ---
@@ -72,7 +72,7 @@ The token exchange depends on Okta objects that you configure once per org. Conf
 * A custom scope on the custom authorization server, such as `xaa:read`.
 * Your agent imported into Okta as an AI Agent identity that uses `private_key_jwt` client authentication, with its public key (JWK) registered. Link the OIDC web app, set the custom authorization server, include your custom scope, and activate the agent.
 
-  > **Note:** Okta doesn't retain the agent's private key. Store it in a secrets manager when it's generated, because it's shown only once.
+  > **Note:** Okta doesn't retain the agent's private key. Store it in a secrets manager when it's generated, like Azure Key Vault, because it's shown only once.
 
 * An access policy rule on the custom authorization server that enables the JWT bearer grant type (`urn:ietf:params:oauth:grant-type:jwt-bearer`), adds the AI Agent as an allowed client, and includes the audience, the custom scope, and a user or group condition.
 
@@ -220,7 +220,7 @@ def ask_llm(prompt: str, user_claims: dict, access_token: str) -> str:
 
 ## Wire it into the FastAPI entry point
 
-In your app's entry point, call the two token exchange functions in order, decode the user's identity claims from the `id_token`, and then call Azure OpenAI. The following `main.py` imports the reusable token exchange module and adds only the FastAPI-specific wiring:
+In your app's entry point, call the two token exchange functions in order, decode the user's identity claims from the `id_token`, and then call Azure OpenAI. The following example `main.py` imports the reusable token exchange module and adds only the FastAPI-specific wiring:
 
 ```python
 import jwt
@@ -339,8 +339,8 @@ A successful response appears as follows and confirms the full round trip:
 ```json
 {
   "ok": true,
-  "answer": "You are Jane Doe, and you're signed in with your Okta account (jane.doe@example.com). How can I help you today?",
-  "user": "jane.doe@example.com",
+  "answer": "You are Jessie Smith, and you're signed in with your Okta account (jessie.smith@example.com). How can I help you today?",
+  "user": "jessie.smith@example.com",
   "access_token_prefix": "eyJraWQiOiI..."
 }
 ```

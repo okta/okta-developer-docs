@@ -5,7 +5,7 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide shows you how to secure an AWS Bedrock Agent with Okta authentication. Your calling app performs Okta's two-step token exchange, then invokes the Bedrock Agent with the access token and user identity passed as session attributes. Action group Lambda functions read the token from session attributes and use it to call Okta-protected APIs on the signed-in user's behalf.
+This guide shows you how to secure an AWS Bedrock Agent with Okta authentication by building a Python calling application that acts as a secure orchestrator. Your application performs Okta's two-step token exchange internally, and then invokes the Bedrock Agent while securely passing the resulting access token and user identity as session attributes.
 
 > **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
 
@@ -22,8 +22,8 @@ This guide shows you how to secure an AWS Bedrock Agent with Okta authentication
 #### What you need
 
 * An [Identity Engine](/docs/concepts/oie-intro/) org with the Okta for AI Agents feature enabled
-* An AWS account with Amazon Bedrock available in your region, and foundation model access approved
-* The [AWS CLI](https://aws.amazon.com/cli/), configured (`aws configure sso`, or an access key and secret)
+* An AWS account with Amazon Bedrock available in your region and foundation model access approved
+* The configured [AWS CLI](https://aws.amazon.com/cli/), (`aws configure sso` or an access key and secret)
 * [Python](https://www.python.org/) 3.10 or later
 
 ---
@@ -135,11 +135,13 @@ Foundation models aren't enabled by default. If your model shows as unavailable:
        user_email = event.get("sessionAttributes", {}).get("user_email")
 
        resp = requests.get(
-           "https://yourorg.okta.com/api/v1/users/me",
+           "https://yourOrg.okta.com/api/v1/users/me",
            headers={"Authorization": f"Bearer {access_token}"},
        )
        # ...
    ```
+
+    > **Note:** Ensure your Lambda function has outbound internet access (through a NAT Gateway or secure route) to reach your Okta organization's API endpoints.
 
 1. Click **Prepare** after any change, before testing.
 1. Note the **Agent ID** and create an **Alias**. Note the **Alias ID**.
@@ -252,7 +254,7 @@ def invoke_bedrock_agent(prompt: str, user_claims: dict, access_token: str) -> s
 
 ## Wire it into an entry point
 
-In your app's entry point, call the two token exchange functions in order, decode the user's identity claims from the `id_token`, and then invoke the Bedrock Agent. The following `main.py` imports the reusable token exchange module and adds only the AWS-specific wiring:
+In your app's entry point, call the two token exchange functions in order, decode the user's identity claims from the `id_token`, and then invoke the Bedrock Agent. The following example `main.py` imports the reusable token exchange module and adds only the AWS-specific wiring:
 
 ```python
 import json
@@ -315,7 +317,7 @@ A successful response appears as follows and confirms the full round trip:
 ```json
 {
   "ok": true,
-  "user": "Jane Doe",
+  "user": "Jessie Smith",
   "access_token_prefix": "eyJraWQiOiI...",
   "answer": "Hello! How can I help you today?"
 }

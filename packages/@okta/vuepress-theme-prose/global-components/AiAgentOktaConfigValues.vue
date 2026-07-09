@@ -29,12 +29,12 @@
         <tr>
           <td><code>AGENT_CLIENT_ID</code></td>
           <td>Client ID of the imported third-party AI Agent, for example <code>wlp9k6...</code></td>
-          <td><strong>Directory</strong> &gt; <strong>AI Agents</strong> &gt; <em>(agent)</em></td>
+          <td><strong>Directory</strong> &gt; <strong>AI Agents</strong> &gt; (yourAgent) </td>
         </tr>
         <tr>
           <td><code>AGENT_KEY_ID</code></td>
           <td><code>kid</code> of the public JWK registered on the third-party AI agent</td>
-          <td><strong>Directory</strong> &gt; <strong>AI Agents</strong> &gt; <em>(agent)</em> &gt; <strong>Credentials</strong></td>
+          <td><strong>Directory</strong> &gt; <strong>AI Agents</strong> &gt; (yourAgent) &gt; <strong>Credentials</strong></td>
         </tr>
         <tr>
           <td><code>AGENT_PRIVATE_KEY_JWK</code></td>
