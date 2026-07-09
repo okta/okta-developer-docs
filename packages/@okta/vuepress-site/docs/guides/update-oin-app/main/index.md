@@ -51,34 +51,12 @@ After you successfully test the updated and published versions of your integrati
 
 ## Update integration considerations
 
-### Update catalog information only
-
-Update catalog information independently to keep your listing accurate without requiring engineering resources.
-
-To edit the catalog information directly, go to the **Home** page, locate the **Your apps** section, click **Edit** next to the app you want to modify, and select **Catalog Info**. Use this streamlined workflow to update the following catalog fields:
-
-- App name
-- Logo
-- App description
-- Contact information
-
-When you modify only the preceding catalog fields on a published integration, the OIN Wizard bypasses configuration and testing. A confirmation dialog appears for you to submit your changes. Your submission goes directly to the OIN team. Your app displays an in-review status in **Your apps** section. Your changes are tracked through an automated operations ticket and deployed upon OIN Ops team approval. The live version remains active in the public OIN catalog during this review.
-
-If your update includes changes to functional configurations such as SAML settings, SCIM provisioning, or URLs, you must select the **Edit** >  **Integration** option instead of **Edit** > **Catalog Info** and complete the full end-to-end testing Workflow.
-
-### Functional configuration considerations
-
-To update functional settings for your published app, you can use either of the following navigation paths:
-
-- Go to the **Home** page, locate the **Your apps** section, click **Edit** next to the app, and select **Integration**.
-- Go to **Applications > Your OIN Integrations**, click your published integration, and select the standard editing option.
-
-Review the following guidelines before you edit and resubmit your configurations:
-
 > **Note:** Some considerations on this page are specifically for the **<StackSnippet snippet="protocol-name" inline/>**. <br>
 > If you want to change the instructions that you see on this page, select a different option from the **Instructions for** dropdown list.
 
-When you update an integration that's already published, be mindful to preserve backward compatibility for customer that have installed your integration before your latest update.
+When you update an integration that's already published, preserve backward compatibility for customer that have installed your integration before your latest update.
+
+Review the following guidelines before you edit and resubmit your configurations:
 
 * If you modify the **Name** (`name`) property of your [tenant settings](/docs/guides/submit-oin-app/openidconnect/main/#tenant-settings), Okta removes the original variable and creates a variable with your updated name. This action negatively impacts your existing customers if you use the original variable in your integration dynamic properties.
 
@@ -90,10 +68,7 @@ When you update an integration that's already published, be mindful to preserve 
 
 ## Update your integration
 
-> **Notes:**
->- This section applies only to functional updates. For updating catalog information only, see, [Update catalog information only](#update-catalog-information-only).<br>
->- When you edit your published OIN integration, your previous PUBLISHED status and date are overwritten with the DRAFT status and current date.
-</br><StackSnippet snippet="express-submission-note" inline/>
+### Update catalog information only
 
 Update catalog information independently to keep your listing accurate without requiring engineering resources or going through the full testing workflow.
 
@@ -114,9 +89,12 @@ Use this streamlined workflow to update the following catalog fields:
 
 When you modify only these catalog fields on a published integration, the OIN Wizard bypasses configuration and testing. A confirmation dialog appears for you to submit your changes. Your submission goes directly to the OIN team. Your app displays an in-review status in **Your apps** section. Your changes are tracked through an automated operations ticket and deployed upon OIN Ops team approval. The live version remains active in the public OIN catalog during this review.
 
+> **Important:** If your update includes changes to functional configurations such as SAML settings, SCIM provisioning, or URLs, you must select **Edit** > **Integration** instead and complete the full end-to-end testing workflow described in the **Update functional configuration** section below.
+
 ### Update functional configuration
 
 > **Notes:**</br>
+> This section applies to updates that include functional configuration changes such as SAML settings, SCIM provisioning, or URLs.</br>
 > When you edit your published OIN integration, your previous PUBLISHED status and date are overwritten with the DRAFT status and current date.
 </br><StackSnippet snippet="express-submission-note" inline/>
 
