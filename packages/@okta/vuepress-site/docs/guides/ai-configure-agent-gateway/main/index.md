@@ -8,7 +8,7 @@ layout: Guides
 
 Agent Gateway is an Okta-secured endpoint that aggregates tools from multiple remote MCP servers and enforces identity and policy on every tool call. This guide walks you through the API steps to configure a virtual MCP server (vMCP). After you finish, an MCP client, such as Claude Code or Agentforce, can connect to the vMCP and invoke tools.
 
-> **Note:** This guide covers the admin steps to configure Agent Gateway using the Okta API. For instructions on connecting your agent to an Agent Gateway that an admin already set up, see [Configure an AI agent for Agent Gateway](/docs/guides/ai-configure-agent-for-gateway/main/index.md). For the Admin Console steps, see [get topic name and alias from Barbara]().
+> **Note:** This guide covers the steps to configure Agent Gateway using the Okta API. For instructions on connecting your agent to an Agent Gateway that is already set up, see [Configure an AI agent for Agent Gateway](/docs/guides/ai-configure-agent-for-gateway/main/index.md).
 
 ---
 
@@ -17,11 +17,12 @@ Agent Gateway is an Okta-secured endpoint that aggregates tools from multiple re
 * Register a virtual MCP server (vMCP) and link it to a custom authorization server.
 * Connect the vMCP to a remote MCP server and expose specific tools.
 * Activate the gateway so that agents can invoke tools.
+* Delete a vMCP server.
 
 #### What you need
 
 * An Okta org with an active Okta for AI Agents subscription. Virtual MCP servers are a beta feature. Contact Okta Support to enable access.
-* At least one remote MCP server registered in Okta, with `ClientAuthSettings` configured and tools discovered.
+* At least one [remote MCP server registered](/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/registermcpserver) in Okta with [tools discovered](/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/startmcpserverdiscovery).
 * A user for testing.
 * The Super Admin role.
 
@@ -71,8 +72,8 @@ Poll the `Location` URL until the status is `COMPLETED` or `FAILED`. See [Poll f
 When the operation completes, retrieve your vMCP to get its ID and ORN for subsequent steps:
 
 ```http
-GET /workload-principals/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k
-Authorization: Bearer {token}
+  GET /workload-principals/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k
+  Authorization: Bearer {token}
 ```
 
 ```json
@@ -146,7 +147,7 @@ Content-Type: application/json
 }
 ```
 
-The `from.clientOrn` value in this example references the MCP client app's OAuth app ORN. If you're delegating to an AI agent that you registered through the Agent Registration API instead of a plain OAuth app, reference the agent's ORN instead (`orn:okta:directory:{orgId}:workload-principals:ai-agents:{agentId}`).
+The `from.clientOrn` value in this example references the MCP client app's OAuth 2.0 app ORN. If you're delegating to an AI agent that you registered through the Agent Registration API instead of a plain OAuth app, reference the agent's ORN instead (`orn:okta:directory:{orgId}:workload-principals:ai-agents:{agentId}`).
 
 ### Response
 
@@ -247,8 +248,8 @@ The connection must be active for tool calls to succeed at runtime.
 #### Request
 
 ```http
-POST /workload-principals/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/connections/mcn9i0j1k2l3m4n5o6p7/lifecycle/activate
-Authorization: Bearer {token}
+  POST /workload-principals/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/connections/mcn9i0j1k2l3m4n5o6p7/lifecycle/activate
+  Authorization: Bearer {token}
 ```
 
 #### Response
@@ -324,8 +325,8 @@ Content-Type: application/json
 #### Response
 
 ```http
-202 Accepted
-Location: https://{yourOktaDomain}/workload-principals/api/v1/operations/op-1a2b3c4d
+  202 Accepted
+  Location: https://{yourOktaDomain}/workload-principals/api/v1/operations/op-1a2b3c4d
 ```
 
 This is an asynchronous operation. Poll the `Location` URL for status. See [Poll for operation status](#poll-for-operation-status).
@@ -337,15 +338,15 @@ Activating the vMCP makes it live. The gateway only serves `ACTIVE` vMCPs, so th
 ### Request
 
 ```http
-POST /workload-principals/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/lifecycle/activate
-Authorization: Bearer {token}
+  POST /workload-principals/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/lifecycle/activate
+  Authorization: Bearer {token}
 ```
 
 ### Response
 
 ```http
-202 Accepted
-Location: https://{yourOktaDomain}/workload-principals/api/v1/operations/op-5a6b7c8d
+  202 Accepted
+  Location: https://{yourOktaDomain}/workload-principals/api/v1/operations/op-5a6b7c8d
 ```
 
 Poll the `Location` URL for status. When the operation completes with `"status": "COMPLETED"`, your gateway is live and agents can connect.
@@ -354,18 +355,18 @@ Poll the `Location` URL for status. When the operation completes with `"status":
 
 Several steps in this guide return `202 Accepted` with a `Location` header that points to an operation. Use the following requests to check whether the operation completed.
 
-Use the following request for workload-principal operations, such as [creating](#create-a-virtual-mcp-server), [activating](#activate-the-virtual-mcp-server), or [deleting](#delete-the-virtual-mcp-server) the vMCP, or [replacing a connection's tools](#replace-all-tools-for-a-connection):
+Use the following request for workload-principal operations, such as [creating](#create-a-virtual-mcp-server), [activating](#activate-the-virtual-mcp-server), [deleting](#delete-the-virtual-mcp-server) the vMCP, or [replacing a connection's tools](#replace-all-tools-for-a-connection):
 
 ```http
-GET /workload-principals/api/v1/operations/{operationId}
-Authorization: Bearer {token}
+  GET /workload-principals/api/v1/operations/{operationId}
+  Authorization: Bearer {token}
 ```
 
 Use the following request for resource server operations, such as [linking the authorization server](#link-the-custom-authorization-server-to-the-virtual-mcp-server):
 
 ```http
-GET /resource-servers/api/v1/operations/{operationId}
-Authorization: Bearer {token}
+  GET /resource-servers/api/v1/operations/{operationId}
+  Authorization: Bearer {token}
 ```
 
 The following examples show the possible responses. Possible `status` values are `SCHEDULED`, `IN_PROGRESS`, `COMPLETED`, and `FAILED`.
@@ -446,8 +447,8 @@ Deleting removes the vMCP registration and its `WorkloadPrincipal` identity enti
 The vMCP must be in `INACTIVE` status before you can delete it. If it's `ACTIVE`, deactivate it first:
 
 ```http
-POST /workload-principals/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/lifecycle/deactivate
-Authorization: Bearer {token}
+  POST /workload-principals/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/lifecycle/deactivate
+  Authorization: Bearer {token}
 ```
 
 Deactivating returns the same `202 Accepted` and `Location` pattern as [activating](#activate-the-virtual-mcp-server) the vMCP. Poll until the operation completes and the vMCP's status is `INACTIVE`.
@@ -455,23 +456,23 @@ Deactivating returns the same `202 Accepted` and `Location` pattern as [activati
 ### Request
 
 ```http
-DELETE /workload-principals/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k
-Authorization: Bearer {token}
+  DELETE /workload-principals/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k
+  Authorization: Bearer {token}
 ```
 
 ### Response
 
 ```http
-202 Accepted
-Location: https://{yourOktaDomain}/workload-principals/api/v1/operations/op-9f8e7d6c
+  202 Accepted
+  Location: https://{yourOktaDomain}/workload-principals/api/v1/operations/op-9f8e7d6c
 ```
 
-This is an asynchronous operation. Poll the `Location` URL for status. See [Poll for operation status](#poll-for-operation-status). Once the operation completes, the gateway URL stops resolving, and any remaining connections and delegation links for this vMCP are no longer usable.
+This is an asynchronous operation. Poll the `Location` URL for status. See [Poll for operation status](#poll-for-operation-status). After the operation completes, the gateway URL stops resolving, and any remaining connections and delegation links for this vMCP are no longer usable.
 
 ## Next steps
 
 Complete the following tasks after you activate the gateway:
 
-* Give your developers the gateway URL and client credentials so that they can configure their agents. See *Connect your agent to Okta Agent Gateway*.
+* Give your developers the gateway URL and client credentials so that they can configure their agents. See [Configure an AI agent for Agent Gateway](/docs/guides/ai-configure-agent-for-gateway/main/).
 * Review administrative actions in the Okta System Log.
-* To revoke a specific agent's or app's access, delete its delegation link (`DELETE /workload-principals/api/v1/delegation-links/{delegationLinkId}`). This takes effect immediately for new token exchanges; tokens already issued remain valid until they expire. To cut off access to a specific remote MCP server for everyone using the gateway, deactivate that resource connection instead.
+* To revoke a specific agent's or app's access, delete its delegation link (`DELETE /workload-principals/api/v1/delegation-links/{delegationLinkId}`). This takes effect immediately for new token exchanges. Tokens already issued remain valid until they expire. To cut off access to a specific remote MCP server for everyone using the gateway, deactivate that resource connection instead.
