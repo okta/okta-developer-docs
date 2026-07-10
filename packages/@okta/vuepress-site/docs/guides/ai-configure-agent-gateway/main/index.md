@@ -21,7 +21,7 @@ Agent Gateway is an Okta-secured endpoint that aggregates tools from multiple re
 
 #### What you need
 
-* An Okta org with an active Okta for AI Agents subscription. Virtual MCP servers are a beta feature. Contact Okta Support to enable access.
+* An Okta org with an active Okta for AI Agents subscription. Virtual MCP servers is a Release feature. Contact Okta Support to enable access.
 * At least one [remote MCP server registered](/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/registermcpserver) in Okta with [tools discovered](/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/startmcpserverdiscovery).
 * A user for testing.
 * The Super Admin role.
@@ -433,7 +433,7 @@ After you complete all the preceding steps, the following sequence occurs when a
 1. The agent obtains an access token from the custom authorization server through authorization code + PKCE.
 1. The agent presents the token to the gateway and establishes an MCP session.
 1. The gateway validates the token against the linked custom authorization server and checks that the vMCP is active.
-1. On `tools/call`, the gateway initiates an OAuth STS token exchange with the Okta org authorization server.
+1. On `tools/call`, the gateway initiates an OAuth Security Token Service token exchange with the Okta org authorization server.
 1. Okta validates the delegation link and the resource connection.
 1. If this is the user's first time calling a tool from a specific remote server, an `interaction_required` response prompts the user to consent. After consent, subsequent calls are silent.
 1. The gateway obtains the downstream credential, injects it into the outbound call, and proxies the request to the remote MCP server.
