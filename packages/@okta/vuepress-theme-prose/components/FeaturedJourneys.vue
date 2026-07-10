@@ -47,7 +47,7 @@ export default {
       journeys: [
         {
           title: "Prepare to upgrade to Okta Identity Engine",
-          description: "Audit your Classic Engine setup, map integration points, and test your environment so your org is ready for the Production upgrade.",
+          description: "Audit your Classic Engine setup, map integration points, and test your environment so that your org is ready for the Production upgrade.",
           link: "/docs/journeys/OCI-prepare-upgrade-oie/main/",
           icon: "/img/identity-governance-icon.svg",
           iconDark: "/img/dark-identity-governance-icon.svg",
