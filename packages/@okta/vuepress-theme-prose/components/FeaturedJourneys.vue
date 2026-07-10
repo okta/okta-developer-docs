@@ -46,6 +46,13 @@ export default {
     return {
       journeys: [
         {
+          title: "Prepare to upgrade to Okta Identity Engine",
+          description: "Audit your Classic Engine setup, map integration points, and test your environment so that your org is ready for the Production upgrade.",
+          link: "/docs/journeys/OCI-prepare-upgrade-oie/main/",
+          icon: "/img/identity-governance-icon.svg",
+          iconDark: "/img/dark-identity-governance-icon.svg",
+        },
+        {
           title: "Sign users in through your web app",
           description: "Learn the best way to securely sign users in and out of your app with Okta. This includes managing tokens and maintaining user sessions.",
           link: "/docs/journeys/OCI-web-sign-in/main/",
@@ -58,13 +65,6 @@ export default {
           link: "/docs/journeys/OCI-branding/main/",
           icon: "/img/your-brand-icon.svg",
           iconDark: "/img/dark-your-brand-icon.svg",
-        },
-        {
-          title: "Add a sign-up form to your web app",
-          description: "Add a registration form to your web app and automatically add new users to your Okta directory when they register.",
-          link: "/docs/journeys/OCI-web-sign-up/main/",
-          icon: "/img/web-app-sign-up-icon.svg",
-          iconDark: "/img/dark-web-app-sign-up-icon.svg",
         },
       ],
     };
