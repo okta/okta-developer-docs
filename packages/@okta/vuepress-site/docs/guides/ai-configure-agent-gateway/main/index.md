@@ -20,9 +20,8 @@ Agent Gateway is an Okta-secured endpoint that aggregates tools from multiple re
 
 #### What you need
 
-* An Okta org with the Secure AI Virtual MCP Servers feature enabled and an active Okta for AI Agents subscription. See your Okta account team to enable the Secure AI Virtual MCP Servers feature.
+* An Okta org with an active Okta for AI Agents subscription. Virtual MCP servers are a beta feature. Contact Okta Support to enable access.
 * At least one remote MCP server registered in Okta, with `ClientAuthSettings` configured and tools discovered.
-* An MCP client app registered as an OAuth app in Okta. Dynamic Client Registration isn't supported. The client must be configured as a confidential client using the authorization code flow, which requires a client ID and client secret.
 * A user for testing.
 * The Super Admin role.
 
@@ -142,12 +141,18 @@ Content-Type: application/json
     "tokenType": "ACCESS_TOKEN"
   },
   "to": {
-    "resourceOrn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:resource-servers:virtual-mcp:vms1aB2cD3eF4gH5iJ6k"
+    "resourceOrn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:workload-principals:virtual-mcp:wlp1aB2cD3eF4gH5iJ6k"
   }
 }
 ```
 
+The `from.clientOrn` value in this example references the MCP client app's OAuth app ORN. If you're delegating to an AI agent that you registered through the Agent Registration API instead of a plain OAuth app, reference the agent's ORN instead (`orn:okta:directory:{orgId}:workload-principals:ai-agents:{agentId}`).
+
 ### Response
+
+```http
+201 Created
+```
 
 ```json
 {
@@ -158,7 +163,7 @@ Content-Type: application/json
     "tokenType": "ACCESS_TOKEN"
   },
   "to": {
-    "resourceOrn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:resource-servers:virtual-mcp:vms1aB2cD3eF4gH5iJ6k",
+    "resourceOrn": "orn:okta:directory:00o1gjjp4jsdR3Sww4x7:workload-principals:virtual-mcp:wlp1aB2cD3eF4gH5iJ6k",
     "authorizationServerOrn": "orn:okta:idp:00o11edPwGqbUrsDm0g4:authorization_servers:aus5rb5mt2H3d1TJd0h7"
   },
   "_links": {
@@ -173,7 +178,7 @@ Content-Type: application/json
 
 ## Create a connection to a remote MCP server
 
-A resource connection authorizes the gateway to obtain tokens for a remote MCP server at runtime. Create one connection per remote MCP server, and then activate each connection before tool calls can succeed.
+A resource connection authorizes the gateway to obtain tokens for a remote MCP server at runtime. Create one connection per remote MCP server, and then activate each connection before tool calls can succeed. Okta currently supports only `STS_ACCESS_TOKEN` connections to `MCP_SERVER` resources.
 
 ### Create the connection
 
@@ -188,14 +193,17 @@ Content-Type: application/json
   "connectionType": "STS_ACCESS_TOKEN",
   "resource": {
     "orn": "orn:okta:idp:00o1n8sbwArJ7OQRw406:client_auth_settings:rsc2c8xwvBn4h2Ry50g7"
-  },
-  "resourceIndicator": "https://mcp.example.com"
+  }
 }
 ```
 
-The `resource.orn` value references the `ClientAuthSettings` record for the remote MCP server. Use the same `ClientAuthSettings` record that tool discovery used, because a different one can cause runtime failures.
+The `resource.orn` value references the `ClientAuthSettings` record for the remote MCP server. Use the same `ClientAuthSettings` record that tool discovery used, because a different one can cause runtime failures. Okta infers `resourceIndicator` from that resource automatically, so you don't need to send it. To override it later, send a `PATCH` request to the connection.
 
 #### Response
+
+```http
+201 Created
+```
 
 ```json
 {
@@ -223,17 +231,14 @@ The `resource.orn` value references the `ClientAuthSettings` record for the remo
   "_links": {
     "self": {
       "href": "https://{yourOktaDomain}/workload-principals/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/connections/mcn9i0j1k2l3m4n5o6p7"
-    },
-    "capabilities": {
-      "href": "https://{yourOktaDomain}/workload-principals/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/connections/mcn9i0j1k2l3m4n5o6p7/capabilities"
     }
   }
 }
 ```
 
-> **Note:** The `_links.capabilities` URL points to the endpoint that you use in [Add tools](#add-tools) to add tools from this connection.
-
 Repeat this step for each remote MCP server that you want to connect to this gateway.
+
+To change a connection later, send a `PATCH` request to the same connection URL. Okta supports updating only the `resourceIndicator` field.
 
 ### Activate the connection
 
@@ -252,7 +257,7 @@ Returns `200 OK` with the updated connection object, which includes `"status": "
 
 ## Add tools
 
-Define which tools from each remote MCP server are exposed through the vMCP. Agents only see the tools that you select here. You can add tools one at a time or replace the entire set for a connection at once.
+Define which tools from each remote MCP server are exposed through the vMCP. Agents only see the tools that you select here. Okta manages capabilities per connection, so you add or replace tools for one connection at a time. You can add tools one at a time or replace the entire set for a connection at once.
 
 ### Add a single tool
 
@@ -292,7 +297,7 @@ The `status` field indicates whether the tool still exists on the remote server.
 
 ### Replace all tools for a connection
 
-To set the complete tool list for a connection in one call, use `PUT`. Okta removes any tools that you don't include in the request.
+To set the complete tool list for a connection in one call, use `PUT`. Okta removes any tool for that connection that you don't include in the request. Tools on other connections aren't affected.
 
 #### Request
 
@@ -320,7 +325,7 @@ Content-Type: application/json
 
 ```http
 202 Accepted
-Location: https://{yourOktaDomain}/resource-servers/api/v1/operations/op-1a2b3c4d
+Location: https://{yourOktaDomain}/workload-principals/api/v1/operations/op-1a2b3c4d
 ```
 
 This is an asynchronous operation. Poll the `Location` URL for status. See [Poll for operation status](#poll-for-operation-status).
@@ -349,14 +354,14 @@ Poll the `Location` URL for status. When the operation completes with `"status":
 
 Several steps in this guide return `202 Accepted` with a `Location` header that points to an operation. Use the following requests to check whether the operation completed.
 
-Use the following request for vMCP operations, such as [creating](#create-a-virtual-mcp-server) or [activating](#activate-the-virtual-mcp-server) the vMCP:
+Use the following request for workload-principal operations, such as [creating](#create-a-virtual-mcp-server), [activating](#activate-the-virtual-mcp-server), or [deleting](#delete-the-virtual-mcp-server) the vMCP, or [replacing a connection's tools](#replace-all-tools-for-a-connection):
 
 ```http
 GET /workload-principals/api/v1/operations/{operationId}
 Authorization: Bearer {token}
 ```
 
-Use the following request for resource server operations, such as [linking the authorization server](#link-the-custom-authorization-server-to-the-virtual-mcp-server) or [replacing a connection's tools](#replace-all-tools-for-a-connection):
+Use the following request for resource server operations, such as [linking the authorization server](#link-the-custom-authorization-server-to-the-virtual-mcp-server):
 
 ```http
 GET /resource-servers/api/v1/operations/{operationId}
@@ -434,10 +439,39 @@ After you complete all the preceding steps, the following sequence occurs when a
 
 Only the tools that you selected in [Add tools](#add-tools) are reachable.
 
+## Delete the virtual MCP server
+
+Deleting removes the vMCP registration and its `WorkloadPrincipal` identity entirely. This is irreversible.
+
+The vMCP must be in `INACTIVE` status before you can delete it. If it's `ACTIVE`, deactivate it first:
+
+```http
+POST /workload-principals/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/lifecycle/deactivate
+Authorization: Bearer {token}
+```
+
+Deactivating returns the same `202 Accepted` and `Location` pattern as [activating](#activate-the-virtual-mcp-server) the vMCP. Poll until the operation completes and the vMCP's status is `INACTIVE`.
+
+### Request
+
+```http
+DELETE /workload-principals/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k
+Authorization: Bearer {token}
+```
+
+### Response
+
+```http
+202 Accepted
+Location: https://{yourOktaDomain}/workload-principals/api/v1/operations/op-9f8e7d6c
+```
+
+This is an asynchronous operation. Poll the `Location` URL for status. See [Poll for operation status](#poll-for-operation-status). Once the operation completes, the gateway URL stops resolving, and any remaining connections and delegation links for this vMCP are no longer usable.
+
 ## Next steps
 
 Complete the following tasks after you activate the gateway:
 
 * Give your developers the gateway URL and client credentials so that they can configure their agents. See *Connect your agent to Okta Agent Gateway*.
 * Review administrative actions in the Okta System Log.
-* To revoke an agent's access, deactivate the resource connection between the agent and the gateway. This takes effect immediately for new tool calls; existing tokens remain valid until they expire.
+* To revoke a specific agent's or app's access, delete its delegation link (`DELETE /workload-principals/api/v1/delegation-links/{delegationLinkId}`). This takes effect immediately for new token exchanges; tokens already issued remain valid until they expire. To cut off access to a specific remote MCP server for everyone using the gateway, deactivate that resource connection instead.
