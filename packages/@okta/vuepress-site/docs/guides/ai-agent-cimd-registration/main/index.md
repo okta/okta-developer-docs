@@ -19,12 +19,8 @@ Learn how to register an AI agent's OAuth client with a Client ID Metadata Docum
 
 #### What you need
 
-- An Okta org that has CIMD-based AI agent registration enabled.
-<!-- DRAFT: Confirm the exact Admin Console feature name and whether enablement is self-service (Settings >
-     Features) or requires Okta Support, then match the phrasing in ea-ai-agent-token-exchange's "What you
-     need" section. Internal flag names for reference, do not publish: CIMD_CLIENT_METADATA_DOCUMENT,
-     AI_AGENT_CIMD_REGISTRATION. -->
-- An Okta admin account with the super admin role.
+- An Okta org that has CIMD-based AI agent registration enabled
+- An Okta admin account with the super admin role
 - A CIMD metadata document that you host, or that your agent vendor hosts, at an HTTPS URL you control. See [CIMD metadata document requirements](#cimd-metadata-document-requirements).
 
 ---
@@ -35,7 +31,7 @@ A CIMD lets an OAuth client identify itself with a URL instead of a static, pre-
 
 For AI agents, CIMD replaces bring-your-own-key (BYOK) registration. With BYOK, the agent operator registers a public key with Okta through the API, and rotating that key requires another Okta API call. With CIMD, the agent operator rotates keys on their own infrastructure. Okta picks up the change automatically the next time the agent requests a token. The agent operator doesn't need to make an Okta API call.
 
-> **Note:** You set `oauthClient.type` when you create the AI agent, and you can't change it afterward. To move an agent from BYOK to CIMD, create a new agent. You can't convert an existing agent in place.
+> **Note:** You set `oauthClient.type` when you create the AI agent, and you can't change it afterward. To move an agent from BYOK to CIMD, create an agent. You can't convert an existing agent in place.
 
 ## CIMD metadata document requirements
 
@@ -79,7 +75,7 @@ Okta returns the created agent with a `STAGED` status. In the response, the `oau
 }
 ```
 
-> **Note:** If you register an AI agent with a CIMD client through the API, the Admin Console's Credentials tab won't show it. The tab currently lists only three other registration methods, with no indication that an agent uses CIMD. It doesn't mean that registration failed.
+> **Note:** If you register an AI agent with a CIMD client through the API, the Admin Console's Credentials tab doesn't show it. The tab currently lists only three other registration methods, with no indication that an agent uses CIMD. It doesn't mean that registration failed.
 
 CIMD client ID matching is exact-match only. Okta doesn't support pattern or regex matching for CIMD clients.
 
@@ -98,7 +94,7 @@ For example, [Okta Agent Gateway](#see-also) uses this to connect third-party ag
 <!-- DRAFT: Diagram not yet created. File an InfoDev UX Design Request (clone OKTA-1125851) against the
      diagram backlog once this draft is reviewed. See doc plan Section 4. -->
 
-## Troubleshooting
+## Troubleshoot errors
 
 ### Registration errors
 
