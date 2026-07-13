@@ -71,10 +71,14 @@ Poll the `Location` URL until the status is `COMPLETED` or `FAILED`. See [Poll f
 
 When the operation completes, retrieve your vMCP to get its ID and ORN for subsequent steps:
 
+### Request
+
 ```http
   GET /workload-principals/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k
   Authorization: Bearer {token}
 ```
+
+### Response
 
 ```json
 {
