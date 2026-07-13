@@ -14,7 +14,7 @@ Agent Gateway is an Okta-secured endpoint that aggregates tools from multiple re
 
 #### Learning outcomes
 
-* Register an agent gateway and link it to a custom authorization server.
+* Register an agent gateway.
 * Connect the agent gateway to a remote MCP server and expose specific tools.
 * Activate the gateway so that agents can invoke tools.
 * Delete an agent gateway.
@@ -30,13 +30,15 @@ Agent Gateway is an Okta-secured endpoint that aggregates tools from multiple re
 
 ## Overview
 
-Configuring Agent Gateway involves creating the agent gateway and linking it to a custom authorization server. Then, you connect the agent gateway to remote MCP servers and select which tools to expose. The following sections walk you through the API calls required to complete this configuration and activate the gateway.
+Configuring Agent Gateway involves creating a custom authorization server and then creating the agent gateway, which Okta automatically links to it. Then, you connect the agent gateway to remote MCP servers and select which tools to expose. The following sections walk you through the API calls required to complete this configuration and activate the gateway.
 
 ## Create a custom authorization server
 
 The custom authorization server protects the agent gateway endpoint. The gateway validates all inbound agent tokens against this custom authorization server.
 
 Create a custom authorization server and configure an access policy rule that grants your MCP client app permission to request tokens. See [Create an authorization server](/docs/guides/customize-authz-server/main/).
+
+> **Note:** When you create the agent gateway in the next step, Okta automatically links it to this custom authorization server. Okta supports only one custom authorization server per agent gateway.
 
 ## Create the agent gateway
 
@@ -101,32 +103,6 @@ When the operation completes, retrieve the agent gateway to get its vMCP ID and 
   }
 }
 ```
-
-## Link the custom authorization server to the agent gateway
-
-Linking the custom authorization server to the agent gateway tells the gateway which issuer and JWKS to validate inbound tokens against. Okta supports only one custom authorization server per agent gateway.
-
-### Request
-
-```json
-POST /resource-servers/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/authorization-servers
-Authorization: Bearer {token}
-Content-Type: application/json
-
-{
-  "type": "OKTA",
-  "orn": "orn:okta:idp:00o5rb5mt2H3d1TJd0h7:authorization_servers:aus5rb5mt2H3d1TJd0h7"
-}
-```
-
-### Response
-
-```http
-202 Accepted
-Location: https://{yourOktaDomain}/resource-servers/api/v1/operations/op-1a2b3c4d
-```
-
-This is an asynchronous operation. Poll the `Location` URL for status. See [Poll for operation status](#poll-for-operation-status).
 
 ## Create a delegation link
 
@@ -357,19 +333,10 @@ Poll the `Location` URL for status. When the operation completes with `"status":
 
 ## Poll for operation status
 
-Several steps in this guide return `202 Accepted` with a `Location` header that points to an operation. Use the following requests to check whether the operation completed.
-
-Use the following request for workload-principal operations, such as [creating](#create-the-agent-gateway), [activating](#activate-the-agent-gateway), [deleting](#delete-the-agent-gateway) the agent gateway, or [replacing a connection's tools](#replace-all-tools-for-a-connection):
+Several steps in this guide return `202 Accepted` with a `Location` header that points to an operation. Use the following request to check whether the operation completed, such as when [creating](#create-the-agent-gateway), [activating](#activate-the-agent-gateway), [deleting](#delete-the-agent-gateway) the agent gateway, or [replacing a connection's tools](#replace-all-tools-for-a-connection):
 
 ```http
   GET /workload-principals/api/v1/operations/{operationId}
-  Authorization: Bearer {token}
-```
-
-Use the following request for resource server operations, such as [linking the authorization server](#link-the-custom-authorization-server-to-the-agent-gateway):
-
-```http
-  GET /resource-servers/api/v1/operations/{operationId}
   Authorization: Bearer {token}
 ```
 
