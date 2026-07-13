@@ -11,8 +11,6 @@ title: Okta Privileged Access API release notes 2026
 
 Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta Identity Engine.
 
-## June
-
 ## July
 
 ### Weekly release 2026.07.1
@@ -25,6 +23,8 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 #### Move secrets is EA
 
 You can now move a secret to a different folder to better align with your team's organizational structure or security policies. You can move the secrets to a different folder within the same project, across projects within a resource group, or across resource groups. See [Secrets](https://developer.okta.com/docs/api/openapi/opa/opa/secrets) API. <!-- OKTA-972048, FF: pam_move_secret, Preview date: July 9, 2026 -->
+
+## June
 
 ### Weekly release 2026.06.3
 <!-- Published on: 2026-06-24T12:00:00Z -->
