@@ -31,10 +31,6 @@ Learn how to register an AI agent's OAuth client with a Client ID Metadata Docum
 
 ## Overview
 
-<!-- DRAFT: Primer section. Keep this as the canonical CIMD explanation--per Antoine, the Agent Gateway concept
-     doc's current CIMD mention isn't sufficient on its own, so this guide's overview is meant to be the thing
-     other docs (Agent Gateway concept, help.okta.com) link back to, not the other way around. -->
-
 A CIMD lets an OAuth client identify itself with a URL instead of a static, pre-registered `client_id`. The URL hosts a JSON metadata document that Okta fetches at request time.
 
 For AI agents, CIMD replaces bring-your-own-key (BYOK) registration. With BYOK, the agent operator registers a public key with Okta through the API, and rotating that key requires another Okta API call. With CIMD, the agent operator rotates keys on their own infrastructure. Okta picks up the change automatically the next time the agent requests a token. The agent operator doesn't need to make an Okta API call.
@@ -43,14 +39,10 @@ For AI agents, CIMD replaces bring-your-own-key (BYOK) registration. With BYOK, 
 
 ## CIMD metadata document requirements
 
-<!-- DRAFT: Cross-reference only, per Bhavik and Em--don't re-document hosting/rotation mechanics that the
-     protocol spec already covers. Confirm with Em whether Aaron Parecki/the standards team has existing
-     content to link to instead of the placeholders below. -->
-
 The OAuth Client ID Metadata Document specification, not Okta, defines what the metadata document must contain. Host your document at an HTTPS URL. See the following resources for the exact requirements:
 
-<!-- TODO: link to the IETF OAuth Client ID Metadata Document draft once confirmed -->
-<!-- TODO: link to client.dev's CIMD documentation once confirmed -->
+- [OAuth Client ID Metadata Document](https://datatracker.ietf.org/doc/draft-ietf-oauth-client-id-metadata-document/) (IETF Internet-Draft)
+- [CIMD - OAuth Client ID Metadata Documents](https://client.dev)
 
 Okta fetches this document at request time. Rotate your signing keys by updating the hosted document, so you don't need to call the Okta API.
 
