@@ -1,5 +1,5 @@
 ---
-title: Register AI agents with CIMD
+title: Register AI agents with a Client ID Metadata Document (CIMD)
 excerpt: Learn how to register an AI agent's OAuth client using a Client ID Metadata Document (CIMD) URL instead of a static client ID or key.
 layout: Guides
 ---
@@ -33,11 +33,11 @@ Learn how to register an AI agent's OAuth client with a Client ID Metadata Docum
      doc's current CIMD mention isn't sufficient on its own, so this guide's overview is meant to be the thing
      other docs (Agent Gateway concept, help.okta.com) link back to, not the other way around. -->
 
-A Client ID Metadata Document (CIMD) lets an OAuth client identify itself with a URL instead of a static, pre-registered `client_id`. The URL hosts a JSON metadata document that Okta fetches at request time.
+A CIMD lets an OAuth client identify itself with a URL instead of a static, pre-registered `client_id`. The URL hosts a JSON metadata document that Okta fetches at request time.
 
 For AI agents, CIMD replaces bring-your-own-key (BYOK) registration. With BYOK, the agent operator registers a public key with Okta through the API, and rotating that key requires another Okta API call. With CIMD, the agent operator rotates keys on their own infrastructure, and Okta picks up the change automatically the next time an agent requests a token — no Okta API call required.
 
-> **Note:** `oauthClient.type` is set when you create the AI agent and can't be changed afterward. To move an agent from BYOK to CIMD, create a new agent — you can't convert an existing one in place.
+> **Note:** `oauthClient.type` is set when you create the AI agent and can't be changed afterward. To move an agent from BYOK to CIMD, create an agent — you can't convert an existing one in place.
 
 ## CIMD metadata document requirements
 
@@ -45,7 +45,7 @@ For AI agents, CIMD replaces bring-your-own-key (BYOK) registration. With BYOK, 
      protocol spec already covers. Confirm with Em whether Aaron Parecki/the standards team has existing
      content to link to instead of the placeholders below. -->
 
-The CIMD metadata document itself is defined by the OAuth Client ID Metadata Document specification, not by Okta. Your document must be hosted at an HTTPS URL and meet the requirements described in:
+The OAuth Client ID Metadata Document specification, not Okta, defines the metadata document. Host your document at an HTTPS URL and meet the requirements described in:
 
 <!-- TODO: link to the IETF OAuth Client ID Metadata Document draft once confirmed -->
 <!-- TODO: link to client.dev's CIMD documentation once confirmed -->
@@ -74,7 +74,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/workload-principals/api/v1/ai-agents"
 ```
 
-Okta returns the created agent with a `STAGED` status. The `oauthClient.clientId` echoes the same URL you provided:
+Okta returns the created agent with a `STAGED` status. The `oauthClient.clientId` echoes the same URL that you provide:
 
 ```json
 {
@@ -105,7 +105,7 @@ CIMD client ID matching is exact-match only. Okta doesn't support pattern or reg
 
 Okta accepts the CIMD URL as the `client_id` in an OAuth request, just as it would a static client ID.
 
-For example, [Okta Agent Gateway](#see-also) uses this to connect third-party agents without any manual client configuration: an admin registers the agent vendor's CIMD URL (for example, the URL that Anthropic hosts for Claude Code) on the agent, and the agent connects to the gateway automatically. No client ID or client secret needs to be configured by hand.
+For example, [Okta Agent Gateway](#see-also) uses this to connect third-party agents without any manual client configuration: an admin registers the agent vendor's CIMD URL (for example, the URL that Anthropic hosts for Claude Code) on the agent, and the agent connects to the gateway automatically. You don't need to configure a client ID or client secret by hand.
 
 <div class="full wireframe-border">
 
@@ -125,7 +125,7 @@ For example, [Okta Agent Gateway](#see-also) uses this to connect third-party ag
 | Problem | Cause |
 | --- | --- |
 | Registration request fails validation | The `clientIdMatchPattern` URL isn't HTTPS, is unreachable, or doesn't return a valid CIMD metadata document. |
-| Registration succeeds, but the agent can't obtain a token | Confirm the hosted metadata document still matches what Okta expects — Okta re-fetches it at request time, so a change to the hosted document (or an outage at that URL) can break token requests without changing anything in Okta. |
+| Registration succeeds, but the agent can't obtain a token | Confirm that the hosted metadata document still matches what Okta expects — Okta re-fetches it at request time, so a change to the hosted document (or an outage at that URL) can break token requests without changing anything in Okta. |
 
 ### Token request errors
 
