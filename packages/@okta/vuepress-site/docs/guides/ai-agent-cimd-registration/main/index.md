@@ -19,11 +19,11 @@ Learn how to register an AI agent's OAuth client with a Client ID Metadata Docum
 
 #### What you need
 
-- An Okta org with the following feature flags enabled:
+- An Okta org that enables the following feature flags:
   - `CIMD_CLIENT_METADATA_DOCUMENT`
   - `AI_AGENT_CIMD_REGISTRATION`
 - An Okta admin account with the super admin role.
-- A CIMD metadata document hosted at an HTTPS URL that you control or that your agent vendor provides. See [CIMD metadata document requirements](#cimd-metadata-document-requirements).
+- A CIMD metadata document that you host, or that your agent vendor hosts, at an HTTPS URL you control. See [CIMD metadata document requirements](#cimd-metadata-document-requirements).
 
 ---
 
@@ -35,9 +35,9 @@ Learn how to register an AI agent's OAuth client with a Client ID Metadata Docum
 
 A CIMD lets an OAuth client identify itself with a URL instead of a static, pre-registered `client_id`. The URL hosts a JSON metadata document that Okta fetches at request time.
 
-For AI agents, CIMD replaces bring-your-own-key (BYOK) registration. With BYOK, the agent operator registers a public key with Okta through the API, and rotating that key requires another Okta API call. With CIMD, the agent operator rotates keys on their own infrastructure. Okta picks up the change automatically the next time the agent requests a token, so no Okta API call is required.
+For AI agents, CIMD replaces bring-your-own-key (BYOK) registration. With BYOK, the agent operator registers a public key with Okta through the API, and rotating that key requires another Okta API call. With CIMD, the agent operator rotates keys on their own infrastructure. Okta picks up the change automatically the next time the agent requests a token. The agent operator doesn't need to make an Okta API call.
 
-> **Note:** `oauthClient.type` is set when you create the AI agent and can't be changed afterward. To move an agent from BYOK to CIMD, create a new agent. You can't convert an existing agent in place.
+> **Note:** You set `oauthClient.type` when you create the AI agent, and you can't change it afterward. To move an agent from BYOK to CIMD, create a new agent. You can't convert an existing agent in place.
 
 ## CIMD metadata document requirements
 
@@ -50,7 +50,7 @@ The OAuth Client ID Metadata Document specification, not Okta, defines what the 
 <!-- TODO: link to the IETF OAuth Client ID Metadata Document draft once confirmed -->
 <!-- TODO: link to client.dev's CIMD documentation once confirmed -->
 
-Okta fetches this document at request time. Rotating your signing keys is a matter of updating the hosted document, so no Okta API call is required.
+Okta fetches this document at request time. Rotate your signing keys by updating the hosted document, so you don't need to call the Okta API.
 
 ## Register an AI agent with a CIMD client
 
@@ -93,7 +93,7 @@ CIMD client ID matching is exact-match only. Okta doesn't support pattern or reg
 
 ### The Admin Console doesn't reflect CIMD registration
 
-> **Note:** If you register an AI agent with a CIMD client through the API, the Admin Console's Credentials tab won't show it. The tab currently lists only three other registration methods, with no indication that an agent uses CIMD. This is expected for the current release. It doesn't mean that registration failed.
+> **Note:** If you register an AI agent with a CIMD client through the API, the Admin Console's Credentials tab won't show it. The tab currently lists only three other registration methods, with no indication that an agent uses CIMD. This is normal for the current release. It doesn't mean that registration failed.
 
 ## Use the CIMD client ID in a token request
 
