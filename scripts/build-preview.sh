@@ -71,7 +71,7 @@ if [ -n "$BRANCH" ]; then
 
   send_slack_message "${AUTHOR_SLACK_HANDLE}" \
       "Preview for your topic branch <${BRANCH_LINK}|${BRANCH}> is ready :white_check_mark:" \
-      "Preview: ${NETLIFY_PREVIEW_URL} \n Bacon: <${BACON_LINK}|${SHA}>"\
+      "Preview: ${VERCEL_PREVIEW_URL} \n Bacon: <${BACON_LINK}|${SHA}>"\
       "good"
 
 else
