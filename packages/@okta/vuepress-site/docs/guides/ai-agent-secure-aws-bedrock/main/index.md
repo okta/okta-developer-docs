@@ -124,26 +124,37 @@ Foundation models aren't enabled by default. If your model shows as unavailable:
 
 ### Create the agent
 
-1. In the AWS console, go to **Amazon Bedrock** > **Agents** > **Create Agent**.
-1. Choose a foundation model.
-1. Add **Agent Instructions**. This field can't be empty. Describe what the agent does.
-1. (Optional) Add **Action Groups**: Lambda functions the agent can invoke. Inside each Lambda, retrieve the Okta token from session attributes to call Okta-protected APIs:
+1. In the AWS console, open the [Amazon Bedrock console](https://console.aws.amazon.com/bedrock). Confirm that you're in a [Region that supports Amazon Bedrock agents](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-supported.html).
+1. In the navigation pane, under **Builder tools**, choose **Agents**, then choose **Create agent**.
+1. Enter a name for your agent (for example, `MyBedrockAgent`), and then choose **Create**. The **Agent builder** pane opens.
+1. In the **Agent details** section:
+   * For **Agent resource role**, select **Create and use a new service role**.
+   * For **Select model**, choose a foundation model, for example, Claude 3 Haiku.
+   * Add your **Instructions for the Agent**. This field can't be empty. Describe what the agent does.
+1. Choose **Save**.
+1. (Optional) Add an action group so the agent can call Okta-protected APIs through a Lambda function:
+   1. Choose the **Action groups** tab, then choose **Add**.
+   1. Enter a name for the action group. For **Action group type**, select **Define with API schemas**. For **Action group invocation**, choose **Select an existing Lambda function**, then select your Lambda function.
+   1. Provide an OpenAPI schema that describes the Lambda's endpoint, review your configuration, and choose **Create**.
+   1. Inside the Lambda, retrieve the Okta token from session attributes to call Okta-protected APIs:
 
-   ```python
-   def lambda_handler(event, context):
-       access_token = event.get("sessionAttributes", {}).get("okta_access_token")
-       user_email = event.get("sessionAttributes", {}).get("user_email")
+      ```python
+      def lambda_handler(event, context):
+          access_token = event.get("sessionAttributes", {}).get("okta_access_token")
+          user_email = event.get("sessionAttributes", {}).get("user_email")
 
-       resp = requests.get(
-           "https://yourOrg.okta.com/api/v1/users/me",
-           headers={"Authorization": f"Bearer {access_token}"},
-       )
-       # ...
-   ```
+          resp = requests.get(
+              "https://yourOrg.okta.com/api/v1/users/me",
+              headers={"Authorization": f"Bearer {access_token}"},
+          )
+          # ...
+      ```
 
-    > **Note:** Ensure your Lambda function has outbound internet access (through a NAT Gateway or secure route) to reach your Okta organization's API endpoints.
+      > **Note:** Ensure your Lambda function has outbound internet access (through a NAT Gateway or secure route) to reach your Okta organization's API endpoints.
 
-1. Click **Prepare** after any change, before testing.
+   1. In the IAM console, open the agent's service role (linked from **Agent overview** > **Permissions**) and add an inline policy granting `lambda:InvokeFunction` on your Lambda's ARN, so the agent is authorized to invoke it.
+1. Choose **Save**, then choose **Prepare** to prepare the agent.
+1. Choose **Save and exit**.
 1. Note the **Agent ID** and create an **Alias**. Note the **Alias ID**.
 
 > **Important:** Scope the Lambda's execution role to least privilege: grant it only the specific downstream APIs it needs to call, run it in a VPC if it needs network isolation, and monitor it with CloudWatch and CloudTrail. See [AWS IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) and [Implementing least privilege access for Amazon Bedrock](https://aws.amazon.com/blogs/security/implementing-least-privilege-access-for-amazon-bedrock/).
