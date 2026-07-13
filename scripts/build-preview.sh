@@ -10,8 +10,8 @@ get_terminus_secret "/" VERCEL_TOKEN VERCEL_TOKEN
 get_terminus_secret "/" VERCEL_ORG_ID VERCEL_ORG_ID
 get_terminus_secret "/" VERCEL_PROJECT_ID VERCEL_PROJECT_ID
 
-if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
-  echo "Missing required Netlify secrets."
+if [ -z "$VERCEL_TOKEN" ] || [ -z "$VERCEL_ORG_ID" ] || [ -z "$VERCEL_PROJECT_ID" ]; then
+  echo "Missing required Vercel secrets."
   exit 1
 fi
 
@@ -43,19 +43,23 @@ if [ -n "$BRANCH" ]; then
   # Ensure the alias does not end with a hyphen after trimming.
   NETLIFY_ALIAS="${NETLIFY_ALIAS%-}"
 
-  echo "Deploying preview to Netlify..."
-  npx netlify-cli@17.23.5 deploy --alias="${NETLIFY_ALIAS}" --filter @okta/vuepress-site --dir ../packages/@okta/vuepress-site/dist
-
-  export NETLIFY_PREVIEW_URL="https://${NETLIFY_ALIAS}--${NETLIFY_SITE_NAME}.netlify.app"
-
-  echo "Netlify preview link:"
-  echo "${NETLIFY_PREVIEW_URL}"
-
+  # Vercel is the primary preview target; a failure here fails the job.
   echo "Deploying preview to Vercel..."
-  export VERCEL_PREVIEW_URL="$(bash ./deploy-vercel-preview.sh "${VERCEL_DEPLOY_DIR}" "${NETLIFY_ALIAS}" "${BRANCH}" "${SHA}")"
+  VERCEL_PREVIEW_URL="$(bash ./deploy-vercel-preview.sh "${VERCEL_DEPLOY_DIR}" "${NETLIFY_ALIAS}" "${BRANCH}" "${SHA}")"
+  export VERCEL_PREVIEW_URL
 
   echo "Vercel preview link:"
   echo "${VERCEL_PREVIEW_URL}"
+
+  # Netlify is the secondary preview target; a failure here must not fail the job.
+  echo "Deploying preview to Netlify..."
+  if npx netlify-cli@17.23.5 deploy --alias="${NETLIFY_ALIAS}" --filter @okta/vuepress-site --dir ../packages/@okta/vuepress-site/dist; then
+    export NETLIFY_PREVIEW_URL="https://${NETLIFY_ALIAS}--${NETLIFY_SITE_NAME}.netlify.app"
+    echo "Netlify preview link:"
+    echo "${NETLIFY_PREVIEW_URL}"
+  else
+    echo "Netlify preview deploy failed or was skipped (secondary target); continuing."
+  fi
 
   export SHA_LINK="https://github.com/okta/okta-developer-docs/commit/${SHA}"
   export BACON_LINK="https://bacon-go.aue1e.saasure.net/commits?artifact=okta-developer-docs&sha=${SHA}"
