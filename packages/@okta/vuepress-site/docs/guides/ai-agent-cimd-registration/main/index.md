@@ -19,9 +19,11 @@ Learn how to register an AI agent's OAuth client with a Client ID Metadata Docum
 
 #### What you need
 
-- An Okta org that enables the following feature flags:
-  - `CIMD_CLIENT_METADATA_DOCUMENT`
-  - `AI_AGENT_CIMD_REGISTRATION`
+- An Okta org that has CIMD-based AI agent registration enabled.
+<!-- DRAFT: Confirm the exact Admin Console feature name and whether enablement is self-service (Settings >
+     Features) or requires Okta Support, then match the phrasing in ea-ai-agent-token-exchange's "What you
+     need" section. Internal flag names for reference, do not publish: CIMD_CLIENT_METADATA_DOCUMENT,
+     AI_AGENT_CIMD_REGISTRATION. -->
 - An Okta admin account with the super admin role.
 - A CIMD metadata document that you host, or that your agent vendor hosts, at an HTTPS URL you control. See [CIMD metadata document requirements](#cimd-metadata-document-requirements).
 
