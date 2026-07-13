@@ -51,16 +51,6 @@ if [ -n "$BRANCH" ]; then
   echo "Vercel preview link:"
   echo "${VERCEL_PREVIEW_URL}"
 
-  # Netlify is the secondary preview target; a failure here must not fail the job.
-  echo "Deploying preview to Netlify..."
-  if npx netlify-cli@17.23.5 deploy --alias="${NETLIFY_ALIAS}" --filter @okta/vuepress-site --dir ../packages/@okta/vuepress-site/dist; then
-    export NETLIFY_PREVIEW_URL="https://${NETLIFY_ALIAS}--${NETLIFY_SITE_NAME}.netlify.app"
-    echo "Netlify preview link:"
-    echo "${NETLIFY_PREVIEW_URL}"
-  else
-    echo "Netlify preview deploy failed or was skipped (secondary target); continuing."
-  fi
-
   export SHA_LINK="https://github.com/okta/okta-developer-docs/commit/${SHA}"
   export BACON_LINK="https://bacon-go.aue1e.saasure.net/commits?artifact=okta-developer-docs&sha=${SHA}"
   export BRANCH_LINK="https://github.com/okta/okta-developer-docs/compare/${BRANCH}"
@@ -77,6 +67,17 @@ if [ -n "$BRANCH" ]; then
       "Preview for your topic branch <${BRANCH_LINK}|${BRANCH}> is ready :white_check_mark:" \
       "Preview: ${VERCEL_PREVIEW_URL} \n Bacon: <${BACON_LINK}|${SHA}>"\
       "good"
+
+  # Netlify is the secondary preview target; deploy it after notifying so it
+  # never delays the Slack message, and a failure here must not fail the job.
+  echo "Deploying preview to Netlify..."
+  if npx netlify-cli@17.23.5 deploy --alias="${NETLIFY_ALIAS}" --filter @okta/vuepress-site --dir ../packages/@okta/vuepress-site/dist; then
+    export NETLIFY_PREVIEW_URL="https://${NETLIFY_ALIAS}--${NETLIFY_SITE_NAME}.netlify.app"
+    echo "Netlify preview link:"
+    echo "${NETLIFY_PREVIEW_URL}"
+  else
+    echo "Netlify preview deploy failed or was skipped (secondary target); continuing."
+  fi
 
 else
   echo "No pull request detected. Not deploying previews."
