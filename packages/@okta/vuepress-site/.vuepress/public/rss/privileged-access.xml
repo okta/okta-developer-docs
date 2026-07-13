@@ -4,8 +4,17 @@
   <title>Okta Privileged Access API Release Notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/</link>
   <description>Recent release notes for Okta Privileged Access API</description>
-  <pubDate>Wed, 24 Jun 2026 12:00:00 GMT</pubDate>
+  <pubDate>Thu, 09 Jul 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Weekly release 2026.07.1</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-07-1</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-07-1</guid>
+      <pubDate>Thu, 09 Jul 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#move-secrets-is-ea">Move secrets is EA</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Weekly release 2026.06.3</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-privileged-access/#weekly-release-2026-06-3</link>
