@@ -50,10 +50,6 @@ Okta fetches this document at request time. Rotate your signing keys by updating
 
 To register an AI agent with a CIMD-based OAuth client, send a request to the AI agent registration API. Set `oauthClient.type` to `CIMD` and `oauthClient.clientIdMatchPattern` to your metadata document's URL.
 
-<!-- DRAFT: Request/response shapes below are drafted from the merged okta-oas3 schema (PR #3577, PR #3669)
-     and the planning questionnaire--NOT yet verified against a live org. Run the testing pass in the doc plan
-     (Section 3) before publishing: confirm field names, the STAGED status, and exact error shapes. -->
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -83,19 +79,11 @@ Okta returns the created agent with a `STAGED` status. In the response, the `oau
 }
 ```
 
+> **Note:** If you register an AI agent with a CIMD client through the API, the Admin Console's Credentials tab won't show it. The tab currently lists only three other registration methods, with no indication that an agent uses CIMD. It doesn't mean that registration failed.
+
 CIMD client ID matching is exact-match only. Okta doesn't support pattern or regex matching for CIMD clients.
 
-### The Admin Console doesn't reflect CIMD registration
-
-> **Note:** If you register an AI agent with a CIMD client through the API, the Admin Console's Credentials tab won't show it. The tab currently lists only three other registration methods, with no indication that an agent uses CIMD. This is normal for the current release. It doesn't mean that registration failed.
-
 ## Use the CIMD client ID in a token request
-
-<!-- DRAFT: Pending legal/DCS sign-off on Claude Code/Anthropic example wording (Stephanie, Emily). Wording
-     below is a placeholder for review, not cleared for publication. Also pending: confirmation from
-     Antoine/engineering on which OAuth flow(s) are actually supported for agent-as-client--the Agent
-     Gateway/Claude Code scenario looks machine-to-machine, which may mean this is the only flow this guide
-     needs to cover. -->
 
 Okta accepts the CIMD URL as the `client_id` in an OAuth request, just as it would a static client ID.
 
@@ -113,8 +101,6 @@ For example, [Okta Agent Gateway](#see-also) uses this to connect third-party ag
 ## Troubleshooting
 
 ### Registration errors
-
-<!-- DRAFT: Exact error codes/messages below are placeholders pending live-org testing (doc plan Section 3). -->
 
 | Problem | Cause |
 | --- | --- |
