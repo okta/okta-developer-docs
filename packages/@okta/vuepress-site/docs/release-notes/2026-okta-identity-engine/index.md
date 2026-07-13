@@ -13,6 +13,12 @@ title: Okta Identity Engine API release notes 2026
 
 ## July
 
+### Weekly release 2026.07.2
+<!-- Published on: 2026-07-15T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+
 ### Weekly release 2026.07.1
 <!-- Published on: 2026-07-08T12:00:00Z -->
 
