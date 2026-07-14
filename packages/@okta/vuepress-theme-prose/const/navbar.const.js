@@ -680,14 +680,6 @@ export const guides = [
             guideName: "set-up-token-exchange",
           },
           {
-            title: "Set up AI agent token exchange",
-            guideName: "ai-agent-token-exchange",
-          },
-          {
-            title: "Set up AI agent-to-agent token exchange",
-            guideName: "ea-ai-agent-token-exchange",
-          },
-          {
             title: "Transactional verification using CIBA",
             guideName: "configure-ciba",
           },
@@ -1027,6 +1019,41 @@ export const guides = [
           {
             title: "Configure, start, and test",
             path: "/docs/guides/start-mcp-server/main/",
+          },
+        ],
+      },
+      {
+        title: "Okta for AI Agents",
+        subLinks: [
+          {
+            title: "Set up AI agent token exchange",
+            guideName: "ai-agent-token-exchange",
+          },
+          {
+            title: "Set up AI agent-to-agent token exchange",
+            guideName: "ea-ai-agent-token-exchange",
+          },
+          {
+            title: "Set up third-party AI agent token exchange",
+            guideName: "ai-agent-third-party-token-exchange",
+          },
+          {
+            title: "Secure third-party AI agents",
+            guideName: "ai-agent-secure-third-party",
+            subLinks: [
+              {
+                title: "Secure Azure AI Foundry agents with Okta",
+                guideName: "ai-agent-secure-azure"
+              },
+              {
+                title: "Secure AWS Bedrock Agents with Okta",
+                guideName: "ai-agent-secure-aws-bedrock"
+              },
+              {
+                title: "Secure an Amazon Bedrock AgentCore agent",
+                guideName: "ai-agent-secure-amazon-bedrock",
+              },
+            ],
           },
         ],
       },
