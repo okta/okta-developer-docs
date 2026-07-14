@@ -1039,7 +1039,7 @@ export const guides = [
           },
           {
             title: "Secure third-party AI agents",
-            guideName: "ai-agent-secure-third-party",
+            path: "/docs/guides/ai-agent-secure-third-party/main/",
             subLinks: [
               {
                 title: "Secure Azure AI Foundry agents with Okta",
