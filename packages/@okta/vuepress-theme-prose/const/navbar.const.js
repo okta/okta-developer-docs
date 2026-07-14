@@ -1014,28 +1014,23 @@ export const guides = [
       },
       {
         title: "Okta for AI Agents",
+        guideName: "ai-agent-secure-third-party",
         subLinks: [
           {
             title: "Set up third-party AI agent token exchange",
             guideName: "ai-agent-third-party-token-exchange",
           },
           {
-            title: "Secure third-party AI agents",
-            guideName: "ai-agent-secure-third-party",
-            subLinks: [
-              {
-                title: "Secure Azure AI Foundry agents with Okta",
-                guideName: "ai-agent-secure-azure"
-              },
-              {
-                title: "Secure AWS Bedrock Agents with Okta",
-                guideName: "ai-agent-secure-aws-bedrock"
-              },
-              {
-                title: "Secure an Amazon Bedrock AgentCore agent",
-                guideName: "ai-agent-secure-amazon-bedrock",
-              },
-            ],
+            title: "Secure Azure AI Foundry agents with Okta",
+            guideName: "ai-agent-secure-azure"
+          },
+          {
+            title: "Secure AWS Bedrock Agents with Okta",
+            guideName: "ai-agent-secure-aws-bedrock"
+          },
+          {
+            title: "Secure an Amazon Bedrock AgentCore agent",
+            guideName: "ai-agent-secure-amazon-bedrock",
           },
         ],
       },
