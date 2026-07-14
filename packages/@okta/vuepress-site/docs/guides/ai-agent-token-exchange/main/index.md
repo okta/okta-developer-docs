@@ -39,7 +39,9 @@ You can [connect an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai
 
 - Resource server: Uses a third party access token issued by the third-party authorization server and brokered by Okta. This resource type requires user consent before an AI agent can act on behalf of the user.
 
-Ater the resource type is configured and the AI agent has the token or credentials, it can then perform tasks on the connected app.
+After the resource type is configured and the AI agent has the token or credentials, it can then perform tasks on the connected app.
+
+> **Note:** If you're integrating a third-party AI agent platform, such as AWS Bedrock or Azure AI Foundry, see [Set up third-party AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/) for a complete setup walkthrough and a working demo you can test end-to-end.
 
 ## Token Exchange flow
 

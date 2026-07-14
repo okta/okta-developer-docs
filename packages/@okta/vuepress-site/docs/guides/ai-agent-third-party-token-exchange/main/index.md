@@ -30,24 +30,7 @@ In this guide, learn how to configure token exchange for third-party AI agents.
 
 Okta's token exchange uses two API calls. The user's ID token is exchanged for an ID-JAG at the org authorization server. The ID-JAG is then exchanged for a scoped access token at the custom authorization server. The calling app passes that token to the AI agent.
 
-<!--diagram below?-->
-
-```bash
-Diagram? From Vicky?
-
-User
-  authenticates via Okta OIDC web app → receives id_token
-  ↓
-Application
-  Step 1: id_token → ID-JAG        (Org AS — POST /oauth2/v1/token)
-  Step 2: ID-JAG  → access_token   (Custom AS — POST /oauth2/{as-id}/v1/token)
-  ↓
-Third-party AI agent
-  receives: access_token + user claims (name, email, sub)
-  ↓
-Okta-protected API
-  Authorization: Bearer <access_token>
-```
+For a diagram and step-by-step description of this flow, see [Token Exchange flow](/docs/guides/ai-agent-token-exchange/) in Set up AI agent token exchange.
 
 >**Note:** No gateway or proxy is involved. The calling app owns the full token exchange. The AI agent receives a ready-to-use access token.
 
@@ -164,6 +147,8 @@ Your app makes two API calls directly to Okta's token endpoints. No Okta SDK is 
 
 1. Exchange the `id_token` for ID-JAG
 1. Exchange the ID-JAG for an `access_token`
+
+> **Note:** These two calls implement the **Authorization server** resource type described generically in [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/). The request and response shapes are the same; if you change scopes, grant types, or parameters here, check that guide too so the two stay in sync.
 
 To test this flow, use the following `curl` calls with your configured data.
 

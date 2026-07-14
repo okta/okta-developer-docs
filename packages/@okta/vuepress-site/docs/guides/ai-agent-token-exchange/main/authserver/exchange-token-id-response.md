@@ -35,6 +35,8 @@ assertion=eyJhbGciOiJIUzI1NiIsI...
 | --- | --- |
 | grant_type | The value must be `urn:ietf:params:oauth:grant-type:jwt-bearer` |
 | assertion | The ID-JAG received in the Exchange token ID for resource token [response](/docs/guides/ai-agent-token-exchange/authserver/main/#response). |
+| client_assertion_type | The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| client_assertion | A signed JWT used for client authentication. You must sign the JWT using the key created during the AI Agent registration. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |
 
 #### Response
 
