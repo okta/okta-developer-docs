@@ -41,7 +41,9 @@ You can [connect an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai
 
 > **Note**: The **Resource server** resource type in this guide covers both the **Application** and **MCP Server** resource types. These types support the brokered consent (STS) flow.
 
-Ater the resource type is configured and the AI agent has the token or credentials, it can then perform tasks on the connected app.
+After the resource type is configured and the AI agent has the token or credentials, it can then perform tasks on the connected app.
+
+> **Note:** If you're integrating a third-party AI agent platform, such as AWS Bedrock or Azure AI Foundry, see [Set up third-party AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/) for a complete setup walkthrough and a working demo you can test end-to-end.
 
 ## Token Exchange flow
 
