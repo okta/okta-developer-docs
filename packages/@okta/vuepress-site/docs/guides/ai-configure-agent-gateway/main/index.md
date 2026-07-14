@@ -14,7 +14,7 @@ Agent Gateway is an Okta-secured endpoint that aggregates tools from multiple re
 
 #### Learning outcomes
 
-* Retrieve org-level virtual MCP settings, such as limits and the gateway's base path.
+* Retrieve org-level virtual MCP settings.
 * Register an agent gateway.
 * Connect the agent gateway to a remote MCP server and expose specific tools.
 * Activate the gateway so that agents can invoke tools.
@@ -43,7 +43,7 @@ Create a custom authorization server and configure an access policy rule that gr
 
 ## Retrieve agent gateway settings
 
-Before you create an agent gateway, retrieve your org's virtual MCP settings. The response includes the `basePath` you use to construct the gateway URL, and the org-level limits that apply to virtual MCPs.
+Before you create an agent gateway, retrieve your org's virtual MCP settings. The response includes the `basePath` you use to construct the gateway URL, and the org-level limits that apply to virtual MCPs. See [Retrieve the Virtual MCP Settings](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpsettings/other/getvirtualmcpsettings).
 
 ### Request
 
