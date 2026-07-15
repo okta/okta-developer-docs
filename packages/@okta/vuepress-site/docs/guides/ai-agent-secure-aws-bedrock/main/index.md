@@ -43,6 +43,8 @@ The integration has two parts:
 
 * Platform integration (AWS-specific). Your app invokes the Bedrock Agent, passing the access token and the user's claims as session attributes. An action group Lambda function reads those session attributes and forwards the token as a bearer credential to an Okta-protected API. See [Invoke the Bedrock Agent with the access token](#invoke-the-bedrock-agent-with-the-access-token).
 
+<!-- TODO: Replace this text-based diagram with an image. -->
+
 ```text
 User
   { "prompt": "...", "id_token": "<okta_id_token>" }

@@ -44,6 +44,8 @@ The integration has two parts:
 
 * Platform integration (Azure-specific). Your FastAPI app calls the token exchange, decodes the user's identity claims from the `id_token`, and passes that identity to Azure OpenAI in the system message of a chat completion request. See [Call Azure OpenAI with user identity](#call-azure-openai-with-user-identity).
 
+<!-- TODO: Replace this text-based diagram with an image. -->
+
 ```text
 User
   { "prompt": "...", "id_token": "<okta_id_token>" }

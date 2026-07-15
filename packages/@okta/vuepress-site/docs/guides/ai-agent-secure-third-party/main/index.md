@@ -23,6 +23,8 @@ Securing any agent breaks into two parts:
 
 * **Platform integration (platform-specific).** The agent calls the token exchange and then attaches the resulting access token to the calls it makes, for example, as a session attribute, or as a request header. Exactly how depends on the platform.
 
+<!-- TODO: Replace this text-based diagram with an image. -->
+
 ```text
 User
   signs in with Okta -> receives id_token

@@ -43,6 +43,8 @@ The integration has two parts:
 
 * Platform integration (Amazon Bedrock-specific). Your agent calls the token exchange and then attaches the access token to its downstream calls. For AgentCore, this means passing the token to a Bedrock agent as a session attribute. See [Integrate the token exchange into your AgentCore agent](#integrate-the-token-exchange-into-your-agentcore-agent).
 
+<!-- TODO: Replace this text-based diagram with an image. -->
+
 ```text
 User
   { "prompt": "...", "id_token": "<okta_id_token>" }
