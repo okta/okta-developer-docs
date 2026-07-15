@@ -23,6 +23,7 @@ This guide shows you how to secure an AWS Bedrock Agent with Okta authentication
 
 * An [Identity Engine](/docs/concepts/oie-intro/) org with the Okta for AI Agents feature enabled
 * An AWS account with Amazon Bedrock available in your region and foundation model access approved
+* Your agent imported into Okta as an AI Agent identity
 * The configured [AWS CLI](https://aws.amazon.com/cli/), (`aws configure sso` or an access key and secret)
 * [Python](https://www.python.org/) 3.10 or later
 

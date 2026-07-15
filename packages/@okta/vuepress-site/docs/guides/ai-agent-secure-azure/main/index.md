@@ -23,6 +23,7 @@ This guide shows you how to build a FastAPI app that serves as a secure runtime 
 
 * An [Identity Engine](/docs/concepts/oie-intro/) org with the Okta for AI Agents feature enabled
 * An Azure subscription with Azure OpenAI access in your region
+* Your agent imported into Okta as an AI Agent identity
 * The [Azure CLI](https://learn.microsoft.com/cli/azure/) (`az`), installed and authenticated (`az login`)
 * Docker or access to the Azure Container Registry for building images
 * [Python](https://www.python.org/) 3.10 or later
