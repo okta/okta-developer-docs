@@ -1,11 +1,11 @@
 ---
-title: Secure AWS Bedrock Agents with Okta
-excerpt: Learn how to secure AWS Bedrock Agents with Okta
+title: Secure AWS Bedrock Classic Agents with Okta
+excerpt: Learn how to secure AWS Bedrock Classic Agents with Okta
 layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide shows you how to secure an AWS Bedrock Agent with Okta authentication by building a Python calling application that acts as a secure orchestrator. Your application performs Okta's two-step token exchange internally, and then invokes the Bedrock Agent while securely passing the resulting access token and user identity as session attributes.
+This guide shows you how to secure an AWS Bedrock Classic Agent with Okta authentication by building a Python calling application that acts as a secure orchestrator. Your application performs Okta's two-step token exchange internally, and then invokes the Bedrock Classic Agent while securely passing the resulting access token and user identity as session attributes.
 
 > **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
 
@@ -15,8 +15,8 @@ This guide shows you how to secure an AWS Bedrock Agent with Okta authentication
 
 * Understand what a calling app must do to authenticate as a signed-in user with Okta.
 * Add a token exchange module to your app.
-* Set up an AWS Bedrock Agent with an action group Lambda that can call Okta-protected APIs.
-* Invoke the Bedrock Agent with the user's Okta identity passed as session attributes.
+* Set up an AWS Bedrock Classic Agent with an action group Lambda that can call Okta-protected APIs.
+* Invoke the Bedrock Classic Agent with the user's Okta identity passed as session attributes.
 * Verify and test the end-to-end flow with a real Okta ID token.
 
 #### What you need
@@ -41,7 +41,7 @@ The integration has two parts:
 
   This logic is identical for any agent. You add it once as a reusable module. See [Add Okta authentication to your agent](#add-okta-authentication-to-your-agent).
 
-* Platform integration (AWS-specific). Your app invokes the Bedrock Agent, passing the access token and the user's claims as session attributes. An action group Lambda function reads those session attributes and forwards the token as a bearer credential to an Okta-protected API. See [Invoke the Bedrock Agent with the access token](#invoke-the-bedrock-agent-with-the-access-token).
+* Platform integration (AWS-specific). Your app invokes the Bedrock Classic Agent, passing the access token and the user's claims as session attributes. An action group Lambda function reads those session attributes and forwards the token as a bearer credential to an Okta-protected API. See [Invoke the Bedrock Classic Agent with the access token](#invoke-the-bedrock-classic-agent-with-the-access-token).
 
 <!-- TODO: Replace this text-based diagram with an image. -->
 
@@ -55,7 +55,7 @@ Okta authentication (token_exchange.py)
   Step 2: ID-JAG    ->  access_token  (Custom AS: /oauth2/{custom-as-id}/v1/token)
     |
     v
-Platform integration (main.py, AWS Bedrock Agent)
+Platform integration (main.py, AWS Bedrock Classic Agent)
   invoke_agent(..., sessionAttributes={
     "okta_access_token": access_token,
     "user_name": ..., "user_email": ..., "user_sub": ...,
@@ -69,7 +69,7 @@ Action group (Lambda)
 Okta-protected API
 ```
 
-There's no gateway or interceptor in this pattern. Your calling app owns the full token exchange, and the Bedrock Agent receives a ready-to-use `access_token` in its session attributes.
+There's no gateway or interceptor in this pattern. Your calling app owns the full token exchange, and the Bedrock Classic Agent receives a ready-to-use `access_token` in its session attributes.
 
 For the conceptual background on AI agent token exchange, see [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/).
 
@@ -96,9 +96,9 @@ Your app reads these values as environment variables. The token exchange module 
 
 | Environment variable | Description | Where to find it |
 | --- | --- | --- |
-| `BEDROCK_AGENT_ID` | The Bedrock Agent to invoke | **AWS Console** > **Bedrock** > **Agents** |
-| `BEDROCK_AGENT_ALIAS_ID` | The alias of the Bedrock Agent | **AWS Console** > **Bedrock** > **Agents** > **Aliases** |
-| `AWS_REGION`, `AWS_DEFAULT_REGION` | The AWS region where the Bedrock Agent runs | **AWS Console** |
+| `BEDROCK_AGENT_ID` | The Bedrock Classic Agent to invoke | **AWS Console** > **Bedrock** > **Agents** |
+| `BEDROCK_AGENT_ALIAS_ID` | The alias of the Bedrock Classic Agent | **AWS Console** > **Bedrock** > **Agents** > **Aliases** |
+| `AWS_REGION`, `AWS_DEFAULT_REGION` | The AWS region where the Bedrock Classic Agent runs | **AWS Console** |
 
 > **Note:** Set both `AWS_REGION` and `AWS_DEFAULT_REGION`. Your code passes `AWS_REGION` as `region_name` to the boto3 client. The boto3 internals read `AWS_DEFAULT_REGION` when refreshing SSO credentials. Omitting it causes a `NoRegionError`.
 
@@ -108,7 +108,7 @@ The following example `token_exchange.py` module that you create here has no dep
 
 <AiAgentTokenExchangeModule/>
 
-## Set up your AWS Bedrock Agent
+## Set up your AWS Bedrock Classic Agent
 
 ### Enable model access
 
@@ -127,7 +127,7 @@ Foundation models aren't enabled by default. If your model shows as unavailable:
 
 ### Create the agent
 
-1. In the AWS console, open the [Amazon Bedrock console](https://console.aws.amazon.com/bedrock). Confirm that you're in a [Region that supports Amazon Bedrock agents](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-supported.html).
+1. In the AWS console, open the [Amazon Bedrock console](https://console.aws.amazon.com/bedrock). Confirm that you're in a [Region that supports Amazon Bedrock Classic agents](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-supported.html).
 1. In the navigation pane, under **Builder tools**, choose **Agents**, then choose **Create agent**.
 1. Enter a name for your agent (for example, `MyBedrockAgent`), and then choose **Create**. The **Agent builder** pane opens.
 1. In the **Agent details** section:
@@ -162,7 +162,7 @@ Foundation models aren't enabled by default. If your model shows as unavailable:
 
 > **Important:** Scope the Lambda's execution role to least privilege: grant it only the specific downstream APIs it needs to call, run it in a VPC if it needs network isolation, and monitor it with CloudWatch and CloudTrail. See [AWS IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) and [Implementing least privilege access for Amazon Bedrock](https://aws.amazon.com/blogs/security/implementing-least-privilege-access-for-amazon-bedrock/).
 
-### Import your Bedrock Agent into Okta
+### Import your Bedrock Classic Agent into Okta
 
 Importing the agent lets it appear in **Directory** > **AI Agents** for visibility and governance, such as access certifications. This is separate from the AI Agent identity that you registered in [Before you begin](#before-you-begin), which is the credential your app uses to perform the token exchange.
 
@@ -188,7 +188,7 @@ Importing the agent lets it appear in **Directory** > **AI Agents** for visibili
    ```
 
 1. Generate an access key for the IAM user and store it in a secrets manager.
-1. In the Admin Console, configure the AI agent import with the access key, the AWS regions where your agents run, and **AWS Bedrock Agents** as the platform. Test the connection and save.
+1. In the Admin Console, configure the AI agent import with the access key, the AWS regions where your agents run, and **AWS Bedrock Classic Agents** as the platform. Test the connection and save.
 
 ## Configure your app
 
@@ -196,7 +196,7 @@ Importing the agent lets it appear in **Directory** > **AI Agents** for visibili
 
 ```text
 bedrock-agent-app/
-├── main.py           # Token exchange + Bedrock Agent invocation
+├── main.py           # Token exchange + Bedrock Classic Agent invocation
 ├── token_exchange.py # Okta token exchange module
 ├── requirements.txt
 ├── .env              # Secrets (gitignored)
@@ -223,7 +223,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Invoke the Bedrock Agent with the access token
+## Invoke the Bedrock Classic Agent with the access token
 
 After the token exchange, invoke the agent and pass the `access_token` and the user's claims as session attributes. A Lambda action group on the agent reads those attributes and forwards the token as `Authorization: Bearer <access_token>` to an Okta-protected resource.
 
@@ -264,11 +264,11 @@ def invoke_bedrock_agent(prompt: str, user_claims: dict, access_token: str) -> s
     return "".join(chunks)
 ```
 
-> **Note:** The IAM identity running this code needs the `bedrock:InvokeAgent` permission on the target agent. This is a separate, narrower permission than the read-only import policy in [Import your Bedrock Agent into Okta](#import-your-bedrock-agent-into-okta).
+> **Note:** The IAM identity running this code needs the `bedrock:InvokeAgent` permission on the target agent. This is a separate, narrower permission than the read-only import policy in [Import your Bedrock Classic Agent into Okta](#import-your-bedrock-classic-agent-into-okta).
 
 ## Wire it into an entry point
 
-In your app's entry point, call the two token exchange functions in order, decode the user's identity claims from the `id_token`, and then invoke the Bedrock Agent. The following example `main.py` imports the reusable token exchange module and adds only the AWS-specific wiring:
+In your app's entry point, call the two token exchange functions in order, decode the user's identity claims from the `id_token`, and then invoke the Bedrock Classic Agent. The following example `main.py` imports the reusable token exchange module and adds only the AWS-specific wiring:
 
 ```python
 import json
@@ -340,7 +340,7 @@ A successful response appears as follows and confirms the full round trip:
 ### Useful AWS CLI commands
 
 ```bash
-# List your Bedrock Agents
+# List your Bedrock Classic Agents
 aws bedrock list-agents --region us-east-1
 
 # Find an Agent's Alias IDs
@@ -372,7 +372,7 @@ The following errors are specific to the AWS Bedrock integration:
 | `NoRegionError: You must specify a region` | The boto3 SSO credential refresher needs `AWS_DEFAULT_REGION` | Set both `AWS_REGION` and `AWS_DEFAULT_REGION` in the environment |
 | `ModuleNotFoundError: awscrt` at startup | Missing the CRT extension required by the SSO credential provider | Run `pip install botocore[crt]` |
 | `ThrottlingException` on `InvokeAgent` | Bedrock model invocation quota exceeded (often `0` on new accounts) | Check **Service Quotas**. A quota of `0` means that the model is disabled for the account |
-| `Agent Instruction cannot be null` | The Bedrock agent has no instructions | In the AWS console, edit the agent to add an instruction, then choose **Prepare** |
+| `Agent Instruction cannot be null` | The Bedrock Classic Agent has no instructions | In the AWS console, edit the agent to add an instruction, then choose **Prepare** |
 | `ResourceNotFoundException` on `InvokeAgent` | Wrong agent ID or alias ID | Verify `BEDROCK_AGENT_ID` and `BEDROCK_AGENT_ALIAS_ID` in the AWS console |
 
 The following errors come from the Okta token exchange and are covered in [Set up third-party AI Agent token exchange: Troubleshooting](/docs/guides/ai-agent-third-party-token-exchange/main/#troubleshooting):
@@ -385,7 +385,7 @@ The following errors come from the Okta token exchange and are covered in [Set u
 
 ## Next steps
 
-Your Bedrock Agent can now authenticate as a user and call Okta-protected APIs on their behalf. To define which resources and scopes the agent is permitted to reach, see [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/) and the Okta for AI Agents documentation on governing access to AI agents.
+Your Bedrock Classic Agent can now authenticate as a user and call Okta-protected APIs on their behalf. To define which resources and scopes the agent is permitted to reach, see [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/) and the Okta for AI Agents documentation on governing access to AI agents.
 
 ## See also
 
