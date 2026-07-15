@@ -20,7 +20,7 @@ title: Okta Identity Engine API release notes 2026
 | ------ | ------------------------ |
 | [Agent-to-agent audience update](#agent-to-agent-audience-update) | July 15, 2026 |
 | [Cross app access for AI agents and apps](#cross-app-access-for-ai-agents-and-apps) | July 15, 2026 |
-| [Agent-to-agent connections is GA in Production](#agent-to-agent-connections-is-ga-in-production) | July 15, 2026 |
+| [Agent-to-agent connections is GA in Production](#agent-to-agent-connections-is-ga-in-production) | June 17, 2026 |
 | [New endpoints for device OS accounts is EA in Preview](#new-endpoints-for-device-os-accounts-is-ea-in-preview) | July 15, 2026 |
 | [Bugs fixed in 2026.07.2](#bugs-fixed-in-2026-07-2) | July 15, 2026 |
 
