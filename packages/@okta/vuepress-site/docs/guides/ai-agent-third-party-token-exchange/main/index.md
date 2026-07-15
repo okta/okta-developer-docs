@@ -716,6 +716,8 @@ if __name__ == "__main__":
 
 ### Run the demo
 
+> **Note:** This demo script plays both roles shown in the [Token Exchange flow](/docs/guides/ai-agent-token-exchange/) diagram. It signs the user in as the web app that issues the ID token, and then acts as the AI Agent, using the agent's private key to perform both steps of the token exchange. In a production integration, these are typically separate components.
+
 Run the demo file:
 
 ```bash
@@ -740,12 +742,6 @@ The following errors come from the Okta token exchange module:
 
 ## Next steps
 
-<!-- maybe too generic ... focus on the actual platform specific docs below -->
+If you're integrating a supported third-party platform, apply this flow using the platform-specific guide in [Supported platforms](#supported-platforms).
 
-Authenticating third-party agents with delegated user identity is one part of the Okta for AI Agents framework. After your agent can call APIs on a user's behalf, you can:
-
-- Authorize access to tools and APIs: Configure brokered consent, MCP integration, and OAuth 2.0 resource server policies to define which resources and scopes agents are permitted to reach.
-
-- Secure agent-to-agent communication: Use A2A flows, ACT claims, and token chaining when one agent delegates work to another.
-
-- Deploy through an agent gateway: Centrally manage, observe, and govern agent traffic through virtual MCP servers and gateway integrations.
+Authenticating third-party agents with delegated user identity is one part of the Okta for AI Agents framework. To define which resources and scopes an agent can reach, see [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/).
