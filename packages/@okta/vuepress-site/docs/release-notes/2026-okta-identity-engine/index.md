@@ -45,7 +45,7 @@ The `GET /api/v1/devices/{deviceId}/os-accounts` and `GET /api/v1/devices/{devic
 
 #### Bug fixed in 2026.07.2
 
-After an org in Classic Engine without an MFA SKU migrated to Identity Engine, deleting the email authenticator required enrollment of the org's designated recovery authenticator during self-service registration. (OKTA-1216937)
+After an org in Classic Engine without MFA enabled migrated to Identity Engine, deleting the email authenticator required enrollment of the org's designated recovery authenticator during self-service registration. (OKTA-1216937)
 
 ### Weekly release 2026.07.1
 <!-- Published on: 2026-07-08T12:00:00Z -->
