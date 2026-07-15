@@ -29,7 +29,7 @@ Admins can now revoke a principal user's access to specific resources. Admins ca
 
 #### Entitlement Settings API is Beta
 
-<ApiLifecycle access="beta" />
+<ApiLifecycle access="research" />
 
 Admins can now opt in (enable) or opt out of (disable) entitlement management for resources in Okta. This feature allows you to manage third-party app entitlements in Okta.
 See the [Entitlement Settings](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Entitlement-Settings/) API.
@@ -39,7 +39,7 @@ You can also access this feature from the Admin Console. See [Enable Entitlement
 
 #### Entitlement-value ORN property in principal access for a resource is Beta
 
-<ApiLifecycle access="beta" />
+<ApiLifecycle access="research" />
 
 The entitlement-value resource, in Okta resource name (ORN) format, is now returned in the [Retrieve the principal access for a resource](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/principal-access/getprincipalaccess) response for both `base` and `additional` grants. See the `orn` property in the `base` [entitlement-value grants list](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/principal-access/getprincipalaccess#principal-access/getprincipalaccess/t=response&c=200&path=base/entitlements/values/orn) and in the `additional` [entitlement-value grants list](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/principal-access/getprincipalaccess#principal-access/getprincipalaccess/t=response&c=200&path=additional/entitlements/values/orn) of the response payload.
 <!-- OKTA-1063871, Preview date: Dec 10, 2025 -->
