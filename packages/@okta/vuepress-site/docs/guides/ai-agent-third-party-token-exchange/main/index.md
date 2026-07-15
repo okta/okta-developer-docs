@@ -112,7 +112,9 @@ The AI Agent identity is distinct from the OIDC web app integration, which signs
 
 <!-- walk thru configuring an imported AI agent - same stuff I believe-->
 
-Import your third-party AI agent, or, if you'd like an AI Agent identity to test the token exchange flow in this guide, you can create one manually:
+In a real integration, you import the third-party agent you've already built, for example, a live Amazon Bedrock or Azure AI Foundry agent. That import generates the client ID, key ID, and private key that your agent's integration code uses to sign token exchange requests, as shown in the platform-specific guides listed under [Supported platforms](#supported-platforms).
+
+This guide isn't tied to a specific platform. To walk through the token exchange flow end-to-end, manually register a stand-in AI Agent identity instead:
 
 1. In the Admin Console, go to **Directory** > **AI agents**.
 1. Click **Register AI agent** > **Register manually**.
