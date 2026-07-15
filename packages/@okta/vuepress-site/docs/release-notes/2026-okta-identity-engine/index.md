@@ -22,7 +22,7 @@ title: Okta Identity Engine API release notes 2026
 | [Cross app access for AI agents and apps](#cross-app-access-for-ai-agents-and-apps) | July 15, 2026 |
 | [Agent-to-agent connections is GA in Production](#agent-to-agent-connections-is-ga-in-production) | June 17, 2026 |
 | [New endpoints for device OS accounts is EA in Preview](#new-endpoints-for-device-os-accounts-is-ea-in-preview) | July 15, 2026 |
-| [Bugs fixed in 2026.07.2](#bugs-fixed-in-2026-07-2) | July 15, 2026 |
+| [Bug fixed in 2026.07.2](#bug-fixed-in-2026-07-2) | July 15, 2026 |
 
 #### Agent-to-agent audience update
 
@@ -43,11 +43,9 @@ The Delegation Links API is BETA. Delegated links are explicit, configurable pol
 
 The `GET /api/v1/devices/{deviceId}/os-accounts` and `GET /api/v1/devices/{deviceId}/os-accounts/{osAccountId}` endpoints return fields for each OS account, including `status`, `lastSeenAt`, and linked device resource details. Use the `expand` query parameter to include user profile or enrollment details in the response. Set `expand` to `users` for the Okta user profile, or to `account_linked_enrollments` for Platform SSO and desktop MFA enrollment status and last authentication time. This supports the Device Visibility feature for macOS and Windows devices. <!-- See [List all OS accounts for a device](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/device/other/listdeviceosaccounts) and [Retrieve an OS account](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/device/other/getdeviceosaccount). --> <!-- OKTA-1195839, OKTA-1161889, FF: DEVICE_ACCESS_DEVICE_VISIBILITY, EA, Release: July 15, 2026 (2026.07.2) -->
 
-#### Bugs fixed in 2026.07.2
+#### Bug fixed in 2026.07.2
 
-* After an org in Classic Engine without an MFA SKU migrated to Identity Engine, deleting the email authenticator required enrollment of the org's designated recovery authenticator during self-service registration. (OKTA-1216937)
-
-* Some scopes were missing from the API Service Submission scope picker due to feature flag dependency being enforced. (OKTA-1216857)
+After an org in Classic Engine without an MFA SKU migrated to Identity Engine, deleting the email authenticator required enrollment of the org's designated recovery authenticator during self-service registration. (OKTA-1216937)
 
 ### Weekly release 2026.07.1
 <!-- Published on: 2026-07-08T12:00:00Z -->
