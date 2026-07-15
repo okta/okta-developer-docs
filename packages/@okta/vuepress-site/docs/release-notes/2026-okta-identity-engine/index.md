@@ -21,6 +21,7 @@ title: Okta Identity Engine API release notes 2026
 | [Agent-to-agent audience update](#agent-to-agent-audience-update) | July 15, 2026 |
 | [Cross app access for AI agents and apps](#cross-app-access-for-ai-agents-and-apps) | July 15, 2026 |
 | [Agent-to-agent connections is GA in Production](#agent-to-agent-connections-is-ga-in-production) | July 15, 2026 |
+| [New endpoints for device OS accounts is EA in Preview](#new-endpoints-for-device-os-accounts-is-ea-in-preview) | July 15, 2026 |
 | [Bugs fixed in 2026.07.2](#bugs-fixed-in-2026-07-2) | July 15, 2026 |
 
 #### Agent-to-agent audience update
@@ -37,6 +38,10 @@ This feature allows admins to securely connect AI agents and apps to take action
 Agent-to-agent server connections allow admins to connect AI agents to other AI agents through delegated links. Admins can manage scopes to restrict access to the appropriate AI agent tasks, and allow service apps to call AI agents without user context. Using tokens and the System Log, admins can view all the users, AI agents, and apps that call an AI agent. See [Agent-to-agent token exchange](/docs/guides/ea-ai-agent-token-exchange/agent-to-agent/main/).
 
 The Delegation Links API is BETA. Delegated links are explicit, configurable policy statements that declare which principals (OIDC apps or other agents) and token types each agent accepts as valid proof of identity. This replaces the implicit linked app policy. See [Delegation Links](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks). <!-- FF SECURE_AI_A2A_SERVERS preview release 2026.06.2 OKTA-1197640 -->
+
+#### New endpoints for device OS accounts is EA in Preview
+
+The `GET /api/v1/devices/{deviceId}/os-accounts` and `GET /api/v1/devices/{deviceId}/os-accounts/{osAccountId}` endpoints return fields for each OS account, including `status`, `lastSeenAt`, and linked device resource details. Use the `expand` query parameter with the `users` or `account_linked_enrollments` values to include the associated Okta user profile and Platform SSO or desktop MFA enrollment details, such as enrollment status and last authentication time. This supports the Device Visibility feature for macOS and Windows devices. <!-- See [List all OS accounts for a device](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/device/other/listdeviceosaccounts) and [Retrieve an OS account](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/device/other/getdeviceosaccount). --> <!-- OKTA-1195839, OKTA-1161889, FF: DEVICE_ACCESS_DEVICE_VISIBILITY, EA, Release: July 15, 2026 (2026.07.2) -->
 
 #### Bugs fixed in 2026.07.2
 
