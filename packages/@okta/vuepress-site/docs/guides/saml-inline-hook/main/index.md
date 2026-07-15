@@ -129,7 +129,7 @@ const patients = [
      ExternalServicePatientID: '6789',
   },
     {
-    username: 'mark.christie@example.com',
+    username: 'jessie.smith@example.com',
      ExternalServicePatientID: '4235',
   },
 
