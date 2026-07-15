@@ -24,7 +24,7 @@ The Okta authentication is a two-step token exchange that's the same for any AI 
 
 * An [Identity Engine](/docs/concepts/oie-intro/) org with the Okta for AI Agents feature enabled
 * An existing Amazon Bedrock AgentCore agent that you can edit and deploy
-* The Amazon Bedrock AgentCore agent imported into Okta
+* You've registered the Amazon Bedrock AgentCore agent in your org. See [Configure AWS Identity and Access Management for AI agent imports](Configure AWS Identity and Access Management for AI agent imports).
 * [Python](https://www.python.org/) 3.10 or later
 
 ---
