@@ -13,6 +13,40 @@ title: Okta Identity Engine API release notes 2026
 
 ## July
 
+### Weekly release 2026.07.2
+<!-- Published on: 2026-07-15T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Agent-to-agent audience update](#agent-to-agent-audience-update) | July 15, 2026 |
+| [Cross app access for AI agents and apps](#cross-app-access-for-ai-agents-and-apps) | July 15, 2026 |
+| [Agent-to-agent connections is GA in Production](#agent-to-agent-connections-is-ga-in-production) | June 17, 2026 |
+| [New endpoints for device OS accounts is EA in Preview](#new-endpoints-for-device-os-accounts-is-ea-in-preview) | July 15, 2026 |
+| [Bug fixed in 2026.07.2](#bug-fixed-in-2026-07-2) | July 15, 2026 |
+
+#### Agent-to-agent audience update
+
+The agent-to-agent server resource url (`audience` parameter) can now be a free-form string. <!-- OKTA-1215276 -->
+
+#### Cross app access for AI agents and apps
+
+Cross app access now secures connections between custom SAML requesting apps and OIDC/SAML resource apps. The [Delegation links APIs](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks/other/listdelegationlinks#other/listdelegationlinks/) and [Resource connections and potential connections APIs](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentpotentialconnections/other/listpotentialconnectionsbytype#other/listpotentialconnectionsbytype/request/query) have been updated with the option to use the `tokenType` parameter and `connectionType` parameter with the new SAML requesting apps.
+This feature allows admins to securely connect AI agents and apps to take action on behalf of users, bypassing the need for user consent. Admins retain full visibility and granular control over every action an AI agent can execute for a user. See [Configure resource server connectors](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-custom-rsc-svr). <!-- FF SECURE_AI_XAA_SAML preview and prod release 2026.07.2 OKTA-1215150 -->
+
+#### Agent-to-agent connections is GA in Production
+
+Agent-to-agent server connections allow admins to connect AI agents to other AI agents through delegated links. Admins can manage scopes to restrict access to the appropriate AI agent tasks, and allow service apps to call AI agents without user context. Using tokens and the System Log, admins can view all the users, AI agents, and apps that call an AI agent. See [Agent-to-agent token exchange](/docs/guides/ea-ai-agent-token-exchange/agent-to-agent/main/).
+
+The Delegation Links API is BETA. Delegated links are explicit, configurable policy statements that declare which principals (OIDC apps or other agents) and token types each agent accepts as valid proof of identity. This replaces the implicit linked app policy. See [Delegation Links](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks). <!-- FF SECURE_AI_A2A_SERVERS preview release 2026.06.2 OKTA-1197640 -->
+
+#### New endpoints for device OS accounts is EA in Preview
+
+The `GET /api/v1/devices/{deviceId}/os-accounts` and `GET /api/v1/devices/{deviceId}/os-accounts/{osAccountId}` endpoints return fields for each OS account, including `status`, `lastSeenAt`, and linked device resource details. Use the `expand` query parameter to include user profile or enrollment details in the response. Set `expand` to `users` for the Okta user profile, or to `account_linked_enrollments` for Platform SSO and desktop MFA enrollment status and last authentication time. This supports the Device Visibility feature for macOS and Windows devices. <!-- See [List all OS accounts for a device](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/device/other/listdeviceosaccounts) and [Retrieve an OS account](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/device/other/getdeviceosaccount). --> See [View device details](https://help.okta.com/okta_help.htm?type=oie&id=devices-view-details) to use the feature in the Admin Console. <!-- OKTA-1195839, OKTA-1161889, FF: DEVICE_ACCESS_DEVICE_VISIBILITY, EA, Release: July 15, 2026 (2026.07.2) -->
+
+#### Bug fixed in 2026.07.2
+
+After an org in Classic Engine without MFA enabled migrated to Identity Engine, deleting the email authenticator required enrollment of the org's designated recovery authenticator during self-service registration. (OKTA-1216937)
+
 ### Weekly release 2026.07.1
 <!-- Published on: 2026-07-08T12:00:00Z -->
 
