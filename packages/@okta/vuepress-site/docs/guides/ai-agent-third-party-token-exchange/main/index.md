@@ -56,7 +56,7 @@ To configure token exchange for third-party AI agents, you must complete the fol
 - Configure the access policy to allow the JWT bearer grant type.
 - Complete the token exchange flow with Okta APIs.
 
-After these configurations, you can create a test app to demonstrate this flow, see [Create an app to test the token exchange flow](#create-an-app-to-test-the-token-exchange-flow).
+After these configurations, you can create a test app to demonstrate this flow. See [Create an app to test the token exchange flow](#create-an-app-to-test-the-token-exchange-flow).
 
 ### Create an OIDC web app integration
 
@@ -108,8 +108,6 @@ The AI Agent is the machine identity that your calling app uses to sign token ex
 
 The AI Agent identity is distinct from the OIDC web app integration, which signs users in and issues the ID token. The AI Agent identity authenticates both steps of the exchange.
 
-<!-- See Barbara's docs here: https://preview-4797--regal-biscotti-8ee5d8.netlify.app/oie/en-us/content/topics/ai-agents/ai-agent-imports.htm-->
-
 In a real integration, you import the third-party agent you've already built, for example, a live Amazon Bedrock or Azure AI Foundry agent. That import generates the client ID, key ID, and private key that your agent's integration code uses to sign token exchange requests, as shown in the platform-specific guides listed under [Supported platforms](#supported-platforms).
 
 This guide isn't tied to a specific platform. To walk through the token exchange flow end-to-end, manually register a stand-in AI Agent identity instead:
@@ -120,8 +118,7 @@ This guide isn't tied to a specific platform. To walk through the token exchange
 1. Click **Register**.
 1. Under **Owners**, add owners to the AI Agent. Add at least two owners. Click **Save**.
 1. Select your AI Agent from the list of AI Agents, and click **Credentials**. Make a note of the AI agent ID.
-1. Under **Client Authentication**, generate an RSA key-pair. Click **Add public key** and
-**Generate new key** or use your own public key. Click **Done**.
+1. Under **Client Authentication**, generate an RSA key-pair. Click **Add public key** and **Generate new key** or use your own public key. Click **Done**.
 1. From **Actions**, select **Activate**.
 1. Click **Delegations**. Under **User sign-on**, click **Add caller**. From **Application**, select your previously created OIDC app integration, for example, "AI third-party token exchange." Click **Add caller**.
 1. Under **Non-human identity**, click **Configure**. From **Authorization server**, select your custom authorization server, in this example, use `default`.
@@ -185,7 +182,7 @@ curl -X POST https://{yourOktaDomain}/oauth2/v1/token \
 | subject_token_type | The value must be `urn:ietf:params:oauth:token-type:id_token`. |
 | subject_token | A valid ID token issued to the resource app associated with the AI agent |
 | requested_token_type | The value must be `urn:ietf:params:oauth:token-type:id-jag`. |
-| scope | A list of scopes at the resource app being requested. This defines the permissions for the final access token.  Use `xaa:read` |
+| scope | A list of scopes at the resource app being requested. This defines the permissions for the final access token. Use `xaa:read` |
 | audience | The issuer URL of the resource app's authorization server. |
 
 ##### Response
@@ -226,7 +223,7 @@ curl -X POST https://{your-okta-domain}/oauth2/{custom-as-id}/v1/token \
 | Parameter | Description and value |
 | --- | --- |
 | grant_type | The value must be `urn:ietf:params:oauth:grant-type:jwt-bearer` |
-| assertion | The ID-JAG received in the exchange token ID for resource token [response](#response). |
+| assertion | The ID-JAG received in the previous step's token exchange [response](#response). |
 | client_assertion_type | The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | client_assertion | A signed JWT used for client authentication. Sign the JWT using the key created during the AI Agent registration. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |
 
@@ -317,7 +314,7 @@ OIDC_CLIENT_SECRET=rPgK0mZi6aqpmRD....
 
 ### Create the token demo file
 
-Create a `scripts` folder at the root level of your project, and create a file name, for example, `oidc.id-token.py`. Copy the following Python code into the file and save.
+Create a `scripts` folder at the root level of your project, and create a Python file, for example, `oidc.id-token.py`. Copy the following Python code into the file and save.
 
 ```python
 # oidc.id-token.py
@@ -457,7 +454,7 @@ if __name__ == "__main__":
 Run the demo file:
 
 ```bash
-uv run scripts/oidc-id-token.py
+uv run scripts/oidc.id-token.py
 ```
 
 Then open `http://localhost:5000/` in your browser to start the sign-in flow. After you enter your Okta credentials, the ID token appears on the rendered page. You can use this ID token to test the token exchange flow API calls in [Exchange the ID token for ID-JAG](#exchange-the-id-token-for-id-jag).
@@ -485,13 +482,13 @@ AGENT_PRIVATE_KEY_JWK={yourAgentPrivateKey}
 For example:
 
 ```bash
-# OIDC config for token-exchange-demo.py`
+# OIDC config for token-exchange-demo.py
 # OKTA_DOMAIN must include https:// and have NO trailing slash
 OKTA_DOMAIN=https://example.okta.com
 OIDC_CLIENT_ID=0oazte....Vv6aZ1d7
 OIDC_CLIENT_SECRET=rPgK0mZi6aqpmRD....
 
-# --- Token exchange (agent on behalf of user), used by token-exchange-demo.py` ---
+# --- Token exchange (agent on behalf of user), used by token-exchange-demo.py ---
 # Custom authorization server ID (for example,  "default" or an "ausXXXX..." id)
 CUSTOM_AS=default
 # The agent's OAuth client id
@@ -504,10 +501,10 @@ AGENT_PRIVATE_KEY_JWK={"alg":"RS256","d":"QtPaeAww4ykVlxafEqZ7A......}
 
 ### Create the demo file
 
-Create a `scripts` folder at the root level of your project, and create a file name, for example, `token-exchange-demo.py`. Copy the following Python code into the file and save.
+Create a `scripts` folder at the root level of your project, and create a Python file, for example, `token-exchange-demo.py`. Copy the following Python code into the file and save.
 
 ```python
-# token_demo.py
+# token-exchange-demo.py
 import os, json, time, uuid, secrets
 import jwt
 import requests

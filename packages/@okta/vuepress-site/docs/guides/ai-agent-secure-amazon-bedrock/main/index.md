@@ -24,7 +24,7 @@ The Okta authentication is a two-step token exchange that's the same for any AI 
 
 * An [Identity Engine](/docs/concepts/oie-intro/) org with the Okta for AI Agents feature enabled
 * An existing Amazon Bedrock AgentCore agent that you can edit and deploy
-* The Amazon Bedrock AgentCore agent registered in your org. See [Configure AWS Identity and Access Management for AI agent imports](Configure AWS Identity and Access Management for AI agent imports).
+* The Amazon Bedrock AgentCore agent registered in your org. See [Configure AWS Identity and Access Management for AI agent imports](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-configure-aws.htm).
 * [Python](https://www.python.org/) 3.10 or later
 
 ---
@@ -76,7 +76,7 @@ The token exchange depends on Okta objects that you configure once per org. Conf
 
   > **Note:** Okta doesn't retain the agent's private key. Store it in a secrets manager when it's generated, because it's shown only once.
 
-* An access policy rule on the custom authorization server that enables the JWT Bearer grant type (`urn:ietf:params:oauth:grant-type:jwt-bearer`), adds the AI Agent as an allowed client, and includes the audience, the custom scope, and a user or group condition.
+* An access policy rule on the custom authorization server that enables the JWT bearer grant type (`urn:ietf:params:oauth:grant-type:jwt-bearer`), adds the AI Agent as an allowed client, and includes the audience, the custom scope, and a user or group condition.
 
 ### Collect your configuration values
 
@@ -232,7 +232,7 @@ The following errors are specific to the Amazon Bedrock integration:
 | `ThrottlingException` on `InvokeAgent` | Bedrock model invocation quota exceeded (often `0` on new accounts) | Check **Service Quotas**. A quota of `0` means that the model is disabled for the account |
 | `NoRegionError: You must specify a region` | The boto3 SSO credential refresher needs `AWS_DEFAULT_REGION` | Set both `AWS_REGION` and `AWS_DEFAULT_REGION` in the agent runtime environment |
 | `ModuleNotFoundError: awscrt` at startup | Missing the CRT extension required by the SSO credential provider | Run `pip install botocore[crt]` |
-| `Agent Instruction cannot be null` | The Bedrock agent has no instructions. | In the AWS console, edit the agent to add an instruction, then choose **Prepare** |
+| `Agent Instruction cannot be null` | The Bedrock agent has no instructions | In the AWS console, edit the agent to add an instruction, then choose **Prepare** |
 
 ## Next steps
 

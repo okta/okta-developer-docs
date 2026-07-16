@@ -5,7 +5,7 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide shows you how to build a FastAPI app that serves as a secure runtime wrapper for your AI agent. The app acts as the agent's gateway: it authenticates users with Okta, performs Okta's two-step token exchange internally to verify who they are, and then safely forwards their prompts and verified identity to Azure OpenAI. Finally, you’ll learn how to deploy this containerized agent wrapper to Azure Container Apps.
+This guide shows you how to build a FastAPI app that serves as a secure runtime wrapper for your AI agent. The app acts as the agent's gateway: it authenticates users with Okta, performs Okta's two-step token exchange internally to verify who they are, and then safely forwards their prompts and verified identity to Azure OpenAI. Finally, you'll learn how to deploy this containerized agent wrapper to Azure Container Apps.
 
 > **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
 
