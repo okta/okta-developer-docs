@@ -44,7 +44,7 @@ The integration has two parts:
 
 * Platform integration (Azure-specific). Your FastAPI app calls the token exchange, decodes the user's identity claims from the `id_token`, and passes that identity to Azure OpenAI in the system message of a chat completion request. See [Call Azure OpenAI with user identity](#call-azure-openai-with-user-identity).
 
-<!-- TODO: Replace this text-based diagram with an image. -->
+<!-- TODO: Replace this text-based diagram with an image.
 
 ```text
 User
@@ -62,7 +62,7 @@ Platform integration (FastAPI app on Azure Container Apps: main.py)
     v
 Azure OpenAI
   system message includes the verified user's name and email
-```
+```-->
 
 For the conceptual background on AI agent token exchange, see [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/).
 

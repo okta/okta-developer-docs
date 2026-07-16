@@ -43,7 +43,7 @@ The integration has two parts:
 
 * Platform integration (Amazon Bedrock-specific). Your agent calls the token exchange and then attaches the access token to its downstream calls. For AgentCore, this means passing the token to a Bedrock agent as a session attribute. See [Integrate the token exchange into your AgentCore agent](#integrate-the-token-exchange-into-your-agentcore-agent).
 
-<!-- TODO: Replace this text-based diagram with an image. -->
+<!-- TODO: Replace this text-based diagram with an image.
 
 ```text
 User
@@ -61,7 +61,7 @@ Platform integration (Amazon Bedrock AgentCore: agent.py)
     v
 Downstream resource (Bedrock agent, MCP server, or Okta-protected API)
   Authorization: Bearer <access_token>
-```
+```-->
 
 For the conceptual background on AI agent token exchange, see [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/).
 

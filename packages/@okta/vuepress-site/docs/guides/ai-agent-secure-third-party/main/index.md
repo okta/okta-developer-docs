@@ -23,7 +23,7 @@ Securing any agent breaks into two parts:
 
 * **Platform integration (platform-specific).** The agent calls the token exchange and then attaches the resulting access token to the calls it makes, for example, as a session attribute, or as a request header. Exactly how depends on the platform.
 
-<!-- TODO: Replace this text-based diagram with an image. -->
+<!-- TODO: Replace this text-based diagram with an image.
 
 ```text
 User
@@ -41,7 +41,7 @@ Platform integration (platform-specific)
     v
 Okta-protected resource (API, MCP server, or another agent)
   Authorization: Bearer <access_token>
-```
+```-->
 
 For the underlying concepts and the token exchange API details, see [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/).
 

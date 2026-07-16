@@ -716,8 +716,6 @@ if __name__ == "__main__":
 
 ### Run the demo
 
-> **Note:** This demo script plays both roles shown in the [Token Exchange flow](/docs/guides/ai-agent-token-exchange/) diagram. It signs the user in as the web app that issues the ID token, and then acts as the AI Agent, using the agent's private key to perform both steps of the token exchange. In a production integration, these are typically separate components.
-
 Run the demo file:
 
 ```bash
@@ -725,6 +723,8 @@ uv run scripts/token-exchange-demo.py
 ```
 
 Then open `http://localhost:5000/` in your browser to start the sign-in flow. After you enter your Okta credentials, the full flow completes and the following tokens appear on the rendered page: ID token, ID-JAG token, and access token. See [Complete the token exchange flow](#complete-the-token-exchange-flow).
+
+> **Note:** This demo script plays both roles shown in the [Token Exchange flow](/docs/guides/ai-agent-token-exchange/) diagram. It signs the user in as the web app that issues the ID token, and then acts as the AI Agent, using the agent's private key to perform both steps of the token exchange. In a production integration, these are typically separate components.
 
 ## Troubleshooting
 

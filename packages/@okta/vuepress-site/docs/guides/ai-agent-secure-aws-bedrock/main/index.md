@@ -43,7 +43,7 @@ The integration has two parts:
 
 * Platform integration (AWS-specific). Your app invokes the Bedrock Classic Agent, passing the access token and the user's claims as session attributes. An action group Lambda function reads those session attributes and forwards the token as a bearer credential to an Okta-protected API. See [Invoke the Bedrock Classic Agent with the access token](#invoke-the-bedrock-classic-agent-with-the-access-token).
 
-<!-- TODO: Replace this text-based diagram with an image. -->
+<!-- TODO: Replace this text-based diagram with an image.
 
 ```text
 User
@@ -67,7 +67,7 @@ Action group (Lambda)
     |
     v
 Okta-protected API
-```
+```-->
 
 There's no gateway or interceptor in this pattern. Your calling app owns the full token exchange, and the Bedrock Classic Agent receives a ready-to-use `access_token` in its session attributes.
 
