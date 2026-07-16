@@ -27,7 +27,7 @@ sed -i "s#${YARN_REGISTRY}#${OKTA_REGISTRY}#" yarn.lock
 export PATH="${PATH}:$(yarn global bin)"
 
 # Install required dependencies
-yarn global add @okta/ci-append-sha
+yarn global add @okta/ci-append-sha@1.6.0-gba4862f
 yarn global add @okta/ci-pkginfo
 
 if ! yarn install --frozen-lockfile --ignore-platform ; then
