@@ -5,7 +5,7 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide shows you how to build a FastAPI app that serves as a secure runtime wrapper for your AI agent. The app acts as the agent's gateway: it authenticates users with Okta, performs Okta's two-step token exchange internally to verify who they are, and then safely forwards their prompts and verified identity to Azure OpenAI. Finally, you will learn how to deploy this containerized agent wrapper to Azure Container Apps.
+This guide shows you how to build a FastAPI app that serves as a secure runtime wrapper for your AI agent. The app acts as the agent's gateway: it authenticates users with Okta, performs Okta's two-step token exchange internally to verify who they are, and then safely forwards their prompts and verified identity to Azure OpenAI. Finally, you’ll learn how to deploy this containerized agent wrapper to Azure Container Apps.
 
 > **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
 
@@ -23,7 +23,7 @@ This guide shows you how to build a FastAPI app that serves as a secure runtime 
 
 * An [Identity Engine](/docs/concepts/oie-intro/) org with the Okta for AI Agents feature enabled
 * An Azure subscription with Azure OpenAI access in your region
-* You've registered the AI Agent in your org. See [Configure Microsoft Office 365 for AI agent imports](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-configure-microsoft.htm).
+* The AI Agent registered in your org. See [Configure Microsoft Office 365 for AI agent imports](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-configure-microsoft.htm).
 * The [Azure CLI](https://learn.microsoft.com/cli/azure/) (`az`), installed and authenticated (`az login`)
 * Docker or access to the Azure Container Registry for building images
 * [Python](https://www.python.org/) 3.10 or later

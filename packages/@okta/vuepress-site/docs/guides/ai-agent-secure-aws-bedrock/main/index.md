@@ -5,7 +5,7 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide shows you how to secure an AWS Bedrock Classic Agent with Okta authentication by building a Python calling application that acts as a secure orchestrator. Your application performs Okta's two-step token exchange internally, and then invokes the Bedrock Classic Agent while securely passing the resulting access token and user identity as session attributes.
+This guide shows you how to secure an AWS Bedrock Classic Agent with Okta authentication by building a Python calling app that acts as a secure orchestrator. Your app performs Okta's two-step token exchange internally, and then invokes the Bedrock Classic Agent while securely passing the resulting access token and user identity as session attributes.
 
 > **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
 
@@ -23,8 +23,8 @@ This guide shows you how to secure an AWS Bedrock Classic Agent with Okta authen
 
 * An [Identity Engine](/docs/concepts/oie-intro/) org with the Okta for AI Agents feature enabled
 * An AWS account with Amazon Bedrock available in your region and foundation model access approved
-* You've registered the AI Agent in your org. See [Configure AWS Identity and Access Management for AI agent imports](Configure AWS Identity and Access Management for AI agent imports).
-* The configured [AWS CLI](https://aws.amazon.com/cli/), (`aws configure sso` or an access key and secret)
+* The AI Agent registered in your org. See [Configure AWS Identity and Access Management for AI agent imports](Configure AWS Identity and Access Management for AI agent imports).
+* The configured [AWS CLI](https://aws.amazon.com/cli/) (`aws configure sso` or an access key and secret)
 * [Python](https://www.python.org/) 3.10 or later
 
 ---
@@ -153,7 +153,7 @@ Foundation models aren't enabled by default. If your model shows as unavailable:
           # ...
       ```
 
-      > **Note:** Ensure your Lambda function has outbound internet access (through a NAT Gateway or secure route) to reach your Okta organization's API endpoints.
+      > **Note:** Ensure that your Lambda function has outbound internet access (through a NAT Gateway or secure route) to reach your Okta organization's API endpoints.
 
    1. In the IAM console, open the agent's service role (linked from **Agent overview** > **Permissions**) and add an inline policy granting `lambda:InvokeFunction` on your Lambda's ARN, so the agent is authorized to invoke it.
 1. Choose **Save**, then choose **Prepare** to prepare the agent.

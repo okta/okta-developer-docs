@@ -15,7 +15,7 @@ In this guide, learn how to configure token exchange for third-party AI agents.
 
 #### Learning outcomes
 
-- Understand Okta's two-step cross app access (XAA) token exchange flow for AI agents.
+- Understand Okta's two-step Cross App Access (XAA) token exchange flow for AI agents.
 - Understand how to set up the token exchange flow.
 - Test the third-party token exchange flow.
 
@@ -53,7 +53,7 @@ To configure token exchange for third-party AI agents, you must complete the fol
 - Create an Okta OIDC web app integration to handle user sign-on and issue ID tokens.
 - Add a custom scope for your custom authorization server.
 - Import a third-party AI Agent with RSA key-pair authentication.
-- Configure the access policy to allow the JWT Bearer grant type.
+- Configure the access policy to allow the JWT bearer grant type.
 - Complete the token exchange flow with Okta APIs.
 
 After these configurations, you can create a test app to demonstrate this flow, see [Create an app to test the token exchange flow](#create-an-app-to-test-the-token-exchange-flow).
@@ -104,7 +104,7 @@ See [Create Scopes](/docs/guides/customize-authz-server/main/#create-scopes).
 
 ### Import your AI Agent
 
-The AI Agent is the machine identity that your calling application uses to sign token exchange requests. Import your third-party AI Agent following steps in [AI Agent Imports](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-imports).
+The AI Agent is the machine identity that your calling app uses to sign token exchange requests. Import your third-party AI Agent following steps in [AI Agent Imports](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-imports).
 
 The AI Agent identity is distinct from the OIDC web app integration, which signs users in and issues the ID token. The AI Agent identity authenticates both steps of the exchange.
 
@@ -470,7 +470,7 @@ Use the following Python Flask app to test the token exchange flow. It obtains a
 
 ### Create your environment file
 
-Create an `.env` file (or modify the `.env` from the previous section). The demo script will reference the values in this file. Include the following details from the remainder of your token exchange setup:
+Create an `.env` file (or modify the `.env` from the previous section). The demo script references the values in this file. Include the following details from the remainder of your token exchange setup:
 
 ```bash
 OKTA_DOMAIN=https://{yourOktaDomain}
@@ -734,11 +734,11 @@ The following errors come from the Okta token exchange module:
 | --- | --- | --- |
 | `invalid_scope: openid not allowed` | System scopes (`openid`/`profile`/`email`) are stripped in the ID-JAG flow | Use a custom scope such as `xaa:read` on the custom AS and the managed connection |
 | `invalid_client: JWKSet not configured` | The public key isn't registered on the AI Agent | Register the public JWK at **Directory** > **AI Agents** > *(agent)* > **Credentials** |
-| `invalid_grant` / `invalid_token` on Step 1 | The user's `id_token` is expired or was issued by a different OIDC app than the one linked to the agent | Complete a fresh sign-in; confirm the `aud` claim equals the linked OIDC app's client ID |
+| `invalid_grant` / `invalid_token` on step 1 | The user's `id_token` is expired or was issued by a different OIDC app than the one linked to the agent | Complete a fresh sign-in. Confirm the `aud` claim equals the linked OIDC app's client ID |
 | `invalid_client: kid is invalid` | The `kid` in the signing code doesn't match the registered key | Copy the `kid` from the agent's **Credentials** into `AGENT_KEY_ID` |
-| `access_denied: no_matching_policy` | The custom AS access policy is missing the JWT Bearer grant | In the custom AS access policy rule, enable the JWT Bearer grant |
-| `Only service apps can use client_credentials` | Wrong client type at the org AS | Only an Okta client can perform Step 1; OIDC apps can't |
-| `token_exchange_invalid_audience` | Wrong flow path (for example, Web SSO instead of token exchange) | Use the AI Agent client for Step 1, not the OIDC app |
+| `access_denied: no_matching_policy` | The custom authorization server access policy is missing the JWT bearer grant | In the custom authorization server access policy rule, enable the JWT bearer grant |
+| `Only service apps can use client_credentials` | Wrong client type at the org authorization server | Only an Okta client can perform step 1; OIDC apps can't |
+| `token_exchange_invalid_audience` | Wrong flow path (for example, Web SSO instead of token exchange) | Use the AI Agent client for step 1, not the OIDC app |
 
 ## Next steps
 

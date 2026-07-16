@@ -24,7 +24,7 @@ The Okta authentication is a two-step token exchange that's the same for any AI 
 
 * An [Identity Engine](/docs/concepts/oie-intro/) org with the Okta for AI Agents feature enabled
 * An existing Amazon Bedrock AgentCore agent that you can edit and deploy
-* You've registered the Amazon Bedrock AgentCore agent in your org. See [Configure AWS Identity and Access Management for AI agent imports](Configure AWS Identity and Access Management for AI agent imports).
+* The Amazon Bedrock AgentCore agent registered in your org. See [Configure AWS Identity and Access Management for AI agent imports](Configure AWS Identity and Access Management for AI agent imports).
 * [Python](https://www.python.org/) 3.10 or later
 
 ---
@@ -150,7 +150,7 @@ def invoke_bedrock_agent(prompt: str, access_token: str, session_id: str) -> str
     return "".join(chunks)
 ```
 
-> **Note:** Unlike the Azure/AWS wrapper guides, `agent.py` doesn't decode the `id_token` for display claims. Identity in the response comes from the Bedrock agent's own action group, which uses the forwarded `oktaAccessToken` to call an Okta-protected resource (for example, a `/userinfo` call or an MCP server) and returns the user's profile back through the agent's orchestration. If your downstream resource doesn't resolve identity this way, you can pass additional `sessionAttributes` (or a custom prompt template with `promptSessionAttributes`) to surface display claims directly.
+> **Note:** Unlike the Azure/AWS wrapper guides, `agent.py` doesn't decode the `id_token` for display claims. Identity in the response comes from the Bedrock agent's own action group, which uses the forwarded `oktaAccessToken` to call an Okta-protected resource (for example, a `/userinfo` call or an MCP server) and returns the user's profile back through the agent's orchestration. If your downstream resource doesn't resolve identity this way, you can pass more `sessionAttributes` (or a custom prompt template with `promptSessionAttributes`) to surface display claims directly.
 
 Two AWS runtime requirements apply:
 
