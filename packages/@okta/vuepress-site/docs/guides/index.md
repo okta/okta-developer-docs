@@ -3,6 +3,10 @@ title: Guides overview
 guides:
  - add-an-external-idp
  - add-id-verification-idp
+ - ai-agent-secure-amazon-bedrock
+ - ai-agent-secure-aws-bedrock
+ - ai-agent-secure-third-party
+ - ai-agent-third-party-token-exchange
  - ai-agent-token-exchange
  - app-provisioning-connection
  - archive-auth-js
