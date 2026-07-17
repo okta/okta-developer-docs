@@ -58,7 +58,6 @@ Use the guide for your agent's platform to implement the token exchange and plat
 
 * [Secure an Amazon Bedrock AgentCore agent](/docs/guides/ai-agent-secure-amazon-bedrock/)
 * [Secure AWS Bedrock Classic Agents with Okta](/docs/guides/ai-agent-secure-aws-bedrock/)
-* [Secure Azure AI Foundry agents with Okta](/docs/guides/ai-agent-secure-azure/)
 
 If your platform isn't listed, use these guides as a reference for the pattern: configure the same Okta objects, reuse the same token exchange module, then attach the access token using your platform's own tools.
 
@@ -72,4 +71,3 @@ After your agent can authenticate as a user and call protected resources, define
 * [Set up third-party AI Agent token exchange](/docs/guides/ai-agent-third-party-token-exchange/)
 * [Secure an Amazon Bedrock AgentCore agent](/docs/guides/ai-agent-secure-amazon-bedrock/)
 * [Secure AWS Bedrock Classic Agents with Okta](/docs/guides/ai-agent-secure-aws-bedrock/)
-* [Secure Azure AI Foundry agents with Okta](/docs/guides/ai-agent-secure-azure/)

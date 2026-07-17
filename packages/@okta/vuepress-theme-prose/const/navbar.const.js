@@ -580,10 +580,6 @@ export const guides = [
             path: "/docs/guides/ai-agent-secure-third-party/main/",
             subLinks: [
               {
-                title: "Secure Azure AI Foundry agents with Okta",
-                guideName: "ai-agent-secure-azure"
-              },
-              {
                 title: "Secure AWS Bedrock Agents with Okta",
                 guideName: "ai-agent-secure-aws-bedrock"
               },

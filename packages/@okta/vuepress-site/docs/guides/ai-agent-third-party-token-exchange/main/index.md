@@ -44,7 +44,6 @@ The following third-party AI Agent platforms are supported:
 | --- | --- | --- |
 | Amazon Web Services | AWS Bedrock Classic Agents | [AWS Bedrock Classic Agents guide](/docs/guides/ai-agent-secure-aws-bedrock/) |
 | Amazon Web Services | AWS Bedrock AgentCore | [AWS Bedrock AgentCore guide](/docs/guides/ai-agent-secure-amazon-bedrock/) |
-| Microsoft | Azure AI Foundry | [Azure AI Foundry guide](/docs/guides/ai-agent-secure-azure/) |
 
 ## Setting up the third-party token flow
 
