@@ -126,20 +126,16 @@
           return this.eventTypes
         }
 
+        const value = this.search.toLowerCase();
+
         return this.eventTypes.filter((eventType) => {
-          const value = this.search.toLowerCase();
           return (!this.release || eventType.info.release == this.release) && (
-             eventType.id.toLowerCase().indexOf(value)>=0
-          || eventType.description.toLowerCase().includes(value)
+             eventType.id.toLowerCase().includes(value)
+          || eventType.description?.toLowerCase().includes(value)
           || eventType.info.release.includes(this.search)
           || eventType.info.created.includes(this.search)
           || eventType.category.includes(this.search)
-          || eventType.tags.find((tag) => {
-              return tag.toLowerCase().includes(value)
-            })
-          || eventType.mappings.find((mapping) => {
-              return mapping.toLowerCase().includes(value)
-            }))
+          || eventType.tags?.some((tag) => tag.toLowerCase().includes(value)))
         });
       },
 
