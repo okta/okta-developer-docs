@@ -9,6 +9,7 @@ layout: Guides
 This guide describes how to use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/) to manage user identification policies in your org. Use [System Log query](/docs/reference/system-log-query/) to monitor policy evaluation events.
 
 > **Notes:**
+>
 > * This document is only for Okta Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 > * To configure a user identification policy rule in the Admin Console, see [Create a user identification policy rule](https://help.okta.com/okta_help.htm?type=oie&id=add-rule-user-id-policy).
 
