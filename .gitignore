@@ -75,3 +75,7 @@ node_modules
 tests/cypress/videos
 tests/cypress/screenshots
 $null
+
+# Claude Code personal config/skills - not meant to be shared
+claude.local.md
+.claude/
