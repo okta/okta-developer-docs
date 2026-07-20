@@ -3,7 +3,7 @@ The authentication flow for the Classic Engine Authentication SDK methods and th
 
 The Classic Engine authentication flow returns a transaction object that can proceed in the process. You call a method on the transaction object based on the status, for example `authClient.signInWithCredentials` to authenticate the user.
 
-The Identity Engine SDK, however, uses a recursive process. You call the same method again based on the information returned in the transaction object. The Identity Engine SDK uses the `nextStep` property on the transaction object to provide a hint at the required information.
+The Identity Engine SDK, however, uses a recursive process. You call the same method again based on the information that's returned in the transaction object. The Identity Engine SDK uses the `nextStep` property on the transaction object to provide a hint at the required information.
 
 For the basic authentication example, the Identity Engine SDK calls `authClient.idx.authenticate` again and includes information such as the user's email address and authenticator. This call completes the flow and returns a success state.
 
@@ -17,7 +17,7 @@ For further information on the Classic Engine Authentication SDK and the Identit
 * [Okta Identity Engine API (IDX)](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md)
 * [Migrating from authn to IDX](https://github.com/okta/okta-auth-js/blob/master/docs/migrate-from-authn-to-idx.md)
 
-The following table is a high-level mapping of the typical classic API requests and Classic Engine Authentication SDK methods to Identity Engine SDK methods. There are various combinations to achieve classic authentication flows, so the mapping list isn't exhaustive.
+The following table is a high-level mapping of the typical traditional API requests and Classic Engine Authentication SDK methods to Identity Engine SDK methods. There are various combinations to achieve traditional authentication flows, so the mapping list isn't exhaustive.
 
 | Okta API endpoints      | Classic Engine SDK methods      |   Identity Engine SDK methods      |   Description |
 | ----------------------- | ------------------------------ | -----------------------------------| ------------- |

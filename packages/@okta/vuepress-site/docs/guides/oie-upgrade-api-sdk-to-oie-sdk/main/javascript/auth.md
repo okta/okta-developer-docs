@@ -2,7 +2,7 @@
 
 If your app uses the Classic Engine Authentication SDK, you typically authenticate through Okta with the `signInWithCredentials` method. Call it on an `OktaAuth` object (for example, `authClient`) with a username and password. This call returns a status on the transaction object (`transaction.status`) that the app code must handle. If successful (`transaction.status === 'SUCCESS'`), call the `setCookieAndRedirect` method to retrieve a `sessionToken`.
 
-> **Note:** The `setCookieAndRedirect` method requires access to third-party cookies. Identity Engine deprecates this method. Many browsers now block third-party cookies by default, which can break this call in production.
+> **Note:** The `setCookieAndRedirect` method requires access to third-party cookies. Identity Engine deprecates this method. Many browsers now block third-party cookies by default, which can break this call in Production.
 
 See the following code snippet for this example:
 

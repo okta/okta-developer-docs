@@ -77,7 +77,7 @@ For a more detailed look at the upgrade steps, see the [Plan embedded auth appli
 
     * Upgrade to the latest version of the Identity Engine SDK. See [Upgrade your app to the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/main/) for detailed steps by language.
 
-    * Add the appropriate Identity Engine SDK to your application code. See [Add the latest Auth SDKs to your applications](/docs/guides/oie-upgrade-add-sdk-to-your-app/main/) for detailed steps by language.
+    * Add the appropriate Identity Engine SDK to your app code. See [Add the latest Auth SDKs to your applications](/docs/guides/oie-upgrade-add-sdk-to-your-app/main/) for detailed steps by language.
 
 3. Test all of your user experiences.
 

@@ -1,6 +1,6 @@
 ### Map the Authentication SDK to Identity Engine SDK
 
-If your application uses the Classic Engine Authentication SDK with an MFA-configured org, call `signInWithCredentials` with a username and password. This call returns a status on the transaction object (`transaction.status === 'MFA_REQUIRED'`). Your code must then identify the factor and start the challenge by calling `transaction.factors`. This call returns a new status on the transaction object (`transaction.status === 'MFA_CHALLENGE'`). Your code then verifies the factor challenge, for example, by sending an SMS code back to Okta to validate the user. If successful (`transaction.status === 'SUCCESS'`), you make a call to the `setCookieAndRedirect` method to retrieve a sessionToken.
+If your app uses the Classic Engine Authentication SDK with an MFA-configured org, call `signInWithCredentials` with a username and password. This call returns a status on the transaction object (`transaction.status === 'MFA_REQUIRED'`). Your code must then identify the factor and start the challenge by calling `transaction.factors`. This call returns a new status on the transaction object (`transaction.status === 'MFA_CHALLENGE'`). Your code then verifies the factor challenge, for example, by sending an SMS code back to Okta to validate the user. If successful (`transaction.status === 'SUCCESS'`), you make a call to the `setCookieAndRedirect` method to retrieve a sessionToken.
 
 >**Note:** The `setCookieAndRedirect` method requires access to third-party cookies. Identity Engine deprecates this method.
 
@@ -34,9 +34,9 @@ To migrate your code, keep the similar authentication flow, but replace the meth
 
 #### Identity Engine SDK authentication flow for MFA
 
-For the Identity Engine SDK, you generally start the authentication flow with a call to `idx.start` on your `OktaAuth` object (for example, `authClient`). You then drive the flow forward with `idx.proceed` calls, each naming a `step` value (see [Identity Engine code options](#identity-engine-sdk-code-options)). This call returns a status on the transaction object (`transaction.status`) of `IdxStatus.PENDING` that the application must handle. The response's `nextStep` parameter provides details on what data the next call must include. For MFA, a `select-authenticator-authenticate` step lets the user choose a factor type, such as email or SMS. An `authenticator-verification-data` step then triggers the challenge, for example by sending the email code, and a final `challenge-authenticator` step verifies it.
+For the Identity Engine SDK, you generally start the authentication flow with a call to `idx.start` on your `OktaAuth` object (for example, `authClient`). You then drive the flow forward with `idx.proceed` calls, each naming a `step` value (see [Identity Engine code options](#identity-engine-sdk-code-options)). This call returns a status on the transaction object (`transaction.status`) of `IdxStatus.PENDING` that the app must handle. The response's `nextStep` parameter provides details on what data the next call must include. For MFA, a `select-authenticator-authenticate` step lets the user choose a factor type, such as email or SMS. An `authenticator-verification-data` step then triggers the challenge, for example by sending the email code, and a final `challenge-authenticator` step verifies it.
 
-If successful (`transaction.status === IdxStatus.SUCCESS`), your application receives access and ID tokens with the success response.
+If successful (`transaction.status === IdxStatus.SUCCESS`), your app receives access and ID tokens with the success response.
 
 See the following code snippet for this example:
 
