@@ -561,80 +561,52 @@ export const guides = [
         ],
       },
       {
-        title: "Okta Identity Engine upgrade",
-        guideName: "oie-upgrade-overview/main",
+        title: "Okta for AI Agents",
         subLinks: [
           {
-            title: "Plan upgrade rollout",
-            guideName: "oie-upgrade-rollout-plan",
+            title: "Set up AI agent token exchange",
+            guideName: "ai-agent-token-exchange",
           },
           {
-            title: "Identify integrations and customizations",
-            guideName: "oie-upgrade-identify-integrations",
+            title: "Set up AI agent-to-agent token exchange",
+            guideName: "ea-ai-agent-token-exchange",
           },
           {
-            title: "Plan embedded app upgrades",
-            guideName: "oie-upgrade-plan-embedded-upgrades",
+            title: "Set up third-party AI agent token exchange",
+            guideName: "ai-agent-third-party-token-exchange",
           },
           {
-            title: "Okta API changes for Identity Engine",
-            guideName: "oie-upgrade-api-changes",
-          },
-          {
-            title: "Update your event hooks for Identity Engine",
-            guideName: "oie-upgrade-event-hooks",
-          },
-          {
-            title: "Upgrade registration inline hooks to Identity Engine",
-            guideName: "oie-upgrade-registration-inline-hook",
-          },
-          {
-            title: "Okta Sign-In Widget upgrade",
+            title: "Secure third-party AI agents",
+            path: "/docs/guides/ai-agent-secure-third-party/main/",
             subLinks: [
               {
-                title: "Upgrade your widget",
-                guideName: "oie-upgrade-sign-in-widget",
+                title: "Secure AWS Bedrock Agents with Okta",
+                guideName: "ai-agent-secure-aws-bedrock"
               },
               {
-                title: "Deprecated widget JS methods",
-                guideName: "oie-upgrade-sign-in-widget-deprecated-methods",
-              },
-              {
-                title: "Updates to widget styling",
-                guideName: "oie-upgrade-sign-in-widget-styling",
-              },
-              {
-                title: "Updates to widget i18n",
-                guideName: "oie-upgrade-sign-in-widget-i18n",
-              },
-              {
-                title: "Test widget customizations",
-                guideName: "oie-upgrade-test-widget-custom",
+                title: "Secure an Amazon Bedrock AgentCore agent",
+                guideName: "ai-agent-secure-amazon-bedrock",
               },
             ],
           },
+        ],
+      },
+      {
+        title: "Okta MCP server",
+        subLinks: [
           {
-            title: "Identity Engine SDK upgrade",
-            subLinks: [
-              {
-                title: "Add the SDK to your app",
-                guideName: "oie-upgrade-add-sdk-to-your-app",
-              },
-              {
-                title: "Upgrade your app SDK",
-                guideName: "oie-upgrade-api-sdk-to-oie-sdk",
-              },
-              {
-                title: "Session changes",
-                guideName: "oie-upgrade-sessions-api",
-              },
-            ],
+            title: "Install and initialize",
+            path: "/docs/guides/mcp-server/main/",
           },
           {
-            title: "Authn enrollment policy changes",
-            guideName: "oie-upgrade-mfa-enroll-policy"
-          }
-        ]
+            title: "Set up Okta app authentication",
+            path: "/docs/guides/configure-mcp-authentication/main/",
+          },
+          {
+            title: "Configure, start, and test",
+            path: "/docs/guides/start-mcp-server/main/",
+          },
+        ],
       },
       {
         title: "Authorization",
@@ -678,14 +650,6 @@ export const guides = [
           {
             title: "Set up On-Behalf-Of Token Exchange",
             guideName: "set-up-token-exchange",
-          },
-          {
-            title: "Set up AI agent token exchange",
-            guideName: "ai-agent-token-exchange",
-          },
-          {
-            title: "Set up AI agent-to-agent token exchange",
-            guideName: "ea-ai-agent-token-exchange",
           },
           {
             title: "Transactional verification using CIBA",
@@ -1004,6 +968,82 @@ export const guides = [
         ]
       },
       {
+        title: "Okta Identity Engine upgrade",
+        guideName: "oie-upgrade-overview/main",
+        subLinks: [
+          {
+            title: "Plan upgrade rollout",
+            guideName: "oie-upgrade-rollout-plan",
+          },
+          {
+            title: "Identify integrations and customizations",
+            guideName: "oie-upgrade-identify-integrations",
+          },
+          {
+            title: "Plan embedded app upgrades",
+            guideName: "oie-upgrade-plan-embedded-upgrades",
+          },
+          {
+            title: "Okta API changes for Identity Engine",
+            guideName: "oie-upgrade-api-changes",
+          },
+          {
+            title: "Update your event hooks for Identity Engine",
+            guideName: "oie-upgrade-event-hooks",
+          },
+          {
+            title: "Upgrade registration inline hooks to Identity Engine",
+            guideName: "oie-upgrade-registration-inline-hook",
+          },
+          {
+            title: "Okta Sign-In Widget upgrade",
+            subLinks: [
+              {
+                title: "Upgrade your widget",
+                guideName: "oie-upgrade-sign-in-widget",
+              },
+              {
+                title: "Deprecated widget JS methods",
+                guideName: "oie-upgrade-sign-in-widget-deprecated-methods",
+              },
+              {
+                title: "Updates to widget styling",
+                guideName: "oie-upgrade-sign-in-widget-styling",
+              },
+              {
+                title: "Updates to widget i18n",
+                guideName: "oie-upgrade-sign-in-widget-i18n",
+              },
+              {
+                title: "Test widget customizations",
+                guideName: "oie-upgrade-test-widget-custom",
+              },
+            ],
+          },
+          {
+            title: "Identity Engine SDK upgrade",
+            subLinks: [
+              {
+                title: "Add the SDK to your app",
+                guideName: "oie-upgrade-add-sdk-to-your-app",
+              },
+              {
+                title: "Upgrade your app SDK",
+                guideName: "oie-upgrade-api-sdk-to-oie-sdk",
+              },
+              {
+                title: "Session changes",
+                guideName: "oie-upgrade-sessions-api",
+              },
+            ],
+          },
+          {
+            title: "Authn enrollment policy changes",
+            guideName: "oie-upgrade-mfa-enroll-policy"
+          }
+        ]
+      },
+      {
         title: "Deploy to Production",
         subLinks: [
           {
@@ -1011,23 +1051,6 @@ export const guides = [
             path: "/docs/guides/deployment-checklist/main/",
           },
           { title: "Deploy your app", guideName: "deploy-your-app" },
-        ],
-      },
-      {
-        title: "Okta MCP server",
-        subLinks: [
-          {
-            title: "Install and initialize",
-            path: "/docs/guides/mcp-server/main/",
-          },
-          {
-            title: "Set up Okta app authentication",
-            path: "/docs/guides/configure-mcp-authentication/main/",
-          },
-          {
-            title: "Configure, start, and test",
-            path: "/docs/guides/start-mcp-server/main/",
-          },
         ],
       },
       {

@@ -1,22 +1,22 @@
-Build a sign-in page that captures both the username and password. As an example, from the test application, see the `index.js` file, which renders the simple sign-in for from the `formtransformer.js` file:
+Build a sign-in page that renders whichever fields the current step needs. This password-only flow asks for `username` first and `password` second. See the test application's `main.jsx` file, which renders the sign-in form using `formTransformer.js`:
 
 ```JavaScript
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 
-ReactDOM.render(
+const root = createRoot(document.getElementById('root'));
+root.render(
   <React.StrictMode>
     <Router>
       <App />
     </Router>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
 ```
 
-From the `formtransformer.js` file:
+From the `formTransformer.js` file:
 
 ```JavaScript
 const inputTransformer = nextStep => form => {

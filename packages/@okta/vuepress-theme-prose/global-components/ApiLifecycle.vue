@@ -7,6 +7,12 @@
       <i class="fa fa-warning" /> Beta
     </span>
     <span
+      v-if="access === labelType.RESEARCH"
+      class="api-label api-label-beta"
+    >
+      <i class="fa fa-warning" /> Research
+    </span>
+    <span
       v-if="access === labelType.EARLY_ACCESS"
       class="api-label api-label-ea"
     >
@@ -76,7 +82,8 @@ export default {
       DEPRECATED: "deprecated",
       IDENTITY_ENGINE: "ie",
       LIMITED_GA: "Limited GA",
-      CLASSIC_ENGINE: "Classic Engine"
+      CLASSIC_ENGINE: "Classic Engine",
+      RESEARCH: "research"
     };
   }
 };
