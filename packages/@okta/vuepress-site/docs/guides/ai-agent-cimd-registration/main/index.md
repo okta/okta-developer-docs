@@ -52,7 +52,10 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-  "displayName": "Claude Code",
+  "profile": {
+    "name": "Claude Code",
+    "description": "Claude Code CLI agent"
+  },
   "oauthClient": {
     "type": "CIMD",
     "clientIdMatchPattern": "https://example.com/.well-known/cimd/claude-code.json"
@@ -60,17 +63,24 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/workload-principals/api/v1/ai-agents"
 ```
 
-Okta returns the created agent with a `STAGED` status. In the response, the `oauthClient.clientId` field echoes back the exact URL you provided in the request:
+Okta processes the registration asynchronously. The response is `202 Accepted` with an empty body, and a `Location` header that points to an operation you can poll for completion:
+
+``` http
+Location: https://${yourOktaDomain}/workload-principals/api/v1/operations/{operationId}
+```
+
+Once the operation's `status` is `COMPLETED`, use its `resource.id` to retrieve the created agent, or list your agents and find it by its `oauthClient.clientId`. The agent is created with a `STAGED` status. The `oauthClient.clientId` field echoes back the exact URL you provided in the request:
 
 ```json
 {
   "id": "wlp1a2b3c4d5e6f7g8h9",
-  "displayName": "Claude Code",
   "status": "STAGED",
+  "profile": {
+    "name": "Claude Code",
+    "description": "Claude Code CLI agent"
+  },
   "oauthClient": {
-    "type": "CIMD",
-    "clientId": "https://example.com/.well-known/cimd/claude-code.json",
-    "clientIdMatchPattern": "https://example.com/.well-known/cimd/claude-code.json"
+    "clientId": "https://example.com/.well-known/cimd/claude-code.json"
   }
 }
 ```
@@ -98,9 +108,14 @@ For example, [Okta Agent Gateway](#see-also) uses this to connect third-party ag
 
 ### Registration errors
 
+<!-- DRAFT: Okta doesn't currently reject non-HTTPS clientIdMatchPattern URLs at registration time, even though
+     the CIMD spec requires HTTPS and the API's own validation error message claims to enforce it. Confirm
+     whether this is a known gap/bug (file one if not) before publishing, and update the row below and the
+     "CIMD metadata document requirements" section once resolved. Verified against qa-bhavnaaiagentsnewct24 2026-07-20. -->
+
 | Problem | Cause |
 | --- | --- |
-| Registration request fails validation | The `clientIdMatchPattern` URL isn't HTTPS, is unreachable, or doesn't return a valid CIMD metadata document. |
+| Registration request fails validation | The `clientIdMatchPattern` value isn't a well-formed URL, is unreachable, or doesn't return a valid CIMD metadata document. |
 | Registration succeeds, but the agent can't obtain a token | Confirm that the hosted metadata document still matches what Okta expects. Okta re-fetches the document at request time, so a change to it, or an outage at that URL, can break token requests. Nothing changes on the Okta side. |
 
 ### Token request errors
