@@ -297,6 +297,24 @@ Time functions take their input in the form of strings. Inputting empty strings 
 
 Okta supports the use of the time zone IDs and aliases listed in [the Time zone codes table](#appendix-time-zone-codes).
 
+#### Time function examples
+
+The following examples show common ways to use time functions, such as reformatting dates, converting timestamps from other systems, and using dates in group rules.
+
+| Use case                                                                                                                                       | Expression                                                                                                                                | Example output |
+| ---                                                                                                                                             | ---                                                                                                                                        | ---             |
+| Convert a date string from `yyyy-MM-dd` format to `MM/dd/yyyy` format.<br>Given `user.hireDate` = `2017-04-11`                                 | `Time.fromIso8601ToString(Time.fromStringToIso8601(user.hireDate, "yyyy-MM-dd"), "MM/dd/yyyy")`                                           | `04/11/2017`    |
+| Convert the Active Directory `accountExpires` attribute (a Windows timestamp) to a readable date, and return an empty string for accounts that never expire (`accountExpires` = `9223372036854775807`).<br>Given `appuser.accountExpires` = `130000000000000000` | `appuser.accountExpires != "9223372036854775807" ? Time.fromIso8601ToString(Time.fromWindowsToIso8601(appuser.accountExpires), "dd-MM-yyyy") : ""` | `14-12-2012`    |
+| Convert a date string in `yyyy-MM-dd` format to a Unix timestamp.<br>Given `user.hireDate` = `2017-04-11`                                      | `Time.fromIso8601ToUnix(user.hireDate + "T00:00:00.000Z")`                                                                                | `1491868800`    |
+
+> **Note:** Date format patterns are case-sensitive. Okta EL uses [Joda time pattern](https://www.joda.org/joda-time/key_format.html) letters, where, for example, `MM` (month) differs from `mm` (minute), and `dd` (day of month) differs from `DD` (day of year). Mixing up the case can produce unexpected results, such as the month always resolving to `01`.
+
+Time functions aren't supported directly in [group rule conditions](#conditional-expressions). To assign users to a group based on a date comparison, compute the result during profile mapping, then reference the mapped attribute in the group rule:
+
+1. Create a custom Boolean attribute on the user profile, for example, `createdAfterCutoff`.
+2. Map the attribute from the source app using a conditional expression that compares dates, for example: `Time.fromIso8601ToWindows(appuser.whenCreated) >= Time.fromIso8601ToWindows("2022-01-01T00:00:00.000Z") ? true : false`
+3. Reference the mapped attribute in the group rule: `user.createdAfterCutoff == true`
+
 ### Manager/assistant functions
 
 | Function                                                           | Description                                                                         | Example                                                       |
