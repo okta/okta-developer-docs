@@ -2,7 +2,7 @@
 
 If your app uses the Classic Engine Authentication SDK, you typically authenticate through Okta with the `signInWithCredentials` method. Call it on an `OktaAuth` object (for example, `authClient`) with a username and password. This call returns a status on the transaction object (`transaction.status`) that the app code must handle. If successful (`transaction.status === 'SUCCESS'`), call the `setCookieAndRedirect` method to retrieve a `sessionToken`.
 
-> **Note:** The `setCookieAndRedirect` method requires access to third-party cookies and is deprecated in the Identity Engine SDK. Many browsers now block third-party cookies by default, which can break this call in production.
+> **Note:** The `setCookieAndRedirect` method requires access to third-party cookies. Identity Engine deprecates this method. Many browsers now block third-party cookies by default, which can break this call in production.
 
 See the following code snippet for this example:
 
@@ -28,7 +28,7 @@ The authentication flow for the Identity Engine SDK is similar. However, you mus
 
 #### Identity Engine SDK authentication flow
 
-For the Identity Engine SDK, you typically start the authentication flow with a call to the `idx.start` method on an `OktaAuth` object, such as `authClient`. Each following call to `idx.proceed` must include a `step` value that names the remediation to run, based on the `nextStep` field of the previous response. See [Identity Engine code options](#identity-engine-sdk-code-options) for more on these approaches. Each call returns a status on the transaction object (`transaction.status`) that the app code must handle. If successful (`transaction.status === IdxStatus.SUCCESS`), your app receives access and ID tokens directly in the response. No redirect or third-party cookie access is required.
+For the Identity Engine SDK, you typically start the authentication flow with a call to the `idx.start` method on an `OktaAuth` object, such as `authClient`. Each following call to `idx.proceed` must include a `step` value that names the remediation to run, based on the `nextStep` field of the previous response. See [Identity Engine code options](#identity-engine-sdk-code-options) for more on these approaches. Each call returns a status on the transaction object (`transaction.status`) that the app code must handle. If successful (`transaction.status === IdxStatus.SUCCESS`), your app receives access and ID tokens directly in the response. The Identity Engine SDK requires no redirect or third-party cookie access.
 
 See the following code snippet for this example:
 

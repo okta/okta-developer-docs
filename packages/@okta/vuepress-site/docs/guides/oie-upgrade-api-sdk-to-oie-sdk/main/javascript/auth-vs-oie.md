@@ -5,11 +5,11 @@ The Classic Engine authentication flow returns a transaction object that can pro
 
 The Identity Engine SDK, however, uses a recursive process. You call the same method again based on the information returned in the transaction object. The Identity Engine SDK uses the `nextStep` property on the transaction object to provide a hint at the required information.
 
-For the basic authentication example, the Identity Engine SDK calls `authClient.idx.authenticate` again with information as part of the call, the user's email address, authenticator, and so on to complete the flow and return a success state.
+For the basic authentication example, the Identity Engine SDK calls `authClient.idx.authenticate` again and includes information such as the user's email address and authenticator. This call completes the flow and returns a success state.
 
-Another difference between Classic Engine Authentication SDK and Identity Engine SDK methods is how you receive tokens after a successful authentication. For the Classic Engine Authentication SDK, the method `setCookieAndRedirect`, which is deprecated in Identity Engine, makes a call to get the tokens through a third-party cookie. In the Identity Engine SDK, after receiving a success state, the tokens are included with the transaction object, and your app stores them directly with `authClient.tokenManager.setTokens`. There's no separate call to get the tokens, and no dependency on third-party cookie access.
+Another difference between Classic Engine Authentication SDK and Identity Engine SDK methods is how you receive tokens after a successful authentication. For the Classic Engine Authentication SDK, the `setCookieAndRedirect` method retrieves the tokens through a third-party cookie call. Identity Engine deprecates this method. In the Identity Engine SDK, the transaction object includes the tokens after a success state. Your app then stores them directly with `authClient.tokenManager.setTokens`. There's no separate call to get the tokens, and no dependency on third-party cookie access.
 
-Because both SDK versions run in the browser and call your Okta org directly, make sure your app's origin is registered as a trusted origin in your org. See [Grant cross-origin access to websites](/docs/guides/enable-cors/main/#grant-cross-origin-access-to-websites).
+Because both SDK versions run in the browser and call your Okta org directly, register your app's origin as a trusted origin in your org. See [Grant cross-origin access to websites](/docs/guides/enable-cors/main/#grant-cross-origin-access-to-websites).
 
 For further information on the Classic Engine Authentication SDK and the Identity Engine SDK, see the following documentation at the `okta-auth-js` repository:
 
