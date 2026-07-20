@@ -1,10 +1,10 @@
 Review the simple password-only sign-in use case from the sample app.
 
-<!-- The sequence diagram below is out of date with the Step Mode rework in this
-guide (it shows a single idx.authenticate(username,password) call, not the
-multi-call proceed({ step }) flow, which primes then submits each remediation
-step in turn). Commented out until the updated diagram is ready — see
-OKTA-1220704 for the design request tracking this.
+<!-- The sequence diagram below is out of date. It shows the old Step Mode
+flow: a single idx.authenticate(username, password) call. The current flow
+instead primes and submits each remediation step in turn with proceed({
+step }). This comment hides the diagram until the design team updates it.
+See OKTA-1220704 for the tracking ticket.
 <div class="full">
 
 ![Sequence diagram that displays the interactions between the resource owner, SDK, authorization server, and resource server for a basic SPA password sign-in flow.](/img/oie-embedded-sdk/password-only-spa-authjs-flow.svg)
@@ -74,7 +74,7 @@ function App() {
 
 ### Start the sign-in transaction
 
-Before you can render a sign-in form, you need an in-progress IDX transaction to drive it. Start one when your component mounts by calling `idx.start()`. `idx.start()` begins the transaction, but doesn't resolve a step's field data until you name that step — call `idx.proceed()` with only a `step` name and no other values to have the SDK return that step's `inputs` for rendering. For this password-only use case, the sign-in flow always begins with the `identify` step, which asks for `username`:
+Before you can render a sign-in form, you need an in-progress IDX transaction to drive it. Start one when your component mounts by calling `idx.start()`. `idx.start()` begins the transaction. It doesn't resolve a step's field data until you name that step. Call `idx.proceed()` with only a `step` name and no other values. The SDK then returns that step's `inputs` for rendering. For this password-only use case, the sign-in flow always begins with the `identify` step, which asks for `username`:
 
 ```JavaScript
 const [transaction, setTransaction] = useState(null);
@@ -89,11 +89,11 @@ useEffect(() => {
 }, []);
 ```
 
-Pass `transaction.nextStep` into `formTransformer` (see [Basic sign-in flow](#basic-sign-in-flow)) to render the form fields for the current step. Okta's Identity Engine collects the username first, then challenges for the password on a separate step, so this password-only flow renders two forms in sequence rather than one combined username-and-password form.
+Pass `transaction.nextStep` into `formTransformer` to render the form fields for the current step. See [Basic sign-in flow](#basic-sign-in-flow) for the full form code. Okta's Identity Engine collects the username first. It then challenges for the password on a separate step. This password-only flow therefore renders two forms in sequence, not one combined form.
 
 ### Handle the password authentication
 
-Name the step you're submitting on every `idx.proceed()` call — `transaction.nextStep.name` holds the value, and it's the same step the form already rendered against. Submitting a step's values tells you the name of the next step but not its renderable field data, so call `idx.proceed()` again with just that step name to prime the following form before you render it. Review the `app.js` file for details on handling a successful password authentication by receiving the `SUCCESS` status and storing the returned tokens:
+Name the step you're submitting on every `idx.proceed()` call. `transaction.nextStep.name` holds that name. It matches the step the form already rendered. Submitting a step's values reveals the name of the next step. It does not reveal that step's renderable field data. Call `idx.proceed()` again with just the step name to prime the next form before you render it. Review the `app.js` file for details on handling a successful password authentication. It receives the `SUCCESS` status and stores the returned tokens:
 
 ```JavaScript
 const handleSubmit = async e => {
@@ -113,7 +113,7 @@ const handleSubmit = async e => {
 };
 ```
 
-For this password-only use case, that's two round trips through `handleSubmit`: the first submits `username` from the `identify` step and primes the `challenge-authenticator` step; the second submits `password` from that step and reaches `IdxStatus.SUCCESS`.
+For this password-only use case, `handleSubmit` runs twice. The first run submits `username` from the `identify` step and primes the `challenge-authenticator` step. The second run submits `password` from that step and reaches `IdxStatus.SUCCESS`.
 
 ### The full sign-in component code
 

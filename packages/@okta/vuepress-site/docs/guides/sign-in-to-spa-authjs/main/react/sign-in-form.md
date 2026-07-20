@@ -1,4 +1,4 @@
-Build a sign-in page that renders whichever fields the current step needs — for this password-only flow, that's `username` first, then `password` on the following step. As an example, from the test application, see the `index.js` file, which renders the simple sign-in form from the `formTransformer.js` file:
+Build a sign-in page that renders whichever fields the current step needs. This password-only flow asks for `username` first and `password` second. See the test application's `index.js` file, which renders the sign-in form using `formTransformer.js`:
 
 ```JavaScript
 import React from 'react';
