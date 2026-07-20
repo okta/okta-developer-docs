@@ -30,7 +30,7 @@ authClient.forgotPassword({
 
 #### Identity Engine SDK authentication flow for password recovery
 
-For the Identity Engine SDK, you generally start the password recovery flow with a call to `idx.start` on your `OktaAuth` object (for example, `authClient`). An `identify` step then names the user, and a `currentAuthenticatorEnrollment-recover` action begins recovery. An `authenticator-verification-data` step sends the recovery code, and a final `challenge-authenticator` step verifies it. This call returns a status on the transaction object (`transaction.status`) that the application code must handle. When finally successful (`IdxStatus.SUCCESS`), your application receives access and ID tokens with the success response.
+For the Identity Engine SDK, start the password recovery flow with a call to `idx.start` on your `OktaAuth` object. An `identify` step then names the user, and a `currentAuthenticatorEnrollment-recover` action begins recovery. An `authenticator-verification-data` step sends the recovery code, and a final `challenge-authenticator` step verifies it. This call returns a status on the transaction object (`transaction.status`) that the application code must handle. When finally successful (`IdxStatus.SUCCESS`), your application receives access and ID tokens with the success response.
 
 See the following code snippet for this example, which ends with the user's confirmed new (recovered) password entered in a form on the page:
 
@@ -39,7 +39,7 @@ let transaction = await authClient.idx.start();
 transaction = await authClient.idx.proceed({ step: 'identify', username: 'some-username' });
 transaction = await authClient.idx.proceed({ actions: ['currentAuthenticatorEnrollment-recover'] });
 
-// the email authenticator's id comes from the previous response and is required to trigger the challenge
+// the previous response includes the email authenticator's id needed to trigger the challenge
 const emailAuthenticatorId = transaction.nextStep.relatesTo.value.id;
 transaction = await authClient.idx.proceed({
   step: 'authenticator-verification-data',

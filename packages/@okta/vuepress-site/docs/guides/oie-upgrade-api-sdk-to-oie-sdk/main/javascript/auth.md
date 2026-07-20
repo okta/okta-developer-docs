@@ -28,7 +28,7 @@ The authentication flow for the Identity Engine SDK is similar. However, you mus
 
 #### Identity Engine SDK authentication flow
 
-For the Identity Engine SDK, you typically start the authentication flow with a call to the `idx.start` method on an `OktaAuth` object, such as `authClient`. Each following call to `idx.proceed` must include a `step` value that names the remediation to run, based on the `nextStep` field of the previous response. See [Identity Engine code options](#identity-engine-sdk-code-options) for more on these approaches. Each call returns a status on the transaction object (`transaction.status`) that the app code must handle. If successful (`transaction.status === IdxStatus.SUCCESS`), your app receives access and ID tokens directly in the response. The Identity Engine SDK requires no redirect or third-party cookie access.
+For the Identity Engine SDK, start the authentication flow with a call to the `idx.start` method on your `OktaAuth` object. Each following call to `idx.proceed` must include a `step` value naming the remediation to run, based on the previous response's `nextStep` field. See [Identity Engine code options](#identity-engine-sdk-code-options) for more on these approaches. Each call returns a status on the transaction object (`transaction.status`) that the app code must handle. If successful (`transaction.status === IdxStatus.SUCCESS`), your app receives access and ID tokens directly in the response. The Identity Engine SDK requires no redirect or third-party cookie access.
 
 See the following code snippet for this example:
 
@@ -52,4 +52,4 @@ For further details on the password authentication flow using Identity Engine an
 
 #### Identity Engine SDK code options
 
-The Identity Engine SDK methods can mirror the code styles used in the Classic Engine Authentication SDK. This can make migration easier. Or use a more open, flexible style that takes advantage of the SDK's recursive calls. These styles are respectively referenced in the Identity Engine SDK as up-front and on-demand. See [Approaches](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#approaches) in the Identity Engine SDK.
+The Identity Engine SDK methods can mirror the code styles used in the Classic Engine Authentication SDK. This can make migration easier. Or use a more open, flexible style that takes advantage of the SDK's recursive calls. The Identity Engine SDK refers to these styles as up-front and on-demand, respectively. See [Approaches](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#approaches) in the Identity Engine SDK.

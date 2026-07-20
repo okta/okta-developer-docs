@@ -9,7 +9,7 @@ For the basic authentication example, the Identity Engine SDK calls `authClient.
 
 Another difference between Classic Engine Authentication SDK and Identity Engine SDK methods is how you receive tokens after a successful authentication. For the Classic Engine Authentication SDK, the `setCookieAndRedirect` method retrieves the tokens through a third-party cookie call. Identity Engine deprecates this method. In the Identity Engine SDK, the transaction object includes the tokens after a success state. Your app then stores them directly with `authClient.tokenManager.setTokens`. There's no separate call to get the tokens, and no dependency on third-party cookie access.
 
-Because both SDK versions run in the browser and call your Okta org directly, register your app's origin as a trusted origin in your org. See [Grant cross-origin access to websites](/docs/guides/enable-cors/main/#grant-cross-origin-access-to-websites).
+Because both SDK versions call your Okta org directly, register your app's origin as a trusted origin in your org. See [Grant cross-origin access to websites](/docs/guides/enable-cors/main/#grant-cross-origin-access-to-websites).
 
 For further information on the Classic Engine Authentication SDK and the Identity Engine SDK, see the following documentation at the `okta-auth-js` repository:
 

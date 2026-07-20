@@ -1,6 +1,6 @@
 ### Map the Authentication SDK to Identity Engine SDK
 
-If your application uses the Classic Engine Authentication SDK with an MFA-configured org, you call `signInWithCredentials` on your `OktaAuth` object with a username and password. This call returns a status on the transaction object (`transaction.status === 'MFA_REQUIRED'`). Your code must then identify the factor and start the challenge by calling `transaction.factors`. This call returns a new status on the transaction object (`transaction.status === 'MFA_CHALLENGE'`). Your code then verifies the factor challenge, for example, by sending an SMS code back to Okta to validate the user. If successful (`transaction.status === 'SUCCESS'`), you make a call to the `setCookieAndRedirect` method to retrieve a sessionToken.
+If your application uses the Classic Engine Authentication SDK with an MFA-configured org, call `signInWithCredentials` with a username and password. This call returns a status on the transaction object (`transaction.status === 'MFA_REQUIRED'`). Your code must then identify the factor and start the challenge by calling `transaction.factors`. This call returns a new status on the transaction object (`transaction.status === 'MFA_CHALLENGE'`). Your code then verifies the factor challenge, for example, by sending an SMS code back to Okta to validate the user. If successful (`transaction.status === 'SUCCESS'`), you make a call to the `setCookieAndRedirect` method to retrieve a sessionToken.
 
 >**Note:** The `setCookieAndRedirect` method requires access to third-party cookies. Identity Engine deprecates this method.
 
@@ -30,7 +30,7 @@ See the following code snippet for a function that moves through MFA status:
 
 ```
 
-To migrate your code to the Identity Engine SDK, keep the similar authentication flow, but replace the method calls with those in the new SDK. Update your code to handle the different transaction object statuses the new SDK returns.
+To migrate your code, keep the similar authentication flow, but replace the method calls with those in the Identity Engine SDK. Update your code to handle the different transaction object statuses the new SDK returns.
 
 #### Identity Engine SDK authentication flow for MFA
 
@@ -57,7 +57,7 @@ transaction = await authClient.idx.proceed({ step: 'challenge-authenticator', cr
 // gather user's authenticator choice (this call should happen in a separate step, for example a form submit handler)
 transaction = await authClient.idx.proceed({ step: 'select-authenticator-authenticate', authenticator: 'okta_email' });
 
-// the email authenticator's id comes from the previous response and is required to trigger the challenge
+// the previous response includes the email authenticator's id needed to trigger the challenge
 const emailAuthenticatorId = transaction.nextStep.relatesTo.value.id;
 transaction = await authClient.idx.proceed({
   step: 'authenticator-verification-data',
