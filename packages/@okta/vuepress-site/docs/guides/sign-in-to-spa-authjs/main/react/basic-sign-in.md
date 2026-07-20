@@ -2,9 +2,9 @@ Review the simple password-only sign-in use case from the sample app.
 
 <!-- The sequence diagram below is out of date with the Step Mode rework in this
 guide (it shows a single idx.authenticate(username,password) call, not the
-two-call authenticate()-then-proceed({ step }) flow). Commented out until the
-updated diagram is ready — see OKTA-1220704 for the design request tracking
-this.
+multi-call proceed({ step }) flow, which primes then submits each remediation
+step in turn). Commented out until the updated diagram is ready — see
+OKTA-1220704 for the design request tracking this.
 <div class="full">
 
 ![Sequence diagram that displays the interactions between the resource owner, SDK, authorization server, and resource server for a basic SPA password sign-in flow.](/img/oie-embedded-sdk/password-only-spa-authjs-flow.svg)
@@ -74,41 +74,46 @@ function App() {
 
 ### Start the sign-in transaction
 
-Before you can render a sign-in form, you need an in-progress IDX transaction to drive it. Start one when your component mounts by calling `idx.start()` with no arguments — the response's `nextStep.inputs` tells you which fields to render. For this password-only use case, that's `username` and `password`:
+Before you can render a sign-in form, you need an in-progress IDX transaction to drive it. Start one when your component mounts by calling `idx.start()`. `idx.start()` begins the transaction, but doesn't resolve a step's field data until you name that step — call `idx.proceed()` with only a `step` name and no other values to have the SDK return that step's `inputs` for rendering. For this password-only use case, the sign-in flow always begins with the `identify` step, which asks for `username`:
 
 ```JavaScript
 const [transaction, setTransaction] = useState(null);
 
 useEffect(() => {
   const startTransaction = async () => {
-    const newTransaction = await oktaAuth.idx.start();
+    await oktaAuth.idx.start();
+    const newTransaction = await oktaAuth.idx.proceed({ step: 'identify' });
     setTransaction(newTransaction);
   };
   startTransaction();
 }, []);
 ```
 
-Pass `transaction.nextStep` into `formTransformer` (see [Basic sign-in flow](#basic-sign-in-flow)) to render the form fields for the current step.
+Pass `transaction.nextStep` into `formTransformer` (see [Basic sign-in flow](#basic-sign-in-flow)) to render the form fields for the current step. Okta's Identity Engine collects the username first, then challenges for the password on a separate step, so this password-only flow renders two forms in sequence rather than one combined username-and-password form.
 
 ### Handle the password authentication
 
-Name the step you're submitting on every `idx.proceed()` call — `transaction.nextStep.name` holds the value, and it's the same step the form already rendered against. For this password-only use case, the step name is `identify`. Review the `app.js` file for details on handling a successful password authentication by receiving the `SUCCESS` status and storing the returned tokens:
+Name the step you're submitting on every `idx.proceed()` call — `transaction.nextStep.name` holds the value, and it's the same step the form already rendered against. Submitting a step's values tells you the name of the next step but not its renderable field data, so call `idx.proceed()` again with just that step name to prime the following form before you render it. Review the `app.js` file for details on handling a successful password authentication by receiving the `SUCCESS` status and storing the returned tokens:
 
 ```JavaScript
 const handleSubmit = async e => {
   e.preventDefault();
 
-  const newTransaction = await oktaAuth.idx.proceed({ step: 'identify', ...inputValues }); // inputValues = username, password
-  console.log('Transaction:', newTransaction);
-
+  const submittedTransaction = await oktaAuth.idx.proceed({ step: transaction.nextStep.name, ...inputValues });
+  console.log('Transaction:', submittedTransaction);
   setInputValues({});
-  if (newTransaction.status === IdxStatus.SUCCESS) {
-    oktaAuth.tokenManager.setTokens(newTransaction.tokens);
-  } else {
-    setTransaction(newTransaction);
+
+  if (submittedTransaction.status === IdxStatus.SUCCESS) {
+    oktaAuth.tokenManager.setTokens(submittedTransaction.tokens);
+    return;
   }
+
+  const newTransaction = await oktaAuth.idx.proceed({ step: submittedTransaction.nextStep.name });
+  setTransaction(newTransaction);
 };
 ```
+
+For this password-only use case, that's two round trips through `handleSubmit`: the first submits `username` from the `identify` step and primes the `challenge-authenticator` step; the second submits `password` from that step and reaches `IdxStatus.SUCCESS`.
 
 ### The full sign-in component code
 
@@ -138,7 +143,8 @@ function SignInForm() {
 
   useEffect(() => {
     const startTransaction = async () => {
-      const newTransaction = await oktaAuth.idx.start();
+      await oktaAuth.idx.start();
+      const newTransaction = await oktaAuth.idx.proceed({ step: 'identify' });
       setTransaction(newTransaction);
     };
     startTransaction();
@@ -151,15 +157,17 @@ function SignInForm() {
   const handleSubmit = async e => {
     e.preventDefault();
 
-    const newTransaction = await oktaAuth.idx.proceed({ step: 'identify', ...inputValues });
-    console.log('Transaction:', newTransaction);
-
+    const submittedTransaction = await oktaAuth.idx.proceed({ step: transaction.nextStep.name, ...inputValues });
+    console.log('Transaction:', submittedTransaction);
     setInputValues({});
-    if (newTransaction.status === IdxStatus.SUCCESS) {
-      oktaAuth.tokenManager.setTokens(newTransaction.tokens);
-    } else {
-      setTransaction(newTransaction);
+
+    if (submittedTransaction.status === IdxStatus.SUCCESS) {
+      oktaAuth.tokenManager.setTokens(submittedTransaction.tokens);
+      return;
     }
+
+    const newTransaction = await oktaAuth.idx.proceed({ step: submittedTransaction.nextStep.name });
+    setTransaction(newTransaction);
   };
 
   if (!transaction?.nextStep) {

@@ -1,4 +1,4 @@
-Build a sign-in page that captures both the username and password. As an example, from the test application, see the `index.js` file, which renders the simple sign-in form from the `formTransformer.js` file:
+Build a sign-in page that renders whichever fields the current step needs — for this password-only flow, that's `username` first, then `password` on the following step. As an example, from the test application, see the `index.js` file, which renders the simple sign-in form from the `formTransformer.js` file:
 
 ```JavaScript
 import React from 'react';
