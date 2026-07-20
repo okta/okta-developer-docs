@@ -39,20 +39,13 @@ Review the React `app.js` file that imports the required libraries and instantia
 ```JavaScript
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { OktaAuth, IdxStatus, urlParamsToObject, toRelativeUrl } from '@okta/okta-auth-js';
+import { OktaAuth, IdxStatus, toRelativeUrl } from '@okta/okta-auth-js';
 import { Security } from '@okta/okta-react';
 import { formTransformer } from './formTransformer';
 import oidcConfig from './config';
 import './App.css';
 
-function createOktaAuthInstance() {
-  const { state } = urlParamsToObject(window.location.search);
-  return new OktaAuth(Object.assign({}, oidcConfig, {
-    state
-  }));
-}
-
-const oktaAuth = createOktaAuthInstance();
+const oktaAuth = new OktaAuth(oidcConfig);
 
 ...
 
@@ -122,20 +115,13 @@ With the pieces above in place, here's the complete `App.jsx` for the password-o
 ```JavaScript
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { OktaAuth, IdxStatus, urlParamsToObject, toRelativeUrl } from '@okta/okta-auth-js';
+import { OktaAuth, IdxStatus, toRelativeUrl } from '@okta/okta-auth-js';
 import { Security } from '@okta/okta-react';
 import { formTransformer } from './formTransformer';
 import oidcConfig from './config';
 import './App.css';
 
-function createOktaAuthInstance() {
-  const { state } = urlParamsToObject(window.location.search);
-  return new OktaAuth(Object.assign({}, oidcConfig, {
-    state
-  }));
-}
-
-const oktaAuth = createOktaAuthInstance();
+const oktaAuth = new OktaAuth(oidcConfig);
 
 function SignInForm() {
   const [transaction, setTransaction] = useState(null);
