@@ -5,7 +5,7 @@ meta:
     content: Learn how Okta Agent Gateway enforces identity and policy on AI agent tool calls to enterprise MCP servers.
 ---
 
-<ApiLifecycle access="beta" />
+<ApiLifecycle access="research" />
 
 # Okta Agent Gateway
 
@@ -110,7 +110,7 @@ The link between the gateway and a remote MCP server is one example of a resourc
 
 * **Delegation links**: A delegation link declares that a specific OAuth 2.0 client (the MCP client app) is authorized to delegate to a specific vMCP on behalf of users. The Okta org authorization server evaluates delegation links during the OAuth Security Token Service token exchange. Without a delegation link, the token exchange fails, and the agent can't invoke tools.
 
-The link between an agent and the Agent Gateway** is one example of a delegation link. It authorizes a specific agent to use a specific vMCP. Deactivating this connection immediately revokes that agent's access without affecting other agents or the gateway itself.
+The link between an agent and the Agent Gateway is one example of a delegation link. It authorizes a specific agent to use a specific vMCP. Deactivating this connection immediately revokes that agent's access without affecting other agents or the gateway itself.
 
 * **Tools**: An admin selects specific tools from remote MCP servers to expose through a vMCP. Admins choose which tools to surface per connection. Upstream MCP servers often expose dozens of tools. Exposing all of them would expand the agent's context window unnecessarily and increase the attack surface. Admins choose which tools to surface per resource connection. Tool limits are enforced per vMCP and per org (both configurable), not per connection. Aliases must be unique within a vMCP.
 * **Custom authorization server**: Each vMCP is protected by an Okta custom authorization server. The gateway validates all inbound agent tokens against the linked custom authorization server. Only one custom authorization server per vMCP is supported. The custom authorization server also issues the access tokens that agents use to authenticate to the gateway.
@@ -153,8 +153,8 @@ The exception is embedded agents in pure silo mode. These are agents that only a
 
 ## Related topics
 
-* Configure Okta Agent Gateway using the APIs
-* Configure your AI agent to use Agent Gateway
-* Virtual MCP Connections API
-* Virtual MCP Registration API
-* Virtual MCP Settings API
+* [Configure Okta Agent Gateway using the APIs](/docs/guides/ai-configure-agent-gateway/)
+* [Configure your AI agent to use Agent Gateway](/docs/guides/ai-configure-agent-for-gateway/)
+* [Virtual MCP Connections API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpconnections)
+* [Virtual MCP Server Registrations API](https://developer.okta.com//docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpregistration)
+* [Virtual MCP Settings API](https://developer.okta.com//docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpsettings)
