@@ -37,7 +37,7 @@ Before writing any code, you must configure your Okta org to recognize and manag
 
 The Okta app integration represents your Svelte app in your Okta org and lets you configure how it interacts with Okta services:
 
-1. In the Admin Console, go to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Click **Create App Integration**, and then select **OIDC - OpenID Connect** as the **Sign-in method**.
 1. Select **Single-Page Application** as your app type, then click **Next**.
 1. Give the app integration a name, for example, **Svelte**.

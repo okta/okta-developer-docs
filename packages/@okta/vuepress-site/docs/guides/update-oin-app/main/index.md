@@ -73,7 +73,7 @@ Update catalog information independently to keep your listing accurate without r
 
 To update only your app's catalog listing:
 
-1. In the Admin Console, go to **Applications** > **Your OIN Integrations**.
+1. In the Admin Console, go to **Applications and Resources** > **Your OIN Integrations**.
 
 2. Locate your published integration in the **Your apps** section.
 

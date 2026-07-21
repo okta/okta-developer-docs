@@ -357,7 +357,7 @@ If the certificate that you cloned from changes, you must repeat the cloning ope
 
 For outbound SAML, complete the following steps (note that these steps can't be automated):
 
-1. In the Admin Console, go to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Select your app integration.
 1. Select **Sign-On Options**.
 1. Click **View Setup Instructions**.

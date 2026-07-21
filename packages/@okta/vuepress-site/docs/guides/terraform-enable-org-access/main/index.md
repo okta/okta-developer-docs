@@ -42,7 +42,7 @@ Separate from granting API scopes, you must assign admin permissions to the app 
 
 Create an Okta service app that authorizes Terraform to update your org:
 
-1. In the Admin Console, go to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Click **Create App Integration**, and then select **API Services**.
 1. Click **Next**.
 1. Enter a name for the app, and then click **Save**.

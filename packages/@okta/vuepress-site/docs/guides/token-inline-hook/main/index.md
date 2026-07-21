@@ -71,7 +71,7 @@ An Okta app integration represents your app in your Okta org. The integration co
 
 1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
 1. Click **Admin** in the upper-right corner of the page.
-1. Go to **Applications** > **Applications**.
+1. Go to **Applications and Resources** > **Applications**.
 1. Click **Create App Integration**.
 1. Select a **Sign-in method** of **OIDC - OpenID Connect**.
 1. Select an **Application type** of **Web Application**, then click **Next**.
