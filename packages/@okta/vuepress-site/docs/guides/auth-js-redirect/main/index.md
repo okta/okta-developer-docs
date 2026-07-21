@@ -50,7 +50,7 @@ The integration includes configuration information required by the app to access
 
 1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
 1. Click **Admin** in the upper-right corner of the page.
-1. Go to **Applications** > **Applications**.
+1. Go to **Applications and Resources** > **Applications**.
 1. Click **Create App Integration**, and then select a **Sign-in method** of **OIDC - OpenID Connect**.
 1. Select an **Application type** of **Single-Page Application**, and then click **Next**.
 
@@ -277,7 +277,7 @@ By default, self-service registration isn't enabled for all apps. Use the follow
 
 1. Ensure that your app is assigned to the Everyone group:
 
-    * Go to **Applications** > **Applications** and select your app.
+    * Go to **Applications and Resources** > **Applications** and select your app.
     [[style="list-style-type:lower-alpha"]]
     * Click the **Assignments** tab.
     * Click the **Groups** filter.
@@ -342,7 +342,7 @@ By default, your Integrator Free Plan org isn't configured for multifactor authe
 
 1. Select **Password / IdP +  Another factor** for **User must authenticate with**. Ensure that the **Possession factor constraints are** doesn't have the **Exclude phone and email authenticators** checkbox selected. Click **Save**.
 
-1. Go to **Applications** > **Applications** and select your app.
+1. Go to **Applications and Resources** > **Applications** and select your app.
 
 1. Click the **Sign On** tab, scroll down to the **User authentication** section, and click **Edit**.
 
@@ -372,7 +372,7 @@ By default, the Integrator Free Plan org is configured for a self-service passwo
 
 1. Click **Not required** for the **additional verification is** question, and then click **Update rule**.
 
-1. If you previously set the sign-on policy for your app as Mandatory MFA, go to **Applications** > **Applications** and select your app. Click the **Sign On** tab and scroll down to the **User authentication** section and click **Edit**. From the **App sign-in policy** dropdown menu, select **One factor access** and click **Save**.
+1. If you previously set the sign-on policy for your app as Mandatory MFA, go to **Applications and Resources** > **Applications** and select your app. Click the **Sign On** tab and scroll down to the **User authentication** section and click **Edit**. From the **App sign-in policy** dropdown menu, select **One factor access** and click **Save**.
 
 Test the new configurations by recovering a password for a user of your sample app:
 
