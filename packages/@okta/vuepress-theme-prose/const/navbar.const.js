@@ -1072,6 +1072,10 @@ export const guides = [
             guideName: "iga-delegates"
           },
           {
+            title: "Manage governance access request tasks",
+            guideName: "iga-ar-tasks"
+          },
+          {
             title: "Manage governance labels",
             guideName: "iga-labels"
           },
