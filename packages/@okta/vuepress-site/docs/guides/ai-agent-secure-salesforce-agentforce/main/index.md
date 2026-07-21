@@ -68,7 +68,7 @@ Platform integration (Salesforce Agentforce: agent.py)
 Agentforce agent response
 ```-->
 
-> **Note:** The Okta `access_token` from steps 1-2 confirms the user's identity to your wrapper. It isn't forwarded to Salesforce. The Salesforce token from step 3 is a separate, service-level credential that authenticates your wrapper (not the user) to the Agentforce Agent API.
+> **Note:** The Okta `access_token` from steps 1 and 2 confirms the user's identity to your wrapper. It isn't forwarded to Salesforce. The Salesforce token from step 3 is a separate, service-level credential that authenticates your wrapper (not the user) to the Agentforce Agent API.
 
 For the conceptual background on AI agent token exchange, see [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/).
 
@@ -99,7 +99,7 @@ Unlike a manually registered AI Agent identity, Okta can discover and import age
 
 ## Set up your Salesforce org
 
-Configure a separate, service-level integration in Salesforce so that your wrapper can authenticate to the Agentforce Agent API. This is independent of the Okta AI Agent identity you imported in the previous section.
+Configure a separate, service-level integration in Salesforce so that your wrapper can authenticate to the Agentforce Agent API. This is independent of the Okta AI Agent identity that you imported in the previous section.
 
 ### Create an external Client app
 
@@ -111,7 +111,7 @@ Configure a separate, service-level integration in Salesforce so that your wrapp
 
 1. Set the grant type to **Client Credentials**.
 1. Under **Selected OAuth Scopes**, select only the following scopes:
-   * `api` (Manage user data via APIs)
+   * `api` (Manage user data through APIs)
    * `chatbot_api` (Access chatbot services)
    * `sfap_api` (Access the Salesforce API Platform)
 
@@ -199,7 +199,7 @@ okta-agentforce-agent/
 
 ### Create your environment file
 
-Create a `.env` file with both the Okta values and the Salesforce values you collected in [Collect your configuration values](#collect-your-configuration-values).
+Create a `.env` file with both the Okta values and the Salesforce values that you collected in [Collect your configuration values](#collect-your-configuration-values).
 
 ### Get a Salesforce access token
 
@@ -404,7 +404,7 @@ az containerapp ingress update \
 
 ## Run an end-to-end invocation
 
-Call the deployed container app's `/invoke` endpoint, passing the test ID token to confirm that the full `id_token` → ID-JAG → `access_token` → Salesforce token → Agentforce response round trip:
+Call the `/invoke` endpoint on your deployed container app, passing the test ID token to verify the end-to-end integration.:
 
 ```bash
 curl -s -X POST "https://<your-container-app-url>/invoke" \
@@ -429,7 +429,7 @@ The following errors are specific to the Salesforce Agentforce integration:
 
 | Error | Root cause | Fix |
 | --- | --- | --- |
-| `invalid_grant: no client credentials user enabled` | The Connected App has no **Run As** user configured for the client credentials flow | Go to the Connected App's **Manage** > **Edit Policies** > **Client Credentials Flow**, and assign a **Run As** user |
+| `invalid_grant: no client credentials user enabled` | The Connected App has no **Run As** users configured for the client credentials flow | Go to the Connected App's **Manage** > **Edit Policies** > **Client Credentials Flow**, and assign a **Run As** user |
 | `invalid_grant: ip restricted` | The **Run As** user's profile has login IP ranges that block the caller's IP | Add the caller's IP to the profile's login IP ranges, remove the login IP ranges, or use a **Run As** user on a profile without IP restrictions |
 | `invalid_request: too many scopes requested` | The Connected App has **Issue JWT-based access tokens** enabled along with too many OAuth scopes | Reduce the Connected App's OAuth scopes to only `api`, `chatbot_api`, and `sfap_api` |
 | Agent API returns `URL No Longer Exists` (HTML 404 page) | The request used the Salesforce instance URL (`*.my.salesforce.com`) as the Agent API base | Use `https://api.salesforce.com/einstein/ai-agent/v1/...` as the base URL instead |
