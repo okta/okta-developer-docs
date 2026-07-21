@@ -320,7 +320,7 @@ You need to update existing custom authorization servers to return the custom do
 
 Also, you may want to change the issuer for your OpenID Connect apps that are using the org authorization server.
 
-1. In the Admin Console, go to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 
 1. Click the OpenID Connect app that you want to update.
 

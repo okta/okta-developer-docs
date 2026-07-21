@@ -130,7 +130,7 @@ Changing the EVE provides a quick way to enable and test magic links. Customizin
 To enable magic links in your app using the email verification experience (EVE) setting:
 
 1. Open the **Admin Console** for your Okta org.
-2. Choose **Applications** > **Applications** to show the app integrations that you have already created.
+2. Choose **Applications and Resources** > **Applications** to show the app integrations that you have already created.
 3. Click the app that you previously created.
 4. In the **General Settings** section on the **General** tab, click **Edit**.
 5. Under **EMAIL VERIFICATION EXPERIENCE** enter the URL for the endpoint that you created. For example, `https://example.com/magiclink/callback`.

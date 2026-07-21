@@ -26,7 +26,7 @@ After the Identity Engine is enabled for your org, it should become active for O
 
 ### Enable interaction code grant on an application
 
-1. In the Admin Console, go to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 2. Click an application in the list.
 3. Click the **General** tab on the application detail.
 4. Click edit on the **General Settings** panel.

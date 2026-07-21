@@ -140,7 +140,7 @@ To use the group functions to create a token using a dynamic group allowlist, cr
 
 > **Note:** In this example, the user signing in to your app is assigned to a group called "IT."
 
-1. In the Admin Console, go to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Select the client application that you want to configure.
 1. Go to the **Sign On** tab and click **Edit** in the **OpenID Connect ID Token** section.
 1. In the **Groups claim type** section, select **Expression**.
