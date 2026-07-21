@@ -21,7 +21,7 @@ Configure your AI agent to call tools through Okta Agent Gateway. Agent Gateway 
 #### What you need
 
 - An Okta org with the Secure AI Virtual MCP Servers feature enabled and an active Okta for AI Agents subscription. See your Okta account team to enable the Secure AI Virtual MCP Servers feature.
-- An Agent Gateway that's been created and activated. See [Configure an Agent Gateway using the APIs](/docs/guides/??).
+- An Agent Gateway that's been created and activated. See [Configure an Agent Gateway using the APIs](/docs/guides/ai-configure-agent-gateway/).
 - Your Agent Gateway URL: `https://gateway.{yourOktaDomain}/mcp/servers/{gatewayName}`
 - The OAuth `client_id` assigned to your agent in Okta Universal Directory.
 
@@ -77,7 +77,7 @@ The AI agent identifies itself as an OAuth client using a pre-registered `client
 
 ### Client ID Metadata Document (CIMD)
 
-The platform publishes a vendor CIMD URL, so no per-tenant client provisioning is required. (need to link to CIMD docs??)
+The platform publishes a vendor CIMD URL, so no per-tenant client provisioning is required. [Register AI agents with a Client ID Metadata Document (CIMD)]( /docs/guides/ai-agent-cimd-registration)
 
 > **Note**: Okta doesn't accept Dynamic Client Registration for Agent Gateway. Platforms that attempt to use Dynamic Client Registration must fall back to a pre-registered `client_id`.
 
@@ -193,5 +193,5 @@ After your agent is connected to Agent Gateway:
 
 ## Related topics
 
-- [Okta Agent Gateway](link to concept doc??)
-- [Configure Agent Gateway using the Okta APIs](link to ??)
+- [Okta Agent Gateway](/docs/concepts/agent-gateway/)
+- [Configure Agent Gateway using the Okta APIs](/docs/guides/ai-configure-agent-gateway/)
