@@ -1,0 +1,363 @@
+Salesforce Agentforce E2E Agent Integration Steps
+
+
+
+By Evan Brown
+
+5 min
+
+Listen
+
+15
+
+Add a reaction
+Overview
+A FastAPI wrapper authenticates users via Okta's two-step token exchange (XAA / ID-JAG flow), then calls a Salesforce Agentforce agent via the Agent API. Users log in through an Okta OIDC app, the wrapper exchanges the id_token for a scoped access_token, obtains a Salesforce token via client credentials, and invokes the Agentforce agent with the user's verified identity.
+
+Architecture
+
+
+User → Okta Login (OIDC Web App) → id_token
+                                        ↓
+                      FastAPI wrapper (Azure Container App)
+                      Step 1: id_token → ID-JAG  (Org AS)
+                      Step 2: ID-JAG → access_token (Custom AS)
+                                        ↓
+                      Salesforce: client_credentials → SF JWT token
+                                        ↓
+                      Agentforce Agent API (api.salesforce.com)
+                      ├── Start session (with instanceConfig)
+                      ├── Send message + Okta identity context
+                      └── Receive synchronous response
+                                        ↓
+                                    Response to caller
+1. Okta Admin Console Setup
+OIDC Web App (User Sign-On)
+Create a new Web Application (OIDC) in the Okta Admin Console.
+
+Grant types: Authorization Code
+
+Sign-in redirect URI: http://localhost:5000/callback
+
+Scopes: openid, profile, email
+
+Note the Client ID and Client Secret.
+
+Custom Authorization Server
+Use the built-in default authorization server (or create a new one).
+
+Add a custom scope: xaa:read
+
+Under Access Policy → add a rule that enables grant type: JWT Bearer (urn:ietf:params:oauth:grant-type:jwt-bearer)
+
+AI Agent (WORKLOAD type) — imported from Salesforce
+Go to Admin Console → AI Agents → Import Agent.
+
+Connect your Salesforce instance — Okta will discover agents from the connected Salesforce org.
+
+Select the Agentforce agent to import. Okta creates a WORKLOAD-type client (wlp prefix) automatically.
+
+Note the Client ID (will have a wlp prefix — WORKLOAD type, required for token exchange).
+
+Client Authentication: Public Key / Private Key (private_key_jwt).
+
+Generate an RSA keypair and register the public JWK under the imported agent → Credentials → Add key. Note the kid.
+
+Connected Resources: Link to the OIDC Web App and the Custom AS with scope xaa:read.
+
+Activate the agent.
+
+2. Salesforce Setup
+External Client App
+In Salesforce Setup, go to App Manager → New Connected App (or External Client Apps → New).
+
+Enable OAuth Settings.
+
+Note the Consumer Key and Consumer Secret.
+
+OAuth Settings
+Grant type: Client Credentials
+
+OAuth Scopes — select ONLY these three:
+
+api (Manage user data via APIs)
+
+chatbot_api (Access chatbot services)
+
+sfap_api (Access the Salesforce API Platform)
+
+Enable "Issue JSON Web Token (JWT)-based access tokens for named users"
+
+Set IP Relaxation to: Relax IP restrictions
+
+Client Credentials Policy
+Go to the Connected App → Manage → Edit Policies.
+
+Enable Client Credentials Flow.
+
+Set "Run As" to a user with at least API access.
+
+Agentforce Agent
+In Salesforce Setup → Agents, create or select an agent.
+
+The agent MUST be of type ExternalCopilot / EinsteinServiceAgent (e.g., "Agentforce Service Agent").
+
+Publish/activate the agent (ensure there is an active BotVersion).
+
+Note the Agent ID (starts with 0Xx).
+
+⚠️ Warning: The Agent API only works with ExternalCopilot type agents (Agentforce Service Agents). It does NOT work with InternalCopilot type agents (Employee Agents) or agents of type "Agentforce (Default)".
+
+Einstein Setup
+Setup → Einstein Setup → Turn on Einstein: Enabled
+
+Enable Einstein Generative AI if available.
+
+3. Agent Code — main_agentforce.py
+The agent is a FastAPI app exposing POST /invoke and GET /health. It receives a JSON payload { "id_token": "...", "prompt": "..." } and performs the two-step Okta token exchange, then authenticates to Salesforce and calls the Agentforce Agent API.
+
+Token exchange functions (identical to Foundry / Copilot)
+Step 1: id_token → ID-JAG at Org AS
+
+
+
+POST /oauth2/v1/token
+  grant_type=urn:ietf:params:oauth:grant-type:token-exchange
+  subject_token=<ID_TOKEN>
+  subject_token_type=urn:ietf:params:oauth:token-type:id_token
+  requested_token_type=urn:ietf:params:oauth:token-type:id-jag
+  scope=xaa:read
+  audience=https://<ORG_DOMAIN>/oauth2/default
+  client_assertion=<JWT>
+Step 2: ID-JAG → access_token at Custom AS
+
+
+
+POST /oauth2/default/v1/token
+  grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
+  assertion=<ID_JAG>
+  client_assertion=<JWT>
+client_assertion JWT structure
+This JWT is signed with RS256, and the kid must match the registered public key.
+
+
+
+{
+  "iss": "<AGENT_CLIENT_ID>",
+  "sub": "<AGENT_CLIENT_ID>",
+  "aud": "https://<ORG_DOMAIN>/oauth2/v1/token",
+  "iat": 1234567890,
+  "exp": 1234568190,
+  "jti": "<UNIQUE_ID>"
+}
+Salesforce Agentforce functions
+Step 3: Get Salesforce token via client_credentials
+
+
+
+POST https://<MY_DOMAIN>.my.salesforce.com/services/oauth2/token
+  grant_type=client_credentials
+  client_id=<CONSUMER_KEY>
+  client_secret=<CONSUMER_SECRET>
+Returns a JWT-format access token with scopes sfap_api chatbot_api api.
+
+Step 4: Call the Agentforce Agent API
+
+
+
+def ask_agentforce(prompt: str, user_claims: dict) -> str:
+    sf_token = get_salesforce_token()
+    sf_headers = {
+        "Authorization": f"Bearer {sf_token}",
+        "Content-Type": "application/json",
+    }
+    # 1. Start session — MUST include instanceConfig.endpoint
+    session_resp = httpx.post(
+        "https://api.salesforce.com/einstein/ai-agent/v1/agents/<AGENT_ID>/sessions",
+        headers=sf_headers,
+        json={
+            "externalSessionKey": str(uuid.uuid4()),
+            "bypassUser": True,
+            "instanceConfig": {
+                "endpoint": "https://<your-domain>.my.salesforce.com",
+            },
+        },
+    )
+    session_id = session_resp.json()["sessionId"]
+    # 2. Send message with Okta identity
+    message_resp = httpx.post(
+        f"https://api.salesforce.com/einstein/ai-agent/v1/sessions/{session_id}/messages",
+        headers=sf_headers,
+        json={
+            "message": {
+                "sequenceId": 1,
+                "type": "Text",
+                "text": f"The user is {user_claims['name']} ({user_claims['email']}). {prompt}",
+            },
+        },
+    )
+    data = message_resp.json()
+    # 3. Extract response text from messages array
+    for msg in data.get("messages", []):
+        if msg.get("type") == "Inform":
+            return msg.get("message", "")
+    # 4. End session
+    httpx.delete(
+        f"https://api.salesforce.com/einstein/ai-agent/v1/sessions/{session_id}",
+        headers=sf_headers,
+    )
+Agentforce Agent API flow
+Step
+
+Method
+
+URL
+
+Notes
+
+Start session
+
+POST
+
+https://api.salesforce.com/einstein/ai-agent/v1/agents/{AGENT_ID}/sessions
+
+Must include instanceConfig.endpoint
+
+Send message
+
+POST
+
+https://api.salesforce.com/einstein/ai-agent/v1/sessions/{SESSION_ID}/messages
+
+Synchronous response
+
+End session
+
+DELETE
+
+https://api.salesforce.com/einstein/ai-agent/v1/sessions/{SESSION_ID}
+
+Cleanup
+
+ℹ️ Critical: The base URL is https://api.salesforce.com, NOT your instance URL. The instance URL goes in instanceConfig.endpoint in the session creation body.
+
+4. Deployment
+1. Build image in ACR (cloud build)
+
+
+cd /path/to/agent
+az acr build --registry <ACR_NAME> --image okta-agent-agentforce:latest .
+2. Grant container app access to ACR
+
+
+az containerapp registry set \
+  --name <APP_NAME> --resource-group <RG_NAME> \
+  --server <ACR_NAME>.azurecr.io \
+  --username <ACR_USERNAME> --password <ACR_PASSWORD>
+3. Deploy with environment variables
+
+
+az containerapp update \
+  --name <APP_NAME> --resource-group <RG_NAME> \
+  --image <ACR_NAME>.azurecr.io/okta-agent-agentforce:latest \
+  --set-env-vars \
+    OKTA_DOMAIN="https://<ORG_DOMAIN>" \
+    CUSTOM_AS="default" \
+    AGENT_CLIENT_ID="<WLP_CLIENT_ID>" \
+    AGENT_KEY_ID="<KID>" \
+    AGENT_PRIVATE_KEY_JWK='<JSON>' \
+    SF_MY_DOMAIN="<DOMAIN>.my.salesforce.com" \
+    SF_AGENT_ID="0Xx..." \
+    SF_CLIENT_ID="<CONSUMER_KEY>" \
+    SF_CLIENT_SECRET="<CONSUMER_SECRET>" \
+    APP_MODULE="main_agentforce"
+4. Ensure target port is 8000
+
+
+az containerapp ingress update \
+  --name <APP_NAME> --resource-group <RG_NAME> --target-port 8000
+5. Testing
+Step 1 — Get authorization code
+Open the following URL in a browser and copy the code from the redirect URL after logging in.
+
+
+
+https://<ORG_DOMAIN>/oauth2/v1/authorize?response_type=code&client_id=<OIDC_CLIENT_ID>&redirect_uri=http://localhost:5000/callback&scope=openid%20profile%20email&state=test123
+Step 2 — Exchange code for id_token
+
+
+curl -s -X POST "https://<ORG_DOMAIN>/oauth2/v1/token" \
+  --header "Content-Type: application/x-www-form-urlencoded" \
+  --user "<OIDC_CLIENT_ID>:<OIDC_CLIENT_SECRET>" \
+  --data "grant_type=authorization_code&code=<CODE>&redirect_uri=http://localhost:5000/callback"
+Step 3 — Call the agent
+
+
+curl -s -X POST "https://<APP_URL>/invoke" \
+  --header "Content-Type: application/json" \
+  --data '{"id_token": "<ID_TOKEN>", "prompt": "Hello, what can you help me with?"}'
+Example output
+
+
+{
+  "ok": true,
+  "answer": "Hi there! Could you let me know what you need help with? I'll do my best to assist!",
+  "user": "user@example.com",
+  "access_token_prefix": "eyJraWQiOiI1ZXpPR0dSZzFf..."
+}
+6. Gotchas Encountered
+Issue
+
+Root Cause
+
+Fix
+
+Issue
+
+Root Cause
+
+Fix
+
+invalid_grant: no client credentials user enabled
+
+Connected App doesn't have a Run As user configured for client_credentials flow.
+
+Go to Connected App → Manage → Edit Policies → Client Credentials Flow → assign a Run As user.
+
+invalid_grant: ip restricted
+
+The Run As user's profile has Login IP Ranges that block the caller's IP.
+
+Either add the caller IP to the profile's Login IP Ranges, remove all Login IP Ranges from the profile, or use a user on a profile without IP restrictions.
+
+invalid_request: too many scopes requested
+
+Enabling "Issue JWT-based access tokens" with too many OAuth scopes on the Connected App.
+
+Reduce OAuth scopes to only: api, chatbot_api, sfap_api.
+
+Agent API returns "URL No Longer Exists" (HTML 404)
+
+Using the instance URL (*.my.salesforce.com) as the Agent API base.
+
+Use https://api.salesforce.com/einstein/ai-agent/v1/... as the base URL instead.
+
+BadRequestException: Empty force-config endpoint
+
+Session creation missing instanceConfig.endpoint in request body.
+
+Include {"instanceConfig": {"endpoint": "https://your-instance.my.salesforce.com"}} in the session POST body.
+
+Agent API returns 404 for InternalCopilot agents
+
+Agent API only supports ExternalCopilot type agents (Service Agents).
+
+Use an agent of type ExternalCopilot / EinsteinServiceAgent. Employee Agents are not supported.
+
+Agent says "Sorry, I can't assist with that"
+
+The agent's topics/instructions don't cover the question asked.
+
+Configure the agent's topics in Salesforce Setup → Agents, or ask questions within its configured scope.
+
+ 
