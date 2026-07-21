@@ -61,7 +61,7 @@ Accept: application/json; okta-version=1.0.0
 
 When you’re ready to grant the required scopes, follow these steps:
 
-1. Sign in to your Okta organization with your administrator account and go to **Applications** > **Applications**.
+1. Sign in to your Okta organization with your administrator account and go to **Applications and Resources** > **Applications**.
 1. Open your OpenID Connect client app.
 1. On the **Okta API Scopes** tab, grant the following scopes:
    * For access to both GET and POST/DELETE endpoints:

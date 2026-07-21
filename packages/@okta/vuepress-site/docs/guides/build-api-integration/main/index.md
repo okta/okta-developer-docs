@@ -103,7 +103,7 @@ The [org authorization server](/docs/concepts/auth-servers/#org-authorization-se
 
 The OIN Wizard provides a mechanism to register and install your integration in your Okta org (similar to how your customer admins would install your integration) and obtain the credentials to test your Client Credentials flow. Your test integration is available only on your Okta org during the test.
 
-> **Note:** From the OIN Wizard test option, the test install and authorize pages are the same pages that your customers experience when your service integration is in the OIN. After you publish your integration in the OIN catalog, it appears in the **Applications** > **API Service Integrations** page of your customer's Admin Console.
+> **Note:** From the OIN Wizard test option, the test install and authorize pages are the same pages that your customers experience when your service integration is in the OIN. After you publish your integration in the OIN catalog, it appears in the **Applications and Resources** > **API Service Integrations** page of your customer's Admin Console.
 
 To register your API service registration, see [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/openidconnect/main/).
 
@@ -111,8 +111,8 @@ To register your API service registration, see [Submit an integration with the O
 
 Use the test functionality in the OIN Wizard to obtain test integration credentials:
 
-1. In the OIN Wizard, click **Applications** > **Your OIN Integrations**.
-1. Cick the more icon (![three-dot more icon](/img/icons/odyssey/more.svg)) next to the integration submission that you want to test and click **Test integration**.
+1. In the OIN Wizard, click **Applications and Resources** > **Your OIN Integrations**.
+1. Click the more icon (![three-dot more icon](/img/icons/odyssey/more.svg)) next to the integration submission that you want to test and click **Test integration**.
 1. Click **Generate instance**. The **Authorize integration** page appears.
 1. Go to **Test integration** > **Generate instance**. The **Authorize integration** page appears.
 1. Click **Install & Authorize**.
@@ -212,7 +212,7 @@ After you complete testing and are satisfied with your API service integration, 
 
 To edit your API service integration submission fields:
 
-1. In the OIN Wizard, click **Applications** > **Your OIN integrations**.
+1. In the OIN Wizard, click **Applications and Resources** > **Your OIN integrations**.
 1. Select an integration from the list. Click **Edit** next to your integration submission.
 1. Edit the fields that you want to modify.
 
