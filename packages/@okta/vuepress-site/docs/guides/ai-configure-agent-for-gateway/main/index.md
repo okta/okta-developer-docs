@@ -20,7 +20,7 @@ Configure your AI agent to call tools through Okta Agent Gateway. Agent Gateway 
 
 #### What you need
 
-- An Okta org with the Secure AI Virtual MCP Servers feature enabled and an active Okta for AI Agents subscription. See your Okta account team to enable the Secure AI Virtual MCP Servers feature.
+- An Okta org with the Secure AI Virtual MCP Servers feature enabled and an active Okta for AI Agents subscription. Contact your Okta account team to enable the Secure AI Virtual MCP Servers feature.
 - An Agent Gateway that's been created and activated. See [Configure an Agent Gateway using the APIs](/docs/guides/ai-configure-agent-gateway/).
 - Your Agent Gateway URL: `https://gateway.{yourOktaDomain}/mcp/servers/{gatewayName}`
 - The OAuth `client_id` assigned to your agent in Okta Universal Directory.
@@ -29,9 +29,9 @@ Configure your AI agent to call tools through Okta Agent Gateway. Agent Gateway 
 
 ## Overview
 
-Okta Agent Gateway is an identity-native proxy that sits between AI agents and the enterprise tools that they call. It aggregates tools from multiple upstream MCP servers behind a single Okta-secured endpoint. It enforces identity and policy on every tool call. This produces a unified audit trail that extends the Okta identity fabric to agents that the enterprise doesn't build or control.
+Okta Agent Gateway is an identity-native proxy that sits between AI agents and the enterprise tools that they call. It aggregates tools from multiple upstream MCP servers behind a single Okta-secured endpoint. It enforces identity and policy on every tool call. Agent Gateway produces a unified audit trail that extends the Okta identity fabric to agents that the enterprise doesn't build or control.
 
-Each Agent Gateway exposes one MCP endpoint. Point any supported agent at that URL. The Agent Gateway handles tool aggregation, identity enforcement, credential injection, and auditing, with no changes to the agent's code.
+Each Agent Gateway exposes one MCP endpoint. You point any supported agent at that URL. The Agent Gateway handles tool aggregation, identity enforcement, credential injection, and auditing, with no changes to the agent's code.
 
 > **Note**: See the [Okta Agent Gateway](/docs/concepts/agent-gateway/) concept doc for more detailed information and a diagram of the Agent Gateway authorization flow.
 
@@ -44,7 +44,7 @@ Before you start, get the following from your Okta admin:
 | What | Details |
 | ---- | ------- |
 | Agent Gateway URL | Format: `https://{subdomain}.gateway.okta.com/mcp/{path}` |
-| Client ID | The OAuth client ID registered for your agent in Okta. Not needed if your agent platform supports CIMD. Your agent vendor publishes one automatically. |
+| Client ID | The OAuth client ID registered for your agent in Okta. It's not needed if your agent platform supports Client ID Metadata Document (CIMD). Your agent vendor publishes one automatically. |
 | Client secret | Only required by some platforms. Not needed for public clients using PKCE only. |
 | Auth and token URLs | The Okta custom authorization server endpoints protecting the Agent Gateway. Some platforms require these explicitly, and others discover them automatically. |
 | Scopes | The OAuth scopes your agent is authorized to request. |
@@ -53,7 +53,7 @@ Before you start, get the following from your Okta admin:
 
 Agents authenticate themselves to the Agent Gateway as an OAuth client, identified either by a pre-registered `client_id` or a [Client ID Metadata Document (CIMD)](#client-id-metadata-document-cimd). Most agents obtain a short-lived, Agent Gateway-scoped access token using the [Authorization Code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) grant type.
 
-Some platforms instead use a long-lived static bearer token that an admin mints and distributes directly. Either way, the agent presents its token to the Agent Gateway on every tool call. The Agent Gateway never holds the tokens. It brokers downstream credentials at runtime inside Okta instead.
+Some platforms instead use a long-lived static bearer token that an admin mints and distributes directly. Either way, the agent presents its token to the Agent Gateway on every tool call. The Agent Gateway never holds the token. It brokers downstream credentials at runtime inside Okta instead.
 
 ## How it works
 
@@ -73,11 +73,11 @@ Your agent identifies itself to the Agent Gateway as an OAuth client using one o
 
 ### Client ID
 
-The AI agent identifies itself as an OAuth client using a pre-registered `client_id`. An admin provisions an OAuth client in the Admin Console and distributes the `client_id` to the agent.
+The agent identifies itself as an OAuth client using a pre-registered `client_id`. An admin provisions an OAuth client in the Admin Console and distributes the `client_id` to the agent.
 
 ### Client ID Metadata Document (CIMD)
 
-The platform publishes a vendor CIMD URL, so no per-tenant client provisioning is required. [Register AI agents with a Client ID Metadata Document (CIMD)]( /docs/guides/ai-agent-cimd-registration)
+The platform publishes a vendor CIMD URL, so no per-tenant client provisioning is required. [Register AI agents with a Client ID Metadata Document (CIMD)](/docs/guides/ai-agent-cimd-registration).
 
 > **Note**: Okta doesn't accept Dynamic Client Registration for Agent Gateway. Platforms that attempt to use Dynamic Client Registration must fall back to a pre-registered `client_id`.
 
@@ -85,7 +85,7 @@ The platform publishes a vendor CIMD URL, so no per-tenant client provisioning i
 
 Agent Gateway supports two broad authentication patterns:
 
-- **Interactive OAuth 2.0**: (Authorization Code with PKCE) Your agent redirects you to Okta to sign in and grant consent. Most platforms use this pattern. See the examples for [Claude Code](#claude-code) (config-file based, public client) and [Claude Enterprise and Claude.ai](#claude-enterprise-and-claudeai) (admin-console based, confidential client).
+- **Interactive OAuth 2.0** (Authorization Code with PKCE): Your agent redirects you to Okta to sign in and grant consent. Most platforms use this pattern. See the examples for [Claude Code](#claude-code) (config-file based, public client) and [Claude Enterprise and Claude.ai](#claude-enterprise-and-claudeai) (admin-console based, confidential client).
 - **Static bearer tokens**: An admin mints a long-lived, Agent Gateway-scoped token and distributes it to the agent directly, with no interactive OAuth flow. See the [Kiro](#kiro) example.
 
 Claude Code, Claude Enterprise and Claude.ai, and Kiro are covered in detail next because together they walk through every configuration surface that Agent Gateway supports: a config file, an admin console, and a static token. Other platforms follow these same two patterns through their own MCP configuration surface.
@@ -188,7 +188,7 @@ After your agent is connected to Agent Gateway:
 
 - Verify the connection by running a tool call and confirming the response.
 - Review agent activity in the Okta System Log under **AI Agent activity** (admin events).
-- To adjust which tools the agent can call, update the tool selection on the Agent Gateway. See [Manage tool access in Agent Gateway](link to API doc??).
+- To adjust which tools the agent can call, update the tool selection on the Agent Gateway. See [Add tools](/docs/guides/ai-configure-agent-gateway/main/#add-tools).
 - To revoke the agent's access, deactivate the agent-to-agent gateway resource connection in the Okta Admin Console.
 
 ## Related topics
