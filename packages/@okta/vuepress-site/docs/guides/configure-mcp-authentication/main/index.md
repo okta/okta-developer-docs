@@ -1,5 +1,5 @@
 ---
-title: Set up Okta app authentication for the MCP server
+title: Set up Okta app authentication for the Okta Open Source MCP server
 meta:
   - name: description
     content: Create an Okta admin app integration and obtain the credentials to connect your Okta Open Source MCP server.
