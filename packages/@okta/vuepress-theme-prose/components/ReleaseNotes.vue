@@ -73,7 +73,7 @@ export default {
           link: "/docs/release-notes/2026-okta-aerial",
         },
         {
-          title: "Okta MCP Server",
+          title: "Okta Open Source MCP Server",
           link: "/docs/release-notes/2026-okta-mcp-server/",
         },
         {

@@ -1,5 +1,5 @@
 ---
-title: Configure, start, and test the Okta MCP server
+title: Configure, start, and test the Okta Open Source MCP server
 meta:
   - name: description
     content: Set up your local environment variables and start the Okta Model Context Protocol (MCP) server to connect your AI agent to your org.
@@ -12,16 +12,16 @@ Set up your local environment variables (including OKTA_SCOPES), start the Okta 
 #### Learning outcomes
 
 * Map your Okta app credentials to MCP environment variables.
-* Start the Okta MCP server.
-* Verify the connection between the Okta MCP server and your org.
+* Start the Okta Open Source MCP server.
+* Verify the connection between the Okta Open Source MCP server and your org.
 * Use natural language commands to perform admin tasks (such as managing users, groups, apps, and policies). You can also customize your brand, maintain device compliance, and perform log analysis.
 
 #### What you need
 
 * The [uv](https://docs.astral.sh/uv/getting-started/installation/) package manager.
 * [Python 3.8](https://python.org/downloads) or higher.
-* A local copy of the Okta MCP server project. See [Install, and initialize the Okta MCP server](https://github.com/okta/okta-mcp-server).
-* The credentials from the [app authentication for Okta MCP server](/docs/guides/configure-mcp-authentication/main/) guide:
+* A local copy of the Okta Open Source MCP server project. See [Install, and initialize the Okta Open Source MCP server](https://github.com/okta/okta-mcp-server).
+* The credentials from the [app authentication for Okta Open Source MCP server](/docs/guides/configure-mcp-authentication/main/) guide:
 
   * Okta domain (`OKTA_ORG_URL`): Your Okta org URL. See [Find your Okta domain](/docs/guides/find-your-domain/main/).
   * Client ID (`OKTA_CLIENT_ID`): The unique identifier for your app integration.
@@ -35,23 +35,23 @@ Set up your local environment variables (including OKTA_SCOPES), start the Okta 
 
 ## Overview
 
-This guide explains how to configure your local environment. It uses the credentials that you obtained from the [Okta MCP server app authentication guide](/docs/guides/configure-mcp-authentication/main/). It describes how to start the Okta MCP server and verify that the server connects to your org.
+This guide explains how to configure your local environment. It uses the credentials that you obtained from the [Okta Open Source MCP server app authentication guide](/docs/guides/configure-mcp-authentication/main/). It describes how to start the Okta Open Source MCP server and verify that the server connects to your org.
 
 ---
 
 ## Configure the MCP client
 
-The Okta MCP server works with any MCP-compatible client. While this guide focuses on specific configurations for VS Code with GitHub Copilot and Claude Desktop, you can apply these environment variables to other clients, such as Amazon Bedrock.
+The Okta Open Source MCP server works with any MCP-compatible client. While this guide focuses on specific configurations for VS Code with GitHub Copilot and Claude Desktop, you can apply these environment variables to other clients, such as Amazon Bedrock.
 
 ### Configure the VS Code (GitHub Copilot)
 
 1. Install the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot).
 1. Open the **Copilot chat** view in VS Code.
 1. Enable agent mode by following the steps in the [VS Code documentation](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode#_enable-agent-mode-in-vs-code).
-1. Update your VS Code settings to include the Okta MCP server configuration:
+1. Update your VS Code settings to include the Okta Open Source MCP server configuration:
    * Press `Command + Shift + P` (macOS) or `Ctrl + Shift + P` (Windows) open the command palette.
    * Type "Preferences: Open User Settings (JSON)" and press **Enter**.
-1. Define the connection parameters for the Okta MCP server:
+1. Define the connection parameters for the Okta Open Source MCP server:
    * Create a folder named `.vscode` in your project directory.
    * Create a file named `mcp.json` in the `.vscode` folder.
 1. Replace `/path/to/okta-mcp-server` in the following configuration with the actual path to your cloned repository.
@@ -146,9 +146,9 @@ Apply the configuration parameters shown in the previous sections to other MCP-c
 
 ---
 
-## Start the Okta MCP server
+## Start the Okta Open Source MCP server
 
-The steps to start the server vary by client. To start the Okta MCP server in VS Code with GitHub Copilot, follow these steps:
+The steps to start the server vary by client. To start the Okta Open Source MCP server in VS Code with GitHub Copilot, follow these steps:
 
 ### VS Code
 
@@ -170,7 +170,7 @@ The steps to start the server vary by client. To start the Okta MCP server in VS
 
    > **Note**: If you use the device authorization grant, press **Enter** to skip the `OKTA_PRIVATE_KEY` and `OKTA_KEY_ID` prompts.
 
-1. [Optional]: To use the Okta MCP server with other MCP clients, manually add the following configuration to your client’s configuration file and restart the app for the changes to take effect:
+1. [Optional]: To use the Okta Open Source MCP server with other MCP clients, manually add the following configuration to your client’s configuration file and restart the app for the changes to take effect:
 
    ```json
    {
@@ -205,7 +205,7 @@ The steps to start the server vary by client. To start the Okta MCP server in VS
 
 ## Verify connection
 
-Confirm that the Okta MCP server has established a secure connection between your MCP client and Okta management APIs. Your MCP client should display a status showing the Okta MCP server is connected and ready. The Okta MCP server should appear in your client's available tools.
+Confirm that the Okta Open Source MCP server has established a secure connection between your MCP client and Okta management APIs. Your MCP client should display a status showing the Okta Open Source MCP server is connected and ready. The Okta Open Source MCP server should appear in your client's available tools.
 
 Manage your Okta org using natural language commands through your AI agent after starting and authenticating your MCP server.
 
@@ -243,14 +243,14 @@ Use the following conversational prompts to interact with your Okta org:
 
 ## Summary
 
-You configured your environment variables, started the Okta MCP server, and verified the connection to your Okta org.
+You configured your environment variables, started the Okta Open Source MCP server, and verified the connection to your Okta org.
 
 ## Next steps
 
-Now that your Okta MCP server is running, explore advanced use cases to manage your Okta org:
+Now that your Okta Open Source MCP server is running, explore advanced use cases to manage your Okta org:
 
 * User onboarding automation: Create workflows that provision users, assign groups, and grant app access with a single command.
 * Audit security logs: Query system logs to identify unusual sign-in activity or configuration changes.
 * Policy automation: Manage authentication policies and MFA requirements programmatically.
 
-For a complete list of supported operations and tools, see the [Okta MCP server repo](https://github.com/okta/okta-mcp-server).
+For a complete list of supported operations and tools, see the [Okta Open Source MCP server repo](https://github.com/okta/okta-mcp-server).
