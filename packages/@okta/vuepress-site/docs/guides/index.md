@@ -67,6 +67,7 @@ guides:
  - iga-security-access-review
  - iga-labels
  - iga-delegates
+ - iga-ar-tasks
  - implement-oauth-for-okta
  - implement-oauth-for-okta-serviceapp
  - implement-grant-type
@@ -286,6 +287,10 @@ If you're using Okta as an identity layer for the first time, start with [How Ok
       * [Create a custom authorization server](/docs/guides/terraform-create-custom-auth-server/)
       * [Manage branding with Terraform](/docs/guides/terraform-manage-end-user-experience/)
       * [Manage custom domains with Terraform](/docs/guides/terraform-manage-multiple-domains/)
+      * [Migrate to consolidated app sign-on policy rules](/docs/guides/terraform-migrate-consolidated-app-sign-on-policy-rules/main/)
+      * [Manage Okta Identity Governance Resources using Terraform](/docs/guides/terraform-oig-resources/main/)
+      * [Manage Identity Threat Protection resources using Terraform](/docs/guides/terraform-manage-itp/main/)
+      * [Manage identity source](/docs/guides/terraform-manage-id-source/main/)
       * [Import existing Okta objects into Terraform](/docs/guides/terraform-import-existing-resources/)
     * Optimize your configuration
       * [Minimize Terraform rate limit errors](/docs/guides/terraform-design-rate-limits/)
@@ -324,6 +329,8 @@ Most Okta Identity Governance tasks are accomplished through the Admin Console f
 * User and resource management
   * [Manage governance labels](/docs/guides/iga-labels)
   * [Manage delegates for governance](/docs/guides/iga-delegates)
+* Access requests
+  * [Manage governance access request tasks](/docs/guides/iga-ar-tasks)
 
 <!-- Categories for future guides
 * Access requests
