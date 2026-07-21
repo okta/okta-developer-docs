@@ -224,7 +224,7 @@ Run the static-spa sample app to see a functional example of the authentication 
 Create an app integration in the Okta org that represents the app you want to add authentication to:
 
 1. In the Admin Console, go to **Applications and Resources** > **Applications**.
-1. Click **Create App Integration**.
+1. Click **Create App Integration** > **Classic experience**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
 1. Select **Single-Page Application** for the **Application Type**.
 1. On the **New Single-Page App Integration** page:

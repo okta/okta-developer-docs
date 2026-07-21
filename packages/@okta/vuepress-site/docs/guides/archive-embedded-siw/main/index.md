@@ -109,7 +109,7 @@ The Sign-in Widget can handle several different authentication scenarios. Here a
 In this case, you would like to use the Widget to sign in to a simple web page and display the user's email. This requires an Okta Integrator Free Plan org, and you have to create a Single-Page App (SPA) for it to work.
 
 1. Sign in to your Admin Console. Go to **Applications and Resources** > **Applications**.
-1. Click **Create App Integration**.
+1. Click **Create App Integration** > **Classic experience**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
 1. Select **Single-Page Application** as the **Application Type**. Click **Next**.
 1. Add `http://localhost:8080` to **Sign-in redirect URIs** and click **Save**.

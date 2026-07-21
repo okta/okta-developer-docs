@@ -63,7 +63,7 @@ An app integration represents your app in your Okta org. Use it to configure how
 
 1. Open the Admin Console for your org.
 1. Go to **Applications** > **Applications** to view the current app integrations.
-1. Click **Create App Integration**.
+1. Click **Create App Integration** > **Classic experience**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
 1. Select **Web Application** as the **Application type**, then click **Next**.
 1. Enter an **App integration name**. For example, "AI third-party token exchange."

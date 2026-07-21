@@ -1,7 +1,7 @@
 In the Okta org that functions as the IdP, create a client app that you want to use for authenticating and authorizing your users. When you're configuring federation between two Okta orgs, use OpenID Connect as the sign-in method:
 
 1. In the Admin Console for the Okta org that represents the IdP, go to **Applications and Resources** > **Applications**.
-1. Click **Create App Integration**.
+1. Click **Create App Integration** > **Classic experience**.
 1. On the Create a new app integration page, select **OIDC - OpenID Connect** as the **Sign-in method**. You need a trusted client, so select **Web Application** as the **Application type**.
 1. Click **Next** and enter a name for your app.
 1. In the **Sign-in redirect URIs** box, enter the redirect URI while considering the following points:

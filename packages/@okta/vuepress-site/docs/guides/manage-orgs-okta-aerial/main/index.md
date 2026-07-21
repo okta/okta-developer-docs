@@ -92,7 +92,7 @@ Only a super admin in your Aerial org can grant scopes to the client. Configure 
 
 In your Aerial org, create an API client:
 
-1. Go to **Applications and Resources** > **Applications** in the Admin Console, and then click **Create App Integration**.
+1. Go to **Applications and Resources** > **Applications** in the Admin Console, and then click **Create App Integration** > **Classic experience**.
 1. Select **API Services** as the sign-in method, and click **Next**.
 1. Enter a name for your client and click **Save**.
 
