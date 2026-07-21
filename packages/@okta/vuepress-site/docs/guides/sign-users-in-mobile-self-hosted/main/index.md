@@ -65,7 +65,7 @@ Before diving into code, set up your Okta org to support direct authentication w
 ### Set up a mobile app
 
 1. Go to **Applications and Resources** > **Applications** in your Admin Console.
-1. Click **Create App Integration** and select **OIDC - OpenID Connect** as the sign-in method.
+1. Click **Create App Integration** > **Classic experience** and select **OIDC - OpenID Connect** as the sign-in method.
 1. Choose **Native Application** as the app type, and then click **Next**.
 1. Give your app a name, and then configure the other app settings:
     * **Grant type**: Ensure that **Authorization Code** is selected.

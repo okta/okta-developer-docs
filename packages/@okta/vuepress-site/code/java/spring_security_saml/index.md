@@ -29,7 +29,7 @@ An application integration represents your app in your Okta org. To create an ap
 
 1. Open the **Admin Console** for your org.
 1. Choose **Applications and Resources** > **Applications**.
-1. Click **Create App Integration**.
+1. Click **Create App Integration** > **Classic experience**.
 1. Select **SAML 2.0** as the Sign-in method, and then click **Next**.
 1. Give your application name, for example "Spring Boot SAML", and then click **Next**.
 1. On the Configure SAML page

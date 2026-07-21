@@ -76,7 +76,7 @@ Before you can implement authorization, you need to register your app in Okta by
 
 1. Open the **Admin Console** for your org.
 1. Select **Applications and Resources** > **Applications** to view the current app integrations.
-1. Click **Create App Integration**.
+1. Click **Create App Integration** > **Classic experience**.
 1. Select **<StackSnippet snippet="sign-in-method" inline />** as the **Sign-in method**.
 1. Select **Native Application** as the **Application type**, then click **Next**.
 1. Specify the **App integration name**.

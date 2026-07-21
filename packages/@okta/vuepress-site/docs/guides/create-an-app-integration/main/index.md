@@ -96,7 +96,7 @@ You can add an app integration that doesn't exist in the OIN, using the App Inte
 
 1. Open the Admin Console for your org.
 1. Go to **Applications and Resources** > **Applications**.
-1. Click **Create App Integration**.
+1. Click **Create App Integration** > **Classic experience**.
 1. Select the required integration type in the **Sign in Method** section.
 
 <StackSnippet snippet="protocol-config" />

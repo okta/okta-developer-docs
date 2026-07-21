@@ -32,7 +32,7 @@ Create a Native OpenID Connect application and then configure it to support Devi
 
 1. Open the **Admin Console** for your org.
 1. Go to **Applications and Resources** > **Applications** to view the current app integrations.
-1. Click **Create App Integration**.
+1. Click **Create App Integration** > **Classic experience**.
 1. Select **OIDC - OpenID Connect**  as the **Sign-in method**, and then **Native Application** as the **Application type**.
 1. Click **Next** and specify the **App integration name**.
 1. Select **Device Authorization** and **Refresh Token** as the grant types.
