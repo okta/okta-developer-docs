@@ -7,6 +7,8 @@ meta:
 
 ## <StackSnippet snippet="idp" inline />
 
+<StackSnippet snippet="intronote" inline />
+
 This document explains how to configure <StackSnippet snippet="idp" inline /> as an [external social Identity Provider (IdP)](/docs/concepts/identity-providers/) for your app by creating an app at <StackSnippet snippet="idp" inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
 
 <StackSnippet snippet="micronote" />
