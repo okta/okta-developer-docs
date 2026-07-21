@@ -105,7 +105,7 @@ In addition to the Okta sign-on policy, there’s an app sign-on policy for each
 
 ### Select the App
 
-1. In the Admin Console, select **Applications** > **Applications**.
+1. In the Admin Console, select **Applications and Resources** > **Applications**.
 
 2. Select the app that you want to configure a sign-on policy for. In this example, use a web app.
 

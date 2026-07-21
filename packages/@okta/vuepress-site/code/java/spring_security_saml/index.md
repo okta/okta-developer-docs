@@ -28,7 +28,7 @@ This guide describes how to use Spring Security SAML to add support for Okta to 
 An application integration represents your app in your Okta org. To create an app integration for a SAML app:
 
 1. Open the **Admin Console** for your org.
-1. Choose **Applications** > **Applications**.
+1. Choose **Applications and Resources** > **Applications**.
 1. Click **Create App Integration**.
 1. Select **SAML 2.0** as the Sign-in method, and then click **Next**.
 1. Give your application name, for example "Spring Boot SAML", and then click **Next**.
@@ -195,7 +195,7 @@ Spring Security's SAML support has a [sign-out feature](https://docs.spring.io/s
 1. Add this certificate to your app integration.
 
    1. Open the **Admin Console** for your org.
-   1. Choose **Applications** > **Applications**.
+   1. Choose **Applications and Resources** > **Applications**.
    1. Click on the name of your SAML app integration.
    1. Choose the **General** tab, locate the **SAML Settings** section, and click **Edit**.
    1. Click **Next**.
