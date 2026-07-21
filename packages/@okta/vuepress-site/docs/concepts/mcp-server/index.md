@@ -11,7 +11,7 @@ The Okta Model Context Protocol (MCP) server securely connects AI agents and Lar
 
 The Okta Open Source MCP server translates natural language instructions into structured API calls between LLM clients and an Okta org using Okta's Python SDK v3.4.1. This approach reduces security risks and complexity when connecting autonomous AI agents to Identity and Access Management (IAM) systems. The architecture ensures that AI actions remain secure, properly scoped, and fully auditable.
 
-IT admins, developers, and security professionals use the Okta Open Source MCP server to automate Okta administration through AI-powered interfaces.
+IT admins, developers, and security professionals use the Okta Open Source MCP server to automate Okta admin tasks through AI-powered interfaces.
 
 ## Benefits
 
@@ -39,7 +39,7 @@ The Okta Open Source MCP server ensures AI agents possess only the minimum permi
 
 ### Audibility and traceability
 
-The Okta Open Source MCP server maintains a detailed record of all agent interactions to support security monitoring.
+The Okta Open Source MCP server maintains a detailed record of all AI agent interactions to support security monitoring.
 
 - The server creates a complete audit trail of all AI agent activities.
 - The system integrates with Okta system logs for centralized monitoring and security investigations.
@@ -58,7 +58,7 @@ The following process describes how an LLM translates a request and how the Okta
 1. **User command**: A user or AI agent (such as GitHub Copilot or Claude Desktop) sends a natural language command through an MCP-compatible client to perform an Okta task.
 1. **Client routing**: The MCP client (which hosts the AI agent) securely routes the command to the active Okta Open Source MCP server instance.
 1. **Server authentication**: The Okta Open Source MCP server authenticates with the org using the pre-configured credentials, such as Device Authorization Grant or Private Key JWT.
-1. **Scope validation**: The Okta Open Source MCP server validates scope twice. First, it filters tools during startup. Second, it uses a scope guard decorator to confirm active permissions immediately before executing a command and calling the API.
+1. **Scope validation**: The Okta Open Source MCP server validates scope twice. First, it filters tools during sign in. Second, it uses a scope guard decorator to confirm active permissions immediately before executing a command and calling the API.
 1. **Response handling**: The APIs return a technical response to the Okta Open Source MCP server.
 1. **Natural language response**: The Okta Open Source MCP server passes the data to the LLM, which formats the information into a natural language response for the user.
 

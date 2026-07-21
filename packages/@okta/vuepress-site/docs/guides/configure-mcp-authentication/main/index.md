@@ -85,7 +85,7 @@ After you create the app, follow these steps to grant the required API scopes:
 
 ## Method 2: Private key JWT (browserless)
 
-The private key JWT flow allows the Okta Open Source MCP server to run without human intervention, which is effective for CI/CD pipelines or backend services. The server authenticates using a cryptographic key pair instead of a browser-based login.
+The private key JWT flow allows the Okta Open Source MCP server to run without human intervention, which is effective for CI/CD pipelines or backend services. The server authenticates using a cryptographic key pair instead of a browser-based sign-in.
 
 ### Create an API service app integration
 
