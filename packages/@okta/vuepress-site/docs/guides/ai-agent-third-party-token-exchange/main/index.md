@@ -44,6 +44,7 @@ Okta supports the following AI agent platforms:
 | --- | --- | --- |
 | Amazon Web Services | AWS Bedrock Classic Agents | [AWS Bedrock Classic Agents guide](/docs/guides/ai-agent-secure-aws-bedrock/) |
 | Amazon Web Services | AWS Bedrock AgentCore | [AWS Bedrock AgentCore guide](/docs/guides/ai-agent-secure-amazon-bedrock/) |
+| Salesforce | Agentforce | [Salesforce Agentforce guide](/docs/guides/ai-agent-secure-salesforce-agentforce/) |
 
 ## Set up the imported AI agent token flow
 
@@ -82,7 +83,7 @@ The AI agent is the machine identity that your calling app uses to sign token ex
 
 The AI agent identity is distinct from the OIDC web app integration, which signs users in and issues the ID token. The AI agent identity authenticates both steps of the exchange.
 
-In a real integration, you import the AI agent you've already built, for example, a live Amazon Bedrock or Azure AI Foundry AI agent. Importing the AI agent doesn't fully configure it for the token exchange. See [Configure imported AI agents](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-import-register) for the required post-import setup, and the platform-specific guides listed under [Supported platforms](#supported-platforms) for platform-specific import steps.
+In a real integration, you import the AI agent you've already built, for example, a live Amazon Bedrock or Salesforce Agentforce agent. Importing the AI agent doesn't fully configure it for the token exchange. See [Configure imported AI agents](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-import-register) for the required post-import setup, and the platform-specific guides listed under [Supported platforms](#supported-platforms) for platform-specific import steps.
 
 This guide isn't tied to a specific platform. To walk through the token exchange flow end-to-end, manually register a stand-in AI Agent identity instead:
 
