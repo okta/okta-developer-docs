@@ -4,7 +4,7 @@ excerpt: Configure supported AI agents to authenticate with Okta and call tools 
 layout: Guides
 ---
 
-<ApiLifecycle access="beta" />
+<ApiLifecycle access="research" />
 
 Configure your AI agent to call tools through Okta Agent Gateway. Agent Gateway exposes a single Okta-secured MCP endpoint, and you can point any agent that supports an external MCP endpoint at it without code changes.
 
@@ -33,7 +33,7 @@ Okta Agent Gateway is an identity-native proxy that sits between AI agents and t
 
 Each Agent Gateway exposes one MCP endpoint. Point any supported agent at that URL. The Agent Gateway handles tool aggregation, identity enforcement, credential injection, and auditing, with no changes to the agent's code.
 
-> **Note**: See the [Okta Agent Gateway](/docs/guides/concept link ??) concept doc for more detailed information and a diagram of the Agent Gateway authorization flow.
+> **Note**: See the [Okta Agent Gateway](/docs/concepts/agent-gateway/) concept doc for more detailed information and a diagram of the Agent Gateway authorization flow.
 
 ### What your admin provides
 
