@@ -9,7 +9,7 @@
 4. Click **Add Integration Details**. The **Integration details** page appears.
 
    > **Note:**
-   > Alternatively, you can go to **Applications** > **Your OIN Integrations** to build your integration and select your capabilities.
+   > Alternatively, you can go to **Applications and Resources** > **Your OIN Integrations** to build your integration and select your capabilities.
 
     If you only want to test an existing submission, see [Navigate directly to test your integration](#navigate-directly-to-test-your-integration).
 

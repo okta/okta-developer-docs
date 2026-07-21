@@ -276,7 +276,7 @@ As you add other resource types to Terraform, make changes in multiple places:
 
 1. Enable new scopes on the app that controls your Terraform integration:
 
-    1. Go to **Applications** > **Applications**.
+    1. Go to **Applications and Resources** > **Applications**.
 
     1. Open the API Service app that controls your Terraform integration.
 
