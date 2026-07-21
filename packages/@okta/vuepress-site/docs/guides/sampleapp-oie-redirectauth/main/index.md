@@ -45,7 +45,7 @@ To get started, you need to create an Okta OAuth app to represent the <StackSnip
 <StackSnippet snippet="toolnote" />
 
 1. Sign in to your [Admin Console](https://login.okta.com).
-2. Go to **Applications** > **Applications**, and then click **Create App Integration**.
+2. Go to **Applications and Resources** > **Applications**, and then click **Create App Integration**.
 3. In the dialog that appears, select **OIDC - OpenID Connect** as the **Sign-on method**, <StackSnippet snippet="apptype" inline /> as the **Application type**, and then click **Next**.
 4. Fill in the New <StackSnippet snippet="apptypepage" inline /> Integration fields that you need, and then click **Save**:
 
@@ -145,7 +145,7 @@ You can modify the app's app sign-in policy to require the user to have a second
     * Click **Add Authenticator**, and then click **Add** in the **Phone** authentication box.
     * Set **This authenticator can be used for** to **Authentication and recovery**, and click **Add**.
 
-2. From the side navigation, select **Applications** > **Applications** and then select the app integration that you created earlier.
+2. From the side navigation, select **Applications and Resources** > **Applications** and then select the app integration that you created earlier.
 3. Select the **Sign On** tab.
 4. Scroll down to the **User authentication** section and click **Edit**.
 5. From the **App sign-in policy** dropdown menu, select **Any two factors** and click **Save**.

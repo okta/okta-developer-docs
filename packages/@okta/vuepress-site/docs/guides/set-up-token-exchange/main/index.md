@@ -55,7 +55,7 @@ The following sections explain the setup for an example token exchange flow usin
 
 ### Create a native app integration
 
-1. Go to **Applications** > **Applications** in the Admin Console.
+1. Go to **Applications and Resources** > **Applications** in the Admin Console.
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect**, and then **Native Application**.
 1. Name your app, and then select **Allow everyone in your organization to access**.

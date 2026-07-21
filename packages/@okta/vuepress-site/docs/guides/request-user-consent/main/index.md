@@ -68,7 +68,7 @@ Use the following steps to display the user consent dialog as part of an OpenID 
 
 <ApiAmProdWarning />
 
-1. In the Admin Console, go to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Select the OpenID Connect app that you want to require user consent for.
 1. On the **General** tab, scroll down to the **User Consent** section and verify that the **Require consent** checkbox is selected. If it isn't, click **Edit** and select **Require consent**.
 1. For this use case, use the **Implicit** flow for testing purposes. In the **Grant type** section, click **Advanced**, and then select **Implicit**.

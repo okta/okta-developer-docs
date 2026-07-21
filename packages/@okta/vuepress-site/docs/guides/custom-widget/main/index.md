@@ -724,8 +724,8 @@ To access the app's ID (which uniquely identifies the app), write a function to 
 
 Using this method, inspect the app ID and modify the widget configuration or appearance when users sign in to the target app. For example, if you have a CSS file on your server that's for a particular OpenID Connect client's CSS:
 
-1. In the Admin Console, go to **Applications** > **Applications**.
-2. Select the app integration that you need the client ID for. 
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
+2. Select the app integration that you need the client ID for.
 3. On the **General** tab, copy the ID from the **Client ID** box in the **Client Credentials** section.
 
 ```html

@@ -37,7 +37,7 @@ Begin by signing in to your Integrator Free Plan org. If you don't have one, sig
 
 1. Sign in to your [Okta org](https://developer.okta.com/login/) with your administrator account.
 1. Click **Admin** in the upper-right right corner of the page.
-1. Select **Applications** > **Applications**.
+1. Select **Applications and Resources** > **Applications**.
 1. Click **Browse App Catalog**.
 1. Search for either "SCIM 2.0" or "SCIM 1.1" depending on the version of SCIM supported by your server. Select the SCIM integration template that's based on the authentication method supported by your SCIM server:
 
@@ -95,7 +95,7 @@ Click **Test Connector Configuration** to confirm that Okta can connect to your 
 
 If you experience any difficulties when creating your SCIM integration in Okta, check out the System Log information available in the Admin Console.
 
-1. In the Admin Console, go to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Select your Okta integration to open the integration settings page.
 1. Click **View Logs** to open the System Log.
 

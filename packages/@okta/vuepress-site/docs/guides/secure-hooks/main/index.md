@@ -57,7 +57,7 @@ The OAuth 2.0 Client Secret method sends a signed JWT to your external service. 
 
 Before you can implement authorization, you need to register your app in Okta by creating an app integration from the Admin Console.
 
-1. In the Admin Console, go to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Click **Create App Integration**.
 1. Select **API Services** as the Sign-in method.
 1. Click **Next**.
@@ -145,7 +145,7 @@ The OAuth 2.0 private key method sends a signed JWT to your external service. To
 
 Before you can implement authorization, you need to register your app in Okta by creating an app integration from the Admin Console.
 
-1. In the Admin Console, go to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Click **Create App Integration**.
 1. Select **API Services** as the Sign-in method.
 1. Click **Next**.

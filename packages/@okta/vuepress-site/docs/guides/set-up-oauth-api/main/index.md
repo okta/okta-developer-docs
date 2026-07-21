@@ -51,7 +51,7 @@ If your use case requires you to access a limited number of Okta endpoints as a 
 Create an OIDC app integration to define your scope-based access to Okta APIs with the Authorization Code grant flow with PKCE.
 
 1. [Sign in](https://developer.okta.com/login) to your Admin Console as a user with administrative privileges to create an app (for example, an Okta user with the super admin role).
-1. In the Admin Console, go to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Click **Create App Integration**.
 1. On the **Create a new app integration** page, select **OIDC - OpenID Connect** as the **Sign-in method**. Choose **Web Application** for the **Application type**. Creating a web app is an easy way to test scope-based access to Okta APIs. Click **Next**.
 1. Enter a name for your app integration.
@@ -81,7 +81,7 @@ See the following tasks to set up your Okta org for a service app API access.
 First, create a service app integration where you can define your scope-based access to Okta APIs.
 
 1. [Sign in](https://developer.okta.com/login) to your Admin Console as a user with administrative privileges (super admin role).
-1. In the Admin Console, go to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Click **Create App Integration**.
 1. On the **Create a new app integration** page, select **API Services** as the **Sign-in method** and click **Next**.
 1. Enter a name for your app integration and click **Save**. The settings page for the app integration appears, showing the **General** tab. Make note of the **Client ID** listed in the **Client Credentials** section. You need this information for the [Create and sign the JWT](#create-and-sign-the-jwt) task.

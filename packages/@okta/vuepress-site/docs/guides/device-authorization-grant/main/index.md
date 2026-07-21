@@ -31,7 +31,7 @@ The Device Authorization feature is an OAuth 2.0 grant type. It allows users to 
 Create a Native OpenID Connect application and then configure it to support Device Authorization:
 
 1. Open the **Admin Console** for your org.
-1. Go to **Applications** > **Applications** to view the current app integrations.
+1. Go to **Applications and Resources** > **Applications** to view the current app integrations.
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect**  as the **Sign-in method**, and then **Native Application** as the **Application type**.
 1. Click **Next** and specify the **App integration name**.
