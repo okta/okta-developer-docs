@@ -5,7 +5,7 @@ layout: Guides
 ---
 <ApiLifecycle access="research" />
 
-This guide shows you how to configure and run an Anthropic Claude Managed Agents import. It uses Okta's [AI Agent Provider API](/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentproviders) and [AI Agent Registration API](/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration). Use this guide if you want to automate or script the import instead of using the Admin Console.
+This guide shows you how to configure and run an Anthropic Claude Managed Agents import. It uses Okta's [AI Agent Provider API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentproviders) and [AI Agent Registration API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration). Use this guide if you want to automate or script the import instead of using the Admin Console.
 
 > **Notes:**
 >
@@ -65,7 +65,7 @@ For the equivalent Admin Console walkthrough, see [Configure Claude for Okta](ht
 ## Before you begin
 
 1. Add the **Anthropic Claude** app to your org and set its instance URL (the Anthropic API base, typically `https://api.anthropic.com`). This step happens in the Admin Console. There's no API for creating the app instance itself. See [Configure Claude for Okta](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-configure-claude.htm).
-1. Note the app instance's [ORN](/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn). You need it as `sourceOrn` in the next section. It has the form:
+1. Note the app instance's [ORN](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn). You need it as `sourceOrn` in the next section. It has the form:
 
    ```text
    orn:okta:idp:{yourOrgId}:apps:anthropic-claude:{appInstanceId}
@@ -268,11 +268,11 @@ curl -X PATCH "https://{yourOktaDomain}/workload-principals/api/v1/ai-agent-prov
 
 ## Next steps
 
-Imported Claude Managed Agents now appear in **Directory** > **AI Agents**. There you can assign ownership, review them in Access Certifications, and track them alongside agents from other platforms. To automate ownership assignment or re-imports on a schedule, see the `owners` and `schedule` properties on the [AI Agent Providers API](/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentproviders).
+Imported Claude Managed Agents now appear in **Directory** > **AI Agents**. There you can assign ownership, review them in Access Certifications, and track them alongside agents from other platforms. To automate ownership assignment or re-imports on a schedule, see the `owners` and `schedule` properties on the [AI Agent Providers API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentproviders).
 
 ## See also
 
 * [Configure Claude for Okta](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-configure-claude.htm)
-* [Okta for AI Agents API](/docs/api/secures-ai)
+* [Okta for AI Agents API](https://developer.okta.com/docs/api/secures-ai)
 * [Secure third-party AI agents](/docs/guides/ai-agent-secure-third-party/)
 * [Anthropic Claude Managed Agents documentation](https://docs.anthropic.com/)
