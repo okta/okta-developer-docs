@@ -1064,12 +1064,12 @@ export const guides = [
             guideName: "iga-security-access-review"
           },
           {
-            title: "Manage delegates for governance",
-            guideName: "iga-delegates"
+            title: "Manage access request tasks",
+            guideName: "iga-ar-tasks"
           },
           {
-            title: "Manage governance access request tasks",
-            guideName: "iga-ar-tasks"
+            title: "Manage delegates for governance",
+            guideName: "iga-delegates"
           },
           {
             title: "Manage governance labels",
