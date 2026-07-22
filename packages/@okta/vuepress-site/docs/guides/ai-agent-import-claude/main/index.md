@@ -17,7 +17,7 @@ This guide shows you how to configure and run an Anthropic Claude Managed Agents
 #### Learning outcomes
 
 * Understand what the Anthropic Claude AI Agent import does, and how it differs from securing an agent with token exchange.
-* Create and validate an AI agent provider for your Anthropic Console workspace.
+* Create and validate an AI agent provider for your Claude Console workspace.
 * Trigger an import and poll its status.
 * Retrieve and manage the AI agent records that the import creates in Okta.
 
@@ -26,7 +26,7 @@ This guide shows you how to configure and run an Anthropic Claude Managed Agents
 * An [Identity Engine](/docs/concepts/oie-intro/) org with the Okta for AI Agents feature enabled.
 * An Okta API token or OAuth 2.0 access token with the `okta.aiAgents.manage` and `okta.aiAgents.read` scopes.
 * Add the **Anthropic Claude** app to your org as an app instance. See [Configure Claude for Okta](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-configure-claude.htm) for the steps.
-* An Anthropic API key with read access to list agents. Generate this key from the [Anthropic Console](https://console.anthropic.com/). An Admin API key (`sk-ant-admin-...`) gives visibility into every agent in the workspace. A standard key only reaches the agents that its creator can see.
+* An Anthropic API key with read access to list agents. Generate this key from the [Claude Console](https://console.anthropic.com/). An Admin API key (`sk-ant-admin-...`) gives visibility into every agent in the workspace. A standard key only reaches the agents that its creator can see.
 
 ---
 
@@ -36,15 +36,15 @@ Anthropic's Claude Managed Agents platform doesn't support OAuth 2.0. It also do
 
 You can bring your Claude Managed Agents into Okta's AI Agent directory for governance. This gives you ownership assignment, lifecycle visibility, and inclusion in access reviews. This guide covers that goal using two related Okta resources:
 
-* **AI agent provider.** This resource represents the sync connection to your Anthropic Console workspace. It stores the app instance that it authenticates through, the Anthropic API key, the default owner for imported agents, and the last import time.
+* **AI agent provider.** This resource represents the sync connection to your Claude Console workspace. It stores the app instance that it authenticates through, the Anthropic API key, the default owner for imported agents, and the last import time.
 * **AI agent.** Each AI agent is a single imported agent record. The provider creates or updates this record every time it runs an import. Its `profile.platform` is `CLAUDE_MANAGED_AGENTS`, and `profile.externalId` holds the Anthropic agent ID (for example, `agent_01HqR2k7vXbZ9mNpL3wYcT8f`), so re-imports update the same record instead of duplicating it.
 
-Each import is one-way and full. It fetches and reconciles every active agent in the Anthropic workspace on every run. Anthropic agent name and description remain source-mastered. Editing them in Okta doesn't push changes back to the Anthropic Console.
+Each import is one-way and full. It fetches and reconciles every active agent in the Anthropic workspace on every run. Anthropic agent name and description remain source-mastered. Editing them in Okta doesn't push changes back to the Claude Console.
 
 <!-- TODO: Replace this text-based diagram with an image.
 
 ```text
-Anthropic Console workspace
+Claude Console workspace
   GET /v1/agents (Okta-managed x-api-key, anthropic-version, anthropic-beta headers)
     |
     v
@@ -71,7 +71,7 @@ For the equivalent Admin Console walkthrough, see [Configure Claude for Okta](ht
    orn:okta:idp:{yourOrgId}:apps:anthropic-claude:{appInstanceId}
    ```
 
-1. Generate an Anthropic API key in the Anthropic Console (**Settings** > **API Keys** > **Create Key**). Copy it immediately. Anthropic only shows it once.
+1. Generate an Anthropic API key in the Claude Console (**Settings** > **API Keys** > **Create Key**). Copy it immediately. Anthropic only shows it once.
 
 > **Important:** Store the Anthropic API key in a secrets manager. Okta encrypts it at rest and never returns it in plaintext after you create the provider.
 
@@ -140,7 +140,7 @@ A successful response returns the created `AIAgentProvider`, including its `id` 
 }
 ```
 
-The `owners` value here sets the default owner. Okta applies this owner to every agent this provider imports, unless the agent already has an owner. The Anthropic Console has no owner or creator field, so this value never comes from Anthropic. Note the returned `id`, because you need it for every later call.
+The `owners` value here sets the default owner. Okta applies this owner to every agent this provider imports, unless the agent already has an owner. The Claude Console has no owner or creator field, so this value never comes from Anthropic. Note the returned `id`, because you need it for every later call.
 
 > **Note:** Okta enforces uniqueness per workspace, not per org. If you connect two Anthropic workspaces, such as staging and production, create a separate AI agent provider for each one. Remember that one Anthropic API key only reaches a single Console workspace.
 
@@ -215,7 +215,7 @@ Each entry includes the agent's Okta `id`, its `profile.externalId` (the Anthrop
 }
 ```
 
-> **Note:** The Anthropic Console stays the source of truth for `name` and `description`, so changes to them in Okta don't persist. The next import overwrites them with whatever the Console has.
+> **Note:** The Claude Console stays the source of truth for `name` and `description`, so changes to them in Okta don't persist. The next import overwrites them with whatever the Console has.
 
 ### Retrieve a single agent
 
@@ -240,7 +240,7 @@ curl "https://{yourOktaDomain}/workload-principals/api/v1/ai-agent-providers/aip
 | `ACTIVE` | The provider is connected and importing normally. |
 | `INACTIVE` | The provider is disabled. Imported agents remain in Okta in their last-imported state, and Okta doesn't delete them. |
 | `REVALIDATE` | Okta needs to re-check the connection, typically after a configuration change. |
-| `REAUTHENTICATE` | The Anthropic API key is invalid or expired. Generate a new key in the Anthropic Console and update the provider's `configuration`. |
+| `REAUTHENTICATE` | The Anthropic API key is invalid or expired. Generate a new key in the Claude Console and update the provider's `configuration`. |
 
 To rotate the API key, use a partial update:
 
@@ -259,11 +259,11 @@ curl -X PATCH "https://{yourOktaDomain}/workload-principals/api/v1/ai-agent-prov
 
 | Error | Root cause | Fix |
 | --- | --- | --- |
-| `400` on `validate` or `create`, "Invalid API key" | The Anthropic API key is wrong, revoked, or expired | Generate a new key in the Anthropic Console and retry |
+| `400` on `validate` or `create`, "Invalid API key" | The Anthropic API key is wrong, revoked, or expired | Generate a new key in the Claude Console and retry |
 | `400` on `validate`, "beta feature not available" | The API key's workspace doesn't have Managed Agents beta access | Use an Admin API key, or request Managed Agents beta access from Anthropic |
 | `429` from Okta | You've exceeded the AI agent provider API rate limit | Check the `X-Rate-Limit-*` response headers and back off before retrying |
-| Provider `status` is `REAUTHENTICATE` | The stored Anthropic API key no longer works. Someone rotated or revoked it in the Anthropic Console | `PATCH` the provider with a new `apiKey`, then re-run the import |
-| Import completes but an expected agent is missing | The agent is archived in the Anthropic Console (`archived_at` is non-null) | Okta excludes archived agents by design. Unarchive the agent in the Anthropic Console and re-import |
+| Provider `status` is `REAUTHENTICATE` | The stored Anthropic API key no longer works. Someone rotated or revoked it in the Claude Console | `PATCH` the provider with a new `apiKey`, then re-run the import |
+| Import completes but an expected agent is missing | The agent is archived in the Claude Console (`archived_at` is non-null) | Okta excludes archived agents by design. Unarchive the agent in the Claude Console and re-import |
 | Two workspaces import agents with the same name | Okta enforces uniqueness per workspace, not per org | Expected behavior. Agents from different Anthropic workspaces are distinct records even if names collide |
 
 ## Next steps
