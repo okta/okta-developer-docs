@@ -317,6 +317,8 @@ If you're creating an Okta integration for the first time, Okta recommends the f
 1. [What is Single Sign-On (SSO)?](/docs/concepts/sso-overview/)
 1. [Overview of lifecycle management in the OIN](/docs/guides/oin-lifecycle-mgmt-overview/)
 1. [Overview of API service apps in the OIN](/docs/guides/oin-api-service-overview/)
+1. [API Integration Actions](/docs/guides/oin-api-actions/)
+1. [Express Configuration](/docs/guides/express-configuration/main/)
 1. [OIN submission requirements](/docs/guides/submit-app-prereq/)
 1. [Submit an app integration](/docs/guides/submit-app-overview/)
 
@@ -330,7 +332,7 @@ Most Okta Identity Governance tasks are accomplished through the Admin Console f
   * [Manage governance labels](/docs/guides/iga-labels)
   * [Manage delegates for governance](/docs/guides/iga-delegates)
 * Access requests
-  * [Manage governance access request tasks](/docs/guides/iga-ar-tasks)
+  * [Manage access request tasks](/docs/guides/iga-ar-tasks)
 
 <!-- Categories for future guides
 * Access requests
