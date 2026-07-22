@@ -240,6 +240,21 @@ For details about setting grace periods for app sign-in policies in the Admin Co
 
 To see the grace periods object in the API reference documentation, see the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=1/settings/authenticators/enroll/gracePeriod&t=request).
 
+##### Passkey enrollment promotion
+
+<ApiLifecycle access="ea" /><ApiLifecycle access="ie" />
+
+Passkey enrollment promotion lets you configure a non-blocking nudge that prompts users to enroll a passkey during sign-in. Unlike grace periods, which apply to required authenticators, enrollment promotion applies only to the passkey (WebAuthn) authenticator when it's configured as optional (`enroll.self = OPTIONAL`). Users who skip the prompt can always continue signing in.
+
+Configure enrollment promotion with two settings:
+
+- Skip limit: the number of times a user can skip the prompt before Okta stops showing it. Set `skipCount` to a positive integer to define the limit, or `0` for no limit (the prompt continues until the user enrolls).
+- Cooldown: the interval between prompts. Set `cooldown.type` to `BY_DURATION` and provide an ISO 8601 duration in `cooldown.duration` to control how often the prompt reappears (for example, `P30D` for every 30 days). Set `cooldown.type` to `BY_SIGN_IN` to prompt the user on every eligible sign-in.
+
+For details about configuring enrollment promotion in the Admin Console, see [Authenticator enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies).
+
+To see the promotion object in the API reference, see the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=1/settings/authenticators/enroll/promotion&t=request).
+
 #### User profile policies
 
 <ApiLifecycle access="ie" />
