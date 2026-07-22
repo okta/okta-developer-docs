@@ -47,7 +47,7 @@ You can [connect an AI agent](https://help.okta.com/okta_help.htm?type=oie&id=ai
 
 - **Agent-to-agent**: Allows one AI agent to securely invoke another AI agent as a downstream resource protected by an Okta custom authorization server. Through token exchange, the original service identity is maintained across both agents while each obtains specific access tokens for its next connection. This resource type is supported by Cross App Access, which uses the Identity Assertion JWT (ID-JAG).
 
-Ater the resource type is configured and the AI agent has the token or credentials, it can then perform tasks on the connected app.
+After the resource type is configured and the AI agent has the token or credentials, it can then perform tasks on the connected app.
 
 ## Token Exchange flow
 
