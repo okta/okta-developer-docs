@@ -1,8 +1,8 @@
 ---
-title: Set up Okta app authentication for the Okta Open Source MCP server
+title: Set up Okta app authentication for the Okta Open Source MCP Server
 meta:
   - name: description
-    content: Create an Okta admin app integration and obtain the credentials to connect your Okta Open Source MCP server.
+    content: Create an Okta admin app integration and obtain the credentials to connect your Okta Open Source MCP Server.
 ---
 
 Create an Okta admin app integration, configure authentication credentials, and grant required OAuth 2.0 scopes to authorize the Okta Open Source Model Context Protocol (MCP) server tools.
@@ -11,7 +11,7 @@ Create an Okta admin app integration, configure authentication credentials, and 
 
 #### Learning outcomes
 
-* Implement a device authorization grant or private key JWT to authorize the Okta Open Source MCP server.
+* Implement a device authorization grant or private key JWT to authorize the Okta Open Source MCP Server.
 * Get the client ID and security keys and identify the OAuth 2.0 scopes that are required for your specific use cases.
 * Configure scope-based tool loading to match your app permissions.
 
@@ -24,13 +24,13 @@ Create an Okta admin app integration, configure authentication credentials, and 
 
 ## Overview
 
-This guide explains how to create an Okta admin app integration and generate the authentication credentials for the Okta Open Source MCP server to interact with your Okta org.
+This guide explains how to create an Okta admin app integration and generate the authentication credentials for the Okta Open Source MCP Server to interact with your Okta org.
 
 ---
 
-## Authenticate and authorize the Okta Open Source MCP server
+## Authenticate and authorize the Okta Open Source MCP Server
 
-To connect the Okta Open Source MCP server to an Okta org, create an Okta app integration and grant the required API scopes. Choose the method that fits your use case:
+To connect the Okta Open Source MCP Server to an Okta org, create an Okta app integration and grant the required API scopes. Choose the method that fits your use case:
 
 * **Device authorization grant (browser-based):** Use for interactive tasks and local development.
 * **Private key JWT (browserless):** Use for automation, CI/CD pipelines, and headless environments.
@@ -67,17 +67,17 @@ After you create the app, follow these steps to grant the required API scopes:
 
    <div class="three-quarter">
 
-   ![Okta Open Source MCP server data flow diagram](/img/concepts/mcp-server-native-app-grant-api-scopes.png)
+   ![Okta Open Source MCP Server data flow diagram](/img/concepts/mcp-server-native-app-grant-api-scopes.png)
 
    </div>
 
 1. Go to the **General** tab and copy the **Client ID** and **Sign-in redirect URIs**.
 
-   > **Note:** Save these values and the list of granted scopes to configure your Okta Open Source MCP server, see [Okta Device Authorization Grant Guide](/docs/guides/device-authorization-grant/main/).
+   > **Note:** Save these values and the list of granted scopes to configure your Okta Open Source MCP Server, see [Okta Device Authorization Grant Guide](/docs/guides/device-authorization-grant/main/).
 
    <div class="three-quarter">
 
-   ![Okta Open Source MCP server data flow diagram](/img/concepts/mcp-server-admin-app-copy-client-id.png)
+   ![Okta Open Source MCP Server data flow diagram](/img/concepts/mcp-server-admin-app-copy-client-id.png)
 
    </div>
 
@@ -85,7 +85,7 @@ After you create the app, follow these steps to grant the required API scopes:
 
 ## Method 2: Private key JWT (browserless)
 
-The private key JWT flow allows the Okta Open Source MCP server to run without human intervention, which is effective for CI/CD pipelines or backend services. The server authenticates using a cryptographic key pair instead of a browser-based sign-in.
+The private key JWT flow allows the Okta Open Source MCP Server to run without human intervention, which is effective for CI/CD pipelines or backend services. The server authenticates using a cryptographic key pair instead of a browser-based sign-in.
 
 ### Create an API service app integration
 
@@ -94,7 +94,7 @@ The private key JWT flow allows the Okta Open Source MCP server to run without h
 1. Click **Create App Integration**.
 1. Select **API Services** as the **Sign-in method**.
 1. Click **Next**.
-1. Enter an **App integration name**, such as "Okta Open Source MCP server automation".
+1. Enter an **App integration name**, such as "Okta Open Source MCP Server automation".
 1. Click **Save**.
 
 ### Configure client authentication
@@ -125,7 +125,7 @@ You can either generate the key in Okta (recommended) and copy it in PEM format,
 
    <div class="three-quarter">
 
-   ![Okta Open Source MCP server data flow diagram](/img/concepts/mcp-server-generate-new-public-key.png)
+   ![Okta Open Source MCP Server data flow diagram](/img/concepts/mcp-server-generate-new-public-key.png)
 
    </div>
 
@@ -160,11 +160,11 @@ You can either generate the key in Okta (recommended) and copy it in PEM format,
 
 ---
 
-You've created an app integration, configured the authentication flow, and granted the required API scopes for your Okta Open Source MCP server.
+You've created an app integration, configured the authentication flow, and granted the required API scopes for your Okta Open Source MCP Server.
 
 ## Configure scope-based tool loading
 
-The Okta Open Source MCP server uses a scope-based tool loading mechanism to ensure that only the tools your app is authorized to use are exposed to the LLM.
+The Okta Open Source MCP Server uses a scope-based tool loading mechanism to ensure that only the tools your app is authorized to use are exposed to the LLM.
 
 ### How it works
 
