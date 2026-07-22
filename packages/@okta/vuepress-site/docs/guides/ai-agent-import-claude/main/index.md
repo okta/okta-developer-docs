@@ -10,7 +10,7 @@ This guide shows you how to configure and run an Anthropic Claude Managed Agents
 > **Notes:**
 >
 > * To enable AI agent import, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
-> * Anthropic's Claude Managed Agents API is a public beta feature. Okta's integration pins a specific `anthropic-beta` header version on Anthropic's side. Anthropic can change or remove beta APIs, which can affect import behavior until Managed Agents reaches general availability.
+> * Anthropic's Claude Managed Agents API is a public Beta feature. Okta's integration pins a specific `anthropic-beta` header version on Anthropic's side. Anthropic can change or remove Beta APIs, which can affect import behavior until Managed Agents reaches general availability.
 
 ---
 
@@ -95,7 +95,7 @@ curl -X POST "https://{yourOktaDomain}/workload-principals/api/v1/ai-agent-provi
   }'
 ```
 
-A valid connection returns `204 No Content`. A `400` indicates an invalid key, a workspace without Managed Agents beta access, or a malformed request.
+A valid connection returns `204 No Content`. A `400` indicates an invalid key, a workspace without Managed Agents Beta access, or a malformed request.
 
 ### Create the provider
 
@@ -162,7 +162,7 @@ Location: https://{yourOktaDomain}/workload-principals/api/v1/operations/op-1a2b
 
 The import fetches every active agent from the workspace, where `archived_at == null` on the Anthropic side. It uses cursor-based pagination to page through the results. Okta then reconciles each agent against existing records by matching the Anthropic agent `id` to `profile.externalId`:
 
-* If no record matches, Okta creates a AI agent and applies the provider's default owner.
+* If no record matches, Okta creates an AI agent and applies the provider's default owner.
 * If a matching record has changed fields, Okta updates that record.
 * If an Okta record's Anthropic agent no longer appears in the response, Okta removes the record as deleted at the source.
 
@@ -226,7 +226,7 @@ curl "https://{yourOktaDomain}/workload-principals/api/v1/ai-agents/wlpx9jQ16k9V
 
 <!-- TODO: Confirm whether per-agent owner override is a field on the AI agent resource, or whether it needs a separate call. The Anthropic AI Agent Import spec (FR-OWN-003) describes overriding the default owner for an individual imported agent. The AI Agent Registration API schema doesn't confirm this yet. -->
 
-## Check provider status and re-authenticate
+## Check provider status and reauthenticate
 
 ```bash
 curl "https://{yourOktaDomain}/workload-principals/api/v1/ai-agent-providers/aip-1a2b3c4d" \
@@ -260,7 +260,7 @@ curl -X PATCH "https://{yourOktaDomain}/workload-principals/api/v1/ai-agent-prov
 | Error | Root cause | Fix |
 | --- | --- | --- |
 | `400` on `validate` or `create`, "Invalid API key" | The Anthropic API key is wrong, revoked, or expired | Generate a new key in the Claude Console and retry |
-| `400` on `validate`, "beta feature not available" | The API key's workspace doesn't have Managed Agents beta access | Use an Admin API key, or request Managed Agents beta access from Anthropic |
+| `400` on `validate`, "Beta feature not available" | The API key's workspace doesn't have Managed Agents Beta access | Use an Admin API key, or request Managed Agents Beta access from Anthropic |
 | `429` from Okta | You've exceeded the AI agent provider API rate limit | Check the `X-Rate-Limit-*` response headers and back off before retrying |
 | Provider `status` is `REAUTHENTICATE` | The stored Anthropic API key no longer works. Someone rotated or revoked it in the Claude Console | `PATCH` the provider with a new `apiKey`, then re-run the import |
 | Import completes but an expected agent is missing | The agent is archived in the Claude Console (`archived_at` is non-null) | Okta excludes archived agents by design. Unarchive the agent in the Claude Console and re-import |
@@ -268,7 +268,7 @@ curl -X PATCH "https://{yourOktaDomain}/workload-principals/api/v1/ai-agent-prov
 
 ## Next steps
 
-Imported Claude Managed Agents now appear in **Directory** > **AI Agents**. There you can assign ownership, review them in access certifications, and track them alongside agents from other platforms. To automate ownership assignment or re-imports on a schedule, see the `owners` and `schedule` properties on the [AI Agent Providers API](/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentproviders).
+Imported Claude Managed Agents now appear in **Directory** > **AI Agents**. There you can assign ownership, review them in Access Certifications, and track them alongside agents from other platforms. To automate ownership assignment or re-imports on a schedule, see the `owners` and `schedule` properties on the [AI Agent Providers API](/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentproviders).
 
 ## See also
 
