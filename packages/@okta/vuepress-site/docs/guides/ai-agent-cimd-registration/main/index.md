@@ -4,8 +4,7 @@ excerpt: Learn how to register an AI agent's OAuth client using a Client ID Meta
 layout: Guides
 ---
 
-<!-- DRAFT: Confirm with Janet/Dipti whether AI_AGENT_CIMD_REGISTRATION is a formally designated EA feature.
-     If so, add <ApiLifecycle access="ea" /> here to match the ea-ai-agent-token-exchange guide's convention. -->
+<ApiLifecycle access="research" />
 
 Learn how to register an AI agent's OAuth client with a Client ID Metadata Document (CIMD) URL. Use a CIMD URL instead of a static `client_id` or a bring-your-own-key (BYOK) public key.
 
@@ -35,7 +34,15 @@ For AI agents, CIMD replaces bring-your-own-key (BYOK) registration. With BYOK, 
 
 ## CIMD metadata document requirements
 
-The OAuth Client ID Metadata Document specification, not Okta, defines what the metadata document must contain. Host your document at an HTTPS URL. See the following resources for the exact requirements:
+Host your metadata document at an HTTPS URL. Okta validates the following fields in the document:
+
+| Field | Requirement |
+| --- | --- |
+| `client_id` | Must exactly match the URL that Okta requests. This is the same URL you set as `clientIdMatchPattern` when you register the agent. |
+| `jwks_uri` | A URL to your hosted JSON Web Key Set (JWKS), or an inline `jwks` object. Okta uses this to verify the signature on your `client_assertion` JWT when the agent requests a token. |
+| `redirect_uris` | Must be a non-empty array, even for agents that don't use a redirect-based flow. |
+
+See the following resources for the full OAuth Client ID Metadata Document specification, beyond the fields that Okta requires:
 
 - [OAuth Client ID Metadata Document](https://datatracker.ietf.org/doc/draft-ietf-oauth-client-id-metadata-document/) (IETF Internet-Draft)
 - [CIMD - OAuth Client ID Metadata Documents](https://client.dev)
@@ -91,7 +98,26 @@ CIMD client ID matching is exact-match only. Okta doesn't support pattern or reg
 
 ## Use the CIMD client ID in a token request
 
-Okta accepts the CIMD URL as the `client_id` in an OAuth request, just as it would a static client ID.
+Okta accepts the CIMD URL as the `client_id` in an OAuth request, just as it would a static client ID. A CIMD client authenticates with `private_key_jwt`: the agent signs a `client_assertion` JWT with its private key, and Okta verifies the signature using the `jwks` or `jwks_uri` from your hosted CIMD document.
+
+CIMD clients support the following grant types:
+
+- `urn:ietf:params:oauth:grant-type:token-exchange`
+- `urn:ietf:params:oauth:grant-type:jwt-bearer`
+
+CIMD clients don't support the `client_credentials` grant type.
+
+```bash
+curl -v -X POST \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-d "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer" \
+-d "client_id=https://example.com/.well-known/cimd/claude-code.json" \
+-d "client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer" \
+-d "client_assertion=${signed_jwt}" \
+"https://${yourOktaDomain}/oauth2/v1/token"
+```
+
+Sign `client_assertion` with the private key that matches the public key in your CIMD document's JWKS. Set both `iss` and `sub` in the JWT to the CIMD URL.
 
 For example, [Okta Agent Gateway](#see-also) uses this to connect third-party agents without any manual client configuration. An admin registers the agent vendor's CIMD URL on the agent, such as the URL that Anthropic hosts for Claude Code. Then the agent connects to the gateway automatically. You don't need to configure a client ID or client secret by hand.
 
@@ -108,21 +134,17 @@ For example, [Okta Agent Gateway](#see-also) uses this to connect third-party ag
 
 ### Registration errors
 
-<!-- DRAFT: Okta doesn't currently reject non-HTTPS clientIdMatchPattern URLs at registration time, even though
-     the CIMD spec requires HTTPS and the API's own validation error message claims to enforce it. Confirm
-     whether this is a known gap/bug (file one if not) before publishing, and update the row below and the
-     "CIMD metadata document requirements" section once resolved. Verified against qa-bhavnaaiagentsnewct24 2026-07-20. -->
-
 | Problem | Cause |
 | --- | --- |
-| Registration request fails validation | The `clientIdMatchPattern` value isn't a well-formed URL, is unreachable, or doesn't return a valid CIMD metadata document. |
+| Registration request fails validation | The `clientIdMatchPattern` URL isn't HTTPS, is unreachable, or doesn't return a valid CIMD metadata document. |
 | Registration succeeds, but the agent can't obtain a token | Confirm that the hosted metadata document still matches what Okta expects. Okta re-fetches the document at request time, so a change to it, or an outage at that URL, can break token requests. Nothing changes on the Okta side. |
 
 ### Token request errors
 
-<!-- DRAFT: Open question--confirm with engineering which OAuth flow(s) are supported for agent-as-client
-     using a CIMD client ID. This section may be replaced entirely once that's confirmed, or may turn out to
-     be out of scope if the only supported path is the Agent Gateway machine-to-machine flow above. -->
+| Problem | Cause |
+| --- | --- |
+| Token request fails because Okta can't find a matching client | No AI agent is registered with an `oauthClient.clientId` that exactly matches the `client_id` you sent. Register an AI agent with this CIMD URL first. See [Register an AI agent with a CIMD client](#register-an-ai-agent-with-a-cimd-client). |
+| Token request fails signature verification | The `client_assertion` JWT isn't signed with the private key that matches the public key in your CIMD document's JWKS, or the CIMD document's `jwks_uri` (or inline `jwks`) doesn't resolve to a valid JWKS. |
 
 ## Refresh token lifetime
 
