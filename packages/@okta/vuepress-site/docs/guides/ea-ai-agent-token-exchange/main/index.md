@@ -6,7 +6,7 @@ layout: Guides
 
 <ApiLifecycle access="ie" />
 
-Learn how to configure token exchange for agent-to-agent connections so that AI agents can securely call each other as part of automated workflows. This document discusses the token exchange flows that pertain to the agent-to-agent self-service Early Access feature. For the Generally Available token exchange flows, see [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/authserver/main/).
+Learn how to configure token exchange for agent-to-agent connections so that AI agents can securely call each other as part of automated workflows. This document discusses the token exchange flows that pertain to the agent-to-agent feature. For the token exchange flows, see [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/authserver/main/).
 
 ---
 
