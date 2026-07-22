@@ -31,7 +31,7 @@ The Okta Open Source MCP Server implements AI agent identity security through th
 
 ### Principle of least privilege
 
-The Okta Open Source MCP Server ensures AI agents possess only the minimum permissions required for specific tasks.
+The Okta Open Source MCP Server ensures that AI agents possess only the minimum permissions required for specific tasks.
 
 - The server manages authentication through OAuth 2.0 scopes and environment variables.
 - The server dynamically registers tools based on the granted API scopes of the Okta admin app, ensuring the LLM only sees authorized capabilities.
@@ -42,7 +42,7 @@ The Okta Open Source MCP Server ensures AI agents possess only the minimum permi
 The Okta Open Source MCP Server maintains a detailed record of all AI agent interactions to support security monitoring.
 
 - The server creates a complete audit trail of all AI agent activities.
-- The system integrates with Okta system logs for centralized monitoring and security investigations.
+- The system integrates with Okta System Logs for centralized monitoring and security investigations.
 - The server provides data to support compliance requirements and internal security audits.
 
 ## How the Okta Open Source MCP Server works
@@ -70,9 +70,9 @@ The Okta Open Source MCP Server enables AI agents to perform the following actio
 | --- | --- |
 | User management | Create, list, retrieve, update, deactivate, delete users, and manage user profile attributes. |
 | Group administration | Create, list, retrieve, update, and delete groups. Add and remove users from groups, and view group memberships. |
-| App management | List, retrieve, create, update, activate and deactivate apps. View app assignments. |
+| App management | List, retrieve, create, update, activate, and deactivate apps. View app assignments. |
 | Policy and security management | Manage authentication policies, password rules, MFA configurations, and device assurance policies. |
-| System monitoring and logs | Filter System Logs, generate security audit reports, and query specific sign-in failures. |
+| System monitoring and logs | Filter System Logs, generate security audit reports, and query-specific sign-in failures. |
 | Brands and customization | Manage brands, themes, custom pages, email templates, and custom domains. |
 
 ## Security and authentication
