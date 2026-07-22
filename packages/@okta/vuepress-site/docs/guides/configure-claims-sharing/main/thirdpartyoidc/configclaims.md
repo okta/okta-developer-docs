@@ -29,7 +29,7 @@ The following table describes the AMR claims values that Okta supports. Okta ign
 | `swk`         | Possession        | User presence, Device-bound |
 | `tel`         | Possession        | User presence  |
 | `pop`         | Possession        | User presence, Device-bound |
-| `phr`         | Possession        | User presence, Device-bound |
+| `phr`         | Possession        | User presence, Device-bound, Phishing-resistant |
 
 ### Okta SP configuration
 
