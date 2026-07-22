@@ -3,13 +3,14 @@ title: Import Anthropic Claude AI agents
 excerpt: Learn how to import Anthropic Claude Managed Agents into Okta's AI Agent directory using the API
 layout: Guides
 ---
-<ApiLifecycle access="ie" />
+<ApiLifecycle access="research" />
 
 This guide shows you how to configure and run an Anthropic Claude Managed Agents import. It uses Okta's AI Agent Provider API and AI Agent Registration API. Use this guide if you want to automate or script the import instead of using the Admin Console.
 
-> **Note:** To enable AI agent import, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
-
-> **Note:** Anthropic's Claude Managed Agents API is a public beta feature. Okta's integration pins a specific `anthropic-beta` header version on Anthropic's side. Anthropic can change or remove beta APIs, which can affect import behavior until Managed Agents reaches general availability.
+> **Notes:**
+>
+> * To enable AI agent import, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
+> * Anthropic's Claude Managed Agents API is a public beta feature. Okta's integration pins a specific `anthropic-beta` header version on Anthropic's side. Anthropic can change or remove beta APIs, which can affect import behavior until Managed Agents reaches general availability.
 
 ---
 
