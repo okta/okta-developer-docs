@@ -55,8 +55,8 @@ An app integration represents your app in your Okta org. The integration configu
 To create your app integration in the Okta Admin Console:
 
 1. [Sign in to your Okta org](https://developer.okta.com/login) with your admin account. Click **Admin** on the top right of the page.
-1. Go to **Applications** > **Applications**.
-1. Click **Create App Integration**.
+1. Go to **Applications and Resources** > **Applications**.
+1. Click **Create App Integration** > **Classic experience**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
 1. Select **Native Application** as the **Application type**, and then click **Next**.
    > **Note:** If you choose the wrong app type, it can break the sign-in or sign-out flows.

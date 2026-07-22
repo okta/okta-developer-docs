@@ -55,7 +55,7 @@ Before starting the submission in the OIN Wizard, you must generate the Express 
 #### Create a new OIN app that supports Auth0-enabled Express Configuration
 
 1. Sign in to your [Okta Integrator Free Plan org](https://developer.okta.com/signup/).
-2. Go to **Applications** > **Applications** > **Your OIN Integrations** > **Build new OIN integration** to start a new submission.
+2. Go to **Applications and Resources** > **Your OIN Integrations** > **Build new OIN integration** to start a new submission.
 3. In the **Add integration capabilities** tab, select your support protocols. You must have at least OpenID Connect (OIDC) selected.
 4. Click **Add integration details** to go to the **Integration details** page.
 5. Fill out all appropriate fields, then click **Configure your integration**. See [Submit an integration](https://developer.okta.com/docs/guides/submit-oin-app/openidconnect/main/) with the OIN Wizard.
@@ -69,7 +69,7 @@ Before starting the submission in the OIN Wizard, you must generate the Express 
 2. Click **Finish**. The configuration details automatically load in the **Configure your integration** page.
 3. Return to the Auth0 dashboard, upload your generated PEM key, and click **Finish**.
 
-> **Note**: If you exited the setup after providing the Express Configuration information, you can return to your submission to continue. In the Admin Console, go to **Applications** > **Applications** > **Your OIN Integrations**. Select your draft integration, and then go to **Configure your integration** to download the PEM file again.
+> **Note**: If you exited the setup after providing the Express Configuration information, you can return to your submission to continue. In the Admin Console, go to **Applications and Resources** > **Your OIN Integrations**. Select your draft integration, and then go to **Configure your integration** to download the PEM file again.
 
 ### Update an existing OIN integration
 
@@ -84,7 +84,7 @@ Before starting the submission in the OIN Wizard, you must generate the Express 
 #### Configure your integration in Okta
 
 1. Sign in to your [Okta Integrator Free Plan org](https://developer.okta.com/signup/).
-2. Go to **Applications** > **Your OIN Integrations**.
+2. Go to **Applications and Resources** > **Your OIN Integrations**.
 3. Select your published integration to update. Your published OIN submission appears in read-only mode.
 4. Click **Edit integration** from the **This integration is read-only** information box.
 5. Select your support protocols from the **Add integration capabilities** page. You must have at least OpenID Connect (OIDC) selected.

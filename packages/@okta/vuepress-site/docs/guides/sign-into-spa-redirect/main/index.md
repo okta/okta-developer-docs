@@ -46,8 +46,8 @@ To create your app integration in Okta using the Admin Console:
 
 1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
 1. Click **Admin** in the upper-right corner of the page.
-1. Open the Applications page by selecting **Applications** > **Applications**.
-1. Click **Create App Integration**.
+1. Open the Applications page by selecting **Applications and Resources** > **Applications**.
+1. Click **Create App Integration** > **Classic experience**.
 1. Select a **Sign-in method** of **OIDC - OpenID Connect**.
 1. Select an **Application type** of **Single-Page Application**, then click **Next**.
    > **Note:** If you choose an inappropriate app type, it can break the sign-in or sign-out flows by requiring the verification of a client secret. Public clients don't have a client secret.
@@ -94,7 +94,7 @@ Our app uses information from the app integration that was created earlier to co
 
 #### Find your config values
 
-You can find your config values in the Admin Console (select **Applications** > **Applications** and find your app integration that you created earlier):
+You can find your config values in the Admin Console (select **Applications and Resources** > **Applications** and find your app integration that you created earlier):
 
 * **Client ID**: Found on the **General** tab in the **Client Credentials** section.
 * **Issuer**: Found in the **Issuer URI** field for the authorization server that appears by selecting **Security** > **API** from the left navigation pane.

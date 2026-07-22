@@ -51,7 +51,7 @@ To get started, you need to create an Okta OAuth app to represent the PHP app an
 > **Note:** We depend on other packages for the samples to run. To install these dependencies, we use Composer. These steps assume that Composer is installed.
 
 1. Sign in to your [Okta Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Create App Integration**.
+2. From the side navigation, select **Applications and Resources** > **Applications**, and then click **Create App Integration** > **Classic experience**.
 3. In the dialog box that appears, select **OIDC - OpenID Connect** as the **Sign-on method**, **Web Application** as the **Application type**, and then click **Next**.
 4. Fill in the New Web App Integration fields that you need, and then click **Save**:
 
@@ -157,7 +157,7 @@ You can modify the application's authentication policy to require the user to ha
     * Click **Add Authenticator**, and then click **Add** in the **Phone** authentication box.
     * Set **This authenticator can be used for** to **Authentication and recovery**, and click **Add**.
 
-2. From the side navigation, select **Applications** > **Applications** and then select the app integration that you created earlier.
+2. From the side navigation, select **Applications and Resources** > **Applications** and then select the app integration that you created earlier.
 3. Select the **Sign On** tab.
 4. Scroll down to the **User authentication** section and click **Edit**.
 5. From the **Authentication policy** dropdown menu, select **Any two factors** and click **Save**.

@@ -52,8 +52,8 @@ The difference between persistent SSO and session SSO is to maintain persistent 
 
 Within the same org, you need to set up two Native OpenID Connect (OIDC) client apps.
 
-1. In the Admin Console, go to **Applications** > **Applications**.
-1. Click **Create App Integration**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
+1. Click **Create App Integration** > **Classic experience**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
 1. Select **Native Application** as the **Application type**, and then click **Next**.
 1. Give the app integration a name, and then enter `com.first.sample:/callback` in the **Sign-in redirect URIs** box for the first app.

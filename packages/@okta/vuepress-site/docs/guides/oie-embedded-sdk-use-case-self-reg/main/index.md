@@ -72,7 +72,7 @@ To replicate this scenario:
 
 1. Configure your org following the steps described in <StackSnippet snippet="setupyourorglink" inline />.
 1. Set your app's app sign-in policy to require only the password factor.
-   1. In the Admin Console, go to **Applications** > **Applications**.
+   1. In the Admin Console, go to **Applications and Resources** > **Applications**.
    [[style="list-style-type:lower-alpha"]]
    1. Select your app, and then go to the **Sign On** tab.
    1. In the **User authentication** section, click **Edit**.

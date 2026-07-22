@@ -141,8 +141,8 @@ You can now test if your endpoint security works as intended. To do this, comple
 When another machine or service (rather than users) consumes an API, it uses the [Client Credentials flow](https://developer.okta.com/docs/guides/implement-grant-type/clientcreds/main/) to identify itself and request an access token. Create an API services integration that has this flow enabled.
 
 1. Open the Admin Console for your org.
-1. Go to **Applications** > **Applications** to view the current app integrations.
-1. Click **Create App Integration**.
+1. Go to **Applications and Resources** > **Applications** to view the current app integrations.
+1. Click **Create App Integration** > **Classic experience**.
 1. Select **API Services** as the **Sign-in method**, and click **Next**.
 1. Enter an integration name, and click **Save**.
 

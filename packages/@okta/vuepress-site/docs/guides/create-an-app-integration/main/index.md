@@ -70,7 +70,7 @@ You can add either a prebuilt app integration from the OIN or create a custom ap
 1. Sign in to the Admin Console.
     1. [Sign in to your Okta org](https://developer.okta.com/login).
     1. Click **Admin** in the upper-right corner of the page.
-2. Go to **Applications** > **Applications**.
+2. Go to **Applications and Resources** > **Applications**.
 3. Click **Browse App Catalog**.
 4. Search for the app integration you require. To search, perform one of these two options:
     * Type the app integration name in the **Search** bar. Select it from the dropdown or click **See All Results** to have everything displayed as tiles in the main panel. Click the tile to view its details.
@@ -95,8 +95,8 @@ You can add an app integration that doesn't exist in the OIN, using the App Inte
 >**Note**: As a best practice, create two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future.
 
 1. Open the Admin Console for your org.
-1. Go to **Applications** > **Applications**.
-1. Click **Create App Integration**.
+1. Go to **Applications and Resources** > **Applications**.
+1. Click **Create App Integration** > **Classic experience**.
 1. Select the required integration type in the **Sign in Method** section.
 
 <StackSnippet snippet="protocol-config" />

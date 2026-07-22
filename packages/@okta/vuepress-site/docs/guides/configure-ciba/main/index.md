@@ -100,7 +100,7 @@ Create an Okta OIDC client app integration to represent the consumption device. 
 
 > **Note:** Web apps are currently the only app supported with the CIBA flow.
 
-1. In the Admin Console, go to **Applications** > **Applications**, and then click **Create App Integration**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**, and then click **Create App Integration** > **Classic experience**.
 2. Select **OIDC - OpenID Connect** as the **Sign-in method** and choose the type of app that you want to integrate with Okta. In this example, select **Web Application**.
 3. Click **Next**, and then enter a name for your app integration.
 4. In the **Grant type** section, click **Advanced** and select **Client-initiated backchannel authentication flow (CIBA)** in the **Other grants** section.

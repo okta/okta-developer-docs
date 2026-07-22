@@ -191,7 +191,7 @@ This section shows you how to set up your Okta org and app to support password f
 
 First, assign the **Password only** policy to your app:
 
-1. Go to **Applications** > **Applications** in the Admin Console, and then select your app.
+1. Go to **Applications and Resources** > **Applications** in the Admin Console, and then select your app.
 1. Select the **Sign On** tab.
 1. Click **Edit** in the **User Authentication** section.
 1. Select **Password only** for the **App sign-in policy**, and then click **Save**.

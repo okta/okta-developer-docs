@@ -82,7 +82,7 @@ resource "okta_admin_role_custom" "test" {
 
 Before creating app-specific resources, you must enable **Entitlement Management** on the target app in your Okta org:
 
-1. In the Admin Console, go to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 2. Search for and select the app.
 3. On the **General** tab, go to the **Entitlement management** section and click **Edit**.
 4. Select **Enable** from the **Entitlement management** dropdown menu.

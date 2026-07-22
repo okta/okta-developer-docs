@@ -182,7 +182,7 @@ You can navigate directly to the OIN Wizard **Test integration** page if you hav
 
 Follow these steps to bypass the configuration pages in the OIN Wizard:
 
-1. Select **Applications** > **Your OIN Integrations**. Then select the more icon (![three-dot more icon](/img/icons/odyssey/more.svg)) next to the integration submission that you want to test.
+1. Select **Applications and Resources** > **Your OIN Integrations**. Then select the more icon (![three-dot more icon](/img/icons/odyssey/more.svg)) next to the integration submission that you want to test.
 1. Select **Test your integration**.
 
    * The OIN Wizard **Test integration** page appears for you to generate an instance and test your integration.

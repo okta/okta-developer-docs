@@ -111,7 +111,7 @@ To test the full authentication flow that returns an ID or an access token, buil
 
 Use these steps to create a groups claim for an OpenID Connect client app. This approach is recommended if you’re using only Okta-sourced groups. For an org authorization server, you can only create an ID token with a groups claim, not an access token. See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
-1. In the Admin Console, go to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Select the OpenID Connect client app that you want to configure.
 1. Go to the **Sign On** tab and click **Edit** in the **OpenID Connect ID Token** section.
 1. In the **Group claim type** section, you can select either **Filter** or **Expression**. For this example, leave **Filter** selected.

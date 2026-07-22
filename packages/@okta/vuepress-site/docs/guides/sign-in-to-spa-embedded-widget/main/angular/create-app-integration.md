@@ -1,10 +1,10 @@
 Before you integrate Okta authentication in your app, register the app in your Okta org. This provides you with the OpenID Connect (OIDC) client ID for authentication requests from your app. Register your app by creating an app integration through the [Okta Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/) or through the [Admin Console](/docs/concepts/okta-organizations/#admin-console) using the following steps.
 
-1. In the Admin Console, go to **Applications** > **Applications**.
-1. Click **Create App Integration**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
+1. Click **Create App Integration** > **Classic experience**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
 1. Select **Single-Page Application** for the **Application Type**, and then click **Next**.
-1. On the **New Single-Page App Integration** page, enter the following information: 
+1. On the **New Single-Page App Integration** page, enter the following information:
 
    * Enter an app name.
    * Select the **Refresh Token** checkbox.

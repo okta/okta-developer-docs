@@ -62,7 +62,7 @@ If you plan to publish your integration to the OIN, Okta requires that all SCIM 
 
 Where the `{appName}` is an identifier provided to you after you create your app integration instance in Okta.
 
-Obtain the `{appName}` from the Admin Console URL when you select **Applications** > **Applications** > your app instance. The Admin Console URL has the following format:
+Obtain the `{appName}` from the Admin Console URL when you select **Applications and Resources** > **Applications** > your app instance. The Admin Console URL has the following format:
 
 ```html
 https://{orgSubDomain}-admin.{oktaEnvironment}.com/admin/app/{appName}/instance/{instanceID}/#tab-general

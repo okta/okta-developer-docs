@@ -40,8 +40,8 @@ Scoped access tokens have several advantages, including:
 Create the client app that you want to use with the Okta APIs.
 
 1. Sign in to your Okta organization with your administrator account.
-1. In the Admin Console, go to **Applications** > **Applications**.
-1. Click **Create App Integration**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
+1. Click **Create App Integration** > **Classic experience**.
 1. On the **Create a new app integration** page, select **OIDC - OpenID Connect** as the **Sign-in method**.
 1. Choose **Web Application** for the **Application type**. Creating a web app is an easy way to test scope-based access to the Okta APIs using an OAuth 2.0 bearer token. Click **Next**.
 
@@ -64,7 +64,7 @@ When a request is sent to the org authorization server's `/authorize` endpoint, 
 > **Note:** Only the Super Admin role has permission to grant scopes to an app.
 
 1. Sign in to your Okta organization with your administrator account.
-1. In the Admin Console, go to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Select the OpenID Connect (OIDC) or OAuth 2.0 app that needs grants added.
 1. Select the **Okta API Scopes** tab, and then click **Grant** for each scope that you want to add to the app's grants collection. For this example, make sure to grant access to `okta.users.read`.
 

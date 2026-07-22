@@ -298,7 +298,7 @@ The OIN Wizard currently supports only client secret authentication for API serv
 
 #### Admin Console Home page
 
-The new Admin Console **Home** page for IFT orgs provides a faster way to start and manage your app submissions. Instead of navigating through the previous **Applications** > **Your OIN Integrations** path, you can now initiate submissions directly from the **Home** page. This guided experience helps you select integration types, understand requirements through a new **Quick Start guide**, and track your submission in real time from build to publication. It also includes a **Coming Soon** section to preview and register for upcoming integrations, making the entire process more centralized and efficient.
+The new Admin Console **Home** page for IFT orgs provides a faster way to start and manage your app submissions. Instead of navigating through the previous **Applications and Resources** > **Your OIN Integrations** path, you can now initiate submissions directly from the **Home** page. This guided experience helps you select integration types, understand requirements through a new **Quick Start guide**, and track your submission in real time from build to publication. It also includes a **Coming Soon** section to preview and register for upcoming integrations, making the entire process more centralized and efficient.
 <!-- OKTA-1117696 IFT_GETTING_STARTED_EXPERIENCE preview date: March 4, 2026  -->
 
 #### New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview

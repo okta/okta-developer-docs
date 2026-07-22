@@ -104,7 +104,7 @@ This feature is based on the [OpenID Connect Native SSO for Mobile Apps](https:/
 
 To configure Native SSO, start by setting up your app. To walk through this use case example, you need to set up two separate native apps to represent client 1 and client 2.
 
-1. Go to **Applications** > **Applications** from the Admin Console, and then click **Create App Integration**.
+1. Go to **Applications and Resources** > **Applications** from the Admin Console, and then click **Create App Integration** > **Classic experience**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**, select **Native Application** as the **Application type**, and then click **Next**.
 1. Enter a name for your new app integration.
 1. Click **Advanced** in the **Grant type** section, and then select **Token Exchange**.

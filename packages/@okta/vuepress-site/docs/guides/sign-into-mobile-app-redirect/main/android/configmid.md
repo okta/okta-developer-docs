@@ -50,7 +50,7 @@ The app uses information from the Okta integration that you created earlier to c
 
 #### Find your config values
 
-If you don't have your configuration values handy, you can find them in the Admin Console. Go to **Applications** > **Applications** and find the app integration that you created earlier:
+If you don't have your configuration values handy, you can find them in the Admin Console. Go to **Applications and Resources** > **Applications** and find the app integration that you created earlier:
 
 * **Sign-in redirect URI**: Found on the **General** tab in the **Login** section.
 * **Sign-out redirect URI**: Found on the **General** tab in the **Login** section.

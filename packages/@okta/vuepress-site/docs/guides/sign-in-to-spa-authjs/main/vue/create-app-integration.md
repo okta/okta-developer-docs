@@ -1,7 +1,7 @@
 Before you integrate authentication to your Vue.js app, you must register your app in your org. This provides you with the OpenID Connect client ID for authentication requests from your app. Register your app by creating an app integration through the [Okta Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application). You can also use the [Admin Console](/docs/concepts/okta-organizations/#admin-console) with the following steps:
 
 1. To create an app integration that represents your Vue.js app, sign in to [your Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Create App Integration**.
+2. From the side navigation, select **Applications and Resources** > **Applications**, and then click **Create App Integration**.
 3. In the dialog that appears, select **OIDC - OpenID Connect** as the **Sign-in method**, **Single-Page Application** as the **Application type**, and then click **Next**.
 4. Fill in the following new app integration settings, and then click **Save**:
 

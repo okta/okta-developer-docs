@@ -85,7 +85,7 @@ Use the following steps to enable refresh token rotation for your app in the Adm
 To update **existing** OpenID Connect apps to use refresh token rotation:
 
 1. Sign in to your Okta organization with your administrator account.
-1. In the Admin Console, go to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Select the app integration that you want to configure.
 1. On the **General** tab, click **Edit** in the **General Settings** section.
 1. In the **Grant type** section, select **Refresh Token**.
@@ -97,8 +97,8 @@ To update **existing** OpenID Connect apps to use refresh token rotation:
 When you create a mobile or web app and want to use refresh token rotation:
 
 1. Sign in to your Okta organization with your administrator account.
-1. In the Admin Console, go to **Applications** > **Applications**.
-1. Click **Create App Integration** and select **OIDC - OpenID Connect** as the **Sign-in method**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
+1. Click **Create App Integration** > **Classic experience** and select **OIDC - OpenID Connect** as the **Sign-in method**.
 1. Select the type of app that you want to create, and then click **Next**.
 1. In the **Grant type** section, select **Refresh Token**.
 1. Select **Allow everyone in your organization to access** in the **Assignments** section, and then click **Save**.
