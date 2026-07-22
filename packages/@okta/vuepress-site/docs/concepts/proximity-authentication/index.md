@@ -37,7 +37,7 @@ Proximity authentication involves the following three components:
 * **Sign-In Widget**: The Sign-In Widget is the browser-based authentication interface. It presents the sign-in flow to the user, initiates the NFC interaction by contacting Okta Verify, and collects the PIN when Okta sends a challenge. You can customize and embed the Sign-In Widget in your app. See [Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/main/).
 * **Okta**: Okta creates and manages enrollment records, generates and stores cryptographic material for hardware-protected tags, and identifies the user during verification.
 
-Because Okta Verify runs on the device and not in a browser, it doesn't handle PIN entry. The PIN challenge is always routed to the Sign-In Widget. Users enter their PIN in the browser, not in the Okta Verify app.
+Because Okta Verify runs on the device and not in a browser, it doesn't handle PIN entry. The PIN challenge is always routed to the Sign-In Widget.
 
 The NFC card's role in proximity authentication depends on how authentication data is stored on it. During enrollment, Okta writes a unique enrollment identifier to the NFC card that links it to a user. Cards without hardware protection store this identifier as plain data. Those cards are typically low cost and easy to reuse and reassign between users. The PIN is the primary security control.
 
