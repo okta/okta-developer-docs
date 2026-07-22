@@ -48,7 +48,7 @@ The Okta Open Source MCP server includes Device Assurance Policy tools for AI ag
 
 #### Human oversight for destructive actions
 
-The Okta Model Context Protocol (MCP) server now integrates the MCP Elicitation API to enforce human oversight on destructive actions. Critical operations, such as deleting apps or deactivating users, now require explicit confirmation before execution. Supported MCP clients display a chat UI dialog for users to accept or decline the request. For clients that don't support elicitation, the server returns a JSON payload for the LLM to handle confirmation. <!-- OKTA-1117761 preview date: March 4, 2026 -->
+The Okta Open Source Model Context Protocol (MCP) server now integrates the MCP Elicitation API to enforce human oversight on destructive actions. Critical operations, such as deleting apps or deactivating users, now require explicit confirmation before execution. Supported MCP clients display a chat UI dialog for users to accept or decline the request. For clients that don't support elicitation, the server returns a JSON payload for the LLM to handle confirmation. <!-- OKTA-1117761 preview date: March 4, 2026 -->
 
 #### Developer documentation update in 2026.03.0
 
@@ -66,7 +66,7 @@ Okta's [API reference pages](https://developer.okta.com/docs/api/) are undergoin
 
 #### Okta Open Source MCP server is GA in Production
 
-The Okta Model Context Protocol (MCP) server is a secure protocol abstraction layer that enables AI agents/Large Language Models (LLMs) to interact with the Okta org. The MCP clients can now communicate with Okta’s scoped management APIs in natural language. This simplifies building context-aware AI workflows while ensuring strict access control and least-privilege security. To learn more and start your implementation, see the [Okta Open Source MCP server concept](/docs/concepts/mcp-server/) and [Okta Open Source MCP server guide](/docs/guides/mcp-server/main/).
+The Okta Open Source Model Context Protocol (MCP) server is a secure protocol abstraction layer that enables AI agents/Large Language Models (LLMs) to interact with the Okta org. The MCP clients can now communicate with Okta’s scoped management APIs in natural language. This simplifies building context-aware AI workflows while ensuring strict access control and least-privilege security. To learn more and start your implementation, see the [Okta Open Source MCP server concept](/docs/concepts/mcp-server/) and [Okta Open Source MCP server guide](/docs/guides/mcp-server/main/).
 
 #### Developer documentation updates in 2026.02.0
 

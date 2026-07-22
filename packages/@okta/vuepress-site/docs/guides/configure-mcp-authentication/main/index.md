@@ -5,7 +5,7 @@ meta:
     content: Create an Okta admin app integration and obtain the credentials to connect your Okta Open Source MCP server.
 ---
 
-Create an Okta admin app integration, configure authentication credentials, and grant required OAuth 2.0 scopes to authorize the Model Context Protocol (MCP) server tools.
+Create an Okta admin app integration, configure authentication credentials, and grant required OAuth 2.0 scopes to authorize the Okta Open Source Model Context Protocol (MCP) server tools.
 
 ---
 

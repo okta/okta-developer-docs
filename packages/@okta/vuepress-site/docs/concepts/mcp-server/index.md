@@ -1,5 +1,5 @@
 ---
-title: Okta Model Context Protocol (MCP) server
+title: Okta Open Source Model Context Protocol (MCP) server
 meta:
   - name: description
     content: Connect LLMs to Okta with the Model Context Protocol (MCP).
@@ -7,7 +7,7 @@ meta:
 
 # Manage Okta APIs with the Okta Open Source MCP server
 
-The Okta Model Context Protocol (MCP) server securely connects AI agents and Large Language Models (LLMs) to an Okta org. This abstraction layer enables AI agents and LLMs to interact with Okta admin management APIs using natural language commands.
+The Okta Open Source Model Context Protocol (MCP) server securely connects AI agents and Large Language Models (LLMs) to an Okta org. This abstraction layer enables AI agents and LLMs to interact with Okta admin management APIs using natural language commands.
 
 The Okta Open Source MCP server translates natural language instructions into structured API calls between LLM clients and an Okta org using Okta's Python SDK v3.4.1. This approach reduces security risks and complexity when connecting autonomous AI agents to Identity and Access Management (IAM) systems. The architecture ensures that AI actions remain secure, properly scoped, and fully auditable.
 

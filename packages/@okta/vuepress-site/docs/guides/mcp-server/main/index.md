@@ -8,7 +8,7 @@ sections:
 - main
 ---
 
-Get started with the Okta Model Context Protocol (MCP) server setup, prerequisites, and Python SDK v3.4.1 requirements.
+Get started with the Okta Open Source Model Context Protocol (MCP) server setup, prerequisites, and Python SDK v3.4.1 requirements.
 
 ---
 

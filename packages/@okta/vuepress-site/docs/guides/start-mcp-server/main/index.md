@@ -2,10 +2,10 @@
 title: Configure, start, and test the Okta Open Source MCP server
 meta:
   - name: description
-    content: Set up your local environment variables and start the Okta Model Context Protocol (MCP) server to connect your AI agent to your org.
+    content: Set up your local environment variables and start the Okta Open Source Model Context Protocol (MCP) server to connect your AI agent to your org.
 ---
 
-Set up your local environment variables (including OKTA_SCOPES), start the Okta Model Context Protocol (MCP) server to connect your AI agent to your org, and test connections to device assurance** and **brand customization** tools.
+Set up your local environment variables (including OKTA_SCOPES), start the Okta Open Source Model Context Protocol (MCP) server to connect your AI agent to your org, and test connections to device assurance** and **brand customization** tools.
 
 ---
 
