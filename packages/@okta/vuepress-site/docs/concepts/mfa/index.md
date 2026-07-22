@@ -80,6 +80,7 @@ See the following table for a list of authenticators, their keys, types, and met
 | `duo`               | `app`                   | `duo`                   |
 | `external_idp`      | `federated`             | `idp`                   |
 | `google_otp`        | `app`                   | `otp`                   |
+| `nfc_pin`           | `proximity`             | `nfc_pin`               |
 | `okta_email`        | `email`                 | `email`                 |
 | `okta_password`     | `password`              | `password`              |
 | `okta_verify`       | `app`                   | `totp`, `push`, `signed_nonce` |
