@@ -5,7 +5,7 @@ layout: Guides
 ---
 <ApiLifecycle access="research" />
 
-This guide shows you how to configure and run an Anthropic Claude Managed Agents import. It uses Okta's AI Agent Provider API and AI Agent Registration API. Use this guide if you want to automate or script the import instead of using the Admin Console.
+This guide shows you how to configure and run an Anthropic Claude Managed Agents import. It uses Okta's [AI Agent Provider API](/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentproviders) and [AI Agent Registration API](/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration). Use this guide if you want to automate or script the import instead of using the Admin Console.
 
 > **Notes:**
 >
