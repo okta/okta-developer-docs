@@ -39,7 +39,7 @@ When you're embedding the widget, consider and plan for the following steps depe
 * [Add support for the Interaction Code](/docs/guides/implement-grant-type/interactioncode/main/#set-up-your-authorization-server) in your custom authorization servers and embedded auth apps.
 * [Use CORS to locate potential integrations](/docs/guides/enable-cors/main/). You can use the CORS URL to isolate where an SDK is initialized.
 * [Change your embedded Sign-In Widget's configuration](/docs/guides/oie-embedded-common-download-setup-app/java/main/#initialize-the-sign-in-widget) to support the Interaction Code grant type in your project.
-* [Upgrade your app to the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#map-basic-sign-in-code-to-the-identity-engine-sdk) to update your app if you're using `setCookieAndRedirect` to get tokens. <!-- (/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/) -->
+* [Upgrade your app to the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/main/#map-basic-sign-in-code-to-the-identity-engine-sdk) to update your app if you're using `setCookieAndRedirect` to get tokens. <!-- (/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/) -->
 * Test and verify your user experience both [visually](/docs/guides/oie-upgrade-sign-in-widget-styling/) and [functionally](/docs/guides/oie-upgrade-sign-in-widget-i18n/).
 
 ## Upgrade SDKs to the latest version in your apps
@@ -62,7 +62,7 @@ When you're embedding your authentication with our SDKs, consider all the steps 
 
     * For libraries that are separate from their class forms, add newer SDK libraries to your dependencies in your build scripts and import them into your existing classes and relevant project files.
 
-    See [Add the Identity Engine SDK to your app](/docs/guides/oie-upgrade-add-sdk-to-your-app/nodejs/main/) for detailed steps by language. <!-- (/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/) -->
+    See [Add the Identity Engine SDK to your app](/docs/guides/oie-upgrade-add-sdk-to-your-app/main/) for detailed steps by language. <!-- (/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/) -->
 
 5. Test your user flows with the new SDKs included in your build without any code changes to ensure that your users can still access your app seamlessly.
 
@@ -72,7 +72,7 @@ When you're embedding your authentication with our SDKs, consider all the steps 
 
     Okta recommends the following order, but prioritize the order of your upgrade workflows to suit your needs.
 
-    * **Self-Service Password Recovery:** Replace with the remediation form of the password reset flow. This may also mean removing features like security questions and some other configurations from the Password Authenticator's settings. See [Upgrade your app to the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/) for detailed steps by language. <!-- (/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/) -->
+    * **Self-Service Password Recovery:** Replace with the remediation form of the password reset flow. This may also mean removing features like security questions and some other configurations from the Password Authenticator's settings. See [Upgrade your app to the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/main/) for detailed steps by language. <!-- (/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/) -->
 
     * **Self-Service Registration:** The Identity Engine SDK provides full support for user sign-up flows. See the [Self-service registration integration guide](/docs/guides/oie-embedded-sdk-use-case-self-reg/-/main/) for more information on how to integrate the sign-up use case into your app using the Identity Engine SDK.
 
