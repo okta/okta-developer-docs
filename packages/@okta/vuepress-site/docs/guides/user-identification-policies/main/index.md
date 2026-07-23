@@ -208,7 +208,7 @@ You can also find a user identification policy from its mapped app sign-in polic
 
 ### Review the default rule
 
-Each user identification policy includes a default rule. Use the [List all policy rules](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyRules) endpoint to review it.
+Each user identification policy includes a default rule. This is a system rule (`system: true`) with the lowest priority and no conditions, so it matches any request that no other rule matches. By default, it hides the button (`showSignInWithOV: NEVER`). You can update the default rule, but you can't deactivate or remove it. Use the [List all policy rules](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyRules) endpoint to review it.
 
 1. In the path parameters, set the user identification policy `id` as the `policyId`.
 1. Send the `GET /api/v1/policies/{policyId}/rules` request.
@@ -220,34 +220,31 @@ Each user identification policy includes a default rule. Use the [List all polic
     {
         "id": "ruleId",
         "status": "ACTIVE",
-        "name": "Default Rule",
-        "priority": 0,
+        "name": "Catch-all Rule",
+        "priority": 99,
         "created": "2025-04-25T17:35:02.000Z",
         "lastUpdated": "2025-04-25T17:35:02.000Z",
-        "system": false,
-        "conditions": {
-            "network": {
-                "connection": "ANYWHERE"
-            },
-            "platform": {
-                "include": [
-                    {
-                        "type": "DESKTOP",
-                        "os": {
-                            "type": "WINDOWS"
-                        }
-                    }
-                ]
-            }
-        },
+        "system": true,
+        "conditions": null,
         "actions": {
             "userIdentification": {
                 "settings": {
-                    "showSignInWithOV": "ALWAYS"
+                    "showSignInWithOV": "NEVER"
                 }
             }
         },
-        "type": "USER_IDENTIFICATION"
+        "type": "USER_IDENTIFICATION",
+        "_links": {
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "PUT"
+                    ]
+                }
+            }
+        }
     }
 ]
 ```
@@ -340,7 +337,16 @@ Create your own POST request body or copy the [example request](#create-a-user-i
             "hints": {
                 "allow": [
                     "GET",
-                    "PUT"
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "https://{yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
                 ]
             }
         }
@@ -429,7 +435,16 @@ Create your own PUT request body or copy the [example request](#update-a-user-id
             "hints": {
                 "allow": [
                     "GET",
-                    "PUT"
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "https://{yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
                 ]
             }
         }
