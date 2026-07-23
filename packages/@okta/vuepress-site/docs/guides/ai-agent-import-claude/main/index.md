@@ -81,8 +81,6 @@ For the equivalent Admin Console walkthrough, see [Configure Claude for Okta](ht
 
 Before you create the provider, confirm that Okta can reach the Anthropic API with your key. This step calls Anthropic's `GET /v1/agents?limit=1` internally. Okta adds the required `anthropic-version` and `anthropic-beta` headers automatically.
 
-> **Note:** The `configuration` object is provider-specific and accepts arbitrary properties. This guide uses `apiKey` as an illustrative property name only. Confirm the exact property name before you rely on this sample. Also confirm whether the Anthropic instance URL belongs in this payload or only on the app instance.
-
 ```bash
 curl -X POST "https://{yourOktaDomain}/workload-principals/api/v1/ai-agent-providers/validate" \
   -H "Authorization: SSWS {api_token}" \
@@ -224,7 +222,29 @@ curl "https://{yourOktaDomain}/workload-principals/api/v1/ai-agents/wlpx9jQ16k9V
   -H "Authorization: SSWS {api_token}"
 ```
 
-<!-- TODO: Confirm whether per-agent owner override is a field on the AI agent resource, or whether it needs a separate call. The Anthropic AI Agent Import spec (FR-OWN-003) describes overriding the default owner for an individual imported agent. The AI Agent Registration API schema doesn't confirm this yet. -->
+### Override the owner for a single agent
+
+The provider's default owner applies to every agent it imports. To give one agent a different owner, use the Okta Identity Governance [Resource Owners API](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/resource-owners) directly. The AI Agent APIs don't manage per-agent ownership.
+
+```bash
+curl -X PATCH "https://{yourOktaDomain}/governance/api/v1/resource-owners" \
+  -H "Authorization: SSWS {api_token}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "principalOrns": [
+      "orn:okta:directory:{yourOrgId}:users:{userId}"
+    ],
+    "resourceOrns": [
+      "orn:okta:directory:{yourOrgId}:workload-principals:ai-agents:{wlpId}"
+    ]
+  }'
+```
+
+`{wlpId}` is the workload principal ID of the agent. It's the agent's Okta `id` from the list or retrieve response, for example `wlpx9jQ16k9V8IFEL0g3`.
+
+This replaces the owner for only the agents you name in `resourceOrns`. Other agents from the same provider keep their existing owners.
+
+> **Note:** Okta stores this ownership in Identity Governance, not on the AI agent record. That's why the agent's `GET` and `LIST` responses don't return an owner field. Each agent allows up to 5 owners. Each request accepts up to 10 agents.
 
 ## Check provider status and reauthenticate
 
