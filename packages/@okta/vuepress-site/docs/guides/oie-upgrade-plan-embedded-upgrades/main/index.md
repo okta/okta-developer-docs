@@ -14,17 +14,17 @@ This guide is the most detailed checklist for upgrading an embedded authenticati
 
 Use this guide if your app:
 
-* Embeds the Okta Sign-In Widget (Gen2). The Gen3 widget is delivered as the Okta-hosted sign-in experience and isn't supported for self-hosted embedding.
+* Embeds the Okta Sign-In Widget (Gen2). Okta delivers the Gen3 widget only as the Okta-hosted sign-in experience, which you can't self-host.
 * Uses an Okta language SDK (Auth.js, Java, .NET, Node, Python, Go, or a mobile SDK) to authenticate users.
 * Calls Classic Engine APIs (`/api/v1/authn`, Factors API, Sessions API) directly and is moving to a supported Identity Engine flow.
 
 This guide isn't the right starting point if your app uses redirect authentication only. For redirect, see [Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/main/) and the related platform-specific redirect guides.
 
-Okta understands that upgrades can be stressful. The upgrade steps are broken up to ensure that you maintain the best user experience across your apps.
+Okta understands that upgrades can be stressful. Breaking the upgrade into steps helps you maintain the best user experience across your apps.
 
 Okta doesn't recommend doing this upgrade all at once, but rather in sections with breaks for testing. This process is non-disruptive and iterative over time. Make the upgrade steps part of your normal product development process.
 
-After the [initial upgrade process](/docs/guides/oie-upgrade-overview/#upgrade-process) is completed for your orgs, there are more steps that you should walk through to finish the upgrade. Which steps that you take are related to your deployment model and should be carefully planned.
+After you complete the [initial upgrade process](/docs/guides/oie-upgrade-overview/#upgrade-process) for your orgs, walk through more steps to finish the upgrade. The steps you take depend on your deployment model, so plan them carefully.
 
 ## Prioritize and plan your upgrade
 
@@ -45,11 +45,11 @@ See [Roll the upgrade out to your users](#roll-the-upgrade-out-to-your-users) fo
 
 ## Update the Okta-hosted Sign-In Widget
 
-When you're redirecting to the Okta-hosted widget, make sure that your user experience is preserved both [visually](/docs/guides/oie-upgrade-sign-in-widget-styling/) and [functionally](/docs/guides/oie-upgrade-sign-in-widget-i18n/). Be sure to check your `config.idps` [settings](https://github.com/okta/okta-signin-widget#openid-connect) for customizations that may not be compatible with Identity Engine.
+When you're redirecting to the Okta-hosted widget, preserve your user experience both [visually](/docs/guides/oie-upgrade-sign-in-widget-styling/) and [functionally](/docs/guides/oie-upgrade-sign-in-widget-i18n/). Check your `config.idps` [settings](https://github.com/okta/okta-signin-widget#openid-connect) for customizations that may not be compatible with Identity Engine.
 
 ## Update the Embedded Sign-In Widget (Gen2)
 
-When you're embedding the widget, consider and plan for the following steps depending on your needs. The Gen3 widget is delivered as the Okta-hosted sign-in experience and isn't supported for self-hosted embedding, so embed the Gen2 widget when you need the sign-in form inside your own app.
+When you're embedding the widget, consider and plan for the following steps depending on your needs. Okta delivers the Gen3 widget only as the Okta-hosted sign-in experience. You can't self-host it. Embed the Gen2 widget to keep the sign-in form inside your own app.
 
 * [Update your widget](/docs/guides/oie-upgrade-sign-in-widget) to the latest Gen2 version.
 * [Add support for the Interaction Code](/docs/guides/implement-grant-type/interactioncode/main/#set-up-your-authorization-server) in your custom authorization servers and embedded auth apps.
@@ -60,27 +60,27 @@ When you're embedding the widget, consider and plan for the following steps depe
 
 ## Upgrade SDKs to the latest version in your apps
 
-When you're embedding your authentication with our SDKs, consider all the steps and then make a plan for upgrading your code to the latest SDK version. Also, plan to replace all Classic Engine authentication calls with Identity Engine calls. The following steps outline what your upgrade journey might look like.
+When you're embedding authentication with our SDKs, review all the steps before you plan the upgrade to the latest SDK version. Also, plan to replace all Classic Engine authentication calls with Identity Engine calls. The following steps outline what your upgrade journey might look like.
 
 1. [Update your custom authorization servers](/docs/guides/implement-grant-type/interactioncode/main/#set-up-your-authorization-server) to include the Interaction Code grant type.
 
 2. [Update the app settings](/docs/guides/implement-grant-type/interactioncode/main/#enable-the-interaction-code-grant-on-an-application) of your embedded authentication apps to include the Interaction Code grant type.
 
-   > **Note:** Performing these steps doesn't change the way your authorization server or app behaves, but instead adds support for the new Identity Engine model. Enabling the Interaction Code grant type in your custom authorization server simply allows the server to accept a request of that type. The app behavior doesn't change until you [enable the Interaction Code in the embedded Sign-In Widget](/docs/guides/oie-embedded-common-download-setup-app/java/main/#initialize-the-sign-in-widget) and move away from using Classic Engine authentication APIs to using the appropriate SDK.
+   > **Note:** Performing these steps doesn't change the way your authorization server or app behaves, but instead adds support for the new Identity Engine model. Enabling the Interaction Code grant type in your custom authorization server simply allows the server to accept a request of that type. The app behavior doesn't change until you [enable the Interaction Code in the embedded Sign-In Widget](/docs/guides/oie-embedded-common-download-setup-app/java/main/#initialize-the-sign-in-widget). At that point, replace your Classic Engine authentication API calls with the appropriate SDK.
 
    <!-- [move away from using Classic Authentication APIs to using the appropriate SDK](/docs/guides/). -->
 
-3. Test your apps to verify that your user flows across sign in, sign up, and password recovery still work like what was configured in Classic Engine.
+3. Test your apps to verify that sign-in, sign-up, and password recovery still work as they did in Classic Engine.
 
 4. Update your SDK.
 
-    * For previous SDK libraries that have Identity Engine baked into the newer version ([Okta Auth JavaScript SDK](https://github.com/okta/okta-auth-js/blob/master/docs/migrate-from-authn-to-idx.md)), update your dependencies in your build scripts to collect the latest version of the SDK.
+    * Some SDK libraries have Identity Engine built into their newer version, such as the [Okta Auth JavaScript SDK](https://github.com/okta/okta-auth-js/blob/master/docs/migrate-from-authn-to-idx.md). For these, update your build script dependencies to collect the latest version.
 
-    * For libraries that are separate from their class forms, add newer SDK libraries to your dependencies in your build scripts and import them into your existing classes and relevant project files.
+    * Other libraries stay separate from their class forms. For these, add the newer SDK libraries to your build script dependencies. Then import them into your existing classes and project files.
 
     See [Add the Identity Engine SDK to your app](/docs/guides/oie-upgrade-add-sdk-to-your-app/main/) for detailed steps by language. <!-- (/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/) -->
 
-5. Test your user flows with the new SDKs included in your build without any code changes to ensure that your users can still access your app seamlessly.
+5. Test your user flows with the new SDKs in your build, without any code changes. This confirms that your users can still access your app seamlessly.
 
 6. Replace Classic Engine code with Identity Engine code.
 
@@ -94,17 +94,17 @@ When you're embedding your authentication with our SDKs, consider all the steps 
 
     * **Authentication**
 
-        * **Sign In:** In your new Identity Engine org, the Organization Sign-On Policy and app sign-on rules are mapped to a global session policy and [corresponding app sign-in policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop) respectively. Test and make sure that your user experience still works the same as what was configured in Classic Engine. If you have apps that employ multifactor authentication, make sure that they still authenticate in the same way. Apps should still work after the policies are upgraded.
+        * **Sign In:** In your new Identity Engine org, Okta maps the Organization Sign-On Policy to a global session policy. It maps app sign-on rules to the [corresponding app sign-in policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). Test that your user experience still works as it did in Classic Engine. If you have apps that use multifactor authentication, make sure that they still authenticate the same way. Apps should still work after you upgrade the policies.
 
         > **Note:** Changing the global session policy affects all apps in an org.
 
         * **Sign Out:** Use the `revoke()` method in the SDKs rather than make calls to the Sessions API to manage Okta sessions. See [Revoke the access token](/docs/guides/oie-embedded-sdk-use-case-basic-sign-out/-/main/#_2-revoke-the-access-token).
 
-        Also, if you're tightly coupling your app sessions with the Okta Sessions, there may be more work to be done to separate the Okta sessions from the app sessions. See [Understand how sessions work after the upgrade](/docs/guides/oie-upgrade-sessions-api/).
+        If you tightly couple your app sessions with Okta sessions, you may need more work to separate them. See [Understand how sessions work after the upgrade](/docs/guides/oie-upgrade-sessions-api/).
 
 ## Upgrade from using the Okta Authentication APIs
 
-With some solutions, there are more architectural evaluations from Architects/Engineering Leadership/Product teams that need to be made, planned, and executed to address technical debt or, in the case of API-based implementations, move away from a less supported implementation. For most teams, the recommended path is to adopt the appropriate Identity Engine SDK. See [Upgrade SDKs to the latest version in your apps](#upgrade-sdks-to-the-latest-version-in-your-apps) above. If your app must call the Identity Engine APIs directly, see [Upgrade your app to the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/main/) for language-specific steps.
+With some solutions, architects, engineering leadership, and product teams must make more architectural evaluations. They plan and execute these changes to address technical debt, or to move API-based implementations away from a less supported implementation. For most teams, the recommended path is to adopt the appropriate Identity Engine SDK. See [Upgrade SDKs to the latest version in your apps](#upgrade-sdks-to-the-latest-version-in-your-apps) above. If your app must call the Identity Engine APIs directly, see [Upgrade your app to the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/main/) for language-specific steps.
 
 ## Roll the upgrade out to your users
 
@@ -113,7 +113,7 @@ When planning how to roll the upgrade out to your users, take the following sugg
 1. No need to roll out the upgrade to all users, all at once.
 1. Depending on your deployment process, you can:
     * Have logic in your code to send some users into the Classic Engine workflow and some to Identity Engine.
-    * Load balance network traffic to different app instances, containers, or web servers to send some to a Classic Engine version of your app or to an Identity Engine version.
+    * Load balance network traffic across different app instances, containers, or web servers. Route some users to a Classic Engine version of your app and some to an Identity Engine version.
     * Increase this over time, as you see fit.
     * Remove code or shutdown alternate versions when everything is functional.
 
@@ -123,7 +123,7 @@ This section details common issues and errors that you may encounter during your
 
 | Issue / error | Cause |
 | ------ | -------------------------- |
-| Error message: "The requested feature isn't available in this environment" | This is reported when your [Okta org](/docs/concepts/okta-organizations/) hasn't been upgraded to Identity Engine and you try to turn on [interaction code](/docs/concepts/interaction-code/) in the embedded SDK/Sign-In Widget. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version. |
-| &nbsp; | This is also reported when you've upgraded your org to Identity Engine and enabled interaction code in the embedded SDK, but it isn't enabled in your app or authorization server. |
-| Various SDK errors | If your Okta org hasn't been upgraded to Identity Engine and you start trying to replace Classic Engine API/SDK calls with Identity Engine SDK calls, you see errors in your apps. |
-| Your org and SDK are upgraded to Identity Engine, but your app still behaves like Classic Engine | [Interaction code](/docs/guides/implement-grant-type/interactioncode/main/) is turned off in the SDK. This is required for upgrading the[Embedded Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/) and [Embedded SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/)-based apps.  |
+| Error message: "The requested feature isn't available in this environment" | This error appears when your [Okta org](/docs/concepts/okta-organizations/) isn't upgraded to Identity Engine, but you enable [interaction code](/docs/concepts/interaction-code/) in the embedded SDK or Sign-In Widget. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version. |
+| &nbsp; | This error also appears when you've upgraded your org and enabled interaction code in the embedded SDK, but not in your app or authorization server. |
+| Various SDK errors | If your org isn't upgraded to Identity Engine, you see errors when you replace Classic Engine API or SDK calls with Identity Engine calls. |
+| Your org and SDK are upgraded to Identity Engine, but your app still behaves like Classic Engine | [Interaction code](/docs/guides/implement-grant-type/interactioncode/main/) is off in the SDK. You must turn it on to upgrade the [Embedded Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/) and [Embedded SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/)-based apps. |
