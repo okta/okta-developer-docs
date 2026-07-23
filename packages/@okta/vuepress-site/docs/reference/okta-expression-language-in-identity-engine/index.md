@@ -67,7 +67,7 @@ When you create an Okta expression, you can reference EDR attributes and any pro
 
 | Syntax | Definitions | Examples |
 | -------- | ---------- | ------------ |
-| `device.id` | String. The unique identifier that Okta assigns the device. Returns `""` on iOS if Okta Verify isn't enrolled on the device. | `device.id` |
+| `device.id` | String. The unique identifier that Okta assigns to the device. Returns `""` on iOS if Okta Verify isn't enrolled on the device. | `device.id` |
 | `device.assurance.screenLockType` | String. The device screen lock type. Values: `NONE` (no passcode), `PASSCODE` (passcode only, no biometrics), `BIOMETRIC` (both set). | `device.assurance.screenLockType == 'BIOMETRIC'` |
 | `device.caller.binaryIdentifier` | String. Identifies the app that you allow to invoke Okta FastPass (macOS, Windows). Find exact identifiers in the System Log. | `Google Chrome` |
 | `device.caller.bindingType` | String. The binding method used for authentication. Values: `LOOPBACK` (macOS, Windows), `APPLE_SSO_EXTENSION` (macOS). | `device.caller.bindingType == 'LOOPBACK'` |
@@ -104,7 +104,7 @@ When you create an Okta expression, you can reference attributes within the `ses
 
 | Syntax            | Definitions                                                 | Result                              |
 | ----------------- | ----------------------------------------------------------- | ------------------------------------------------------ |
-| `session.amr`     | `session` - reference to a user's session<br> `amr` - the attribute name that is resolvable to an array of [Authentication Method References](https://tools.ietf.org/html/rfc8176) | `["pwd", "otp", "mfa"]` - password and MFA OTP used by the user for authentication |
+| `session.amr`     | `session` - reference to a user's session<br> `amr` - the attribute name that’s resolvable to an array of [Authentication Method References](https://tools.ietf.org/html/rfc8176) | `["pwd", "otp", "mfa"]` - password and MFA OTP used by the user for authentication |
 | `session.id`     | `session` - reference to a user's session<br> `id` - a unique key for the session |   |
 
 ### Security context
@@ -114,7 +114,7 @@ You can specify certain [rule conditions](https://developer.okta.com/docs/api/op
 | Syntax | Definitions | Type | Examples | Usage   |
 | ------ | ----------- | ---- | -------- | -----   |
 | security.risk.level | `security` references the security context of the request<br>`risk` references the [risk](https://help.okta.com/okta_help.htm?id=csh-risk-scoring) context of the request<br>`level` is the risk level associated with the request | String | `'LOW'`<br>`'MEDIUM'`<br>`'HIGH'` | `security.risk.level == 'HIGH'`<br>`security.risk.level != 'LOW'`   |
-| security.behaviors | `security` references the security context of the request<br>`behaviors` is the list of matching [User behaviors](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection) for the request, by name. | Array of Strings | `{'New IP', 'New Device'}`| `security.behaviors.contains('New IP') && security.behaviors.contains('New Device')`   |
+| security.behaviors | `security` references the security context of the request<br>`behaviors` is the list of matching [User behaviors](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection) for the request, by name. | Array of strings | `{'New IP', 'New Device'}`| `security.behaviors.contains('New IP') && security.behaviors.contains('New Device')`   |
 
 ### Login context
 
@@ -133,7 +133,7 @@ You can specify certain [Expression Language conditions](https://developer.okta.
 | Syntax | Definitions | Type |
 | ------ | ----------- | ---- |
 | `accessRequest.$operation`| `accessRequest` references the access context of the request. `operation` references the account management operation: `enroll`, `unenroll`, `recover`, or `unlockAccount`. | String |
-| `accessRequest.authenticator.$id` | `accessRequest` references the access context of the request. `authenticator.id` references an optional authenticator `id`, for example, the `id` of a custom authenticator. | String |
+| `accessRequest.authenticator.$id` | `accessRequest` references the access context of the request. `authenticator.id` references an optional authenticator `id`, for example, the `id` of a Custom Authenticator. | String |
 | `accessRequest.authenticator.$key` | `accessRequest` references the access context of the request. `authenticator.key` references the [authenticator key](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod/0/constraints/knowledge/authenticationMethods/key&t=request). | String |
 | `accessRequest.metadata.type`| `accessRequest` references the access context of the request. `metadata.type` references specific information about the access request. Currently, `metadata` can only be used when referencing a `recover` operation and the only supported `metadata.type` is `expiry`. `expiry` references a recovery request where a password has expired or is expiring soon.  | String |
 
@@ -166,9 +166,9 @@ Okta offers various functions to manipulate properties to generate a desired out
 | `$string_object.toLowerCase`            | -                                             | String      | `'TEST'.toLowerCase()`                           | "test"           |
 | `$string_object.substring`              | (int startIndex)                              | String      | `'test.substring(1)'`                            | "est"            |
 | `$string_object.substring`              | (int startIndex, int endIndex)                | String      | `user.profile.firstName.substring(1,3)`          | "oh"             |
-| `$string_object.replace`                | (String match, String replacement)            | String      | `'hello'.replace('l', 'p')`                      | "heppo"          |
+| `$string_object.replace`                | (String match, string replacement)            | String      | `'hello'.replace('l', 'p')`                      | "heppo"          |
 |                                         |                                               |             | `user.profile.firstName.replace('ohn', 'ames')`  | "James"          |
-| `$string_object.replaceFirst`           | (String match, String replacement)            | String      | `'hello'.replaceFirst('l', 'p')`                 | "heplo"          |
+| `$string_object.replaceFirst`           | (String match, string replacement)            | String      | `'hello'.replaceFirst('l', 'p')`                 | "heplo"          |
 | `$string_object.length`                 | -                                             | Integer     | `'test'.length()`                                | 4                |
 | `$string_object.removeSpaces`           | -                                             | String      | `'This is a test'.removeSpaces()`                | "Thisisatest"    |
 | `$string_object.contains`               | (String searchString)                         | Boolean     | `'This is a test'.contains('test')`              | True             |
@@ -181,7 +181,7 @@ Okta offers various functions to manipulate properties to generate a desired out
 
 ### Array functions
 
-| Function                         | Input parameter Signature                     | Return type | Example                                          | Output                      |
+| Function                         | Input parameter signature                     | Return type | Example                                          | Output                      |
 | ---------------                  | -------------------------                     | ----------- | -------                                          | ------                      |
 | `$array_object.contains`         | (Object searchItem)                           | Boolean     | `user.profile.intArray.contains(3)`              | True                        |
 |                                  |                                               |             | `{1, 2, 3}.contains('one')`                      | False                       |
@@ -208,7 +208,7 @@ Okta offers various functions to manipulate properties to generate a desired out
 |                                  |             | `'123This is a test'.toNumber()`                 | An exception is thrown      |
 | `$number_object.toInteger`       | Integer     | `1.1.toInteger()`                                | 1                                |
 |                                  |             | `-1.6.toInteger()`                               | -2                               |
-|                                  |             | `2147483647.7.toInteger()`                       | -2147483648 (Integer overflow)   |
+|                                  |             | `2147483647.7.toInteger()`                       | -2147483648 (integer overflow)   |
 
 > **Note:**  The `toInteger` functions round the passed numeric value (or the string representation of the numeric value) either up or down to the nearest integer. Make sure to consider the range limitations of the integer type when you convert to an integer with these functions.
 
@@ -260,7 +260,7 @@ These group functions take in a list of search criteria as input. Each search cr
 
 The `user.getGroups` function also supports collection projections for group claims. See [Collection projections](#collection-projections) and [Federated claims with entitlements](/docs/guides/federated-claims/main/).
 
-| Function                 | Return type | Example                                                                                                         | Output explanation                                                                        | Example Output |
+| Function                 | Return type | Example                                                                                                         | Output explanation                                                                        | Example output |
 | ---------------          | ----------- | -------                                                                                                         | -----                                                                           | ---- |
 | `user.getGroups`         | Array       | `user.getGroups({'group.id': {'00gjitX9HqABSoqTB0g3'}}, {'group.profile.name': 'Engineering.*'})`                | A list of groups with group ID `00gjitX9HqABSoqTB0g3` and a group name that starts with `Engineering`                                                                | The `Engineering Users` group with ID `00gjitX9HqABSoqTB0g3` |
 |                          |             | `user.getGroups({'group.type': {'OKTA_GROUP'}}, {'group.profile.name': {'Everyone', 'West Coast Admins'}})`     | A list of groups that are of the type `OKTA_GROUP` and the group name starts with `Everyone` or `West Coast Admins` | A list of user groups that contains groups with ID `00garwpuyxHaWOkdV0g4`  |
@@ -288,7 +288,7 @@ You can use collection projections with the `user.getGroups` function.
 
 The following examples use `user.getGroups({'group.profile.name': 'Everyone'})` as the `user.getGroups($expression)`, which would return a list of groups that starts with `Everyone`.
 
-| Function example | Projection Expression | Output explanation |
+| Function example | Projection expression | Output explanation |
 | --- | --- |---|
 | `user.getGroups({'group.profile.name': 'Everyone'}).![id]` | Group ID (`id`) | Returns a list of group IDs |
 | `user.getGroups({'group.profile.name': 'Everyone'}).![type]` | Group type (`type`) | Returns a list of types |
@@ -341,7 +341,7 @@ Use this function to retrieve the user who's identified with the specified `prim
 
 ## Constants and operators
 
-| Common Action                                                                               | Example                                                     |
+| Common action                                                                               | Example                                                     |
 | ----------------                                                                            | --------                                                    |
 | Refer to a `String` constant                                                                | `'Hello world'`                                             |
 | Refer to a `Integer` constant                                                               | `1234`                                                      |
