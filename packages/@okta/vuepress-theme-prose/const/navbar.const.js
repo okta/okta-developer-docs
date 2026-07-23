@@ -8,7 +8,7 @@ export const concepts = [
         path: "/docs/concepts/api-access-management/",
       },
       {
-        title: "Okta MCP Server",
+        title: "Okta Open Source MCP Server",
         path: "/docs/concepts/mcp-server/",
       },
       {
@@ -592,7 +592,7 @@ export const guides = [
         ],
       },
       {
-        title: "Okta MCP server",
+        title: "Okta Open Source MCP Server",
         subLinks: [
           {
             title: "Install and initialize",
@@ -1416,7 +1416,7 @@ export const releaseNotes = [
         path: "/docs/release-notes/2026-okta-aerial/",
       },
       {
-        title: "2026 - Okta MCP Server",
+        title: "2026 - Okta Open Source MCP Server",
         path: "/docs/release-notes/2026-okta-mcp-server/",
       },
       {

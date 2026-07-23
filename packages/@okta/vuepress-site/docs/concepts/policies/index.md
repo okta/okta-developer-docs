@@ -109,6 +109,32 @@ Use the [App sign-in policies page](https://help.okta.com/okta_help.htm?type=oie
 
 > **Note:** API service apps aren't automatically assigned a default app sign-in policy. You must explicitly assign an app sign-in policy to each API service app.
 
+##### Staged policy branches
+
+<ApiLifecycle access="ea" /><ApiLifecycle access="ie" />
+
+> **Note:** This functionality is available as a self-service Early Access (EA) feature for Identity Engine orgs. To use it, enable the Change management for app sign-in policies feature. See [Self-service features](/docs/concepts/feature-lifecycle-management/#self-service-features).
+
+App sign-in policies support branching, which lets you draft, test, and deploy policy changes without affecting end users until you're ready to promote them.
+
+A policy can have at most one draft or staged branch at a time, alongside the live branch.
+
+An app sign-in policy branch can have one of the following states:
+
+* **Draft branch:** A new branch that's created as a copy of the live policy. Rules are inherited and can be edited. You can promote draft branches directly to live, but you can't monitor them.
+* **Staged branch:** A draft branch that has been staged. Rules can be added, updated, or deleted. You can enable monitoring on a staged branch to evaluate its rules against real user traffic without enforcing them.
+* **Live branch:** The set of policy rules that are currently enforced. This is the standard branch state for an app sign-in policy.
+
+Enable monitoring on a staged branch to evaluate its rules against real user traffic without enforcing them. This lets you assess the impact of your changes before you deploy them.
+
+To enable this, set a monitoring expiry date when you stage the branch. The maximum monitoring period is 28 days. Monitoring stops automatically when you promote the brach to live, revert it to draft, or the expiry passes. To view monitoring data, see [Use the Policy Insights Dashboard](https://help.okta.com/okta_help.htm?type=oie&id=policy-insights-dashboard).
+
+Previously live branches are stored in a branch history. You can restore a branch from history to make it live again. Restored branches are still included in the branch history. Okta makes an identical copy of the branch in the branch history and promotes the copy as the live branch.
+
+To configure staged branches for an app sign-in policy, see [Manage staged app sign-in policy branches](https://help.okta.com/okta_help.htm?type=oie&id=ext-staged-policy-branches).
+
+The Policy Branching API exposes branch operations under `/api/v1/policies/{policyId}/branches`. The `okta.policies.manage` scope is required to perform these operations. See [Policy Branching](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policybranch).
+
 #### Okta account management policy
 
 <ApiLifecycle access="ie" />

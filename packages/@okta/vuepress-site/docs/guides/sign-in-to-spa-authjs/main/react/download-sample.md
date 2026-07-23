@@ -1,6 +1,8 @@
 ### Download the sample React application
 
-To view a simple example of a React app, clone the Auth JS repository and follow the setup procedure:
+Clone the Auth JS repository and follow the setup procedure below to confirm your org and environment work end-to-end.
+
+> **Note:** The generated sample still uses Auth JS's Legacy Mode internally, so its `App.jsx` and `GeneralForm.jsx` source don't match the Step Mode code shown later in this guide. Use the sample only to verify your app integration settings and environment; use this guide's own code snippets as the reference for how to build the sign-in logic.
 
 #### Clone the Auth JS repository
 
@@ -26,7 +28,6 @@ Create and add a configuration file (`testenv`) to the `okta-auth-js` root folde
 ```txt
 ISSUER=https://{yourOktaDomain}/oauth2/default
 CLIENT_ID={clientId}
-USE_INTERACTION_CODE=true
 ```
 
 #### Run the sample application
@@ -40,16 +41,17 @@ Navigate to the project folder and run the sample app. Click **Login** and sign 
 
 ### Create a React app (optional)
 
-If you don't have an existing React app, you can quickly create an app by using [Create React App](https://create-react-app.dev/):
+If you don't have an existing React app, you can quickly create one using [Vite](https://vite.dev/):
 
 ```bash
-  npx create-react-app okta-app
+npm create vite@latest okta-app -- --template react
 ```
 
-Go into your root app directory to view the created files:
+Go into your app directory and install the base dependencies:
 
 ```bash
-  cd okta-app
+cd okta-app
+npm install
 ```
 
 ### Install dependencies
@@ -70,4 +72,15 @@ npm install @okta/okta-react@latest
 npm install react-router-dom@5
 ```
 
-> **Note:** The sample code in this use case requires `react-router-dom` version 5.x. Certain objects used in the sample code don't exist in `reactor-router-dom` version 6.x.
+> **Note:** The sample code in this use case requires `react-router-dom` version 5.x. Certain objects used in the sample code don't exist in `react-router-dom` version 6.x or later. Okta's own reference sample app is also still on `react-router-dom` version 5.x, so there's no version 6+ equivalent to switch to yet.
+
+### Add environment variables
+
+Vite only exposes environment variables to your app code when they're prefixed with `VITE_` and read through `import.meta.env`, unlike some other React tooling. Create a `.env` file in your app's root folder with your [app integration settings](#app-integration-settings):
+
+```txt
+VITE_ISSUER=https://{yourOktaDomain}/oauth2/default
+VITE_CLIENT_ID={clientId}
+```
+
+> **Note:** Add `.env` to your `.gitignore` file so you don't commit it to source control.
