@@ -63,12 +63,38 @@ When you create an Okta expression, you can reference any property that exists i
 
 When you create an Okta expression, you can reference EDR attributes and any property that exists in an Okta device profile.
 
-> **Note:** You can only use `device.profile` with federated claims. `device.provider` isn't supported.
+> **Note:** The federated-claims restriction applies to `device.profile` references. You can only use `device.profile` attributes with [federated claims](/docs/guides/federated-claims/main/), and `device.provider` isn't supported in that context. The `device.id`, `device.caller`, `device.assurance`, and `device.provider.oktaVerify` attributes are evaluated in device-condition and policy contexts.
 
-| Syntax                             | Definitions                                                                              | Examples                                                       |
-| --------                           | ----------                                                                               | ------------                                                   |
-| `device.profile.$profile_property`  | `profile_property` - references a device profile property  | `device.profile.managed`<br>`device.profile.registered`<br>           |
-| `device.provider.$vendor.$signal`| `vendor` - references a vendor, such as `wsc` for Windows Security Center or `zta` for CrowdStrike <br>`signal` - references the supported EDR signal by the vendor| `device.provider.wsc.fireWall`<br>`device.provider.wsc.autoUpdateSettings`<br>`device.provider.zta.overall`   |
+| Syntax | Definitions | Examples |
+| -------- | ---------- | ------------ |
+| `device.id` | String. The unique identifier that Okta assigns the device. Returns `""` on iOS if Okta Verify isn't enrolled on the device. | `device.id` |
+| `device.assurance.screenLockType` | String. The device screen lock type. Values: `NONE` (no passcode), `PASSCODE` (passcode only, no biometrics), `BIOMETRIC` (both set). | `device.assurance.screenLockType == 'BIOMETRIC'` |
+| `device.caller.binaryIdentifier` | String. Identifies the app that you allow to invoke Okta FastPass (macOS, Windows). Find exact identifiers in the System Log. | `Google Chrome` |
+| `device.caller.bindingType` | String. The binding method used for authentication. Values: `LOOPBACK` (macOS, Windows), `APPLE_SSO_EXTENSION` (macOS). | `device.caller.bindingType == 'LOOPBACK'` |
+| `device.caller.validationStatus` | String. Indicates whether the binary is signed. Returns `SUCCESS` if signed (macOS, Windows). | `device.caller.validationStatus == 'SUCCESS'` |
+| `device.profile.$profile_property` | References a device profile property, including custom-defined properties. | `device.profile.managed`<br>`device.profile.registered` |
+| `device.profile.diskEncryptionType` | String. The disk encryption type. Values: `NONE` (all platforms), `FULL` (Android, iOS), `USER` (Android), `ALL_INTERNAL_VOLUMES` (macOS, Windows), `SYSTEM_VOLUME` (macOS, Windows). | `device.profile.diskEncryptionType == 'FULL'` |
+| `device.profile.displayName` | String. The device display name. 4-byte UTF-8 characters aren't supported. | `DESKTOP-BE6IL05` |
+| `device.profile.imei` | String. The device IMEI. Not available for all devices. | `410154203237518` |
+| `device.profile.integrityDebug` | Boolean. Indicates whether a debugger was detected. | `device.profile.integrityDebug == false` |
+| `device.profile.integrityEmulator` | Boolean. Indicates whether the device runs as an emulator. | `device.profile.integrityEmulator == false` |
+| `device.profile.integrityHook` | Boolean. Indicates whether internal functions or runtime hooks were detected. | `device.profile.integrityHook == false` |
+| `device.profile.integrityJailbreak` | Boolean. Indicates whether the mobile device is jailbroken or rooted. | `device.profile.integrityJailbreak == false` |
+| `device.profile.integrityRepackage` | Boolean. Indicates whether a third party repackaged the app. | `device.profile.integrityRepackage == false` |
+| `device.profile.managed` | Boolean. The managed attribute. Available only with Device Trust or the `DEVICE_CONDITION_IDX_ADVANCED` feature enabled. | `device.profile.managed == true` |
+| `device.profile.manufacturer` | String. The device manufacturer. | `Samsung` |
+| `device.profile.meid` | String. The device MEID. Not available for all devices. | `99001092003340` |
+| `device.profile.model` | String. The device model. | `SM-G991U1` |
+| `device.profile.osVersion` | String. The OS version. Use `versionGreaterThan` and `versionLessThan` to compare. Avoid `<` and `>`, which compare as literal strings. | `device.profile.osVersion.versionGreaterThan('14.2.1') == true` |
+| `device.profile.platform` | String. The OS. Values: `IOS`, `ANDROID`, `WINDOWS`, `MACOS`, `MOBILE_OTHER`, `DESKTOP_OTHER`, `CHROMEOS`. | `device.profile.platform == 'MACOS'` |
+| `device.profile.registered` | Boolean. The registered attribute. | `device.profile.registered == true` |
+| `device.profile.secureHardwarePresent` | Boolean. Indicates whether a secure hardware chip (TPM or Secure Enclave) is present. Doesn't check for tokens. | `device.profile.secureHardwarePresent == true` |
+| `device.profile.serialNumber` | String. The device serial number. Not available for all devices. | `device.profile.serialNumber` |
+| `device.profile.sid` | String. The Windows-only Security Identifier (SID). | `device.profile.sid` |
+| `device.profile.tpmPublicKeyHash` | String. The TPM public key hash. | `device.profile.tpmPublicKeyHash` |
+| `device.profile.udid` | String. The device UDID. Available only in certain managed scenarios. | `35E24D56-D8BD-7566-1ABC-10064C6AFB85` |
+| `device.provider.oktaVerify.version` | String. The device Okta Verify version. Use `versionGreaterThan` and `versionLessThan` to compare, or `==` for an exact match. Avoid `<` and `>`, which compare as literal strings. | `device.provider.oktaVerify.version.versionGreaterThan('9.43') == true` |
+| `device.provider.$vendor.$signal` | `vendor` references a vendor, such as `wsc` for Windows Security Center or `zta` for CrowdStrike. `signal` references the supported EDR signal by the vendor. | `device.provider.wsc.fireWall`<br>`device.provider.wsc.autoUpdateSettings`<br>`device.provider.zta.overall` |
 
 See [Integrate with Endpoint Detection and Response solutions](https://help.okta.com/okta_help.htm?type=oie&id=ext-edr-integration-main) and [Available EDR signals by vendor](https://help.okta.com/okta_help.htm?type=oie&id=ext-edr-integration-available-signals) for details about `vendor` and `signal`.
 
