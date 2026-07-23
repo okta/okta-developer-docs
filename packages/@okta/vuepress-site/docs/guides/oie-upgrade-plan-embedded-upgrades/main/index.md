@@ -4,6 +4,22 @@ title: Plan embedded auth app upgrades
 
 <ApiLifecycle access="ie" />
 
+This guide is the most detailed checklist for upgrading an embedded authentication app from Classic Engine to Identity Engine. Use it during the Build step of the Modernize your sign-in and SSO flow with Okta Identity Engine journey, after you've chosen a deployment model.
+<!-- TODO(OKTA-1216410 follow-up): link "Modernize your sign-in and SSO flow with Okta Identity Engine" to /docs/journeys/modernize-sso-flow-with-oie/main/ when that journey publishes (target: September monthly release). -->
+
+> **Note:** If you haven't yet chosen a deployment model, start with Choose your OIE authentication modernization approach.
+<!-- TODO(OKTA-1216410 follow-up): link "Choose your OIE authentication modernization approach" to /docs/guides/choose-oie-authentication-approach/main/ when that guide publishes (target: September monthly release). -->
+
+## When to use this guide
+
+Use this guide if your app:
+
+* Embeds the Okta Sign-In Widget (Gen2). The Gen3 widget is delivered as the Okta-hosted sign-in experience and isn't supported for self-hosted embedding.
+* Uses an Okta language SDK (Auth.js, Java, .NET, Node, Python, Go, or a mobile SDK) to authenticate users.
+* Calls Classic Engine APIs (`/api/v1/authn`, Factors API, Sessions API) directly and is moving to a supported Identity Engine flow.
+
+This guide isn't the right starting point if your app uses redirect authentication only. For redirect, see [Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/main/) and the related platform-specific redirect guides.
+
 Okta understands that upgrades can be stressful. The upgrade steps are broken up to ensure that you maintain the best user experience across your apps.
 
 Okta doesn't recommend doing this upgrade all at once, but rather in sections with breaks for testing. This process is non-disruptive and iterative over time. Make the upgrade steps part of your normal product development process.
@@ -21,7 +37,7 @@ Also, create continuous pieces of work that your team must do to fully upgrade t
 While it isn't possible to fully document every upgrade scenario, the following stages cover the most common scenarios. These steps aren't all-inclusive. See the associated documentation in each stage for more detailed steps that you can use to plan and prioritize your process.
 
 * [Redirecting to the Okta-hosted Sign-In Widget](#update-the-okta-hosted-sign-in-widget)
-* [Embedding our Sign-In Widget](#update-the-embedded-sign-in-widget)
+* [Embedding our Sign-In Widget](#update-the-embedded-sign-in-widget-gen2)
 * [Embedding your authentication with our SDKs](#upgrade-sdks-to-the-latest-version-in-your-apps)
 * [Using the Okta APIs](#upgrade-from-using-the-okta-authentication-apis)
 
@@ -31,11 +47,11 @@ See [Roll the upgrade out to your users](#roll-the-upgrade-out-to-your-users) fo
 
 When you're redirecting to the Okta-hosted widget, make sure that your user experience is preserved both [visually](/docs/guides/oie-upgrade-sign-in-widget-styling/) and [functionally](/docs/guides/oie-upgrade-sign-in-widget-i18n/). Be sure to check your `config.idps` [settings](https://github.com/okta/okta-signin-widget#openid-connect) for customizations that may not be compatible with Identity Engine.
 
-## Update the Embedded Sign-In Widget
+## Update the Embedded Sign-In Widget (Gen2)
 
-When you're embedding the widget, consider and plan for the following steps depending on your needs:
+When you're embedding the widget, consider and plan for the following steps depending on your needs. The Gen3 widget is delivered as the Okta-hosted sign-in experience and isn't supported for self-hosted embedding, so embed the Gen2 widget when you need the sign-in form inside your own app.
 
-* [Update your widget](/docs/guides/oie-upgrade-sign-in-widget) to the latest version.
+* [Update your widget](/docs/guides/oie-upgrade-sign-in-widget) to the latest Gen2 version.
 * [Add support for the Interaction Code](/docs/guides/implement-grant-type/interactioncode/main/#set-up-your-authorization-server) in your custom authorization servers and embedded auth apps.
 * [Use CORS to locate potential integrations](/docs/guides/enable-cors/main/). You can use the CORS URL to isolate where an SDK is initialized.
 * [Change your embedded Sign-In Widget's configuration](/docs/guides/oie-embedded-common-download-setup-app/java/main/#initialize-the-sign-in-widget) to support the Interaction Code grant type in your project.
@@ -88,9 +104,7 @@ When you're embedding your authentication with our SDKs, consider all the steps 
 
 ## Upgrade from using the Okta Authentication APIs
 
-With some solutions, there are more architectural evaluations from Architects/Engineering Leadership/Product teams that need to be made, planned, and executed to address technical debt or, in the case of API-based implementations, move away from a less supported implementation. More detailed information is coming soon on moving away from using Classic Engine Authentication APIs to using the appropriate SDK.
-
-<!-- [move away from using Classic Authentication APIs to using the appropriate SDK](/docs/guides/). -->
+With some solutions, there are more architectural evaluations from Architects/Engineering Leadership/Product teams that need to be made, planned, and executed to address technical debt or, in the case of API-based implementations, move away from a less supported implementation. For most teams, the recommended path is to adopt the appropriate Identity Engine SDK. See [Upgrade SDKs to the latest version in your apps](#upgrade-sdks-to-the-latest-version-in-your-apps) above. If your app must call the Identity Engine APIs directly, see [Upgrade your app to the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/main/) for language-specific steps.
 
 ## Roll the upgrade out to your users
 
