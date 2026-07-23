@@ -1,0 +1,2 @@
+
+The **Required app instances** field displays the instances detected in your org. Use these instances to test your integration. This field also shows you the test instances required for the **OIN Submission Tester** based on your selected protocols.

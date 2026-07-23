@@ -29,6 +29,7 @@ const COMMON_NAME_TO_FANCY_NAME = {
   incode: 'Incode',
   clear: 'CLEAR1',
   customidv: 'Custom IDV',
+  xidv: 'Identity verification',
   react: 'React',
   preact: 'Preact',
   vue: 'Vue.js',

@@ -6,13 +6,13 @@ meta:
 layout: Guides
 ---
 
-Learn how to update an existing integration with SSO, Universal Logout, provisioning, Entitlement Management, or API service capabilities in the Okta Integration Network (OIN) using the OIN Wizard.
+Learn how to update an existing integration with SSO, Universal Logout, provisioning, Entitlement Management, API service, or Identity Verification (IDV) capabilities in the Okta Integration Network (OIN) using the OIN Wizard.
 
 ---
 
 #### What you need
 
-* A published OIDC, SAML 2.0, SCIM, API Integration Action, or API service integration in the OIN.
+* A published OIDC, SAML 2.0, SCIM, API Integration Action, API service, or Identity Verification (IDV) integration in the OIN.
 * The [Okta Integrator Free Plan org](https://developer.okta.com/signup/) from where you originally submitted your published integration. The OIN Wizard is only available in Integrator Free Plan orgs.
 * An admin user in the Integrator Free Plan org with either the super admin or the app and org admin roles.
 
@@ -20,11 +20,11 @@ Learn how to update an existing integration with SSO, Universal Logout, provisio
 
 ## Overview
 
-If you have a published Single Sign-On (SSO), lifecycle management, provisioning, Entitlement Management, or API service integration in the [OIN catalog](https://www.okta.com/integrations/), you can update and resubmit it with the OIN Wizard.
+If you've a published Single Sign-On (SSO), lifecycle management, provisioning, Entitlement Management, API service, or IDV integration in the [OIN catalog](https://www.okta.com/integrations/), you can update and resubmit it with the OIN Wizard.
 
 The OIN Wizard currently supports updates for integrations that use the following protocols or tools:
 
-* [OpenID Connect (OIDC)](https://openid.net/connect/)
+* [OpenID Connect (OIDC)](https://openid.net/connect/
 
 * [Security Assertion Markup Language (SAML) 2.0](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html)
 
@@ -36,15 +36,16 @@ The OIN Wizard currently supports updates for integrations that use the followin
 
 * [API service integration](/docs/guides/oin-api-service-overview/)
 
-* [API Integration Actions](/docs/guides/oin-api-actions/)
+> **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, SCIM 2.0, API service, or IDV integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
 
 > **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, SCIM 2.0, and API service integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
+* Identity Proofing (Identity Verification integration)
 
 There are two types of updates you can make to a published OIN integration:
 
 * Catalog information only - Update your app listing details such as name, logo, description, or contact information without requiring functional configuration changes or testing.
 
-* Functional configuration - Update functional settings such as SAML configurations, SCIM provisioning, URLs, or other integration capabilities. This update type requires testing and backward compatibility verification.
+* Functional configuration - Update functional settings such as SSO configurations, SCIM provisioning, URLs, or other integration capabilities. This update type requires testing and backward compatibility verification.
 
 After you successfully test the updated and published versions of your integration, resubmit your integration to the OIN team. Your integration goes through a [submission review process](/docs/guides/submit-app-overview/#understand-the-submission-review-process) before the updated version is published in the OIN catalog.
 
@@ -87,6 +88,8 @@ Use this streamlined workflow to update the following catalog fields:
 - Contact information
 
 When you modify only these catalog fields on a published integration, the OIN Wizard bypasses configuration and testing. A confirmation dialog appears for you to submit your changes. Your submission goes directly to the OIN team. Your app displays an in-review status in **Your apps** section. Your changes are tracked through an automated operations ticket and deployed upon OIN Ops team approval. The live version remains active in the public OIN catalog during this review.
+
+> **Important:** If your update includes changes to functional configurations such as SAML settings, SCIM provisioning, or URLs, you must select **Edit** > **Integration** instead and complete the full end-to-end testing workflow described in the **Update functional configuration** section below.
 
 ### Update functional configuration
 
