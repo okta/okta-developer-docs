@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-This guide describes how to manage access request in-flight tasks using the Okta Identity Governance (OIG) APIs.
+This guide describes how to manage initiated and in-progress access request tasks using the Okta Identity Governance (OIG) APIs.
 
 ---
 
@@ -50,9 +50,9 @@ If your workflow uses an OIDC client for user-based access, you don't need to as
 
 With admin permissions, use these API requests to manage in-flight access requests in your org.
 
-### List all tasks in your org
+### List tasks in your org
 
-Use the [List all tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks/listalltasksv2) request to retrieve a list of access request tasks from your org that matches a specific condition. For example, you can retrieve a list of outstanding (`OPEN`) tasks that were created over two weeks ago.
+Use the [List all tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks/listalltasksv2) request to retrieve a list of access request tasks from your org that matches a specific condition. For example, you can retrieve a list of outstanding (`OPEN`) tasks.
 
 | **API** | Access Requests - V2 > Tasks |
 | ------- | ----------------------- |
@@ -72,7 +72,7 @@ curl -v -X GET \
 
 ##### Response example
 
-This response example shows xxxxx
+This response example shows the list of outstanding approval tasks in the org. If the list return is more than the pagination `limit` (default `limit` is 20 tasks), then the `_links.next` is returned with the URL to the next page of results.
 
 ```json
 {
@@ -82,9 +82,9 @@ This response example shows xxxxx
       "requestId": "req42kjDgk1EubTwo0g4",
       "status": "OPEN",
       "type": "APPROVAL",
-      "title": "Manager Approval",
       "assignee": {
-        "externalId": "00u1234567890abcdef"
+        "externalId": "00u1234567890abcdef",
+        "type": "OKTA_USER"
       },
       "createdAt": "2026-07-01T10:00:00.000Z",
       "updatedAt": "2026-07-01T10:00:00.000Z"
@@ -95,7 +95,6 @@ This response example shows xxxxx
       "href": "https://{yourOktaDomain}/governance/api/v2/tasks?limit=20"
     }
   }
-}
 }
 ```
 
@@ -140,20 +139,22 @@ curl -v -X GET \
 }
 ```
 
-### Update a task
+### Reassign a task
 
-Use the [Update a task](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks/updatetaskv2) request to reassign an in-flight task to another user or update task properties.
+Use the [Update a task](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks/updatetaskv2) request to reassign an access request task to another set of users or to a single user.
+
+> **Note:** If you need to escalate a stale task to a group of escalated approvers, you can reassign a task from a single assignee to a group of assignees for any task type.
 
 | **API** | Access Requests - V2 |
 | ------- | ----------------------- |
-| **Request** | [Update a task]() |
+| **Request** | [Update a task](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks/updatetaskv2) |
 | **Request URI** | `PATCH /governance/api/v2/tasks/{taskId}` |
 | **Scopes required** | `okta.accessRequests.tasks.manage` |
 | **Admin role required** | Super admin (`SUPER_ADMIN`) or access requests admin (`ACCESS_REQUESTS_ADMIN`) |
 
 ##### Request example
 
-This request example cccc
+This request example reassigns the task to two other assignees.
 
 ```bash
 curl -v -X PATCH \
@@ -161,9 +162,16 @@ curl -v -X PATCH \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer {yourOktaAccessToken}' \
   -d '{
-    "assignee": {
-      "id": "00u9876543210fedcba"
-    }
+      "assignees": [
+      {
+        "externalId": "00u1a2b3c4d5e6f7g8h9",
+        "type": "OKTA_USER"
+      },
+      {
+        "externalId": "00u1a2b3c4d5e6f7g8h8",
+        "type": "OKTA_USER"
+      }
+    ]
   }'
 ```
 
@@ -172,15 +180,21 @@ curl -v -X PATCH \
 ```json
 {
   "id": "68b0a1576dd8db837f5ee55d",
-  "requestId": "req_88a0b1234cd",
+  "requestId": "req42kjDgk1EubTwo0g4",
   "status": "OPEN",
   "type": "APPROVAL",
-  "title": "Manager Approval",
-  "assignee": {
-    "id": "00u9876543210fedcba",
-    "email": "new_approver@example.com"
-  },
-  "createdAt": "2026-07-01T10:00:00.000Z",
+  "label": "This is an approval task",
+  "assignees": [
+    {
+      "externalId": "00u1a2b3c4d5e6f7g8h9",
+      "type": "OKTA_USER"
+    },
+    {
+      "externalId": "00u1a2b3c4d5e6f7g8h8",
+      "type": "OKTA_USER"
+    }
+  ],
+  "createdAt": "2026-06-01T10:00:00.000Z",
   "updatedAt": "2026-07-02T14:30:00.000Z"
 }
 ```
