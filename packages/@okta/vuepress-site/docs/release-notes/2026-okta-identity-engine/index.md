@@ -46,7 +46,7 @@ The `GET /api/v1/devices/{deviceId}/os-accounts` and `GET /api/v1/devices/{devic
 
 #### Submit Identity Verification integration is EA
 
-ISVs can now build, test, and submit Identity Verification (IDV) integrations to the Okta Integration Network (OIN) using the OIN Wizard. This enables customers and Okta admins to discover and configure their preferred IDV providers directly from the OIN app catalog, without manually entering IDV-specific details each time. See [Submit an IDV integration with the OIN Wizard](/docs/guides/submit-oin-app/idv/main/).
+ISVs can now build, test, and submit Identity Verification (IDV) integrations to the Okta Integration Network (OIN) using the OIN Wizard. This enables customers and Okta admins to discover and configure their preferred IDV providers directly from the OIN app catalog, without manually entering IDV-specific details each time. See [Submit an IDV integration with the OIN Wizard](/docs/guides/submit-oin-app/xidv/main/).
 
 #### Bugs fixed in 2026.07.2
 
