@@ -12,12 +12,12 @@ This guide describes how to manage in-flight access request tasks using the Okta
 
 #### Learning outcomes
 
-Learn how to use Okta Identity Governance (OIG) admin [Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks) and end user [My Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks) APIs to manage access request tasks in your custom app or workflow.
+Learn how to use OIG admin [Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks) and end user [My Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks) APIs to manage access request tasks in your custom app or workflow.
 
 #### What you need
 
 * An Okta org that's subscribed to OIG
-* Okta Workflows or Postman to follow this guide and test the OIG APIs
+* Okta Workflows, Postman, or your custom app to follow this guide and test the OIG APIs
 
 ---
 
@@ -50,7 +50,7 @@ If your workflow uses an OIDC client for user-based access, you don't need to as
 
 ## Admin tasks
 
-With admin permissions, use these API requests to manage in-flight access requests in your org.
+With the access request admin role, use these API requests to manage in-flight tasks in your org.
 
 ### List tasks in your org
 
@@ -150,7 +150,7 @@ curl -v -X GET \
 
 Use the [Update a task](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks/updatetaskv2) request to reassign an access request task to another set of users or to a single user.
 
-> **Note:** If you need to escalate a stale task to a group of escalated approvers, you can reassign a task from a single assignee to a group of assignees for any task type.
+> **Note:** If you need to escalate a stale task to a group of approvers, you can reassign a task from a single assignee to a group of assignees for any task type.
 
 | **API** | Access Requests - V2 |
 | ------- | ----------------------- |
