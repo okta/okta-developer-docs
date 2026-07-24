@@ -44,6 +44,7 @@ The following third-party AI Agent platforms are supported:
 | --- | --- | --- |
 | Amazon Web Services | AWS Bedrock Classic Agents | [AWS Bedrock Classic Agents guide](/docs/guides/ai-agent-secure-aws-bedrock/) |
 | Amazon Web Services | AWS Bedrock AgentCore | [AWS Bedrock AgentCore guide](/docs/guides/ai-agent-secure-amazon-bedrock/) |
+| Salesforce | Agentforce | [Salesforce Agentforce guide](/docs/guides/ai-agent-secure-salesforce-agentforce/) |
 
 ## Setting up the third-party token flow
 
@@ -107,7 +108,7 @@ The AI Agent is the machine identity that your calling app uses to sign token ex
 
 The AI Agent identity is distinct from the OIDC web app integration, which signs users in and issues the ID token. The AI Agent identity authenticates both steps of the exchange.
 
-In a real integration, you import the third-party agent you've already built, for example, a live Amazon Bedrock or Azure AI Foundry agent. That import generates the client ID, key ID, and private key that your agent's integration code uses to sign token exchange requests, as shown in the platform-specific guides listed under [Supported platforms](#supported-platforms).
+In a real integration, you import the third-party agent you've already built, for example, a live Amazon Bedrock or Salesforce Agentforce agent. That import generates the client ID, key ID, and private key that your agent's integration code uses to sign token exchange requests, as shown in the platform-specific guides listed under [Supported platforms](#supported-platforms).
 
 This guide isn't tied to a specific platform. To walk through the token exchange flow end-to-end, manually register a stand-in AI Agent identity instead:
 
