@@ -12,7 +12,7 @@ This guide describes how to manage in-flight access request tasks using the Okta
 
 #### Learning outcomes
 
-* Learn how to use Okta Identity Governance (OIG) admin [Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks) and end user [My Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks) APIs to manage access request tasks in your custom app or workflow.
+Learn how to use Okta Identity Governance (OIG) admin [Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks) and end user [My Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks) APIs to manage access request tasks in your custom app or workflow.
 
 #### What you need
 
@@ -43,6 +43,8 @@ For either user-based or service-based API access, grant the following scopes du
 * `okta.accessRequests.tasks.read`
 
 In addition, you have to grant an admin role to the service-based OAuth 2.0 client. Without user context, the service app acts as a principal and requires the `SUPER_ADMIN` or the `ACCESS_REQUESTS_ADMIN` role for access request admin operations.
+
+> **Note:** If you're using Okta Workflows, the **Okta Workflows OAuth** app in your org is used for API authentication. Grant the `okta.accessRequests.tasks.manage` scope to this app. See [Authorization > Create a connection from the current Okta org](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-misc-authorization).
 
 If your workflow uses an OIDC client for user-based access, you don't need to assign an admin role to the OIDC client. For user-based access, Okta reviews the role that's assigned to the authenticated user and determines whether they have permission to perform the operation.
 
@@ -253,7 +255,7 @@ The following API requests allow end users to retrieve and resolve tasks assigne
 
 ### List all my tasks
 
-Use the [List all my tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks/listallmytasksv2) request to retrieve a list of tasks assigned to you from access requests managed by Okta Identity Governance (OIG) access request conditions.
+Use the [List all my tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks/listallmytasksv2) request to retrieve a list of tasks assigned to you from access requests managed by OIG access request conditions.
 
 | **API** | My Tasks |
 | ------- | ----------- |
@@ -264,11 +266,11 @@ Use the [List all my tasks](https://developer.okta.com/docs/api/iga/openapi/gove
 
 ##### Request example
 
-This example lists all open tasks
+This example lists all open tasks assigned to the authenticated user.
 
 ```bash
 curl -v -X GET \
-  'https://{yourOktaDomain}/governance/api/v2/my/tasks?filter=status%20eq%20%22OPEN%22&limit=20' \
+  'https://{yourOktaDomain}/governance/api/v2/my/tasks?filter=status%20eq%20%22OPEN%22' \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer {yourOktaAccessToken}'
 ```
@@ -290,15 +292,13 @@ curl -v -X GET \
           "type": "OKTA_USER"
         }
       ],
-      "createdAt": "2019-08-24T14:15:22Z",
-      "updatedAt": "2019-08-24T14:15:22Z",
-      "isEscalated": false,
-      "isDelegated": false
+      "createdAt": "2026-07-24T14:15:22Z",
+      "updatedAt": "2026-07-24T14:15:22Z",
     }
   ],
   "_links": {
     "self": {
-      "href": "https://{yourOktaDomain}/governance/api/v2/my/tasks?limit=20"
+      "href": "https://{yourOktaDomain}/governance/api/v2/my/tasks?filter=status%20eq%20%22OPEN%22"
     }
   }
 }
@@ -306,11 +306,11 @@ curl -v -X GET \
 
 ### Retrieve my task
 
-Use the Retrieve my task request to view details for a specific task assigned to you by its unique ID.
+Use the [Retrieve my task](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks/getmytaskv2) request to view details for a specific task assigned to you, by its unique ID.
 
 | **API** | My Tasks |
 | ------- | ----------- |
-| **Request** | [Retrieve my task]() |
+| **Request** | [Retrieve my task](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks/getmytaskv2) |
 | **Request URI** | `GET /governance/api/v2/my/tasks/{taskId}` |
 | **Scopes required** | `okta.accessRequests.tasks.read` |
 | **Admin roles required** | None (standard Okta user) |
@@ -335,20 +335,26 @@ curl -v -X GET \
       "type": "OKTA_USER"
     }
   ],
-  "status": "OPEN",
-  "label": "This is an approval task",
+  "status": "COMPLETED",
+  "label": "Why is access required?",
   "requestId": "req42kjDgk1EubTwo0g4",
-  "createdAt": "2019-08-24T14:15:22Z",
-  "updatedAt": "2019-08-24T14:15:22Z",
-  "type": "APPROVAL",
-  "isEscalated": false,
-  "isDelegated": false
+  "createdAt": "2026-04-24T14:15:22Z",
+  "updatedAt": "2019-04-25T15:25:00Z",
+  "type": "QUESTION",
+  "value": "For fulfilling some responsibilities",
+  "isEscalated": true,
+  "isDelegated": false,
+  "originalAssigneeId": "00u9a8b7c6d5e4f3g2h1",
+  "completedBy": {
+    "externalId": "00u1a2b3c4d5e6f7g8h9",
+    "type": "OKTA_USER"
+  }
 }
 ```
 
 ### Resolve my task
 
-Use the [Resolve my task](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks/resolvemytaskv2) request to fulfill or complete a task assigned to you, such as approving or denying an access request.
+Use the [Resolve my task](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks/resolvemytaskv2) request to complete a task assigned to you, such as approving or denying an access request.
 
 | **API** | My Tasks |
 | ------- | ----------- |
@@ -378,13 +384,17 @@ curl -v -X POST \
     {
       "externalId": "00u1a2b3c4d5e6f7g8h9",
       "type": "OKTA_USER"
+    },
+    {
+      "externalId": "00u1a2b3c4d5e6f7g8h8",
+      "type": "OKTA_USER"
     }
   ],
   "status": "COMPLETED",
   "label": "This is an approval task",
   "requestId": "req42kjDgk1EubTwo0g4",
-  "createdAt": "2019-08-24T14:15:22Z",
-  "updatedAt": "2019-08-24T14:15:22Z",
+  "createdAt": "2026-05-24T10:15:22Z",
+  "updatedAt": "2026-05-27T15:30:13Z",
   "type": "APPROVAL",
   "value": "APPROVED",
   "completedBy": {
@@ -396,4 +406,4 @@ curl -v -X POST \
 
 ## System Logs
 
-
+Any System Log triggers from these APIs?
