@@ -210,6 +210,7 @@ guides:
  - policy-simulation
  - idv-integration
  - device-signal-collection-policies
+ - user-identification-policies
  - authenticators-tac-authenticator
  - custom-well-known-uri
  - validate-federation
