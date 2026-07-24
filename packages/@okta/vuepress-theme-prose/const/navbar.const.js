@@ -1054,6 +1054,17 @@ export const guides = [
         ],
       },
       {
+        title: "Okta for AI Agents",
+        hidden: true,
+        subLinks: [
+          {
+            title: "Register AI agents with CIMD",
+            guideName: "ai-agent-cimd-registration",
+            hidden: true,
+          },
+        ],
+      },
+      {
         title: "Automate org management with Terraform",
         subLinks: [
           {
