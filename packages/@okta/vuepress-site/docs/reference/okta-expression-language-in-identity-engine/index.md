@@ -282,6 +282,28 @@ Use this function to retrieve the user who's identified with the specified `prim
   * **Example:** `user.getLinkedObject("manager").lastName`
   * **Example Result:** `Gates`
 
+### App user function
+
+Use this function to reference profile attributes that belong to a user's specific app assignment, instead of Okta Universal Directory (UD) attributes.
+
+* **Function:** `user.getAppUser($appId).profile.$attributeName`
+  * **Parameter:** (String appId) The unique identifier of the app instance, for example `0oa1gjqcb8boVQlXm0g4`, available in the Admin Console.
+  * **Return Type:** The app user profile attribute value, or `null` if the user isn't assigned to the app or if the attribute doesn't exist.
+  * **Example:** `user.getAppUser("0oa1gjqcb8boVQlXm0g4").profile.department == "Sales"`
+
+> **Note:** Only custom app user profile attributes (`.profile.$attributeName`) are supported. Core metadata fields, such as `.status`, `.id`, `.created`, `.lastUpdated`, and `.scope`, aren't supported.
+
+`getAppUser()` evaluates to `null` without producing a runtime error if the user isn't assigned to the app, if the app instance is deleted, or if the attribute doesn't exist. `null == "value"` evaluates to `false`, and `null != null` evaluates to `false`.
+
+The following table lists the supported data types and operations for `getAppUser()` profile attributes:
+
+| Data type | Supported operations                | Example                                                          |
+| --------- | ------------------------------------ | ----------------------------------------------------------------- |
+| String    | `==`, `!=`, `.contains()`            | `user.getAppUser($appId).profile.department == "Sales"`           |
+| Integer   | `==`, `!=`, `<`, `>`, `<=`, `>=`     | `user.getAppUser($appId).profile.accessLevel >= 3`                 |
+| List      | `.contains(value)`                   | `user.getAppUser($appId).profile.roles.contains("manager")`       |
+| Boolean   | `==`, `!=`                           | `user.getAppUser($appId).profile.isContractor == true`            |
+
 ### Time functions
 
 > **Note:** For the following expression examples, assume that the current date and time is `2015-07-31T17:18:37.979Z`.
