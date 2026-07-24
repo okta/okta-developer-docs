@@ -23,7 +23,7 @@ Learn how to use OIG admin [Tasks](https://developer.okta.com/docs/api/iga/opena
 
 ## Overview
 
-The Okta Identity Governance (OIG) Tasks and My Tasks APIs enable you to programmatically manage in-flight access request tasks. When users submit access requests, OIG generates tasks (such as approval steps or information requests) that require action before a request can reach resolution. By using the Tasks API, you can automate task routing, resolve process bottlenecks, and embed access request workflows directly into your enterprise apps.
+The Okta Identity Governance (OIG) [Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks) and [My Tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks) APIs enable you to programmatically manage in-flight access request tasks. When users submit access requests, OIG generates tasks (such as approval steps or information requests) that require action before a request can reach resolution. By using the Tasks API, you can automate task routing, resolve process bottlenecks, and embed access request workflows directly into your enterprise apps.
 
 With the OIG Tasks APIs, you can:
 
@@ -150,7 +150,7 @@ curl -v -X GET \
 
 Use the [Update a task](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks/updatetaskv2) request to reassign an access request task to another set of users or to a single user.
 
-> **Note:** If you need to escalate a stale task to a group of approvers, you can reassign a task from a single assignee to a group of assignees for any task type.
+> **Note:** If you need to escalate a stale task to a group of approvers, you can reassign a task from a single assignee to a group of assignees for any task type. You can assign up to a maxium of ten assignees.
 
 | **API** | Access Requests - V2 |
 | ------- | ----------------------- |
