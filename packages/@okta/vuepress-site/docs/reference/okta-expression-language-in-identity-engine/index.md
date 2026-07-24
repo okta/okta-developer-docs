@@ -63,12 +63,38 @@ When you create an Okta expression, you can reference any property that exists i
 
 When you create an Okta expression, you can reference EDR attributes and any property that exists in an Okta device profile.
 
-> **Note:** You can only use `device.profile` with federated claims. `device.provider` isn't supported.
+> **Note:** The federated-claims restriction applies to `device.profile` references. You can only use `device.profile` attributes with [federated claims](/docs/guides/federated-claims/main/), and `device.provider` isn't supported in that context. The `device.id`, `device.caller`, `device.assurance`, and `device.provider.oktaVerify` attributes are evaluated in device-condition and policy contexts.
 
-| Syntax                             | Definitions                                                                              | Examples                                                       |
-| --------                           | ----------                                                                               | ------------                                                   |
-| `device.profile.$profile_property`  | `profile_property` - references a device profile property  | `device.profile.managed`<br>`device.profile.registered`<br>           |
-| `device.provider.$vendor.$signal`| `vendor` - references a vendor, such as `wsc` for Windows Security Center or `zta` for CrowdStrike <br>`signal` - references the supported EDR signal by the vendor| `device.provider.wsc.fireWall`<br>`device.provider.wsc.autoUpdateSettings`<br>`device.provider.zta.overall`   |
+| Syntax | Definitions | Examples |
+| -------- | ---------- | ------------ |
+| `device.id` | String. The unique identifier that Okta assigns to the device. Returns `''` on iOS if Okta Verify isn't enrolled on the device. | `device.id` |
+| `device.assurance.screenLockType` | String. The device screen lock type. Values: `NONE` (no passcode), `PASSCODE` (passcode only, no biometrics), `BIOMETRIC` (both set). | `device.assurance.screenLockType == 'BIOMETRIC'` |
+| `device.caller.binaryIdentifier` | String. Identifies the app that you allow to invoke Okta FastPass (macOS, Windows). Find exact identifiers in the System Log. | `Google Chrome` |
+| `device.caller.bindingType` | String. The binding method used for authentication. Values: `LOOPBACK` (macOS, Windows), `APPLE_SSO_EXTENSION` (macOS). | `device.caller.bindingType == 'LOOPBACK'` |
+| `device.caller.validationStatus` | String. Indicates whether the binary is signed. Returns `SUCCESS` if signed (macOS, Windows). | `device.caller.validationStatus == 'SUCCESS'` |
+| `device.profile.$profile_property` | References a device profile property, including custom-defined properties. | `device.profile.managed`<br>`device.profile.registered` |
+| `device.profile.diskEncryptionType` | String. The disk encryption type. Values: `NONE` (all platforms), `FULL` (Android, iOS), `USER` (Android), `ALL_INTERNAL_VOLUMES` (macOS, Windows), `SYSTEM_VOLUME` (macOS, Windows). | `device.profile.diskEncryptionType == 'FULL'` |
+| `device.profile.displayName` | String. The device display name. 4-byte UTF-8 characters aren't supported. | `DESKTOP-BE6IL05` |
+| `device.profile.imei` | String. The device IMEI. Not available for all devices. | `410154203237518` |
+| `device.profile.integrityDebug` | Boolean. Indicates whether a debugger was detected. | `device.profile.integrityDebug == false` |
+| `device.profile.integrityEmulator` | Boolean. Indicates whether the device runs as an emulator. | `device.profile.integrityEmulator == false` |
+| `device.profile.integrityHook` | Boolean. Indicates whether internal functions or runtime hooks were detected. | `device.profile.integrityHook == false` |
+| `device.profile.integrityJailbreak` | Boolean. Indicates whether the mobile device is jailbroken or rooted. | `device.profile.integrityJailbreak == false` |
+| `device.profile.integrityRepackage` | Boolean. Indicates whether a third party repackaged the app. | `device.profile.integrityRepackage == false` |
+| `device.profile.managed` | Boolean. The managed attribute. Available only with Device Trust or the `DEVICE_CONDITION_IDX_ADVANCED` feature enabled. | `device.profile.managed == true` |
+| `device.profile.manufacturer` | String. The device manufacturer. | `Samsung` |
+| `device.profile.meid` | String. The device MEID. Not available for all devices. | `99001092003340` |
+| `device.profile.model` | String. The device model. | `SM-G991U1` |
+| `device.profile.osVersion` | String. The OS version. Use `versionGreaterThan` and `versionLessThan` to compare. Avoid `<` and `>`, which compare as literal strings. | `device.profile.osVersion.versionGreaterThan('14.2.1') == true` |
+| `device.profile.platform` | String. The OS. Values: `IOS`, `ANDROID`, `WINDOWS`, `MACOS`, `MOBILE_OTHER`, `DESKTOP_OTHER`, `CHROMEOS`. | `device.profile.platform == 'MACOS'` |
+| `device.profile.registered` | Boolean. The registered attribute. | `device.profile.registered == true` |
+| `device.profile.secureHardwarePresent` | Boolean. Indicates whether a secure hardware chip (TPM or Secure Enclave) is present. Doesn't check for tokens. | `device.profile.secureHardwarePresent == true` |
+| `device.profile.serialNumber` | String. The device serial number. Not available for all devices. | `device.profile.serialNumber` |
+| `device.profile.sid` | String. The Windows-only Security Identifier (SID). | `device.profile.sid` |
+| `device.profile.tpmPublicKeyHash` | String. The TPM public key hash. | `device.profile.tpmPublicKeyHash` |
+| `device.profile.udid` | String. The device UDID. Available only in certain managed scenarios. | `35E24D56-D8BD-7566-1ABC-10064C6AFB85` |
+| `device.provider.oktaVerify.version` | String. The device Okta Verify version. Use `versionGreaterThan` and `versionLessThan` to compare, or `==` for an exact match. Avoid `<` and `>`, which compare as literal strings. | `device.provider.oktaVerify.version.versionGreaterThan('9.43') == true` |
+| `device.provider.$vendor.$signal` | `vendor` references a vendor, such as `wsc` for Windows Security Center or `zta` for CrowdStrike. `signal` references the supported EDR signal by the vendor. | `device.provider.wsc.fireWall`<br>`device.provider.wsc.autoUpdateSettings`<br>`device.provider.zta.overall` |
 
 See [Integrate with Endpoint Detection and Response solutions](https://help.okta.com/okta_help.htm?type=oie&id=ext-edr-integration-main) and [Available EDR signals by vendor](https://help.okta.com/okta_help.htm?type=oie&id=ext-edr-integration-available-signals) for details about `vendor` and `signal`.
 
@@ -78,7 +104,7 @@ When you create an Okta expression, you can reference attributes within the `ses
 
 | Syntax            | Definitions                                                 | Result                              |
 | ----------------- | ----------------------------------------------------------- | ------------------------------------------------------ |
-| `session.amr`     | `session` - reference to a user's session<br> `amr` - the attribute name that is resolvable to an array of [Authentication Method References](https://tools.ietf.org/html/rfc8176) | `["pwd", "otp", "mfa"]` - password and MFA OTP used by the user for authentication |
+| `session.amr`     | `session` - reference to a user's session<br> `amr` - the attribute name that's resolvable to an array of [Authentication Method References](https://tools.ietf.org/html/rfc8176) | `["pwd", "otp", "mfa"]` - password and MFA OTP used by the user for authentication |
 | `session.id`     | `session` - reference to a user's session<br> `id` - a unique key for the session |   |
 
 ### Security context
@@ -88,7 +114,7 @@ You can specify certain [rule conditions](https://developer.okta.com/docs/api/op
 | Syntax | Definitions | Type | Examples | Usage   |
 | ------ | ----------- | ---- | -------- | -----   |
 | security.risk.level | `security` references the security context of the request<br>`risk` references the [risk](https://help.okta.com/okta_help.htm?id=csh-risk-scoring) context of the request<br>`level` is the risk level associated with the request | String | `'LOW'`<br>`'MEDIUM'`<br>`'HIGH'` | `security.risk.level == 'HIGH'`<br>`security.risk.level != 'LOW'`   |
-| security.behaviors | `security` references the security context of the request<br>`behaviors` is the list of matching [User behaviors](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection) for the request, by name. | Array of Strings | `{'New IP', 'New Device'}`| `security.behaviors.contains('New IP') && security.behaviors.contains('New Device')`   |
+| security.behaviors | `security` references the security context of the request<br>`behaviors` is the list of matching [User behaviors](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection) for the request, by name. | Array of strings | `{'New IP', 'New Device'}`| `security.behaviors.contains('New IP') && security.behaviors.contains('New Device')`   |
 
 ### Login context
 
@@ -107,7 +133,7 @@ You can specify certain [Expression Language conditions](https://developer.okta.
 | Syntax | Definitions | Type |
 | ------ | ----------- | ---- |
 | `accessRequest.$operation`| `accessRequest` references the access context of the request. `operation` references the account management operation: `enroll`, `unenroll`, `recover`, or `unlockAccount`. | String |
-| `accessRequest.authenticator.$id` | `accessRequest` references the access context of the request. `authenticator.id` references an optional authenticator `id`, for example, the `id` of a custom authenticator. | String |
+| `accessRequest.authenticator.$id` | `accessRequest` references the access context of the request. `authenticator.id` references an optional authenticator `id`, for example, the `id` of a Custom Authenticator. | String |
 | `accessRequest.authenticator.$key` | `accessRequest` references the access context of the request. `authenticator.key` references the [authenticator key](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod/0/constraints/knowledge/authenticationMethods/key&t=request). | String |
 | `accessRequest.metadata.type`| `accessRequest` references the access context of the request. `metadata.type` references specific information about the access request. Currently, `metadata` can only be used when referencing a `recover` operation and the only supported `metadata.type` is `expiry`. `expiry` references a recovery request where a password has expired or is expiring soon.  | String |
 
@@ -140,9 +166,9 @@ Okta offers various functions to manipulate properties to generate a desired out
 | `$string_object.toLowerCase`            | -                                             | String      | `'TEST'.toLowerCase()`                           | "test"           |
 | `$string_object.substring`              | (int startIndex)                              | String      | `'test.substring(1)'`                            | "est"            |
 | `$string_object.substring`              | (int startIndex, int endIndex)                | String      | `user.profile.firstName.substring(1,3)`          | "oh"             |
-| `$string_object.replace`                | (String match, String replacement)            | String      | `'hello'.replace('l', 'p')`                      | "heppo"          |
+| `$string_object.replace`                | (String match, string replacement)            | String      | `'hello'.replace('l', 'p')`                      | "heppo"          |
 |                                         |                                               |             | `user.profile.firstName.replace('ohn', 'ames')`  | "James"          |
-| `$string_object.replaceFirst`           | (String match, String replacement)            | String      | `'hello'.replaceFirst('l', 'p')`                 | "heplo"          |
+| `$string_object.replaceFirst`           | (String match, string replacement)            | String      | `'hello'.replaceFirst('l', 'p')`                 | "heplo"          |
 | `$string_object.length`                 | -                                             | Integer     | `'test'.length()`                                | 4                |
 | `$string_object.removeSpaces`           | -                                             | String      | `'This is a test'.removeSpaces()`                | "Thisisatest"    |
 | `$string_object.contains`               | (String searchString)                         | Boolean     | `'This is a test'.contains('test')`              | True             |
@@ -155,7 +181,7 @@ Okta offers various functions to manipulate properties to generate a desired out
 
 ### Array functions
 
-| Function                         | Input parameter Signature                     | Return type | Example                                          | Output                      |
+| Function                         | Input parameter signature                     | Return type | Example                                          | Output                      |
 | ---------------                  | -------------------------                     | ----------- | -------                                          | ------                      |
 | `$array_object.contains`         | (Object searchItem)                           | Boolean     | `user.profile.intArray.contains(3)`              | True                        |
 |                                  |                                               |             | `{1, 2, 3}.contains('one')`                      | False                       |
@@ -182,7 +208,7 @@ Okta offers various functions to manipulate properties to generate a desired out
 |                                  |             | `'123This is a test'.toNumber()`                 | An exception is thrown      |
 | `$number_object.toInteger`       | Integer     | `1.1.toInteger()`                                | 1                                |
 |                                  |             | `-1.6.toInteger()`                               | -2                               |
-|                                  |             | `2147483647.7.toInteger()`                       | -2147483648 (Integer overflow)   |
+|                                  |             | `2147483647.7.toInteger()`                       | -2147483648 (integer overflow)   |
 
 > **Note:**  The `toInteger` functions round the passed numeric value (or the string representation of the numeric value) either up or down to the nearest integer. Make sure to consider the range limitations of the integer type when you convert to an integer with these functions.
 
@@ -234,7 +260,7 @@ These group functions take in a list of search criteria as input. Each search cr
 
 The `user.getGroups` function also supports collection projections for group claims. See [Collection projections](#collection-projections) and [Federated claims with entitlements](/docs/guides/federated-claims/main/).
 
-| Function                 | Return type | Example                                                                                                         | Output explanation                                                                        | Example Output |
+| Function                 | Return type | Example                                                                                                         | Output explanation                                                                        | Example output |
 | ---------------          | ----------- | -------                                                                                                         | -----                                                                           | ---- |
 | `user.getGroups`         | Array       | `user.getGroups({'group.id': {'00gjitX9HqABSoqTB0g3'}}, {'group.profile.name': 'Engineering.*'})`                | A list of groups with group ID `00gjitX9HqABSoqTB0g3` and a group name that starts with `Engineering`                                                                | The `Engineering Users` group with ID `00gjitX9HqABSoqTB0g3` |
 |                          |             | `user.getGroups({'group.type': {'OKTA_GROUP'}}, {'group.profile.name': {'Everyone', 'West Coast Admins'}})`     | A list of groups that are of the type `OKTA_GROUP` and the group name starts with `Everyone` or `West Coast Admins` | A list of user groups that contains groups with ID `00garwpuyxHaWOkdV0g4`  |
@@ -262,7 +288,7 @@ You can use collection projections with the `user.getGroups` function.
 
 The following examples use `user.getGroups({'group.profile.name': 'Everyone'})` as the `user.getGroups($expression)`, which would return a list of groups that starts with `Everyone`.
 
-| Function example | Projection Expression | Output explanation |
+| Function example | Projection expression | Output explanation |
 | --- | --- |---|
 | `user.getGroups({'group.profile.name': 'Everyone'}).![id]` | Group ID (`id`) | Returns a list of group IDs |
 | `user.getGroups({'group.profile.name': 'Everyone'}).![type]` | Group type (`type`) | Returns a list of types |
@@ -315,7 +341,7 @@ Use this function to retrieve the user who's identified with the specified `prim
 
 ## Constants and operators
 
-| Common Action                                                                               | Example                                                     |
+| Common action                                                                               | Example                                                     |
 | ----------------                                                                            | --------                                                    |
 | Refer to a `String` constant                                                                | `'Hello world'`                                             |
 | Refer to a `Integer` constant                                                               | `1234`                                                      |
