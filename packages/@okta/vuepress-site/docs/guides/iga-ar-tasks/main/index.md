@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-This guide describes how to manage initiated and in-progress access request tasks using the Okta Identity Governance (OIG) APIs.
+This guide describes how to manage in-flight access request tasks using the Okta Identity Governance (OIG) APIs.
 
 ---
 
@@ -23,7 +23,7 @@ This guide describes how to manage initiated and in-progress access request task
 
 ## Overview
 
-The Okta Identity Governance (OIG) Tasks and My Tasks APIs enable you to programmatically manage in-flight access request tasks. When users submit access requests, OIG generates tasks (such as approval steps or information requests) that require action before a request can reach resolution. By leveraging the Tasks API, you can automate task routing, resolve process bottlenecks, and embed access request workflows directly into your enterprise apps.
+The Okta Identity Governance (OIG) Tasks and My Tasks APIs enable you to programmatically manage in-flight access request tasks. When users submit access requests, OIG generates tasks (such as approval steps or information requests) that require action before a request can reach resolution. By using the Tasks API, you can automate task routing, resolve process bottlenecks, and embed access request workflows directly into your enterprise apps.
 
 With the OIG Tasks APIs, you can:
 
@@ -42,9 +42,9 @@ For either user-based or service-based API access, grant the following scopes du
 * `okta.accessRequests.tasks.manage`
 * `okta.accessRequests.tasks.read`
 
-In addition, you have to grant an admin role to the service-based OAuth 2.0 client. Without user context, the service app acts as a principal and requires the `SUPER_ADMIN` or the `ACCESS_REQUESTS_ADMIN` role for accesss request admin operations.
+In addition, you have to grant an admin role to the service-based OAuth 2.0 client. Without user context, the service app acts as a principal and requires the `SUPER_ADMIN` or the `ACCESS_REQUESTS_ADMIN` role for access request admin operations.
 
-If your workflow uses an OIDC client for user-based access, you don't need to assign an admin role to the OIDC client. For user-based access, Okta reviews the admin or end user role that's assigned to the authenticated user and determines whether they have permission to perform the operation.
+If your workflow uses an OIDC client for user-based access, you don't need to assign an admin role to the OIDC client. For user-based access, Okta reviews the role that's assigned to the authenticated user and determines whether they have permission to perform the operation.
 
 ## Admin tasks
 
@@ -52,7 +52,7 @@ With admin permissions, use these API requests to manage in-flight access reques
 
 ### List tasks in your org
 
-Use the [List all tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks/listalltasksv2) request to retrieve a list of access request tasks from your org that matches a specific condition. For example, you can retrieve a list of outstanding (`OPEN`) tasks.
+Use the [List all tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks/listalltasksv2) request to retrieve a list of access request tasks from your org that matches a specific condition. For example, you can retrieve a list of outstanding (`OPEN`) tasks for a specific access request.
 
 | **API** | Access Requests - V2 > Tasks |
 | ------- | ----------------------- |
@@ -63,16 +63,18 @@ Use the [List all tasks](https://developer.okta.com/docs/api/iga/openapi/governa
 
 ##### Request example
 
+This example searches for a list of outstanding (`OPEN`) tasks for access request with `req42kjDgk1EubTwo0g4` ID.
+
 ```bash
 curl -v -X GET \
-  'https://{yourOktaDomain}/governance/api/v2/tasks?filter=status%20eq%20%22OPEN%22' \
+  'https://{yourOktaDomain}/governance/api/v2/tasks?filter=requestId%20eq%20%22req42kjDgk1EubTwo0g4%22%20and%20status%20eq%20%22OPEN%22' \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer {yourOktaAccessToken}'
 ```
 
 ##### Response example
 
-This response example shows the list of outstanding approval tasks in the org. If the list return is more than the pagination `limit` (default `limit` is 20 tasks), then the `_links.next` is returned with the URL to the next page of results.
+This response example shows the list of outstanding approval tasks for the specific request. If the list returned is more than the pagination `limit` (default `limit` is 20 records), then the `_links.next` is returned with the URL to the next page of results.
 
 ```json
 {
@@ -82,12 +84,12 @@ This response example shows the list of outstanding approval tasks in the org. I
       "requestId": "req42kjDgk1EubTwo0g4",
       "status": "OPEN",
       "type": "APPROVAL",
-      "assignee": {
+      "assignees": {
         "externalId": "00u1234567890abcdef",
         "type": "OKTA_USER"
       },
-      "createdAt": "2026-07-01T10:00:00.000Z",
-      "updatedAt": "2026-07-01T10:00:00.000Z"
+      "createdAt": "2026-03-24T14:15:22Z",
+      "updatedAt": "2026-03-24T14:15:22Z"
     }
   ],
   "_links": {
@@ -100,7 +102,7 @@ This response example shows the list of outstanding approval tasks in the org. I
 
 ### Retrieve a task
 
-Use the [Retrieve a task](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks/gettaskv2) request to view details for a specific access request task by its unique ID.
+Use the [Retrieve a task](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks/gettaskv2) request to view details for a specific task by its unique ID.
 
 | **API** | Access Requests - V2 |
 | ------- | ----------------------- |
@@ -110,8 +112,6 @@ Use the [Retrieve a task](https://developer.okta.com/docs/api/iga/openapi/govern
 | **Admin role required** | Super admin (`SUPER_ADMIN`) or access requests admin (`ACCESS_REQUESTS_ADMIN`)|
 
 ##### Request example
-
-This xxx
 
 ```bash
 curl -v -X GET \
@@ -125,17 +125,22 @@ curl -v -X GET \
 ```json
 {
   "id": "68b0a1576dd8db837f5ee55d",
-  "requestId": "req_88a0b1234cd",
-  "status": "OPEN",
-  "type": "APPROVAL",
-  "title": "Manager Approval",
-  "description": "Approve access to Salesforce for John Doe",
-  "assignee": {
+  "requestId": "req42kjDgk1EubTwo0g4",
+  "status": "COMPLETED",
+  "label": "This is a custom task",
+  "type": "TODO",
+  "assignees": {
     "id": "00u1234567890abcdef",
-    "email": "manager@example.com"
+    "type": "OKTA_USER"
   },
-  "createdAt": "2026-07-01T10:00:00.000Z",
-  "updatedAt": "2026-07-01T10:00:00.000Z"
+  "isEscalated": false,
+  "isDelegated": false,
+  "completedBy": {
+    "externalId": "00u1234567890abcdef",
+    "type": "OKTA_USER"
+  },
+  "createdAt": "2026-06-24T14:15:22Z",
+  "updatedAt": "2026-06-26T14:30:10Z"
 }
 ```
 
@@ -194,60 +199,61 @@ curl -v -X PATCH \
       "type": "OKTA_USER"
     }
   ],
-  "createdAt": "2026-06-01T10:00:00.000Z",
-  "updatedAt": "2026-07-02T14:30:00.000Z"
+  "createdAt": "2026-05-10T12:15:00Z",
+  "updatedAt": "2026-05-25T14:25:12Z"
 }
 ```
 
 ### Resolve a task
 
-Use the [Resolve a task](https://www.google.com/search?q=https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks/resolvetaskv2) request to complete an in-flight task by rendering a decision (such as approving or denying an approval task).
+Use the [Resolve a task](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks/resolvetaskv2) request to complete an in-flight task by setting a decision (such as approving or denying an approval task).
 
 | **API** | Access Requests - V2 |
 | ------- | --------- |
-| **Request** | Resolve a task |
+| **Request** | [Resolve a task](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/tasks/resolvetaskv2) |
 | **Endpoint** | `POST /governance/api/v2/tasks/{taskId}/resolve` |
 | **Scopes required** | `okta.accessRequests.tasks.manage` |
 | **Admin role required** | Super admin (`SUPER_ADMIN`) or access requests admin (`ACCESS_REQUESTS_ADMIN`) |
 
-##### Request examples
+##### Request example
 
-This example bbbb
+This example resolves an `APPROVAL` task by setting its value to `APPROVED`.
 
 ```bash
 curl -v -X POST \
-  'https://{yourOktaDomain}/governance/api/v2/tasks/68b0a1576dd8db837f5ee55d/resolve' \
+  'https://{yourOktaDomain}/governance/api/v2/tasks/68b0ed9802df442e8b601807/resolve' \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer {yourOktaAccessToken}' \
   -d '{
-    "action": "APPROVED",
-    "comment": "Approved following prerequisite check."
+    "value": "APPROVED"
   }'
 ```
 
-The following example returns xxxx
+##### Response example
 
-```bash
+```json
 {
-  "id": "68b0a1576dd8db837f5ee55d",
-  "requestId": "req_88a0b1234cd",
-  "status": "RESOLVED",
-  "resolution": "APPROVED",
-  "comment": "Approved following prerequisite check.",
-  "resolvedBy": {
-    "id": "00u9876543210fedcba"
+  "id": "68b0ed9802df442e8b601807",
+  "requestId": "req42kjDgk1EubTwo0g4",
+  "status": "COMPLETED",
+  "type": "APPROVAL",
+  "value": "APPROVED",
+  "completedBy": {
+    "externalId": "00u1a2b3c4d5e6f7g8h9",
+    "type": "OKTA_USER"
   },
-  "resolvedAt": "2026-07-02T14:35:00.000Z"
+  "createdAt": "2026-03-24T14:15:22Z",
+  "updatedAt": "2026-03-25T10:25:30Z"
 }
 ```
 
 ## End user tasks
 
-The following API requests allow users to retrieve and resolve tasks assigned to them.
+The following API requests allow end users to retrieve and resolve tasks assigned to them.
 
 ### List all my tasks
 
-Use the List all my tasks request to retrieve a list of tasks assigned to you from access requests managed by Okta Identity Governance (OIG) access request conditions.
+Use the [List all my tasks](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-tasks/listallmytasksv2) request to retrieve a list of tasks assigned to you from access requests managed by Okta Identity Governance (OIG) access request conditions.
 
 | **API** | My Tasks |
 | ------- | ----------- |
@@ -257,6 +263,8 @@ Use the List all my tasks request to retrieve a list of tasks assigned to you fr
 | **Admin roles required** | None (standard Okta user) |
 
 ##### Request example
+
+This example lists all open tasks
 
 ```bash
 curl -v -X GET \
@@ -386,5 +394,6 @@ curl -v -X POST \
 }
 ```
 
-##  behavior
+## System Logs
+
 
