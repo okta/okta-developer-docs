@@ -264,6 +264,9 @@ module.exports = ctx => ({
           { text: '3rd-party notes', link: '/3rd_party_notices/' },
            { text: 'Auth0', link: 'https://developer.auth0.com/' },
           { text: 'Archive', link:'/archive/' },
+          // Static file emitted post-build by generate-llms.js; target _blank forces a
+          // real anchor (SmartLink treats it as external) so the SPA router doesn't 404.
+          { text: 'llms.txt', link: '/llms.txt', target: '_blank' },
         ]
       },
       websites: {
