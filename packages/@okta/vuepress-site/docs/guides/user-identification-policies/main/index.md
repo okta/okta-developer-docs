@@ -50,15 +50,12 @@ To apply different button settings to different apps, create separate sign-in po
 
 User identification policy rules support [platform](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=1/conditions/platform&t=request) and [network](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=1/conditions/network&t=request) conditions only.
 
-Each rule sets `actions.userIdentification.settings.showSignInWithOV` to one of the following values:
+Each rule sets `actions.userIdentification.settings.securityMethods.fastpass.showSignInButton` to one of the following values:
 
 * `ALWAYS`: Show the **Sign in with Okta FastPass** button on the Sign-In Widget.
 * `NEVER`: Hide the **Sign in with Okta FastPass** button on the Sign-In Widget.
 
-> **Notes:**
->
-> * The `showSignInWithOV` field name is intentional. It matches the existing naming convention in the [Authenticators API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/authenticator/other/listauthenticatormethods#other/listauthenticatormethods/t=response&c=200&path=&d=4/settings/showsigninwithov), where `OV` refers to Okta Verify. The name didn't change when this passwordless sign-in method was rebranded as Okta FastPass.
-> * You can only set `showSignInWithOV` to `ALWAYS` when Okta Verify is configured and Okta FastPass is enabled. Otherwise, Okta returns the following error: `This rule can't be saved. Okta FastPass isn't enabled for this org. To save this rule, enable Okta FastPass in the Okta Verify authenticator.`
+> **Note:** You can only set `showSignInButton` to `ALWAYS` when Okta Verify is configured and Okta FastPass is enabled. Otherwise, Okta returns the following error: `This rule can't be saved. Okta FastPass isn't enabled for this org. To save this rule, enable Okta FastPass in the Okta Verify authenticator.`
 
 ### How user identification works at sign-in
 
@@ -208,7 +205,7 @@ You can also find a user identification policy from its mapped app sign-in polic
 
 ### Review the default rule
 
-Each user identification policy includes a default rule. This is a system rule (`system: true`) with the lowest priority and no conditions, so it matches any request that no other rule matches. By default, it hides the button (`showSignInWithOV: NEVER`). You can update the default rule, but you can't deactivate or remove it. Use the [List all policy rules](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyRules) endpoint to review it.
+Each user identification policy includes a default rule. This is a system rule (`system: true`) with the lowest priority and no conditions, so it matches any request that no other rule matches. By default, it hides the button (`showSignInButton: NEVER`). You can update the default rule, but you can't deactivate or remove it. Use the [List all policy rules](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyRules) endpoint to review it.
 
 1. In the path parameters, set the user identification policy `id` as the `policyId`.
 1. Send the `GET /api/v1/policies/{policyId}/rules` request.
@@ -229,7 +226,11 @@ Each user identification policy includes a default rule. This is a system rule (
         "actions": {
             "userIdentification": {
                 "settings": {
-                    "showSignInWithOV": "NEVER"
+                    "securityMethods": {
+                        "fastpass": {
+                            "showSignInButton": "NEVER"
+                        }
+                    }
                 }
             }
         },
@@ -263,7 +264,7 @@ Create your own POST request body or copy the [example request](#create-a-user-i
    * Set the `type` as `USER_IDENTIFICATION`.
    * Set `conditions.network.connection` as `ANYWHERE`.
    * Include `WINDOWS` as a `DESKTOP` platform condition.
-   * Set `actions.userIdentification.settings.showSignInWithOV` as `ALWAYS`.
+   * Set `actions.userIdentification.settings.securityMethods.fastpass.showSignInButton` as `ALWAYS`.
 1. Send the `POST /api/v1/policies/{policyId}/rules` request.
 
 ### Create a user identification policy rule request example
@@ -289,7 +290,11 @@ Create your own POST request body or copy the [example request](#create-a-user-i
     "actions": {
         "userIdentification": {
             "settings": {
-                "showSignInWithOV": "ALWAYS"
+                "securityMethods": {
+                    "fastpass": {
+                        "showSignInButton": "ALWAYS"
+                    }
+                }
             }
         }
     },
@@ -326,7 +331,11 @@ Create your own POST request body or copy the [example request](#create-a-user-i
     "actions": {
         "userIdentification": {
             "settings": {
-                "showSignInWithOV": "ALWAYS"
+                "securityMethods": {
+                    "fastpass": {
+                        "showSignInButton": "ALWAYS"
+                    }
+                }
             }
         }
     },
@@ -361,7 +370,7 @@ To change a rule, update it with the [Replace a policy rule](https://developer.o
 Create your own PUT request body or copy the [example request](#update-a-user-identification-policy-rule-request-example) and input your values.
 
 1. In the path parameters, set the user identification policy `id` as the `policyId` and the rule `id` as the `ruleId`.
-1. Set `actions.userIdentification.settings.showSignInWithOV` as `NEVER`.
+1. Set `actions.userIdentification.settings.securityMethods.fastpass.showSignInButton` as `NEVER`.
 1. Send the `PUT /api/v1/policies/{policyId}/rules/{ruleId}` request.
 
 ### Update a user identification policy rule request example
@@ -387,7 +396,11 @@ Create your own PUT request body or copy the [example request](#update-a-user-id
     "actions": {
         "userIdentification": {
             "settings": {
-                "showSignInWithOV": "NEVER"
+                "securityMethods": {
+                    "fastpass": {
+                        "showSignInButton": "NEVER"
+                    }
+                }
             }
         }
     },
@@ -424,7 +437,11 @@ Create your own PUT request body or copy the [example request](#update-a-user-id
     "actions": {
         "userIdentification": {
             "settings": {
-                "showSignInWithOV": "NEVER"
+                "securityMethods": {
+                    "fastpass": {
+                        "showSignInButton": "NEVER"
+                    }
+                }
             }
         }
     },
@@ -458,7 +475,7 @@ Review your System Log events to confirm that your user identification policy is
 
 ## Test your policy with a policy simulation
 
-You can use the [policy simulation](/docs/guides/policy-simulation/main/) endpoint to test how your user identification policy rules evaluate for a given user and device context. Do this before you go live. Policy simulation returns the matched rule and the resulting `showSignInWithOV` value. See [Test your policies with access simulations](/docs/guides/policy-simulation/main/).
+You can use the [policy simulation](/docs/guides/policy-simulation/main/) endpoint to test how your user identification policy rules evaluate for a given user and device context. Do this before you go live. Policy simulation returns the matched rule and the resulting `showSignInButton` value. See [Test your policies with access simulations](/docs/guides/policy-simulation/main/).
 
 ## Next steps
 
