@@ -1,11 +1,11 @@
 ---
-title: Secure AWS Bedrock Classic Agents with Okta
-excerpt: Learn how to secure AWS Bedrock Classic Agents with Okta
+title: Secure Amazon Bedrock Classic Agents with Okta
+excerpt: Learn how to secure Amazon Bedrock Classic Agents with Okta
 layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide shows you how to secure an AWS Bedrock Classic Agent with Okta authentication by building a Python calling app that acts as a secure orchestrator. Your app performs Okta's two-step token exchange internally, and then invokes the Bedrock Classic Agent while securely passing the resulting access token and user identity as session attributes.
+This guide shows you how to secure an Amazon Bedrock Classic Agent with Okta authentication by building a Python calling app that acts as a secure orchestrator. Your app performs Okta's two-step token exchange internally, and then invokes the Bedrock Classic Agent while securely passing the resulting access token and user identity as session attributes.
 
 > **Note**: To enable AI agent token exchange, you must first subscribe to Okta for AI Agents. Contact your Okta account team to enable the feature.
 
@@ -15,7 +15,7 @@ This guide shows you how to secure an AWS Bedrock Classic Agent with Okta authen
 
 * Understand what a calling app must do to authenticate as a signed-in user with Okta.
 * Add a token exchange module to your app.
-* Set up an AWS Bedrock Classic Agent with an action group Lambda that can call Okta-protected APIs.
+* Set up an Amazon Bedrock Classic Agent with an action group Lambda that can call Okta-protected APIs.
 * Invoke the Bedrock Classic Agent with the user's Okta identity passed as session attributes.
 * Verify and test the end-to-end flow with a real Okta ID token.
 
@@ -41,7 +41,7 @@ The integration has two parts:
 
   This logic is identical for any agent. You add it once as a reusable module. See [Add Okta authentication to your agent](#add-okta-authentication-to-your-agent).
 
-* Platform integration (AWS-specific). Your app invokes the Bedrock Classic Agent, passing the access token and the user's claims as session attributes. An action group Lambda function reads those session attributes and forwards the token as a bearer credential to an Okta-protected API. See [Invoke the Bedrock Classic Agent with the access token](#invoke-the-bedrock-classic-agent-with-the-access-token).
+* Platform integration (Amazon-specific). Your app invokes the Bedrock Classic Agent, passing the access token and the user's claims as session attributes. An action group Lambda function reads those session attributes and forwards the token as a bearer credential to an Okta-protected API. See [Invoke the Bedrock Classic Agent with the access token](#invoke-the-bedrock-classic-agent-with-the-access-token).
 
 <!-- TODO: Replace this text-based diagram with an image.
 
@@ -55,7 +55,7 @@ Okta authentication (token_exchange.py)
   Step 2: ID-JAG    ->  access_token  (Custom AS: /oauth2/{custom-as-id}/v1/token)
     |
     v
-Platform integration (main.py, AWS Bedrock Classic Agent)
+Platform integration (main.py, Amazon Bedrock Classic Agent)
   invoke_agent(..., sessionAttributes={
     "okta_access_token": access_token,
     "user_name": ..., "user_email": ..., "user_sub": ...,
@@ -88,11 +88,11 @@ The token exchange depends on Okta objects that you configure once per org. Conf
 
 ### Collect your configuration values
 
-Your app reads these values as environment variables. The token exchange module uses the first group. The second group is specific to AWS Bedrock.
+Your app reads these values as environment variables. The token exchange module uses the first group. The second group is specific to Amazon Bedrock.
 
 <AiAgentOktaConfigValues/>
 
-**AWS values (used by the platform integration):**
+**Amazon values (used by the platform integration):**
 
 | Environment variable | Description | Where to find it |
 | --- | --- | --- |
@@ -108,7 +108,7 @@ The following example `token_exchange.py` module that you create here has no dep
 
 <AiAgentTokenExchangeModule/>
 
-## Set up your AWS Bedrock Classic Agent
+## Set up your Amazon Bedrock Classic Agent
 
 ### Enable model access
 
@@ -294,7 +294,7 @@ def main():
     # attributes. It isn't used to make an authorization decision.
     user_claims = jwt.decode(id_token, options={"verify_signature": False})
 
-    # Platform integration (AWS Bedrock)
+    # Platform integration (Amazon Bedrock)
     answer = invoke_bedrock_agent(prompt, user_claims, access_token)
 
     print(json.dumps({
@@ -365,7 +365,7 @@ aws logs tail /aws/lambda/<action-group-function-name> \
 
 ## Troubleshooting
 
-The following errors are specific to the AWS Bedrock integration:
+The following errors are specific to the Amazon Bedrock integration:
 
 | Error | Root cause | Fix |
 | --- | --- | --- |
