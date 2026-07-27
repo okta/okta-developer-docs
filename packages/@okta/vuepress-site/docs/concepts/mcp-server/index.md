@@ -21,14 +21,14 @@ To integrate AI assistants securely with your identity infrastructure, the Okta 
 
 You can choose the deployment track that matches your technical requirements:
 
-* **Okta Open Source MCP Server**: You run the server software locally on your own infrastructure. This track is best for developers who want to modify the underlying server code. See [Self-hosted MCP server documentation](/docs/guides/mcp-server/main/).
-* **Okta Managed MCP Server**: Okta hosts and manages the server in the cloud. Your chat client streams instructions over secure HTTPS, which removes local software installations and hosting fees. This setup simplifies onboarding for nontechnical users, such as Okta Identity Governance (OIG) request approvers, who need a ready-made tool without local configuration. See [Okta Managed MCP Server documentation](/docs/guides/okta-open-source-mcp-server/main/).
+* **Okta Open Source MCP Server**: You run the server software locally on your own infrastructure. This track is best for developers who want to modify the underlying server code. See [Okta Open Source MCP Server documentation](/docs/guides/mcp-server/main/).
+* **Okta Managed MCP Server**: Okta hosts and manages the server in the cloud. Your chat client streams instructions over secure HTTPS, which removes local software installations and hosting fees. This setup simplifies onboarding for nontechnical users, such as Okta Identity Governance (OIG) request approvers, who need a ready-made tool without local configuration. See Okta Managed MCP Server documentation.
 
 The following table compares the two hosting options:
 
 | Feature | Okta Open Source MCP Server | Okta Managed MCP Server |
 | --- | --- | --- |
-| Where it runs | Your infrastructure ( a computer, a company container, or a private cloud). | Okta cloud infrastructure. |
+| Where it runs | Your infrastructure (a computer, a company container, or a private cloud). | Okta cloud infrastructure. |
 | Setup and operation | Install Python packages, clone repositories, configure tooling, and manage infrastructure (OS patches, updates, dependency management). | No installation required. Connect through an HTTPS endpoint. Okta manages infrastructure, updates, scaling, and security patches. |
 | Transport protocol | Uses STDIO. | Uses a secure internet connection (HTTPS). |
 | User authentication | Device Authorization code flow (interactive users). | OpenID Connect (OIDC) with Proof Key for Code Exchange (PKCE) for interactive users. |
