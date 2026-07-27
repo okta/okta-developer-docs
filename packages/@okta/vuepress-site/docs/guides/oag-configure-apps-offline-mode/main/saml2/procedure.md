@@ -100,8 +100,6 @@ The user attributes available for SAML assertions are determined by what's been 
 1. Send the POST request.
 1. Repeat this request for each attribute required by your SP.
 
-> **Note:** The `type` field in the attribute request (`HEADER` or `COOKIE`) has no effect on SAML apps. The schema requires the `type` field in the request body, but it's ignored for SAML apps. The attribute is always included in the SAML assertion regardless of the value in `type`.
-
 ### Request example
 
 ```bash
@@ -112,8 +110,7 @@ curl -i -X POST \
   -d '{
     "name": "email",
     "source": "IDP",
-    "value": "email",
-    "type": "HEADER"
+    "value": "email"
   }'
 ```
 
