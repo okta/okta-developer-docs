@@ -4,7 +4,8 @@ OIDC tokens issued by Access Gateway have the `iss` claim set to the Access Gate
 
 This is the typical flow to configure an OIDC app in Access Gateway:
 
-1. Create the app, specifying the app type, redirect URIs, and client credentials. See [Create the app](#create-the-app).
+1. Retrieve your IdP's `idpId`, then create the app, specifying the app type and redirect URIs. See [Create the app](#create-the-app).
+1. Retrieve the client secret that Access Gateway generated for your app. See [Retrieve the client secret](#retrieve-the-client-secret).
 1. Configure your client app to use Access Gateway as the OIDC provider. Retrieve the discovery document from Access Gateway to get the endpoint URLs that your client needs. See [Configure your client app](#configure-your-client-app).
 
 You can only create and configure OIDC apps in Access Gateway using the Access Gateway API. You can view OIDC apps in the Access Gateway UI console, but you can't add or edit them there.

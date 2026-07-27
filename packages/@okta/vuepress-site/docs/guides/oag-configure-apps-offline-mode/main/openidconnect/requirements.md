@@ -1,6 +1,8 @@
 Before you create the app, ensure that you have the following information:
 
 * The redirect URI for your client app.
+  * The redirect URI is required if your app uses the authorization code flow.
+  * It's not required for apps that only use the client credentials flow.
 * The `applicationType` for your client app (`web`, `native`, or `spa`). This determines which OAuth 2.0 flows are supported and whether a client secret is required.
 
 Review the following sections to understand the requirements for your app and how to configure the app settings in Access Gateway when you create it.
@@ -25,8 +27,8 @@ You can configure access token and refresh token lifetimes per app using `access
 
 | Token | Default lifetime |
 | --- | --- |
-| Access token | 15 minutes |
-| Refresh token | 7 days |
+| Access token | 1 hour |
+| Refresh token | 1 day |
 
 Also note that refresh tokens are mode-specific. A refresh token that's issued in online mode can't be used after Access Gateway switches to offline mode. When a mode transition occurs, users must re-authenticate.
 
@@ -37,5 +39,5 @@ You can create three different types of OIDC apps. The `applicationType` determi
 | App type | Supported flows | Client secret |
 | --- | --- | --- |
 | `web` (server-side web apps) | Authorization Code + PKCE, client credentials, refresh token | Required |
-| `native` (mobile or desktop apps) | Authorization Code + PKCE, refresh token; device grant optional | Optional |
+| `native` (mobile or desktop apps) | Authorization Code + PKCE, refresh token | Optional |
 | `spa` (single-page apps) | Authorization Code + PKCE only | Not used |
