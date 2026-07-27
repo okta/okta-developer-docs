@@ -22,7 +22,7 @@ The Okta Managed MCP Server is a cloud-hosted server where Okta hosts and manage
 
 * **Hosting**: Cloud-hosted and managed by Okta.
 * **Best for**: Deployment without managing local software dependencies, including nontechnical users, such as Okta Identity Governance (OIG) request approvers, who need a ready-made tool without local configuration. It also supports browser-based tools and lets you run clients and servers in separate containers for greater flexibility.
-* **Get started**: Configure permissions and link your digital assistants using the native controls in the Admin Console.
+* **Get started**: See Okta Managed MCP Server documentation.
 
 ## Choose a deployment option
 
@@ -36,4 +36,4 @@ The Okta Managed MCP Server is a cloud-hosted server where Okta hosts and manage
 ## Next steps
 
 * To deploy the self-hosted option, see [Install and initialize the Okta Open Source MCP Server](/docs/guides/mcp-server/main/).
-* To deploy the cloud-hosted option, continue with the Okta Managed MCP Server setup in the Admin Console.
+* To deploy the cloud-hosted option, see Okta Managed MCP Server documentation.
