@@ -6,11 +6,13 @@ The expected behavior of Okta Verify is to reflect the context of the original c
 
 The Okta Verify push notification always displays the server's IP address and user agent regardless of any passed-in request context. As a result, Okta Verify is unavailable for server-side applications using the embedded SDK until Okta finds a solution.
 
-## Okta Verify as independent authenticators
+This issue persists regardless of whether you enable the Okta Verify standalone authenticators feature.
+
+## Okta Verify as standalone authenticators
 
 <ApiLifecycle access="ea" />
 
-When the Okta Verify independent authenticators feature is enabled, the single `okta_verify` authenticator is replaced by three authenticators, one for each Okta Verify method. Each method has its own authenticator key:
+When the Okta Verify standalone authenticators feature is enabled, `okta_verify_totp`, `okta_verify_push`, and `okta_verify_fastpass` become available as separate authenticator keys, one for each Okta Verify method.
 
 | Authenticator key      | Method                            |
 |------------------------|-----------------------------------|
@@ -18,23 +20,23 @@ When the Okta Verify independent authenticators feature is enabled, the single `
 | `okta_verify_push`     | Push notification                 |
 | `okta_verify_fastpass` | FastPass                          |
 
-This allows admins to configure policies at the method level. For example, you can require FastPass for one group while keeping TOTP optional for another.
+Users who already have one of the three Okta Verify methods enrolled continue to have that method enrolled. The method is now represented by the corresponding standalone authenticator. Policies that reference an existing method now reference the corresponding standalone authenticator instead, with no changes required to your policy configuration.
 
-If you have any API integrations or policies that reference the `okta_verify` key, update them to use the new Okta Verify authenticator `key` that corresponds to the specific method you want to use. See the sections below for details.
+If your integration or automation creates or updates authenticators or policies using the literal `okta_verify` key, update those requests to use the new key that corresponds to the specific method you want to configure: `okta_verify_totp`, `okta_verify_push`, or `okta_verify_fastpass`.
 
 ### Authenticators API behavior
 
-After the feature is enabled, the `okta_verify` authenticator becomes read-only. When you call List all authenticators [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticators), the response includes the original `okta_verify` authenticator alongside the three new authenticators.
+Enabling this feature doesn't change how Okta Verify works for your end users. It represents the existing TOTP, push, and FastPass methods as three separate authenticators instead of one, so you can manage and configure each method independently.
 
-Any write operation that targets the `okta_verify` authenticator returns an error. This includes [create](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/createAuthenticator), [update](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticator), [delete](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/deleteAuthenticator), [activate](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/activateAuthenticator), and [deactivate](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/deactivateAuthenticator) operations. To manage Okta Verify, use the new per-method keys: `okta_verify_totp`, `okta_verify_push`, or `okta_verify_fastpass`.
+The legacy `okta_verify` key continues to work for GET requests, such as [List all authenticators](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticators), for backward compatibility. For [Replace an authenticator](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticator) requests, use the new per-method keys (`okta_verify_totp`, `okta_verify_push`, or `okta_verify_fastpass`) instead.
 
 See [Multifactor authentication](/docs/concepts/mfa/) for the full authenticator key reference.
 
 ### Policy API behavior
 
-The `okta_verify` key can't be used in policy settings after the feature is enabled. This applies to authenticator enrollment policies and app sign-in policies. If your existing policies reference `okta_verify`, you don't need to update the stored data. When you retrieve those policies, Okta automatically translates `okta_verify` to the corresponding new key in the response.
+You can't use the `okta_verify` key in policy settings after the feature is enabled. This applies to authenticator enrollment policies and app sign-in policies. If your existing policies reference `okta_verify`, you don't need to update the stored data. When you retrieve those policies, Okta automatically translates `okta_verify` to the corresponding new key in the response.
 
-The new `enroll.self` values for each authenticator depend on which Okta Verify methods were enabled when the feature was turned on:
+For existing policies that reference `okta_verify`, the new `enroll.self` value for each per-method authenticator depends on which Okta Verify methods configured in the policy. The following table shows the new `enroll.self` values for each per-method authenticator based on the existing methods configured in the policy.:
 
 | Methods previously enabled | `okta_verify_totp` | `okta_verify_push` | `okta_verify_fastpass` |
 |---|---|---|---|
@@ -43,13 +45,13 @@ The new `enroll.self` values for each authenticator depend on which Okta Verify 
 | `okta_verify_totp`, `okta_verify_fastpass` | `OPTIONAL` | `DISABLED` | `REQUIRED` |
 | `okta_verify_totp` | `REQUIRED` | `DISABLED` | `DISABLED` |
 
-For example, an existing policy entry of:
+For example, the following policy configuration has `okta_verify` enabled as a required authenticator:
 
 ```json
 { "key": "okta_verify", "enroll": { "self": "REQUIRED" } }
 ```
 
-Is returned as the following when TOTP, Push, and FastPass were all enabled:
+When you enable the Okta Verify as standalone authenticators feature, that configuration is automatically translated to the following configuration. It has `okta_verify_fastpass` enabled as a required authenticator and the other two methods enabled as optional authenticators:
 
 ```json
 { "key": "okta_verify_totp", "enroll": { "self": "OPTIONAL" } },

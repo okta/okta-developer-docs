@@ -147,7 +147,7 @@ You can revert to the factor-based authenticator enrollment policy model. Modify
 | sympantec_vip           | n/a  |
 | yubikey_token           | n/a  |
 
-> **Note:** When the self-service Early Access (EA) Okta Verify independent authenticators feature is enabled, the `okta_verify` key is replaced by `okta_verify_totp`, `okta_verify_push`, and `okta_verify_fastpass`. The `okta_verify` key can't be used in enrollment policy settings after the feature is enabled. Existing policies that reference `okta_verify` return the translated new key in GET responses. See [Okta Verify as independent authenticators](/docs/guides/authenticators-okta-verify/main/#okta-verify-as-independent-authenticators) for full details.
+> **Note:** When the self-service Early Access (EA) Okta Verify standalone authenticators feature is enabled, `okta_verify_totp`, `okta_verify_push`, and `okta_verify_fastpass` become available as separate authenticator keys, and `okta_verify` can no longer be used in enrollment policy settings. See [Okta Verify as standalone authenticators](/docs/guides/authenticators-okta-verify/main/#okta-verify-as-standalone-authenticators) for details.
 
 ### Authenticator enrollment policy settings conversion example
 
