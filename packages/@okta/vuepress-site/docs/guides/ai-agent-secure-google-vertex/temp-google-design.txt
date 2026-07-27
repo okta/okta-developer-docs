@@ -1,0 +1,95 @@
+Technical Design: Google Vertex AI Agent Imports
+Author: Mymoona Saifunnissa Meerasahib
+
+Status: Draft / Review
+
+Jira Epic/Spike: OKTA-1133739: Spike : google vertex ai agent
+
+1. Objective & Overview
+This document outlines the implementation strategy for discovering and importing AI agents from Google Vertex AI into Okta.
+
+The Problem
+Google Workspace integrations typically utilize Direct Auth today. Under Direct Auth, we do not receive a static clientId or clientSecret to dynamically request or refresh access tokens specifically for fetching Vertex AI resources.
+
+The Solution
+To support Vertex AI agent imports, we will transition to an explicit OAuth credential model. 
+
+2. Authentication & Authorization Flow
+Step 1: Create Client Authentication Settings
+Generate a client_auth_id by configuring the clientId and clientSecret for the targeted Google application.
+
+
+
+{
+  "purpose": ["AGENT_IMPORT"],
+  "protocol": "OAUTH2",
+  "resourceOrn": "orn:oktapreview:idp:00o3pgcr9nXDWIAjI0g7:apps:google:0oa9j2vns8OM5CRJt0g7",
+  "clientCredentials": {
+    "clientId": "{{googleClientId}}",
+    "clientSecret": "{{GoogleSecret}}"
+  },
+  "oauthConfiguration": {
+    "scopes": [
+      "https://www.googleapis.com/auth/cloud-platform"
+    ]
+  }
+}
+Step 2: Validate Credentials & Complete OAuth Flow
+Execute a validation request against the setup configuration.
+
+
+
+{
+  "sourceOrn": "orn:oktapreview:idp:00o3pgcr9nXDWIAjI0g7:apps:google:0oa9j2vns8OM5CRJt0g7",
+  "configuration": {
+    "client_auth_id": "rsc9j2vnufCmysSPt0g7",
+    "project_id": "imports-testing",
+    "locations": ["us-west1"]
+  }
+}
+Note on Behavior: The validation request will either return a SUCCESS payload or an interaction_required_uri. If the latter is returned, the user must navigate to the URI to manually complete the OAuth consent flow. Once complete, the provider is saved and marked ready for import routines.
+
+3. Agent Discovery & Import API
+To import Vertex AI agents, the admin must provide both a location (offered via a UI dropdown selection) and a valid project_id.
+
+Resource Discovery Endpoints
+List Available Locations:
+
+
+
+curl -X GET \
+  -H "Authorization: Bearer ${accessToken}" \
+  "https://aiplatform.googleapis.com/v1/projects/imports-testing/locations"
+
+Location list
+List AI Reasoning Engines (Agents):
+
+
+
+curl -X GET \
+  -H "Authorization: Bearer ${accessToken}" \
+  "https://us-west1-aiplatform.googleapis.com/v1/projects/imports-testing/locations/us-west1/reasoningEngines?fields=reasoningEngines(name,displayName,createTime,updateTime,description)"
+Expected Response Payload
+
+
+{
+  "reasoningEngines": [
+    {
+      "name": "projects/575096167212/locations/us-west1/reasoningEngines/8411791718067732480",
+      "displayName": "customer-service-9159",
+      "createTime": "2026-03-17T22:48:16.483532Z",
+      "updateTime": "2026-03-17T22:52:11.014409Z",
+      "description": "customer service demo using Agent Development Kit"
+    },
+    {
+      "name": "projects/575096167212/locations/us-west1/reasoningEngines/7317733667965501440",
+      "displayName": "AGENT_DESIGNER_GENERATED_DO_NOT_DELETE",
+      "createTime": "2026-02-13T21:50:38.646939Z",
+      "updateTime": "2026-02-13T21:50:50.216601Z"
+    }
+  ]
+}
+ 
+
+
+ 
