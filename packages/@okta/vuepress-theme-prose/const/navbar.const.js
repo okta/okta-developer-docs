@@ -597,7 +597,7 @@ export const guides = [
       },
       {
         title: "Okta Open Source MCP Server",
-        guideName: "okta-open-source-mcp-overview/main",
+        path: "/docs/guides/okta-open-source-mcp-server/main/",
         subLinks: [
           {
             title: "Install and initialize",
