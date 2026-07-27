@@ -1,5 +1,5 @@
 #!/bin/sh
-export NODE_OPTIONS="--max-old-space-size=4096"
+export NODE_OPTIONS="${NODE_OPTIONS:-"--max-old-space-size=6144"}"
 export BUILD_WORKER_THREADS="${BUILD_WORKER_THREADS:-2}"
 cp .vuepress/scripts/updateBuildScript.js ../../../node_modules/@vuepress/core/lib/node/build/index.js
 cp .vuepress/scripts/addWorkerScript.js ../../../node_modules/@vuepress/core/lib/node/build/worker.js
