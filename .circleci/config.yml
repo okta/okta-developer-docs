@@ -51,7 +51,7 @@ jobs:
         - image: cimg/node:14.21.3-browsers
       resource_class: large
       environment:
-        NODE_OPTIONS: '--max_old_space_size=3584'
+        NODE_OPTIONS: '--max-old-space-size=6144'
       steps:
         - checkout
         - install-deps
@@ -79,7 +79,7 @@ jobs:
       - image: cimg/node:14.21.3-browsers
     resource_class: large
     environment:
-      NODE_OPTIONS: '--max_old_space_size=3584'
+      NODE_OPTIONS: '--max-old-space-size=6144'
     steps:
       - checkout
       - install-deps
