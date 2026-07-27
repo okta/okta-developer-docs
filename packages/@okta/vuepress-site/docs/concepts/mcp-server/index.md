@@ -9,9 +9,11 @@ meta:
 
 The Okta Open Source Model Context Protocol (MCP) server securely connects AI agents and Large Language Models (LLMs) to an Okta org. This abstraction layer enables AI agents and LLMs to interact with Okta admin management APIs using natural language commands.
 
-The Okta Open Source MCP Server translates natural language instructions into structured API calls between LLM clients and an Okta org using Okta's Python SDK v3.4.1. This approach reduces security risks and complexity when connecting autonomous AI agents to Identity and Access Management (IAM) systems. The architecture ensures that AI actions remain secure, properly scoped, and fully auditable.
+The Okta Open Source MCP Server translates natural language instructions into structured API calls between LLM clients and an Okta org using Okta's Python SDK v3.4.1. This approach reduces security risks and complexity when connecting autonomous AI agents to IAM systems. The architecture ensures that AI actions remain secure, properly scoped, and fully auditable.
 
 IT admins, developers, and security professionals use the Okta Open Source MCP Server to automate Okta admin tasks through AI-powered interfaces.
+
+Okta offers two ways to deploy an MCP server: the Okta Open Source MCP Server and the Okta Managed MCP Server. The following section introduces each deployment option and helps you choose the one that fits your environment.
 
 ## Deployment options: Okta Open Source MCP Server and Okta Managed MCP Server
 
@@ -26,13 +28,12 @@ The following table compares the two hosting options:
 
 | Feature | Okta Open Source MCP Server | Okta Managed MCP Server |
 | --- | --- | --- |
-| Where it runs | Your infrastructure (computer, a company container, or a private cloud). | Okta cloud infrastructure. |
+| Where it runs | Your infrastructure ( a computer, a company container, or a private cloud). | Okta cloud infrastructure. |
 | Setup and operation | Install Python packages, clone repositories, configure tooling, and manage infrastructure (OS patches, updates, dependency management). | No installation required. Connect through an HTTPS endpoint. Okta manages infrastructure, updates, scaling, and security patches. |
 | Transport protocol | Uses STDIO. | Uses a secure internet connection (HTTPS). |
-| User authentication | Device authorization code flow (interactive users). | OpenID Connect (OIDC) with Proof Key for Code Exchange (PKCE) for interactive users. |
+| User authentication | Device Authorization code flow (interactive users). | OpenID Connect (OIDC) with Proof Key for Code Exchange (PKCE) for interactive users. |
 | Service-to-service authentication | JWT private key (API Services for autonomous agents). | JWT private key (API Services for autonomous agents). |
 | Cost model | You manage infrastructure, licensing, and operational costs. | Okta managed cloud service with predictable, consumption-based pricing. |
-| Maintenance | You handle costs, updates, security patches, and logs. | Okta handles upgrades, scaling, and system performance. |
 | Best for | Developers testing code in a sandbox or using a command-line interface. | Help Desk teams, IT admins, and automated workflows. |
 
 ## Benefits
