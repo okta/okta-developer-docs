@@ -1,0 +1,200 @@
+Skip to:
+Top Bar
+Sidebar
+Main Content
+
+
+Search Confluence, Jira, Figma and other apps
+
+Create
+
+Ask Rovo
+
+
+
+
+
+Back to top
+Search by title
+
+Show more above
+
+Show more below
+Updated Jul 18
+Brian Duffield
+Edit
+
+Share
+
+
+Google Vertex E2E Agent Integration Steps and configuration
+
+
+
+By Mymoona Saifunnissa Meerasahib
+
+3 min
+
+12
+
+Add a reaction
+ 
+
+Config
+1. Project Selection & Navigation
+Log in to the Google Cloud Console.
+
+Use the project dropdown menu at the top of the dashboard to select the correct target project (e.g., Imports-Testing).
+
+⚠️ Prerequisite: Ensure that the user account has either the Editor role or the AI Platform Editor (aiplatform.editor) role assigned within the target project to configure these settings.
+
+Open the left-hand navigation menu and navigate to APIs & Services > OAuth consent screen.
+
+2. Initiate OAuth Client Creation
+From the APIs & Services sidebar, click on the Clients tab.
+
+Click the + Create client button located at the top of the interface.
+
+Set the Application type dropdown menu to Web application.
+
+3. Web Client Details & Redirect Configuration
+Name: Enter a distinct, descriptive name for the integration (e.g., Vertex-Agent-Import-Client).
+
+Authorized redirect URIs: * Click Add URI.
+
+Enter the designated callback endpoint, replacing {domain} with your environment's root URL:
+
+{domain}/oauth2/v1/sts/callback
+
+Click Create at the bottom of the form to generate the client.
+
+4. Secure Credentials Retrieval
+Upon successful creation, a OAuth client created modal will appear containing your unique credentials.
+
+Securely copy and store the following values:
+
+Client ID
+
+Client Secret
+
+⚠️ Important: These values are strictly required to complete the backend configuration for the agent import. 
+
+5. Audience and Test User Provisioning
+Navigate back to the OAuth consent screen interface and click on Audience tab.
+
+Configure permissions based on the designated User Type:
+
+If User Type is External: Scroll down to the Test users section, click + Add Users, and manually input the email addresses of the authorized test accounts.
+
+If User Type is Internal: No additional provisioning is required. The application will implicitly be accessible to all verified identities within the existing Google Workspace organization.
+
+ 
+
+
+ 
+
+image-20260617-165718.png
+ 
+
+[Not relevant for Agent Import ] 5. End-to-End (E2E) Testing & Verification
+This section outlines how to execute the full validation loop—from verifying user identity via Okta to pulling the live assistant response from the Google Cloud Agent Platform.
+
+Step 1: Secure Identity Initialization (Okta OpenID Connect)
+Generate a valid user id_token by completing an authorization handshake against your Okta OIDC application.
+
+In your terminal, initialize your project configuration and run your Python orchestrator script:
+
+
+
+python3 main_vertex.py
+Ensure the identity pipeline outputs confirmation that the user's claims are verified and a short-lived Google Cloud platform bearer token has been successfully minted.
+
+Step 2: Session Provisioning & Gateway Handshake
+The script automatically executes an HTTP POST to the Google Vertex AI Session Registry:
+
+
+
+POST https://{GCP_LOCATION}-aiplatform.googleapis.com/v1/projects/{GCP_PROJECT_ID}/locations/{GCP_LOCATION}/reasoningEngines/{GCP_REASONING_ENGINE_ID}/sessions
+The platform evaluates your payload and initializes a distinct session instance tracking record, returning a unique Session Resource ID (e.g., 5005378801136304128).
+
+Step 3: Payload Tracking Envelope Dispatch
+The orchestrator wraps your conversational prompt into a formal metadata envelope and targets the platform session router:
+
+
+
+POST .../sessions/{session_id}:appendEvent
+The gateway safely registers your question as a verified USER event inside the transaction ledger history.
+
+Step 4: Asynchronous Response Retrieval (REST Event Polling)
+To pull the final answer without blocking the line, the script executes a standard REST GET request against the child events directory path:
+
+
+
+GET https://{GCP_LOCATION}-aiplatform.googleapis.com/v1beta1/projects/{GCP_PROJECT_ID}/locations/{GCP_LOCATION}/reasoningEngines/{GCP_REASONING_ENGINE_ID}/sessions/{session_id}/events
+The polling loop scans the returned "sessionEvents" array in reverse until it extracts the text field where author is verified as "AGENT" or "ASSISTANT".
+
+Expected Success Output
+Upon successful execution, your terminal will clear the polling loop and display your agent's text response cleanly on the screen:
+
+
+
+💬 Enter custom prompt for vertex ai: Hello
+🔄 Initializing Identity Validation Pipeline against Okta API endpoints...
+✅ Identity verified and access_token generated successfully via Okta!
+🔑 Minting short-lived Google Cloud platform bearer token...
+🚀 Forwarding secure runtime bundle to Google Vertex AI Reasoning Engine...
+=================== VERTEX REASONING ENGINE RESPONSE ===================
+Raw Events Payload for analysis:
+{
+  "sessionEvents": [
+    {
+      "name": "projects/575096167212/locations/us-west1/reasoningEngines/7643954369880129536/sessions/6809070451898187776/events/5066757525928411136",
+      "author": "USER",
+      "content": {},
+      "invocationId": "inv-e66fb2c3",
+      "actions": {},
+      "timestamp": "2026-06-15T22:56:34Z",
+      "rawEvent": {
+        "text": "Hello"
+      }
+    }
+  ]
+}
+=========================================================================
+
+ 
+
+Related content
+
+Salesforce Agentforce E2E Agent Integration Steps
+Evan Brown
+Google Vertex AI Agent Imports
+Mymoona Saifunnissa Meerasahib
+AI Agents Imports - Google Vertex AI Agent Import (via CAS)
+Francois Lehoux (Deactivated)
+Glean AI Agent Import: OAuth2 Setup and Integration Steps
+Nikhil Kushwaha
+Threat Model: PSREV-3802 Import Agents from Google Vertex
+PSREV Bot
+Security Review Report - PSREV-3802 Import Agents from Google Vertex
+PSREV Bot
+
+
+
+
+
+Comments
+
+Add a reaction
+
+Rajesh Kumar
+Jul 18
+Where to get the  main_vertex.py file?
+
+
+Reply
+
+
+Add a comment
+
+Add labels
