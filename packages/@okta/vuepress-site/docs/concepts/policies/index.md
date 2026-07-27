@@ -249,7 +249,7 @@ Passkey enrollment promotion lets you configure a non-blocking nudge that prompt
 Configure enrollment promotion with two settings:
 
 * **Skip limit:** The number of times a user can skip the prompt before Okta stops showing it. Set `skipCount` to a positive integer to define the limit, or `0` for no limit (the prompt continues until the user enrolls).
-* **Cooldown:** The interval between prompts. Set `cooldown.type` to `BY_DURATION` and provide an ISO 8601 duration in `cooldown.duration` to control how often the prompt reappears (for example, `P30D` for every 30 days). Set `cooldown.type` to `BY_SIGN_IN` to prompt the user on every eligible sign-in.
+* **Cooldown:** The interval between prompts. Set `cooldown.type` to `BY_DURATION` and provide an ISO 8601 duration in `cooldown.duration` to control how often the prompt reappears (for example, `P30D` for every 30 days). Only month, week, and day components are allowed. Set `cooldown.type` to `BY_SIGN_IN` to prompt the user on every eligible sign-in.
 
 For details about configuring enrollment promotion in the Admin Console, see [Authenticator enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies).
 
