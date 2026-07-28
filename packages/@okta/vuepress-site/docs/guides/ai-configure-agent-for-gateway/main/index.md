@@ -31,7 +31,7 @@ Configure your AI agent to call tools through an Agent Gateway. Agent Gateway ex
 
 Agent Gateway is an identity-native proxy that sits between AI agents and the enterprise tools that they call. It aggregates tools from multiple upstream MCP servers behind a single Okta-secured endpoint, and enforces identity and policy on every tool call. Agent Gateway produces a unified audit trail that extends the Okta identity fabric to AI agents that the enterprise doesn't build or control.
 
-Each Agent Gateway exposes one MCP endpoint. You point any supported agent at that URL. The Agent Gateway handles tool aggregation, identity enforcement, credential injection, and auditing, with no changes to the agent's code.
+Each Agent Gateway exposes one MCP endpoint. You point any registered AI agent at that URL. The Agent Gateway handles tool aggregation, identity enforcement, credential injection, and auditing, with no changes to the AI agent's code.
 
 > **Note**: See the [Okta Agent Gateway](/docs/concepts/agent-gateway/) concept doc for more detailed information and a diagram of the Agent Gateway authorization flow.
 
