@@ -154,9 +154,7 @@ For example, [Okta Agent Gateway](#see-also) uses this to connect third-party AI
 
 ## See also
 
-<!-- DRAFT: Link to the Agent Gateway concept doc once PR #6290 merges to master (Susan Harper). Don't link
-     to /docs/concepts/agent-gateway/ before then--the page doesn't exist on master yet, and check-links would
-     flag it. -->
-<!-- DRAFT: Link to the AI agent registration OAS3 reference once it publishes (auto-publishes once the
-     AI_AGENT_CIMD_REGISTRATION flag opens visibility). -->
-<!-- DRAFT: Link to client.dev/IETF draft, same as the CIMD metadata document requirements section above. -->
+- [Agent Gateway](/docs/concepts/agent-gateway/)
+- [Register an AI agent](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/aiagents)
+- [OAuth Client ID Metadata Document](https://datatracker.ietf.org/doc/draft-ietf-oauth-client-id-metadata-document/) (IETF Internet-Draft)
+- [CIMD - OAuth Client ID Metadata Documents](https://client.dev)
