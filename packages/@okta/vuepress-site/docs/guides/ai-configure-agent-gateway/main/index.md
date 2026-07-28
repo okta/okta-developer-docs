@@ -437,7 +437,7 @@ The following examples show the possible responses. Possible `status` values are
 
 ## What happens at runtime
 
-After you complete all the preceding steps, the following sequence occurs when an agent invokes a tool:
+After you complete all the preceding steps, the following sequence occurs when an AI agent invokes a tool:
 
 > **Note**: See the [Okta Agent Gateway concept doc](/docs/concepts/agent-gateway/) for a flow diagram of the sequence.
 
