@@ -1,5 +1,5 @@
 ---
-title: Configure Agent Gateway
+title: Configure an Agent Gateway
 excerpt: Configure a virtual MCP server so AI agents can connect to Okta Agent Gateway and invoke tools with enforced identity and policy.
 layout: Guides
 sections:
