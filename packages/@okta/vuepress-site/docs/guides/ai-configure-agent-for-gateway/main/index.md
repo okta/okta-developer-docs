@@ -37,7 +37,7 @@ Each Agent Gateway exposes one MCP endpoint. You point any registered AI agent a
 
 ### What your admin provides
 
-Before you configure your agent, an Okta admin creates the Agent Gateway. The admin also connects upstream MCP servers and selects which tools are available. Your job is to then point your agent at the Agent Gateway URL and complete authentication.
+Before you configure your AI agent, an Okta admin creates the Agent Gateway. The admin also connects upstream MCP servers and selects which tools are available. Your job is to then point your AI agent to the Agent Gateway URL and complete authentication.
 
 Before you start, get the following from your Okta admin:
 
