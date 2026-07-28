@@ -33,7 +33,7 @@ Agent Gateway is an Okta-secured endpoint that aggregates tools from multiple re
 
 ## Overview
 
-Configuring Agent Gateway involves creating a custom authorization server and then creating the Agent Gateway, which Okta automatically links to. Then, you connect the Agent Gateway to remote MCP servers and select which tools to expose. The following sections walk you through the API calls required to complete this configuration and activate the gateway.
+Configuring Agent Gateway involves creating a custom authorization server and then creating the Agent Gateway, which Okta automatically links to. Then, you connect the Agent Gateway to remote MCP servers and select which tools to expose, as well as selecting the AI Agents that can call the Agent Gateway. The following sections walk you through the API calls required to complete this configuration and activate the gateway.
 
 ## Create a custom authorization server
 
