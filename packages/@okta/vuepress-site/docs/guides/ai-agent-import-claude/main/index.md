@@ -23,8 +23,8 @@ This guide shows you how to configure and run an Anthropic Claude Managed Agents
 
 #### What you need
 
-* An [Identity Engine](/docs/concepts/oie-intro/) org with the Okta for AI Agents feature enabled.
-* An Okta API token or OAuth 2.0 access token with the `okta.aiAgents.manage` and `okta.aiAgents.read` scopes.
+* An [Identity Engine](/docs/concepts/oie-intro/) org with the Okta for AI Agents feature enabled
+* An Okta API token or OAuth 2.0 access token with the `okta.aiAgents.manage` and `okta.aiAgents.read` scopes
 * Add the **Anthropic Claude** app to your org as an app instance. See [Configure Claude for Okta](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-configure-claude.htm) for the steps.
 * An Anthropic API key with read access to list agents. Generate this key from the [Anthropic Console](https://console.anthropic.com/). An Admin API key (`sk-ant-admin-...`) gives visibility into every agent in the workspace. A standard key only reaches the agents that its creator can see.
 
