@@ -22,7 +22,8 @@ title: Okta Identity Engine API release notes 2026
 | [Cross app access for AI agents and apps](#cross-app-access-for-ai-agents-and-apps) | July 15, 2026 |
 | [Agent-to-agent connections is GA in Production](#agent-to-agent-connections-is-ga-in-production) | June 17, 2026 |
 | [New endpoints for device OS accounts is EA in Preview](#new-endpoints-for-device-os-accounts-is-ea-in-preview) | July 15, 2026 |
-| [Bug fixed in 2026.07.2](#bug-fixed-in-2026-07-2) | July 15, 2026 |
+| [Submit Identity Verification integration is EA](#submit-identity-verification-integration-is-ea)| |
+| [Bugs fixed in 2026.07.2](#bugs-fixed-in-2026-07-2) | July 15, 2026 |
 
 #### Agent-to-agent audience update
 
@@ -35,7 +36,7 @@ This feature allows admins to securely connect AI agents and apps to take action
 
 #### Agent-to-agent connections is GA in Production
 
-Agent-to-agent server connections allow admins to connect AI agents to other AI agents through delegated links. Admins can manage scopes to restrict access to the appropriate AI agent tasks, and allow service apps to call AI agents without user context. Using tokens and the System Log, admins can view all the users, AI agents, and apps that call an AI agent. See [Agent-to-agent token exchange](/docs/guides/ea-ai-agent-token-exchange/agent-to-agent/main/).
+Agent-to-agent server connections allow admins to connect AI agents to other AI agents through delegated links. Admins can manage scopes to restrict access to the appropriate AI agent tasks, and allow service apps to call AI agents without user context. Using tokens and the System Log, admins can view all the users, AI agents, and apps that call an AI agent. See [Agent-to-agent token exchange](/docs/guides/ai-agent-to-agent-token-exchange/agent-to-agent/main/).
 
 The Delegation Links API is BETA. Delegated links are explicit, configurable policy statements that declare which principals (OIDC apps or other agents) and token types each agent accepts as valid proof of identity. This replaces the implicit linked app policy. See [Delegation Links](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks). <!-- FF SECURE_AI_A2A_SERVERS preview release 2026.06.2 OKTA-1197640 -->
 
@@ -43,9 +44,15 @@ The Delegation Links API is BETA. Delegated links are explicit, configurable pol
 
 The `GET /api/v1/devices/{deviceId}/os-accounts` and `GET /api/v1/devices/{deviceId}/os-accounts/{osAccountId}` endpoints return fields for each OS account, including `status`, `lastSeenAt`, and linked device resource details. Use the `expand` query parameter to include user profile or enrollment details in the response. Set `expand` to `users` for the Okta user profile, or to `account_linked_enrollments` for Platform SSO and desktop MFA enrollment status and last authentication time. This supports the Device Visibility feature for macOS and Windows devices. See [View device details](https://help.okta.com/okta_help.htm?type=oie&id=devices-view-details) to use the feature in the Admin Console. <!-- OKTA-1195839, OKTA-1161889, FF: DEVICE_ACCESS_DEVICE_VISIBILITY, EA, Release: July 15, 2026 (2026.07.2) -->
 
-#### Bug fixed in 2026.07.2
+#### Submit Identity Verification integration is EA
 
-After an org in Classic Engine without MFA enabled migrated to Identity Engine, deleting the email authenticator required enrollment of the org's designated recovery authenticator during self-service registration. (OKTA-1216937)
+ISVs can now build, test, and submit Identity Verification (IDV) integrations to the Okta Integration Network (OIN) using the OIN Wizard. This enables customers and Okta admins to discover and configure their preferred IDV providers directly from the OIN app catalog, without manually entering IDV-specific details each time. See [Submit an IDV integration with the OIN Wizard](/docs/guides/submit-oin-app/xidv/main/).
+
+#### Bugs fixed in 2026.07.2
+
+* After an org in Classic Engine without MFA enabled migrated to Identity Engine, deleting the email authenticator required enrollment of the org's designated recovery authenticator during self-service registration. (OKTA-1216937)
+
+* Some scopes were missing from the API Service Submission scope picker.(OKTA-1216857)
 
 ### Weekly release 2026.07.1
 <!-- Published on: 2026-07-08T12:00:00Z -->
@@ -158,7 +165,7 @@ The [List all authorization servers for an API server](https://developer.okta.co
 #### Agent-to-agent connections is EA in Preview
 
 Agent-to-agent server connections allow admins to connect AI agents to other AI agents through delegated links.
-Admins can manage scopes to restrict access to the appropriate AI agent tasks, and allow service apps to call AI agents without user context. Using tokens and the System Log, admins can view all the users, AI agents, and apps that call an AI agent. See [Agent-to-agent token exchange](/docs/guides/ea-ai-agent-token-exchange/agent-to-agent/main/).
+Admins can manage scopes to restrict access to the appropriate AI agent tasks, and allow service apps to call AI agents without user context. Using tokens and the System Log, admins can view all the users, AI agents, and apps that call an AI agent. See [Agent-to-agent token exchange](/docs/guides/ai-agent-to-agent-token-exchange/agent-to-agent/main/).
 
 The Delegated Links API is BETA. Delegated links are explicit, configurable policy statements that declare which principals (OIDC apps or other agents) and token types each agent accepts as valid proof of identity. This replaces the implicit linked app policy. See the [Delegation Links API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks). <!-- FF SECURE_AI_A2A_SERVERS preview release 2026.06.2 OKTA-1197640 -->
 
@@ -235,7 +242,7 @@ Validation for the [Create a client authentication settings endpoint](https://de
 #### Agent-to-agent connections is EA in Preview
 
 Agent-to-agent server connections allow admins to connect AI agents to other AI agents through delegated links.
-Admins can manage scopes to restrict access to the appropriate AI agent tasks, and allow service apps to call AI agents without user context. Using tokens and the System Log, admins can view all the users, AI agents, and apps that call an AI agent. See [Agent-to-agent token exchange](/docs/guides/ea-ai-agent-token-exchange/agent-to-agent/main/).
+Admins can manage scopes to restrict access to the appropriate AI agent tasks, and allow service apps to call AI agents without user context. Using tokens and the System Log, admins can view all the users, AI agents, and apps that call an AI agent. See [Agent-to-agent token exchange](/docs/guides/ai-agent-to-agent-token-exchange/agent-to-agent/main/).
 
 The Delegated Links API is BETA. Delegated links are explicit, configurable policy statements that declare which principals (OIDC apps or other agents) and token types each agent accepts as valid proof of identity. This replaces the implicit linked app policy. See the [Delegation Links API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks). <!-- FF SECURE_AI_A2A_SERVERS preview release 2026.06.2 OKTA-1197640 -->
 
@@ -922,7 +929,7 @@ This feature redirects users to Okta to authenticate if the primary identity pro
 * The Okta developer portal search results now include the API references.
 * The new [Set up AI agent token exchange](/docs/guides/ai-agent-token-exchange/authserver/main/) guide explains how to configure token exchange for AI agents. This feature enables you to securely request and use credentials such as Identity Assertion JWTs (ID-JAGs), secrets, or service accounts to access resources on behalf of authenticated users.
 * The [/token](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token) endpoint now supports token exchange flows for AI agents through the standard OAuth 2.0 Token Exchange grant type.
-* The Okta Model Context Protocol (MCP) server is a secure protocol abstraction layer that enables AI agents/Large Language Models (LLMs) to interact with an Okta org. MCP clients can now communicate with the Okta scoped management APIs in natural language. This simplifies building context-aware AI workflows while ensuring strict access control and least-privilege security. To learn more and start your implementation, see the [Okta MCP server concept](/docs/concepts/mcp-server/) and [guide](/docs/guides/mcp-server/main/). Also, MCP now has its own dedicated [Release Notes](/docs/release-notes/2026-okta-mcp-server) section. In the future, refer to this page for all MCP server announcements.
+* The Okta Open Source Model Context Protocol (MCP) server is a secure protocol abstraction layer that enables AI agents/Large Language Models (LLMs) to interact with an Okta org. MCP clients can now communicate with the Okta scoped management APIs in natural language. This simplifies building context-aware AI workflows while ensuring strict access control and least-privilege security. To learn more and start your implementation, see the [Okta Open Source MCP Server concept](/docs/concepts/mcp-server/) and [guide](/docs/guides/mcp-server/main/). Also, MCP now has its own dedicated [Release Notes](/docs/release-notes/2026-okta-mcp-server) section. In the future, refer to this page for all MCP server announcements.
 
 #### Bugs fixed in 2026.02.0
 

@@ -9,6 +9,7 @@ guides:
  - ai-agent-third-party-token-exchange
  - ai-agent-token-exchange
  - ai-configure-agent-gateway
+ - ai-agent-to-agent-token-exchange
  - app-provisioning-connection
  - archive-auth-js
  - archive-embedded-siw
@@ -49,7 +50,6 @@ guides:
  - device-assurance-posture-checks-and-remediation
  - device-authorization-grant
  - device-posture-idp
- - ea-ai-agent-token-exchange
  - embedded-siw
  - enable-cors
  - enable-configure-signupform

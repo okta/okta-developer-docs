@@ -6127,6 +6127,10 @@ redirects:
     to: /docs/guides/create-an-app-integration/saml2/main/
   - from: /docs/guides/build-sso-integration/saml2/main
     to: /docs/guides/create-an-app-integration/saml2/main/
+  - from: /docs/guides/ea-ai-agent-token-exchange/main
+    to: /docs/guides/ai-agent-to-agent-token-exchange/main/
+  - from: /docs/guides/ea-ai-agent-token-exchange/main/index.html
+    to: /docs/guides/ai-agent-to-agent-token-exchange/
   - from: /docs/guides/build-sso-integration/index.html
     to: /docs/guides/create-an-app-integration/
   - from: /docs/guides/build-sso-integration

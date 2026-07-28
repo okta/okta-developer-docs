@@ -27,7 +27,9 @@ Configure an external IdP so that your users can quickly sign up or sign in to y
 
 Okta manages the connection to the IdP for your app. The connection sits between your app and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. When a user signs in, you can link the user's IdP account to an existing Okta user profile. You can also choose to create a user profile by using Just-In-Time (JIT) provisioning.
 
-> **Note:** Okta also supports other services such as directories and credential providers. See the [Okta Integration Network Catalog](https://www.okta.com/okta-integration-network/) to browse all integrations by use case.
+> **Notes:**
+> - Okta also supports other services such as directories and credential providers. See the [Okta Integration Network Catalog](https://www.okta.com/okta-integration-network/) to browse all integrations by use case.
+> - Independent Software Vendors (ISVs) can use the IDV integration capability to integrate your IDV apps directly with Okta through the Okta Integration Network (OIN). See [Submit an integration with the OIN Wizard](/docs/guides/submit-oin-app/xidv/main/).
 
 ## Create an app at the Identity Provider
 

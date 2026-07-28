@@ -23,5 +23,5 @@ In this step, after the agent receives the access or ID token from the client, t
 | `requested_token_type` | The type of token being requested. The value must be `urn:ietf:params:oauth:token-type:id-jag`. |
 | `audience` | The issuer URL of the resource app's authorization server |
 | `scope`    | A list of scopes at the resource app that's being requested. This defines the permissions for the final access token. |
-| `client_assertion_type` | The type of assertioin. The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_assertion_type` | The type of assertion. The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion` | A signed JWT that's used for client authentication. You must sign the JWT using the key that you created when you registered the AI agent. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |
