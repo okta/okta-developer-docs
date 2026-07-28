@@ -10,28 +10,25 @@ The Model Context Protocol (MCP) connects AI agents and Large Language Models (L
 
 ## Okta Open Source MCP Server
 
-The [Okta Open Source MCP Server](/docs/concepts/mcp-server/) is a self-hosted server that you download and run on your own computer or private cloud network. It's best for developers who want full control over the package environment or need to run isolated tests and sandboxes.
-
-* **Hosting**: Self-hosted on local infrastructure that you manage.
-* **Best for**: Developer testing, isolated sandboxes, and use cases that need full control over the runtime environment.
-* **Get started**: See [Install and initialize the Okta Open Source MCP Server](/docs/guides/mcp-server/main/).
+The [Okta Open Source MCP Server](/docs/concepts/mcp-server/) is a self-hosted server that you download and run on your own computer or private cloud network. It's best if you want full control over the package environment or need to run isolated tests and sandboxes.
 
 ## Okta Managed MCP Server
 
 The Okta Managed MCP Server is a cloud-hosted server where Okta hosts and manages the gateway on your behalf. Your chat client streams instructions over secure HTTPS, which removes the need for local software installation, hosting, and maintenance.
 
-* **Hosting**: Cloud-hosted and managed by Okta.
-* **Best for**: Deployment without managing local software dependencies, including nontechnical users, such as Okta Identity Governance (OIG) request approvers, who need a ready-made tool without local configuration. It also supports browser-based tools and lets you run clients and servers in separate containers for greater flexibility.
-* **Get started**: See Okta Managed MCP Server documentation.
-
 ## Choose a deployment option
 
-| | Okta Open Source MCP Server | Okta Managed MCP Server |
+The following table compares the two hosting options:
+
+| Feature | Okta Open Source MCP Server | Okta Managed MCP Server |
 | --- | --- | --- |
-| Hosting | Self-hosted (local infrastructure) | Cloud-hosted by Okta |
-| Setup | Requires local installation and dependency management | No local installation required |
-| Maintenance | You have to manage the updates and runtime environment | Okta manages updates and infrastructure |
-| Best for | Developer testing and isolated sandboxes | Fast onboarding, nontechnical users, and browser-based tools |
+| Where it runs | Your infrastructure (a computer, a company container, or a private cloud). | Okta cloud infrastructure. |
+| Setup and operation | Install Python packages, clone repositories, configure tooling, and manage infrastructure (OS patches, updates, dependency management). | No installation required. Connect through an HTTPS endpoint. Okta manages infrastructure, updates, scaling, and security patches. |
+| Transport protocol | Uses STDIO. | Uses a secure internet connection (HTTPS). |
+| User authentication | Device Authorization code flow (interactive users). | OpenID Connect (OIDC) with Proof Key for Code Exchange (PKCE) for interactive users. |
+| Service-to-service authentication | JWT private key (API Services for autonomous agents). | JWT private key (API Services for autonomous agents). |
+| Cost model | You manage infrastructure, licensing, and operational costs. | Okta managed cloud service with predictable, consumption-based pricing. |
+| Best for | Developers testing code in a sandbox or using a command-line interface. | Help Desk teams, IT admins, and automated workflows. |
 
 ## Next steps
 

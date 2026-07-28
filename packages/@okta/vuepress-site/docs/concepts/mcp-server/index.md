@@ -13,28 +13,7 @@ The Okta Open Source MCP Server translates natural language instructions into st
 
 IT admins, developers, and security professionals use the Okta Open Source MCP Server to automate Okta admin tasks through AI-powered interfaces.
 
-Okta offers two ways to deploy an MCP server: the Okta Open Source MCP Server and the Okta Managed MCP Server. The following section introduces each deployment option and helps you choose the one that fits your environment.
-
-## Deployment options: Okta Open Source MCP Server and Okta Managed MCP Server
-
-To integrate AI assistants securely with your identity infrastructure, the Okta Model Context Protocol (MCP) server can be deployed using two distinct hosting options: Okta Open Source MCP Server and Okta Managed MCP Server.
-
-You can choose the deployment track that matches your technical requirements:
-
-* **Okta Open Source MCP Server**: You run the server software locally on your own infrastructure. This track is best for developers who want to modify the underlying server code. See [Okta Open Source MCP Server documentation](/docs/guides/mcp-server/main/).
-* **Okta Managed MCP Server**: Okta hosts and manages the server in the cloud. Your chat client streams instructions over secure HTTPS, which removes local software installations and hosting fees. This setup simplifies onboarding for nontechnical users, such as Okta Identity Governance (OIG) request approvers, who need a ready-made tool without local configuration. See Okta Managed MCP Server documentation.
-
-The following table compares the two hosting options:
-
-| Feature | Okta Open Source MCP Server | Okta Managed MCP Server |
-| --- | --- | --- |
-| Where it runs | Your infrastructure (a computer, a company container, or a private cloud). | Okta cloud infrastructure. |
-| Setup and operation | Install Python packages, clone repositories, configure tooling, and manage infrastructure (OS patches, updates, dependency management). | No installation required. Connect through an HTTPS endpoint. Okta manages infrastructure, updates, scaling, and security patches. |
-| Transport protocol | Uses STDIO. | Uses a secure internet connection (HTTPS). |
-| User authentication | Device Authorization code flow (interactive users). | OpenID Connect (OIDC) with Proof Key for Code Exchange (PKCE) for interactive users. |
-| Service-to-service authentication | JWT private key (API Services for autonomous agents). | JWT private key (API Services for autonomous agents). |
-| Cost model | You manage infrastructure, licensing, and operational costs. | Okta managed cloud service with predictable, consumption-based pricing. |
-| Best for | Developers testing code in a sandbox or using a command-line interface. | Help Desk teams, IT admins, and automated workflows. |
+Okta offers two ways to deploy an MCP server: the Okta Open Source MCP Server and the Okta Managed MCP Server. See [Okta Open Source MCP Server overview](/docs/guides/okta-open-source-mcp-server/main/) to compare the two hosting options and choose the one that fits your environment.
 
 ## Benefits
 
