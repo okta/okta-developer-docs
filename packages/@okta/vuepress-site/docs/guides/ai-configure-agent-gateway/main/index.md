@@ -81,7 +81,7 @@ Before you create an Agent Gateway, retrieve your org's virtual MCP settings. Th
 
 ## Create the Agent Gateway
 
-Creating the Agent Gateway registers the gateway endpoint in Okta and creates its `WorkloadPrincipal` identity. The Agent Gateway is created in `INACTIVE` status and isn't reachable by agents until you activate it. See [Activate the Agent Gateway](#activate-the-agent-gateway).
+Creating the Agent Gateway registers the gateway endpoint in Okta and creates its `WorkloadPrincipal` identity. The Agent Gateway is created in `INACTIVE` status and isn't reachable by AI agents until you activate it. See [Activate the Agent Gateway](#activate-the-agent-gateway).
 
 ### Request
 
