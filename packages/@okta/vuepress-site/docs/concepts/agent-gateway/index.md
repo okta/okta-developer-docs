@@ -38,10 +38,10 @@ The following diagram describes the Agent Gateway flow when an agent invokes a t
 
 <div class="full">
 
-   ![Sequence diagram that displays the interactions between an agent, the Okta custom and org auth servers, agent gateway, and the remote mcp server"](/img/authorization/somefilename.png)
+   ![Sequence diagram that displays the interactions between an agent, the Okta custom and org auth servers, agent gateway, and the remote mcp server"](/img/authorization/agent-gateway-authentication-flow.svg)
 
    <!--
-      source image:
+      source image: okta-developer-docs/packages/@okta/vuepress-site/.vuepress/public/img/authorization/agent-gateway-authentication-flow.svg
    -->
 
 </div>
