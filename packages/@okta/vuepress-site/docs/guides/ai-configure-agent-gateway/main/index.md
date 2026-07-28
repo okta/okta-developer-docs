@@ -485,6 +485,6 @@ This is an asynchronous operation. Poll the `Location` URL for status. See [Poll
 
 Complete the following tasks after you activate the gateway:
 
-* Give your developers the gateway URL and client credentials so that they can configure their agents. See [Configure an AI agent for Agent Gateway](/docs/guides/ai-configure-agent-for-gateway/main/).
+* Give your developers the gateway URL and client credentials so that they can configure their AI agents. See [Configure an AI agent for Agent Gateway](/docs/guides/ai-configure-agent-for-gateway/main/).
 * Review administrative actions in the Okta System Log.
 * To revoke a specific agent's or app's access, delete its delegation link (`DELETE /workload-principals/api/v1/delegation-links/{delegationLinkId}`). This takes effect immediately for new token exchanges. Tokens already issued remain valid until they expire. To cut off access to a specific remote MCP server for everyone using the gateway, deactivate that resource connection instead.
