@@ -352,7 +352,7 @@ This is an asynchronous operation. Poll the `Location` URL for status. See [Poll
 
 ## Activate the Agent Gateway
 
-Activating the Agent Gateway makes it live. The gateway only serves `ACTIVE` vMCPs, so the endpoint isn't reachable by agents until you complete this step.
+Activating the Agent Gateway makes it live. The gateway only serves `ACTIVE` vMCPs, so the endpoint isn't reachable by AI agents until you complete this step.
 
 ### Request
 
