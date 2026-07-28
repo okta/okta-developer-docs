@@ -21,7 +21,7 @@ Configure your AI agent to call tools through an Agent Gateway. Agent Gateway ex
 #### What you need
 
 - An Okta org with the Secure AI Virtual MCP Servers feature enabled and an active Okta for AI Agents subscription. Contact your Okta account team to enable the Secure AI Virtual MCP Servers feature.
-- An Agent Gateway that's been created and activated. See [Configure an Agent Gateway using the APIs](/docs/guides/ai-configure-agent-gateway/).
+- An activated Agent Gateway. See [Configure an Agent Gateway using the APIs](/docs/guides/ai-configure-agent-gateway/).
 - Your Agent Gateway URL: `https://gateway.{yourOktaDomain}/mcp/servers/{gatewayName}`
 - The OAuth `client_id` that's assigned to the AI agent in the Universal Directory.
 
