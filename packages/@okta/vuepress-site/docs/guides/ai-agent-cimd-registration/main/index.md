@@ -145,7 +145,7 @@ For example, [Okta Agent Gateway](#see-also) uses this to connect third-party AI
 | --- | --- |
 | Token request fails because Okta can't find a matching client | No AI agent is registered with an `oauthClient.clientId` that exactly matches the `client_id` that you sent. Register an AI agent with this CIMD URL first. See [Register an AI agent with a CIMD client](#register-an-ai-agent-with-a-cimd-client). |
 | Token request fails signature verification | The `client_assertion` JWT isn't signed with the private key that matches the public key in your CIMD's JWKS, or the CIMD's `jwks_uri` (or inline `jwks`) doesn't resolve to a valid JWKS. |
-| Token request fails with an expired or invalid refresh token | CIMD clients use a shorter refresh token lifetime than standard OAuth clients: 7 days, with a 2-day idle window. Request a new token before the idle window elapses. See [Refresh token lifetime](#refresh-token-lifetime). |
+| Token request fails with an expired or invalid refresh token | The AI agent didn't request a new token before the refresh token's idle window elapsed. See [Refresh token lifetime](#refresh-token-lifetime). |
 
 ## Refresh token lifetime
 
