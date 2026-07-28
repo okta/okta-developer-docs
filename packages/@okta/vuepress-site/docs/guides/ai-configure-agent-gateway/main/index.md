@@ -277,7 +277,7 @@ Returns `200 OK` with the updated connection object, which includes `"status": "
 
 ## Add tools
 
-Define which tools from each remote MCP server are exposed through the Agent Gateway. Agents only see the tools that you select here. Okta manages capabilities per connection, so you add or replace tools for one connection at a time.
+Define which tools from each remote MCP server are exposed through the Agent Gateway. AI agents only see the tools that you select here. Okta manages capabilities per connection, so you add or replace tools for one connection at a time.
 
 ### Add a single tool
 
