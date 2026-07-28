@@ -145,7 +145,7 @@ When the operation completes, retrieve the Agent Gateway to get its vMCP ID and 
 
 ## Create a delegation link
 
-The delegation link declares that the MCP client app is authorized to delegate to this Agent Gateway on behalf of users. The gateway rejects token exchanges without a valid delegation link in place.
+The delegation link declares that the MCP client app is authorized to delegate to this Agent Gateway on behalf of users. The gateway rejects token exchanges without a valid delegation link in place. See [Create a delegation link](https://okta--bd-okta-1223104-add-researach-lifecycle-update.preview.redocly.app/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/delegationlinks/other/createdelegationlink).
 
 ### Request
 
