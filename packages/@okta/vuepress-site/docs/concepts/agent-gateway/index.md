@@ -13,7 +13,7 @@ Okta Agent Gateway is an identity-native proxy that sits between AI agents and t
 
 ## The problem it solves
 
-For AI agents that an enterprise builds in-house, the agent's code can be instrumented to call Okta directly. It can request tokens, respect scopes, and log actions. Most enterprise AI agents, however, are configured rather than coded. The enterprise doesn't own the agent's code and can't add Okta calls to it.
+For AI agents that an enterprise builds in-house, the agent's code can be configured to call Okta directly. It can request tokens, respect scopes, and log actions. Most enterprise AI agents, however, are configured rather than coded. The enterprise doesn't own the AI agent's code and can't add Okta calls to it.
 
 Without something in the path of the AI agent's outbound requests, there's no way to enforce Okta on those AI agents. The typical workaround is giving the AI agent a long-lived API key or service account credential.
 
