@@ -189,7 +189,7 @@ After your AI agent is connected to Agent Gateway, perform these tasks:
 - Verify the connection by running a tool call and confirming the response.
 - Review AI agent activity in the Okta System Log under **AI Agent activity** (admin events).
 - To adjust which tools the AI agent can call, update the tool selection on the Agent Gateway. See [Add tools](/docs/guides/ai-configure-agent-gateway/main/#add-tools).
-- To revoke the agent's access, deactivate the agent-to-agent gateway resource connection in the Okta Admin Console.
+- To revoke the AI agent's access, deactivate the agent-to-agent gateway resource connection in the Okta Admin Console.
 
 ## Related topics
 
