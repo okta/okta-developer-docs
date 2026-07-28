@@ -51,8 +51,8 @@ Cross-app access support authorization chaining across domains by implementing t
 
 Cross-app access defines these roles:
 
-* **Requesting app**: The client app that accesses a protected resource on behalf of the authenticated user. This is the app that initiates the API calls to the external service.
-* **Resource app**: The app that contains the protected resource data
+* **Requesting app (client)**: The client app that accesses a protected resource on behalf of the authenticated user. This is the app that initiates the API calls to the external service.
+* **Resource app (protected API server)**: The app that contains the protected resource data. This is typically an API server.
 * **IdP**: The identity provider that issues the ID-JAG based on a trusted relationship between a requesting app and a resource app. With Okta as the IdP, the Okta admin manages this trusted relationship (connection) in Okta. The Okta authorization server issues the ID-JAG only for scoped access allowed in that relationship.
 * **Resource authorization server**: The authorization server that’s protecting the resource app. It validates incoming ID-JAG assertions and issues scoped access tokens in accordance with local access control policies.
 
