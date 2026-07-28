@@ -19,7 +19,7 @@ Agent Gateway is an Okta-secured endpoint that aggregates tools from multiple re
 * Retrieve org-level virtual MCP settings.
 * Register an Agent Gateway.
 * Connect the Agent Gateway to a remote MCP server and expose specific tools.
-* Activate the gateway so that agents can invoke tools.
+* Activate the gateway so AI agents can invoke tools.
 * Delete an Agent Gateway.
 
 #### What you need
