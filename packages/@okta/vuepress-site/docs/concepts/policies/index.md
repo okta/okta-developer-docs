@@ -248,7 +248,7 @@ To see the grace periods object in the API reference documentation, see the [Pol
 
 Passkey enrollment promotion lets you configure a non-blocking nudge that prompts users to enroll a Passkey (FIDO2 WebAuthn) authenticator during sign-in. Unlike grace periods, which apply to required authenticators, enrollment promotion applies only to the Passkey authenticator when it's configured as optional (`enroll.self = OPTIONAL`). Users who skip the prompt can still sign in with other authenticators.
 
-Configure enrollment promotion with two settings:
+Configure enrollment promotion with the following two settings:
 
 * **Skip limit:** The number of times a user can skip the prompt before Okta stops showing it. Set `skipCount` to a positive integer to define the limit, or `0` for no limit (the prompt continues until the user enrolls).
 * **Cooldown:** The interval between prompts. Set `cooldown.type` to `BY_DURATION` and provide an ISO 8601 duration in `cooldown.duration` to control how often the prompt reappears (for example, `P30D` for every 30 days). Only month, week, and day components are allowed. Set `cooldown.type` to `BY_SIGN_IN` to prompt the user on every eligible sign-in.
