@@ -443,7 +443,7 @@ After you complete all the preceding steps, the following sequence occurs when a
 
 1. The agent discovers the gateway's authorization server metadata from `{gatewayURL}/.well-known/oauth-protected-resource`.
 1. The agent obtains an access token from the custom authorization server through authorization code + PKCE.
-1. The agent presents the token to the gateway and establishes an MCP session.
+1. The AI agent presents the token to the gateway and establishes an MCP session.
 1. The gateway validates the token against the linked custom authorization server and checks that the Agent Gateway is active.
 1. On `tools/call`, the gateway initiates an OAuth Security Token Service token exchange with the Okta org authorization server.
 1. Okta validates the delegation link and the resource connection.
