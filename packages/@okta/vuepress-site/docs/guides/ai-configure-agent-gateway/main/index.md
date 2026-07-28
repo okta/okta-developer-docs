@@ -2,7 +2,7 @@
 title: Configure an Agent Gateway
 meta:
   - name: description
-    content: Configure Agent Gateway so agents can connect and invoke tools with enforced identity and policy.
+    content: Configure an Agent Gateway so AI agents can connect and invoke tools with enforced identity and policy.
 layout: Guides
 ---
 
