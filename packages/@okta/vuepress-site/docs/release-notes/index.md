@@ -25,7 +25,7 @@ Learn about features and fixes deployed to the following Okta products:
 
 * [Okta Aerial 2026](/docs/release-notes/2026-okta-aerial)
 
-* [Okta MCP Server 2026](/docs/release-notes/2026-okta-mcp-server/)
+* [Okta Open Source MCP Server 2026](/docs/release-notes/2026-okta-mcp-server/)
 
 * [Okta Developer Tools 2026](/docs/release-notes/2026-okta-dev-tools)
 

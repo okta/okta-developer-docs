@@ -1,3 +1,5 @@
+For published integrations that were migrated from the OIN Manager, if you need to update configured properties that aren't available in the OIN Wizard, contact <oin@okta.com>.
+
 * You can't update a published SCIM integration with Basic authentication. This breaks the integration for existing customers. For any updates, you must submit a new SCIM integration that implements header authentication or OAuth 2.0 authentication. You can use either token or bearer token format for header authentication.
 
 * You can add SCIM Entitlement Management capabilities only if your integration also supports SCIM provisioning.
