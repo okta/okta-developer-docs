@@ -148,9 +148,7 @@ For example, [Okta Agent Gateway](#see-also) uses this to connect third-party AI
 
 ## Refresh token lifetime
 
-<!-- DRAFT: Pending verification. The generic CIMD Platform design uses shorter refresh-token defaults
-     (7-day/2-day idle) than standard OAuth clients (90-day/unlimited)--confirm whether that applies
-     identically to AI-agent CIMD registrations specifically, or needs its own verification. -->
+CIMD OAuth clients, including AI agents registered with a CIMD OAuth client, use a shorter default refresh token lifetime than standard OAuth clients: 7 days, with a 2-day idle window. Standard OAuth clients default to a 90-day lifetime with no idle window.
 
 ## See also
 
