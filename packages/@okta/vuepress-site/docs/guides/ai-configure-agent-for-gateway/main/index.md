@@ -44,36 +44,36 @@ Before you start, get the following from your Okta admin:
 | What | Details |
 | ---- | ------- |
 | Agent Gateway URL | Format: `https://{subdomain}.gateway.okta.com/mcp/{path}` |
-| Client ID | The OAuth client ID registered for your agent in Okta. It's not needed if your agent platform supports Client ID Metadata Document (CIMD). Your agent vendor publishes one automatically. |
+| Client ID | The OAuth client ID registered for your AI agent in Okta. It's not needed if your AI agent platform supports Client ID Metadata Document (CIMD). Your AI agent vendor publishes one automatically. |
 | Client secret | Only required by some platforms. Not needed for public clients using PKCE only. |
-| Auth and token URLs | The Okta custom authorization server endpoints protecting the Agent Gateway. Some platforms require these explicitly, and others discover them automatically. |
-| Scopes | The OAuth scopes your agent is authorized to request. |
+| Auth and token URLs | The Okta custom authorization server endpoints that protect the Agent Gateway. Some platforms require these explicitly, and others discover them automatically. |
+| Scopes | The OAuth scopes that your AI agent is authorized to request. |
 
 ### Authentication
 
-Agents authenticate themselves to the Agent Gateway as an OAuth client, identified either by a pre-registered `client_id` or a [Client ID Metadata Document (CIMD)](#client-id-metadata-document-cimd). Most agents obtain a short-lived, Agent Gateway-scoped access token using the [Authorization Code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) grant type.
+AI agents authenticate themselves to the Agent Gateway as OAuth clients, identified either by a pre-registered `client_id` or a [Client ID Metadata Document (CIMD)](#client-id-metadata-document-cimd). Most AI agents obtain a short-lived, Agent Gateway-scoped access token that uses the [Authorization Code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) grant type.
 
-Some platforms instead use a long-lived static bearer token that an admin mints and distributes directly. Either way, the agent presents its token to the Agent Gateway on every tool call. The Agent Gateway never holds the token. It brokers downstream credentials at runtime inside Okta instead.
+Some platforms instead use a long-lived static bearer token that an admin mints and distributes directly. Either way, the AI agent presents its token to the Agent Gateway on every tool call. The Agent Gateway never holds the token. It brokers downstream credentials at runtime inside Okta instead.
 
 ## How it works
 
-When your agent connects to the Agent Gateway for the first time, the following sequence occurs:
+When your AI agent connects to the Agent Gateway for the first time, the following sequence occurs:
 
-1. Your agent discovers the Agent Gateway's authorization server metadata from `{gatewayURL}/.well-known/oauth-protected-resource`.
-1. Your agent obtains an Okta access token using the Authorization Code with PKCE grant type, authenticating as you or as a service identity.
-1. Your agent presents the token to the Agent Gateway on each tool call.
-1. The first time a tool from a specific upstream MCP server is called, you may be prompted to consent to that upstream. After you consent once, subsequent calls to that upstream are silent.
-1. The Agent Gateway handles credential injection to upstream MCP servers. Your agent never holds or sees upstream credentials.
+1. Your AI agent discovers the Agent Gateway's authorization server metadata from `{gatewayURL}/.well-known/oauth-protected-resource`.
+1. Your AI agent obtains an Okta access token using the Authorization Code with PKCE grant type, authenticating as you or as a service identity.
+1. Your AI agent presents the token to the Agent Gateway on each tool call.
+1. The first time an AI agent calls a tool from a specific upstream MCP server, you may be prompted to consent to that upstream. After you consent once, subsequent calls to that upstream are silent.
+1. The Agent Gateway handles credential injection to upstream MCP servers. Your AI agent never holds or sees upstream credentials.
 
 > **Note**: See the [Okta Agent Gateway concept doc](/docs/concepts/agent-gateway/) for a flow diagram of the sequence.
 
 ## Client identity methods
 
-Your agent identifies itself to the Agent Gateway as an OAuth client using one of the following methods.
+Your AI agent identifies itself to the Agent Gateway as an OAuth client using one of the following methods.
 
 ### Client ID
 
-The agent identifies itself as an OAuth client using a pre-registered `client_id`. An admin provisions an OAuth client in the Admin Console and distributes the `client_id` to the agent.
+The AI agent identifies itself as an OAuth client using a pre-registered `client_id`. An admin provisions an OAuth client in the Admin Console and distributes the `client_id` to the AI agent.
 
 ### Client ID Metadata Document (CIMD)
 
@@ -143,11 +143,11 @@ Claude Enterprise and Claude.ai support MCP server configuration through the ten
 
 ### Kiro
 
-Kiro connects to MCP servers using a static bearer token injected through a request header. An admin must mint an Agent Gateway-scoped Okta access token and distribute it through a managed configuration file.
+Kiro connects to MCP servers using a static bearer token that's injected through a request header. An admin must mint an Agent Gateway-scoped Okta access token and distribute it through a managed configuration file.
 
-> **Note**: Kiro doesn't perform the OAuth flow directly. Rotate the token on a schedule consistent with your org's token-lifetime policy.
+> **Note**: Kiro doesn't perform the OAuth flow directly. Rotate the token on a schedule consistent with your org's token lifetime policy.
 
-1. Mint an Agent Gateway-scoped access token for the Kiro agent using the Okta Admin API or Admin Console.
+1. Mint an Agent Gateway-scoped access token for the Kiro AI agent using the Okta Admin API or Admin Console.
 1. Create an MCP configuration file:
 
    ```json
@@ -173,11 +173,11 @@ The following platforms use the same OAuth 2.0/2.1 patterns described earlier, t
 
 | Platform | MCP configuration location | Auth method | Notes |
 | --- | --- | --- | --- |
-| VS Code with GitHub Copilot | Copilot enterprise MCP registry (GitHub org settings > **Copilot** > **MCP servers**) or local VS Code `settings.json` | OAuth 2.0, `client_id` | Publishes its own CIMD URL, so per-tenant provisioning isn't required after CIMD support reaches GA. Use the enterprise registry to restrict approved servers org-wide (recommended enforcement). |
+| VS Code with GitHub Copilot | Copilot enterprise MCP registry (GitHub org settings > **Copilot** > **MCP servers**) or local VS Code `settings.json` | OAuth 2.0, `client_id` | Publishes its own CIMD URL, so per-tenant provisioning isn't required after CIMD support becomes Generally Available. Use the enterprise registry to restrict approved servers org-wide (recommended enforcement). |
 | Cursor | Cursor settings > **Tools & Integrations** > **MCP** | OAuth 2.0, `client_id` | Attempts Dynamic Client Registration by default, which Okta doesn't support. Use a pre-configured `client_id` or static bearer token instead. Recommended enforcement: Cursor Business/Enterprise **MCP allowlist**. |
 | Codex (OpenAI) | `managed_config.toml` | OAuth 2.0 with PKCE, public client (no secret) | Recommended enforcement: deploy the config through MDM with a requirements allowlist restricting approved servers. |
 | Microsoft Copilot Studio | Agent **Actions** > **Add an action** > **Call an external service (MCP)** | OAuth 2.0, `client_id` + client secret | Recommended enforcement: Power Platform Advanced Connector Policies. |
-| Agentforce (Salesforce) | Salesforce **External Client Apps** | OAuth 2.0 with PKCE, through a pre-registered External Client App | Create the External Client App first, then register its Consumer Key as the `client_id` in Okta Universal Directory. Recommended enforcement: manage access through **External Client Apps**. |
+| Agentforce (Salesforce) | Salesforce **External Client Apps** | OAuth 2.0 with PKCE, through a pre-registered external client app | Create the external client app first, then register its consumer key as the `client_id` in Okta. Recommended enforcement: manage access through **External Client Apps**. |
 | ServiceNow AI Agent Studio | **AI Agent Studio** > **MCP Servers** | OAuth 2.1, `client_id` + client secret (or static bearer token) | — |
 | Glean | Glean admin console > **Actions** > **MCP action pack** | OAuth 2.0, `client_id` (add a client secret for confidential clients) | — |
 | n8n | **MCP Client Tool** node, using an OAuth2 API credential | OAuth 2.0, `client_id` + client secret | Requires manually entering your org's authorization and token URLs (`https://{yourOktaDomain}/oauth2/{authServerId}/v1/authorize` and `.../token`), rather than just the Agent Gateway URL. |
