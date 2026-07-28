@@ -184,7 +184,7 @@ The following platforms use the same OAuth 2.0/2.1 patterns described earlier, t
 
 ## Next steps
 
-After your agent is connected to Agent Gateway:
+After your AI agent is connected to Agent Gateway, perform these tasks:
 
 - Verify the connection by running a tool call and confirming the response.
 - Review agent activity in the Okta System Log under **AI Agent activity** (admin events).
