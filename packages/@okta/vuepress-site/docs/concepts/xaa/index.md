@@ -15,34 +15,6 @@ Traditional external resource authorization methods (such as API authorization) 
 * **Benefits for end users**: Users sign in once through their primary IdP and seamlessly access connected tools without encountering repetitive authentication prompts.
 * **Benefits for ISV developers**: Independent software vendors (ISVs) can meet enterprise security requirements faster, reducing friction in sales cycles. They can build their cross-app access integration once and reuse it for their customers.
 
-## Use cases
-
-Cross-app access (XAA) addresses critical security, compliance, and user-experience challenges across modern enterprise SaaS environments. By shifting authorization decisions from end users to enterprise IT administrators, XAA replaces static API keys and interactive consent prompts with a central identity policy.
-
-### AI agent-to-app
-
-AI agents that act on behalf of users require access to third-party SaaS apps and internal databases. Traditional authorization methods that force users to complete individual OAuth consent pages or embedding static API keys fail to scale in enterprise settings and introduce security vulnerabilities.
-
-XAA integrates directly with AI agent frameworks and server standards, such as the Model Context Protocol (MCP). It enables AI assistants to perform complex, multi-app actions while preserving the signing user's identity context.
-
-Common AI agent scenarios include:
-
-* **Cross-tool project aggregation**: An AI assistant (such as Claude or Cursor) compiles a project status report by retrieving milestones from project management platforms (such as Asana or Linear), pulling technical documentation (such as Atlassian Confluence), inspecting designs (such as Figma), and analyzing meeting notes (such as Zoom or Granola).
-* **Automated developer operations**: Developer tools and code editors (such as Visual Studio Code or Cursor) query container registries (such as Docker), inspect cloud app performance metrics (such as Datadog), or query production databases (such as Supabase) using the engineer's scoped user identity.
-* **Enterprise AI search**: Federated AI search tools (such as Glean) retrieve internal company records from connected cloud services only when the end user has active permissions, preventing data leakage across organizational boundaries.
-
-### App-to-app
-
-Business apps need to share data and trigger workflows across identity service boundaries. Traditional app-to-app integrations rely either on user-managed OAuth authorization flows (which interrupt employees with consent pages) or static API keys and shared service accounts (which lack user context and bypass enterprise IT policy).
-
-Cross-app access (XAA) extends enterprise identity governance to direct app-to-app data exchange. When a user interacts with a requesting SaaS app, XAA allows that app to securely access APIs in a separate target app on the user's behalf (without prompting the user and without using static shared secrets).
-
-Common app-to-app integration scenarios include:
-
-* **Messaging and productivity synchronization**: A team collaboration app (such as Zoom) accesses an enterprise notification API (such as Slack) on another resource server, sending action items and notifications to employees.
-* **Project management and issue tracking**: A project planning platform (such as Asana or Linear) pulls live issue statuses, customer details, or pull request updates from developer and CRM tools (such as Jira, Salesforce, or GitHub) under the context of the active team member.
-* **Automated workflow execution**: An enterprise integration platform (such as Zapier or Workato) triggers multi-step actions across connected HR, payroll, and IT ticketing tools while preserving the identity of the employee who initiated the request for compliance and auditing.
-
 ## How Cross-app access works
 
 Cross-app access support authorization chaining across domains by implementing the Identity Assertion JWT Authorization Grant (ID-JAG) flow. See [Identity Assertion JWT Authorization Grant](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant) and [OAuth Identity and Authorization Chaining Across Domains](https://datatracker.ietf.org/doc/draft-ietf-oauth-identity-chaining/).
@@ -90,6 +62,34 @@ The XAA token exchange flow:
 1. **Resource access token issuance**: The resource authorization server validates the assertion and issues a short-lived, scoped resource access token.
 1. **Client accesses resource data**: The requesting client then uses the short-lived, scoped token to access the protected resource app on behalf of the user.
 
+## Use cases
+
+Cross-app access (XAA) addresses critical security, compliance, and user-experience challenges across modern enterprise SaaS environments. By shifting authorization decisions from end users to enterprise IT administrators, XAA replaces static API keys and interactive consent prompts with a central identity policy.
+
+### AI agent-to-app
+
+AI agents that act on behalf of users require access to third-party SaaS apps and internal databases. Traditional authorization methods that force users to complete individual OAuth consent pages or embedding static API keys fail to scale in enterprise settings and introduce security vulnerabilities.
+
+XAA integrates directly with AI agent frameworks and server standards, such as the Model Context Protocol (MCP). It enables AI assistants to perform complex, multi-app actions while preserving the signing user's identity context.
+
+Common AI agent scenarios include:
+
+* **Cross-tool project aggregation**: An AI assistant (such as Claude or Cursor) compiles a project status report by retrieving milestones from project management platforms (such as Asana or Linear), pulling technical documentation (such as Atlassian Confluence), inspecting designs (such as Figma), and analyzing meeting notes (such as Zoom or Granola).
+* **Automated developer operations**: Developer tools and code editors (such as Visual Studio Code or Cursor) query container registries (such as Docker), inspect cloud app performance metrics (such as Datadog), or query production databases (such as Supabase) using the engineer's scoped user identity.
+* **Enterprise AI search**: Federated AI search tools (such as Glean) retrieve internal company records from connected cloud services only when the end user has active permissions, preventing data leakage across organizational boundaries.
+
+### App-to-app
+
+Business apps need to share data and trigger workflows across identity service boundaries. Traditional app-to-app integrations rely either on user-managed OAuth authorization flows (which interrupt employees with consent pages) or static API keys and shared service accounts (which lack user context and bypass enterprise IT policy).
+
+Cross-app access (XAA) extends enterprise identity governance to direct app-to-app data exchange. When a user interacts with a requesting SaaS app, XAA allows that app to securely access APIs in a separate target app on the user's behalf (without prompting the user and without using static shared secrets).
+
+Common app-to-app integration scenarios include:
+
+* **Messaging and productivity synchronization**: A team collaboration app (such as Zoom) accesses an enterprise notification API (such as Slack) on another resource server, sending action items and notifications to employees.
+* **Project management and issue tracking**: A project planning platform (such as Asana or Linear) pulls live issue statuses, customer details, or pull request updates from developer and CRM tools (such as Jira, Salesforce, or GitHub) under the context of the active team member.
+* **Automated workflow execution**: An enterprise integration platform (such as Zapier or Workato) triggers multi-step actions across connected HR, payroll, and IT ticketing tools while preserving the identity of the employee who initiated the request for compliance and auditing.
+
 ## When to use Cross-app access
 
 Use Cross-app access when your app meets the following criteria:
@@ -121,8 +121,6 @@ For independent software vendors (ISVs) that want to build cross-app access capa
 
 * **[Build a requesting app]**: Follow the requesting app journey if your app needs to access an external resource app on behalf of signed-in users.
 
-For the AI agent-to-app use case, follow this guide to connect an AI agent bound to an existing OIN agent app with SSO capabilities: [Add AI agents manually](https://help.okta.com/oie/en-us/Content/Topics/ai-agents/ai-agent-add-manually.htm). For this configuration, select the OIN agent app in the **Delegations** tab of the AI agent page.
-
 ### Resource apps
 
 Okta supports resource apps that use the following protocols for SSO:
@@ -134,4 +132,12 @@ For independent software vendors (ISVs) that want to build cross-app access capa
 
 * **[Build a resource app]**: Follow the resource app journey if your app exposes APIs that need to accept incoming XAA authorization requests.
 
-For the AI agent-to-app use case, follow this guide to connect a resource app to an existing AI agent: [Connect AI agents to resources](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-connected-resource.htm). For this configuration, select **Application** as the resource type.
+### AI agent-to-app use case
+
+If you are an Okta admin and want to set up an AI agent-to-app cross-app access configuration, follow these steps:
+
+1. Create a custom OIDC or SAML app in Okta to represent your AI agent app. This custom app acts as the requesting app, allowing users to SSO into your AI agent.
+1. Follow this guide to create an AI agent object in Okta and bound to an agent app: [Add AI agents manually](https://help.okta.com/oie/en-us/Content/Topics/ai-agents/ai-agent-add-manually.htm). For this configuration, select your custom agent app (in step 1) in the **Delegations** tab of the AI agent page.
+1. Connect your AI agent to resource apps by following this guide: [Connect AI agents to resources](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-connected-resource.htm). For this configuration, select **Application** as the resource type. Select the resource app instance that's already in your Okta org. This can be a custom or OIN app instance that has OIDC or SAML SSO configured.
+
+See [Set up AI agent token exchange](https://developer.okta.com/docs/guides/ai-agent-token-exchange/authserver/main/) for the AI agent-to-app token exchange flow.
