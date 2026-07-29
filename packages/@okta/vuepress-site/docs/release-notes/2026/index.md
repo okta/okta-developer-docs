@@ -15,23 +15,11 @@ title: Okta Classic Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [New System Log events for bulk device changes is EA](#new-system-log-events-for-bulk-device-changes-is-ea) | July 29, 2026 |
 | [Bugs fixed in 2026.07.3](#bugs-fixed-in-2026-07-3) | July 29, 2026 |
-
-#### New System Log events for bulk device changes is EA
-
-The following new System Log events indicate when bulk device [Identity Sources API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/) endpoints are called:
-
-* `system.identity_sources.bulk_device_upsert`
-* `system.identity_sources.bulk_device_delete`
-
-<!-- OKTA-1220445 -->
 
 #### Bugs fixed in 2026.07.3
 
 * Some proxies and VPNs weren't supported as values in the `ipServiceCategories` field when creating or replacing an Enhanced Dynamic Network Zone. (OKTA-1223345)
-
-* Integrator orgs with Bring Your Own Telephony (BYOT) received the "Your free tier organization has reached the limit of SMS requests that can be sent within a 30 day period" error, even though this cost-control limit no longer applied. (OKTA-1214692)
 
 * When a client retrieved information about user grants and tokens with an `expand` query parameter and pagination that required a next page, the `next` link in the response's `Link` header omitted `expand`.
 
