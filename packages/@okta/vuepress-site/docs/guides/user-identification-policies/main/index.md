@@ -205,7 +205,7 @@ You can also find a user identification policy from its mapped app sign-in polic
 
 ### Review the default rule
 
-Each user identification policy includes a default rule. This is a system rule (`system: true`) with the lowest priority and no conditions, so it matches any request that no other rule matches. By default, it hides the button (`showSignInButton: NEVER`). You can update the default rule, but you can't deactivate or remove it. Use the [List all policy rules](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyRules) endpoint to review it.
+Each user identification policy includes a default rule. This is a system rule (`system: true`) with the lowest priority and no conditions, so it matches any request that no other rule matches. Until you set a value, `actions.userIdentification.settings` is empty and Okta hides the button, the same as `showSignInButton: NEVER`. You can update the default rule, but you can't deactivate or remove it. Use the [List all policy rules](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyRules) endpoint to review it.
 
 1. In the path parameters, set the user identification policy `id` as the `policyId`.
 1. Send the `GET /api/v1/policies/{policyId}/rules` request.
@@ -225,13 +225,7 @@ Each user identification policy includes a default rule. This is a system rule (
         "conditions": null,
         "actions": {
             "userIdentification": {
-                "settings": {
-                    "securityMethods": {
-                        "fastpass": {
-                            "showSignInButton": "NEVER"
-                        }
-                    }
-                }
+                "settings": {}
             }
         },
         "type": "USER_IDENTIFICATION",
