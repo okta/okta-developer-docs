@@ -13,6 +13,69 @@ title: Okta Identity Engine API release notes 2026
 
 ## July
 
+### Weekly release 2026.07.3
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Editable issuer URL for AI agent resource connections](#editable-issuer-url-for-ai-agent-resource-connections) | July 29, 2026 |
+| [Removal of Application Cross App Access Connections API](#removal-of-application-cross-app-access-connections-api) | July 29, 2026 |
+| [Skipped failed entries during AI agent import](#skipped-failed-entries-during-ai-agent-import) | July 29, 2026 |
+| [New endpoints for device OS accounts is EA in Preview](#new-endpoints-for-device-os-accounts-is-ea-in-preview) | July 29, 2026 |
+| [New System Log events for bulk device changes is EA](#new-system-log-events-for-bulk-device-changes-is-ea) | July 29, 2026 |
+| [Bugs fixed in 2026.07.3](#bugs-fixed-in-2026-07-3) | July 29, 2026 |
+
+#### Editable issuer URL for AI agent resource connections
+
+The [`issuerUrl`](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentconnections/other/updateresourceconnection#other/updateresourceconnection/t=request&path=issuerurl) has been added to the request body in the [Updates a resource connection](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentconnections/other/updateresourceconnection) request (`PATCH /workload-principals/api/v1/ai-agents/{agentId}/connections/{connectionId}`).
+<!-- OKTA-1215253 OKTA_FOR_AI_AGENTS -->
+
+#### Removal of Application Cross App Access Connections API
+
+The removal of the [Application Cross App Access Connections](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/applicationcrossappaccessconnections) API is scheduled for an upcoming release. Your existing managed connection configurations will stop working. Use the corresponding [Okta for AI Agents API](https://developer.okta.com/docs/api/secures-ai) to reconfigure your connections: [Create a resource connection](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentconnections/other/createresourceconnection) with `IDENTITY_ASSERTION_APP_INSTANCE`.
+
+For instructions on how AI agent connections are configured in the Admin Console, see [Configure resource server connectors](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-rsc-svr-config).
+<!-- OKTA-1221183 pre XAA phase 2, Preview: July 29, 2026 -->
+
+#### Skipped failed entries during AI agent import
+
+Now when you import AI agents from a provider, Okta skips the failed entries and creates or updates the successful ones.
+<!-- OKTA-1232454; needs updating for API -->
+
+#### New System Log events for bulk device changes is EA
+
+The following new System Log events indicate when bulk device [Identity Sources API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/) endpoints are called:
+
+* `system.identity_sources.bulk_device_upsert`
+* `system.identity_sources.bulk_device_delete`
+
+<!-- OKTA-1220445 -->
+
+#### New endpoints for device OS accounts is EA in Preview
+
+The `GET /api/v1/devices/{deviceId}/os-accounts` and `GET /api/v1/devices/{deviceId}/os-accounts/{osAccountId}` endpoints return fields for each OS account, including `status`, `lastSeenAt`, and linked device resource details. Use the `expand` query parameter to include user profile or enrollment details in the response. Set `expand` to `users` for the Okta user profile, or to `account_linked_enrollments` for Platform SSO and desktop MFA enrollment status and last authentication time. This supports the Device Visibility feature for macOS and Windows devices. See [List all OS accounts for a device](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/device/other/listdeviceosaccounts) and [Retrieve an OS account](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/device/other/getdeviceosaccount). <!-- [OKTA-1195839], [OKTA-1161889], FF: DEVICE_ACCESS_DEVICE_VISIBILITY, EA, Release: July 15, 2026 (2026.07.2) -->
+
+#### Bugs fixed in 2026.07.3
+
+* When you passed an unsupported or invalid URI for `requested_token_type` during a token exchange flow, the `POST /oauth2/v1/token` endpoint returned an unrelated error message. (OKTA-1219667)
+
+* The `createAIAgentProvider` operation failed when the request body's `configuration` field used camel case keys, such as `clientId`. (OKTA-1225831)
+
+* In some orgs, users couldn't authenticate with their IdP, even though `trustClaims` was enabled and the IdP had already satisfied the app sign-in policy's phishing resistant requirement by including `phr` or `phrh` AMR claims. (OKTA-1204547)
+
+* Integrator orgs with Bring Your Own Telephony (BYOT) received the "Your free tier organization has reached the limit of SMS requests that can be sent within a 30 day period" error, even though this cost-control limit no longer applied. (OKTA-1214692)
+
+* When a client retrieved information about user grants and tokens with an `expand` query parameter and pagination that required a next page, the `next` link in the response's `Link` header omitted `expand`.
+
+  This issue affected the following endpoints:
+
+    - `GET /users/{id}/grants`
+    - `GET /users/me/grants`
+    - `GET /users/me/clients/{clientId}/grants`
+    - `GET /users/{id}/clients/{clientId}/grants`
+    - `GET /apps/{id}/tokens`
+
+  (OKTA-1230325)
+
 ### Weekly release 2026.07.2
 <!-- Published on: 2026-07-15T12:00:00Z -->
 
