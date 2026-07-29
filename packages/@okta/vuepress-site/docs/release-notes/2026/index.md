@@ -19,7 +19,7 @@ title: Okta Classic Engine API release notes 2026
 
 #### Bugs fixed in 2026.07.3
 
-* Some proxies and VPNs weren't supported as values in the `ipServiceCategories` field when creating or replacing an Enhanced Dynamic Network Zone. (OKTA-1223345)
+* Some proxies and VPNs weren't supported as values in the `ipServiceCategories` field when creating or replacing an enhanced dynamic zone. (OKTA-1223345)
 
 * When a client retrieved information about user grants and tokens with an `expand` query parameter and pagination that required a next page, the `next` link in the response's `Link` header omitted `expand`.
 

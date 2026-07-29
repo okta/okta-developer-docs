@@ -41,6 +41,8 @@ When you import AI agents from a provider with the [Start the import of an AI ag
 
 #### Bugs fixed in 2026.07.3
 
+* Some proxies and VPNs weren't supported as values in the `ipServiceCategories` field when creating or replacing an enhanced dynamic zone. (OKTA-1223345)
+
 * When you passed an unsupported or invalid URI for `requested_token_type` during a token exchange flow, the `POST /oauth2/v1/token` endpoint returned an unrelated error message. (OKTA-1219667)
 
 * The `createAIAgentProvider` operation failed when the request body's `configuration` field used camel case keys, such as `clientId`. (OKTA-1225831)
