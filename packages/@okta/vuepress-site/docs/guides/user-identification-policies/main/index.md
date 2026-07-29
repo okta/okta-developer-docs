@@ -22,7 +22,7 @@ This guide describes how to use the [Policies API](https://developer.okta.com/do
 * Okta Verify [activated](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/activateAuthenticator) as an authenticator, with the Okta FastPass method [enabled](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/activateAuthenticatorMethod)
 * An existing [app sign-in policy](/docs/concepts/policies/#app-sign-in-policies) for the app that you want to configure
 * A test [user account](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser)
-* A test [group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/addGroup) in your org that the test user is added to
+* A test [group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/addGroup) in your org that includes the test user
 
 ---
 
