@@ -262,8 +262,9 @@ module.exports = ctx => ({
           { text: 'Integrate with Okta', link: '/okta-integration-network/' },
           { text: 'Pricing', link: 'https://www.okta.com/pricing/#workforce-identity-pricing' },
           { text: '3rd-party notes', link: '/3rd_party_notices/' },
-           { text: 'Auth0', link: 'https://developer.auth0.com/' },
+          { text: 'Auth0', link: 'https://developer.auth0.com/' },
           { text: 'Archive', link:'/archive/' },
+          { text: 'llms.txt', link: '/llms.txt', target: '_blank' },
         ]
       },
       websites: {
