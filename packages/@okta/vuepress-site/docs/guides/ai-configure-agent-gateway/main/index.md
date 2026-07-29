@@ -25,9 +25,9 @@ Agent Gateway is an Okta-secured endpoint that aggregates tools from multiple re
 #### What you need
 
 * An Okta org with an Okta for AI Agents subscription. Contact Okta Support to enable access to the virtual MCP servers research feature.
-* At least one [remote MCP server registered](/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/registermcpserver) in Okta.
-* A user for testing.
-* The super admin role.
+* At least one remote MCP server registered in Okta
+* A user for testing
+* The super admin role
 
 ---
 
