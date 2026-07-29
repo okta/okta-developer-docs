@@ -18,6 +18,7 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is Beta](#resource-collections-with-okta-groups-okta-push-groups-and-non-entitlement-management-apps-is-beta) | July 29, 2026 |
+| [Entitlement ID added to entitlement history](#entitlement-id-added-to-entitlement-history) | July 29, 2026 |
 
 #### Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is Beta
 
