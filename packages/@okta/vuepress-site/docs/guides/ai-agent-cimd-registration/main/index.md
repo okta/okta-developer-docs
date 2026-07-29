@@ -153,9 +153,7 @@ CIMD OAuth clients, including AI agents that are registered with a CIMD OAuth cl
 
 ## See also
 
-<!-- Uncomment once PR #6290 (Agent Gateway concept) merges to release-2026.07.3:
 - [Agent Gateway](/docs/concepts/agent-gateway/)
--->
 - [Register an AI agent](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration)
 - [OAuth Client ID Metadata Document](https://datatracker.ietf.org/doc/draft-ietf-oauth-client-id-metadata-document/) (IETF Internet-Draft)
 - [CIMD - OAuth Client ID Metadata Documents](https://client.dev)
