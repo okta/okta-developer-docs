@@ -1,12 +1,12 @@
 ---
-title: Cross-app access (XAA)
+title: Cross App Access (XAA)
 ---
 
-## What is Cross-app access?
+## What is Cross App Access?
 
-Cross-app access (XAA) is a mechanism that enables apps to securely connect to third-party resource apps protected by an external authorization server. The app’s identity provider establishes a trust relationship with the external resource authorization server to support cross-domain authorization. XAA implements an extension of OAuth 2.0 to support authorization across domains called the [Identity Assertion JWT Authorization Grant (ID-JAG)](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant) flow.
+Cross App Access (XAA) is a mechanism that enables apps to securely connect to third-party resource apps protected by an external authorization server. The app’s identity provider establishes a trust relationship with the external resource authorization server to support cross-domain authorization. XAA implements an extension of OAuth 2.0 to support authorization across domains called the [Identity Assertion JWT Authorization Grant (ID-JAG)](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant) flow.
 
-### The problem Cross-app access solves
+### The problem Cross App Access solves
 
 Traditional external resource authorization methods (such as API authorization) create security and operational challenges in enterprise environments:
 
@@ -15,13 +15,13 @@ Traditional external resource authorization methods (such as API authorization) 
 * **Benefits for end users**: Users sign in once through their primary IdP and seamlessly access connected tools without encountering repetitive authentication prompts.
 * **Benefits for ISV developers**: Independent software vendors (ISVs) can meet enterprise security requirements faster, reducing friction in sales cycles. They can build their cross-app access integration once and reuse it for their customers.
 
-## How Cross-app access works
+## How Cross App Access works
 
-Cross-app access support authorization chaining across domains by implementing the Identity Assertion JWT Authorization Grant (ID-JAG) flow. See [Identity Assertion JWT Authorization Grant](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant) and [OAuth Identity and Authorization Chaining Across Domains](https://datatracker.ietf.org/doc/draft-ietf-oauth-identity-chaining/).
+XAA supports authorization chaining across domains by implementing the Identity Assertion JWT Authorization Grant (ID-JAG) flow. See [Identity Assertion JWT Authorization Grant](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant) and [OAuth Identity and Authorization Chaining Across Domains](https://datatracker.ietf.org/doc/draft-ietf-oauth-identity-chaining/).
 
 ### Roles and responsibilities
 
-Cross-app access defines these roles:
+XAA defines these roles:
 
 * **Requesting app (client)**: The client app that accesses a protected resource on behalf of the authenticated user. This is the app that initiates the API calls to the external service.
 * **Resource app (protected API server)**: The app that contains the protected resource data. This is typically an API server.
@@ -64,11 +64,11 @@ The XAA token exchange flow:
 
 ## Use cases
 
-Cross-app access (XAA) addresses critical security, compliance, and user-experience challenges across modern enterprise SaaS environments. By shifting authorization decisions from end users to enterprise IT administrators, XAA replaces static API keys and interactive consent prompts with a central identity policy.
+XAA addresses critical security, compliance, and user-experience challenges across modern enterprise SaaS environments. By shifting authorization decisions from end users to enterprise IT administrators, XAA replaces static API keys and interactive consent prompts with a central identity policy.
 
 ### AI agent-to-app
 
-AI agents that act on behalf of users require access to third-party SaaS apps and internal databases. Traditional authorization methods that force users to complete individual OAuth consent pages or embedding static API keys fail to scale in enterprise settings and introduce security vulnerabilities.
+AI agents that act on behalf of users require access to third-party SaaS apps and internal databases. Authorization methods that force users to complete individual OAuth consent pages or embed static API keys fail to scale in enterprise settings and introduce security vulnerabilities.
 
 XAA integrates directly with AI agent frameworks and server standards, such as the Model Context Protocol (MCP). It enables AI assistants to perform complex, multi-app actions while preserving the signing user's identity context.
 
@@ -82,7 +82,7 @@ Common AI agent scenarios include:
 
 Business apps need to share data and trigger workflows across identity service boundaries. Traditional app-to-app integrations rely either on user-managed OAuth authorization flows (which interrupt employees with consent pages) or static API keys and shared service accounts (which lack user context and bypass enterprise IT policy).
 
-Cross-app access (XAA) extends enterprise identity governance to direct app-to-app data exchange. When a user interacts with a requesting SaaS app, XAA allows that app to securely access APIs in a separate target app on the user's behalf (without prompting the user and without using static shared secrets).
+XAA extends enterprise identity governance to direct app-to-app data exchange. When a user interacts with a requesting SaaS app, XAA allows that app to securely access APIs in a separate target app on the user's behalf (without prompting the user and without using shared secrets).
 
 Common app-to-app integration scenarios include:
 
@@ -90,32 +90,32 @@ Common app-to-app integration scenarios include:
 * **Project management and issue tracking**: A project planning platform (such as Asana or Linear) pulls live issue statuses, customer details, or pull request updates from developer and CRM tools (such as Jira, Salesforce, or GitHub) under the context of the active team member.
 * **Automated workflow execution**: An enterprise integration platform (such as Zapier or Workato) triggers multi-step actions across connected HR, payroll, and IT ticketing tools while preserving the identity of the employee who initiated the request for compliance and auditing.
 
-## When to use Cross-app access
+## When to use Cross App Access
 
-Use Cross-app access when your app meets the following criteria:
+Use XAA when your app meets the following criteria:
 
-* **Human user in the loop**: The Cross-app access flow (API interaction) originates from an active human user session.
+* **Human user in the loop**: The XAA flow (API interaction) originates from an active human user session.
 * **Existing SSO infrastructure**: Your organization or app already integrates with an enterprise IdP for authentication.
 * **Enterprise or AI agent integration**: You’re an ISV responding to enterprise security requirements or building AI agents and tools that require delegated user access to third-party services.
 
-## When not to use Cross-app access
+## When not to use Cross App Access
 
-Don’t use Cross-app access in the following scenarios:
+Don’t use XAA in the following scenarios:
 
 * **Autonomous agents**: Workflows that run independently without an active user session or human initiation.
 * **Background processing**: Scheduled background jobs, batch scripts, or machine-to-machine (M2M) processes operating without an end-user context.
 * **Apps without an IdP**: Apps that don’t integrate with a central identity provider.
 
-## Cross-app access in Okta
+## Cross App Access in Okta
 
-Okta implements Cross-app access with the following requesting and resource app configurations.
+Okta implements XAA with the following requesting and resource app configurations.
 
 ### Requesting app
 
 Okta supports requesting apps that use the following protocols for SSO:
 
 * **OpenID Connect (OIDC)**: Recommended for new integrations and modern app architectures.
-* **SAML 2.0**: Supported for existing enterprise federations, allowing organizations to adopt XAA without migrating legacy authentication flows. For this protocol, Okta allows your requesting app to request an ID-JAG based on a refresh token exchange using your SAML assertion. See [Enable Your SAML Requesting App for Cross-app access](https://developer.okta.com/blog/2026/07/17/xaa-saml-requester#xaa-implementation-checklist-for-saml-federated-applications)
+* **SAML 2.0**: Supported for existing enterprise federations, allowing organizations to adopt XAA without migrating legacy authentication flows. For this protocol, Okta allows your requesting app to request an ID-JAG based on a refresh token exchange using your SAML assertion. See [Enable Your SAML Requesting App for Cross App Access](https://developer.okta.com/blog/2026/07/17/xaa-saml-requester#xaa-implementation-checklist-for-saml-federated-applications)
 
 For independent software vendors (ISVs) that want to build cross-app access capabilities on top of their existing SSO  app integration in the Okta Integration Network (OIN), see this journey for creating a requesting app:
 
@@ -134,7 +134,7 @@ For independent software vendors (ISVs) that want to build cross-app access capa
 
 ### AI agent-to-app use case
 
-If you are an Okta admin and want to set up an AI agent-to-app cross-app access configuration, follow these steps:
+If you’re an Okta admin and want to set up an AI agent-to-app cross-app access configuration, follow these steps:
 
 1. Create a custom OIDC or SAML app in Okta to represent your AI agent app. This custom app acts as the requesting app, allowing users to SSO into your AI agent.
 1. Follow this guide to create an AI agent object in Okta and bound to an agent app: [Add AI agents manually](https://help.okta.com/oie/en-us/Content/Topics/ai-agents/ai-agent-add-manually.htm). For this configuration, select your custom agent app (in step 1) in the **Delegations** tab of the AI agent page.
