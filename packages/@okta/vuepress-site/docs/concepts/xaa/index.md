@@ -4,7 +4,7 @@ title: Cross App Access (XAA)
 
 ## What is Cross App Access?
 
-Cross App Access (XAA) provides a low-friction mechanism for an app to establish secure connections with a third-party resource app. The third-party resource app can reside in a separate domain that’s protected by an external authorization server. To support cross-domain authorization, a trust relationship is established between the app’s identity provider and the external resource authorization server. XAA implements the [Identity Assertion JWT Authorization Grant (ID-JAG)](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant) flow, which is an extension of OAuth 2.0.
+Cross App Access (XAA) provides a low-friction mechanism for an app to establish secure connections with a third-party resource app. The third-party resource app resides in a separate domain that's protected by an external authorization server. To support cross-domain authorization, a trust relationship is established between the app's identity provider and the external resource authorization server. A user can SSO to their app, and the app processes can securely access data across domains on the resource app on behalf of the user without additional consent prompts using XAA.
 
 ### The problem Cross App Access solves
 
@@ -17,11 +17,11 @@ Traditional external resource authorization methods (such as API authorization) 
 
 ## How Cross App Access works
 
-XAA supports authorization chaining across domains by implementing the Identity Assertion JWT Authorization Grant (ID-JAG) flow. See [Identity Assertion JWT Authorization Grant](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant) and [OAuth Identity and Authorization Chaining Across Domains](https://datatracker.ietf.org/doc/draft-ietf-oauth-identity-chaining/).
+XAA supports authorization chaining across domains by implementing the Identity Assertion JWT Authorization Grant (ID-JAG) flow, an extension of the OAuth 2.0 framework. See [Identity Assertion JWT Authorization Grant](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant) and [OAuth Identity and Authorization Chaining Across Domains](https://datatracker.ietf.org/doc/draft-ietf-oauth-identity-chaining/).
 
-### Roles and responsibilities
+### Cross App Access roles
 
-XAA defines these roles:
+Roles and responsibilities in the XAA flow:
 
 * **Requesting app (client)**: The client app that accesses a protected resource on behalf of the authenticated user. This is the app that initiates the API calls to the external service.
 * **Resource app (protected API server)**: The app that contains the protected resource data. This is typically an API server.
@@ -117,9 +117,10 @@ Okta supports requesting apps that use the following protocols for SSO:
 * **OpenID Connect (OIDC)**: Recommended for new integrations and modern app architectures.
 * **SAML 2.0**: Supported for existing enterprise federations, allowing organizations to adopt XAA without migrating legacy authentication flows. For this protocol, Okta allows your requesting app to request an ID-JAG based on a refresh token exchange using your SAML assertion. See [Enable Your SAML Requesting App for Cross App Access](https://developer.okta.com/blog/2026/07/17/xaa-saml-requester#xaa-implementation-checklist-for-saml-federated-applications)
 
-For independent software vendors (ISVs) that want to build XAA capabilities on top of their existing SSO app integration in the Okta Integration Network (OIN), see this journey for creating a requesting app:
+Independent software vendors (ISVs) looking to implement Cross App Access features leveraging their current SSO app integration in the Okta Integration Network (OIN) can follow this journey to build a requesting app:
 
 * **[Build a requesting app]**: Follow the requesting app journey if your app needs to access an external resource app on behalf of signed-in users.
+<!--- Use this blog if the above link isn't available: [How to Build and List Secure Cross App Access (XAA) Connections on Okta Integration Network (OIN)](https://developer.okta.com/blog/2026/07/06/submit-oin-xaa#why-cross-app-access-xaa-matters-for-isvs-and-their-customers) -->
 
 ### Resource apps
 
@@ -128,9 +129,10 @@ Okta supports resource apps that use the following protocols for SSO:
 * **OpenID Connect (OIDC)**: Recommended for new integrations and modern app architectures.
 * **SAML 2.0**: Supported for existing enterprise federations, allowing organizations to adopt XAA without migrating legacy authentication flows.For this protocol, your resource authorization server must validate the ID-JAG and resolve the SAML `nameid` assertion. See [Enabling Cross-App Access for SAML-Based Resource Apps](https://developer.okta.com/blog/2026/07/03/cross-app-access-saml)
 
-For independent software vendors (ISVs) that want to build cross-app access capabilities on top of their existing SSO app integration in the Okta Integration Network (OIN), see this journey for creating a requesting app:
+If you are an ISV wanting to add your resource app to the Okta Integration Network (OIN) with Cross App Access capabilities, see this journey for creating a resource app:
 
 * **[Build a resource app]**: Follow the resource app journey if your app exposes APIs that need to accept incoming XAA authorization requests.
+<!--- Use this blog if the above link isn't available: [How to Build and List Secure Cross App Access (XAA) Connections on Okta Integration Network (OIN)](https://developer.okta.com/blog/2026/07/06/submit-oin-xaa#why-cross-app-access-xaa-matters-for-isvs-and-their-customers) -->
 
 ### AI agent-to-app use case
 
