@@ -266,6 +266,8 @@ The OIN Wizard now includes an **Edit** > **Catalog Info** path that allows inde
 
 * Developers were able to delete a [custom authorization server](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/authorizationserver/other/deleteauthorizationserver) that was used in AI agent resource connections. (OKTA-1182513)
 
+* In the System Log, the `target.detailEntry.methodTypeUsed` field for authenticator events incorrectly showed the challenge prompt method instead of the authentication method. (OKTA-1200335)
+
 ## June
 
 ### Weekly release 2026.06.3
