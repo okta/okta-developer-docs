@@ -36,7 +36,8 @@ Previously, the **Sign in with Okta FastPass** button was an org-wide authentica
 
 Each user identification policy maps one-to-one to an [app sign-in policy](/docs/concepts/policies/#app-sign-in-policies). Okta creates, maps, clones, and removes the user identification policy automatically with its app sign-in policy. You can't create, activate, update, deactivate, remove, map, or clone a user identification policy directly.
 
-If you call one of those operations directly, Okta returns the following error:
+If you call one of those operations directly, Okta returns the following error: 
+`This operation isn't supported in the user identification policy.`
 
 `This operation isn't supported in the user identification policy.`
 
