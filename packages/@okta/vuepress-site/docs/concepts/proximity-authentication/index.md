@@ -11,7 +11,7 @@ meta:
 
 Proximity authentication verifies a user's identity by detecting the physical proximity of a paired card, token, or other device to a host system. Implementations vary in the detection mechanism and token type they use to establish proximity. Some systems verify a user's palm or face as they approach a reader, rather than requiring a physical card or token.
 
-In Okta, the [NFC authenticator](https://help.okta.com/okta_help.htm?type=oie&id=) implements proximity authentication by using NFC cards. A user taps an NFC card to a compatible reader, and Okta Verify reads the card and identifies the user. The Sign-In Widget then prompts the user to enter a PIN. The NFC authenticator is the only proximity authenticator that Okta currently supports.
+In Okta, the [NFC authenticator](https://help.okta.com/okta_help.htm?type=oie&id=configure-nfc-authenticator) implements proximity authentication by using NFC cards. A user taps an NFC card to a compatible reader, and Okta Verify reads the card and identifies the user. The Sign-In Widget then prompts the user to enter a PIN. The NFC authenticator is the only proximity authenticator that Okta currently supports.
 
 The NFC authenticator is suited to shared device environments where workers don't use personal devices. For example, it can be used by workers on factory floors, in retail locations, in warehouses, or in hospitality settings. In those environments, traditional authentication methods like passwords or personal device-based MFA create operational friction or aren't practical.
 
@@ -33,7 +33,7 @@ A single sign-in with the NFC authenticator can satisfy an MFA requirement witho
 Proximity authentication using the NFC authenticator involves the following three components:
 
 * **Okta Verify**: Okta Verify is an app that's installed on the workstation. It acts as the proximity agent and handles all NFC hardware interaction between the device, the reader, and the card.
-  > **Note:** Only managed Okta Verify installations on Windows desktop devices can participate in NFC authentication, currently. See [Configure the NFC authenticator](https://help.okta.com/okta_help.htm?type=oie&id=) for prerequisites and setup steps.
+  > **Note:** Only managed Okta Verify installations on Windows desktop devices can participate in NFC authentication, currently. See [Configure the NFC authenticator](https://help.okta.com/okta_help.htm?type=oie&id=configure-nfc-authenticator) for prerequisites and setup steps.
 * **Sign-In Widget**: The Sign-In Widget is the browser-based authentication interface. It presents the sign-in flow to the user, initiates the NFC interaction by contacting Okta Verify, and collects the PIN when Okta sends a challenge. You can customize and embed the Sign-In Widget in your app. See [Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/main/).
 * **Okta**: Okta creates and manages enrollment records, generates and stores cryptographic material for hardware-protected tags, and identifies the user during verification.
 
@@ -55,7 +55,7 @@ The following steps describe the enrollment process for a user with a new NFC ca
 1. The Sign-In Widget prompts the user to enter and confirm a PIN.
 1. The PIN is hashed and stored server-side and isn't written to the card.
 
-See [End-user experience for the NFC authenticator](https://help.okta.com/okta_help.htm?type=oie&id=).
+See [End-user experience for the NFC authenticator](https://help.okta.com/okta_help.htm?type=oie&id=nfc-end-user-experience).
 
 ### Sign in with an NFC authenticator
 
@@ -68,7 +68,7 @@ The following steps describe the sign-in process for a user with an enrolled NFC
 1. Okta identifies the user from their enrollment record and sends a PIN challenge to the Sign-In Widget.
 1. The user enters their PIN in the browser to complete their sign-in.
 
-See [End-user experience for the NFC authenticator](https://help.okta.com/okta_help.htm?type=oie&id=).
+See [End-user experience for the NFC authenticator](https://help.okta.com/okta_help.htm?type=oie&id=nfc-end-user-experience).
 
 ## Proximity provider types
 
@@ -77,7 +77,7 @@ Okta maintains a catalog of supported proximity provider types and their items. 
 * `authenticatorCharacteristics.hardwareProtected: true`: For NFC tags, the card contains a secure element that stores cryptographic keys. During verification, Okta and the card perform a mutual authentication exchange: each side proves it holds the correct keys through a challenge-response sequence. Because the keys exist only inside the secure element and can't be read or extracted, a copied card fails this exchange.
 * `authenticatorCharacteristics.hardwareProtected: false`: For NFC tags, the card exposes its UID as plain data that Okta reads during authentication. The UID has no cryptographic protection and can be copied to a blank card using any NFC reader app. An attacker with a cloned card can attempt to authenticate as the original owner. The PIN is the only control against unauthorized sign-in.
 
-For supported hardware models and procurement guidance, see [Supported NFC card types](https://help.okta.com/okta_help.htm?type=oie&id=).
+For supported hardware models and procurement guidance, see [Supported NFC card types](https://help.okta.com/okta_help.htm?type=oie&id=nfc-supported-cards).
 
 ## Authentication assurance
 
