@@ -13,6 +13,28 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 ## July
 
+### Weekly release 2026.07.3
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is Beta](#resource-collections-with-okta-groups-okta-push-groups-and-non-entitlement-management-apps-is-beta) | July 29, 2026 |
+| [Entitlement ID added to entitlement history](#entitlement-id-added-to-entitlement-history) | July 29, 2026 |
+
+#### Resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps is Beta
+
+<ApiLifecycle access="beta" />
+
+The new [Collections - V2](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) API supports resource collections that include Okta groups, push groups, and apps, with or without entitlements (without requiring an opt-in to Entitlement Management). With this API, you can manage resource collections and directly assign a collection to a principal user. You can also create access certification campaigns to review and remediate collection access or streamline user access requests by configuring access request conditions. To learn more, see [Resource collection](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) in the product documentation.
+
+To use the [Collections - V2](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/collections-v2) API, enable the **Extend resource collections with Okta groups, Okta push groups, and non-Entitlement Management apps** setting in the Admin Console. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
+
+<!-- OKTA-1227983, OKTA-1219090 IGA_COLLECTIONS_PHASE_TWO Preview date: July 29, 2025 -->
+
+#### Entitlement ID added to entitlement history
+
+The `id` property is now returned for each entitlement listed in entitlement history from the [Retrieve an entitlement history](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/principal-entitlements/getprincipalentitlementshistory) operation (see `entitlementHistory[].entitlements[].id`).
+<!-- OKTA-1197425 Preview date: July 29, 2026 -->
+
 ### Monthly release 2026.07.0
 <!-- Published on: 2026-07-01T12:00:00Z -->
 
