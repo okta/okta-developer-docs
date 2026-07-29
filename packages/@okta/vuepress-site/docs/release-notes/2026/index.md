@@ -31,7 +31,7 @@ The GET `/apps/{appId}/tokens` endpoint sometimes returned fewer results than th
 | [Improved group member search functionality is GA in Production](#improved-group-member-search-functionality-is-ga-in-production) | July 1, 2026 |
 | [Group push support in API Integration Actions apps](#group-push-support-in-api-integration-actions-apps) | July 1, 2026 |
 | [Delete group push mappings in ERROR state](#delete-group-push-mappings-in-error-state) | July 1, 2026 |
-| [Replace a Group Rule API can now update assigned groups](#replace-a-group-rule-api-can-now-update-assigned-groups) | July 1, 2026 |
+| [Replace a Group Rule API can now update assigned groups is GA in Preview](#replace-a-group-rule-api-can-now-update-assigned-groups-is-ga-in-preview) | July 1, 2026 |
 | [Developer documentation updates in 2026.07.0](#developer-documentation-updates-in-2026-07-0) | July 1, 2026 |
 
 #### New IP Service available for enhanced dynamic network zones
@@ -51,7 +51,7 @@ Apps that use API Integration Actions to perform provisioning can now use the [G
 
 The [Delete a group push mapping](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/grouppushmapping/other/deletegrouppushmapping) endpoint now supports deleting group push mappings in the `ERROR` state, alongside the `INACTIVE` state. <!-- OKTA-1210326 -->
 
-#### Replace a Group Rule API can now update assigned groups
+#### Replace a Group Rule API can now update assigned groups is GA in Preview
 
 The [Replace a group rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/grouprule/other/replacegrouprule) endpoint now supports updating the `actions` object to modify the groups assigned to a group rule. <!-- OKTA-1128862 FF EDITABLE_GROUP_RULE_TARGETS to GA Preview July 1, 2026 -->
 
