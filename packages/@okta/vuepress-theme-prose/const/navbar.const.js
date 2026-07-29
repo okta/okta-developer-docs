@@ -16,7 +16,7 @@ export const concepts = [
         path: "/docs/concepts/auth-servers/",
       },
       {
-        title: "Cross-app access (XAA)",
+        title: "Cross App Access (XAA)",
         path: "/docs/concepts/xaa/",
       },
       {
