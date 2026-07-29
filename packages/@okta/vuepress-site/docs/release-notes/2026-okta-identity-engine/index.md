@@ -29,7 +29,7 @@ The [`issuerUrl`](https://developer.okta.com/docs/api/secures-ai/openapi/secures
 
 #### Removal of Application Cross App Access Connections API
 
-The removal of the [Application Cross App Access Connections](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/applicationcrossappaccessconnections) API is scheduled for an upcoming release. Your existing managed connection configurations will stop working. Use the corresponding [Okta for AI Agents API](https://developer.okta.com/docs/api/secures-ai) to reconfigure your connections: [Create a resource connection](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentconnections/other/createresourceconnection) with `IDENTITY_ASSERTION_APP_INSTANCE`.
+The removal of the [Application Cross App Access Connections](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/applicationcrossappaccessconnections) API is scheduled for an upcoming release. Your existing managed connection configurations will stop working. Use the corresponding [Okta for AI Agents API](https://developer.okta.com/docs/api/secures-ai) to reconfigure your [connections](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentconnections/other/createresourceconnection) with `IDENTITY_ASSERTION_APP_INSTANCE`.
 
 For instructions on how AI agent connections are configured in the Admin Console, see [Configure resource server connectors](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-rsc-svr-config).
 <!-- OKTA-1221183 pre XAA phase 2, Preview: July 29, 2026 -->
