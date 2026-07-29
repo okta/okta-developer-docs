@@ -8,6 +8,7 @@ guides:
  - ai-agent-secure-third-party
  - ai-agent-third-party-token-exchange
  - ai-agent-token-exchange
+ - ai-configure-agent-for-gateway
  - ai-agent-to-agent-token-exchange
  - app-provisioning-connection
  - archive-auth-js
