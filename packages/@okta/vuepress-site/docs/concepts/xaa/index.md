@@ -4,7 +4,7 @@ title: Cross App Access (XAA)
 
 ## What is Cross App Access?
 
-Cross App Access (XAA) is a mechanism that enables apps to securely connect to third-party resource apps protected by an external authorization server. The app’s identity provider establishes a trust relationship with the external resource authorization server to support cross-domain authorization. XAA implements an extension of OAuth 2.0 to support authorization across domains called the [Identity Assertion JWT Authorization Grant (ID-JAG)](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant) flow.
+Cross App Access (XAA) provides a low-friction mechanism for an app to establish secure connections with a third-party resource app. The third-party resource app can reside in a separate domain that’s protected by an external authorization server. To support cross-domain authorization, a trust relationship is established between the app’s identity provider and the external resource authorization server. XAA implements the [Identity Assertion JWT Authorization Grant (ID-JAG)](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant) flow, which is an extension of OAuth 2.0.
 
 ### The problem Cross App Access solves
 
