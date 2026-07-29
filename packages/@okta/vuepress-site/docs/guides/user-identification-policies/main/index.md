@@ -39,7 +39,6 @@ Each user identification policy maps one-to-one to an [app sign-in policy](/docs
 If you call one of those operations directly, Okta returns the following error: 
 `This operation isn't supported in the user identification policy.`
 
-`This operation isn't supported in the user identification policy.`
 
 You manage only the **rules** on the policy. You can create, update, and delete rules, but you can't deactivate or remove the default rule.
 
