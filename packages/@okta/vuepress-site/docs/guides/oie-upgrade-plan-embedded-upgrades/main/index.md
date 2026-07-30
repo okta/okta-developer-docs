@@ -100,7 +100,7 @@ When you embed authentication with our SDKs, review all the steps before you pla
 
         * **Sign Out:** Use the `revoke()` method in the SDKs rather than make calls to the Sessions API to manage Okta sessions. See [Revoke the access token](/docs/guides/oie-embedded-sdk-use-case-basic-sign-out/-/main/#_2-revoke-the-access-token).
 
-        If you tightly couple your app sessions with Okta sessions, you may need more work to separate them. See [Understand how sessions work after the upgrade](/docs/guides/oie-upgrade-sessions-api/).
+        If your app's sign-in state depends directly on the Okta session (for example, by calling the Sessions API or relying on the `sid` cookie) instead of on its own tokens, you may need more work to decouple your app's session lifecycle from Okta's. See [Understand how sessions work after the upgrade](/docs/guides/oie-upgrade-sessions-api/).
 
 ## Upgrade from using the Okta Authentication APIs
 
