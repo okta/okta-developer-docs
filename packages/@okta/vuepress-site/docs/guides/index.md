@@ -218,6 +218,7 @@ guides:
  - custom-smtp
  - oag-offline-mode
  - configure-identity-claims-sourcing-policy
+ - xaa-agent-to-app
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
