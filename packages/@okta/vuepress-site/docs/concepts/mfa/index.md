@@ -96,7 +96,7 @@ See the following table for a list of authenticators, their keys, types, and met
 | `webauthn`         | `security_key`            | `webauthn`                |
 | `yubikey_token`    | `security_key`            | `otp`                      |
 
-> **Note:** When the self-service Early Access (EA) Okta Verify standalone authenticators feature is enabled, `okta_verify_totp`, `okta_verify_push`, and `okta_verify_fastpass` become available as separate authenticator keys. The legacy `okta_verify` key is still returned in responses for backward compatibility, but is no longer accepted when creating or updating an authenticator. See [Okta Verify as standalone authenticators](/docs/guides/authenticators-okta-verify/main/#okta-verify-as-standalone-authenticators).
+> **Note:** When the self-service Early Access (EA) Flexible Okta Verify authenticator configuration feature is enabled, `okta_verify_totp`, `okta_verify_push`, and `okta_verify_fastpass` become available as separate authenticator keys. The legacy `okta_verify` key is still returned in responses for backward compatibility, but is no longer accepted when creating or updating an authenticator. See [Configure Okta Verify as standalone authenticators](/docs/guides/authenticators-okta-verify/main/#configure-okta-verify-as-standalone-authenticators).
 
 ### Understand the terminology in the User Factors API
 
