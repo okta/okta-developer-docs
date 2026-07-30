@@ -78,6 +78,8 @@ Common AI agent scenarios include:
 * **Automated developer operations**: Developer tools and code editors (such as Visual Studio Code or Cursor) query container registries (such as Docker), inspect cloud app performance metrics (such as Datadog), or query production databases (such as Supabase) using the engineer's scoped user identity.
 * **Enterprise AI search**: Federated AI search tools (such as Glean) retrieve internal company records from connected cloud services only when the end user has active permissions, preventing data leakage across organizational boundaries.
 
+> **Note:** See [Configure AI agent-to-app with Cross App Access] for Okta Admin Console instructions on how to configure an AI agent-to-app connection with XAA.
+
 ### App-to-app
 
 Business apps need to share data and trigger workflows across identity service boundaries. Traditional app-to-app integrations rely either on user-managed OAuth authorization flows (which interrupt employees with consent pages) or static API keys and shared service accounts (which lack user context and bypass enterprise IT policy).
@@ -89,6 +91,8 @@ Common app-to-app integration scenarios include:
 * **Messaging and productivity synchronization**: A team collaboration app (such as Zoom) accesses an enterprise notification API (such as Slack) on another resource server, sending action items and notifications to employees.
 * **Project management and issue tracking**: A project planning platform (such as Asana or Linear) pulls live issue statuses, customer details, or pull request updates from developer and CRM tools (such as Jira, Salesforce, or GitHub) under the context of the active team member.
 * **Automated workflow execution**: An enterprise integration platform (such as Zapier or Workato) triggers multi-step actions across connected HR, payroll, and IT ticketing tools while preserving the identity of the employee who initiated the request for compliance and auditing.
+
+> **Note:** See [Configure app-to-app with Cross App Access] for Okta Admin Console instructions on how to configure an app-to-app connection with XAA.
 
 ## When to use Cross App Access
 
@@ -127,23 +131,10 @@ If you're an independent software vendor (ISV) looking to implement XAA requesti
 Okta supports resource apps that use the following protocols for SSO:
 
 * **OpenID Connect (OIDC)**: Recommended for new integrations and modern app architectures.
-* **SAML 2.0**: Supported for existing enterprise federations, allowing organizations to adopt XAA without migrating legacy authentication flows.For this protocol, your resource authorization server must validate the ID-JAG and resolve the SAML `nameid` assertion. See [Enabling Cross-App Access for SAML-Based Resource Apps](https://developer.okta.com/blog/2026/07/03/cross-app-access-saml)
+* **SAML 2.0**: Supported for existing enterprise federations, allowing organizations to adopt XAA without migrating legacy authentication flows. For this protocol, your resource authorization server must validate the ID-JAG and resolve the SAML `nameid` assertion. See [Enabling Cross-App Access for SAML-Based Resource Apps](https://developer.okta.com/blog/2026/07/03/cross-app-access-saml)
 
 If you're an ISV wanting to add your resource app to the OIN with XAA capabilities, see this journey for creating a resource app:
 
 * **[Build a resource app]**: Follow the resource app journey if your app exposes APIs that need to accept incoming XAA authorization requests.
 <!--- Use this blog if the above link isn't available: [How to Build and List Secure Cross App Access (XAA) Connections on Okta Integration Network (OIN)](https://developer.okta.com/blog/2026/07/06/submit-oin-xaa#why-cross-app-access-xaa-matters-for-isvs-and-their-customers) -->
 
-### AI agent-to-app use case
-
-If you’re an Okta admin and want to set up an AI agent-to-app cross-app access configuration, follow these steps:
-
-1. Create a custom OIDC or SAML app in Okta to represent your AI agent app. This custom app acts as the requesting app, allowing users to SSO into your AI agent.
-1. Follow this guide to create an AI agent object in Okta and bound to an agent app: [Add AI agents manually](https://help.okta.com/oie/en-us/Content/Topics/ai-agents/ai-agent-add-manually.htm). For this configuration, select your custom agent app (in step 1) in the **Delegations** tab of the AI agent page.
-1. For each resource app you want to connect to the AI agent, create a custom or OIN app instance in Okta with OIDC or SAML SSO configured. If you use an OIN app as the resource app, it must already have XAA enabled.
-
-  For an SSO resource app instance in Okta, configure the **Cross-app access (XAA)** in the **Resource server** tab. See the instructions in [Configure resource server connectors](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-rsc-svr-config).
-
-1. Connect your AI agent to resource apps by following this guide: [Connect AI agents to resources](https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-connected-resource.htm). For this configuration, select **Application** as the resource type. Select the resource app instance that's already in your Okta org. This can be a custom or OIN app instance that has OIDC or SAML SSO configured.
-
-See [Set up AI agent token exchange](https://developer.okta.com/docs/guides/ai-agent-token-exchange/authserver/main/) for the AI agent-to-app token exchange flow.
