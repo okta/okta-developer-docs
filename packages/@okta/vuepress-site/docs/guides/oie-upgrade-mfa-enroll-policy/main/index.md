@@ -197,3 +197,7 @@ Converted authenticator enrollment policy with authenticator settings:
     ]
 }
 ```
+
+## Related topics
+
+* [Audit your Classic API dependencies](/docs/guides/oie-upgrade-audit-classic-api-dependencies/)
