@@ -2,64 +2,60 @@
 title: Understand authenticator enrollment policy API changes after the upgrade
 meta:
   - name: description
-    content: Learn how to use and manage the authenticator enrollment policies with the API in Okta Identity Engine.
+    content: Manage authenticator enrollment policies with the Policy API in Okta Identity Engine.
 ---
 
 <ApiLifecycle access="ie" />
 
 ## Overview
 
-Okta Identity Engine sets apart factors and authenticators to align with industry standards:
+Okta Identity Engine separates factors from authenticators to align with industry standards:
 
 - Identity Engine uses authenticators in the settings for its authenticator enrollment policy.
 - Classic Engine uses factors in the settings for its multifactor (MFA) enrollment policy.
 
-In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy). Classic Engine still refers to the same policy as the [Multifactor (MFA) Enrollment Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy). In the API, the policy type of `MFA_ENROLL` remains unchanged, however, the `settings` data contains authenticator or factors, depending on the configuration.
+In Identity Engine, the MFA Enrollment Policy is now the [authenticator enrollment policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy). Classic Engine still calls the same policy the [Multifactor (MFA) Enrollment Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy). The API policy type `MFA_ENROLL` stays the same, but the `settings` data now contains authenticators or factors, depending on your configuration.
 
-After you upgrade your org to Identity Engine, consider the following:
+After you upgrade your org to Identity Engine, keep these points in mind:
 
-- New authenticator enrollment policies that you create in the Admin Console are configured with authenticators.
+- New authenticator enrollment policies that you create in the Admin Console use authenticators.
+- Existing authenticator enrollment policies from before the upgrade still use factors.
+- When you save an existing policy in the Admin Console, Okta converts its factors to authenticators automatically.
 
-- Existing authenticator enrollment policies that you created before upgrading to Identity Engine are still configured with factors.
+> **Note:** When you edit an authenticator enrollment policy and click **Update Policy** in the Admin Console, Okta converts its factors to authenticators.
 
-- Existing authenticator enrollment policies that you save in the Admin Console have their factors converted to authenticators. The conversion is seamless to admins that manage policies in the Admin Console.
-
-> **Note:** Whether you edit the authenticator enrollment policy, when you click **Update Policy** in the Admin Console, the factor-to-authenticator conversion occurs.
-
-Existing code that manages and uses authenticator enrollment policies through the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) requires some development work. After you upgrade your org, address the factor-to-authenticator conversion schema changes.
-
-This guide provides key API considerations to upgrade your app for multifactor enrollment flows in Identity Engine.
+If your code manages authenticator enrollment policies through the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy), update it for the factor-to-authenticator conversion. This guide covers the key API considerations for upgrading your multifactor enrollment flows in Identity Engine.
 
 ## Authenticator enrollment policy API changes in Identity Engine
 
-The following are the main behavior changes to the [authenticator enrollment policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) in Identity Engine:
+Identity Engine changes authenticator enrollment policy behavior in these ways:
 
-- The Policy API supports both factors and authenticator schemas in the [settings](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings/authenticators&t=request) for the authenticator enrollment policy.
-- New authenticator enrollment policies contain either factors or authenticators in their settings (they’re mutually exclusive).
-- Existing authenticator enrollment policies (that is, policies created before the Identity Engine upgrade) still contain factors in their settings.
-- Authenticator enrollment policies modified from the Admin Console of an Identity Engine org have their factors converted to authenticators in their settings.
+- The Policy API supports both factor and authenticator schemas in the [settings](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings/authenticators&t=request) for the authenticator enrollment policy.
+- New authenticator enrollment policies contain either factors or authenticators in their settings. The two schemas are mutually exclusive.
+- Existing authenticator enrollment policies, meaning policies you created before the Identity Engine upgrade, still contain factors in their settings.
+- When you modify a policy from the Admin Console of an Identity Engine org, Okta converts its factors to authenticators in the settings.
 
-> **Note:** For Identity Engine orgs with the Authenticator enrollment policy feature enabled, the new default authenticator enrollment policy created by Okta uses the authenticators setting schema. Existing default authenticator enrollment policies from a migrated org remain unchanged and still use the factors setting schema. If you want the default policy to use the authenticators setting schema, then modify the default policy. In the Admin Console, convert the settings from factors to authenticators.
+> **Note:** If your Identity Engine org has the authenticator enrollment policy feature enabled, Okta's new default policy uses the authenticators setting schema. Default policies from a migrated org keep the factors setting schema. To switch a default policy to the authenticators schema, open it in the Admin Console and convert the settings from factors to authenticators.
 
 ### Recovery authenticators
 
-In Identity Engine, you can use authenticator-based authenticator enrollment policies to govern recovery authenticator enrollment for the password recovery flow. This feature isn't available for factor-based authenticator enrollment policies.
+In Identity Engine, authenticator-based authenticator enrollment policies can govern recovery authenticator enrollment for the password recovery flow. Factor-based policies don't support this feature.
 
-Both the password policy and the authenticator enrollment policy govern the enrollment of recovery authenticators (Email, phone, Okta Verify, and Security Question). For example, if the Email authenticator is enabled and set to `Required` in the authenticator enrollment policy, then email enrollment is required for recovery even if it isn't required in the password policy.
+Both the password policy and the authenticator enrollment policy govern the enrollment of recovery authenticators: Email, Phone, Okta Verify, and Security Question. For example, suppose that the Email authenticator is `Required` in the authenticator enrollment policy. Email enrollment becomes mandatory for recovery even if the password policy doesn't require it.
 
-> **Note:** Password policy recovery authenticator settings supersede the authenticator enrollment policy settings. For example, if the phone authenticator is `Optional` or `Disabled` for the authenticator enrollment policy, but `Required` for the password policy, then phone enrollment is required for the password recovery flow.
+> **Note:** Password policy recovery authenticator settings override the authenticator enrollment policy settings. For example, the phone authenticator might be `Optional` or `Disabled` in the authenticator enrollment policy but `Required` in the password policy. In that case, phone enrollment becomes mandatory for the password recovery flow.
 
-See [password policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) and [Configure password policies](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-password) for details on how to configure the password policy in the Admin Console.
+See [password policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) and [Configure password policies](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-password) to configure the password policy in the Admin Console.
 
 ## Get authenticator enrollment policies
 
-To parse a response from the `GET /api/v1/policies?type=MFA_ENROLL` request, you must determine if the returned authenticator enrollment policy contains either `authenticators` or `factors` in the [settings schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings&t=request).
+To parse a `GET /api/v1/policies?type=MFA_ENROLL` response, check whether the returned policy contains `authenticators` or `factors` in the [settings schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings&t=request).
 
-> **Note:** Another indicator of an authenticator-based enrollment policy is when `type=AUTHENTICATORS` in the [settings schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings&t=request). The `type` property could be absent from the response of factor-based authenticator enrollment policies.
+> **Note:** You can also spot an authenticator-based policy by `type=AUTHENTICATORS` in the [settings schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings&t=request). Factor-based policies often omit the `type` property entirely.
 
-If the returned policy uses `authenticators`, loop through the list of [policy authenticator objects](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings/authenticators&t=request) and use the `key` property to identify the authenticator. See the [Authenticators API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/) for more details on the available authenticators in your org.
+If the policy uses `authenticators`, loop through the list of [policy authenticator objects](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings/authenticators&t=request) and use the `key` property to identify each authenticator. See the [Authenticators API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/) for the full list of authenticators available in your org.
 
-If the returned policy uses `factors`, you need to loop through every type of [policy factor configuration object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings/authenticators/key&t=request), as you've done previously for your app.
+If the policy uses `factors`, loop through every [policy factor configuration object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings/authenticators/key&t=request), the same way your app already does.
 
 Response example of an authenticator enrollment policy `settings` snippet with authenticators:
 
@@ -110,28 +106,28 @@ Response example of an authenticator enrollment policy `settings` snippet with f
 
 ## Create an authenticator enrollment policy
 
-To create an authenticator enrollment policy through the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy), you need to provide the `settings` schema with either the list of [policy authenticator objects](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings/authenticators&t=request) or [policy factor configuration objects](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings/authenticators/key&t=request) in the `POST /api/v1/policies` request body parameters.
+To create an authenticator enrollment policy, use the [Create a Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) API operation with `type=MFA_ENROLL`. In the request body, provide the `settings` schema with either [policy authenticator objects](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings/authenticators&t=request) or [policy factor configuration objects](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings/authenticators/key&t=request).
 
-To create an authenticator enrollment policy in Identity Engine, use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy). To set the list of authenticators for the policy, use the [Authenticators API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticators).
+To set the list of authenticators for the policy, use the [Authenticators API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticators).
 
-You can also create an authenticator enrollment policy with factors instead of authenticators to support legacy systems or workflows. Set the policy `settings` to the factors schema with the [policy factor configuration objects](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings/authenticators/key&t=request).
+You can also create a policy with factors instead of authenticators, to support legacy systems or workflows. Set the policy `settings` to the factors schema with [policy factor configuration objects](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings/authenticators/key&t=request).
 
-> **Note:** Configure the other policy parameters according to the [Create a Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) API operation. Specifically, you need to include the `type=MFA_ENROLL` parameter for an authenticator enrollment policy.
+> **Note:** Configure the remaining policy parameters as described in the [Create a Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) API operation.
 
 ## Update an authenticator enrollment policy
 
-To update an authenticator enrollment policy through the [Update a Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/replacePolicy) API operation, you need to provide the `settings` schema with either the list of [policy authenticator objects](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings/authenticators&t=request) or [policy factor configuration objects](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings/authenticators/key&t=request) in the `PUT /api/v1/policies/{policyId}` request body parameters.
+To update a policy, use the [Update a Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/replacePolicy) API operation with `PUT /api/v1/policies/{policyId}`. In the request body, provide the `settings` schema with either [policy authenticator objects](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings/authenticators&t=request) or [policy factor configuration objects](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings/authenticators/key&t=request).
 
-> **Note:** Configure the other policy parameters according to the [Update a Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/replacePolicy) API operation. This section focuses on the `settings` parameter required specifically for the authenticator enrollment policy.
+> **Note:** Configure the remaining policy parameters as described in the [Update a Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/replacePolicy) API operation. This section covers only the `settings` parameter for the authenticator enrollment policy.
 
-If you need to convert an existing factor-based authenticator enrollment policy to use authenticators, then update the policy with authenticators in the `settings` parameter. Use the [Policy Factors Configuration object and Authenticator keys mapping](#policy-factors-configuration-object-and-authenticator-keys-mapping) table to map Policy Factors Configuration objects to authenticator keys. See the [settings conversion example](#authenticator-enrollment-policy-settings-conversion-example).
+To convert an existing factor-based policy to use authenticators, update the policy's `settings` parameter with authenticators. Use the [Policy Factors Configuration object and Authenticator keys mapping](#policy-factors-configuration-object-and-authenticator-keys-mapping) table to map each factor to its authenticator key, and see the [settings conversion example](#authenticator-enrollment-policy-settings-conversion-example).
 
-You can revert to the factor-based authenticator enrollment policy model. Modify an existing authenticator-based enrollment policy to a factored one. To convert the authenticator keys to Policy Factor Configuration objects, see the following:
+You can also revert an authenticator-based policy to the factor-based model. To convert the authenticator keys back to Policy Factor Configuration objects, see:
 
 * [Policy factor configuration objects](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings/authenticators/key&t=request)
 * [Policy Factors Configuration object and Authenticator keys mapping](#policy-factors-configuration-object-and-authenticator-keys-mapping)
 
-> **Note:** Your app might be integrated with systems like Terraform that you can't update to parse the authenticators-based enrollment policy. If so, revert your policy to use factors instead of authenticators.
+> **Note:** Your app might integrate with a system, such as Terraform, that can't parse the authenticator-based schema. If so, revert your policy to use factors instead.
 
 ## Policy Factors Configuration object and Authenticator keys mapping
 
@@ -149,7 +145,7 @@ You can revert to the factor-based authenticator enrollment policy model. Modify
 
 ### Authenticator enrollment policy settings conversion example
 
-The following example shows the `settings` schema conversion from a factor-based to an authenticator-based enrollment policy.
+This example shows the `settings` schema conversion from a factor-based to an authenticator-based enrollment policy.
 
 Original authenticator enrollment policy with factor settings:
 
@@ -197,3 +193,7 @@ Converted authenticator enrollment policy with authenticator settings:
     ]
 }
 ```
+
+## Related topics
+
+* [Audit your Classic API dependencies](/docs/guides/oie-upgrade-audit-classic-api-dependencies/)
