@@ -26,7 +26,7 @@ Add a layer of authorization to your web services with [Okta API Access Manageme
 **What you need**
 
 * An [Okta Integrator Free Plan org](https://developer.okta.com/signup/)
-* [Postman](https://www.getpostman.com/apps) to test the API
+* [Postman](https://www.postman.com/downloads/) to test the API
 * A recent version of [PHP](https://www.php.net/) and [composer](https://getcomposer.org/) installed.
 
 **Sample code**
@@ -300,7 +300,7 @@ You can now test if your endpoint security works as intended. To do this, you wi
 1. [Create an API services integration to represent another machine or service attempting to make requests to the API](#create-an-api-services-integration)
 1. [Create a custom scope for the authorization server to assign to the API integration](#create-a-custom-scope-for-the-api)
 1. [Run the API](#run-your-api)
-1. Use [Postman](https://www.getpostman.com/apps) to
+1. Use [Postman](https://www.postman.com/downloads/) to
    1. [Request an access token for the API](#request-an-access-token-for-the-api)
    [[style="list-style-type:lower-alpha"]]
    1. [Query both the `\hello` and `\whoami` endpoints](#query-the-hello-and-whoami-endpoints)

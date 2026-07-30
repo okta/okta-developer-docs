@@ -25,7 +25,7 @@ You need an Okta Integrator Free Plan org to get started. Don't have one? [Creat
 
 ## Set up your Postman environment
 
-1. [Install the Postman app](https://www.getpostman.com/apps).
+1. [Install the Postman app](https://www.postman.com/downloads/).
 1. Start Postman if it's not open already.
 1. In the upper-left corner, click the hamburger menu > **File** > **Import** if you're on Windows. Click **Import** if you're on MacOS.
 1. In the **Import** dialog, paste the following link into the **Paste cURL, Raw text or URL...** textbox: `https://developer.okta.com/docs/api/postman/example.oktapreview.com.environment`.
