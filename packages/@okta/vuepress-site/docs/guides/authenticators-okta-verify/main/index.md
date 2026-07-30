@@ -6,13 +6,13 @@ The expected behavior of Okta Verify is to reflect the context of the original c
 
 The Okta Verify push notification always displays the server's IP address and user agent regardless of any passed-in request context. As a result, Okta Verify is unavailable for server-side applications using the embedded SDK until Okta finds a solution.
 
-This issue persists regardless of whether you enable the Okta Verify standalone authenticators feature.
+This issue persists regardless of whether you enable the Flexible Okta Verify authenticator configuration feature.
 
-## Okta Verify as standalone authenticators
+## Configure Okta Verify as standalone authenticators
 
 <ApiLifecycle access="ea" />
 
-When the Okta Verify standalone authenticators feature is enabled, `okta_verify_totp`, `okta_verify_push`, and `okta_verify_fastpass` become available as separate authenticator keys, one for each Okta Verify method.
+When the Flexible Okta Verify authenticator configuration feature is enabled, `okta_verify_totp`, `okta_verify_push`, and `okta_verify_fastpass` become available as separate authenticator keys, one for each Okta Verify method.
 
 | Authenticator key      | Method                            |
 |------------------------|-----------------------------------|
@@ -51,7 +51,7 @@ For example, the following policy configuration has `okta_verify` enabled as a r
 { "key": "okta_verify", "enroll": { "self": "REQUIRED" } }
 ```
 
-When you enable the Okta Verify as standalone authenticators feature, that configuration is automatically translated to the following configuration. It has `okta_verify_fastpass` enabled as a required authenticator and the other two methods enabled as optional authenticators:
+When you enable the Flexible Okta Verify authenticator configuration feature, that configuration is automatically translated to the following configuration. It has `okta_verify_fastpass` enabled as a required authenticator and the other two methods enabled as optional authenticators:
 
 ```json
 { "key": "okta_verify_totp", "enroll": { "self": "OPTIONAL" } },
