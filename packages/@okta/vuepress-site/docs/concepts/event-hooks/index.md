@@ -17,7 +17,7 @@ Okta event hooks are an implementation of the industry concept of webhooks. Okta
 
 Before the introduction of event hooks, polling the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/) was the only method your external software systems could use to detect the occurrence of specific events in your Okta org. Event hooks provide an Okta-initiated push notification.
 
-You can have a maximum of 25 active and verified event hooks set up in your org at any time. Each event hook can be configured to deliver multiple event types.
+You can have a maximum of 25 active and verified event hooks set up in your org at any time. Each event hook can be configured to deliver multiple event types (with a limit of 300 eligible event types per hook).
 
 > **Note:** To deliver event information, event hooks use the data structure associated with the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/).
 
@@ -112,6 +112,7 @@ As a best practice, you should return the HTTP response immediately, rather than
 ### Rate limits
 
 Okta limits each org to 400,000 applicable events within a 24-hour period. After reaching this threshold, further event hooks aren't triggered. The system log receives a warning prior to hitting the event limit when the number of events hits 280,000. The event limit resets 24 hours after the first event is sent. <!-- This content also available on this help.okta.com page: https://help.okta.com/okta_help.htm?type=wf&id=ext-workflows-system-limits -->
+Each event hook has a limit of 300 eligible event types per hook.
 
 ### Debugging
 
@@ -289,5 +290,5 @@ The following is an example of a JSON payload of a request from Okta to your ext
 
 ## See also
 
-- [Event hooks management APIs](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/#tag/EventHook)
-- [Hooks best practices](/docs/guides/hooks-best-practices/)
+* [Event hooks management APIs](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/#tag/EventHook)
+* [Hooks best practices](/docs/guides/hooks-best-practices/)
