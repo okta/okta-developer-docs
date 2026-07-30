@@ -4,7 +4,7 @@ title: Plan embedded auth app upgrades
 
 <ApiLifecycle access="ie" />
 
-This guide is the most detailed checklist for upgrading an embedded authentication app from Classic Engine to Identity Engine. Use it during the Build step of the Modernize your sign-in and SSO flow with Okta Identity Engine journey, after you've chosen a deployment model.
+This guide provides a comprehensive checklist for upgrading an embedded authentication app from Classic Engine to Identity Engine. Use it during the Build step of the Modernize your sign-in and SSO flow with Okta Identity Engine journey, after you've chosen a deployment model.
 <!-- TODO(OKTA-1216410 follow-up): link "Modernize your sign-in and SSO flow with Okta Identity Engine" to /docs/journeys/modernize-sso-flow-with-oie/main/ when that journey publishes (target: September monthly release). -->
 
 > **Note:** If you haven't yet chosen a deployment model, start with Choose your OIE authentication modernization approach.
@@ -12,11 +12,11 @@ This guide is the most detailed checklist for upgrading an embedded authenticati
 
 ## When to use this guide
 
-Use this guide if your app:
+Use this guide if your app meets any of the following criteria:
 
-* Embeds the Okta Sign-In Widget (Gen2). Okta delivers the Gen3 widget only as the Okta-hosted sign-in experience, which you can't self-host.
-* Uses an Okta language SDK (Auth.js, Java, .NET, Node, Python, Go, or a mobile SDK) to authenticate users.
-* Calls Classic Engine APIs (`/api/v1/authn`, Factors API, Sessions API) directly and is moving to a supported Identity Engine flow.
+* Your app embeds the Okta Sign-In Widget (Gen2). Okta delivers the Gen3 widget only as the Okta-hosted sign-in experience, which you can't self-host.
+* Your app uses an Okta language SDK (Auth.js, Java, .NET, Node, Python, Go, or a mobile SDK) to authenticate users.
+* Your app calls Classic Engine APIs (`/api/v1/authn`, Factors API, Sessions API) directly and is moving to a supported Identity Engine flow.
 
 This guide isn't the right starting point if your app uses redirect authentication only. For redirect, see [Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/main/) and the related platform-specific redirect guides.
 
