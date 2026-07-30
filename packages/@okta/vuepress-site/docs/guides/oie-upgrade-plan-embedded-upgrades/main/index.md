@@ -80,7 +80,7 @@ When you embed authentication with our SDKs, review all the steps before you pla
 
     See [Add the Identity Engine SDK to your app](/docs/guides/oie-upgrade-add-sdk-to-your-app/main/) for detailed steps by language. <!-- (/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/) -->
 
-5. Test your user flows with the new SDKs in your build, without any code changes. This confirms that your users can still access your app seamlessly.
+5. Test your user flows with the new SDKs in your build, but don't make any code changes yet. This confirms that your users can still access your app seamlessly.
 
 6. Replace Classic Engine code with Identity Engine code.
 
