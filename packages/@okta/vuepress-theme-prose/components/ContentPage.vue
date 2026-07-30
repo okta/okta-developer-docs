@@ -84,6 +84,15 @@ export default {
       const element = event.target.hash
         ? event.target
         : event.target.closest("a");
+      if (!element) {
+        return;
+      }
+
+      // Clicking a heading's permalink icon copies its full URL to the clipboard.
+      if (element.classList.contains("header-anchor")) {
+        this.copyAnchorUrl(element.href);
+      }
+
       if (
         location.pathname.replace(/^\//, "") ===
           element.pathname.replace(/^\//, "") &&
@@ -96,6 +105,23 @@ export default {
           return false;
         }
       }
+    },
+    copyAnchorUrl(url) {
+      if (navigator.clipboard) {
+        navigator.clipboard
+          .writeText(url)
+          .then(() => this.showCopiedTooltip())
+          .catch(() => {});
+      }
+    },
+    showCopiedTooltip() {
+      const tooltip = document.createElement("div");
+      tooltip.className = "header-anchor-copied-tooltip";
+      tooltip.setAttribute("role", "status");
+      tooltip.textContent = "Link copied to clipboard";
+      document.body.appendChild(tooltip);
+
+      setTimeout(() => tooltip.remove(), 2000);
     },
   }
 };

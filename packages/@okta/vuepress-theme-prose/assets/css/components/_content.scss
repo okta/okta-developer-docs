@@ -257,6 +257,23 @@
   display: inline-block;
 }
 
+.header-anchor-copied-tooltip {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 1000;
+
+  padding: 10px 20px;
+
+  border-radius: 5px;
+
+  background-color: var(--c-gray-600);
+
+  color: var(--c-white);
+}
+
 .content--container .content-area div[class^="language-"] {
   position: relative;
 
