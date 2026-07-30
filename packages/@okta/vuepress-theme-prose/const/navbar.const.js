@@ -833,6 +833,15 @@ export const guides = [
             ]
           },
           {
+            title: "XAA",
+            subLinks: [
+              {
+                title: "Expose XAA metadata for your resource app",
+                guideName: "xaa-resource-metadata",
+              },
+            ]
+          },
+          {
             title: "Publish an OIN integration",
             path: "/docs/guides/submit-app-overview/",
             subLinks: [
