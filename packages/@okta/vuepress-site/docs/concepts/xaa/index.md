@@ -30,7 +30,7 @@ Roles and responsibilities in the XAA flow:
 
 <div class="three-quarter">
 
-![XAA token exchange flow](/img/concepts/xaa-token-exchange-flow.png)
+![XAA token exchange flow](/img/concepts/xaa-token-exchange-flow.svg)
 
 </div>
 <!--
@@ -108,7 +108,7 @@ Don’t use XAA in the following scenarios:
 
 * **Autonomous agents**: Workflows that run independently without an active user session or human initiation.
 * **Background processing**: Scheduled background jobs, batch scripts, or machine-to-machine (M2M) processes operating without an end-user context.
-* **Apps without an IdP**: Apps that don’t integrate with a central identity provider.
+* **Apps without an IdP**: Apps that don't integrate with a central identity provider.
 
 ## Cross App Access in Okta
 
