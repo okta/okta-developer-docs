@@ -51,6 +51,8 @@ If you’re a Classic Engine customer who wants to upgrade their apps to use Ide
 
 Before you start, [identify your Okta authentication integrations and customizations](/docs/guides/oie-upgrade-identify-integrations/) to inventory every sign-in, SDK, API, and automation point that needs testing.
 
+After you upgrade, [audit your Classic API dependencies](/docs/guides/oie-upgrade-audit-classic-api-dependencies/) to find any Classic patterns that remain and map each one to a supported Identity Engine path.
+
 ## Next steps
 
 * [Add an external identity provider](/docs/guides/identity-providers/)

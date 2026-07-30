@@ -127,3 +127,8 @@ This section details common issues and errors that you may encounter during your
 | &nbsp; | This error also appears when you've upgraded your org and enabled interaction code in the embedded SDK, but not in your app or authorization server. |
 | Various SDK errors | If your org isn't upgraded to Identity Engine, you see errors when you replace Classic Engine API or SDK calls with Identity Engine calls. |
 | Your org and SDK are upgraded to Identity Engine, but your app still behaves like Classic Engine | [Interaction code](/docs/guides/implement-grant-type/interactioncode/main/) is off in the SDK. You must turn it on to upgrade the [Embedded Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/) and [Embedded SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/)-based apps. |
+
+## Related topics
+
+* [Audit your Classic API dependencies](/docs/guides/oie-upgrade-audit-classic-api-dependencies/)
+* [Upgrade your app to the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/)
