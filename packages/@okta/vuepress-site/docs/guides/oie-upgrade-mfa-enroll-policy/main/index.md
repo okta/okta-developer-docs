@@ -41,7 +41,7 @@ Identity Engine changes authenticator enrollment policy behavior in these ways:
 
 In Identity Engine, authenticator-based authenticator enrollment policies can govern recovery authenticator enrollment for the password recovery flow. Factor-based policies don't support this feature.
 
-Both the password policy and the authenticator enrollment policy govern the enrollment of recovery authenticators: Email, Phone, Okta Verify, and Security Question. For example, suppose the Email authenticator is `Required` in the authenticator enrollment policy. Email enrollment becomes mandatory for recovery even if the password policy doesn't require it.
+Both the password policy and the authenticator enrollment policy govern the enrollment of recovery authenticators: Email, Phone, Okta Verify, and Security Question. For example, suppose that the Email authenticator is `Required` in the authenticator enrollment policy. Email enrollment becomes mandatory for recovery even if the password policy doesn't require it.
 
 > **Note:** Password policy recovery authenticator settings override the authenticator enrollment policy settings. For example, the phone authenticator might be `Optional` or `Disabled` in the authenticator enrollment policy but `Required` in the password policy. In that case, phone enrollment becomes mandatory for the password recovery flow.
 
@@ -127,7 +127,7 @@ You can also revert an authenticator-based policy to the factor-based model. To 
 * [Policy factor configuration objects](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings/authenticators/key&t=request)
 * [Policy Factors Configuration object and Authenticator keys mapping](#policy-factors-configuration-object-and-authenticator-keys-mapping)
 
-> **Note:** Your app might integrate with a system, such as Terraform, that can't parse the authenticators-based schema. If so, revert your policy to use factors instead.
+> **Note:** Your app might integrate with a system, such as Terraform, that can't parse the authenticator-based schema. If so, revert your policy to use factors instead.
 
 ## Policy Factors Configuration object and Authenticator keys mapping
 
