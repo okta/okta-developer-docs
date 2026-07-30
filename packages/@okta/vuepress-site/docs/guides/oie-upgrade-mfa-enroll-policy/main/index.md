@@ -127,7 +127,7 @@ You can also revert an existing authenticator-based enrollment policy to use fac
 * [Factor configuration objects in a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings/authenticators/key&t=request)
 * [Map factor configuration objects to authenticator keys](#policy-factors-configuration-object-and-authenticator-keys-mapping)
 
-> **Note:** Your app might integrate with a system, such as Terraform, that can't parse the authenticators-based schema. If so, revert your policy to use factors instead.
+> **Note:** Your app might integrate with a system, such as Terraform, that can't parse the authenticator-based schema. If so, revert your policy to use factors instead.
 
 ## Policy factors configuration object and authenticator keys mapping
 
