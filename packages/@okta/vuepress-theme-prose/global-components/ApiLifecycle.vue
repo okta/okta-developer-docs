@@ -83,7 +83,7 @@ export default {
       IDENTITY_ENGINE: "ie",
       LIMITED_GA: "Limited GA",
       CLASSIC_ENGINE: "Classic Engine",
-      RESEARCH: "research"
+      RESEARCH: "Research Release"
     };
   }
 };
