@@ -12,13 +12,13 @@ Expose standard metadata so that requesting apps can discover information requir
 
 Understand the well-known discovery metadata requirements for your resource app and authorization server:
 
-* Authorization server metadata discovery URI: .well-known/oauth-authorization-server
-* Protected resource metadata discovery URI: .well-known/oauth-protected-resource
+* Authorization server metadata discovery URI: `.well-known/oauth-authorization-server`
+* Protected resource metadata discovery URI: `.well-known/oauth-protected-resource`
 
 #### What you need
 
 * A resource app that provides an API server service
-* An authorization server that protects your resource app and is configured to issue scoped access tokens for your app.
+* An authorization server that protects your resource app and is configured to issue scoped access tokens for your app
 
 ---
 
@@ -38,7 +38,7 @@ The authorization server metadata URI provides metadata about your authorization
 
 ### URI location
 
-Provide your authorization server metadata in the following location:
+Implement your authorization server metadata in the following location:
 
 ```shell
 GET https://{your-resource-auth-server-domain}/.well-known/oauth-authorization-server
@@ -53,7 +53,7 @@ Your authorization server metadata response must return a JSON object containing
 | Property | Type | Description | Required value |
 | --- | --- | --- | --- |
 | `grant_types_supported` | Array of strings | Lists the OAuth 2.0 grant types supported by the authorization server | Must include `urn:ietf:params:oauth:grant-type:jwt-bearer` |
-| `authorization_grant_profiles_supported` | Array of strings | Lists the identity assertion grant profiles supported by the authorization server | Must include `urn:ietf:params:oauth:grant-profile:id-jag`. |
+| `authorization_grant_profiles_supported` | Array of strings | Lists the identity assertion grant profiles supported by the authorization server | Must include `urn:ietf:params:oauth:grant-profile:id-jag` |
 
 #### Example response
 
@@ -95,11 +95,11 @@ The following JSON example shows an authorization server metadata response confi
 
 The protected resource metadata conforms to [RFC 9728 (OAuth 2.0 Protected Resource Metadata)](https://datatracker.ietf.org/doc/html/rfc9728). It allows requesting apps to identify the protected resources managed by your resource app, the authorization servers trusted to issue access tokens, and the required OAuth 2.0 scopes.
 
-> **Note**: The protected resource metadata URI is required for Model Context Protocol (MCP) servers. For all other resource server types, it is optional but recommended because it enables requesting apps to discover your token requirements automatically.
+> **Note**: The protected resource metadata URI is required for Model Context Protocol (MCP) servers. For all other resource server types, it's optional but recommended because it enables requesting apps to discover your token requirements automatically.
 
 ### URI location
 
-Provide your protected resource metadata in the following location:
+Implement your protected resource metadata in the following location:
 
 ```bash
 GET https://{your-resource-server-domain}/.well-known/oauth-protected-resource
@@ -112,8 +112,8 @@ Your protected resource metadata response must return a JSON object conforming t
 | Property | Type | Description |
 | --- | --- | --- |
 | `resource` | String | The canonical URI identifying your protected resource server. This value must match the `aud` (audience) claim in incoming ID-JAG token. |
-| `authorization_servers` | Array of strings | The URIs of the authorization servers trusted by this resource server to issue access tokens. |
-| `scopes_supported` | Array of strings | The OAuth 2.0 scope strings supported by the resource server for API access control. |
+| `authorization_servers` | Array of strings | The URIs of the authorization servers trusted by this resource server to issue access tokens |
+| `scopes_supported` | Array of strings | The OAuth 2.0 scope strings supported by the resource server for API access control |
 
 #### Example response
 
@@ -143,7 +143,7 @@ The following JSON example shows a protected resource metadata response:
 
 ## Verify your discovery metadata URIs
 
-After you publish your URIs, verify that they are publicly reachable, correctly formatted, and returning the required metadata payloads.
+After you publish your URIs, verify that they're publicly reachable, correctly formatted, and returning the required metadata payloads.
 
 ### Test using cURL
 
