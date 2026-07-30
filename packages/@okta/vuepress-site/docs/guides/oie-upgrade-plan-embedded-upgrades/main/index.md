@@ -24,7 +24,7 @@ Okta understands that upgrades can be stressful. Breaking the upgrade into steps
 
 Okta doesn't recommend doing this upgrade all at once, but rather in sections with breaks for testing. This process is non-disruptive and iterative over time. Make the upgrade steps part of your normal product development process.
 
-After you complete the [initial upgrade process](/docs/guides/oie-upgrade-overview/#upgrade-process) for your orgs, walk through more steps to finish the upgrade. The steps you take depend on your deployment model, so plan them carefully.
+After you complete the [initial upgrade process](/docs/guides/oie-upgrade-overview/#upgrade-process) for your orgs, complete the additional steps to finish the upgrade. The steps you take depend on your deployment model, so plan them carefully.
 
 ## Prioritize and plan your upgrade
 
