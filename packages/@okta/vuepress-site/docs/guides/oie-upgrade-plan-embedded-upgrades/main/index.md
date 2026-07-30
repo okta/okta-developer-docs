@@ -60,7 +60,7 @@ When you're embedding the widget, consider and plan for the following steps depe
 
 ## Upgrade SDKs to the latest version in your apps
 
-When you're embedding authentication with our SDKs, review all the steps before you plan the upgrade to the latest SDK version. Also, plan to replace all Classic Engine authentication calls with Identity Engine calls. The following steps outline what your upgrade journey might look like.
+When you embed authentication with our SDKs, review all the steps before you plan the upgrade to the latest SDK version. Also, plan to replace all Classic Engine authentication calls with Identity Engine calls. The following steps outline what your upgrade journey might look like.
 
 1. [Update your custom authorization servers](/docs/guides/implement-grant-type/interactioncode/main/#set-up-your-authorization-server) to include the Interaction Code grant type.
 
