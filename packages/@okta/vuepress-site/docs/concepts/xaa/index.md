@@ -11,9 +11,9 @@ Cross App Access (XAA) provides a low-friction mechanism for an app to establish
 Traditional external resource authorization methods (such as API authorization) create security and operational challenges in enterprise environments:
 
 * **Limitations of static API keys and standard OAuth**: Static key and direct app-to-app OAuth flows lack end user context, grant overly broad permissions, and operate outside central identity governance.
-* **Benefits for enterprise customers**: XAA provides centralized governance, unified policy enforcement, and audit logging for every cross-app access request.
+* **Benefits for enterprise customers**: XAA provides centralized governance, unified policy enforcement, and audit logging for every XAA request.
 * **Benefits for end users**: Users sign in once through their primary IdP and seamlessly access connected tools without encountering repetitive authentication prompts.
-* **Benefits for ISV developers**: Independent software vendors (ISVs) can meet enterprise security requirements faster, reducing friction in sales cycles. They can build their cross-app access integration once and reuse it for their customers.
+* **Benefits for ISV developers**: Independent software vendors (ISVs) can meet enterprise security requirements faster, reducing friction in sales cycles. They can build their XAA-enabled integration once and reuse it for their customers.
 
 ## How Cross App Access works
 
@@ -26,11 +26,11 @@ Roles and responsibilities in the XAA flow:
 * **Requesting app (client)**: The client app that accesses a protected resource on behalf of the authenticated user. This is the app that initiates the API calls to the external service.
 * **Resource app (protected API server)**: The app that contains the protected resource data. This is typically an API server.
 * **IdP**: The identity provider that issues the ID-JAG based on a trusted relationship between a requesting app and a resource app. With Okta as the IdP, the Okta admin manages this trusted relationship (connection) in Okta. The Okta authorization server issues the ID-JAG only for scoped access allowed in that relationship.
-* **Resource authorization server**: The authorization server that’s protecting the resource app. It validates incoming ID-JAG assertions and issues scoped access tokens in accordance with local access control policies.
+* **Resource authorization server**: The authorization server that's protecting the resource app. It validates incoming ID-JAG assertions and issues scoped access tokens in accordance with local access control policies.
 
 <div class="three-quarter">
 
-![XAA token exchange flow](/img/concepts/xaa-generic-flow.png)
+![XAA token exchange flow](/img/concepts/xaa-token-exchange-flow.png)
 
 </div>
 <!--
@@ -54,12 +54,12 @@ RS -> WebApp: Returns resource data
 
 The XAA token exchange flow:
 
-1. **User SSO**: The user signs in to the requesting app through the IdP using standard SSO.
+1. **User SSO**: The user signs in to the client (requesting app) through the IdP using standard SSO.
 1. **ID token issued**: The IdP returns an ID token.
 1. **Token exchange for ID-JAG**: The client exchanges its user session credential or refresh token at the IdP authorization server to obtain an Identity Assertion JWT Authorization Grant (ID-JAG) token.
 1. **ID-JAG token issuance**: The IdP authorization server issues an ID-JAG token to the client if the client has a trusted connection to the resource server.
-1. **Token exchange with ID-JAG**: The client presents the ID-JAG token to the target resource app's custom authorization server.
-1. **Resource access token issuance**: The resource authorization server validates the assertion and issues a short-lived, scoped resource access token.
+1. **Token exchange with ID-JAG**: The client presents the ID-JAG token to the resource authorization server.
+1. **Resource access token issuance**: The resource authorization server validates the assertion and issues a short-lived, scoped access token for the resource app.
 1. **Client accesses resource data**: The requesting client then uses the short-lived, scoped token to access the protected resource app on behalf of the user.
 
 ## Use cases
