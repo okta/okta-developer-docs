@@ -84,7 +84,7 @@ Your external service that processes hook requests must consider that the order 
 | --------- | -----------| ----- | ----------- |
 | Event hook | Number of daily events | 400,000 | A maximum of 400,000 applicable events that trigger event hooks, per org, per day. Event hooks aren't recorded or replayed after this point. If a request times out after three seconds, event hooks are retried once. Retries don't count toward the org limit.
 |            | Maximum number of event hooks per org | 25 | A maximum of 25 active event hooks can be configured per org.  |
-|            | Maximum number of event types per hook | 300 | A maximum of 300 eligible event types per event hook. |
+|            | Maximum number of event types per hook | 300 | A maximum of 300 eligible event types can be configured per event hook. |
 | Inline hook | Timeout | 3 seconds | Inline hooks have a completion timeout of three seconds with a single retry. However, a request isn't retried if your endpoint returns a 4xx HTTP error code. Any 2xx code is considered successful, and the request isn’t retried. If the external service endpoint responds with a redirect, it isn't followed. |
 |             | Maximum number of inline hooks per org | 100 | The maximum number of inline hooks that you can configure per org is 100, which is a total for any combination of inline hook types. |
 |             | Concurrent rate limit | Variable | The maximum number of inline hooks that can be sent concurrently based on org type. See [Concurrent rate limits](/docs/reference/rl2-concurrency/).|
