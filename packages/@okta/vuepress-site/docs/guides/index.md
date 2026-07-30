@@ -67,6 +67,7 @@ guides:
  - iga-security-access-review
  - iga-labels
  - iga-delegates
+ - iga-ar-tasks
  - implement-oauth-for-okta
  - implement-oauth-for-okta-serviceapp
  - implement-grant-type
@@ -286,6 +287,10 @@ If you're using Okta as an identity layer for the first time, start with [How Ok
       * [Create a custom authorization server](/docs/guides/terraform-create-custom-auth-server/)
       * [Manage branding with Terraform](/docs/guides/terraform-manage-end-user-experience/)
       * [Manage custom domains with Terraform](/docs/guides/terraform-manage-multiple-domains/)
+      * [Migrate to consolidated app sign-on policy rules](/docs/guides/terraform-migrate-consolidated-app-sign-on-policy-rules/main/)
+      * [Manage Okta Identity Governance Resources using Terraform](/docs/guides/terraform-oig-resources/main/)
+      * [Manage Identity Threat Protection resources using Terraform](/docs/guides/terraform-manage-itp/main/)
+      * [Manage identity source](/docs/guides/terraform-manage-id-source/main/)
       * [Import existing Okta objects into Terraform](/docs/guides/terraform-import-existing-resources/)
     * Optimize your configuration
       * [Minimize Terraform rate limit errors](/docs/guides/terraform-design-rate-limits/)
@@ -312,18 +317,22 @@ If you're creating an Okta integration for the first time, Okta recommends the f
 1. [What is Single Sign-On (SSO)?](/docs/concepts/sso-overview/)
 1. [Overview of lifecycle management in the OIN](/docs/guides/oin-lifecycle-mgmt-overview/)
 1. [Overview of API service apps in the OIN](/docs/guides/oin-api-service-overview/)
+1. [API Integration Actions](/docs/guides/oin-api-actions/)
+1. [Express Configuration](/docs/guides/express-configuration/main/)
 1. [OIN submission requirements](/docs/guides/submit-app-prereq/)
 1. [Submit an app integration](/docs/guides/submit-app-overview/)
 
 ## Perform Identity Governance tasks through the API
 
-Most Okta Identity Governance tasks are accomplished through the Admin Console for admins or the Okta End-User Dashboard for end users. However, you might want to perform the same UI tasks through a customized app or automated service using Okta APIs. In some cases, specific tasks and flows are only triggered through the API or other Okta apps, such as [Workflows](https://www.okta.com/platform/workflows/). For these API uses cases, the following guides provide best practice implementation flows and examples for Okta Identity Governance subscribers:
+Most Okta Identity Governance tasks are accomplished through the Admin Console for admins or apps in the Okta End-User Dashboard for end users (such as Okta Access Request or Okta Security Access Review apps). However, you might want to perform the same UI tasks through a customized app or automated service using Okta APIs. In some cases, specific tasks and flows are only triggered through the API or other Okta apps, such as [Workflows](https://www.okta.com/platform/workflows/). For these API uses cases, the following guides provide best practice implementation flows and examples for Okta Identity Governance subscribers:
 
 * Access certifications
   * [Launch a security access review](/docs/guides/iga-security-access-review)
 * User and resource management
   * [Manage governance labels](/docs/guides/iga-labels)
   * [Manage delegates for governance](/docs/guides/iga-delegates)
+* Access requests
+  * [Manage access request tasks](/docs/guides/iga-ar-tasks)
 
 <!-- Categories for future guides
 * Access requests
