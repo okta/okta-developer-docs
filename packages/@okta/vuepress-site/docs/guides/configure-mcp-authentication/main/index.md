@@ -43,7 +43,7 @@ To connect the Okta Open Source MCP Server to an Okta org, create an Okta app in
 
 1. Sign in to the [Okta Integrator Free Plan org](https://developer.okta.com/signup).
 1. In the Admin Console, go to **Applications and Resources** > **Applications**.
-1. Click **Create App Integration** > **Classic experience**.
+1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect** as the sign-in method.
 1. Select **Native Application** as the app type.
 1. Click **Next**.
@@ -91,7 +91,7 @@ The private key JWT flow allows the Okta Open Source MCP Server to run without h
 
 1. Sign in to the [Okta Integrator Free Plan org](https://developer.okta.com/signup).
 1. In the Admin Console, go to **Applications and Resources** > **Applications**.
-1. Click **Create App Integration** > **Classic experience**.
+1. Click **Create App Integration**.
 1. Select **API Services** as the **Sign-in method**.
 1. Click **Next**.
 1. Enter an **App integration name**, such as "Okta Open Source MCP Server automation".
