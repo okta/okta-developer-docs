@@ -19,6 +19,7 @@ Learn how to use the [Identity Sources API](https://developer.okta.com/docs/api/
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
   * A Custom Identity Source integration configured in your Okta org (see [Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source))
       > **Note:** Your org needs to have the Identity Source Apps feature enabled. Contact your Okta account team to enable this feature. <!-- IDENTITY_SOURCE_APPS feature flag needs to be enabled, as only LCM SKUs have this enabled by default. 8/21/2025 update: With the addition of groups, As the IDENTITY_SOURCE_APPS_GROUPS FF depends on the FF IDENTITY_SOURCE_APPS, the above line is still applicable.-->
+      > **Note:** Device import is a separate, EA feature. Contact your Okta account team to enable it for your org. <!-- IDENTITY_SOURCE_DEVICE_IMPORT feature flag (EA). Depends on IDENTITY_SOURCE_MULTI_OP_SESSION, which is internal-only and not customer-facing. -->
   * [An Okta API token](/docs/guides/create-an-api-token/) to make secure API calls
 * An HR source from which you want to synchronize user data with Okta
 * A custom client to add an Identity Sources API integration
@@ -27,7 +28,7 @@ Learn how to use the [Identity Sources API](https://developer.okta.com/docs/api/
 
 ## Overview
 
-The Okta Anything-as-a-Source (XaaS) integration provides your org with the ability to source identities from any HR source to your Okta org. The HR source acts as a source of truth. Users and groups are pushed and mapped to Okta user and group profiles in the Okta Universal Directory. There are two methods to implement the XaaS integration:
+The Okta Anything-as-a-Source (XaaS) integration provides your org with the ability to source identities from any HR source to your Okta org. The HR source acts as a source of truth. Users, groups, and devices are pushed to Okta. User and group data is mapped to Okta user and group profiles in the Okta Universal Directory according to your identity source schema. Device data uses a fixed set of attributes instead of your identity source schema. See [Identity source data](#identity-source-data) for details. There are two methods to implement the XaaS integration:
 
 * Using Okta Workflows
 * Developing a custom client
@@ -71,6 +72,7 @@ https://www.figma.com/design/Nh4CiO5w53eXt455CZfPry/LCM-Help-Center-Documentatio
 You can only process one identity source session at a time (for a specific Custom Identity Source integration) to avoid conflicts. The following are more identity source session behaviors:
 
 * You can only load data to an identity source session when it's in the `CREATED` status.
+* A single identity source session can contain a mix of user, group, and device data. You don't need separate sessions for each entity type.
 * There can only be one identity source session in the `CREATED` status for an identity source.
 * Only sessions that are in the `IN_PROGRESS` status can be triggered to start an import request.
 * An identity source session with the `CREATED`, `IN_PROGRESS`, or `TRIGGERED` status is considered active.
@@ -86,12 +88,12 @@ Errors are thrown in the following situations:
 
 ### Bulk-load requests
 
-Bulk-load requests contain the data that you want changed. The data can be different entities. Okta currently supports the following entity types: users, groups, or group memberships. See [Identity source data](#identity-source-data).
+Bulk-load requests contain the data that you want changed. The data can be different entities. Okta currently supports the following entity types: users, groups, group memberships, or devices. See [Identity source data](#identity-source-data).
 
 There are two types of bulk-load requests:
 
 * **Bulk addition**: Insert or update entities in the bulk-load request.
-* **Bulk deletion**: Deactivate the entities in the bulk-load request.
+* **Bulk deletion**: Deactivate the entities in the bulk-load request. For devices, this deletes the device instead of deactivating it.
 
 The bulk-load request payload contains an array of external identity source objects. The items in the objects vary depending on the request that you're making.
 
@@ -105,7 +107,7 @@ Create another identity source session object when you exhaust the maximum numbe
 
 ### Identity source data
 
-You can load data about different entities to be added, changed, or deleted in Okta. The entities currently supported are [users](#user-data), [groups](#group-data), and [group memberships](#group-memberships-data).
+You can load data about different entities to be added, changed, or deleted in Okta. The entities currently supported are [users](#user-data), [groups](#group-data), [group memberships](#group-memberships-data), and [devices](#device-data).
 
 #### User data
 
@@ -150,6 +152,27 @@ Use the following endpoints to bulk load groups. Each endpoint also lists exampl
 
 * [Upload the group memberships to be upserted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupsForUpsert)
 * [Upload the group memberships to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupMembershipsForUpsert)
+
+#### Device data
+
+To load bulk device data, use `profiles`. The device `profiles` object is an array of pairs, with each pair listing the device's external ID and the device's `profile`.
+
+Unlike user and group profiles, device profiles don't use the attribute mappings that you configure for your Custom Identity Source in the Profile Editor. Okta requires the same fixed set of device attributes for every identity source, and doesn't currently support custom device attributes.
+
+Each device object in the `profiles` array can contain the following:
+
+* `externalId`: The unique identifier from the HR source (or other system of record) for the device. Maximum length is 127 characters.
+* `profile`: The device's attributes. All the following attributes are required:
+  * `serialNumber`: The device's serial number. Maximum length is 127 characters.
+  * `platform`: The device's platform, for example, `MACOS` or `ANDROID`.
+  * `displayName`: A human-readable name for the device. Maximum length is 255 characters.
+
+> **Note:** All device attributes other than `serialNumber`, `platform`, and `displayName` are rejected. This is different from user and group profiles, which accept any attribute that's defined in your identity source schema.
+
+Use the following endpoints to bulk load devices. Each endpoint also lists example payload requests and response bodies:
+
+* [Upload the device profiles to be upserted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDevicesForUpsert)
+* [Upload the device external IDs to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDevicesForDelete)
 
 ## Identity Sources API flow
 
@@ -208,6 +231,8 @@ After you create the identity source, you can load data to it, cancel it, or mon
 Use these steps to insert or update a set of user data profiles from your HR source to Okta.
 
 > **Note:** Use the same flow for uploading groups from your HR source, but with the groups endpoints instead. For groups, use the [Upload the group memberships to be upserted](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupMembershipsForUpsert) endpoint or the [Upload the group profiles without memberships to be upserted](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupsForUpsert) endpoint.
+>
+> **Note:** Use the same flow for uploading devices from your HR source, but with the [Upload the device profiles to be upserted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDevicesForUpsert) endpoint instead. You can upload user, group, and device data to the same identity source session.
 
 1. [Create an identity source session](#create-an-identity-source-session) if you don't already have one. If you have an existing active identity source session, [retrieve the active identity source session](#retrieve-active-identity-source-sessions) to get the session ID.
 
@@ -227,6 +252,8 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 When users are deactivated or deleted from your HR source, you need to reflect that status in Okta. Okta doesn't delete user profile objects. It deactivates the users that are no longer active. Use these steps to deactivate a set of user data profiles from Okta.
 
 > **Note:** Use the same flow for deleting groups from your HR source, but with the groups endpoints instead. To delete group memberships, use the [Upload the group memberships to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupMembershipsForDelete) endpoint and list the `groupExternalId` and `memberExternalIds` in the request body. To delete groups without specific membership information, use the [Upload the group external IDs to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupsDataForDelete) endpoints and list the `externalIds` of groups to be deleted.
+>
+> **Note:** Use the same flow for deleting devices from your HR source, but with the [Upload the device external IDs to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDevicesForDelete) endpoint and list the `externalIds` of the devices to delete in the request body. Unlike users, deleted devices aren't deactivated — they're removed.
 
 1. [Create an identity source session](#create-an-identity-source-session) if you don't already have one. If you have an existing active identity source session, [retrieve the active identity source session](#retrieve-active-identity-source-sessions) to get the `{sessionId}`.
 
