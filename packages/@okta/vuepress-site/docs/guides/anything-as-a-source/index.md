@@ -18,9 +18,9 @@ Learn how to use the [Identity Sources API](https://developer.okta.com/docs/api/
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
   * A Custom Identity Source integration configured in your Okta org (see [Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source))
-      > **Note:** Your org needs to have the Identity Source Apps feature enabled. Contact your Okta account team to enable this feature. <!-- IDENTITY_SOURCE_APPS feature flag needs to be enabled, as only LCM SKUs have this enabled by default. 8/21/2025 update: With the addition of groups, As the IDENTITY_SOURCE_APPS_GROUPS FF depends on the FF IDENTITY_SOURCE_APPS, the above line is still applicable.-->
-      > **Note:** Device import is a separate, EA feature. Contact your Okta account team to enable it for your org. <!-- IDENTITY_SOURCE_DEVICE_IMPORT feature flag (EA). Depends on IDENTITY_SOURCE_MULTI_OP_SESSION, which is internal-only and not customer-facing. -->
-  * [An Okta API token](/docs/guides/create-an-api-token/) to make secure API calls
+      > **Note:** Your org needs to have the Identity Source Apps feature enabled. Contact your Okta account team to enable this feature.
+      > **Note:** Device import is a separate, EA feature. Contact your Okta account team to enable it for your org.
+  * [An OAuth 2.0 token](/docs/guides/implement-oauth-for-okta-serviceapp/main/) to make secure API calls
 * An HR source from which you want to synchronize user data with Okta
 * A custom client to add an Identity Sources API integration
 
@@ -63,7 +63,7 @@ The Identity Sources API synchronizing data flow uses an [identity source sessio
 
 Image source:
 
-https://www.figma.com/design/Nh4CiO5w53eXt455CZfPry/LCM-Help-Center-Documentation-Assets?node-id=2-29349&t=UXv3Cne48DR3R9YY-1 
+https://www.figma.com/design/Nh4CiO5w53eXt455CZfPry/LCM-Help-Center-Documentation-Assets?node-id=2-29349&t=UXv3Cne48DR3R9YY-1
 
 -->
 
@@ -205,7 +205,7 @@ https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-
 
 Updated image source:
 
-https://www.figma.com/design/Nh4CiO5w53eXt455CZfPry/LCM-Help-Center-Documentation-Assets?node-id=2-29349&t=UXv3Cne48DR3R9YY-1 
+https://www.figma.com/design/Nh4CiO5w53eXt455CZfPry/LCM-Help-Center-Documentation-Assets?node-id=2-29349&t=UXv3Cne48DR3R9YY-1
 
 -->
 
