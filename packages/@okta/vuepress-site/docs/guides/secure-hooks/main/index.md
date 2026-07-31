@@ -59,6 +59,9 @@ Before you can implement authorization, you need to register your app in Okta by
 
 1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Click **Create App Integration**.
+
+   > **Note:** If your org isn't an Okta Integrator Free Plan org, click **Create App Integration** > **Classic experience**.
+
 1. Select **API Services** as the Sign-in method.
 1. Click **Next**.
 1. Specify the app integration name, then click **Save**.
@@ -147,6 +150,9 @@ Before you can implement authorization, you need to register your app in Okta by
 
 1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Click **Create App Integration**.
+
+   > **Note:** If your org isn't an Okta Integrator Free Plan org, click **Create App Integration** > **Classic experience**.
+
 1. Select **API Services** as the Sign-in method.
 1. Click **Next**.
 1. Specify the app integration name, then click **Save**.

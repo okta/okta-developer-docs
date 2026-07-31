@@ -2,6 +2,9 @@ In the Okta org that functions as the IdP, create a client app that you want to 
 
 1. In the Admin Console for the Okta org that represents the IdP, go to **Applications and Resources** > **Applications**.
 1. Click **Create App Integration**.
+
+    > **Note:** If your org isn't an Okta Integrator Free Plan org, click **Create App Integration** > **Classic experience**.
+
 1. On the Create a new app integration page, select **OIDC - OpenID Connect** as the **Sign-in method**. You need a trusted client, so select **Web Application** as the **Application type**.
 1. Click **Next** and enter a name for your app.
 1. In the **Sign-in redirect URIs** box, enter the redirect URI while considering the following points:

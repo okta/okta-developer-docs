@@ -46,8 +46,11 @@ To get started, you need to create an Okta OAuth app to represent the <StackSnip
 
 1. Sign in to your [Admin Console](https://login.okta.com).
 2. Go to **Applications and Resources** > **Applications**, and then click **Create App Integration**.
-3. In the dialog that appears, select **OIDC - OpenID Connect** as the **Sign-on method**, <StackSnippet snippet="apptype" inline /> as the **Application type**, and then click **Next**.
-4. Fill in the New <StackSnippet snippet="apptypepage" inline /> Integration fields that you need, and then click **Save**:
+
+   > **Note:** If your org isn't an Okta Integrator Free Plan org, click **Create App Integration** > **Classic experience**.
+
+1. In the dialog that appears, select **OIDC - OpenID Connect** as the **Sign-on method**, <StackSnippet snippet="apptype" inline /> as the **Application type**, and then click **Next**.
+1. Fill in the New <StackSnippet snippet="apptypepage" inline /> Integration fields that you need, and then click **Save**:
 
    * Be sure to add the following values (or leave the defaults if they match):
 

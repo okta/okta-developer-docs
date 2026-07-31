@@ -61,6 +61,8 @@ Create an OAuth 2.0 service app integration using the Admin Console.
 
 1. In the Admin Console, go to **Applications and Resources** > **Applications**, and then click **Create App Integration**. The **Create a new app integration** page appears.
 
+   > **Note:** If your org isn't an Okta Integrator Free Plan org, click **Create App Integration** > **Classic experience**.
+
 1. Select **API Services** as the **Sign-in method**, and then click **Next**.
 
 1. Enter a name for your app integration and click **Save**. The app main page appears.

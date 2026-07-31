@@ -39,6 +39,9 @@ The Okta app integration represents your Svelte app in your Okta org and lets yo
 
 1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Click **Create App Integration**, and then select **OIDC - OpenID Connect** as the **Sign-in method**.
+
+   > **Note:** If your org isn't an Okta Integrator Free Plan org, click **Create App Integration** > **Classic experience**.
+
 1. Select **Single-Page Application** as your app type, then click **Next**.
 1. Give the app integration a name, for example, **Svelte**.
 1. Make sure that **Authorization Code** is selected as the grant type.

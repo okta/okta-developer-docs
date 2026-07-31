@@ -52,6 +52,9 @@ The integration includes configuration information required by the app to access
 1. Click **Admin** in the upper-right corner of the page.
 1. Go to **Applications and Resources** > **Applications**.
 1. Click **Create App Integration**, and then select a **Sign-in method** of **OIDC - OpenID Connect**.
+
+   > **Note:** If your org isn't an Okta Integrator Free Plan org, click **Create App Integration** > **Classic experience**, then select **OIDC - OpenID Connect** for **Sign-in method**.
+
 1. Select an **Application type** of **Single-Page Application**, and then click **Next**.
 
    > **Note:** If you choose an inappropriate app type, it breaks the sign-in or sign-out flow. It breaks the flow by requiring the verification of a client secret, which public clients don't have.

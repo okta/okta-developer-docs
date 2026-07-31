@@ -101,11 +101,14 @@ Create an Okta OIDC client app integration to represent the consumption device. 
 > **Note:** Web apps are currently the only app supported with the CIBA flow.
 
 1. In the Admin Console, go to **Applications and Resources** > **Applications**, and then click **Create App Integration**.
-2. Select **OIDC - OpenID Connect** as the **Sign-in method** and choose the type of app that you want to integrate with Okta. In this example, select **Web Application**.
-3. Click **Next**, and then enter a name for your app integration.
-4. In the **Grant type** section, click **Advanced** and select **Client-initiated backchannel authentication flow (CIBA)** in the **Other grants** section.
-5. Select the Custom Authenticator that you [previously configured using the Mobile SDK](https://github.com/okta/okta-mobile-swift) from the **Preferred authenticator for CIBA** dropdown list.
-6. In the **Sign-in redirect URIs** box, specify the callback location where Okta returns the tokens after the user finishes authenticating. You can use the default URI for this exercise.
+
+   > **Note:** If your org isn't an Okta Integrator Free Plan org, click **Create App Integration** > **Classic experience**.
+
+1. Select **OIDC - OpenID Connect** as the **Sign-in method** and choose the type of app that you want to integrate with Okta. In this example, select **Web Application**.
+1. Click **Next**, and then enter a name for your app integration.
+1. In the **Grant type** section, click **Advanced** and select **Client-initiated backchannel authentication flow (CIBA)** in the **Other grants** section.
+1. Select the Custom Authenticator that you [previously configured using the Mobile SDK](https://github.com/okta/okta-mobile-swift) from the **Preferred authenticator for CIBA** dropdown list.
+1. In the **Sign-in redirect URIs** box, specify the callback location where Okta returns the tokens after the user finishes authenticating. You can use the default URI for this exercise.
 
     > **Note:** You can leave the rest of the default values as they work with this guide for testing purposes.
 

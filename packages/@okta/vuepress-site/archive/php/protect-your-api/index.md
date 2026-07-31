@@ -312,6 +312,9 @@ When another machine or service (rather than users) consumes an API, it uses the
 1. Open the Admin Console for your org.
 1. Go to **Applications and Resources** > **Applications** to view the current app integrations.
 1. Click **Create App Integration**.
+
+   > **Note:** If your org isn't an Okta Integrator Free Plan org, click **Create App Integration** > **Classic experience**.
+
 1. Select **API Services** as the **Sign-in method**, and click **Next**.
 1. Enter an integration name, and click **Save**.
 

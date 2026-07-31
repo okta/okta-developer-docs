@@ -44,6 +44,9 @@ Create an Okta service app that authorizes Terraform to update your org:
 
 1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Click **Create App Integration**, and then select **API Services**.
+
+   > **Note:** If your org isn't an Okta Integrator Free Plan org, click **Create App Integration** > **Classic experience**.
+
 1. Click **Next**.
 1. Enter a name for the app, and then click **Save**.
 1. Select your application in the list.
