@@ -18,8 +18,8 @@ Learn how to use the [Identity Sources API](https://developer.okta.com/docs/api/
 
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
   * A Custom Identity Source integration configured in your Okta org (see [Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source))
-      > **Note:** Your org needs to have the Identity Source Apps feature enabled. Contact your Okta account team to enable this feature.
-      > **Note:** Device import is a separate, EA feature. Contact your Okta account team to enable it for your org.
+
+      > **Note:** Your org needs to have the Identity Source Apps feature enabled. Device import is also a separate [Early Access (EA) feature](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle#early-access-ea). Contact your Okta account team to enable these features.
   * [An OAuth 2.0 token](/docs/guides/implement-oauth-for-okta-serviceapp/main/) to make secure API calls
 * An HR source from which you want to synchronize user data with Okta
 * A custom client to add an Identity Sources API integration
@@ -154,6 +154,8 @@ Use the following endpoints to bulk load groups. Each endpoint also lists exampl
 * [Upload the group memberships to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupMembershipsForUpsert)
 
 #### Device data
+
+<ApiLifecycle access="ea" />
 
 To load bulk device data, use `profiles`. The device `profiles` object is an array of pairs, with each pair listing the device's external ID and the device's `profile`.
 
