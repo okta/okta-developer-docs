@@ -124,12 +124,12 @@ To update an authenticator enrollment policy, use the [Update a policy](https://
 
 > **Note:** Configure the other policy parameters according to the [Update a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/replacePolicy) API operation. This section focuses on the `settings` parameter required specifically for the authenticator enrollment policy.
 
-If you need to convert an existing factor-based authenticator enrollment policy to use authenticators, then update the policy with authenticators in the `settings` parameter. Use the [factors configuration object in a policy and authenticator keys mapping](#policy-factors-configuration-object-and-authenticator-keys-mapping) table to map factors configuration objects in a policy to authenticator keys. See the [settings conversion example](#authenticator-enrollment-policy-settings-conversion-example).
+If you need to convert an existing factor-based authenticator enrollment policy to use authenticators, then update the policy with authenticators in the `settings` parameter. Use the [Map factor configuration objects to authenticator keys](#policy-factors-configuration-object-and-authenticator-keys-mapping) table to convert your policy's factor configuration objects to authenticator keys. See the [settings conversion example](#authenticator-enrollment-policy-settings-conversion-example).
 
-You can revert to the factor-based authenticator enrollment policy model. Modify an existing authenticator-based enrollment policy to a factored one. To convert the authenticator keys to factor configuration objects in a policy, see the following:
+You can also revert an existing authenticator-based enrollment policy to use factors instead of authenticators. To convert authenticator keys to factor configuration objects, see the following:
 
 * [Factor configuration objects in a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings/authenticators/key&t=request)
-* [Factors configuration object in a policy and authenticator keys mapping](#policy-factors-configuration-object-and-authenticator-keys-mapping)
+* [Map factor configuration objects to authenticator keys](#policy-factors-configuration-object-and-authenticator-keys-mapping)
 
 > **Note:** Your app might be integrated with systems like Terraform that you can't update to parse the authenticators-based enrollment policy. If so, revert your policy to use factors instead of authenticators.
 
