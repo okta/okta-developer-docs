@@ -83,9 +83,9 @@ See the following table for a list of authenticators, their keys, types, and met
 | `okta_email`        | `email`                 | `email`                 |
 | `okta_password`     | `password`              | `password`              |
 | `okta_verify` | `app`              | `totp`, `push`, `signed_nonce` |
-| <ApiLifecycle access="ea" /> `okta_verify_fastpass` | `app`                   | `signed_nonce`                 |
-| <ApiLifecycle access="ea" /> `okta_verify_push`  | `app`                   | `push`                         |
-| <ApiLifecycle access="ea" /> `okta_verify_totp`  | `app`                   | `totp`                         |
+| <ApiLifecycle access="ea" /><ApiLifecycle access="ie" /> `okta_verify_fastpass` | `app`                   | `signed_nonce`                 |
+| <ApiLifecycle access="ea" /><ApiLifecycle access="ie" /> `okta_verify_push`  | `app`                   | `push`                         |
+| <ApiLifecycle access="ea" /><ApiLifecycle access="ie" /> `okta_verify_totp`  | `app`                   | `totp`                         |
 | `onprem_mfa`        | `security_key`            | `otp`                      |
 | `phone_number`     | `phone`                   | `sms`, `voice`            |
 | `rsa_token`        | `security_key`            | `otp`                      |
