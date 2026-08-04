@@ -8,7 +8,7 @@ layout: Guides
 
 ## XAA configuration for AI agent-to-app
 
-If you're an Okta admin and want to secure access between custom SSO-agentic requesting apps and SSO resource apps, follow this configuration:
+If you're an Okta admin and want to secure access between custom SSO-agentic requesting apps and SSO resource apps, follow these configuration steps:
 
 
 1. Follow this guide to create an AI agent object in Okta and bound to an agent app: [Add AI agents manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually). In **User access and authentication**, select:
