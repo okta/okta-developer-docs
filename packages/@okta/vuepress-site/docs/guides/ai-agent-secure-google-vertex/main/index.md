@@ -43,7 +43,7 @@ The integration has two parts:
 
   This logic is identical for any agent. You add it once as a reusable module. See [Add Okta authentication to your agent](#add-okta-authentication-to-your-agent).
 
-* Platform integration (Google Vertex AI-specific). Unlike a single synchronous call, the Vertex AI Reasoning engine API is session- and event-based. Your wrapper creates a session, appends the user's prompt to it as an event, and polls the session's events until the agent responds. See [Integrate the token exchange into your Vertex AI agent](#integrate-the-token-exchange-into-your-vertex-ai-agent).
+* Platform integration (Google Vertex AI-specific). Unlike a single synchronous call, the Vertex AI Reasoning Engine API is session- and event-based. Your wrapper creates a session, appends the user's prompt to it as an event, and polls the session's events until the agent responds. See [Integrate the token exchange into your Vertex AI agent](#integrate-the-token-exchange-into-your-vertex-ai-agent).
 
 <!-- TODO: Replace this text-based diagram with an image.
 
@@ -94,14 +94,14 @@ You need an existing Google Workspace app integration in your org (**Application
 1. Go to the **Clients** tab, and then click **+ Create client**.
 1. Set **Application type** to **Web application**, and enter a descriptive name, for example, `Vertex-Agent-Import-Client`.
 1. Under **Authorized redirect URIs**, click **Add URI**, and enter `{yourOktaDomain}/oauth2/v1/sts/callback`.
-1. Click **Create**. Note the **Client ID** and **Client Secret** shown in the confirmation dialog. Okta uses these to discover and import your Reasoning Engines, so store them in a secrets manager.
+1. Click **Create**. Note the **Client ID** and **Client Secret** that are shown in the confirmation dialog. Okta uses these credentials to discover and import your Reasoning Engines, so store them in a secrets manager.
 1. Go to the **Audience** tab.
-   * If the consent page's **User type** is **External**, scroll to **Test users**, click **+ Add users**, and add the email addresses of the accounts that complete the import consent flow.
+   * If the consent screen's **User type** is **External**, scroll to **Test users**, click **+ Add users**, and add the email addresses of the accounts that complete the import consent flow.
    * If the **User type** is **Internal**, no additional provisioning is required.
 1. In the Admin Console, go to your org's Google Workspace app integration, and open its **AI Agent Import** tab.
 1. Enter the client ID, client secret, your Google Cloud project ID, and the location (region) where your Reasoning Engines run, for example, `us-west1`. Click **Test API Credentials** to validate them.
 
-   > **Note:** Okta validates these credentials against Google. If Google requires other consent, Okta returns an interaction URI. An admin must open that URI and complete the consent flow before validation can succeed.
+   > **Note:** Okta validates these credentials against Google. If Google requires other consent, Okta returns an interaction URI. You must open that URI and complete the consent flow before validation can succeed.
 
    > **Important:** Only use a `location` value that's a genuine Google Cloud region for your project (for example, `us-west1`). Okta uses this value to build the request URL it calls with your Google access token attached.
 
@@ -133,7 +133,7 @@ The following example `token_exchange.py` module that you create here has no dep
 
 This section is specific to Google Vertex AI. Here you call `get_id_jag` and `get_access_token` from your agent, then use the resulting access token to create a session with the Reasoning Engine, send the user's prompt, and poll for a response.
 
-> **Note:** The following examples pass the Okta-issued `access_token` directly to the Vertex AI REST API as a bearer credential. Confirm this against your own Reasoning Engine setup. If your organization instead requires exchanging the Okta token for a Google Cloud-native token (for example, through Workforce Identity Federation), add that exchange before the calls shown here.
+> **Note:** The following examples pass the Okta-issued `access_token` directly to the Vertex AI REST API as a bearer credential. Confirm this against your own Reasoning Engine setup. If your org instead requires exchanging the Okta token for a Google Cloud-native token (for example, through Workforce Identity Federation), add that exchange before the calls that are shown here.
 
 ### Add the Vertex AI dependencies
 
@@ -152,7 +152,7 @@ pip install -r requirements.txt
 
 ### Create a session
 
-Start a session with the Reasoning Engine. The response includes a `name` field. The last path segment is the session ID you use in the following steps.
+Start a session with the Reasoning Engine. The response includes a `name` field. The last path segment is the session ID that you use in the following steps.
 
 ```python
 import os
@@ -200,7 +200,7 @@ def send_prompt(access_token: str, session_id: str, prompt: str) -> None:
 
 ### Poll for the response
 
-The Reasoning Engine responds asynchronously. Poll the session's events and scan them for the first one authored by the agent.
+The Reasoning Engine responds asynchronously. Poll the session's events and scan them for the first one that's authored by the agent.
 
 ```python
 import time
@@ -222,7 +222,7 @@ def get_agent_response(access_token: str, session_id: str, timeout_seconds: int 
     raise TimeoutError("Timed out waiting for a response from the Reasoning Engine.")
 ```
 
-> **Note:** The exact shape of an agent-authored event (whether the response text is always under `rawEvent.text`) isn't confirmed here. Verify this against a real response from your Reasoning Engine.
+> **Note:** Confirm the exact shape of an agent-authored event (whether the response text is always under `rawEvent.text`) against a real response from your Reasoning Engine.
 
 ## Wire it into the entry point
 
