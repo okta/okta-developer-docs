@@ -111,7 +111,7 @@ Your protected resource metadata response must return a JSON object conforming t
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `resource` | String | The canonical URI identifying your protected resource server. This value must match the `aud` (audience) claim in incoming ID-JAG token. |
+| `resource` | String | The canonical URI identifying your protected resource server |
 | `authorization_servers` | Array of strings | The URIs of the authorization servers trusted by this resource server to issue access tokens |
 | `scopes_supported` | Array of strings | The OAuth 2.0 scope strings supported by the resource server for API access control |
 
