@@ -825,7 +825,7 @@ export const guides = [
             ]
           },
           {
-            title: "XAA",
+            title: "Cross App Access (XAA)",
             subLinks: [
               {
                 title: "Expose XAA metadata for your resource app",
