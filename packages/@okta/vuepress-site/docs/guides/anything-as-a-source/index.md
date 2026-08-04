@@ -19,7 +19,7 @@ Learn how to use the [Identity Sources API](https://developer.okta.com/docs/api/
 * [Okta Integrator Free Plan org](https://developer.okta.com/signup)
   * A Custom Identity Source integration configured in your Okta org (see [Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source))
 
-      > **Note:** Your org needs to have the Identity Source Apps feature enabled. Device import is also a separate [Early Access (EA) feature](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle#early-access-ea). Contact your Okta account team to enable these features.
+      > **Note:** Your org needs to have the Identity Source Apps feature enabled. Device import is a separate [Early Access (EA) feature](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#early-access-ea). Contact your Okta account team to enable these features.
   * [An OAuth 2.0 token](/docs/guides/implement-oauth-for-okta-serviceapp/main/) to make secure API calls
 * An HR source from which you want to synchronize user data with Okta
 * A custom client to add an Identity Sources API integration
@@ -35,7 +35,7 @@ The Okta Anything-as-a-Source (XaaS) integration provides your org with the abil
 
 With either method, you need to first define your HR source in your Okta org. This is referred to as the Custom Identity Source integration. Okta provides a Custom Identity Source unique identifier that you can use in your Okta Workflow or custom client to identify the HR source. See Create and configure a Custom Identity Source in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
 
-This guide outlines the Identity Sources API flow, so you can develop your custom client for the XaaS integration. For XaaS integrations using [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf), see Okta connector action cards for bulk user import and identity-source session management.
+This guide outlines the Identity Sources API flow, so you can develop your custom client for the XaaS integration. For XaaS integrations using [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf), see Okta connector action cards for bulk user import and identity source session management.
 
 ## Identity Sources API concepts
 
@@ -182,12 +182,12 @@ Before you start to build your XaaS data synchronization client, you need to set
 
 * Your Okta org domain URL (`{yourOktaDomain}`) for API requests
 * Your Custom Identity Source ID (`{identitySourceId}`): The unique identifier that you obtained from configuring a Custom Identity Source integration in your Okta org. See Create and configure a Custom Identity Source in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
-* An API token (`{apiKey}`): Obtain an [API token](/docs/guides/create-an-api-token/main/) from your Okta org to make secure API calls to Okta. Use this API token in the SSWS Authorization header.
+* An OAuth 2.0 access token (`{accessToken}`): Obtain an [OAuth 2.0 access token](/docs/guides/implement-oauth-for-okta-serviceapp/main/) for your service app to make secure API calls to Okta. Use this access token as a `Bearer` token in the Authorization header.
 
 Code your XaaS data synchronization client with the following generalized API flow:
 
 1. Create an identity source session.
-2. Load  data into the identity source session. (If loading data in bulk, you can load multiple batches of bulk data).
+2. Load data into the identity source session. (If loading data in bulk, you can load multiple batches of bulk data).
 3. Trigger the data import process.
 4. Monitor the identity source session until the data processing completes.
 
