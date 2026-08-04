@@ -347,6 +347,7 @@ module.exports = ctx => ({
               //'/docs/guides/third-party-risk-integration/', //EA release of Risk APIs and Guide 2021.08.0
               //'/docs/reference/api/risk-providers/',
               //'/docs/reference/api/risk-events/',
+              '/docs/guides/ai-agent-cimd-registration/', //OKTA-1222987, hidden until CIMD-for-AI-Agents GA (OKTA-1135125)
               '/docs/guides/migrate-to-oie/',
               '/docs/guides/ipv6/',
               //'/docs/guides/manage-orgs-okta-aerial/',
@@ -378,7 +379,10 @@ module.exports = ctx => ({
               //'/docs/reference/api/hook-keys/'
               '/docs/guides/configure-amr-claims-mapping/',
               '/docs/api/openapi/asa/asa/overview/',
-              '/docs/api/openapi/opa/opa/overview/'
+              '/docs/api/openapi/opa/opa/overview/',
+              '/docs/concepts/agent-gateway/',
+              '/docs/guides/ai-configure-agent-for-gateway/',
+              '/docs/guides/ai-configure-agent-gateway/'
           ]
         }
       ]

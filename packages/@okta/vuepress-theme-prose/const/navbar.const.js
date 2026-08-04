@@ -580,7 +580,7 @@ export const guides = [
             path: "/docs/guides/ai-agent-secure-third-party/main/",
             subLinks: [
               {
-                title: "Secure AWS Bedrock Agents with Okta",
+                title: "Secure Amazon Bedrock Agents with Okta",
                 guideName: "ai-agent-secure-aws-bedrock"
               },
               {

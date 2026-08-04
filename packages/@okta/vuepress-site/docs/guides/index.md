@@ -6,9 +6,12 @@ guides:
  - ai-agent-secure-amazon-bedrock
  - ai-agent-secure-aws-bedrock
  - ai-agent-secure-google-vertex
+ - ai-agent-cimd-registration
  - ai-agent-secure-third-party
  - ai-agent-third-party-token-exchange
  - ai-agent-token-exchange
+ - ai-configure-agent-gateway
+ - ai-configure-agent-for-gateway
  - ai-agent-to-agent-token-exchange
  - app-provisioning-connection
  - archive-auth-js

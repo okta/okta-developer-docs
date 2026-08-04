@@ -10,7 +10,7 @@
       v-if="access === labelType.RESEARCH"
       class="api-label api-label-beta"
     >
-      <i class="fa fa-warning" /> Research
+      <i class="fa fa-warning" /> Research Release
     </span>
     <span
       v-if="access === labelType.EARLY_ACCESS"
