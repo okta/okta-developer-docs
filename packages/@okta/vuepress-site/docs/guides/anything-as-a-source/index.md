@@ -115,7 +115,7 @@ To load bulk users data, use `profiles`. The user `profiles` object is an array 
 
 Each user object in the `profiles` array can contain the following:
 
-* `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This determines if the API needs to create a user or update an existing user.
+* `externalId`: The unique identifier from the HR source. The identifier is immutable (never updated for a specific user). This determines if the API needs to create a user or update an existing user.
 * `profile`: The set of attributes from the HR source to synchronize with the Okta user profile. Profiles are mapped according to the attribute mappings that you specified in your Custom Identity Source configuration. See Declare an identity source schema in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
     > **Note:** All attributes in a `profile` object are treated as strings. Arrays aren't supported.
 
