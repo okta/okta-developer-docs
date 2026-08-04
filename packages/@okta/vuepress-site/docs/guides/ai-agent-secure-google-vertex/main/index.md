@@ -5,7 +5,7 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide shows you how to build a Python wrapper that authenticates users with Okta, performs Okta's two-step token exchange internally, and then calls a Google Vertex AI agent. In Vertex AI, an agent is a Reasoning Engine (the resource type behind Vertex AI Agent Engine and Agent Builder). Your app owns the full flow: it verifies who the user is, exchanges that identity for a scoped access token, and uses that token to create a session with the Reasoning Engine, send the user's prompt, and poll for the agent's response.
+This guide shows you how to build a Python wrapper that authenticates users with Okta, performs Okta's two-step token exchange internally, and then calls a Google Vertex AI agent. In Vertex AI, an agent is a Reasoning Engine (the resource type behind Vertex AI Agent Engine and Agent Builder). Your app owns the full flow. It verifies who the user is, exchanges that identity for a scoped access token, and uses that token to create a session with the Vertex AI Reasoning Engine. It then sends the user's prompt and polls for the agent's response.
 
 The Okta authentication is a two-step token exchange that's the same for any AI agent, regardless of the platform it runs on. This guide first introduces what the integration needs to do and provides sample code functions that implement the authentication. It then shows the Google Vertex AI-specific code and configuration that consumes it.
 
@@ -25,8 +25,8 @@ The Okta authentication is a two-step token exchange that's the same for any AI 
 * An [Identity Engine](/docs/concepts/oie-intro/) org with the Okta for AI Agents feature enabled
 * A Google Cloud project with Vertex AI enabled and an existing Reasoning Engine (Vertex AI Agent Engine) that you can call
 * A Google account with the **Editor** role or the **AI Platform Editor** (`aiplatform.editor`) role on that project
-* An existing Google Workspace application integration in your Okta org. The Google Vertex AI import configuration lives on this app's **AI Agent Import** tab
-* The Google Vertex AI agent imported into Okta as an AI Agent identity. See [Import your agent from Google Vertex AI](#import-your-agent-from-google-vertex-ai)
+* An existing Google Workspace app integration in your Okta org. The Google Vertex AI import configuration lives on this app's **AI Agent Import** tab.
+* The Google Vertex AI agent imported into Okta as an AI Agent identity. See [Import your agent from Google Vertex AI](#import-your-agent-from-google-vertex-ai).
 * [Python](https://www.python.org/) 3.10 or later
 
 ---
@@ -43,7 +43,7 @@ The integration has two parts:
 
   This logic is identical for any agent. You add it once as a reusable module. See [Add Okta authentication to your agent](#add-okta-authentication-to-your-agent).
 
-* Platform integration (Google Vertex AI-specific). Unlike a single synchronous call, the Vertex AI Reasoning Engine API is session- and event-based. Your wrapper creates a session, appends the user's prompt to it as an event, and polls the session's events until the agent responds. See [Integrate the token exchange into your Vertex AI agent](#integrate-the-token-exchange-into-your-vertex-ai-agent).
+* Platform integration (Google Vertex AI-specific). Unlike a single synchronous call, the Vertex AI Reasoning engine API is session- and event-based. Your wrapper creates a session, appends the user's prompt to it as an event, and polls the session's events until the agent responds. See [Integrate the token exchange into your Vertex AI agent](#integrate-the-token-exchange-into-your-vertex-ai-agent).
 
 <!-- TODO: Replace this text-based diagram with an image.
 
@@ -83,9 +83,9 @@ The token exchange depends on Okta objects that you configure once per org. Conf
 
 ### Import your agent from Google Vertex AI
 
-Importing a Google Vertex AI agent works differently than importing an agent from the other supported platforms. Instead of registering the agent directly with its own key pair, Okta connects to your Google Cloud project through OAuth 2.0 / STS (Security Token Service) and discovers and imports Reasoning Engines from that project. This setup lives on your org's **Google Workspace** application integration, not under **Directory** > **AI Agents**.
+Importing a Google Vertex AI agent works differently than importing an agent from the other supported platforms. Instead of registering the agent directly with its own key pair, Okta connects to your Google Cloud project through OAuth 2.0 and its Security Token Service (STS) and discovers and imports Reasoning Engines from that project. This setup lives on your org's **Google Workspace** app integration, not under **Directory** > **AI Agents**.
 
-You need an existing Google Workspace application integration in your org (**Applications** > **Applications**). If you don't have one yet, create it before you continue.
+You need an existing Google Workspace app integration in your org (**Applications** > **Applications**). If you don't have one yet, create it before you continue.
 
 1. In the [Google Cloud Console](https://console.cloud.google.com/), select your target project, and then go to **APIs & Services** > **OAuth consent screen**.
 
@@ -96,12 +96,12 @@ You need an existing Google Workspace application integration in your org (**App
 1. Under **Authorized redirect URIs**, click **Add URI**, and enter `{yourOktaDomain}/oauth2/v1/sts/callback`.
 1. Click **Create**. Note the **Client ID** and **Client Secret** shown in the confirmation dialog. Okta uses these to discover and import your Reasoning Engines, so store them in a secrets manager.
 1. Go to the **Audience** tab.
-   * If the consent screen's **User type** is **External**, scroll to **Test users**, click **+ Add users**, and add the email addresses of the accounts that complete the import consent flow.
+   * If the consent page's **User type** is **External**, scroll to **Test users**, click **+ Add users**, and add the email addresses of the accounts that complete the import consent flow.
    * If the **User type** is **Internal**, no additional provisioning is required.
-1. In the Admin Console, go to your org's Google Workspace application integration, and open its **AI Agent Import** tab.
-1. Enter the Client ID, Client Secret, your Google Cloud project ID, and the location (region) where your Reasoning Engines run, for example, `us-west1`. Click **Test API Credentials** to validate them.
+1. In the Admin Console, go to your org's Google Workspace app integration, and open its **AI Agent Import** tab.
+1. Enter the client ID, client secret, your Google Cloud project ID, and the location (region) where your Reasoning Engines run, for example, `us-west1`. Click **Test API Credentials** to validate them.
 
-   > **Note:** Okta validates these credentials against Google. If Google requires additional consent, Okta returns an interaction URI. An admin must open that URI and complete the consent flow before validation can succeed.
+   > **Note:** Okta validates these credentials against Google. If Google requires other consent, Okta returns an interaction URI. An admin must open that URI and complete the consent flow before validation can succeed.
 
    > **Important:** Only use a `location` value that's a genuine Google Cloud region for your project (for example, `us-west1`). Okta uses this value to build the request URL it calls with your Google access token attached.
 
@@ -109,7 +109,7 @@ You need an existing Google Workspace application integration in your org (**App
 
 ## Collect your configuration values
 
-Your Google Vertex AI agent code reads these values as environment variables. The first group is consumed by the token exchange module. The second group is specific to Google Vertex AI.
+Your Google Vertex AI agent code reads these values as environment variables. The token exchange module consumes the first group. The second group is specific to Google Vertex AI.
 
 <AiAgentOktaConfigValues/>
 
@@ -121,7 +121,7 @@ Your Google Vertex AI agent code reads these values as environment variables. Th
 | `GCP_LOCATION` | The region where your Reasoning Engine runs, for example, `us-west1` | **Google Cloud Console** > **Vertex AI** > **Agent Engine** |
 | `GCP_REASONING_ENGINE_ID` | The numeric ID of the Reasoning Engine to call | The trailing segment of the engine's `name` field, for example, `8411791718067732480` in `projects/{project}/locations/{location}/reasoningEngines/8411791718067732480` |
 
-> **Note:** These values identify the Reasoning Engine you're calling. They're separate from the Client ID and Client Secret you created in [Import your agent from Google Vertex AI](#import-your-agent-from-google-vertex-ai), which Okta uses only to discover and import agents, not at runtime.
+> **Note:** These values identify the Reasoning Engine that you're calling. They're separate from the client ID and client secret that you created in [Import your agent from Google Vertex AI](#import-your-agent-from-google-vertex-ai), which Okta uses only to discover and import agents, not at runtime.
 
 ## Add Okta authentication to your agent
 
@@ -133,7 +133,7 @@ The following example `token_exchange.py` module that you create here has no dep
 
 This section is specific to Google Vertex AI. Here you call `get_id_jag` and `get_access_token` from your agent, then use the resulting access token to create a session with the Reasoning Engine, send the user's prompt, and poll for a response.
 
-> **Note:** The following examples pass the Okta-issued `access_token` directly to the Vertex AI REST API as a bearer credential. Confirm this against your own Reasoning Engine setup — if your organization instead requires exchanging the Okta token for a Google Cloud-native token (for example, through Workforce Identity Federation), add that exchange before the calls shown here.
+> **Note:** The following examples pass the Okta-issued `access_token` directly to the Vertex AI REST API as a bearer credential. Confirm this against your own Reasoning Engine setup. If your organization instead requires exchanging the Okta token for a Google Cloud-native token (for example, through Workforce Identity Federation), add that exchange before the calls shown here.
 
 ### Add the Vertex AI dependencies
 
@@ -152,7 +152,7 @@ pip install -r requirements.txt
 
 ### Create a session
 
-Start a session with the Reasoning Engine. The response includes a `name` field; the last path segment is the session ID you use in the following steps.
+Start a session with the Reasoning Engine. The response includes a `name` field. The last path segment is the session ID you use in the following steps.
 
 ```python
 import os
