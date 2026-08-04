@@ -173,8 +173,8 @@ Each device object in the `profiles` array can contain the following:
 
 Use the following endpoints to bulk load devices. Each endpoint also lists example payload requests and response bodies:
 
-* [Upload the device profiles to be upserted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDevicesForUpsert)
-* [Upload the device external IDs to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDevicesForDelete)
+* [Upload the device profiles to be upserted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identitysource/other/uploadidentitysourcedevicesforupsert)
+* [Upload the device external IDs to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identitysource/other/uploadidentitysourcedevicesfordelete)
 
 ## Identity Sources API flow
 
@@ -234,7 +234,7 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
 > **Note:** Use the same flow for uploading groups from your HR source, but with the groups endpoints instead. For groups, use the [Upload the group memberships to be upserted](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupMembershipsForUpsert) endpoint or the [Upload the group profiles without memberships to be upserted](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupsForUpsert) endpoint.
 >
-> **Note:** Use the same flow for uploading devices from your HR source, but with the [Upload the device profiles to be upserted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDevicesForUpsert) endpoint instead. You can upload user, group, and device data to the same identity source session.
+> **Note:** Use the same flow for uploading devices from your HR source, but with the [Upload the device profiles to be upserted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identitysource/other/uploadidentitysourcedevicesforupsert) endpoint instead. You can upload user, group, and device data to the same identity source session.
 
 1. [Create an identity source session](#create-an-identity-source-session) if you don't already have one. If you have an existing active identity source session, [retrieve the active identity source session](#retrieve-active-identity-source-sessions) to get the session ID.
 
@@ -255,7 +255,7 @@ When users are deactivated or deleted from your HR source, you need to reflect t
 
 > **Note:** Use the same flow for deleting groups from your HR source, but with the groups endpoints instead. To delete group memberships, use the [Upload the group memberships to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupMembershipsForDelete) endpoint and list the `groupExternalId` and `memberExternalIds` in the request body. To delete groups without specific membership information, use the [Upload the group external IDs to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupsDataForDelete) endpoints and list the `externalIds` of groups to be deleted.
 >
-> **Note:** Use the same flow for deleting devices from your HR source, but with the [Upload the device external IDs to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDevicesForDelete) endpoint and list the `externalIds` of the devices to delete in the request body. Unlike users, deleted devices aren't deactivated — they're removed.
+> **Note:** Use the same flow for deleting devices from your HR source, but with the [Upload the device external IDs to be deleted in Okta](/okta-management/management/tags/identitysource/other/uploadidentitysourcedevicesfordelete) endpoint and list the `externalIds` of the devices to delete in the request body. Unlike users, deleted devices are removed, not deactivated.
 
 1. [Create an identity source session](#create-an-identity-source-session) if you don't already have one. If you have an existing active identity source session, [retrieve the active identity source session](#retrieve-active-identity-source-sessions) to get the `{sessionId}`.
 
