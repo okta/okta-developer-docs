@@ -123,7 +123,7 @@ The following JSON example shows a protected resource metadata response:
 {
   "resource": "https://api.example.com",
   "authorization_servers": [
-    "https://example.okta.com/oauth2/austest123456"
+    "https://auth.example.com"
   ],
   "scopes_supported": [
     "myAPI.read",
