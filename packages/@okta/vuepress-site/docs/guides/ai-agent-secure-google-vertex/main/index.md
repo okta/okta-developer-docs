@@ -5,7 +5,7 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide shows you how to build a Python wrapper that authenticates users with Okta, performs Okta's two-step token exchange internally, and then calls a Google Vertex AI agent. In Vertex AI, an agent is a Reasoning Engine (the resource type behind Vertex AI Agent Engine and Agent Builder). Your app owns the full flow. It verifies who the user is, exchanges that identity for a scoped access token, and uses that token to create a session with the Vertex AI Reasoning Engine. It then sends the user's prompt and polls for the agent's response.
+This guide shows you how to build a Python wrapper that authenticates users with Okta, performs Okta's two-step token exchange internally, and then calls a Google Vertex AI agent. In Vertex AI, an agent is a Reasoning Engine (the resource type behind Vertex AI Agent Engine and Agent Builder). Your app owns the full flow. It verifies who the user is, exchanges that identity for a scoped access token, and uses that token to create a session with Reasoning Engine. It then sends the user's prompt and polls for the agent's response.
 
 The Okta authentication is a two-step token exchange that's the same for any AI agent, regardless of the platform it runs on. This guide first introduces what the integration needs to do and provides sample code functions that implement the authentication. It then shows the Google Vertex AI-specific code and configuration that consumes it.
 
