@@ -50,7 +50,7 @@ When you import AI agents from a provider with the [Start the import of an AI ag
 
 * In some orgs, users couldn't authenticate with their IdP, even though `trustClaims` was enabled and the IdP had already satisfied the app sign-in policy's phishing resistant requirement by including `phr` or `phrh` AMR claims. (OKTA-1204547)
 
-* Integrator orgs with Bring Your Own Telephony (BYOT) received the "Your free tier organization has reached the limit of SMS requests that can be sent within a 30 day period" error, even though this cost-control limit no longer applied. (OKTA-1214692)
+* Integrator orgs with Bring Your Own Telephony (BYOT) received the "Your free tier organization has reached the limit of SMS requests that can be sent within a 30 day period" error message, even though this cost-control limit no longer applied. (OKTA-1214692)
 
 * When a client retrieved information about user grants and tokens with an `expand` query parameter and pagination that required a next page, the `next` link in the response's `Link` header omitted `expand`.
 
