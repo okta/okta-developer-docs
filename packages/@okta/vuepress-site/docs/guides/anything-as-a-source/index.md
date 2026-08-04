@@ -115,7 +115,7 @@ To load bulk users data, use `profiles`. The user `profiles` object is an array 
 
 Each user object in the `profiles` array can contain the following:
 
-* `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This determines if the API needs to create a new user or update an existing user.
+* `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This determines if the API needs to create a user or update an existing user.
 * `profile`: The set of attributes from the HR source to synchronize with the Okta user profile. Profiles are mapped according to the attribute mappings that you specified in your Custom Identity Source configuration. See Declare an identity source schema in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
     > **Note:** All attributes in a `profile` object are treated as strings. Arrays aren't supported.
 
@@ -130,7 +130,7 @@ To load bulk groups data, use `profiles`. The group `profiles` object is an arra
 
 Each group object in the `profiles` array can contain the following:
 
-* `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific group). This determines if the API needs to create a new group or update an existing group.
+* `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific group). This determines if the API needs to create a group or update an existing group.
 * `profile`: The set of attributes from the HR source to synchronize with the Okta group profile. Profiles are mapped according to the attribute mappings that you specified in your Custom Identity Source configuration. See Declare an identity source schema in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
     > **Note:** All attributes in a `profile` object are treated as strings. Arrays aren't supported.
 
@@ -163,11 +163,11 @@ Unlike user and group profiles, device profiles don't use the attribute mappings
 
 Each device object in the `profiles` array can contain the following:
 
-* `externalId`: The unique identifier from the HR source (or other system of record) for the device. Maximum length is 127 characters.
-* `profile`: The device's attributes. All the following attributes are required:
-  * `serialNumber`: The device's serial number. Maximum length is 127 characters.
+* `externalId`: The unique identifier from the HR source (or other system of record) for the device. The maximum length is 127 characters.
+* `profile`: The attributes of the device. All the following attributes are required:
+  * `serialNumber`: The serial number of the device. The maximum length is 127 characters.
   * `platform`: The device's platform, for example, `MACOS` or `ANDROID`.
-  * `displayName`: A human-readable name for the device. Maximum length is 255 characters.
+  * `displayName`: A human-readable name for the device. The maximum length is 255 characters.
 
 > **Note:** All device attributes other than `serialNumber`, `platform`, and `displayName` are rejected. This is different from user and group profiles, which accept any attribute that's defined in your identity source schema.
 
