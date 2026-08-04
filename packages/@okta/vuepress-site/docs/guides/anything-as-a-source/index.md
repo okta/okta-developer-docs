@@ -48,7 +48,7 @@ The Identity Sources API synchronizing data flow uses an [identity source sessio
 * **CREATED**: Okta creates the identity source session object for a specific Custom Identity Source integration. You can load data to the session at this stage. Okta hasn't invoked data import processing, and you can cancel the session at this stage.
 * **IN_PROGRESS**: Okta is uploading the data for the identity source session.
 * **TRIGGERED**: Okta is processing the uploaded data in the identity source session. You can't load new data to the identity source session object at this stage, and you can't cancel the session. You can view sessions with this status on the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page in the Admin Console.
-* **COMPLETED**: Okta processes the data in the identity source session object. You can't upload new data to the identity source session object if it has this status, because the synchronization data job is considered complete.
+* **COMPLETED**: Okta processes the data in the identity source session object. You can't upload new data to the identity source session object if it has this status because the synchronization data job is complete.
 * **CLOSED**: You've canceled the session, so it's not available for further activity. You can only cancel identity source sessions with the `CREATED` or `IN_PROGRESS` status. You can't cancel a session that has been triggered or completed. Okta deletes previously loaded data from a canceled identity source session.
 * **EXPIRED**: This status indicates that the identity source session has timed out during the data loading stage. An identity source session with the `CREATED` or `IN_PROGRESS` status expires after 24 hours of inactivity.
 * **ERROR**: This status indicates that there's an error while upserting or deleting entities from the entity database.
@@ -115,7 +115,7 @@ To load bulk users data, use `profiles`. The user `profiles` object is an array 
 
 Each user object in the `profiles` array can contain the following:
 
-* `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This determines if the API needs to create a user or update an existing user.
+* `externalId`: The unique identifier from the HR source. The identifier is immutable (never updated for a specific user). This determines if the API needs to create a user or update an existing user.
 * `profile`: The set of attributes from the HR source to synchronize with the Okta user profile. Profiles are mapped according to the attribute mappings that you specified in your Custom Identity Source configuration. See Declare an identity source schema in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
     > **Note:** All attributes in a `profile` object are treated as strings. Arrays aren't supported.
 
