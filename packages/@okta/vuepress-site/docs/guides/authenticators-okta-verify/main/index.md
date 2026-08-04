@@ -48,10 +48,10 @@ The following table applies only when the previous `okta_verify` authenticator s
 
 | Previously enabled Okta Verify methods | `okta_verify_totp` | `okta_verify_push` | `okta_verify_fastpass` |
 |---|---|---|---|
-| `okta_verify_totp`, `okta_verify_push`, `okta_verify_fastpass` | `OPTIONAL` | `OPTIONAL` | `REQUIRED` |
-| `okta_verify_totp`, `okta_verify_push` | `OPTIONAL` | `REQUIRED` | `DISABLED` |
-| `okta_verify_totp`, `okta_verify_fastpass` | `OPTIONAL` | `DISABLED` | `REQUIRED` |
-| `okta_verify_totp` | `REQUIRED` | `DISABLED` | `DISABLED` |
+| `totp`, `push`, `signed_nonce` | `OPTIONAL` | `OPTIONAL` | `REQUIRED` |
+| `totp`, `push` | `OPTIONAL` | `REQUIRED` | `DISABLED` |
+| `totp`, `signed_nonce` | `OPTIONAL` | `DISABLED` | `REQUIRED` |
+| `totp` | `REQUIRED` | `DISABLED` | `DISABLED` |
 
 For example, the following authenticator enrollment policy configuration has `okta_verify` enabled as a required authenticator:
 
