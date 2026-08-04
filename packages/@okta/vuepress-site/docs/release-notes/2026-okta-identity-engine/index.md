@@ -13,6 +13,55 @@ title: Okta Identity Engine API release notes 2026
 
 ## July
 
+### Weekly release 2026.07.3
+<!-- Published on: 2026-07-29T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Editable issuer URL for AI agent resource connections](#editable-issuer-url-for-ai-agent-resource-connections) | July 29, 2026 |
+| [Removal of Application Cross App Access Connections API](#removal-of-application-cross-app-access-connections-api) | July 29, 2026 |
+| [Skipped failed entries during AI agent import](#skipped-failed-entries-during-ai-agent-import) | July 29, 2026 |
+| [Bugs fixed in 2026.07.3](#bugs-fixed-in-2026-07-3) | July 29, 2026 |
+
+#### Editable issuer URL for AI agent resource connections
+
+The [`issuerUrl`](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentconnections/other/updateresourceconnection#other/updateresourceconnection/t=request&path=issuerurl) has been added to the request body in the [Updates a resource connection](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentconnections/other/updateresourceconnection) request (`PATCH /workload-principals/api/v1/ai-agents/{agentId}/connections/{connectionId}`).
+<!-- OKTA-1215253 OKTA_FOR_AI_AGENTS -->
+
+#### Removal of Application Cross App Access Connections API
+
+The removal of the [Application Cross App Access Connections](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/applicationcrossappaccessconnections) API is scheduled for an upcoming release. Your existing managed connection configurations will stop working. Use the corresponding [Okta for AI Agents API](https://developer.okta.com/docs/api/secures-ai) to reconfigure your [connections](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentconnections/other/createresourceconnection) with `IDENTITY_ASSERTION_APP_INSTANCE`.
+
+For instructions on how AI agent connections are configured in the Admin Console, see [Configure resource server connectors](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-rsc-svr-config).
+<!-- OKTA-1221183 pre XAA phase 2, Preview: July 29, 2026 -->
+
+#### Skipped failed entries during AI agent import
+
+When you import AI agents from a provider with the [Start the import of an AI agent provider](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/secures-ai-workload-principals/agentproviders/startaiagentproviderimport) request, Okta now skips the failed entries and creates or updates the successful ones.
+<!-- OKTA-123454 -->
+
+#### Bugs fixed in 2026.07.3
+
+* Some proxies and VPNs weren't supported as values in the `ipServiceCategories` field when creating or replacing an enhanced dynamic zone. (OKTA-1223345)
+
+* When you passed an unsupported or invalid URI for `requested_token_type` during a token exchange flow, the `POST /oauth2/v1/token` endpoint returned an unrelated error message. (OKTA-1219667)
+
+* The `createAIAgentProvider` operation failed when the request body's `configuration` field used camel case keys, such as `clientId`. (OKTA-1225831)
+
+* In some orgs, users couldn't authenticate with their IdP, even though `trustClaims` was enabled and the IdP had already satisfied the app sign-in policy's phishing resistant requirement by including `phr` or `phrh` AMR claims. (OKTA-1204547)
+
+* When a client retrieved information about user grants and tokens with an `expand` query parameter and pagination that required a next page, the `next` link in the response's `Link` header omitted `expand`.
+
+  This issue affected the following endpoints:
+
+    - `GET /users/{id}/grants`
+    - `GET /users/me/grants`
+    - `GET /users/me/clients/{clientId}/grants`
+    - `GET /users/{id}/clients/{clientId}/grants`
+    - `GET /apps/{id}/tokens`
+
+  (OKTA-1230325)
+
 ### Weekly release 2026.07.2
 <!-- Published on: 2026-07-15T12:00:00Z -->
 
@@ -80,7 +129,7 @@ The GET `/apps/{appId}/tokens` endpoint sometimes returned fewer results than th
 | [Clear Managed Chrome Profile Browsing Data is GA in Production](#clear-managed-chrome-profile-browsing-data-is-ga-in-production) | June 3, 2026 |
 | [Group push support in API Integration Actions apps](#group-push-support-in-api-integration-actions-apps) | July 1, 2026 |
 | [Delete group push mappings in ERROR state](#delete-group-push-mappings-in-error-state) | July 1, 2026 |
-| [Replace a Group Rule API can now update assigned groups](#replace-a-group-rule-api-can-now-update-assigned-groups) | July 1, 2026 |
+| [Replace a Group Rule API can now update assigned groups is GA in Preview](#replace-a-group-rule-api-can-now-update-assigned-groups-is-ga-in-preview) | July 1, 2026 |
 | [Native to Web SSO is GA in Production](#native-to-web-sso-is-ga-in-production) | January 7, 2026 |
 | [Removal of Cross App Access as a self-service feature](#removal-of-cross-app-access-as-a-self-service-feature) | July 1, 2026 |
 | [Spec-compliant client ID claims for AI agent tokens](#spec-compliant-client-id-claims-for-ai-agent-tokens) | Jun 11, 2026 |
@@ -137,7 +186,7 @@ Apps that use API Integration Actions to perform provisioning can now use the [G
 
 The [Delete a group push mapping](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/grouppushmapping/other/deletegrouppushmapping) endpoint now supports deleting group push mappings in the `ERROR` state, alongside the `INACTIVE` state. <!-- OKTA-1210326 -->
 
-#### Replace a Group Rule API can now update assigned groups
+#### Replace a Group Rule API can now update assigned groups is GA in Preview
 
 The [Replace a group rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/grouprule/other/replacegrouprule) endpoint now supports updating the `actions` object to modify the groups assigned to a group rule. <!-- OKTA-1128862 FF EDITABLE_GROUP_RULE_TARGETS to GA Preview July 1, 2026 -->
 
@@ -216,6 +265,8 @@ The OIN Wizard now includes an **Edit** > **Catalog Info** path that allows inde
 * When a Native to Web SSO flow used an `interclient_token` to sign in to a target OpenID Connect (OIDC) app that had Single Logout (SLO) session data enabled, the authorization code exchange returned an unclear error message. (OKTA-1183163)
 
 * Developers were able to delete a [custom authorization server](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/authorizationserver/other/deleteauthorizationserver) that was used in AI agent resource connections. (OKTA-1182513)
+
+* In the System Log, the `target.detailEntry.methodTypeUsed` field for authenticator events incorrectly showed the challenge prompt method instead of the authentication method. (OKTA-1200335)
 
 ## June
 

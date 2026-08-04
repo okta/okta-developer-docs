@@ -11,6 +11,31 @@ title: Okta Classic Engine API release notes 2026
 
 ## July
 
+### Weekly release 2026.07.3
+<!-- Published on: 2026-07-29T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2026.07.3](#bugs-fixed-in-2026-07-3) | July 29, 2026 |
+
+#### Bugs fixed in 2026.07.3
+
+* Some proxies and VPNs weren't supported as values in the `ipServiceCategories` field when creating or replacing an enhanced dynamic zone. (OKTA-1223345)
+
+* When a client retrieved information about user grants and tokens with an `expand` query parameter and pagination that required a next page, the `next` link in the response's `Link` header omitted `expand`.
+
+  This issue affected the following endpoints:
+
+    - `GET /users/{id}/grants`
+    - `GET /users/me/grants`
+    - `GET /users/me/clients/{clientId}/grants`
+    - `GET /users/{id}/clients/{clientId}/grants`
+    - `GET /apps/{id}/tokens`
+
+  (OKTA-1230325)
+
+* When you modified a `LinkedObject` attribute value on a user profile, Okta failed to push the updated value to downstream provisioning-enabled apps. (OKTA-311345)
+
 ### Weekly release 2026.07.1
 <!-- Published on: 2026-07-08T12:00:00Z -->
 
@@ -31,7 +56,7 @@ The GET `/apps/{appId}/tokens` endpoint sometimes returned fewer results than th
 | [Improved group member search functionality is GA in Production](#improved-group-member-search-functionality-is-ga-in-production) | July 1, 2026 |
 | [Group push support in API Integration Actions apps](#group-push-support-in-api-integration-actions-apps) | July 1, 2026 |
 | [Delete group push mappings in ERROR state](#delete-group-push-mappings-in-error-state) | July 1, 2026 |
-| [Replace a Group Rule API can now update assigned groups](#replace-a-group-rule-api-can-now-update-assigned-groups) | July 1, 2026 |
+| [Replace a Group Rule API can now update assigned groups is GA in Preview](#replace-a-group-rule-api-can-now-update-assigned-groups-is-ga-in-preview) | July 1, 2026 |
 | [Developer documentation updates in 2026.07.0](#developer-documentation-updates-in-2026-07-0) | July 1, 2026 |
 
 #### New IP Service available for enhanced dynamic network zones
@@ -51,7 +76,7 @@ Apps that use API Integration Actions to perform provisioning can now use the [G
 
 The [Delete a group push mapping](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/grouppushmapping/other/deletegrouppushmapping) endpoint now supports deleting group push mappings in the `ERROR` state, alongside the `INACTIVE` state. <!-- OKTA-1210326 -->
 
-#### Replace a Group Rule API can now update assigned groups
+#### Replace a Group Rule API can now update assigned groups is GA in Preview
 
 The [Replace a group rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/grouprule/other/replacegrouprule) endpoint now supports updating the `actions` object to modify the groups assigned to a group rule. <!-- OKTA-1128862 FF EDITABLE_GROUP_RULE_TARGETS to GA Preview July 1, 2026 -->
 
