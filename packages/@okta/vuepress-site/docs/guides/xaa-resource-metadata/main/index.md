@@ -165,9 +165,11 @@ curl -s -H "Accept: application/json" https://{your-resource-server-domain}/.wel
 
 Confirm that the `resource` property matches your resource server issuer URL and that `authorization_servers` lists your trusted authorization server.
 
+<!--
 ## Next steps
 
 Now that your discovery metadata URIs are configured and verified:
 
 * [Validate ID-JAG tokens]: Extend your authorization server to validate the ID-JAG token and resolve the user’s identity before issuing scoped access tokens.
 * [Build a resource app]: Follow the resource app journey if your app needs to accept incoming XAA authorization requests.
+-->
