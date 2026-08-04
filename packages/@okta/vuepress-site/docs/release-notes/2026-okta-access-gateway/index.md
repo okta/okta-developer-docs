@@ -12,27 +12,18 @@ title: Okta Access Gateway API release notes 2026
 
 Access Gateway is available for both Okta Classic Engine and Okta Identity Engine.
 
-## July
+## August
 
-### Monthly release 2026.07.0
-<!-- Published on: 2026-07-12T12:00:00Z -->
+### Monthly release 2026.08.0
+<!-- Published on: 2026-08-05T12:00:00Z -->
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Developer documentation update in 2026.07.0](#developer-documentation-update-in-2026-07-0) | July 12, 2026 |
-| [Bug fixed in 2026.07.0](#bug-fixed-in-2026-07-0) | July 12, 2026 |
+| [OpenID Connect apps in offline mode is Limited EA in Preview](#openid-connect-apps-in-offline-mode-is-limited-ea-in-preview) | August 5, 2026 |
 
-#### OpenID Connect apps in offline mode
+#### OpenID Connect apps in offline mode is Limited EA in Preview
 
-Access Gateway now supports OpenID Connect (OIDC) apps in offline mode, providing authentication resiliency when your Access Gateway instance is disconnected from Okta or temporarily offline. OIDC apps can be configured with the authorization code with PKCE, client credentials, and device code grant flows. See [Add apps for offline mode](/docs/guides/oag-configure-apps-offline-mode/openidconnect/main/).
-
-#### Developer documentation update in 2026.07.0
-
-The Okta Developer landing page now features new sections for Journeys and release notes. A Journey is a curated, expert-driven, end-to-end guide built around a small-to-medium-sized development project. This update delivers streamlined access to both Journeys and the latest platform updates. See [Okta Developer Landing page](https://developer.okta.com/).
-
-#### Bug fixed in 2026.07.0
-
-
+Access Gateway now supports OpenID Connect (OIDC) apps in offline mode, providing authentication resiliency when your Access Gateway instance is disconnected from Okta or temporarily offline. OIDC apps can be configured with the authorization code with PKCE and client credentials flows. See [Add apps for offline mode](/docs/guides/oag-configure-apps-offline-mode/openidconnect/main/).
 
 ## May
 
