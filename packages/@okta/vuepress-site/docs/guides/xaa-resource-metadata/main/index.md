@@ -107,7 +107,7 @@ GET https://{your-resource-server-domain}/.well-known/oauth-protected-resource
 
 ### Required properties
 
-Your protected resource metadata response must return a JSON object conforming to [RFC 9728](https://datatracker.ietf.org/doc/html/rfc9728) with the following properties:
+Your protected resource metadata response must return a JSON object conforming to [RFC 9728](https://datatracker.ietf.org/doc/html/rfc9728) with at least the following properties:
 
 | Property | Type | Description |
 | --- | --- | --- |
