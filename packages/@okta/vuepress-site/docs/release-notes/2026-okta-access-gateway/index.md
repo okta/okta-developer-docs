@@ -12,6 +12,19 @@ title: Okta Access Gateway API release notes 2026
 
 Access Gateway is available for both Okta Classic Engine and Okta Identity Engine.
 
+## August
+
+### Monthly release 2026.08.0
+<!-- Published on: 2026-08-05T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [OpenID Connect apps in offline mode is Limited EA in Preview](#openid-connect-apps-in-offline-mode-is-limited-ea-in-preview) | August 5, 2026 |
+
+#### OpenID Connect apps in offline mode is Limited EA in Preview
+
+Access Gateway now supports OpenID Connect (OIDC) apps in offline mode, providing authentication resiliency when your Access Gateway instance is disconnected from Okta or temporarily offline. OIDC apps can be configured with the authorization code with PKCE and client credentials flows. See [Add apps for offline mode](/docs/guides/oag-configure-apps-offline-mode/openidconnect/main/).
+
 ## May
 
 ### Monthly release 2026.05.0
