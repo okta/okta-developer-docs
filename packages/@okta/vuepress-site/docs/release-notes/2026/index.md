@@ -21,7 +21,8 @@ title: Okta Classic Engine API release notes 2026
 | [Replace a Group Rule API can now update assigned groups is GA in Production](#replace-a-group-rule-api-can-now-update-assigned-groups-is-ga-in-production) | July 1, 2026 |
 | [Anything-as-a-Source device import is EA](#anything-as-a-source-device-import-is-ea) | August 5, 2026 |
 | [New Research Release lifecycle](#new-research-release-lifecycle) | August 5, 2026 |
-| [Bugs fixed in 2026.08.0](#bugs-fixed-in-2026-08-0)| August 5, 2026 |
+| [Developer documentation updates in 2026.08.0](#developer-documentation-updates-in-2026080) | August 5, 2026 |
+| [Bug fixed in 2026.08.0](#bug-fixed-in-2026080) | August 5, 2026 |
 
 #### New Proxy service for enhanced dynamic zones is GA in Production
 
@@ -47,7 +48,7 @@ The Identity Sources API now supports bulk device import for Anything-as-a-Sourc
 
 A new Research Release lifecycle, marked with a Research Release badge, is now available for Okta APIs and developer documentation. Research Release features are available exclusively to members of the Okta Research Partner Program for a fixed evaluation period, before a feature moves toward Early Access or General Availability. See [Release lifecycle](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle#research-release). <!-- OKTA-1234133 - ->
 
-#### Developer documentation update in 2026.08.0
+#### Developer documentation updates in 2026.08.0
 
 * The [Build an Anything-as-a-Source custom client integration](/docs/guides/anything-as-a-source/) guide now supports bulk device import for Anything-as-a-Source (XaaS) integrations. <!-- OKTA-1218468 -->
 
@@ -59,7 +60,7 @@ A new Research Release lifecycle, marked with a Research Release badge, is now a
 
 * The React tab of [Sign in to your SPA with Auth JS](/docs/guides/sign-in-to-spa-authjs/main/) has been rewritten to fix out-of-date sample code. It replaces the deprecated Create React App setup with Vite, updates the sign-in flow to Auth JS's Step Mode pattern, and adds the full working component code. <!-- OKTA-889035 -->
 
-#### Bugs fixed in 2026.08.0
+#### Bug fixed in 2026.08.0
 
 * The `next` link in the `Link` response header for `GET /api/v1/apps/{id}/users` didn't include the expand query parameter. (OKTA-1230324)
 
