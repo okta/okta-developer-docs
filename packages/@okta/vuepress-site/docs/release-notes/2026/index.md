@@ -9,6 +9,38 @@ title: Okta Classic Engine API release notes 2026
   Subscribe to RSS
 </a>
 
+## August
+
+### Monthly release 2026.08.0
+<!-- Published on: 2026-08-05T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [New Proxy service for enhanced dynamic zones is GA in Production](#new-proxy-service-for-enhanced-dynamic-zones-is-ga-in-production) | August 5, 2026 |
+| [New System Log events is GA in Production](#new-system-log-events-is-ga-in-production) | August 5, 2026 |
+| [Replace a Group Rule API can now update assigned groups is GA in Production](#replace-a-group-rule-api-can-now-update-assigned-groups-is-ga-in-production) | July 1, 2026 |
+| [Bugs fixed in 2026.08.0](#bugs-fixed-in-2026-08-0)| August 5, 2026 |
+
+#### New Proxy service for enhanced dynamic zones is GA in Production
+
+The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/getnetworkzone#other/getnetworkzone/t=response&c=200&path=&d=2/ipservicecategories) now supports the `PROXYLINE_PROXY` service.
+
+#### New System Log events is GA in Production
+
+The System Log now logs the following events for app-based authentication for Office 365 provisioning:
+`app.office365.provisioning_app.create`: This event is logged when Okta creates a dedicated Microsoft Entra ID app *that's registered and used* for Office 365 provisioning.
+`app.office365.provisioning_app_credential.rotate`: This event is logged when Okta rotates the client secret of the registered Microsoft Entra ID app that's used for Office 365 provisioning. The `Outcome` field in this event's data indicates whether the client secret rotation was successful or not.
+
+#### Replace a Group Rule API can now update assigned groups is GA in Production
+
+ The [Replace a group rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/grouprule/other/replacegrouprule) endpoint now supports updating the `actions` object to modify the groups assigned to a group rule. <!-- OKTA-1128862 FF EDITABLE_GROUP_RULE_TARGETS to GA Preview July 1, 2026 -->
+
+#### Bugs fixed in 2026.08.0
+
+* The `next` link in the `Link` response header for `GET /api/v1/apps/{id}/users` didn't include the expand query parameter. (OKTA-1230324)
+
+* When creating an API Service integration, selecting more than a certain length of scopes displayed a "field is too long" validation error. (OKTA-111623)
+
 ## July
 
 ### Weekly release 2026.07.3
