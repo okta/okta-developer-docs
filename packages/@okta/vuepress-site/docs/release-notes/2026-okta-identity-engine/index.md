@@ -24,11 +24,15 @@ title: Okta Identity Engine API release notes 2026
 | [WebAuthn authenticator enrollments include transports values is self-service EA in Preview](#webauthn-authenticator-enrollments-include-transports-values-is-self-service-ea-in-preview) | August 5, 2026 |
 | [New minimum character length for AI agent names](#new-minimum-character-length-for-ai-agent-names) | August 5, 2026 |
 | [New Proxy service for enhanced dynamic zones is GA in Production](#new-proxy-service-for-enhanced-dynamic-zones-is-ga-in-production) | August 5, 2026 |
-| [New System Log events is GA in Production](#new-system-log-events-is-ga-in-production) | August 5, 2026 |
+| [New System Log events for Office 365 app-based provisioning is GA in Production](#new-system-log-events-for-office-365-app-based-provisioning-is-ga-in-production) | August 5, 2026 |
 | [Customizable emails for Passkey (FIDO2 WebAuthn) authenticator is GA in Production](#customizable-emails-for-passkey-fido2-webauthn-authenticator-is-ga-in-production) | May 20, 2026 |
 | [Email authenticator auto-enrollment and recovery management is GA in Production](#email-authenticator-auto-enrollment-and-recovery-management-is-ga-in-production) | August 5, 2026 |
 | [Breached credentials protection configuration API is GA in Production](#breached-credentials-protection-configuration-api-is-ga-in-production) | August 5, 2026 |
 | [Replace a Group Rule API can now update assigned groups is GA in Production](#replace-a-group-rule-api-can-now-update-assigned-groups-is-ga-in-production) | July 1, 2026 |
+| [Cross App Access support for AI agents and apps for all customers is GA in Production](#cross-app-access-support-for-ai-agents-and-apps-for-all-customers-is-ga-in-production) | August 5, 2026 |
+| [Anything-as-a-Source device import is EA](#anything-as-a-source-device-import-is-ea) | August 5, 2026 |
+| [New Research Release lifecycle](#new-research-release-lifecycle) | August 5, 2026 |
+| [Developer documentation update in 2026.08.0](#developer-documentation-update-in-2026-08-0) | August 5, 2026 |
 | [Bugs fixed in 2026.08.0](#bugs-fixed-in-2026-08-0)| August 5, 2026|
 
 #### Flexible Okta Verify authenticator configuration is self-service EA in Preview
@@ -41,7 +45,7 @@ Existing API integrations remain backward compatible for read operations. GET re
 
 You can now configure a passkey enrollment promotion nudge that prompts users to enroll a passkey authenticator when they sign in. The nudge is non-blocking. It only applies when the passkey authenticator is optional, and users who skip it can still sign in with another authenticator. You can control how often the prompt reappears and how many times a user can skip it before Okta stops showing it. See [Passkey enrollment promotion](/docs/concepts/policies/#passkey-enrollment-promotion/). <!-- OKTA-1230760, ENROLLMENT_POLICY_PROMOTION, preview date: aug 5, 2026 -->
 
-#### User identification policy is EA in Preview is EA
+#### User identification policy is EA in Preview
 
 The Policies API now supports the `USER_IDENTIFICATION` policy type. Use it to control whether the **Sign in with Okta FastPass** button appears on an app's sign-in page. This replaces a single org-wide setting with per-app control.
 
@@ -61,11 +65,14 @@ You can now Register an AI Agent (POST /workload-principals/api/v1/ai-agents) wi
 
 The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/getnetworkzone#other/getnetworkzone/t=response&c=200&path=&d=2/ipservicecategories) now supports the `PROXYLINE_PROXY` service.
 
-#### New System Log events is GA in Production
+#### New System Log events for Office 365 app-based provisioning is GA in Production
 
 The System Log now logs the following events for app-based authentication for Office 365 provisioning:
-`app.office365.provisioning_app.create`: This event is logged when Okta creates a dedicated Microsoft Entra ID app *that's registered and used* for Office 365 provisioning.
-`app.office365.provisioning_app_credential.rotate`: This event is logged when Okta rotates the client secret of the registered Microsoft Entra ID app that's used for Office 365 provisioning. The `Outcome` field in this event's data indicates whether the client secret rotation was successful or not.
+* `app.office365.provisioning_app.create`: This event is logged when Okta creates a dedicated Microsoft Entra ID app that's registered and used for Office 365 provisioning.
+
+* `app.office365.provisioning_app_credential.rotate`: This event is logged when Okta rotates the client secret of the registered Microsoft Entra ID app that's used for Office 365 provisioning. The `Outcome` field in this event's data indicates whether the client secret rotation was successful or not.
+
+See [Event Types](/docs/reference/api/event-types/?q=app.office365). <!-- OKTA-1226574 -->
 
 #### Customizable emails for Passkey (FIDO2 WebAuthn) authenticator is GA in Production
 
@@ -83,6 +90,41 @@ You can now configure the detection method Okta uses to identify breached creden
 
  The [Replace a group rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/grouprule/other/replacegrouprule) endpoint now supports updating the `actions` object to modify the groups assigned to a group rule. <!-- OKTA-1128862 FF EDITABLE_GROUP_RULE_TARGETS to GA Preview July 1, 2026 -->
 
+#### Cross App Access support for AI agents and apps for all customers is GA in Production
+
+Use XAA to secure access between custom SSO-agentic requesting apps and SSO resource apps. XAA enables customers to connect AI agents and apps to take action on behalf of a user, and removes the need for user consent at runtime. The XAA connection is managed by Okta admins, providing them with visibility and control over which actions an AI agent can take on behalf of a user across the supported OIDC and SAML SSO protocols.
+
+For the agentic requesting app configuration, see [Add AI agents manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) in the product documentation, and select your custom SSO agentic app in **User access** > **App used for access configuration**.
+
+For the XAA resource app configuration, see [Configure resource server connectors](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-custom-rsc-svr) in the product documentation. If you’re configuring an OIN resource app, it must already have XAA enabled.
+
+To connect the AI agent to the resource app, see [Connect AI agents to resources](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-app-connection) and select **Application** as the resource type, and then select your resource app.
+
+Note that you can perform all these configurations without subscribing to Okta for AI Agents.
+<!-- OKTA-1212187 SECURE_AI_XAA -->
+
+#### Anything-as-a-Source device import is EA
+
+The Identity Sources API now supports bulk device import for Anything-as-a-Source (XaaS) integrations, through the [Upload the device profiles to be upserted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identitysource/other/uploadidentitysourcedevicesforupsert) and [Upload the device external IDs to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identitysource/other/uploadidentitysourcedevicesfordelete) endpoints. These calls allow you to synchronize device inventory (serial number, platform, and display name) from your HR source in the same identity source session as your user and group data, giving you a single workflow to keep all three entity types in sync. See [Build an Anything-as-a-Source custom client integration](/docs/guides/anything-as-a-source/). <!-- OKTA-1218468 FF: IDENTITY_SOURCE_DEVICE_IMPORT EA date: August 5, 2026 -->
+
+#### New Research Release lifecycle
+
+A new Research Release lifecycle, marked with a Research Release badge, is now available for Okta APIs and developer documentation. Research Release features are available exclusively to members of the Okta Research Partner Program for a fixed evaluation period, before a feature moves toward Early Access or General Availability. See [Release lifecycle](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle#research-release). <!-- OKTA-1234133 -->
+
+#### Developer documentation update in 2026.08.0
+
+* The [Build an Anything-as-a-Source custom client integration](/docs/guides/anything-as-a-source/) guide now supports bulk device import for Anything-as-a-Source (XaaS) integrations. <!-- OKTA-1218468 -->
+
+* The [Add the Identity Engine SDK to your app](/docs/guides/oie-upgrade-add-sdk-to-your-app/main/) guide now includes a JavaScript tab. It explains how to install the latest Okta Authentication JavaScript SDK and register your app's origin as a trusted origin for browser-based apps. <!-- OKTA-1220257 -->
+
+* The [Upgrade your app to the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/main/) guide now includes a JavaScript tab. It maps Classic Engine Authentication SDK methods to Identity Engine SDK calls for sign-in, MFA, and password recovery flows, with code samples for each use case. <!-- OKTA-1216425 -->
+
+* The [Plan embedded auth app upgrades](/docs/guides/oie-upgrade-plan-embedded-upgrades/main/) guide has been reorganized. It adds a "When to use this guide" section, clarifies that Okta delivers the Sign-In Widget Gen3 only as Okta-hosted, and rewrites several sections for clarity. <!-- OKTA-1216410 -->
+
+* The [Okta device profile](/docs/reference/okta-expression-language-in-identity-engine/#okta-device-profile) section of the Expression Language reference now documents many previously undocumented device attributes, including device.id, device.assurance.screenLockType, device.caller.* signals, and additional device.profile.* properties such as disk encryption type, integrity checks, and serial number. <!-- OKTA-1227875 -->
+
+* The React tab of [Sign in to your SPA with Auth JS](/docs/guides/sign-in-to-spa-authjs/main/) has been rewritten to fix out-of-date sample code. It replaces the deprecated Create React App setup with Vite, updates the sign-in flow to Auth JS's Step Mode pattern, and adds the full working component code. <!-- OKTA-889035 -->
+
 #### Bugs fixed in 2026.08.0
 
 * When you called the List all delegation links API (/workload-principals/api/v1/delegation-links) with a filter containing three or more `from.clientOrn` values without parentheses, an HTTP 400 `INVALID_FILTER` error was returned. (OKTA-1237936)
@@ -95,7 +137,6 @@ You can now configure the detection method Okta uses to identify breached creden
 
 * The submission tester spun indefinitely during SSO automated testing initialization when refreshing the session. (OKTA-1173338) (OKTA-1196951)
 
-* When creating an API Service integration, selecting more than a certain length of scopes displayed a "field is too long" validation error. (OKTA-111623)
 
 ## July
 
