@@ -33,7 +33,7 @@ title: Okta Identity Engine API release notes 2026
 | [Anything-as-a-Source device import is EA](#anything-as-a-source-device-import-is-ea) | August 5, 2026 |
 | [New Research Release lifecycle](#new-research-release-lifecycle) | August 5, 2026 |
 | [Advanced device posture checks is GA in Production](#advanced-device-posture-checks-is-ga-in-production) |  April 9, 2025 |
-| [Developer documentation update in 2026.08.0](#developer-documentation-update-in-2026-08-0) | August 5, 2026 |
+| [Developer documentation updates in 2026.08.0](#developer-documentation-update-in-2026-08-0) | August 5, 2026 |
 | [Bugs fixed in 2026.08.0](#bugs-fixed-in-2026-08-0)| August 5, 2026|
 
 #### Flexible Okta Verify authenticator configuration is self-service EA in Preview
