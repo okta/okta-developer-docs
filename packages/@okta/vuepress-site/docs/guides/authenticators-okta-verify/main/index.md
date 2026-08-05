@@ -20,13 +20,13 @@ When you enable Flexible Okta Verify authenticator configuration, `okta_verify_t
 | `okta_verify_push`     | Push notification                 |
 | `okta_verify_fastpass` | Okta FastPass                          |
 
-Users who already have one of the three Okta Verify methods enrolled continue to have that method enrolled. The method is now represented by the corresponding standalone authenticator. Policies that reference an existing method now reference the corresponding standalone authenticator instead, with no changes required to your policy configuration.
+Users who already have one of the three Okta Verify methods enrolled continue to have that method enrolled. The corresponding standalone authenticator now represents the method. Policies that reference an existing method now reference the corresponding standalone authenticator instead, and you don't need to change your policy configuration.
 
 If your integration or automation creates or updates authenticators or policies using the literal `okta_verify` key, update those requests to use the new key that corresponds to the specific method that you want to configure: `okta_verify_totp`, `okta_verify_push`, or `okta_verify_fastpass`.
 
 ### Authenticators API behavior
 
-Enabling this feature doesn't change how Okta Verify works for your end users. It represents the existing TOTP, push, and Okta FastPass methods as three separate authenticators instead of one, so you can manage and configure each method independently.
+Enabling this feature doesn't change how Okta Verify works for your end users. It represents the existing TOTP, push, and Okta FastPass methods as three separate authenticators instead of one. You can manage and configure each method independently.
 
 The legacy `okta_verify` key continues to work for GET requests, such as [List all authenticators](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticators), for backward compatibility. For [Replace an authenticator](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticator) requests, use the new per-method keys (`okta_verify_totp`, `okta_verify_push`, or `okta_verify_fastpass`) instead.
 
@@ -69,7 +69,7 @@ When you enable Flexible Okta Verify authenticator configuration, Okta automatic
 
 #### Okta Verify in app sign-in policies
 
-For app sign-in policies, Okta maps each `okta_verify` key to the corresponding per-method key based on the rule's `method` value. For example, the following app sign-in policy rule configuration references `okta_verify` for the TOTP and Okta FastPass methods:
+For app sign-in policies, Okta maps each `okta_verify` key to the corresponding per-method key based on the rule's `method` value. For example, the following app sign-in policy rule references `okta_verify` for the TOTP and Okta FastPass methods:
 
 ```json
 "authenticationMethods": [
