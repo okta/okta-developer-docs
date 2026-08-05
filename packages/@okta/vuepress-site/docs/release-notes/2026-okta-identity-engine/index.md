@@ -29,7 +29,7 @@ title: Okta Identity Engine API release notes 2026
 | [Email authenticator auto-enrollment and recovery management is GA in Production](#email-authenticator-auto-enrollment-and-recovery-management-is-ga-in-production) | May 6, 2026 |
 | [Breached credentials protection configuration API is GA in Production](#breached-credentials-protection-configuration-api-is-ga-in-production) | August 5, 2026 |
 | [Replace a Group Rule API can now update assigned groups is GA in Production](#replace-a-group-rule-api-can-now-update-assigned-groups-is-ga-in-production) | July 1, 2026 |
-| [Cross App Access support for AI agents and apps for all customers is GA in Production](#cross-app-access-support-for-ai-agents-and-apps-for-all-customers-is-ga-in-production) | August 5, 2026 |
+| [Cross App Access support for AI agents and apps for all customers](#cross-app-access-support-for-ai-agents-and-apps-for-all-customers) | August 5, 2026 |
 | [Anything-as-a-Source device import is EA](#anything-as-a-source-device-import-is-ea) | August 5, 2026 |
 | [New Research Release lifecycle](#new-research-release-lifecycle) | August 5, 2026 |
 | [Advanced device posture checks is GA in Production](#advanced-device-posture-checks-is-ga-in-production) |  April 9, 2025 |
@@ -91,7 +91,7 @@ You can now configure the detection method Okta uses to identify breached creden
 
  The [Replace a group rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/grouprule/other/replacegrouprule) endpoint now supports updating the `actions` object to modify the groups assigned to a group rule. <!-- OKTA-1128862 FF EDITABLE_GROUP_RULE_TARGETS to GA Preview July 1, 2026 -->
 
-#### Cross App Access support for AI agents and apps for all customers is GA in Production
+#### Cross App Access support for AI agents and apps for all customers
 
 Use XAA to secure access between custom SSO-agentic requesting apps and SSO resource apps. XAA enables customers to connect AI agents and apps to take action on behalf of a user, and removes the need for user consent at runtime. The XAA connection is managed by Okta admins, providing them with visibility and control over which actions an AI agent can take on behalf of a user across the supported OIDC and SAML SSO protocols.
 
@@ -132,9 +132,9 @@ Advanced device posture checks let admins enforce compliance based on customized
 
 #### Bugs fixed in 2026.08.0
 
-* When you called the List all delegation links API (/workload-principals/api/v1/delegation-links) with a filter containing three or more `from.clientOrn` values without parentheses, an HTTP 400 `INVALID_FILTER` error was returned. (OKTA-1237936)
+* When you called the List all delegation links API (`/workload-principals/api/v1/delegation-links`) with a filter containing three or more `from.clientOrn` values without parentheses, an HTTP 400 `INVALID_FILTER` error was returned. (OKTA-1237936)
 
-* The [List all authorization servers for an MCP servers API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/listmcpserverauthorizationservers) returned a `self` link pointing to the base URL instead of the actual authorization server link. (OKTA-1236306)
+* The List all authorization servers for an MCP servers API (`/resource-servers/api/v1/mcp-servers/{mcpServerId}/authorization-servers) returned a `self` link pointing to the base URL instead of the actual authorization server link. (OKTA-1236306)
 
 * The `next` link in the `Link` response header for `GET /api/v1/apps/{id}/users` didn't include the expand query parameter. (OKTA-1230324)
 

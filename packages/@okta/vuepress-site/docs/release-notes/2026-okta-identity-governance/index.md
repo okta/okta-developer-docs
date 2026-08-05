@@ -44,24 +44,24 @@ You can review and certify AI agent resource connections using identity campaign
 Governance Analyzer provides access certification campaign reviewers with insights and recommendations to make more informed decisions when approving or revoking user access. See [Governance Analyzer](https://help.okta.com/okta_help.htm?type=oie&id=csh-gov-analyzer) in the product documentation.
 
 The following [My Access Certification Reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews) end-user operations are now available to support the Governance Analyzer feature:
-* [Submit a bulk-review decision]
-* [Retrieve the status of a bulk-review submission]
+* [Submit a bulk-review decision](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews/submitcampaignbulkdecisions)
+* [Retrieve the status of a bulk-review submission](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews/getcampaignbulkdecisionsjobstatus)
 <!-- OKTA-1168162 IGA_REVIEW_ML_RECOMMENDATIONS Preview: May 6, 2026 -->
 
 #### Certify service accounts is GA in Production
 
-You can now create resource campaigns to review and certify access for both SaaS application and Okta service accounts. This feature extends your governance strategy to non-human identities, ensuring you maintain visibility and control over critical service account access. See [Okta Privilege Access with Access Certification](https://help.okta.com/okta_help.htm?type=oie&id=csh-certify-service-accounts).
+You can now create resource campaigns to review and certify access for both SaaS apps and Okta service accounts. This feature extends your governance strategy to non-human identities, ensuring you maintain visibility and control over critical service account access. See [Certify service accounts](https://help.okta.com/okta_help.htm?type=oie&id=csh-certify-service-accounts) in Okta Privilege Access documentation.
 
 The following API updates have been made to support service account campaigns:
-* New OKTA_SERVICE_ACCOUNT and APP_SERVICE_ACCOUNT options in the [resourceSettings.type](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign!path=resourceSettings&t=request) property of a campaign.
-* New [`resourceSettings.includeAllOktaServiceAccounts`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign!path=resourceSettings/includeAllOktaServiceAccounts&t=request) property for `resourceSettings.type` of `OKTA_SERVICE_ACCOUNT` in a campaign.
-* New [`resourceSettings.targetResources.includeAllAppServiceAccounts`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign!path=resourceSettings/targetResources/includeAllAppServiceAccounts&t=request) property for `resourceSettings.type` of `APP_SERVICE_ACCOUNT` in a campaign.
+* New OKTA_SERVICE_ACCOUNT and APP_SERVICE_ACCOUNT options in the [resourceSettings.type](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/type) property of a campaign.
+* New [`resourceSettings.includeAllOktaServiceAccounts`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/includealloktaserviceaccounts) property for `resourceSettings.type` of `OKTA_SERVICE_ACCOUNT` in a campaign.
+* New [`resourceSettings.targetResources.includeAllAppServiceAccounts`]((https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/targetresources/includeallappserviceaccounts) property for `resourceSettings.type` of `APP_SERVICE_ACCOUNT` in a campaign.
 * Reviews can be filtered by service account ID (`appServiceAccountId` or `oktaServiceAccountId`) in [List all reviews](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Reviews/#tag/Reviews/operation/listReviews).
 <!-- OKTA-1047480 IGA_ACCESS_CERT_SERVICE_ACCOUNTS Preview: Dec 10, 2025 -->
 
 #### Bugs fixed in 2026.08.0
 
-* Push groups couldn't be deleted after a dev added an app to a collection because the Collections API didn't return the resource identifier required for deletion. (OKTA-1233410)
+* Push groups couldn't be deleted after an app was added to a collection because the Collections API didn't return the resource identifier required for deletion. (OKTA-1233410)
 
 ## July
 
