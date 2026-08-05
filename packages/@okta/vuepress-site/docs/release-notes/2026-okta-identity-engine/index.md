@@ -26,7 +26,7 @@ title: Okta Identity Engine API release notes 2026
 | [New Proxy service for enhanced dynamic zones is GA in Production](#new-proxy-service-for-enhanced-dynamic-zones-is-ga-in-production) | August 5, 2026 |
 | [New System Log events for Office 365 app-based provisioning is GA in Production](#new-system-log-events-for-office-365-app-based-provisioning-is-ga-in-production) | August 5, 2026 |
 | [Customizable emails for Passkey (FIDO2 WebAuthn) authenticator is GA in Production](#customizable-emails-for-passkey-fido2-webauthn-authenticator-is-ga-in-production) | May 20, 2026 |
-| [Email authenticator auto-enrollment and recovery management is GA in Production](#email-authenticator-auto-enrollment-and-recovery-management-is-ga-in-production) | August 5, 2026 |
+| [Email authenticator auto-enrollment and recovery management is GA in Production](#email-authenticator-auto-enrollment-and-recovery-management-is-ga-in-production) | May 6, 2026 |
 | [Breached credentials protection configuration API is GA in Production](#breached-credentials-protection-configuration-api-is-ga-in-production) | August 5, 2026 |
 | [Replace a Group Rule API can now update assigned groups is GA in Production](#replace-a-group-rule-api-can-now-update-assigned-groups-is-ga-in-production) | July 1, 2026 |
 | [Cross App Access support for AI agents and apps for all customers is GA in Production](#cross-app-access-support-for-ai-agents-and-apps-for-all-customers-is-ga-in-production) | August 5, 2026 |
