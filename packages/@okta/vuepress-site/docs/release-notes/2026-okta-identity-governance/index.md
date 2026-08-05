@@ -11,6 +11,58 @@ title: Okta Identity Governance API release notes 2026
 
 Okta Identity Governance is available for both Okta Classic Engine and Okta Identity Engine.
 
+## August
+
+### Monthly release 2026.08.0
+<!-- Published on: 2026-08-05T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Increased maximum for unique groups in requester audience](#increased-maximum-for-unique-groups-in-requester-audience) | August 5, 2026|
+| [API support for Access Certification campaign decisions is GA in Preview is GA in Preview](#api-support-for-access-certification-campaign-decisions-is-ga-in-preview) | June 24, 2025 |
+| [Certify AI agent resource connections is GA in Preview](#certify-ai-agent-resource-connections-is-ga-in-preview) | August 5, 2026 |
+| [Governance Analyzer is GA in Production](#governance-analyzer-is-ga-in-production) | May 6, 2026 |
+| [Certify service accounts is GA in Production](#certify-service-accounts-is-ga-in-production) | Dec 10, 2025  |
+| [Bugs fixed in 2026.08.0](#bugs-fixed-in-2026-08-0)| August 5, 2026 |
+
+#### Increased maximum for unique groups in requester audience
+
+You can now specify a maximum of 500 unique groups across all conditions in your org to define the requester scope. See the [requesterSettings.groups](https://developer.okta.com/docs/api/iga/openapi/governance-production-requests-admin-v2-reference/request-conditions/createresourcerequestconditionv2#request-conditions/createresourcerequestconditionv2/t=request&path=requestersettings&d=1/groups) array, which has a maximum of 500 group items now.
+<!-- OKTA-1231120 Preview: Aug 5, 2026 -->
+
+#### API support for Access Certification campaign decisions is GA in Preview
+
+The [My Access Certification Reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews) APIs allow developers to programmatically manage review actions for end users. Using the [GET my reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews/listcampaignreviews) and [POST my review actions](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews/submitmycampaignreviewactions) methods, users can retrieve reviews and submit decisions (APPROVE, REVOKE, REASSIGN). This adds the flexibility to power custom portals, integrate decision-making into proprietary UIs, or implement unique reassignment logic.
+<!-- OKTA-1202116 IGA_ACCESS_CERT_REVIEW_ITEMS_ENDUSER_API EA Preview June 24, 2025 -->
+
+#### Certify AI agent resource connections is GA in Preview
+
+You can review and certify AI agent resource connections using identity campaigns (formerly, `USER` campaign types). This helps you maintain visibility and control as AI agents' access changes over time. See the [Campaigns](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns) API.
+
+#### Governance Analyzer is GA in Production
+
+Governance Analyzer provides access certification campaign reviewers with insights and recommendations to make more informed decisions when approving or revoking user access. See [Governance Analyzer](https://help.okta.com/okta_help.htm?type=oie&id=csh-gov-analyzer) in the product documentation.
+
+The following [My Access Certification Reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews) end-user operations are now available to support the Governance Analyzer feature:
+* [Submit a bulk-review decision]
+* [Retrieve the status of a bulk-review submission]
+<!-- OKTA-1168162 IGA_REVIEW_ML_RECOMMENDATIONS Preview: May 6, 2026 -->
+
+#### Certify service accounts is GA in Production
+
+You can now create resource campaigns to review and certify access for both SaaS application and Okta service accounts. This feature extends your governance strategy to non-human identities, ensuring you maintain visibility and control over critical service account access. See [Okta Privilege Access with Access Certification](https://help.okta.com/okta_help.htm?type=oie&id=csh-certify-service-accounts).
+
+The following API updates have been made to support service account campaigns:
+* New OKTA_SERVICE_ACCOUNT and APP_SERVICE_ACCOUNT options in the [resourceSettings.type](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign!path=resourceSettings&t=request) property of a campaign.
+* New [`resourceSettings.includeAllOktaServiceAccounts`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign!path=resourceSettings/includeAllOktaServiceAccounts&t=request) property for `resourceSettings.type` of `OKTA_SERVICE_ACCOUNT` in a campaign.
+* New [`resourceSettings.targetResources.includeAllAppServiceAccounts`](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/#tag/Campaigns/operation/createCampaign!path=resourceSettings/targetResources/includeAllAppServiceAccounts&t=request) property for `resourceSettings.type` of `APP_SERVICE_ACCOUNT` in a campaign.
+* Reviews can be filtered by service account ID (`appServiceAccountId` or `oktaServiceAccountId`) in [List all reviews](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Reviews/#tag/Reviews/operation/listReviews).
+<!-- OKTA-1047480 IGA_ACCESS_CERT_SERVICE_ACCOUNTS Preview: Dec 10, 2025 -->
+
+#### Bugs fixed in 2026.08.0
+
+* Push groups couldn't be deleted after a dev added an app to a collection because the Collections API didn't return the resource identifier required for deletion. (OKTA-1233410)
+
 ## July
 
 ### Weekly release 2026.07.3

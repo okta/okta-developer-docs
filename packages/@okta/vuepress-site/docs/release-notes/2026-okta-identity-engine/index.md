@@ -11,6 +11,92 @@ title: Okta Identity Engine API release notes 2026
   Subscribe to RSS
 </a>
 
+## August
+
+### Monthly release 2026.08.0
+<!-- Published on: 2026-08-05T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Flexible Okta Verify authenticator configuration is self-service EA in Preview](#flexible-okta-verify-authenticator-configuration-is-self-service-ea-in-preview) | August 5, 2026 |
+| [Prompt users to enroll a passkey is self-service EA in Preview](#prompt-users-to-enroll-a-passkey-is-self-service-ea-in-preview) | August 5, 2026 |
+| [User identification policy is EA in Preview](#user-identification-policy-is-ea-in-preview) | August 5, 2026 |
+| [WebAuthn authenticator enrollments include transports values is self-service EA in Preview](#webauthn-authenticator-enrollments-include-transports-values-is-self-service-ea-in-preview) | August 5, 2026 |
+| [New minimum character length for AI agent names](#new-minimum-character-length-for-ai-agent-names) | August 5, 2026 |
+| [New Proxy service for enhanced dynamic zones is GA in Production](#new-proxy-service-for-enhanced-dynamic-zones-is-ga-in-production) | August 5, 2026 |
+| [New System Log events is GA in Production](#new-system-log-events-is-ga-in-production) | August 5, 2026 |
+| [Customizable emails for Passkey (FIDO2 WebAuthn) authenticator is GA in Production](#customizable-emails-for-passkey-fido2-webauthn-authenticator-is-ga-in-production) | May 20, 2026 |
+| [Email authenticator auto-enrollment and recovery management is GA in Production](#email-authenticator-auto-enrollment-and-recovery-management-is-ga-in-production) | August 5, 2026 |
+| [Breached credentials protection configuration API is GA in Production](#breached-credentials-protection-configuration-api-is-ga-in-production) | August 5, 2026 |
+| [Replace a Group Rule API can now update assigned groups is GA in Production](#replace-a-group-rule-api-can-now-update-assigned-groups-is-ga-in-production) | July 1, 2026 |
+| [Bugs fixed in 2026.08.0](#bugs-fixed-in-2026-08-0)| August 5, 2026|
+
+#### Flexible Okta Verify authenticator configuration is self-service EA in Preview
+
+You can now split the Okta Verify authenticator into three separate authenticators: Okta Verify TOTP (`okta_verify_totp`), Okta Verify Push (`okta_verify_push`), and Okta Verify FastPass (`okta_verify_fastpass`). Each authenticator is independently configurable, giving you granular control over how users enroll and use the Okta Verify authenticators. Users continue to authenticate and enroll through a single process in the Okta Verify app.
+
+Existing API integrations remain backward compatible for read operations. GET requests still return the legacy `okta_verify` key. Requests that create, update, or reference an authenticator in a policy must use the new `okta_verify_totp`, `okta_verify_push`, or `okta_verify_fastpass` key. You don’t need to update existing policies that reference `okta_verify`. See [Configure Okta Verify as standalone authenticators](/docs/guides/authenticators-okta-verify/aspnet/main/#configure-okta-verify-as-standalone-authenticators). <!-- OKTA-1239328 OKTA_VERIFY_AUTHENTICATOR_BREAKDOWN, preview date: aug 5, 2026 -->
+
+#### Prompt users to enroll a passkey is self-service EA in Preview
+
+You can now configure a passkey enrollment promotion nudge that prompts users to enroll a passkey authenticator when they sign in. The nudge is non-blocking. It only applies when the passkey authenticator is optional, and users who skip it can still sign in with another authenticator. You can control how often the prompt reappears and how many times a user can skip it before Okta stops showing it. See [Passkey enrollment promotion](/docs/concepts/policies/#passkey-enrollment-promotion/). <!-- OKTA-1230760, ENROLLMENT_POLICY_PROMOTION, preview date: aug 5, 2026 -->
+
+#### User identification policy is EA in Preview is EA
+
+The Policies API now supports the `USER_IDENTIFICATION` policy type. Use it to control whether the **Sign in with Okta FastPass** button appears on an app's sign-in page. This replaces a single org-wide setting with per-app control.
+
+Okta automatically creates and maintains a user identification policy for each app sign-in policy. You manage only the policy's rule. Use the `userIdentification.settings.securityMethods.fastpass.showSignInButton` rule action (`ALWAYS` or `NEVER`) to control the button.
+
+See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies) and [Configure a user identification policy](/docs/guides/user-identification-policies/main/).
+
+#### WebAuthn authenticator enrollments include transports values is self-service EA in Preview
+
+The WebAuthn enrollment profile now includes a `transports` field that’s returned in responses used by Okta's embedded Identity Engine SDKs. The `transports` field reports how an enrolled authenticator communicates with a client device, such as `usb`, `nfc`, or `ble`. <!-- OKTA-1196205, WEBAUTHN_AUTHENTICATION_TRANSPORTS, preview date: aug 5, 2026 -->
+
+#### New minimum character length for AI agent names
+
+You can now Register an AI Agent (POST /workload-principals/api/v1/ai-agents) with a `profile.name` that contains a minimum of three characters.
+
+#### New Proxy service for enhanced dynamic zones is GA in Production
+
+The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/getnetworkzone#other/getnetworkzone/t=response&c=200&path=&d=2/ipservicecategories) now supports the `PROXYLINE_PROXY` service.
+
+#### New System Log events is GA in Production
+
+The System Log now logs the following events for app-based authentication for Office 365 provisioning:
+`app.office365.provisioning_app.create`: This event is logged when Okta creates a dedicated Microsoft Entra ID app *that's registered and used* for Office 365 provisioning.
+`app.office365.provisioning_app_credential.rotate`: This event is logged when Okta rotates the client secret of the registered Microsoft Entra ID app that's used for Office 365 provisioning. The `Outcome` field in this event's data indicates whether the client secret rotation was successful or not.
+
+#### Customizable emails for Passkey (FIDO2 WebAuthn) authenticator is GA in Production
+
+The [Custom Email Templates API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/customtemplates) now includes the `WebAuthnPreRegistrationPin` email template which is sent to users when an admin pre-registers a Passkey (FIDO2 WebAuthn) authenticator on their behalf. You can customize the template subject and body.<!-- OKTA-1169564 WEBAUTHN_PRE_ENROLLMENT_CUSTOMIZABLE_PIN_EMAIL preview date: May 20, 2026 -->
+
+#### Email authenticator auto-enrollment and recovery management is GA in Production
+
+Use the Policies API to control the automatic enrollment of email as an authenticator and configure email-based password recovery, unlock, and change where email isn't an authenticator. See [`autoEnroll`](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/createpolicy#other/createpolicy/t=request&path=&d=1/settings/authenticators/enroll/autoenroll) and [`allowRecoveryEmailWithoutEnrollment`](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/createpolicyrule#other/createpolicyrule/t=request&path=&d=1/actions/selfservicepasswordreset/settings/allowrecoveryemailwithoutenrollment). <!-- OKTA-1169086 EMAIL_ENROLLMENT_AND_RECOVERY_CONTROL preview date: may 6, 2026 -->
+
+#### Breached credentials protection configuration API is GA in Production
+
+You can now configure the detection method Okta uses to identify breached credentials, through the Breached Credential Protection API's [Retrieve the breached credential protection configuration](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/breachedcredentialprotection/other/getbreachedcredentialprotectionconfiguration) and [Replace the breached credential protection configuration](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/breachedcredentialprotection/other/replacebreachedcredentialprotectionconfiguration) endpoints. These requests provide Okta Customer Identity (OCI) customers with Identity Threat Protection programmatic control over the premium breached-credentials detection feed, so you can identify compromised credentials sooner. See [Breached credentials protection](https://help.okta.com/okta_help.htm?type=oie&id=csh-breached-password). <!-- OKTA-1136174 -->
+
+#### Replace a Group Rule API can now update assigned groups is GA in Production
+
+ The [Replace a group rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/grouprule/other/replacegrouprule) endpoint now supports updating the `actions` object to modify the groups assigned to a group rule. <!-- OKTA-1128862 FF EDITABLE_GROUP_RULE_TARGETS to GA Preview July 1, 2026 -->
+
+#### Bugs fixed in 2026.08.0
+
+* When you called the List all delegation links API (/workload-principals/api/v1/delegation-links) with a filter containing three or more `from.clientOrn` values without parentheses, an HTTP 400 `INVALID_FILTER` error was returned. (OKTA-1237936)
+
+* The [List all authorization servers for an MCP servers API](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-resource-servers/tags/mcpserverregistration/other/listmcpserverauthorizationservers) returned a `self` link pointing to the base URL instead of the actual authorization server link. (OKTA-1236306)
+
+* The `next` link in the `Link` response header for `GET /api/v1/apps/{id}/users` didn't include the expand query parameter. (OKTA-1230324)
+
+* When you called `POST /workload-principals/api/v1/ai-agents/{agentId}/connections` for an app that was already configured as a delegation caller for the same AI Agent, the resource connection was created. (OKTA-1226327)
+
+* The submission tester spun indefinitely during SSO automated testing initialization when refreshing the session. (OKTA-1173338) (OKTA-1196951)
+
+* When creating an API Service integration, selecting more than a certain length of scopes displayed a "field is too long" validation error. (OKTA-111623)
+
 ## July
 
 ### Weekly release 2026.07.3
@@ -790,7 +876,7 @@ Express Submission reduces the time-to-value for independent software vendors (I
 | [Submit API service integrations](#submit-api-service-integrations) | March 4, 2026 |
 | [Admin Console Home page](#admin-console-home-page) | March 4, 2026 |
 | [New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview](#new-directories-integration-endpoints-to-view-extended-active-directory-group-attributes-is-ga-in-preview) | March 4, 2026 |
-| [Grace period for device assurance is GA in Production is GA in Production](#grace-period-for-device-assurance-is-ga-in-production) | October 9, 2024 |
+| [Grace period for device assurance is GA in Production](#grace-period-for-device-assurance-is-ga-in-production) | October 9, 2024 |
 | [Dynamic OS version compliance for device assurance is GA in Production](#dynamic-os-version-compliance-for-device-assurance-is-ga-in-production) | February 7, 2024 |
 | [Enable custom admin permissions for inline and event hooks is GA in Preview](#enable-custom-admin-permissions-for-inline-and-event-hooks-is-ga-in-preview) | December 10, 2025 |
 | [Developer documentation updates in 2026.03.0](#developer-documentation-updates-in-2026-03-0) | March 4, 2026 |
