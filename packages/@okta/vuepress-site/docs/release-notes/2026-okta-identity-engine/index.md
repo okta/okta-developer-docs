@@ -116,7 +116,7 @@ A new Research Release lifecycle, marked with a Research Release badge, is now a
 
 Advanced device posture checks let admins enforce compliance based on customized device attributes that extend beyond Okta's standard checks. Using osquery, the feature facilitates real-time security assessments across macOS and Windows devices, giving orgs enhanced visibility and control over their device fleet to ensure that only trusted devices can access sensitive resources. This feature is available only if you're subscribed to *Okta Device Access (ODA)*. See [Configure advanced posture checks and custom remediation|https://developer.okta.com/docs/guides/device-assurance-posture-checks-and-remediation/main/] and the [Device Posture Checks API|https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DevicePostureCheck/]. <!-- OSQUERY_CUSTOM_DEVICE_POSTURE_CHECKS_RELEASE, DEVICE_UNMANAGED_CHECKS, DEVICE_AUTHENTICATOR_INTEGRATIONS OKTA-1162878 OKTA-1193941 Preview date: April 9, 2025 -->
 
-#### Developer documentation update in 2026.08.0
+#### Developer documentation updates in 2026.08.0
 
 * The [Build an Anything-as-a-Source custom client integration](/docs/guides/anything-as-a-source/) guide now supports bulk device import for Anything-as-a-Source (XaaS) integrations. <!-- OKTA-1218468 -->
 
