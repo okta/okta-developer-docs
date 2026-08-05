@@ -180,9 +180,18 @@ See [Okta Managed User Accounts](https://developer.okta.com/docs/api/openapi/okt
 
 New API endpoints have been added to the Directories Integration (`POST /api/v1/directories/{appInstanceId}/group/{groupId}/query` and `GET /api/v1/directories/{appInstanceId}/group/{groupId}/query/{resultId}`), which allows for the real-time retrieval of any standard or custom attribute from Active Directory (AD) groups. You can now programmatically access attributes, like cost centers and department codes, without waiting for a full directory sync. This feature allows you to accelerate automation by using live AD group metadata, while simultaneously eliminating manual data management by creating a single, reliable bridge between your on-premises directory details and your cloud ecosystem. See [Directories Integrations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/directoriesintegration).
 
+#### SHA-256 digest algorithm support is GA in Production
 
+Okta now supports the SHA-256 digest algorithm when hashing SAML AuthnRequests that are sent to external IdPs. <!-- IDP_SHA256_DIGEST_ALGORITHM_SUPPORT OKTA-1061375 preview date: Dec 10, 2025 -->
 
+#### Seamless ISV experience for SCIM is GA in Production
 
+Okta now provides a seamless ISV experience to optimize the [Okta Integration Network (OIN)](https://www.okta.com/integrations/) submission experience for SCIM integrations. This new experience enables independent software vendors (ISVs) to build and manually test their SCIM integration metadata before submission to the OIN. This reduces the time needed for the OIN team to review and validate that the SCIM integration functions as intended, which shortens the time to publish in the OIN. This experience also incorporates communication processes in Salesforce, enabling improved collaboration internally within Okta teams and externally with ISVs. See [Publish an OIN integration overview](https://developer.okta.com/docs/guides/submit-app-overview/) and [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/scim/main/) guide.
+
+#### New System Log event for database privileged access management is EA
+
+New System Log events allow you to track when database integrations are created (`pam.integration.create`) or removed (`pam.integration.delete`) in Okta Privileged Access. See [Event Types](/docs/reference/api/event-types/).
+<!--  OKTA-1166896 - Added in Release 2026.05.1 -->
 
 #### Bugs fixed in 2026.06.0
 
