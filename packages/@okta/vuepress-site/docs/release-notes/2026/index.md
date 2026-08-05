@@ -21,8 +21,8 @@ title: Okta Classic Engine API release notes 2026
 | [Replace a Group Rule API can now update assigned groups is GA in Production](#replace-a-group-rule-api-can-now-update-assigned-groups-is-ga-in-production) | July 1, 2026 |
 | [Anything-as-a-Source device import is EA](#anything-as-a-source-device-import-is-ea) | August 5, 2026 |
 | [New Research Release lifecycle](#new-research-release-lifecycle) | August 5, 2026 |
-| [Developer documentation updates in 2026.08.0](#developer-documentation-updates-in-2026080) | August 5, 2026 |
-| [Bug fixed in 2026.08.0](#bug-fixed-in-2026080) | August 5, 2026 |
+| [Developer documentation updates in 2026.08.0](#developer-documentation-updates-in-2026-08-0) | August 5, 2026 |
+| [Bug fixed in 2026.08.0](#bug-fixed-in-2026-08-0) | August 5, 2026 |
 
 #### New Proxy service for enhanced dynamic zones is GA in Production
 
