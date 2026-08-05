@@ -10,7 +10,7 @@ layout: Guides
 
 If you're an Okta admin and want to secure access between custom SSO-agentic requesting apps and SSO resource apps, follow these configuration steps:
 
-1. Follow this guide to create an AI agent object in Okta and bound to an agent app: [Add AI agents manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually). In **User access and authentication**, select:
+1. Follow this guide to create an AI agent object in Okta and bind it to an agentic app: [Add AI agents manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually). In **User access and authentication**, select:
 
    * **Create a new OIDC app linked to this AI agent** to create a new OIDC custom app bound to this AI agent.
    * **Select an existing app** to select an existing app instance in your org to bind to this AI agent. You can only select a custom SSO app that you created earlier to bind to the AI agent. Use this option if your agentic app uses SAML for SSO. See [Create SAML app integrations](https://help.okta.com/oie/en-us/content/topics/apps/apps_app_integration_wizard_saml.htm).
