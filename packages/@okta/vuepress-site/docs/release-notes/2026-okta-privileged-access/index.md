@@ -24,7 +24,7 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 #### Credential version history is GA
 
-Okta Privileged Access users can now retrieve a credential's version history and reveal past version for secrets, Active Directory accounts, SaaS app accounts, and Okta Universal Directory accounts. See [Secrets](https://developer.okta.com/docs/api/openapi/opa/opa/secrets), [Active Directory Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/active-directory-accounts), [SaaS Application Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/saas-app-accounts), and [Okta Universal Directory Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/okta-universal-directory-accounts).
+Okta Privileged Access users can now retrieve a credential's version history and reveal credential versions for secrets, Active Directory accounts, SaaS app accounts, and Okta Universal Directory accounts. See [Secrets](https://developer.okta.com/docs/api/openapi/opa/opa/secrets), [Active Directory Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/active-directory-accounts), [SaaS Application Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/saas-app-accounts), and [Okta Universal Directory Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/okta-universal-directory-accounts).
 <!-- OKTA-1171394, FF: active_directory_credential_versioning updates, generic_secrets_versioning, app_and_okta_account_credential_versioning  -->
 
 #### Okta Privileged Access automated app provisioning is GA in Preview
