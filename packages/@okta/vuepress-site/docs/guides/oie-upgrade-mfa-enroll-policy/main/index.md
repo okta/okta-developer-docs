@@ -45,7 +45,7 @@ The following are the main behavior changes to the [authenticator enrollment pol
 
 In Identity Engine, you can use authenticator-based authenticator enrollment policies to govern recovery authenticator enrollment for the password recovery flow. This feature isn't available for factor-based authenticator enrollment policies.
 
-Both the password policy and the authenticator enrollment policy govern the enrollment of recovery authenticators (Email, phone, Okta Verify, and Security Question). For example, if the authenticator enrollment policy sets the email authenticator to `Required`, then email enrollment is required for recovery, even if the password policy doesn't require it.
+Both the password policy and the authenticator enrollment policy govern the enrollment of recovery authenticators (email, phone, Okta Verify, and security question). For example, if the authenticator enrollment policy sets the email authenticator to `Required`, then email enrollment is required for recovery, even if the password policy doesn't require it.
 
 > **Note:** The recovery authenticator settings in password policies supersede the settings in the authenticator enrollment policy. For example, if the phone authenticator is `Optional` or `Disabled` for the authenticator enrollment policy, but `Required` for the password policy, then phone enrollment is required for the password recovery flow.
 
