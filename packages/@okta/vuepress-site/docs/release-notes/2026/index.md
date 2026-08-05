@@ -63,8 +63,6 @@ A new Research Release lifecycle, marked with a Research Release badge, is now a
 
 * The `next` link in the `Link` response header for `GET /api/v1/apps/{id}/users` didn't include the expand query parameter. (OKTA-1230324)
 
-* When creating an API Service integration, selecting more than a certain length of scopes displayed a "field is too long" validation error. (OKTA-111623)
-
 ## July
 
 ### Weekly release 2026.07.3
