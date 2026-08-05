@@ -17,23 +17,47 @@ title: Okta Classic Engine API release notes 2026
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [New Proxy service for enhanced dynamic zones is GA in Production](#new-proxy-service-for-enhanced-dynamic-zones-is-ga-in-production) | August 5, 2026 |
-| [New System Log events is GA in Production](#new-system-log-events-is-ga-in-production) | August 5, 2026 |
+| [New System Log events for Office 365 app-based provisioning is GA in Production](#new-system-log-events-for-office-365-app-based-provisioning-is-ga-in-production) | August 5, 2026 |
 | [Replace a Group Rule API can now update assigned groups is GA in Production](#replace-a-group-rule-api-can-now-update-assigned-groups-is-ga-in-production) | July 1, 2026 |
+| [Anything-as-a-Source device import is EA](#anything-as-a-source-device-import-is-ea) | August 5, 2026 |
+| [New Research Release lifecycle](#new-research-release-lifecycle) | August 5, 2026 |
 | [Bugs fixed in 2026.08.0](#bugs-fixed-in-2026-08-0)| August 5, 2026 |
 
 #### New Proxy service for enhanced dynamic zones is GA in Production
 
 The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/getnetworkzone#other/getnetworkzone/t=response&c=200&path=&d=2/ipservicecategories) now supports the `PROXYLINE_PROXY` service.
 
-#### New System Log events is GA in Production
+#### New System Log events for Office 365 app-based provisioning is GA in Production
 
 The System Log now logs the following events for app-based authentication for Office 365 provisioning:
-`app.office365.provisioning_app.create`: This event is logged when Okta creates a dedicated Microsoft Entra ID app *that's registered and used* for Office 365 provisioning.
-`app.office365.provisioning_app_credential.rotate`: This event is logged when Okta rotates the client secret of the registered Microsoft Entra ID app that's used for Office 365 provisioning. The `Outcome` field in this event's data indicates whether the client secret rotation was successful or not.
+* `app.office365.provisioning_app.create`: This event is logged when Okta creates a dedicated Microsoft Entra ID app that's registered and used for Office 365 provisioning.
+* `app.office365.provisioning_app_credential.rotate`: This event is logged when Okta rotates the client secret of the registered Microsoft Entra ID app that's used for Office 365 provisioning. The `Outcome` field in this event's data indicates whether the client secret rotation was successful or not.
+
+See [Event Types](/docs/reference/api/event-types/?q=app.office365). <!-- OKTA-1226574 -->
 
 #### Replace a Group Rule API can now update assigned groups is GA in Production
 
  The [Replace a group rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/grouprule/other/replacegrouprule) endpoint now supports updating the `actions` object to modify the groups assigned to a group rule. <!-- OKTA-1128862 FF EDITABLE_GROUP_RULE_TARGETS to GA Preview July 1, 2026 -->
+
+#### Anything-as-a-Source device import is EA
+
+The Identity Sources API now supports bulk device import for Anything-as-a-Source (XaaS) integrations, through the [Upload the device profiles to be upserted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identitysource/other/uploadidentitysourcedevicesforupsert) and [Upload the device external IDs to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identitysource/other/uploadidentitysourcedevicesfordelete) endpoints. These calls allow you to synchronize device inventory (serial number, platform, and display name) from your HR source in the same identity source session as your user and group data, giving you a single workflow to keep all three entity types in sync. See [Build an Anything-as-a-Source custom client integration](/docs/guides/anything-as-a-source/). <!-- OKTA-1218468 FF: IDENTITY_SOURCE_DEVICE_IMPORT EA date: August 5, 2026 -->
+
+#### New Research Release lifecycle
+
+A new Research Release lifecycle, marked with a Research Release badge, is now available for Okta APIs and developer documentation. Research Release features are available exclusively to members of the Okta Research Partner Program for a fixed evaluation period, before a feature moves toward Early Access or General Availability. See [Release lifecycle](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle#research-release). <!-- OKTA-1234133 - ->
+
+#### Developer documentation update in 2026.08.0
+
+* The [Build an Anything-as-a-Source custom client integration](/docs/guides/anything-as-a-source/) guide now supports bulk device import for Anything-as-a-Source (XaaS) integrations. <!-- OKTA-1218468 -->
+
+* The [Add the Identity Engine SDK to your app](/docs/guides/oie-upgrade-add-sdk-to-your-app/main/) guide now includes a JavaScript tab. It explains how to install the latest Okta Authentication JavaScript SDK and register your app's origin as a trusted origin for browser-based apps. <!-- OKTA-1220257 -->
+
+* The [Upgrade your app to the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/main/) guide now includes a JavaScript tab. It maps Classic Engine Authentication SDK methods to Identity Engine SDK calls for sign-in, MFA, and password recovery flows, with code samples for each use case. <!-- OKTA-1216425 -->
+
+* The [Plan embedded auth app upgrades](/docs/guides/oie-upgrade-plan-embedded-upgrades/main/) guide has been reorganized. It adds a "When to use this guide" section, clarifies that Okta delivers the Sign-In Widget Gen3 only as Okta-hosted, and rewrites several sections for clarity. <!-- OKTA-1216410 -->
+
+* The React tab of [Sign in to your SPA with Auth JS](/docs/guides/sign-in-to-spa-authjs/main/) has been rewritten to fix out-of-date sample code. It replaces the deprecated Create React App setup with Vite, updates the sign-in flow to Auth JS's Step Mode pattern, and adds the full working component code. <!-- OKTA-889035 -->
 
 #### Bugs fixed in 2026.08.0
 
@@ -158,18 +182,9 @@ See [Okta Managed User Accounts](https://developer.okta.com/docs/api/openapi/okt
 
 New API endpoints have been added to the Directories Integration (`POST /api/v1/directories/{appInstanceId}/group/{groupId}/query` and `GET /api/v1/directories/{appInstanceId}/group/{groupId}/query/{resultId}`), which allows for the real-time retrieval of any standard or custom attribute from Active Directory (AD) groups. You can now programmatically access attributes, like cost centers and department codes, without waiting for a full directory sync. This feature allows you to accelerate automation by using live AD group metadata, while simultaneously eliminating manual data management by creating a single, reliable bridge between your on-premises directory details and your cloud ecosystem. See [Directories Integrations API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/directoriesintegration).
 
-#### SHA-256 digest algorithm support is GA in Production
 
-Okta now supports the SHA-256 digest algorithm when hashing SAML AuthnRequests that are sent to external IdPs. <!-- IDP_SHA256_DIGEST_ALGORITHM_SUPPORT OKTA-1061375 preview date: Dec 10, 2025 -->
 
-#### Seamless ISV experience for SCIM is GA in Production
 
-Okta now provides a seamless ISV experience to optimize the [Okta Integration Network (OIN)](https://www.okta.com/integrations/) submission experience for SCIM integrations. This new experience enables independent software vendors (ISVs) to build and manually test their SCIM integration metadata before submission to the OIN. This reduces the time needed for the OIN team to review and validate that the SCIM integration functions as intended, which shortens the time to publish in the OIN. This experience also incorporates communication processes in Salesforce, enabling improved collaboration internally within Okta teams and externally with ISVs. See [Publish an OIN integration overview](https://developer.okta.com/docs/guides/submit-app-overview/) and [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/scim/main/) guide.
-
-#### New System Log event for database privileged access management is EA
-
-New System Log events allow you to track when database integrations are created (`pam.integration.create`) or removed (`pam.integration.delete`) in Okta Privileged Access. See [Event Types](/docs/reference/api/event-types/).
-<!--  OKTA-1166896 - Added in Release 2026.05.1 -->
 
 #### Bugs fixed in 2026.06.0
 

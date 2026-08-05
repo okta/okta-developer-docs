@@ -19,7 +19,7 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Increased maximum for unique groups in requester audience](#increased-maximum-for-unique-groups-in-requester-audience) | August 5, 2026|
-| [API support for Access Certification campaign decisions is GA in Preview is GA in Preview](#api-support-for-access-certification-campaign-decisions-is-ga-in-preview) | June 24, 2025 |
+| [API support for Access Certification campaign decisions is GA in Preview](#api-support-for-access-certification-campaign-decisions-is-ga-in-preview) | June 24, 2025 |
 | [Certify AI agent resource connections is GA in Preview](#certify-ai-agent-resource-connections-is-ga-in-preview) | August 5, 2026 |
 | [Governance Analyzer is GA in Production](#governance-analyzer-is-ga-in-production) | May 6, 2026 |
 | [Certify service accounts is GA in Production](#certify-service-accounts-is-ga-in-production) | Dec 10, 2025  |
