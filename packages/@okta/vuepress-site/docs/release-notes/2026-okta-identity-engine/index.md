@@ -135,9 +135,6 @@ A new Research Release lifecycle, marked with a Research Release badge, is now a
 
 * When you called `POST /workload-principals/api/v1/ai-agents/{agentId}/connections` for an app that was already configured as a delegation caller for the same AI Agent, the resource connection was created. (OKTA-1226327)
 
-* The submission tester spun indefinitely during SSO automated testing initialization when refreshing the session. (OKTA-1173338) (OKTA-1196951)
-
-
 ## July
 
 ### Weekly release 2026.07.3
