@@ -1,6 +1,6 @@
 {
-  "release" : "2026.07.1",
-  "build" : "2026.07.1-begin-272-gf692608c1918",
+  "release" : "2026.08.1",
+  "build" : "2026.08.1-begin-263-g31c0d19b3e16",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -1926,6 +1926,104 @@
     "internalErrorCode" : "invalid_subject_token_client_inactive",
     "errorCode" : "invalid_request",
     "errorDescription" : "'subject_token' is invalid: the client application referenced in the token is not active."
+  }, {
+    "title" : "Invalid subject token saml blank",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_saml_blank",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid."
+  }, {
+    "title" : "Invalid subject token saml parse failed",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_saml_parse_failed",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid."
+  }, {
+    "title" : "Invalid subject token saml issuer missing",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_saml_issuer_missing",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid."
+  }, {
+    "title" : "Invalid subject token saml subject confirmation missing",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_saml_subject_confirmation_missing",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid."
+  }, {
+    "title" : "Invalid subject token saml expired",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_saml_expired",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid."
+  }, {
+    "title" : "Invalid subject token saml signature invalid",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_saml_signature_invalid",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid."
+  }, {
+    "title" : "Invalid subject token saml replay detected",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_saml_replay_detected",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid."
+  }, {
+    "title" : "Invalid subject token saml nameid missing",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_saml_nameid_missing",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid."
+  }, {
+    "title" : "Invalid subject token saml nameid not unique",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_saml_nameid_not_unique",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid."
+  }, {
+    "title" : "Invalid subject token saml source app instance missing",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_saml_source_app_instance_missing",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid."
+  }, {
+    "title" : "Invalid subject token saml source app not saml",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_saml_source_app_not_saml",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid."
+  }, {
+    "title" : "Invalid subject token saml source app signing cert missing",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_saml_source_app_signing_cert_missing",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid."
+  }, {
+    "title" : "Invalid subject token saml source app audience missing",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_saml_source_app_audience_missing",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid."
+  }, {
+    "title" : "Invalid subject token saml assertion ID missing",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_saml_assertion_id_missing",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid."
   }, {
     "title" : "Invalid client type native sso",
     "statusCode" : 400,

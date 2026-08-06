@@ -1,6 +1,6 @@
 {
-  "release" : "2026.07.1",
-  "build" : "2026.07.1-begin-272-gf692608c1918",
+  "release" : "2026.08.1",
+  "build" : "2026.08.1-begin-263-g31c0d19b3e16",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -2000,6 +2000,14 @@
     "statusReasonPhrase" : "Conflict",
     "errorCode" : "E0000268",
     "errorSummary" : "Another request is making changes to the role assignments. Please try again.",
+    "errorDescription" : null
+  }, {
+    "title" : "Script config missing",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000269",
+    "errorSummary" : "The script config for the instanceId {0} is not available.",
     "errorDescription" : null
   } ]
 }
