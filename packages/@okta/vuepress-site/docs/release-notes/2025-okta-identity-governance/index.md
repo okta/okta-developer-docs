@@ -78,7 +78,7 @@ The following API updates have been made to support service account campaigns:
 * New `OKTA_SERVICE_ACCOUNT` and `APP_SERVICE_ACCOUNT` options in the [resourceSettings.type](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/type) property of a campaign.
 * New [`resourceSettings.includeAllOktaServiceAccounts`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/includealloktaserviceaccounts) property for `resourceSettings.type` of `OKTA_SERVICE_ACCOUNT` in a campaign.
 * New [`resourceSettings.targetResources.includeAllAppServiceAccounts`](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=resourcesettings/targetresources/includeallappserviceaccounts) property for `resourceSettings.type` of `APP_SERVICE_ACCOUNT` in a campaign.
-* Reviews can be filtered by service account ID (`appServiceAccountId` or `oktaServiceAccountId`) in [List all reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/Reviews/listReviews).
+
 <!-- OKTA-1047480 IGA_ACCESS_CERT_SERVICE_ACCOUNTS Preview: Dec 10, 2025 -->
 
 ## November
