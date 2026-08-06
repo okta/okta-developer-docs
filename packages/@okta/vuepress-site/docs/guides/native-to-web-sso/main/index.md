@@ -107,7 +107,7 @@ The OIDC origin app exchanges access and ID tokens for a single-use interclient 
 
 To enable the Token Exchange grant type in your app, follow these steps:
 
-1. Go to **Applications** > **Applications** in the Admin Console.
+1. Go to **Applications and Resources** > **Applications** in the Admin Console.
 2. Locate your app and select it.
 3. Click **Edit** in the **General Settings** section.
 4. In the Grant type section, expand **Advanced**.

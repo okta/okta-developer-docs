@@ -135,7 +135,7 @@ Terminate Terraform execution when it reaches a custom rate limit. Use the **App
 
 To set app rate limits for your service app:
 
-1. In the Admin Console, go to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Select the app that authorizes Terraform.
 1. Click the **Application Rate Limits** tab.
 1. Click **Edit**.

@@ -30,7 +30,7 @@ You can upgrade and revert certificates in the Admin Console, and also programma
 After you've created your SAML 2.0 app integration, you can use the Admin Console to check the type of certificate it currently uses.
 
 1. Open the Admin Console for your org.
-1. Go to **Applications** > **Applications** to view the current app integrations.
+1. Go to **Applications and Resources** > **Applications** to view the current app integrations.
 1. Select your app integration.
 1. Go to the **SAML Signing Certificates** section of the **Sign On** tab.
 
@@ -217,7 +217,7 @@ Request parameters:
 After you update the key credential, your users can't access the application until you upload the new certificate to your ISV.
 
 1. Open the Admin Console for your org.
-1. Go to **Applications** > **Applications** to view the current app integrations.
+1. Go to **Applications and Resources** > **Applications** to view the current app integrations.
 1. Select your app integration.
 1. Click **View SAML Setup Instructions**.
 1. Download the new certificate and optionally the IdP metadata to provide to your ISV.

@@ -54,8 +54,11 @@ After you've created your app, you need to [set up your Okta org for your use ca
 
 Create an app integration that represents the app you want to add authentication to with Okta:
 
-1. Go to **Applications** > **Applications** in the Admin Console.
+1. Go to **Applications and Resources** > **Applications** in the Admin Console.
 1. Click **Create App Integration**.
+
+   > **Note:** If your org isn't an Okta Integrator Free Plan org, click **Create App Integration** > **Classic experience**.
+
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
 1. <StackSnippet snippet="applicationtype" />
 1. <StackSnippet snippet="newapp" />

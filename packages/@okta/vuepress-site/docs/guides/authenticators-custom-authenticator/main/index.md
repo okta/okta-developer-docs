@@ -81,7 +81,7 @@ To easily integrate authentication in your app, use the [Authorization code flow
 When you're ready to grant the required scopes, follow these steps:
 
 1. Sign in to your Okta organization with your administrator account.
-2. Select **Applications** > **Applications** to see a list of your app integrations.
+2. Select **Applications and Resources** > **Applications** to see a list of your app integrations.
 3. Open your OpenID Connect client app.
 4. On the **Okta API Scopes** tab, click **Grant** for the following scopes:
    * For access to both GET and POST/DELETE endpoints:

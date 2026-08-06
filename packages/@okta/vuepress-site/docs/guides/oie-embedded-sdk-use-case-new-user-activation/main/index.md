@@ -185,7 +185,7 @@ If you want to view or modify the **Registration - Activation** template, go int
 
 When the user clicks the email's **Activate Account** link, Okta activates their account and redirects the request to the URL defined in **Initiate login URI**. To update this value, perform the following steps in the Admin Console.
 
-1. Select **Applications > Applications**.
+1. Select **Applications and Resources** > **Applications**.
 1. Select your app in the **Applications** page.
 1. On your app page, click **Edit** in **General Settings**.
 1. Under **Login**, update **Initiate login URI** to a URL used by your app. The sample app uses <StackSnippet snippet="initiateloginuri" inline />

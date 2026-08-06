@@ -55,8 +55,11 @@ The following sections explain the setup for an example token exchange flow usin
 
 ### Create a native app integration
 
-1. Go to **Applications** > **Applications** in the Admin Console.
+1. Go to **Applications and Resources** > **Applications** in the Admin Console.
 1. Click **Create App Integration**.
+
+   > **Note:** If your org isn't an Okta Integrator Free Plan org, click **Create App Integration** > **Classic experience**.
+
 1. Select **OIDC - OpenID Connect**, and then **Native Application**.
 1. Name your app, and then select **Allow everyone in your organization to access**.
 1. Click **Save**, and then click **Back to Applications**.
@@ -68,6 +71,9 @@ The following sections explain the setup for an example token exchange flow usin
 In token exchange use cases, an API microservice can act both as a resource server and a client. For this example, the native app gets an access token to make API requests to API1. API1 acts as the resource server. When API1 needs to talk to API2 on behalf of the user, API1 becomes the OAuth client. Create a service app that represents API1.
 
 1. Click **Create App Integration** on the **Applications** page.
+
+   > **Note:** If your org isn't an Okta Integrator Free Plan org, click **Create App Integration** > **Classic experience**.
+
 1. Select **API Services**, and then click **Next**.
 1. Name your app. For this example, enter **API1**, and then click **Save**.
 1. Click **Edit** in the **General Settings** section of the **General** tab.

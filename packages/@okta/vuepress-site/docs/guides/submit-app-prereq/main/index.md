@@ -122,7 +122,7 @@ The OIN Wizard testing phase uses a plugin app called the **Okta OIN Submission 
 
 For Identity Engine orgs, the default app sign-in policy requires MFA. Use the preconfigured **Password only** app sign-in policy that is included in your Integrator Free Plan org for the Okta OIN Submission Tester app.
 
-1. Go to **Application** > **Applications** in the Admin Console.
+1. Go to **Applications and Resources** > **Applications** in the Admin Console.
 1. Click **Okta OIN Submission Tester**.
 1. Click the **Sign On** tab, scroll to the **User authentication** section and click **Edit**.
 1. Select **Password only** from the **App sign-in policy** dropdown menu.
@@ -447,7 +447,7 @@ The SAML setting is complete in {appName}.
 ```
 
 > **Note:** Your app integration may require specific SAML settings instead of the SAML **Metadata URL**. These SAML settings include **Sign on URL**, **Sign out URL**, **Issuer**, and **Signing Certificate**.<br>
-> You can find these SAML settings at **Applications** > **Applications** > your SAML app > **Sign-On Options** tab > **Sign on methods** > **SAML 2.0** > **Metadata details** in the Admin Console. Adjust your configuration guide to include these settings as required.
+> You can find these SAML settings at **Applications and Resources** > **Applications** > your SAML app > **Sign-On Options** tab > **Sign on methods** > **SAML 2.0** > **Metadata details** in the Admin Console. Adjust your configuration guide to include these settings as required.
 
 For a complete customer admin configuration guide example, see [How to Configure SAML 2.0 Template for admins](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-Template-self.html).
 

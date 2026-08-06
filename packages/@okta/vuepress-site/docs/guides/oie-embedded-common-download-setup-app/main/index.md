@@ -59,13 +59,13 @@ If you're starting your first app or if you're running a sample app, use the iss
 
 #### Client ID
 
-For the sample app, use the client ID for the app that you created in [Create a new application](/docs/guides/oie-embedded-common-org-setup/-/main/#create-a-new-application). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab, copy the **Client ID**.
+For the sample app, use the client ID for the app that you created in [Create a new application](/docs/guides/oie-embedded-common-org-setup/-/main/#create-a-new-application). To find this value, go to **Applications and Resources** > **Applications** in the Admin Console. Select your app, and then on the **General** tab, copy the **Client ID**.
 
 <StackSnippet snippet="clientsecret" />
 
 #### Redirect URI
 
-This is the same value as the **Redirect URI** for the app that you created in [Create a new application](/docs/guides/oie-embedded-common-org-setup/-/main/#create-a-new-application). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab copy the **Sign-in redirect URI**.
+This is the same value as the **Redirect URI** for the app that you created in [Create a new application](/docs/guides/oie-embedded-common-org-setup/-/main/#create-a-new-application). To find this value, go to **Applications and Resources** > **Applications** in the Admin Console. Select your app, and then on the **General** tab copy the **Sign-in redirect URI**.
 
 <StackSnippet snippet="redirecturi" />
 
