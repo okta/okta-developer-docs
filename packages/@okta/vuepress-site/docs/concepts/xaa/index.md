@@ -26,7 +26,9 @@ Roles and responsibilities in the XAA flow:
 * **Requesting app (client)**: The client app that accesses a protected resource on behalf of the authenticated user. This is the app that initiates the API calls to the external service.
 * **Resource app (protected API server)**: The app that contains the protected resource data. This is typically an API server.
 * **IdP**: The identity provider that has an SSO relationship to the requesting and resource apps. It issues the ID-JAG based on this relationship connection. With Okta as the IdP, the Okta admin manages this connection in Okta. The Okta authorization server issues the ID-JAG only for scoped access allowed in that connection.
-* **Resource authorization server**: The authorization server that's protecting the resource app. It validates incoming ID-JAG assertions and issues scoped access tokens in accordance with local access control policies.
+* **Resource authorization server**: The authorization server that's protecting the resource app. It validates incoming ID-JAG tokens and issues scoped access tokens in accordance with local access control policies.
+
+### Cross App Access token exchange flow
 
 <div class="three-quarter">
 
@@ -52,15 +54,13 @@ RS -> WebApp: Returns resource data
 @enduml
 -->
 
-The XAA token exchange flow:
-
 1. **User SSO**: The user signs in to the client (requesting app) through the IdP using standard SSO.
 1. **ID token issued**: The IdP returns an ID token.
-1. **Token exchange for ID-JAG**: The client exchanges its user session credential or refresh token at the IdP authorization server to obtain an Identity Assertion JWT Authorization Grant (ID-JAG) token.
+1. **Token exchange for ID-JAG**: The client exchanges its user ID assertion (this can be an ID or refresh token) at the IdP authorization server to obtain an Identity Assertion JWT Authorization Grant (ID-JAG) token.
 1. **ID-JAG token issuance**: The IdP authorization server issues an ID-JAG token to the client if the client has a trusted connection to the resource server.
 1. **JWT Authorization Grant**: The client presents the ID-JAG token to the resource authorization server.
-1. **Resource access token issuance**: The resource authorization server validates the assertion and issues a short-lived, scoped access token.
-1. **Client accesses resource data**: The requesting client uses the short-lived, scoped token to access the protected resource app on behalf of the user.
+1. **Resource access token issuance**: The resource authorization server validates the ID-JAG and issues a short-lived, scoped access token.
+1. **Client accesses resource data**: The requesting client uses the short-lived, scoped token to access the protected resource app on the user's behalf.
 
 See [Set up AI agent token exchange](https://developer.okta.com/docs/guides/ai-agent-token-exchange/authserver/main/) for the AI agent-to-app token exchange implementation in Okta.
 
@@ -76,8 +76,8 @@ XAA integrates directly with AI agent frameworks and server standards, such as t
 
 Common AI agent scenarios include:
 
-* **Cross-tool project aggregation**: An AI assistant (such as Claude or Cursor) compiles a project status report by retrieving milestones from project management platforms (such as Asana or Linear), pulling technical wikis (such as Atlassian Confluence), inspecting designs (such as Figma), and analyzing meeting notes (such as Zoom or Granola).
-* **Automated developer operations**: Developer tools and code editors (such as Visual Studio Code or Cursor) query container registries (such as Docker), inspect cloud app performance metrics (such as Datadog), or query production databases (such as Supabase) using the engineer's scoped user identity.
+* **Cross-tool project aggregation**: An AI assistant (such as Claude or Cursor) compiles a project status report by retrieving milestones from project management platforms (such as Asana or Linear), pulling technical specs from a documentation platform (such as Atlassian Confluence), inspecting designs from a design tool (such as Figma), and analyzing meeting notes from note-generating platforms (such as Zoom or Granola).
+* **Automated developer operations**: Developer tools and code editors (such as Visual Studio Code or Cursor) query container registries (such as Docker), inspect cloud app performance metric tools (such as Datadog), or query production databases (such as Supabase) using the engineer's scoped user identity.
 * **Enterprise AI search**: Federated AI search tools (such as Glean) retrieve internal company records from connected cloud services only when the end user has active permissions, preventing data leakage across organizational boundaries.
 
 <!--
@@ -125,7 +125,7 @@ Okta implements XAA with the following requesting and resource app configuration
 Okta supports requesting apps that use the following protocols for SSO:
 
 * **OpenID Connect (OIDC)**: Recommended for new integrations and modern app architectures.
-* **SAML 2.0**: Supported for existing enterprise federations, allowing organizations to adopt XAA without migrating legacy authentication flows. For this protocol, Okta allows your requesting app to request an ID-JAG based on a refresh token exchange using your SAML assertion. See [Enable Your SAML Requesting App for Cross App Access](https://developer.okta.com/blog/2026/07/17/xaa-saml-requester#xaa-implementation-checklist-for-saml-federated-applications)
+* **SAML 2.0**: Supported for existing enterprise federations, allowing organizations to adopt XAA without migrating legacy authentication flows. For this protocol, Okta allows your requesting app to obtain an ID-JAG through a refresh token exchange using your SAML assertion. See [Enable Your SAML Requesting App for Cross App Access](https://developer.okta.com/blog/2026/07/17/xaa-saml-requester#xaa-implementation-checklist-for-saml-federated-applications)
 
 If you're an independent software vendor (ISV) looking to implement XAA requesting-app features on your current SSO app integration in the Okta Integration Network (OIN), see [How to Build and List Secure Cross App Access (XAA) Connections on Okta Integration Network (OIN)](https://developer.okta.com/blog/2026/07/06/submit-oin-xaa#why-cross-app-access-xaa-matters-for-isvs-and-their-customers).
 
