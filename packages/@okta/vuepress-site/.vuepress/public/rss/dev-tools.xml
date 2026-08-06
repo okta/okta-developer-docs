@@ -4,8 +4,17 @@
   <title>Okta Developer Tools release notes</title>
   <link>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/</link>
   <description>Recent release notes for Okta Developer Tools</description>
-  <pubDate>Wed, 01 Jul 2026 12:00:00 GMT</pubDate>
+  <pubDate>Wed, 05 Aug 2026 12:00:00 GMT</pubDate>
   
+    <item>
+      <title>Monthly release 2026.08.0</title>
+      <link>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#monthly-release-2026-08-0</link>
+      <guid>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#monthly-release-2026-08-0</guid>
+      <pubDate>Wed, 05 Aug 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#okta-client-sdk-for-swift-220-adds-pushed-authorization-request-support">Okta Client SDK for Swift 2.2.0 adds Pushed Authorization Request support</a><br><a href="https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#bugs-fixed-in-okta-client-sdk-for-swift-220">Bugs fixed in Okta Client SDK for Swift 2.2.0</a>]]></description>
+    </item>
+  
+
     <item>
       <title>Monthly release 2026.07.0</title>
       <link>https://developer.okta.com/docs/release-notes/2026-okta-dev-tools/#monthly-release-2026-07-0</link>
