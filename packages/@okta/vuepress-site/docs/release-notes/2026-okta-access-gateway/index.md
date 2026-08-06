@@ -15,11 +15,11 @@ Access Gateway is available for both Okta Classic Engine and Okta Identity Engin
 ## August
 
 ### Monthly release 2026.08.0
-<!-- Published on: 2026-08-05T12:00:00Z -->
+<!-- Published on: 2026-08-06T12:00:00Z -->
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [OpenID Connect apps in offline mode is Limited EA in Preview](#openid-connect-apps-in-offline-mode-is-limited-ea-in-preview) | August 5, 2026 |
+| [OpenID Connect apps in offline mode is Limited EA in Preview](#openid-connect-apps-in-offline-mode-is-limited-ea-in-preview) | August 6, 2026 |
 
 #### OpenID Connect apps in offline mode is Limited EA in Preview
 
