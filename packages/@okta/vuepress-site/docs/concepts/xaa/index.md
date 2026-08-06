@@ -55,11 +55,11 @@ RS -> WebApp: Returns resource data
 -->
 
 1. **User SSO**: The user signs in to the client (requesting app) through the IdP using standard SSO.
-1. **ID token issued**: The IdP returns an ID token.
+1. **ID/refresh token issued**: The IdP returns an ID or refresh token.
 1. **Token exchange for ID-JAG**: The client exchanges its user ID assertion (this can be an ID or refresh token) at the IdP authorization server to obtain an Identity Assertion JWT Authorization Grant (ID-JAG) token.
-1. **ID-JAG token issuance**: The IdP authorization server issues an ID-JAG token to the client if the client has a trusted connection to the resource server.
+1. **ID-JAG token issued**: The IdP authorization server issues an ID-JAG token to the client if the client has a trusted connection to the resource server.
 1. **JWT Authorization Grant**: The client presents the ID-JAG token to the resource authorization server.
-1. **Resource access token issuance**: The resource authorization server validates the ID-JAG and issues a short-lived, scoped access token.
+1. **Resource access token issued**: The resource authorization server validates the ID-JAG and issues a short-lived, scoped access token.
 1. **Client accesses resource data**: The requesting client uses the short-lived, scoped token to access the protected resource app on the user's behalf.
 
 See [Set up AI agent token exchange](https://developer.okta.com/docs/guides/ai-agent-token-exchange/authserver/main/) for the AI agent-to-app token exchange implementation in Okta.
