@@ -251,7 +251,7 @@ The GET `/apps/{appId}/tokens` endpoint sometimes returned fewer results than th
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Bot protection is GA in Production](#bot-protection-is-ga-in-production) | July 1, 2026 |
-| [New fields query parameter for Groups, Realms, and Devices list endpoints is GA in Production](#new-fields-query-parameter-for-groups-realms-and-devices-list-endpoints-is-ga-in-production) | July 1, 2026 |
+| [New fields query parameter for Groups, Realms, and Devices list endpoints is GA in Preview](#new-fields-query-parameter-for-groups-realms-and-devices-list-endpoints-is-ga-in-preview) | July 1, 2026 |
 | [New IP Service available for enhanced dynamic network zones](#new-ip-service-available-for-enhanced-dynamic-network-zones) | July 1, 2026 |
 | [Improved group member search functionality is GA in Production](#improved-group-member-search-functionality-is-ga-in-production) | July 1, 2026 |
 | [Customizable emails for Passkey (FIDO2 WebAuthn) authenticator is GA in Preview](#customizable-emails-for-passkey-fido2-webauthn-authenticator-is-ga-in-preview) | May 20, 2026 |
