@@ -93,9 +93,9 @@ The following JSON example shows an authorization server metadata response confi
 
 ## Protected resource metadata
 
-The protected resource metadata conforms to [RFC 9728 (OAuth 2.0 Protected Resource Metadata)](https://datatracker.ietf.org/doc/html/rfc9728). It allows requesting apps to identify the protected resources managed by your resource app, the authorization servers trusted to issue access tokens, and the required OAuth 2.0 scopes.
+The protected resource metadata conforms to [RFC 9728 (OAuth 2.0 Protected Resource Metadata)](https://datatracker.ietf.org/doc/html/rfc9728). It allows requesting apps to identify the protected resource server (the resource app), the authorization servers trusted to issue access tokens, and the required OAuth 2.0 scopes.
 
-> **Note**: The protected resource metadata URI is required for Model Context Protocol (MCP) servers. For all other resource server types, it's optional but recommended because it enables requesting apps to discover your token requirements automatically.
+> **Note**: The protected resource metadata URI is required for Model Context Protocol (MCP) servers. For all other resource server types, it's optional but recommended, as it enables requesting apps to automatically discover your token requirements.
 
 ### URI location
 
@@ -112,7 +112,7 @@ Your protected resource metadata response must return a JSON object conforming t
 | Property | Type | Description |
 | --- | --- | --- |
 | `resource` | String | The canonical URI identifying your protected resource server |
-| `authorization_servers` | Array of strings | The URIs of the authorization servers trusted by this resource server to issue access tokens |
+| `authorization_servers` | Array of strings | The OAuth authorization server issuer identifiers for the proteced resource server. This is a list of authorization server URIs that can issue access tokens. |
 | `scopes_supported` | Array of strings | The OAuth 2.0 scope strings supported by the resource server for API access control |
 
 #### Example response
