@@ -6,7 +6,7 @@ title: Cross App Access (XAA)
 
 Cross App Access (XAA) provides a low-friction mechanism for an app to establish secure connections with a third-party resource app. The third-party resource app resides in a separate domain that's protected by an external authorization server. To support cross-domain authorization, a trust relationship is established between the app's identity provider and the external resource authorization server. A user can sign in to their app, and the app can securely access data across domains within the resource app on behalf of the user, without extra consent prompts, using XAA.
 
-### The problem Cross App Access solves
+### The problem XAA solves
 
 Traditional external resource authorization methods (such as API authorization) create security and operational challenges in enterprise environments:
 
@@ -19,7 +19,7 @@ Traditional external resource authorization methods (such as API authorization) 
 
 XAA supports authorization chaining across domains by implementing the Identity Assertion JWT Authorization Grant (ID-JAG) flow, an extension of the OAuth 2.0 framework. See [Identity Assertion JWT Authorization Grant](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant) and [OAuth Identity and Authorization Chaining Across Domains](https://datatracker.ietf.org/doc/draft-ietf-oauth-identity-chaining/).
 
-### Cross App Access roles
+### XAA roles
 
 Roles and responsibilities in the XAA flow:
 
@@ -28,7 +28,7 @@ Roles and responsibilities in the XAA flow:
 * **IdP**: The identity provider that has an SSO relationship to the requesting and resource apps. It issues the ID-JAG based on this relationship connection. With Okta as the IdP, the Okta admin manages this connection in Okta. The Okta authorization server issues the ID-JAG only for scoped access allowed in that connection.
 * **Resource authorization server**: The authorization server that's protecting the resource app. It validates incoming ID-JAG tokens and issues scoped access tokens in accordance with local access control policies.
 
-### Cross App Access token exchange flow
+### XAA token exchange flow
 
 <div class="three-quarter">
 
