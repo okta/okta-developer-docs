@@ -11,6 +11,28 @@ title: Okta Developer Tools API release notes 2026
 
 These release notes list customer-visible changes to the Developer Tools. The Okta's developer tooling ecosystem includes Terraform, SDKs, and CLI.
 
+## August
+
+### Monthly release 2026.08.0
+<!-- Published on: 2026-08-05T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Okta Client SDK for Swift 2.2.0 adds Pushed Authorization Request support](#okta-client-sdk-for-swift-220-adds-pushed-authorization-request-support) | August 5, 2026 |
+| [Bugs fixed in Okta Client SDK for Swift 2.2.0](#bugs-fixed-in-okta-client-sdk-for-swift-220) | August 5, 2026|
+
+#### Okta Client SDK for Swift 2.2.0 adds Pushed Authorization Request support
+
+Version 2.2.0 of the [Okta Client SDK for Swift](https://github.com/okta/okta-mobile-swift) adds support for Pushed Authorization Requests (PAR). This lets your app pre-register authorization request parameters with Okta before redirecting users to sign in. The SDK also expands `AuthenticationContext` with `resource`, `audience`, `nonce`, and `maxAge` parameters for finer-grained OAuth requests. See [Release 2.2.0](https://github.com/okta/okta-mobile-swift/releases/tag/2.2.0). <!-- OKTA-1240617 -->
+
+#### Bugs fixed in Okta Client SDK for Swift 2.2.0
+
+* The SDK didn't send the `User-Agent` header in Release builds. (OKTA-1198552)
+
+* WebAuthn and Duo credentials could merge incorrectly during authentication. (OKTA-1209004)
+
+* The SDK rejected the `aud` claim when it was an array, which RFC 7519 §4.1.3 allows.
+
 ## July
 
 ### Monthly release 2026.07.0

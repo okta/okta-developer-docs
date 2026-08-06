@@ -2,7 +2,10 @@
 
 Okta recommends using OAuth 2.0 with service apps for automation. First, create an OAuth 2.0 service app:
 
-1. In the Admin Console, go to **Applications** > **Applications**, and click **Create App Integration**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**, and click **Create App Integration**.
+
+   > **Note:** If your org isn't an Okta Integrator Free Plan org, click **Create App Integration** > **Classic experience**.
+
 1. Select **API Services** and click **Next**.
 1. Enter an app name like **Terraform Automation**, and click **Save**.
 1. Note the **Client ID**.

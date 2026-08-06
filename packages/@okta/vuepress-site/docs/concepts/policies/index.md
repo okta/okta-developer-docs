@@ -127,7 +127,7 @@ An app sign-in policy branch can have one of the following states:
 
 Enable monitoring on a staged branch to evaluate its rules against real user traffic without enforcing them. This lets you assess the impact of your changes before you deploy them.
 
-To enable this, set a monitoring expiry date when you stage the branch. The maximum monitoring period is 28 days. Monitoring stops automatically when you promote the brach to live, revert it to draft, or the expiry passes. To view monitoring data, see [Use the Policy Insights Dashboard](https://help.okta.com/okta_help.htm?type=oie&id=policy-insights-dashboard).
+To enable this, set a monitoring expiry date when you stage the branch. The maximum monitoring period is 28 days. Monitoring stops automatically when you promote the branch to live, revert it to draft, or the expiry passes. To view monitoring data, see [Use the Policy Insights Dashboard](https://help.okta.com/okta_help.htm?type=oie&id=policy-insights-dashboard).
 
 Previously live branches are stored in a branch history. You can restore a branch from history to make it live again. Restored branches are still included in the branch history. Okta makes an identical copy of the branch in the branch history and promotes the copy as the live branch.
 
@@ -187,6 +187,14 @@ The device signal collection policies can collect [information](https://help.okt
 
 See [Create device signal collection rules](https://help.okta.com/okta_help.htm?type=oie&id=create-device-signal-collection-ruleset) for details about configuring the policy in the Admin Console.
 
+#### User identification policies
+
+<ApiLifecycle access="ie" /><ApiLifecycle access="ea" />
+
+Use [user identification policies](/docs/guides/user-identification-policies/main/) to control the pre-identification experience on the Sign-In Widget for an app. User identification works as part of your [app sign-in policies](#app-sign-in-policies).
+
+A user identification policy maps one-to-one to an app sign-in policy. Currently, it controls whether the **Sign in with Okta FastPass** button appears on the Sign-In Widget for the app.
+
 ### Identity claims sourcing policy
 
 <ApiLifecycle access="ea" /><ApiLifecycle access="ie" />
@@ -239,6 +247,23 @@ For example, you can configure an app sign-in policy that lets an end user defer
 For details about setting grace periods for app sign-in policies in the Admin Console, see [Authenticator enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies).
 
 To see the grace periods object in the API reference documentation, see the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=1/settings/authenticators/enroll/gracePeriod&t=request).
+
+##### Passkey enrollment promotion
+
+<ApiLifecycle access="ea" /><ApiLifecycle access="ie" />
+
+> **Note:** This functionality is available as a self-service Early Access (EA) feature for Identity Engine orgs. To use it, enable the Prompt users to enroll passkeys feature. See [Self-service features](/docs/concepts/feature-lifecycle-management/#self-service-features).
+
+Passkey enrollment promotion lets you configure a non-blocking nudge that prompts users to enroll a Passkey (FIDO2 WebAuthn) authenticator during sign-in. Unlike grace periods, which apply to required authenticators, enrollment promotion applies only to the Passkey authenticator when it's configured as optional (`enroll.self = OPTIONAL`). Users who skip the prompt can still sign in with other authenticators.
+
+Configure enrollment promotion with the following two settings:
+
+* **Skip limit:** The number of times a user can skip the prompt before Okta stops showing it. Set `skipCount` to a positive integer to define the limit, or `0` for no limit (the prompt continues until the user enrolls).
+* **Cooldown:** The interval between prompts. Set `cooldown.type` to `BY_DURATION` and provide an ISO 8601 duration in `cooldown.duration` to control how often the prompt reappears (for example, `P30D` for every 30 days). Only month, week, and day components are allowed. Set `cooldown.type` to `BY_SIGN_IN` to prompt the user on every eligible sign-in.
+
+For details about configuring enrollment promotion in the Admin Console, see [Authenticator enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies).
+
+To see the promotion object in the API reference, see the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/policy/other/createpolicy#other/createpolicy/t=request&path=&d=1/settings/authenticators/enroll/promotion).
 
 #### User profile policies
 

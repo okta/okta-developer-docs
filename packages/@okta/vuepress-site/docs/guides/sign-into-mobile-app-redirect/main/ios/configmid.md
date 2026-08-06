@@ -8,7 +8,7 @@ To configure your app, the Swift Client SDK provides the following options (in o
 
 You need one or more of your config values to set up these configurations.
 
-If you don't have these values handy, you can find them in the Admin Console. Go to **Applications** > **Applications** and find the app integration that you created earlier:
+If you don't have these values handy, you can find them in the Admin Console. Go to **Applications and Resources** > **Applications** and find the app integration that you created earlier:
 
 * **Sign-in redirect URI**: Go to the **General** tab in the **Login** section.
 * **Sign-out redirect URI**: Go to the **General** tab in the **Login** section.

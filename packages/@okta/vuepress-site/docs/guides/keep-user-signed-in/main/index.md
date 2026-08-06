@@ -35,7 +35,7 @@ Configure your Okta app integration to allow refresh tokens, and then implement 
 
 Enable the **Refresh Token** grant type in your app integration by following these steps:
 
-1. In the Admin Console, go to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Select the name of your app integration.
 1. Click **Edit** in the **General Settings** section.
 1. Select **Refresh Token** as a grant type.

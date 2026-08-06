@@ -2,9 +2,106 @@
 title: Okta Verify (Push/OTP) integration guide
 ---
 
-The expected behavior of Okta Verify is to reflect the context of the original client request when a user receives a push notification. This behavior isn't honored in proxy model architectures. In proxy model architectures, a server-side application using the embedded SDK is used as a proxy between client applications and Okta servers.
+The expected behavior of Okta Verify is to reflect the context of the original client request when a user receives a push notification. This behavior isn't honored in proxy model architectures. In proxy model architectures, a server-side app using the embedded SDK is used as a proxy between client apps and Okta servers.
 
-The Okta Verify push notification always displays the server's IP address and user agent regardless of any passed-in request context. As a result, Okta Verify is unavailable for server-side applications using the embedded SDK until Okta finds a solution.
+The Okta Verify push notification always displays the server's IP address and user agent regardless of any passed-in request context. As a result, Okta Verify is unavailable for server-side apps using the embedded SDK until Okta finds a solution.
+
+This issue persists regardless of whether you enable the Flexible Okta Verify authenticator configuration feature.
+
+## Configure Okta Verify as standalone authenticators
+
+<ApiLifecycle access="ea" /><ApiLifecycle access="ie" />
+
+When you enable Flexible Okta Verify authenticator configuration, `okta_verify_totp`, `okta_verify_push`, and `okta_verify_fastpass` become available as separate authenticator keys, one for each Okta Verify method.
+
+| Authenticator key      | Method                            |
+|------------------------|-----------------------------------|
+| `okta_verify_totp`     | Time-based one-time passcode (TOTP) |
+| `okta_verify_push`     | Push notification                 |
+| `okta_verify_fastpass` | Okta FastPass                          |
+
+Users who already have one of the three Okta Verify methods enrolled continue to have that method enrolled. The corresponding standalone authenticator now represents the method. Policies that reference an existing method now reference the corresponding standalone authenticator instead, and you don't need to change your policy configuration.
+
+If your integration or automation creates or updates authenticators or policies using the literal `okta_verify` key, update those requests to use the new key that corresponds to the specific method that you want to configure: `okta_verify_totp`, `okta_verify_push`, or `okta_verify_fastpass`.
+
+### Authenticators API behavior
+
+Enabling this feature doesn't change how Okta Verify works for your end users. It represents the existing TOTP, push, and Okta FastPass methods as three separate authenticators instead of one. You can manage and configure each method independently.
+
+The legacy `okta_verify` key continues to work for GET requests, such as [List all authenticators](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticators), for backward compatibility. For [Replace an authenticator](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/replaceAuthenticator) requests, use the new per-method keys (`okta_verify_totp`, `okta_verify_push`, or `okta_verify_fastpass`) instead.
+
+See [Multifactor authentication](/docs/concepts/mfa/) for the full authenticator key reference.
+
+### Policy API behavior
+
+You can't use the `okta_verify` key in policy settings after the feature is enabled. This applies to the following policy types:
+
+- [Authenticator enrollment policies](/docs/concepts/policies/#authenticator-enrollment-policies)
+- [App sign-in policies](/docs/concepts/policies/#app-sign-in-policies)
+- [Okta account management policy rules](/docs/concepts/policies/#okta-account-management-policy) that have [Okta Expression Language](/docs/reference/okta-expression-language/) conditions that reference `okta_verify`
+
+If your existing policies reference `okta_verify`, you don't need to update the stored data. When you enable the feature, Okta automatically translates `okta_verify` to the corresponding new key in the response.
+
+#### Okta Verify in authenticator enrollment policies
+
+The following table applies only when the previous `okta_verify` authenticator setting is `REQUIRED` in an authenticator enrollment policy. It shows how the previously enabled Okta Verify methods translate to the new `enroll.self` value for each per-method authenticator:
+
+| Previously enabled Okta Verify methods | `okta_verify_totp` | `okta_verify_push` | `okta_verify_fastpass` |
+|---|---|---|---|
+| `totp`, `push`, `signed_nonce` | `OPTIONAL` | `OPTIONAL` | `REQUIRED` |
+| `totp`, `push` | `OPTIONAL` | `REQUIRED` | `DISABLED` |
+| `totp`, `signed_nonce` | `OPTIONAL` | `DISABLED` | `REQUIRED` |
+| `totp` | `REQUIRED` | `DISABLED` | `DISABLED` |
+
+For example, the following authenticator enrollment policy configuration has `okta_verify` enabled as a required authenticator:
+
+```json
+{ "key": "okta_verify", "enroll": { "self": "REQUIRED" } }
+```
+
+When you enable the Flexible Okta Verify authenticator configuration feature, Okta automatically converts it to the following configuration. It has `okta_verify_fastpass` enabled as a required authenticator and the other two methods enabled as optional authenticators:
+
+```json
+{ "key": "okta_verify_totp", "enroll": { "self": "OPTIONAL" } },
+{ "key": "okta_verify_push", "enroll": { "self": "OPTIONAL" } },
+{ "key": "okta_verify_fastpass", "enroll": { "self": "REQUIRED" } }
+```
+
+#### Okta Verify in app sign-in policies
+
+For app sign-in policies, Okta maps each `okta_verify` key to the corresponding per-method key based on the rule's `method` value. For example, the following app sign-in policy rule references `okta_verify` for the TOTP and Okta FastPass methods:
+
+```json
+"authenticationMethods": [
+  { "key": "okta_verify", "method": "totp" },
+  { "key": "okta_verify", "method": "signed_nonce" }
+]
+```
+
+When you enable the Flexible Okta Verify authenticator configuration feature, that configuration is automatically translated to the following configuration:
+
+```json
+"authenticationMethods": [
+  { "key": "okta_verify_totp", "method": "totp" },
+  { "key": "okta_verify_fastpass", "method": "signed_nonce" }
+]
+```
+
+#### Okta Verify in Okta account management policy rules
+
+For Okta account management policy rules, Okta converts an Okta Expression Language condition that references `okta_verify` into an equivalent condition that checks all three per-method keys. Because the condition can no longer match on the single `okta_verify` key, Okta joins the three per-method keys with the `||` (OR) operator. The condition evaluates if the authenticator key equals any one of the three per-method keys. 
+
+For example, the following condition references `okta_verify`:
+
+```
+accessRequest.authenticator.key == 'okta_verify'
+```
+
+When you enable the Flexible Okta Verify authenticator configuration feature, that condition is automatically translated to the following condition:
+
+```
+accessRequest.authenticator.key == 'okta_verify_totp' || accessRequest.authenticator.key == 'okta_verify_push' || accessRequest.authenticator.key == 'okta_verify_fastpass'
+```
 
 <!--
 

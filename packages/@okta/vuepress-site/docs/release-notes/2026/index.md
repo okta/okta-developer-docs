@@ -9,6 +9,61 @@ title: Okta Classic Engine API release notes 2026
   Subscribe to RSS
 </a>
 
+## August
+
+### Monthly release 2026.08.0
+<!-- Published on: 2026-08-05T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [New Proxy service for enhanced dynamic zones is GA in Production](#new-proxy-service-for-enhanced-dynamic-zones-is-ga-in-production) | August 5, 2026 |
+| [New System Log events for Office 365 app-based provisioning is GA in Production](#new-system-log-events-for-office-365-app-based-provisioning-is-ga-in-production) | August 5, 2026 |
+| [Replace a Group Rule API can now update assigned groups is GA in Production](#replace-a-group-rule-api-can-now-update-assigned-groups-is-ga-in-production) | July 1, 2026 |
+| [Anything-as-a-Source device import is EA](#anything-as-a-source-device-import-is-ea) | August 5, 2026 |
+| [New Research Release lifecycle](#new-research-release-lifecycle) | August 5, 2026 |
+| [Developer documentation updates in 2026.08.0](#developer-documentation-updates-in-2026-08-0) | August 5, 2026 |
+| [Bug fixed in 2026.08.0](#bug-fixed-in-2026-08-0) | August 5, 2026 |
+
+#### New Proxy service for enhanced dynamic zones is GA in Production
+
+The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/getnetworkzone#other/getnetworkzone/t=response&c=200&path=&d=2/ipservicecategories) now supports the `PROXYLINE_PROXY` service.
+
+#### New System Log events for Office 365 app-based provisioning is GA in Production
+
+The System Log now logs the following events for app-based authentication for Office 365 provisioning:
+* `app.office365.provisioning_app.create`: This event is logged when Okta creates a dedicated Microsoft Entra ID app that's registered and used for Office 365 provisioning.
+* `app.office365.provisioning_app_credential.rotate`: This event is logged when Okta rotates the client secret of the registered Microsoft Entra ID app that's used for Office 365 provisioning. The `Outcome` field in this event's data indicates whether the client secret rotation was successful or not.
+
+See [Event Types](/docs/reference/api/event-types/?q=app.office365). <!-- OKTA-1226574 -->
+
+#### Replace a Group Rule API can now update assigned groups is GA in Production
+
+ The [Replace a group rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/grouprule/other/replacegrouprule) endpoint now supports updating the `actions` object to modify the groups assigned to a group rule. <!-- OKTA-1128862 FF EDITABLE_GROUP_RULE_TARGETS to GA Preview July 1, 2026 -->
+
+#### Anything-as-a-Source device import is EA
+
+The Identity Sources API now supports bulk device import for Anything-as-a-Source (XaaS) integrations, through the [Upload the device profiles to be upserted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identitysource/other/uploadidentitysourcedevicesforupsert) (`/api/v1/identity-sources/{identitySourceId}/sessions/{sessionId}/bulk-devices-upsert`) and [Upload the device external IDs to be deleted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identitysource/other/uploadidentitysourcedevicesfordelete) (` /api/v1/identity-sources/{identitySourceId}/sessions/{sessionId}/bulk-devices-delete`) endpoints. These calls allow you to synchronize device inventory (serial number, platform, and display name) from your identity source in the same identity-source session as your user and group data, giving you a single workflow to keep all three entity types in sync. See [Build an Anything-as-a-Source custom client integration](/docs/guides/anything-as-a-source/). <!-- OKTA-1218468 FF: IDENTITY_SOURCE_DEVICE_IMPORT EA date: August 5, 2026 -->
+
+#### New Research Release lifecycle
+
+A new Research Release lifecycle, marked with a Research Release badge, is now available for Okta APIs and developer documentation. Research Release features are available exclusively to members of the Okta Research Partner Program for a fixed evaluation period, before a feature moves toward Early Access or General Availability. See [Release lifecycle](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle#research-release). <!-- OKTA-1234133 -->
+
+#### Developer documentation updates in 2026.08.0
+
+* The [Build an Anything-as-a-Source custom client integration](/docs/guides/anything-as-a-source/) guide now supports bulk device import for Anything-as-a-Source (XaaS) integrations. <!-- OKTA-1218468 -->
+
+* The [Add the Identity Engine SDK to your app](/docs/guides/oie-upgrade-add-sdk-to-your-app/main/) guide now includes a JavaScript tab. It explains how to install the latest Okta Authentication JavaScript SDK and register your app's origin as a trusted origin for browser-based apps. <!-- OKTA-1220257 -->
+
+* The [Upgrade your app to the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/main/) guide now includes a JavaScript tab. It maps Classic Engine Authentication SDK methods to Identity Engine SDK calls for sign-in, MFA, and password recovery flows, with code samples for each use case. <!-- OKTA-1216425 -->
+
+* The [Plan embedded auth app upgrades](/docs/guides/oie-upgrade-plan-embedded-upgrades/main/) guide has been reorganized. It adds a "When to use this guide" section, clarifies that Okta delivers the Sign-In Widget Gen3 only as Okta-hosted, and rewrites several sections for clarity. <!-- OKTA-1216410 -->
+
+* The React tab of [Sign in to your SPA with Auth JS](/docs/guides/sign-in-to-spa-authjs/main/) has been rewritten to fix out-of-date sample code. It replaces the deprecated Create React App setup with Vite, updates the sign-in flow to Auth JS's Step Mode pattern, and adds the full working component code. <!-- OKTA-889035 -->
+
+#### Bug fixed in 2026.08.0
+
+* The `next` link in the `Link` response header for `GET /api/v1/apps/{id}/users` didn't include the expand query parameter. (OKTA-1230324)
+
 ## July
 
 ### Weekly release 2026.07.3
@@ -325,7 +380,7 @@ The OIN Wizard currently supports only client secret authentication for API serv
 
 #### Admin Console Home page
 
-The new Admin Console **Home** page for IFT orgs provides a faster way to start and manage your app submissions. Instead of navigating through the previous **Applications** > **Your OIN Integrations** path, you can now initiate submissions directly from the **Home** page. This guided experience helps you select integration types, understand requirements through a new **Quick Start guide**, and track your submission in real time from build to publication. It also includes a **Coming Soon** section to preview and register for upcoming integrations, making the entire process more centralized and efficient.
+The new Admin Console **Home** page for IFT orgs provides a faster way to start and manage your app submissions. Instead of navigating through the previous **Applications and Resources** > **Your OIN Integrations** path, you can now initiate submissions directly from the **Home** page. This guided experience helps you select integration types, understand requirements through a new **Quick Start guide**, and track your submission in real time from build to publication. It also includes a **Coming Soon** section to preview and register for upcoming integrations, making the entire process more centralized and efficient.
 <!-- OKTA-1117696 IFT_GETTING_STARTED_EXPERIENCE preview date: March 4, 2026  -->
 
 #### New Directories Integration endpoints to view extended Active Directory group attributes is GA in Preview

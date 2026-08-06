@@ -1,4 +1,4 @@
-2. Go to **Applications** > **Your OIN Integrations** in the Admin Console.
+2. Go to **Applications and Resources** > **Your OIN Integrations** in the Admin Console.
 
    > **Note:** If you only want to test an existing submission, see [Navigate directly to test your integration](#navigate-directly-to-test-your-integration).
 

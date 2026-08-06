@@ -268,7 +268,7 @@ The `allowlist` parameter must evaluate to a list of group IDs that are returned
 
 For an org authorization server, you can only create an ID token with a groups claim, not an access token. For the steps to configure a groups claim for use with an access token, see the [Use a static group allowlist with a custom authorization server](#use-a-static-group-allowlist-with-a-custom-authorization-server) section.
 
-1. In the Admin Console, go to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
 1. Select the OpenID Connect client application that you want to configure.
 1. Go to the **Sign On** tab and click **Edit** in the **OpenID Connect ID Token** section.
 1. In the **Groups claim type** section, select **Expression**.

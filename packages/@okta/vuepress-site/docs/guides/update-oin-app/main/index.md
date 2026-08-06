@@ -24,7 +24,7 @@ If you've a published Single Sign-On (SSO), lifecycle management, provisioning, 
 
 The OIN Wizard currently supports updates for integrations that use the following protocols or tools:
 
-* [OpenID Connect (OIDC)](https://openid.net/connect/
+* [OpenID Connect (OIDC)](https://openid.net/connect/)
 
 * [Security Assertion Markup Language (SAML) 2.0](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html)
 
@@ -36,10 +36,9 @@ The OIN Wizard currently supports updates for integrations that use the followin
 
 * [API service integration](/docs/guides/oin-api-service-overview/)
 
-> **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, SCIM 2.0, API service, or IDV integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
+* Identity Proofing (Identity Verification integration)
 
 > **Note:** You can use the [OIN Wizard](/docs/guides/update-oin-app/) to update OIDC, SAML 2.0, SCIM 2.0, and API service integrations that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
-* Identity Proofing (Identity Verification integration)
 
 There are two types of updates you can make to a published OIN integration:
 

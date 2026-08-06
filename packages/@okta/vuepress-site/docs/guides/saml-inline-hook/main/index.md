@@ -271,7 +271,7 @@ The SAML assertion inline hook is now set up with a status of active.
 
 ### Enable the SAML assertion inline hook
 
-1. Go to **Applications** and select your SAML app (in this example, "Spring Boot SAML").
+1. Go to **Applications and Resources** > **Applications** and select your SAML app (in this example, "Spring Boot SAML").
 
 1. Click **General**.
 
