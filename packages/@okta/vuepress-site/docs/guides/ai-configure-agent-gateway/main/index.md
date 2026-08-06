@@ -81,7 +81,7 @@ Before you create an Agent Gateway, retrieve your org's virtual MCP settings. Th
 
 ## Create the Agent Gateway
 
-Creating the Agent Gateway registers the gateway endpoint in Okta and creates its `WorkloadPrincipal` identity. The Agent Gateway is created in `INACTIVE` status and isn't reachable by AI agents until you activate it. See [Activate the Agent Gateway](#activate-the-agent-gateway).
+Creating the Agent Gateway registers the gateway endpoint in Okta and creates its `WorkloadPrincipal` identity. See [Create a virtual MCP](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpregistration/other/createvirtualmcp). The Agent Gateway is created in `INACTIVE` status and isn't reachable by AI agents until you activate it. See [Activate the Agent Gateway](#activate-the-agent-gateway).
 
 ### Request
 
@@ -99,7 +99,7 @@ Content-Type: application/json
 }
 ```
 
-The `resourcePath` value must be unique within your org and can't change after creation. The full gateway URL combines the `basePath` from [Retrieve Agent Gateway settings](#retrieve-agent-gateway-settings) with this path: `https://{subdomain}.gateway.okta.com/mcp/{resourcePath}`.
+The `resourcePath` value must be unique within your org and can't change after creation. The full gateway URL combines the `basePath` from [Retrieve Agent Gateway settings](/docs/guides/ai-configure-agent-gateway/main/#retrieve-agent-gateway-settings) with this path: `https://{subdomain}.gateway.okta.com/mcp/{resourcePath}`.
 
 ### Response
 
@@ -110,7 +110,7 @@ The `resourcePath` value must be unique within your org and can't change after c
 
 Poll the `Location` URL until the status is `COMPLETED` or `FAILED`. See [Poll for operation status](#poll-for-operation-status).
 
-When the operation completes, retrieve the Agent Gateway to get its vMCP ID and ORN for subsequent steps:
+When the operation completes, retrieve the Agent Gateway ([Retrieve a virtual MCP](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpregistration/other/getvirtualmcp)) to get its vMCP ID and ORN for subsequent steps:
 
 ### Request
 
@@ -198,7 +198,7 @@ The `from.clientOrn` value in this example references the MCP client app's OAuth
 
 ## Create a connection to a remote MCP server
 
-A resource connection authorizes the gateway to obtain tokens for a remote MCP server at runtime. Create one connection per remote MCP server, and then activate each connection before tool calls can succeed. Okta currently supports only `STS_ACCESS_TOKEN` connections to `MCP_SERVER` resources.
+A resource connection authorizes the gateway to obtain tokens for a remote MCP server at runtime. Create one connection per remote MCP server, and then activate each connection before tool calls can succeed. Okta currently supports only `STS_ACCESS_TOKEN` connections to `MCP_SERVER` resources. See [Create a virtual MCP connection](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpconnections/other/createvirtualmcpconnection).
 
 ### Create the connection
 
@@ -262,7 +262,7 @@ To change a connection later, send a `PATCH` request to the same connection URL.
 
 ### Activate the connection
 
-The connection must be active for tool calls to succeed at runtime.
+The connection must be active for tool calls to succeed at runtime. See [Activate a virtual MCP connection](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpconnections/other/activatevirtualmcpconnection).
 
 #### Request
 
@@ -280,6 +280,8 @@ Returns `200 OK` with the updated connection object, which includes `"status": "
 Define which tools from each remote MCP server are exposed through the Agent Gateway. AI agents only see the tools that you select here. Okta manages capabilities per connection, so you add or replace tools for one connection at a time.
 
 ### Add a single tool
+
+See [Add a capability to a virtual MCP connection](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpconnections/other/addvirtualmcpconnectioncapability).
 
 #### Request
 
@@ -317,7 +319,7 @@ The `status` field indicates whether the tool still exists on the remote server.
 
 ### Replace all tools for a connection
 
-To set the complete tool list for a connection in one call, use `PUT`. Okta removes any tool for that connection that you don't include in the request. Tools on other connections aren't affected.
+To set the complete tool list for a connection in one call, use `PUT`. Okta removes any tool for that connection that you don't include in the request. Tools on other connections aren't affected. See [Replace all capabilities for a virtual MCP connection](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpconnections/other/replacevirtualmcpconnectioncapabilities).
 
 #### Request
 
@@ -352,7 +354,7 @@ This is an asynchronous operation. Poll the `Location` URL for status. See [Poll
 
 ## Activate the Agent Gateway
 
-Activating the Agent Gateway makes it live. The gateway only serves `ACTIVE` vMCPs, so the endpoint isn't reachable by AI agents until you complete this step.
+Activating the Agent Gateway makes it live. The gateway only serves `ACTIVE` vMCPs, so the endpoint isn't reachable by AI agents until you complete this step. See [Activate a virtual MCP](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpregistration/other/activatevirtualmcp).
 
 ### Request
 
@@ -372,7 +374,7 @@ Poll the `Location` URL for status. When the operation completes with `"status":
 
 ## Poll for operation status
 
-Several steps in this guide return `202 Accepted` with a `Location` header that points to an operation. Use the following request to check whether the operation completed, such as when [creating](#create-the-agent-gateway), [activating](#activate-the-agent-gateway), [deleting](#delete-the-agent-gateway) the Agent Gateway, or [replacing a connection's tools](#replace-all-tools-for-a-connection):
+Several steps in this guide return `202 Accepted` with a `Location` header that points to an operation. Use the following request to check whether the operation completed, such as when [creating](#create-the-agent-gateway), [activating](#activate-the-agent-gateway), [deleting](#delete-the-agent-gateway) the Agent Gateway, or [replacing a connection's tools](#replace-all-tools-for-a-connection). See [Retrieve a workload principal operation](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/workloadprincipaloperations/other/getworkloadprincipaloperation):
 
 ```http
   GET /workload-principals/api/v1/operations/{operationId}
@@ -454,9 +456,9 @@ Only the tools that you selected in [Add tools](#add-tools) are reachable.
 
 ## Delete the Agent Gateway
 
-Deleting removes the Agent Gateway's registration and its `WorkloadPrincipal` identity entirely. This is irreversible.
+Deleting removes the Agent Gateway's registration and its `WorkloadPrincipal` identity entirely. This is irreversible. See [Delete a virtual MCP](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpregistration/other/deletevirtualmcp).
 
-The Agent Gateway must be in `INACTIVE` status before you can delete it. If it's `ACTIVE`, deactivate it first:
+The Agent Gateway must be in `INACTIVE` status before you can delete it. If it's `ACTIVE`, deactivate it first. See [Deactivate a virtual MCP](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/virtualmcpregistration/other/deactivatevirtualmcp):
 
 ```http
   POST /workload-principals/api/v1/virtual-mcp-servers/wlp1aB2cD3eF4gH5iJ6k/lifecycle/deactivate
