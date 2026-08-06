@@ -52,8 +52,7 @@ The Policies API now supports the `USER_IDENTIFICATION` policy type. Use it to c
 
 Okta automatically creates and maintains a user identification policy for each app sign-in policy. You manage only the policy's rule. Use the `userIdentification.settings.securityMethods.fastpass.showSignInButton` rule action (`ALWAYS` or `NEVER`) to control the button.
 
-See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies)
-<!-- and [Configure a user identification policy]!(/docs/guides/user-identification-policies/main/). -->
+See the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies) and [Configure a user identification policy]!(/docs/guides/user-identification-policies/main/).
 
 #### WebAuthn authenticator enrollments include transports values is self-service EA in Preview
 
