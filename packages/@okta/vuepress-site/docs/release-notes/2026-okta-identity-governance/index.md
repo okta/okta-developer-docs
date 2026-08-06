@@ -18,9 +18,9 @@ Okta Identity Governance is available for both Okta Classic Engine and Okta Iden
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Increased maximum for unique groups in requester audience](#increased-maximum-for-unique-groups-in-requester-audience) | August 5, 2026|
-| [API support for Access Certification campaign decisions is GA in Preview](#api-support-for-access-certification-campaign-decisions-is-ga-in-preview) | June 24, 2025 |
-| [Certify AI agent resource connections is GA in Preview](#certify-ai-agent-resource-connections-is-ga-in-preview) | August 5, 2026 |
+| [Increased maximum for unique groups in requester audience](#increased-maximum-for-unique-groups-in-requester-audience) | August 5, 2026 |
+| [API support for Access Certification campaign decisions is GA in Preview](#api-support-for-access-certification-campaign-decisions-is-ga-in-preview) | June 24, 2026 |
+| [Certify AI agent resource connections is GA in Preview](#certify-ai-agent-resource-connections-is-ga-in-preview) | July 1, 2026 |
 | [Governance Analyzer is GA in Production](#governance-analyzer-is-ga-in-production) | May 6, 2026 |
 | [Certify service accounts is GA in Production](#certify-service-accounts-is-ga-in-production) | Dec 10, 2025  |
 | [Bugs fixed in 2026.08.0](#bugs-fixed-in-2026-08-0)| August 5, 2026 |
@@ -33,11 +33,13 @@ You can now specify a maximum of 500 unique groups across all conditions in your
 #### API support for Access Certification campaign decisions is GA in Preview
 
 The [My Access Certification Reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews) APIs allow developers to programmatically manage review actions for end users. Using the [GET my reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews/listcampaignreviews) and [POST my review actions](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews/submitmycampaignreviewactions) methods, users can retrieve reviews and submit decisions (APPROVE, REVOKE, REASSIGN). This adds the flexibility to power custom portals, integrate decision-making into proprietary UIs, or implement unique reassignment logic.
-<!-- OKTA-1202116 IGA_ACCESS_CERT_REVIEW_ITEMS_ENDUSER_API EA Preview June 24, 2025 -->
+<!-- OKTA-1202116 IGA_ACCESS_CERT_REVIEW_ITEMS_ENDUSER_API EA Preview June 24, 2026 -->
 
 #### Certify AI agent resource connections is GA in Preview
 
 You can review and certify AI agent resource connections using identity campaigns (formerly, `USER` campaign types). This helps you maintain visibility and control as AI agents' access changes over time. See the [Campaigns](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns) API.
+
+<!-- OKTA-1199955 IGA_ACCESS_CERT_CERTIFYING_AI_AGENTS_AS_PRINCIPAL Preview: July 1, 2026 -->
 
 #### Governance Analyzer is GA in Production
 
@@ -46,6 +48,7 @@ Governance Analyzer provides access certification campaign reviewers with insigh
 The following [My Access Certification Reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews) end-user operations are now available to support the Governance Analyzer feature:
 * [Submit a bulk-review decision](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews/submitcampaignbulkdecisions)
 * [Retrieve the status of a bulk-review submission](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews/getcampaignbulkdecisionsjobstatus)
+
 <!-- OKTA-1168162 IGA_REVIEW_ML_RECOMMENDATIONS Preview: May 6, 2026 -->
 
 #### Certify service accounts is GA in Production
@@ -126,7 +129,7 @@ The following API updates have been made to support service account campaigns:
 
 #### Certify AI agent resource connections is EA
 
-After you enable the **Resource Access Certifications for AI Agents** feature, you can review and certify AI agent resource connections using identity campaigns (formerly, `USER` campaign types). This helps you maintain visibility and control as AI agents' access changes over time. See the [Campaigns](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=campaigntype) API. <!-- OKTA-1199955 IGA_ACCESS_CERT_CERTIFYING_AI_AGENTS_AS_PRINCIPAL -->
+After you enable the **Resource Access Certifications for AI Agents** feature, you can review and certify AI agent resource connections using identity campaigns (formerly, `USER` campaign types). This helps you maintain visibility and control as AI agents' access changes over time. See the [Campaigns](https://developer.okta.com/docs/api/iga/openapi/governance-production-reference/campaigns/createcampaign#campaigns/createcampaign/t=request&path=campaigntype) API. <!-- OKTA-1199955 IGA_ACCESS_CERT_CERTIFYING_AI_AGENTS_AS_PRINCIPAL Preview: July 1, 2026 -->
 
 #### Developer documentation updates in 2026.07.0
 
@@ -144,7 +147,7 @@ After you enable the **Resource Access Certifications for AI Agents** feature, y
 #### API support for Access Certification campaign decisions is EA
 
 The [My Access Certification Reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews) APIs allow developers to programmatically manage review actions for end users. Using the [GET my reviews](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews/listcampaignreviews) and [POST my review actions](https://developer.okta.com/docs/api/iga/openapi/governance-production-enduser-reference/my-access-certification-reviews/submitmycampaignreviewactions) methods, users can retrieve reviews and submit decisions (APPROVE, REVOKE, REASSIGN). This adds the flexibility to power custom portals, integrate decision-making into proprietary UIs, or implement unique reassignment logic.
-<!-- OKTA-1202116 IGA_ACCESS_CERT_REVIEW_ITEMS_ENDUSER_API EA Preview June 24, 2025 -->
+<!-- OKTA-1202116 IGA_ACCESS_CERT_REVIEW_ITEMS_ENDUSER_API EA Preview June 24, 2026 -->
 
 ### Monthly release 2026.06.0
 <!-- Published on: 2026-06-03T12:00:00Z -->
@@ -244,7 +247,7 @@ The [`reviewerSettings.justificationRequirement`](https://developer.okta.com/doc
  Change | Expected in Preview Orgs |
 | ------| ------------------------ |
 | [Self-review for Okta admin roles is EA](#self-review-for-okta-admin-roles-is-ea) | May 6, 2026|
-| [Governance Analyzer is EA](#governance-analyzer-is-ea) | May 6, 2026|
+| [Governance Analyzer is EA](#governance-analyzer-is-ea) | May 6, 2026 |
 
 #### Self-review for Okta admin roles is EA
 
