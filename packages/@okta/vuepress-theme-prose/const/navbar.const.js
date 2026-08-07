@@ -112,6 +112,10 @@ export const concepts = [
         path: "/docs/concepts/policies/",
       },
       {
+        title: "Proximity authentication",
+        path: "/docs/concepts/proximity-authentication/",
+      },
+      {
         title: "Token lifecycles",
         path: "/docs/concepts/token-lifecycles/",
       },
