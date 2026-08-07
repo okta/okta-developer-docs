@@ -99,7 +99,7 @@ CIMD client ID matching is exact-match only. Okta doesn't support pattern or reg
 
 ## Configure an existing AI agent as a CIMD client
 
-You can configure an AI agent that's already registered with Okta, but doesn't yet use CIMD, to use a CIMD OAuth client. Send a PATCH request to the AI agent with the same `oauthClient` object that you'd use at registration:
+You can configure an AI agent that you've already registered with Okta, but that doesn't yet use CIMD, to use a CIMD OAuth client. Send a PATCH request to the AI agent with the same `oauthClient` object that you'd use at registration:
 
 ```bash
 curl -v -X PATCH \
@@ -116,7 +116,7 @@ curl -v -X PATCH \
 
 As with registration, Okta processes this request asynchronously. The response is `202 Accepted` with a `Location` header that points to an operation you can poll for completion.
 
-You can't change the `oauthClient.type` on an AI agent that's already configured as a CIMD client, and you can't change a CIMD client's type to something else.
+You can't change a CIMD client's `oauthClient.type` to a different type after you set it.
 
 ## Use the CIMD client ID in a token request
 
