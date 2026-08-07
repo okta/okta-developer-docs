@@ -698,6 +698,15 @@ export const guides = [
         ],
       },
       {
+        title: "Cross App Access",
+        subLinks: [
+          {
+            title: "Configure AI agent-to-app",
+            path: "/docs/guides/xaa-agent-to-app/",
+          }
+        ],
+      },
+      {
         title: "Brand and Customize",
         subLinks: [
           {
