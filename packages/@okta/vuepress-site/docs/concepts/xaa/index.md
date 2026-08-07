@@ -6,13 +6,13 @@ title: Cross App Access (XAA)
 
 Cross App Access (XAA) provides a low-friction mechanism for an app to establish secure connections with a third-party resource server. The third-party resource server resides in a separate domain that's protected by an external authorization server.
 
-To support cross-domain authorization, a trust relationship is established between the app's identity provider and the external resource authorization server. Using XAA, a user can sign in to their app, the app can then access data across domains within the resource server. The app securely accesses the resource server on behalf of the user, without extra consent prompts.
+To support cross-domain authorization, a trust relationship is established between the app's identity provider and the external resource authorization server. Using XAA, a user can sign in to their app and the app can then access data across domains within a resource server on the user's behalf. The app securely accesses the resource server without extra consent prompts.
 
 ### The problem XAA solves
 
 Traditional external resource authorization methods (such as API authorization) create security and operational challenges in enterprise environments:
 
-* **Limitations of static API keys and standard OAuth**: Static API keys lack end-user context, grant overly broad permissions. Direct app-to-app OAuth flows operate outside central identity governance.
+* **Limitations of static API keys and standard OAuth**: Static API keys lack end user context, grant overly broad permissions. Direct app-to-app OAuth flows operate outside central identity governance.
 * **Benefits for enterprise customers**: XAA provides centralized governance, unified policy enforcement, and audit logging for every XAA request.
 * **Benefits for end users**: Users sign in once through their primary IdP and seamlessly access connected tools without repeated authentication prompts.
 * **Benefits for ISV developers**: Independent software vendors (ISVs) can meet enterprise security requirements faster, reducing friction in sales cycles. They can build their XAA-enabled integration once and reuse it for their customers.
@@ -115,7 +115,7 @@ Use XAA when your app meets the following criteria:
 Don't use XAA in the following scenarios:
 
 * **Autonomous agents**: Workflows that run independently without an active user session or human initiation.
-* **Background processing**: Scheduled background jobs, batch scripts, or machine-to-machine (M2M) processes operating without an end-user context.
+* **Background processing**: Scheduled background jobs, batch scripts, or machine-to-machine (M2M) processes operating without an end user context.
 * **Apps without an IdP**: Apps that don't integrate with a central identity provider.
 
 ## Cross App Access in Okta
