@@ -4,9 +4,9 @@ title: Cross App Access (XAA)
 
 ## What is Cross App Access?
 
-Cross App Access (XAA) provides a low-friction mechanism for an app to establish secure connections with a third-party resource app. The third-party resource app resides in a separate domain that's protected by an external authorization server.
+Cross App Access (XAA) provides a low-friction mechanism for an app to establish secure connections with a third-party resource server. The third-party resource server resides in a separate domain that's protected by an external authorization server.
 
-To support cross-domain authorization, a trust relationship is established between the app's identity provider and the external resource authorization server. A user can sign in to their app, and the app can securely access data across domains within the resource app on behalf of the user, without extra consent prompts, using XAA.
+To support cross-domain authorization, a trust relationship is established between the app's identity provider and the external resource authorization server. Using XAA, a user can sign in to their app, the app can then access data across domains within the resource server. The app securely accesses the resource server on behalf of the user, without extra consent prompts.
 
 ### The problem XAA solves
 
@@ -25,8 +25,8 @@ XAA supports authorization chaining across domains by implementing the Identity 
 
 Roles and responsibilities in the XAA flow:
 
-* **Requesting app (client)**: The client app that accesses a protected resource on behalf of the authenticated user. This is the app that initiates the API calls to the external service.
-* **Resource app (protected API server)**: The app that contains the protected resource data. This is typically an API server.
+* **Requesting app (client)**: The client app that accesses a protected resource on behalf of the authenticated user. This is the app that initiates the API calls to the external resource server.
+* **Resource app (protected API server)**: The app that contains the protected resource data. This is typically an API resource server.
 * **IdP**: The identity provider that has an SSO relationship to the requesting and resource apps. It issues the ID-JAG based on this relationship connection. With Okta as the IdP, the Okta admin manages this connection in Okta. The Okta authorization server issues the ID-JAG only for scoped access allowed in that connection.
 * **Resource authorization server**: The authorization server that's protecting the resource app. It validates incoming ID-JAG tokens and issues scoped access tokens in accordance with local access control policies.
 
@@ -58,7 +58,7 @@ RS -> WebApp: Returns resource data
 
 1. **User SSO**: The user signs in to the client (requesting app) through the IdP using standard SSO.
 1. **ID/refresh token issued**: The IdP returns an ID or refresh token.
-1. **Token exchange for ID-JAG**: The client exchanges its user ID assertion (this can be an ID or refresh token) at the IdP authorization server to obtain an Identity Assertion JWT Authorization Grant (ID-JAG) token.
+1. **Token exchange for ID-JAG**: The client exchanges its user ID assertion at the IdP authorization server to obtain an Identity Assertion JWT Authorization Grant (ID-JAG) token. The user ID assertion can be an ID or refresh token.
 1. **ID-JAG token issued**: The IdP authorization server issues an ID-JAG token to the client if the client has a trusted connection to the resource server.
 1. **JWT Authorization Grant**: The client presents the ID-JAG token to the resource authorization server.
 1. **Resource access token issued**: The resource authorization server validates the ID-JAG and issues a short-lived, scoped access token.
@@ -72,15 +72,15 @@ XAA addresses critical security, compliance, and user-experience challenges acro
 
 ### AI agent-to-app
 
-AI agents that act on behalf of users require access to third-party SaaS apps and internal databases. Authorization methods that force users to complete individual OAuth consent pages or embed static API keys fail to scale in enterprise settings and introduce security vulnerabilities.
+AI agents that act on behalf of users require access to third-party SaaS apps and internal databases. Authorization methods that force users to complete individual OAuth consent pages or embed static API keys fail to scale for enterprises and introduce security vulnerabilities.
 
 XAA integrates directly with AI agent frameworks and server standards, such as the Model Context Protocol (MCP). It enables AI assistants to perform complex, multi-app actions while preserving the signing user's identity context.
 
 Common AI agent scenarios include:
 
 * **Cross-tool project aggregation**: An AI assistant (such as Claude or Cursor) compiles a project status report by retrieving milestones from project management platforms (such as Asana or Linear), pulling technical specs from a documentation platform (such as Atlassian Confluence), inspecting designs from a design tool (such as Figma), and analyzing meeting notes from note-generating platforms (such as Zoom or Granola).
-* **Automated developer operations**: Developer tools and code editors (such as Visual Studio Code or Cursor) query container registries (such as Docker), inspect cloud app performance metric tools (such as Datadog), or query production databases (such as Supabase) using the engineer's scoped user identity.
-* **Enterprise AI search**: Federated AI search tools (such as Glean) retrieve internal company records from connected cloud services only when the end user has active permissions, preventing data leakage across organizational boundaries.
+* **Automated developer operations**: Developer tools and code editors (such as Visual Studio Code or Cursor) query container registries (such as Docker). They also inspect app performance metric tools (such as Datadog), or query production databases (such as Supabase) using the engineer's scoped user identity.
+* **Enterprise AI search**: Federated AI search tools (such as Glean) retrieve internal company records from connected cloud services only when the end user has active permissions. This prevents data leakage across organizational boundaries.
 
 <!--
 > **Note:** See [Configure AI agent-to-app with Cross App Access] for Okta Admin Console instructions on how to configure an AI agent-to-app connection with XAA.
@@ -94,7 +94,7 @@ XAA extends enterprise identity governance to direct app-to-app data exchange. W
 
 Common app-to-app integration scenarios include:
 
-* **Messaging and productivity synchronization**: A team collaboration app (such as Zoom) accesses an enterprise notification API (such as Slack) on another resource server, sending action items and notifications to employees.
+* **Messaging and productivity synchronization**: A team collaboration app (such as Zoom) accesses an enterprise notification API (such as Slack) on another server, sending action items and notifications to employees.
 * **Project management and issue tracking**: A project planning platform (such as Asana or Linear) pulls live issue statuses, customer details, or pull request updates from developer and CRM tools (such as Jira, Salesforce, or GitHub) under the context of the active team member.
 * **Automated workflow execution**: An enterprise integration platform (such as Zapier or Workato) triggers multi-step actions across connected HR, payroll, and IT ticketing tools while preserving the identity of the employee who initiated the request for compliance and auditing.
 
