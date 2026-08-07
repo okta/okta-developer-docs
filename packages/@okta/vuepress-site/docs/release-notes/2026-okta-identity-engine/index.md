@@ -29,7 +29,7 @@ title: Okta Identity Engine API release notes 2026
 | [Email authenticator auto-enrollment and recovery management is GA in Production](#email-authenticator-auto-enrollment-and-recovery-management-is-ga-in-production) | May 6, 2026 |
 | [Breached credentials protection configuration API is GA in Production](#breached-credentials-protection-configuration-api-is-ga-in-production) | August 5, 2026 |
 | [Replace a Group Rule API can now update assigned groups is GA in Production](#replace-a-group-rule-api-can-now-update-assigned-groups-is-ga-in-production) | July 1, 2026 |
-| [Cross App Access support for AI agents and apps for all customers](#cross-app-access-support-for-ai-agents-and-apps-for-all-customers) | August 5, 2026 |
+| [New user behavior permissions](#new-user-behavior-permissions) | August 5, 2026 |
 | [Anything-as-a-Source device import is EA](#anything-as-a-source-device-import-is-ea) | August 5, 2026 |
 | [New Research Release lifecycle](#new-research-release-lifecycle) | August 5, 2026 |
 | [Advanced device posture checks is GA in Production](#advanced-device-posture-checks-is-ga-in-production) |  April 9, 2025 |
@@ -91,18 +91,15 @@ You can now configure the detection method Okta uses to identify breached creden
 
  The [Replace a group rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/grouprule/other/replacegrouprule) endpoint now supports updating the `actions` object to modify the groups assigned to a group rule. <!-- OKTA-1128862 FF EDITABLE_GROUP_RULE_TARGETS to GA Preview July 1, 2026 -->
 
-#### Cross App Access support for AI agents and apps for all customers
+#### New user behavior permissions
 
-Use XAA to secure access between custom SSO-agentic requesting apps and SSO resource apps. XAA enables customers to connect AI agents and apps to take action on behalf of a user, and removes the need for user consent at runtime. The XAA connection is managed by Okta admins, providing them with visibility and control over which actions an AI agent can take on behalf of a user across the supported OIDC and SAML SSO protocols.
+The following custom admin permissions are now available to manage user behavior detection:
 
-For the agentic requesting app configuration, see [Add AI agents manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) in the product documentation, and select your custom SSO agentic app in **User access** > **App used for access configuration**.
+* `okta.users.behaviors.manage`
+* `okta.users.behaviors.read`
+* `okta.users.behaviors.reset`
 
-For the XAA resource app configuration, see [Configure resource server connectors](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-custom-rsc-svr) in the product documentation. If you’re configuring an OIN resource app, it must already have XAA enabled.
-
-To connect the AI agent to the resource app, see [Connect AI agents to resources](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-app-connection) and select **Application** as the resource type, and then select your resource app.
-
-Note that you can perform all these configurations without subscribing to Okta for AI Agents.
-<!-- OKTA-1212187 SECURE_AI_XAA -->
+See [Permissions in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions). <!-- OKTA-1146814 -->
 
 #### Anything-as-a-Source device import is EA
 

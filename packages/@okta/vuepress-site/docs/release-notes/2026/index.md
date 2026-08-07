@@ -21,6 +21,7 @@ title: Okta Classic Engine API release notes 2026
 | [Replace a Group Rule API can now update assigned groups is GA in Production](#replace-a-group-rule-api-can-now-update-assigned-groups-is-ga-in-production) | July 1, 2026 |
 | [Anything-as-a-Source device import is EA](#anything-as-a-source-device-import-is-ea) | August 5, 2026 |
 | [New Research Release lifecycle](#new-research-release-lifecycle) | August 5, 2026 |
+| [New user behavior permissions](#new-user-behavior-permissions) | August 5, 2026 |
 | [Developer documentation updates in 2026.08.0](#developer-documentation-updates-in-2026-08-0) | August 5, 2026 |
 | [Bug fixed in 2026.08.0](#bug-fixed-in-2026-08-0) | August 5, 2026 |
 
@@ -47,6 +48,16 @@ The Identity Sources API now supports bulk device import for Anything-as-a-Sourc
 #### New Research Release lifecycle
 
 A new Research Release lifecycle, marked with a Research Release badge, is now available for Okta APIs and developer documentation. Research Release features are available exclusively to members of the Okta Research Partner Program for a fixed evaluation period, before a feature moves toward Early Access or General Availability. See [Release lifecycle](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle#research-release). <!-- OKTA-1234133 -->
+
+#### New user behavior permissions
+
+The following custom admin permissions are now available to manage user behavior detection:
+
+* `okta.users.behaviors.manage`
+* `okta.users.behaviors.read`
+* `okta.users.behaviors.reset`
+
+See [Permissions in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions). <!-- OKTA-1146814 -->
 
 #### Developer documentation updates in 2026.08.0
 
