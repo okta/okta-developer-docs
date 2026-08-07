@@ -94,7 +94,7 @@ This guide isn't tied to a specific platform. To walk through the token exchange
 1. Click **Next**.
 1. Under **User access and authentication**, check **Allow users to access this agent**, then select **Create a new OIDC app** to create an OIDC SSO app instance to bind to the AI agent.
 
-   > **Note:** You can select **Select an existing SAML app** to choose an existing SAML SSO app to bind to the AI agent.
+   > **Note:** You can select **Select an existing app** to choose an existing custom SSO app to bind to the AI agent. This option is used for binding a SAML app to the AI agent.
 
 1. Click **Next**.
 1. Under **Owners**, add owners to the AI Agent. Add at least two owners. Click **Save**.
