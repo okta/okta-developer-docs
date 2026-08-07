@@ -99,19 +99,7 @@ The following custom admin permissions are now available to manage user behavior
 * `okta.users.behaviors.read`
 * `okta.users.behaviors.reset`
 
-See [Permissions in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions). <!-- OKTA-1146814 - - >
-<!--#### Cross App Access support for AI agents and apps for all customers
-
-Use XAA to secure access between custom SSO-agentic requesting apps and SSO resource apps. XAA enables customers to connect AI agents and apps to take action on behalf of a user, and removes the need for user consent at runtime. The XAA connection is managed by Okta admins, providing them with visibility and control over which actions an AI agent can take on behalf of a user across the supported OIDC and SAML SSO protocols.
-
-For the agentic requesting app configuration, see [Add AI agents manually](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-add-manually) in the product documentation, and select your custom SSO agentic app in **User access** > **App used for access configuration**.
-
-For the XAA resource app configuration, see [Configure resource server connectors](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-custom-rsc-svr) in the product documentation. If you’re configuring an OIN resource app, it must already have XAA enabled.
-
-To connect the AI agent to the resource app, see [Connect AI agents to resources](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-app-connection) and select **Application** as the resource type, and then select your resource app.
-
-Note that you can perform all these configurations without subscribing to Okta for AI Agents.
-<!-- OKTA-1212187 SECURE_AI_XAA -->
+See [Permissions in Okta](https://developer.okta.com/docs/api/openapi/okta-management/guides/permissions). <!-- OKTA-1146814 -->
 
 #### Anything-as-a-Source device import is EA
 
