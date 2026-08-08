@@ -49,41 +49,17 @@ The following third-party AI Agent platforms are supported:
 
 To configure token exchange for third-party AI agents, you must complete the following configurations:
 
-- Create an Okta OIDC web app integration to handle user sign-on and issue ID tokens.
 - Add a custom scope for your custom authorization server.
-- Import a third-party AI Agent with RSA key-pair authentication.
+- Import a third-party AI Agent with RSA key-pair authentication, or register your AI agent manually.
+
+   If you register your AI agent manually:
+   - You can automatically create an OIDC app instance for user sign-on.
+   - You can select a previously created app instance for user sign-on.
+
 - Configure the access policy to allow the JWT bearer grant type.
 - Complete the token exchange flow with Okta APIs.
 
 After these configurations, you can create a test app to demonstrate this flow. See [Create an app to test the token exchange flow](#create-an-app-to-test-the-token-exchange-flow).
-
-### Create an OIDC web app integration
-
-An app integration represents your app in your Okta org. Use it to configure how your app connects with Okta services.
-
-1. Open the Admin Console for your org.
-1. Go to **Applications** > **Applications** to view the current app integrations.
-1. Click **Create App Integration** > **Classic experience**
-1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
-1. Select **Web Application** as the **Application type**, then click **Next**.
-1. Enter an **App integration name**. For example, "AI third-party token exchange."
-1. Set the following values.
-   1. **Grant types**: Authorization Code
-   [[style="list-style-type:lower-alpha"]]
-   1. **Sign-in redirect URIs**: Enter `http://localhost:5000/callback`
-
-1. Select **Allow everyone in your organization to access** for **Controlled access**.
-1. Click **Save** to create the app integration.
-
-The configuration page for the new app integration appears.
-
-Make a note of the client ID and client secret. Both are in the configuration pane for the app integration that you've created:
-
-- **Client ID**: Found on the **General** tab in the **Client Credentials** section.
-
-- **Client Secret**: Found on the **General** tab in the **Client Credentials** section.
-
-> **Note:** For a complete guide to all the options not explained in this guide, see [Create OIDC app integrations](/docs/guides/create-an-app-integration/openidconnect/main/).
 
 ### Add a custom scope for your custom authorization server
 
@@ -114,17 +90,22 @@ This guide isn't tied to a specific platform. To walk through the token exchange
 1. In the Admin Console, go to **Directory** > **AI agents**.
 1. Click **Register AI agent** > **Register manually**.
 1. Under **Profile**, add a name and description for your AI Agent, for example, "third-party AI Agent."
-1. Click **Register**.
+1. Optional: under **Identifier (Recommended if available)**, select the agent builder platfrom if available.
+1. Click **Next**.
+1. Under **User access and authentication**, check **Allow users to access this agent**, then select **Create a new OIDC app** to create an OIDC SSO app instance to bind to the AI agent.
+
+   > **Note:** You can select **Select an existing app** to choose an existing custom SSO app to bind to the AI agent. This option is used for binding a SAML app to the AI agent.
+
+1. Click **Next**.
 1. Under **Owners**, add owners to the AI Agent. Add at least two owners. Click **Save**.
 1. Select your AI Agent from the list of AI Agents, and click **Credentials**. Make a note of the AI agent ID.
-1. Under **Client Authentication**, generate an RSA key-pair. Click **Add public key** and **Generate new key** or use your own public key. Click **Done**.
+   > **Note:** The `OIDC_CLIENT_ID` variable is set to the AI agent ID in the sample app. See [Create your environment file](#create-your-environment-file).
+1. Under **Client registration** > **Client secret**, click **Generate secret** to generate a client secret. Copy and save the secret. Click **Done**.
+   > **Note:** The `OIDC_CLIENT_SECRET` variable is set to the client secret value in the sample app. See [Create your environment file](#create-your-environment-file).
 1. From **Actions**, select **Activate**.
-1. Click **Delegations**. Under **User sign-on**, click **Add caller**. From **Application**, select your previously created OIDC app integration, for example, "AI third-party token exchange." Click **Add caller**.
-1. Under **Non-human identity**, click **Configure**. From **Authorization server**, select your custom authorization server, in this example, use `default`.
-1. Add a value for the **Audience/resource URL**. In this test example, use `https://example.com`. Click **Save**.
 1. Click **Resource connections**, and then **Add resource connection**. Select the **Authorization server** resource type, and then from **Select Authorization server**, select your custom authorization server, in this example, use `default`. From **The following OAuth scopes**, select the custom scope you added previously, for example, `xaa:read`. Click **Add**.
 
->**Note:** Make a note of the AI Agent ID. For example, `wlp9k6....GKZ5hAE0g7`.
+> **Note:** Make a note of the AI Agent ID and client credentials.
 
 ### Configure the access policy
 
@@ -179,7 +160,7 @@ curl -X POST https://{yourOktaDomain}/oauth2/v1/token \
 | client_assertion_type | The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | client_assertion | A signed JWT used for client authentication. Sign the JWT using the key created during the AI Agent registration. For more information on building the JWT, see [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key). |
 | subject_token_type | The value must be `urn:ietf:params:oauth:token-type:id_token`. |
-| subject_token | A valid ID token issued to the resource app associated with the AI agent |
+| subject_token | A valid ID token associated with signed in user. |
 | requested_token_type | The value must be `urn:ietf:params:oauth:token-type:id-jag`. |
 | scope | A list of scopes at the resource app being requested. This defines the permissions for the final access token. Use `xaa:read` |
 | audience | The issuer URL of the resource app's authorization server. |
@@ -293,7 +274,7 @@ This demo script obtains an ID token for testing. See [Exchange the ID token for
 
 ### Create your environment file
 
-Create a `.env` file. The demo script references the values in this file. Include the following details from your OIDC app integration. See [Create an OIDC app integration](#create-an-oidc-web-app-integration) for these values. Add:
+Create a `.env` file. The demo script references the values in this file. Include the following details from your AI agent. Use your AI agent ID as the `OIDC_CLIENT_ID` and your AI agent client secret as the `OIDC_CLIENT_SECRET`. Add:
 
 ```bash
 OKTA_DOMAIN=https://{yourOktaDomain}
