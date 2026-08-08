@@ -112,7 +112,7 @@ Your protected resource metadata response must return a JSON object conforming t
 | Property | Type | Description |
 | --- | --- | --- |
 | `resource` | String | The canonical URI identifying your protected resource server |
-| `authorization_servers` | Array of strings | The OAuth authorization server issuer identifiers for the proteced resource server. This is a list of authorization server URIs that can issue access tokens. |
+| `authorization_servers` | Array of strings | The OAuth 2.0 authorization server issuer identifiers for the protected resource server. This is a list of authorization server URIs that can issue access tokens for the resource server. |
 | `scopes_supported` | Array of strings | The OAuth 2.0 scope strings supported by the resource server for API access control |
 
 #### Example response

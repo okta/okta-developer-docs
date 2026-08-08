@@ -706,6 +706,15 @@ export const guides = [
         ],
       },
       {
+        title: "Cross App Access (XAA)",
+        subLinks: [
+          {
+            title: "Expose XAA metadata for your resource app",
+            guideName: "xaa-resource-metadata",
+          },
+        ],
+      },
+      {
         title: "Brand and Customize",
         subLinks: [
           {
@@ -829,15 +838,6 @@ export const guides = [
                {
                 title: "Express Submission",
                 guideName: "express-submission",
-              },
-            ]
-          },
-          {
-            title: "Cross App Access (XAA)",
-            subLinks: [
-              {
-                title: "Expose XAA metadata for your resource app",
-                guideName: "xaa-resource-metadata",
               },
             ]
           },
