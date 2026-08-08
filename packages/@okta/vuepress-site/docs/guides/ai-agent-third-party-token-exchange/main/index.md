@@ -99,7 +99,9 @@ This guide isn't tied to a specific platform. To walk through the token exchange
 1. Click **Next**.
 1. Under **Owners**, add owners to the AI Agent. Add at least two owners. Click **Save**.
 1. Select your AI Agent from the list of AI Agents, and click **Credentials**. Make a note of the AI agent ID.
-1. Under **Client Authentication**, generate an RSA key-pair. Click **Add public key** and **Generate new key** or use your own public key. Click **Done**.
+   > **Note:** The `OIDC_CLIENT_ID` variable is set to the AI agent ID in the sample app. See [Create your environment file](#create-your-environment-file).
+1. Under **Client registration** > **Client secret**, click **Generate secret** to generate a client secret. Copy and save the secret. Click **Done**.
+   > **Note:** The `OIDC_CLIENT_SECRET` variable is set to the client secret value in the sample app. See [Create your environment file](#create-your-environment-file).
 1. From **Actions**, select **Activate**.
 1. Click **Resource connections**, and then **Add resource connection**. Select the **Authorization server** resource type, and then from **Select Authorization server**, select your custom authorization server, in this example, use `default`. From **The following OAuth scopes**, select the custom scope you added previously, for example, `xaa:read`. Click **Add**.
 
@@ -272,7 +274,7 @@ This demo script obtains an ID token for testing. See [Exchange the ID token for
 
 ### Create your environment file
 
-Create a `.env` file. The demo script references the values in this file. Include the following details from your OIDC app integration. You can use your AI agent ID as the `OIDC_CLIENT_ID` and your AI agent credentials. Add:
+Create a `.env` file. The demo script references the values in this file. Include the following details from your AI agent. Use your AI agent ID as the `OIDC_CLIENT_ID` and your AI agent client secret as the `OIDC_CLIENT_SECRET`. Add:
 
 ```bash
 OKTA_DOMAIN=https://{yourOktaDomain}
