@@ -58,19 +58,30 @@ To configure an AI agent as the requesting app for XAA, follow the register AI a
    * **Client ID only**: Recommended for public clients that can't store a secret, such as local coding agents.
    * **Client secret**: Recommended for server-side AI agents. Click **Generate secret** and save the value for your AI agent app's OAuth 2.0 flow.
    * **Public/private key**: Recommended for AI agents that have builder-managed key pairs.
-      1. Click Add public key.
+      1. Click **Add public key**.
       1. Enter your public key, or click Generate new key. Okta creates a public key that's associated with a private key that you can view in JSON or PEM.
       1. Click Copy to clipboard and store the private key safely.
       1. Click **Done**.
    * Copy the identifier that appears in the **Client ID** field and use in your AI agent app. This is the requesting app's client ID used for OAuth 2.0.
    * Click **Activate**.
 
-
 ## Configure the resource app
 
-1. For each resource app you want to connect to the AI agent, create a custom or OIN app instance in Okta with OIDC or SAML SSO configured. If you use an OIN app as the resource app, it must already have XAA enabled.
+For each resource app you want to connect to the AI agent, create a custom or OIN app instance in Okta with OIDC or SAML SSO configured. If you use an OIN app as the resource app, it must already have XAA enabled.
 
     * For an SSO resource app instance in Okta, configure the **Cross-app access (XAA)** in the **Resource Server** tab. See the instructions in [Configure resource server connectors](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-rsc-svr-config).
+
+Configure XXA for a custom SSO app integration:
+
+1. In the Admin Console, go to **Applications and Resources** > **Applications**.
+1. Select your SSO resource app.
+1. In the **Resource Server** tab of your resource app page, select **Cross App Access (XAA)** to configure this access method:
+    1. Select Enable to grant access to the app through Cross App Access.
+    1. Complete the following fields:
+        * **Resource URL**: The base URL of the app's resource server.
+        * Issuer URL: The base URL of the app's authorization server. Okta uses this URL to detect token verification requests.
+        * Audience/tenant ID: A unique identifier or audience claim for the authorization server that protects the resource.
+    1. Click **Save**.
 
 ## Configure the XAA connection
 
