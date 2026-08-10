@@ -63,7 +63,7 @@ To configure an AI agent as the requesting app for XAA in Okta, follow the **Reg
 
 1. Click **Next**.
 1. Under **Owners**, add owners for the AI agent. This is optional. You can click **Skip for now**, however, Okta recommends that you add least two owners. Click **Save** after you've added the owners.
-1. Select your AI Agent from the list of AI Agents, and click **Credentials**.
+1. Select your AI Agent from the list of AI Agents, and click **Client registration**.
 1. On the **Client registration** tab, select a client registration method:
    * **Client ID only**: Recommended for public clients that can't store a secret, such as local coding agents.
    * **Client secret**: Recommended for server-side AI agents. Click **Generate secret** and save the value for your AI agent app's OAuth 2.0 flow.
@@ -83,7 +83,7 @@ For each resource app you want to connect to the AI agent, create a custom or OI
 
 ### Enable XAA on a custom app integration
 
-Configure XXA for an existing custom SSO app integration instance in Okta:
+Configure XAA for an existing custom SSO app integration instance in Okta:
 
 <!-- For an SSO resource app instance in Okta, configure the **Cross-app access (XAA)** in the **Resource Server** tab. See the instructions in [Configure resource server connectors](https://help.okta.com/okta_help.htm?type=oie&id=ai-agent-rsc-svr-config). -->
 
