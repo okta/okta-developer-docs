@@ -123,24 +123,24 @@ In Okta for AI Agent orgs, when you delegate an AI agent to an app, it can only 
 If you've previously configured an AI agent with app delegation links, your delegation links now appear as user access apps. The following behavior applies to migrated delegation links in the direct user authentication model:
 
 * If you have a single app delegation for your AI agent, you don't need to reconfigure the AI agent's migrated user access app. Your XAA flow still works with this configuration.
-* If you previously have multiple app delegation links, you need to delete all of the migrated user access apps and recreate only one user access app. See [Reconfigure direct user authentiation for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
-* If you want to modify your previous app delegation link configuration, you need to delete your exising user access app configuration and recreate a new one. See [Reconfigure direct user authentiation for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
+* If you previously have multiple app delegation links, you need to delete all of the migrated user access apps and add only one user access app. See [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
+* If you want to modify your previous app delegation link configuration, you need to delete your existing user-access-app configuration and recreate a new one. See [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
 
-> **Note:** A "This agent is using an outdated method for user sign-on" warning message appears if your AI agent was configured using delegation links. You only have to recreate your user access app configuration if you need to change the direct user authentication model for your AI agent.
+> **Note:** A "This agent is using an outdated method for user sign-on" warning message appears if your AI agent was configured using delegation links. You only have to recreate your user-access-app configuration if you need to change direct user authentication for your AI agent.
 
-### Reconfigure direct user authentiation for your AI agent
+### Reconfigure direct user authentication for your AI agent
 
 Delete previous user access apps:
 
 1. In the Admin Console, go to **Directory** > **AI Agents**.
 1. Select an AI agent.
 1. Select the **User access** tab.
-1. In the **User sign-on** section, click the more icon (![three-dot more icon](/img/icons/odyssey/more.svg)) next to user access app that you want to remove, then select **Delete**.
-    > **Note:** Perform this step for all the user access apps you want to remove.
+1. In the **User sign-on** section, click the more icon (![three-dot more icon](/img/icons/odyssey/more.svg)) next to the user access app that you want to remove, then select **Delete**.
+    > **Note:** Perform this step for all the user-access apps you want to remove.
 
-Add direct user authentiation to our AI agent with an SSO requesting app:
+Add direct user authentication to our AI agent with an SSO requesting app:
 
-1. In the Admin Console, go to **Directory** > **AI Agents**.
+1. Go to **Directory** > **AI Agents**.
 1. Select an AI agent.
 1. Select the **User access** tab.
 1. Under **User access** > **App used for access configuration**, select one of:
