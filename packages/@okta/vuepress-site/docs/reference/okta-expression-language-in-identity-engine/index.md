@@ -67,7 +67,7 @@ When you create an Okta expression, you can reference EDR attributes and any pro
 
 | Syntax | Definitions | Examples |
 | -------- | ---------- | ------------ |
-| `device.id` | String. The unique identifier that Okta assigns to the device. Returns the device's Okta-assigned identifier when the user authenticates with Okta FastPass on a device enrolled in Okta FastPass.<br>Returns `''` when the user authenticates with a password or any other authenticator, or when the device isn't enrolled in Okta FastPass. This behavior is the same on Windows and iOS. | `device.id` |
+| `device.id` | String. The unique identifier that Okta assigns to the device. Returns the device's Okta-assigned identifier when the user authenticates with Okta FastPass on a device enrolled in Okta FastPass.<br>Doesn't return a value when the user authenticates with a password or any other authenticator, or when the device isn't enrolled in Okta FastPass. This behavior is the same on Windows and iOS. | `device.id` |
 | `device.assurance.screenLockType` | String. The device screen lock type. Values: `NONE` (no passcode), `PASSCODE` (passcode only, no biometrics), `BIOMETRIC` (both set). | `device.assurance.screenLockType == 'BIOMETRIC'` |
 | `device.caller.binaryIdentifier` | String. Identifies the app that you allow to invoke Okta FastPass (macOS, Windows). Find exact identifiers in the System Log. | `Google Chrome` |
 | `device.caller.bindingType` | String. The binding method used for authentication. Values: `LOOPBACK` (macOS, Windows), `APPLE_SSO_EXTENSION` (macOS). | `device.caller.bindingType == 'LOOPBACK'` |
