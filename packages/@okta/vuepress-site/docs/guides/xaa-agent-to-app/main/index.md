@@ -116,19 +116,19 @@ For each XAA-enbled resource app that you want to connect to your AI agent, conf
 
 If your org is subscribed to Okta for AI Agents, the **Delegations** tab has been renamed to **User access** and **Machine access** on the AI agent page. The **User access** tab contains configuration on the users that can access the AI agent, and the **Machine access** tab contains configuration on the AI agent's non-human access.
 
-In Okta for AI Agent orgs, when you delegate an AI agent to an app, it can only act on a user's behalf if the user is signed in to the app. Previously, you can create multiple delegation links for an AI agent under the **Delegations** tab. However, with the new **User access** configuration, you can only allow users to sign in to one SSO app for an AI agent. You can still have multiple non-user delegation links, which appear now in the **Machine access** tab.
+In Okta for AI Agent orgs, when you delegate an AI agent to an SSO app, it can only act on a user's behalf if the user is signed in to the app. Previously, you can create multiple delegation links for an AI agent under the **Delegations** tab. However, with the new **User access** configuration, you can only allow users to sign in to one SSO app for an AI agent. You can still have multiple non-user delegation links, which now appear in the **Machine access** tab.
 
 In the **User access** configuration, the AI agent and SSO OIDC app use the same ID and credentials. This implies that the AI agent ID and the SSO OIDC client app ID have the same value. The credentials for the AI agent are used for the SSO client app.
 
 > **Note:** For SAML SSO requesting apps, the AI agent's ID and credentials are used for the XAA flow.
 
-If you've previously configured an AI agent with a user-access-app delegation link, it now appear as a direct user access app. The following behavior applies to migrated delegation links in the direct user authentication model:
+If you've previously configured an AI agent with user-access-app delegation links, they now appear as apps in the **User access** tab. The following behavior applies to migrated delegation links in the **User access** model:
 
-* If you had a user-access-app delegation for your AI agent, you don't need to reconfigure the AI agent's migrated user access app. Your XAA flow still works with the migrated user access app.
-* If you previously have multiple app delegation links, and the user access link wasn't migrated properly to **User access** tab, you need to delete the the exising user-access-app configuration and recreate a new one. See [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
-* If you want to modify your previous app delegation link configuration, you need to delete your existing user-access-app configuration and recreate a new one. See [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
+* If you have a single user-access-app delegation for your AI agent, you don't need to reconfigure the AI agent's user access app. Your XAA flow still works with the current configuration.
+* If you previously had multiple user-access-app delegation links, delete the existing user-access-app configurations and recreate only one user-access-app binding. See [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
+* If you want to modify your previous delegation configuration, delete your existing user-access-app configuration and recreate a new one. See [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
 
-> **Note:** A "This agent is using an outdated method for user sign-on" warning message appears if your AI agent was configured using delegation links. You only have to recreate your user-access-app configuration if you need to change direct user authentication for your AI agent.
+> **Note:** A "This agent is using an outdated method for user sign-on" warning message appears if your AI agent was configured using delegation links. [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentication-for-your-ai-agent) depending on the behaviour of your migrated delegation links.
 
 ### Reconfigure direct user authentication for your AI agent
 
@@ -137,7 +137,8 @@ Delete previous user access apps:
 1. In the Admin Console, go to **Directory** > **AI Agents**.
 1. Select an AI agent.
 1. Select the **User access** tab.
-1. In the **User sign-on** section, click the more icon (![three-dot more icon](/img/icons/odyssey/more.svg)) next to the user access app that you want to remove, then select **Delete**.
+1. In the **User sign-on** section, click the more icon (![three-dot more icon](/img/icons/odyssey/more.svg)) next to the user-access app that you want to remove, then select **Delete**.
+    > **Note:** Perform this step for all the user-access apps you want to remove.
 
 Add direct user authentication to our AI agent with an SSO requesting app:
 
