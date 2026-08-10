@@ -122,9 +122,9 @@ In the **User access** configuration, the AI agent and SSO OIDC app use the same
 
 > **Note:** For SAML SSO requesting apps, the AI agent's ID and credentials are used for the XAA flow.
 
-If you've previously configured an AI agent with app delegation links, your delegation links now appear as user access apps. The following behavior applies to migrated delegation links in the direct user authentication model:
+If you've previously configured an AI agent with a user-access-app delegation link, it now appear as a direct user access app. The following behavior applies to migrated delegation links in the direct user authentication model:
 
-* If you have a single app delegation for your AI agent, you don't need to reconfigure the AI agent's migrated user access app. Your XAA flow still works with this configuration.
+* If you had a user-access-app delegation for your AI agent, you don't need to reconfigure the AI agent's migrated user access app. Your XAA flow still works with the migrated user access app.
 * If you previously have multiple app delegation links, and the user access link wasn't migrated properly to **User access** tab, you need to delete the the exising user-access-app configuration and recreate a new one. See [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
 * If you want to modify your previous app delegation link configuration, you need to delete your existing user-access-app configuration and recreate a new one. See [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
 
