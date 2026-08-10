@@ -98,6 +98,14 @@ When you create an Okta expression, you can reference EDR attributes and any pro
 
 See [Integrate with Endpoint Detection and Response solutions](https://help.okta.com/okta_help.htm?type=oie&id=ext-edr-integration-main) and [Available EDR signals by vendor](https://help.okta.com/okta_help.htm?type=oie&id=ext-edr-integration-available-signals) for details about `vendor` and `signal`.
 
+### Device access attributes
+
+The following table lists the device access attributes.
+
+| Syntax | Definitions | Examples |
+| -------- | ---------- | ------------ |
+| `device.provider.deviceAccess.joined` | Boolean. Indicates whether the device is joined to Okta for use of advanced capabilities like Device-Bound Single Sign-On (DBSSO). See [DBSSO](https://help.okta.com/okta_help.htm?type=oie&id=ext-oda-dbsso) for more information. | `true` or `false`<br>`device.provider.deviceAccess.joined == true` |
+
 ## Session properties
 
 When you create an Okta expression, you can reference attributes within the `session` context.
