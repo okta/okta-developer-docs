@@ -49,9 +49,9 @@ jobs:
   node_build_checks:
       docker:
         - image: cimg/node:14.21.3-browsers
-      resource_class: arm.large
+      resource_class: xlarge.gen2
       environment:
-        NODE_OPTIONS: '--max-old-space-size=6144'
+        NODE_OPTIONS: '--max-old-space-size=8192'
       steps:
         - checkout
         - install-deps
