@@ -44,6 +44,8 @@ Access Gateway automatically creates a default access policy for each IdP that h
 
 An access policy supports one rule, with a single authentication method chain. See [Create an access policy](#create-an-access-policy) for the supported chains. `actions.access` must be set to `allow`. It's currently the only supported value.
 
+> **Note:** Access policies replace the deprecated group policy API. If Access Gateway detects that you've configured group policies, it migrates them to access policies automatically.
+
 ## Configure Smart Card authentication and access policies for Access Gateway
 
 The following sections explain how to configure the mTLS certificate, hostname, Smart Card authenticator, and access policy, and how to assign the policy to an app.
@@ -355,7 +357,7 @@ The app now enforces the assigned access policy when Access Gateway is in offlin
 
 ## Summary
 
-You've successfully configured a Smart Card authenticator and an access policy for Access Gateway offline mode. Users in the group that's defined in the policy's condition must now sign in using the authentication method chain that you configured, such as a Smart Card, a password, or both, when Access Gateway is in offline mode.
+You've successfully configured a Smart Card authenticator and an access policy for Access Gateway offline mode. When Access Gateway is in offline mode, users in the policy's group must sign in with the configured authentication method chain. This chain can require a Smart Card, a password, or both.
 
 ## See also
 
