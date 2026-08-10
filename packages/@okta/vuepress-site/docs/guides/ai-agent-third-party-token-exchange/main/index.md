@@ -52,7 +52,6 @@ To configure token exchange for third-party AI agents, you must complete the fol
 - Add a custom scope for your custom authorization server.
 - Import a third-party AI Agent with RSA key-pair authentication, or register your AI agent manually.
 
-   If you register your AI agent manually:
    - You can automatically create an OIDC app instance for user sign-on.
    - You can select a previously created app instance for user sign-on.
 
@@ -94,12 +93,12 @@ This guide isn't tied to a specific platform. To walk through the token exchange
 1. Click **Next**.
 1. Under **User access and authentication**, check **Allow users to access this agent**, then select **Create a new OIDC app** to create an OIDC SSO app instance to bind to the AI agent.
 
-   > **Note:** You can select **Select an existing app** to choose an existing custom SSO app to bind to the AI agent. This option is used for binding a SAML app to the AI agent.
+   > **Note:** You can select **Select an existing app** to choose an existing custom SSO app. This option is used for users to access the AI agent through an SSO SAML app.
 
 1. Click **Next**.
 1. Under **Owners**, add owners to the AI Agent. Add at least two owners. Click **Save**.
-1. Select your AI Agent from the list of AI Agents, and click **Credentials**. Make a note of the AI agent ID.
-   > **Note:** The `OIDC_CLIENT_ID` variable is set to the AI agent ID in the sample app. See [Create your environment file](#create-your-environment-file).
+1. Select your AI Agent from the list of AI Agents, and click **Client registration**. Make a note of the **Client ID**.
+   > **Note:** The `OIDC_CLIENT_ID` variable is set to the client ID value in the sample app. See [Create your environment file](#create-your-environment-file).
 1. Under **Client registration** > **Client secret**, click **Generate secret** to generate a client secret. Copy and save the secret. Click **Done**.
    > **Note:** The `OIDC_CLIENT_SECRET` variable is set to the client secret value in the sample app. See [Create your environment file](#create-your-environment-file).
 1. From **Actions**, select **Activate**.
@@ -710,9 +709,9 @@ The following errors come from the Okta token exchange module:
 | Error | Root cause | Fix |
 | --- | --- | --- |
 | `invalid_scope: openid not allowed` | System scopes (`openid`/`profile`/`email`) are stripped in the ID-JAG flow | Use a custom scope such as `xaa:read` on the custom AS and the managed connection |
-| `invalid_client: JWKSet not configured` | The public key isn't registered on the AI Agent | Register the public JWK at **Directory** > **AI Agents** > *(agent)* > **Credentials** |
+| `invalid_client: JWKSet not configured` | The public key isn't registered on the AI Agent | Register the public JWK at **Directory** > **AI Agents** > *(agent)* > **Client registration** |
 | `invalid_grant` / `invalid_token` on step 1 | The user's `id_token` is expired or was issued by a different OIDC app than the one linked to the agent | Complete a fresh sign-in. Confirm the `aud` claim equals the linked OIDC app's client ID |
-| `invalid_client: kid is invalid` | The `kid` in the signing code doesn't match the registered key | Copy the `kid` from the agent's **Credentials** into `AGENT_KEY_ID` |
+| `invalid_client: kid is invalid` | The `kid` in the signing code doesn't match the registered key | Copy the `kid` from the agent's **Client registration** into `AGENT_KEY_ID` |
 | `access_denied: no_matching_policy` | The custom authorization server access policy is missing the JWT bearer grant | In the custom authorization server access policy rule, enable the JWT bearer grant |
 | `Only service apps can use client_credentials` | Wrong client type at the org authorization server | Only an Okta client can perform step 1; OIDC apps can't |
 | `token_exchange_invalid_audience` | Wrong flow path (for example, Web SSO instead of token exchange) | Use the AI Agent client for step 1, not the OIDC app |
