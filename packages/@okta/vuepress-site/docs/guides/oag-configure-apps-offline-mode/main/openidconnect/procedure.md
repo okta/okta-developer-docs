@@ -103,6 +103,8 @@ Note the `clientId` in the response. You need it, along with the app's `id`, to 
 
 Access Gateway generates the `clientSecret` for your app when you create it, but doesn't return it in the create response. Retrieve it separately, then store it securely. Your client app needs both `clientId` and `clientSecret` to authenticate.
 
+> **Note:** Retrieving the client secret requires the `okta.oag.app.secrets.read` scope. Rotating it requires the `okta.oag.app.secrets.manage` scope. The `okta.oag.app.secrets.manage` scope also grants read access. Add the required scope to your access token when you enable the Access Gateway API. See [Scopes required for offline mode](/docs/guides/oag-offline-mode/main/#scopes-required-for-offline-mode).
+
 1. Send a `GET` request to the Retrieve the client secret [endpoint](https://developer.okta.com/docs/api/openapi/oag/oag/tags/applications/other/getclientsecret), using the app's `id` as the path parameter.
 1. Store the returned `clientSecret` securely. You can't retrieve the same secret value again after you rotate it.
 
