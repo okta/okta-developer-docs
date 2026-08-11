@@ -1,5 +1,5 @@
 ---
-title: Configure Smart Card authentication and access policies for Access Gateway offline mode
+title: Configure Smart Card authentication and access policies
 meta:
   - name: description
     content: Learn how to configure a Smart Card authenticator and access policies for Access Gateway offline mode.
@@ -17,7 +17,7 @@ This guide explains how to configure Smart Card authentication and access polici
 #### Learning outcomes
 
 * Configure a Smart Card authenticator for Access Gateway offline mode.
-* Create an access policy that controls which authentication methods a group of users must use to sign in.
+* Create an access policy that controls which authentication methods a group of users sign in with.
 * Assign an access policy to an app.
 
 #### What you need
@@ -42,9 +42,7 @@ An access policy determines which authenticator, or combination of authenticator
 
 Access Gateway automatically creates a default access policy for each IdP that has offline mode enabled with failover mode set to `AUTOMATIC`. The default policy requires only a password. If you don't explicitly assign an access policy to an app before enabling offline mode, Access Gateway enforces this password-only default policy instead. Assign an access policy that includes the Smart Card authenticator before enabling offline mode for the app.
 
-An access policy supports one rule, with a single authentication method chain. See [Create an access policy](#create-an-access-policy) for the supported chains. `actions.access` must be set to `allow`. It's currently the only supported value.
-
-> **Note:** Access policies replace the deprecated group policy API. If Access Gateway detects that you've configured group policies, it migrates them to access policies automatically.
+Currently, an access policy supports a single rule with one authentication method chain. See [Create an access policy](#create-an-access-policy) for the supported chains. `actions.access` must be set to `allow`. It's currently the only supported value.
 
 ## Scopes required for Smart Card authentication and access policies
 
@@ -72,10 +70,13 @@ The following sections explain how to configure the mTLS certificate, hostname, 
 Before you create a Smart Card authenticator, configure the mTLS certificate and hostname that Access Gateway uses for Smart Card authentication.
 
 1. Retrieve your `certificateId` by using the [List all certificates](https://developer.okta.com/docs/api/openapi/oag/oag/tags/certificates/other/listcertificates) endpoint.
-1. Set `type` to `mtls`.
-1. Set `hostname` to the hostname for the mTLS endpoint.
-1. Set `certificateId` to the ID of the certificate that's used for the mTLS virtual host.
-1. Send the PUT request to the [Replace a certificate used by the authentication service](https://developer.okta.com/docs/api/openapi/oag/oag/tags/settings-authentication-service/other/replaceauthenticationservicecertificate) endpoint.
+1. Then, use the [Replace a certificate used by the authentication service](https://developer.okta.com/docs/api/openapi/oag/oag/tags/settings-authentication-service/other/replaceauthenticationservicecertificate) endpoint.
+1. In the request body, set the following values:
+   1. Set `type` to `mtls`.
+   1. Set `hostname` to the hostname for the mTLS endpoint.
+   1. Set `certificateId` to the ID of the certificate that's used for the mTLS virtual host.
+  [[style="list-style-type:lower-alpha"]]
+1. Send the PUT request.
 
 #### Request example
 
@@ -105,21 +106,21 @@ curl -i -X PUT \
 
 Create a Smart Card authenticator for your IdP. The authenticator stores the CA certificate chain that validates Smart Card certificates, and the settings that match a certificate to an Okta user.
 
-A Smart Card authenticator is created with a status of `INACTIVE`. It isn't visible to users on the sign-in page, and it can't be referenced in an access policy chain, until you [activate it](#activate-the-smart-card-authenticator).
+A Smart Card authenticator is created with a status of `INACTIVE`. It isn't visible to users on the sign-in page, and it can't be referenced in an access policy chain until you [activate it](#activate-the-smart-card-authenticator).
 
 Before you configure the authenticator, review the following settings:
 
-* `certificates` is your organization's own CA certificate chain, not one issued by Okta or Access Gateway. Ask your security team for this chain if you don't already have it. The array must form a valid, ordered certificate chain: the issuer of each certificate must match the subject of the next certificate in the array.
-* `offlineCrlFailover.url` is optional. Set it only if your organization publishes a CRL endpoint that Access Gateway can reach while in offline mode. If you don't set it, Access Gateway checks the CRL Distribution Point (CDP) URLs embedded in the end user's smart card certificate instead.
-* `userMatching` maps an identity value from the Smart Card certificate to an Okta user. `identitySource` is the certificate field that Access Gateway reads, and `matchType` is the type of Okta user attribute it's compared against. Choose values for both that match how your organization issues certificates and how your Okta users are set up. See the [IDPs Offline Mode Authenticators](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-authenticators) API documentation for the full list of supported values.
+* `certificates` is your organization's own CA certificate chain, not one issued by Okta or Access Gateway. Ask your security team for this chain if you don't already have it. The array must form a valid, ordered certificate chain. This means that the issuer of each certificate must match the subject of the next certificate in the array.
+* `offlineCrlFailover.url` is optional. Set it only if your organization publishes a CRL endpoint that Access Gateway can reach while in offline mode. If you don't set it, Access Gateway checks the CRL Distribution Point (CDP) URLs embedded in the end user's Smart Card certificate instead.
+* `userMatching` maps an identity value from the Smart Card certificate to an Okta user. `identitySource` is the certificate field that Access Gateway reads, and `matchType` is the type of Okta user attribute it's compared against. Choose values for both that match how your organization issues certificates and how your Okta users are set up. See the [Identity Providers Offline Mode Authenticators](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-authenticators) API documentation for the full list of supported values.
 * `matchAttribute` is required. If you set `matchType` to `CUSTOM`, set `matchAttribute` to the name of the custom attribute. Otherwise, set `matchAttribute` to an empty string.
 * `allowMultipleUserMatching` controls whether a single certificate is allowed to match more than one Okta user. Leave it `false` unless you expect certificates to be shared.
 
 1. Retrieve your `idpId` by using the [List all IdPs](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps/other/listidps) endpoint.
 1. Then, use the [Create an offline mode authenticator](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-authenticators/other/createofflinemodeauthenticator) endpoint.
 1. In the request body, set the following values for the Smart Card authenticator:
-   1. Set `key` as `smart_card`.
-   1. In the configuration object, set `certificates` as an array of one or more Base64-encoded X.509 certificates in DER format.
+   1. Set `key` to `smart_card`.
+   1. In the configuration object, set `certificates` to an array of one or more Base64-encoded X.509 certificates in DER format.
    1. Optionally, set `offlineCrlFailover.url`. Set this if your organization publishes a CRL endpoint that Access Gateway can reach while in offline mode.
    1. In the `userMatching` object, set `identitySource` and `matchType`. These values map an identity value from the Smart Card certificate to an Okta user.
    1. If you set `matchType` to `CUSTOM`, also set `matchAttribute` to the name of the custom attribute. Otherwise, set `matchAttribute` to an empty string. `matchAttribute` is required on every request, regardless of `matchType`.
@@ -155,7 +156,9 @@ curl -i -X POST \
   }'
 ```
 
-This example sets a CRL failover URL, so Access Gateway checks that endpoint for revoked certificates instead of the CDP URLs embedded in the end user's smart card certificate. It sets `identitySource` to `SUBJECTDN_CN` because certificates from this CA carry the employee's ID number in the certificate's Common Name (CN) field, rather than a name or email address. Because Common Name isn't a native email or username match, `matchType` is set to `CUSTOM` and `matchAttribute` to `employeeId`, so Access Gateway compares the certificate's CN against the `employeeId` custom attribute on the corresponding Okta user. `allowMultipleUserMatching` is `false` because each certificate belongs to exactly one employee.
+This example sets a CRL failover URL, so Access Gateway checks that endpoint for revoked certificates instead of the CDP URLs embedded in the end user's Smart Card certificate. It sets `identitySource` to `SUBJECTDN_CN` because certificates from this CA carry the employee's ID number in the certificate's Common Name (CN) field, rather than a name or email address.
+
+Because Common Name isn't a built-in email or username match, `matchType` is set to `CUSTOM` and `matchAttribute` to `employeeId`. Access Gateway compares the certificate's CN against the `employeeId` custom attribute on the corresponding Okta user. `allowMultipleUserMatching` is `false` because each certificate belongs to exactly one employee.
 
 #### Response example
 
@@ -243,9 +246,9 @@ An access policy's rule chain must be one of the following four combinations of 
 
 Each inner array in `authenticationMethods` is a required step in the chain. If you have multiple authenticators in a single array, then users can sign in with any of them. For example, the "Password or Smart Card" chain allows users to sign in with either a password or a Smart Card.
 
-> **Note:** If a group's access policy chain only requires a password, selecting the Smart Card sign-in option only extracts the user's identity from the certificate. The user must still complete the password step to sign in. `password` is the chain's required authentication method.
+> **Note:** In a password-only chain, a user can select the Smart Card sign-in option. Access Gateway then extracts their identity from the certificate but doesn't authenticate them. The user must still complete the password step to sign in because `password` is the chain's required authentication method.
 
-For the full schema reference, see [IDPs Offline Mode Authenticators](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-authenticators) and [IDPs Offline Mode Access Policy](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-access-policy).
+For the full schema reference, see [Identity Providers Offline Mode Authenticators](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-authenticators) and [Identity Providers Offline Mode Access Policy](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-access-policy).
 
 Before you configure the policy, review the following settings:
 
@@ -338,6 +341,8 @@ Copy the `id` from the response. You use it as the `accessPolicyId` in the next 
 
 ### Assign the access policy to an app
 
+> **Note:** The [Assign a group to an application's offline mode policy](https://developer.okta.com/docs/api/openapi/oag/oag/tags/application-offline-mode/other/assignapplicationofflinemodegrouppolicy) endpoint is deprecated. It's no longer supported as of Access Gateway version `2026.08.1` and returns an HTTP 405 error. The [Retrieve the offline mode group policy for an application](https://developer.okta.com/docs/api/openapi/oag/oag/tags/application-offline-mode/other/getapplicationofflinemodegrouppolicy) endpoint is retained for backwards compatibility. To assign and view offline mode policies, use the [Assign an offline mode access policy to an application](https://developer.okta.com/docs/api/openapi/oag/oag/tags/application-offline-mode/other/assignapplicationofflinemodeaccesspolicy) and [Retrieve the offline mode access policy that's assigned to an application](https://developer.okta.com/docs/api/openapi/oag/oag/tags/application-offline-mode/other/getapplicationofflinemodeaccesspolicy) endpoints instead.
+
 Assign the access policy to an app so that Access Gateway enforces it when the app is in offline mode. A policy can be assigned to one or more apps. If you don't assign one explicitly, Access Gateway enforces the IdP's default password-only policy instead.
 
 1. Retrieve your app's ID by using the [List all apps](https://developer.okta.com/docs/api/openapi/oag/oag/tags/applications/other/listapplication) endpoint.
@@ -368,7 +373,7 @@ The app now enforces the assigned access policy when Access Gateway is in offlin
 
 ## Summary
 
-You've successfully configured a Smart Card authenticator and an access policy for Access Gateway offline mode. When Access Gateway is in offline mode, users in the policy's group must sign in with the configured authentication method chain. This chain can require a Smart Card, a password, or both.
+You've configured a Smart Card authenticator and an access policy for Access Gateway offline mode. When Access Gateway is in offline mode, users in the policy's group must sign in with the configured authentication method chain. This chain can require a Smart Card, a password, or both.
 
 ## See also
 
