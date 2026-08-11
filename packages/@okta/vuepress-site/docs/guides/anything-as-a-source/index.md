@@ -232,7 +232,7 @@ After you create the identity source, you can load data to it, cancel it, or mon
 
 Use these steps to insert or update a set of user data profiles from your HR source to Okta.
 
-> **Note:** Use the same flow for uploading groups from your Identity source, but with the groups endpoints instead. For groups, use the [Upload the group memberships to be upserted](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupMembershipsForUpsert) endpoint or the [Upload the group profiles without memberships to be upserted](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupsForUpsert) endpoint.
+> **Note:** Use the same flow for uploading groups from your HR source, but with the groups endpoints instead. For groups, use the [Upload the group memberships to be upserted](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupMembershipsForUpsert) endpoint or the [Upload the group profiles without memberships to be upserted](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceGroupsForUpsert) endpoint.
 >
 > **Note:** Use the same flow for uploading devices from your HR source, but with the [Upload the device profiles to be upserted in Okta](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/identitysource/other/uploadidentitysourcedevicesforupsert) endpoint instead. You can upload user, group, and device data to the same identity source session.
 
