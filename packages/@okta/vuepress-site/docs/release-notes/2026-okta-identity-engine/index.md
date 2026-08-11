@@ -13,6 +13,39 @@ title: Okta Identity Engine API release notes 2026
 
 ## August
 
+### Weekly release 2026.08.1
+<!-- Published on: 2026-08-12T12:00:00Z -->
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [New System Log events for AI agent provider imports](#new-system-log-events-for-ai-agent-provider-imports) | August 12, 2026 |
+| [New IP service categories for enhanced dynamic zones](#new-ip-service-categories-for-enhanced-dynamic-zones) | August 12, 2026 |
+| [Bugs fixed in 2026.08.1](#bugs-fixed-in-2026-08-1) | August 12, 2026 |
+
+#### New System Log events for AI agent provider imports
+
+Three new System Log event types are now available:
+
+* `app.ai_agent_provider.priority.update`
+* `app.ai_agent_provider.import_staging.confirm`
+* `app.ai_agent_provider.import_staging.ignore`
+
+These events let you track changes to AI Agent provider import priority ordering and the outcome of staged AI Agent import decisions, improving the audit capability of AI Agent imports. See [Event types](/docs/reference/api/event-types/?q=app.ai_agent_provider). <!-- OKTA-1232179 -->
+
+#### New IP service categories for enhanced dynamic zones
+
+The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/getnetworkzone#other/getnetworkzone/t=response&c=200&path=&d=2/ipservicecategories) now supports multiple new IP services. <!-- OKTA-1239915 -->
+
+#### Bugs fixed in 2026.08.1
+
+* In some cases, the [Create a log stream](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/logstream/other/createlogstream) limit of two active streams could be exceeded. (OKTA-1179998)
+
+* When an AI agent import returned a 404 error, the [Validate an AI agent provider](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentproviders/other/validateaiagentprovider) endpoint returned an HTTP 500 error. (OKTA-1216248)
+
+* The `okta.users.credentials.resetFactors` permission incorrectly allowed you to enroll authenticators on behalf of users (`POST /users/{userId}/factors`). (OKTA-1220095)
+
+* For some orgs, when you [Register an AI agent](https://developer.okta.com/docs/api/secures-ai/openapi/secures-ai-workload-principals/tags/agentregistration/other/registeraiagent) with a name shorter than five characters, a minimum-length validation error was returned, even though the minimum had been reduced to three characters. (OKTA-1242199)
+
 ### Monthly release 2026.08.0
 <!-- Published on: 2026-08-05T12:00:00Z -->
 
