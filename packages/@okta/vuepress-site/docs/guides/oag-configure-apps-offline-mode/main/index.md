@@ -42,6 +42,10 @@ Offline mode apps require you to configure the authentication service and direct
 
 <StackSnippet snippet="requirements" />
 
+## Scopes required to create the app
+
+<StackSnippet snippet="scopes" />
+
 ## Create the app
 
 <StackSnippet snippet="procedure" />
