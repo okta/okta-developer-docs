@@ -14,7 +14,7 @@ The [Okta Open Source MCP Server](/docs/concepts/mcp-server/) is a self-hosted s
 
 ## Okta Managed MCP Server
 
-The Okta Managed MCP Server is a cloud-hosted server where Okta hosts and manages the gateway on your behalf. Your chat client streams instructions over secure HTTPS, which removes the need for local software installation, hosting, and maintenance.
+The Okta Managed MCP Server is a cloud-hosted server where Okta hosts and manages the Server on your behalf. Your chat client streams instructions over secure HTTPS, which removes the need for local software installation, hosting, and maintenance.
 
 ## Choose a deployment option
 
@@ -27,7 +27,7 @@ The following table compares the two hosting options:
 | Transport protocol | Uses STDIO. | Uses a secure internet connection (HTTPS). |
 | User authentication | Device Authorization code flow (interactive users). | OpenID Connect (OIDC) with Proof Key for Code Exchange (PKCE) for interactive users. |
 | Service-to-service authentication | JWT private key (API Services for autonomous agents). | JWT private key (API Services for autonomous agents). |
-| Cost model | You manage infrastructure, licensing, and operational costs. | Okta managed cloud service with predictable, consumption-based pricing. |
+| Cost model | You manage infrastructure, licensing, and operational costs. | Okta managed cloud service. |
 | Best for | Developers testing code in a sandbox or using a command-line interface. | Help Desk teams, IT admins, and automated workflows. |
 
 ## Next steps
