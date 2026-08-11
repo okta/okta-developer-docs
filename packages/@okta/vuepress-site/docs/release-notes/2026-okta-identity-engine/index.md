@@ -18,23 +18,12 @@ title: Okta Identity Engine API release notes 2026
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [New System Log events for AI agent provider imports](#new-system-log-events-for-ai-agent-provider-imports) | August 12, 2026 |
 | [New IP service categories for enhanced dynamic zones](#new-ip-service-categories-for-enhanced-dynamic-zones) | August 12, 2026 |
 | [Bugs fixed in 2026.08.1](#bugs-fixed-in-2026-08-1) | August 12, 2026 |
 
-#### New System Log events for AI agent provider imports
-
-Three new System Log event types are now available:
-
-* `app.ai_agent_provider.priority.update`
-* `app.ai_agent_provider.import_staging.confirm`
-* `app.ai_agent_provider.import_staging.ignore`
-
-These events let you track changes to AI Agent provider import priority ordering and the outcome of staged AI Agent import decisions, improving the audit capability of AI Agent imports. See [Event types](/docs/reference/api/event-types/?q=app.ai_agent_provider). <!-- OKTA-1232179 -->
-
 #### New IP service categories for enhanced dynamic zones
 
-The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/getnetworkzone#other/getnetworkzone/t=response&c=200&path=&d=2/ipservicecategories) now supports multiple new IP services. <!-- OKTA-1239915 -->
+The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/getnetworkzone#other/getnetworkzone/t=response&c=200&path=&d=2/ipservicecategories) now supports several new IP service categories. <!-- OKTA-1239915 -->
 
 #### Bugs fixed in 2026.08.1
 

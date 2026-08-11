@@ -20,7 +20,7 @@ title: Okta Classic Engine API release notes 2026
 
 #### New IP service categories for enhanced dynamic zones
 
-The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/getnetworkzone#other/getnetworkzone/t=response&c=200&path=&d=2/ipservicecategories) now supports multiple new IP services. <!-- OKTA-1239915 -->
+The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/getnetworkzone#other/getnetworkzone/t=response&c=200&path=&d=2/ipservicecategories) now supports several new IP service categories. <!-- OKTA-1239915 -->
 
 ### Monthly release 2026.08.0
 <!-- Published on: 2026-08-05T12:00:00Z -->
