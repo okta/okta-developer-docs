@@ -378,7 +378,7 @@ You've configured a Smart Card authenticator and an access policy for Access Gat
 ## See also
 
 * [Configure offline mode for Access Gateway](/docs/guides/oag-offline-mode/main/)
-* [IDPs Offline Mode Authenticators API documentation](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-authenticators)
-* [IDPs Offline Mode Access Policy API documentation](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-access-policy)
+* [Identity Providerss Offline Mode Authenticators API documentation](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-authenticators)
+* [Identity Providerss Offline Mode Access Policy API documentation](https://developer.okta.com/docs/api/openapi/oag/oag/tags/idps-offline-mode-access-policy)
 * [Access Gateway API documentation](https://developer.okta.com/docs/api/openapi/oag/guides/overview)
 * [Okta Access Gateway documentation](https://help.okta.com/okta_help.htm?type=oag&id=ext_oag_main)
