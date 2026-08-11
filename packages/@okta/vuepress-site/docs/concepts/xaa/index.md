@@ -80,7 +80,7 @@ Common AI agent scenarios include:
 
 * **Cross-tool project aggregation**: An AI assistant (such as Claude or Cursor) compiles a project status report by retrieving milestones from project management platforms (such as Asana or Linear), pulling technical specs from a documentation platform (such as Atlassian Confluence), inspecting designs from a design tool (such as Figma), and analyzing meeting notes from note-generating platforms (such as Zoom or Granola).
 * **Automated developer operations**: Developer tools and code editors (such as Visual Studio Code or Cursor) query container registries (such as Docker). They also inspect app performance metric tools (such as Datadog), or query production databases (such as Supabase) using the engineer's scoped user identity.
-* **Enterprise AI search**: Federated AI search tools (such as Glean) retrieve internal company records from connected cloud services only when the end user has active permissions. This prevents data leakage across organizational boundaries.
+* **Enterprise AI search**: Federated AI search tools (such as Glean) retrieve internal company records from connected cloud services only when the end user has active permissions. This prevents data leaks across organizational boundaries.
 
 <!--
 > **Note:** See [Configure AI agent-to-app with Cross App Access] for Okta Admin Console instructions on how to configure an AI agent-to-app connection with XAA.
