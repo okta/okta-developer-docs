@@ -163,7 +163,7 @@ Unlike user and group profiles, device profiles don't use the attribute mappings
 
 Each device object in the `profiles` array can contain the following:
 
-* `externalId`: The unique identifier from the HR source (or other system of record) for the device. The maximum length is 127 characters.
+* `externalId`: The unique identifier from the identity source (or other system of record) for the device. The maximum length is 127 characters.
 * `profile`: The attributes of the device. All the following attributes are required:
   * `serialNumber`: The serial number of the device. The maximum length is 127 characters.
   * `platform`: The device's platform, for example, `MACOS` or `ANDROID`.
