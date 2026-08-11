@@ -46,6 +46,17 @@ An access policy supports one rule, with a single authentication method chain. S
 
 > **Note:** Access policies replace the deprecated group policy API. If Access Gateway detects that you've configured group policies, it migrates them to access policies automatically.
 
+## Scopes required for Smart Card authentication and access policies
+
+After you enable the Access Gateway API, add the following scopes to an access token to configure Smart Card authentication and access policies:
+
+* `okta.oag.cert.read`
+* `okta.oag.authenticationService.manage`
+* `okta.oag.idp.manage`
+* `okta.oag.app.manage`
+
+To create an access token, use the [Access Tokens API](https://developer.okta.com/docs/api/openapi/oag/oag/tags/accesstokens).
+
 ## Configure Smart Card authentication and access policies for Access Gateway
 
 The following sections explain how to configure the mTLS certificate, hostname, Smart Card authenticator, and access policy, and how to assign the policy to an app.
