@@ -47,7 +47,7 @@ To configure the AI agent-to-app flow with XAA, perform the following process st
 
 To configure an AI agent as the requesting app for XAA in Okta, follow the **Register AI agent manually** wizard.
 
-### Register AI agent > User access and authentication > Add owners
+### Register AI agent > User access and authentication
 
 1. In the Admin Console, go to **Directory** > **AI agents**.
 1. Click **Register AI agent** > **Register manually**.
@@ -58,12 +58,11 @@ To configure an AI agent as the requesting app for XAA in Okta, follow the **Reg
    * **Create a new OIDC app linked to this AI agent:** To create a custom OIDC app integration instance for users to sign in to access the AI agent. See [Create a new OIDC app linked to this AI agent](#create-a-new-oidc-app-linked-to-this-ai-agent).
    * **Select an existing app:** To select an existing app integration instance in your org for users to sign in to access the AI agent. Use this option if your agentic app uses SAML for SSO. See [Select an existing app](#select-an-existing-app).
 
-        > **Note:** Currently, you can only select an existing OIN SAML app instance. You can't select an existing OIDC app instance.
+        > **Note:** You can select an existing custom OIDC app instance that was created with the [Classic experience > App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-main) only when you register the AI agent. After the AI agent is registered, you can't modify the user access app to a custom OIDC app instance.
 
    The app you select in the **User access** tab acts as the requesting app role for the XAA flow. It allows your users to sign in to the agentic app through Okta. After the user is signed in, the agentic app can access resource apps on behalf of the signed in user.
 
-1. Click **Next**.
-1. Under **Owners**, add owners for the AI agent. This is optional. You can click **Skip for now**, however, Okta recommends that you add least two owners. Click **Save** after you've added the owners.
+1. Click **Save**.
 1. Select your AI Agent from the list of AI Agents, and click **Client registration**.
 1. On the **Client registration** tab, select a client registration method:
    * **Client ID only**: Recommended for public clients that can't store a secret, such as local coding agents.
@@ -94,9 +93,13 @@ The linked OIDC app instance is initially deactivated. When you activate your AI
 
 | &nbsp;  | Custom OIDC app | Custom SAML app | OIN OIDC catalog app | OIN SAML catalog app |
 | ---     | :-------------: | :---: | :---: | :---: |
-| Link to an existing app |  ✗  |  ✔  |  ✗  |  ✔  |
+| Link to an existing app |  ✔ (only when registering the AI agent)<br>✗ (modifying an existing AI agent)  |  ✔  |  ✗  |  ✔  |
 
-This option links the AI agent to an existing app instance in your org. You can only link an existing SAML app instance. This existing SAML app instance can be created from an integration in the OIN catalog or by using the [custom SAML App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml). Users can sign in to the linked app to access the AI agent. You can't link an existing OIDC app instance, created from the custom App Integration Wizard or from the OIN.
+This option links the AI agent to an existing app instance in your org. Users can sign in to the linked app to access the AI agent.
+
+You can link an existing SAML app instance. This existing SAML app instance can be created from an [integration in the OIN catalog](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) or by using the [Classic experience > Custom SAML App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml).
+
+During AI agent registration, you can select an existing custom OIDC app instance that was created with the [Classic experience > App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-main). After the AI agent is registered, you can't modify the user access app to a custom OIDC app instance. You can't link an existing OIN OIDC app instance, during registation or modification.
 
 ### Assign users to the requesting app
 
@@ -114,9 +117,7 @@ Create the app integration instance that represents your resource app in Okta be
 
 If you create your resource app instance from the OIN catalog, it already has XAA configured, so you don't have to enable XAA. You can go directly to [configure the XAA connection](#configure-the-xaa-connection).
 
-If you create a custom resource app instance using the [classic experience App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-main), you need to configure XAA. See [Enable XAA on a custom app integration](#enable-xaa-on-a-custom-app-integration).
-
-> **Note:** To create a custom SSO app integration instance, see [Create OpenID Connect app integrations](https://help.okta.com/oie/en-us/content/topics/apps/apps_app_integration_wizard_oidc.htm) or [Create SAML app integrations](https://help.okta.com/oie/en-us/content/topics/apps/apps_app_integration_wizard_saml.htm) in the product documentation. To create an OIN app integration instance, see [Add existing app integrations](https://help.okta.com/oie/en-us/content/topics/apps/apps-add-applications.htm).
+If you create a custom resource app instance using the [Classic experience > App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-main), you need to configure XAA. See [Enable XAA on a custom app integration](#enable-xaa-on-a-custom-app-integration).
 
 ### Supported resource apps
 
@@ -167,14 +168,13 @@ In Okta for AI Agent orgs, when you delegate an AI agent to an SSO app, it can o
 
 In the **User access** configuration, if you have an OIDC SSO app linked to your AI agent, it's assumed that the client ID and credentials come from the OIDC app. If you have a SAML SSO app, the client ID and credentials are obtained from the AI agent. In both cases, the requesting client ID and credentials appear in the **Client registration** tab in the AI agent page.
 
-If you've previously configured an AI agent with user-access-app delegation links, they now appear as apps in the **User access** tab. The following behavior applies to migrated delegation links in the **User access** model:
+If you've previously configured an AI agent with user-access-app delegation links, they now appear as apps in the **User access** tab. On the tab, a "This agent is using an outdated method for user sign-on" warning message appears. Review the following scenarios to determine if you have to recreate your AI agent or user access links:
 
 * If you have a single SAML user-access-app delegation for your AI agent, you don't need to reconfigure the AI agent's user access app. Your XAA flow still works with the current configuration.
 * If you have a single OIDC user-access-app delegation for your AI agent, delete the existing user-access app configuration and recreate a new OIDC app instance for linking. See [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
+    > **Note:** Depending on how complicated your OIDC app integration instance is configured, you have the option to delete the AI agent and keep the custom OIDC app instance. You can then register an AI agent and link to the existing custom OIDC app instance.
 * If you previously had multiple user-access-app delegation links, delete the existing user-access-app configurations and recreate only one user-access-app for linking. See [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
 * If you want to modify your previous delegation configuration, delete your existing user-access-app configuration and recreate a new one. See [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
-
-> **Note:** A "This agent is using an outdated method for user sign-on" warning message appears if your AI agent was configured using delegation links. [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentication-for-your-ai-agent) depending on the behavior of your migrated delegation links.
 
 ### Reconfigure direct user authentication for your AI agent
 
