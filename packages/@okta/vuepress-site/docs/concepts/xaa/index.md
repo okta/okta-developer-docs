@@ -107,7 +107,7 @@ Common app-to-app integration scenarios include:
 Use XAA when your app meets the following criteria:
 
 * **A human user signs in**: The XAA flow (API interaction) originates from an active human user session.
-* **Existing SSO infrastructure**: Your organization or app already integrates with an enterprise IdP for authentication.
+* **Existing SSO infrastructure**: Your org or app already integrates with an enterprise IdP for authentication.
 * **Enterprise or AI agent integration**: You're an ISV responding to enterprise security requirements or building AI agents and tools that require delegated user access to third-party services.
 
 ## When not to use Cross App Access
