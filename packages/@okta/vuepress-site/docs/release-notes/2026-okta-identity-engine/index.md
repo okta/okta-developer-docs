@@ -33,6 +33,7 @@ title: Okta Identity Engine API release notes 2026
 | [Anything-as-a-Source device import is EA](#anything-as-a-source-device-import-is-ea) | August 5, 2026 |
 | [New Research Release lifecycle](#new-research-release-lifecycle) | August 5, 2026 |
 | [Advanced device posture checks is GA in Production](#advanced-device-posture-checks-is-ga-in-production) |  April 9, 2025 |
+| [Submit Identity Verification integration is GA in Production](#submit-identity-verification-integration-is-ga-in-production)| |
 | [Developer documentation updates in 2026.08.0](#developer-documentation-updates-in-2026-08-0) | August 5, 2026 |
 | [Bugs fixed in 2026.08.0](#bugs-fixed-in-2026-08-0) | August 5, 2026 |
 
@@ -112,6 +113,10 @@ A new Research Release lifecycle, marked with a Research Release badge, is now a
 #### Advanced device posture checks is GA in Production
 
 Advanced device posture checks let admins enforce compliance based on customized device attributes that extend beyond Okta's standard checks. Using osquery, the feature facilitates real-time security assessments across macOS and Windows devices, giving orgs enhanced visibility and control over their device fleet to ensure that only trusted devices can access sensitive resources. This feature is available only if you're subscribed to *Okta Device Access (ODA)*. See [Configure advanced posture checks and custom remediation|https://developer.okta.com/docs/guides/device-assurance-posture-checks-and-remediation/main/] and the [Device Posture Checks API|https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DevicePostureCheck/]. <!-- OSQUERY_CUSTOM_DEVICE_POSTURE_CHECKS_RELEASE, DEVICE_UNMANAGED_CHECKS, DEVICE_AUTHENTICATOR_INTEGRATIONS OKTA-1162878 OKTA-1193941 Preview date: April 9, 2025 -->
+
+#### Submit Identity Verification integration is GA in Production
+
+ISVs can now build, test, and submit Identity Verification (IDV) integrations to the Okta Integration Network (OIN) using the OIN Wizard. This enables customers and Okta admins to discover and configure their preferred IDV providers directly from the OIN app catalog, without manually entering IDV-specific details each time. See [Submit an IDV integration with the OIN Wizard](/docs/guides/submit-oin-app/xidv/main/).<!-- IDV Submission on OIN Wizard - Q2 OKTA-1148097-->
 
 #### Developer documentation updates in 2026.08.0
 
