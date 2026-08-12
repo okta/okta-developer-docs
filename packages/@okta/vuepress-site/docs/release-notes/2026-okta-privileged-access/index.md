@@ -19,15 +19,15 @@ Okta Privileged Access (OPA) is available for both Okta Classic Engine and Okta 
 
 | Change | Expected in Preview Orgs | Expected in Production |
 | ------ | ------------------------ | ----------------------- |
-| [Credential version history is GA](#credential-version-history-is-ga) | August 5, 2026 | August 5, 2026 |
-| [Okta Privileged Access automated app provisioning is GA in Preview](#okta-privileged-access-automated-app-provisioning-is-ga-in-preview) | August 5, 2026 |  |
+| [Credential version history is GA](#credential-version-history-is-ga) | August 5, 2026 | August 12, 2026 |
+| [Okta Privileged Access automated app provisioning is GA](#okta-privileged-access-automated-app-provisioning-is-ga) | August 5, 2026 |  |
 
 #### Credential version history is GA
 
 Okta Privileged Access users can now retrieve a credential's version history and reveal credential versions for secrets, Active Directory accounts, SaaS app accounts, and Okta Universal Directory accounts. See [Secrets](https://developer.okta.com/docs/api/openapi/opa/opa/secrets), [Active Directory Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/active-directory-accounts), [SaaS Application Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/saas-app-accounts), and [Okta Universal Directory Accounts](https://developer.okta.com/docs/api/openapi/opa/opa/okta-universal-directory-accounts).
 <!-- OKTA-1171394, FF: active_directory_credential_versioning updates, generic_secrets_versioning, app_and_okta_account_credential_versioning  -->
 
-#### Okta Privileged Access automated app provisioning is GA in Preview
+#### Okta Privileged Access automated app provisioning is GA
 
 Okta Privileged Access is now automatically provisioned in your org when your subscription becomes active. You no longer need to manually add the app from the OIN catalog or configure SCIM provisioning. See [Set up Okta Privileged Access](https://help.okta.com/okta_help.htm?type=oie&id=ext-pam-setup).
 
