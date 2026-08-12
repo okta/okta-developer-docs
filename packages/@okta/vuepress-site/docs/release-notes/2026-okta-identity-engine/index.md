@@ -34,6 +34,7 @@ title: Okta Identity Engine API release notes 2026
 | [New Research Release lifecycle](#new-research-release-lifecycle) | August 5, 2026 |
 | [Advanced device posture checks is GA in Production](#advanced-device-posture-checks-is-ga-in-production) |  April 9, 2025 |
 | [New fields query parameter for Groups, Realms, and Devices list endpoints is GA in Production](#new-fields-query-parameter-for-groups-realms-and-devices-list-endpoints-is-ga-in-production) | July 1, 2026 |
+| [Submit Identity Verification integration is GA in Production](#submit-identity-verification-integration-is-ga-in-production)| |
 | [Developer documentation updates in 2026.08.0](#developer-documentation-updates-in-2026-08-0) | August 5, 2026 |
 | [Bugs fixed in 2026.08.0](#bugs-fixed-in-2026-08-0) | August 5, 2026 |
 
@@ -117,6 +118,10 @@ Advanced device posture checks let admins enforce compliance based on customized
 #### New fields query parameter for Groups, Realms, and Devices list endpoints is GA in Production
 
 The `GET /api/v1/groups`, `GET /api/v1/realms`, and `GET /api/v1/devices` endpoints now support the fields query parameter that specifies which fields to include in the response. Use this parameter to reduce the response payload size when your integration only needs a subset of fields. See [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/group), [Realms API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/realm), and [Devices API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/device). <!--OKTA-1208394 Preview: July 1, 2026, Prod: August 5, 2026 -->
+
+#### Submit Identity Verification integration is GA in Production
+
+ISVs can now build, test, and submit Identity Verification (IDV) integrations to the Okta Integration Network (OIN) using the OIN Wizard. This enables customers and Okta admins to discover and configure their preferred IDV providers directly from the OIN app catalog, without manually entering IDV-specific details each time. See [Submit an IDV integration with the OIN Wizard](/docs/guides/submit-oin-app/xidv/main/).<!-- IDV Submission on OIN Wizard - Q2 OKTA-1148097-->
 
 #### Developer documentation updates in 2026.08.0
 
