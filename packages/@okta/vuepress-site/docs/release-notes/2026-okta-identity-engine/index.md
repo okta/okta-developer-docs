@@ -19,11 +19,16 @@ title: Okta Identity Engine API release notes 2026
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [New IP service categories for enhanced dynamic zones](#new-ip-service-categories-for-enhanced-dynamic-zones) | August 12, 2026 |
+| [Developer documentation updates in 2026.08.1](#developer-documentation-updates-in-2026-08-1) | August 12, 2026 |
 | [Bugs fixed in 2026.08.1](#bugs-fixed-in-2026-08-1) | August 12, 2026 |
 
 #### New IP service categories for enhanced dynamic zones
 
 The `ipServiceCategories` object of the [Enhanced Dynamic Network Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tags/networkzone/other/getnetworkzone#other/getnetworkzone/t=response&c=200&path=&d=2/ipservicecategories) now supports several new IP service categories. <!-- OKTA-1239915 -->
+
+#### Developer documentation updates in 2026.08.1
+
+The [Cross App Access (XAA)](/docs/concepts/xaa/) concept has been added to the developer.okta.com portal, providing an overview of how XAA works and how it’s implemented in Okta. <!-- OKTA-1232137 -->
 
 #### Bugs fixed in 2026.08.1
 
