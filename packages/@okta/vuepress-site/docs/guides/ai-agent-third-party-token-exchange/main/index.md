@@ -5,7 +5,7 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-Okta's AI Agents feature secures third-party AI agents with delegated user identity. When a user authenticates with Okta, your app exchanges the user's identity token for a scoped access token. The AI agent can then call Okta-protected APIs on the user's behalf.
+Okta's AI Agents feature secures third-party AI agents with delegated user identity. When a user authenticates with Okta to access the agentic app, the app exchanges the user's identity token for a scoped access token. The AI agent can then call Okta-protected APIs on the user's behalf.
 
 In this guide, learn how to configure token exchange for third-party AI agents.
 
@@ -52,8 +52,8 @@ To configure token exchange for third-party AI agents, you must complete the fol
 - Add a custom scope for your custom authorization server.
 - Import a third-party AI Agent with RSA key-pair authentication, or register your AI agent manually.
 
-   - You can automatically create an OIDC app instance for user sign-on.
-   - You can select a previously created app instance for user sign-on.
+   - You can automatically create an OIDC web app integration for user sign-on.
+   - You can select a previously created app integration for user sign-on.
 
 - Configure the access policy to allow the JWT bearer grant type.
 - Complete the token exchange flow with Okta APIs.
