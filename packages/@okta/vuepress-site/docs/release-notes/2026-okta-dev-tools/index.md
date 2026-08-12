@@ -19,11 +19,17 @@ These release notes list customer-visible changes to the Developer Tools. The Ok
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Okta Client SDK for Swift 2.2.0 adds Pushed Authorization Request support](#okta-client-sdk-for-swift-220-adds-pushed-authorization-request-support) | August 5, 2026 |
+| [Okta Client SDK for Kotlin 3.0.0 adds Kotlin Multiplatform support](#okta-client-sdk-for-kotlin-300-adds-kotlin-multiplatform-support) | August 5, 2026 |
 | [Bugs fixed in Okta Client SDK for Swift 2.2.0](#bugs-fixed-in-okta-client-sdk-for-swift-220) | August 5, 2026|
+| [Bugs fixed in Okta Client SDK for Kotlin 3.0.0](#bugs-fixed-in-okta-client-sdk-for-kotlin-300) | August 5, 2026 |
 
 #### Okta Client SDK for Swift 2.2.0 adds Pushed Authorization Request support
 
 Version 2.2.0 of the [Okta Client SDK for Swift](https://github.com/okta/okta-mobile-swift) adds support for Pushed Authorization Requests (PAR). This lets your app pre-register authorization request parameters with Okta before redirecting users to sign in. The SDK also expands `AuthenticationContext` with `resource`, `audience`, `nonce`, and `maxAge` parameters for finer-grained OAuth requests. See [Release 2.2.0](https://github.com/okta/okta-mobile-swift/releases/tag/2.2.0). <!-- OKTA-1240617 -->
+
+#### Okta Client SDK for Kotlin 3.0.0 adds Kotlin Multiplatform support
+
+Version 3.0.0 of the [Okta Client SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin) converts the `auth-foundation`, `oauth2`, and `web-authentication-ui` modules from Android-only libraries to Kotlin Multiplatform (Android and JVM). This adds a new cross-platform `OAuth2Client`, a credential management API, and typed rate-limit retry configuration. Version 1.0.0 of `okta-direct-auth` graduates it from beta to its first stable release, adding WebAuthn and passkey authentication support and a full Java-compatible `CompletableFuture` API. See the [CHANGELOG](https://github.com/okta/okta-mobile-kotlin/blob/master/CHANGELOG.md) for details. <!-- OKTA-1244067 -->
 
 #### Bugs fixed in Okta Client SDK for Swift 2.2.0
 
@@ -32,6 +38,16 @@ Version 2.2.0 of the [Okta Client SDK for Swift](https://github.com/okta/okta-mo
 * WebAuthn and Duo credentials could merge incorrectly during authentication. (OKTA-1209004)
 
 * The SDK rejected the `aud` claim when it was an array, which RFC 7519 §4.1.3 allows.
+
+#### Bugs fixed in Okta Client SDK for Kotlin 3.0.0
+
+* ID token validation rejected the `aud` claim when it was a JSON array, which RFC 7519 §4.1.3 allows. (OKTA-1239195)
+
+* `TokenEncryptionHandler` could throw a null pointer exception when a device's keystore certificate no longer existed. (OKTA-1209101)
+
+* `AndroidKeystoreUtil.getOrCreateAesKey()` could throw an uncaught `ProviderException` on some OEM devices. (OKTA-1209102)
+
+* A race condition in `DefaultRedirectCoordinator` could silently cancel a step-up authentication redirect. (OKTA-1209107)
 
 ## July
 
