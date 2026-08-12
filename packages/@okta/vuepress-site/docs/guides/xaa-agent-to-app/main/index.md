@@ -190,12 +190,10 @@ If you've previously configured an AI agent with user-access-app delegation link
 
 * If you have a single SAML user-access-app delegation for your AI agent, you don't need to reconfigure the AI agent's user access app. Your XAA flow still works with the current configuration.
 * If you have a single OIDC user-access-app delegation for your AI agent, delete the AI agent and re-register the AI agent with a new or existing custom OIDC app instance. See [Delete and re-register your AI agent](#delete-and-re-register-your-ai-agent).
-* If you previously had multiple user-access-app delegation links, delete the existing user-access-app configurations and recreate only one user-access-app for linking. See [Delete your previous user access apps](#delete-previous-user-access-apps), then see [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
+* If you previously had multiple user-access-app delegation links, delete the existing user-access-apps and recreate only one user-access-app for linking. See [Delete your previous user access apps](#delete-previous-user-access-apps), then see [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
 * If you want to modify your previous delegation configuration, see [Reconfigure direct user authentication for your AI agent](#reconfigure-direct-user-authentiation-for-your-ai-agent).
 
 ### Delete previous user access apps
-
-> **Note:** These instructions only apply if you previously had multiple delegation links.
 
 1. In the Admin Console, go to **Directory** > **AI Agents**.
 1. Select an AI agent.
@@ -214,7 +212,7 @@ If you've previously configured an AI agent with user-access-app delegation link
    * **Create a new OIDC app linked to this AI agent:** To create a custom OIDC app integration instance for users to sign in to access the AI agent. See [Create a new OIDC app linked to this AI agent](#create-a-new-oidc-app-linked-to-this-ai-agent).
    * **Select an existing SAML app:** To select an existing SAML app integration instance in your org for users to sign in to access the AI agent. See [Select an existing app](#select-an-existing-app).
 
-        > **Note:** Currently, you can only select an existing SAML app instance. You can't select an existing OIDC app instance.
+        > **Note:** Currently, you can only select an existing SAML app instance. You can't select an existing OIDC app instance when you edit an existing AI agent.
 
 1. Click **Save**.
 
