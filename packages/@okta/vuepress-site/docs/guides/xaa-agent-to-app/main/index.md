@@ -68,13 +68,17 @@ To configure an AI agent as the requesting app for XAA in Okta, follow [Register
    * **Client ID only**: Recommended for public clients that can't store a secret, such as local coding agents.
    * **Client secret**: Recommended for server-side AI agents. Click **Generate secret** and save the value for your AI agent app's OAuth 2.0 flow.
    * **Public/private key**: Recommended for AI agents that have builder-managed key pairs.
-      1. Click **Add public key**.
+      1. Define where your keys are managed:
       [[style="list-style-type:lower-alpha"]]
-      1. Enter your public key, or click **Generate new key**. Okta creates a public key that's associated with a private key that you can view in JSON or PEM.
-      1. Click **Copy to clipboard** and use the private key in your AI agent app's OAuth 2.0 flow.
-      1. Click **Done**.
-   * Copy the identifier that appears in the **Client ID** field and use it in your AI agent app. This is the requesting app's client ID that's used for OAuth 2.0.
-   * Click **Activate**, then **Enable**.
+         * **Okta**: Generate a pubic/private key in Okta for your AI agent.
+            1. Click **Add public key**.
+            1. Enter your public key, or click **Generate new key**. Okta creates a public key that's associated with a private key that you can view in JSON or PEM.
+            1. Click **Copy to clipboard** and use the private key in your AI agent app's OAuth 2.0 flow.
+            1. Click **Done**.
+         * **External**: Enter the JWKS URI where Okta can dynamically fetch public keys to verify the agent's JWT.
+
+      1. Copy the identifier that appears in the **Client ID** field and use it in your AI agent app. This is the requesting app's client ID that's used for OAuth 2.0.
+      1. Click **Activate**, then **Enable**.
 
 ### Supported requesting apps
 
@@ -119,6 +123,12 @@ Assign users to access the AI agent by assigning them to the linked requesting a
 1. On the AI agent page, select **Actions** > **Activate**.
 
 > **Note:** Activating your AI agent can take a few seconds. Wait until you see the "AI agent activated successfully" message before you continue configuring or using your AI agent.
+
+You can also activate the AI agent indirectly by activating the linked requesting app.
+
+1. Go to **Applications and Resources** > **Applications**.
+1. Select the **Inactive** tab from the **STATUS** column, and find the linke requesting app that you want to activate.
+1. Select **Activate** from the dropdown menu beside your app integration. The AI agent is automatically activated when the linked requesting app is activated.
 
 To deactivate the AI agent:
 
