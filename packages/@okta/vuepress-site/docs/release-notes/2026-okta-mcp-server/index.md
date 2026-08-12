@@ -11,19 +11,6 @@ title: Okta Open Source MCP Server API release notes 2026
 
 These release notes list customer-visible changes to the Okta Open Source MCP Server.
 
-## August
-
-### Weekly release 2026.08.1
-<!-- Published on: 2026-08-12T12:00:00Z -->
-
-| Change | Expected in Preview Orgs |
-| ------ | ------------------------ |
-| [Okta Managed MCP Server is now available in Early Access](#okta-managed-mcp-server-is-now-available-in-early-access) | August 12, 2026 |
-
-#### Okta Managed MCP Server is now available in Early Access
-
-Okta Managed MCP Server allows you to securely connect your enterprise AI agents directly to Okta's management APIs without the overhead of hosting your own infrastructure. Fully managed by Okta, this server acts as a native bridge that helps translate natural language prompts into structured, auditable actions while strictly enforcing your existing OAuth scopes and least-privilege boundaries. You can instantly enable this connection within your Okta org to automate complex operations across Identity and Access Management (IAM) and Okta Identity Governance (OIG) modules. See Okta Managed MCP Server. <!-- OKTA-1231752 -->
-
 ## June
 
 ### Monthly release 2026.06.0
