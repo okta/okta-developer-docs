@@ -706,6 +706,15 @@ export const guides = [
         ],
       },
       {
+        title: "Cross App Access (XAA)",
+        subLinks: [
+          {
+            title: "Expose XAA metadata for your resource app",
+            guideName: "xaa-resource-metadata",
+          },
+        ],
+      },
+      {
         title: "Brand and Customize",
         subLinks: [
           {
