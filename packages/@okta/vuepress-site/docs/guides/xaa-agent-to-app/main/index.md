@@ -183,7 +183,7 @@ If your org is subscribed to Okta for AI Agents, the **Delegations** tab has bee
 
 In Okta for AI Agent orgs, when you delegate an AI agent to an SSO app, it can only act on a user's behalf if the user is signed in to the app. Previously, you can create multiple delegation links for an AI agent under the **Delegations** tab. However, with the new **User access** configuration, you can only allow users to sign in to one SSO app for an AI agent. You can still have multiple non-user delegation links, which now appear in the **Machine access** tab.
 
-In the **User access** configuration, if you have an OIDC SSO app linked to your AI agent, it's assumed that the client ID and credentials come from the OIDC app. If you have a SAML SSO app, the client ID and credentials are obtained from the AI agent. In both cases, the requesting client ID and credentials appear in the **Client registration** tab in the AI agent page.
+In the **User access** configuration, if you have an OIDC SSO app linked to your AI agent, it's assumed that the OAuth client ID and credentials are shared with the OIDC app. If you have a SAML SSO app, the OAuth client ID and credentials belong to the AI agent alone. In both cases, the requesting client ID and credentials appear in the **Client registration** tab in the AI agent page.
 
 If you've previously configured an AI agent with user access delegation links, they now appear as apps in the **User access** tab. On the tab, a "This agent is using an outdated method for user sign-on" warning message appears.
 
